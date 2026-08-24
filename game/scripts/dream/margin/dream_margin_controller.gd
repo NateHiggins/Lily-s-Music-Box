@@ -830,6 +830,10 @@ static func _shared_state() -> Dictionary:
 		"parent": -1,
 		"unfold": 1.0,
 		"children": 0,
+		# Secondary births supply their own fan angle. Primary acceptance-row
+		# palps have no parent to fan away from, but the live topology update
+		# still reads the field while attention is released.
+		"spread": 0.0,
 	}
 
 

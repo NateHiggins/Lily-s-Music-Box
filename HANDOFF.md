@@ -329,12 +329,16 @@ one `PULSE / VASCULAR` packet addressed to architecture. The director does not
 route it. Production `ApartmentEncroachment` independently consumes it once
 and its containing `LivingField` answers with temporary local body pressure,
 adding no agents, stain, collision or save fact. `DreamEcologyTest` passes
-56/56, `LivingFieldTest` passes 19/19, and the staged Forward+ sequence plus
-measured A/A floor is at
-`art/renders/dream_organelle_signal/README.md`. DO-3 still has flora,
-incarnation and hazard breadth open; architecture still needs its visible
-production-root proof. DO-4 still requires the complete production-root
-sequence and rare global-attention beat.
+61/61, `LivingFieldTest` passes 19/19, and the staged Forward+ sequence is at
+`art/renders/dream_organelle_signal/README.md`. DO-4 is now closed by the real
+Orison-root sequence at `art/renders/dream_organelle_production/README.md`:
+hero, palp, selective fauna, delayed neighbours, cilia and architecture share
+one bounded conversation, then a real player event seizes 11/12 recipients
+without emitting a packet and releases them asynchronously. Its executable
+contract proves case data, persistence and all collision state unchanged and
+no maze/pursuer/hazard owner present. DO-3 still has flora, incarnation and
+hazard breadth open; this remains downstream ecology proof, not a waking case
+loop.
 
 The isolated fauna vocabulary correction was integrated as `280a998`. Its
 former food-web names now read as allocation, uptake, reclamation, signalling

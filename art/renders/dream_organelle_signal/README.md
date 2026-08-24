@@ -49,7 +49,7 @@ is frozen.
 
 ## Contract proof
 
-`DreamEcologyTest.tscn` passes 56/56. Its DO-2/DO-3 blocks prove:
+`DreamEcologyTest.tscn` now passes 61/61. Its DO-2/DO-3 blocks prove:
 
 - the exact twelve-key packet shape;
 - secretion < adoption < recognition < fauna < neighbours;
@@ -80,6 +80,7 @@ godot --path game --resolution 1280x720 res://tests/DreamOrganelleSignalShot.tsc
 ```
 
 This is staged production-owner proof for DO-2 and the first cilia slice of
-DO-3. It is not DO-4's required production-root sequence, does not yet prove
+DO-3. It is not DO-4's production-root sequence, which is now proved at
+`art/renders/dream_organelle_production/README.md`; this staged sheet does not prove
 a visible architecture response, does not add hazards/pursuit, and is not a
 completed waking case loop.

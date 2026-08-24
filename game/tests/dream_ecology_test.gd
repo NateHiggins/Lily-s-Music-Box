@@ -107,7 +107,10 @@ func _run() -> void:
 				dir.on_world_modified)
 		_check("the ecology director is listening to it", connected)
 		var somewhere := Vector3(-9.2, 4.4, 3.6)
+		var packets_before_attention: int = int(dir.signal_census().emitted)
 		player.world_modified.emit(somewhere, "test_door")
+		_check("DO-4 global attention manufactures no signal packet",
+				int(dir.signal_census().emitted) == packets_before_attention)
 		await get_tree().process_frame
 		_check("opening something seizes the ecology",
 				dir.attending != Vector3.INF)
@@ -208,6 +211,10 @@ func _organelle_exchange(enc, dir: DreamEcologyDirector, margin, critters, hero)
 		return
 	var before_keys: Array = RealityState.data.keys()
 	before_keys.sort()
+	var cases_before: PackedByteArray = var_to_bytes(
+			RealityState.data.get("cases", {}))
+	var collision_before: PackedByteArray = _collision_contract()
+	var forbidden_before: Dictionary = _dream_profile_owner_census()
 	var at := Vector3(-9.0, 4.2, 3.2)
 	var receptor: Dictionary = margin.palps[0]
 	var neighbour: Dictionary = margin.palps[1]
@@ -357,6 +364,18 @@ func _organelle_exchange(enc, dir: DreamEcologyDirector, margin, critters, hero)
 	var after_keys: Array = RealityState.data.keys()
 	after_keys.sort()
 	_check("DO-2 creates no persistence seam", before_keys == after_keys)
+	_check("DO-4 does not mutate any waking case record",
+			cases_before == var_to_bytes(RealityState.data.get("cases", {})))
+	_check("DO-4 persistence remains disabled",
+			not RealityState.persistence_enabled)
+	_check("DO-4 changes no collision body, layer, mask or shape state",
+			collision_before == _collision_contract())
+	var forbidden_after: Dictionary = _dream_profile_owner_census()
+	_check("DO-4 creates no maze, pursuer or hazard owner",
+			forbidden_before == forbidden_after
+			and int(forbidden_after.maze) == 0
+			and int(forbidden_after.pursuer) == 0
+			and int(forbidden_after.hazard) == 0)
 	# Leave the production ecology as we found it. The following §22 check
 	# needs its first animal seated on a real surface for its support ray.
 	for restore_pair in [[social, social_restore], [solitary, solitary_restore]]:
@@ -382,6 +401,37 @@ func _organelle_exchange(enc, dir: DreamEcologyDirector, margin, critters, hero)
 	print("[organelle] secretion %.2f adoption %.2f recognition %.2f fauna %.2f neighbours %.2f %s"
 			% [secretion_at, adopted_at, recognized_at, social.signal_presented_at,
 			receptor.signal_oriented_at, dir.signal_census()])
+
+
+func _collision_contract() -> PackedByteArray:
+	var rows: Array = []
+	var nodes: Array[Node] = [root]
+	nodes.append_array(root.find_children("*", "", true, false))
+	for node in nodes:
+		if node is CollisionObject3D:
+			rows.append([str(root.get_path_to(node)), node.collision_layer,
+				node.collision_mask, node.process_mode])
+		elif node is CollisionShape3D:
+			rows.append([str(root.get_path_to(node)), node.disabled])
+	return var_to_bytes(rows)
+
+
+func _dream_profile_owner_census() -> Dictionary:
+	var census := {"maze": 0, "pursuer": 0, "hazard": 0}
+	var nodes: Array[Node] = [root]
+	nodes.append_array(root.find_children("*", "", true, false))
+	for node in nodes:
+		var script_path := ""
+		if node.get_script() is Script:
+			script_path = (node.get_script() as Script).resource_path
+		if script_path.ends_with("/dream_maze_root.gd"):
+			census.maze += 1
+		if script_path.ends_with("/dream_pursuer.gd"):
+			census.pursuer += 1
+		if script_path.ends_with("/dream_hazard_field.gd") \
+				or script_path.ends_with("/dream_hazard.gd"):
+			census.hazard += 1
+	return census
 
 
 ## §22 — THE HERO'S CLUB TOUCHES AN ANIMAL AND THE ANIMAL ANSWERS.

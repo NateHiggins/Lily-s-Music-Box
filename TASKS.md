@@ -2279,12 +2279,19 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   expresses it as local temporary `LivingField` pressure; `LivingFieldTest`
   passes 19/19 with no agents or stain added. Its visible production-root
   response remains DO-4 proof; do not claim it from the staged frame.
-- **DO-4 — PRODUCTION PROOF.** One production-root sequence must show at least
-  three organelle classes completing detect → local seek/reconsider → cleft
-  or contact → pulse/secretion → distinct recipient response, plus a delayed
-  third-party propagation and one rare whole-body attention event. Include
-  frozen A/A and prove no collision, hazard, pursuit, save or waking case owner
-  moved.
+- **DO-4 COMPLETE 2026-08-24 — PRODUCTION PROOF.** The real Orison root now
+  carries one deterministic fixed-camera conversation through hero secretion,
+  palp adoption/contact, selective fauna receptor presentation, delayed
+  neighbour conduction, cilia sampling and one addressed vascular reply that
+  production LivingField architecture consumes once (14 existing cells
+  pressurized). A real `player.world_modified` event then seizes 11/12 visible
+  recipients without emitting a packet; partial release shows autonomy
+  returning. `DreamEcologyTest` passes 61/61 and proves no case record,
+  persistence setting, collision body/layer/mask/shape state, maze, pursuer or
+  hazard owner moved. The measured A/A floor and eleven Forward+ frames are in
+  `art/renders/dream_organelle_production/README.md`. This closes the shared
+  downstream production proof, not the broader DO-3 recipient roster and not
+  a waking case loop.
 - **DO-D1 — HIDDEN SCALE-FROM-ZERO DEBT.** The integrated §12 cilia pass left
   `_age()` ramping a new branch's data `grow` 0→1 over 0.9 s after
   `try_branch` creates it at 1.0. It is currently hidden inside the parent and

@@ -110,15 +110,28 @@ production `ApartmentEncroachment` owner now also reads the architecture-
 addressed reply itself and asks the containing `LivingField` to express it as
 local temporary body pressure. The same packet is idempotent; the response
 adds no agents, stain, collision or persistence. `DreamEcologyTest` proves the
-whole owner chain at 56/56 and `LivingFieldTest` proves the field contract at
-19/19. A visible production-root architecture response remains DO-4 proof,
-not a claim made from the staged room.
+whole owner chain at 61/61 and `LivingFieldTest` proves the field contract at
+19/19. The subsequently landed production-root response and its measured
+noise floor are documented in
+`art/renders/dream_organelle_production/README.md`.
+
+## DO-4 production closure
+
+The real Orison production root now carries the composed exchange through
+hero, palp, fauna, neighbouring tissue, cilia and LivingField architecture.
+The cilia's addressed vascular reply is consumed once and pressurizes 14
+existing field cells. A real player world-modification event—not a direct
+director call—then triggers rare whole-body attention without adding a packet,
+and the final frame catches asynchronous release in progress.
+
+The paired control prices live-render noise. `DreamEcologyTest` passes 61/61
+and holds waking case data, persistence, collision state and the absence of
+maze/pursuer/hazard owners invariant. Proof:
+`art/renders/dream_organelle_production/README.md`.
 
 ## Still open
 
 DO-3 remains broader than this slice: flora, incarnations and eventually
-co-present hazards need distinct interpretations
-without pairwise directors. DO-4 still requires a production-root sequence
-including one rare whole-body event. The staged Dream room proves DO-2's
-visual responses; it is not that production-root closure and not a waking
+co-present hazards need distinct interpretations without pairwise directors.
+DO-4 is closed by the production sequence above; it is still not a waking
 case loop. DO-D1's hidden branch `grow` ramp remains separate debt.

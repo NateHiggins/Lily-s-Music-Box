@@ -7,7 +7,7 @@ extends Node
 ##   → rigid mineral → crystal interior → wet cornea.
 ##
 ##     SWEEP_DIR=<abs dir>     where the frames go (required)
-##     SWEEP_MODE=video|set|bobbing|synapse|sequence
+##     SWEEP_MODE=video|set|bobbing|synapse|sequence|organelle
 ##     SWEEP_SECONDS=13        the sweep's length
 ##     SWEEP_FPS=30            frames a second
 ##     SWEEP_WARM=14           seconds to let the creature grow first
@@ -49,6 +49,10 @@ func _ready() -> void:
 	if not s.is_empty():
 		_seconds = clampf(s.to_float(), 2.0, 40.0)
 	OS.set_environment("DAYNIGHT", "0")
+	# The composed ecology proofs exercise the modelled hero and its shared
+	# recipients, so the harness itself must enable that production owner stack.
+	if OS.get_environment("SWEEP_MODE") in ["ecology", "organelle"]:
+		OS.set_environment("DREAM_HERO", "1")
 	OS.set_environment("ENCROACH_FORCE", "mina:0.9")
 	OS.set_environment("LIVING_ALL", "1")
 	OS.set_environment("TENTACLE_FORCE", "1")
@@ -116,7 +120,7 @@ func _run() -> void:
 				break
 			await get_tree().process_frame
 			_tentacle = _find_tentacle()
-	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters", "ecology", "emerge", "pressure"]):
+	if _tentacle == null and not (OS.get_environment("SWEEP_MODE") in ["tendrils", "modelled", "margin", "archetypes", "critters", "ecology", "organelle", "emerge", "pressure"]):
 		printerr("[SWEEP] no tentacle — nothing to photograph")
 		get_tree().quit(1)
 		return
@@ -149,6 +153,8 @@ func _run() -> void:
 		await _critter_shots()
 	elif mode == "ecology":
 		await _ecology_capture()
+	elif mode == "organelle":
+		await _organelle_production_capture()
 	elif mode == "emerge":
 		await _emergence_ladder()
 	elif mode == "pressure":
@@ -1589,8 +1595,20 @@ func _ecology_capture() -> void:
 		# §13 once, at the two-thirds mark, so there is an independent ecology
 		# to interrupt and time left to watch autonomy come back.
 		if f == int(frames * 0.62):
-			director.seize_attention(focus + Vector3(0.35, 0.1, 0.0))
-			print("[SWEEP] t=%.1f  GLOBAL ATTENTION" % t)
+			var before_packets: int = int(director.signal_census().emitted)
+			var player = root.get("player")
+			if player == null or not player.has_signal("world_modified"):
+				printerr("[SWEEP] no player world-modification gate")
+				return
+			player.world_modified.emit(focus + Vector3(0.35, 0.1, 0.0),
+					"ecology_capture_contact")
+			if director.attending == Vector3.INF:
+				printerr("[SWEEP] gated global attention did not fire")
+				return
+			if int(director.signal_census().emitted) != before_packets:
+				printerr("[SWEEP] attention illegally emitted an organelle packet")
+				return
+			print("[SWEEP] t=%.1f  GATED GLOBAL ATTENTION" % t)
 		var mc: Dictionary = margin.census()
 		var cc: Dictionary = critters.census()
 		if int(mc.get("branches", 0)) > 0:
@@ -1624,6 +1642,285 @@ func _ecology_capture() -> void:
 		print("[SWEEP]   %-10s %s" % [k, "yes" if seen[k] else "NO"])
 	print("[SWEEP] margin %s" % [margin.census()])
 	print("[SWEEP] critters %s" % [critters.census()])
+
+
+## DO-4 — TEN NAMED BEATS THROUGH THE ACTUAL ORISON PRODUCTION ROOT.
+##
+## The encounter is composed deterministically, as the repository's other
+## acceptance sheets are. What is not substituted is ownership: every state
+## change below is interpreted by the production hero, margin, fauna,
+## architecture and ecology director built by ApartmentEncroachment.
+func _organelle_production_capture() -> void:
+	var enc: Node = root.get("apartment_encroachment")
+	var margin = enc.get("margin") if enc != null else null
+	var palp_renderer = enc.get("palp_renderer") if enc != null else null
+	var critters = enc.get("critters") if enc != null else null
+	var hero = enc.get("hero") if enc != null else null
+	var director = enc.get("ecology") if enc != null else null
+	var residue = enc.get("residue") if enc != null else null
+	var player = root.get("player")
+	if margin == null or palp_renderer == null or critters == null or hero == null \
+			or director == null or residue == null or player == null:
+		printerr("[DO-4] production ecology is incomplete")
+		return
+	if margin.palps.size() < 3 or critters.critters.size() < 2:
+		printerr("[DO-4] production population is too small")
+		return
+	DirAccess.make_dir_recursive_absolute(_dir)
+
+	# The same wall-selection rule as the ecology capture: real geometry, inside
+	# 2A, with enough clear room for a fixed gameplay camera.
+	var space := get_viewport().find_world_3d().direct_space_state
+	var from := Vector3(-9.6, 4.55, 3.4)
+	var best_wall := {}
+	var best_clear := 0.0
+	for step in 24:
+		var a := float(step) / 24.0 * TAU
+		var d := Vector3(cos(a), 0.0, sin(a))
+		var hit: Dictionary = space.intersect_ray(
+				PhysicsRayQueryParameters3D.create(from, from + d * 6.0))
+		if hit.is_empty():
+			continue
+		var nrm0: Vector3 = (hit.normal as Vector3).normalized()
+		if absf(nrm0.y) > 0.35:
+			continue
+		var out_from: Vector3 = (hit.position as Vector3) + nrm0 * 0.08
+		var probe_in: Vector3 = (hit.position as Vector3) + nrm0 * 1.2
+		if probe_in.x < -13.45 or probe_in.x > -5.75 \
+				or probe_in.z < 0.65 or probe_in.z > 6.05:
+			continue
+		var block: Dictionary = space.intersect_ray(
+				PhysicsRayQueryParameters3D.create(out_from, out_from + nrm0 * 4.0))
+		var clear: float = 4.0 if block.is_empty() \
+				else out_from.distance_to(block.position)
+		if clear > best_clear:
+			best_clear = clear
+			best_wall = {"pos": hit.position, "nrm": nrm0}
+	if best_wall.is_empty():
+		printerr("[DO-4] no camera-safe wall in 2A")
+		return
+
+	var wall: Vector3 = best_wall.pos
+	var nrm: Vector3 = best_wall.nrm
+	var any := Vector3.UP if absf(nrm.y) < 0.9 else Vector3.RIGHT
+	var side: Vector3 = any.cross(nrm).normalized()
+	var wall_up: Vector3 = nrm.cross(side).normalized()
+	var hero_at: Vector3 = wall + nrm * 0.04 + side * 0.68 - wall_up * 0.28
+	hero.look_at_from_position(hero_at, hero_at + nrm, wall_up)
+	hero.state = DreamHeroTentacle.State.SEEKING
+	hero.state_clock = 0.0
+	hero.slice_close = 0.0
+	hero.target = Vector3.INF
+
+	margin.frozen = true
+	margin.arrange_archetype_row(wall + nrm * 0.025 + wall_up * 0.12,
+			nrm, 0.30)
+	margin.palps.resize(3)
+	critters.enabled = false
+	hero.set_process(false)
+	director._try_listen()
+	director.set_process(false)
+	enc.set_physics_process(false)
+	residue.set_process(false)
+	director.setup("do4-production".hash())
+
+	var palps: Array = [margin.palps[0], margin.palps[1], margin.palps[2]]
+	for i in palps.size():
+		var p: Dictionary = palps[i]
+		p.anchor = wall + nrm * 0.025 + side * (float(i) - 1.0) * 0.32 \
+				+ wall_up * (0.06 + float(i) * 0.18)
+		p.normal = nrm
+		p.side = side
+		p.tip = p.anchor + nrm * 0.54 + side * (0.12 if i == 0 else 0.0)
+		p.last_tip = p.tip
+		p.aim = ((p.tip as Vector3) - (p.anchor as Vector3)).normalized()
+		p.extend = 1.0
+		p.grow = 1.0
+		p.target = Vector3.INF
+		p.contact = 0.0
+		p.attend_override = Vector3.INF
+		p.local_look = false
+		p.morph.length = 0.72
+		p.morph.base_radius = 0.050 if i == 0 else 0.040
+		if i == 2:
+			p.parent = int(palps[0].id)
+			p.unfold = 1.0
+			p.cilia_out = 1.0
+			p.cilia_band = 0.62
+			p.morph.cilia = 1.0
+			p.task_done = false
+			p.cilia_signal_clock = -1.0
+
+	var social: Dictionary = critters.critters[0]
+	for candidate in critters.critters:
+		if int(candidate.morph.kind) == DreamCritterSpecies.Kind.CRYSTAL_LISTENER:
+			social = candidate
+			break
+	var solitary: Dictionary = critters.critters[1] \
+			if critters.critters[1] != social else critters.critters[0]
+	social.pos = wall + nrm * 0.08 + side * 0.46 + wall_up * 0.52
+	social.up = nrm
+	social.fwd = wall_up
+	social.morph.sociability = 0.82
+	social.morph.length = 0.13
+	social.morph.wide = 0.13
+	social.morph.tall = 0.12
+	social.morph.feelers = 12
+	social.unfold = 0.0
+	social.attend_override = Vector3.INF
+	solitary.pos = wall + nrm * 0.08 + side * 0.70 + wall_up * 0.35
+	solitary.up = nrm
+	solitary.fwd = wall_up
+	solitary.morph.sociability = 0.18
+	solitary.unfold = 0.0
+	solitary.attend_override = Vector3.INF
+
+	var signal_at: Vector3 = (palps[0].anchor as Vector3) + nrm * 0.72
+	var focus: Vector3 = signal_at + side * 0.10 + wall_up * 0.10
+	var eye: Vector3 = _stand_in_room(focus,
+			(nrm + side * 0.28 + wall_up * 0.16).normalized(), 1.15)
+	cam.fov = 50.0
+	_look_at_from(eye, focus)
+	cam.make_current()
+	root.view_override = cam
+	print("[DO-4] fixed station eye=%s focus=%s wall_clear=%.2f"
+			% [eye, focus, best_clear])
+	# Let the production root accept the override camera before pricing the
+	# live-render A/A floor. Without this settle, the first saved frame can be
+	# the outgoing player view while the repeat is the intended fixed station.
+	palp_renderer._process(0.0)
+	critters._push()
+	for _settle in 45:
+		await RenderingServer.frame_post_draw
+
+	await _organelle_production_frame("00_control_A", palp_renderer,
+			critters, director, enc)
+	await _organelle_production_frame("00_control_A_repeat", palp_renderer,
+			critters, director, enc)
+
+	hero._emit_contact_signal(signal_at)
+	residue.lay(signal_at, nrm, 0.16, 1.0, 9.0)
+	await _organelle_production_frame("01_hero_secretes", palp_renderer,
+			critters, director, enc)
+
+	var receptor: Dictionary = palps[0]
+	receptor.target = signal_at
+	receptor.signal_target = signal_at
+	receptor.act = DreamPalpBehavior.Act.PROBE
+	receptor.tip = signal_at - nrm * 0.16
+	receptor.aim = ((receptor.tip as Vector3) - (receptor.anchor as Vector3)).normalized()
+	await _organelle_production_frame("02_palp_adopts", palp_renderer,
+			critters, director, enc)
+
+	receptor.tip = signal_at
+	receptor.aim = ((receptor.tip as Vector3) - (receptor.anchor as Vector3)).normalized()
+	receptor.contact = 1.0
+	margin._recognize_signal_target(receptor, 0.0)
+	await _organelle_production_frame("03_contact_recognized", palp_renderer,
+			critters, director, enc)
+
+	director._process(0.05)
+	critters._answer_recognition_signal(social, 0.24)
+	critters._answer_recognition_signal(solitary, 0.24)
+	await _organelle_production_frame("04_fauna_presents_receptors",
+			palp_renderer, critters, director, enc)
+
+	director._process(0.46)
+	for i in [1, 2]:
+		var neighbour: Dictionary = palps[i]
+		neighbour.attend_override = signal_at
+		neighbour.local_look = true
+		neighbour.act = DreamPalpBehavior.Act.WATCH
+		neighbour.tip = (neighbour.anchor as Vector3) \
+				+ (signal_at - (neighbour.anchor as Vector3)).normalized() * 0.72
+		neighbour.aim = ((neighbour.tip as Vector3)
+				- (neighbour.anchor as Vector3)).normalized()
+	receptor.signal_orient_due = director.signal_time()
+	margin._propagate_signal_answer(receptor)
+	await _organelle_production_frame("05_neighbours_answer", palp_renderer,
+			critters, director, enc)
+
+	var sampler: Dictionary = palps[2]
+	margin._sample_signal_with_cilia(sampler, 0.0)
+	director._process(DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.5)
+	margin._sample_signal_with_cilia(sampler,
+			DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.5)
+	await _organelle_production_frame("06_cilia_close", palp_renderer,
+			critters, director, enc)
+	director._process(DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.55)
+	margin._sample_signal_with_cilia(sampler,
+			DreamMarginController.CILIA_SIGNAL_SAMPLE_S * 0.55)
+	enc._receive_architecture_signals()
+	# The production encroachment is frozen for deterministic framing. Advance
+	# exactly one field relaxation pass so its newly pressurized voxels reach
+	# the already-bound 3D texture before the recipient frame is captured.
+	var response_field = enc.fields.get("F02")
+	if response_field != null:
+		for _slice in response_field.ny + 1:
+			response_field.tick(0.0)
+	await _organelle_production_frame("07_cilia_reopen", palp_renderer,
+			critters, director, enc)
+
+	var packets_before_attention: int = int(director.signal_census().emitted)
+	player.world_modified.emit(focus + side * 0.18, "do4_production_contact")
+	if director.attending == Vector3.INF:
+		printerr("[DO-4] player event did not pass the attention gate")
+		return
+	margin.frozen = false
+	margin._physics_process(0.16)
+	margin.frozen = true
+	critters.enabled = true
+	critters._physics_process(0.16)
+	critters.enabled = false
+	hero._process(0.16)
+	await _organelle_production_frame("08_attention_snap", palp_renderer,
+			critters, director, enc)
+
+	var total_held: int = margin.palps.size() + critters.critters.size()
+	var held := total_held
+	for _step in 12:
+		director._process(0.4)
+		held = 0
+		for p in margin.palps:
+			if p.attend_override != Vector3.INF:
+				held += 1
+		for c in critters.critters:
+			if c.attend_override != Vector3.INF:
+				held += 1
+		if held > 0 and held < total_held:
+			break
+	margin.frozen = false
+	margin._physics_process(0.16)
+	margin.frozen = true
+	critters.enabled = true
+	critters._physics_process(0.16)
+	critters.enabled = false
+	hero._process(0.16)
+	await _organelle_production_frame("09_autonomy_returns", palp_renderer,
+			critters, director, enc)
+	if int(director.signal_census().emitted) != packets_before_attention:
+		printerr("[DO-4] whole-body attention changed the packet census")
+		return
+	print("[DO-4] COMPLETE: partial release %d/%d held; architecture %s"
+			% [held, total_held, enc.architecture_signal_census()])
+
+
+func _organelle_production_frame(label: String, palp_renderer, critters,
+		director, enc) -> void:
+	palp_renderer._process(0.0)
+	critters._push()
+	cam.make_current()
+	root.view_override = cam
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var path := _dir.path_join(label + ".png")
+	var err := get_viewport().get_texture().get_image().save_png(path)
+	if err != OK:
+		printerr("[DO-4] failed to write %s (%d)" % [path, err])
+	print("[DO-4] %s packets=%s attention=%s architecture=%s"
+			% [label, director.signal_census(), director.census(),
+			enc.architecture_signal_census()])
+	_frame += 1
 
 
 ## A camera position that satisfies both constraints at once: inside the
