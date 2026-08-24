@@ -241,8 +241,8 @@ fully retreating at three distinct membrane sites, then the chosen soft spot
 releases progressively on a curve separate from visible length. The production
 suite is now 24/24 at 0.656 ms. One fixed-camera Forward+ run captures all ten
 landmarks plus a 0.00000913426-RMSE frozen A/A pair at
-`art/renders/dream_tentacle/dt5_bobbing/README.md`. Do not call DT-5 done: the
-next ruled slice was synaptic seeking. The owner wants dendritic synapse
+`art/renders/dream_tentacle/dt5_bobbing/README.md`. The next ruled slice was
+synaptic seeking. The owner wants dendritic synapse
 formation as the motion inspiration because SEEK is an attempt to communicate:
 distal micro-protrusions test several candidate sites, dwell and retract before
 one chosen narrow cleft; cilia/suckers stabilize sequentially, an
@@ -257,9 +257,15 @@ transformer carries secretion into LivingField. `DreamTentacleTest` passes
 27/27 at 0.644 ms. A single fixed-camera Forward+ production run logged every
 landmark; the three dwell/reconsider pairs measure 0.0445907/0.0642438/
 0.0384303 RMSE against a 0.00000577702 frozen A/A floor. Proof is
-`art/renders/dream_tentacle/dt5_synaptic_seek/README.md`. The
-full BULGE -> EMERGENCE -> SEEK -> CARESS -> FLINCH -> WITHDRAW rendered
-sequence remains open.
+`art/renders/dream_tentacle/dt5_synaptic_seek/README.md`. **DT-5 IS NOW DONE:**
+one 53.7 s Forward+ production run carried that same instance through eleven
+logged landmarks spanning BULGE -> EMERGENCE -> SEEK -> CARESS -> FLINCH ->
+WITHDRAW, including distal-first surprise, curious player watch, membrane-
+gripped retreat and a sealed wall. Its frozen sealed-state A/A floor is
+0.00000913426 RMSE; proof is
+`art/renders/dream_tentacle/dt5_canonical_sequence/README.md`. This also closes
+DT-6 P8/P9. DT-6 P7's broader hero-read evaluation remains open; none of this
+is a completed waking case loop.
 
 Three top-level projects:
 

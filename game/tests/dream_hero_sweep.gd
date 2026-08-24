@@ -7,7 +7,7 @@ extends Node
 ##   → rigid mineral → crystal interior → wet cornea.
 ##
 ##     SWEEP_DIR=<abs dir>     where the frames go (required)
-##     SWEEP_MODE=video|set|bobbing|synapse
+##     SWEEP_MODE=video|set|bobbing|synapse|sequence
 ##     SWEEP_SECONDS=13        the sweep's length
 ##     SWEEP_FPS=30            frames a second
 ##     SWEEP_WARM=14           seconds to let the creature grow first
@@ -71,7 +71,7 @@ func _run() -> void:
 	# The emergence proof has to meet the creature before its 2.2-second bulge
 	# has elapsed. The production root is already assembled synchronously; one
 	# short settle is enough to let its first physics owner spawn the limb.
-	await get_tree().create_timer(0.15 if requested_mode in ["bobbing", "synapse"] else 1.4).timeout
+	await get_tree().create_timer(0.15 if requested_mode in ["bobbing", "synapse", "sequence"] else 1.4).timeout
 	if root.sanity:
 		root.sanity.stand_down()
 		root.sanity.enabled = false
@@ -95,10 +95,10 @@ func _run() -> void:
 	player.flashlight.transform = Transform3D(Basis(), Vector3(0.14, -0.16, -0.05))
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	# Let the organism grow and the limb come out.
-	var warm := 0.0 if requested_mode in ["bobbing", "synapse"] else 14.0
+	var warm := 0.0 if requested_mode in ["bobbing", "synapse", "sequence"] else 14.0
 	var w := OS.get_environment("SWEEP_WARM")
 	if not w.is_empty():
-		warm = maxf(0.0 if requested_mode in ["bobbing", "synapse"] else 2.0,
+		warm = maxf(0.0 if requested_mode in ["bobbing", "synapse", "sequence"] else 2.0,
 				w.to_float())
 	# The room's own fixtures, as in play: the torch is the REVEAL, not the
 	# only light in the world. Without this the whole flat is a void and the
@@ -110,7 +110,7 @@ func _run() -> void:
 	if warm > 0.0:
 		await get_tree().create_timer(warm).timeout
 	_tentacle = _find_tentacle()
-	if requested_mode in ["bobbing", "synapse"]:
+	if requested_mode in ["bobbing", "synapse", "sequence"]:
 		for _attempt in 180:
 			if _tentacle != null:
 				break
@@ -157,6 +157,8 @@ func _run() -> void:
 		await _bobbing_emergence()
 	elif mode == "synapse":
 		await _synaptic_seeking()
+	elif mode == "sequence":
+		await _canonical_sequence()
 	else:
 		await _sweep()
 	print("[SWEEP] DONE %d frames -> %s" % [_frame, _dir])
@@ -515,6 +517,100 @@ func _synaptic_seeking() -> void:
 	await _named_capture("Z_control_b")
 	print("[SWEEP] synaptic landmarks approach=%s reconsider=%s exchange=%s secretion=%s"
 			% [approached, reconsidered, exchange_done, secretion_done])
+
+
+## DT-5 closure proof: the same unforced production state machine carries one
+## limb through all six canonical beats. The harness only supplies the two
+## encounter inputs play would supply — a player entering arm's reach and the
+## eventual instruction to withdraw — then records physical landmarks.
+func _canonical_sequence() -> void:
+	if _tentacle == null:
+		printerr("[SWEEP] no procedural tentacle for canonical sequence")
+		return
+	var aim: Vector3 = (ANCHOR + _tentacle.sensor.contact) * 0.5
+	var side := ANCHOR_N.cross(Vector3.UP).normalized()
+	_look_at_from(aim + ANCHOR_N * 1.55 + side * 0.72 + Vector3.UP * 0.34,
+			aim + Vector3.UP * 0.02)
+	var marks := {
+		"bulge": false, "emergence": false, "seek": false, "hover": false,
+		"exchange": false, "caress": false, "flinch": false, "watch": false,
+		"withdraw_mid": false, "withdraw_late": false, "sealed": false,
+	}
+	var elapsed := 0.0
+	while elapsed < 22.0 and not marks.caress:
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+		var b = _tentacle.behavior
+		if b.state == DreamTentacleBehavior.S.MEMBRANE_BULGE \
+				and b.membrane_tension >= 0.82 and not marks.bulge:
+			marks.bulge = true
+			await _named_capture("01_BULGE_pressure")
+		elif b.state == DreamTentacleBehavior.S.EMERGING \
+				and b.membrane_release >= 0.52 and not marks.emergence:
+			marks.emergence = true
+			await _named_capture("02_EMERGENCE_release")
+		elif b.state == DreamTentacleBehavior.S.SEEKING \
+				and b.synaptic_probe_index == 1 and b.synaptic_probe_phase >= 0.48 \
+				and not marks.seek:
+			marks.seek = true
+			await _named_capture("03_SEEK_candidate")
+		elif b.state == DreamTentacleBehavior.S.HOVER_INSPECTION \
+				and b.state_clock >= 0.45 and not marks.hover:
+			marks.hover = true
+			await _named_capture("04_CARESS_hover")
+		elif b.state == DreamTentacleBehavior.S.TOUCHING \
+				and _tentacle.exchange_flash > 0.72 and not marks.exchange:
+			marks.exchange = true
+			await _named_capture("05_CARESS_exchange")
+		elif b.state == DreamTentacleBehavior.S.CARESSING \
+				and _tentacle.deposits >= 2 and not marks.caress:
+			marks.caress = true
+			await _named_capture("06_CARESS_secretion")
+	# Play supplies proximity. A stationary arm's-reach arrival invokes the
+	# behavior's existing surprise response; it is not a forced animation state.
+	var who: Node3D = root.player
+	if who != null:
+		who.global_position = _tentacle.rig.tip() + _tentacle.sensor.contact_normal * 0.48
+	elapsed = 0.0
+	while elapsed < 2.5 and is_instance_valid(_tentacle) and not marks.flinch:
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+		if _tentacle.behavior.state == DreamTentacleBehavior.S.FLINCH \
+				and _tentacle.behavior.state_clock >= 0.16:
+			marks.flinch = true
+			await _named_capture("07_FLINCH_distal_first")
+	elapsed = 0.0
+	while elapsed < 2.2 and is_instance_valid(_tentacle) and not marks.watch:
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+		if _tentacle.behavior.state == DreamTentacleBehavior.S.WATCH_PLAYER \
+				and _tentacle.behavior.state_clock >= 0.22:
+			marks.watch = true
+			await _named_capture("08_FLINCH_curiosity_wins")
+	if who != null:
+		who.global_position = _tentacle.rig.tip() + Vector3(4.0, 0.0, 4.0)
+	_tentacle.withdraw()
+	elapsed = 0.0
+	while elapsed < 3.2 and is_instance_valid(_tentacle):
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+		if not marks.withdraw_mid and _tentacle.grow <= 0.68:
+			marks.withdraw_mid = true
+			await _named_capture("09_WITHDRAW_gripped")
+		elif not marks.withdraw_late and _tentacle.grow <= 0.22:
+			marks.withdraw_late = true
+			await _named_capture("10_WITHDRAW_last_cilia")
+	await get_tree().process_frame
+	marks.sealed = not is_instance_valid(_tentacle)
+	var enc: Node = root.get("apartment_encroachment")
+	if enc != null:
+		enc.set_physics_process(false)
+	Engine.time_scale = 0.0
+	await RenderingServer.frame_post_draw
+	await _named_capture("11_WITHDRAW_sealed")
+	await _named_capture("Z_control_a")
+	await _named_capture("Z_control_b")
+	print("[SWEEP] canonical sequence landmarks %s" % [marks])
 
 
 func _named_capture(label: String) -> void:

@@ -2125,8 +2125,8 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   vascular bolus coupled through geometry, colour, SSS and film. P5/P6
   captured: eighteen acceptance stills and a 13 s player-lamp video
   (`art/renders/dream_tentacle/hero_review/`). Open: P7 (evaluate and fix
-  what still does not read), P8 DT-5's six-beat emergence, P9 the full
-  seek → caress → flinch → withdraw sequence.
+  what still does not read). P8/P9 are closed by DT-5's component and
+  canonical-sequence production proofs.
   **H1 DEFORMING-FLESH REST SPACE DONE 2026-08-24.** The shared surface no
   longer swims through the skinned cage: UV2 carries exact rest X/Z, strip V
   plus one bounded 8-bit residual carries Y, and the displaced ocular mask
@@ -2153,7 +2153,7 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   LightRig, disabled volumetrics/reflections — must be re-derived from the
   Forward+ numbers (corridor 13.6 → 4.6 ms GPU) and re-tuned to MAXIMIZE
   FINAL IMAGE QUALITY, not to protect a budget that no longer binds.
-- **DT-5 OPEN — BOBBING FOR APPLES (owner ruling 2026-08-22).** *"I want
+- **DT-5 DONE 2026-08-24 — BOBBING FOR APPLES + COMMUNICATIVE SEEK.** *"I want
   the tentacle to emerge along the EDGE of the encroachment and move along
   it like it's bobbing for apples into our reality, and the encroachment is
   the proximity to its body in the nth dimension; its emergence should
@@ -2172,7 +2172,7 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   resident, tries to help by the only means it has, and its help is
   dimensionally and biologically wrong. Feeds LF-3's incidents (the
   "fixable condition" is the creature TRYING to fix something).
-  **EDGE OWNER + LOCAL SWELLING LANDED 2026-08-24; DT-5 REMAINS OPEN.** Unforced
+  **EDGE OWNER + LOCAL SWELLING LANDED 2026-08-24.** Unforced
   tentacles no longer borrow the three strongest interior nodes owned by the
   field lights. `LivingField` now caches 48 ranked source-attributed
   `body >= 0.45` isosurface fronts once per completed relaxation pass, and
@@ -2209,9 +2209,14 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   landmarks and both exchange landmarks; its three dwell/reconsider RMSE
   values are 0.0445907/0.0642438/0.0384303 against a 0.00000577702 frozen A/A
   floor. Proof: `art/renders/dream_tentacle/dt5_synaptic_seek/README.md`.
-  The full canonical
-  BULGE -> EMERGENCE -> SEEK -> CARESS -> FLINCH -> WITHDRAW production
-  sequence remains DT-5 work.
+  **CANONICAL SEQUENCE LANDED:** one 53.7 s Forward+ production instance
+  logged and captured all eleven physical landmarks from intact BULGE through
+  progressive EMERGENCE, communicative SEEK, hover/exchange/secretion CARESS,
+  distal-first FLINCH, curious player watch, membrane-gripped WITHDRAW and a
+  sealed wall. The frozen sealed-state A/A floor is 0.00000913426 RMSE. Proof:
+  `art/renders/dream_tentacle/dt5_canonical_sequence/README.md`. This closes
+  DT-5 and DT-6 P8/P9, not DT-6's broader P7 hero-read evaluation and not a
+  waking case loop.
 
 ### CT — CRITTER SKINS (owner direction 2026-08-21)
 
