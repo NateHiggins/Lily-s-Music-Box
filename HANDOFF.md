@@ -264,8 +264,24 @@ WITHDRAW, including distal-first surprise, curious player watch, membrane-
 gripped retreat and a sealed wall. Its frozen sealed-state A/A floor is
 0.00000913426 RMSE; proof is
 `art/renders/dream_tentacle/dt5_canonical_sequence/README.md`. This also closes
-DT-6 P8/P9. DT-6 P7's broader hero-read evaluation remains open; none of this
-is a completed waking case loop.
+DT-6 P8/P9. DT-6 P7 is now closed by a fresh camera-truth read of the canonical
+hero-review frames: the regional silhouette survives gameplay distance, the
+settled ocular frame makes the buried eye the subject, and the sweep plus DT-5
+sequence make the material and timing-dependent systems legible. No additional
+source fault was justified. DT-6 is closed; none of this is a completed waking
+case loop. P10 / Model 28-R is therefore unblocked.
+
+P10 has begun and **Model 28-R TL-1 is done**. The production-carried object
+is no longer presented as the old compact radiophone: it is a measured 31.6 cm
+longitudinal service chassis with separately owned faceted lamp, arched meter,
+glass galena detector, rear dry-cell mass and telegram throat; separate shell
+plates, repeated slotted hardware and distinct instrument/service faces make
+the silhouette mechanically accountable. The old lamp, radio, order and paper
+APIs remain live. `Model28RTest` passes 9/9 over 147 geometry owners. Forward+
+production frames and the 0.00317172-RMSE A/A pair are at
+`art/renders/model_28r/tl1_historical_silhouette/README.md`. Do not overstate
+this checkpoint: functional internals are TL-2 and the material masterpiece is
+TL-3; both remain open.
 
 Claude's isolated §12 steps 8/9 cilia pass was integrated as `90377f0` from
 `2bb81cf`. Secondary-branch fine cilia are fixed-length anatomy that deploy by

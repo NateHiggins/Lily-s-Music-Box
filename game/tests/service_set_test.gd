@@ -64,10 +64,13 @@ func _ready() -> void:
 			and _action_has_physical_key("radio_toggle", KEY_R))
 	player.set_lamp_enabled(false)
 	await get_tree().process_frame
-	_check("one public call extinguishes beam, plate and rear LAMP jewel",
-			not player.flashlight.visible and not player._light_mask.visible
+	_check("one public call opens the circuit, plate and rear LAMP jewel",
+			not player.lamp_is_enabled() and not player._light_mask.visible
 			and not device.lamp_enabled
 			and not device._lamp_indicator_material.emission_enabled)
+	await get_tree().create_timer(0.30).timeout
+	_check("the unpowered filament tail finishes visibly dark",
+			not player.flashlight.visible)
 	player.set_lamp_enabled(true)
 	Input.action_press("lamp_toggle")
 	# This harness runs after the production player in tree order; explicitly

@@ -231,7 +231,9 @@ irregular grown biomechanical structures · P2 strengthen the visible eye
 socket/lid/cilia read · P3 tune flesh material separation under the actual
 flashlight · P4 couple vascular pressure and gold mechanics visibly · P5
 capture the frame set · P6 the 10–15 s player-lamp sweep · P7 evaluate
-against this brief and fix what exists but does not read · P8 DT-5
+against this brief and fix what exists but does not read **DONE 2026-08-24**
+— the canonical frames pass after the recorded haze and eye-presentation
+fixes; no new source fault was invented · P8 DT-5
 bobbing-for-apples emergence on the six-beat canon **DONE 2026-08-24** · P9
 the full seek → caress → flinch → withdraw sequence **DONE 2026-08-24**
 · P10 the 28-R, only after the hero

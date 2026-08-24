@@ -2069,10 +2069,17 @@ diagnose faults in reality. Replaces the placeholder
 
 Eight ruled phases, built in order (§76):
 
-- **TL-1 OPEN — historical silhouette.** 30–34 cm chassis, five landmarks
-  (faceted lamp bezel, arched meter housing, glass detector dome, rear
-  battery mass, telegram slot); separate plates, real fastener vocabulary,
-  instrument side vs service side. Success: it could sit in a museum case.
+- **TL-1 DONE 2026-08-24 — historical silhouette.** The production-carried
+  prop is now a 31.6 cm TYPE 28-R chassis with five separately owned
+  landmarks: faceted focusing bezel with physical optics, arched Weston-like
+  meter, glass galena detector, heavy dry-cell/service mass and mechanical
+  telegram throat. Three shell plates sit on a dark internal frame with 36+
+  slotted screw/washer pieces; the instrument face and wired service face are
+  asymmetric. The existing lamp, radio, order and paper seams survive behind
+  the new body. Focused contract: 9/9, 147 geometry owners. Forward+ production
+  proof and a 0.00317172-RMSE A/A pair:
+  `art/renders/model_28r/tl1_historical_silhouette/README.md`. This is the
+  untextured historical chassis gate, not TL-2 mechanisms or TL-3 materials.
 - **TL-2 OPEN — functional mechanism.** Flashlight + focus carriage, meter
   with damped needle, mode selector (`LINE CONT. BATT. FIELD WIRELESS
   RETURN`), tuning dial driving real capacitor plates, telegraph key,
@@ -2116,7 +2123,7 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
 - **DT-2 DONE — Forward+ is canonical.** `compat-renderer-final` tagged;
   baselines and frametimes in `art/renders/renderer_migration/`; Forward+
   measured 2–3× FASTER on this building; fallback guard in BuildingRoot.
-- **DT-6 IN PROGRESS — the canonical hero pass**
+- **DT-6 DONE 2026-08-24 — the canonical hero pass**
   (`design/DREAM_TENTACLE_HERO_PASS.md`). P0 regional silhouette, P1 the
   gold rebuilt as twelve individual irregular meshes in five classes, P2
   the ocular station choosing the face that looks into the room and lids
@@ -2124,9 +2131,15 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   flesh, colour by depth, pores as darkening), P4 a physical travelling
   vascular bolus coupled through geometry, colour, SSS and film. P5/P6
   captured: eighteen acceptance stills and a 13 s player-lamp video
-  (`art/renders/dream_tentacle/hero_review/`). Open: P7 (evaluate and fix
-  what still does not read). P8/P9 are closed by DT-5's component and
-  canonical-sequence production proofs.
+  (`art/renders/dream_tentacle/hero_review/`). **P7 CLOSED 2026-08-24:** the
+  canonical contact sheet and eighteen frames were re-read against the brief,
+  not against implementation claims. The gameplay-distance frame preserves
+  regional silhouette; the settled eye frame makes the buried ocular station
+  the subject; the sweep separates wet flesh, vascular depth, rigid gold,
+  crystal and distal contact; and DT-5's later single-instance sequence makes
+  the timing-dependent seek, flinch and withdrawal beats legible. No fourth
+  source fault was invented after the three recorded P7 faults passed camera
+  truth. P8/P9 are closed by DT-5's component and canonical-sequence proofs.
   **H1 DEFORMING-FLESH REST SPACE DONE 2026-08-24.** The shared surface no
   longer swims through the skinned cage: UV2 carries exact rest X/Z, strip V
   plus one bounded 8-bit residual carries Y, and the displaced ocular mask
@@ -2215,8 +2228,8 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   distal-first FLINCH, curious player watch, membrane-gripped WITHDRAW and a
   sealed wall. The frozen sealed-state A/A floor is 0.00000913426 RMSE. Proof:
   `art/renders/dream_tentacle/dt5_canonical_sequence/README.md`. This closes
-  DT-5 and DT-6 P8/P9, not DT-6's broader P7 hero-read evaluation and not a
-  waking case loop.
+  DT-5 and DT-6 P8/P9. Together with the re-read P7 evidence above it closes
+  DT-6, not a waking case loop.
 
 ### DO — DREAM ORGANELLE COMMUNICATION (owner ruling 2026-08-24)
 

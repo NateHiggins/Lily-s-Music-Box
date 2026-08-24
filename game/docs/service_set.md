@@ -1,5 +1,12 @@
 # Vantry service set — production contract
 
+> **2026-08-24 presentation supersession:** the production APIs below remain
+> authoritative, but their physical owner is now the Orison Electrical &
+> Signal Works **TYPE 28-R**. TL-1 replaces the compact Model No. 4 silhouette
+> with the measured historical chassis and five-landmark instrument/service
+> grammar proved at `art/renders/model_28r/tl1_historical_silhouette/README.md`.
+> The older Q4 renders are the visual baseline, not the current body.
+
 *Landed 2026-08-15. This describes the code that exists. The historical and
 fictional design authority remains `design/VANTRY_SERVICE_RADIOPHONE_BRIEF.md`
 and Bible §VIII.5.j.*

@@ -8,7 +8,7 @@ extends Node3D
 const DEVICE_LAYER := 2
 const BODY := Vector3(0.085, 0.225, 0.058)
 ## The inspection beam leaves the attached lamp down local -Z.
-const LAMP_AT := Vector3(0.054, 0.070, -0.119)
+const LAMP_AT := Vector3(-0.026, 0.116, -0.078)
 
 const PHENOLIC := Color("211711")
 const PHENOLIC_EDGE := Color("35251a")
@@ -164,6 +164,269 @@ func _set_jewel(material: StandardMaterial3D, color: Color, on: bool,
 
 
 func _build_model() -> void:
+	# TYPE 28-R, phase 1: the five silhouette landmarks and the construction
+	# that makes them credible before any supernatural system is added. The
+	# long chassis is still oriented along local Y so the established carried
+	# pose and the real beam owner remain unchanged.
+	var japan := _mat(Color("302a22"), 0.34, 0.38)
+	var japan_edge := _mat(Color("44382c"), 0.42, 0.34)
+	var phenolic := _mat(Color("5a3527"), 0.56)
+	var phenolic_worn := _mat(Color("744a37"), 0.43)
+	var nickel := _mat(Color("a7a29a"), 0.26, 0.88)
+	var brass := _mat(Color("765c31"), 0.39, 0.82)
+	var brass_worn := _mat(Color("b29255"), 0.29, 0.86)
+	var steel := _mat(Color("4e4d49"), 0.31, 0.91)
+	var ceramic := _mat(Color("d8ccb0"), 0.70)
+	var paper := _mat(Color("d7c99f"), 0.84)
+	var ink := _mat(Color("17130e"), 0.78)
+	var leather := _mat(Color("6b4228"), 0.76)
+	var copper := _mat(Color("8d4e2e"), 0.31, 0.86)
+	var glass := _mat(Color(0.58, 0.62, 0.60, 0.32), 0.09)
+	glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	var dark := _mat(Color("18140f"), 0.82)
+
+	# Genuine frame, three separate shell plates and exposed dark seams.
+	var chassis := Node3D.new()
+	chassis.name = "HistoricalChassis"
+	add_child(chassis)
+	_box(Vector3(0.098, 0.316, 0.070), Vector3(0, -0.006, 0), dark, chassis)
+	_box(Vector3(0.104, 0.091, 0.076), Vector3(0, 0.086, 0), japan,
+			chassis).name = "InstrumentPlate"
+	_box(Vector3(0.104, 0.080, 0.076), Vector3(0, -0.012, 0), japan_edge,
+			chassis).name = "ControlPlate"
+	_box(Vector3(0.104, 0.104, 0.080), Vector3(0, -0.108, 0), japan,
+			chassis).name = "BatteryServicePlate"
+	for y in [-0.058, 0.036]:
+		_box(Vector3(0.108, 0.003, 0.082), Vector3(0, y, 0), dark, chassis)
+	for x in [-0.054, 0.054]:
+		_box(Vector3(0.007, 0.304, 0.071), Vector3(x, -0.006, 0), brass,
+				chassis)
+
+	# Coherent 1928 hardware: slotted screws, washers and two captive thumbs.
+	var fasteners := Node3D.new()
+	fasteners.name = "PeriodFasteners"
+	add_child(fasteners)
+	for x in [-0.043, 0.043]:
+		for y in [-0.145, -0.096, -0.049, 0.044, 0.104, 0.141]:
+			var washer := _cyl(0.0041, 0.0014, Vector3(x, y, -0.041), brass,
+					Vector3.UP, fasteners)
+			washer.rotation.x = PI * 0.5
+			var screw := _cyl(0.0028, 0.0018, Vector3(x, y, -0.042), steel,
+					Vector3.UP, fasteners)
+			screw.rotation.x = PI * 0.5
+			_box(Vector3(0.0040, 0.00065, 0.0007),
+					Vector3(x, y, -0.0431), dark, fasteners).rotation.z = \
+					deg_to_rad(18.0 if y > 0.0 else -11.0)
+
+	# Landmark 1: faceted focusing lamp, with actual lens, retaining ring,
+	# reflector, filament support and a bracket into the chassis.
+	var lamp := Node3D.new()
+	lamp.name = "LampBezelLandmark"
+	add_child(lamp)
+	_box(Vector3(0.060, 0.050, 0.020), Vector3(-0.026, 0.116, -0.043),
+			brass, lamp)
+	for spec in [[0.049, 0.021, nickel], [0.042, 0.025, brass_worn],
+			[0.035, 0.029, dark]]:
+		var ring := _cyl(float(spec[0]), float(spec[1]),
+				Vector3(-0.026, 0.116, -0.058), spec[2], Vector3.UP, lamp)
+		ring.rotation.x = PI * 0.5
+		(ring.mesh as CylinderMesh).radial_segments = 8
+	var reflector := _cyl(0.030, 0.010, Vector3(-0.026, 0.116, -0.070),
+			nickel, Vector3.UP, lamp)
+	reflector.rotation.x = PI * 0.5
+	_lamp_glass_material = _jewel_material()
+	var lens := _cyl(0.033, 0.0035, LAMP_AT, _lamp_glass_material,
+			Vector3.UP, lamp)
+	lens.rotation.x = PI * 0.5
+	var bulb := _sphere(0.006, Vector3(-0.026, 0.116, -0.069), glass, lamp)
+	_box(Vector3(0.0011, 0.007, 0.0011), Vector3(-0.026, 0.116, -0.075),
+			copper, lamp)
+	_label("FOCUS  <-  ->", Vector3(-0.026, 0.159, -0.061), 0.00019,
+			Color("21170d"), true, Vector3.ZERO, lamp)
+
+	# Landmark 2: a Weston-like arched instrument, mechanically layered from
+	# housing to paper scale to pointer and calibration jewel.
+	var meter := Node3D.new()
+	meter.name = "ArchedMeterLandmark"
+	add_child(meter)
+	_box(Vector3(0.086, 0.071, 0.020), Vector3(0.007, 0.047, -0.046),
+			phenolic, meter)
+	var meter_crown := _cyl(0.043, 0.020, Vector3(0.007, 0.081, -0.046),
+			phenolic, Vector3.UP, meter)
+	meter_crown.rotation.x = PI * 0.5
+	_box(Vector3(0.074, 0.052, 0.002), Vector3(0.007, 0.054, -0.058),
+			paper, meter)
+	for tick in range(13):
+		var a := lerpf(-1.05, 1.05, float(tick) / 12.0)
+		var p := Vector3(0.007 + sin(a) * 0.029,
+				0.047 + cos(a) * 0.023, -0.0595)
+		var mark := _box(Vector3(0.0010, 0.006 if tick % 3 == 0 else 0.0035,
+				0.0008), p, ink, meter)
+		mark.rotation.z = -a
+	var needle := _box(Vector3(0.0012, 0.030, 0.001),
+			Vector3(0.007, 0.052, -0.061), ink, meter)
+	needle.rotation.z = deg_to_rad(-14.0)
+	_sphere(0.0042, Vector3(0.007, 0.038, -0.062), brass_worn, meter)
+	_label("ORISON  28-R\nLINE  CONT.  BATT.  FIELD", Vector3(0.007, 0.061,
+			-0.061), 0.00013, Color("17130e"), true, Vector3.ZERO, meter)
+
+	# Landmark 3: detector glass and ordinary galena. Its impossible third
+	# position belongs to TL-6; this first phase stays museum-plausible.
+	var detector := Node3D.new()
+	detector.name = "DetectorDomeLandmark"
+	add_child(detector)
+	_cyl(0.019, 0.008, Vector3(0.035, 0.119, -0.042), brass,
+			Vector3.UP, detector).rotation.x = PI * 0.5
+	_sphere(0.015, Vector3(0.035, 0.119, -0.057), glass, detector)
+	var galena := _sphere(0.007, Vector3(0.035, 0.119, -0.058), steel, detector)
+	galena.scale = Vector3(1.0, 0.72, 0.82)
+	var whisker := _cyl(0.0007, 0.022, Vector3(0.029, 0.123, -0.066),
+			brass_worn, Vector3.UP, detector)
+	whisker.rotation.z = deg_to_rad(32.0)
+	_label("DETECTOR", Vector3(0.035, 0.095, -0.043), 0.00014,
+			Color("c8ad70"), true, Vector3.ZERO, detector)
+
+	# Landmark 4: rear dry-cell/service mass with a separate cap, spring clips
+	# and a hand-crank boss. It reads heavier than the instrument face.
+	var battery := Node3D.new()
+	battery.name = "BatteryMassLandmark"
+	add_child(battery)
+	_box(Vector3(0.116, 0.091, 0.090), Vector3(0, -0.121, 0), japan_edge,
+			battery)
+	_box(Vector3(0.108, 0.012, 0.096), Vector3(0, -0.168, 0), brass,
+			battery)
+	for x in [-0.047, 0.047]:
+		_box(Vector3(0.008, 0.035, 0.006), Vector3(x, -0.124, -0.049),
+				steel, battery)
+	var crank_boss := _cyl(0.013, 0.010, Vector3(0.061, -0.118, 0), brass,
+			Vector3.UP, battery)
+	crank_boss.rotation.z = PI * 0.5
+	_label("DRY CELL No. 6\nSERVICE CAP", Vector3(0, -0.126, -0.047),
+			0.00017, Color("c8ad70"), true, Vector3.ZERO, battery)
+
+	# Landmark 5: physical telegram throat, platen, paper and tear edge.
+	var printer := Node3D.new()
+	printer.name = "TelegramSlotLandmark"
+	add_child(printer)
+	_box(Vector3(0.078, 0.023, 0.013), Vector3(-0.005, -0.060, -0.047),
+			brass_worn, printer)
+	_box(Vector3(0.061, 0.004, 0.007), Vector3(-0.005, -0.052, -0.055),
+			dark, printer)
+	for tooth in range(10):
+		_box(Vector3(0.002, 0.004, 0.003),
+				Vector3(-0.032 + tooth * 0.006, -0.040, -0.054), steel,
+				printer).rotation.z = deg_to_rad(18.0)
+	_label("TELEGRAM", Vector3(-0.005, -0.076, -0.055), 0.00018,
+			Color("21170d"), true, Vector3.ZERO, printer)
+
+	# Instrument/service asymmetry: selector and tuning controls on one side;
+	# lead terminals and a screwed access panel on the other.
+	var controls := Node3D.new()
+	controls.name = "InstrumentSideControls"
+	add_child(controls)
+	for spec in [[-0.031, 0.019], [0.009, 0.015]]:
+		var knob := _cyl(float(spec[1]), 0.012,
+				Vector3(0.059, float(spec[0]), -0.010), phenolic_worn,
+				Vector3.UP, controls)
+		knob.rotation.z = PI * 0.5
+	for y in [-0.030, 0.010]:
+		_cyl(0.008, 0.014, Vector3(-0.059, y, 0.010), ceramic,
+				Vector3.UP, controls).rotation.z = PI * 0.5
+		_cyl(0.004, 0.018, Vector3(-0.066, y, 0.010), brass_worn,
+				Vector3.UP, controls).rotation.z = PI * 0.5
+
+	# The opposite face is a service side, not the blank back of a prop. A
+	# removable plate exposes period point-to-point construction through two
+	# mica windows, with line posts and a serialized maker plate around it.
+	var service := Node3D.new()
+	service.name = "ServiceSideAssembly"
+	add_child(service)
+	_box(Vector3(0.086, 0.174, 0.006), Vector3(0, -0.005, 0.049),
+			japan_edge, service).name = "ServiceAccessPlate"
+	for x in [-0.035, 0.035]:
+		for y in [-0.076, 0.066]:
+			var service_screw := _cyl(0.0032, 0.002, Vector3(x, y, 0.053),
+					brass_worn, Vector3.UP, service)
+			service_screw.rotation.x = PI * 0.5
+			_box(Vector3(0.004, 0.0006, 0.0006), Vector3(x, y, 0.0542),
+					dark, service).rotation.z = deg_to_rad(24.0)
+	for x in [-0.022, 0.022]:
+		_box(Vector3(0.032, 0.054, 0.002), Vector3(x, 0.022, 0.053),
+				dark, service)
+		for turn in range(5):
+			var coil := _torus(0.009 + float(turn) * 0.0012, 0.0010,
+					Vector3(x, 0.013 + float(turn) * 0.007, 0.055), copper,
+					Vector3.RIGHT)
+			coil.name = "LacqueredCoil"
+	for x in [-0.026, 0.026]:
+		_cyl(0.008, 0.006, Vector3(x, -0.058, 0.055), ceramic,
+				Vector3.UP, service).rotation.x = PI * 0.5
+		_cyl(0.004, 0.009, Vector3(x, -0.058, 0.060), brass_worn,
+				Vector3.UP, service).rotation.x = PI * 0.5
+	_label("ORISON ELECTRICAL & SIGNAL WORKS\nLONG ISLAND CITY, N.Y.\nTYPE 28-R  SERIAL 1847",
+			Vector3(0, -0.101, 0.056), 0.00012, Color("c8ad70"), false,
+			Vector3.ZERO, service)
+
+	# The established production states remain physically represented.
+	_order_material = _jewel_material()
+	_net_material = _jewel_material()
+	_lamp_indicator_material = _jewel_material()
+	for spec in [["ORDER", -0.030, AMBER, _order_material],
+			["NET", 0.0, GREEN, _net_material],
+			["LAMP", 0.030, RED, _lamp_indicator_material]]:
+		_sphere(0.0048, Vector3(float(spec[1]), -0.091, -0.048), spec[3])
+		_label(str(spec[0]), Vector3(float(spec[1]), -0.102, -0.049),
+				0.00012, Color("c8ad70"), true)
+
+	_receipt_root = Node3D.new()
+	_receipt_root.name = "FieldSlip"
+	_receipt_root.position = Vector3(-0.005, -0.050, -0.057)
+	_receipt_root.visible = false
+	add_child(_receipt_root)
+	_box(Vector3(0.058, 0.068, 0.0007), Vector3(0, 0.034, 0), paper,
+			_receipt_root)
+	_receipt_label = _label("WIRE 0000", Vector3(0, 0.031, -0.0012),
+			0.00019, Color("261f19"), true, Vector3.ZERO, _receipt_root)
+
+	_printer_tick = AudioStreamPlayer.new()
+	_printer_tick.stream = PropAudio.get_stream("tick")
+	_printer_tick.volume_db = -13.0
+	add_child(_printer_tick)
+	_printer_feed = AudioStreamPlayer.new()
+	_printer_feed.stream = PropAudio.get_stream("pop")
+	_printer_feed.volume_db = -18.0
+	_printer_feed.pitch_scale = 1.7
+	add_child(_printer_feed)
+
+	# Existing radio switch contract, now expressed as a period pull aerial.
+	_cyl(0.009, 0.010, Vector3(-0.040, 0.157, 0.010), ceramic, Vector3.UP)
+	_aerial = Node3D.new()
+	_aerial.name = "PowerAerial"
+	_aerial.position = Vector3(-0.040, 0.159, 0.010)
+	add_child(_aerial)
+	for i in 4:
+		var length := 0.072
+		var radius := 0.0032 - float(i) * 0.00052
+		_cyl(radius, length, Vector3(0, length * (float(i) + 0.5), 0),
+				nickel, Vector3.UP, _aerial)
+	_sphere(0.005, Vector3(0, 0.270, 0), phenolic, _aerial)
+
+	_lamp_lever = Node3D.new()
+	_lamp_lever.name = "LampLever"
+	_lamp_lever.position = Vector3(0.061, 0.102, 0.010)
+	add_child(_lamp_lever)
+	_box(Vector3(0.004, 0.026, 0.006), Vector3(0, 0.011, 0), brass_worn,
+			_lamp_lever)
+	_cyl(0.005, 0.008, Vector3.ZERO, phenolic, Vector3.UP, _lamp_lever)
+
+	# Underside hand cradle and two folded lead runs establish weight and use.
+	_box(Vector3(0.074, 0.155, 0.012), Vector3(0, -0.028, 0.041), leather)
+	for x in [-0.031, 0.031]:
+		_box(Vector3(0.009, 0.124, 0.010), Vector3(x, -0.030, 0.058),
+				_mat(Color("3b3027"), 0.88))
+
+
+func _build_legacy_model() -> void:
 	# The isolated pass already supplies wear through light and silhouette. The
 	# building material atlas is calibrated for metre-scale appliances and
 	# crushed this 85 mm case to featureless black, so the carried prop uses

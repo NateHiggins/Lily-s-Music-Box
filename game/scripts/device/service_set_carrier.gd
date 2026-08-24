@@ -93,7 +93,9 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	environment.background_mode = Environment.BG_CLEAR_COLOR
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	environment.ambient_light_color = Color("4a3528")
-	environment.ambient_light_energy = 2.20
+	# The 28-R's black lacquer and phenolic need enough broad reflection to
+	# separate plates before the two photographic keys describe their edges.
+	environment.ambient_light_energy = 3.20
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	var world_environment := WorldEnvironment.new()
 	world_environment.environment = environment
@@ -110,7 +112,7 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 
 	var key := OmniLight3D.new()
 	key.light_color = Color("ffd3a1")
-	key.light_energy = 10.0
+	key.light_energy = 16.0
 	key.omni_range = 1.1
 	key.shadow_enabled = false
 	key.light_cull_mask = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
@@ -118,7 +120,7 @@ func _build_overlay_pass(camera: Camera3D) -> void:
 	_pass_view.add_child(key)
 	var rim := OmniLight3D.new()
 	rim.light_color = Color("8191a0")
-	rim.light_energy = 4.8
+	rim.light_energy = 8.0
 	rim.omni_range = 0.9
 	rim.shadow_enabled = false
 	rim.light_cull_mask = 1 << (ServiceSetProp.DEVICE_LAYER - 1)
@@ -172,7 +174,7 @@ func _process(delta: float) -> void:
 	if _proof_pose > 0:
 		pose = Vector3(0, -0.01, -0.43)
 		rotation = Vector3(0, 180.0 if _proof_pose == 1 else 0.0, 0)
-		scale = Vector3.ONE * 1.30
+		scale = Vector3.ONE * 1.05
 	else:
 		var stride := 0.0018 + speed * 0.0023
 		pose += Vector3(sin(_bob * 1.6) * stride,
