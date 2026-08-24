@@ -393,6 +393,14 @@ Juno T4-2 now read as landed. Its remaining ten recommendations are not owner
 approved; the load-bearing rulings are `dream_event`, density addressability
 and whether the flora recipient clause is blocked.
 
+The owner approved all three load-bearing rulings. The shelved procedural
+limb's `dream_event` is deliberately inert legacy telemetry and must not be
+connected. Density fauna/flora may use stable analytical addresses in the
+existing `DreamFaunaDirector` slots, but gain no nodes, collision, agents,
+paths, save ids or second director. DO-3 flora is not blocked: LC-5 makes
+Gilder's Buttons and Wine Anemones the opening/secretion implementers through
+that same owner.
+
 The owner next ruled accelerated lifecycles for every visible Dream organelle,
 environment-selected asexual/sexual/pansexual reproduction, visit-persistent
 beautiful/disturbing death stains, an alien moss/fungus primary food and a

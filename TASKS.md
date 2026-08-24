@@ -2279,6 +2279,10 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   expresses it as local temporary `LivingField` pressure; `LivingFieldTest`
   passes 19/19 with no agents or stain added. Its visible production-root
   response remains DO-4 proof; do not claim it from the staged frame.
+  **Owner ruling 2026-08-24:** flora is not blocked and does not need a new
+  owner. Gilder's Buttons and Wine Anemones may become analytically
+  addressable through the existing density slots; LC-5 supplies their
+  opening/secretion response without nodes, collision, agents or save ids.
 - **DO-4 COMPLETE 2026-08-24 — PRODUCTION PROOF.** The real Orison root now
   carries one deterministic fixed-camera conversation through hero secretion,
   palp adoption/contact, selective fauna receptor presentation, delayed
@@ -2331,6 +2335,8 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   through staggered visible stages using the existing packed lifecycle and
   birthing/reabsorbing channels. Reproduction changes cosmetic genome and
   affinity only; it cannot change family function, collision or hazards.
+  Stable analytical slot addresses are approved for this work; they are
+  transient director-local handles, never persistent individual identities.
 - **LC-4 OPEN — VISIT-PERSISTENT DEATH STAINS.** Coalesce dead-organ genome,
   position and motif into bounded room memories that survive streaming for
   the Dream visit, clear at waking and never enter `RealityState`. Render the
@@ -2339,6 +2345,8 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   primary visible food and show cold ether exhalation, inhalation and return
   through bounded existing field/material owners. Require unchanged A/A,
   unreliable-lamp states, lifecycle sequence and performance measurement.
+  This is also the approved DO-3 flora implementer: Buttons open/exhale and
+  Anemones reclaim/secrete through their existing owner.
 - **LC-6 OPEN — ALL-ORGANELLE ROLLOUT.** Apply the shared stages through each
   existing owner in order: flora; palp/cilia; hero; architecture; incarnation;
   co-present pursuer/hazard. A stage vocabulary is not permission to move

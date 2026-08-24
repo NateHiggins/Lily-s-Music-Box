@@ -30,6 +30,17 @@ packet contract or granting omniscient case knowledge. See
 4. Rare whole-body attention remains the response to a meaningful player
    world modification behind its 22-second gate. Ordinary organelle packets
    can never seize it.
+5. The shelved procedural manifestation limb's `dream_event` signal is
+   deliberately inert legacy telemetry. Do not connect it or promote it into
+   the shared packet bed; the modelled hero and current shared owners remain
+   the communication seam.
+6. Density fauna and flora may be analytically addressable through
+   `DreamFaunaDirector`'s existing fixed submission slots. Addressability may
+   name a cohort, receptor or stain but creates no node, collision object,
+   agent, path, save identity or second director.
+7. DO-3 flora is not blocked. Gilder's Buttons and Wine Anemones are landed
+   flora inside the density owner; Ethermoss work under LC-5 supplies their
+   opening/secretion response through the approved analytical slots.
 
 ## Existing behaviour, read biologically
 
