@@ -610,8 +610,18 @@ Contracts: field 16/16, margin 31/31, critters 29/29, ecology 23/23.
   premonition photographed as a gold ring — an ornament, which is the one
   thing it must not be.
 
-  Steps 7-12 (independent investigation, cilia deploying, the retraction and
-  refolding) are still owed.
+  Steps 10-12 are built too: a branch FOLDS BACK into its parent rather than
+  scaling down to nothing — "never spawn a branch by scaling a cylinder from
+  zero" is a statement about anatomy, and anatomy does not leave that way
+  either — and the parent then returns to simpler topology. Its child count
+  had been set on branching and never put back, so an appendage stayed marked
+  as branched for the rest of its life long after the branches were gone, and
+  since `try_branch` refuses a parent that already has children, it could
+  never branch twice.
+
+  Steps 8 and 9 (fine cilia deploying, and the task completing as a distinct
+  beat) are still owed. Step 7 is served: branches carry their own acts and
+  targets and now inspect critters on their own account.
 - §21's habitat list is COMPLETE — all ten. *"This turns the wall into a
   functioning biome."*
 

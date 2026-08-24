@@ -346,7 +346,9 @@ func _think(delta: float) -> void:
 				# nearer the base than the tip.
 				p.swell_v = _rng.randf_range(0.42, 0.72)
 				p.swell = 0.0001
-		if int(p.parent) >= 0 and float(p.unfold) < 1.0:
+		# Unfolding, unless it has started folding back -- otherwise the two
+		# fight and the branch shivers in place at the end of its life.
+		if int(p.parent) >= 0 and float(p.unfold) < 1.0 				and not bool(p.get("folding", false)):
 			p.unfold = minf(1.0, float(p.unfold) + delta * 0.75)
 		var want: Vector3 = BehaviorScript.desired_tip(p, _clock)
 		# §13 overrides local intent, which is the entire point of it: a
@@ -495,13 +497,37 @@ func _age(delta: float) -> void:
 		# Emerge, hold, withdraw. Withdrawal propagates from the tip (§9).
 		var emerge := 0.9
 		var leave := 1.2
-		if p.age < emerge:
+		var going: float = 0.0
+		if p.age > p.life - leave:
+			going = smoothstep(0.0, 1.0, (p.age - (p.life - leave)) / leave)
+		if int(p.parent) >= 0:
+			# §12 STEPS 10-12 — IT FOLDS BACK IN. A branch that scales down to
+			# nothing is the same error as one that scales up from nothing:
+			# "never spawn a branch by scaling a cylinder from zero" is a
+			# statement about anatomy, and anatomy does not leave that way
+			# either. It lies back down along its parent, which is exactly
+			# where it came from, and is gone when it is indistinguishable
+			# from it.
+			p.grow = 1.0 if p.age >= emerge else smoothstep(0.0, 1.0, p.age / emerge)
+			p.folding = going > 0.0
+			if going > 0.0:
+				p.unfold = 1.0 - going
+		elif p.age < emerge:
 			p.grow = smoothstep(0.0, 1.0, p.age / emerge)
-		elif p.age > p.life - leave:
-			p.grow = 1.0 - smoothstep(0.0, 1.0, (p.age - (p.life - leave)) / leave)
+		elif going > 0.0:
+			p.grow = 1.0 - going
 		else:
 			p.grow = 1.0
 		if p.age >= p.life:
+			# §12 STEP 12 — THE PARENT RETURNS TO SIMPLER TOPOLOGY. Its child
+			# count was set when it branched and never put back, so an
+			# appendage stayed marked as branched for the rest of its life
+			# long after the branches had gone -- and since try_branch refuses
+			# a parent that already has children, it could never do it twice.
+			if int(p.parent) >= 0:
+				var par: Dictionary = parent_of(p)
+				if not par.is_empty():
+					par.children = maxi(0, int(par.children) - 1)
 			palp_died.emit(int(p.id))
 			palps.remove_at(i)
 		i -= 1
@@ -610,6 +636,8 @@ static func _shared_state() -> Dictionary:
 		# the organ it is happening.
 		"swell": 0.0,
 		"swell_v": 0.6,
+		# §12 step 11: whether it is on its way back into its parent.
+		"folding": false,
 	}
 
 

@@ -223,6 +223,55 @@ func _run() -> void:
 		_check("§12 and nothing separates until the swelling finishes",
 				swell_first and int(host.children) > 0)
 
+		# --- §12 STEPS 10-12: IT GOES BACK THE WAY IT CAME ---------------
+		#
+		# "Never spawn a branch by scaling a cylinder from zero" is a
+		# statement about anatomy, and anatomy does not LEAVE that way either.
+		# A branch lies back down along its parent and is gone when it is
+		# indistinguishable from it.
+		var kid: Dictionary = {}
+		for p in margin.palps:
+			if int(p.parent) == int(host.id):
+				kid = p
+				break
+		if kid.is_empty():
+			_check("§12 a branch exists to watch fold back", false)
+		else:
+			var kid_id: int = int(kid.id)
+			# KEEP THE PARENT ALIVE FOR THE MEASUREMENT. Appendages live six
+			# to fifteen seconds and this host has already used some of that;
+			# if it dies while its branch is folding there is nothing left to
+			# hand the topology back to, and the check reads a working release
+			# as a broken one while holding a reference to a removed organ.
+			host.life = float(host.age) + 40.0
+			var had: int = int(host.children)
+			# Straight to the end of its life, so this measures the folding
+			# rather than the waiting.
+			kid.age = float(kid.life) - 1.1
+			var min_unfold := 2.0
+			var max_grow := 0.0
+			var gone := false
+			for _step in 60:
+				margin._think(0.05)
+				margin._age(0.05)
+				var still := false
+				for p in margin.palps:
+					if int(p.id) == kid_id:
+						still = true
+						min_unfold = minf(min_unfold, float(p.unfold))
+						max_grow = maxf(max_grow, float(p.grow))
+						break
+				if not still:
+					gone = true
+					break
+			_check("§12 a branch folds back into its parent (unfold fell to %.2f)"
+					% min_unfold, gone and min_unfold < 0.25)
+			_check("§12 and it folds rather than shrinking (grow held at %.2f)"
+					% max_grow, max_grow > 0.9)
+			_check("§12 the parent returns to simpler topology (%d -> %d children)"
+					% [had, int(host.children)],
+					margin.palps.has(host) and int(host.children) < had)
+
 	# AND THE SWELLING REACHES THE RENDERER. A premonition the geometry never
 	# hears about is a number in a dictionary: every one of steps 2, 3 and 4 is
 	# surface, so if this array stays at zero none of them happens on screen.
