@@ -99,6 +99,17 @@ uniform vec3 rider_pivot = vec3(0.0);
 uniform vec3 rider_tilt = vec3(0.0);
 uniform vec3 rider_axis = vec3(0.0, 1.0, 0.0);
 uniform float rider_squash = 0.0;
+// §10's contact list asks for five things -- compress, spread, deform, grip,
+// release -- and `rider_squash` is only the first. A sucker meeting a surface
+// does not merely get shorter: its RIM spreads out against the surface while
+// its CUP pulls back behind it, and the hollow that leaves is the whole
+// difference between a grip and a press. Letting go is a separate motion
+// again, and a faster one.
+//
+// x how far the rim has spread, y how deep the cup has drawn back, z spare,
+// w the piece's own radius -- zero on anything that is not a sucker, which is
+// also what switches the whole thing off.
+uniform vec4 rider_grip = vec4(0.0);
 group_uniforms;
 
 varying vec3 v_world;
@@ -156,6 +167,18 @@ void vertex() {
 		// And press: a sucker loses height along its own axis and keeps its
 		// width, which is what pressing something soft against a wall does.
 		rel -= rider_axis * dot(rel, rider_axis) * rider_squash;
+		// §10 — SPREAD AND GRIP. Split the piece into rim and cup by how far
+		// out from its own axis a vertex lies: the outside flares against the
+		// surface, the inside withdraws from it.
+		if (rider_grip.w > 0.0001) {
+			float ax = dot(rel, rider_axis);
+			vec3 lat = rel - rider_axis * ax;
+			float rr = length(lat) / rider_grip.w;
+			lat *= 1.0 + rider_grip.x * 0.40 * smoothstep(0.35, 1.0, rr);
+			ax -= rider_grip.y * 0.55 * (1.0 - smoothstep(0.0, 0.75, rr))
+					* rider_grip.w;
+			rel = lat + rider_axis * ax;
+		}
 		VERTEX = rider_pivot + rel;
 	}
 	VERTEX += rider_push;

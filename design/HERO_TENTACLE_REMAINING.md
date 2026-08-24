@@ -99,10 +99,18 @@ on contact (see H4): a pressed one flattens along its own axis by 0.42 while
 one two and a half centimetres away reaches 0.27, so the club reads as a row
 of organs meeting a surface rather than as one soft pad.
 
-Still owed of §10's contact list: spread, grip and release. Compression is
-there; the rest need the sucker rims to move independently of the body they
-are seated on, which is the same per-piece articulation H4 built for the
-gold — a sucker has a rim and a cup and currently only the cup answers.
+§10's contact list is COMPLETE: compress, spread, deform, grip and release.
+A sucker is split into rim and cup by how far a vertex lies from its own
+axis — the outside flares against the surface while the inside withdraws
+from it, and the hollow that leaves is the whole difference between a grip
+and a press.
+
+All three are a matter of TIMING, which is why none of them can be judged
+from a frame: at their settled values they are identical. The cup arrives
+*behind* the rim because a grip is something that takes hold, and letting go
+is faster than either, because nothing in an animal releases at the speed it
+gripped. Measured a sixth of a second into a press: rim 0.81, cup 0.40. Held,
+the cup reaches 1.00; released, 99% of it is gone in 0.3 s.
 
 ### H4. Secondary motion — DONE
 The solve and the search now produce INTENT; a separate pass carries the

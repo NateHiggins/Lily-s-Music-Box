@@ -706,7 +706,15 @@ func _modelled_hero_shots() -> void:
 	if a_sucker >= 0:
 		hero.set_process(false)
 		hero.contact_point = hero.to_global(seat_of_probe(hero, a_sucker))
-		for _step in 24:
+		# SAMPLED EARLY, because the ordering is the whole claim. Left to
+		# settle, the rim and the cup arrive at the same value and the check
+		# reads 1.00 against 0.98 -- technically in the right order and
+		# meaningless. A sixth of a second in is where they differ.
+		for _early in 3:
+			hero._micro(0.05)
+		var rim_early: float = hero._rider_spread[a_sucker]
+		var cup_early: float = hero._rider_cup[a_sucker]
+		for _step in 21:
 			hero._micro(0.05)
 		var pressed: float = hero._rider_squash[a_sucker]
 		var untouched := 0.0
@@ -715,6 +723,33 @@ func _modelled_hero_shots() -> void:
 				untouched = maxf(untouched, hero._rider_squash[i])
 		print("[SWEEP] pressed sucker %.3f, furthest other sucker %.3f"
 				% [pressed, untouched])
+		# §10 — SPREAD, GRIP AND RELEASE, WHICH ARE A MATTER OF TIMING.
+		#
+		# Three motions that differ only in WHEN they happen cannot be told
+		# apart in any still frame, and at their settled values they are
+		# identical. What distinguishes a grip from a press is that the cup
+		# arrives AFTER the rim; what distinguishes releasing from gripping is
+		# that it is faster. So both are measured as rates.
+		print("[SWEEP] a sixth of a second in: rim %.2f, cup %.2f"
+				% [rim_early, cup_early])
+		if rim_early <= cup_early * 1.25:
+			printerr("[SWEEP] the cup takes hold as fast as the rim spreads — that is a press, not a grip")
+		for _hold in 40:
+			hero._micro(0.05)
+		var cup_held: float = hero._rider_cup[a_sucker]
+		if cup_held <= cup_early:
+			printerr("[SWEEP] the cup never takes hold")
+		# LETTING GO. The contact is removed and both must come back, the cup
+		# faster than it went.
+		hero.contact_point = Vector3.INF
+		for _off in 6:
+			hero._micro(0.05)
+		var cup_after: float = hero._rider_cup[a_sucker]
+		var released: float = (cup_held - cup_after) / maxf(0.0001, cup_held)
+		print("[SWEEP] grip took hold to %.2f, and %.0f%% of it let go in 0.3 s"
+				% [cup_held, released * 100.0])
+		if released < 0.5:
+			printerr("[SWEEP] it lets go no faster than it gripped")
 		if pressed < 0.2:
 			printerr("[SWEEP] a sucker on a surface does not press")
 		# A limb resting one sucker on a radiator must not flatten the
@@ -722,7 +757,6 @@ func _modelled_hero_shots() -> void:
 		if untouched > pressed * 0.9:
 			printerr("[SWEEP] every sucker presses at once — the press is not local")
 		hero.set_process(true)
-		hero.contact_point = Vector3.INF
 	print("[SWEEP] pivot stays %.4f mm from its bone" % (pivot_drift * 1000.0))
 	if pivot_drift > 0.0005:
 		printerr("[SWEEP] THE PIVOTS DRIFT — the pieces are being sheared, not turned")

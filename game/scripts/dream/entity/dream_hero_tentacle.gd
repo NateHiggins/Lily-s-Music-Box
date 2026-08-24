@@ -867,6 +867,11 @@ var _rider_rest: Array[Transform3D] = []
 var _rider_spin: Array[Quaternion] = []
 var _rider_tilt := PackedVector3Array()
 var _rider_squash := PackedFloat32Array()
+## §10 — how far each sucker's rim has spread, how deep its cup has drawn
+## back, and the piece's own radius across its axis.
+var _rider_spread := PackedFloat32Array()
+var _rider_cup := PackedFloat32Array()
+var _rider_radius := PackedFloat32Array()
 ## How far each system ROCKS when the flesh under it bends, in radians per
 ## radian-per-second of the seat's own turning. Gold and crystal are plates
 ## and rock most; a sucker is soft and mostly does not.
@@ -898,6 +903,9 @@ func _seat_riders() -> void:
 	_rider_out.resize(count)
 	_rider_tilt.resize(count)
 	_rider_squash.resize(count)
+	_rider_spread.resize(count)
+	_rider_cup.resize(count)
+	_rider_radius.resize(count)
 	_rider_rest.resize(count)
 	_rider_spin.resize(count)
 	var n := _bones.size()
@@ -933,6 +941,14 @@ func _seat_riders() -> void:
 		_rider_seat[i] = rest.affine_inverse() * centre
 		var out: Vector3 = centre - rest.origin
 		_rider_out[i] = (rest.basis.inverse() * out).normalized() 				if out.length() > 0.0005 else Vector3.UP
+		# How wide the piece is ACROSS that axis, which is what tells the rim
+		# from the cup. Taken from the two smaller box dimensions rather than
+		# from the diagonal: on a flat sucker the diagonal is mostly its width
+		# anyway, and on a long spur it is not.
+		var box: AABB = meshes[i].transform * meshes[i].get_aabb()
+		var ext: Vector3 = box.size * 0.5
+		var big: float = maxf(ext.x, maxf(ext.y, ext.z))
+		_rider_radius[i] = maxf(0.001, (ext.x + ext.y + ext.z - big) * 0.5)
 
 
 ## The riders answer the flesh, a beat late.
@@ -1011,6 +1027,19 @@ func _micro(delta: float) -> void:
 			_rider_squash[i] = lerpf(_rider_squash[i], press,
 					1.0 - exp(-12.0 * delta))
 			materials[i].set_shader_parameter("rider_squash", _rider_squash[i])
+			# §10 — SPREAD, GRIP AND RELEASE. The rim spreads as fast as the
+			# press arrives; the cup draws back BEHIND it, slower, because a
+			# grip is something that takes hold. Letting go is quicker than
+			# either: nothing in an animal releases at the speed it gripped.
+			var hold: float = press / maxf(0.0001, SUCKER_SQUASH)
+			var s_rate: float = 11.0 if hold > _rider_spread[i] else 17.0
+			var c_rate: float = 3.4 if hold > _rider_cup[i] else 15.0
+			_rider_spread[i] = lerpf(_rider_spread[i], hold,
+					1.0 - exp(-s_rate * delta))
+			_rider_cup[i] = lerpf(_rider_cup[i], hold,
+					1.0 - exp(-c_rate * delta))
+			materials[i].set_shader_parameter("rider_grip", Vector4(
+					_rider_spread[i], _rider_cup[i], 0.0, _rider_radius[i]))
 	rider_motion = most
 
 
@@ -1098,12 +1127,17 @@ func _process(delta: float) -> void:
 
 ## Facts for the contract.
 func census() -> Dictionary:
+	var gripping := 0
+	for i in _rider_cup.size():
+		if _rider_cup[i] > 0.15:
+			gripping += 1
 	var skinned := 0
 	for mi in meshes:
 		if mi.skin != null:
 			skinned += 1
 	return {"meshes": meshes.size(), "skinned": skinned,
 			"rider_motion": snappedf(rider_motion, 0.0001),
+			"gripping": gripping,
 			"nudged_critters": nudged_critters,
 			"materials": materials.size(), "grow": grow,
 			"deform_bones": _bones.size(), "eye_bone": _eye_bone,
