@@ -855,6 +855,24 @@ var _rider_kind := PackedInt32Array()
 var _rider_prev := PackedVector3Array()
 var _rider_vel := PackedVector3Array()
 var _rider_push := PackedVector3Array()
+## Where each piece sits on its bone, and which way is "out" from that bone --
+## both fixed in the bone's own frame, so they follow it for free.
+var _rider_seat := PackedVector3Array()
+var _rider_out := PackedVector3Array()
+var _rider_rest: Array[Transform3D] = []
+var _rider_spin: Array[Quaternion] = []
+var _rider_tilt := PackedVector3Array()
+var _rider_squash := PackedFloat32Array()
+## How far each system ROCKS when the flesh under it bends, in radians per
+## radian-per-second of the seat's own turning. Gold and crystal are plates
+## and rock most; a sucker is soft and mostly does not.
+const RIDER_ROCK := [0.0, 0.030, 0.024, 0.0, 0.010, 0.0]
+const RIDER_ROCK_CAP := [0.0, 0.075, 0.060, 0.0, 0.030, 0.0]
+## How far a sucker flattens when it is pressed, and how close to the contact
+## it has to be to feel it at all.
+const SUCKER_SQUASH := 0.42
+const SUCKER_REACH := 0.13
+
 ## How hard each system trails, and how quickly it comes back. A hair whips
 ## and takes its time; a mineral plate barely shifts and snaps back.
 ##            kind:   0 flesh  1 gold  2 crystal 3 membrane 4 sucker 5 cilium
@@ -872,6 +890,12 @@ func _seat_riders() -> void:
 	_rider_prev.resize(count)
 	_rider_vel.resize(count)
 	_rider_push.resize(count)
+	_rider_seat.resize(count)
+	_rider_out.resize(count)
+	_rider_tilt.resize(count)
+	_rider_squash.resize(count)
+	_rider_rest.resize(count)
+	_rider_spin.resize(count)
 	var n := _bones.size()
 	for i in count:
 		_rider_kind[i] = _kind_of(meshes[i].name)
@@ -893,7 +917,18 @@ func _seat_riders() -> void:
 		if _rider_kind[i] == 3:
 			along = 0.25
 		_rider_bone[i] = _bones[clampi(int(round(along * float(n - 1))), 0, n - 1)]
-		_rider_prev[i] = skeleton.get_bone_global_pose(_rider_bone[i]).origin
+		var rest: Transform3D = skeleton.get_bone_global_pose(_rider_bone[i])
+		_rider_rest[i] = rest
+		_rider_spin[i] = rest.basis.get_rotation_quaternion()
+		_rider_prev[i] = rest.origin
+		# The piece's centre and its outward direction, both expressed in the
+		# SEAT'S OWN FRAME. Held that way they need no re-deriving: wherever
+		# the bone goes, the seat and the axis go with it exactly, which is
+		# what makes a rigid piece rigid.
+		var centre: Vector3 = (meshes[i].transform * meshes[i].get_aabb()).get_center()
+		_rider_seat[i] = rest.affine_inverse() * centre
+		var out: Vector3 = centre - rest.origin
+		_rider_out[i] = (rest.basis.inverse() * out).normalized() 				if out.length() > 0.0005 else Vector3.UP
 
 
 ## The riders answer the flesh, a beat late.
@@ -906,6 +941,11 @@ func _seat_riders() -> void:
 func _micro(delta: float) -> void:
 	if skeleton == null or _rider_bone.is_empty():
 		return
+	# The contact is a point in the room; the pieces live in the creature's own
+	# space. Converted once rather than per rider.
+	var contact_local := Vector3.INF
+	if contact_point != Vector3.INF:
+		contact_local = to_local(contact_point)
 	var most := 0.0
 	for i in meshes.size():
 		var b := _rider_bone[i]
@@ -925,6 +965,48 @@ func _micro(delta: float) -> void:
 				1.0 - exp(-float(RIDER_RATE[kind]) * delta))
 		materials[i].set_shader_parameter("rider_push", _rider_push[i])
 		most = maxf(most, _rider_push[i].length())
+		if float(RIDER_ROCK[kind]) <= 0.0 and kind != 4:
+			continue
+		# WHERE THIS PIECE IS NOW, AND WHICH WAY IS OUT. Carried in the seat's
+		# frame, so the current answer is just the seat's current transform
+		# applied to them.
+		var seat: Transform3D = skeleton.get_bone_global_pose(b)
+		var pivot: Vector3 = seat * _rider_seat[i]
+		var axis: Vector3 = (seat.basis * _rider_out[i]).normalized()
+		materials[i].set_shader_parameter("rider_pivot", pivot)
+		materials[i].set_shader_parameter("rider_axis", axis)
+		# ROCKING. Driven by how fast the SEAT is turning, not by how fast it
+		# is travelling: a plate on a limb that swings rigidly does not rock,
+		# and a plate on flesh that bends underneath it does.
+		var q: Quaternion = seat.basis.get_rotation_quaternion()
+		var dq: Quaternion = q * _rider_spin[i].inverse()
+		_rider_spin[i] = q
+		# For a small rotation the vector part is half the axis-times-angle.
+		var spin: Vector3 = Vector3(dq.x, dq.y, dq.z) * 2.0 / maxf(delta, 0.0001)
+		var rock: Vector3 = -spin * float(RIDER_ROCK[kind])
+		var rock_cap: float = float(RIDER_ROCK_CAP[kind])
+		if rock.length() > rock_cap:
+			rock = rock.normalized() * rock_cap
+		_rider_tilt[i] = _rider_tilt[i].lerp(rock,
+				1.0 - exp(-float(RIDER_RATE[kind]) * delta))
+		materials[i].set_shader_parameter("rider_tilt", _rider_tilt[i])
+		# PRESSING. Only the suckers, and only the ones actually near what the
+		# creature is touching -- a limb resting one sucker on a radiator
+		# should not flatten the twenty-five up its own shaft.
+		if kind == 4:
+			var press := 0.0
+			if contact_local != Vector3.INF:
+				# SQUARED, not linear. Linear falloff had a sucker two and a
+				# half centimetres off the contact pressing at four fifths of
+				# full, which makes the whole club read as one soft pad rather
+				# than as a row of organs meeting a surface. Pressure between
+				# two solids does not fall off in a straight line either.
+				var reach: float = clampf(1.0 - pivot.distance_to(contact_local)
+						/ SUCKER_REACH, 0.0, 1.0)
+				press = reach * reach * SUCKER_SQUASH
+			_rider_squash[i] = lerpf(_rider_squash[i], press,
+					1.0 - exp(-12.0 * delta))
+			materials[i].set_shader_parameter("rider_squash", _rider_squash[i])
 	rider_motion = most
 
 

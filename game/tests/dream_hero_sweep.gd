@@ -623,6 +623,87 @@ func _modelled_hero_shots() -> void:
 		printerr("[SWEEP] the cilia are no springier than the gold — one spring for everything")
 	if float(peak[5]) < 0.0005:
 		printerr("[SWEEP] the riders are not moving at all")
+	# H4's second half: ROCKING AND PRESSING, which need a pivot.
+	#
+	# THE PIVOT IS THE PART THAT CAN BE SILENTLY WRONG. A rigid piece turns
+	# about a point that must stay a fixed distance from the bone it is seated
+	# on -- if it drifts, the piece is not rotating, it is being sheared, and
+	# on a lumpy organic sculpture that reads as "the shader is a bit odd"
+	# rather than as a bug. So the invariant is measured directly: carry each
+	# seat offset in the bone's own frame, and the distance from bone to pivot
+	# can never change no matter what the skeleton does.
+	var rock_peak := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+	var squash_peak := 0.0
+	var pivot_drift := 0.0
+	var rest_gap := {}
+	var contact_live := 0
+	var nearest_sucker := 9.0
+	for _probe in 90:
+		await get_tree().create_timer(0.05).timeout
+		var cl := Vector3.INF
+		if hero.contact_point != Vector3.INF:
+			contact_live += 1
+			cl = hero.to_local(hero.contact_point)
+		for i in hero.meshes.size():
+			var b: int = hero._rider_bone[i]
+			if b < 0:
+				continue
+			var k: int = hero._rider_kind[i]
+			rock_peak[k] = maxf(rock_peak[k], hero._rider_tilt[i].length())
+			squash_peak = maxf(squash_peak, hero._rider_squash[i])
+			var seat: Transform3D = hero.skeleton.get_bone_global_pose(b)
+			if k == 4 and cl != Vector3.INF:
+				nearest_sucker = minf(nearest_sucker,
+						(seat_of_probe(hero, i)).distance_to(cl))
+			var gap: float = (seat * hero._rider_seat[i]).distance_to(seat.origin)
+			if not rest_gap.has(i):
+				rest_gap[i] = gap
+			pivot_drift = maxf(pivot_drift, absf(gap - float(rest_gap[i])))
+	for k in [1, 2, 4]:
+		print("[SWEEP] RIDER %-9s peak rock %.2f deg" % [kind_names[k],
+				rad_to_deg(float(rock_peak[k]))])
+	print("[SWEEP] RIDER sucker    peak press %.3f" % squash_peak)
+	print("[SWEEP] contact was live in %d of %d samples; nearest sucker %.3f m"
+			% [contact_live, 90, nearest_sucker])
+	# THE PRESS, CONSTRUCTED. Waiting for it measured nothing: across four and
+	# a half seconds the creature touched nothing at all, and a flat zero from
+	# an unfired mechanism is indistinguishable from a flat zero from a broken
+	# one. The flat this runs in is cramped enough that the limb spends most
+	# of a take finding nothing in reach.
+	#
+	# So put a surface under a sucker. The state machine is stopped so it
+	# cannot overwrite the contact on the next frame, and the pass is driven
+	# by hand.
+	var a_sucker := -1
+	for i in hero.meshes.size():
+		if hero._rider_kind[i] == 4 and hero._rider_bone[i] >= 0:
+			a_sucker = i
+			break
+	if a_sucker >= 0:
+		hero.set_process(false)
+		hero.contact_point = hero.to_global(seat_of_probe(hero, a_sucker))
+		for _step in 24:
+			hero._micro(0.05)
+		var pressed: float = hero._rider_squash[a_sucker]
+		var untouched := 0.0
+		for i in hero.meshes.size():
+			if hero._rider_kind[i] == 4 and i != a_sucker:
+				untouched = maxf(untouched, hero._rider_squash[i])
+		print("[SWEEP] pressed sucker %.3f, furthest other sucker %.3f"
+				% [pressed, untouched])
+		if pressed < 0.2:
+			printerr("[SWEEP] a sucker on a surface does not press")
+		# A limb resting one sucker on a radiator must not flatten the
+		# twenty-five up its own shaft.
+		if untouched > pressed * 0.9:
+			printerr("[SWEEP] every sucker presses at once — the press is not local")
+		hero.set_process(true)
+		hero.contact_point = Vector3.INF
+	print("[SWEEP] pivot stays %.4f mm from its bone" % (pivot_drift * 1000.0))
+	if pivot_drift > 0.0005:
+		printerr("[SWEEP] THE PIVOTS DRIFT — the pieces are being sheared, not turned")
+	if float(rock_peak[1]) < 0.002:
+		printerr("[SWEEP] the gold plates never rock")
 	# H1 A/B. The bake is either doing something visible or it is not, and the
 	# only way to know is to photograph the same frame with it off.
 	var ab: String = OS.get_environment("SWEEP_ANATOMY")
@@ -715,6 +796,12 @@ func _modelled_hero_shots() -> void:
 				_dir.path_join("%s.png" % str(shot[0])))
 		_frame += 1
 		print("[SWEEP] %s at %s (%.2f m)" % [str(shot[0]), aim, dist])
+
+
+## Where a rider's pivot currently is, in the creature's own space.
+func seat_of_probe(hero, i: int) -> Vector3:
+	var seat: Transform3D = hero.skeleton.get_bone_global_pose(hero._rider_bone[i])
+	return seat * hero._rider_seat[i]
 
 
 func mid_of(lo: Vector3, hi: Vector3) -> Vector3:

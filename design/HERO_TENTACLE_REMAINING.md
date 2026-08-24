@@ -106,9 +106,39 @@ it — and the tip by 0.1333 rad, a hundredfold gradient along the body. The wet
 highlight is the cascade's last layer and now settles after the body does,
 driven by a `body_motion` signal that rises instantly and decays slowly.
 
-Still owed from §12's list: gold micro-articulation (the plates ride the flesh
-but do not reseat), cilia springs, sucker compression, membrane
-follow-through, vascular pulses.
+**The riders answer the flesh a beat late.** Every rider is bound to the
+cage's own weights, so it went exactly where the flesh went and did nothing of
+its own — skinning is precisely the part that moves a rider AS IF it were the
+flesh. Each is now sprung against the LOCAL velocity of the bone it sits on,
+which is the whole point: the club can whip while the collar is still, and one
+number for the body cannot say that. Measured peaks: cilium 14.3 mm, sucker
+6.0, gold and crystal 3.0 at their caps, membrane 1.8.
+
+The membrane is NOT dragged by the collar — the root is the one anchored part
+of the creature and never translates, so seated on its own bone it measured
+0.02 mm of follow-through. What pulls a membrane about is the limb passing
+through it, so it answers to the limb a quarter of the way down.
+
+**And rigid pieces rock and press.** A translation slides a gold plate along
+the flesh; it does not TIP it, and tipping is most of what seating a hard
+thing in a soft one looks like — the flesh bends, the plate cannot, so it
+rocks and lifts at one edge. A sucker meeting a surface flattens rather than
+trailing. Both need a pivot, which each piece now carries in its seat bone's
+own frame. Measured: gold rocks to 4.1°, crystal 3.3°, sucker 1.5°; a pressed
+sucker flattens 0.42 while one 2.6 cm away reaches 0.27.
+
+Two things worth keeping:
+
+- **The pivot is the part that can be silently wrong.** If it drifts off its
+  bone the piece is not rotating, it is being sheared, and on a lumpy organic
+  sculpture that reads as "the shader is a bit odd" rather than as a bug. The
+  sweep asserts the bone-to-pivot distance never changes: currently 0.0001 mm.
+- **The press had to be constructed.** Waiting measured nothing — across four
+  and a half seconds in a real flat the creature touched nothing at all, and a
+  flat zero from an unfired mechanism looks exactly like a flat zero from a
+  broken one.
+
+Still owed from §12's list: vascular pulses driving the geometry.
 
 ### H5. ~~The eye does not perform~~ — DONE
 The rig had carried `CTL_EYE` and three lid controls since it was built and

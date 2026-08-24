@@ -82,6 +82,23 @@ uniform float rider_v = -1.0;
 // mesostructure, and a gold plate that slides far enough to see is a gold
 // plate that has come off the animal.
 uniform vec3 rider_push = vec3(0.0);
+// H4 — AND WHAT A RIGID PIECE DOES THAT SLIDING WILL NOT DO FOR IT.
+//
+// A translation moves a gold plate along the flesh. It does not TIP it, and
+// tipping is most of what seating a hard thing in a soft one looks like: the
+// flesh bends, the plate cannot, so it rocks and lifts at one edge. And a
+// sucker does not trail when it presses -- it FLATTENS.
+//
+// Both need something a rigid offset cannot supply: a point to turn about.
+// The creature sends each piece its own, tracked from the bone it is seated
+// on, along with the piece's own radial axis for the flattening.
+//
+// `rider_tilt` is an axis times a small angle, applied as a cross product --
+// exact enough below a few degrees, which is the entire range this uses.
+uniform vec3 rider_pivot = vec3(0.0);
+uniform vec3 rider_tilt = vec3(0.0);
+uniform vec3 rider_axis = vec3(0.0, 1.0, 0.0);
+uniform float rider_squash = 0.0;
 group_uniforms;
 
 varying vec3 v_world;
@@ -118,6 +135,15 @@ void vertex() {
 		float w = clamp(slice_close, 0.0, 1.0);
 		float remaining = sqrt(max(0.0, 1.0 - w * w));
 		VERTEX -= radial * here * (1.0 - remaining);
+	}
+	if (rider_v >= 0.0) {
+		vec3 rel = VERTEX - rider_pivot;
+		// Rock about the seat.
+		rel += cross(rider_tilt, rel);
+		// And press: a sucker loses height along its own axis and keeps its
+		// width, which is what pressing something soft against a wall does.
+		rel -= rider_axis * dot(rel, rider_axis) * rider_squash;
+		VERTEX = rider_pivot + rel;
 	}
 	VERTEX += rider_push;
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
