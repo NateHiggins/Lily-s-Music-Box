@@ -80,6 +80,25 @@ boundary regressions. SR6B remains the real 40–50 minute capture/tuning pass;
 do not call the synthetic 15/15/15 arithmetic trace a playtest. SR7 must add
 enough compelling apparatus before that ratio can be honestly certified.
 
+**Vertical-apparatus checkpoint (2026-08-25):** SR7-A is landed as the first
+real dumbwaiter foundation. Production contained no dumbwaiter at any level,
+so `OrisonDetailPass` now places one hand-authored lobby landing beside the
+porter board rather than pretending the passenger-elevator geometry was a
+dumbwaiter shaft. Its counterweight, sheave, pawl and automatic holding band
+teach five short verbs: take the strain, ease the pawl, prove the balance, seat
+the band and prove the bite. Mechanically false orders refuse immediately;
+preview/abort restores; only commit seats the band and emits the prop's result.
+It advances no work order, case, plant state or Dream fact. Focused proof passes
+28/28 and the full production root passes 24/24; Forward+ proof with measured
+A/A lives at `art/renders/dumbwaiter_brake_sr7a/README.md`. This is one landing,
+not yet a traversable multi-floor shaft, and no Service Round route refers to
+it yet. The proof also exposed the adjacent porter board and mail bank showing
+their blank backs to the corridor; that unrelated facing defect is recorded in
+`design/walkthrough_punchlist.md`, not silently repaired here. The isolated
+commit `c78249d` was integrated as `1472ce6`; the first local focused run hung
+only because the checkout's Godot class cache predated `DumbwaiterProp`, then a
+serialized import made both independent validation runs pass.
+
 **Dream rendering checkpoint (2026-08-20):** R1–R6 of the production surface
 redesign are landed through `art/renders/dream_rendering_r6/README.md`. The
 current target pocket is a recognisable furnished Orison invaded by one

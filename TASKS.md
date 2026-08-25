@@ -3420,9 +3420,24 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   open:** run and tune a real 40–50 minute playtest after SR7 supplies enough
   hands-on apparatus; do not certify the ratio from the synthetic arithmetic
   trace.
-- **SR7 — Vertical anatomy expansion.** Dumbwaiter brake, elevator landing
-  interlock, rooftop tank ballcock, mail-chute choke, fuse panel and watchman
-  clock, in that order unless playtest compulsion changes the ranking.
+- **SR7 — Vertical anatomy expansion.** Add the dumbwaiter brake, elevator
+  landing interlock, rooftop tank ballcock, mail-chute choke, fuse panel and
+  watchman clock, in that order unless playtest compulsion changes the ranking.
+  **SR7-A dumbwaiter holding brake is complete 2026-08-25:** because production
+  had no dumbwaiter marker, shaft, prop or anchor, the first increment is one
+  honest hand-authored lobby landing beside the porter board, not a fictitious
+  multi-floor lift. Its five transferable verbs are take the strain, ease the
+  pawl, prove the balance, seat the band and prove the bite. A slack rope
+  refuses the pawl; the car cannot travel through a holding pawl; early release
+  reports the danger without erasing the whole chain. Preview remains
+  reversible and only `apply_maintenance_result` seats the band. The prop
+  closes no job, advances no case and publishes no plant or Dream fact. Focused
+  proof passes 28/28 and production-root proof passes 24/24. Forward+ evidence
+  and measured subject-ROI A/A are at
+  `art/renders/dumbwaiter_brake_sr7a/README.md`. **Still open:** SR7-B is the
+  elevator landing interlock; the dumbwaiter itself still serves one landing
+  and waits outside the Service Round route until a resident or job supplies a
+  compelling reason to use it.
 
 ## H — Housekeeping
 

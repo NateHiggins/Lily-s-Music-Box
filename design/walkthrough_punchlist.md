@@ -7,6 +7,12 @@ Live log for the room-by-room pass. One line per finding:
 Placement and rendering findings from any session land here, one line each,
 with the instrument that produced the finding named in the symptom.
 
+## 2026-08-25 SR7-A lobby wall-run
+
+| room | symptom | severity |
+|---|---|---|
+| F01 lobby, dumbwaiter wall run | FACING: `LobbyPorterBoard` and `LobbyMailBank` use `rotation.y = +PI/2` and present their featureless backs to the corridor; the adjacent dumbwaiter's corrected `-PI/2` working face makes the error legible. Instrument: `MaintenanceDumbwaiterShot.tscn`, `art/renders/dumbwaiter_brake_sr7a/06_wall_run.png` | ugly |
+
 ## 2026-08-21 generator watermark in the material sources
 
 | room | symptom | severity |
