@@ -498,6 +498,7 @@ func _physics_process(delta: float) -> void:
 			for m in storey_materials.get(floor_id, []):
 				if is_instance_valid(m):
 					(m as ShaderMaterial).set_shader_parameter("living_pulse", phase)
+			_push_living_lifecycle(floor_id, field)
 			_place_lights(floor_id, field)
 			_tend_tentacles(floor_id, field, delta)
 	# §14: the tentacle does not drive the field; they share clocks, so the
@@ -685,10 +686,22 @@ func _bind_living(m: ShaderMaterial, floor_id: String) -> void:
 	m.set_shader_parameter("living_palette", _palette())
 	m.set_shader_parameter("has_living_palette", true)
 	m.set_shader_parameter("living_amount", 1.0)
+	m.set_shader_parameter("living_lifecycle_stage", float(field.lifecycle_stage()))
 	if not storey_materials.has(floor_id):
 		storey_materials[floor_id] = []
 	if not (storey_materials[floor_id] as Array).has(m):
 		(storey_materials[floor_id] as Array).append(m)
+
+
+## LC-6D: one classified architecture state fans out to the materials already
+## bound to that storey. Tests and proof can call this same seam without
+## advancing the field or manufacturing an alternate presentation owner.
+func _push_living_lifecycle(floor_id: String, field) -> void:
+	var stage := float(field.lifecycle_stage())
+	for material in storey_materials.get(floor_id, []):
+		if is_instance_valid(material):
+			(material as ShaderMaterial).set_shader_parameter(
+					"living_lifecycle_stage", stage)
 
 
 func refresh() -> void:

@@ -32,6 +32,43 @@ func _ready() -> void:
 	var tex = field.texture()
 	_check("the field is a 3-D texture", tex is ImageTexture3D and tex.get_depth() == field.ny)
 
+	# LC-6D names the field's already-existing physical states. Exercise the
+	# classifier directly so no test clock counterfeits an architecture life.
+	var stage_field = load("res://scripts/reality/living_field.gd").new()
+	stage_field.configure(Vector4(-1.0, -1.0, 1.0, 1.0), 3.2, 31)
+	var stage_src: int = stage_field.add_source(Vector3.ZERO, 0)
+	stage_field.set_source_intensity(stage_src, 0.7)
+	var observed_stages: Array[String] = []
+	observed_stages.append(stage_field.lifecycle_stage_name())
+	stage_field.body[0] = 0.25
+	observed_stages.append(stage_field.lifecycle_stage_name())
+	stage_field.body[0] = 0.55
+	observed_stages.append(stage_field.lifecycle_stage_name())
+	stage_field.body[0] = 0.90
+	observed_stages.append(stage_field.lifecycle_stage_name())
+	stage_field.vascular_relays.append({"at": Vector3.ZERO, "src": stage_src,
+			"strength": 0.8, "age": 0.0, "radius": 0.5, "limit": 1.2})
+	observed_stages.append(stage_field.lifecycle_stage_name())
+	stage_field.vascular_relays.clear()
+	stage_field.set_source_intensity(stage_src, 0.0)
+	observed_stages.append(stage_field.lifecycle_stage_name())
+	stage_field.body[0] = 0.10
+	observed_stages.append(stage_field.lifecycle_stage_name())
+	stage_field.body[0] = 0.0
+	stage_field.stain[0] = 0.9
+	observed_stages.append(stage_field.lifecycle_stage_name())
+	_check("architecture names its eight existing physical states in order",
+			observed_stages == ["folded", "bud", "juvenile", "mature", "exchange",
+			"senescent", "shed", "stain"])
+	var stage_body_before: PackedFloat32Array = stage_field.body.duplicate()
+	var stage_stain_before: PackedFloat32Array = stage_field.stain.duplicate()
+	var stage_steps_before: int = stage_field.steps
+	stage_field.lifecycle_stage()
+	_check("architecture classification owns no clock, body or stain mutation",
+			stage_field.body == stage_body_before
+			and stage_field.stain == stage_stain_before
+			and stage_field.steps == stage_steps_before)
+
 	# DT-5's local emergence swelling is body, not conversion. Prove it can
 	# become substantial without birthing agents or leaving persistent stain,
 	# then recedes under the field's existing decay when the pressure stops.

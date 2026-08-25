@@ -248,6 +248,10 @@ uniform vec3 living_size = vec3(1.0);
 uniform float living_amount : hint_range(0.0, 1.0) = 1.0;
 uniform float living_iso = 0.22;
 uniform float living_pulse : hint_range(0.0, 1.0) = 0.0;
+// LC-6D: the existing architecture owner's classified life, not a shader
+// clock. 0 folded, 1 bud, 2 juvenile, 3 mature, 4 exchange, 5 senescent,
+// 6 shed, 7 stain/reclaim.
+uniform float living_lifecycle_stage : hint_range(0.0, 7.0) = 3.0;
 uniform vec3 living_tint : source_color = vec3(0.16, 0.14, 0.26);
 uniform vec3 living_stain_tint : source_color = vec3(0.30, 0.24, 0.30);
 // §5a: whose organism — the texture's A channel indexes this palette.
@@ -778,6 +782,14 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		float body = lt.g * in_box;
 		float stain = lt.b * in_box;
 		float trail = lt.r * in_box;
+		float lc_exchange = 1.0 - smoothstep(0.35, 0.65,
+				abs(living_lifecycle_stage - 4.0));
+		float lc_senescent = 1.0 - smoothstep(0.35, 0.65,
+				abs(living_lifecycle_stage - 5.0));
+		float lc_shed = 1.0 - smoothstep(0.35, 0.65,
+				abs(living_lifecycle_stage - 6.0));
+		float lc_stain = 1.0 - smoothstep(0.35, 0.65,
+				abs(living_lifecycle_stage - 7.0));
 		// Whose organism: the A channel indexes the palette (§5a).
 		vec3 tint = living_tint;
 		vec3 stain_tint = living_stain_tint;
@@ -851,6 +863,35 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 		// The body: the case's substance, wet, with a brighter lip at the front.
 		float lip = smoothstep(0.0, 0.35, living) * (1.0 - smoothstep(0.35, 0.9, living));
 		vec3 substance = tint * (1.3 + 0.5 * fizz);
+		// Exchange answers with an ion-bright vascular traversal; senescence
+		// mineralizes rather than merely fading; shed tissue bruises and loses
+		// perfusion. Geometry and the field texture remain the existing anatomy.
+		if (lc_exchange > 0.001) {
+			float exchange_clump = smoothstep(0.42, 0.70,
+					dream_corruption_cells(v_world * 0.82 + vec3(19.1), 0.0, 0.37));
+			float exchange_fold = dream_corruption_folds(
+					v_world * 0.48 + vec3(8.7), 0.0, 0.73);
+			float exchange_wave = 0.5 + 0.5 * cos(
+					living_pulse * 6.2831853 - trail * 5.0 - v_world.y * 1.4);
+			float exchange_band = smoothstep(0.24, 0.72, exchange_fold)
+					* smoothstep(0.38, 0.76, exchange_wave) * exchange_clump;
+			substance = mix(substance, mix(tint, gild_color, 0.72),
+					lc_exchange * exchange_band * 0.62);
+			s.emission += mix(tint, gild_color, 0.58) * exchange_band
+					* lc_exchange * living * 0.055;
+		}
+		if (lc_senescent > 0.001) {
+			float mineral = smoothstep(0.54, 0.88,
+				dream_corruption_cells(v_world * 4.1 + vec3(13.7), time * 0.08, 1.0));
+			substance = mix(substance, mix(vec3(0.17, 0.11, 0.20), gild_color,
+					mineral), lc_senescent * 0.62);
+			metal = mix(metal, 0.55, living * lc_senescent * mineral);
+			rough = mix(rough, 0.48, living * lc_senescent);
+		}
+		if (lc_shed > 0.001) {
+			substance = mix(substance, vec3(0.16, 0.025, 0.095), lc_shed * 0.72);
+			rough = mix(rough, 0.52, living * lc_shed);
+		}
 		// LF-2: where the grammar has drawn its language on the organism, the
 		// body is a wet glaze over the ink, not a tint that flattens it.
 		float paint = living * 0.92 * (1.0 - membrane * 0.75);
@@ -876,6 +917,23 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 			metal = mix(metal, 1.0, leaf * 0.85);
 			rough = mix(rough, 0.28, leaf);
 			s.emission += vec3(0.96, 0.42, 0.08) * lip * held * 0.22;
+		}
+		// Once the local body has left, its pre-existing slime stain becomes an
+		// anatomical negative: branching capillary absence with gold mineral
+		// sutures. It is still the same B channel and the same material draw.
+		if (lc_stain > 0.001 && film > 0.001) {
+			float scar_cells = dream_corruption_cells(
+					v_world * 0.66 + vec3(4.9), 0.0, 0.81);
+			float scar_edge = smoothstep(0.42, 0.58, scar_cells)
+					* (1.0 - smoothstep(0.64, 0.80, scar_cells));
+			float scar_island = smoothstep(0.50, 0.76,
+					dream_corruption_fbm3(v_world * 0.39 + vec3(27.3)));
+			float suture = scar_edge * scar_island * film * lc_stain;
+			albedo = mix(albedo, vec3(0.105, 0.014, 0.060), film * lc_stain * 0.34);
+			albedo = mix(albedo, gild_color * 0.74, suture * 0.48);
+			metal = mix(metal, 0.68, suture * 0.52);
+			rough = mix(rough, 0.30, suture * 0.44);
+			s.emission += mix(tint, gild_color, 0.62) * suture * 0.012;
 		}
 	}
 

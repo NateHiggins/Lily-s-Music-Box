@@ -17,6 +17,8 @@ extends RefCounted
 ##
 ## Presentation only: no collision, no gameplay owner, no save key.
 
+const LifecycleScript := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
+
 const VOXEL_M := 0.5
 const MAX_XZ := 64
 const MAX_Y := 8
@@ -192,6 +194,53 @@ func alive() -> bool:
 		if float(s.intensity) > 0.001:
 			return true
 	return _agents_pos.size() > 0
+
+
+## LC-6D — the architecture already has a life; name it without adding one.
+## Source drive recruits the existing Physarum agents, body/trail are its
+## complete working anatomy, vascular relays are exchange, and the existing
+## decay/stain path owns senescence through reclaim. This classifier never
+## advances a clock or mutates the field.
+func lifecycle_stage() -> int:
+	var driven := false
+	for source in sources:
+		if float(source.intensity) > 0.001:
+			driven = true
+			break
+	var peak := 0.0
+	var live_cells := 0
+	var residual_cells := 0
+	var stain_cells := 0
+	for k in body.size():
+		var b := float(body[k])
+		peak = maxf(peak, b)
+		if b > 0.2:
+			live_cells += 1
+		if b > 0.03:
+			residual_cells += 1
+		if float(stain[k]) > 0.1:
+			stain_cells += 1
+	if driven:
+		if not vascular_relays.is_empty():
+			return LifecycleScript.Stage.EXCHANGE
+		if residual_cells == 0 and _agents_pos.is_empty():
+			return LifecycleScript.Stage.FOLDED
+		if peak < 0.40:
+			return LifecycleScript.Stage.BUD
+		if peak < 0.72:
+			return LifecycleScript.Stage.JUVENILE
+		return LifecycleScript.Stage.MATURE
+	if live_cells > 0 or not _agents_pos.is_empty():
+		return LifecycleScript.Stage.SENESCENT
+	if residual_cells > 0:
+		return LifecycleScript.Stage.SHED
+	if stain_cells > 0:
+		return LifecycleScript.Stage.STAIN
+	return LifecycleScript.Stage.FOLDED
+
+
+func lifecycle_stage_name() -> String:
+	return LifecycleScript.stage_name(lifecycle_stage())
 
 
 # ── THE GRAVITY OF ITS OWN (§5d) ──────────────────────────────────────────
@@ -582,6 +631,7 @@ func census() -> Dictionary:
 		if stain[k] > 0.1:
 			stained += 1
 		body_max = maxf(body_max, body[k])
+	var stage := lifecycle_stage()
 	return {"agents": _agents_pos.size(), "live_voxels": live, "stained_voxels": stained,
 			"body_max": body_max, "voxels": n, "steps": steps, "floor_live": floor_live,
 			"nodes": nodes.size(), "sources": sources.size(),
@@ -590,7 +640,9 @@ func census() -> Dictionary:
 			"vascular_last_at": vascular_last_at,
 			"vascular_last_strength": vascular_last_strength,
 			"vascular_active_relays": vascular_relays.size(),
-			"vascular_relay_steps": vascular_relay_steps}
+			"vascular_relay_steps": vascular_relay_steps,
+			"lifecycle_stage": stage,
+			"lifecycle_stage_name": LifecycleScript.stage_name(stage)}
 
 
 ## DO-3 — A VASCULAR SIGNAL BECOMES LOCAL ARCHITECTURAL PRESSURE.
