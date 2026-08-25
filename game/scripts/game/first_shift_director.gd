@@ -148,6 +148,23 @@ func file_outcome(outcome: String) -> bool:
 	return true
 
 
+## The physical register publishes a receipt, not a command. Validate every
+## fact before moving the ritual so an incomplete, stale or invented line is
+## inert. SR7-H supplies `filing`; older register lines intentionally do not.
+func accept_signed_register(record: Dictionary) -> bool:
+	if ritual_phase() != PHASE_REPORT_ACCEPTED:
+		return false
+	var filing := str(record.get("filing", ""))
+	if filing not in FILING_OUTCOMES \
+			or str(record.get("job_id", "")) != str(_ritual().get("report_id", "")) \
+			or bool(record.get("report_out", true)) \
+			or not (record.get("keys_out", []) as Array).is_empty():
+		return false
+	if not return_to_station():
+		return false
+	return file_outcome(filing)
+
+
 func clock_out() -> bool:
 	if ritual_phase() != PHASE_FILED:
 		return false

@@ -60,14 +60,26 @@ func _ready() -> void:
 			and str(RealityState.case_state(CASE).stage) == "active",
 			"the explicit report action activates the declared existing case")
 	_check(not director.accept_report(JOB), "a report cannot be taken twice")
-	_check(not director.return_to_station(), "unfinished fieldwork cannot be filed")
+	var valid_filing := {"job_id": JOB, "filing": "disturbance_persists",
+			"report_out": false, "keys_out": []}
+	_check(not director.accept_signed_register(valid_filing),
+			"unfinished fieldwork cannot be filed")
 
 	orders.diagnose_job(JOB)
 	orders.mark_job_repairable(JOB)
 	orders.record_job_repair(JOB, {"quality": "good", "note": "vent clocked"})
-	_check(director.return_to_station(), "repaired work permits a return to the register")
-	_check(not director.file_outcome("ghost did it"), "the register refuses interpretation as fact")
-	_check(director.file_outcome("disturbance_persists"), "the player may record a factual contradiction")
+	_check(not director.accept_signed_register({"job_id": JOB,
+			"filing": "ghost did it", "report_out": false, "keys_out": []})
+			and director.ritual_phase() == FirstShiftDirector.PHASE_REPORT_ACCEPTED,
+			"the register refuses interpretation as fact without moving the ritual")
+	_check(not director.accept_signed_register({"job_id": JOB,
+			"filing": "fault_corrected", "report_out": true, "keys_out": []})
+			and not director.accept_signed_register({"job_id": JOB,
+			"filing": "fault_corrected", "report_out": false,
+			"keys_out": ["plant"]}),
+			"a signed line is inert while the report or a key remains out")
+	_check(director.accept_signed_register(valid_filing),
+			"the physical receipt returns and files one factual contradiction")
 	_check(detector.control_prompt("detector").contains("Clock out"),
 			"filing returns the player to the physical clock")
 	_check(detector.interact_control("detector", null)

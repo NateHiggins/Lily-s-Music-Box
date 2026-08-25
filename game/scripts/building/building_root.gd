@@ -640,6 +640,8 @@ func _ready() -> void:
 			"F01_NIGHT_REGISTER", true, false) as NightRegisterProp
 	if night_register != null:
 		night_register.report_taken.connect(first_shift_director.accept_report)
+		night_register.register_signed.connect(
+				first_shift_director.accept_signed_register)
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)
