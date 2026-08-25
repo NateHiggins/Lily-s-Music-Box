@@ -10,6 +10,7 @@ const INFRA_ATLAS := \
 	"res://assets/building/textures/story_details/orison_infrastructure_atlas.png"
 const PROFILE_PATH := "res://data/resident_story_details.json"
 const MailChutePropScript := preload("res://scripts/props/mail_chute_prop.gd")
+const FusePanelPropScript := preload("res://scripts/props/fuse_panel_prop.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -287,7 +288,7 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		# The height is ABSOLUTE. B1 sits at -2.8 and its floor node is at the
 		# origin, so a panel placed at a floor-local 0.9 would land in the
 		# lobby; the live test asserts the global height for that reason.
-		var fuse_panel := FusePanelProp.new()
+		var fuse_panel := FusePanelPropScript.new()
 		fuse_panel.name = "B1_HOUSE_PANEL"
 		fuse_panel.prop_type = "fuse_panel"
 		fuse_panel.position = GameBoot.b2g([13.30, -6.80, -2.8 + 0.90])

@@ -68,6 +68,7 @@ var _cookie_mask: PhoneLightMask
 var _mask_view: SubViewport
 var _cookie: ImageTexture
 var _bake_due := 0.0
+var _cookie_bake_pending := false
 ## A projector cannot be a live ViewportTexture — Godot refuses it and
 ## says to pass an image — so the cookie is read back on a timer. That
 ## readback is a GPU stall, and this ships to Android, which is why it
@@ -239,7 +240,11 @@ func _build_hud() -> void:
 	_mask_view.size = Vector2i(COOKIE, COOKIE)
 	_mask_view.disable_3d = true
 	_mask_view.transparent_bg = false
-	_mask_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	# A cookie bake explicitly requests one draw and reads it only after the
+	# renderer signals frame_post_draw. UPDATE_ALWAYS let the first gameplay
+	# tick read this target before its first draw, preserving unrelated stale
+	# GPU contents as a projector image.
+	_mask_view.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	add_child(_mask_view)
 	_cookie_mask = PhoneLightMask.new()
 	_cookie_mask.setup(self, true)
@@ -405,13 +410,27 @@ func _bake_cookie(delta: float) -> void:
 	# The dummy headless renderer can return a non-null ViewportTexture whose
 	# internal RID is null; asking it for an Image prints an engine error before
 	# the empty-image guard below can run. WalkTest does not render a carried beam.
-	if _mask_view == null or DisplayServer.get_name() == "headless":
+	if _mask_view == null or DisplayServer.get_name() == "headless" \
+			or not _lamp_on or not _beam_mask_allowed:
 		return
 	_bake_due -= delta
-	if _bake_due > 0.0:
+	if _bake_due > 0.0 or _cookie_bake_pending:
 		return
 	_bake_due = BAKE_EVERY
 	_measure_throw()
+	_cookie_bake_pending = true
+	_mask_view.render_target_update_mode = SubViewport.UPDATE_ONCE
+	_finish_cookie_bake()
+
+
+## The viewport request above belongs to this frame. Reading its texture is
+## legal only after that frame has actually been submitted and drawn.
+func _finish_cookie_bake() -> void:
+	await RenderingServer.frame_post_draw
+	_cookie_bake_pending = false
+	if _mask_view == null or not is_instance_valid(_mask_view) \
+			or not _lamp_on or not _beam_mask_allowed:
+		return
 	var vt := _mask_view.get_texture()
 	if vt == null:
 		return
@@ -512,8 +531,11 @@ func set_lamp_enabled(on: bool) -> void:
 	if _light_mask:
 		_light_mask.visible = on and _beam_mask_allowed
 	if _mask_view:
-		_mask_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS \
-				if on and _beam_mask_allowed else SubViewport.UPDATE_DISABLED
+		_mask_view.render_target_update_mode = SubViewport.UPDATE_DISABLED
+		if on and _beam_mask_allowed:
+			_bake_due = 0.0
+	if not on and flashlight:
+		flashlight.light_projector = null
 	if carried_device and carried_device.has_method("set_lamp_enabled"):
 		carried_device.set_lamp_enabled(on)
 	if not changed:
@@ -775,8 +797,9 @@ func set_beam_mask_enabled(on: bool) -> void:
 		if layer:
 			layer.visible = on
 	if _mask_view:
-		_mask_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS \
-				if on else SubViewport.UPDATE_DISABLED
+		_mask_view.render_target_update_mode = SubViewport.UPDATE_DISABLED
+		if on and _lamp_on:
+			_bake_due = 0.0
 	# The projector is the same plate baked onto the light. A world that has
 	# refused the screen version does not want the 3D one either.
 	if not on and flashlight:
