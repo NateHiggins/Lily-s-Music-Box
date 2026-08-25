@@ -2502,10 +2502,20 @@ relay and recovery. Audio playback never drives biology.
   by 33.84× and 20.44×. Evidence:
   `art/renders/dream_microbiology_mbio4_secretion/README.md` and
   `art/renders/dream_microbiology_mbio4_wrinkles/README.md`.
-- **MBIO-5 OPEN — POOLED CELLULAR SONIFICATION.** Curate a small recorded
-  membrane/channel/cilia/relay palette and reuse one positional voice pool per
-  active room/encroachment. Prove voice ceiling, attenuation, silence for
-  unknown assets, no feedback into mechanics and no per-organelle audio node.
+- **MBIO-5 COMPLETE 2026-08-25 — POOLED CELLULAR SONIFICATION.** Four
+  transformed CC0 recordings now give channel opening, ciliary friction,
+  vascular relay and vesicle release distinct small-scale languages. The
+  existing ecology owner holds one four-voice positional pool for its whole
+  encroachment; simultaneous overflow deterministically steals the voice that
+  will finish first instead of allocating a fifth. `ELECTRIC`, cilia-owned
+  `VASCULAR`, other `VASCULAR` and `SECRETION` cellular facts select the four
+  sounds. Raw `MECHANICAL` input is deliberately silent, so a footstep cannot
+  hear itself before tissue accepts it and publishes an answer. Every voice
+  uses finite inverse-distance attenuation; an unknown key remains warning
+  plus silence. Focused proof is 9/9 and production-root proof 5/5, including
+  no audio-to-signal feedback, per-organelle player, case mutation or save
+  seam. Palette, source lineage, measurements and hashes:
+  `game/assets/audio/freesound/processed/cellular/README.md`.
 - **MBIO-6 OPEN — INTEGRATED PRODUCTION ENCOUNTER.** Darkness → lamp scan →
   photoshock → adaptation → footfall mechanics → cilia/architecture relay →
   later vesicle or wrinkle consequence. Preserve the observation/communication

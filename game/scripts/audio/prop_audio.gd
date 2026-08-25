@@ -65,6 +65,14 @@ const RECORDED := {
 		"res://assets/audio/freesound/processed/mechanical/washer_agitate_loop.ogg",
 	"vantry_chirp":
 		"res://assets/audio/freesound/processed/mechanical/vantry_line_chirp.ogg",
+	"cellular_channel":
+		"res://assets/audio/freesound/processed/cellular/cellular_channel_tick.ogg",
+	"cellular_cilia":
+		"res://assets/audio/freesound/processed/cellular/cellular_cilia_friction.ogg",
+	"cellular_relay":
+		"res://assets/audio/freesound/processed/cellular/cellular_relay_hiss.ogg",
+	"cellular_vesicle":
+		"res://assets/audio/freesound/processed/cellular/cellular_vesicle_release.ogg",
 }
 static var _cache: Dictionary = {}
 static var _warned: Dictionary = {}

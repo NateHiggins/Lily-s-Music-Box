@@ -45,6 +45,8 @@ enum Substrate { ANY, FLOOR, WALL, PIPE }
 const FUNCTION_NAMES := ["probe", "recognize", "pulse", "secrete", "repair",
 		"transport", "allocate", "reject", "inhibit"]
 const SIGNAL_CAP := 32
+const CellularAudioScript := preload(
+		"res://scripts/dream/dream_cellular_audio_pool.gd")
 
 const STATE_NAMES := ["dormant", "curious", "foraging", "social", "watching",
 		"startled", "withdrawing", "high_attention", "incarnating"]
@@ -78,11 +80,18 @@ var _signal_clock := 0.0
 var _signals_emitted := 0
 var _signals_evicted := 0
 var _signals_by_function: Dictionary = {}
+## One presentation pool belongs to this encroachment, not to any organelle.
+## It only consumes already-published cellular facts and cannot feed the ring.
+var cellular_audio: DreamCellularAudioPool = null
 
 
 func setup(seed_v: int) -> void:
 	name = "DreamEcologyDirector"
 	add_to_group("attention_dream")
+	if cellular_audio == null:
+		cellular_audio = CellularAudioScript.new()
+		add_child(cellular_audio)
+	cellular_audio.setup()
 	_rng.seed = seed_v
 	_signal_ring.clear()
 	for _i in SIGNAL_CAP:
@@ -189,6 +198,8 @@ func emit_signal_packet(src_id: int, src_class: int, function: int, at: Vector3,
 	_signal_head = (slot_i + 1) % SIGNAL_CAP
 	_signals_emitted += 1
 	_signals_by_function[function] = int(_signals_by_function.get(function, 0)) + 1
+	if cellular_audio != null and family != Chem.MECHANICAL:
+		cellular_audio.present_signal(src_class, function, family, at, strength)
 
 
 ## Physical contact enters the bounded signal bed but crosses its substrate
@@ -428,4 +439,6 @@ func census() -> Dictionary:
 			"ready_to_seize": _since_last >= RESEIZE_GAP_S,
 			"still_held": held, "released": _released,
 			"attention_clock": snappedf(attention_clock, 0.01),
-			"signals": signal_census()}
+			"signals": signal_census(),
+			"cellular_audio": cellular_audio.census() \
+					if cellular_audio != null else {}}

@@ -68,3 +68,9 @@ Derivatives were resampled to 48 kHz, filtered to remove unusable sub-bass or
 high-frequency noise where appropriate, loudness-normalized by role, and
 encoded as Ogg Vorbis for long material or 16-bit WAV for short transients.
 Long sources were excerpted for gameplay. No source recording was overwritten.
+
+The four `processed/cellular/` events are deliberately transformed excerpts,
+not synthesized oscillators: channel and vesicle use separate GammaGool water
+drops, relay uses dimapain's bubble-flow recording, and ciliary friction uses
+gecop's door recording. They are artistic sonification of room-sized cellular
+work; none is presented as a recording of an isolated microorganism.

@@ -626,8 +626,20 @@ fauna lifecycle 34/34 and shader parsing passes. Forward+ secretion changes
 clear their A/A floor by 2.87–23.78×; ethermoss and stain wrinkles clear theirs
 by 33.84× and 20.44×. Evidence:
 `art/renders/dream_microbiology_mbio4_secretion/README.md` and
-`art/renders/dream_microbiology_mbio4_wrinkles/README.md`. **Next is MBIO-5:**
-pooled cellular sonification without mechanical feedback.
+`art/renders/dream_microbiology_mbio4_wrinkles/README.md`. MBIO-5 is now
+complete. Four transformed CC0 recordings provide channel, cilia, relay and
+vesicle languages through one four-voice positional pool owned by the existing
+encroachment ecology director. Overflow steals rather than grows the pool;
+voices have finite inverse-distance attenuation; unknown keys remain silence.
+Only cellular output packets are mapped. Raw MECHANICAL input is excluded, and
+presenting a sound cannot write into the signal bed, so playback never becomes
+a biology sensor. Focused proof is 9/9 and production-root proof 5/5, with no
+per-organelle player, case change or save seam. Source lineage, measurements
+and hashes are in
+`game/assets/audio/freesound/processed/cellular/README.md`. **Next is MBIO-6:**
+one integrated production encounter proving the full observation and
+communication sequence without creating combat or claiming a waking case
+loop.
 
 Three top-level projects:
 
