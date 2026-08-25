@@ -19,7 +19,7 @@ extends Node
 
 var root: Node3D
 var player: PlayerController
-var chute: MailChuteProp
+var chute: Node3D
 var out_dir := ""
 
 ## Building coordinates. The apparatus is on the east wall face at (5.24,
@@ -58,7 +58,7 @@ func _ready() -> void:
 	await get_tree().create_timer(1.8).timeout
 	_hide_ui(get_tree().root)
 
-	chute = root.find_child("LobbyMailChute", true, false) as MailChuteProp
+	chute = root.find_child("LobbyMailChute", true, false) as Node3D
 	player = root.get("player") as PlayerController
 	if chute == null or player == null:
 		push_error("[CHUTE SHOT] no production chute or player")

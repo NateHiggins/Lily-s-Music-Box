@@ -9,6 +9,7 @@ const STORY_ATLAS := \
 const INFRA_ATLAS := \
 	"res://assets/building/textures/story_details/orison_infrastructure_atlas.png"
 const PROFILE_PATH := "res://data/resident_story_details.json"
+const MailChutePropScript := preload("res://scripts/props/mail_chute_prop.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -205,7 +206,7 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		# local +Z and the lobby lies west of the partition, so the positive
 		# half-turn the mail bank and porter board still carry would point this
 		# apparatus into the wall.
-		var chute := MailChuteProp.new()
+		var chute := MailChutePropScript.new()
 		chute.name = "LobbyMailChute"
 		chute.prop_type = "mail_chute"
 		chute.position = GameBoot.b2g([5.24, -6.75, 0.0])

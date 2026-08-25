@@ -33,7 +33,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 
-	var chute := root.find_child("LobbyMailChute", true, false) as MailChuteProp
+	var chute: Node3D = root.find_child("LobbyMailChute", true, false) as Node3D
 	_check(chute != null, "the production lobby owns a mail chute")
 	if chute == null:
 		_finish()

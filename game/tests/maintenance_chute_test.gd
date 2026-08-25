@@ -16,6 +16,7 @@ extends Node
 ##              order; and no data file can call a choked chute clear.
 
 const ACTIVITY := "mail_chute_choke_clearing"
+const MailChutePropScript := preload("res://scripts/props/mail_chute_prop.gd")
 const ORDER := ["read_the_glass", "unlock_the_cover", "take_the_load",
 		"break_the_arch", "prove_the_drop"]
 
@@ -179,7 +180,7 @@ func _run() -> void:
 # --- the chute --------------------------------------------------------------
 
 func _chute() -> void:
-	var chute := MailChuteProp.new()
+	var chute := MailChutePropScript.new()
 	chute.name = "TestChute"
 	add_child(chute)
 	var before := chute.maintenance_snapshot()
@@ -256,7 +257,7 @@ func _chute() -> void:
 			and not chute.balking())
 
 	# ONLY THE COMMIT RECORDS, and even it cannot record a choked chute clear.
-	var liar := MailChuteProp.new()
+	var liar := MailChutePropScript.new()
 	add_child(liar)
 	liar.apply_maintenance_result({
 		"quality": "good", "note": "counterfeit",
