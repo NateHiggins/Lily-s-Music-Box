@@ -71,6 +71,34 @@ const COHORT_FAMILY_STRIDE := 0.2360679774997897
 const STAIN_PER_ROOM_CAP := 24
 const STAIN_TOTAL_CAP := 96
 
+## LC-3B — THE STAGE, ON THE ONLY BITS THE GPU KEEPS EXACTLY.
+##
+## `INSTANCE_CUSTOM` is four floats and all four are already spent. FA-V4
+## measured that the Compatibility renderer stores them as half-floats and
+## truncates the mantissa, so only the HIGH byte of each packed pair survives
+## exactly. The flag byte is such a high byte, and bits 0-5 are named; bits 6
+## and 7 were free.
+##
+## Two bits is not eight stages, but it does not have to be: BIRTHING and
+## REABSORBING already sort the eight into three groups, and no group holds
+## more than four. So the pair below is a sub-index WITHIN the group its
+## existing flags select, and the whole stage survives the half-float path
+## without a new channel, a new batch or a second submission record.
+##
+##   neither flag : 0 folded   1 mature   2 exchange   3 senescent
+##   BIRTHING     : 0 bud      1 juvenile
+##   REABSORBING  : 0 shed     1 stain
+const STAGE_STREAM_SHIFT := 6
+const STAGE_STREAM_MASK := 0b11000000
+
+## LC-4B — HOW MANY IMPRESSIONS A ROOM MAY SHOW AT ONCE.
+##
+## The memory is already bounded at 24 a room; this is the narrower ceiling on
+## how many of them are SUBMITTED, because every one spends an instance from
+## the shared 96 and the living tissue must not be crowded out by its own
+## dead. Impressions beyond it are still remembered, just not drawn.
+const STAIN_SUBMIT_PER_ROOM := 4
+
 var rooms: DreamRoomBuilder
 var player: Node3D
 var pursuer: Node3D
@@ -223,6 +251,7 @@ func refresh() -> void:
 	var ribbon_life: Array[Dictionary] = []
 	var loupe_life: Array[Dictionary] = []
 	var hushed_count := 0
+	var stain_marks := 0
 	var submerged_count := 0
 	var loupe_room: Dictionary = {}
 	var loupe_strength := 0.0
@@ -274,8 +303,24 @@ func refresh() -> void:
 					int(b_life.generation), Vector2(b_hue, b_pattern)))
 			button_custom.append(DreamFaunaChannels.encode(phase, allotted,
 					allotted,
-					DreamFaunaChannels.FLAG_PEARL_COLONY | int(b_life.flags), 0.0,
+					DreamFaunaChannels.FLAG_PEARL_COLONY | int(b_life.stream_flags), 0.0,
 					b_hue, b_pattern))
+		# LC-4B — WHAT DIED HERE, THROUGH THIS ROOM'S OWN GILDER ALLOCATION.
+		# No new batch, no new node and no new budget: an impression spends a
+		# button and stops at the shared ceiling like everything else. The
+		# living tissue is submitted first, so a room crowded with its own
+		# dead loses marks before it loses organs.
+		for impression in stain_presentation(room_key):
+			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
+					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
+			var mark: Dictionary = _stain_submission(impression)
+			button_xforms.append(mark.xform)
+			button_custom.append(mark.custom)
+			button_life.append({"stage": LIFECYCLE.Stage.STAIN, "stain": true,
+					"deaths": int(impression.deaths),
+					"generation": int(impression.generation)})
+			button_addr.append(stain_address(impression))
+			stain_marks += 1
 		for i in tess_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
 					ribbon_xforms,loupe_xforms) >= MAX_INSTANCES: break
@@ -296,7 +341,7 @@ func refresh() -> void:
 					Vector3(size, size * 0.72, size)), at))
 			var t_life := cohort_state(room_life, 1, i)
 			var tess_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
-			tess_flags |= int(t_life.flags)
+			tess_flags |= int(t_life.stream_flags)
 			var t_hue := _genome(phase, i,
 					_genome_salt(1.13, int(t_life.reproduction)))
 			var t_pattern := _genome(phase, i,
@@ -317,7 +362,7 @@ func refresh() -> void:
 			anemone_xforms.append(Transform3D(Basis().scaled(Vector3.ONE*1.12),at))
 			var a_life := cohort_state(room_life, 2, i)
 			var anemone_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
-			anemone_flags |= int(a_life.flags)
+			anemone_flags |= int(a_life.stream_flags)
 			var a_hue := _genome(phase, i,
 					_genome_salt(2.11, int(a_life.reproduction)))
 			var a_pattern := _genome(phase, i,
@@ -339,7 +384,7 @@ func refresh() -> void:
 			var r_life := cohort_state(room_life, 3, i)
 			var ribbon_flags := DreamFaunaChannels.FLAG_SIGNALLING
 			if hush: ribbon_flags |= DreamFaunaChannels.FLAG_HUSH
-			ribbon_flags |= int(r_life.flags)
+			ribbon_flags |= int(r_life.stream_flags)
 			var r_hue := _genome(phase, i,
 					_genome_salt(3.17, int(r_life.reproduction)))
 			var r_pattern := _genome(phase, i,
@@ -372,7 +417,7 @@ func refresh() -> void:
 		var l_life := cohort_state(loupe_room.life, 4, 0)
 		var loupe_flags := DreamFaunaChannels.FLAG_CAMERA_TRACKER
 		if bool(loupe_room.hush): loupe_flags |= DreamFaunaChannels.FLAG_HUSH
-		loupe_flags |= int(l_life.flags)
+		loupe_flags |= int(l_life.stream_flags)
 		var l_hue := _genome(float(loupe_room.phase), 0,
 				_genome_salt(4.19, int(l_life.reproduction)))
 		var l_pattern := _genome(float(loupe_room.phase), 0,
@@ -395,7 +440,7 @@ func refresh() -> void:
 	_census = {"buttons":button_xforms.size(), "tessellates":tess_xforms.size(),
 			"anemones":anemone_xforms.size(),"ribbonettes":ribbon_xforms.size(),
 			"loupe":loupe_xforms.size(),"rooms":live.size(),"hushed":hushed_count,
-			"submerged":submerged_count}
+			"submerged":submerged_count,"stain_marks":stain_marks}
 
 func _total_instances(a:Array,b:Array,c:Array,d:Array,e:Array)->int:
 	return a.size()+b.size()+c.size()+d.size()+e.size()
@@ -474,6 +519,52 @@ static func slot_phase_offset(motif: int, slot: int) -> float:
 ## BUD and JUVENILE reuse the landed BIRTHING flag; SHED and STAIN reuse
 ## REABSORBING. No new presentation channel is introduced, and a flag changing
 ## is not by itself a claim that the stage reads on screen.
+## The two spare flag bits for this stage, as the sub-index within whatever
+## group `stage_flags` puts it in. Deliberately SEPARATE from `stage_flags`,
+## which keeps meaning exactly what it meant: one is the landed semantic
+## grouping, this is the presentation stream that rides beside it.
+## An impression's name. It ends outside the cohort grammar on purpose:
+## `parse_cohort_address` rejects it, so enumeration and lookup keep answering
+## about living tissue only, while `_records` still has one name per submitted
+## instance the way the addressing contract requires.
+static func stain_address(impression: Dictionary) -> String:
+	return cohort_address(str(impression.room_key), int(impression.motif),
+			int(impression.slot), int(impression.generation)) + "@stain"
+
+
+static func stage_stream_bits(stage: int) -> int:
+	var sub := 0
+	match stage:
+		LIFECYCLE.Stage.FOLDED, LIFECYCLE.Stage.BUD, LIFECYCLE.Stage.SHED:
+			sub = 0
+		LIFECYCLE.Stage.MATURE, LIFECYCLE.Stage.JUVENILE, LIFECYCLE.Stage.STAIN:
+			sub = 1
+		LIFECYCLE.Stage.EXCHANGE:
+			sub = 2
+		LIFECYCLE.Stage.SENESCENT:
+			sub = 3
+	return sub << STAGE_STREAM_SHIFT
+
+
+## Everything the packed flag byte says about one stage: the landed semantic
+## group plus the sub-index the shader needs to tell members of it apart.
+static func stage_stream_flags(stage: int) -> int:
+	return stage_flags(stage) | stage_stream_bits(stage)
+
+
+## The inverse, so a test can prove the byte the GPU will actually receive
+## resolves back to the stage that was submitted.
+static func stage_from_stream(flag_byte: int) -> int:
+	var sub := (flag_byte & STAGE_STREAM_MASK) >> STAGE_STREAM_SHIFT
+	if (flag_byte & DreamFaunaChannels.FLAG_REABSORBING) != 0:
+		return LIFECYCLE.Stage.SHED if sub == 0 else LIFECYCLE.Stage.STAIN
+	if (flag_byte & DreamFaunaChannels.FLAG_BIRTHING) != 0:
+		return LIFECYCLE.Stage.BUD if sub == 0 else LIFECYCLE.Stage.JUVENILE
+	if sub == 0:
+		return LIFECYCLE.Stage.FOLDED
+	return sub + 2
+
+
 static func stage_flags(stage: int) -> int:
 	if stage == LIFECYCLE.Stage.BUD or stage == LIFECYCLE.Stage.JUVENILE:
 		return DreamFaunaChannels.FLAG_BIRTHING
@@ -503,6 +594,7 @@ static func cohort_state(room_lifecycle: Dictionary, motif: int,
 		"reproduction": int(room_lifecycle.get("reproduction",
 				LIFECYCLE.Reproduction.QUIESCENT)),
 		"flags": stage_flags(stage),
+		"stream_flags": stage_stream_flags(stage),
 		"anatomy_scale": LIFECYCLE.anatomy_scale(stage),
 	}
 
@@ -608,6 +700,66 @@ func _drop_oldest_stain(room_key: String) -> void:
 		_stains[room_key] = list
 
 
+## --- LC-4B: the impression, submitted -------------------------------------
+
+## Which impressions this room shows, oldest generation first and then by
+## lineage. Sorted rather than taken in insertion order so a revisit submits
+## them in the same order it did before, whatever order they were recorded in.
+func stain_presentation(room_key: String, limit := 0) -> Array:
+	var ceiling := limit if limit > 0 else STAIN_SUBMIT_PER_ROOM
+	var ordered: Array = (_stains.get(room_key, []) as Array).duplicate()
+	ordered.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return _stain_order(a) < _stain_order(b))
+	var out: Array = []
+	for impression in ordered:
+		if out.size() >= ceiling:
+			break
+		out.append(impression)
+	return out
+
+
+## A withdrawn organ's memory, as one Gilder's Button instance.
+##
+## LC-4B ships no batch, no node and no second draw for the dead: the button
+## batch is already a flat disc lying on the floor of the room, which is the
+## shape a flattened anatomical memory wants. The impression supplies the
+## position, the genome trace supplies the pattern, and the packed stage byte
+## says STAIN so the shader dresses it as withdrawn tissue rather than as a
+## fruiting body.
+##
+## Nothing here reads a clock. The same impression submits the same transform
+## and the same colour on every refresh and after the room streams back.
+func _stain_submission(impression: Dictionary) -> Dictionary:
+	var motif := int(impression.motif)
+	var slot := int(impression.slot)
+	var deaths := int(impression.deaths)
+	var genome: Vector2 = impression.genome
+	# The dead organ's family survives as pattern, not as a channel: there is
+	# no free byte for a motif, and the impression must still not look like a
+	# button. Motif and lineage bend the stored trace deterministically.
+	var hue := fposmod(genome.x + float(motif) * 0.1370 + float(slot) * 0.0170,
+			1.0)
+	var pattern := fposmod(genome.y + float(motif) * 0.2110, 1.0)
+	# How much matter this lineage has returned here, bounded well before the
+	# cap so a long-lived slot deepens its mark and never blows it out.
+	var richness := clampf(0.30 + float(deaths) * 0.055, 0.0, 0.92)
+	# A stable identity phase, from the lineage rather than from time.
+	var identity := fposmod(float(motif) * 0.317 + float(slot) * 0.0839
+			+ genome.x * 0.41, 1.0)
+	var at: Vector3 = impression.at
+	# It lies ON the surface the organ died on. The button's own authored
+	# proportions are untouched: a stain is a posture of that disc, not a
+	# smaller one.
+	var basis := Basis().scaled(Vector3(0.26, 0.030, 0.26))
+	return {
+		"xform": Transform3D(basis, at + Vector3(0.0, 0.004, 0.0)),
+		"custom": DreamFaunaChannels.encode(identity, richness, richness,
+				DreamFaunaChannels.FLAG_PEARL_COLONY
+				| stage_stream_flags(LIFECYCLE.Stage.STAIN),
+				0.0, hue, pattern),
+	}
+
+
 ## --- LC-3A/LC-4A read-only queries ----------------------------------------
 ## Narrow, bounded and non-mutating. They exist so tests and later LC-5
 ## receptors can hold an address without anybody instancing a body for it.
@@ -631,6 +783,8 @@ func cohort_at(address: String) -> Dictionary:
 		if index < 0:
 			continue
 		var parsed := parse_cohort_address(address)
+		if parsed.is_empty():
+			return {}          # a stain impression, not a cohort
 		var xforms: Array = rows.get("xforms", [])
 		var custom: Array = rows.get("custom", [])
 		if index >= xforms.size() or index >= custom.size():

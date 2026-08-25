@@ -49,6 +49,27 @@ varying vec3 fauna_normal;
 varying highp vec4 fauna_data;
 varying vec4 fauna_vertex_region;
 varying vec2 fauna_skin_uv;
+// LC-3B. x the decoded stage 0..7, y its progress-free turgor, z secretion
+// sheen, w the withdrawal that senescence and shedding share.
+varying vec4 fauna_stage;
+
+// LC-3B — THE STAGE, OUT OF THE ONLY BITS THAT SURVIVE THE TRIP.
+//
+// FA-V4 measured that Compatibility stores INSTANCE_CUSTOM as half-floats and
+// truncates the mantissa, so the low byte of every pair is unreliable. The
+// flag byte is a high byte and survives exactly, and bits 6-7 of it carry a
+// sub-index within the group BIRTHING/REABSORBING already select. Eight
+// stages therefore arrive intact without a new channel or a second batch.
+float fauna_stage_of(highp float flags) {
+	float birthing = fauna_flag(flags, 16.0);
+	float reabsorbing = fauna_flag(flags, 32.0);
+	float sub = fauna_flag(flags, 64.0) + fauna_flag(flags, 128.0) * 2.0;
+	// neither flag: 0 folded, 1 mature, 2 exchange, 3 senescent
+	float settled = step(0.5, sub) * (sub + 2.0);
+	return reabsorbing * (6.0 + min(sub, 1.0))
+			+ birthing * (1.0 - reabsorbing) * (1.0 + min(sub, 1.0))
+			+ (1.0 - birthing) * (1.0 - reabsorbing) * settled;
+}
 
 void vertex() {
 	fauna_data = INSTANCE_CUSTOM;
@@ -70,8 +91,56 @@ void vertex() {
 	vec2 gaze = clamp(camera_plane * 0.05,
 			vec2(-0.023), vec2(0.023));
 	VERTEX.xy += gaze * tracker * tracked_organ * vertex_channels_ready;
-	VERTEX.y += gait * gait_amount * live_activity;
-	VERTEX.xz *= 1.0 + gait * 0.06 * live_activity;
+
+	// ---- LC-3B POSTURE -------------------------------------------------
+	// Every multiplier below is bounded inside [0.90, 1.10] and every one of
+	// them is applied to COMPLETE anatomy. Nothing here scales a creature
+	// from or toward zero; age is carried by how the tissue is held, which is
+	// what the ruling asks for and what the folded-anatomy doctrine already
+	// requires of the margin one resolution up.
+	float stage = fauna_stage_of(flags);
+	float is_folded = 1.0 - step(0.5, abs(stage - 0.0));
+	float is_bud = 1.0 - step(0.5, abs(stage - 1.0));
+	float is_juvenile = 1.0 - step(0.5, abs(stage - 2.0));
+	float is_mature = 1.0 - step(0.5, abs(stage - 3.0));
+	float is_exchange = 1.0 - step(0.5, abs(stage - 4.0));
+	float is_senescent = 1.0 - step(0.5, abs(stage - 5.0));
+	float is_shed = 1.0 - step(0.5, abs(stage - 6.0));
+	float is_stain = 1.0 - step(0.5, abs(stage - 7.0));
+
+	float slow = sin(TIME * 0.9 + phase);
+
+	// Contracted and sealed, but entire: drawn in seven per cent, not shrunk.
+	float draw_in = 1.0 - 0.07 * is_folded;
+	// Taut internal pressure. The bud is the widest the body ever is.
+	float turgor = 1.0 + (0.055 + 0.020 * slow) * is_bud;
+	// Over-responsive tissue: the same gait, answered too hard.
+	float responsiveness = 1.0 + 1.15 * is_juvenile - 0.25 * is_senescent
+			- 0.55 * is_shed;
+	// Uneven pressure. One axis lags the other, so the silhouette stops
+	// agreeing with itself without any part of it leaving.
+	float uneven = 0.045 * is_senescent * slow;
+	// Collapsing attachment: the body leans off its own footing and settles,
+	// which is a shear and a droop rather than a disappearance.
+	float slump = 0.055 * is_shed;
+
+	VERTEX.y += gait * gait_amount * live_activity * responsiveness;
+	VERTEX.xz *= (1.0 + gait * 0.06 * live_activity) * draw_in * turgor;
+	VERTEX.x *= 1.0 + uneven;
+	VERTEX.z *= 1.0 - uneven;
+	VERTEX.y *= 1.0 - 0.05 * is_shed;
+	// Reaching: the exchange stage leans toward what it is trying to touch.
+	VERTEX.z += 0.045 * is_exchange * (0.55 + 0.45 * slow) * VERTEX.y;
+	VERTEX.xz += VERTEX.y * slump * vec2(0.85, -0.55);
+	// A stain is already lying on the floor; it does not breathe.
+	VERTEX.y = mix(VERTEX.y, VERTEX.y * 0.86, is_stain);
+
+	fauna_stage = vec4(stage,
+			clamp(turgor - 1.0 + 0.5 * is_mature, 0.0, 1.0),
+			clamp(0.75 * is_exchange + 0.45 * is_juvenile
+					+ 0.60 * is_shed + 0.85 * is_stain, 0.0, 1.0),
+			clamp(0.55 * is_senescent + 0.85 * is_shed + 1.0 * is_stain,
+					0.0, 1.0));
 	fauna_local = VERTEX;
 	fauna_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	fauna_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
@@ -98,9 +167,46 @@ void fragment() {
 			incarnation_slot, vec4(base_color, 0.8));
 
 	float retained = irradiance_field.r;
+
+	// ---- LC-3B SURFACE ---------------------------------------------------
+	float stage = fauna_stage.x;
+	float turgor = fauna_stage.y;
+	float sheen = fauna_stage.z;
+	float withdrawal = fauna_stage.w;
+	float is_folded = 1.0 - step(0.5, abs(stage - 0.0));
+	float is_bud = 1.0 - step(0.5, abs(stage - 1.0));
+	float is_juvenile = 1.0 - step(0.5, abs(stage - 2.0));
+	float is_mature = 1.0 - step(0.5, abs(stage - 3.0));
+	float is_exchange = 1.0 - step(0.5, abs(stage - 4.0));
+	float is_senescent = 1.0 - step(0.5, abs(stage - 5.0));
+	float is_shed = 1.0 - step(0.5, abs(stage - 6.0));
+	float is_stain = 1.0 - step(0.5, abs(stage - 7.0));
+
+	// PERFUSION. How much of the body's own circulation reaches this surface.
+	// Mature is the strongest coherent case; the bud is concentrated rather
+	// than strong; senescence and shedding withdraw it toward the root.
+	float perfusion = 0.42
+			+ 0.30 * is_bud
+			+ 0.42 * is_juvenile
+			+ 0.58 * is_mature
+			+ 0.50 * is_exchange
+			+ 0.10 * is_senescent
+			+ 0.04 * is_shed;
+	perfusion *= 1.0 - 0.55 * withdrawal;
+	// SEALED. The folded body reads as a closed surface: less internal line,
+	// more of a single tight skin.
+	float sealed_surface = is_folded;
 	vec3 view_dir = normalize(CAMERA_POSITION_WORLD - fauna_world);
+	// SURFACE TENSION AS AN EXPONENT. A taut bud and a glossy juvenile carry
+	// a tighter, later-breaking rim; slack senescent tissue carries a broad
+	// soft one. Clamped so the exponent can never reach zero or blow up.
+	float tension = clamp(2.2 - 0.85 * turgor - 0.55 * is_juvenile
+			+ 0.75 * is_senescent + 0.55 * is_shed, 0.85, 4.2);
 	float fresnel = pow(1.0 - clamp(abs(dot(normalize(fauna_normal), view_dir)),
-			0.0, 1.0), 2.2);
+			0.0, 1.0), tension);
+	// WETNESS. Secretion is a sheen that sits on top of the rim, strongest
+	// where the body is trying to make or has just broken a contact.
+	float wetness = clamp(sheen * (0.35 + fresnel * 0.85), 0.0, 1.0);
 	float cone_edge = smoothstep(0.015, 0.20, awake)
 			* (1.0 - smoothstep(0.34, 0.78, awake));
 
@@ -137,7 +243,16 @@ void fragment() {
 	float skin_lum = dot(skin_px, vec3(0.299, 0.587, 0.114));
 	vec3 skin_mod = vec3(0.55 + 0.9 * skin_lum) + (skin_px - vec3(skin_lum)) * 0.35;
 	wine = mix(wine, wine * skin_mod, skin_ready * skin_amount);
-	float life = clamp(0.72 + nutrient * 0.16 + emergence * 0.12, 0.0, 1.0);
+	// BRUISED TRANSLUCENCY. Senescence and shedding do not grey out: the
+	// wine goes blue-violet and uneven, the way tissue does when its
+	// circulation is leaving rather than when it is dirty.
+	vec3 bruise = vec3(0.62, 0.42, 1.05);
+	float mottle = 0.5 + 0.5 * sin(fauna_local.x * 21.0 + fauna_local.z * 17.0
+			+ pattern_jitter * 6.28318530718);
+	wine = mix(wine, wine * bruise * (0.72 + 0.42 * mottle),
+			clamp(withdrawal * 0.85, 0.0, 1.0));
+	float life = clamp(0.72 + nutrient * 0.16 + emergence * 0.12, 0.0, 1.0)
+			* (0.55 + 0.45 * perfusion);
 	// Darkness contains wine matter only. Gold and jewel response are exactly
 	// multiplied by awake, so neither can self-light outside the service cone.
 	// The ordered 0.10 control is converted into display-linear material
@@ -153,8 +268,19 @@ void fragment() {
 	vec3 dark_body = wine * 0.012 * (1.0 - anatomy_line)
 			+ neon_colour * fauna_dark_glow * 2.2 * life * anatomy_line
 			* irradiance.x;
+	// The folded body shows almost no internal line; the mature one shows the
+	// most coherent. This is the same anatomy either way -- what changes is
+	// how much of its circulation has reached the surface.
+	anatomy_line = clamp(anatomy_line * (0.45 + 1.10 * perfusion)
+			* (1.0 - 0.55 * sealed_surface), 0.0, 1.0);
 	float vein = pow(anatomy_line, mix(1.8, 0.72,
 			clamp(irradiance_vein_branch * 0.65, 0.0, 1.0)));
+	// CONTACT-SEEKING BANDS. During exchange an electrochemical band travels
+	// the body toward whatever it is reaching for. It is a band on existing
+	// tissue, never a beam, a particle or a glyph.
+	float band = pow(clamp(0.5 + 0.5 * sin(fauna_local.y * 15.0
+			- TIME * 4.1 + fauna_data.r * 6.28318530718), 0.0, 1.0), 3.4);
+	vein = clamp(vein + band * is_exchange * 0.85, 0.0, 1.0);
 	vec3 oblique_body = wine * (0.22 + retained * 0.10)
 			+ neon_colour * vein * 0.48
 			+ jewel_color * fresnel * 0.16;
@@ -170,8 +296,44 @@ void fragment() {
 	vec3 lid = base_color * 0.24 * awake * authored_lid;
 	vec3 full_body = mix(lit_wine, gilt, gold_mask) + gilt_rim + jewel
 			+ sclera + lid;
+	// Secretion reads as a wet film over whatever the body already is, not as
+	// a new colour laid on top of it.
+	full_body += (wine_chroma * 0.30 + jewel_color * 0.42) * wetness * awake
+			* (0.35 + retained * 0.30);
 	ALBEDO = dark_body + mix(lit_wine, full_body,
 			max(irradiance.y * 0.58, irradiance.z));
+
+	// ---- LC-4B THE STAIN --------------------------------------------------
+	// A persistent impression of withdrawn tissue. It keeps the body's own
+	// vascular line, loses the body's structure, and gains the thin-film
+	// iridescence of something wet that has been lying there a while. It is
+	// deliberately beautiful and deliberately wrong to touch: no gore, no
+	// grey, no dissolve, and nothing that reads as a separate organism.
+	if (is_stain > 0.5) {
+		float radial = clamp(length(fauna_local.xz) * 3.4, 0.0, 1.0);
+		// Capillary negative space: the vessels are where the mark is NOT.
+		float capillary = fauna_cloisonne_wire(fauna_local * 1.7,
+				pattern_jitter, family_motif + 3.0);
+		// A thin-film order that turns with the view, so the mark moves as
+		// the player's lamp passes rather than sitting flat.
+		float film = fract(hue_jitter * 0.85 + fresnel * 1.35
+				+ radial * 0.55);
+		vec3 iridescence = vec3(
+				0.5 + 0.5 * cos(6.28318530718 * (film + 0.00)),
+				0.5 + 0.5 * cos(6.28318530718 * (film + 0.33)),
+				0.5 + 0.5 * cos(6.28318530718 * (film + 0.67)));
+		// nutrient carries how much this lineage has returned here.
+		float depth = clamp(0.35 + nutrient * 0.75, 0.0, 1.0);
+		vec3 membrane = wine * bruise * (0.55 + 0.45 * depth);
+		vec3 mark = membrane * (1.0 - capillary * 0.62)
+				+ iridescence * jewel_color * 0.55 * awake
+						* (0.30 + fresnel * 0.95)
+				+ ruled_gold * capillary * awake * 0.28 * depth;
+		// It fades at its own edge instead of ending on a cut line.
+		float edge = 1.0 - smoothstep(0.62, 1.0, radial);
+		mark *= 0.35 + 0.65 * edge;
+		ALBEDO = mix(ALBEDO, mark, clamp(0.90 * edge + 0.10, 0.0, 1.0));
+	}
 	if (incarnation_id > 0.5 && incarnation_id < 6.5) {
 		ALBEDO = mix(ALBEDO, incarnation_skin.rgb,
 			0.28 + irradiance.y * 0.20);
