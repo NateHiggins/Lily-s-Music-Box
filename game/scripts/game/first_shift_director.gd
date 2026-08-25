@@ -23,6 +23,7 @@ var building: Node3D
 var tracker: ObjectiveTracker
 var intro: VirusSoundDirector
 var work_orders: WorkOrders
+var _opening_report_offer: Callable
 
 ## The shift begins on the south walk, just outside the passenger side of the
 ## eastbound car. Looking across the road teaches the complete 30 ft crossing
@@ -90,6 +91,13 @@ func ritual_phase() -> String:
 	return str(_ritual().get("phase", PHASE_ARRIVED))
 
 
+## Injection keeps the clock ignorant of campaign ordering. Production binds
+## the campaign coordinator only when the physical register can present its
+## job; until then an unbound first shift manufactures nothing.
+func bind_opening_report_offer(offer: Callable) -> void:
+	_opening_report_offer = offer
+
+
 ## Reconstruct presentation from owners after load. No lifecycle method is
 ## called here: a resume may explain where the player was, never move them.
 func present_resume() -> void:
@@ -128,6 +136,8 @@ func clock_in() -> bool:
 		return false
 	var state := _ritual()
 	state.phase = PHASE_CLOCKED_IN
+	if _opening_report_offer.is_valid():
+		_opening_report_offer.call()
 	_commit_ritual()
 	_show("NIGHT REGISTER", "Read the waiting reports. Take one; the clock records the shift, not the case.")
 	return true

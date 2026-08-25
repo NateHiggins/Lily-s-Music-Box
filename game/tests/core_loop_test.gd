@@ -103,16 +103,22 @@ func _discovered_recognition() -> void:
 
 func _opening_report_offer() -> void:
 	var cases_before := var_to_bytes(RealityState.data.cases)
-	_check(director.offer_opening_report()
+	var shift := FirstShiftDirector.new()
+	shift.setup(null, null, null, work_orders)
+	shift.bind_opening_report_offer(Callable(director, "offer_opening_report"))
+	add_child(shift)
+	RealityState.data.intro_complete = true
+	_check(shift.clock_in()
 			and work_orders.job_stage(JOB) == "issued"
 			and str(work_orders.job_state(JOB).origin) == "reported"
 			and director.boundary() == "job_open",
-			"the campaign owner can place the authored first report on a future rack")
-	_check(not director.offer_opening_report()
+			"clock-in asks the campaign owner to place the authored first report")
+	_check(not shift.clock_in() and not director.offer_opening_report()
 			and RealityState.data.maintenance_jobs.size() == 1,
-			"offering twice neither duplicates nor resets the report")
+			"clocking in or offering twice neither duplicates nor resets the report")
 	_check(var_to_bytes(RealityState.data.cases) == cases_before,
 			"offering work activates no case before the player takes its paper")
+	shift.free()
 	await get_tree().process_frame
 	RealityState.reset_campaign_for_tests()
 	_fresh_director()
