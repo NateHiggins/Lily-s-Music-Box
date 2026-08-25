@@ -99,6 +99,23 @@ commit `c78249d` was integrated as `1472ce6`; the first local focused run hung
 only because the checkout's Godot class cache predated `DumbwaiterProp`, then a
 serialized import made both independent validation runs pass.
 
+SR7-B is now landed on the real passenger elevator. F01 carries a literal
+Otis-era landing interlock with keeper, latch, roller, retiring cam, separate
+shut/locked contacts, bridge and depth gauge. Its five-verb service teaches
+continuity through the governing distinction **closed is not locked**: a
+bridging wire can make the circuit read continuous but cannot make
+`interlock_holds()` true. Until the interlock is honestly proved, the elevator
+retains its old behavior exactly; afterward the real car refuses to leave F01
+with that landing cracked. The apparatus advances no work order, case, plant,
+Dream or save fact. Focused proof passes 41/41 and production-root proof 39/39;
+the two Forward+ A/A measurements and twelve frames are at
+`art/renders/elevator_interlock_sr7b/README.md`. The isolated `6be0ec9` was
+integrated over MBIO-1 as `186ead6`; the independent checkout required one
+serialized import for the new global class, after which both tests passed.
+Only F01 is interlocked, the car gate still has no proving contact, and the
+apparatus is not yet routed into the Service Round. Next in SR7 is the rooftop
+tank ballcock.
+
 **Dream rendering checkpoint (2026-08-20):** R1–R6 of the production surface
 redesign are landed through `art/renders/dream_rendering_r6/README.md`. The
 current target pocket is a recognisable furnished Orison invaded by one

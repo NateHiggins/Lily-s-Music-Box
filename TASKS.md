@@ -3502,10 +3502,22 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   closes no job, advances no case and publishes no plant or Dream fact. Focused
   proof passes 28/28 and production-root proof passes 24/24. Forward+ evidence
   and measured subject-ROI A/A are at
-  `art/renders/dumbwaiter_brake_sr7a/README.md`. **Still open:** SR7-B is the
-  elevator landing interlock; the dumbwaiter itself still serves one landing
-  and waits outside the Service Round route until a resident or job supplies a
-  compelling reason to use it.
+  `art/renders/dumbwaiter_brake_sr7a/README.md`.
+  **SR7-B elevator landing interlock is complete 2026-08-25:** the real F01
+  passenger-elevator landing now exposes keeper, latch, roller, retiring cam,
+  shut contact, locked contact, bridging wire and depth gauge as one literal
+  service point. Its 34-second chain gauges the keeper, removes the jumper,
+  trues the keeper, brings the door home and proves refusal with the door
+  deliberately cracked. `circuit_continuous()` remains distinct from
+  `interlock_holds()`: closed is not locked, and a bridge can lie only to the
+  former. An unproved interlock preserves the old ride exactly; after an
+  honest repair, the real car refuses to leave F01 whenever the landing door
+  is not locked. Preview/abort restores, commit alone proves, and no job, case,
+  plant, Dream or save owner is added. Focused proof passes 41/41 and the
+  production root 39/39; two measured Forward+ A/A floors and the twelve-frame
+  sheet live at `art/renders/elevator_interlock_sr7b/README.md`. **Still open:**
+  only F01 is interlocked; the car gate has no contact; neither vertical
+  apparatus is on the Service Round route; SR7-C is the rooftop tank ballcock.
 
 ## H — Housekeeping
 
