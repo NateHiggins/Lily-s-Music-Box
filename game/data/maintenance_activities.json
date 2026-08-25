@@ -157,6 +157,29 @@
         "note": "arch broken at the choke, load recovered and the chute proved by a test piece to the box",
         "mechanism_patch": {"arch_standing": false, "load_taken": true, "cover_locked": true, "glass_drawn": 0.0, "chute_clear": true}
       }
+    },
+    "fuse_panel_rating_service": {
+      "title": "THE FUSE PROTECTS THE WIRE",
+      "apparatus": "house panelboard, main knife switch and plug fuses",
+      "location_lane": "basement",
+      "historical_source": "Edison-base plug fuse holders accept 15, 20 and 30 ampere plugs interchangeably, which is the period hazard the National Electrical Code still answers by restricting Edison bases to existing work showing no evidence of overfusing or tampering; the cure was invented later, in the nontamperable and noninterchangeable plug fuse of E. H. Taylor for Chase Shawmut, US 2,147,221, filed 1935 and granted 1939, whose stated object is that a plug fuse of larger current carrying capacity than is intended for the circuit cannot be inserted, and that the terminals cannot be bridged by a coin or tinfoil",
+      "transferable_verb": "regulation",
+      "story": {
+        "material": "A fuse is a deliberately weak link sized to the WIRE behind the wall, not to whatever is plugged in at the far end. Put a thirty in a fifteen-ampere circuit and every lamp still lights, nothing ever blows, and the only thing left to fail is the wire itself.",
+        "human": "Somebody got tired of walking down here in the dark with a candle, and fitted the biggest plug that would screw in.",
+        "orison": "The panel draws load on a circuit whose main is open and whose fuse is out in your hand."
+      },
+      "steps": [
+        {"id": "read_the_stamp", "verb": "align", "target": 0.63, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Bring the lamp to the fuse cap and read what is stamped on it against the circuit card.", "confirmation": "Thirty amperes, on a card that says fifteen. Every lamp on it is lit."},
+        {"id": "pull_the_main", "verb": "turn", "target": 0.0, "tolerance": 0.07, "expected_seconds": 6.0, "cue": "Open the main knife switch. The panel is live until you do, whatever the lamps are doing.", "confirmation": "The blades come clear of the jaws. Now it is dead."},
+        {"id": "draw_the_plug", "verb": "hold_release", "target": 0.55, "tolerance": 0.09, "hold_min_seconds": 1.4, "expected_seconds": 8.0, "cue": "Back the plug out of its Edison base against the spring and let it come free.", "confirmation": "The link inside is whole. It never blew, because it never could."},
+        {"id": "match_the_wire", "verb": "align", "target": 0.34, "tolerance": 0.05, "expected_seconds": 8.0, "cue": "Set a plug rated to the conductor behind the wall, not to the load in front of it.", "confirmation": "Fifteen amperes, which is what the wire can carry."},
+        {"id": "prove_under_load", "verb": "hold_release", "target": 0.88, "tolerance": 0.06, "hold_min_seconds": 1.8, "expected_seconds": 8.0, "cue": "Close the main and hold while the circuit takes its whole load.", "confirmation": "It holds, and the link stays cool. Now the wire has something in front of it."}
+      ],
+      "completion": {
+        "note": "over-fused plug replaced with one rated to the conductor and proved under full load",
+        "mechanism_patch": {"fitted_rating": 15, "main_open": false, "plug_out": false, "panel_safe": true}
+      }
     }
   }
 }

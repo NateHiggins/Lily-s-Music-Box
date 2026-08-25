@@ -270,6 +270,29 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])
 		floor_nodes["F01"].add_child(bench)
+	if floor_nodes.has("B1"):
+		# SR7-E: the working face of the first house panelboard.
+		#
+		# The electrical plant is NOT invented here. `B1_ELECTRICAL` is a real
+		# generated room and `b1_panel0` is a real baked cabinet on its east
+		# wall at x 13.30..13.44, y -7.2..-6.4, standing 0.9 to 1.9 above the
+		# basement floor with `b1_econduit` feeding it. This apparatus stands
+		# on that cabinet's own front plane at x 13.30 and builds WEST into the
+		# room, so the baked box is its back and nothing is duplicated or
+		# moved. `SwitchSystem` keeps every fixture it already owned.
+		#
+		# -PI/2, as on the lobby east run: props are authored facing local +Z
+		# and the room lies west of the cabinet.
+		#
+		# The height is ABSOLUTE. B1 sits at -2.8 and its floor node is at the
+		# origin, so a panel placed at a floor-local 0.9 would land in the
+		# lobby; the live test asserts the global height for that reason.
+		var fuse_panel := FusePanelProp.new()
+		fuse_panel.name = "B1_HOUSE_PANEL"
+		fuse_panel.prop_type = "fuse_panel"
+		fuse_panel.position = GameBoot.b2g([13.30, -6.80, -2.8 + 0.90])
+		fuse_panel.rotation.y = -PI * 0.5
+		floor_nodes["B1"].add_child(fuse_panel)
 	if floor_nodes.has("ROOF"):
 		# SR7-C: the house-tank ball cock, on the south face of the timber
 		# water tank the generator already bakes at building (-9.45, 4.95) on

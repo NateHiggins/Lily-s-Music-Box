@@ -10,27 +10,31 @@ func _ready() -> void:
 	# SR6 landed the first round -- apartment, lobby, basement. SR7 adds the
 	# vertical apparatus one at a time: SR7-A the dumbwaiter's holding brake,
 	# SR7-B the passenger lift's landing-door interlock, SR7-C the roof
-	# house-tank ball cock, SR7-D the mail chute's choke. The assertion stays
-	# CLOSED rather than becoming a subset check, so a stray eighth activity
-	# still fails this line loudly.
+	# house-tank ball cock, SR7-D the mail chute's choke, SR7-E the house
+	# panelboard's fuse rating. The assertion stays CLOSED rather than becoming
+	# a subset check, so a stray ninth activity still fails this line loudly.
 	_check(library.activity_ids() == (["annunciator_flag_service",
 			"boiler_water_column_test", "dumbwaiter_brake_service",
-			"elevator_interlock_proof", "mail_chute_choke_clearing",
-			"radiator_vent_service",
+			"elevator_interlock_proof", "fuse_panel_rating_service",
+			"mail_chute_choke_clearing", "radiator_vent_service",
 			"roof_tank_ballcock_service"] as Array[String]),
-			"the round runs apartment, lobby, basement, two shafts, roof and chute")
+			"the round runs apartment, lobby, basement, two shafts, roof, chute and panel")
 	# The six ruled transferable verbs were complete at SR7-C, so SR7-D is the
 	# first apparatus that had to REUSE one. It takes `flow` deliberately: the
 	# radiator teaches flow as air leaving a pipe before steam can enter, and
 	# the chute teaches the same word for solids, where the obstruction holds
-	# itself up instead of draining away. Verbs are now a many-to-one map and
-	# this assertion is the record of which machine chose what.
+	# itself up instead of draining away. SR7-E reuses `regulation` on the same
+	# principle: the dumbwaiter's band is sized to the load it must hold and
+	# the fuse link is sized to the conductor it must protect. Verbs are now a
+	# many-to-one map and this assertion is the record of which machine chose
+	# what.
 	_check({
 		"radiator_vent_service": "flow",
 		"mail_chute_choke_clearing": "flow",
 		"annunciator_flag_service": "contact",
 		"boiler_water_column_test": "pressure",
 		"dumbwaiter_brake_service": "regulation",
+		"fuse_panel_rating_service": "regulation",
 		"elevator_interlock_proof": "continuity",
 		"roof_tank_ballcock_service": "timing",
 	} == _transferable_verbs(library),
