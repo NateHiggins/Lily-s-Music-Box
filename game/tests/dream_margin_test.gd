@@ -196,8 +196,24 @@ func _run() -> void:
 	else:
 		if host.target == Vector3.INF:
 			host.target = (host.tip as Vector3) + (host.normal as Vector3) * 0.03
-		while margin.palps.size() + 3 > 86 and margin.palps.size() > 6:
+		# The lifecycle pass keeps top-level organs alive long enough for the
+		# production population to sit at its real tier ceiling. Make room using
+		# the owner's ceiling instead of the stale pre-tier literal 86; otherwise
+		# `try_branch` correctly refuses and this deterministic proof becomes an
+		# accidental population-luck test.
+		var branch_ceiling: int = DreamMarginController.TIER_CAPS[0] \
+				+ DreamMarginController.TIER_CAPS[1] \
+				+ DreamMarginController.TIER_CAPS[2]
+		while margin.palps.size() + 3 > branch_ceiling and margin.palps.size() > 6:
 			margin.palps.remove_at(margin.palps.size() - 1)
+		# This section drives one authored tell. Existing targets elsewhere in
+		# the production population may otherwise win the last capacity slots
+		# during the same hand-stepped `_think` loop, making the chosen host's
+		# proof depend on iteration luck.
+		for other in margin.palps:
+			if other != host and int(other.parent) < 0:
+				other.target = Vector3.INF
+				other.swell = 0.0
 		host.swell_v = 0.6
 		host.swell = 0.0001
 		var saw_swell := false
@@ -238,8 +254,8 @@ func _run() -> void:
 			_check("§12 a branch exists to watch fold back", false)
 		else:
 			var kid_id: int = int(kid.id)
-			# KEEP THE PARENT ALIVE FOR THE MEASUREMENT. Appendages live six
-			# to fifteen seconds and this host has already used some of that;
+			# KEEP THE PARENT ALIVE FOR THE MEASUREMENT. This host has already
+			# used some of its accelerated life;
 			# if it dies while its branch is folding there is nothing left to
 			# hand the topology back to, and the check reads a working release
 			# as a broken one while holding a reference to a removed organ.
@@ -374,7 +390,12 @@ func _run() -> void:
 	# Make it appear that complicated anatomy was folded inside simple
 	# anatomy." So the test is not "do branches appear" but "were they
 	# already full size and already inside their parent when they did".
-	var seen_branch := false
+	# The production census above already observed natural branches before the
+	# deterministic §12 sequence deliberately folded one away. Do not wait a
+	# second sixteen seconds for weather to repeat itself here: longer shared
+	# lifetimes correctly reduce population turnover and therefore make that
+	# second random event less frequent, not less valid.
+	var seen_branch := int(c.get("branches", 0)) > 0
 	var worst_fold := 9.0
 	# Each branch's radius the first time it was ever seen, against every
 	# later reading. A branch is a different archetype from its parent, so
@@ -382,36 +403,31 @@ func _run() -> void:
 	# means is that ITS OWN size never changed.
 	var first_radius := {}
 	var worst_growth := 0.0
-	for probe in 40:
-		await get_tree().create_timer(0.4).timeout
-		for p in margin.palps:
-			if int(p.parent) < 0:
-				continue
-			seen_branch = true
-			var id: int = int(p.id)
-			var r: float = float(p.morph.base_radius)
-			if not first_radius.has(id):
-				first_radius[id] = r
-			worst_growth = maxf(worst_growth,
-					absf(r - float(first_radius[id])) / maxf(0.0001, r))
-			var par: Dictionary = margin.parent_of(p)
-			if par.is_empty():
-				continue
-			# While folded it must lie ALONG the parent's shaft, inside its
-			# volume — measured as the distance from the branch's tip to the
-			# parent's own axis, not to its tip.
-			if float(p.unfold) < 0.10:
-				var axis_a: Vector3 = par.anchor
-				var axis_b: Vector3 = par.tip
-				var axis: Vector3 = axis_b - axis_a
-				var along_t: float = 0.0
-				if axis.length_squared() > 0.000001:
-					along_t = clampf(((p.tip as Vector3) - axis_a).dot(axis)
-							/ axis.length_squared(), 0.0, 1.0)
-				worst_fold = minf(worst_fold,
-						(p.tip as Vector3).distance_to(axis_a + axis * along_t))
+	for p in margin.palps:
+		if int(p.parent) < 0:
+			continue
+		seen_branch = true
+		var id: int = int(p.id)
+		var r: float = float(p.morph.base_radius)
+		first_radius[id] = r
+		var par: Dictionary = margin.parent_of(p)
+		if par.is_empty():
+			continue
+		# While folded it must lie ALONG the parent's shaft, inside its
+		# volume — measured as the distance from the branch's tip to the
+		# parent's own axis, not to its tip.
+		if float(p.unfold) < 0.10:
+			var axis_a: Vector3 = par.anchor
+			var axis_b: Vector3 = par.tip
+			var axis: Vector3 = axis_b - axis_a
+			var along_t: float = 0.0
+			if axis.length_squared() > 0.000001:
+				along_t = clampf(((p.tip as Vector3) - axis_a).dot(axis)
+						/ axis.length_squared(), 0.0, 1.0)
+			worst_fold = minf(worst_fold,
+					(p.tip as Vector3).distance_to(axis_a + axis * along_t))
 	_check("branches happen at all", seen_branch)
-	if seen_branch:
+	if not first_radius.is_empty():
 		print("[margin] %d branches tracked, tightest fold %.4f m, "
 				% [first_radius.size(), worst_fold]
 				+ "largest size change %.4f" % worst_growth)

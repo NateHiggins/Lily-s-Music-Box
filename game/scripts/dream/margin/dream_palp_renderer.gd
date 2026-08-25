@@ -11,6 +11,7 @@ extends Node3D
 ## spines, sections and material parameters into flat arrays.
 
 const SHADER := preload("res://shaders/dream_palp.gdshader")
+const LIFECYCLE := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 const MAX_PALPS := 40
 const JOINTS := 6
 const RINGS := 13
@@ -198,16 +199,40 @@ func _lay(slot: int, p: Dictionary) -> void:
 	var extend: float = float(p.extend) if p.has("extend") else 1.0
 	var ln: float = float(morph.length) * float(p.grow) * clampf(extend, 0.05, 1.4)
 	var sd: float = float(morph.seed_value)
+	var stage := DreamMarginController.lifecycle_stage_of(p)
+	# A complete organ rotates out of its reserve fold. No stage changes `ln`,
+	# radius or any authored section; the silhouette changes only by posture.
+	var openness := 1.0
+	match stage:
+		LIFECYCLE.Stage.FOLDED: openness = 0.0
+		LIFECYCLE.Stage.BUD: openness = 0.22
+		LIFECYCLE.Stage.JUVENILE: openness = 0.68
+		LIFECYCLE.Stage.MATURE: openness = 1.0
+		LIFECYCLE.Stage.EXCHANGE: openness = 1.0
+		LIFECYCLE.Stage.SENESCENT: openness = 0.72
+		LIFECYCLE.Stage.SHED: openness = 0.16
+		LIFECYCLE.Stage.STAIN: openness = 0.04
+	var wall_dir := (side * cos(sd * 2.7) + up * sin(sd * 2.7)).normalized()
 	# Stiff organs hold a straighter line; soft ones curl. §6 makes stiffness
 	# per-individual anatomy, so a gold finger and a whisker move differently
 	# before any behavior code exists.
 	var curl: float = (1.0 - float(morph.stiffness)) * float(morph.curvature)
 	for j in JOINTS:
 		var t := float(j) / float(JOINTS - 1)
-		var point := a + n * (ln * (0.75 * t - 0.28 * t * t)) \
+		var open_point := a + n * (ln * (0.75 * t - 0.28 * t * t)) \
 				+ aim * (ln * t * t * 0.9)
-		point += (side * cos(sd * 2.1) + up * sin(sd * 2.1)) \
+		open_point += (side * cos(sd * 2.1) + up * sin(sd * 2.1)) \
 				* (ln * sin(t * PI * 0.7) * 0.45 * curl)
+		# Reserve and shed postures lie along the architectural surface at full
+		# authored length. A small root lift prevents z-fighting without making
+		# the organ appear to grow out of the wall.
+		var folded_point := a + wall_dir * (ln * t) \
+				+ n * (float(morph.base_radius) * (0.30 + 0.18 * sin(t * PI)))
+		var point := folded_point.lerp(open_point, smoothstep(0.0, 1.0, openness))
+		if stage == LIFECYCLE.Stage.EXCHANGE:
+			point += aim * (ln * 0.10 * t * t)
+		elif stage == LIFECYCLE.Stage.SENESCENT:
+			point += Vector3.DOWN * (ln * 0.12 * t * t)
 		# A whisker's own idle tremor. The BEHAVIOUR now supplies intent —
 		# probing, tracing, bracing — and this is only the fine motion that
 		# rides on top of it.
@@ -222,7 +247,9 @@ func _lay(slot: int, p: Dictionary) -> void:
 			float(morph.suckers), float(morph.cilia))
 	# §12 steps 2-4: how far the swelling has got, and where along the organ.
 	_branch[slot] = Vector4(float(p.get("swell", 0.0)),
-			float(p.get("swell_v", 0.6)), 0.0, 0.0)
+			float(p.get("swell_v", 0.6)), float(stage) / 7.0,
+			clampf(float(p.get("age", 0.0))
+			/ maxf(0.001, float(p.get("life", 1.0))), 0.0, 1.0))
 	# §12 STEPS 8-9: THE FINE ANATOMY, AND THE MOMENT THE JOB IS DONE.
 	#
 	# `cilia_out` is an ANGLE the shader turns the hairs through, never a

@@ -2375,6 +2375,23 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   existing owner in order: flora; palp/cilia; hero; architecture; incarnation;
   co-present pursuer/hazard. A stage vocabulary is not permission to move
   encounter timing, topology, case truth or save ownership.
+- **LC-6A COMPLETE 2026-08-24 — PALP/CILIA STAGE POSTURES.** Top-level margin
+  palps now draw 45–150-second tier lives through the shared eight-stage
+  vocabulary. Every stage retains anatomy scale one: folded/bud reserve against
+  the architectural surface, mature/exchange reach into the room, senescence
+  droops and shed/stain return to a spent attached imprint. Branches do not gain
+  a second life clock; their approved unfold, investigate, fine-cilia exchange,
+  completion and retract sequence is classified with the same words. Stage and
+  owner-clock progress reuse the two spare `palp_branch` components, so the
+  existing one mesh/one draw remains one mesh/one draw with no node, collision,
+  light or save fact. `DreamMarginLifecycleTest` passes 44/44, the production
+  `DreamMarginTest` passes 57/57, and `ShaderParseCheck` passes. One fixed-camera
+  Forward+ production-root Flat Ribbon clears its 0.000112 subject-ROI A/A floor
+  by 60.80×–226.91× at every adjacent transition; exact frames and hashes are in
+  `art/renders/dream_margin_lifecycle_lc6a/README.md`. **Still open in this
+  owner:** environmental recruitment/reproduction and a visit-persistent
+  post-removal architectural stain. Frame 08 is only the attached terminal
+  posture and must not be cited as persistence proof.
 
 ### T4 — TEMPORAL BIOLOGY AND CONTROLLED ANACHRONISM (owner ruling 2026-08-24)
 

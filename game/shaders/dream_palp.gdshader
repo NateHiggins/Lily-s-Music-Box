@@ -50,6 +50,10 @@ uniform vec4 palp_branch[40];
 //   w  this individual's cilia density (§6: anatomy, not a constant).
 uniform vec4 palp_cilia[40];
 uniform int palp_count = 0;
+// Proof-only clock pin. The production default follows live TIME; lifecycle
+// capture can freeze the same anatomy twice to price the remaining scene
+// noise before comparing stages.
+uniform float palp_time_override = -1.0;
 
 // How many cilium slots the mesh carries per palp. Matched to
 // DreamPalpRenderer.CILIA; an individual uses as many as its anatomy asks for
@@ -61,7 +65,9 @@ varying vec3 v_world;
 varying float v_thickness;
 varying float v_seed;
 varying vec4 v_matter;
-varying vec2 v_branch;
+// xy remain §12's local branch tell. z is shared lifecycle stage/7 and w is
+// owner-clock progress. This reuses the two spare palp_branch components.
+varying vec4 v_branch;
 // x how erect this cilium is, y the completion beat, z which anatomy this
 // vertex belongs to (0 shaft, 1 cilium), w how near the ciliated band it is.
 varying vec4 v_cilia;
@@ -249,6 +255,7 @@ void vertex() {
 	int p = int(UV2.x + 0.5);
 	vec4 par = palp_params[p];
 	float grow = par.x;
+	float palp_time = palp_time_override >= 0.0 ? palp_time_override : TIME;
 
 	// WHICH ANATOMY THIS VERTEX IS. UV2.y 0 is the shaft, 1 is one of the
 	// individual's cilia. One vertex program, two structures, one draw --
@@ -268,7 +275,7 @@ void vertex() {
 		vec3 c_bin;
 		float c_erect;
 		float c_alive;
-		cilium(p, int(UV.x + 0.5), UV.y, NORMAL, grow, TIME,
+		cilium(p, int(UV.x + 0.5), UV.y, NORMAL, grow, palp_time,
 				c_pos, c_nrm, c_tng, c_bin, c_erect, c_alive);
 		VERTEX = c_pos;
 		NORMAL = c_nrm;
@@ -281,7 +288,7 @@ void vertex() {
 		v_thickness = 0.10;
 		v_seed = par.w;
 		v_matter = palp_matter[p];
-		v_branch = vec2(0.0, 0.0);
+		v_branch = vec4(0.0, 0.0, palp_branch[p].z, palp_branch[p].w);
 		v_cilia = vec4(c_erect, palp_cilia[p].z, 1.0, 1.0);
 	} else {
 
@@ -297,7 +304,8 @@ void vertex() {
 		palp_frame(p, s, pos, tng, sd, bn);
 
 		float r;
-		vec3 radial = palp_surface(p, v, u * 6.2831853 + par.w, sd, bn, TIME, r);
+		vec3 radial = palp_surface(p, v, u * 6.2831853 + par.w, sd, bn,
+				palp_time, r);
 		r *= alive;
 
 		VERTEX = pos + radial * r;
@@ -314,7 +322,7 @@ void vertex() {
 		vec4 br = palp_branch[p];
 		float from_line = abs(v - br.y);
 		float near_crease = 1.0 - smoothstep(0.0, 0.20, from_line);
-		v_branch = vec2(br.x, near_crease);
+		v_branch = vec4(br.x, near_crease, br.z, br.w);
 		// And how close it is to the CILIATED BAND, which is where §12 step 9 puts
 		// its flush -- the same tissue signal as step 2's congestion, at the other
 		// end of the sequence.
@@ -334,6 +342,7 @@ void vertex() {
 void fragment() {
 	vec3 n = normalize(NORMAL);
 	vec3 view_dir = normalize(VIEW);
+	float palp_time = palp_time_override >= 0.0 ? palp_time_override : TIME;
 	DeCtx ctx;
 	ctx.thickness = v_thickness;
 	ctx.vein = 0.4;
@@ -351,6 +360,21 @@ void fragment() {
 	// does, so the tissue about to open runs dark and full.
 	float swell = v_branch.x;
 	float at_crease = v_branch.y;
+	float life_stage = floor(clamp(v_branch.z, 0.0, 1.0) * 7.0 + 0.5);
+	float is_folded = 1.0 - step(0.5, abs(life_stage - 0.0));
+	float is_bud = 1.0 - step(0.5, abs(life_stage - 1.0));
+	float is_juvenile = 1.0 - step(0.5, abs(life_stage - 2.0));
+	float is_exchange = 1.0 - step(0.5, abs(life_stage - 4.0));
+	float is_senescent = 1.0 - step(0.5, abs(life_stage - 5.0));
+	float is_shed = 1.0 - step(0.5, abs(life_stage - 6.0));
+	float is_stain = 1.0 - step(0.5, abs(life_stage - 7.0));
+	// Perfusion arrives, peaks during function/exchange, then withdraws. It is
+	// surface state on complete tissue, never opacity or scale.
+	ctx.vein = clamp(ctx.vein * (1.0 - is_folded * 0.55)
+			+ is_bud * 0.34 + is_juvenile * 0.22 + is_exchange * 0.38,
+			0.0, 1.0);
+	ctx.thickness = clamp(ctx.thickness + is_bud * 0.16
+			- is_senescent * 0.12 - is_shed * 0.22, 0.05, 1.0);
 	ctx.vein = clamp(ctx.vein + swell * at_crease * 0.85, 0.0, 1.0);
 	ctx.thickness = clamp(ctx.thickness + swell * at_crease * 0.30, 0.0, 1.0);
 	// §6: gold percentage is per-individual anatomy, not decoration.
@@ -376,8 +400,8 @@ void fragment() {
 	ctx.gold_root *= mix(1.0, 0.30, part);
 	ctx.stretch = 0.3;
 	ctx.lod = 1.0 - smoothstep(1.5, 6.0, length(VERTEX));
-	DeMasks m = de_masks(v_world, v_uv, n, view_dir, TIME, v_seed, ctx);
-	DeOut o = de_shade(m, v_world, v_uv, n, view_dir, TIME, v_seed, ctx);
+	DeMasks m = de_masks(v_world, v_uv, n, view_dir, palp_time, v_seed, ctx);
+	DeOut o = de_shade(m, v_world, v_uv, n, view_dir, palp_time, v_seed, ctx);
 	// §12 STEP 4 — THE CREASE. A line that is darker, wetter and deeply
 	// occluded: the inside of a fold, seen edge on.
 	//
@@ -388,6 +412,11 @@ void fragment() {
 	// nothing. It runs over about a seventh of the length now.
 	float line = smoothstep(0.55, 0.95, at_crease) * swell;
 	ALBEDO = mix(o.albedo, o.albedo * 0.14, line);
+	vec3 exchange_wet = mix(ALBEDO, vec3(0.16, 0.22, 0.48), 0.42);
+	vec3 bruise = ALBEDO * vec3(0.62, 0.48, 1.18);
+	ALBEDO = mix(ALBEDO, exchange_wet, is_exchange * 0.42);
+	ALBEDO = mix(ALBEDO, bruise, is_senescent * 0.52 + is_shed * 0.72);
+	ALBEDO *= 1.0 - is_stain * 0.42;
 	METALLIC = o.metallic * (1.0 - line * 0.9);
 	ROUGHNESS = clamp(o.roughness - line * 0.30, 0.03, 1.0);
 	SPECULAR = o.specular;
@@ -397,7 +426,8 @@ void fragment() {
 	// relying on colour, and they cannot differ at all if they are all
 	// saturated. The gold fraction is per-individual anatomy (§6), so let it
 	// decide how much light a given organ actually carries.
-	EMISSION = o.emission * (0.55 + 1.25 * v_matter.x);
+	EMISSION = o.emission * (0.55 + 1.25 * v_matter.x)
+			* (1.0 - is_folded * 0.62 - is_shed * 0.48 - is_stain * 0.72);
 	BACKLIGHT = o.backlight;
 	AO = o.ao * (1.0 - line * 0.85);
 	AO_LIGHT_AFFECT = 0.35;

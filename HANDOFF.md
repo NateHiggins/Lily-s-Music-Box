@@ -483,6 +483,23 @@ unreliable-lamp states, the honest 1.38× phase-motion/A-A ruling and paired
 `art/renders/dream_fauna_breath_lc5/README.md`. LC-6 (other organ owners)
 remains open.
 
+LC-6A now carries the shared stage language through the margin without
+replacing its owners. Top-level palps use tiered 45–150-second lives and remain
+at anatomy scale one while posture moves from architectural reserve fold to
+working reach, senescent droop and attached terminal imprint. Branches retain
+their approved short §12 work clock; unfold, investigation, deployed cilia,
+completion and retract are classified rather than retimed. Stage/progress use
+the two spare `palp_branch` channels, so the one mesh/one draw contract, node
+count, collision, lights and save ownership do not move. Focused proof is
+44/44, production `DreamMarginTest` is 57/57 and shader parsing passes. The
+fixed-camera production-root proof follows one naturally born Flat Ribbon;
+every adjacent stage clears a 0.000112 subject-ROI A/A floor by
+60.80×–226.91×. Frames and hashes are at
+`art/renders/dream_margin_lifecycle_lc6a/README.md`. Do not call LC-6 complete:
+margin environmental recruitment/reproduction and its visit-persistent
+post-removal stain remain open, followed by hero, architecture, incarnation
+and co-present pursuit/hazard owners.
+
 Three top-level projects:
 
 | Path | What |

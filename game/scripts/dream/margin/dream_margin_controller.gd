@@ -23,6 +23,7 @@ extends Node3D
 const MorphologyScript := preload("res://scripts/dream/margin/dream_palp_morphology.gd")
 const BehaviorScript := preload("res://scripts/dream/margin/dream_palp_behavior.gd")
 const NeighborScript := preload("res://scripts/dream/margin/dream_palp_neighbors.gd")
+const LifecycleScript := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 
 ## §29's population tiers. Counts are ceilings, not targets: the margin only
 ## carries what the field's cross-section actually reaches.
@@ -84,6 +85,11 @@ const LEAVE_S := 1.2
 ## they were slivers on a wall at gameplay distance. §3 puts primary palps at
 ## 10-60 cm and this lands them there.
 const TIER_SCALE := [1.35, 0.55, 0.24]
+## LC-6A. Top-level incursions use the shared small-organelle life band. A
+## branch's shorter `life` remains its already-approved work/unfold sequence,
+## not a second independently breeding organism.
+const TIER_LIFE_MIN_S := [90.0, 60.0, 45.0]
+const TIER_LIFE_MAX_S := [150.0, 115.0, 90.0]
 
 ## Which archetypes each tier draws from. The primaries are the ones the
 ## player gets close to, so they carry the most distinct anatomy; the
@@ -281,8 +287,12 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"aim": (nrm + side * _rng.randf_range(-0.6, 0.6)
 				+ nrm.cross(side) * _rng.randf_range(-0.6, 0.6)).normalized(),
 		"age": 0.0,
-		"life": _rng.randf_range(6.0, 15.0),
-		"grow": 0.0,
+		"life": _rng.randf_range(TIER_LIFE_MIN_S[tier], TIER_LIFE_MAX_S[tier]),
+		# LC-6A: complete anatomy exists on its first frame. Emergence is a
+		# folded wall posture in the renderer, never a zero-to-one scale.
+		"grow": 1.0,
+		"lifecycle_stage": LifecycleScript.Stage.FOLDED,
+		"lifecycle_override": -1,
 		# §8 — stable for life, from this individual's own seed.
 		"traits": BehaviorScript.personality(indiv_seed),
 		# §9 — what it is doing about the world, and for how long.
@@ -639,13 +649,44 @@ func _seek_target(p: Dictionary) -> void:
 	p.target = Vector3.INF
 
 
+## LC-6A. The shared words, interpreted by the clock this owner already has.
+## Top-level palps use normalized age. Branches are folded anatomy within a
+## parent, so their established §12 sequence is the honest clock: unfold,
+## investigate, exchange/complete, retract and shed.
+static func lifecycle_stage_of(p: Dictionary) -> int:
+	var override := int(p.get("lifecycle_override", -1))
+	if override >= 0:
+		return clampi(override, LifecycleScript.Stage.FOLDED,
+				LifecycleScript.Stage.STAIN)
+	if int(p.get("parent", -1)) >= 0:
+		if bool(p.get("folding", false)):
+			return LifecycleScript.Stage.SHED
+		if bool(p.get("task_done", false)):
+			return LifecycleScript.Stage.SENESCENT
+		if float(p.get("task_left", 0.0)) > 0.0:
+			return LifecycleScript.Stage.EXCHANGE
+		var unfolded := float(p.get("unfold", 0.0))
+		if unfolded < 0.08:
+			return LifecycleScript.Stage.FOLDED
+		if unfolded < 0.42:
+			return LifecycleScript.Stage.BUD
+		if unfolded < UNFOLD_INVESTIGATING:
+			return LifecycleScript.Stage.JUVENILE
+		if float(p.get("cilia_out", 0.0)) >= 0.98:
+			return LifecycleScript.Stage.EXCHANGE
+		return LifecycleScript.Stage.MATURE
+	var life := maxf(0.001, float(p.get("life", 1.0)))
+	return LifecycleScript.stage_at(float(p.get("age", 0.0)) / life)
+
+
 func _age(delta: float) -> void:
 	var i := palps.size() - 1
 	while i >= 0:
 		var p: Dictionary = palps[i]
 		p.age += delta
-		# Emerge, hold, withdraw. Withdrawal propagates from the tip (§9).
-		var emerge := 0.9
+		# LC-6A: the owner clock classifies; the renderer poses complete tissue.
+		# Branches retain §12's own functional sequence and are classified by it.
+		p.lifecycle_stage = lifecycle_stage_of(p)
 		# Named, because §12 steps 9 and 10 have to fit in front of it.
 		var leave := LEAVE_S
 		var going: float = 0.0
@@ -668,11 +709,9 @@ func _age(delta: float) -> void:
 			p.folding = going > 0.0
 			if going > 0.0:
 				p.unfold = 1.0 - going
-		elif p.age < emerge:
-			p.grow = smoothstep(0.0, 1.0, p.age / emerge)
-		elif going > 0.0:
-			p.grow = 1.0 - going
 		else:
+			# A top-level palp folds back against the architecture when shed. It
+			# never becomes a smaller palp on the way in or out.
 			p.grow = 1.0
 		if p.age >= p.life:
 			# §12 STEP 12 — THE PARENT RETURNS TO SIMPLER TOPOLOGY. Its child
@@ -825,6 +864,10 @@ static func _shared_state() -> Dictionary:
 		# cannot get out of order.
 		"task_left": 0.0,
 		"task_done": false,
+		# LC-6A: presentation classification owned by this appendage's existing
+		# clock. Review arrangements may override it without changing their age.
+		"lifecycle_stage": LifecycleScript.Stage.MATURE,
+		"lifecycle_override": -1,
 		# THE TOPOLOGY, FOR THE APPENDAGES BORN THROUGH `_birth_specific`.
 		#
 		# The other two births set all three of these in their own literals,
@@ -997,6 +1040,8 @@ func try_branch(id: int) -> bool:
 			"side": side,
 			"aim": (parent.aim as Vector3),
 			"age": 0.0, "life": _rng.randf_range(4.5, 8.0), "grow": 1.0,
+			"lifecycle_stage": LifecycleScript.Stage.FOLDED,
+			"lifecycle_override": -1,
 			"traits": BehaviorScript.personality(indiv_seed),
 			"act": BehaviorScript.Act.PROBE, "act_clock": 0.0,
 			"act_left": BehaviorScript.duration(BehaviorScript.Act.PROBE,
@@ -1064,6 +1109,8 @@ func _birth_specific(tier: int, at: Vector3, nrm: Vector3, archetype: int) -> vo
 		"id": _next_id, "tier": tier, "seed": indiv_seed, "morph": morph,
 		"anchor": at, "normal": nrm, "side": side,
 		"aim": nrm, "age": 1.2, "life": 9999.0, "grow": 1.0,
+		"lifecycle_stage": LifecycleScript.Stage.MATURE,
+		"lifecycle_override": LifecycleScript.Stage.MATURE,
 		"traits": BehaviorScript.personality(indiv_seed),
 		"act": BehaviorScript.Act.HOVER, "act_clock": 0.0, "act_left": 9999.0,
 		"target": Vector3.INF, "trace_angle": 0.0,
@@ -1134,7 +1181,10 @@ func census() -> Dictionary:
 	var completing := 0
 	var completed := 0
 	var shared := {}
+	var stages := {}
 	for p in palps:
+		var stage_name := LifecycleScript.stage_name(lifecycle_stage_of(p))
+		stages[stage_name] = int(stages.get(stage_name, 0)) + 1
 		var out_at: float = float(p.get("cilia_out", 0.0))
 		if out_at > 0.02 and out_at < 0.98:
 			deploying += 1
@@ -1171,4 +1221,5 @@ func census() -> Dictionary:
 			"feel_hero": feel_hero, "joined_hero": joined_hero,
 			"branches": branches, "unfolding": unfolding,
 			"cilia_deploying": deploying, "ciliated": ciliated,
-			"completing": completing, "completed": completed}
+			"completing": completing, "completed": completed,
+			"lifecycle_stages": stages}
