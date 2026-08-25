@@ -458,8 +458,19 @@ reproduction cannot change function. Deaths coalesce into bounded room-local
 impressions that survive streaming but not a new director. The production-root
 `DreamFaunaLifecycleTest` passes 29/29, including forced per-room and global
 overflow with deterministic victim ordering, and baseline `DreamFaunaTest`
-passes 29/29. This is mechanical closure only: LC-3B must make the stages visibly
-legible and LC-4B must render the first stain through the existing Gilder batch.
+passes 29/29. Claude's follow-up mechanical submission/packed-stage pass was
+integrated at `c22b987`, then its explicitly failed camera proof was replaced
+with a named-cohort production sequence. LC-3B and LC-4B are now visually
+closed: the corrected camera follows motif 1 / slot 0 through seven complete
+living postures; every fixed-subject ROI pair clears the live 0.042495 A/A
+floor. A rebuilt fresh production root prices a separate zero-stain A/A, the
+first broadened violet-gold Gilder impression clears that local floor by 2.37×,
+and four marks return byte-identically after streaming away and back. Current
+proof and exact hashes are at
+`art/renders/dream_fauna_lifecycle_lc4b/README.md`. All presentation remains
+inside five batches and the 96-instance ceiling with no node, collision, light,
+save fact or extra draw. LC-5 (visible ethermoss/cold-ether breath) and LC-6
+(other organ owners) remain open.
 
 Three top-level projects:
 

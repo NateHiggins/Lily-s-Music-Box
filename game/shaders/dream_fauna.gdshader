@@ -93,7 +93,7 @@ void vertex() {
 	VERTEX.xy += gaze * tracker * tracked_organ * vertex_channels_ready;
 
 	// ---- LC-3B POSTURE -------------------------------------------------
-	// Every multiplier below is bounded inside [0.90, 1.10] and every one of
+	// Every multiplier below is bounded inside [0.82, 1.18] and every one of
 	// them is applied to COMPLETE anatomy. Nothing here scales a creature
 	// from or toward zero; age is carried by how the tissue is held, which is
 	// what the ruling asks for and what the folded-anatomy doctrine already
@@ -110,27 +110,33 @@ void vertex() {
 
 	float slow = sin(TIME * 0.9 + phase);
 
-	// Contracted and sealed, but entire: drawn in seven per cent, not shrunk.
-	float draw_in = 1.0 - 0.07 * is_folded;
+	// Contracted and sealed, but entire: the folded organ grips itself tightly.
+	float draw_in = 1.0 - 0.16 * is_folded;
 	// Taut internal pressure. The bud is the widest the body ever is.
-	float turgor = 1.0 + (0.055 + 0.020 * slow) * is_bud;
+	float turgor = 1.0 + (0.14 + 0.025 * slow) * is_bud;
 	// Over-responsive tissue: the same gait, answered too hard.
 	float responsiveness = 1.0 + 1.15 * is_juvenile - 0.25 * is_senescent
 			- 0.55 * is_shed;
 	// Uneven pressure. One axis lags the other, so the silhouette stops
 	// agreeing with itself without any part of it leaving.
-	float uneven = 0.045 * is_senescent * slow;
+	float uneven = 0.11 * is_senescent * slow;
 	// Collapsing attachment: the body leans off its own footing and settles,
 	// which is a shear and a droop rather than a disappearance.
-	float slump = 0.055 * is_shed;
+	float slump = 0.16 * is_shed;
 
 	VERTEX.y += gait * gait_amount * live_activity * responsiveness;
 	VERTEX.xz *= (1.0 + gait * 0.06 * live_activity) * draw_in * turgor;
 	VERTEX.x *= 1.0 + uneven;
 	VERTEX.z *= 1.0 - uneven;
-	VERTEX.y *= 1.0 - 0.05 * is_shed;
+	// Juvenile tissue has all its parts but does not yet hold equal pressure.
+	VERTEX.x *= 1.0 + 0.16 * is_juvenile;
+	VERTEX.z *= 1.0 - 0.14 * is_juvenile;
+	// Exchange tissue narrows and lengthens into a receptive cleft.
+	VERTEX.x *= 1.0 - 0.12 * is_exchange;
+	VERTEX.z *= 1.0 + 0.18 * is_exchange;
+	VERTEX.y *= 1.0 - 0.18 * is_shed;
 	// Reaching: the exchange stage leans toward what it is trying to touch.
-	VERTEX.z += 0.045 * is_exchange * (0.55 + 0.45 * slow) * VERTEX.y;
+	VERTEX.z += 0.14 * is_exchange * (0.55 + 0.45 * slow) * VERTEX.y;
 	VERTEX.xz += VERTEX.y * slump * vec2(0.85, -0.55);
 	// A stain is already lying on the floor; it does not breathe.
 	VERTEX.y = mix(VERTEX.y, VERTEX.y * 0.86, is_stain);
@@ -237,6 +243,12 @@ void fragment() {
 
 	vec3 wine = dream_irradiance_hue(mix(incarnation_skin.rgb,
 			base_color * vec3(1.10, 0.86, 1.08), hue_jitter * 0.18));
+	// A life can be read before it is named: concentrated hot bud, electrically
+	// over-responsive juvenile, and cool wet exchange tissue. These remain
+	// albedo responses inside the same lamp contract, never self-light.
+	wine *= mix(vec3(1.0), vec3(1.20, 0.76, 1.04), is_bud * 0.45);
+	wine *= mix(vec3(1.0), vec3(1.02, 0.66, 1.34), is_juvenile * 0.42);
+	wine *= mix(vec3(1.0), vec3(0.68, 0.88, 1.38), is_exchange * 0.52);
 	// The atlas wears the wine: the wine keeps its level and hue, the plate
 	// supplies structure (a modulation around its own mean) and a little of
 	// its colour. Never a recolour — the direction is wine with gold.
@@ -302,6 +314,10 @@ void fragment() {
 			* (0.35 + retained * 0.30);
 	ALBEDO = dark_body + mix(lit_wine, full_body,
 			max(irradiance.y * 0.58, irradiance.z));
+	// The seeking band has to read through the live architecture noise floor.
+	// It is still reflected lamp colour in ALBEDO, never emission.
+	ALBEDO += jewel_color * is_exchange * awake * (0.18 + band * 0.34);
+	ALBEDO += mix(base_color, jewel_color, 0.62) * is_juvenile * awake * 0.30;
 
 	// ---- LC-4B THE STAIN --------------------------------------------------
 	// A persistent impression of withdrawn tissue. It keeps the body's own

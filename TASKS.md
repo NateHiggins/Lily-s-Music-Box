@@ -2331,24 +2331,32 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   no new clock, node, gas hazard, save fact or oxygen mechanic exists.
   `DreamOrganelleLifecycleTest` passes 16/16 and `DreamFaunaTest` proves the
   production density integration.
-- **LC-3A COMPLETE 2026-08-24 / LC-3B VISUAL PASS OPEN — ACCELERATED FAUNA
+- **LC-3A / LC-3B COMPLETE 2026-08-24 — ACCELERATED FAUNA
   COHORTS.** All five landed families now derive stable transient
   `room/motif/slot#generation` addresses and staggered 45–150 second lives from
   the existing director. All eight stages are reachable; anatomy never scales
   from zero; reproduction changes only cosmetic genome salt and cannot change
-  stage, family function, collision or hazards. `DreamFaunaLifecycleTest`
-  passes 29/29 and baseline `DreamFaunaTest` passes 29/29. The still-open LC-3B
-  must make those stages visibly legible through the existing packed channels;
-  the mechanical flags alone are not visual proof.
-- **LC-4A COMPLETE 2026-08-24 / LC-4B VISUAL PASS OPEN — VISIT-PERSISTENT
+  stage, family function, collision or hazards. LC-3B carries all eight stages
+  through the two spare packed flag bits and gives complete tissue distinct
+  sealed, turgid, uneven, mature, receptive, senescent, shed and stain
+  postures/surfaces. One named production Tessellate is readable through the
+  seven living stages at crouched gameplay distance; every fixed-subject ROI
+  pair clears its 0.042495 A/A floor. `DreamFaunaVisibleTest` passes 21/21,
+  `DreamFaunaLifecycleTest` 29/29 and baseline `DreamFaunaTest` 29/29. Proof:
+  `art/renders/dream_fauna_lifecycle_lc4b/README.md`.
+- **LC-4A / LC-4B COMPLETE 2026-08-24 — VISIT-PERSISTENT
   DEATH STAINS.** The fauna owner now coalesces genome, position and motif by
   lineage into bounded room memories. Ninety-one exercised deaths remain seven
   impressions, survive streaming/revisit byte-identically, clear with a new
   director and never enter `RealityState`, nodes, collision or save ownership.
   Forced overflow now proves the per-room oldest-first order and the global
-  widest-room/lexical-tie order byte-identical across fresh directors.
-  LC-4B still must render the first beautiful/disturbing stain through the
-  existing Gilder batch before pricing any extra draw.
+  widest-room/lexical-tie order byte-identical across fresh directors. LC-4B
+  spends one existing Gilder instance on a broadened violet-gold anatomical
+  memory beneath its successor: no new batch, node or draw. The harness rebuilds
+  a fresh production root with zero stains, prices a same-camera A/A pair, then
+  photographs the first mark at 2.37× its local noise floor and returns four
+  marks byte-identically after a real room revisit. Proof is at
+  `art/renders/dream_fauna_lifecycle_lc4b/README.md`.
 - **LC-5 OPEN — ETHERMOSS AND BREATH PROOF.** Make the moss/fungus mat the
   primary visible food and show cold ether exhalation, inhalation and return
   through bounded existing field/material owners. Require unchanged A/A,

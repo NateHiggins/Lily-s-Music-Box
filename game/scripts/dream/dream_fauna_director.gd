@@ -750,7 +750,9 @@ func _stain_submission(impression: Dictionary) -> Dictionary:
 	# It lies ON the surface the organ died on. The button's own authored
 	# proportions are untouched: a stain is a posture of that disc, not a
 	# smaller one.
-	var basis := Basis().scaled(Vector3(0.26, 0.030, 0.26))
+	# Withdrawal relaxes the complete disc outward into a broader anatomical
+	# memory. It still spends one Gilder instance and never grows from zero.
+	var basis := Basis().scaled(Vector3(0.38, 0.030, 0.38))
 	return {
 		"xform": Transform3D(basis, at + Vector3(0.0, 0.004, 0.0)),
 		"custom": DreamFaunaChannels.encode(identity, richness, richness,

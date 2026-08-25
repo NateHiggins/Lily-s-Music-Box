@@ -24,6 +24,10 @@ var inward := Vector3.ZERO
 var room_key := ""
 var wide_eye := Vector3.ZERO
 var wide_look := Vector3.ZERO
+var focus_motif := -1
+var focus_slot := -1
+var stain_motif := -1
+var stain_slot := -1
 
 
 func _ready() -> void:
@@ -40,28 +44,32 @@ func _ready() -> void:
 	# owners are still, so two exposures of an unchanged arrangement price the
 	# residual noise every later claim has to clear.
 	_freeze()
-	await _capture("00_control_a")
-	await _capture("00_control_b")
+	await _capture("00_named_control_a")
+	await _capture("00_named_control_b")
 
-	# One room, many stages at once. The staggered offsets already put
-	# neighbouring slots in different stages; this only holds the room's clock
-	# where the spread is widest.
-	_hold_progress(0.30)
-	await _capture("01_stages_multi")
+	# Follow ONE named production cohort through its seven living postures.
+	# Neighbours remain staggered, but the subject at the crosshair is exact.
+	for stage in range(Lifecycle.Stage.FOLDED, Lifecycle.Stage.STAIN):
+		_hold_named_stage(stage)
+		await _capture("%02d_%s" % [stage + 1,
+				Lifecycle.stage_name(stage)])
 
-	_hold_progress(0.70)          # EXCHANGE band across the mature cohort
-	await _capture("02_exchange_contact")
-
-	_hold_progress(0.88)          # SENESCENT into SHED
-	await _capture("03_senescent_shed")
+	# Rebuild the actual production root so the death plate begins with a truly
+	# fresh visit owner, not proof-script surgery on transient stain memory.
+	if not await _fresh_stain_root():
+		get_tree().quit(1)
+		return
+	_prepare_stain_control()
+	await _capture("08_stain_control_a")
+	await _capture("08_stain_control_b")
 
 	# The first death. One completed generation marks every slot that finished.
 	_kill_a_generation()
-	await _capture("04_first_stain")
+	await _capture("09_first_stain")
 
 	# The same marks, after the room has left the pocket and come back.
 	await _stream_away_and_back()
-	await _capture("05_stain_after_revisit")
+	await _capture("10_stain_after_revisit")
 
 	# And the wider room, so the marks are visibly part of this world rather
 	# than a macro crop of something that could be anywhere.
@@ -69,7 +77,7 @@ func _ready() -> void:
 	# creatures move again in it.
 	_pin_gait(false)
 	_stage_wide()
-	await _capture("06_room_wide")
+	await _capture("11_room_wide")
 
 	print("[LC4B SHOT] %d frames, findings=%d, census=%s, stains=%s"
 			% [frames, failures, root.fauna.census(),
@@ -98,7 +106,7 @@ func _build() -> void:
 	root.player.camera.make_current()
 
 
-func _stage_room() -> bool:
+func _stage_room(advance_ecology := true) -> bool:
 	room = root.rooms.room_at_key(root.get("_here_key"))
 	room_key = str(room.get("key", ""))
 	for body in get_tree().get_nodes_in_group("dream_lineage_bodies"):
@@ -122,8 +130,9 @@ func _stage_room() -> bool:
 	# and therefore the instance counts, are the ones play would produce.
 	for _i in 24:
 		root.call("_update_exposure", 0.25)
-	for _i in 16:
-		root.fauna.advance_fixed()
+	if advance_ecology:
+		for _i in 16:
+			root.fauna.advance_fixed()
 	root.fauna.refresh()
 
 	# STAND WHERE THE TISSUE ACTUALLY IS.
@@ -134,7 +143,7 @@ func _stage_room() -> bool:
 	# this by standing relative to a real submitted instance, and so does this:
 	# the focus is the centroid of what the director actually submitted, so the
 	# lamp -- which rides the camera -- necessarily lights it.
-	var focus := _fauna_focus(centre)
+	var focus := _named_living_focus(room_key)
 	if focus == Vector3.INF:
 		failures += 1
 		printerr("[LC4B SHOT] nothing was submitted to stand in front of")
@@ -145,10 +154,11 @@ func _stage_room() -> bool:
 	if toward.length() < 0.05:
 		toward = inward
 	inward = toward
-	# Gameplay distance: a person standing a stride and a half away, at eye
-	# height, looking slightly down at the floor tissue. Not a macro crop.
+	# Gameplay distance: a person crouched a stride from one named submitted
+	# organ. The camera is aimed at that organ, not at a centroid between it and
+	# its neighbours.
 	wide_look = focus
-	wide_eye = focus - toward.normalized() * 1.05 + Vector3(0.0, 1.05, 0.0)
+	wide_eye = focus - toward.normalized() * 0.92 + Vector3(0.0, 0.62, 0.0)
 	_stand(wide_eye, wide_look)
 	root.player.set_lamp_enabled(true)
 	root.player.pin_lamp_gutter_for_proof(1.0)
@@ -183,8 +193,71 @@ func _fauna_focus(near: Vector3, radius := 3.2) -> Vector3:
 	return sum / float(count)
 
 
+## One analytical address, not an average. Tessellates have the largest
+## ordinary gameplay silhouette and already belong to the production batch.
+func _named_living_focus(key: String) -> Vector3:
+	for cohort in root.fauna.cohorts_in_room(key):
+		if str((cohort as Dictionary).get("batch", "")) == "Tessellates":
+			focus_motif = int((cohort as Dictionary).motif)
+			focus_slot = int((cohort as Dictionary).slot)
+			return (cohort as Dictionary).position
+	return Vector3.INF
+
+
+func _named_stain_focus(key: String) -> Vector3:
+	for stain in root.fauna.stain_presentation(key):
+		if stain_motif >= 0 and (int((stain as Dictionary).motif) != stain_motif \
+				or int((stain as Dictionary).slot) != stain_slot):
+			continue
+		return (stain as Dictionary).at + Vector3(0.0, 0.004, 0.0)
+	return Vector3.INF
+
+
+func _fresh_stain_root() -> bool:
+	remove_child(root)
+	root.free()
+	root = null
+	frame = Vector3.ZERO
+	centre = Vector3.ZERO
+	inward = Vector3.ZERO
+	room_key = ""
+	stain_motif = -1
+	stain_slot = -1
+	await get_tree().process_frame
+	await _build()
+	if not _stage_room(false):
+		return false
+	var stains := int(root.fauna.stain_census().total)
+	if stains != 0:
+		failures += 1
+		printerr("[LC4B SHOT] fresh production owner began with %d stains" % stains)
+		return false
+	return true
+
+
+func _prepare_stain_control() -> void:
+	for cohort in root.fauna.cohorts_in_room(room_key):
+		if str((cohort as Dictionary).get("batch", "")) != "GildersButtons":
+			continue
+		stain_motif = int((cohort as Dictionary).motif)
+		stain_slot = int((cohort as Dictionary).slot)
+		var focus: Vector3 = (cohort as Dictionary).position
+		var approach := centre - focus
+		approach.y = 0.0
+		if approach.length() < 0.05:
+			approach = inward
+		_stand(focus + approach.normalized() * 0.82
+				+ Vector3(0.0, 0.52, 0.0), focus)
+		return
+	failures += 1
+	printerr("[LC4B SHOT] no named Gilder can price the first stain")
+
+
 func _stand(eye: Vector3, look: Vector3) -> void:
-	root.player.global_position = eye
+	# PlayerController's camera already sits STANDING_EYE above its root. The
+	# old harness placed the root at the requested eye point and therefore shot
+	# every subject from another full eye-height above the authored camera.
+	root.player.global_position = eye - root.player.camera.position
 	root.player.camera.look_at(look, Vector3.UP)
 	root.call("_update_molten")
 
@@ -240,6 +313,26 @@ func _hold_progress(progress: float) -> void:
 	_report_stages()
 
 
+func _hold_named_stage(stage: int) -> void:
+	# Midpoints avoid any threshold ambiguity. Subtract this cohort's stable
+	# stagger so the named address, not merely somebody in the room, carries
+	# the requested posture.
+	const MIDPOINTS := [0.04, 0.13, 0.28, 0.515, 0.715, 0.84, 0.935]
+	var target: float = float(MIDPOINTS[stage])
+	var offset := DreamFaunaDirector.slot_phase_offset(focus_motif, focus_slot)
+	_hold_progress(fposmod(target - offset, 1.0))
+	var named := DreamFaunaDirector.cohort_state(
+			(root.fauna.get("_densities")[room_key] as Dictionary).lifecycle,
+			focus_motif, focus_slot)
+	if int(named.stage) != stage:
+		failures += 1
+		printerr("[LC4B SHOT] named cohort missed %s: %s"
+				% [Lifecycle.stage_name(stage), named])
+	else:
+		print("[LC4B SHOT] named cohort %d/%d holds %s"
+				% [focus_motif, focus_slot, Lifecycle.stage_name(stage)])
+
+
 ## Advance every slot in this room by one whole generation, which is what a
 ## completed life is. The director notices the edge and remembers an
 ## impression for each lineage that finished.
@@ -257,6 +350,14 @@ func _kill_a_generation() -> void:
 		printerr("[LC4B SHOT] a generation completed and left no mark")
 	print("[LC4B SHOT] first death: %d marks, %s"
 			% [marks, root.fauna.stain_census()])
+	var stain := _named_stain_focus(room_key)
+	if stain != Vector3.INF:
+		var approach := centre - stain
+		approach.y = 0.0
+		if approach.length() < 0.05:
+			approach = inward
+		_stand(stain + approach.normalized() * 0.82
+				+ Vector3(0.0, 0.52, 0.0), stain)
 
 
 ## Walk to a named room, let a generation finish there, walk away, and walk
@@ -316,7 +417,9 @@ func _stream_away_and_back() -> void:
 	# Stand in front of the tissue that is live now, not the room this sheet
 	# opened on: after two advances the original room is no longer under foot.
 	var rect_probe: Array = home.rect
-	var focus := _fauna_focus(Vector3(
+	var focus := _named_stain_focus(key_home)
+	if focus == Vector3.INF:
+		focus = _fauna_focus(Vector3(
 			(float(rect_probe[0]) + float(rect_probe[2])) * 0.5, 0.0,
 			(float(rect_probe[1]) + float(rect_probe[3])) * 0.5))
 	if focus == Vector3.INF:
@@ -330,7 +433,7 @@ func _stream_away_and_back() -> void:
 	toward.y = 0.0
 	if toward.length() < 0.05:
 		toward = inward
-	_stand(focus - toward.normalized() * 1.05 + Vector3(0.0, 1.05, 0.0), focus)
+	_stand(focus - toward.normalized() * 0.82 + Vector3(0.0, 0.52, 0.0), focus)
 	centre = focus
 	inward = toward
 	room_key = key_home
