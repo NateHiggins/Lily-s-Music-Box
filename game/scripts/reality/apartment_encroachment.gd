@@ -355,6 +355,15 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 	return total
 
 
+## The building constructs its presentation passes before it constructs the
+## player. Binding inside `build()` therefore sees a real root with a null
+## player, which left every downstream Dream receptor disconnected in play.
+## The owner calls this once after PlayerController enters the tree.
+func bind_player(player_node: Node3D) -> void:
+	if dream_field != null:
+		dream_field.player = player_node
+
+
 ## The service round owns only its waking route and offers named beats. The
 ## organism decides what those beats mean here, through its existing ecology,
 ## architecture and field owners.

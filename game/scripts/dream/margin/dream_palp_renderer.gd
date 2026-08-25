@@ -55,6 +55,9 @@ var _params := PackedVector4Array()
 var _matter := PackedVector4Array()
 var _branch := PackedVector4Array()
 var _cilia := PackedVector4Array()
+## MBIO-1: x receptor response, y photoshock, z scan phase/TAU,
+## w signed beam side. Same mesh and draw; this is pose, not another effect.
+var _photo := PackedVector4Array()
 var _clock := 0.0
 
 
@@ -67,6 +70,7 @@ func setup(margin: DreamMarginController) -> void:
 	_matter.resize(MAX_PALPS)
 	_branch.resize(MAX_PALPS)
 	_cilia.resize(MAX_PALPS)
+	_photo.resize(MAX_PALPS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
 	mesh_instance = MeshInstance3D.new()
@@ -194,12 +198,14 @@ func _process(delta: float) -> void:
 	for i in range(drawn, MAX_PALPS):
 		_params[i] = Vector4.ZERO
 		_cilia[i] = Vector4.ZERO
+		_photo[i] = Vector4.ZERO
 	material.set_shader_parameter("palp_spine", _spine)
 	material.set_shader_parameter("palp_section", _section)
 	material.set_shader_parameter("palp_params", _params)
 	material.set_shader_parameter("palp_matter", _matter)
 	material.set_shader_parameter("palp_branch", _branch)
 	material.set_shader_parameter("palp_cilia", _cilia)
+	material.set_shader_parameter("palp_photo", _photo)
 	material.set_shader_parameter("palp_count", drawn)
 	if controller.field != null:
 		controller.field.apply_to(material)
@@ -301,6 +307,11 @@ func _lay(slot: int, p: Dictionary) -> void:
 				/ DreamMarginController.CILIA_SIGNAL_SAMPLE_S, 0.0, 1.0)))
 	_cilia[slot] = Vector4(float(p.get("cilia_out", 0.0)),
 			float(p.get("cilia_band", 0.62)), beat, float(morph.cilia))
+	var photo: Dictionary = p.get("photo", {})
+	_photo[slot] = Vector4(float(photo.get("response", 0.0)),
+			float(photo.get("shock", 0.0)),
+			float(photo.get("scan", 0.0)) / TAU,
+			float(p.get("photo_side", 0.0)))
 
 
 func census() -> Dictionary:

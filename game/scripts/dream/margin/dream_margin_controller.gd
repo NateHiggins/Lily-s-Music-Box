@@ -24,6 +24,7 @@ const MorphologyScript := preload("res://scripts/dream/margin/dream_palp_morphol
 const BehaviorScript := preload("res://scripts/dream/margin/dream_palp_behavior.gd")
 const NeighborScript := preload("res://scripts/dream/margin/dream_palp_neighbors.gd")
 const LifecycleScript := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
+const MicroLightScript := preload("res://scripts/dream/dream_microbiology_light.gd")
 
 ## §29's population tiers. Counts are ceilings, not targets: the margin only
 ## carries what the field's cross-section actually reaches.
@@ -145,6 +146,10 @@ var _seed_base := 0
 var _next_impression_id := 0
 var _retired_slots := [0, 0, 0]
 var _pending_recruits: Array = []
+## One production-lamp sample per physics tick, shared by every local
+## receptor. `lamp_pose()` raycasts, so asking once per cilium would turn a
+## sensory detail into the most expensive thing in the ecology.
+var _lamp_pose: Dictionary = {}
 
 
 func setup(controller: DreamFieldController, seed_v: int) -> void:
@@ -365,6 +370,9 @@ func _birth(tier: int, at: Vector3, nrm: Vector3,
 ## target on real architecture, and asks the behaviour layer where its tip
 ## wants to be. The renderer solves the spine toward that.
 func _think(delta: float) -> void:
+	_lamp_pose = {}
+	if field != null and field.player != null and field.player.has_method("lamp_pose"):
+		_lamp_pose = field.player.lamp_pose()
 	# §10 — the social pass, at its own cadence. Sixty-five appendages is
 	# 2,080 pairs and none of this changes fast enough to need 60 Hz.
 	_social_clock += delta
@@ -438,6 +446,7 @@ func _think(delta: float) -> void:
 		# is actually working. See `_fine_anatomy`.
 		if int(p.parent) >= 0:
 			_fine_anatomy(p, delta)
+		_update_photoreception(p, delta)
 		var want: Vector3 = BehaviorScript.desired_tip(p, _clock)
 		# §13 overrides local intent, which is the entire point of it: a
 		# margin that merely leaned toward the stimulus would read as weather.
@@ -1005,6 +1014,10 @@ static func _shared_state() -> Dictionary:
 		"cilia_signal_clock": -1.0,
 		"cilia_signal_sampled_at": -1.0,
 		"cilia_signal_pulsed_at": -1.0,
+		# MBIO-1. Transient receptor memory belongs to the organ carrying it;
+		# it is neither a field channel nor a save fact.
+		"photo": MicroLightScript.state(),
+		"photo_side": 0.0,
 		# §12 steps 2-4: the swelling that precedes a branch, and where along
 		# the organ it is happening.
 		"swell": 0.0,
@@ -1047,6 +1060,21 @@ static func _shared_state() -> Dictionary:
 		# still reads the field while attention is released.
 		"spread": 0.0,
 	}
+
+
+## A cilium carpet answers light by changing its beat, not by glowing. Only
+## already-deployed, strongly ciliated anatomy is a receptor; the lamp cannot
+## skip the established unfold/investigate/deploy sequence.
+func _update_photoreception(p: Dictionary, delta: float) -> void:
+	var receptor: Dictionary = p.photo
+	var receptive := float(p.morph.cilia) >= 0.52 \
+			and float(p.get("cilia_out", 0.0)) >= 0.08
+	var sample := MicroLightScript.sample(_lamp_pose, p.tip) if receptive \
+			else {"level": 0.0, "toward": Vector3.ZERO}
+	MicroLightScript.advance(receptor, float(sample.level), delta)
+	var toward: Vector3 = sample.get("toward", Vector3.ZERO)
+	p.photo_side = clampf(toward.dot(p.side as Vector3), -1.0, 1.0) \
+			if toward.length_squared() > 0.0 else 0.0
 
 
 ## A secretion is an invitation, not a command. At the social cadence, the
@@ -1344,6 +1372,9 @@ func census() -> Dictionary:
 	var ciliated := 0
 	var completing := 0
 	var completed := 0
+	var photo_receptors := 0
+	var photo_responding := 0
+	var photoshocks := 0
 	var shared := {}
 	var stages := {}
 	for p in palps:
@@ -1358,6 +1389,12 @@ func census() -> Dictionary:
 			completing += 1
 		if bool(p.get("task_done", false)):
 			completed += 1
+		if float(p.morph.cilia) >= 0.52 and out_at >= 0.08:
+			photo_receptors += 1
+		var photo: Dictionary = p.get("photo", {})
+		if float(photo.get("response", 0.0)) > 0.02:
+			photo_responding += 1
+		photoshocks += int(photo.get("shocks", 0))
 	for p in palps:
 		if int(p.neighbour_count) > 0:
 			social += 1
@@ -1391,4 +1428,7 @@ func census() -> Dictionary:
 			"branches": branches, "unfolding": unfolding,
 			"cilia_deploying": deploying, "ciliated": ciliated,
 			"completing": completing, "completed": completed,
+			"photo_receptors": photo_receptors,
+			"photo_responding": photo_responding,
+			"photoshocks": photoshocks,
 			"lifecycle_stages": stages}

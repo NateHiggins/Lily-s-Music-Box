@@ -2438,13 +2438,23 @@ and motor asymmetry; sound becomes registered strain, shear, pressure and
 membrane tension. Responses must show a local membrane event, finite-speed
 relay and recovery. Audio playback never drives biology.
 
-- **MBIO-1 OPEN — LIGHT STEP, SCANNING AND ADAPTATION.** On one margin cilium
-  carpet and one fauna receptor family, consume the existing irradiance field
-  as light level + direction + short adapted memory. Add directional body
-  scanning, asymmetric beat response, thresholded photoshock and refractory
-  recovery. Prove slow beam entry, abrupt switch-on, sustained light and
-  unreliable-lamp repetition in the production root with A/A control and no
-  new draw, light, collision or save fact.
+- **MBIO-1 COMPLETE 2026-08-25 — LIGHT STEP, SCANNING AND ADAPTATION.** The
+  production player lamp now drives one deployed margin cilium carpet and the
+  crystal-listener family through a shared ownerless receptor law: cone level
+  and direction arrive quickly, adapted memory follows slowly, abrupt positive
+  steps admit one photoshock, and darkness restores refractory sensitivity.
+  Slow entry produces asymmetric scanning without shock; hard onset reverses
+  the ciliary power stroke and the listener's internal resonator while its
+  shell arrests; sustained light settles; later unreliable-lamp repetition is
+  weaker. This exposed and repaired a real construction-order gap: the Dream
+  field tried to bind the player before `BuildingRoot` created it, so the
+  production owner now completes that binding immediately after player birth.
+  The recipients add only uniform-array pose in their existing one-surface
+  draws—no light, node, collision, field channel, case fact or save seam.
+  Focused proof passes 16/16, production-root proof 12/12 and shader parsing
+  passes. Forward+ response frames clear the 0.000000674 mean-absolute A/A
+  floor by roughly 1,900–2,750×:
+  `art/renders/dream_microbiology_light_mbio1/README.md`.
 - **MBIO-2 OPEN — BOUNDED MECHANICAL PACKETS.** Extend the existing ecology
   signal ring rather than adding a director. Authoritative contacts publish
   impulse/scrape/sustained-hum mechanics from their real positions; receptors

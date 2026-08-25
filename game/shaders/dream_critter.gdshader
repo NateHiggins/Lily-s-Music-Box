@@ -37,6 +37,8 @@ uniform vec4 critter_law[12];
 // rather than a free hue: x aubergine..magenta, y crimson perfusion,
 // z wetness, w structural iridescence.
 uniform vec4 critter_look[12];
+// MBIO-1: x receptor contrast, y photoshock, z scan phase, w beam side.
+uniform vec4 critter_photo[12];
 uniform int critter_count = 0;
 
 varying vec2 v_uv;
@@ -47,6 +49,7 @@ varying vec4 v_matter;
 varying float v_thickness;
 varying vec4 v_law;
 varying vec4 v_look;
+varying vec4 v_photo;
 
 // A tube's cross-section must be perpendicular to the tube. Offsetting along
 // a fixed-plane normal -- which is what the ring normal is, before it is
@@ -71,6 +74,7 @@ void vertex() {
 	vec4 matter = critter_matter[c];
 	vec4 law = critter_law[c];
 	vec4 look = critter_look[c];
+	vec4 photo = critter_photo[c];
 	vec3 fwd = normalize(critter_fwd[c].xyz + vec3(1e-5, 0.0, 0.0));
 	vec3 up = normalize(critter_up[c].xyz + vec3(0.0, 1e-5, 0.0));
 	vec3 side = normalize(cross(up, fwd));
@@ -201,6 +205,7 @@ void vertex() {
 	v_matter = matter;
 	v_law = law;
 	v_look = look;
+	v_photo = photo;
 }
 
 void fragment() {
@@ -226,7 +231,10 @@ void fragment() {
 	// inside it rotates, which is not a thing a solid object can do.
 	vec3 shading_pos = v_world;
 	if (v_part < 0.5 && v_matter.y > 0.5) {
-		float a = v_law.x;
+		// The resonator scans within a stationary shell. Directional contrast
+		// makes that internal refraction asymmetric; photoshock tightens it.
+		float a = v_law.x + v_photo.w * v_photo.x * 0.38
+				+ sin(v_photo.z * 6.2831853) * v_photo.x * 0.16;
 		float ca = cos(a);
 		float sa = sin(a);
 		shading_pos = vec3(v_world.x * ca - v_world.z * sa, v_world.y,
@@ -243,6 +251,9 @@ void fragment() {
 	ROUGHNESS = clamp(o.roughness - 0.22 * v_look.z, 0.04, 1.0);
 	SPECULAR = o.specular;
 	EMISSION = o.emission * (0.5 + 1.1 * v_matter.x);
+	// Not a flash: photoshock bruises/perfuses the same tissue stack while
+	// the legible event remains the resonator reversal and feeler arrest.
+	ALBEDO *= mix(vec3(1.0), vec3(0.78, 0.72, 1.06), v_photo.y * 0.34);
 	BACKLIGHT = o.backlight;
 	AO = o.ao;
 	AO_LIGHT_AFFECT = 0.35;

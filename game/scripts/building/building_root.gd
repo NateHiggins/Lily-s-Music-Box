@@ -581,6 +581,10 @@ func _ready() -> void:
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
+	# Encroachment is assembled earlier with the building surfaces. Its field
+	# cannot bind a player that does not exist yet; complete that existing
+	# downstream ownership seam now, alongside traffic and the Vantry points.
+	apartment_encroachment.bind_player(player)
 	# Traffic is constructed earlier with the exterior, before the player exists.
 	# Bind now so its distance voices, shove contract and T6 arrival all share the
 	# real production player instead of the null startup placeholder.

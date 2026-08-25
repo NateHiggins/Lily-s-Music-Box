@@ -562,10 +562,20 @@ sound becomes registered strain, shear, pressure and membrane tension. Every
 response must read stimulus → local membrane event → finite-speed relay →
 motor/metabolic answer → recovery. Audio playback is never a gameplay sensor.
 Use the existing irradiance owner and ecology signal ring, local owner state,
-bounded batches/residue and pooled room audio. The first production slice is
-MBIO-1: one cilium carpet plus one fauna receptor family under slow beam entry,
-abrupt switch-on, sustained light and repeated unreliable-lamp flicker with
-A/A and refractory proof.
+bounded batches/residue and pooled room audio. MBIO-1 is now complete: the real
+player lamp drives deployed margin cilia and crystal listeners through one
+transient receptor law with directional scan, asymmetric beat, thresholded
+photoshock, slow adaptation and darkness-gated refractory recovery. The hard
+step reverses the same complete cilia and the listener's internal resonator;
+slow entry does not shock, sustained light settles, and a later admitted flash
+is weaker. This work also repaired the production construction-order seam that
+left `DreamFieldController.player` null by binding it immediately after the
+player is created. No new node, draw surface, light, collision, field channel,
+case fact or save owner exists. Focused proof is 16/16, production-root proof
+12/12 and shader parsing passes. Forward+ A/A is 0.000000674 mean absolute and
+every response clears it by about 1,900–2,750×; evidence is at
+`art/renders/dream_microbiology_light_mbio1/README.md`. **Next is MBIO-2:**
+bounded positional mechanical packets in the existing ecology signal ring.
 
 Three top-level projects:
 

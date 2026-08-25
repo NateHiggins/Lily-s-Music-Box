@@ -49,6 +49,9 @@ uniform vec4 palp_branch[40];
 //   z  the completion beat, rising and falling across step 9.
 //   w  this individual's cilia density (§6: anatomy, not a constant).
 uniform vec4 palp_cilia[40];
+// MBIO-1 membrane response: x adapted contrast, y photoshock, z scan phase,
+// w signed side of the beam. It changes the beat of existing anatomy only.
+uniform vec4 palp_photo[40];
 uniform int palp_count = 0;
 // Proof-only clock pin. The production default follows live TIME; lifecycle
 // capture can freeze the same anatomy twice to price the remaining scene
@@ -158,6 +161,7 @@ void cilium(int p, int ci, float along, vec3 ring_n, float grow, float t,
 		out float out_erect, out float out_alive) {
 	vec4 par = palp_params[p];
 	vec4 cil = palp_cilia[p];
+	vec4 photo = palp_photo[p];
 	float band = clamp(cil.y, 0.10, 0.92);
 	// HOW MANY, AND HOW LONG, ARE PER INDIVIDUAL (§6). A ciliated whisker is
 	// made of these; a gold finger has almost none. Six is the floor because
@@ -168,7 +172,9 @@ void cilium(int p, int ci, float along, vec3 ring_n, float grow, float t,
 	// and not a ring. A ring is jewellery, which is the mistake §12 step 3
 	// already had to be talked out of once.
 	float v_root = clamp(band + (t_i - 0.5) * 0.26, 0.06, 0.96);
-	float ang = par.w + t_i * 6.2831853 * 2.6;
+	float scan_wave = sin(photo.z * 6.2831853 + t_i * 6.2831853 * 1.35);
+	float ang = par.w + t_i * 6.2831853 * 2.6
+			+ photo.w * photo.x * 0.42 + scan_wave * photo.x * 0.12;
 
 	out_alive = smoothstep(0.0, 0.05, grow - v_root)
 			* step(float(ci), n - 0.5) * step(0.00001, par.y);
@@ -205,6 +211,14 @@ void cilium(int p, int ci, float along, vec3 ring_n, float grow, float t,
 
 	vec3 out_dir = normalize(radial + tng * 0.30);
 	vec3 d0 = normalize(mix(tng, out_dir, erect));
+	// A cilium carpet resolves direction by phase differences across the
+	// field. Contrast advances one side and retards the other; a photoshock
+	// reverses the power stroke briefly. No cilium changes length.
+	vec3 across = normalize(cross(tng, radial) + vec3(1e-5, 0.0, 0.0));
+	d0 = normalize(d0 + across * photo.x
+			* (scan_wave * 0.32 + photo.w * 0.38));
+	d0 = normalize(mix(d0, normalize(-tng * 1.15 + radial * 0.22),
+			photo.y * (0.72 + 0.18 * t_i)));
 	// FOLDED MEANS LYING ALONG THE SURFACE, NOT BURIED IN IT.
 	//
 	// The first version curled a folded cilium back INTO the shaft, on the
@@ -218,7 +232,8 @@ void cilium(int p, int ci, float along, vec3 ring_n, float grow, float t,
 	// A cylinder is developable, so a line running along the axis stays on the
 	// surface: a folded cilium is nearly straight and hugs the shaft, reading
 	// as fine longitudinal relief. Erect, it stands off with a distal droop.
-	float curl = mix(0.12, 0.45, erect);
+	float curl = mix(0.12, 0.45, erect)
+			+ photo.x * (0.10 + 0.10 * scan_wave) + photo.y * 0.52;
 	// §12 STEP 9 -- THE CLOSE. The job is finished, so the whole band pitches
 	// forward onto the thing it was working and draws in together. One gesture
 	// of the fine anatomy, which is what makes completion a BEAT rather than a

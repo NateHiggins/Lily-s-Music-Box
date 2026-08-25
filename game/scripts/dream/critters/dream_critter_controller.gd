@@ -13,6 +13,7 @@ extends Node3D
 const SpeciesScript := preload("res://scripts/dream/critters/dream_critter_species.gd")
 const GeneratorScript := preload("res://scripts/dream/critters/dream_critter_generator.gd")
 const SHADER := preload("res://shaders/dream_critter.gdshader")
+const MicroLightScript := preload("res://scripts/dream/dream_microbiology_light.gd")
 
 # Twelve buffer slots for eight animals: a seam grazer that is occupying both
 # sides of a wall needs two of them, because it is ONE animal appearing twice.
@@ -60,9 +61,12 @@ var _size := PackedVector4Array()
 var _matter := PackedVector4Array()
 var _counts := PackedVector4Array()
 var _law := PackedVector4Array()
+## MBIO-1: the listener's local receptor state in the existing draw.
+var _photo := PackedVector4Array()
 ## §26 — per-individual material balance: x hue bias, y perfusion,
 ## z wetness, w iridescence.
 var _look := PackedVector4Array()
+var _lamp_pose: Dictionary = {}
 
 
 func setup(controller: DreamFieldController, seed_v: int) -> void:
@@ -70,7 +74,7 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	enabled = OS.get_environment("DREAM_CRITTERS") != "0"
 	field = controller
 	_rng.seed = seed_v
-	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _look]:
+	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _look, _photo]:
 		arr.resize(MAX_CRITTERS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
@@ -156,6 +160,9 @@ func _physics_process(delta: float) -> void:
 		return
 	_clock += delta
 	_spawn_clock += delta
+	_lamp_pose = {}
+	if field.player != null and field.player.has_method("lamp_pose"):
+		_lamp_pose = field.player.lamp_pose()
 	if _spawn_clock >= 0.9:
 		_spawn_clock = 0.0
 		if critters.size() < MAX_LIVE:
@@ -218,6 +225,8 @@ func _try_spawn() -> void:
 			# The listener's law: its resonator's own angle, which advances
 			# while the shell holding it does not turn at all.
 			"spin": 0.0,
+			"photo": MicroLightScript.state(),
+			"photo_side": 0.0,
 			# The crab's law: which leg is currently shorter than the gap it
 			# spans, and by how much.
 			"fold_leg": -1,
@@ -740,6 +749,7 @@ func _answer_recognition_signal(c: Dictionary, delta: float) -> void:
 ## animal. Each of these is the creature doing the thing.
 func _apply_law(c: Dictionary, delta: float) -> void:
 	var m: Dictionary = c.morph
+	_update_photoreception(c, delta)
 	match int(m.kind):
 		SpeciesScript.Kind.SEAM_GRAZER:
 			# BOTH SIDES OF A THIN WALL AT ONCE. Not a copy: the same animal,
@@ -769,7 +779,18 @@ func _apply_law(c: Dictionary, delta: float) -> void:
 		SpeciesScript.Kind.CRYSTAL_LISTENER:
 			# ITS CRYSTAL TURNS INSIDE A SHELL THAT DOES NOT. The body's
 			# orientation is untouched; only the resonator's own angle moves.
-			c.spin += delta * (0.9 + 1.4 * float(m.crystal))
+			# Light makes that resonator scan, then an abrupt positive step
+			# reverses it for one photoshock while the shell arrests.
+			var receptor: Dictionary = c.photo
+			var base_rate := 0.9 + 1.4 * float(m.crystal)
+			var shock := float(receptor.shock)
+			var response := float(receptor.response)
+			var direction := -1.0 if shock > 0.02 else 1.0
+			c.spin += delta * base_rate * direction * (1.0 + response * 1.35)
+			if shock > 0.02:
+				c.moving = false
+				c.pause = maxf(float(c.pause), 0.28)
+				c.unfold = maxf(float(c.unfold), shock * 0.72)
 		SpeciesScript.Kind.FOLD_CRAB:
 			# A LEG SHORTENS WITHOUT MOVING EITHER OF ITS ENDS. Its root stays
 			# on the body and its foot stays planted, and the limb between
@@ -821,6 +842,7 @@ func _push() -> void:
 	var n := slot
 	for i in range(n, MAX_CRITTERS):
 		_counts[i] = Vector4.ZERO
+		_photo[i] = Vector4.ZERO
 	material.set_shader_parameter("critter_pos", _pos)
 	material.set_shader_parameter("critter_fwd", _fwd)
 	material.set_shader_parameter("critter_up", _up)
@@ -829,6 +851,7 @@ func _push() -> void:
 	material.set_shader_parameter("critter_counts", _counts)
 	material.set_shader_parameter("critter_law", _law)
 	material.set_shader_parameter("critter_look", _look)
+	material.set_shader_parameter("critter_photo", _photo)
 	material.set_shader_parameter("critter_count", n)
 	if field != null:
 		field.apply_to(material)
@@ -856,6 +879,11 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 		_law[i] = Vector4(float(c.get("spin", 0.0)),
 				float(int(c.get("fold_leg", -1))), float(c.get("fold", 0.0)),
 				float(c.get("unfold", 0.0)))
+		var photo: Dictionary = c.get("photo", {})
+		_photo[i] = Vector4(float(photo.get("response", 0.0)),
+				float(photo.get("shock", 0.0)),
+				float(photo.get("scan", 0.0)) / TAU,
+				float(c.get("photo_side", 0.0)))
 		_size[i] = Vector4(float(m.length), float(m.wide), float(m.tall),
 				float(int(m.seed) % 97) * 0.041)
 		_matter[i] = Vector4(float(m.gold), float(m.crystal), float(m.cilia),
@@ -865,6 +893,21 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 		var bobbing: float = float(m.get("body_bob", 0.0)) 				* (1.0 if bool(c.get("moving", false)) else 0.0)
 		_counts[i] = Vector4(float(m.limbs), float(m.feelers),
 				float(m.asymmetry), 1.0 + bobbing * sin(float(c.gait) * 2.0) * 0.06)
+
+
+## Only the crystal listener is the MBIO-1 fauna receptor. Other families
+## still carry a zeroed transient state so adding one later cannot inherit a
+## stale buffer slot.
+func _update_photoreception(c: Dictionary, delta: float) -> void:
+	var receptor: Dictionary = c.photo
+	var listener := int(c.morph.kind) == SpeciesScript.Kind.CRYSTAL_LISTENER
+	var sample := MicroLightScript.sample(_lamp_pose, c.pos) if listener \
+			else {"level": 0.0, "toward": Vector3.ZERO}
+	MicroLightScript.advance(receptor, float(sample.level), delta)
+	var toward: Vector3 = sample.get("toward", Vector3.ZERO)
+	var side := (c.up as Vector3).cross(c.fwd as Vector3).normalized()
+	c.photo_side = clampf(toward.dot(side), -1.0, 1.0) \
+			if toward.length_squared() > 0.0 else 0.0
 
 
 func census() -> Dictionary:
@@ -904,6 +947,9 @@ func census() -> Dictionary:
 	var feeding := 0
 	var feel_hero := 0
 	var brave := 0
+	var photo_receptors := 0
+	var photo_responding := 0
+	var photoshocks := 0
 	for c in critters:
 		if float(c.get("nudged", 0.0)) > 0.0:
 			nudged += 1
@@ -915,6 +961,12 @@ func census() -> Dictionary:
 			feel_hero += 1
 		if bool(c.get("toward_hero", false)):
 			brave += 1
+		if int(c.morph.kind) == SpeciesScript.Kind.CRYSTAL_LISTENER:
+			photo_receptors += 1
+		var photo: Dictionary = c.get("photo", {})
+		if float(photo.get("response", 0.0)) > 0.02:
+			photo_responding += 1
+		photoshocks += int(photo.get("shocks", 0))
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
 			"nudged_by_a_palp": nudged, "unfolding_at_the_hero": unfolded,
@@ -923,7 +975,10 @@ func census() -> Dictionary:
 			"rode_one_out": rode_growing,
 			"following_a_palp": following,
 			"feeding_on_residue": feeding,
-			"feel_hero": feel_hero, "approaching_hero": brave}
+			"feel_hero": feel_hero, "approaching_hero": brave,
+			"photo_receptors": photo_receptors,
+			"photo_responding": photo_responding,
+			"photoshocks": photoshocks}
 
 
 func _eye_position() -> Vector3:
