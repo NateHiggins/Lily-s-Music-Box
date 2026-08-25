@@ -38,7 +38,9 @@ enum SrcClass { HERO_LIMB, PROC_LIMB, PALP, BRANCH, CILIA, FAUNA,
 		ARCHITECTURE, INCARNATION, HAZARD }
 enum Fn { PROBE, RECOGNIZE, PULSE, SECRETE, REPAIR, TRANSPORT, ALLOCATE,
 		REJECT, INHIBIT }
-enum Chem { ELECTRIC, SECRETION, MINERAL, VASCULAR, ALARM }
+enum Chem { ELECTRIC, SECRETION, MINERAL, VASCULAR, ALARM, MECHANICAL }
+enum Carrier { NONE, IMPULSE, SCRAPE, HUM }
+enum Substrate { ANY, FLOOR, WALL, PIPE }
 
 const FUNCTION_NAMES := ["probe", "recognize", "pulse", "secrete", "repair",
 		"transport", "allocate", "reject", "inhibit"]
@@ -89,6 +91,8 @@ func setup(seed_v: int) -> void:
 			"function": Fn.PROBE, "at": Vector3.ZERO, "radius": 0.0,
 			"strength": 0.0, "family": Chem.ELECTRIC, "sign": 1.0,
 			"born": 0.0, "life": 0.0, "affinity": -1,
+			"carrier": Carrier.NONE, "direction": Vector3.ZERO,
+			"speed": 0.0, "substrate": Substrate.ANY,
 		})
 	_signal_head = 0
 	_signal_clock = 0.0
@@ -131,7 +135,7 @@ func _process(delta: float) -> void:
 	_signal_clock += delta
 	state_clock += delta
 	_since_last += delta
-	if not _listening:
+	if not _listening or not _mechanical_listening:
 		_try_listen()
 	if attending != Vector3.INF:
 		_run_attention(delta)
@@ -178,9 +182,29 @@ func emit_signal_packet(src_id: int, src_class: int, function: int, at: Vector3,
 	slot.born = _signal_clock
 	slot.life = maxf(0.001, life)
 	slot.affinity = affinity
+	slot.carrier = Carrier.NONE
+	slot.direction = Vector3.ZERO
+	slot.speed = 0.0
+	slot.substrate = Substrate.ANY
 	_signal_head = (slot_i + 1) % SIGNAL_CAP
 	_signals_emitted += 1
 	_signals_by_function[function] = int(_signals_by_function.get(function, 0)) + 1
+
+
+## Physical contact enters the bounded signal bed but crosses its substrate
+## at finite speed instead of appearing throughout its radius at once.
+func emit_mechanical_packet(src_id: int, at: Vector3, radius: float,
+		strength: float, carrier: int, direction: Vector3, life: float,
+		substrate: int, speed: float) -> void:
+	emit_signal_packet(src_id, SrcClass.ARCHITECTURE, Fn.PULSE, at, radius,
+			strength, Chem.MECHANICAL, 1.0, life)
+	var slot_i := (_signal_head - 1 + SIGNAL_CAP) % SIGNAL_CAP
+	var slot: Dictionary = _signal_ring[slot_i]
+	slot.carrier = clampi(carrier, Carrier.NONE, Carrier.HUM)
+	slot.direction = direction.normalized() \
+			if direction.length_squared() > 0.0001 else Vector3.ZERO
+	slot.speed = maxf(0.01, speed)
+	slot.substrate = clampi(substrate, Substrate.ANY, Substrate.PIPE)
 
 
 ## Fills storage supplied by the caller. Receptors own affinity and response;
@@ -193,7 +217,12 @@ func signals_near(at: Vector3, radius: float, out: Array) -> int:
 		if _signal_clock >= float(packet.born) + float(packet.life):
 			packet.live = false
 			continue
-		if at.distance_to(packet.at) <= maxf(0.0, radius) + float(packet.radius):
+		var packet_radius := float(packet.radius)
+		if int(packet.family) == Chem.MECHANICAL:
+			var travelled := maxf(0.0, _signal_clock - float(packet.born)) \
+					* float(packet.speed)
+			packet_radius = minf(packet_radius, travelled)
+		if at.distance_to(packet.at) <= maxf(0.0, radius) + packet_radius:
 			out.append(packet)
 	return out.size()
 
@@ -234,6 +263,7 @@ var _since_last := RESEIZE_GAP_S
 ## silently did nothing. The director finds the player itself and connects
 ## once, whenever it turns up.
 var _listening := false
+var _mechanical_listening := false
 
 
 func on_world_modified(where: Vector3, _what: String) -> void:
@@ -243,6 +273,23 @@ func on_world_modified(where: Vector3, _what: String) -> void:
 		return
 	_since_last = 0.0
 	seize_attention(where)
+
+
+func on_mechanical_stimulus(where: Vector3, carrier_name: StringName,
+		strength: float, direction: Vector3, duration: float,
+		substrate_name: StringName) -> void:
+	var carrier: int = {&"impulse": Carrier.IMPULSE,
+			&"scrape": Carrier.SCRAPE, &"hum": Carrier.HUM}.get(
+			carrier_name, Carrier.NONE)
+	if carrier == Carrier.NONE:
+		return
+	var substrate: int = {&"floor": Substrate.FLOOR,
+			&"wall": Substrate.WALL, &"pipe": Substrate.PIPE}.get(
+			substrate_name, Substrate.ANY)
+	var propagation := 5.4 if carrier == Carrier.IMPULSE else \
+			(3.2 if carrier == Carrier.SCRAPE else 2.1)
+	emit_mechanical_packet(0, where, maxf(0.5, duration * propagation), strength,
+			carrier, direction, maxf(0.35, duration + 0.45), substrate, propagation)
 
 
 ## Connect to the player's own account of what it has changed, once it
@@ -262,11 +309,16 @@ func _try_listen() -> void:
 		if "player" in probe and probe.get("player") != null:
 			player = probe.get("player")
 			break
-	if player == null or not player.has_signal("world_modified"):
+	if player == null:
 		return
-	if not player.world_modified.is_connected(on_world_modified):
-		player.world_modified.connect(on_world_modified)
-	_listening = true
+	if player.has_signal("world_modified"):
+		if not player.world_modified.is_connected(on_world_modified):
+			player.world_modified.connect(on_world_modified)
+		_listening = true
+	if player.has_signal("mechanical_stimulus"):
+		if not player.mechanical_stimulus.is_connected(on_mechanical_stimulus):
+			player.mechanical_stimulus.connect(on_mechanical_stimulus)
+		_mechanical_listening = true
 
 
 ## §13 — EVERYTHING, AT ONCE.

@@ -262,8 +262,9 @@ func _organelle_exchange(enc, dir: DreamEcologyDirector, margin, critters, hero)
 	dir.signals_near(at, 0.0, packets)
 	_check("DO-2 hero contact emits one local secretion",
 			int(dir.signal_census().emitted) == emitted_before + 1)
-	var exact_keys := ["affinity", "at", "born", "family", "function", "life",
-			"live", "radius", "sign", "src_class", "src_id", "strength"]
+	var exact_keys := ["affinity", "at", "born", "carrier", "direction", "family",
+			"function", "life", "live", "radius", "sign", "speed", "src_class",
+			"src_id", "strength", "substrate"]
 	var actual_keys: Array = packets[0].keys() if not packets.is_empty() else []
 	actual_keys.sort()
 	_check("DO-2 packet contract is exact and bounded", actual_keys == exact_keys)

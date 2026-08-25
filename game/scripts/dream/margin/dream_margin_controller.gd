@@ -25,6 +25,7 @@ const BehaviorScript := preload("res://scripts/dream/margin/dream_palp_behavior.
 const NeighborScript := preload("res://scripts/dream/margin/dream_palp_neighbors.gd")
 const LifecycleScript := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 const MicroLightScript := preload("res://scripts/dream/dream_microbiology_light.gd")
+const MicroMechanicsScript := preload("res://scripts/dream/dream_microbiology_mechanics.gd")
 
 ## §29's population tiers. Counts are ceilings, not targets: the margin only
 ## carries what the field's cross-section actually reaches.
@@ -447,6 +448,7 @@ func _think(delta: float) -> void:
 		if int(p.parent) >= 0:
 			_fine_anatomy(p, delta)
 		_update_photoreception(p, delta)
+		_update_mechanoreception(p, delta)
 		var want: Vector3 = BehaviorScript.desired_tip(p, _clock)
 		# §13 overrides local intent, which is the entire point of it: a
 		# margin that merely leaned toward the stimulus would read as weather.
@@ -1018,6 +1020,7 @@ static func _shared_state() -> Dictionary:
 		# it is neither a field channel nor a save fact.
 		"photo": MicroLightScript.state(),
 		"photo_side": 0.0,
+		"mechanical": MicroMechanicsScript.state(),
 		# §12 steps 2-4: the swelling that precedes a branch, and where along
 		# the organ it is happening.
 		"swell": 0.0,
@@ -1075,6 +1078,27 @@ func _update_photoreception(p: Dictionary, delta: float) -> void:
 	var toward: Vector3 = sample.get("toward", Vector3.ZERO)
 	p.photo_side = clampf(toward.dot(p.side as Vector3), -1.0, 1.0) \
 			if toward.length_squared() > 0.0 else 0.0
+
+
+## Fine cilia are broad-band surface receptors. Their own substrate decides
+## which travelling packet is meaningful; the signal bed does not command it.
+func _update_mechanoreception(p: Dictionary, delta: float) -> void:
+	var receptor: Dictionary = p.mechanical
+	MicroMechanicsScript.advance(receptor, delta)
+	if director == null or float(p.morph.cilia) < 0.52 \
+			or float(p.get("cilia_out", 0.0)) < 0.08:
+		return
+	if director.signals_near(p.tip, 0.0, _signal_near) <= 0:
+		return
+	var normal: Vector3 = p.get("normal", Vector3.UP)
+	var substrate := DreamEcologyDirector.Substrate.FLOOR \
+			if absf(normal.dot(Vector3.UP)) >= 0.65 \
+			else DreamEcologyDirector.Substrate.WALL
+	var mask := MicroMechanicsScript.IMPULSE | MicroMechanicsScript.SCRAPE \
+			| MicroMechanicsScript.HUM
+	for packet in _signal_near:
+		if MicroMechanicsScript.accept(receptor, packet, mask, substrate):
+			break
 
 
 ## A secretion is an invitation, not a command. At the social cadence, the
@@ -1375,6 +1399,9 @@ func census() -> Dictionary:
 	var photo_receptors := 0
 	var photo_responding := 0
 	var photoshocks := 0
+	var mechanical_receptors := 0
+	var mechanical_responding := 0
+	var mechanical_received := 0
 	var shared := {}
 	var stages := {}
 	for p in palps:
@@ -1395,6 +1422,12 @@ func census() -> Dictionary:
 		if float(photo.get("response", 0.0)) > 0.02:
 			photo_responding += 1
 		photoshocks += int(photo.get("shocks", 0))
+		if float(p.morph.cilia) >= 0.52 and out_at >= 0.08:
+			mechanical_receptors += 1
+		var mechanical: Dictionary = p.get("mechanical", {})
+		if float(mechanical.get("response", 0.0)) > 0.02:
+			mechanical_responding += 1
+		mechanical_received += int(mechanical.get("received", 0))
 	for p in palps:
 		if int(p.neighbour_count) > 0:
 			social += 1
@@ -1431,4 +1464,7 @@ func census() -> Dictionary:
 			"photo_receptors": photo_receptors,
 			"photo_responding": photo_responding,
 			"photoshocks": photoshocks,
+			"mechanical_receptors": mechanical_receptors,
+			"mechanical_responding": mechanical_responding,
+			"mechanical_received": mechanical_received,
 			"lifecycle_stages": stages}

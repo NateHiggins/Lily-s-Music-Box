@@ -14,6 +14,7 @@ const SpeciesScript := preload("res://scripts/dream/critters/dream_critter_speci
 const GeneratorScript := preload("res://scripts/dream/critters/dream_critter_generator.gd")
 const SHADER := preload("res://shaders/dream_critter.gdshader")
 const MicroLightScript := preload("res://scripts/dream/dream_microbiology_light.gd")
+const MicroMechanicsScript := preload("res://scripts/dream/dream_microbiology_mechanics.gd")
 
 # Twelve buffer slots for eight animals: a seam grazer that is occupying both
 # sides of a wall needs two of them, because it is ONE animal appearing twice.
@@ -227,6 +228,7 @@ func _try_spawn() -> void:
 			"spin": 0.0,
 			"photo": MicroLightScript.state(),
 			"photo_side": 0.0,
+			"mechanical": MicroMechanicsScript.state(),
 			# The crab's law: which leg is currently shorter than the gap it
 			# spans, and by how much.
 			"fold_leg": -1,
@@ -750,6 +752,7 @@ func _answer_recognition_signal(c: Dictionary, delta: float) -> void:
 func _apply_law(c: Dictionary, delta: float) -> void:
 	var m: Dictionary = c.morph
 	_update_photoreception(c, delta)
+	_update_mechanoreception(c, delta)
 	match int(m.kind):
 		SpeciesScript.Kind.SEAM_GRAZER:
 			# BOTH SIDES OF A THIN WALL AT ONCE. Not a copy: the same animal,
@@ -910,6 +913,26 @@ func _update_photoreception(c: Dictionary, delta: float) -> void:
 			if toward.length_squared() > 0.0 else 0.0
 
 
+## A crystal listener accepts floor impulse and sustained hum. Seam grazers
+## and fold crabs carry dormant receptor state but ignore the same packet.
+func _update_mechanoreception(c: Dictionary, delta: float) -> void:
+	var receptor: Dictionary = c.mechanical
+	MicroMechanicsScript.advance(receptor, delta)
+	if director == null or int(c.morph.kind) != SpeciesScript.Kind.CRYSTAL_LISTENER:
+		return
+	if director.signals_near(c.pos, 0.0, _signal_near) <= 0:
+		return
+	var up: Vector3 = c.up
+	var substrate := DreamEcologyDirector.Substrate.FLOOR \
+			if absf(up.dot(Vector3.UP)) >= 0.65 \
+			else DreamEcologyDirector.Substrate.WALL
+	var mask := MicroMechanicsScript.IMPULSE | MicroMechanicsScript.HUM
+	for packet in _signal_near:
+		if MicroMechanicsScript.accept(receptor, packet, mask, substrate):
+			c.moving = false
+			break
+
+
 func census() -> Dictionary:
 	var by_species := {}
 	for c in critters:
@@ -950,6 +973,9 @@ func census() -> Dictionary:
 	var photo_receptors := 0
 	var photo_responding := 0
 	var photoshocks := 0
+	var mechanical_receptors := 0
+	var mechanical_responding := 0
+	var mechanical_received := 0
 	for c in critters:
 		if float(c.get("nudged", 0.0)) > 0.0:
 			nudged += 1
@@ -967,6 +993,12 @@ func census() -> Dictionary:
 		if float(photo.get("response", 0.0)) > 0.02:
 			photo_responding += 1
 		photoshocks += int(photo.get("shocks", 0))
+		if int(c.morph.kind) == SpeciesScript.Kind.CRYSTAL_LISTENER:
+			mechanical_receptors += 1
+		var mechanical: Dictionary = c.get("mechanical", {})
+		if float(mechanical.get("response", 0.0)) > 0.02:
+			mechanical_responding += 1
+		mechanical_received += int(mechanical.get("received", 0))
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
 			"nudged_by_a_palp": nudged, "unfolding_at_the_hero": unfolded,
@@ -978,7 +1010,10 @@ func census() -> Dictionary:
 			"feel_hero": feel_hero, "approaching_hero": brave,
 			"photo_receptors": photo_receptors,
 			"photo_responding": photo_responding,
-			"photoshocks": photoshocks}
+			"photoshocks": photoshocks,
+			"mechanical_receptors": mechanical_receptors,
+			"mechanical_responding": mechanical_responding,
+			"mechanical_received": mechanical_received}
 
 
 func _eye_position() -> Vector3:

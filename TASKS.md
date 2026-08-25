@@ -2455,12 +2455,21 @@ relay and recovery. Audio playback never drives biology.
   passes. Forward+ response frames clear the 0.000000674 mean-absolute A/A
   floor by roughly 1,900–2,750×:
   `art/renders/dream_microbiology_light_mbio1/README.md`.
-- **MBIO-2 OPEN — BOUNDED MECHANICAL PACKETS.** Extend the existing ecology
-  signal ring rather than adding a director. Authoritative contacts publish
-  impulse/scrape/sustained-hum mechanics from their real positions; receptors
-  own substrate, morphology, distance and refractory interpretation. Prove
-  locality, delayed propagation, deterministic eviction, recipient selectivity
-  and no global-attention, pursuit, case or save mutation.
+- **MBIO-2 COMPLETE 2026-08-25 — BOUNDED MECHANICAL PACKETS.** The existing
+  ecology signal ring now carries impulse, scrape and sustained-hum contacts
+  across floor, wall or pipe substrate at a finite propagation speed. The
+  first real publisher is the player gait itself: collision-resolved grounded
+  displacement accumulates a stride and emits a floor impulse, while noclip,
+  air travel, teleports and call-lock reset rather than counterfeit contact.
+  Audio and animation are not inputs. Each organ owns its interpretation:
+  deployed cilia are broad-band surface receptors, crystal listeners accept
+  impulse/hum and arrest, and fold crabs ignore the identical packet. Local
+  refractory memory suppresses both held and newly arriving waves instead of
+  queuing them until recovery. The 32-slot bed still deterministically evicts
+  its oldest eight after forty live insertions. Focused proof passes 16/16,
+  production-root proof passes 11/11, DreamEcology passes 61/61 and
+  DreamMargin passes 57/57. This pass makes no visual-deformation claim and
+  therefore adds no render proof; MBIO-3 owns the visible metachronal response.
 - **MBIO-3 OPEN — METACHRONAL AND ELECTROCHEMICAL MOTION.** Let neighbouring
   cilia organize through phase offsets, slow under load and locally reverse or
   arrest after a stimulus. Carry one finite-speed calcium/potassium-like band

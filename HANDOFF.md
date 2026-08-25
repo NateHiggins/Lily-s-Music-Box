@@ -591,8 +591,19 @@ player is created. No new node, draw surface, light, collision, field channel,
 case fact or save owner exists. Focused proof is 16/16, production-root proof
 12/12 and shader parsing passes. Forward+ A/A is 0.000000674 mean absolute and
 every response clears it by about 1,900–2,750×; evidence is at
-`art/renders/dream_microbiology_light_mbio1/README.md`. **Next is MBIO-2:**
-bounded positional mechanical packets in the existing ecology signal ring.
+`art/renders/dream_microbiology_light_mbio1/README.md`. MBIO-2 is now complete
+as the non-visual causal seam. Real grounded, collision-resolved player travel
+emits floor impulses by stride distance; noclip, airborne travel, teleports and
+call lock reset the accumulator. The same fixed 32-slot ecology bed carries
+impulse, scrape and sustained hum over floor, wall or pipe at finite speed.
+Deployed cilia accept all three carriers, crystal listeners accept impulse/hum
+and arrest, and fold crabs ignore the same packet. Recipient-local refractory
+state suppresses rather than delays a wave, and overflow remains deterministic.
+No mechanical packet seizes global attention or changes pursuit, case or save
+ownership. Focused proof is 16/16, production-root proof 11/11, with
+DreamEcology 61/61 and DreamMargin 57/57. There is deliberately no render claim
+in this seam-only pass. **Next is MBIO-3:** visible metachronal cilia and
+electrochemical relay using these landed packets.
 
 Three top-level projects:
 

@@ -9,6 +9,9 @@ extends CharacterBody3D
 ## Dream ecology uses it to decide the world is worth its whole attention
 ## (ecology architecture §13).
 signal world_modified(where: Vector3, what: String)
+## Authoritative physical contact, independent of whatever sound is played.
+signal mechanical_stimulus(where: Vector3, carrier: StringName, strength: float,
+		direction: Vector3, duration: float, substrate: StringName)
 ## Five-foot first-person controller. The building remains true-scale: a
 ## 1.41 m eye line beneath standard doors, peepholes, counters and residents
 ## is the scale cue. V toggles debug noclip.
@@ -43,6 +46,8 @@ var crouched := false
 var call_locked := false
 ## Test hook: when non-zero, drives movement instead of player input.
 var autopilot := Vector3.ZERO
+var _stride_travel := 0.0
+var _stride_last := Vector3.INF
 ## Set while the on-screen touch HUD is driving. A phone has no pointer to
 ## capture, so anything gated on MOUSE_MODE_CAPTURED has to consult this
 ## instead or it simply never runs there.
@@ -904,6 +909,8 @@ func _physics_process(delta: float) -> void:
 		_clear_stagger()
 		camera.rotation.z = lerpf(camera.rotation.z, 0.0,
 				minf(1.0, delta * 10.0))
+		_stride_last = Vector3.INF
+		_stride_travel = 0.0
 		return
 	var wish := autopilot
 	if wish == Vector3.ZERO:
@@ -915,6 +922,8 @@ func _physics_process(delta: float) -> void:
 		var up := Input.get_action_strength("jump") \
 				- Input.get_action_strength("crouch")
 		global_position += (wish * 6.0 + Vector3.UP * up * 4.0) * delta
+		_stride_last = Vector3.INF
+		_stride_travel = 0.0
 		return
 	var gravity_direction := _reality_gravity()
 	# A collapsing distortion volume can disappear on the same physics tick
@@ -944,6 +953,7 @@ func _physics_process(delta: float) -> void:
 	if gravity_direction.dot(Vector3.DOWN) > 0.98:
 		_try_step_up(delta)
 	move_and_slide()
+	_publish_foot_contacts()
 	if _stagger_left > 0.0:
 		_stagger_left = maxf(0.0, _stagger_left - delta)
 		_stagger_velocity = _stagger_velocity.move_toward(
@@ -951,6 +961,30 @@ func _physics_process(delta: float) -> void:
 		if _stagger_left <= 0.0:
 			_stagger_velocity = Vector3.ZERO
 			_stagger_roll = 0.0
+
+
+## A step is measured after collision resolution. Animation and footstep
+## audio cannot manufacture one, and teleport/noclip reset the accumulator.
+func _publish_foot_contacts() -> void:
+	var here := global_position
+	if _stride_last == Vector3.INF:
+		_stride_last = here
+		return
+	var travelled := Vector3(here.x - _stride_last.x, 0.0,
+			here.z - _stride_last.z)
+	_stride_last = here
+	if not is_on_floor() or travelled.length() > 0.35:
+		_stride_travel = 0.0
+		return
+	_stride_travel += travelled.length()
+	var stride := 0.54 if crouched else 0.66
+	if _stride_travel < stride:
+		return
+	_stride_travel = fmod(_stride_travel, stride)
+	var direction := travelled.normalized() \
+			if travelled.length_squared() > 0.0001 else Vector3.ZERO
+	var force := clampf(planar_speed() / RUN, 0.18, 1.0)
+	mechanical_stimulus.emit(here, &"impulse", force, direction, 0.42, &"floor")
 
 
 func _reality_gravity() -> Vector3:
