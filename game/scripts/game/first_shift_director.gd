@@ -50,6 +50,7 @@ func _ready() -> void:
 func _begin_if_needed() -> void:
 	if bool(RealityState.data.get("intro_complete", false)):
 		_place_at_arrival()
+		present_resume()
 		return
 	if get_tree().current_scene != building:
 		return
@@ -87,6 +88,38 @@ func ritual_state() -> Dictionary:
 
 func ritual_phase() -> String:
 	return str(_ritual().get("phase", PHASE_ARRIVED))
+
+
+## Reconstruct presentation from owners after load. No lifecycle method is
+## called here: a resume may explain where the player was, never move them.
+func present_resume() -> void:
+	match ritual_phase():
+		PHASE_ARRIVED:
+			_show("FIRST SHIFT — ORISON APARTMENTS",
+					"Report to the watchman's station. Seat the paper, take one " +
+					"report, and sign out only the keys you need.")
+		PHASE_CLOCKED_IN:
+			_show("NIGHT REGISTER",
+					"Read the waiting reports. Take one; the clock records the shift, not the case.")
+		PHASE_REPORT_ACCEPTED:
+			_present_active_report()
+		PHASE_RETURNED:
+			_show("NIGHT REGISTER",
+					"Return the keys. File what happened—not what you think happened.")
+		PHASE_FILED:
+			_show("NIGHT REGISTER", "Remove the detector dial and clock out.")
+
+
+func _present_active_report() -> void:
+	if work_orders == null or work_orders.job_library == null:
+		return
+	var job_id := str(_ritual().get("report_id", ""))
+	var spec: Dictionary = work_orders.job_library.job(job_id)
+	var stage := work_orders.job_stage(job_id)
+	if spec.is_empty() or stage == "missing":
+		return
+	_show(str(spec.get("title", "NIGHT REGISTER")),
+			work_orders.job_library.stage_objective(job_id, stage))
 
 
 func clock_in() -> bool:

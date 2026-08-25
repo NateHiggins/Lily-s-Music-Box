@@ -357,7 +357,7 @@ func control_prompt(control_id: String) -> String:
 		return ""
 	match _ritual_phase():
 		FirstShiftDirector.PHASE_ARRIVED:
-			return "[E]  Clock in — seat tonight's paper"
+			return "[E]  Clock in — seat tonight's paper dial"
 		FirstShiftDirector.PHASE_CLOCKED_IN:
 			return "Shift open — read the waiting reports"
 		FirstShiftDirector.PHASE_REPORT_ACCEPTED:

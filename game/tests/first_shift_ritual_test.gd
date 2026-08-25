@@ -35,6 +35,7 @@ func _ready() -> void:
 	var register: Variant = RegisterScript.new()
 	register._work_orders = orders
 	register.report_taken.connect(director.accept_report)
+	register.register_signed.connect(director.accept_signed_register)
 	add_child(register)
 
 	_check(not director.clock_in(), "cannot clock in before arrival is committed")
@@ -49,6 +50,10 @@ func _ready() -> void:
 	_check(detector.control_prompt("detector").contains("waiting reports")
 			and detector.interact_control("detector", null),
 			"the open shift points back to reports instead of opening repair UI")
+	director.present_resume()
+	_check(tracker._title.text == "NIGHT REGISTER"
+			and tracker._objective.text.contains("waiting reports"),
+			"reload while clocked in reconstructs the register instruction")
 	_check(not director.accept_report(JOB), "the desk cannot invent an unissued report")
 	_check(orders.issue_job(JOB, "reported"), "the existing spine issues Lena's report")
 	var jobs_before: int = RealityState.data.maintenance_jobs.size()
@@ -59,6 +64,10 @@ func _ready() -> void:
 	_check(str(RealityState.data.current_case_id) == CASE
 			and str(RealityState.case_state(CASE).stage) == "active",
 			"the explicit report action activates the declared existing case")
+	director.present_resume()
+	_check(tracker._title.text.contains("BORROWED BREATH")
+			and tracker._objective.text.contains("Inspect the 2B radiator"),
+			"reload with a report reconstructs its owner-authored stage objective")
 	_check(not director.accept_report(JOB), "a report cannot be taken twice")
 	var valid_filing := {"job_id": JOB, "filing": "disturbance_persists",
 			"report_out": false, "keys_out": []}
@@ -78,10 +87,16 @@ func _ready() -> void:
 			"filing": "fault_corrected", "report_out": false,
 			"keys_out": ["plant"]}),
 			"a signed line is inert while the report or a key remains out")
-	_check(director.accept_signed_register(valid_filing),
-			"the physical receipt returns and files one factual contradiction")
+	_check(register.replace_slip()
+			and register.select_outcome("disturbance_persists")
+			and register.sign_register()
+			and director.ritual_phase() == FirstShiftDirector.PHASE_FILED,
+			"the real selector and signature return and file one factual contradiction")
 	_check(detector.control_prompt("detector").contains("Clock out"),
 			"filing returns the player to the physical clock")
+	director.present_resume()
+	_check(tracker._objective.text.contains("clock out"),
+			"reload after filing reconstructs the final physical instruction")
 	_check(detector.interact_control("detector", null)
 			and director.ritual_phase() == FirstShiftDirector.PHASE_COMPLETE,
 			"removing the paper completes the first shift")
