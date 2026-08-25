@@ -2484,11 +2484,24 @@ relay and recovery. Audio playback never drives biology.
   frames clear a 0.000000719 subject-ROI A/A floor by 9,372–10,497×, and the
   recovered frame is byte-identical to control B:
   `art/renders/dream_microbiology_mechanics_mbio3/README.md`.
-- **MBIO-4 OPEN — VESICLES, WRINKLES AND SLOW VIBRATION CONSEQUENCE.** Show
-  addressed secretion as bounded membrane bleb → neck → release → uptake, and
-  let ethermoss/death memory organize into branching transport wrinkles.
-  Sustained vibration may bias growth or sporulation only after accumulated
-  exposure; nothing dances to the soundtrack.
+- **MBIO-4 COMPLETE 2026-08-25 — VESICLES, WRINKLES AND SLOW VIBRATION
+  CONSEQUENCE.** The existing addressed SECRETION packet now starts one finite
+  hero-material clock: distal membrane bleb → narrowing neck → released wet
+  punctum → uptake into the existing perfusion band. It adds no particle,
+  mesh, material, collision or second event owner. The existing Gilder batch
+  now gives living ethermoss and visit-persistent death impressions branching
+  raised transport wrinkles with darker sub-channels; death memory organizes
+  over thirty seconds in its bounded record instead of drying into a decal.
+  Only authoritative physical HUM accumulates per live room, and no colony
+  response exists before fifteen weighted seconds; impulse, scrape and audio
+  playback cannot drive it. After threshold the existing lifecycle environment
+  receives a bounded food/diversity bias, with no new matter or save fact.
+  Focused hero proof passes 13/13, fauna lifecycle 34/34 and shader parsing
+  passes. Production Forward+ secretion frames clear their 0.0012001812 A/A
+  floor by 2.87–23.78×; ethermoss and stain wrinkles clear their paired floors
+  by 33.84× and 20.44×. Evidence:
+  `art/renders/dream_microbiology_mbio4_secretion/README.md` and
+  `art/renders/dream_microbiology_mbio4_wrinkles/README.md`.
 - **MBIO-5 OPEN — POOLED CELLULAR SONIFICATION.** Curate a small recorded
   membrane/channel/cilia/relay palette and reuse one positional voice pool per
   active room/encroachment. Prove voice ceiling, attenuation, silence for

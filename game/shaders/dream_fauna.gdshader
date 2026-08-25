@@ -21,6 +21,9 @@ uniform float fauna_dark_glow : hint_range(0.018, 0.10) = 0.10;
 uniform float ether_breath_gain : hint_range(0.0, 1.0) = 1.0;
 uniform float ether_time_override = -1.0;
 uniform float fauna_time_override = -1.0;
+// Production is 1.0. The MBIO-4 proof may pin 0.0 on the same material to
+// price the exact wrinkle contribution against two unchanged controls.
+uniform float wrinkle_gain = 1.0;
 // Existing FA2 primitives have no authored fauna COLOR/CUSTOM0 channels. The
 // ruled part kit flips this to one; until then the procedural cell field keeps
 // Slice A observable without pretending those meshes were already authored.
@@ -113,6 +116,18 @@ void vertex() {
 	float is_senescent = 1.0 - step(0.5, abs(stage - 5.0));
 	float is_shed = 1.0 - step(0.5, abs(stage - 6.0));
 	float is_stain = 1.0 - step(0.5, abs(stage - 7.0));
+	// MBIO-4: the Button bed and its dead impressions use their existing mesh
+	// as biofilm architecture. Growth stress raises branching wrinkles; a new
+	// stain begins flat and organizes over its room's slow fixed tick.
+	float vertex_matter = fauna_unit(fauna_high_byte(INSTANCE_CUSTOM.g));
+	float is_biofilm = 1.0 - step(0.45, abs(family_motif));
+	float wrinkle_order = is_stain > 0.5 ? vertex_matter
+			: clamp(vertex_matter * 0.72, 0.0, 1.0);
+	float wrinkle_branch = pow(clamp(0.5 + 0.5 * sin(
+			VERTEX.x * 31.0 + sin(VERTEX.z * 19.0 + phase) * 2.4),
+			0.0, 1.0), 7.0);
+	VERTEX += NORMAL * wrinkle_branch * wrinkle_order * is_biofilm
+			* wrinkle_gain * 0.034;
 
 	float slow = sin(fauna_time * 0.9 + phase);
 
@@ -351,6 +366,16 @@ void fragment() {
 			0.0, 1.0), 5.0);
 	float hyphae = fauna_cloisonne_wire(fauna_local * 2.35,
 			pattern_jitter, family_motif + 1.0);
+	// Raised ridges and the darker channels below them are one transport
+	// network, not decorative slime. For stains `nutrient` is slow organization;
+	// for living Buttons it is the moss mass already carried in this byte.
+	float wrinkle_a = fauna_cloisonne_wire(fauna_local * 1.28,
+			pattern_jitter, 5.0);
+	float wrinkle_b = fauna_cloisonne_wire(fauna_local * 2.65 + vec3(0.17),
+			pattern_jitter, 8.0);
+	float wrinkle_network = clamp(wrinkle_a * 0.78 + wrinkle_b * 0.52,
+			0.0, 1.0) * nutrient;
+	float wrinkle_owner = max(is_moss, is_stain) * wrinkle_gain;
 	vec3 cold_ether = mix(vec3(0.18, 0.34, 0.72), jewel_color,
 			0.34 + hue_jitter * 0.26);
 	// The bed has gold conducting hyphae and jewel vesicles. Darkness keeps
@@ -370,6 +395,10 @@ void fragment() {
 	ALBEDO = mix(ALBEDO, cold_ether * (0.06 + awake * 0.94), ether_film);
 	ALBEDO += ether_breath_gain * ruled_gold * is_moss * hyphae
 			* nutrient * awake * 0.52;
+	// Apply transport anatomy after the cold ether film so the channel cannot
+	// be washed back into it. Dark below, narrow mineral ridge above.
+	ALBEDO *= 1.0 - wrinkle_owner * wrinkle_network * 0.48;
+	ALBEDO += ruled_gold * awake * wrinkle_owner * wrinkle_network * 0.68;
 
 	// ---- LC-4B THE STAIN --------------------------------------------------
 	// A persistent impression of withdrawn tissue. It keeps the body's own

@@ -39,6 +39,9 @@ func _ready() -> void:
 	if not _stage_room():
 		get_tree().quit(1)
 		return
+	if OS.get_environment("MBIO4_WRINKLE_ONLY") == "1":
+		await _mbio4_wrinkle_sheet()
+		return
 
 	# A/A FIRST, and frozen. The Dream shaders run on live TIME even when the
 	# owners are still, so two exposures of an unchanged arrangement price the
@@ -83,6 +86,84 @@ func _ready() -> void:
 			% [frames, failures, root.fauna.census(),
 			root.fauna.stain_census()])
 	get_tree().quit(failures)
+
+
+func _mbio4_wrinkle_sheet() -> void:
+	_freeze()
+	Engine.time_scale = 0.0
+	_frame_gilder()
+	_set_wrinkle_gain(0.0)
+	await _capture("00_ethermoss_control_a")
+	await _capture("00_ethermoss_control_b")
+	_set_wrinkle_gain(1.0)
+	await _capture("01_ethermoss_transport_wrinkles")
+
+	_kill_a_generation()
+	root.fauna.advance_stain_organization(room_key, 30.0)
+	root.fauna.refresh()
+	_set_wrinkle_gain(0.0)
+	await _capture("02_stain_control_a")
+	await _capture("02_stain_control_b")
+	_set_wrinkle_gain(1.0)
+	await _capture("03_stain_organized_vascular_map")
+	_write_mbio4_readme()
+	Engine.time_scale = 1.0
+	print("[MBIO-4 WRINKLE SHOT] %d production-root frames -> %s"
+			% [frames, out_dir])
+	get_tree().quit(failures)
+
+
+func _frame_gilder() -> void:
+	var rows: Dictionary = root.fauna.get("_records").get("GildersButtons", {})
+	var xforms: Array = rows.get("xforms", [])
+	var addresses: Array = rows.get("addresses", [])
+	var lives: Array = rows.get("life", [])
+	for i in mini(xforms.size(), mini(addresses.size(), lives.size())):
+		if bool((lives[i] as Dictionary).get("stain", false)):
+			continue
+		var parsed := DreamFaunaDirector.parse_cohort_address(str(addresses[i]))
+		if str(parsed.get("room_key", "")) != room_key:
+			continue
+		var focus: Vector3 = (xforms[i] as Transform3D).origin
+		var across := focus - centre
+		across.y = 0.0
+		if across.length() < 0.05:
+			across = inward
+		_stand(focus - across.normalized() * 0.48
+				+ Vector3(0.0, 0.42, 0.0), focus)
+		return
+
+
+func _set_wrinkle_gain(value: float) -> void:
+	for batch_name in ["_buttons", "_tessellates", "_anemones",
+			"_ribbonettes", "_loupe"]:
+		var batch = root.fauna.get(batch_name)
+		if batch == null or batch.multimesh == null \
+				or batch.multimesh.mesh == null:
+			continue
+		var material := batch.multimesh.mesh.surface_get_material(0) as ShaderMaterial
+		if material != null:
+			material.set_shader_parameter("wrinkle_gain", value)
+
+
+func _write_mbio4_readme() -> void:
+	var file := FileAccess.open(out_dir.path_join("README.md"), FileAccess.WRITE)
+	if file == null:
+		failures += 1
+		return
+	file.store_string("# MBIO-4 — biofilm transport wrinkles\n\n"
+			+ "Forward+ frames from `DreamMazeRoot.tscn`, using production room "
+			+ "geometry, the production fauna owner, the existing Gilder batch and "
+			+ "`dream_fauna.gdshader`. Each subject has duplicate controls with only "
+			+ "the proof comparator `wrinkle_gain=0`; the worked frame restores the "
+			+ "production default of 1. The first trio shows ethermoss's raised branching "
+			+ "transport network and darker sub-channels. The second shows a real bounded "
+			+ "death impression after its visit-local organization reaches one. No sixth "
+			+ "batch, node, light, collision, save fact or global stain manager is added.\n\n"
+			+ "Whole-frame linear-RGB RMSE prices the ethermoss A/A floor at "
+			+ "0.00009860495 and the stain A/A floor at 0.00009741313. Their worked "
+			+ "frames clear those floors by 33.84× and 20.44× respectively.\n")
+	file.close()
 
 
 func _build() -> void:
@@ -485,7 +566,8 @@ func _stain_rows() -> Array:
 
 
 func _capture(file_name: String) -> void:
-	for _f in 45:
+	var settle_frames := 8 if OS.get_environment("MBIO4_WRINKLE_ONLY") == "1" else 45
+	for _f in settle_frames:
 		await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	var path := out_dir.path_join(file_name + ".png")

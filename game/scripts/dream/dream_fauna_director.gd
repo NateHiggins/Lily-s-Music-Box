@@ -98,6 +98,10 @@ const STAGE_STREAM_MASK := 0b11000000
 ## the shared 96 and the living tissue must not be crowded out by its own
 ## dead. Impressions beyond it are still remembered, just not drawn.
 const STAIN_SUBMIT_PER_ROOM := 4
+## MBIO-4. Microbial vibration findings justify only a slow accumulated bias.
+## Below fifteen seconds the ethermoss has heard nothing consequential.
+const VIBRATION_RESPONSE_S := 15.0
+const VIBRATION_FULL_S := 90.0
 
 var rooms: DreamRoomBuilder
 var player: Node3D
@@ -134,11 +138,15 @@ var _stains: Dictionary = {}
 var _stain_total := 0
 var _stains_recorded := 0
 var _stains_evicted := 0
+var _vibration_events := 0
 
 func setup(room_owner: DreamRoomBuilder, body: Node3D, tenant: Node3D,
 		exposure_owner: DreamExposureField) -> void:
 	name = "DreamFaunaDirector"
 	rooms = room_owner; player = body; pursuer = tenant; exposure = exposure_owner
+	if player != null and player.has_signal("mechanical_stimulus") \
+			and not player.mechanical_stimulus.is_connected(on_mechanical_stimulus):
+		player.mechanical_stimulus.connect(on_mechanical_stimulus)
 	_material_bindings = Node3D.new()
 	_material_bindings.name = "FaunaMaterialBindings"
 	add_child(_material_bindings)
@@ -195,10 +203,13 @@ func advance_fixed() -> void:
 				+ maxf(0.0, previous-float(state.uptake))+reclaimed*0.8, 0.0, 1.0)
 		var cycle: Dictionary = state.ether_cycle
 		var lifecycle: Dictionary = state.lifecycle
+		var vibration_bias := vibration_bias_for(state)
 		var diversity := fposmod(float(room.get("decay", 0.0))
-				+ float(lifecycle.get("generation", 0)) * 0.17, 1.0)
+				+ float(lifecycle.get("generation", 0)) * 0.17
+				+ vibration_bias * 0.21, 1.0)
 		var environment := {
-			"food": float(cycle.ethermoss),
+			"food": clampf(float(cycle.ethermoss) + vibration_bias * 0.16,
+					0.0, 1.0),
 			"ether": float(cycle.ether),
 			"density": float(state.uptake),
 			"diversity": diversity,
@@ -216,7 +227,63 @@ func advance_fixed() -> void:
 			"senescence": 1.0 if stage >= LIFECYCLE.Stage.SENESCENT else 0.0,
 			"reclamation": float(state.reclamation),
 		}, TICK_S)
+		# A death mark does not merely dry. While its room is present, local
+		# transport slowly orders it into a vascular map. The bounded impression
+		# owns this visit memory; there is no global stain clock.
+		advance_stain_organization(key, TICK_S)
 		_densities[key] = state
+
+
+func advance_stain_organization(room_key: String, seconds: float) -> void:
+	for impression in (_stains.get(room_key, []) as Array):
+		impression.organization = minf(1.0,
+				float(impression.get("organization", 0.0))
+				+ maxf(0.0, seconds) / 30.0)
+
+
+## Authoritative physical disturbance only. Audio playback never calls this.
+## A HUM contributes its real duration at its real room; impulses and scrapes
+## remain fast receptor events and cannot make ethermoss twitch or sporulate.
+func on_mechanical_stimulus(where: Vector3, carrier_name: StringName,
+		strength: float, _direction: Vector3, duration: float,
+		_substrate_name: StringName) -> void:
+	if rooms == null or carrier_name != &"hum" or strength <= 0.0 \
+			or duration <= 0.0:
+		return
+	var room: Dictionary = rooms.room_at(where.x, where.z)
+	if room.is_empty():
+		return
+	_sync_densities(rooms.live_rooms())
+	var key := str(room.get("key", ""))
+	if not _densities.has(key):
+		return
+	var state: Dictionary = _densities[key]
+	state.vibration_exposure = minf(VIBRATION_FULL_S,
+			float(state.get("vibration_exposure", 0.0))
+			+ duration * clampf(strength, 0.0, 1.0))
+	_densities[key] = state
+	_vibration_events += 1
+
+
+static func vibration_bias_for(state: Dictionary) -> float:
+	var exposure_s := float(state.get("vibration_exposure", 0.0))
+	if exposure_s < VIBRATION_RESPONSE_S:
+		return 0.0
+	return clampf((exposure_s - VIBRATION_RESPONSE_S)
+			/ (VIBRATION_FULL_S - VIBRATION_RESPONSE_S), 0.0, 1.0)
+
+
+func vibration_census() -> Dictionary:
+	var responsive := 0
+	var max_exposure := 0.0
+	for state in _densities.values():
+		var exposure_s := float((state as Dictionary).get(
+				"vibration_exposure", 0.0))
+		max_exposure = maxf(max_exposure, exposure_s)
+		if vibration_bias_for(state) > 0.0:
+			responsive += 1
+	return {"events": _vibration_events, "responsive_rooms": responsive,
+			"max_exposure_s": max_exposure, "threshold_s": VIBRATION_RESPONSE_S}
 
 func freeze_for_capture() -> void:
 	frozen = true
@@ -668,6 +735,7 @@ func _record_stain(room_key: String, motif: int, slot: int, at: Vector3,
 		"genome": genome,
 		"deaths": maxi(1, deaths),
 		"generation": generation,
+		"organization": 0.0,
 	})
 	_stains[room_key] = list
 	_stain_total += 1
@@ -749,8 +817,8 @@ func stain_presentation(room_key: String, limit := 0) -> Array:
 ## says STAIN so the shader dresses it as withdrawn tissue rather than as a
 ## fruiting body.
 ##
-## Nothing here reads a clock. The same impression submits the same transform
-## and the same colour on every refresh and after the room streams back.
+## Organization is advanced by the room's fixed biological tick. Refresh alone
+## remains idempotent, and a streamed-out room keeps the same ordered memory.
 func _stain_submission(impression: Dictionary) -> Dictionary:
 	var motif := int(impression.motif)
 	var slot := int(impression.slot)
@@ -765,6 +833,8 @@ func _stain_submission(impression: Dictionary) -> Dictionary:
 	# How much matter this lineage has returned here, bounded well before the
 	# cap so a long-lived slot deepens its mark and never blows it out.
 	var richness := clampf(0.30 + float(deaths) * 0.055, 0.0, 0.92)
+	var organization := clampf(float(impression.get("organization", 0.0)),
+			0.0, 1.0)
 	# A stable identity phase, from the lineage rather than from time.
 	var identity := fposmod(float(motif) * 0.317 + float(slot) * 0.0839
 			+ genome.x * 0.41, 1.0)
@@ -777,7 +847,7 @@ func _stain_submission(impression: Dictionary) -> Dictionary:
 	var basis := Basis().scaled(Vector3(0.38, 0.030, 0.38))
 	return {
 		"xform": Transform3D(basis, at + Vector3(0.0, 0.004, 0.0)),
-		"custom": DreamFaunaChannels.encode(identity, richness, richness,
+		"custom": DreamFaunaChannels.encode(identity, organization, richness,
 				DreamFaunaChannels.FLAG_PEARL_COLONY
 				| stage_stream_flags(LIFECYCLE.Stage.STAIN),
 				0.0, hue, pattern),
@@ -905,7 +975,8 @@ func _sync_densities(live: Array) -> void:
 				"ether_cycle":LIFECYCLE.new_ether_cycle(
 						0.42-decay*0.06, 0.18+phase*0.08,
 						0.30+decay*0.03, 0.10-phase*0.02+decay*0.03),
-				"lifecycle":LIFECYCLE.new_record(phase)}
+				"lifecycle":LIFECYCLE.new_record(phase),
+				"vibration_exposure":0.0}
 	for key in _densities.keys():
 		if not keep.has(key): _densities.erase(key)
 

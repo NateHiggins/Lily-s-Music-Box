@@ -51,6 +51,7 @@ func _run() -> void:
 	_addresses(fauna)
 	_stagger_and_stages(fauna)
 	_reproduction_modes(fauna)
+	_long_vibration_response(fauna, root)
 	await _stains(fauna, root)
 	_eviction_determinism()
 	_no_inherited_stains()
@@ -247,6 +248,38 @@ func _reproduction_modes(fauna) -> void:
 	_check("reproduction moves only the cosmetic genome salt", salt_moved)
 
 
+# --- MBIO-4 -----------------------------------------------------------------
+
+func _long_vibration_response(fauna, root) -> void:
+	var live: Array = root.rooms.live_rooms()
+	_check("MBIO-4 has a live ethermoss room to stimulate", not live.is_empty())
+	if live.is_empty():
+		return
+	var room: Dictionary = live[0]
+	var r: Array = room.rect
+	var at := Vector3((float(r[0]) + float(r[2])) * 0.5, 0.0,
+			(float(r[1]) + float(r[3])) * 0.5)
+	var key := str(room.key)
+	var state: Dictionary = (fauna.get("_densities") as Dictionary)[key]
+	fauna.on_mechanical_stimulus(at, &"impulse", 1.0, Vector3.ZERO,
+			60.0, &"floor")
+	_check("MBIO-4 impulses cannot accumulate a colony response",
+			is_zero_approx(DreamFaunaDirector.vibration_bias_for(state)))
+	fauna.on_mechanical_stimulus(at, &"hum", 1.0, Vector3.ZERO,
+			14.0, &"pipe")
+	state = (fauna.get("_densities") as Dictionary)[key]
+	_check("MBIO-4 fourteen seconds of hum remains below threshold",
+			is_zero_approx(DreamFaunaDirector.vibration_bias_for(state)))
+	fauna.on_mechanical_stimulus(at, &"hum", 1.0, Vector3.ZERO,
+			2.0, &"pipe")
+	state = (fauna.get("_densities") as Dictionary)[key]
+	var census: Dictionary = fauna.vibration_census()
+	_check("MBIO-4 only accumulated physical hum earns a slow growth bias",
+			DreamFaunaDirector.vibration_bias_for(state) > 0.0
+			and int(census.responsive_rooms) == 1
+			and is_equal_approx(float(census.max_exposure_s), 16.0))
+
+
 # --- LC-4A ------------------------------------------------------------------
 
 func _stains(fauna, root) -> void:
@@ -297,6 +330,16 @@ func _stains(fauna, root) -> void:
 	_check("a witnessed death records room, position, motif, parent address "
 			+ "and a genome trace (%d impressions)" % stains.size(),
 			int(empty_at_start.total) == 0 and impression_ok)
+	var order_before := float(stains[0].get("organization", 0.0)) \
+			if not stains.is_empty() else -1.0
+	fauna.advance_stain_organization(room_key, 2.0)
+	fauna.refresh()
+	var ordered: Array = fauna.stains_in_room(room_key)
+	var order_after := float(ordered[0].get("organization", 0.0)) \
+			if not ordered.is_empty() else -1.0
+	_check("MBIO-4 a death memory slowly organizes into transport wrinkles",
+			is_zero_approx(order_before) and order_after > 0.0
+			and order_after < 0.10)
 
 	# COALESCE. Many more deaths on the same lineages must not grow the record.
 	var after_first: int = int(fauna.stain_census().total)

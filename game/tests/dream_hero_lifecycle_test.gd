@@ -67,6 +67,38 @@ func _ready() -> void:
 			Lifecycle.anatomy_scale(Lifecycle.Stage.FOLDED) == 1.0
 			and Lifecycle.anatomy_scale(Lifecycle.Stage.SHED) == 1.0)
 
+	# MBIO-4: the event begins only when the existing addressed secretion is
+	# emitted, then one normalized clock names every visible phase.
+	var margin := DreamMarginController.new()
+	var director := DreamEcologyDirector.new()
+	add_child(margin)
+	margin.set_process(false)
+	margin.set_physics_process(false)
+	add_child(director)
+	director.setup(6404)
+	margin.director = director
+	hero.margin = margin
+	var emitted_before := int(director.signal_census().emitted)
+	hero._emit_contact_signal(Vector3(0.0, 0.5, 0.0))
+	_check("addressed secretion starts exactly one bounded membrane event",
+			hero.secretion_events == 1 and hero.secretion_stage() == "bleb"
+			and int(director.signal_census().emitted) == emitted_before + 1)
+	var secretion_order: Array[String] = []
+	for phase in [0.10, 0.32, 0.64, 0.90]:
+		hero.secretion_phase = phase
+		secretion_order.append(hero.secretion_stage())
+	_check("bleb, neck, release and uptake share one ordered clock",
+			secretion_order == ["bleb", "neck", "release", "uptake"])
+	hero.secretion_phase = 0.64
+	for mat in hero.materials:
+		mat.set_shader_parameter("secretion_phase", hero.secretion_phase)
+	var secretion_on_wire := true
+	for mat in hero.materials:
+		secretion_on_wire = secretion_on_wire and is_equal_approx(
+				float(mat.get_shader_parameter("secretion_phase")), 0.64)
+	_check("every existing hero surface receives the same secretion phase",
+			secretion_on_wire)
+
 	hero._exchanged_this_life = true
 	hero._complete_lifecycle()
 	var first := residue.census()

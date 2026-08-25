@@ -39,6 +39,10 @@ uniform float grow : hint_range(0.0, 1.0) = 1.0;
 // changes pressure, perfusion and mineral response only; the encounter's
 // existing `grow` and cross-section laws retain all geometry authority.
 uniform float lifecycle_stage : hint_range(0.0, 7.0) = 3.0;
+// MBIO-4. A single bounded addressed secretion: membrane bleb, narrowing
+// neck, released vesicle travelling down the surface band, then uptake.
+// Negative is idle. This reuses the hero's one material and geometry.
+uniform float secretion_phase = -1.0;
 // H1 — THE BAKED ANATOMY. Three facts about this body's geometry that no
 // noise field can know, in one fetch:
 //   R ambient occlusion (mostly the gold plates' own shadow on the flesh)
@@ -174,6 +178,18 @@ void vertex() {
 		float beat_v = clamp(1.0 - UV.y, 0.0, 1.0);
 		float beat = pow(0.5 + 0.5 * cos((beat_v - pulse_phase) * 6.2831853), 9.0);
 		VERTEX += radial_d * beat * (0.002 + 0.006 * clamp(COLOR.r, 0.0, 1.0));
+		// The first half of the event physically deforms complete distal flesh.
+		// The neck pinches behind the bleb before it releases; nothing scales
+		// from zero and the released punctum is carried by surface colour below.
+		if (secretion_phase >= 0.0 && secretion_phase < 0.52) {
+			float along_v = clamp(1.0 - UV.y, 0.0, 1.0);
+			float event_t = secretion_phase / 0.52;
+			float bleb = exp(-pow((along_v - 0.91) / 0.055, 2.0));
+			float neck = exp(-pow((along_v - 0.84) / 0.025, 2.0));
+			float rise = smoothstep(0.0, 0.36, event_t)
+					* (1.0 - smoothstep(0.78, 1.0, event_t));
+			VERTEX += radial_d * (bleb * 0.018 - neck * 0.007) * rise;
+		}
 	}
 	if (slice_close > 0.0001) {
 		// RADIAL ONLY. Collapsing straight along the normal also pulls the
@@ -364,6 +380,31 @@ void fragment() {
 			+ ALBEDO * (0.16 + uneven * 0.16);
 	ALBEDO = mix(ALBEDO, juvenile_tissue, juvenile * 0.94);
 	ALBEDO += cold_exchange * exchange * (0.18 + seeking_band * 0.62);
+	// MBIO-4 addressed secretion. The distal bleb wets and constricts; after
+	// release one punctum travels rootward inside the existing perfusion band
+	// and collapses into it. A few bounded lobes, never particle soup.
+	if (painted && secretion_phase >= 0.0) {
+		float sp = clamp(secretion_phase, 0.0, 1.0);
+		float bleb_phase = 1.0 - smoothstep(0.24, 0.50, sp);
+		float neck_phase = smoothstep(0.18, 0.34, sp)
+				* (1.0 - smoothstep(0.43, 0.55, sp));
+		float travel = clamp((sp - 0.48) / 0.34, 0.0, 1.0);
+		float vesicle_at = mix(0.91, 0.48, travel);
+		float released = smoothstep(0.47, 0.55, sp)
+				* (1.0 - smoothstep(0.82, 0.92, sp));
+		float uptake = smoothstep(0.78, 0.94, sp)
+				* (1.0 - smoothstep(0.96, 1.0, sp));
+		float bleb_mark = exp(-pow((along - 0.91) / 0.045, 2.0));
+		float neck_mark = exp(-pow((along - 0.84) / 0.018, 2.0));
+		float vesicle = exp(-pow((along - vesicle_at) / 0.018, 2.0));
+		float membrane_event = clamp(bleb_mark * bleb_phase
+				+ neck_mark * neck_phase + vesicle * released
+				+ seeking_band * uptake * 0.35, 0.0, 1.0);
+		vec3 vesicle_wet = vec3(0.22, 0.38, 0.72);
+		ALBEDO = mix(ALBEDO, vesicle_wet + ALBEDO * 0.28,
+				membrane_event * (0.55 + baked.b * 0.30));
+		ROUGHNESS = clamp(ROUGHNESS - membrane_event * 0.32, 0.03, 1.0);
+	}
 	ALBEDO = mix(ALBEDO, old_bruise + ALBEDO * (0.48 + uneven * 0.16),
 			senescent * 0.88);
 	ALBEDO = mix(ALBEDO, vec3(0.16, 0.12, 0.20) + ALBEDO * 0.10,

@@ -613,8 +613,21 @@ limit. No draw, node, global attention, pursuit, case or save owner was added.
 Production buffer proof is 13/13, LivingField is 22/22 and shader parsing
 passes. Forward+ subject changes clear the 0.000000719 A/A floor by
 9,372–10,497×; recovery is byte-identical to control B. Evidence:
-`art/renders/dream_microbiology_mechanics_mbio3/README.md`. **Next is MBIO-4:**
-bounded vesicle release, uptake and slow vibration consequence.
+`art/renders/dream_microbiology_mechanics_mbio3/README.md`. MBIO-4 is now
+complete. The real addressed secretion packet starts one finite hero-surface
+sequence—bleb, neck, release and uptake—with no particle or second clock.
+Ethermoss and visit-persistent death impressions use the existing Gilder batch
+for raised branching transport wrinkles and dark sub-channels; a fresh death
+organizes over thirty seconds in its bounded visit record. Only authoritative
+physical HUM contributes to the room-local accumulator, and the existing
+lifecycle receives no growth/sporulation bias before fifteen weighted seconds;
+impulses, scrapes and soundtrack playback cannot drive it. Hero proof is 13/13,
+fauna lifecycle 34/34 and shader parsing passes. Forward+ secretion changes
+clear their A/A floor by 2.87–23.78×; ethermoss and stain wrinkles clear theirs
+by 33.84× and 20.44×. Evidence:
+`art/renders/dream_microbiology_mbio4_secretion/README.md` and
+`art/renders/dream_microbiology_mbio4_wrinkles/README.md`. **Next is MBIO-5:**
+pooled cellular sonification without mechanical feedback.
 
 Three top-level projects:
 

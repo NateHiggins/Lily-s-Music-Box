@@ -39,6 +39,12 @@ var field = null
 var grow := 0.0
 
 var _clock := 0.0
+## MBIO-4. One addressed secretion owns one finite membrane event. Negative is
+## idle; 0..1 is bleb -> neck -> release -> uptake. It is presentation state
+## on this organ, never a packet store, particle node or save fact.
+const SECRETION_EVENT_S := 2.40
+var secretion_phase := -1.0
+var secretion_events := 0
 var _seeded := 0.0
 ## The armature, and its deform bones in order from root to tip.
 var skeleton: Skeleton3D = null
@@ -868,11 +874,27 @@ func _emit_contact_signal(at: Vector3) -> void:
 	if margin == null or not is_instance_valid(margin) or margin.director == null:
 		return
 	_exchanged_this_life = true
+	secretion_phase = 0.0
+	secretion_events += 1
 	margin.director.emit_signal_packet(-1,
 			DreamEcologyDirector.SrcClass.HERO_LIMB,
 			DreamEcologyDirector.Fn.SECRETE, at, 0.55, 1.0,
 			DreamEcologyDirector.Chem.SECRETION, 1.0, 1.2,
 			DreamEcologyDirector.SrcClass.PALP)
+
+
+## Readable phase names for proof and inspection; the material receives the
+## same normalized clock and performs no independent timing.
+func secretion_stage() -> String:
+	if secretion_phase < 0.0:
+		return "idle"
+	if secretion_phase < 0.26:
+		return "bleb"
+	if secretion_phase < 0.50:
+		return "neck"
+	if secretion_phase < 0.82:
+		return "release"
+	return "uptake"
 
 
 ## The large organ consumes the shared vocabulary through the behaviour it
@@ -1168,6 +1190,10 @@ func _secondary(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	_clock += delta
+	if secretion_phase >= 0.0:
+		secretion_phase += delta / SECRETION_EVENT_S
+		if secretion_phase >= 1.0:
+			secretion_phase = -1.0
 	_behave(delta)
 	_notice_neighbours(delta)
 	_animate(delta)
@@ -1212,6 +1238,7 @@ func _process(delta: float) -> void:
 		mat.set_shader_parameter("body_motion", motion)
 		mat.set_shader_parameter("slice_close", slice_close)
 		mat.set_shader_parameter("lifecycle_stage", float(lifecycle_stage()))
+		mat.set_shader_parameter("secretion_phase", secretion_phase)
 	for mat in materials:
 		mat.set_shader_parameter("grow", grow)
 		if field != null and field.state != null:
@@ -1238,6 +1265,8 @@ func census() -> Dictionary:
 			"has_target": target != Vector3.INF,
 			"touching": contact_point != Vector3.INF,
 			"reach_gain": snappedf(_reach_gain, 0.01),
+			"secretion_phase": secretion_phase,
+			"secretion_events": secretion_events,
 			"motion": snappedf(motion, 0.001),
 			"slice_close": snappedf(slice_close, 0.001),
 			"noticing_a_critter": noticing != Vector3.INF,
