@@ -202,6 +202,29 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		board.position = GameBoot.b2g([5.20, -6.20, 1.42])
 		board.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(board)
+		# SR7-A: the service dumbwaiter, further up the same wall toward the
+		# lift, where a back-of-house hatch belongs. It is on the porter's
+		# board's wall run and set at counter height so the hand rope falls
+		# where a hand would reach for it. The lift shaft itself is elsewhere
+		# in the lobby (x 0.85..3.0) and is untouched by this: a dumbwaiter is
+		# its own small apparatus, not part of the passenger machine.
+		var dumbwaiter := DumbwaiterProp.new()
+		dumbwaiter.name = "LobbyServiceDumbwaiter"
+		dumbwaiter.prop_type = "dumbwaiter"
+		# Origin ON the partition face (x 5.24): the casing is authored
+		# outward from z 0, so the whole apparatus stands in the corridor
+		# rather than trying to occupy solid wall. The sill lands near 1.20.
+		dumbwaiter.position = GameBoot.b2g([5.24, -4.90, 0.90])
+		# NEGATIVE half-turn. Props on this run are authored with their working
+		# face on local +Z, and a rotation of +PI/2 sends +Z to world +X --
+		# straight into the partition at x 5.33. The corridor is on the WEST
+		# side, so the face has to swing the other way. (The porter's board and
+		# the mail bank above still use +PI/2 and therefore present their backs
+		# to the corridor; that is a landed SR2/mail-pass issue, visible in
+		# art/renders/dumbwaiter_brake_sr7a/06_wall_run.png, and is reported
+		# rather than changed here.)
+		dumbwaiter.rotation.y = -PI * 0.5
+		floor_nodes["F01"].add_child(dumbwaiter)
 		# The settle west of the street door is a place to actually sit.
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])

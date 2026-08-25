@@ -65,6 +65,29 @@
         "note": "water column proved; service level witnessed",
         "mechanism_patch": {"water_level": 0.62, "column_proved": true}
       }
+    },
+    "dumbwaiter_brake_service": {
+      "title": "LET THE BRAKE TAKE IT",
+      "apparatus": "service dumbwaiter counterweight and holding brake",
+      "location_lane": "lobby",
+      "historical_source": "New York dumbwaiter counterweight, lift sheave and automatic holding brake, US 950,828, 1910",
+      "transferable_verb": "regulation",
+      "story": {
+        "material": "The counterweight carries nearly all of the car, so the band holds only the difference. That is why a brake this small is enough, and why letting go before it bites is the whole danger.",
+        "human": "The kitchen this served closed before anyone now living moved in, and the pawl has been holding the car alone ever since.",
+        "orison": "The car comes up carrying the weight of a floor that no longer has a landing."
+      },
+      "steps": [
+        {"id": "take_strain", "verb": "hold_release", "target": 0.58, "tolerance": 0.10, "hold_min_seconds": 1.2, "expected_seconds": 5.0, "cue": "Take the hand rope and hold until the load comes onto your arm.", "confirmation": "The rope stops creeping and goes hard."},
+        {"id": "ease_pawl", "verb": "align", "target": 0.71, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Ease the holding pawl clear while the rope carries the car.", "confirmation": "The pawl lifts out of the ratchet without a sound."},
+        {"id": "prove_balance", "verb": "turn", "target": 0.34, "tolerance": 0.09, "expected_seconds": 7.0, "cue": "Move the car a short way and watch the counterweight answer.", "confirmation": "Car and weight trade places on one rope."},
+        {"id": "seat_band", "verb": "align", "target": 0.88, "tolerance": 0.05, "expected_seconds": 5.0, "cue": "Draw the band back down onto its drum, square and home.", "confirmation": "The band lies flat around the whole drum."},
+        {"id": "prove_bite", "verb": "hold_release", "target": 0.88, "tolerance": 0.07, "hold_min_seconds": 1.5, "expected_seconds": 6.0, "cue": "Hold the rope until you feel the brake take the load, then let go.", "confirmation": "The band bites and the car does not move."}
+      ],
+      "completion": {
+        "note": "pawl freed; band reseated and proved under load",
+        "mechanism_patch": {"band_seated": true, "pawl_lift": 0.0, "rope_strain": 0.0, "brake_bite": 0.88}
+      }
     }
   }
 }

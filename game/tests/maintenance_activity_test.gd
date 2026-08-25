@@ -7,13 +7,19 @@ var failures := 0
 func _ready() -> void:
 	var library := MaintenanceActivityLibrary.load_default()
 	_check(library.is_valid(), "maintenance activity book validates")
+	# SR6 landed the first round -- apartment, lobby, basement. SR7-A adds the
+	# first VERTICAL apparatus to the same book, so the roster is four now and
+	# the assertion stays closed rather than becoming a subset check: a stray
+	# fifth activity should still fail this line loudly.
 	_check(library.activity_ids() == (["annunciator_flag_service",
-			"boiler_water_column_test", "radiator_vent_service"] as Array[String]),
-			"the first round is apartment, lobby and basement")
+			"boiler_water_column_test", "dumbwaiter_brake_service",
+			"radiator_vent_service"] as Array[String]),
+			"the round is apartment, lobby, basement and the vertical run")
 	_check({
 		"radiator_vent_service": "flow",
 		"annunciator_flag_service": "contact",
 		"boiler_water_column_test": "pressure",
+		"dumbwaiter_brake_service": "regulation",
 	} == _transferable_verbs(library),
 			"each period mechanism names one transferable physical verb")
 	for activity_id in library.activity_ids():
