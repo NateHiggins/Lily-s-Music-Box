@@ -2516,17 +2516,20 @@ relay and recovery. Audio playback never drives biology.
   no audio-to-signal feedback, per-organelle player, case mutation or save
   seam. Palette, source lineage, measurements and hashes:
   `game/assets/audio/freesound/processed/cellular/README.md`.
-- **MBIO-6 IN PROGRESS — INTEGRATED PRODUCTION ENCOUNTER.** The executable
-  causal half now passes 12/12 in `orison_root.tscn`: quiet darkness → gradual
+- **MBIO-6 COMPLETE 2026-08-25 — INTEGRATED PRODUCTION ENCOUNTER.** The
+  executable causal half passes 12/12 in `orison_root.tscn`: quiet darkness → gradual
   scan without shock → one real lamp-switch photoshock → sustained adaptation
   → collision-resolved player footfall → no cilium answer ahead of the finite
   wavefront → local cilium response → uptake by the existing F02 LivingField →
   later bounded hero vesicle. Only the biological answer is sonified. Global
   attention, waking case bytes, persistence, pursuer and hazard ownership stay
-  unchanged. Remaining before COMPLETE: one single-session Forward+ encounter
-  storyboard with A/A controls, reusing these owners and the already-approved
-  visual languages. This remains observation/communication, not combat or a
-  completed waking case loop.
+  unchanged. One Forward+ production process supplies the eleven-frame
+  storyboard and three local A/A pairs in
+  `art/renders/dream_microbiology_mbio6_encounter/README.md`. Same-lamp
+  photoshock/adaptation changes clear the dark receptor floor by more than
+  1,700×, the cilium reply clears a byte-identical control, and the later hero
+  vesicle clears its control by 15.9×. This remains observation/communication,
+  not combat or a completed waking case loop.
 
 ### T4 — TEMPORAL BIOLOGY AND CONTROLLED ANACHRONISM (owner ruling 2026-08-24)
 
