@@ -145,11 +145,20 @@ func _dream_profile_id() -> String:
 ## Mina's complaint arrives through the existing interaction event. A
 ## missing job is issued with reported origin; an existing one — whatever
 ## its origin or stage — is recognized and left alone.
+##
+## The opening-shift station may call the same seam once it can physically
+## present job 001. Keeping the offer here means neither the clock nor report
+## rack manufactures WorkOrders state, and it remains safe on restore.
+func offer_opening_report() -> bool:
+	if work_orders == null or work_orders.job_stage(JOB_ID) != "missing":
+		return false
+	return work_orders.issue_job(JOB_ID, "reported")
+
+
 func _on_resident_interaction(case_id: String, resident_id: String) -> void:
 	if case_id != _case_id() or resident_id != _resident_id():
 		return
-	if work_orders.job_stage(JOB_ID) == "missing":
-		work_orders.issue_job(JOB_ID, "reported")
+	offer_opening_report()
 
 
 func _on_job_stage_changed(job_id: String, _from: String, to_stage: String,

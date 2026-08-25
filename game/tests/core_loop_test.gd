@@ -48,6 +48,7 @@ func _ready() -> void:
 	_fresh_director()
 
 	await _discovered_recognition()
+	await _opening_report_offer()
 	await _reported_golden_loop()
 
 	print("BOUNDARY TRACE: ", " | ".join(trace))
@@ -95,6 +96,23 @@ func _discovered_recognition() -> void:
 			"Mina's complaint recognizes a discovered job without overwriting it")
 	_check(director.boundary() == "job_open",
 			"a discovered start enters the same coordinator flow")
+	await get_tree().process_frame
+	RealityState.reset_campaign_for_tests()
+	_fresh_director()
+
+
+func _opening_report_offer() -> void:
+	var cases_before := var_to_bytes(RealityState.data.cases)
+	_check(director.offer_opening_report()
+			and work_orders.job_stage(JOB) == "issued"
+			and str(work_orders.job_state(JOB).origin) == "reported"
+			and director.boundary() == "job_open",
+			"the campaign owner can place the authored first report on a future rack")
+	_check(not director.offer_opening_report()
+			and RealityState.data.maintenance_jobs.size() == 1,
+			"offering twice neither duplicates nor resets the report")
+	_check(var_to_bytes(RealityState.data.cases) == cases_before,
+			"offering work activates no case before the player takes its paper")
 	await get_tree().process_frame
 	RealityState.reset_campaign_for_tests()
 	_fresh_director()
