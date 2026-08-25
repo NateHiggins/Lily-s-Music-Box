@@ -90,6 +90,10 @@ const TIER_SCALE := [1.35, 0.55, 0.24]
 ## not a second independently breeding organism.
 const TIER_LIFE_MIN_S := [90.0, 60.0, 45.0]
 const TIER_LIFE_MAX_S := [150.0, 115.0, 90.0]
+## LC-6B. A death is remembered by this visit's existing margin owner. The
+## records are anatomical impressions, not save facts or new scene nodes.
+const MAX_IMPRESSIONS := 24
+const IMPRESSION_CELL_M := 0.18
 
 ## Which archetypes each tier draws from. The primaries are the ones the
 ## player gets close to, so they carry the most distinct anatomy; the
@@ -120,6 +124,10 @@ var enabled := true
 ## Every live appendage. Index is stable for its lifetime, and the seed is
 ## preserved across LOD promotion (§30) because identity must survive it.
 var palps: Array = []
+## Flattened memories left after top-level organs withdraw. Branches are
+## anatomy of their parent and fold back into it, so they do not manufacture
+## independent corpses.
+var impressions: Array = []
 
 var _rng := RandomNumberGenerator.new()
 var _space: PhysicsDirectSpaceState3D = null
@@ -134,6 +142,9 @@ var _signal_near: Array = []
 var _last_secretion_born := -INF
 var _last_secretion_src := -2147483648
 var _seed_base := 0
+var _next_impression_id := 0
+var _retired_slots := [0, 0, 0]
+var _pending_recruits: Array = []
 
 
 func setup(controller: DreamFieldController, seed_v: int) -> void:
@@ -181,6 +192,16 @@ func _populate() -> void:
 	for tier in 3:
 		if _count_in_tier(tier) >= TIER_CAPS[tier]:
 			continue
+		# Once a lived organ has vacated a slot, ordinary stocking may not
+		# silently replace it. Its local environment must have selected a mode
+		# and left a recruitment record first.
+		if int(_retired_slots[tier]) > 0:
+			var request := _take_recruit(tier)
+			if request.is_empty():
+				continue
+			_birth(tier, request.anchor, request.normal, request)
+			_retired_slots[tier] = maxi(0, int(_retired_slots[tier]) - 1)
+			break
 		# §37 wants six NEARBY appendages that are clearly different, and the
 		# six primaries carry the whole archetype library between them. Spread
 		# across a storey they are never near anything, and the densest lit
@@ -245,9 +266,11 @@ func _find_surface() -> Dictionary:
 	return {"position": hit.position, "normal": (hit.normal as Vector3).normalized()}
 
 
-func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
+func _birth(tier: int, at: Vector3, nrm: Vector3,
+		recruit: Dictionary = {}) -> void:
 	var choices: Array = TIER_ARCHETYPES[tier]
-	var archetype: int = choices[_rng.randi() % choices.size()]
+	var archetype: int = int(recruit.get("kind",
+			choices[_rng.randi() % choices.size()]))
 	# §37: at least six nearby appendages must be clearly different. Rolling
 	# dice does not deliver that — photographed, the first population came out
 	# 29 whiskers of 64, and the closest cluster held two archetypes between
@@ -255,7 +278,7 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 	# takes each archetype in turn and is guaranteed to show the whole
 	# library. The lower tiers stay random: distributed sensing genuinely is
 	# mostly whiskers.
-	if tier == TIER_PRIMARY:
+	if tier == TIER_PRIMARY and recruit.is_empty():
 		var used := {}
 		for p in palps:
 			if int(p.tier) == TIER_PRIMARY:
@@ -267,7 +290,7 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 	# The individual's seed. It is kept for the appendage's whole life and
 	# would survive a promotion or demotion (§30), so an appendage the player
 	# walks up to is the same individual they saw from across the room.
-	var indiv_seed := _seed_base + _next_id * 7919
+	var indiv_seed := int(recruit.get("seed", _seed_base + _next_id * 7919))
 	var morph = MorphologyScript.generate(archetype, indiv_seed)
 	morph.length *= TIER_SCALE[tier]
 	morph.base_radius *= TIER_SCALE[tier]
@@ -293,6 +316,9 @@ func _birth(tier: int, at: Vector3, nrm: Vector3) -> void:
 		"grow": 1.0,
 		"lifecycle_stage": LifecycleScript.Stage.FOLDED,
 		"lifecycle_override": -1,
+		"reproduction": int(recruit.get("mode",
+				LifecycleScript.Reproduction.QUIESCENT)),
+		"generation": int(recruit.get("generation", 0)),
 		# §8 — stable for life, from this individual's own seed.
 		"traits": BehaviorScript.personality(indiv_seed),
 		# §9 — what it is doing about the world, and for how long.
@@ -723,9 +749,147 @@ func _age(delta: float) -> void:
 				var par: Dictionary = parent_of(p)
 				if not par.is_empty():
 					par.children = maxi(0, int(par.children) - 1)
+			else:
+				_remember_death(p)
+				_retired_slots[int(p.tier)] = int(_retired_slots[int(p.tier)]) + 1
+				_queue_environmental_recruit(p)
 			palp_died.emit(int(p.id))
 			palps.remove_at(i)
 		i -= 1
+
+
+## Local facts become the shared lifecycle vocabulary. `food` is the nearest
+## live field lobe's intensity at this architectural patch. Ether is not a
+## second gas simulation here: it is the local signal/exchange fraction in
+## the one body, the same electrochemical work the palps already publish.
+func lifecycle_environment(p: Dictionary) -> Dictionary:
+	var neighbours: Array = []
+	var kinds := {}
+	var same := 0
+	var cross := 0
+	var signalling := 0
+	for other in palps:
+		if int(other.get("parent", -1)) >= 0 or int(other.id) == int(p.id):
+			continue
+		if (other.anchor as Vector3).distance_to(p.anchor) > 1.5:
+			continue
+		neighbours.append(other)
+		kinds[int(other.morph.kind)] = true
+		var mature := lifecycle_stage_of(other) in [
+				LifecycleScript.Stage.MATURE, LifecycleScript.Stage.EXCHANGE]
+		if mature and int(other.morph.kind) == int(p.morph.kind):
+			same += 1
+		elif mature:
+			cross += 1
+		if lifecycle_stage_of(other) == LifecycleScript.Stage.EXCHANGE \
+				or bool(other.get("signal_recognized", false)) \
+				or float(other.get("cilia_out", 0.0)) > 0.5:
+			signalling += 1
+	var local_count := neighbours.size() + 1
+	var tier := int(p.tier)
+	return {
+		"food": _field_food_at(p.anchor),
+		"ether": clampf(float(signalling) / float(maxi(1, neighbours.size())),
+				0.0, 1.0),
+		"density": clampf(float(_count_in_tier(tier))
+				/ float(TIER_CAPS[tier]), 0.0, 1.0),
+		"diversity": clampf(float(kinds.size() + 1) / float(local_count), 0.0, 1.0),
+		"same_compatibility": 0.82 if same > 0 else 0.0,
+		"cross_compatibility": 0.78 if cross > 0 else 0.0,
+	}
+
+
+func _field_food_at(at: Vector3) -> float:
+	if field == null or field.state == null:
+		return 0.0
+	var best := 0.0
+	for i in field.state.lobes.size():
+		if not field.state.lobe_present(i):
+			continue
+		var l: Dictionary = field.state.lobes[i]
+		var radius: float = field.state.slice_radius(float(l.radius),
+				float(l.w_offset))
+		var nearness := 1.0 - clampf(at.distance_to(l.centre)
+				/ maxf(0.001, radius + 1.2), 0.0, 1.0)
+		best = maxf(best, float(l.intensity) * nearness)
+	return clampf(best, 0.0, 1.0)
+
+
+func _queue_environmental_recruit(dead: Dictionary) -> void:
+	var environment := lifecycle_environment(dead)
+	var mode := LifecycleScript.reproduction_for(environment)
+	if mode == LifecycleScript.Reproduction.QUIESCENT:
+		return
+	var partner := _compatible_partner(dead, mode)
+	var seed_v := int(dead.seed) + 104729
+	if not partner.is_empty():
+		# A deterministic fold of two lived patterns. The receiving organ's kind
+		# remains fixed below; the mixed seed only varies its bounded anatomy,
+		# surface affinity and personality inside that archetype.
+		seed_v = int(dead.seed) ^ (int(partner.seed) * 31 + 104729)
+	_pending_recruits.append({
+		"tier": int(dead.tier), "kind": int(dead.morph.kind), "seed": seed_v,
+		"anchor": dead.anchor, "normal": dead.normal, "mode": mode,
+		"generation": int(dead.get("generation", 0)) + 1,
+	})
+
+
+func _compatible_partner(subject: Dictionary, mode: int) -> Dictionary:
+	if mode == LifecycleScript.Reproduction.ASEXUAL:
+		return {}
+	var want_same := mode == LifecycleScript.Reproduction.SEXUAL
+	var candidates: Array = []
+	for other in palps:
+		if int(other.get("parent", -1)) >= 0 or int(other.id) == int(subject.id):
+			continue
+		if (other.anchor as Vector3).distance_to(subject.anchor) > 1.5:
+			continue
+		if lifecycle_stage_of(other) not in [LifecycleScript.Stage.MATURE,
+				LifecycleScript.Stage.EXCHANGE]:
+			continue
+		if (int(other.morph.kind) == int(subject.morph.kind)) != want_same:
+			continue
+		candidates.append(other)
+	if candidates.is_empty():
+		return {}
+	candidates.sort_custom(func(a, b): return int(a.id) < int(b.id))
+	return candidates[0]
+
+
+func _take_recruit(tier: int) -> Dictionary:
+	for i in _pending_recruits.size():
+		if int(_pending_recruits[i].tier) == tier:
+			var request: Dictionary = _pending_recruits[i]
+			_pending_recruits.remove_at(i)
+			return request
+	return {}
+
+
+func _remember_death(p: Dictionary) -> void:
+	var cell := Vector3i(roundi(float(p.anchor.x) / IMPRESSION_CELL_M),
+			roundi(float(p.anchor.y) / IMPRESSION_CELL_M),
+			roundi(float(p.anchor.z) / IMPRESSION_CELL_M))
+	var key := "%d:%d:%d:%d" % [cell.x, cell.y, cell.z, int(p.morph.kind)]
+	for stain in impressions:
+		if String(stain.key) == key:
+			stain.deaths = int(stain.deaths) + 1
+			stain.last_death_id = int(p.id)
+			return
+	var memory := p.duplicate(true)
+	memory.id = _next_impression_id
+	memory.key = key
+	memory.deaths = 1
+	memory.last_death_id = int(p.id)
+	memory.lifecycle_override = LifecycleScript.Stage.STAIN
+	memory.lifecycle_stage = LifecycleScript.Stage.STAIN
+	memory.age = memory.life
+	memory.grow = 1.0
+	memory.extend = 1.0
+	memory.cilia_out = 0.0
+	impressions.append(memory)
+	_next_impression_id += 1
+	if impressions.size() > MAX_IMPRESSIONS:
+		impressions.remove_at(0)
 
 
 ## Population accounting EXCLUDES branches. A branch is anatomy that unfolded
@@ -1216,6 +1380,11 @@ func census() -> Dictionary:
 			cooperating += int(shared[k])
 	return {"live": palps.size(), "tiers": by_tier, "kinds": by_kind,
 			"born": _next_id, "acts": by_act,
+			"impressions": impressions.size(),
+			"remembered_deaths": impressions.reduce(
+					func(total, stain): return total + int(stain.deaths), 0),
+			"pending_recruits": _pending_recruits.size(),
+			"retired_slots": _retired_slots.duplicate(),
 			"with_neighbours": social, "joined_a_neighbour": joined,
 			"cooperating": cooperating,
 			"feel_hero": feel_hero, "joined_hero": joined_hero,

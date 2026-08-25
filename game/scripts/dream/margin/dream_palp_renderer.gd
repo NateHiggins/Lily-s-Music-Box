@@ -13,6 +13,7 @@ extends Node3D
 const SHADER := preload("res://shaders/dream_palp.gdshader")
 const LIFECYCLE := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 const MAX_PALPS := 40
+const MAX_STAIN_SLOTS := 8
 const JOINTS := 6
 const RINGS := 13
 const SEGS := 11
@@ -46,6 +47,7 @@ var drawn := 0
 ## Which individuals currently have geometry, so the contract can check that
 ## the ones nearest the player are the ones being drawn.
 var drawn_ids: Array = []
+var drawn_stain_ids: Array = []
 
 var _spine := PackedVector3Array()
 var _section := PackedVector4Array()
@@ -161,12 +163,30 @@ func _process(delta: float) -> void:
 		order.append({"i": i, "d": eye.distance_squared_to(p.tip)})
 	order.sort_custom(func(a, b): return float(a.d) < float(b.d))
 	drawn_ids.clear()
+	drawn_stain_ids.clear()
+	# A bounded part of the existing forty-slot mesh is reserved for the
+	# nearest visit memories. Stains therefore remain visible even at the live
+	# population ceiling without adding a surface, node or draw call.
+	var stain_order: Array = []
+	for i in controller.impressions.size():
+		var stain: Dictionary = controller.impressions[i]
+		stain_order.append({"i": i, "d": eye.distance_squared_to(stain.anchor)})
+	stain_order.sort_custom(func(a, b): return float(a.d) < float(b.d))
+	var stain_slots := mini(MAX_STAIN_SLOTS, stain_order.size())
+	var live_budget := MAX_PALPS - stain_slots
 	for entry in order:
-		if drawn >= MAX_PALPS:
+		if drawn >= live_budget:
 			break
 		var p2: Dictionary = controller.palps[int(entry.i)]
 		_lay(drawn, p2)
 		drawn_ids.append(int(p2.id))
+		drawn += 1
+	for entry in stain_order:
+		if drawn_stain_ids.size() >= stain_slots:
+			break
+		var stain2: Dictionary = controller.impressions[int(entry.i)]
+		_lay(drawn, stain2)
+		drawn_stain_ids.append(int(stain2.id))
 		drawn += 1
 	# Anything past the live population is collapsed rather than left stale.
 	# The fine anatomy goes with it: a slot whose last tenant was a branch
@@ -200,6 +220,7 @@ func _lay(slot: int, p: Dictionary) -> void:
 	var ln: float = float(morph.length) * float(p.grow) * clampf(extend, 0.05, 1.4)
 	var sd: float = float(morph.seed_value)
 	var stage := DreamMarginController.lifecycle_stage_of(p)
+	var is_stain := stage == LIFECYCLE.Stage.STAIN
 	# A complete organ rotates out of its reserve fold. No stage changes `ln`,
 	# radius or any authored section; the silhouette changes only by posture.
 	var openness := 1.0
@@ -226,8 +247,10 @@ func _lay(slot: int, p: Dictionary) -> void:
 		# Reserve and shed postures lie along the architectural surface at full
 		# authored length. A small root lift prevents z-fighting without making
 		# the organ appear to grow out of the wall.
-		var folded_point := a + wall_dir * (ln * t) \
-				+ n * (float(morph.base_radius) * (0.30 + 0.18 * sin(t * PI)))
+		var wall_lift := float(morph.base_radius) \
+				* ((0.03 + 0.04 * sin(t * PI)) if is_stain \
+				else (0.30 + 0.18 * sin(t * PI)))
+		var folded_point := a + wall_dir * (ln * t) + n * wall_lift
 		var point := folded_point.lerp(open_point, smoothstep(0.0, 1.0, openness))
 		if stage == LIFECYCLE.Stage.EXCHANGE:
 			point += aim * (ln * 0.10 * t * t)
@@ -236,12 +259,19 @@ func _lay(slot: int, p: Dictionary) -> void:
 		# A whisker's own idle tremor. The BEHAVIOUR now supplies intent —
 		# probing, tracing, bracing — and this is only the fine motion that
 		# rides on top of it.
-		var tremor: float = float(morph.cilia) * 0.004 * t
+		var tremor: float = float(morph.cilia) * 0.004 * t \
+				* (0.0 if stage == LIFECYCLE.Stage.STAIN else 1.0)
 		point += side * sin(_clock * 5.5 + sd * 4.0) * tremor
 		_spine[slot * JOINTS + j] = point
 	for k in 4:
-		_section[slot * 4 + k] = morph.sections[k]
-	_params[slot] = Vector4(float(p.grow), float(morph.base_radius),
+		var authored: Vector4 = morph.sections[k]
+		_section[slot * 4 + k] = authored
+	# Death remembers the whole length and authored station sequence, but the
+	# volume has collapsed into the architectural surface. It never reaches
+	# zero, so the remembered family remains legible instead of becoming a
+	# generic decal line.
+	var submitted_radius := float(morph.base_radius) * (0.28 if is_stain else 1.0)
+	_params[slot] = Vector4(float(p.grow), submitted_radius,
 			float(morph.tip_ratio), sd)
 	_matter[slot] = Vector4(float(morph.gold), float(morph.crystal),
 			float(morph.suckers), float(morph.cilia))
@@ -285,6 +315,7 @@ func census() -> Dictionary:
 		verts = (arr[Mesh.ARRAY_VERTEX] as PackedVector3Array).size()
 		idx = (arr[Mesh.ARRAY_INDEX] as PackedInt32Array).size()
 	return {"drawn": drawn, "max": MAX_PALPS, "ids": drawn_ids.size(),
+			"stains": drawn_stain_ids.size(),
 			"surfaces": 1, "vertices": verts, "indices": idx,
 			"cilia_per_palp": CILIA}
 

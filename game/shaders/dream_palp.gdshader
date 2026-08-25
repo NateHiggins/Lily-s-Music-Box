@@ -114,7 +114,8 @@ vec3 palp_surface(int p, float v, float a, vec3 sd, vec3 bn, float t,
 	float asym = 1.0 + sec.w * cos(a + par.w);
 	float taper = mix(par.y, par.y * par.z, pow(v, 1.15));
 	float flare = 1.0 + 0.55 * exp(-v * 7.0);
-	float breathe = 1.0 + 0.04 * sin(t * 1.9 + par.w * 3.0);
+	float stain = step(6.5, palp_branch[p].z * 7.0);
+	float breathe = 1.0 + (1.0 - stain) * 0.04 * sin(t * 1.9 + par.w * 3.0);
 	r_out = taper * flare * lobe * asym * breathe;
 	return sd * ex + bn * ez;
 }
@@ -416,9 +417,16 @@ void fragment() {
 	vec3 bruise = ALBEDO * vec3(0.62, 0.48, 1.18);
 	ALBEDO = mix(ALBEDO, exchange_wet, is_exchange * 0.42);
 	ALBEDO = mix(ALBEDO, bruise, is_senescent * 0.52 + is_shed * 0.72);
-	ALBEDO *= 1.0 - is_stain * 0.42;
+	// What remains is not a decal. It is the organ's authored silhouette
+	// pressed into the wall: wet hematoma, mineral trace and cold violet
+	// secretion, beautiful enough to invite inspection and wrong enough to
+	// make the visit remember where tissue ended.
+	vec3 stain_colour = mix(vec3(0.035, 0.008, 0.055),
+			vec3(0.17, 0.035, 0.22), m.vein);
+	stain_colour += vec3(0.10, 0.065, 0.025) * ctx.gold_root;
+	ALBEDO = mix(ALBEDO, stain_colour, is_stain * 0.88);
 	METALLIC = o.metallic * (1.0 - line * 0.9);
-	ROUGHNESS = clamp(o.roughness - line * 0.30, 0.03, 1.0);
+	ROUGHNESS = clamp(o.roughness - line * 0.30 - is_stain * 0.20, 0.03, 1.0);
 	SPECULAR = o.specular;
 	// 2.2 was tuned when these were 5 cm tendrils that had to be seen at all.
 	// At primary scale it blows every archetype out to the same molten gold,

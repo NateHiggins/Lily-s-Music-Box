@@ -500,6 +500,26 @@ margin environmental recruitment/reproduction and its visit-persistent
 post-removal stain remain open, followed by hero, architecture, incarnation
 and co-present pursuit/hazard owners.
 
+LC-6B closes the remaining margin slice. Top-level withdrawal records the
+complete organ as a non-breathing, wall-compressed secretion print before the
+live palp is removed. Records coalesce by architectural cell and family, cap
+at 24 with deterministic oldest-first eviction, remain only for the current
+margin-owner lifetime and never touch `RealityState`. The nearest eight reuse
+the existing forty mesh slots; surfaces, draw owners, collision and lights stay
+fixed. Death also creates an honest vacancy: ordinary population stocking
+cannot bypass it. Local field nourishment, tier density, mature same/cross
+compatibility, diversity and existing electrochemical/cilia exchange activity
+feed LC-1's quiescent/asexual/sexual/pansexual classifier. Permitted successors
+keep tier and receiving organ kind/function while a deterministic mixed seed
+varies only bounded anatomy/personality. Focused proof passes 61/61; production
+margin 57/57, ecology 61/61, shared lifecycle 16/16 and shader parse remain
+green. The production-root proof witnesses real `_age()` removal: both state
+changes clear live A/A by over 300×, and the fixed stain ROI is byte-identical
+through its own control and later owner work. See
+`art/renders/dream_margin_death_stain_lc6b/README.md`. LC-6 itself remains open
+for the other named owners; do not generalize this margin memory into a save
+fact, room-streaming claim, or completed all-organelle rollout.
+
 Three top-level projects:
 
 | Path | What |

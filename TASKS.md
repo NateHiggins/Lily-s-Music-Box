@@ -2392,6 +2392,25 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   owner:** environmental recruitment/reproduction and a visit-persistent
   post-removal architectural stain. Frame 08 is only the attached terminal
   posture and must not be cited as persistence proof.
+- **LC-6B COMPLETE 2026-08-24 — MARGIN RECRUITMENT AND DEATH MEMORY.** A
+  top-level palp now leaves a full-length, non-breathing anatomical secretion
+  print in the existing margin owner before its live record is removed.
+  Same-cell/family deaths coalesce; 24 visit-local records evict oldest-first,
+  clear with the owner and never enter `RealityState`. The nearest eight spend
+  reserved slots inside the existing forty-slot mesh, so no node, surface,
+  draw, collision or light owner is added. A vacated tier slot can no longer be
+  silently restocked: local field nourishment, tier density, mature same/cross
+  morphology, diversity and the existing signal/cilia exchange activity select
+  quiescent, asexual, sexual or pansexual recruitment through LC-1. A successor
+  retains tier and organ kind/function; only bounded seed variation and
+  generation change. `DreamMarginLifecycleTest` passes 61/61; production
+  margin remains 57/57, ecology 61/61, shared lifecycle 16/16 and shader parse
+  passes. Production-root live→shed and shed→stain changes clear the subject
+  A/A floor by 348.96× and 300.12×; the stain ROI is byte-identical across its
+  own A/A and after further owner work. Proof and hashes:
+  `art/renders/dream_margin_death_stain_lc6b/README.md`. **LC-6 remains open**
+  for flora beyond the landed fauna-owned mat, hero, architecture,
+  incarnation, and co-present pursuer/hazard owners.
 
 ### T4 — TEMPORAL BIOLOGY AND CONTROLLED ANACHRONISM (owner ruling 2026-08-24)
 
