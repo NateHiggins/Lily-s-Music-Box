@@ -193,15 +193,67 @@ func _ready() -> void:
 	_check(RealityState.data.get("maintenance_jobs", {}).size()
 					== jobs_before + 1,
 			"exactly one job record exists, the one the spine issued")
+
+	# --- SR7-H: THE WORDS, ON THE PRODUCTION BOARD --------------------------
+	var outcomes: Array = board.get("OUTCOMES")
+	_check(outcomes == FirstShiftDirector.FILING_OUTCOMES,
+			"the board's four conclusions ARE the first-shift director's, "
+			+ "verbatim -- one vocabulary, no translation table")
+	_check(board.get("index_detent") == 0
+			and str(board.call("selected_outcome")) == "",
+			"the production index is standing on the blank, as found")
+
+	# NOT DERIVED. Take the real job all the way to `repaired` through its own
+	# owner and the index must not have moved.
+	wo.call("diagnose_job", job_id)
+	wo.call("mark_job_repairable", job_id)
+	wo.call("record_job_repair", job_id,
+			{"quality": "good", "note": "vent freed and clocked"})
+	_check(str(wo.call("job_stage", job_id)) == "repaired",
+			"the production spine reached `repaired` under its own power")
+	_check(board.get("index_detent") == 0
+			and str(board.call("selected_outcome")) == "",
+			"AND THE INDEX HAS NOT MOVED. No job stage picks a conclusion.")
+
+	# THE THREE REFUSALS, on the real apparatus.
 	board.call("take_key", plant)
+	board.call("select_outcome", str(outcomes[0]))
+	_check(not board.call("sign_register")
+			and board.call("balking") == true,
+			"REFUSAL: it will not sign while a key is still off the board")
+	board.call("return_key", plant)
+	_check(board.get("slip_taken") == true
+			and not board.call("sign_register"),
+			"REFUSAL: it will not sign while the report is in your hand")
+	board.call("replace_slip")
+	board.call("select_outcome", "")
+	_check(not board.call("outcome_selected")
+			and not board.call("sign_register"),
+			"REFUSAL: it will not sign with the index on the blank")
+	_check(not RealityState.data.has(str(board.get("STATE_KEY"))),
+			"and three refusals later the save is still untouched")
+
+	# THE CLAIM THE APPARATUS DOES NOT CHECK. The job is `repaired`; the
+	# register files "disturbance persists" without argument, because it
+	# records what the player will put their name to and verifies nothing.
+	board.call("select_outcome", "disturbance_persists")
 	var signed: Array[Dictionary] = []
 	board.connect("register_signed",
 			func(r: Dictionary) -> void: signed.append(r))
-	_check(board.call("sign_register") and signed.size() == 1,
-			"signing the book writes one line and reports once")
+	_check(board.call("ready_to_file") and board.call("sign_register")
+			and signed.size() == 1,
+			"signing the book writes one line and reports EXACTLY once")
+	_check(str(signed[0].filing) == "disturbance_persists"
+			and str(signed[0].job_stage) == "repaired",
+			"a REPAIRED job is filed as 'disturbance persists', unchallenged")
+	_check(str(wo.call("job_stage", job_id)) == "repaired",
+			"and the spine is neither corrected nor advanced by the claim")
+	_check(not board.call("sign_register")
+			and board.get("signed_lines") == 1,
+			"REFUSAL: signing again is idempotent -- no second line")
 	_check((RealityState.data.get(str(board.get("STATE_KEY")), {})
 			.get("lines", []) as Array).size() == 1,
-			"and that line is the register's whole footprint in the save")
+			"and that one line is the register's whole footprint in the save")
 
 	# --- nothing else moved -------------------------------------------------
 	var powered_after := 0
@@ -245,8 +297,13 @@ func _ready() -> void:
 			false).is_empty(),
 			"the apparatus owns no light of its own")
 	_check((board as Node3D).find_children("*", "CollisionObject3D", true,
-			false).size() == 4,
-			"and four collision bodies, one per literal service point")
+			false).size() == 5,
+			"and five collision bodies, one per literal service point")
+	_check(str(wo.call("job_stage", job_id)) != "closed",
+			"NO WORKORDER WAS CLOSED OR SKIPPED by filing a conclusion")
+	_check(RealityState.data.get("maintenance_jobs", {}).size()
+					== jobs_before + 1,
+			"and still exactly one job record exists")
 	var clocks := 0
 	for child in root.get_children():
 		if child is ClockProp:

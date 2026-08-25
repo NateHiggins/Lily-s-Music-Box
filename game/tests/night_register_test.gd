@@ -47,6 +47,7 @@ func _ready() -> void:
 	_abort()
 	_access_ownership()
 	_signing()
+	_conclusions()
 	_ownership()
 
 	print("NIGHT REGISTER TEST: %s (%d/%d)"
@@ -80,10 +81,27 @@ func _build() -> void:
 
 
 func _fresh_board() -> void:
+	# Each section starts from a clean campaign. The register's signed lines
+	# live in `RealityState`, so a board that is "fresh" while the save still
+	# holds the previous section's signatures is not fresh at all -- it comes
+	# up reading them, which is exactly what a real one should do.
+	RealityState.reset_campaign_for_tests()
+	work_orders.setup(null)
 	board.queue_free()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)
+
+
+## SR7-H: a round the board will actually accept a signature for -- report
+## taken and filed back, both keys returned, and a conclusion chosen by hand.
+func _complete_round(outcome: String) -> void:
+	work_orders.issue_job(NightRegisterProp.JOB_ID, "reported")
+	board.take_slip()
+	board.take_key(NightRegisterProp.PLANT_HOOK)
+	board.return_key(NightRegisterProp.PLANT_HOOK)
+	board.replace_slip()
+	board.select_outcome(outcome)
 
 
 # --- the board presents what the spine holds ---------------------------------
@@ -179,12 +197,46 @@ func _refusals() -> void:
 	_check("REFUSAL: a spindle that already holds its slip gives you nothing",
 			not board.replace_slip() and board.balking())
 
-	# REFUSAL 5: an unmarked register.
+	# REFUSAL 5: an unmarked register. SR7-H made "nothing to record" mean
+	# NO ROUND WAS EVER OPENED, rather than SR7-G's "nothing is currently in
+	# your hands" -- so this needs a board nobody has taken a report from.
+	_fresh_board()
 	_check("REFUSAL: a register with nothing to record will not be signed",
 			not board.has_unsigned_work()
 			and not board.sign_register()
 			and board.balking()
 			and board.signed_lines == 0)
+
+	# --- SR7-H: THE THREE THINGS THAT MUST BE TRUE BEFORE A SIGNATURE ------
+	# None of these is about ROUTE. They say the round is over and that you
+	# have decided what you are willing to put on paper.
+	_fresh_board()
+	work_orders.issue_job(NightRegisterProp.JOB_ID, "reported")
+	board.take_slip()
+	board.take_key(NightRegisterProp.PLANT_HOOK)
+	board.select_outcome(NightRegisterProp.OUTCOME_FAULT_CORRECTED)
+	_check("REFUSAL: you cannot sign while the keys are still out",
+			not board.sign_register() and board.balking()
+			and board.signed_lines == 0)
+	board.return_key(NightRegisterProp.PLANT_HOOK)
+	_check("REFUSAL: you cannot sign while the report is still in your hand",
+			board.slip_taken and not board.sign_register()
+			and board.balking() and board.signed_lines == 0)
+	board.replace_slip()
+	board.select_outcome("")
+	_check("REFUSAL: you cannot sign with the index on the blank",
+			not board.outcome_selected() and not board.sign_register()
+			and board.balking() and board.signed_lines == 0)
+	board.select_outcome(NightRegisterProp.OUTCOME_NO_FAULT_FOUND)
+	_check("and with all three answered, the same board signs",
+			board.ready_to_file() and board.sign_register()
+			and board.signed_lines == 1)
+	# IDEMPOTENT. The round closed; a second press has nothing to file.
+	_check("REFUSAL: signing again files nothing and adds no line",
+			not board.sign_register() and board.balking()
+			and board.signed_lines == 1
+			and (RealityState.data.get(NightRegisterProp.STATE_KEY, {})
+					.get("lines", []) as Array).size() == 1)
 
 	# THE ASSERTIONS THAT CATCH A REFUSAL NOBODY CAN SEE. Two separate
 	# defects, both of which the SR7-G sheet actually hit before this existed:
@@ -198,6 +250,10 @@ func _refusals() -> void:
 	# `_process` is off here on purpose: that is the state a camera sees, and
 	# `restore_maintenance_snapshot` over the CURRENT snapshot is the only way
 	# to clear a held balk without it.
+	# On its own board: the SR7-H signing block above files a real line, and a
+	# pose test that also asserts "nothing was written" has to start from a
+	# register nobody has signed.
+	_fresh_board()
 	var desk := board.find_child("RegisterDesk", true, false) as Node3D
 	var plant_check := board.find_child("Check_plant", true, false) 			as MeshInstance3D
 	_check("the apparatus has a desk and a check a refusal can visibly move",
@@ -330,6 +386,47 @@ func _abort() -> void:
 	_check("and an aborted session wrote nothing to the register",
 			board.signed_lines == 0
 			and not RealityState.data.has(NightRegisterProp.STATE_KEY))
+
+	# --- SR7-H: THE ABORT HAS TO CARRY THE WORDS TOO -----------------------
+	_fresh_board()
+	_complete_round(NightRegisterProp.OUTCOME_DISTURBANCE_PERSISTS)
+	board.sign_register()
+	var filed: Dictionary = board.maintenance_snapshot()
+	var filed_lines: int = (RealityState.data.get(
+			NightRegisterProp.STATE_KEY, {}).get("lines", []) as Array).size()
+	_check("a signed round leaves one line and the index still showing it",
+			filed_lines == 1 and board.signed_lines == 1
+			and board.selected_outcome()
+					== NightRegisterProp.OUTCOME_DISTURBANCE_PERSISTS)
+
+	_complete_round(NightRegisterProp.OUTCOME_ACCESS_UNSUCCESSFUL)
+	board.sign_register()
+	_check("a second round files a second line under a different conclusion",
+			board.signed_lines == 2
+			and board.selected_outcome()
+					== NightRegisterProp.OUTCOME_ACCESS_UNSUCCESSFUL)
+
+	board.restore_maintenance_snapshot(filed)
+	_check("ABORT puts the index back on the conclusion it was standing on",
+			board.selected_outcome()
+					== NightRegisterProp.OUTCOME_DISTURBANCE_PERSISTS
+			and board.index_detent == 2)
+	# THE ONE IRREVERSIBLE THING ON A REVERSIBLE BOARD, if it were allowed to
+	# be: an abort that restored the apparatus but left the signature in the
+	# save. The written lines come back too.
+	_check("ABORT rolls the written lines back to exactly what was there (%d)"
+					% filed_lines,
+			board.signed_lines == filed_lines
+			and (RealityState.data.get(NightRegisterProp.STATE_KEY, {})
+					.get("lines", []) as Array).size() == filed_lines)
+	var after_words: Dictionary = board.maintenance_snapshot()
+	var words_drift: Array[String] = []
+	for key in filed.keys():
+		if str(after_words.get(key)) != str(filed.get(key)):
+			words_drift.append(str(key))
+	_check("ABORT restores the whole board byte-for-byte, words included (%s)"
+					% ", ".join(words_drift),
+			words_drift.is_empty() and after_words.size() == filed.size())
 	# The stage the spine holds is NOT rolled back, and that is correct: the
 	# acknowledgement was real work by its real owner. Abort owns the board,
 	# never the ledger.
@@ -386,41 +483,173 @@ func _access_ownership() -> void:
 
 func _signing() -> void:
 	_fresh_board()
-	work_orders.issue_job(NightRegisterProp.JOB_ID, "reported")
-	board.take_slip()
-	board.take_key(NightRegisterProp.PLANT_HOOK)
+	_complete_round(NightRegisterProp.OUTCOME_FAULT_CORRECTED)
 	_check("nothing has reached RealityState before the book is signed",
 			not RealityState.data.has(NightRegisterProp.STATE_KEY))
 
 	var seen: Array[Dictionary] = []
 	board.register_signed.connect(func(r: Dictionary) -> void: seen.append(r))
-	_check("signing the register writes one line and reports once",
+	_check("signing the register writes one line and reports EXACTLY once",
 			board.sign_register() and seen.size() == 1
 			and board.signed_lines == 1)
 	var line: Dictionary = seen[0]
-	_check("the line records the hour, the report and which hooks were empty",
-			line.has("at") and bool(line.report_out)
-			and (line.keys_out as Array) == ["plant"]
+	# SR7-H. The record carries the words. It is neutral -- an id and the
+	# printing it came from -- and it is the vocabulary the first-shift owner
+	# already speaks, so the eventual join needs no translation table.
+	_check("the published record carries the SELECTED conclusion",
+			str(line.filing) == NightRegisterProp.OUTCOME_FAULT_CORRECTED
+			and str(line.filing_printed).contains("FAULT CORRECTED"))
+	_check("the record still carries the hour, the job and the hooks",
+			line.has("at") and not bool(line.report_out)
+			and (line.keys_out as Array).is_empty()
 			and str(line.job_id) == NightRegisterProp.JOB_ID)
-	# THE THESIS, ASSERTED. The board cannot write where anybody went, so it
-	# does not pretend to. A richer line would be the apparatus telling the
-	# very lie it exists to expose.
+	# THE THESIS, ASSERTED. The board records the CLAIM. It writes nothing
+	# about where anybody went and nothing that would verify the claim.
 	var extra: Array[String] = []
 	for key in line.keys():
-		if str(key) not in ["at", "report_out", "keys_out", "job_id",
-				"job_stage"]:
+		if str(key) not in ["at", "filing", "filing_printed", "report_out",
+				"keys_out", "job_id", "job_stage"]:
 			extra.append(str(key))
-	_check("and records NOTHING about where the key went (%s)"
+	_check("and records NOTHING beyond the claim and its circumstances (%s)"
 					% ", ".join(extra),
 			extra.is_empty())
 	_check("the signed line persists under the board's own small state key",
 			(RealityState.data.get(NightRegisterProp.STATE_KEY, {})
 					.get("lines", []) as Array).size() == 1)
+
+	# THE SHAPE THE CONSUMER ACTUALLY READS, asserted without wiring the two
+	# owners together. `FirstShiftDirector.accept_signed_register` requires a
+	# `filing` in `FILING_OUTCOMES`, a matching `job_id`, `report_out` false
+	# and an empty `keys_out` -- and drops anything else SILENTLY, by design.
+	# A receipt the consumer would quietly ignore is not a receipt, and the
+	# last three of those four are, exactly, the conditions this board already
+	# refuses to sign without.
+	_check("the published receipt satisfies the director's guard verbatim",
+			str(line.filing) in FirstShiftDirector.FILING_OUTCOMES
+			and str(line.job_id) == NightRegisterProp.JOB_ID
+			and not bool(line.report_out)
+			and (line.keys_out as Array).is_empty())
+
+	_complete_round(NightRegisterProp.OUTCOME_NO_FAULT_FOUND)
 	board.sign_register()
-	_check("a second signature is a second line, never an overwrite",
-			board.signed_lines == 2
+	_check("a second ROUND is a second line, never an overwrite",
+			board.signed_lines == 2 and seen.size() == 2
+			and str(seen[1].filing)
+					== NightRegisterProp.OUTCOME_NO_FAULT_FOUND
 			and (RealityState.data.get(NightRegisterProp.STATE_KEY, {})
 					.get("lines", []) as Array).size() == 2)
+
+
+# --- SR7-H: the words, and who is allowed to choose them ---------------------
+
+func _conclusions() -> void:
+	_check("there are four conclusions and only four",
+			NightRegisterProp.OUTCOMES.size() == 4
+			and NightRegisterProp.OUTCOME_CARD.size() == 4)
+	# The vocabulary is `FirstShiftDirector.FILING_OUTCOMES` verbatim. SR7-H
+	# does not CONNECT the two owners -- that seam is the director's -- but a
+	# private vocabulary would make the join a translation table, and a
+	# translation table between two owners is where a fifth one gets invented.
+	_check("and they are the first-shift director's ids, verbatim",
+			NightRegisterProp.OUTCOMES == ["fault_corrected",
+					"disturbance_persists", "no_fault_found",
+					"access_unsuccessful"])
+	for outcome in NightRegisterProp.OUTCOMES:
+		_check("the card has %s printed on it" % str(outcome),
+				str(NightRegisterProp.OUTCOME_CARD[outcome]).length() > 8)
+
+	# NO DEFAULT. A board fresh out of the box stands on the blank, and the
+	# blank is a PRINTED position rather than an absence.
+	_fresh_board()
+	_check("a fresh board has NO conclusion selected and reads as blank",
+			board.index_detent == 0 and board.selected_outcome() == ""
+			and not board.outcome_selected()
+			and board.card_line() == NightRegisterProp.CARD_BLANK)
+
+	# NOT DERIVED FROM JOB STATE. Drive the spine right through its lifecycle
+	# and the index must not move a millimetre.
+	work_orders.issue_job(NightRegisterProp.JOB_ID, "reported")
+	board.take_slip()
+	work_orders.diagnose_job(NightRegisterProp.JOB_ID)
+	work_orders.mark_job_repairable(NightRegisterProp.JOB_ID)
+	# `record_job_repair` validates the quality against
+	# `MaintenanceJobLibrary.REPAIR_QUALITIES`, so this has to be a real one:
+	# the point of the check below is that the spine genuinely reached
+	# `repaired` on its own, not that a stub said it did.
+	work_orders.record_job_repair(NightRegisterProp.JOB_ID,
+			{"quality": "good", "note": "vent freed and clocked"})
+	_check("the spine reached `repaired` under its own power",
+			work_orders.job_stage(NightRegisterProp.JOB_ID) == "repaired")
+	_check("AND THE INDEX HAS NOT MOVED. No stage picks a conclusion.",
+			board.index_detent == 0 and board.selected_outcome() == "")
+
+	# A REPAIRED JOB MAY STILL BE FILED AS "DISTURBANCE PERSISTS". The
+	# register records what the player is willing to sign and does not check
+	# that claim against the machinery -- which is the whole reason a person
+	# rather than a state machine chooses the words.
+	board.take_key(NightRegisterProp.PLANT_HOOK)
+	board.return_key(NightRegisterProp.PLANT_HOOK)
+	board.replace_slip()
+	board.select_outcome(NightRegisterProp.OUTCOME_DISTURBANCE_PERSISTS)
+	var claims: Array[Dictionary] = []
+	board.register_signed.connect(
+			func(r: Dictionary) -> void: claims.append(r))
+	_check("a REPAIRED job can be filed as 'disturbance persists'",
+			board.sign_register() and claims.size() == 1
+			and str(claims[0].filing)
+					== NightRegisterProp.OUTCOME_DISTURBANCE_PERSISTS
+			and str(claims[0].job_stage) == "repaired")
+	_check("and the spine is not corrected, contradicted or advanced by it",
+			work_orders.job_stage(NightRegisterProp.JOB_ID) == "repaired")
+	_complete_round(NightRegisterProp.OUTCOME_FAULT_CORRECTED)
+	_check("the same repaired job can equally be filed as 'fault corrected'",
+			board.sign_register() and claims.size() == 2
+			and str(claims[1].filing)
+					== NightRegisterProp.OUTCOME_FAULT_CORRECTED
+			and str(claims[1].job_stage) == "repaired")
+
+	# NO FREE TEXT AND NO FIFTH CONCLUSION. The selector is a detented index
+	# over an engraved card: there is nowhere for it to stand that is not one
+	# of the four, so an invalid conclusion is not rejected by a rule -- it is
+	# unreachable by the object.
+	_fresh_board()
+	for bogus in ["the walls were breathing", "haunted", "fault_Corrected",
+			"disturbance persists", "5", "no_fault_found "]:
+		_check("REFUSAL: %s is not a conclusion this card can print"
+						% JSON.stringify(bogus),
+				not board.select_outcome(bogus)
+				and board.selected_outcome() == ""
+				and board.index_detent == 0)
+	_check("clearing the index back to blank is always allowed",
+			board.select_outcome("") and board.selected_outcome() == "")
+
+	# THE INDEX HAS FIVE STOPS AND WRAPS THROUGH THE BLANK. Pushing it forever
+	# cannot reach a sixth, and it always comes back past nothing-entered.
+	var visited: Array[String] = []
+	for i in 11:
+		visited.append(board.card_line())
+		board.advance_index()
+	var distinct := {}
+	for v in visited:
+		distinct[v] = true
+	_check("the index cycles through exactly five stops and no more (%d)"
+					% distinct.size(),
+			distinct.size() == 5)
+	_check("and it never stands anywhere outside its five detents",
+			board.index_detent >= 0
+			and board.index_detent <= NightRegisterProp.OUTCOMES.size())
+
+	# ALL FOUR ARE REACHABLE BY HAND, one deliberate push at a time.
+	for i in NightRegisterProp.OUTCOMES.size():
+		_fresh_board()
+		var wanted := str(NightRegisterProp.OUTCOMES[i])
+		var pushes := 0
+		while board.selected_outcome() != wanted and pushes < 8:
+			board.advance_index()
+			pushes += 1
+		_check("%s is reached by %d deliberate pushes of the index"
+						% [wanted, pushes],
+				board.selected_outcome() == wanted and pushes == i + 1)
 
 
 # --- what the board is not ---------------------------------------------------
@@ -454,9 +683,10 @@ func _ownership() -> void:
 	_check("no case state was created by anything on this board",
 			RealityState.case_state("lena_unraveling").get("stage", "unseen")
 					== "unseen")
-	_check("exactly four literal service points, one per thing you can touch",
-			board.find_children("*", "PropControlArea", true, false).size() == 4)
-	for control_id in ["slip", "hook_apartment", "hook_plant", "book"]:
+	_check("exactly five literal service points, one per thing you can touch",
+			board.find_children("*", "PropControlArea", true, false).size() == 5)
+	for control_id in ["slip", "hook_apartment", "hook_plant", "index",
+			"book"]:
 		_check("the %s is ray-reachable and prompts for itself" % control_id,
 				board.get_node_or_null(NodePath("Reach_%s" % control_id))
 						is PropControlArea
@@ -464,7 +694,7 @@ func _ownership() -> void:
 	_check("the apparatus owns no light and no collision body but its reaches",
 			board.find_children("*", "Light3D", true, false).is_empty()
 			and board.find_children("*", "CollisionObject3D", true,
-					false).size() == 4)
+					false).size() == 5)
 	for part in ["RegisterBoard", "RegisterShelf", "ReportSpindle",
 			"ReportSlip", "ReportStub", "RegisterBook", "RegisterPage", "RegisterPen",
 			"Key_apartment", "Key_plant", "Check_apartment", "Check_plant",

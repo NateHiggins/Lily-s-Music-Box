@@ -103,6 +103,41 @@ const HOOK_DOORS := {
 const CHECK_NUMBERS := {APARTMENT_HOOK: 14, PLANT_HOOK: 7}
 const HOOK_ORDER := [APARTMENT_HOOK, PLANT_HOOK]
 
+## SR7-H -- THE FOUR CONCLUSIONS, and there are only ever four.
+##
+## These ids are `FirstShiftDirector.FILING_OUTCOMES` verbatim. SR7-H does NOT
+## connect the two owners -- that seam belongs to the first-shift director --
+## but a register that spoke a private vocabulary would turn the eventual join
+## into a translation table, and a translation table between two owners is
+## exactly where a fifth conclusion gets invented.
+const OUTCOME_FAULT_CORRECTED := "fault_corrected"
+const OUTCOME_DISTURBANCE_PERSISTS := "disturbance_persists"
+const OUTCOME_NO_FAULT_FOUND := "no_fault_found"
+const OUTCOME_ACCESS_UNSUCCESSFUL := "access_unsuccessful"
+## Ordered as the card prints them. Detent 0 of the slide is BLANK, so this
+## array is what detents 1..4 select, and nothing else can be selected at all.
+const OUTCOMES := [
+	OUTCOME_FAULT_CORRECTED,
+	OUTCOME_DISTURBANCE_PERSISTS,
+	OUTCOME_NO_FAULT_FOUND,
+	OUTCOME_ACCESS_UNSUCCESSFUL,
+]
+## What is PRINTED on the card against each number -- engraved brass on the
+## apparatus itself. The impossibility of entering anything else is therefore
+## a property of the OBJECT rather than a rule bolted on top of one.
+const OUTCOME_CARD := {
+	OUTCOME_FAULT_CORRECTED: "1   FAULT CORRECTED",
+	OUTCOME_DISTURBANCE_PERSISTS: "2   FAULT CORRECTED, DISTURBANCE PERSISTS",
+	OUTCOME_NO_FAULT_FOUND: "3   NO FAULT FOUND",
+	OUTCOME_ACCESS_UNSUCCESSFUL: "4   ACCESS UNSUCCESSFUL",
+}
+## The blank detent is a POSITION, not an absence. A slide resting against a
+## printed dash is a fact you can photograph; an unset variable is not.
+const CARD_BLANK := "--   NOTHING ENTERED"
+## Where the index stands for each detent, along the card's slope. Index 0 is
+## the blank; 1..4 are the four conclusions in printed order.
+const DETENT_Z := [-0.060, -0.030, 0.000, 0.056, 0.086]
+
 var _work_orders: Node
 var _building: Node
 
@@ -112,6 +147,9 @@ var _spindle: MeshInstance3D
 var _slip: MeshInstance3D
 var _stub: MeshInstance3D
 var _desk: Node3D
+var _card: Node3D
+var _slide: Node3D
+var _card_labels: Array[Label3D] = []
 var _book: MeshInstance3D
 var _page: MeshInstance3D
 var _keys: Dictionary = {}
@@ -134,10 +172,24 @@ var slip_taken := false
 var keys_out := {APARTMENT_HOOK: false, PLANT_HOOK: false}
 var signed_lines := 0
 
+## SR7-H. The slide's detent, 0..4, where 0 is blank and is where it rests.
+## THE PHYSICAL POSITION IS THE SELECTION -- there is no second variable
+## holding a chosen outcome, so there is nothing for job state to quietly set,
+## and nothing in this prop moves it except a hand.
+var index_detent := 0
+## A round is open from the moment the report comes off the spindle until it
+## is signed for or the session is abandoned. It is the difference between a
+## register with something to record and one with nothing.
+var round_open := false
+
 
 func _ready() -> void:
 	super()
 	_bind_owners()
+	# The book shows what the save is actually holding. A board that came up
+	# reading zero lines while `RealityState` held four would be a register
+	# disagreeing with its own record the moment the game reloaded.
+	signed_lines = _stored_lines().size()
 	_refresh_board()
 
 
@@ -246,10 +298,76 @@ func keys_out_count() -> int:
 	return out
 
 
-## Whether anything has happened that the book would have to record. Signing a
-## register that has nothing on it is the fifth refusal.
+## Whether anything has happened that the book would have to record.
 func has_unsigned_work() -> bool:
-	return slip_taken or keys_out_count() > 0
+	return round_open
+
+
+# --- SR7-H: the words you sign ----------------------------------------------
+
+## The conclusion the slide is standing on, or "" for the blank detent.
+##
+## DERIVED, not stored. There is no `selected_outcome` field for job state or
+## anything else to set behind the player's back -- the only way to change
+## what this returns is to move the slide with a hand, and the only positions
+## the slide has are the four the card has printed on it.
+func selected_outcome() -> String:
+	if index_detent <= 0 or index_detent > OUTCOMES.size():
+		return ""
+	return str(OUTCOMES[index_detent - 1])
+
+
+func outcome_selected() -> bool:
+	return selected_outcome() != ""
+
+
+## What the card reads against the slide right now.
+func card_line() -> String:
+	var outcome := selected_outcome()
+	return CARD_BLANK if outcome == "" else str(OUTCOME_CARD[outcome])
+
+
+## One notch of the slide, wrapping back through blank. This is the whole
+## selector: a detented brass index that a hand pushes down a printed column.
+##
+## It wraps THROUGH blank rather than around it, so every conclusion costs a
+## deliberate number of pushes and the blank is never something you skip past
+## by accident on your way to a fifth position -- there is no fifth position.
+func advance_index() -> bool:
+	index_detent = (index_detent + 1) % (OUTCOMES.size() + 1)
+	if _clink != null:
+		_clink.play()
+	_refresh_board()
+	return true
+
+
+## Set the slide directly. Test and tooling surface; the reach uses
+## `advance_index`. An id that is not one of the four cannot be set, because
+## there is nowhere on the card for the slide to stand.
+func select_outcome(outcome: String) -> bool:
+	if outcome == "":
+		index_detent = 0
+		_refresh_board()
+		return true
+	var at := OUTCOMES.find(outcome)
+	if at < 0:
+		# There is no detent for it. A conclusion this apparatus cannot print
+		# is a conclusion it cannot file.
+		_balk(1.2, "index")
+		return false
+	index_detent = at + 1
+	_refresh_board()
+	return true
+
+
+## Everything that has to be true before a line can be written:
+##   * a round is actually open,
+##   * the report is back on its spindle,
+##   * both keys are back on their hooks,
+##   * and a conclusion has been deliberately chosen.
+func ready_to_file() -> bool:
+	return round_open and not slip_taken and keys_out_count() == 0 \
+			and outcome_selected()
 
 
 # --- taking and returning ----------------------------------------------------
@@ -268,6 +386,9 @@ func take_slip() -> bool:
 		_balk(1.2, "slip")
 		return false
 	slip_taken = true
+	# SR7-H: the round is open from here. Nothing else opens one, and nothing
+	# closes one but a signature or an abandoned session.
+	round_open = true
 	if _paper != null:
 		_paper.play()
 	# THE ONE MUTATING CALL THIS PROP MAKES ON THE SPINE, and it is the same
@@ -339,12 +460,38 @@ func return_key(hook: String) -> bool:
 ## the board has no way to know, and writing a richer line would be the
 ## apparatus telling the same lie it exists to expose.
 func sign_register() -> bool:
-	if not has_unsigned_work():
-		# An unmarked register. There is nothing to sign for.
+	if not round_open:
+		# An unmarked register. Nothing was taken, so there is nothing to sign
+		# for -- and this is also what makes a second signature on one round
+		# an idempotent refusal rather than a duplicate line.
 		_balk(1.0, "book")
+		return false
+	if slip_taken:
+		# The report is still in your hand. You sign for a round that is over.
+		_balk(1.4, "slip")
+		return false
+	if keys_out_count() > 0:
+		# The building's keys are still off the board.
+		# `_keys_out_list()` yields Variants; `_balk` takes a String focus, so
+		# the hook that is actually missing is named explicitly.
+		_balk(1.4, str(_keys_out_list()[0]))
+		return false
+	if not outcome_selected():
+		# THE ONE THIS APPARATUS EXISTS FOR. The slide is standing on the
+		# blank. Nothing here will choose a conclusion for you: not the job's
+		# stage, not the case, not whether the radiator is warm. You put the
+		# words there or there are no words.
+		_balk(1.6, "index")
 		return false
 	var line := {
 		"at": Time.get_unix_time_from_system(),
+		# THE KEY IS `filing`, and that is not a preference. It is what
+		# `FirstShiftDirector.accept_signed_register` reads. The director
+		# also requires `report_out` false and `keys_out` empty before it
+		# will act on a receipt -- which are, exactly, two of the three
+		# conditions this board already refuses to sign without.
+		"filing": selected_outcome(),
+		"filing_printed": card_line(),
 		"report_out": slip_taken,
 		"keys_out": _keys_out_list(),
 		"job_id": JOB_ID,
@@ -357,6 +504,11 @@ func sign_register() -> bool:
 	RealityState.data[STATE_KEY] = record
 	RealityState.commit()
 	signed_lines = lines.size()
+	# THE ROUND CLOSES HERE AND NOWHERE ELSE. No WorkOrder is closed, no case
+	# is advanced: what ends is this board's own session. The slide is left
+	# standing where it was put, because a register you have just signed
+	# should still be showing what you signed.
+	round_open = false
 	if _paper != null:
 		_paper.play()
 	_balk_left = 0.0
@@ -371,6 +523,11 @@ func _keys_out_list() -> Array:
 		if key_out(str(hook)):
 			out.append(str(hook))
 	return out
+
+
+## The lines the save is currently holding for this board.
+func _stored_lines() -> Array:
+	return (RealityState.data.get(STATE_KEY, {}) as Dictionary).get("lines", [])
 
 
 func serialize() -> Dictionary:
@@ -388,6 +545,9 @@ func maintenance_snapshot() -> Dictionary:
 		"slip_taken": slip_taken,
 		"keys_out": keys_out.duplicate(true),
 		"signed_lines": signed_lines,
+		"index_detent": index_detent,
+		"round_open": round_open,
+		"lines": _stored_lines().duplicate(true),
 	}
 
 
@@ -398,6 +558,25 @@ func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 		if restored.has(hook):
 			keys_out[hook] = bool(restored[hook])
 	signed_lines = int(snapshot.get("signed_lines", signed_lines))
+	# SR7-H. The slide goes back to the detent it was standing on, the round
+	# goes back to open or not, and THE WRITTEN LINES GO BACK TOO -- an abort
+	# that restored the apparatus but left a signature in the save would be
+	# the one irreversible thing on a reversible board.
+	index_detent = int(snapshot.get("index_detent", index_detent))
+	round_open = bool(snapshot.get("round_open", round_open))
+	if snapshot.has("lines"):
+		var record: Dictionary = RealityState.data.get(STATE_KEY, {})
+		var kept: Array = (snapshot.get("lines", []) as Array).duplicate(true)
+		if kept.is_empty():
+			record.erase("lines")
+			if record.is_empty():
+				RealityState.data.erase(STATE_KEY)
+			else:
+				RealityState.data[STATE_KEY] = record
+		else:
+			record["lines"] = kept
+			RealityState.data[STATE_KEY] = record
+		signed_lines = kept.size()
 	_balk_left = 0.0
 	_refresh_board()
 
@@ -419,13 +598,21 @@ func _build_visual() -> void:
 		make_box(Vector3(0.022, 0.50, 0.040), Vector3(edge_x, 0.25, 0.020),
 				oak)
 	make_box(Vector3(0.62, 0.022, 0.040), Vector3(0.0, 0.489, 0.020), oak)
-	_shelf = make_box(Vector3(0.62, 0.020, 0.170),
-			Vector3(0.0, 0.055, 0.085), oak)
+	# SR7-H WIDENED AND DEEPENED THE WRITING SLOPE, and only the slope: the
+	# board face above it is untouched, so the spindle and the hooks keep
+	# every coordinate SR7-G measured. A desk wider than the cabinet over it
+	# is ordinary furniture, and the conclusion card has to live where the
+	# signing happens rather than up on the wall where it would be read once
+	# and never looked at again. At 0.72 the shelf spans building y -2.63 to
+	# -1.91: 0.23 m clear of the 1D door reveal and 0.23 m clear of the
+	# watchman's detector.
+	_shelf = make_box(Vector3(0.72, 0.020, 0.240),
+			Vector3(0.0, 0.055, 0.120), oak)
 	_shelf.name = "RegisterShelf"
 	# Two brackets, because a shelf carrying a ledger is carrying real weight.
-	for bracket_x in [-0.24, 0.24]:
-		var bracket := make_box(Vector3(0.016, 0.070, 0.090),
-				Vector3(bracket_x, 0.020, 0.055), oak)
+	for bracket_x in [-0.30, 0.30]:
+		var bracket := make_box(Vector3(0.016, 0.070, 0.130),
+				Vector3(bracket_x, 0.020, 0.075), oak)
 		bracket.name = "ShelfBracket%d" % (0 if bracket_x < 0.0 else 1)
 
 	# THE SPINDLE FILE, left. An upright spike with the report on it: the
@@ -578,11 +765,145 @@ func _build_visual() -> void:
 	pen.rotation_degrees.z = 8.0
 	_adopt(pen, _desk)
 
+	_build_conclusion_card(brass, paper, slate)
+
 	_clink = make_emitter("knock", -18.0)
 	_paper = make_emitter("pop", -20.0)
 	_knock = make_emitter("knock", -13.0)
 	_build_reaches()
 	_refresh_board()
+
+
+## SR7-H -- THE CONCLUSION CARD AND ITS SLIDING INDEX.
+##
+## An engraved card of four numbered conclusions with a detented brass index
+## running down its margin, lying on the writing slope beside the book. It is
+## on the DESK rather than up on the board face on purpose: the words you are
+## about to sign belong where the signing happens, in the nearest, flattest,
+## best-lit plane the apparatus has.
+##
+## Its own pivot, tilted 0.40 rather than the desk's 0.52 -- a card lies
+## flatter than a thick ledger, and the shallower plane turns the printing
+## further toward a standing reader. Seated so its dipped front edge still
+## clears the shelf top at 0.065 and its raised back edge clears the backboard
+## face at 0.026.
+func _build_conclusion_card(brass: Color, paper: Color, slate: Color) -> void:
+	_card = Node3D.new()
+	_card.name = "ConclusionCard"
+	_card.position = Vector3(-0.205, 0.114, 0.140)
+	_card.rotation.x = 0.40
+	add_child(_card)
+
+	var plate := make_box(Vector3(0.280, 0.003, 0.220), Vector3.ZERO, paper)
+	plate.name = "ConclusionPlate"
+	_adopt(plate, _card)
+	var frame_edges := [
+		[Vector3(0.280, 0.006, 0.006), Vector3(0.0, 0.002, -0.107)],
+		[Vector3(0.280, 0.006, 0.006), Vector3(0.0, 0.002, 0.107)],
+		[Vector3(0.006, 0.006, 0.220), Vector3(-0.137, 0.002, 0.0)],
+		[Vector3(0.006, 0.006, 0.220), Vector3(0.137, 0.002, 0.0)],
+	]
+	for edge in frame_edges:
+		var rail := make_box(edge[0], edge[1], brass)
+		rail.name = "CardRail"
+		_adopt(rail, _card)
+	# The groove the index runs in. A slide with no track is a loose part.
+	var groove := make_box(Vector3(0.016, 0.0035, 0.196),
+			Vector3(-0.122, 0.0022, 0.010), Color(0.30, 0.25, 0.16))
+	groove.name = "IndexGroove"
+	_adopt(groove, _card)
+
+	# 0.0138 em is what fits the longest conclusion between the rails. The
+	# first card was set at 0.017 and "DISTURBANCE PERSISTS" ran off the
+	# right-hand rail -- which would have made the one ambiguous outcome the
+	# only unreadable line on the card.
+	_print_card_line("CardTitle", "CONCLUSION", 0.024, -0.090, 0.016,
+			Color(0.20, 0.16, 0.11))
+	var rule := make_box(Vector3(0.230, 0.0035, 0.0022),
+			Vector3(0.020, 0.0035, -0.075), Color(0.42, 0.36, 0.28))
+	rule.name = "CardTitleRule"
+	_adopt(rule, _card)
+
+	# Row 0 is the blank. It is PRINTED, so the resting position of the index
+	# is a legend you can read rather than an empty space you have to notice.
+	_print_card_line("CardNumber0", "--", -0.076, DETENT_Z[0], 0.0138,
+			Color(0.34, 0.29, 0.22))
+	_print_card_line("CardPhrase0", "NOTHING ENTERED", 0.024, DETENT_Z[0],
+			0.0138, Color(0.38, 0.33, 0.26))
+	for i in OUTCOMES.size():
+		var outcome := str(OUTCOMES[i])
+		var printed: String = str(OUTCOME_CARD[outcome])
+		_print_card_line("CardNumber%d" % (i + 1), printed.substr(0, 1),
+				-0.076, DETENT_Z[i + 1], 0.0138, Color(0.16, 0.13, 0.09))
+		var phrase := printed.substr(4).strip_edges()
+		# The one long conclusion is set over two lines rather than shrunk to
+		# fit. Shrinking it would make the only ambiguous outcome the hardest
+		# one on the card to read, which is precisely backwards.
+		if phrase.contains(", "):
+			var parts := phrase.split(", ")
+			_print_card_line("CardPhrase%d" % (i + 1), str(parts[0]) + ",",
+					0.024, DETENT_Z[i + 1], 0.0138, Color(0.16, 0.13, 0.09))
+			_print_card_line("CardPhrase%dB" % (i + 1), str(parts[1]),
+					0.030, DETENT_Z[i + 1] + 0.024, 0.0138,
+					Color(0.16, 0.13, 0.09))
+		else:
+			_print_card_line("CardPhrase%d" % (i + 1), phrase, 0.024,
+					DETENT_Z[i + 1], 0.0138, Color(0.16, 0.13, 0.09))
+
+	# THE INDEX ITSELF. Brass, detented, and the only thing on this apparatus
+	# that decides what gets written down.
+	_slide = Node3D.new()
+	_slide.name = "ConclusionIndex"
+	_card.add_child(_slide)
+	var body := make_box(Vector3(0.026, 0.011, 0.024), Vector3.ZERO, brass)
+	body.name = "IndexBody"
+	_adopt(body, _slide)
+	var knurl := make_box(Vector3(0.026, 0.004, 0.006),
+			Vector3(0.0, 0.008, 0.0), Color(0.44, 0.35, 0.16))
+	knurl.name = "IndexKnurl"
+	_adopt(knurl, _slide)
+	# The tongue that reaches out of the groove and lands on the line.
+	# The tongue stops short of the numerals: an index that lands ON the
+	# number it is selecting hides the thing it is pointing at.
+	var tongue := make_box(Vector3(0.026, 0.004, 0.005),
+			Vector3(0.014, 0.004, 0.0), brass)
+	tongue.name = "IndexTongue"
+	_adopt(tongue, _slide)
+	var nib := make_box(Vector3(0.007, 0.004, 0.011),
+			Vector3(0.029, 0.004, 0.0), Color(0.86, 0.74, 0.36))
+	nib.name = "IndexNib"
+	_adopt(nib, _slide)
+	_slide.position = Vector3(-0.122, 0.004, DETENT_Z[0])
+	# A stop pin at each end, so the index visibly cannot leave its four
+	# conclusions and its blank.
+	for stop_z in [DETENT_Z[0] - 0.021, DETENT_Z[DETENT_Z.size() - 1] + 0.021]:
+		var stop := make_cyl(0.0035, 0.0035, 0.012,
+				Vector3(-0.122, 0.006, stop_z), slate, 0.40, 0.50)
+		stop.name = "IndexStop"
+		stop.rotation_degrees.x = 90.0
+		_adopt(stop, _card)
+
+
+## One engraved line on the card. `Label3D` is the established lettering idiom
+## for Orison props (`lobby_bulletin_board.gd` sets its brass plate the same
+## way); nothing here invents a text surface.
+func _print_card_line(node_name: String, text: String, x: float, z: float,
+		em: float, tint: Color) -> void:
+	var label := Label3D.new()
+	label.name = node_name
+	label.text = text
+	label.font_size = 64
+	label.pixel_size = em / 64.0
+	label.modulate = tint
+	label.outline_size = 0
+	label.position = Vector3(x, 0.005, z)
+	label.rotation_degrees.x = -90.0
+	label.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	label.no_depth_test = false
+	label.shaded = true
+	label.double_sided = false
+	_card.add_child(label)
+	_card_labels.append(label)
 
 
 ## `make_box` has no parent argument the way `make_cyl` does, so a box that
@@ -607,7 +928,11 @@ func _build_reaches() -> void:
 				Vector3(0.13, 0.20, 0.16)],
 		"hook_plant": [Vector3(0.215, 0.320, 0.055),
 				Vector3(0.13, 0.22, 0.16)],
-		"book": [Vector3(0.075, 0.085, 0.100), Vector3(0.30, 0.16, 0.22)],
+		"book": [Vector3(0.075, 0.100, 0.120), Vector3(0.28, 0.16, 0.24)],
+		# SR7-H: the index. Its own literal place on the apparatus, so
+		# choosing your words is a thing you reach for and not a thing that
+		# happens to you while you are signing.
+		"index": [Vector3(-0.240, 0.108, 0.150), Vector3(0.16, 0.16, 0.26)],
 	}
 	for control_id in reaches.keys():
 		var reach := ControlArea.new()
@@ -641,10 +966,22 @@ func control_prompt(control_id: String) -> String:
 					tagged_door_count(hook),
 					"" if tagged_door_count(hook) == 1 else "s",
 					locked_count(hook)]
+		"index":
+			var next := (index_detent + 1) % (OUTCOMES.size() + 1)
+			var next_line: String = CARD_BLANK if next == 0 \
+					else str(OUTCOME_CARD[OUTCOMES[next - 1]])
+			return "[E]  %s  ->  move the index to  %s" % [card_line(),
+					next_line]
 		"book":
-			if not has_unsigned_work():
+			if not round_open:
 				return "[E]  The register is up to date"
-			return "[E]  Sign the register"
+			if slip_taken:
+				return "[E]  File the report before you sign for it"
+			if keys_out_count() > 0:
+				return "[E]  The keys are still out"
+			if not outcome_selected():
+				return "[E]  The index is standing on the blank"
+			return "[E]  Sign the register:  %s" % card_line()
 	return ""
 
 
@@ -659,6 +996,8 @@ func interact_control(control_id: String, _player: Node) -> bool:
 		"hook_apartment", "hook_plant":
 			var hook := _hook_of(control_id)
 			return return_key(hook) if key_out(hook) else take_key(hook)
+		"index":
+			return advance_index()
 		"book":
 			return sign_register()
 	return false
@@ -767,6 +1106,13 @@ func _refresh_board() -> void:
 		_stub.position.y = 0.176
 	if _shelf != null:
 		_shelf.position.y = 0.055
+	# SR7-H. THE INDEX IS THE SELECTION, so the visible slide is placed from
+	# `index_detent` on every refresh and from nothing else. There is no path
+	# by which the picture and the record can disagree.
+	if _slide != null:
+		var detent := clampi(index_detent, 0, DETENT_Z.size() - 1)
+		_slide.position = Vector3(-0.122, 0.004, float(DETENT_Z[detent]))
+		_slide.rotation.y = 0.0
 	for hook in HOOK_ORDER:
 		_set_hook_lift(str(hook), 0.0)
 	if balk <= 0.0:
@@ -787,6 +1133,12 @@ func _refresh_board() -> void:
 				_slip.position.y = 0.250 + 0.055 * balk
 			if _stub != null:
 				_stub.position.y = 0.176 + 0.040 * balk
+		"index":
+			# The index rocks in its groove without leaving its detent: the
+			# apparatus is refusing to file, not offering to choose for you.
+			if _slide != null:
+				_slide.rotation.y = 0.34 * balk
+				_slide.position.x = -0.122 - 0.016 * balk
 		APARTMENT_HOOK, PLANT_HOOK:
 			_set_hook_lift(_balk_focus, balk)
 
@@ -804,4 +1156,6 @@ func _set_hook_lift(hook: String, amount: float) -> void:
 			if not _hook_rest.has(mi):
 				_hook_rest[mi] = mi.position
 			mi.position = (_hook_rest[mi] as Vector3) + Vector3(0.0, lift, 0.0)
-			mi.rotation.z = cant if mi.name.begins_with("Key") 					or mi.name.begins_with("Check") else 0.0
+			var carried := mi.name.begins_with("Key") \
+					or mi.name.begins_with("Check")
+			mi.rotation.z = cant if carried else 0.0
