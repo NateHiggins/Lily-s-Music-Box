@@ -80,6 +80,7 @@ var _signals_by_function: Dictionary = {}
 
 func setup(seed_v: int) -> void:
 	name = "DreamEcologyDirector"
+	add_to_group("attention_dream")
 	_rng.seed = seed_v
 	_signal_ring.clear()
 	for _i in SIGNAL_CAP:
@@ -94,6 +95,10 @@ func setup(seed_v: int) -> void:
 	_signals_emitted = 0
 	_signals_evicted = 0
 	_signals_by_function.clear()
+
+
+func attention_active() -> bool:
+	return attending != Vector3.INF
 
 
 ## §32 — states modify probabilities. This is the whole of their effect.

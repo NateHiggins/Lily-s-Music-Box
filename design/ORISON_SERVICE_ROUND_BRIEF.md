@@ -152,6 +152,17 @@ comparison → boiler comparison → Dream interruption → repair → resident 
   presentation or save owner exists. Focused and production-root tests plus
   production Forward+ A/A proof are recorded at
   `art/renders/maintenance_service_round_sr5/README.md`.
+- **SR6A / rolling attention instrument (2026-08-24):** the persistent
+  `CampaignShell` owns one telemetry-only `AttentionLedger` across waking/Dream
+  world swaps. It attributes each active second by strict primary-attention
+  priority: hands-on service, then open resident dialogue, then meaningful
+  whole-body Dream attention; ordinary waking traversal/search defaults to the
+  people lane, and the sole active Dream world is relationship time. The
+  rolling 45-minute window stores coalesced spans, reports every five minutes,
+  and applies 33/33/33 ±5% only after forty minutes. It writes no campaign/save
+  fact and schedules no content. Focused proof passes 11 checks. SR6B remains a
+  complete 40–50 minute human capture and tuning pass; current content volume,
+  not the ledger, is expected to require SR7's apparatus expansion.
 
 ## Acceptance
 

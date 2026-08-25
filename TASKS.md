@@ -3357,6 +3357,17 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
 - **SR6 — Rolling attention ledger.** Measure primary-attention seconds across
   maintenance, people/search/travel and entity relationship; tune a complete
   40–50 minute sample to 33/33/33 ±5% without scheduling each minute.
+  **SR6A instrumentation is complete 2026-08-24:** one telemetry-only ledger
+  persists in `CampaignShell` across world swaps, applies explicit precedence
+  (service > dialogue > meaningful waking Dream attention), defaults ordinary
+  waking traversal/search to people, and counts the sole active Dream world as
+  relationship. It retains a coalesced rolling 45-minute window, prints a
+  census every five minutes, refuses a balance verdict before forty minutes,
+  and writes no save fact. Focused arithmetic/ownership proof passes 11/11;
+  maintenance, dialogue and campaign-boundary regressions pass. **SR6B remains
+  open:** run and tune a real 40–50 minute playtest after SR7 supplies enough
+  hands-on apparatus; do not certify the ratio from the synthetic arithmetic
+  trace.
 - **SR7 — Vertical anatomy expansion.** Dumbwaiter brake, elevator landing
   interlock, rooftop tank ballcock, mail-chute choke, fuse panel and watchman
   clock, in that order unless playtest compulsion changes the ranking.

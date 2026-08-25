@@ -23,6 +23,7 @@ var current_node_id := ""
 
 
 func _ready() -> void:
+	add_to_group("attention_people")
 	layer = 11
 	_panel = PanelContainer.new()
 	_panel.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
@@ -44,6 +45,10 @@ func _ready() -> void:
 	_choices = VBoxContainer.new()
 	stack.add_child(_choices)
 	_panel.visible = false
+
+
+func attention_active() -> bool:
+	return _panel != null and _panel.visible
 
 
 func present(speaker_name: String, words: String, options: Array) -> void:

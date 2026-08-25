@@ -31,6 +31,7 @@ func open(player: Node, mechanism: Node, activity_id: String,
 	if mechanism == null or activity_id.is_empty():
 		return false
 	_player = player
+	add_to_group("attention_maintenance")
 	_mechanism = mechanism
 	_activity_id = activity_id
 	_snapshot = (mechanism.call("maintenance_snapshot") as Dictionary) \
@@ -51,6 +52,10 @@ func open(player: Node, mechanism: Node, activity_id: String,
 		_player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	return true
+
+
+func attention_active() -> bool:
+	return is_inside_tree() and not is_queued_for_deletion()
 
 
 func _build() -> void:

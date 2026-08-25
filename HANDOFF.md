@@ -67,6 +67,19 @@ production-root proof passes 7, and Forward+ A/A evidence is at
 tune the rolling maintenance / people-search-travel / organism attention split
 to 33/33/33 ±5% across a complete 40–50 minute sample.
 
+**Attention telemetry checkpoint (2026-08-24):** SR6A is landed in concept and
+under proof: `CampaignShell` keeps one non-persistent `AttentionLedger` across
+waking/Dream swaps. Service panels outrank background organism visibility;
+open dialogue outranks ambient Dream activity; meaningful whole-body waking
+attention claims a Dream beat; ordinary waking travel/search defaults to the
+people lane; and the sole Dream world is relationship time. It retains only
+coalesced spans in a rolling 45-minute window and prints a census every five
+minutes. The 33/33/33 ±5% verdict is withheld until forty minutes. Focused
+proof passes 11/11 plus maintenance, Mina-dialogue and 39-check campaign
+boundary regressions. SR6B remains the real 40–50 minute capture/tuning pass;
+do not call the synthetic 15/15/15 arithmetic trace a playtest. SR7 must add
+enough compelling apparatus before that ratio can be honestly certified.
+
 **Dream rendering checkpoint (2026-08-20):** R1–R6 of the production surface
 redesign are landed through `art/renders/dream_rendering_r6/README.md`. The
 current target pocket is a recognisable furnished Orison invaded by one

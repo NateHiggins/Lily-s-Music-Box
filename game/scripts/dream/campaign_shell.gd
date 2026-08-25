@@ -16,6 +16,7 @@ var world_slot: Node
 var core_loop: CoreLoopDirector
 var dream_director: DreamDirector
 var sleep_pressure: SleepPressureDirector
+var attention_ledger: AttentionLedger
 var active_world: Node
 var active_kind := ""
 var _swap_queued := false
@@ -28,6 +29,10 @@ func _ready() -> void:
 		world_slot = Node.new()
 		world_slot.name = "WorldSlot"
 		add_child(world_slot)
+	attention_ledger = AttentionLedger.new()
+	attention_ledger.name = "AttentionLedger"
+	attention_ledger.setup(self)
+	add_child(attention_ledger)
 	core_loop = CoreLoopDirector.new()
 	core_loop.name = "CoreLoopDirector"
 	add_child(core_loop)
