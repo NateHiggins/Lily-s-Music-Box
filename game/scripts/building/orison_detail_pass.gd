@@ -13,6 +13,8 @@ const MailChutePropScript := preload("res://scripts/props/mail_chute_prop.gd")
 const FusePanelPropScript := preload("res://scripts/props/fuse_panel_prop.gd")
 const WatchmanClockPropScript := preload(
 		"res://scripts/props/watchman_clock_prop.gd")
+const NightRegisterPropScript := preload(
+		"res://scripts/props/night_register_prop.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -309,6 +311,27 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		detector.position = GameBoot.b2g([5.24, -1.50, 1.44])
 		detector.rotation.y = -PI * 0.5
 		floor_nodes["F01"].add_child(detector)
+		# SR7-G: the night register, on the same clear run and the same mounting
+		# line, immediately south of the detector.
+		#
+		# THE WATCHMAN STATION IS NOW TWO OBJECTS, which is what it always was in
+		# a real building: an instrument that records the round and a board that
+		# accounts for the keys. They share a wall on purpose.
+		#
+		# The run between the two entry doors is -2.86..-0.13 and the detector
+		# holds -1.68..-1.32, leaving 1.18 m south of it. A 0.62 case centred on
+		# -2.27 sits in the middle of that: 0.29 m clear of the door opening and
+		# 0.29 m clear of the detector, symmetric, and above the 1.355 bullnose
+		# bead for the same millwork reason the detector is.
+		#
+		# It registers NO marker kind, closes no job and owns no lock. It reads
+		# WorkOrders and DoorProp.leaf_state and writes neither.
+		var register := NightRegisterPropScript.new()
+		register.name = "F01_NIGHT_REGISTER"
+		register.prop_type = "night_register"
+		register.position = GameBoot.b2g([5.24, -2.27, 1.42])
+		register.rotation.y = -PI * 0.5
+		floor_nodes["F01"].add_child(register)
 		# The settle west of the street door is a place to actually sit.
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])
