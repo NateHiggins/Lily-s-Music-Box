@@ -45,6 +45,26 @@ var architecture_signals_received := 0
 var architecture_cells_pressurized := 0
 var architecture_last_at := Vector3.INF
 var architecture_last_received_at := -1.0
+## SR5: waking apparatus facts enter the same transient conversation as every
+## other organ. This owner observes the completed route beats; it stores no job
+## stage and writes no RealityState key.
+const SERVICE_BEAT_IDS := {
+	"radiator_evidence": -5101,
+	"lobby_comparison": -5102,
+	"basement_comparison": -5103,
+}
+const SERVICE_BEAT_ANCHORS := {
+	"radiator_evidence": "F02_B_RADIATOR_01",
+	"lobby_comparison": "LobbyPorterBoard",
+	"basement_comparison": "B1_BOILER_01",
+}
+var _service_seen: Dictionary = {}
+var service_observations := 0
+var service_answers := 0
+var service_answer_cells := 0
+var service_attention_at := Vector3.INF
+var service_answer_at := Vector3.INF
+var service_reply_packets := 0
 ## Level 3: the animals that live on what the Dream has reached.
 var critters: DreamCritterController = null
 ## What the creature leaves on everything it touches (saliva direction).
@@ -330,6 +350,113 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 	print("[ENCROACH] %d finish surfaces across %d case flats, %d beachheads"
 			% [total, surfaces.size(), beachheads.size()])
 	return total
+
+
+## The service round owns only its waking route and offers named beats. The
+## organism decides what those beats mean here, through its existing ecology,
+## architecture and field owners.
+func bind_service_round(round: Node) -> void:
+	if round == null or not round.has_signal("route_beat"):
+		return
+	if not round.is_connected("route_beat", _on_service_round_beat):
+		round.connect("route_beat", _on_service_round_beat)
+
+
+func _on_service_round_beat(beat: String) -> void:
+	if ecology == null:
+		return
+	if SERVICE_BEAT_IDS.has(beat):
+		_observe_service_principle(beat)
+		return
+	if beat == "diagnosis":
+		_answer_service_pattern()
+	elif beat == "repair" and service_answers > 0:
+		_recognize_service_reply()
+
+
+func _observe_service_principle(beat: String) -> void:
+	if _service_seen.has(beat):
+		return
+	var at := _service_anchor(str(SERVICE_BEAT_ANCHORS[beat]))
+	if at == Vector3.INF:
+		return
+	var function := DreamEcologyDirector.Fn.PROBE
+	var family := DreamEcologyDirector.Chem.VASCULAR
+	if beat == "lobby_comparison":
+		function = DreamEcologyDirector.Fn.RECOGNIZE
+		family = DreamEcologyDirector.Chem.ELECTRIC
+	elif beat == "basement_comparison":
+		function = DreamEcologyDirector.Fn.PULSE
+	_service_seen[beat] = true
+	service_observations += 1
+	ecology.emit_signal_packet(int(SERVICE_BEAT_IDS[beat]),
+			DreamEcologyDirector.SrcClass.ARCHITECTURE, function, at,
+			0.65, 0.62 + float(service_observations) * 0.10, family, 1.0,
+			75.0, DreamEcologyDirector.SrcClass.ARCHITECTURE)
+
+
+## The third ordinary fact is understood as one phrase. Existing whole-body
+## attention answers at the boiler while architecture secretes into the 2B
+## return destination. F02 is not ticking while the player is in B1, so this
+## body pressure waits physically for the walk upstairs instead of becoming a
+## save flag or a timer owned by maintenance.
+func _answer_service_pattern() -> void:
+	if service_answers > 0 or service_observations != SERVICE_BEAT_IDS.size():
+		return
+	var boiler_at := _service_anchor("B1_BOILER_01")
+	var radiator_at := _service_anchor("F02_B_RADIATOR_01")
+	if boiler_at == Vector3.INF or radiator_at == Vector3.INF:
+		return
+	service_attention_at = boiler_at
+	ecology.seize_attention(boiler_at)
+	ecology.emit_signal_packet(-5190,
+			DreamEcologyDirector.SrcClass.ARCHITECTURE,
+			DreamEcologyDirector.Fn.SECRETE, radiator_at, 1.4, 0.92,
+			DreamEcologyDirector.Chem.SECRETION, 1.0, 90.0,
+			DreamEcologyDirector.SrcClass.PALP)
+	var field = fields.get("F02")
+	if field != null:
+		var source := _nearest_field_source(field, radiator_at)
+		service_answer_cells = field.receive_vascular_pulse(
+				radiator_at, source, 0.92)
+	service_answer_at = radiator_at
+	service_answers = 1
+
+
+## The repaired valve is the player's answer to the waiting secretion. It is
+## named as recognition in the same packet bed; existing organ classes remain
+## free to interpret or ignore it.
+func _recognize_service_reply() -> void:
+	if service_reply_packets > 0:
+		return
+	var at := _service_anchor("F02_B_RADIATOR_01")
+	if at == Vector3.INF:
+		return
+	ecology.emit_signal_packet(-5191,
+			DreamEcologyDirector.SrcClass.ARCHITECTURE,
+			DreamEcologyDirector.Fn.RECOGNIZE, at, 1.6, 0.88,
+			DreamEcologyDirector.Chem.ELECTRIC, 1.0, 5.0)
+	service_reply_packets = 1
+
+
+func _service_anchor(node_name: String) -> Vector3:
+	var root := get_parent()
+	if root == null:
+		return Vector3.INF
+	var node := root.find_child(node_name, true, false) as Node3D
+	return node.global_position if node != null else Vector3.INF
+
+
+func service_response_census() -> Dictionary:
+	return {
+		"observations": service_observations,
+		"answers": service_answers,
+		"answer_cells": service_answer_cells,
+		"attention_at": service_attention_at,
+		"answer_at": service_answer_at,
+		"reply_packets": service_reply_packets,
+		"seen": _service_seen.keys(),
+	}
 
 
 ## Re-read every case's state and push intensities. Cheap; called on commit.

@@ -632,6 +632,7 @@ func _ready() -> void:
 	service_round.name = "ServiceRoundDirector"
 	add_child(service_round)
 	service_round.setup(work_orders, self, player, service_set_carrier)
+	apartment_encroachment.bind_service_round(service_round)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")

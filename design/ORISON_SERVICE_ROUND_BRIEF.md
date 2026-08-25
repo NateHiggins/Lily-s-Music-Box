@@ -140,8 +140,18 @@ comparison → boiler comparison → Dream interruption → repair → resident 
   reply—not proximity or a UI close—closes it. `ServiceRoundDirector` translates
   existing signals into public `WorkOrders` calls and stores no lifecycle.
   Production A/A, call and resident frames plus executable proof are at
-  `art/renders/maintenance_service_round_sr4/README.md`. SR5 remains the shared
-  Dream interruption/answer; SR4 creates no maintenance-owned Dream fact.
+  `art/renders/maintenance_service_round_sr4/README.md`. SR4 creates no
+  maintenance-owned Dream fact.
+- **SR5 / shared Dream answer (2026-08-24):** the production route's radiator
+  flow, annunciator contact and boiler pressure each enter the existing bounded
+  Dream signal bed as a transient architecture packet. Only the complete
+  physical phrase earns the existing whole-body attention at the boiler and an
+  architecture-owned secretion/vascular response waiting in the existing F02
+  LivingField at Lena's radiator. The actual repair returns one recognition
+  packet. No maintenance-specific Dream director, entity, pursuit, hazard,
+  presentation or save owner exists. Focused and production-root tests plus
+  production Forward+ A/A proof are recorded at
+  `art/renders/maintenance_service_round_sr5/README.md`.
 
 ## Acceptance
 

@@ -3342,9 +3342,18 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   / threshold frames are at
   `art/renders/maintenance_service_round_sr4/README.md`. SR5 inserts the shared
   Dream interruption; do not misreport this waking braid as that answer.
-- **SR5 — Shared Dream answer.** Let the existing organism owners observe the
-  same pressure/sound rhythm and answer it. No maintenance-specific Dream
-  director, entity, hazard owner, pursuit owner or save record.
+- **SR5 — Shared Dream answer — COMPLETE 2026-08-24.** The production
+  radiator, annunciator and boiler facts enter the existing bounded signal bed
+  as probe/recognize/pulse architecture packets. The complete phrase—not a
+  route label, duplicate or partial sequence—earns the existing whole-body
+  attention at the boiler and an architecture-owned secretion/vascular answer
+  held by the existing F02 LivingField at Lena's radiator. Repair returns one
+  idempotent recognition packet. The exchange adds no Dream director, entity,
+  hazard, pursuit, presentation or save owner and creates neither lineage nor
+  stain. Focused proof passes 10 checks; production-root proof passes 7; live
+  Forward+ A/A and response frames are at
+  `art/renders/maintenance_service_round_sr5/README.md`. This is the shared
+  organism answering a waking route, not a completed waking case loop.
 - **SR6 — Rolling attention ledger.** Measure primary-attention seconds across
   maintenance, people/search/travel and entity relationship; tune a complete
   40–50 minute sample to 33/33/33 ±5% without scheduling each minute.

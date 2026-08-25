@@ -55,9 +55,17 @@ cannot advance a job, case or Dream fact. Focused tests pass; Forward+ proof liv
 `art/renders/maintenance_service_round_m1/README.md` and
 `art/renders/maintenance_annunciator_sr2/README.md`, and
 `art/renders/maintenance_boiler_sr3/README.md`, with SR4 A/A / call / resident
-proof at `art/renders/maintenance_service_round_sr4/README.md`. Next is SR5:
-the shared Dream organism must interrupt and answer this route without a
-maintenance-specific Dream director, entity or save fact.
+proof at `art/renders/maintenance_service_round_sr4/README.md`. SR5 now sends
+the three production apparatus facts through the existing bounded Dream signal
+bed. Only the complete physical phrase earns the existing whole-body attention
+at the boiler and an architecture-owned secretion/vascular response in the
+existing F02 LivingField at Lena's radiator; the real repair returns one shared
+recognition packet. It adds no maintenance-specific Dream director, entity,
+hazard, pursuit, presentation or save owner. Focused proof passes 10 checks,
+production-root proof passes 7, and Forward+ A/A evidence is at
+`art/renders/maintenance_service_round_sr5/README.md`. Next is SR6: measure and
+tune the rolling maintenance / people-search-travel / organism attention split
+to 33/33/33 ±5% across a complete 40–50 minute sample.
 
 **Dream rendering checkpoint (2026-08-20):** R1–R6 of the production surface
 redesign are landed through `art/renders/dream_rendering_r6/README.md`. The
