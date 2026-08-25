@@ -215,6 +215,9 @@ func _build_ecology() -> void:
 	hero.critters = critters
 	hero.touched.connect(func(where: Vector3, nrm: Vector3):
 		residue.lay(where, nrm, 0.16, 1.0, 3.6))
+	hero.lifecycle_shed.connect(func(where: Vector3, nrm: Vector3,
+			generation: int, reproduction: int):
+		residue.lay_memory(where, nrm, generation, reproduction))
 	margin.hero = hero
 	margin.critters = critters
 	critters.hero = hero

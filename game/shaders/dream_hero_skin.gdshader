@@ -35,6 +35,10 @@ uniform float hero_seed = 0.0;
 uniform float emission_gain : hint_range(0.0, 4.0) = 1.0;
 // Emergence, shared with the field: 0 fully withdrawn, 1 fully out.
 uniform float grow : hint_range(0.0, 1.0) = 1.0;
+// LC-6C — shared biological vocabulary, interpreted by this owner. This
+// changes pressure, perfusion and mineral response only; the encounter's
+// existing `grow` and cross-section laws retain all geometry authority.
+uniform float lifecycle_stage : hint_range(0.0, 7.0) = 3.0;
 // H1 — THE BAKED ANATOMY. Three facts about this body's geometry that no
 // noise field can know, in one fetch:
 //   R ambient occlusion (mostly the gold plates' own shadow on the flesh)
@@ -331,6 +335,62 @@ void fragment() {
 	SSS_TRANSMITTANCE_BOOST = o.sss_boost;
 	CLEARCOAT = o.clearcoat;
 	CLEARCOAT_ROUGHNESS = o.clearcoat_roughness;
+
+	// ---- LC-6C: ONE LARGE ORGAN'S READABLE LIFE -------------------------
+	float ls = clamp(lifecycle_stage, 0.0, 7.0);
+	float folded = 1.0 - step(0.5, abs(ls - 0.0));
+	float bud = 1.0 - step(0.5, abs(ls - 1.0));
+	float juvenile = 1.0 - step(0.5, abs(ls - 2.0));
+	float exchange = 1.0 - step(0.5, abs(ls - 4.0));
+	float senescent = 1.0 - step(0.5, abs(ls - 5.0));
+	float shed = 1.0 - step(0.5, abs(ls - 6.0));
+	float life_time = proof_time >= 0.0 ? proof_time : TIME;
+	float uneven = 0.5 + 0.5 * sin(v_stable.y * 19.0 + hero_seed * 2.7);
+	float seeking_band = pow(0.5 + 0.5 * sin(along * 25.0
+			- life_time * 4.1 + hero_seed), 5.0);
+	vec3 reserve_wine = vec3(0.035, 0.008, 0.055);
+	vec3 perfused_wine = vec3(0.62, 0.025, 0.16);
+	vec3 cold_exchange = vec3(0.20, 0.42, 0.52);
+	vec3 old_bruise = vec3(0.105, 0.055, 0.18);
+	ALBEDO = mix(ALBEDO, reserve_wine + ALBEDO * 0.18, folded * 0.95);
+	ALBEDO = mix(ALBEDO, ALBEDO * 0.62 + perfused_wine * (0.46 + uneven * 0.28),
+			bud * 0.90);
+	// Juvenile tissue has not learned the adult's even pressure yet: broad
+	// alternating carmine/lilac territories make that calibration legible at
+	// room scale without changing one vertex or pretending growth is scale.
+	vec3 juvenile_low = vec3(0.26, 0.012, 0.22);
+	vec3 juvenile_high = vec3(0.62, 0.20, 0.72);
+	vec3 juvenile_tissue = mix(juvenile_low, juvenile_high, uneven)
+			+ ALBEDO * (0.16 + uneven * 0.16);
+	ALBEDO = mix(ALBEDO, juvenile_tissue, juvenile * 0.94);
+	ALBEDO += cold_exchange * exchange * (0.18 + seeking_band * 0.62);
+	ALBEDO = mix(ALBEDO, old_bruise + ALBEDO * (0.48 + uneven * 0.16),
+			senescent * 0.88);
+	ALBEDO = mix(ALBEDO, vec3(0.16, 0.12, 0.20) + ALBEDO * 0.10,
+			shed * 0.94);
+	ROUGHNESS = clamp(ROUGHNESS + folded * 0.16 - bud * 0.13 - juvenile * 0.10
+			- exchange * seeking_band * 0.18 + senescent * 0.20 + shed * 0.30,
+			0.03, 1.0);
+	// The existing mineral network is the organ's fastest readable tissue, so
+	// its chemistry changes with the same stage byte. This adds no emissive
+	// owner or light: it only recolours energy the approved skin already spent.
+	float mineral_energy = max(max(EMISSION.r, EMISSION.g), EMISSION.b);
+	EMISSION = mix(EMISSION, vec3(0.20, 0.015, 0.10) * mineral_energy,
+			folded * 0.92);
+	EMISSION = mix(EMISSION, vec3(1.00, 0.075, 0.18) * mineral_energy * 1.25,
+			bud * 0.90);
+	EMISSION = mix(EMISSION, mix(vec3(0.86, 0.10, 0.48),
+			vec3(0.42, 0.22, 1.00), uneven) * mineral_energy * 1.15,
+			juvenile * 0.92);
+	EMISSION = mix(EMISSION, vec3(0.14, 0.78, 1.00) * mineral_energy
+			* (0.72 + seeking_band * 0.72), exchange * 0.90);
+	EMISSION = mix(EMISSION, vec3(0.22, 0.09, 0.34) * mineral_energy,
+			senescent * 0.82);
+	EMISSION = mix(EMISSION, vec3(0.08, 0.055, 0.095) * mineral_energy,
+			shed * 0.94);
+	float mineral_system = system_kind == 1 ? 1.0 : 0.0;
+	METALLIC = clamp(METALLIC + senescent * mineral_system * 0.16
+			+ shed * mineral_system * 0.24, 0.0, 1.0);
 	vec3 nm = o.normal_map;
 	NORMAL = normalize(NORMAL + TANGENT * nm.x * 0.6 + BINORMAL * nm.y * 0.6);
 	// Withdrawal dissolves the far end first, so the creature leaves along

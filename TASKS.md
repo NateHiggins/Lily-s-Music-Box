@@ -2411,6 +2411,23 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   `art/renders/dream_margin_death_stain_lc6b/README.md`. **LC-6 remains open**
   for flora beyond the landed fauna-owned mat, hero, architecture,
   incarnation, and co-present pursuer/hazard owners.
+- **LC-6C COMPLETE 2026-08-25 — MODELLED HERO LIFE AND EMPTY SHEATH.** The
+  production hero maps its approved encounter states onto all eight shared
+  stages without a second clock, changed timing or anatomy scaling. Existing
+  flesh and mineral channels visibly move from sealed reserve through
+  perfusion, uneven juvenile calibration, mature work, cold addressed
+  exchange, senescence and drained cross-section. A real secretion exchange
+  selects pansexual recruitment; without one a return remains quiescent, and
+  any recruited successor retains the hero's function. Complete withdrawal
+  records a coalesced, visit-local empty sheath in the existing bounded
+  24-patch residue draw; it never reaches `RealityState`. Focused proof passes
+  10/10, the full production-root binding proof passes 7/7, hero rest-space
+  remains 5/5, shared ecology remains 61/61 and shader parsing passes. Every
+  adjacent living-stage frame clears its 0.0242785 subject-ROI
+  A/A floor by 1.76×–6.00×. Proof and hashes:
+  `art/renders/dream_hero_lifecycle_lc6c/README.md`. **LC-6 remains open** for
+  architecture, incarnation and co-present pursuer/hazard owners; the landed
+  fauna-owned ethermoss mat remains the current flora implementation.
 
 ### T4 — TEMPORAL BIOLOGY AND CONTROLLED ANACHRONISM (owner ruling 2026-08-24)
 

@@ -36,6 +36,9 @@ uniform vec4 patch_pos[24];
 uniform vec4 patch_nrm[24];
 // x seed, y intensity, z lifetime, w the slice the patch was laid at
 uniform vec4 patch_par[24];
+// xy are tangent/bitangent aspect, z selects the visit-persistent anatomical
+// memory language, w is its generation trace.
+uniform vec4 patch_shape[24];
 uniform int patch_count = 0;
 uniform float dream_w = 0.0;
 
@@ -46,6 +49,7 @@ varying float v_life;
 varying float v_intensity;
 varying vec3 v_world;
 varying vec3 v_normal;
+varying vec4 v_shape;
 
 float hash21(vec2 p) {
 	p = fract(p * vec2(233.34, 851.73));
@@ -84,6 +88,7 @@ void vertex() {
 	vec4 pos = patch_pos[p];
 	vec4 nrm = patch_nrm[p];
 	vec4 par = patch_par[p];
+	vec4 shape = patch_shape[p];
 	vec3 n = normalize(nrm.xyz + vec3(0.0, 1e-5, 0.0));
 	vec3 any = abs(n.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
 	vec3 tx = normalize(cross(any, n));
@@ -92,7 +97,9 @@ void vertex() {
 	// lifted a hair so it does not fight the wall for the depth buffer.
 	vec2 uv = VERTEX.xy;
 	float dead = par.z > 0.0 && nrm.w > par.z ? 0.0 : 1.0;
-	vec3 world = pos.xyz + (tx * uv.x + ty * uv.y) * pos.w * dead + n * 0.004;
+	vec2 aspect = max(shape.xy, vec2(0.001));
+	vec3 world = pos.xyz + (tx * uv.x * aspect.x + ty * uv.y * aspect.y)
+			* pos.w * dead + n * 0.004;
 	VERTEX = (inverse(MODEL_MATRIX) * vec4(world, 1.0)).xyz;
 	NORMAL = n;
 	v_local = uv;
@@ -105,23 +112,26 @@ void vertex() {
 	v_tx = tx;
 	v_ty = ty;
 	v_born_w = par.w;
+	v_shape = shape;
 }
 
 void fragment() {
 	float r = length(v_local);
-	if (r > 1.0 || v_life <= 0.0) {
+	if (r > 1.0 || v_life == 0.0) {
 		discard;
 	}
 	float age = v_age;
 	float life = v_life;
-	float t = clamp(age / max(0.001, life), 0.0, 1.0);
+	float memory = step(0.5, v_shape.z);
+	float effective_life = life < 0.0 ? 1.0 : life;
+	float t = memory > 0.5 ? 0.72 : clamp(age / max(0.001, effective_life), 0.0, 1.0);
 	vec2 np = v_local * 3.4 + vec2(v_seed * 11.0, v_seed * 7.0);
 
 	// ---- THE FROST FRONT ------------------------------------------------
 	// It propagates. The boundary is warped so it runs faster along some
 	// directions than others, the way frost follows a scratch in glass.
 	float warp = fbm(np * 1.6) * 0.55 + fbm(np * 4.1) * 0.22;
-	float front = clamp(age / 0.55, 0.0, 1.4);
+	float front = memory > 0.5 ? 1.4 : clamp(age / 0.55, 0.0, 1.4);
 	float edge_r = r + warp * 0.62 - 0.30;
 	float covered = smoothstep(front, front - 0.16, edge_r);
 	if (covered <= 0.003) {
@@ -232,7 +242,8 @@ void fragment() {
 	vec2 fp = ip + vec2(fbm(ip * 1.3 + 4.0), fbm(ip * 1.3 + 19.0)) * 0.62;
 	vec2 cell = floor(fp * 6.0);
 	float facet = hash21(cell);
-	float crystallised = smoothstep(0.10, 0.55, age / max(0.001, life * 0.5));
+	float crystallised = memory > 0.5 ? 1.0
+			: smoothstep(0.10, 0.55, age / max(0.001, effective_life * 0.5));
 	float glint = pow(max(0.0, dot(view_dir, normalize(v_normal
 			+ vec3(facet - 0.5, hash21(cell + 7.0) - 0.5, 0.0) * 0.85))), 22.0);
 
@@ -257,10 +268,39 @@ void fragment() {
 	// at 0.20 over a lit pale panel it was barely separable from the panel.
 	vec3 ghost = vec3(0.11, 0.09, 0.14);
 	body = mix(ghost, body, colour_life * 0.85 + 0.15);
+	// A hero sheath remembers systems, not merely wetness: a wine-dark
+	// membrane with branching capillary negatives and mineral sutures where a
+	// complete organ stopped crossing our slice. It remains attractive enough
+	// to approach and wrong enough to read as an absence.
+	float branch_a = abs(v_local.y - sin(v_local.x * 7.0 + v_seed) * 0.16);
+	float branch_b = abs(v_local.x - sin(v_local.y * 11.0 - v_seed) * 0.10);
+	float capillary = smoothstep(0.055, 0.012, min(branch_a, branch_b));
+	float branch_warp_a = (fbm(v_local * vec2(2.1, 3.7)
+			+ vec2(v_seed, 13.0)) - 0.5) * 0.62;
+	float branch_warp_b = (fbm(v_local.yx * vec2(3.4, 2.5)
+			+ vec2(29.0, v_seed)) - 0.5) * 0.56;
+	float suture_a = abs(v_local.y + v_local.x * 0.22 - branch_warp_a);
+	float suture_b = abs(v_local.x - v_local.y * 0.18 - 0.18 - branch_warp_b);
+	float interrupted = smoothstep(0.38, 0.58, fbm(np * 2.3 + 81.0));
+	float suture = smoothstep(0.022, 0.006, min(suture_a, suture_b))
+			* smoothstep(0.98, 0.34, r) * interrupted;
+	float vesicles = smoothstep(0.79, 0.91, fbm(np * 4.8 + 37.0))
+			* smoothstep(0.96, 0.30, r) * (1.0 - capillary);
+	vec3 sheath = mix(vec3(0.050, 0.006, 0.038), vec3(0.19, 0.018, 0.105),
+			fbm(np * 1.8));
+	sheath *= 1.0 - capillary * 0.90;
+	sheath += vec3(0.62, 0.34, 0.065) * suture * (0.55 + facet * 0.45);
+	sheath += vec3(0.62, 0.55, 0.40) * vesicles * 0.34;
+	body = mix(body, sheath, memory);
+	float sheath_substance = covered * smoothstep(1.0, 0.76,
+			r + warp * 0.42 - 0.19) * (0.92 + suture * 0.08);
+	substance = mix(substance, sheath_substance, memory);
 
 	ALBEDO = body * v_intensity;
 	// The ghost keeps most of its opacity. What goes is the COLOUR, which is
 	// what makes the decay read as erosion rather than as something dimming.
 	ALPHA = clamp(substance * (0.72 + 0.28 * colour_life) * v_intensity, 0.0, 1.0);
+	ALPHA = mix(ALPHA, clamp(substance * 0.86 * v_intensity, 0.0, 1.0), memory);
 	EMISSION = body * (0.35 * colour_life + lead * 1.2 + rim * 1.4) * v_intensity;
+	EMISSION += vec3(0.38, 0.17, 0.035) * suture * memory * 0.18;
 }

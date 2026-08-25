@@ -320,6 +320,9 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			if residue != null:
 				hero.touched.connect(func(where: Vector3, nrm: Vector3):
 					residue.lay(where, nrm, 0.16, 1.0, 3.6))
+				hero.lifecycle_shed.connect(func(where: Vector3, nrm: Vector3,
+						generation: int, reproduction: int):
+					residue.lay_memory(where, nrm, generation, reproduction))
 			# §11 — the hero joins the margin's society as a high-priority
 			# member, rather than being a special effect dropped into it.
 			if margin != null:

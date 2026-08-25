@@ -539,6 +539,21 @@ through its own control and later owner work. See
 for the other named owners; do not generalize this margin memory into a save
 fact, room-streaming claim, or completed all-organelle rollout.
 
+LC-6C now carries the same vocabulary through the production modelled hero.
+It classifies the encounter states the hero already owns—no second clock,
+retiming, topology change or anatomy scaling—and lets the existing flesh and
+mineral network show reserve, perfusion, calibration, mature work, addressed
+exchange, senescence and shed cross-section. Only a real cross-morph secretion
+exchange licenses pansexual recruitment; otherwise the next permitted return
+is quiescent, and successors retain hero function. Final withdrawal lays one
+coalesced empty sheath through the existing bounded residue draw. That memory
+is current-encroachment only and never a `RealityState` fact. Focused proof is
+10/10, production-root binding is 7/7, hero rest-space is 5/5, shared ecology
+is 61/61 and shader parse passes. Every adjacent stage clears the live
+subject-ROI A/A floor by 1.76×–6.00×; frames and hashes
+are at `art/renders/dream_hero_lifecycle_lc6c/README.md`. LC-6 remains open for
+architecture, incarnation and co-present pursuer/hazard owners.
+
 Three top-level projects:
 
 | Path | What |

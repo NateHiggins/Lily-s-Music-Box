@@ -27,6 +27,9 @@ var field = null
 var _pos := PackedVector4Array()
 var _nrm := PackedVector4Array()
 var _par := PackedVector4Array()
+## (tangent scale, bitangent scale, kind, generation). Kind 1 is LC-6C's
+## visit-local empty hero sheath; ordinary contact residue remains kind 0.
+var _shape := PackedVector4Array()
 var _live := 0
 var _next := 0
 var _rng := RandomNumberGenerator.new()
@@ -39,6 +42,8 @@ func setup(seed_v: int) -> void:
 	_pos.resize(MAX_PATCHES)
 	_nrm.resize(MAX_PATCHES)
 	_par.resize(MAX_PATCHES)
+	_shape.resize(MAX_PATCHES)
+	_shape.fill(Vector4(1.0, 1.0, 0.0, 0.0))
 	material = ShaderMaterial.new()
 	material.shader = SHADER
 	mesh_instance = MeshInstance3D.new()
@@ -115,6 +120,49 @@ func lay(at: Vector3, nrm: Vector3, radius: float = 0.11,
 	if field != null and field.state != null:
 		born_w = field.state.dream_w
 	_par[slot] = Vector4(_rng.randf_range(0.0, 10.0), intensity, life, born_w)
+	_shape[slot] = Vector4(1.0, 1.0, 0.0, 0.0)
+	laid += 1
+
+
+## LC-6C — a large organ does not leave a circular corpse. Its withdrawn
+## cross-section leaves an elongated empty sheath in this existing bounded
+## one-draw owner. Negative life means visit-persistent, never save-persistent.
+func lay_memory(at: Vector3, nrm: Vector3, generation: int,
+		reproduction: int) -> void:
+	# Repeated passages at the same root thicken one anatomical memory instead
+	# of exhausting the pool with coincident discs.
+	for i in MAX_PATCHES:
+		if float(_par[i].z) >= 0.0 or float(_shape[i].z) < 0.5:
+			continue
+		var p := _pos[i]
+		if Vector3(p.x, p.y, p.z).distance_to(at) > 0.12:
+			continue
+		var par := _par[i]
+		par.y = minf(1.0, par.y + 0.08)
+		_par[i] = par
+		var shape := _shape[i]
+		shape.w = float(generation)
+		_shape[i] = shape
+		laid += 1
+		return
+	var slot := -1
+	for i in MAX_PATCHES:
+		if float(_par[i].z) == 0.0:
+			slot = i
+			break
+	if slot < 0:
+		slot = _next
+		_next = (_next + 1) % MAX_PATCHES
+	var normal := nrm.normalized() if nrm.length_squared() > 0.001 else Vector3.UP
+	_pos[slot] = Vector4(at.x, at.y, at.z, 0.42)
+	_nrm[slot] = Vector4(normal.x, normal.y, normal.z, 0.0)
+	var born_w := 0.0
+	if field != null and field.state != null:
+		born_w = field.state.dream_w
+	var seed_v := fposmod(float(generation) * 1.731 + float(reproduction) * 0.619,
+			10.0)
+	_par[slot] = Vector4(seed_v, 0.92, -1.0, born_w)
+	_shape[slot] = Vector4(0.62, 1.75, 1.0, float(generation))
 	laid += 1
 
 
@@ -122,18 +170,21 @@ func _process(delta: float) -> void:
 	_live = 0
 	for i in MAX_PATCHES:
 		var par := _par[i]
-		if par.z <= 0.0:
+		if par.z == 0.0:
 			continue
 		var nrm := _nrm[i]
-		nrm.w += delta
+		if par.z > 0.0:
+			nrm.w += delta
 		_nrm[i] = nrm
-		if nrm.w > par.z:
+		if par.z > 0.0 and nrm.w > par.z:
 			_par[i] = Vector4.ZERO
+			_shape[i] = Vector4(1.0, 1.0, 0.0, 0.0)
 			continue
 		_live += 1
 	material.set_shader_parameter("patch_pos", _pos)
 	material.set_shader_parameter("patch_nrm", _nrm)
 	material.set_shader_parameter("patch_par", _par)
+	material.set_shader_parameter("patch_shape", _shape)
 	material.set_shader_parameter("patch_count", MAX_PATCHES)
 	if field != null and field.state != null:
 		material.set_shader_parameter("dream_w", field.state.dream_w)
@@ -157,4 +208,9 @@ func nearest_patch(at: Vector3, radius: float) -> Dictionary:
 
 
 func census() -> Dictionary:
-	return {"live": _live, "laid": laid, "max": MAX_PATCHES}
+	var memories := 0
+	for i in MAX_PATCHES:
+		if float(_par[i].z) < 0.0 and float(_shape[i].z) >= 0.5:
+			memories += 1
+	return {"live": _live, "laid": laid, "max": MAX_PATCHES,
+			"memories": memories}

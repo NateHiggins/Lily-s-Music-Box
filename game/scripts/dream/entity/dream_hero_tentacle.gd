@@ -18,6 +18,7 @@ extends Node3D
 const HERO_SCENE := preload("res://assets/dream/tentacle/dream_tentacle.glb")
 const SKIN := preload("res://shaders/dream_hero_skin.gdshader")
 const ANATOMY := preload("res://assets/dream/tentacle/T_dream_hero_anatomy.png")
+const LIFECYCLE := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 
 ## Name prefix -> the `system_kind` the skin dresses it as.
 const SYSTEMS := {
@@ -78,9 +79,21 @@ signal released()
 ## H6 — it stopped having a cross-section. Not "it left".
 signal sliced_out()
 signal sliced_in()
+## LC-6C: the large local organ has left our cross-section. The existing
+## residue owner interprets this as one visit-local empty sheath; the hero
+## remains the owner of generation and reproduction semantics.
+signal lifecycle_shed(where: Vector3, normal: Vector3, generation: int,
+		reproduction: int)
 
 var state: int = State.MEMBRANE_BULGE
 var state_clock := 0.0
+var anchor_normal := Vector3.FORWARD
+var lifecycle_generation := 0
+var lifecycle_births := 0
+var lifecycle_deaths := 0
+var lifecycle_stains := 0
+var lifecycle_reproduction := LIFECYCLE.Reproduction.QUIESCENT
+var _exchanged_this_life := false
 ## What it is currently interested in: a real point on a real surface.
 var target := Vector3.INF
 var target_normal := Vector3.UP
@@ -157,6 +170,8 @@ func setup(seed_v: int, at: Vector3, aim: Vector3 = Vector3.FORWARD) -> void:
 	add_child(inst)
 	rig = inst
 	global_position = at
+	anchor_normal = aim.normalized() if aim.length_squared() > 0.001 \
+			else Vector3.FORWARD
 	# THE CREATURE COMES OUT OF A SURFACE. The model is built along +Y with
 	# the membrane at the origin, so "emerging" means aligning +Y with the
 	# surface normal — not standing it up and letting it lie on the floor
@@ -271,6 +286,7 @@ func _dress() -> void:
 		mat.set_shader_parameter("flesh_rest_space",
 				OS.get_environment("HERO_FLESH_REST") != "0")
 		mat.set_shader_parameter("grow", grow)
+		mat.set_shader_parameter("lifecycle_stage", float(lifecycle_stage()))
 		mat.set_shader_parameter("anatomy_map", ANATOMY)
 		mat.set_shader_parameter("anatomy_strength", 1.0)
 		mi.material_override = mat
@@ -819,6 +835,7 @@ func _behave(delta: float) -> void:
 			# is not fading: our slice is moving past it.
 			slice_close = minf(1.0, state_clock / 2.2)
 			if slice_close >= 1.0:
+				_complete_lifecycle()
 				state = State.ABSENT
 				state_clock = 0.0
 				sliced_out.emit()
@@ -833,6 +850,10 @@ func _behave(delta: float) -> void:
 			# And it returns the same way: no cross-section, then some.
 			slice_close = maxf(0.0, 1.0 - state_clock / 1.6)
 			if slice_close <= 0.0:
+				if lifecycle_reproduction != LIFECYCLE.Reproduction.QUIESCENT:
+					lifecycle_births += 1
+					lifecycle_generation += 1
+				_exchanged_this_life = false
 				sliced_in.emit()
 				state = State.SEEKING
 				state_clock = 0.0
@@ -846,11 +867,57 @@ func _behave(delta: float) -> void:
 func _emit_contact_signal(at: Vector3) -> void:
 	if margin == null or not is_instance_valid(margin) or margin.director == null:
 		return
+	_exchanged_this_life = true
 	margin.director.emit_signal_packet(-1,
 			DreamEcologyDirector.SrcClass.HERO_LIMB,
 			DreamEcologyDirector.Fn.SECRETE, at, 0.55, 1.0,
 			DreamEcologyDirector.Chem.SECRETION, 1.0, 1.2,
 			DreamEcologyDirector.SrcClass.PALP)
+
+
+## The large organ consumes the shared vocabulary through the behaviour it
+## already owns. This is classification, not a second clock: LC-6 cannot
+## retime the encounter, its safety tells or its cross-sectional law.
+func lifecycle_stage() -> int:
+	match state:
+		State.MEMBRANE_BULGE:
+			return LIFECYCLE.Stage.FOLDED
+		State.EMERGING, State.RETURNING:
+			return LIFECYCLE.Stage.BUD
+		State.ORIENTING:
+			return LIFECYCLE.Stage.JUVENILE
+		State.SEEKING, State.APPROACHING, State.HOVER_INSPECTION, \
+				State.WATCH_PLAYER, State.INTERACT_CRITTER:
+			return LIFECYCLE.Stage.MATURE
+		State.TOUCHING, State.CARESSING, State.TASTING, State.INTERACT_MARGIN:
+			return LIFECYCLE.Stage.EXCHANGE
+		State.WITHDRAW, State.FLINCH, State.RESUME:
+			return LIFECYCLE.Stage.SENESCENT
+		State.CROSS_SECTION_WITHDRAW:
+			return LIFECYCLE.Stage.SHED
+		State.ABSENT:
+			return LIFECYCLE.Stage.STAIN
+	return LIFECYCLE.Stage.MATURE
+
+
+func _complete_lifecycle() -> void:
+	lifecycle_deaths += 1
+	lifecycle_stains += 1
+	# A successful addressed secretion is cross-morph exchange with the margin
+	# and architecture. Without one, the local section is quiescent: it may
+	# return under the existing encounter law, but is not falsely called a new
+	# recruited generation.
+	var environment := {
+		"food": 0.5,
+		"ether": 0.6 if _exchanged_this_life else 0.0,
+		"density": 0.4,
+		"diversity": 1.0 if _exchanged_this_life else 0.0,
+		"same_compatibility": 0.0,
+		"cross_compatibility": 1.0 if _exchanged_this_life else 0.0,
+	}
+	lifecycle_reproduction = LIFECYCLE.reproduction_for(environment)
+	lifecycle_shed.emit(global_position + anchor_normal * 0.006,
+			anchor_normal, lifecycle_generation, lifecycle_reproduction)
 
 
 func state_name() -> String:
@@ -1144,6 +1211,7 @@ func _process(delta: float) -> void:
 		mat.set_shader_parameter("dream_phase", dream_v)
 		mat.set_shader_parameter("body_motion", motion)
 		mat.set_shader_parameter("slice_close", slice_close)
+		mat.set_shader_parameter("lifecycle_stage", float(lifecycle_stage()))
 	for mat in materials:
 		mat.set_shader_parameter("grow", grow)
 		if field != null and field.state != null:
@@ -1177,4 +1245,12 @@ func census() -> Dictionary:
 			"bulge": snappedf(_bulge, 0.01),
 			"lag_root": snappedf(lag_root, 0.0001),
 			"lag_tip": snappedf(lag_tip, 0.0001),
+			"lifecycle_stage": lifecycle_stage(),
+			"lifecycle_stage_name": LIFECYCLE.stage_name(lifecycle_stage()),
+			"lifecycle_generation": lifecycle_generation,
+			"lifecycle_births": lifecycle_births,
+			"lifecycle_deaths": lifecycle_deaths,
+			"lifecycle_stains": lifecycle_stains,
+			"lifecycle_reproduction": LIFECYCLE.reproduction_name(
+					lifecycle_reproduction),
 			"skeleton": skeleton != null}
