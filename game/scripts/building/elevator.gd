@@ -33,6 +33,7 @@ var _bell: AudioStreamPlayer3D
 var _hum: AudioStreamPlayer3D
 var _doors: Dictionary = {}      # level -> {"w": body, "e": body, "t": float}
 var _buttons: Dictionary = {}    # level -> landing call-plate material
+var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
 var _cabin_lamps: Dictionary = {}  # level -> cab button material
 ## The collapsible gate inside the car, and the needle over its opening.
 ## Both are driven from the car rather than animated: the gate rides the
@@ -537,6 +538,16 @@ func interact_area(area: Area3D) -> void:
 func travel_to(level: String) -> void:
 	if state != S.IDLE or level == current or not stops.has(level):
 		return
+	if not landing_permits_start(current):
+		# SR7-B. The 1921 code's rule, once there is hardware to enforce it:
+		# the car may not move away from a landing whose door is not locked in
+		# the closed position. Only a PROVED interlock can refuse, so a
+		# building whose interlock still carries its bridging wire behaves
+		# exactly as it did before the apparatus existed.
+		print("[ELEVATOR] %s refuses: landing door not locked" % current)
+		if _bell and not _bell.playing:
+			_bell.play()
+		return
 	moving = true
 	_pending = level
 	state = S.CLOSING
@@ -547,6 +558,57 @@ func travel_to(level: String) -> void:
 	print("[ELEVATOR] %s -> %s (%.1fs)" % [current, level,
 			absf(stops[level] - _cabin.position.y) / SPEED])
 	create_tween().tween_property(_hum, "volume_db", -16.0, 0.5)
+
+
+## --- landing-door interlock seam (SR7-B) -----------------------------------
+##
+## The lift owns its doors and its motion. A landing interlock owns whether
+## that landing is locked. These three methods are the entire contract between
+## them: the interlock registers, reads the door, and may ask the lift to hold
+## the door somewhere while it is being serviced. The lift never reaches into
+## the interlock's state, and the interlock never drives the car.
+
+
+## Register the apparatus serving one landing. One interlock per level.
+func register_landing_interlock(level: String, interlock: Node) -> bool:
+	if not stops.has(level) or interlock == null:
+		return false
+	if not interlock.has_method("permits_car_start"):
+		return false
+	_interlocks[level] = interlock
+	return true
+
+
+## How far this landing's door stands open, 0 shut and 1 fully open. Returns
+## -1.0 for a level this lift does not serve, so a caller can tell "shut" from
+## "no such landing".
+func landing_door_open_fraction(level: String) -> float:
+	if not _doors.has(level):
+		return -1.0
+	return float(_doors[level]["t"])
+
+
+## Let a landing's own interlock hold that door while it is being worked.
+##
+## Refused unless the car is standing idle at that landing, which is the same
+## condition the retiring cam enforces mechanically: a door may only be handled
+## where the car actually is. The service caller is expected to accept a
+## refusal rather than assume it got what it asked for.
+func set_landing_door_for_service(level: String, open_t: float) -> bool:
+	if state != S.IDLE or level != current or not _doors.has(level):
+		return false
+	_set_door_t(level, clampf(open_t, 0.0, 1.0))
+	return true
+
+
+## Whether the interlock at a landing permits the car to start. Unserved
+## landings and unproved interlocks both permit; only a proved interlock that
+## is not actually holding can refuse.
+func landing_permits_start(level: String) -> bool:
+	var interlock: Variant = _interlocks.get(level)
+	if interlock == null or not is_instance_valid(interlock):
+		return true
+	return bool(interlock.call("permits_car_start"))
 
 
 ## Small public surface for autonomous residents. They queue by waiting at

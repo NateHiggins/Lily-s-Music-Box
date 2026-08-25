@@ -556,6 +556,18 @@ func _ready() -> void:
 	add_child(elevator)
 	elevator.setup(layout["elevator"])
 	resident_routines.bind_elevator(elevator)
+	# SR7-B: the F01 landing interlock is placed with the rest of the
+	# hand-authored lobby detail, which runs before the lift exists. Bind it
+	# here, where both are real. The interlock reads the door and may ask the
+	# lift to hold it during service; the lift consults the interlock before
+	# starting. Neither owns the other, and an unproved interlock permits
+	# everything, so the ride behaves exactly as it did until it is repaired.
+	var landing_interlock: ElevatorInterlockProp = find_child(
+			"F01LandingInterlock", true, false) as ElevatorInterlockProp
+	if landing_interlock != null:
+		landing_interlock.bind_elevator(elevator, "F01")
+	else:
+		push_warning("[ELEVATOR] no F01 landing interlock to bind")
 	# TASKS.md V4: give the routines the same floor nodes the visibility
 	# gate drives, so a resident who walks or rides to another storey is
 	# reparented to the floor they occupy instead of being culled with the

@@ -225,6 +225,29 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		# rather than changed here.)
 		dumbwaiter.rotation.y = -PI * 0.5
 		floor_nodes["F01"].add_child(dumbwaiter)
+		# SR7-B: the landing-door interlock, in the reveal of the F01 elevator
+		# opening on its strike jamb.
+		#
+		# The opening runs x 1.47..2.38 in the core wall at y -6.75, and the
+		# landing door panels hang inside the hoistway at y -6.675. Mounting the
+		# lock case at y -6.72 puts it in the reveal on the LANDING side of
+		# those panels, so the doors never occlude it at any point in their
+		# travel and the player can reach it from the lobby floor. A jamb-
+		# mounted lock case serviced from the landing is period practice for
+		# this door type; the alternative -- burying it on the hoistway side --
+		# would be unreachable through a solid wall.
+		#
+		# No rotation: b2g maps Blender -y to Godot +z, and the lobby lies at
+		# -y from the shaft, so an unrotated prop already faces the room. The
+		# apparatus is authored outward from local z 0, as SR7-A established.
+		var interlock := ElevatorInterlockProp.new()
+		interlock.name = "F01LandingInterlock"
+		interlock.prop_type = "elevator_interlock"
+		# x 2.22, not hard against the jamb: the assembly is 0.28 m across
+		# (retiring cam to locked contact) and the opening ends at 2.38, so a
+		# tighter placement pushes the locked-contact pair into solid wall.
+		interlock.position = GameBoot.b2g([2.22, -6.72, 1.34])
+		floor_nodes["F01"].add_child(interlock)
 		# The settle west of the street door is a place to actually sit.
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])

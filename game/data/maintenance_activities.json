@@ -88,6 +88,29 @@
         "note": "pawl freed; band reseated and proved under load",
         "mechanism_patch": {"band_seated": true, "pawl_lift": 0.0, "rope_strain": 0.0, "brake_bite": 0.88}
       }
+    },
+    "elevator_interlock_proof": {
+      "title": "CLOSED IS NOT LOCKED",
+      "apparatus": "passenger-elevator landing door interlock",
+      "location_lane": "lobby",
+      "historical_source": "Otis landing-door interlock, E. L. Dunn, US 1,493,069, filed 1921 and granted 1924; hoistway-door interlock definition, American Elevator Safety Code, first edition 1921",
+      "transferable_verb": "continuity",
+      "story": {
+        "material": "The safety circuit runs through two contacts in series, not one. The first proves the door is shut. The second proves the latch has entered its keeper. A jumper laid across them reads as continuity and proves nothing at all.",
+        "human": "Somebody wanted the car to keep answering, and left the wire on. It has been answering ever since.",
+        "orison": "The circuit reads continuous with the door standing open, and the car answers a landing that is not there."
+      },
+      "steps": [
+        {"id": "gauge_keeper", "verb": "align", "target": 0.42, "tolerance": 0.07, "expected_seconds": 6.0, "cue": "Set the gauge against the keeper and read how far the latch actually enters.", "confirmation": "The latch is standing shy of its seat."},
+        {"id": "pull_jumper", "verb": "hold_release", "target": 0.63, "tolerance": 0.09, "hold_min_seconds": 1.3, "expected_seconds": 7.0, "cue": "Hold the bridging wire against the terminal spring until the screw backs off, then let it come free.", "confirmation": "The bridge is off. The circuit tells the truth again."},
+        {"id": "true_keeper", "verb": "align", "target": 0.78, "tolerance": 0.05, "expected_seconds": 8.0, "cue": "True the keeper so the latch enters full depth and the roller arm rides square.", "confirmation": "The latch drops its whole length into the keeper."},
+        {"id": "bring_home", "verb": "turn", "target": 1.0, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Bring the landing door fully home until the latch enters the locking device.", "confirmation": "Shut contact, then locked contact. Both made, in that order."},
+        {"id": "prove_refusal", "verb": "hold_release", "target": 0.22, "tolerance": 0.08, "hold_min_seconds": 1.6, "expected_seconds": 7.0, "cue": "Now crack the door and hold the call. An interlock is proved by what it refuses.", "confirmation": "The locked contact opens and the car will not answer."}
+      ],
+      "completion": {
+        "note": "bridging wire removed; keeper trued and the landing interlock proved by refusal",
+        "mechanism_patch": {"jumper_present": false, "keeper_true": 0.78, "door_home": 1.0, "interlock_proved": true}
+      }
     }
   }
 }
