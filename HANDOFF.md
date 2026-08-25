@@ -554,6 +554,19 @@ subject-ROI A/A floor by 1.76×–6.00×; frames and hashes
 are at `art/renders/dream_hero_lifecycle_lc6c/README.md`. LC-6 remains open for
 architecture, incarnation and co-present pursuer/hazard owners.
 
+The 2026-08-25 microbiology research pass is binding in
+`design/DREAM_MICROBIOLOGY_SENSORY_BRIEF.md` and queued as MBIO-1–MBIO-6.
+Dream organs do not see or hear like animals: light becomes receptor ion flux,
+directional scanning, asymmetric ciliary motion, photoshock and adaptation;
+sound becomes registered strain, shear, pressure and membrane tension. Every
+response must read stimulus → local membrane event → finite-speed relay →
+motor/metabolic answer → recovery. Audio playback is never a gameplay sensor.
+Use the existing irradiance owner and ecology signal ring, local owner state,
+bounded batches/residue and pooled room audio. The first production slice is
+MBIO-1: one cilium carpet plus one fauna receptor family under slow beam entry,
+abrupt switch-on, sustained light and repeated unreliable-lamp flicker with
+A/A and refractory proof.
+
 Three top-level projects:
 
 | Path | What |

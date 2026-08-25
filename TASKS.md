@@ -2429,6 +2429,47 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   architecture, incarnation and co-present pursuer/hazard owners; the landed
   fauna-owned ethermoss mat remains the current flora implementation.
 
+### MBIO — SCALED-UP MICROBIOLOGY SENSORY PASS (briefed 2026-08-25)
+
+Research and binding integration doctrine live in
+`design/DREAM_MICROBIOLOGY_SENSORY_BRIEF.md`. The central rule is that Dream
+organs do not see or hear like animals: photons become ion flux, adaptation
+and motor asymmetry; sound becomes registered strain, shear, pressure and
+membrane tension. Responses must show a local membrane event, finite-speed
+relay and recovery. Audio playback never drives biology.
+
+- **MBIO-1 OPEN — LIGHT STEP, SCANNING AND ADAPTATION.** On one margin cilium
+  carpet and one fauna receptor family, consume the existing irradiance field
+  as light level + direction + short adapted memory. Add directional body
+  scanning, asymmetric beat response, thresholded photoshock and refractory
+  recovery. Prove slow beam entry, abrupt switch-on, sustained light and
+  unreliable-lamp repetition in the production root with A/A control and no
+  new draw, light, collision or save fact.
+- **MBIO-2 OPEN — BOUNDED MECHANICAL PACKETS.** Extend the existing ecology
+  signal ring rather than adding a director. Authoritative contacts publish
+  impulse/scrape/sustained-hum mechanics from their real positions; receptors
+  own substrate, morphology, distance and refractory interpretation. Prove
+  locality, delayed propagation, deterministic eviction, recipient selectivity
+  and no global-attention, pursuit, case or save mutation.
+- **MBIO-3 OPEN — METACHRONAL AND ELECTROCHEMICAL MOTION.** Let neighbouring
+  cilia organize through phase offsets, slow under load and locally reverse or
+  arrest after a stimulus. Carry one finite-speed calcium/potassium-like band
+  through existing palp, fauna and architecture materials. A simultaneous
+  whole-room pulse fails the gate.
+- **MBIO-4 OPEN — VESICLES, WRINKLES AND SLOW VIBRATION CONSEQUENCE.** Show
+  addressed secretion as bounded membrane bleb → neck → release → uptake, and
+  let ethermoss/death memory organize into branching transport wrinkles.
+  Sustained vibration may bias growth or sporulation only after accumulated
+  exposure; nothing dances to the soundtrack.
+- **MBIO-5 OPEN — POOLED CELLULAR SONIFICATION.** Curate a small recorded
+  membrane/channel/cilia/relay palette and reuse one positional voice pool per
+  active room/encroachment. Prove voice ceiling, attenuation, silence for
+  unknown assets, no feedback into mechanics and no per-organelle audio node.
+- **MBIO-6 OPEN — INTEGRATED PRODUCTION ENCOUNTER.** Darkness → lamp scan →
+  photoshock → adaptation → footfall mechanics → cilia/architecture relay →
+  later vesicle or wrinkle consequence. Preserve the observation/communication
+  loop; this is not combat and not a completed waking case loop.
+
 ### T4 — TEMPORAL BIOLOGY AND CONTROLLED ANACHRONISM (owner ruling 2026-08-24)
 
 - **T4-0 CANON LOCKED.** The Dream being perceives time as a fourth-dimensional
