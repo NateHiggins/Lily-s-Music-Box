@@ -29,6 +29,15 @@ func _run() -> void:
 
 
 func _data_contract(profiles: Dictionary) -> void:
+	var lifecycle_names: Array[String] = []
+	for elapsed in [0.0, 2.0, 5.0, 10.0, 20.0, 24.0, 28.0, 29.0]:
+		lifecycle_names.append(IncarnationProfile.lifecycle_stage_name_at(
+				float(elapsed), 30.0))
+	_check("the existing bounded run names all eight incarnation stages",
+			lifecycle_names == ["folded", "bud", "juvenile", "mature",
+			"exchange", "senescent", "shed", "stain"])
+	_check("an unbounded legacy encounter holds mature without inventing a clock",
+			IncarnationProfile.lifecycle_stage_name_at(999.0, 0.0) == "mature")
 	var expected := {
 		"mina_release_print": ["mina_caption_crisis", "mina", 1],
 		"peter_release_print": ["peter_form_corridor", "peter", 2],
@@ -113,6 +122,20 @@ func _production_contract() -> void:
 			if material.get_shader_parameter("incarnation_fauna") != expected:
 				all_bound = false
 	_check("the existing collector binds every dream shader material", all_bound)
+	var cases_before := var_to_bytes(root.active_case_truth())
+	var nodes_before := _node_count(root)
+	root.run_elapsed_s = root.run_cap_s * 0.68
+	root._update_molten()
+	var lifecycle_bound := not materials.is_empty()
+	for value in materials:
+		var material := value as ShaderMaterial
+		lifecycle_bound = lifecycle_bound and is_equal_approx(float(
+				material.get_shader_parameter("incarnation_lifecycle_stage")), 4.0)
+	_check("the existing collector carries exchange through the same materials",
+			lifecycle_bound)
+	_check("incarnation classification changes no node or case truth",
+			_node_count(root) == nodes_before
+			and var_to_bytes(root.active_case_truth()) == cases_before)
 	family_seen.sort()
 	_check("the same collector reaches all five fauna costumes exactly once",
 			family_seen == PackedInt32Array([0, 1, 2, 3, 4]))
@@ -293,6 +316,13 @@ func _production_contract() -> void:
 			root.find_children("*Incarnation*", "Node", true, false).is_empty())
 	root.queue_free()
 	await get_tree().process_frame
+
+
+func _node_count(node: Node) -> int:
+	var total := 1
+	for child in node.get_children():
+		total += _node_count(child)
+	return total
 
 
 ## INC-V9: each active profile gets the same seeded replay audit. This joins

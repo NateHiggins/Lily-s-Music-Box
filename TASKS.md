@@ -2428,6 +2428,26 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   `art/renders/dream_hero_lifecycle_lc6c/README.md`. **LC-6 remains open** for
   architecture, incarnation and co-present pursuer/hazard owners; the landed
   fauna-owned ethermoss mat remains the current flora implementation.
+- **LC-6D COMPLETE 2026-08-25 — LIVING ARCHITECTURE LIFE.** The production
+  LivingField classifies its existing source, body, trail, vascular relay,
+  decay and stain facts as all eight shared stages without advancing a clock
+  or mutating the field. One classified state fans through the storey's
+  already-bound layered materials. No node, collision, light, material owner,
+  case fact or persistence seam was added. `LivingFieldTest` passes 24/24,
+  production-root binding passes 6/6 and shader parsing passes. The accepted
+  F02 2B radiator sequence and zero-noise A/A controls are at
+  `art/renders/dream_architecture_lifecycle_lc6d/README.md`.
+- **LC-6E COMPLETE 2026-08-25 — CASE-INCARNATION LIFE.** All six shipped case
+  presentations now classify the existing bounded Dream run as folded, bud,
+  juvenile, mature, exchange, senescent, shed and stain; an unbounded legacy
+  encounter holds mature. The root pushes the stage through its existing
+  material collector before the lamp-pose early return, and shader time never
+  chooses a stage. Geometry, collision, topology, hazards, case truth, the run
+  ceiling and save context remain unchanged. `DreamIncarnationTest` passes
+  70/70 and shader parsing passes. Every adjacent Mina transition clears three
+  zero-noise A/A floors in the accepted Forward+ sequence at
+  `art/renders/dream_incarnation_lifecycle_lc6e/README.md`. **LC-6 remains
+  open** for co-present pursuer/hazard owners.
 
 ### MBIO — SCALED-UP MICROBIOLOGY SENSORY PASS (briefed 2026-08-25)
 

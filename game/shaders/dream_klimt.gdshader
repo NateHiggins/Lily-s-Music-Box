@@ -1693,6 +1693,48 @@ void fragment() {
 			+ gold_mid * leaf * eaten * 0.24;
 	ALBEDO = mix(ALBEDO, max(ALBEDO, portal_read), portal_camera);
 	EMISSION += portal_read * portal_camera * 0.28;
+	// LC-6E is deliberately last in the production material stack: lifecycle
+	// is the posture of the complete incarnation, including its layered flesh,
+	// architecture and gold, not an undercoat a later layer may erase.
+	if (incarnation_id > 0.5 && incarnation_id < 6.5 && portal_camera < 0.5) {
+		float lc_folded = 1.0 - smoothstep(0.35, 0.65,
+			abs(incarnation_lifecycle_stage - 0.0));
+		float lc_bud = 1.0 - smoothstep(0.35, 0.65,
+			abs(incarnation_lifecycle_stage - 1.0));
+		float lc_juvenile = 1.0 - smoothstep(0.35, 0.65,
+			abs(incarnation_lifecycle_stage - 2.0));
+		float lc_exchange = 1.0 - smoothstep(0.35, 0.65,
+			abs(incarnation_lifecycle_stage - 4.0));
+		float lc_senescent = 1.0 - smoothstep(0.35, 0.65,
+			abs(incarnation_lifecycle_stage - 5.0));
+		float lc_shed = 1.0 - smoothstep(0.35, 0.65,
+			abs(incarnation_lifecycle_stage - 6.0));
+		float lc_stain = 1.0 - smoothstep(0.35, 0.65,
+			abs(incarnation_lifecycle_stage - 7.0));
+		float lc_cells = dream_corruption_cells(v_world * 0.72 + vec3(17.3),
+			0.0, incarnation_id * 0.11);
+		float lc_folds = dream_corruption_folds(v_world * 0.44 + vec3(9.1),
+			0.0, incarnation_id * 0.09);
+		ALBEDO = mix(ALBEDO, ALBEDO * vec3(0.42, 0.48, 0.68), lc_folded * 0.62);
+		ALBEDO = mix(ALBEDO, ALBEDO * vec3(1.22, 0.68, 0.76),
+			lc_bud * (0.24 + lc_cells * 0.24));
+		ALBEDO = mix(ALBEDO, ALBEDO * mix(vec3(0.64, 0.72, 1.18),
+			vec3(1.20, 0.62, 0.76), lc_cells), lc_juvenile * 0.38);
+		float lc_exchange_band = smoothstep(0.32, 0.78, lc_folds)
+			* smoothstep(0.42, 0.72, lc_cells) * lc_exchange;
+		ALBEDO = mix(ALBEDO, mix(ALBEDO, gold_pale, 0.72), lc_exchange_band * 0.64);
+		EMISSION += gold_mid * lc_exchange_band * 0.055;
+		ALBEDO = mix(ALBEDO, mix(ALBEDO * vec3(0.48, 0.36, 0.58),
+			gold_mid * 0.36, smoothstep(0.58, 0.86, lc_cells)), lc_senescent * 0.68);
+		ROUGHNESS = mix(ROUGHNESS, 0.58, lc_senescent * 0.55);
+		ALBEDO = mix(ALBEDO, vec3(0.105, 0.012, 0.050), lc_shed * 0.72);
+		ROUGHNESS = mix(ROUGHNESS, 0.72, lc_shed * 0.68);
+		float lc_scar = smoothstep(0.42, 0.58, lc_cells)
+			* (1.0 - smoothstep(0.64, 0.80, lc_cells));
+		ALBEDO = mix(ALBEDO, vec3(0.052, 0.008, 0.034), lc_stain * 0.78);
+		ALBEDO = mix(ALBEDO, gold_mid * 0.42, lc_scar * lc_stain * 0.42);
+		ROUGHNESS = mix(ROUGHNESS, 0.82, lc_stain * 0.72);
+	}
 	if (surface_debug_view == 1) {
 		ALBEDO = vec3(architecture_mask);
 		EMISSION = vec3(architecture_mask) * 1.20;

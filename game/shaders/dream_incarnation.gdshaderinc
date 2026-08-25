@@ -11,6 +11,9 @@ uniform sampler2D incarnation_normal_2 : hint_normal, filter_linear_mipmap, repe
 uniform sampler2D incarnation_normal_3 : hint_normal, filter_linear_mipmap, repeat_enable;
 uniform sampler2D reflected_world : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
 uniform float incarnation_stillness : hint_range(0.0, 1.0) = 0.0;
+// LC-6E: classified from the existing case-run clock by DreamMazeRoot.
+// No shader time selects a life stage.
+uniform float incarnation_lifecycle_stage : hint_range(0.0, 7.0) = 3.0;
 
 float incarnation_hash(vec2 p) {
 	return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);

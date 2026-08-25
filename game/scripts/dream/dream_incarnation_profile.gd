@@ -4,6 +4,8 @@ extends RefCounted
 ## reduces it to one immutable bundle. It owns no resources, nodes, topology,
 ## gameplay or persistence.
 
+const Lifecycle := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
+
 const IDS := ["mina", "peter", "juno", "mae", "cal", "omar"]
 const PROFILE_IDS := {
 	"mina": "mina_release_print",
@@ -163,6 +165,35 @@ static func apply_to_material(material: ShaderMaterial, bundle: Dictionary,
 			bundle.get("signature", Vector2(1.0, 0.0)))
 	material.set_shader_parameter("incarnation_fauna",
 			fauna_uniform(bundle, family_index))
+
+
+## LC-6E: classify the existing bounded encounter clock. The incarnation does
+## not gain a second life or change the run ceiling; it gives the already-lived
+## passage eight anatomical names. Large case organs are allowed to hold the
+## functional middle of the life for encounter fairness.
+static func lifecycle_stage_at(elapsed_s: float, run_cap_s: float) -> int:
+	if run_cap_s <= 0.0:
+		return Lifecycle.Stage.MATURE
+	var phase := clampf(elapsed_s / run_cap_s, 0.0, 1.0)
+	if phase < 0.04:
+		return Lifecycle.Stage.FOLDED
+	if phase < 0.14:
+		return Lifecycle.Stage.BUD
+	if phase < 0.28:
+		return Lifecycle.Stage.JUVENILE
+	if phase < 0.62:
+		return Lifecycle.Stage.MATURE
+	if phase < 0.75:
+		return Lifecycle.Stage.EXCHANGE
+	if phase < 0.88:
+		return Lifecycle.Stage.SENESCENT
+	if phase < 0.96:
+		return Lifecycle.Stage.SHED
+	return Lifecycle.Stage.STAIN
+
+
+static func lifecycle_stage_name_at(elapsed_s: float, run_cap_s: float) -> String:
+	return Lifecycle.stage_name(lifecycle_stage_at(elapsed_s, run_cap_s))
 
 
 static func _number_array(data: Dictionary, key: String, size: int,

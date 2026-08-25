@@ -1213,6 +1213,15 @@ func _update_molten() -> void:
 	_update_view_portal()
 	if _molten_materials.is_empty() or player == null:
 		return
+	# LC-6E belongs to the bounded case run, not to whether the service lamp is
+	# presently open. Push it before the lamp-pose early return so darkness can
+	# never freeze the incarnation in an obsolete life stage.
+	var incarnation_stage := float(
+			DreamIncarnationProfileScript.lifecycle_stage_at(
+				run_elapsed_s, run_cap_s))
+	for material in _molten_materials:
+		material.set_shader_parameter("incarnation_lifecycle_stage",
+				incarnation_stage)
 	var pose: Dictionary = player.lamp_pose()
 	if pose.is_empty():
 		return
