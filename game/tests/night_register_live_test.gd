@@ -30,6 +30,10 @@ const DETECTOR_Y := -1.50
 const CASE_HALF_WIDTH := 0.31
 const DOOR_1D_NORTH_EDGE := -2.86
 
+## SR7-I. The two authored reports, and the two owners that issue them.
+const JOB_2A := "vantry_chirp_2a"
+const JOB_2B := "lena_radiator_round_2b"
+
 
 func _ready() -> void:
 	RealityState.persistence_enabled = false
@@ -65,32 +69,65 @@ func _ready() -> void:
 
 	# --- it reads the PRODUCTION spine --------------------------------------
 	var wo: Node = root.get("work_orders")
-	var job_id: String = str(board.get("JOB_ID"))
-	_check(wo != null and board.call("job_stage") == wo.call("job_stage",
-			job_id),
-			"the board reads the production WorkOrders, not a copy of it")
-	_check(wo.call("job_stage", job_id) == "missing"
-			and not board.call("slip_available"),
-			"at boot the job does not exist, so the spindle is empty")
+	var job_id := JOB_2A
+	_check(wo != null
+			and (board.get("PRESENTABLE_JOBS") as Array) == [JOB_2A, JOB_2B],
+			"the board's authored order is the opening report, then Lena's")
+	# AT BOOT NEITHER IS ISSUED, so the board presents nothing at all -- the
+	# empty spindle is the honest state of a building with no open work.
+	_check(str(board.call("presented_job_id")) == ""
+			and str(board.call("first_open_job")) == ""
+			and not board.call("slip_available")
+			and str(board.call("slip_number")) == "",
+			"at boot neither report exists, so the spindle is empty")
+	_check(wo.call("job_stage", JOB_2A) == "missing"
+			and wo.call("job_stage", JOB_2B) == "missing",
+			"and the production spine agrees: both reports are missing")
 	# THE CENTRAL NEGATIVE, ON THE REAL SPINE.
 	var jobs_before: int = RealityState.data.get("maintenance_jobs", {}).size()
 	board.call("take_slip")
-	_check(wo.call("job_stage", job_id) == "missing"
+	_check(wo.call("job_stage", JOB_2A) == "missing"
 			and RealityState.data.get("maintenance_jobs", {}).size()
 					== jobs_before,
 			"touching the empty spindle issues nothing into the real spine")
 
-	# `ServiceRoundDirector.answer_incoming_call()` is the sole issuing owner
-	# and this is the exact call it makes. The board is handed a real report
-	# by its real owner rather than inventing one.
+	# THE TWO ISSUING OWNERS, both present in production and neither of them
+	# this board. `CoreLoopDirector.offer_opening_report()` issues 001 and
+	# `ServiceRoundDirector.answer_incoming_call()` issues 002; the register
+	# is handed a real report and never manufactures one.
 	var round_owner: Node = root.get("service_round")
-	_check(round_owner != null
-			and str(round_owner.get("JOB_ID")) == job_id,
-			"the service round is the owner that issues this job")
-	wo.call("issue_job", job_id, "reported")
-	_check(board.call("slip_available")
-			and str(board.call("slip_text")).contains("BORROWED BREATH"),
-			"once issued, the real report is on the spindle and readable")
+	var loop_owner: Node = root.find_child("CoreLoopDirector", true, false)
+	_check(round_owner != null and str(round_owner.get("JOB_ID")) == JOB_2B,
+			"the service round is the owner that issues Lena's 002")
+	_check(loop_owner != null
+			and loop_owner.has_method("offer_opening_report")
+			and str(loop_owner.get("JOB_ID")) == JOB_2A,
+			"the core loop owns the opening report 001 and its offer seam")
+
+	# WHO MOVES MINA'S CASE. Armed before the spine is touched and before the
+	# board is touched at all, so the next two checks can say plainly that the
+	# register is not the answer.
+	var early_cases: Array[String] = []
+	RealityCases.case_changed.connect(
+			func(id: String, _s: Dictionary) -> void:
+				early_cases.append(str(id)))
+
+	# Issued through the spine's own public call, exactly as its owner makes
+	# it. This test does not call the owner's seam; that is Codex's to wire.
+	wo.call("issue_job", JOB_2A, "reported")
+	# THE ATTRIBUTION, MEASURED IN TWO STEPS. Issuing 001 moves no case by
+	# itself; the case moves when the job's STAGE moves. Step one, here:
+	_check(early_cases.is_empty(),
+			"issuing 001 moves no case on its own (%s)"
+					% ", ".join(early_cases))
+	_check(str(board.call("presented_job_id")) == JOB_2A
+			and board.call("slip_available")
+			and str(board.call("slip_text")).contains("THE CHIRP"),
+			"once 001 is issued it is the paper on the real spindle")
+	_check(str(board.call("slip_number")) == "WORK ORDER 001"
+			and str(board.call("slip_unit")) == "UNIT 2A"
+			and str(board.call("slip_symptom")).contains("line-test tone"),
+			"and the paper identifies itself: number, unit and symptom")
 
 	# --- what must not move -------------------------------------------------
 	var switch_system: Node = root.get("switch_system")
@@ -190,6 +227,21 @@ func _ready() -> void:
 	board.call("take_slip")
 	_check(wo.call("job_stage", job_id) == "acknowledged",
 			"taking the report acknowledges the job that already existed")
+	# STEP TWO, AND THE WHOLE ATTRIBUTION. Mina's case moves now -- on the
+	# ACKNOWLEDGEMENT, because `CoreLoopDirector` owns 001's case boundary and
+	# watches its stages. The register's only means of moving a stage is
+	# `acknowledge_job`, the same public call the job's own owner makes, and
+	# the register holds no `RealityCases` reference at all (asserted from its
+	# source in the focused proof).
+	#
+	# SR7-H's live proof asserted "no case signal was published"; that held
+	# only because 002's case has no owner watching its stages. The honest
+	# invariant is not that the world stays still -- production's owners must
+	# be allowed to work -- but that THIS BOARD is never the one that moved a
+	# case, and that nothing moved which the presented report did not declare.
+	_check(early_cases.is_empty(),
+			"and STILL no case has moved after the board acknowledged it (%s)"
+					% ", ".join(early_cases))
 	_check(RealityState.data.get("maintenance_jobs", {}).size()
 					== jobs_before + 1,
 			"exactly one job record exists, the one the spine issued")
@@ -206,11 +258,29 @@ func _ready() -> void:
 	# NOT DERIVED. Take the real job all the way to `repaired` through its own
 	# owner and the index must not have moved.
 	wo.call("diagnose_job", job_id)
+	# 001 declares a required part, so its road to `repairable` runs through
+	# `awaiting_part`. The data decides which road, not this test.
+	if (wo.get("job_library") as RefCounted).call("requires_part", job_id):
+		wo.call("mark_job_awaiting_part", job_id)
 	wo.call("mark_job_repairable", job_id)
 	wo.call("record_job_repair", job_id,
 			{"quality": "good", "note": "vent freed and clocked"})
 	_check(str(wo.call("job_stage", job_id)) == "repaired",
 			"the production spine reached `repaired` under its own power")
+	# THE ATTRIBUTION LANDS HERE. Mina's case moves when the SPINE reaches
+	# `repaired` -- `CoreLoopDirector` owns 001's case boundary and watches
+	# its stages -- and this test drove those stages itself, through
+	# `WorkOrders`, with the board untouched. No board action moved a case.
+	#
+	# SR7-H's live proof asserted "no case signal was published at all"; that
+	# held only because 002's case has no owner watching its stages. The
+	# honest invariant is not that the world stays still -- production's
+	# owners must be allowed to work -- but that this BOARD is never what
+	# moved a case, and nothing moves that a presented report did not declare.
+	_check(not early_cases.is_empty()
+			and str(early_cases[0]) == "mina_caption_crisis",
+			"the case moved only when the SPINE reached repaired (%s)"
+					% ", ".join(early_cases))
 	_check(board.get("index_detent") == 0
 			and str(board.call("selected_outcome")) == "",
 			"AND THE INDEX HAS NOT MOVED. No job stage picks a conclusion.")
@@ -278,14 +348,35 @@ func _ready() -> void:
 			as Dictionary).size()) == dispatched_before,
 			"the resident schedules are untouched (%d dispatched)"
 					% dispatched_before)
-	# NO DUPLICATE CASE STATE. The register never activates, advances or reads
-	# a case for permission; `RealityCases` is `ServiceRoundDirector`'s and
-	# `mina_case_gameplay`'s business, not the board's.
-	_check(case_events.is_empty(),
-			"no case signal was published by anything on this board (%s)"
-					% ", ".join(case_events))
-	_check(JSON.stringify(RealityState.data.get("cases", {})) == case_before,
-			"and the whole case table is byte-for-byte what it was")
+	# NO DUPLICATE CASE STATE, and no case this board had any business in.
+	# The register never activates, advances or reads a case for permission --
+	# the focused test proves it holds no `RealityCases` reference at all --
+	# so every case that moved here belongs to a report the board presented
+	# and was moved by that case's own owner.
+	var declared: Array[String] = []
+	for job in (board.get("PRESENTABLE_JOBS") as Array):
+		var spec: Dictionary = (wo.get("job_library") as RefCounted).call(
+				"job", str(job))
+		declared.append(str(spec.get("case_id", "")))
+	var strays: Array[String] = []
+	for event in case_events:
+		var moved := str(event).split(":")[1]
+		if moved not in declared and moved not in strays:
+			strays.append(moved)
+	_check(strays.is_empty(),
+			"every case that moved is a presented report's own declared case "
+					+ "(strays: %s)" % ", ".join(strays))
+	var cases_now: Dictionary = RealityState.data.get("cases", {})
+	var touched: Array[String] = []
+	for case_id in cases_now.keys():
+		if JSON.stringify(cases_now[case_id]) \
+				!= JSON.stringify(JSON.parse_string(case_before).get(
+						case_id, {})):
+			touched.append(str(case_id))
+	_check(touched.size() <= 1 and (touched.is_empty()
+			or str(touched[0]) in declared),
+			"and at most the one declared case differs in the table (%s)"
+					% ", ".join(touched))
 	_check(JSON.stringify({
 			"dream": RealityState.data.get("dream", {}),
 			"dreams_had": RealityState.data.get("dreams_had", 0),
@@ -299,11 +390,28 @@ func _ready() -> void:
 	_check((board as Node3D).find_children("*", "CollisionObject3D", true,
 			false).size() == 5,
 			"and five collision bodies, one per literal service point")
+	# SR7-I ON THE REAL SPINE: 002 issued mid-round cannot take the paper out
+	# of the player's hands, and picks up only once the board is idle again.
 	_check(str(wo.call("job_stage", job_id)) != "closed",
 			"NO WORKORDER WAS CLOSED OR SKIPPED by filing a conclusion")
+	_check(str(board.call("presented_job_id")) == JOB_2A
+			and not board.call("engaged"),
+			"the signed round left the board idle, still showing 001")
+	wo.call("issue_job", JOB_2B, "reported")
+	_check(str(board.call("presented_job_id")) == JOB_2A,
+			"002 issued does not displace 001, which is still open")
+	wo.call("close_job", JOB_2A)
+	_check(str(wo.call("job_stage", JOB_2A)) == "closed"
+			and str(board.call("presented_job_id")) == JOB_2B
+			and str(board.call("slip_number")) == "WORK ORDER 002"
+			and str(board.call("slip_unit")) == "UNIT 2B",
+			"and once 001 closes, the real board presents 002 instead")
+	_check(str((RealityState.data.get(str(board.get("STATE_KEY")), {})
+			.get("lines", []) as Array)[0].job_id) == JOB_2A,
+			"while the line already signed still reads 001, its own job")
 	_check(RealityState.data.get("maintenance_jobs", {}).size()
-					== jobs_before + 1,
-			"and still exactly one job record exists")
+					== jobs_before + 2,
+			"and exactly the two records the spine itself issued exist")
 	var clocks := 0
 	for child in root.get_children():
 		if child is ClockProp:

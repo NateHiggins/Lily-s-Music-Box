@@ -47,6 +47,13 @@ const STATION_FOV := 60.0
 ## than authored, so it cannot drift away from the thing it is photographing.
 const CARD_OFFSET := Vector3(-0.30, 0.25, 0.0)
 const CARD_FOV := 38.0
+## SR7-I. The slip stands in the board face, so its close-up looks straight at
+## the wall rather than down at a slope. Derived from the slip's own transform
+## for the same reason the card's is.
+const SLIP_OFFSET := Vector3(-0.46, 0.02, 0.0)
+const SLIP_FOV := 34.0
+const JOB_2A := "vantry_chirp_2a"
+const JOB_2B := "lena_radiator_round_2b"
 
 
 func _ready() -> void:
@@ -121,11 +128,44 @@ func _ready() -> void:
 		_finish()
 		return
 
+	if part == "c":
+		# --- SR7-I: WHICH PAPER IS ON THE SPINDLE ---------------------------
+		# The spindle is bare because the building has no open work, not
+		# because the board is asleep. Its own A/A floor is taken here.
+		_aim_slip()
+		await _snap("20_slip_control_a")
+		await _snap("20_slip_control_b")
+
+		# 001 issued through the spine's own public call. Neither owner's
+		# seam is invoked: `CoreLoopDirector.offer_opening_report()` is
+		# Codex's to wire and this harness does not touch it.
+		var spine: Node = root.get("work_orders")
+		_spine(spine, "issue_job", JOB_2A)
+		await _snap("21_slip_mina_2a")
+		_aim(BOARD_EYE, BOARD_AIM, BOARD_FOV)
+		await _snap("22_board_mina_2a")
+
+		# 002 issued while 001 is still open. The authored order keeps 001 on
+		# the spindle -- and it stays there until 001 is actually closed.
+		_spine(spine, "issue_job", JOB_2B)
+		await _snap("23_board_002_issued_001_still_shown")
+
+		# 001 RETIRED BY THE SPINE, through its own whole lifecycle. A job
+		# cannot be closed from `issued`; the first version of this sheet
+		# tried, `close_job` refused, and 001 stayed on the spindle looking
+		# like a bug in the register when it was a bug in the harness.
+		_retire(spine, JOB_2A)
+		await _snap("24_board_lena_2b")
+		_aim_slip()
+		await _snap("25_slip_lena_2b")
+		_finish()
+		return
+
 	# --- A ROUND, ON THE BOARD ----------------------------------------------
 	_aim(BOARD_EYE, BOARD_AIM, BOARD_FOV)
 	Engine.time_scale = 1.0
 	var wo: Node = root.get("work_orders")
-	wo.call("issue_job", str(board.get("JOB_ID")), "reported")
+	wo.call("issue_job", JOB_2A, "reported")
 	Engine.time_scale = 0.0
 	await _snap("08_report_on_the_spindle")
 
@@ -179,6 +219,35 @@ func _ready() -> void:
 	_finish()
 
 
+## Walks a job to `closed` through `WorkOrders`' own public API, taking
+## whichever road the record's `required_item_id` lays down. The register is
+## not touched: this is the building finishing a job, and the point of the
+## next frame is that the board notices on its own.
+func _retire(spine: Node, job_id: String) -> void:
+	Engine.time_scale = 1.0
+	spine.call("acknowledge_job", job_id)
+	spine.call("diagnose_job", job_id)
+	var library: RefCounted = spine.get("job_library")
+	if library != null and library.call("requires_part", job_id):
+		spine.call("mark_job_awaiting_part", job_id)
+	spine.call("mark_job_repairable", job_id)
+	spine.call("record_job_repair", job_id,
+			{"quality": "good", "note": "retired for the proof sheet"})
+	spine.call("close_job", job_id)
+	print("[REGISTER SHOT] %s retired to %s" % [job_id,
+			spine.call("job_stage", job_id)])
+	Engine.time_scale = 0.0
+
+
+## One call on the production spine, with the world briefly unfrozen so the
+## owner's own signal handlers run. The register is not touched.
+func _spine(spine: Node, method: String, job_id: String) -> void:
+	Engine.time_scale = 1.0
+	spine.call(method, job_id, "reported") if method == "issue_job" \
+			else spine.call(method, job_id)
+	Engine.time_scale = 0.0
+
+
 func _finish() -> void:
 	Engine.time_scale = 1.0
 	print("[REGISTER SHOT] part '%s' frames saved to %s" % [part, out_dir])
@@ -224,6 +293,19 @@ func _aim_card() -> void:
 	var at := card.global_position
 	player.global_position = at + CARD_OFFSET - player.camera.position
 	player.camera.fov = CARD_FOV
+	player.camera.look_at(at, Vector3.UP)
+	player.camera.make_current()
+
+
+## The paper, close. Taken from the slip's own world transform.
+func _aim_slip() -> void:
+	var slip := (board as Node3D).find_child("ReportSlip", true, false) \
+			as Node3D
+	if slip == null:
+		return
+	var at := slip.global_position
+	player.global_position = at + SLIP_OFFSET - player.camera.position
+	player.camera.fov = SLIP_FOV
 	player.camera.look_at(at, Vector3.UP)
 	player.camera.make_current()
 

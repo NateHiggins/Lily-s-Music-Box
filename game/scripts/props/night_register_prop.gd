@@ -83,8 +83,25 @@ signal report_taken(job_id: String)
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
-## The job this board carries a report for. Presented, never issued.
-const JOB_ID := "lena_radiator_round_2b"
+## SR7-I -- WHICH PAPER IS ON THE SPINDLE.
+##
+## An AUTHORED ORDER, not a scan. The register presents the first of these
+## that the spine is actually holding open, and it can present nothing else.
+## Ordering them here rather than sorting a dictionary at runtime means the
+## opening report is a decision somebody wrote down, and a third job cannot
+## appear on this board by being issued somewhere.
+##
+## 001 first: Mina's chirp is the report a new watchman takes after clocking
+## in. 002 follows only when `ServiceRoundDirector` actually issues it, which
+## it gates on 001 being closed -- so the order below agrees with the order
+## production already produces, and does not impose one.
+const PRESENTABLE_JOBS := ["vantry_chirp_2a", "lena_radiator_round_2b"]
+## The stages at which a job is a paper you can hold. `missing` was never
+## issued and `closed` is finished; everything between is work in hand, and a
+## register that stopped showing a job the moment it was diagnosed would be
+## losing the paper halfway through the round.
+const PRESENTABLE_STAGES := ["issued", "acknowledged", "diagnosed",
+		"awaiting_part", "repairable", "repaired"]
 ## Where the signed lines live. A small pure-fact record beside
 ## `mail_taken` and `maintenance_items`, written only when the book is signed.
 const STATE_KEY := "night_register"
@@ -140,6 +157,15 @@ const DETENT_Z := [-0.060, -0.030, 0.000, 0.056, 0.086]
 
 var _work_orders: Node
 var _building: Node
+## SR7-I. While the board is ENGAGED -- a round open, the paper in hand, a key
+## out or a conclusion chosen -- the presented report is pinned to whatever it
+## was when the engagement began. Without this the paper could change under a
+## player who is halfway up the stairs, which is the one thing a physical
+## spindle can never do.
+var _latched_job := ""
+## What the slip is currently PRINTED with, so the engraving is reset when the
+## report changes and not on every refresh.
+var _printed_job := ""
 
 var _board: MeshInstance3D
 var _shelf: MeshInstance3D
@@ -150,6 +176,7 @@ var _desk: Node3D
 var _card: Node3D
 var _slide: Node3D
 var _card_labels: Array[Label3D] = []
+var _slip_labels: Array[Label3D] = []
 var _book: MeshInstance3D
 var _page: MeshInstance3D
 var _keys: Dictionary = {}
@@ -211,7 +238,8 @@ func _bind_owners() -> void:
 
 func _on_job_stage_changed(job_id: String, _from: String, _to: String,
 		_state: Dictionary) -> void:
-	if job_id == JOB_ID:
+	# Any presentable job: a stage change on 001 can put 002 on the spindle.
+	if job_id in PRESENTABLE_JOBS:
 		_refresh_board()
 
 
@@ -219,28 +247,106 @@ func _on_job_stage_changed(job_id: String, _from: String, _to: String,
 
 ## The stage `WorkOrders` holds for this job, or "missing". Read-only, and the
 ## single source of truth for whether a report exists at all.
-func job_stage() -> String:
-	if _work_orders == null:
+## The stage the spine holds for a job, or "missing". With no argument, for
+## whichever report is on the spindle.
+func job_stage(job_id := "") -> String:
+	var wanted := job_id if job_id != "" else presented_job_id()
+	if _work_orders == null or wanted == "":
 		return "missing"
-	return str(_work_orders.call("job_stage", JOB_ID))
+	return str(_work_orders.call("job_stage", wanted))
 
 
-## A slip is on the spindle when the spine holds a live job and nobody has
+## SR7-I -- THE SELECTION RULE, and the whole of it.
+##
+## While engaged, the latched report. Otherwise the first job in the authored
+## order that the spine is holding open. Nothing else consults job state to
+## decide what is on the spindle, and nothing writes this down: it is derived
+## on every read from `WorkOrders`, which is what makes a reload reconstruct
+## the same paper without this board persisting a word of it.
+func presented_job_id() -> String:
+	if _latched_job != "":
+		return _latched_job
+	return first_open_job()
+
+
+func first_open_job() -> String:
+	if _work_orders == null:
+		return ""
+	for job_id in PRESENTABLE_JOBS:
+		if str(_work_orders.call("job_stage", job_id)) in PRESENTABLE_STAGES:
+			return str(job_id)
+	return ""
+
+
+## Engaged: the board is in the middle of something and the paper must not
+## change under the player.
+func engaged() -> bool:
+	return round_open or slip_taken or keys_out_count() > 0 \
+			or outcome_selected()
+
+
+func latched_job() -> String:
+	return _latched_job
+
+
+## The authored record for whichever report is presented.
+func _presented_record() -> Dictionary:
+	if _work_orders == null or _work_orders.get("job_library") == null:
+		return {}
+	var job := presented_job_id()
+	if job == "":
+		return {}
+	# `MaintenanceJobLibrary` is a RefCounted, not a Node -- typing this as a
+	# Node assigns nothing and silently empties the slip.
+	var library: RefCounted = _work_orders.get("job_library")
+	return library.call("job", job)
+
+
+## A slip is on the spindle when the spine holds an open job and nobody has
 ## taken it. There is no slip for a job that was never issued: this board does
 ## not invent work.
 func slip_available() -> bool:
-	return not slip_taken and job_stage() not in ["missing", "closed"]
+	return not slip_taken and presented_job_id() != ""
+
+
+## THE NUMBER PRINTED ON THE PAPER. Split off the authored title, which reads
+## "WORK ORDER 001 - THE CHIRP": the register prints the number and the name
+## on separate lines and invents neither.
+func slip_number() -> String:
+	var title := str(_presented_record().get("title", ""))
+	if title == "":
+		return ""
+	var cut := title.find(" \u2014 ")
+	return title if cut < 0 else title.substr(0, cut)
+
+
+func slip_name() -> String:
+	var title := str(_presented_record().get("title", ""))
+	var cut := title.find(" \u2014 ")
+	return "" if cut < 0 else title.substr(cut + 3).strip_edges()
+
+
+func slip_unit() -> String:
+	var unit := str(_presented_record().get("unit", ""))
+	return "" if unit == "" else "UNIT " + unit
+
+
+## The concise symptom: the first sentence of the authored summary, which in
+## both existing records is exactly the complaint and nothing else. Reading it
+## rather than authoring a second copy here means the paper cannot drift away
+## from the job it is a paper for.
+func slip_symptom() -> String:
+	var summary := str(_presented_record().get("summary", ""))
+	if summary == "":
+		return ""
+	var stop := summary.find(". ")
+	return summary if stop < 0 else summary.substr(0, stop + 1)
 
 
 ## What the slip says, reconstructed from the job library per stage exactly as
 ## the objective tracker does. Never stored, never duplicated.
 func slip_text() -> String:
-	if _work_orders == null or _work_orders.get("job_library") == null:
-		return ""
-	# `MaintenanceJobLibrary` is a RefCounted, not a Node -- typing this as a
-	# Node assigns nothing and silently empties the slip.
-	var library: RefCounted = _work_orders.get("job_library")
-	var record: Dictionary = library.call("job", JOB_ID)
+	var record := _presented_record()
 	if record.is_empty():
 		return ""
 	return "%s\n%s" % [str(record.get("title", "")),
@@ -380,9 +486,12 @@ func take_slip() -> bool:
 		# There is nothing on the spindle to take.
 		_balk(1.0, "slip")
 		return false
-	if not slip_available():
-		# No report has been made. The board will not manufacture one, because
-		# ServiceRoundDirector owns issuing and this prop is not it.
+	var job := presented_job_id()
+	if job == "" or not slip_available():
+		# No report has been made. The board will not manufacture one: the
+		# opening report is `CoreLoopDirector.offer_opening_report()`'s to
+		# issue and Lena's is `ServiceRoundDirector`'s, and this prop is
+		# neither of them.
 		_balk(1.2, "slip")
 		return false
 	slip_taken = true
@@ -391,15 +500,18 @@ func take_slip() -> bool:
 	round_open = true
 	if _paper != null:
 		_paper.play()
+	# SR7-I: the paper is LATCHED to the id read before anything moved. From
+	# this instant the presented report cannot change under the player, and
+	# every line below acts on that one id rather than re-deriving it.
+	_latched_job = job
 	# THE ONE MUTATING CALL THIS PROP MAKES ON THE SPINE, and it is the same
-	# public call the service round makes when the player speaks to Lena.
-	# Taking the paper is acknowledging the work; it is not a second ledger,
-	# and `_advance_job` refuses it from any stage but `issued` without
-	# mutating anything.
-	if _work_orders != null and job_stage() == "issued":
-		_work_orders.call("acknowledge_job", JOB_ID)
-	if job_stage() == "acknowledged":
-		report_taken.emit(JOB_ID)
+	# public call the report's own owner makes. Taking the paper is
+	# acknowledging the work; it is not a second ledger, and `_advance_job`
+	# refuses it from any stage but `issued` without mutating anything.
+	if _work_orders != null and job_stage(job) == "issued":
+		_work_orders.call("acknowledge_job", job)
+	if job_stage(job) == "acknowledged":
+		report_taken.emit(job)
 	_refresh_board()
 	return true
 
@@ -494,7 +606,7 @@ func sign_register() -> bool:
 		"filing_printed": card_line(),
 		"report_out": slip_taken,
 		"keys_out": _keys_out_list(),
-		"job_id": JOB_ID,
+		"job_id": presented_job_id(),
 		"job_stage": job_stage(),
 	}
 	var record: Dictionary = RealityState.data.get(STATE_KEY, {})
@@ -509,6 +621,14 @@ func sign_register() -> bool:
 	# standing where it was put, because a register you have just signed
 	# should still be showing what you signed.
 	round_open = false
+	# SR7-I: AND THE INDEX GOES BACK TO THE BLANK. SR7-H left it standing on
+	# what was signed, which reads well for one photograph and is wrong for a
+	# board a building shares -- the next watchman would find a conclusion
+	# already entered, which is the one thing this selector exists to prevent.
+	# It also means a signed round leaves the board genuinely idle, so the
+	# next report can come up on the spindle. What was signed is not lost: it
+	# is the line in the book and the `filing_printed` in the record.
+	index_detent = 0
 	if _paper != null:
 		_paper.play()
 	_balk_left = 0.0
@@ -624,7 +744,10 @@ func _build_visual() -> void:
 	_spindle = make_cyl(0.0022, 0.0035, 0.230,
 			Vector3(-0.185, 0.255, 0.036), steel, 0.30, 0.70)
 	_spindle.name = "ReportSpindle"
-	_slip = make_box(Vector3(0.135, 0.175, 0.0025),
+	# SR7-I ENLARGED THE PAPER, because a slip that cannot say which report it
+	# is has to be identified from a prompt, and a prompt is not an object.
+	# 0.18 wide is what the board face allows between its cheeks.
+	_slip = make_box(Vector3(0.180, 0.205, 0.0025),
 			Vector3(-0.185, 0.250, 0.041), paper)
 	_slip.name = "ReportSlip"
 	# THE STUB. A slip does not come off a spike cleanly: it tears, and the
@@ -638,13 +761,14 @@ func _build_visual() -> void:
 	_stub.name = "ReportStub"
 	_stub.rotation.z = -0.22
 	_stub.visible = false
-	# Three ruled lines, so the slip reads as a printed form rather than a
-	# white card, and so it is legible as PAPER at a glance in a photograph.
-	for i in 3:
-		var rule := make_box(Vector3(0.100, 0.0018, 0.0006),
-				Vector3(-0.185, 0.300 - 0.030 * float(i), 0.0425),
-				Color(0.42, 0.36, 0.28))
-		rule.name = "SlipRule%d" % i
+	# The printed rule under the work-order number, and the signature rule at
+	# the foot. Everything between them is set from the job record itself.
+	var head_rule := make_box(Vector3(0.150, 0.0018, 0.0006),
+			Vector3(-0.185, 0.303, 0.0425), Color(0.42, 0.36, 0.28))
+	head_rule.name = "SlipRule0"
+	var foot_rule := make_box(Vector3(0.150, 0.0018, 0.0006),
+			Vector3(-0.185, 0.172, 0.0425), Color(0.42, 0.36, 0.28))
+	foot_rule.name = "SlipRule1"
 
 	# THE TWO HOOKS, right, with the key on one side of the fact and the
 	# numbered check on the other. A hook is never bare.
@@ -772,6 +896,92 @@ func _build_visual() -> void:
 	_knock = make_emitter("knock", -13.0)
 	_build_reaches()
 	_refresh_board()
+
+
+## SR7-I -- THE PAPER SAYS WHICH REPORT IT IS.
+##
+## Number, name, unit and the complaint, all read out of the authored job
+## record. Nothing here is a second copy of the data: change the record and
+## the paper changes, and a report the library does not hold cannot be printed
+## at all.
+##
+## Re-set only when the presented report actually changes -- `_refresh_board`
+## runs on every touch, and re-laying six labels each time would be work for
+## nothing.
+func _reprint_slip() -> void:
+	var job := presented_job_id()
+	if job == _printed_job:
+		return
+	_printed_job = job
+	for label in _slip_labels:
+		label.queue_free()
+	_slip_labels.clear()
+	if job == "":
+		return
+	_print_slip_line("SlipNumber", slip_number(), 0.318, 0.0150,
+			Color(0.16, 0.13, 0.10))
+	_print_slip_line("SlipName", slip_name(), 0.288, 0.0118,
+			Color(0.28, 0.22, 0.16))
+	_print_slip_line("SlipUnit", slip_unit(), 0.258, 0.0140,
+			Color(0.16, 0.13, 0.10))
+	var lines := _wrap(slip_symptom(), 26)
+	for i in mini(lines.size(), 4):
+		_print_slip_line("SlipSymptom%d" % i, str(lines[i]),
+				0.226 - 0.0135 * float(i), 0.0088, Color(0.30, 0.25, 0.19))
+	_refresh_slip_visibility()
+
+
+## One printed line on the slip. The slip stands in the board face, so unlike
+## the conclusion card its lettering needs no tilt at all.
+func _print_slip_line(node_name: String, text: String, y: float, em: float,
+		tint: Color) -> void:
+	if text == "":
+		return
+	var label := Label3D.new()
+	label.name = node_name
+	label.text = text
+	label.font_size = 64
+	label.pixel_size = em / 64.0
+	label.modulate = tint
+	label.outline_size = 0
+	label.position = Vector3(-0.185, y, 0.0435)
+	label.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	label.shaded = true
+	label.double_sided = false
+	add_child(label)
+	_slip_labels.append(label)
+
+
+## Greedy word wrap. The symptom is one authored sentence and the paper is
+## 0.18 m wide; something has to decide where the line ends, and doing it here
+## keeps the job record free of presentation.
+func _wrap(text: String, width: int) -> Array[String]:
+	var out: Array[String] = []
+	var line := ""
+	for word in text.strip_edges().split(" ", false):
+		var candidate := str(word) if line == "" else line + " " + str(word)
+		if candidate.length() > width and line != "":
+			out.append(line)
+			line = str(word)
+		else:
+			line = candidate
+	if line != "":
+		out.append(line)
+	return out
+
+
+func _refresh_slip_visibility() -> void:
+	var showing := slip_available()
+	if _slip != null:
+		_slip.visible = showing
+	if _stub != null:
+		_stub.visible = slip_taken
+	for i in 2:
+		var rule := get_node_or_null(NodePath("SlipRule%d" % i))
+		if rule != null:
+			(rule as MeshInstance3D).visible = showing
+	for label in _slip_labels:
+		label.visible = showing
 
 
 ## SR7-H -- THE CONCLUSION CARD AND ITS SLIDING INDEX.
@@ -1057,14 +1267,18 @@ func _process(delta: float) -> void:
 func _refresh_board() -> void:
 	if _board == null:
 		return
-	if _slip != null:
-		_slip.visible = slip_available()
-	if _stub != null:
-		_stub.visible = slip_taken
-	for i in 3:
-		var rule := get_node_or_null(NodePath("SlipRule%d" % i))
-		if rule != null:
-			(rule as MeshInstance3D).visible = slip_available()
+	# SR7-I. ONE PLACE DECIDES WHETHER THE PAPER MAY CHANGE. Engaged, the
+	# latch holds whatever was on the spindle when the engagement began;
+	# idle, there is no latch and the authored order decides afresh. A board
+	# left idle therefore picks up 002 the moment 001 closes, and a board
+	# mid-round does not.
+	if engaged():
+		if _latched_job == "":
+			_latched_job = first_open_job()
+	else:
+		_latched_job = ""
+	_reprint_slip()
+	_refresh_slip_visibility()
 
 	# A hook carries EITHER the key or the check. Never both, never neither.
 	for hook in HOOK_ORDER:
