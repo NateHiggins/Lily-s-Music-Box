@@ -16,6 +16,11 @@ uniform float gait_amount = 0.12;
 uniform float gait_hz = 0.50;
 uniform float family_motif = 0.0;
 uniform float fauna_dark_glow : hint_range(0.018, 0.10) = 0.10;
+// Production always animates from TIME. Shot harnesses may pin this clock and
+// zero the gain to price the rest of the live Dream's animation noise.
+uniform float ether_breath_gain : hint_range(0.0, 1.0) = 1.0;
+uniform float ether_time_override = -1.0;
+uniform float fauna_time_override = -1.0;
 // Existing FA2 primitives have no authored fauna COLOR/CUSTOM0 channels. The
 // ruled part kit flips this to one; until then the procedural cell field keeps
 // Slice A observable without pretending those meshes were already authored.
@@ -75,9 +80,10 @@ void vertex() {
 	fauna_data = INSTANCE_CUSTOM;
 	float flags = fauna_high_byte(INSTANCE_CUSTOM.b);
 	float activity = fauna_unit(fauna_low_byte(INSTANCE_CUSTOM.b));
+	float fauna_time = fauna_time_override >= 0.0 ? fauna_time_override : TIME;
 	float hush = fauna_flag(flags, 1.0);
 	float phase = fract(INSTANCE_CUSTOM.r) * 6.28318530718;
-	float gait = sin(TIME * 6.28318530718 * gait_hz + phase);
+	float gait = sin(fauna_time * 6.28318530718 * gait_hz + phase);
 	float live_activity = activity * (1.0 - hush);
 	float region = floor(clamp(COLOR.r, 0.0, 1.0) * 7.0 + 0.5);
 	float tracker = fauna_flag(flags, 8.0);
@@ -108,7 +114,7 @@ void vertex() {
 	float is_shed = 1.0 - step(0.5, abs(stage - 6.0));
 	float is_stain = 1.0 - step(0.5, abs(stage - 7.0));
 
-	float slow = sin(TIME * 0.9 + phase);
+	float slow = sin(fauna_time * 0.9 + phase);
 
 	// Contracted and sealed, but entire: the folded organ grips itself tightly.
 	float draw_in = 1.0 - 0.16 * is_folded;
@@ -156,7 +162,11 @@ void vertex() {
 
 void fragment() {
 	float nutrient = fauna_unit(fauna_high_byte(fauna_data.g));
-	float emergence = fauna_unit(fauna_low_byte(fauna_data.g));
+	// LC-5: every living family receives the room's one conserved ether value
+	// in the old presentation-only emergence byte. The high byte remains
+	// family-specific matter: ethermoss for Buttons, death stain for Wine
+	// Anemones, and the existing allocation/activity measure for other tissue.
+	float ether_amount = fauna_unit(fauna_low_byte(fauna_data.g));
 	float hue_jitter = fauna_unit(fauna_high_byte(fauna_data.a));
 	float pattern_jitter = fauna_unit(fauna_low_byte(fauna_data.a));
 	float ex_y = clamp(fauna_world.y / max(0.001, exposure_height),
@@ -176,6 +186,7 @@ void fragment() {
 
 	// ---- LC-3B SURFACE ---------------------------------------------------
 	float stage = fauna_stage.x;
+	float fauna_time = fauna_time_override >= 0.0 ? fauna_time_override : TIME;
 	float turgor = fauna_stage.y;
 	float sheen = fauna_stage.z;
 	float withdrawal = fauna_stage.w;
@@ -263,7 +274,7 @@ void fragment() {
 			+ pattern_jitter * 6.28318530718);
 	wine = mix(wine, wine * bruise * (0.72 + 0.42 * mottle),
 			clamp(withdrawal * 0.85, 0.0, 1.0));
-	float life = clamp(0.72 + nutrient * 0.16 + emergence * 0.12, 0.0, 1.0)
+	float life = clamp(0.72 + nutrient * 0.16 + ether_amount * 0.12, 0.0, 1.0)
 			* (0.55 + 0.45 * perfusion);
 	// Darkness contains wine matter only. Gold and jewel response are exactly
 	// multiplied by awake, so neither can self-light outside the service cone.
@@ -291,7 +302,7 @@ void fragment() {
 	// the body toward whatever it is reaching for. It is a band on existing
 	// tissue, never a beam, a particle or a glyph.
 	float band = pow(clamp(0.5 + 0.5 * sin(fauna_local.y * 15.0
-			- TIME * 4.1 + fauna_data.r * 6.28318530718), 0.0, 1.0), 3.4);
+			- fauna_time * 4.1 + fauna_data.r * 6.28318530718), 0.0, 1.0), 3.4);
 	vein = clamp(vein + band * is_exchange * 0.85, 0.0, 1.0);
 	vec3 oblique_body = wine * (0.22 + retained * 0.10)
 			+ neon_colour * vein * 0.48
@@ -318,6 +329,47 @@ void fragment() {
 	// It is still reflected lamp colour in ALBEDO, never emission.
 	ALBEDO += jewel_color * is_exchange * awake * (0.18 + band * 0.34);
 	ALBEDO += mix(base_color, jewel_color, 0.62) * is_juvenile * awake * 0.30;
+
+	// ---- LC-5 THE CLOSED BREATH -----------------------------------------
+	// One material describes three directions of the same transport medium.
+	// It never emits light or draws a free-floating volume: the apparent cold
+	// plasma is a moving reflected film attached to anatomy already submitted
+	// by the five bounded batches.
+	float is_moss = 1.0 - step(0.45, abs(family_motif - 0.0));
+	float is_reclaimer = 1.0 - step(0.45, abs(family_motif - 2.0));
+	float is_breather = (1.0 - is_moss) * (1.0 - is_reclaimer);
+	float breath_phase = fauna_data.r * 6.28318530718;
+	float ether_time = ether_time_override >= 0.0 ? ether_time_override : TIME;
+	float radial_breath = pow(clamp(0.5 + 0.5 * sin(
+			length(fauna_local.xz) * 18.0 - ether_time * 2.15 + breath_phase),
+			0.0, 1.0), 5.0);
+	float inward_breath = pow(clamp(0.5 + 0.5 * sin(
+			length(fauna_local) * 15.0 + ether_time * 2.55 + breath_phase),
+			0.0, 1.0), 6.0);
+	float return_breath = pow(clamp(0.5 + 0.5 * sin(
+			fauna_local.y * 22.0 + ether_time * 1.85 + breath_phase),
+			0.0, 1.0), 5.0);
+	float hyphae = fauna_cloisonne_wire(fauna_local * 2.35,
+			pattern_jitter, family_motif + 1.0);
+	vec3 cold_ether = mix(vec3(0.18, 0.34, 0.72), jewel_color,
+			0.34 + hue_jitter * 0.26);
+	// The bed has gold conducting hyphae and jewel vesicles. Darkness keeps
+	// only a sub-dark-glow trace; the unreliable lamp reveals the circulation.
+	// A faint continuous film establishes the medium; the narrow travelling
+	// crest establishes direction. Without the film a still frame showed only
+	// a few unrelated blue pixels and did not read as breath at gameplay range.
+	float moss_exhale = is_moss * ether_amount * (0.18 + radial_breath * 0.82);
+	float tissue_inhale = is_breather * ether_amount * (0.10 + inward_breath * 0.90);
+	float stain_return = is_reclaimer * nutrient * (0.12 + return_breath * 0.88);
+	float ether_film = clamp(ether_breath_gain * (moss_exhale * 2.80
+			+ tissue_inhale * 1.10 + stain_return * 1.50), 0.0, 0.82);
+	// A hue replacement reads as cold transport crossing warm tissue; merely
+	// adding blue to the already bright lamp response washed back to white.
+	// The target still follows awake, so this is reflected colour rather than
+	// a new light source. Lamp-off keeps only the faint 0.06 plasma trace.
+	ALBEDO = mix(ALBEDO, cold_ether * (0.06 + awake * 0.94), ether_film);
+	ALBEDO += ether_breath_gain * ruled_gold * is_moss * hyphae
+			* nutrient * awake * 0.52;
 
 	// ---- LC-4B THE STAIN --------------------------------------------------
 	// A persistent impression of withdrawn tissue. It keeps the body's own

@@ -48,12 +48,67 @@ func _run() -> void:
 	_pristine(fauna)
 	_stage_stream()
 	_stage_reaches_submission(fauna)
+	_ether_breath_submission(fauna)
 	_determinism(fauna)
 	await _stain(fauna, root)
 	_fresh_director()
 	_invariants(fauna, root, plan_before, save_before, hazards_before,
 			nodes_before)
 	_finish()
+
+
+# --- LC-5: the conserved breath reaches existing presentation --------------
+
+func _ether_breath_submission(fauna) -> void:
+	var densities: Dictionary = fauna.density_snapshot()
+	var all_share_room_ether := true
+	var roles := {}
+	var broad_moss := false
+	var moss_tracks_food := true
+	var return_tracks_stain := true
+	var saw_moss := false
+	var saw_return := false
+	for batch_name in ["GildersButtons", "Tessellates", "WineAnemones",
+			"Ribbonettes", "TheLoupe"]:
+		var rows: Dictionary = fauna.get("_records").get(batch_name, {})
+		var custom: Array = rows.get("custom", [])
+		var addresses: Array = rows.get("addresses", [])
+		var lives: Array = rows.get("life", [])
+		var xforms: Array = rows.get("xforms", [])
+		for i in mini(custom.size(), addresses.size()):
+			if str(addresses[i]).ends_with("@stain"):
+				continue
+			var parsed := DreamFaunaDirector.parse_cohort_address(str(addresses[i]))
+			if parsed.is_empty() or not densities.has(str(parsed.room_key)):
+				all_share_room_ether = false
+				continue
+			var state: Dictionary = densities[str(parsed.room_key)]
+			var cycle: Dictionary = state.ether_cycle
+			var decoded := DreamFaunaChannels.decode(custom[i])
+			all_share_room_ether = all_share_room_ether and absf(
+					float(decoded.emergence) - float(cycle.ether)) <= 1.0 / 255.0
+			if i < lives.size():
+				roles[str((lives[i] as Dictionary).get("ether_role", ""))] = true
+			if batch_name == "GildersButtons":
+				saw_moss = true
+				moss_tracks_food = moss_tracks_food and absf(
+						float(decoded.allocation) - float(cycle.ethermoss)) \
+						<= 1.0 / 255.0
+				if i < xforms.size():
+					var scale: Vector3 = (xforms[i] as Transform3D).basis.get_scale()
+					broad_moss = broad_moss or (scale.x >= 0.48
+							and scale.z >= 0.48 and scale.y <= 0.05)
+			elif batch_name == "WineAnemones":
+				saw_return = true
+				return_tracks_stain = return_tracks_stain and absf(
+						float(decoded.allocation) - float(cycle.death_stain)) \
+						<= 1.0 / 255.0
+	_check("all five existing organ batches inhale the room's conserved ether",
+			all_share_room_ether and roles.has("inhale"))
+	_check("Gilder fruiting bodies are a broad bed driven by ethermoss",
+			broad_moss and saw_moss and moss_tracks_food and roles.has("exhale"))
+	_check("Wine Anemones carry the death-stain return through the same owner",
+			saw_return and return_tracks_stain and roles.has("return"))
 
 
 # --- LC-3B: the packed stage ------------------------------------------------

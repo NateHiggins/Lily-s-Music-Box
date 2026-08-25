@@ -2357,12 +2357,20 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   photographs the first mark at 2.37× its local noise floor and returns four
   marks byte-identically after a real room revisit. Proof is at
   `art/renders/dream_fauna_lifecycle_lc4b/README.md`.
-- **LC-5 OPEN — ETHERMOSS AND BREATH PROOF.** Make the moss/fungus mat the
-  primary visible food and show cold ether exhalation, inhalation and return
-  through bounded existing field/material owners. Require unchanged A/A,
-  unreliable-lamp states, lifecycle sequence and performance measurement.
-  This is also the approved DO-3 flora implementer: Buttons open/exhale and
-  Anemones reclaim/secrete through their existing owner.
+- **LC-5 COMPLETE 2026-08-24 — ETHERMOSS AND THE CLOSED BREATH.** The existing
+  Gilder batch is now a broad composite mat whose count and spread follow the
+  conserved `ethermoss` compartment; its complete fruiting anatomy never
+  scales from zero. Every living family receives the same room `ether` byte.
+  Buttons exhale an outward cold film over gold hyphae, ordinary tissue draws
+  it inward, and Wine Anemones return death-stain matter through the same
+  shader and owner. No gas volume, particles, node, collision, light, batch,
+  draw owner or save fact was added. `DreamFaunaVisibleTest` passes 24/24,
+  lifecycle 29/29 and base fauna 29/29. The travelling phase is 1.38× its
+  equal-interval local A/A floor; the paired full-lamp control/effect holds 55
+  draws with a +1.70% capture-process delta. Deep-gutter, lamp-off and room
+  context are at `art/renders/dream_fauna_breath_lc5/README.md`. One still
+  does not clear the noise floor and is not claimed; the phase pair is the
+  visual proof. This also lands the approved DO-3 flora implementation.
 - **LC-6 OPEN — ALL-ORGANELLE ROLLOUT.** Apply the shared stages through each
   existing owner in order: flora; palp/cilia; hero; architecture; incarnation;
   co-present pursuer/hazard. A stage vocabulary is not permission to move

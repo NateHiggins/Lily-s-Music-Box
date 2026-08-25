@@ -469,8 +469,19 @@ and four marks return byte-identically after streaming away and back. Current
 proof and exact hashes are at
 `art/renders/dream_fauna_lifecycle_lc4b/README.md`. All presentation remains
 inside five batches and the 96-instance ceiling with no node, collision, light,
-save fact or extra draw. LC-5 (visible ethermoss/cold-ether breath) and LC-6
-(other organ owners) remain open.
+save fact or extra draw.
+
+LC-5 is now landed through the same five fauna batches. Gilder fruiting bodies
+form a broad composite mat driven by the conserved `ethermoss` compartment;
+all living families receive the room's conserved ether byte. Buttons exhale,
+ordinary tissue inhales and Wine Anemones return death-stain matter as moving
+reflected films in the shared shader. There is no gas volume, particle system,
+light, collision, new batch, save fact or sixth draw. The 24/24 visible test,
+29/29 lifecycle test and 29/29 base fauna test pass. Production Forward+ proof,
+unreliable-lamp states, the honest 1.38× phase-motion/A-A ruling and paired
+55-draw/+1.70% capture measurement live at
+`art/renders/dream_fauna_breath_lc5/README.md`. LC-6 (other organ owners)
+remains open.
 
 Three top-level projects:
 

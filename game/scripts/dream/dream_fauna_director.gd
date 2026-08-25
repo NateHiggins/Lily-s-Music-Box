@@ -279,8 +279,14 @@ func refresh() -> void:
 		var room_key := str(room.get("key", ""))
 		var state: Dictionary = _densities[room_key]
 		var room_life: Dictionary = state.lifecycle
+		var cycle: Dictionary = state.ether_cycle
 		var allotted := float(state.allocation)
-		var button_count := 1 + int(round(allotted * 3.0))
+		# LC-5: the Button batch is also the composite ethermoss bed. Its
+		# fruiting bodies spread with the actual conserved moss compartment,
+		# rather than merely echoing how much tissue the room allotted.
+		var moss_amount := float(cycle.ethermoss)
+		var ether_amount := float(cycle.ether)
+		var button_count := 1 + int(round(moss_amount * 5.0))
 		var tess_count := 1 + int(round(float(state.uptake) * 4.0))
 		var anemone_count := 1 + int(round(
 				(1.0-allotted+float(state.reclaimable))*1.4))
@@ -290,10 +296,17 @@ func refresh() -> void:
 		for i in button_count:
 			if button_xforms.size() >= MAX_INSTANCES: break
 			var a := phase * TAU + float(i) * 2.094
-			var at := centre + Vector3(cos(a)*0.72, 0.025, sin(a)*0.72)
+			var at := centre + Vector3(cos(a)*0.78, 0.016, sin(a)*0.78)
+			# A low, broad composite mat with complete fruiting anatomy. The
+			# Button mesh is never scaled from zero; only its cultivated footprint
+			# follows how much matter the closed ledger currently holds as moss.
+			var moss_spread := 0.48 + moss_amount * 0.42
 			button_xforms.append(Transform3D(Basis().scaled(
-					Vector3(0.20, 0.035, 0.20)), at))
+					Vector3(moss_spread, 0.040, moss_spread)), at))
 			var b_life := cohort_state(room_life, 0, i)
+			b_life["ether_role"] = "exhale"
+			b_life["ethermoss"] = moss_amount
+			b_life["ether"] = ether_amount
 			var b_hue := _genome(phase, i,
 					_genome_salt(0.37, int(b_life.reproduction)))
 			var b_pattern := _genome(phase, i,
@@ -301,8 +314,8 @@ func refresh() -> void:
 			button_life.append(b_life)
 			button_addr.append(_observe_cohort(room_key, 0, i, at,
 					int(b_life.generation), Vector2(b_hue, b_pattern)))
-			button_custom.append(DreamFaunaChannels.encode(phase, allotted,
-					allotted,
+			button_custom.append(DreamFaunaChannels.encode(phase, moss_amount,
+					ether_amount,
 					DreamFaunaChannels.FLAG_PEARL_COLONY | int(b_life.stream_flags), 0.0,
 					b_hue, b_pattern))
 		# LC-4B — WHAT DIED HERE, THROUGH THIS ROOM'S OWN GILDER ALLOCATION.
@@ -340,6 +353,8 @@ func refresh() -> void:
 			tess_xforms.append(Transform3D(Basis().scaled(
 					Vector3(size, size * 0.72, size)), at))
 			var t_life := cohort_state(room_life, 1, i)
+			t_life["ether_role"] = "inhale"
+			t_life["ether"] = ether_amount
 			var tess_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
 			tess_flags |= int(t_life.stream_flags)
 			var t_hue := _genome(phase, i,
@@ -350,7 +365,7 @@ func refresh() -> void:
 			tess_addr.append(_observe_cohort(room_key, 1, i, at,
 					int(t_life.generation), Vector2(t_hue, t_pattern)))
 			tess_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.11,
-					allotted, emergence, tess_flags, 0.0 if hush else 1.0,
+					allotted, ether_amount, tess_flags, 0.0 if hush else 1.0,
 					t_hue, t_pattern))
 		for i in anemone_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
@@ -361,6 +376,9 @@ func refresh() -> void:
 			if hush: submerged_count += 1
 			anemone_xforms.append(Transform3D(Basis().scaled(Vector3.ONE*1.12),at))
 			var a_life := cohort_state(room_life, 2, i)
+			a_life["ether_role"] = "return"
+			a_life["death_stain"] = float(cycle.death_stain)
+			a_life["ether"] = ether_amount
 			var anemone_flags := DreamFaunaChannels.FLAG_HUSH if hush else 0
 			anemone_flags |= int(a_life.stream_flags)
 			var a_hue := _genome(phase, i,
@@ -371,7 +389,7 @@ func refresh() -> void:
 			anemone_addr.append(_observe_cohort(room_key, 2, i, at,
 					int(a_life.generation), Vector2(a_hue, a_pattern)))
 			anemone_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.09,
-					1.0-allotted, float(state.reclaimable), anemone_flags,
+					float(cycle.death_stain), ether_amount, anemone_flags,
 					0.0 if hush else 1.0, a_hue, a_pattern))
 		for i in ribbon_count:
 			if _total_instances(button_xforms,tess_xforms,anemone_xforms,
@@ -382,6 +400,8 @@ func refresh() -> void:
 			ribbon_xforms.append(Transform3D(Basis(Vector3.UP,a).scaled(
 					Vector3.ONE*(1.18+float(i)*0.06)),at))
 			var r_life := cohort_state(room_life, 3, i)
+			r_life["ether_role"] = "inhale"
+			r_life["ether"] = ether_amount
 			var ribbon_flags := DreamFaunaChannels.FLAG_SIGNALLING
 			if hush: ribbon_flags |= DreamFaunaChannels.FLAG_HUSH
 			ribbon_flags |= int(r_life.stream_flags)
@@ -393,12 +413,12 @@ func refresh() -> void:
 			ribbon_addr.append(_observe_cohort(room_key, 3, i, at,
 					int(r_life.generation), Vector2(r_hue, r_pattern)))
 			ribbon_custom.append(DreamFaunaChannels.encode(phase+float(i)*0.17,
-					float(state.uptake), allotted, ribbon_flags,
+					float(state.uptake), ether_amount, ribbon_flags,
 					0.0 if hush else 1.0, r_hue, r_pattern))
 		if float(state.reclamation)>loupe_strength:
 			loupe_strength=float(state.reclamation)
 			loupe_room={"centre":centre,"frame":frame,"phase":phase,"hush":hush,
-					"key":room_key,"life":room_life}
+					"key":room_key,"life":room_life,"ether":ether_amount}
 		var room_rows: Array[String] = []
 		for i in range(button_start, button_xforms.size()):
 			room_rows.append("b:%s:%s" % [button_xforms[i].origin, button_custom[i]])
@@ -415,6 +435,8 @@ func refresh() -> void:
 		if bool(loupe_room.hush): at=loupe_room.frame+Vector3(0.0,-0.38,0.0); submerged_count+=1; hushed_count+=1
 		loupe_xforms.append(Transform3D(Basis(Vector3.UP,float(loupe_room.phase)*TAU),at))
 		var l_life := cohort_state(loupe_room.life, 4, 0)
+		l_life["ether_role"] = "inhale"
+		l_life["ether"] = float(loupe_room.ether)
 		var loupe_flags := DreamFaunaChannels.FLAG_CAMERA_TRACKER
 		if bool(loupe_room.hush): loupe_flags |= DreamFaunaChannels.FLAG_HUSH
 		loupe_flags |= int(l_life.stream_flags)
@@ -426,7 +448,7 @@ func refresh() -> void:
 		loupe_addr.append(_observe_cohort(str(loupe_room.key), 4, 0, at,
 				int(l_life.generation), Vector2(l_hue, l_pattern)))
 		loupe_custom.append(DreamFaunaChannels.encode(float(loupe_room.phase),loupe_strength,
-				loupe_strength, loupe_flags,
+				float(loupe_room.ether), loupe_flags,
 				0.0 if bool(loupe_room.hush) else 1.0,
 				l_hue, l_pattern))
 	_apply(_buttons, button_xforms, button_custom, button_addr, button_life)
