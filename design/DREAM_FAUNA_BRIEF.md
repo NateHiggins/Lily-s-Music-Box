@@ -590,8 +590,7 @@ one-sentence love letter; procedural pattern species; dark-neon line topology;
 oblique subsurface behavior; full-beam molten behavior; a disciplined token
 rotation and any proposed single new accent; gutter and retained-exposure
 behavior; all five landed fauna re-voicings; one shader/vertex-only impossible
-moment; one tender detail; a 4–8-plate manifest; and one reflected-world plate
-direction governed by `design/KLIMT_REFLECTED_WORLD_PROMPTS.md`. Accent colors
+moment; one tender detail; and a 4–8-plate manifest. Accent colors
 beyond emerald/carnelian/lapis and any plate content approaching fiction canon
 are explicit owner rulings, never implementation defaults.
 

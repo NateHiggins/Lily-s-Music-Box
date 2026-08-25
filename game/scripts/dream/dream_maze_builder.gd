@@ -610,10 +610,6 @@ static func _solid_box(parent: Node3D, node_name: String, material: Material,
 ## Motif ids, mirrored from dream_klimt.gdshader. Kept as plain ints rather
 ## than an enum because the shader uniform is an int and a mismatch here would
 ## silently paint a floor with a ceiling's pattern.
-## The equirectangular plate the molten gold mirrors. 2:1, and it must stay
-## 2:1 -- the shader samples it with atan/acos and any other ratio swims.
-const REFLECTED_WORLD_PATH := "res://assets/dream/klimt_reflected_world_v1.png"
-
 ## EN-3: tessellation cell of the dream's boxes, metres. 0.3 m puts ~30 x 11
 ## cells on a 9 x 3.2 m wall — enough for a fold to bend between them.
 const FOLD_CELL_M := 0.3
@@ -716,15 +712,10 @@ static func _klimt_material(color: Color, roughness: float,
 				% [surface, slot[1]])
 		if tex != null:
 			material.set_shader_parameter(str(slot[0]), tex)
-	# THE WORLD IN THE REFLECTION. Generated 2026-08-17 against
-	# design/KLIMT_REFLECTED_WORLD_PROMPTS.md: the residents of the Orison in
-	# gold mosaic robes, faces and hands painted, one figure without a face.
-	# It exists in no scene, has no geometry and cannot be walked to -- it is
-	# sampled ONLY by the reflection vector of molten metal, so the only way to
-	# see who lived here is to melt a wall with your lamp and catch the angle.
-	var plate: Texture2D = load(REFLECTED_WORLD_PATH)
-	if plate != null:
-		material.set_shader_parameter("reflected_world", plate)
+	# The retired shared Klimt mural is deliberately not bound here. It never
+	# read as a reflection and could leak as recognizable projected artwork onto
+	# waking surfaces. Case-incarnation materials bind only their own scoped
+	# substance bundle downstream.
 	# EN-1b (owner ruling 2026-08-21): the re-layered dream is the shipping
 	# look; DREAM_LAYERS=0 is the pre-EN-1b Klimt for A/B frames and perf,
 	# DREAM_LAYERS=<mask> photographs a subset (1 base, 2 flesh, 4 skin,

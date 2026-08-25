@@ -24,12 +24,8 @@ var out_dir := ""
 
 ## Building coordinates. The apparatus is on the east wall face at (5.24,
 ## -6.75); the lobby is west of it.
-## Aimed slightly NORTH of the apparatus rather than square at it. Square-on,
-## the frame's right-hand third catches the mail bank -- and with it a
-## production artifact that has nothing to do with this apparatus: the Dream's
-## `klimt_reflected_world_v1` plate is visible in the waking lobby (see the
-## README). Turning a few degrees up the wall keeps the subject clean without
-## moving the apparatus or touching anything that causes it.
+## Aimed slightly north of the apparatus so the works stay legible beside the
+## mail bank without moving either production assembly.
 const WORKS_EYE := [4.16, -6.62, 1.48]
 const WORKS_AIM := [5.14, -6.70, 1.34]
 const WORKS_FOV := 34.0

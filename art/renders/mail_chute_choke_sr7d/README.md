@@ -115,28 +115,18 @@ single arrival than to the entire difference between choked and clear.
 Weakest claim on the sheet: the arch dropping, 3.8× its floor. Strongest: the
 test piece arriving, 32×.
 
-## What this sheet does NOT prove, and one defect it exposes
+## What this sheet does NOT prove, and one retired render defect
 
 - **It does not show a multi-floor shaft, because there is not one.** The chute
   runs up into the lobby ceiling and stops. No upper landing has a letter slot
   in production, so the activity's Orison line — a letter posted on a floor with
   no slot — is currently an anomaly with no family. Building the upper slots and
   a traversable barrel is the obvious follow-up and is deliberately not claimed.
-- **An unrelated production defect is visible in these frames and I did not
-  cause it.** A Dream asset is rendering in the waking lobby:
-  `game/assets/dream/klimt_reflected_world_v1.png`, the Dream maze's
-  equirectangular "reflected world" mural, appears as a large gold Klimt plate
-  across the lower right of the wall — most obvious in `02_lobby_wall_context`
-  and along the right edge of the works frames. Its only binding in the
-  codebase is as the `reflected_world` shader uniform on the Dream's Klimt gold
-  material (`dream_maze_builder.gd:725`), whose own comment states it is
-  "sampled ONLY by the reflection vector of molten metal" — i.e. it should
-  never be visible outside the Dream. It is **not** the player's lamp: the
-  lamp's projector cookie bakes from `assets/ui/phone/mask_clean|cracked|haze.png`,
-  which are correct torch patterns. The same artifact appears in the SR7-B
-  elevator frames, so it predates this apparatus. The works and box cameras were
-  turned a few degrees north to keep it off the subject; it is **reported, not
-  repaired**, because the Dream lane is reserved this round.
+- **Historical render defect:** these frozen frames captured the now-retired
+  shared Klimt mural leaking onto the waking lobby wall. The player's lamp
+  cookie was not responsible. The mural and its base-material binding were
+  subsequently removed; these PNGs remain immutable evidence of the apparatus
+  review rather than a statement of current presentation.
 
 ## Executable proof
 

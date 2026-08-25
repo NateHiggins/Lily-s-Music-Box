@@ -578,9 +578,8 @@ vec3 fake_env(vec3 r, vec3 hot, vec3 cool) {
 // so the only way to see it is to melt a surface with your lamp and catch it
 // at the right angle. Look directly and there is nothing there.
 //
-// `reflected_world` is unset until the plate is generated
-// (design/KLIMT_REFLECTED_WORLD_PROMPTS.md), and the procedural studio below
-// stands in meanwhile so the metal always has something to mirror.
+// The retired shared Klimt mural is never bound to base architecture. The
+// sampler remains for case-scoped incarnation materials only.
 uniform float reflected_world_gain : hint_range(0.0, 4.0) = 1.0;
 
 // THE WORLD IN THE GOLD -- PROJECTED, NOT MIRRORED, AND THAT IS A CORRECTION.

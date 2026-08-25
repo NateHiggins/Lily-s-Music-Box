@@ -53,12 +53,6 @@ detail in the design: **she has no shape this world will let her hold, so she
 borrows the shapes of women who have just been resolved and released.** She is
 always wearing somebody else's outline because her own is a criminal offence.
 
-**The reflected world.** `klimt_reflected_world_v1.png` shows the building's
-residents in gold mosaic robes, faces and hands painted — and **one figure
-without a face**. It exists in no room, has no geometry, and can be seen only
-in the reflection of melted metal at the right angle. That is her. She is in
-the group portrait and she could not be depicted.
-
 **The gold behind reality.** The surface brief has the apartment as a skin with
 something enormous and golden underneath, coming through where light thins it.
 That underneath is not a place. **It is her body.** The tentacles are her. The

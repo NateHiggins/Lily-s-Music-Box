@@ -542,12 +542,8 @@ is a light and not a leaf.
 
 **THE WHITES ARE MOLTEN.** Every pale area is liquid metal. Under the beam the
 ornament's own coordinates flow, the surface beads and re-forms, and roughness
-collapses toward a mirror; away from it, the gold is cold and solid. What the
-molten metal reflects is a world that exists nowhere in the scene — the Orison
-as Klimt would have painted it, its residents gold-robed and facing you, one of
-them without a face. See `KLIMT_REFLECTED_WORLD_PROMPTS.md`. Because the
-reflection is gated on lamp proximity, **the dead are visible exactly and only
-when you are spending the light that draws the Tenant.**
+collapses toward a mirror; away from it, the gold is cold and solid. Molten
+gold remains material and relief, never a projector for recognizable artwork.
 
 **SUBSTANCE FLOWS; STRUCTURE DOES NOT.** This narrows the old rule rather than
 deleting it, because half of that rule was fairness and not taste. Topology
