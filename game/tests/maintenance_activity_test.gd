@@ -9,22 +9,24 @@ func _ready() -> void:
 	_check(library.is_valid(), "maintenance activity book validates")
 	# SR6 landed the first round -- apartment, lobby, basement. SR7 adds the
 	# vertical apparatus one at a time: SR7-A the dumbwaiter's holding brake,
-	# SR7-B the passenger lift's landing-door interlock. The assertion stays
-	# CLOSED rather than becoming a subset check, so a stray sixth activity
-	# still fails this line loudly.
+	# SR7-B the passenger lift's landing-door interlock, SR7-C the roof
+	# house-tank ball cock. The assertion stays CLOSED rather than becoming a
+	# subset check, so a stray seventh activity still fails this line loudly.
 	_check(library.activity_ids() == (["annunciator_flag_service",
 			"boiler_water_column_test", "dumbwaiter_brake_service",
-			"elevator_interlock_proof",
-			"radiator_vent_service"] as Array[String]),
-			"the round is apartment, lobby, basement and two vertical machines")
-	# Four of the six ruled transferable verbs are now spoken, each by exactly
-	# one apparatus. Timing is the only one still unclaimed.
+			"elevator_interlock_proof", "radiator_vent_service",
+			"roof_tank_ballcock_service"] as Array[String]),
+			"the round runs apartment, lobby, basement, two shafts and the roof")
+	# All six ruled transferable verbs are now spoken, each by exactly one
+	# apparatus. The vocabulary is complete; a seventh machine must reuse one
+	# deliberately rather than invent a word.
 	_check({
 		"radiator_vent_service": "flow",
 		"annunciator_flag_service": "contact",
 		"boiler_water_column_test": "pressure",
 		"dumbwaiter_brake_service": "regulation",
 		"elevator_interlock_proof": "continuity",
+		"roof_tank_ballcock_service": "timing",
 	} == _transferable_verbs(library),
 			"each period mechanism names one transferable physical verb")
 	for activity_id in library.activity_ids():

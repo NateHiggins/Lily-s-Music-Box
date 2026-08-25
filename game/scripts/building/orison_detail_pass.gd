@@ -252,6 +252,32 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])
 		floor_nodes["F01"].add_child(bench)
+	if floor_nodes.has("ROOF"):
+		# SR7-C: the house-tank ball cock, on the south face of the timber
+		# water tank the generator already bakes at building (-9.45, 4.95) on
+		# four cast-iron legs.
+		#
+		# The tank is real and predates this: what it never had was a
+		# mechanism, an inlet, or the overflow that `art/data/gen_layout.py`
+		# already claims the roof water butt stands under. The apparatus is
+		# hung on the south face near the west end so its overflow discharges
+		# over that butt, and so the cock, its seat, the riser stop and the
+		# lever weight all land at a standing hand's height on the deck while
+		# the float rides high in its guard where it can be read.
+		#
+		# No rotation: b2g maps building -y to Godot +z and the open roof lies
+		# at -y from the tank, so an unrotated prop already faces the deck.
+		#
+		# The height is ABSOLUTE, not floor-local. The F01 props above happen
+		# to read either way because F01 sits at z 0; the ROOF floor node is
+		# likewise at the origin and its glTF carries the 19.2 internally, so
+		# a roof prop placed at a local 1.30 lands inside the basement. The
+		# live test asserts the global height for exactly this reason.
+		var ballcock := RoofTankBallcockProp.new()
+		ballcock.name = "ROOF_TANK_BALLCOCK"
+		ballcock.prop_type = "tank_ballcock"
+		ballcock.position = GameBoot.b2g([-9.05, 4.90, 19.2 + 1.30])
+		floor_nodes["ROOF"].add_child(ballcock)
 	# Opening night: the building starts sealed. Deferred so every door
 	# has finished spawning before the locks turn.
 	_lockdown_layout = layout

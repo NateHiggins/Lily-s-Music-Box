@@ -111,6 +111,29 @@
         "note": "bridging wire removed; keeper trued and the landing interlock proved by refusal",
         "mechanism_patch": {"jumper_present": false, "keeper_true": 0.78, "door_home": 1.0, "interlock_proved": true}
       }
+    },
+    "roof_tank_ballcock_service": {
+      "title": "THE FLOAT DOES NOT KNOW",
+      "apparatus": "roof house-tank ball cock, float and overflow",
+      "location_lane": "roof",
+      "historical_source": "Ball or float cock with grooved spindle, renewable seating and a lever weight adjustable to suit different water pressures, T. Hill and J. Houghton, GB 190,216,359, 1902; balanced ball cock closed tightly by a small float, F. Biedenmeister, US 951,172, filed 1909 and granted 1910",
+      "transferable_verb": "timing",
+      "story": {
+        "material": "A float does not know the water level. It makes a force, and that force has to beat what the seat and the supply between them demand. A waterlogged float still rises, and the arm still reads full, and it closes nothing at all.",
+        "human": "The overflow has been running down the back wall long enough to leave a pale stripe in the brick, and nobody on the top floor has had a decent bath in a month.",
+        "orison": "The overflow runs on with the riser shut and the tank standing empty."
+      },
+      "steps": [
+        {"id": "read_the_float", "verb": "align", "target": 0.86, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Bring the tell-tale across to the float and read it against the full mark.", "confirmation": "The float is riding at the full mark. The overflow is still running."},
+        {"id": "shut_the_riser", "verb": "turn", "target": 0.0, "tolerance": 0.07, "expected_seconds": 6.0, "cue": "Shut the riser stop under the tank so the cock stops feeding while you work.", "confirmation": "The inlet goes quiet. Only the overflow is still talking."},
+        {"id": "lift_the_float", "verb": "hold_release", "target": 0.55, "tolerance": 0.10, "hold_min_seconds": 1.6, "expected_seconds": 8.0, "cue": "Hold the float up off its rod until it stops draining, then let it back down.", "confirmation": "It pours from a split seam. It has been carrying water, not lifting against it."},
+        {"id": "set_the_weight", "verb": "turn", "target": 0.64, "tolerance": 0.07, "expected_seconds": 8.0, "cue": "Run the lever weight out until the arm can close against today's supply pressure.", "confirmation": "The arm has leverage again instead of hope."},
+        {"id": "prove_the_hold", "verb": "hold_release", "target": 0.91, "tolerance": 0.06, "hold_min_seconds": 2.0, "expected_seconds": 8.0, "cue": "Open the riser and hold on the witness until the overflow runs dry.", "confirmation": "The witness dries and stays dry. That is the only proof there is."}
+      ],
+      "completion": {
+        "note": "float drained and reseated; lever weight set to the riser pressure and the cock proved dry on the witness",
+        "mechanism_patch": {"float_waterlogged": false, "weight_set": 0.64, "riser_open": true, "overflow_running": false, "ballcock_serviced": true}
+      }
     }
   }
 }
