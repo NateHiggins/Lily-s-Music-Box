@@ -79,6 +79,7 @@ extends FunctionalProp
 ## OUTWARD along +z toward the room.
 
 signal register_signed(record: Dictionary)
+signal report_taken(job_id: String)
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
@@ -276,6 +277,8 @@ func take_slip() -> bool:
 	# mutating anything.
 	if _work_orders != null and job_stage() == "issued":
 		_work_orders.call("acknowledge_job", JOB_ID)
+	if job_stage() == "acknowledged":
+		report_taken.emit(JOB_ID)
 	_refresh_board()
 	return true
 

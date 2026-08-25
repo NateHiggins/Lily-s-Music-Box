@@ -628,8 +628,18 @@ func _ready() -> void:
 	virus_director.setup(self)
 	first_shift_director = FirstShiftDirector.new()
 	first_shift_director.name = "FirstShiftDirector"
-	first_shift_director.setup(self, objective_tracker, virus_director)
+	first_shift_director.setup(self, objective_tracker, virus_director, work_orders)
 	add_child(first_shift_director)
+	# The detector is the physical hand of the opening ritual. It gains no
+	# WorkOrders or case reference: the first-shift owner remains the seam.
+	var watchman_detector := find_child(
+			"F01_WATCHMAN_DETECTOR", true, false) as WatchmanClockProp
+	if watchman_detector != null:
+		watchman_detector.bind_first_shift(first_shift_director)
+	var night_register := find_child(
+			"F01_NIGHT_REGISTER", true, false) as NightRegisterProp
+	if night_register != null:
+		night_register.report_taken.connect(first_shift_director.accept_report)
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)

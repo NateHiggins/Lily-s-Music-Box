@@ -39,6 +39,9 @@ func _fresh_data() -> Dictionary:
 		"maintenance_items": {},
 		"organism_incidents": {},
 		"core_loop": {},
+		# The opening ritual only: which desk action the player has physically
+		# reached. WorkOrders and RealityCases continue to own every job/case fact.
+		"first_shift": {},
 		"dream_seed": _new_dream_seed(),
 		# HOW MANY NIGHTS THIS CAMPAIGN HAS HAD. The fractal Orison decays as
 		# a pure function of (seed, room, nights) and stores no map, so this

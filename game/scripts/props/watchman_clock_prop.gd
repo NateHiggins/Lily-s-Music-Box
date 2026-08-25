@@ -71,6 +71,7 @@ const STATION_RADII := [0.030, 0.044, 0.058, 0.072, 0.086, 0.100]
 
 var _service_panel: MaintenanceActivityPanel
 var _clock_source: Node
+var _first_shift: FirstShiftDirector
 
 ## The two pivots this apparatus turns on, and the whole thesis in two nodes.
 ## `_arbor` is the spindle: it carries the drive pin and it turns with the
@@ -338,9 +339,33 @@ func _build_detector_reach() -> void:
 
 # --- interaction -------------------------------------------------------------
 
+## Routine watch duty and detector maintenance meet at the same cabinet, but
+## they are not the same mutation. The director owns the opening ritual; this
+## prop merely provides its physical hand. In particular, clocking in never
+## sets `dial_seated`, `datum_set` or `detector_honest` behind SR7-F's guard.
+func bind_first_shift(director: FirstShiftDirector) -> void:
+	_first_shift = director
+
+
+func _ritual_phase() -> String:
+	if _first_shift == null or not is_instance_valid(_first_shift):
+		return ""
+	return _first_shift.ritual_phase()
+
 func control_prompt(control_id: String) -> String:
 	if control_id != "detector":
 		return ""
+	match _ritual_phase():
+		FirstShiftDirector.PHASE_ARRIVED:
+			return "[E]  Clock in — seat tonight's paper"
+		FirstShiftDirector.PHASE_CLOCKED_IN:
+			return "Shift open — read the waiting reports"
+		FirstShiftDirector.PHASE_REPORT_ACCEPTED:
+			return "Shift open — make your round"
+		FirstShiftDirector.PHASE_RETURNED:
+			return "Shift open — file the report"
+		FirstShiftDirector.PHASE_FILED:
+			return "[E]  Clock out — remove tonight's paper"
 	if not detector_honest:
 		return "[E]  Read the watchman's dial"
 	return "[E]  Check the watchman's dial"
@@ -349,11 +374,41 @@ func control_prompt(control_id: String) -> String:
 func interact_control(control_id: String, player: Node) -> bool:
 	if control_id != "detector":
 		return false
+	if _perform_ritual_action():
+		return true
+	if _ritual_owns_clock():
+		return true
 	return _begin_detector_service(player)
 
 
 func interact(player: Node) -> void:
+	if _perform_ritual_action():
+		return
+	if _ritual_owns_clock():
+		return
 	_begin_detector_service(player)
+
+
+func _perform_ritual_action() -> bool:
+	if _first_shift == null or not is_instance_valid(_first_shift):
+		return false
+	var worked := false
+	match _first_shift.ritual_phase():
+		FirstShiftDirector.PHASE_ARRIVED:
+			worked = _first_shift.clock_in()
+		FirstShiftDirector.PHASE_FILED:
+			worked = _first_shift.clock_out()
+	if worked and _punch != null:
+		_punch.play()
+	return worked
+
+
+func _ritual_owns_clock() -> bool:
+	return _ritual_phase() in [
+		FirstShiftDirector.PHASE_CLOCKED_IN,
+		FirstShiftDirector.PHASE_REPORT_ACCEPTED,
+		FirstShiftDirector.PHASE_RETURNED,
+	]
 
 
 func _begin_detector_service(player: Node) -> bool:

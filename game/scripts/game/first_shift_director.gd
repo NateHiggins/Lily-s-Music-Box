@@ -4,9 +4,25 @@ extends Node
 ## It deliberately delegates the camera and sound work to VirusSoundDirector;
 ## campaign state, startup policy, and the first actionable objective live here.
 
+signal ritual_changed(phase: String, state: Dictionary)
+
+const PHASE_ARRIVED := "arrived"
+const PHASE_CLOCKED_IN := "clocked_in"
+const PHASE_REPORT_ACCEPTED := "report_accepted"
+const PHASE_RETURNED := "returned"
+const PHASE_FILED := "filed"
+const PHASE_COMPLETE := "complete"
+const FILING_OUTCOMES: Array[String] = [
+	"fault_corrected",
+	"disturbance_persists",
+	"no_fault_found",
+	"access_unsuccessful",
+]
+
 var building: Node3D
 var tracker: ObjectiveTracker
 var intro: VirusSoundDirector
+var work_orders: WorkOrders
 
 ## The shift begins on the south walk, just outside the passenger side of the
 ## eastbound car. Looking across the road teaches the complete 30 ft crossing
@@ -17,10 +33,12 @@ const ARRIVAL_LOOK_TARGET_B := Vector3(0.0, -9.82, 2.15)
 
 
 func setup(root: Node3D, objective_tracker: ObjectiveTracker,
-		intro_director: VirusSoundDirector) -> void:
+		intro_director: VirusSoundDirector,
+		order_spine: WorkOrders = null) -> void:
 	building = root
 	tracker = objective_tracker
 	intro = intro_director
+	work_orders = order_spine
 
 
 func _ready() -> void:
@@ -55,9 +73,111 @@ func begin_first_shift() -> bool:
 	RealityState.commit()
 	if tracker:
 		tracker.show_objective("FIRST SHIFT — ORISON APARTMENTS",
-				"Report for Realty Maintenance. The extra I is not a typo. " +
-				"The building has left a work order at the lobby terminal.")
+				"Report to the watchman's station. Seat the paper, take one " +
+				"report, and sign out only the keys you need.")
+	_emit_ritual()
 	return true
+
+
+## The ritual is deliberately thinner than the systems it joins. It records
+## what the player physically did at the desk, never a copy of a job or case.
+func ritual_state() -> Dictionary:
+	return _ritual().duplicate(true)
+
+
+func ritual_phase() -> String:
+	return str(_ritual().get("phase", PHASE_ARRIVED))
+
+
+func clock_in() -> bool:
+	if not bool(RealityState.data.get("intro_complete", false)) \
+			or ritual_phase() != PHASE_ARRIVED:
+		return false
+	var state := _ritual()
+	state.phase = PHASE_CLOCKED_IN
+	_commit_ritual()
+	_show("NIGHT REGISTER", "Read the waiting reports. Take one; the clock records the shift, not the case.")
+	return true
+
+
+## Accepting the paper is the sole onboarding seam between the physical desk
+## and the two existing authorities. The job must already exist as issued work.
+func accept_report(job_id: String) -> bool:
+	if ritual_phase() != PHASE_CLOCKED_IN or work_orders == null \
+			or work_orders.job_stage(job_id) not in ["issued", "acknowledged"]:
+		return false
+	var spec: Dictionary = work_orders.job_library.job(job_id) \
+			if work_orders.job_library != null else {}
+	if spec.is_empty():
+		return false
+	if work_orders.job_stage(job_id) == "issued" \
+			and not work_orders.acknowledge_job(job_id):
+		return false
+	var case_id := str(spec.get("case_id", ""))
+	if not case_id.is_empty():
+		var case_state := RealityState.case_state(case_id)
+		if case_state.is_empty() or str(case_state.get("stage", "unseen")) == "unseen":
+			RealityCases.activate_case(case_id)
+	var state := _ritual()
+	state.phase = PHASE_REPORT_ACCEPTED
+	state.report_id = job_id
+	_commit_ritual()
+	return true
+
+
+func return_to_station() -> bool:
+	if ritual_phase() != PHASE_REPORT_ACCEPTED or work_orders == null:
+		return false
+	var job_id := str(_ritual().get("report_id", ""))
+	if work_orders.job_stage(job_id) not in ["repaired", "closed"]:
+		return false
+	_ritual().phase = PHASE_RETURNED
+	_commit_ritual()
+	_show("NIGHT REGISTER", "Return the keys. File what happened—not what you think happened.")
+	return true
+
+
+func file_outcome(outcome: String) -> bool:
+	if ritual_phase() != PHASE_RETURNED or outcome not in FILING_OUTCOMES:
+		return false
+	var state := _ritual()
+	state.phase = PHASE_FILED
+	state.filing = outcome
+	_commit_ritual()
+	_show("NIGHT REGISTER", "Remove the detector dial and clock out.")
+	return true
+
+
+func clock_out() -> bool:
+	if ritual_phase() != PHASE_FILED:
+		return false
+	_ritual().phase = PHASE_COMPLETE
+	_commit_ritual()
+	return true
+
+
+func _ritual() -> Dictionary:
+	if not RealityState.data.has("first_shift") \
+			or RealityState.data.first_shift is not Dictionary:
+		RealityState.data.first_shift = {}
+	var state: Dictionary = RealityState.data.first_shift
+	if not state.has("phase"):
+		state.phase = PHASE_ARRIVED
+	return state
+
+
+func _commit_ritual() -> void:
+	RealityState.commit()
+	_emit_ritual()
+
+
+func _emit_ritual() -> void:
+	ritual_changed.emit(ritual_phase(), ritual_state())
+
+
+func _show(title: String, text: String) -> void:
+	if tracker:
+		tracker.show_objective(title, text)
 
 
 func _on_intro_finished() -> void:
