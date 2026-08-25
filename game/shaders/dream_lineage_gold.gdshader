@@ -70,6 +70,10 @@ uniform float tissue_fold_scale : hint_range(0.25, 8.0) = 1.35;
 uniform float tissue_transmission : hint_range(0.0, 2.0) = 0.72;
 uniform float wet_specular_gain : hint_range(0.0, 3.0) = 1.15;
 uniform float gold_vessel_width : hint_range(0.72, 0.98) = 0.925;
+// The existing bounded passage clock names the co-present body's age. This
+// changes pigment and local afterglow only: vertex anatomy and collision stay
+// complete at every stage. 0 folded ... 7 stain.
+uniform int encounter_lifecycle_stage : hint_range(0, 7) = 3;
 uniform int eye_debug_view : hint_range(0, 2) = 0;
 uniform int breach_debug_view : hint_range(0, 2) = 0;
 // 1 shows infection/rupture/gold, 2 isolates the bounded aperture warp field.
@@ -381,6 +385,30 @@ void fragment() {
 			+ lit_body * 0.035
 			+ cooled_phase_gold * phase_state.z
 			* (0.035 + vein * 0.065);
+
+	// One restrained chromatic sentence across the passage: buried wine,
+	// perfused youth, a brief vascular exchange, then dry ash and residue.
+	// It deliberately avoids grids, projection imagery and silhouette scale.
+	float encounter_stage = float(encounter_lifecycle_stage);
+	float folded = 1.0 - step(0.5, encounter_stage);
+	float bud = 1.0 - step(0.5, abs(encounter_stage - 1.0));
+	float juvenile = 1.0 - step(0.5, abs(encounter_stage - 2.0));
+	float exchange = 1.0 - step(0.5, abs(encounter_stage - 4.0));
+	float senescent = 1.0 - step(0.5, abs(encounter_stage - 5.0));
+	float shed = 1.0 - step(0.5, abs(encounter_stage - 6.0));
+	float stain = step(6.5, encounter_stage);
+	ALBEDO *= 1.0 - folded * 0.42;
+	ALBEDO = mix(ALBEDO, ALBEDO * vec3(1.14, 0.70, 0.82), bud * 0.42);
+	ALBEDO = mix(ALBEDO, ALBEDO * vec3(1.12, 0.86, 0.96), juvenile * 0.30);
+	ALBEDO += vec3(0.025, 0.055, 0.050) * anatomy_line * exchange;
+	vec3 dry_body = vec3(dot(ALBEDO, vec3(0.30, 0.59, 0.11)))
+			* vec3(0.72, 0.61, 0.50);
+	ALBEDO = mix(ALBEDO, dry_body, senescent * 0.34 + shed * 0.58);
+	ALBEDO = mix(ALBEDO, vec3(0.075, 0.038, 0.043)
+			* (0.72 + cells * 0.20), stain * 0.72);
+	EMISSION *= 1.0 - folded * 0.48 - senescent * 0.12
+			- shed * 0.30 - stain * 0.62;
+	EMISSION += vec3(0.018, 0.045, 0.040) * anatomy_line * exchange;
 
 	// ARCHITECTURE TORN INTO THE BODY. Class .75 is shattered plaster/rubble;
 	// class 1.0 is exposed lath. They are real geometry but stay dim enough that

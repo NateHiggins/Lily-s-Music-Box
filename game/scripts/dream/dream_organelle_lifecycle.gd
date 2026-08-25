@@ -16,6 +16,7 @@ const REPRODUCTION_NAMES := ["quiescent", "asexual", "sexual", "pansexual"]
 const STAGE_ENDS := [0.08, 0.18, 0.38, 0.65, 0.78, 0.90, 0.97, 1.0]
 const MIN_LIFE_S := 45.0
 const MAX_LIFE_S := 150.0
+const ENCOUNTER_STAGE_ENDS := [0.04, 0.14, 0.28, 0.62, 0.75, 0.88, 0.96]
 
 
 static func stage_at(progress: float) -> int:
@@ -28,6 +29,19 @@ static func stage_at(progress: float) -> int:
 
 static func stage_name(stage: int) -> String:
 	return STAGE_NAMES[clampi(stage, 0, STAGE_NAMES.size() - 1)]
+
+
+## Names the passage of an existing bounded encounter. This borrows the
+## owner's run clock and ceiling; it creates no second clock and changes no
+## pursuit or hazard rule. Unbounded harnesses rest at the functional middle.
+static func bounded_run_stage(elapsed_s: float, run_cap_s: float) -> int:
+	if run_cap_s <= 0.0:
+		return Stage.MATURE
+	var phase := clampf(elapsed_s / run_cap_s, 0.0, 1.0)
+	for index in ENCOUNTER_STAGE_ENDS.size():
+		if phase < float(ENCOUNTER_STAGE_ENDS[index]):
+			return index
+	return Stage.STAIN
 
 
 static func reproduction_name(mode: int) -> String:

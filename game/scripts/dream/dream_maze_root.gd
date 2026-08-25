@@ -520,6 +520,8 @@ func _build_hazard_growth() -> void:
 	material.set_shader_parameter("tissue_transmission", 0.54)
 	material.set_shader_parameter("wet_specular_gain", 1.15)
 	material.set_shader_parameter("gold_vessel_width", 0.958)
+	material.set_shader_parameter("encounter_lifecycle_stage",
+			DreamOrganelleLifecycle.bounded_run_stage(run_elapsed_s, run_cap_s))
 	material.set_shader_parameter("phase_stage_thresholds",
 			Vector4(0.10, 0.34, 0.48, 0.78))
 	material.set_shader_parameter("phase_gold_thresholds", Vector2(0.70, 0.92))
@@ -541,6 +543,7 @@ func _build_hazard_growth() -> void:
 			float(absi(str(dream_context.get("seed_hex", "")).hash()) & 4095)
 			/ 4095.0 * TAU)
 	_hazard_growth.material_override = material
+	_update_encounter_lifecycle()
 	# The main camera sees every layer. The R6 camera excludes this one so the
 	# surface sampling its feed can never appear inside that feed.
 	_hazard_growth.layers = \
@@ -1522,6 +1525,7 @@ func _practical_is_visible(index: int) -> bool:
 
 func _physics_process(delta: float) -> void:
 	if maze_built:
+		_update_encounter_lifecycle()
 		player.set_lamp_gutter_clock(run_elapsed_s)
 		# BEFORE anything reads the plan this frame. Crossing a threshold
 		# rebuilds the pocket, and the practicals, hazards and molten
@@ -1550,6 +1554,33 @@ func _physics_process(delta: float) -> void:
 	run_elapsed_s += delta
 	if run_elapsed_s >= run_cap_s:
 		_cap_fold()
+
+
+## LC-6F: one classifier, borrowing the passage clock, shared by the Tenant,
+## hazards and their already-batched material. It owns no gameplay decision.
+func _update_encounter_lifecycle() -> void:
+	var stage := DreamOrganelleLifecycle.bounded_run_stage(
+			run_elapsed_s, run_cap_s)
+	_apply_encounter_lifecycle(stage)
+
+
+## Separated so visual proof can hold every other run-clock consumer fixed and
+## vary only this classified presentation. Production calls it only through
+## `_update_encounter_lifecycle()` above.
+func _apply_encounter_lifecycle(stage: int) -> void:
+	if pursuer != null:
+		pursuer.lifecycle_stage = stage
+	if hazards != null:
+		hazards.lifecycle_stage = stage
+		for hazard in hazards.hazards:
+			hazard.lifecycle_stage = stage
+	if _hazard_growth != null and is_instance_valid(_hazard_growth):
+		_hazard_growth.set_meta("lifecycle_stage", stage)
+		_hazard_growth.set_meta("lifecycle_stage_name",
+				DreamOrganelleLifecycle.stage_name(stage))
+		var material := _hazard_growth.material_override as ShaderMaterial
+		if material != null:
+			material.set_shader_parameter("encounter_lifecycle_stage", stage)
 
 
 func _setup_channel_grammar() -> void:

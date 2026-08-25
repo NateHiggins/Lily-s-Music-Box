@@ -275,21 +275,20 @@ mandatory 60-second process limit; do not claim a fresh FULL pass. Evidence:
 `art/renders/dream_irradiance_v1/README.md`. The owner has now queued the six
 case-specific surface incarnations in DREAM_FAUNA_BRIEF V14 and TASKS INC-V0–9.
 They are presentation love letters over the landed profile/irradiance seams,
-not six shader forks or new case owners. The old no-bitmap law is retained as
-history but superseded: procedure owns semantic masks/lines/state/gameplay
-readability, while AI-derived plates may supply region substance and molten
-reflected worlds through the existing ignored-source/shipped-derivative
-pipeline. `design/SIX_INCARNATIONS.md` is owner-approved. INC-V1's bounded
+not six shader forks or new case owners. Procedure owns semantic
+masks/lines/state/gameplay readability; AI-derived plates now supply region
+substance only through the ignored-source/shipped-derivative pipeline.
+Reflected-world image plates were retired in full by owner ruling. INC-V1's bounded
 profile bundle now reaches the existing architecture, lineage and five fauna
 materials through the existing collector while adding no node, draw, gameplay
 branch or save fact. `DreamIncarnationTest` passes 28/28; Profile 46/46,
-Irradiance 16/16 and Fauna 21/21 also pass. INC-V2 is landed too: the 30-key
+Irradiance 16/16 and Fauna 21/21 also pass. INC-V2 is landed too: the 24-key
 ingest manifest, provenance-note rule and whole-dream import-sidecar coverage
-feed one root-owned RefCounted cache. It holds exactly 17 active maps, computes
-the lossless full-mip ceiling as 100,663,284 bytes (96.00 MiB), substitutes no
+feed one root-owned RefCounted cache. It holds exactly 16 active maps, computes
+the lossless full-mip ceiling as 55,924,040 bytes (53.33 MiB), substitutes no
 case and releases every reference on exit. The ingest audit passes; plate proof
-is 6/6. No case is marked available until all five reviewed sets ship. INC-V3
-Mina is next. No new accent color was introduced; reflected-world people and
+is 6/6. No case is marked available until all four reviewed sets ship. INC-V3
+Mina is next. No new accent color was introduced; image-projected people and
 the older faceless figure are explicitly excluded.
 The audit's pre-C1 anchor appendix is
 superseded and does not reopen the landed commensal proof. Separately, waking-world

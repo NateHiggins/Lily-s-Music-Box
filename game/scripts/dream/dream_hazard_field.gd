@@ -19,6 +19,7 @@ signal hazard_contact(hazard_id: String, outcome: String)
 var hazards: Array[DreamHazard] = []
 var player: Node3D
 var elapsed_s := 0.0
+var lifecycle_stage := DreamOrganelleLifecycle.Stage.MATURE
 
 ## Everything a player could have perceived, in order. The identification
 ## harness is only ever allowed to read THIS -- never the plan, never a
@@ -30,6 +31,20 @@ var impact_log: Array[Dictionary] = []
 ## Last sector stated per hazard, so a caption is repeated only when the
 ## direction it names has actually changed.
 var _last_sector: Dictionary = {}
+
+
+## Applies one shared name to the already co-present hazards. No evaluation
+## runs here, so tells, contacts and perception logs remain untouched.
+func classify_lifecycle(run_elapsed_s: float, run_cap_s: float) -> int:
+	lifecycle_stage = DreamOrganelleLifecycle.bounded_run_stage(
+			run_elapsed_s, run_cap_s)
+	for hazard in hazards:
+		hazard.lifecycle_stage = lifecycle_stage
+	return lifecycle_stage
+
+
+func lifecycle_stage_name() -> String:
+	return DreamOrganelleLifecycle.stage_name(lifecycle_stage)
 
 
 ## `profile_hazards` is the case's own block: an `allow` list and a

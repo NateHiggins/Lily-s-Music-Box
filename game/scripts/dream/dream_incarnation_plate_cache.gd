@@ -48,19 +48,6 @@ func load_bundle(bundle: Dictionary, resource_override := {}) -> bool:
 					resource_override):
 				unload(false)
 				return false
-	var reflected_key := str(bundle.get("reflected_world_key", ""))
-	var reflection_size: Array = _catalog.get("reflection_resolution", [])
-	if reflection_size.size() != 2:
-		last_error = "reflection resolution missing from catalog"
-		unload(false)
-		return false
-	var reflected_path := "%s/%s/%s/reflected_world.png" % [
-			root, incarnation_id, reflected_key]
-	if not _accept_texture(reflected_key, reflected_path,
-			int(reflection_size[0]), int(reflection_size[1]), 4,
-			resource_override):
-		unload(false)
-		return false
 	active_incarnation = incarnation_id
 	return true
 
@@ -93,15 +80,6 @@ func apply_to_material(material: ShaderMaterial, bundle: Dictionary) -> void:
 				resources.get("%s/albedo" % key))
 		material.set_shader_parameter("incarnation_normal_%d" % slot,
 				resources.get("%s/normal" % key))
-	var reflected_key := str(bundle.get("reflected_world_key", ""))
-	material.set_shader_parameter("reflected_world",
-			resources.get(reflected_key))
-	if not active_incarnation.is_empty():
-		# The legacy broad ghost projection can turn innocent room silhouettes
-		# into pseudo-lettering. Incarnations permit their plate only in their
-		# bounded molten grazing term.
-		material.set_shader_parameter("ghost_amount", 0.0)
-		material.set_shader_parameter("reflected_world_gain", 0.55)
 
 
 func residency_mib() -> float:
@@ -122,9 +100,6 @@ static func production_ceiling_bytes(catalog_override := {}) -> int:
 			total += _mipped_bytes(substance_px, substance_px,
 					int((channels.get(channel, {}) as Dictionary).get(
 							"bytes_per_pixel", 0)))
-	var reflection: Array = catalog.get("reflection_resolution", [])
-	if reflection.size() == 2:
-		total += _mipped_bytes(int(reflection[0]), int(reflection[1]), 4)
 	return total
 
 

@@ -2448,6 +2448,16 @@ Rulings: `design/DREAM_TENTACLE_DIRECTION.md` (encounter and systems),
   zero-noise A/A floors in the accepted Forward+ sequence at
   `art/renders/dream_incarnation_lifecycle_lc6e/README.md`. **LC-6 remains
   open** for co-present pursuer/hazard owners.
+- **LC-6F COMPLETE 2026-08-25 — CO-PRESENT ENCOUNTER LIFE.** The existing
+  bounded run clock now classifies the Tenant and every armed hazard through
+  the shared folded, bud, juvenile, mature, exchange, senescent, shed and
+  stain vocabulary. One classified value reaches the already-batched hazard
+  material; it creates no clock, node, mesh, collision, light, route, warning,
+  contact, outcome, case fact or save seam. Focused proof passes 24/24;
+  pursuit and hazard regressions pass 39/39 and 42/42. The accepted production
+  sequence has four byte-identical A/A floors and full-frame stage distances
+  of 0.030262–0.042571 at
+  `art/renders/dream_encounter_lifecycle_lc6f/README.md`. **LC-6 is complete.**
 
 ### MBIO — SCALED-UP MICROBIOLOGY SENSORY PASS (briefed 2026-08-25)
 

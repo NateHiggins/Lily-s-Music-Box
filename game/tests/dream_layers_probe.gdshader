@@ -40,7 +40,6 @@ uniform sampler2D base_normal : hint_normal, filter_linear_mipmap_anisotropic, r
 uniform sampler2D base_rough : hint_default_white, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float base_tile_m : hint_range(0.1, 8.0) = 1.15;
 uniform float base_rough_mul = 1.0;
-uniform sampler2D reflected_world : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
 
 uniform sampler3D exposure_tex : filter_linear, repeat_enable, hint_default_black;
 uniform float exposure_extent = 48.0;
@@ -233,7 +232,7 @@ void fragment() {
 		float ang = TIME * 0.04;
 		vec3 rr = vec3(r.x * cos(ang) - r.z * sin(ang), r.y, r.x * sin(ang) + r.z * cos(ang));
 		vec2 eq = vec2(atan(rr.z, rr.x) / 6.2831853 + 0.5, acos(clamp(rr.y, -1.0, 1.0)) / 3.14159265);
-		vec3 elsewhere = texture(reflected_world, eq).rgb;
+		vec3 elsewhere = vec3(0.0);
 		albedo = mix(albedo, elsewhere * 0.6, open);
 		emission = mix(emission, elsewhere * 1.4, open);
 		metal = mix(metal, 0.0, open);

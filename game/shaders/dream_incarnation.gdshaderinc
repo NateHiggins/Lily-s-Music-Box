@@ -9,7 +9,6 @@ uniform sampler2D incarnation_normal_0 : hint_normal, filter_linear_mipmap, repe
 uniform sampler2D incarnation_normal_1 : hint_normal, filter_linear_mipmap, repeat_enable;
 uniform sampler2D incarnation_normal_2 : hint_normal, filter_linear_mipmap, repeat_enable;
 uniform sampler2D incarnation_normal_3 : hint_normal, filter_linear_mipmap, repeat_enable;
-uniform sampler2D reflected_world : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
 uniform float incarnation_stillness : hint_range(0.0, 1.0) = 0.0;
 // LC-6E: classified from the existing case-run clock by DreamMazeRoot.
 // No shader time selects a life stage.
@@ -82,10 +81,6 @@ vec4 mina_surface(vec3 world, vec2 uv, float retained, float molten,
 		caption_ink * (0.76 - molten * 0.38));
 	colour += gilt * caption_ink * molten * 0.24;
 	colour = mix(colour, warm_stock * 0.045, spared * 0.94);
-	vec3 room_after = texture(reflected_world,
-		fract(uv * 0.035 + vec2(0.17, 0.43))).rgb;
-	float room_luma = dot(room_after, vec3(0.299, 0.587, 0.114));
-	colour += vec3(1.0, 0.72, 0.31) * room_luma * molten * grazing * 0.12;
 	// The spared field keeps one pressure trace, visible only when Mina is met
 	// with stillness. Broad palm plus four shallow finger dents; material
 	// relief, never a hand, person, label or gameplay signal.
@@ -131,11 +126,6 @@ vec4 peter_surface(vec3 world, vec2 uv, float retained, float molten,
 	// The open route crosses the existing surface continuously; this is a
 	// colour-space fact only and cannot open, add, or move a door.
 	colour += legal_brass * route * decision * molten * 0.24;
-	float room_luma = dot(texture(reflected_world,
-		fract(uv * 0.031 + vec2(0.41, 0.23))).rgb,
-		vec3(0.299, 0.587, 0.114));
-	colour += vec3(0.72, 0.48, 0.20) * room_luma
-		* molten * grazing * 0.10;
 	// One lower-corner pressure indentation: roughness only, illegible and
 	// incapable of completing a field for him.
 	vec2 corner_q = fract(uv / 11.0 + vec2(0.08, 0.82)) - 0.5;
@@ -191,10 +181,6 @@ vec4 juno_surface(vec3 world, vec2 uv, float retained, float molten,
 	vec2 quiet_q = fract(uv / 10.0 + vec2(0.43, 0.19)) - 0.5;
 	float quiet = smoothstep(0.16, 0.075, length(quiet_q));
 	colour = mix(colour, lapis_cloth * 0.32, quiet * 0.88);
-	float room_luma = dot(texture(reflected_world,
-		fract(uv * 0.029 + vec2(0.29, 0.61))).rgb,
-		vec3(0.299, 0.587, 0.114));
-	colour += warm_brass * room_luma * molten * grazing * 0.09;
 	float roughness = mix(selected.a, 0.24,
 		molten * max(antinode, open_band * sustained));
 	roughness = mix(roughness, 0.78, quiet * 0.42);
@@ -236,10 +222,6 @@ vec4 mae_surface(vec3 world, vec2 uv, float retained, float molten,
 	colour = mix(colour, vec3(0.012, 0.015, 0.022), molten * overlap * 0.92);
 	colour += paper.rgb * vec3(0.10, 0.09, 0.07)
 		* retained * disagreement * 0.11;
-	float room_luma = dot(texture(reflected_world,
-		fract(uv * 0.028 + vec2(0.53, 0.37))).rgb,
-		vec3(0.299, 0.587, 0.114));
-	colour += antique * room_luma * molten * grazing * 0.085;
 	// The histories agree only in one polished hand-height pressure trace.
 	vec2 thumb_q = fract(uv / 9.5 + vec2(0.22, 0.48)) - 0.5;
 	float thumb = smoothstep(0.13, 0.065,
@@ -284,10 +266,6 @@ vec4 cal_surface(vec3 world, vec2 uv, float retained, float molten,
 		molten * max(incomplete * (1.0 - completed), draining) * 0.86);
 	colour = mix(colour, vec3(0.008, 0.010, 0.016),
 		completed * far_edge * 0.94);
-	float room_luma = dot(texture(reflected_world,
-		fract(uv * 0.027 + vec2(0.36, 0.58))).rgb,
-		vec3(0.299, 0.587, 0.114));
-	colour += amber * room_luma * molten * grazing * 0.08;
 	// A warm pressure trace remains on the cold side of the glass, outside any
 	// future receiver interaction. It is material roughness, never a hand image.
 	vec2 hand_q = fract(uv / 10.5 + vec2(0.18, 0.66)) - 0.5;
@@ -336,10 +314,6 @@ vec4 omar_surface(vec3 world, vec2 uv, float retained, float molten,
 	// When the liquid film pulls free, the unchanged wine fracture remains
 	// visibly beneath it instead of becoming a repaired golden line.
 	colour = mix(colour, wine, crack * complete * (1.0 - film) * 0.52);
-	float room_luma = dot(texture(reflected_world,
-		fract(uv * 0.026 + vec2(0.63, 0.29))).rgb,
-		vec3(0.299, 0.587, 0.114));
-	colour += gold * room_luma * grazing * molten * 0.07;
 	// A deliberately laid-down tool-shaped absence: simple pressure geometry,
 	// never a readable tool image, and the gold leaves space around it.
 	vec2 laid_q = fract(uv / 11.0 + vec2(0.61, 0.22)) - 0.5;

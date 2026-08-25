@@ -47,7 +47,6 @@ static func default_bundle() -> Dictionary:
 		"signature_id": 0,
 		"signature": Vector2(1.0, 0.0),
 		"substance_keys": PackedStringArray(),
-		"reflected_world_key": "",
 		"fauna": fauna,
 	}
 
@@ -116,10 +115,6 @@ static func resolve(raw: Variant, profile_id: String, case_id: String) -> Dictio
 			if not key.begins_with("T_ai_dream_%s_" % incarnation_id):
 				errors.append("substance key has wrong namespace: %s" % key)
 			substance_keys.append(key)
-	var reflected_world_key := str(data.get("reflected_world_key", ""))
-	if not reflected_world_key.begins_with(
-			"T_ai_dream_%s_reflected_world" % incarnation_id):
-		errors.append("reflected_world_key has wrong namespace")
 
 	var fauna := _fauna(data.get("fauna", null), errors)
 	if not errors.is_empty():
@@ -135,7 +130,6 @@ static func resolve(raw: Variant, profile_id: String, case_id: String) -> Dictio
 		"signature_id": index,
 		"signature": Vector2(threshold, strength),
 		"substance_keys": substance_keys,
-		"reflected_world_key": reflected_world_key,
 		"fauna": fauna,
 	}, "errors": []}
 
@@ -172,24 +166,7 @@ static func apply_to_material(material: ShaderMaterial, bundle: Dictionary,
 ## passage eight anatomical names. Large case organs are allowed to hold the
 ## functional middle of the life for encounter fairness.
 static func lifecycle_stage_at(elapsed_s: float, run_cap_s: float) -> int:
-	if run_cap_s <= 0.0:
-		return Lifecycle.Stage.MATURE
-	var phase := clampf(elapsed_s / run_cap_s, 0.0, 1.0)
-	if phase < 0.04:
-		return Lifecycle.Stage.FOLDED
-	if phase < 0.14:
-		return Lifecycle.Stage.BUD
-	if phase < 0.28:
-		return Lifecycle.Stage.JUVENILE
-	if phase < 0.62:
-		return Lifecycle.Stage.MATURE
-	if phase < 0.75:
-		return Lifecycle.Stage.EXCHANGE
-	if phase < 0.88:
-		return Lifecycle.Stage.SENESCENT
-	if phase < 0.96:
-		return Lifecycle.Stage.SHED
-	return Lifecycle.Stage.STAIN
+	return Lifecycle.bounded_run_stage(elapsed_s, run_cap_s)
 
 
 static func lifecycle_stage_name_at(elapsed_s: float, run_cap_s: float) -> String:

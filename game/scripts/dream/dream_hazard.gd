@@ -19,6 +19,7 @@ extends RefCounted
 ## Returned by evaluate() when nothing happens. An outcome string means
 ## the run ends and must be one of DreamDirector.OUTCOMES.
 const NONE := ""
+const Lifecycle := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 
 var id := ""
 ## The catalog socket this instance came from. See configure(): `id` is which
@@ -45,6 +46,7 @@ var break_speed_mps := 3.8
 var tell_started_s := -1.0
 var contacted := false
 var contact_s := -1.0
+var lifecycle_stage := Lifecycle.Stage.MATURE
 ## The distance at which the tell first fired, kept for the impact record
 ## so a reviewer can see the player had room as well as time.
 var tell_distance := 0.0
@@ -56,6 +58,15 @@ var tell_distance := 0.0
 ## capillary veins, so the original clearance-circle contract is unchanged.
 var contact_paths: Array[PackedVector3Array] = []
 var contact_tube_radius := 0.0
+
+
+func classify_lifecycle(run_elapsed_s: float, run_cap_s: float) -> int:
+	lifecycle_stage = Lifecycle.bounded_run_stage(run_elapsed_s, run_cap_s)
+	return lifecycle_stage
+
+
+func lifecycle_stage_name() -> String:
+	return Lifecycle.stage_name(lifecycle_stage)
 
 
 func configure(record: Dictionary, tuning: Dictionary) -> void:

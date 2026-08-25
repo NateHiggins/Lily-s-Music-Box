@@ -1,4 +1,4 @@
-"""Ingest case-specific dream substance and reflected-world plates.
+"""Ingest case-specific dream substance plates.
 
 Sources remain in art/textures/ai_sources and never ship. Each source needs a
 matching ``<key>.source.md`` containing generator, date and the exact prompt.
@@ -36,8 +36,6 @@ def records(manifest: dict) -> dict[str, dict]:
             found[key] = {"case": case_id, "kind": "substance",
                           "metres": metres, "rough_base": rough_base,
                           "rough_span": rough_span, "strength": strength}
-        key = case["reflection"]
-        found[key] = {"case": case_id, "kind": "reflection"}
     return found
 
 
@@ -88,7 +86,7 @@ def ingest_substance(path: Path, target: Path, record: dict, size: int) -> None:
     # Keep the independently auditable R8 maps below, while also packing the
     # two scalar channels into already-budgeted alpha bytes for the shader.
     # Four RGBA albedos + four RGBA normals need eight samplers rather than
-    # sixteen; the active-case cache still owns and accounts for all 17 maps.
+    # sixteen; the active-case cache owns and accounts for all 16 maps.
     albedo_packed = np.concatenate((albedo, rough[..., None]), axis=-1)
     normal_packed = np.concatenate((normal, height[..., None]), axis=-1)
     Image.fromarray((albedo_packed * 255).astype(np.uint8), "RGBA").save(
@@ -101,25 +99,10 @@ def ingest_substance(path: Path, target: Path, record: dict, size: int) -> None:
         target / "roughness.png", optimize=True)
 
 
-def ingest_reflection(path: Path, target: Path, size: tuple[int, int]) -> None:
-    image = Image.open(path).convert("RGB")
-    if abs(image.width / image.height - 2.0) > 0.01:
-        raise ValueError("reflected-world source must be 2:1 equirectangular")
-    data = np.asarray(image, dtype=np.float32) / 255.0
-    seam = float(np.abs(data[:, 0] - data[:, -1]).mean())
-    if seam > 0.08:
-        raise ValueError("reflected-world horizontal seam %.4f exceeds 0.08" % seam)
-    target.mkdir(parents=True, exist_ok=True)
-    image.resize(size, Image.Resampling.LANCZOS).save(
-        target / "reflected_world.png", optimize=True)
-
-
 def complete(record: dict, key: str, manifest: dict) -> bool:
     target = output_dir(record, key)
-    names = CHANNELS if record["kind"] == "substance" else ("reflected_world",)
-    expected = (manifest["substance_resolution"],) * 2 \
-        if record["kind"] == "substance" \
-        else tuple(manifest["reflection_resolution"])
+    names = CHANNELS
+    expected = (manifest["substance_resolution"],) * 2
     if not (target / "SOURCE.md").is_file():
         return False
     for name in names:
@@ -132,7 +115,7 @@ def complete(record: dict, key: str, manifest: dict) -> bool:
 def update_available(catalog: dict, manifest: dict, all_records: dict) -> None:
     available = []
     for case_id, case in manifest["cases"].items():
-        keys = [row[0] for row in case["substances"]] + [case["reflection"]]
+        keys = [row[0] for row in case["substances"]]
         if all(complete(all_records[key], key, manifest) for key in keys):
             available.append(case_id)
     catalog["available_cases"] = available
@@ -181,12 +164,8 @@ def main() -> int:
         if not note.is_file():
             raise FileNotFoundError("missing provenance note %s" % note)
         target = output_dir(record, key)
-        if record["kind"] == "substance":
-            ingest_substance(source, target, record,
-                             int(manifest["substance_resolution"]))
-        else:
-            ingest_reflection(source, target,
-                              tuple(manifest["reflection_resolution"]))
+        ingest_substance(source, target, record,
+                         int(manifest["substance_resolution"]))
         custody = note.read_text(encoding="utf-8").rstrip() + (
             "\n\n## Shipped derivative\n\n"
             "- Source intake: `art/textures/ai_sources/%s` (not shipped)\n"

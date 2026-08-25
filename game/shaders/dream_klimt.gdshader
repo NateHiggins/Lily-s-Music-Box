@@ -446,7 +446,7 @@ uniform vec3 ember_hot : source_color = vec3(1.0, 0.62, 0.22);
 //   LEAF SEAMS   the square sheets gold is actually applied in
 //   CRAQUELURE   the crack network across aged leaf and paint
 //   GLAZE        slow hue drift, so no two square metres are the same gold
-//   GHOSTS       the reflected world surfacing through the surface
+//   GHOSTS       retired; no image plate is sampled by this shader
 uniform float paint_amount : hint_range(0.0, 1.0) = 0.85;
 // Stroke scale and how hard the paint stands off the panel.
 uniform float brush_scale : hint_range(1.0, 60.0) = 22.0;
@@ -568,55 +568,6 @@ vec3 fake_env(vec3 r, vec3 hot, vec3 cool) {
 
 // THE WORLD THAT ONLY EXISTS IN THE REFLECTION.
 //
-// Owner: "create an elaborate image prompt for the klimt world that only
-// exists in the reflection in the molten gold."
-//
-// The corridor you walk is bare gilded architecture. The world the gold
-// REMEMBERS -- the residents, the rooms as Klimt would have painted them, the
-// Tenant among them -- exists nowhere in the scene graph. It is an
-// equirectangular plate sampled only by the reflection vector of molten metal,
-// so the only way to see it is to melt a surface with your lamp and catch it
-// at the right angle. Look directly and there is nothing there.
-//
-// The retired shared Klimt mural is never bound to base architecture. The
-// sampler remains for case-scoped incarnation materials only.
-uniform float reflected_world_gain : hint_range(0.0, 4.0) = 1.0;
-
-// THE WORLD IN THE GOLD -- PROJECTED, NOT MIRRORED, AND THAT IS A CORRECTION.
-//
-// This sampled the plate by the REFLECTION VECTOR for several passes and never
-// produced a recognisable thing, because the physics is against it: a flat
-// surface reflects a very narrow cone of directions, so a mirror lookup
-// stretches a few pixels of a 1774x887 plate across a whole wall. That is a
-// smooth gradient by construction. No amount of gain or ripple recovers a face
-// from it, and I spent passes trying.
-//
-// So the plate is PROJECTED onto the surface instead, triplanar like the
-// ornament, and warped by the same flow that melts the gold. The concept is
-// intact and arguably sharpened: the residents are IN the metal rather than
-// reflected in it, they are still visible only where the lamp has woken the
-// surface, and they still cannot be walked to. What changes is that you can
-// now see who they are.
-vec3 sample_reflected_world(vec2 q, float flow) {
-	// Scaled so a figure is roughly body height on the wall rather than
-	// microscopic: the plate is a frieze and wants to read at frieze size.
-	vec2 uv = q * 0.055 + vec2(0.5, 0.5);
-	uv += vec2(flow, flow * 0.6) * 0.06;
-	vec3 reflected = texture(reflected_world, uv).rgb;
-	if (incarnation_id > 0.5 && incarnation_id < 6.5) {
-		reflected += texture(reflected_world, uv + vec2(0.006, 0.0)).rgb;
-		reflected += texture(reflected_world, uv + vec2(-0.006, 0.0)).rgb;
-		reflected += texture(reflected_world, uv + vec2(0.0, 0.006)).rgb;
-		reflected += texture(reflected_world, uv + vec2(0.0, -0.006)).rgb;
-		reflected *= 0.2;
-		float reflected_luma = dot(reflected, vec3(0.299, 0.587, 0.114));
-		reflected = mix(vec3(reflected_luma) * vec3(1.0, 0.72, 0.31),
-				reflected, 0.14);
-	}
-	return reflected * reflected_world_gain;
-}
-
-
 // A STONE IN A SETTING. A coloured cabochon inside a gold bezel, which is how
 // every jewel in the frieze is drawn -- never a bare dot of colour, always a
 // metal ring holding something. The ring is what makes it read as jewellery
@@ -1153,18 +1104,6 @@ void fragment() {
 			* paint_gate);
 	albedo = mix(albedo, albedo * 0.30, crack * craquelure * paint_gate);
 
-	// GHOSTS OF THE PAST. The residents surfacing through the panel, large and
-	// slow and unrelated to the lamp -- so the world is being reshaped by them
-	// rather than merely reflecting them. Deliberately never resolving: they
-	// arrive as a tonal swell in the ornament and sink again.
-	vec2 gq = v_world.xz * ghost_scale + vec2(TIME * 0.0035, TIME * 0.0021);
-	vec3 ghost = texture(reflected_world, gq).rgb;
-	float ghost_lum = dot(ghost, vec3(0.299, 0.587, 0.114));
-	float surfacing = smoothstep(0.22, 0.72, ghost_lum)
-			* (0.55 + 0.45 * sin(TIME * 0.11 + v_world.x * 0.2));
-	albedo = mix(albedo, albedo * 0.6 + ghost * 1.1,
-			surfacing * ghost_amount * metal_hint);
-
 	// One breath across everything, well under a hertz, so the leaf is never
 	// quite still and never flickers.
 	float breath = 0.94 + 0.06 * sin(t * TAU + v_world.x * 0.15);
@@ -1248,23 +1187,6 @@ void fragment() {
 	if (length(to_centre) > 0.0001) {
 		dish = normalize(to_centre) * lip * dish_depth * molten;
 	}
-	// THE REFLECTION AS RELIEF. Owner: "like the melting gold is flowing and
-	// rippling in the relief shape of the reflection."
-	//
-	// So the plate is not paint on the metal, it is EMBOSSED IN it. Three
-	// luminance taps give the image's slope and the surface rises and falls
-	// along it, which means a face in the reflected world arrives as a
-	// face-shaped swell in the gold, moving as the pool moves.
-	//
-	// It is also why the image reads at all on a patch this small. As colour
-	// it was competing with the ornament and losing; as topography it deforms
-	// the ornament instead, and the eye reads deformation long before it reads
-	// a tint.
-	vec3 LUMA = vec3(0.299, 0.587, 0.114);
-	float pl0 = dot(sample_reflected_world(q, living), LUMA);
-	float plx = dot(sample_reflected_world(q + vec2(0.06, 0.0), living), LUMA);
-	float ply = dot(sample_reflected_world(q + vec2(0.0, 0.06), living), LUMA);
-	vec3 emboss = (tan_a * (plx - pl0) + tan_b * (ply - pl0)) * 16.0 * molten;
 	// IMPASTO. The stroke ridges, the leaf seams and the cracks all stand off
 	// the panel, so the surface has a texture the light rakes across even
 	// where nothing is melting. This is the difference between a painted
@@ -1319,11 +1241,10 @@ void fragment() {
 	vec3 surface_relief = (tan_a * surface_n.x + tan_b * surface_n.y)
 			* (1.0 - metal_hint) * 0.42;
 	vec3 bumped = normalize(n + surface_relief + architecture_relief
-			+ relief + wave + dish + emboss + paint_relief
+			+ relief + wave + dish + paint_relief
 			+ (tan_a * (hx - h0) + tan_b * (hy - h0)) * 42.0 * molten);
 
 	vec3 refl = reflect(-normalize(VIEW), bumped);
-	vec3 env = sample_reflected_world(q, living);
 
 	// A stone is not leaf and must not melt: glass has its own hard little
 	// highlight and no flow at all, which is what separates a jewel from a
@@ -1405,7 +1326,7 @@ void fragment() {
 	float patchy = mix(1.0, fbm(v_world.xz * 5.5 + vec2(ft * 0.4, -ft * 0.3)),
 			bowl_breakup);
 	bowl *= patchy;
-	vec3 reflection = env * bowl * 1.35;
+	vec3 reflection = vec3(0.0);
 
 	// EVERYTHING ELSE GLOWS FROM WITHIN and fades to black. This is the gold
 	// taking heat off the beam rather than catching its light: ember at the
@@ -1651,7 +1572,7 @@ void fragment() {
 					en_r.x * sin(en_ang) + en_r.z * cos(en_ang));
 			vec2 en_eq = vec2(atan(en_rr.z, en_rr.x) / 6.2831853 + 0.5,
 					acos(clamp(en_rr.y, -1.0, 1.0)) / 3.14159265);
-			vec3 en_elsewhere = texture(reflected_world, en_eq).rgb;
+			vec3 en_elsewhere = vec3(0.0);
 			// EN-2: R6's live feed where it is awake, in the breach's frame.
 			if (portal_live > 0.001) {
 				vec3 en_pd = v_world - portal_center;

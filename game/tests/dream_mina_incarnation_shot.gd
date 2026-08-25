@@ -66,7 +66,6 @@ func _ready() -> void:
 	root.call("_update_molten")
 	await _capture("06_%s" % str(config[5]))
 	_stage_reflection_graze()
-	await _capture("06_reflected_world_grazing")
 	await _capture_fauna()
 	print("[INCARNATION SHOT] %s frames complete, findings=%d" %
 			[incarnation, failures])

@@ -23,6 +23,7 @@ const BODY_HEIGHT := 1.70
 const RAY_HEIGHT := 1.05
 const ARRIVE_M := 0.05
 const HERO_MODEL_DIR := "res://assets/characters"
+const Lifecycle := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
 
 var plan: Dictionary = {}
 var profile: Dictionary = {}
@@ -35,6 +36,17 @@ var capture_time_s := -1.0
 var acquired := false
 var is_captured := false
 var last_known_position := Vector3.ZERO
+var lifecycle_stage := Lifecycle.Stage.MATURE
+
+
+## Classification only: the root supplies its existing bounded run clock.
+func classify_lifecycle(run_elapsed_s: float, run_cap_s: float) -> int:
+	lifecycle_stage = Lifecycle.bounded_run_stage(run_elapsed_s, run_cap_s)
+	return lifecycle_stage
+
+
+func lifecycle_stage_name() -> String:
+	return Lifecycle.stage_name(lifecycle_stage)
 
 var _lit_speed_mps := 6.35
 var _dark_speed_mps := 3.35

@@ -57,9 +57,9 @@ func _data_contract(profiles: Dictionary) -> void:
 				str(bundle.get("incarnation_id", "")) == str(row[1])
 				and int(bundle.get("incarnation_index", 0)) == int(row[2])
 				and bool(bundle.get("production_enabled", false)))
-		_check("%s names four substances and one reflection" % row[1],
+		_check("%s names exactly four resident substance plates" % row[1],
 				(bundle.get("substance_keys", PackedStringArray()) as PackedStringArray).size() == 4
-				and not str(bundle.get("reflected_world_key", "")).is_empty())
+				and not bundle.has("reflected_world_key"))
 		_check("%s revoices the five ordered fauna" % row[1],
 				(bundle.get("fauna", []) as Array).size() == 5)
 
@@ -164,8 +164,8 @@ func _production_contract() -> void:
 	_check("the same production root owns Omar's immutable presentation bundle",
 			root.maze_built and str(bundle.get("incarnation_id", "")) == "omar"
 			and int(bundle.get("incarnation_index", 0)) == 6)
-	_check("Omar owns exactly his active seventeen-map residency",
-			root.presentation_plates.resource_count() == 17
+	_check("Omar owns exactly his active sixteen-map residency",
+			root.presentation_plates.resource_count() == 16
 			and root.presentation_plates.active_incarnation == "omar")
 	var omar_bound := true
 	for value in root.get("_molten_materials") as Array:
@@ -196,8 +196,8 @@ func _production_contract() -> void:
 	_check("the same production root owns Cal's immutable presentation bundle",
 			root.maze_built and str(bundle.get("incarnation_id", "")) == "cal"
 			and int(bundle.get("incarnation_index", 0)) == 5)
-	_check("Cal owns exactly his active seventeen-map residency",
-			root.presentation_plates.resource_count() == 17
+	_check("Cal owns exactly his active sixteen-map residency",
+			root.presentation_plates.resource_count() == 16
 			and root.presentation_plates.active_incarnation == "cal")
 	var cal_bound := true
 	for value in root.get("_molten_materials") as Array:
@@ -229,8 +229,8 @@ func _production_contract() -> void:
 	_check("the same production root owns Juno's immutable presentation bundle",
 			root.maze_built and str(bundle.get("incarnation_id", "")) == "juno"
 			and int(bundle.get("incarnation_index", 0)) == 3)
-	_check("Juno owns exactly her active seventeen-map residency",
-			root.presentation_plates.resource_count() == 17
+	_check("Juno owns exactly her active sixteen-map residency",
+			root.presentation_plates.resource_count() == 16
 			and root.presentation_plates.active_incarnation == "juno")
 	var juno_bound := true
 	for value in root.get("_molten_materials") as Array:
@@ -263,8 +263,8 @@ func _production_contract() -> void:
 	_check("the same production root owns Mae's immutable presentation bundle",
 			root.maze_built and str(bundle.get("incarnation_id", "")) == "mae"
 			and int(bundle.get("incarnation_index", 0)) == 4)
-	_check("Mae owns exactly her active seventeen-map residency",
-			root.presentation_plates.resource_count() == 17
+	_check("Mae owns exactly her active sixteen-map residency",
+			root.presentation_plates.resource_count() == 16
 			and root.presentation_plates.active_incarnation == "mae")
 	var mae_bound := true
 	for value in root.get("_molten_materials") as Array:
@@ -297,8 +297,8 @@ func _production_contract() -> void:
 	_check("the same production root owns Peter's immutable presentation bundle",
 			root.maze_built and str(bundle.get("incarnation_id", "")) == "peter"
 			and int(bundle.get("incarnation_index", 0)) == 2)
-	_check("Peter owns exactly his active seventeen-map residency",
-			root.presentation_plates.resource_count() == 17
+	_check("Peter owns exactly his active sixteen-map residency",
+			root.presentation_plates.resource_count() == 16
 			and root.presentation_plates.active_incarnation == "peter")
 	var peter_bound := true
 	for value in root.get("_molten_materials") as Array:
@@ -346,8 +346,8 @@ func _joined_contract(profiles: Dictionary) -> void:
 				and first.hazard_count == second.hazard_count
 		active_only = active_only \
 				and str(first.active_incarnation) == incarnation_id \
-				and int(first.resource_count) == 17 \
-				and int(first.residency_bytes) == 100663284
+				and int(first.resource_count) == 16 \
+				and int(first.residency_bytes) == 55924040
 		boundaries_clean = boundaries_clean \
 				and not (first.context_keys as Array).has("presentation") \
 				and not (first.context_keys as Array).has("maze") \
@@ -355,7 +355,7 @@ func _joined_contract(profiles: Dictionary) -> void:
 		owner_clean = owner_clean and int(first.incarnation_owners) == 0
 	_check("all six seeded production roots replay identical gameplay facts",
 			deterministic)
-	_check("all six retain exactly one active 17-map / 96 MiB residency",
+	_check("all six retain one active 16-map / 53.33 MiB residency",
 			active_only)
 	_check("all six keep presentation, maze and hazards outside save context",
 			boundaries_clean)
@@ -413,7 +413,6 @@ func _valid_shape(incarnation_id: String) -> Dictionary:
 			"T_ai_dream_%s_c" % incarnation_id,
 			"T_ai_dream_%s_d" % incarnation_id,
 		],
-		"reflected_world_key": "T_ai_dream_%s_reflected_world_test" % incarnation_id,
 		"fauna": fauna,
 	}
 

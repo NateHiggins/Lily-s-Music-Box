@@ -1,5 +1,10 @@
 # SIX INCARNATIONS
 
+> Owner ruling, 2026-08-25: every shared and resident-specific reflected-world
+> image plate is retired. The six historical “Reflected world” prompt sections
+> below are archival design record only and are not manifest, runtime, shader,
+> memory-budget or acceptance requirements.
+
 *Owner-approved design plan, 2026-08-20. The owner approved the plan, Cal fifth,
 Omar sixth, and the exclusion of identifiable people and the faceless figure
 from reflected-world plates. This
@@ -480,7 +485,6 @@ presentation
   irradiance              dark/oblique/molten gains and blend-shape controls
   motion                  sub-Hz rates, phase offsets, gutter response
   substance               four approved runtime plate-set keys
-  reflected_world         one approved equirectangular plate key
   signature               bounded shader event id and thresholds
   fauna                    five bounded costume parameter records
 ```
@@ -573,8 +577,7 @@ uncompressed residency with a full mip chain; disk PNG size is irrelevant.
 | Substance normal | 4 | 1024² RGBA8 linear | 21.34 MiB |
 | Substance height | 4 | 1024² R8 linear | 5.34 MiB |
 | Substance roughness | 4 | 1024² R8 linear | 5.34 MiB |
-| Reflected world | 1 | 4096×2048 RGBA8 sRGB | 42.67 MiB |
-| **Maximum active incarnation** | **17 maps** | | **96.00 MiB** |
+| **Maximum active incarnation** | **16 maps** | | **53.33 MiB** |
 
 Each of the six manifests uses exactly this ceiling. Shared procedural noise,
 the exposure volume and already-landed Peter paper assets are existing baseline

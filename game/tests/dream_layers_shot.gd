@@ -243,7 +243,7 @@ func _swap_to_probe(mask: int) -> void:
 			continue
 		var probe := ShaderMaterial.new()
 		probe.shader = PROBE
-		for slot in ["base_albedo", "base_normal", "base_rough", "reflected_world"]:
+		for slot in ["base_albedo", "base_normal", "base_rough"]:
 			var tex: Variant = klimt.get_shader_parameter(slot)
 			if tex != null:
 				probe.set_shader_parameter(slot, tex)
