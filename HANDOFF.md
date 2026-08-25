@@ -602,8 +602,19 @@ state suppresses rather than delays a wave, and overflow remains deterministic.
 No mechanical packet seizes global attention or changes pursuit, case or save
 ownership. Focused proof is 16/16, production-root proof 11/11, with
 DreamEcology 61/61 and DreamMargin 57/57. There is deliberately no render claim
-in this seam-only pass. **Next is MBIO-3:** visible metachronal cilia and
-electrochemical relay using these landed packets.
+in this seam-only pass. MBIO-3 is now complete. The existing cilium geometry
+runs as a metachronal field with per-neighbour phase offsets: impulse reverses
+its local stroke, sustained hum loads/slows it, and recovery restores autonomy.
+One perfusion band travels root-to-tip through the existing palp and crystal-
+listener uniform arrays. Architecture does not receive a global shader flash:
+its existing LivingField 3-D texture gets a capped 0.72 m/s pressure front,
+keeps the distant room slice unchanged and drops the transient relay at its
+limit. No draw, node, global attention, pursuit, case or save owner was added.
+Production buffer proof is 13/13, LivingField is 22/22 and shader parsing
+passes. Forward+ subject changes clear the 0.000000719 A/A floor by
+9,372–10,497×; recovery is byte-identical to control B. Evidence:
+`art/renders/dream_microbiology_mechanics_mbio3/README.md`. **Next is MBIO-4:**
+bounded vesicle release, uptake and slow vibration consequence.
 
 Three top-level projects:
 

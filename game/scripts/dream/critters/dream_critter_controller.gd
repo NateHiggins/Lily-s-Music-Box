@@ -64,6 +64,8 @@ var _counts := PackedVector4Array()
 var _law := PackedVector4Array()
 ## MBIO-1: the listener's local receptor state in the existing draw.
 var _photo := PackedVector4Array()
+## MBIO-3: the same local mechanical response in the existing fauna draw.
+var _mechanical := PackedVector4Array()
 ## §26 — per-individual material balance: x hue bias, y perfusion,
 ## z wetness, w iridescence.
 var _look := PackedVector4Array()
@@ -75,7 +77,8 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	enabled = OS.get_environment("DREAM_CRITTERS") != "0"
 	field = controller
 	_rng.seed = seed_v
-	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _look, _photo]:
+	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _look, _photo,
+			_mechanical]:
 		arr.resize(MAX_CRITTERS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
@@ -789,7 +792,15 @@ func _apply_law(c: Dictionary, delta: float) -> void:
 			var shock := float(receptor.shock)
 			var response := float(receptor.response)
 			var direction := -1.0 if shock > 0.02 else 1.0
-			c.spin += delta * base_rate * direction * (1.0 + response * 1.35)
+			var mechanical: Dictionary = c.mechanical
+			var mech := float(mechanical.response)
+			var mech_carrier := int(mechanical.carrier)
+			if mech_carrier == DreamEcologyDirector.Carrier.IMPULSE and mech > 0.02:
+				direction = -1.0
+			elif mech_carrier == DreamEcologyDirector.Carrier.HUM and mech > 0.02:
+				base_rate *= 0.22
+			c.spin += delta * base_rate * direction \
+					* (1.0 + response * 1.35 + mech * 0.45)
 			if shock > 0.02:
 				c.moving = false
 				c.pause = maxf(float(c.pause), 0.28)
@@ -846,6 +857,7 @@ func _push() -> void:
 	for i in range(n, MAX_CRITTERS):
 		_counts[i] = Vector4.ZERO
 		_photo[i] = Vector4.ZERO
+		_mechanical[i] = Vector4.ZERO
 	material.set_shader_parameter("critter_pos", _pos)
 	material.set_shader_parameter("critter_fwd", _fwd)
 	material.set_shader_parameter("critter_up", _up)
@@ -855,6 +867,7 @@ func _push() -> void:
 	material.set_shader_parameter("critter_law", _law)
 	material.set_shader_parameter("critter_look", _look)
 	material.set_shader_parameter("critter_photo", _photo)
+	material.set_shader_parameter("critter_mechanical", _mechanical)
 	material.set_shader_parameter("critter_count", n)
 	if field != null:
 		field.apply_to(material)
@@ -887,6 +900,12 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 				float(photo.get("shock", 0.0)),
 				float(photo.get("scan", 0.0)) / TAU,
 				float(c.get("photo_side", 0.0)))
+		var mechanical: Dictionary = c.get("mechanical", {})
+		var mech_dir: Vector3 = mechanical.get("direction", Vector3.ZERO)
+		_mechanical[i] = Vector4(float(mechanical.get("response", 0.0)),
+				float(mechanical.get("carrier", 0)) / 3.0,
+				float(mechanical.get("age", 99.0)),
+				clampf(mech_dir.dot(f), -1.0, 1.0))
 		_size[i] = Vector4(float(m.length), float(m.wide), float(m.tall),
 				float(int(m.seed) % 97) * 0.041)
 		_matter[i] = Vector4(float(m.gold), float(m.crystal), float(m.cilia),

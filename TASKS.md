@@ -2470,11 +2470,20 @@ relay and recovery. Audio playback never drives biology.
   production-root proof passes 11/11, DreamEcology passes 61/61 and
   DreamMargin passes 57/57. This pass makes no visual-deformation claim and
   therefore adds no render proof; MBIO-3 owns the visible metachronal response.
-- **MBIO-3 OPEN — METACHRONAL AND ELECTROCHEMICAL MOTION.** Let neighbouring
-  cilia organize through phase offsets, slow under load and locally reverse or
-  arrest after a stimulus. Carry one finite-speed calcium/potassium-like band
-  through existing palp, fauna and architecture materials. A simultaneous
-  whole-room pulse fails the gate.
+- **MBIO-3 COMPLETE 2026-08-25 — METACHRONAL AND ELECTROCHEMICAL MOTION.**
+  Deployed cilia now keep neighbouring motor phase offsets in their existing
+  mesh; an impulse reverses the local power stroke, sustained hum loads and
+  slows it, and recovery returns autonomous phase. The same receptor state
+  carries one root-to-tip perfusion band through the existing palp and crystal
+  listener surface arrays. Living architecture receives the corresponding
+  vascular answer as a capped pressure front expanding through its existing
+  3-D field texture at 0.72 m/s, then drops the transient relay; the distant
+  room slice remains untouched. No surface, node, global pulse, attention,
+  pursuit, case or save owner was added. Production recipient/buffer proof is
+  13/13, LivingField is 22/22 and shader parsing passes. Forward+ impulse/hum
+  frames clear a 0.000000719 subject-ROI A/A floor by 9,372–10,497×, and the
+  recovered frame is byte-identical to control B:
+  `art/renders/dream_microbiology_mechanics_mbio3/README.md`.
 - **MBIO-4 OPEN — VESICLES, WRINKLES AND SLOW VIBRATION CONSEQUENCE.** Show
   addressed secretion as bounded membrane bleb → neck → release → uptake, and
   let ethermoss/death memory organize into branching transport wrinkles.

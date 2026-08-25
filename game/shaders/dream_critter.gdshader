@@ -39,6 +39,8 @@ uniform vec4 critter_law[12];
 uniform vec4 critter_look[12];
 // MBIO-1: x receptor contrast, y photoshock, z scan phase, w beam side.
 uniform vec4 critter_photo[12];
+// MBIO-3: x response, y carrier/3, z seconds since reception, w direction.
+uniform vec4 critter_mechanical[12];
 uniform int critter_count = 0;
 
 varying vec2 v_uv;
@@ -50,6 +52,7 @@ varying float v_thickness;
 varying vec4 v_law;
 varying vec4 v_look;
 varying vec4 v_photo;
+varying vec4 v_mechanical;
 
 // A tube's cross-section must be perpendicular to the tube. Offsetting along
 // a fixed-plane normal -- which is what the ring normal is, before it is
@@ -75,6 +78,7 @@ void vertex() {
 	vec4 law = critter_law[c];
 	vec4 look = critter_look[c];
 	vec4 photo = critter_photo[c];
+	vec4 mechanical = critter_mechanical[c];
 	vec3 fwd = normalize(critter_fwd[c].xyz + vec3(1e-5, 0.0, 0.0));
 	vec3 up = normalize(critter_up[c].xyz + vec3(0.0, 1e-5, 0.0));
 	vec3 side = normalize(cross(up, fwd));
@@ -183,8 +187,13 @@ void vertex() {
 		// They wave, slowly, and each on its own phase.
 		// And they go still while they are out. A structure held out to taste
 		// something does not wave about.
-		float wave = sin(TIME * (1.6 + matter.z * 2.0) + t * 9.0 + seed)
-				* 0.16 * along * (1.0 - out_at * 0.75);
+		float carrier = floor(mechanical.y * 3.0 + 0.5);
+		float hum = (1.0 - step(0.45, abs(carrier - 3.0))) * mechanical.x;
+		float reverse = (1.0 - step(0.45, abs(carrier - 1.0))) * mechanical.x;
+		float wave = sin(TIME * mix(1.6 + matter.z * 2.0, 0.7, hum)
+				* mix(1.0, -1.0, reverse) + t * 9.0 + seed)
+				* 0.16 * along * (1.0 - out_at * 0.75)
+				* (1.0 - hum * 0.72);
 		vec3 p = base + dir * (len * along) + side * wave * len;
 		float thick = size.y * 0.014 * (1.0 - 0.7 * along);
 		local = p + ring_offset(dir, nrm, thick);
@@ -206,6 +215,7 @@ void vertex() {
 	v_law = law;
 	v_look = look;
 	v_photo = photo;
+	v_mechanical = mechanical;
 }
 
 void fragment() {
@@ -223,6 +233,10 @@ void fragment() {
 	// §26 — the individual's own balance, applied to the shared stack.
 	ctx.stretch = 0.2 + 0.5 * v_look.w;
 	ctx.vein = 0.2 + 0.7 * v_look.y;
+	float relay_front = v_mechanical.z * 0.72;
+	float relay = (1.0 - smoothstep(0.03, 0.20,
+			abs(v_uv.y - relay_front))) * v_mechanical.x;
+	ctx.vein = clamp(ctx.vein + relay * 0.72, 0.0, 1.0);
 	ctx.lod = 1.0 - smoothstep(1.2, 5.0, length(VERTEX));
 	// §24 — THE RESONATOR TURNS INSIDE A SHELL THAT DOES NOT.
 	//
@@ -254,6 +268,7 @@ void fragment() {
 	// Not a flash: photoshock bruises/perfuses the same tissue stack while
 	// the legible event remains the resonator reversal and feeler arrest.
 	ALBEDO *= mix(vec3(1.0), vec3(0.78, 0.72, 1.06), v_photo.y * 0.34);
+	ALBEDO = mix(ALBEDO, ALBEDO * vec3(1.14, 0.72, 1.24), relay * 0.42);
 	BACKLIGHT = o.backlight;
 	AO = o.ao;
 	AO_LIGHT_AFFECT = 0.35;

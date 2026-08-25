@@ -76,6 +76,12 @@ var vascular_responses := 0
 var vascular_cells_pressurized := 0
 var vascular_last_at := Vector3.INF
 var vascular_last_strength := 0.0
+## MBIO-3: bounded, transient pressure fronts. The 3-D texture is already the
+## architecture material's owner, so the relay changes its data, not its draw.
+var vascular_relays: Array[Dictionary] = []
+var vascular_relay_steps := 0
+const VASCULAR_RELAY_CAP := 8
+const VASCULAR_RELAY_SPEED_M_S := 0.72
 ## Up to three nodes where the body is strongest after each pass, for the
 ## lights the encroachment keeps on the organism.
 var nodes: PackedVector3Array = PackedVector3Array()
@@ -122,6 +128,8 @@ func configure(rect: Vector4, floor_y: float, rng_seed: int) -> void:
 	vascular_cells_pressurized = 0
 	vascular_last_at = Vector3.INF
 	vascular_last_strength = 0.0
+	vascular_relays.clear()
+	vascular_relay_steps = 0
 	_gx = maxi(1, int(ceil(size_m.x / GRAVITY_CELL_M)))
 	_gy = maxi(1, int(ceil(size_m.y / GRAVITY_CELL_M)))
 	_gz = maxi(1, int(ceil(size_m.z / GRAVITY_CELL_M)))
@@ -303,6 +311,7 @@ func _remove_agent(i: int) -> void:
 
 func _step() -> void:
 	steps += 1
+	_advance_vascular_relays(1.0 / STEP_HZ)
 	var pulse := 0.5 + 0.5 * cos(pulse_phase() * TAU)
 	var phase := pulse_phase()
 
@@ -579,7 +588,9 @@ func census() -> Dictionary:
 			"vascular_responses": vascular_responses,
 			"vascular_cells_pressurized": vascular_cells_pressurized,
 			"vascular_last_at": vascular_last_at,
-			"vascular_last_strength": vascular_last_strength}
+			"vascular_last_strength": vascular_last_strength,
+			"vascular_active_relays": vascular_relays.size(),
+			"vascular_relay_steps": vascular_relay_steps}
 
 
 ## DO-3 — A VASCULAR SIGNAL BECOMES LOCAL ARCHITECTURAL PRESSURE.
@@ -592,14 +603,39 @@ func receive_vascular_pulse(p: Vector3, src: int, strength: float) -> int:
 	if src < 0 or src >= sources.size() or strength <= 0.0:
 		return 0
 	var unit := clampf(strength, 0.0, 1.0)
-	var touched := pressurize(p, src, 0.30 + unit * 0.55, 0.50 + unit * 0.35)
+	# Admit a local membrane event now; the rest advances at a measured speed.
+	# The texture's half-metre cells require this core for one visible membrane
+	# sample; propagation begins outside it rather than pretending sub-voxel
+	# detail exists.
+	var core := 0.50 + unit * 0.35
+	var touched := pressurize(p, src, 0.30 + unit * 0.55, core)
 	if touched <= 0:
 		return 0
 	vascular_responses += 1
 	vascular_cells_pressurized += touched
 	vascular_last_at = p
 	vascular_last_strength = unit
+	if vascular_relays.size() >= VASCULAR_RELAY_CAP:
+		vascular_relays.pop_front()
+	vascular_relays.append({"at": p, "src": src, "strength": unit,
+			"age": 0.0, "radius": core,
+			"limit": core + 0.75 + unit * 0.35})
 	return touched
+
+
+func _advance_vascular_relays(delta: float) -> void:
+	for i in range(vascular_relays.size() - 1, -1, -1):
+		var relay: Dictionary = vascular_relays[i]
+		relay.age = float(relay.age) + delta
+		var next_radius := minf(float(relay.limit), float(relay.radius)
+				+ delta * VASCULAR_RELAY_SPEED_M_S)
+		if next_radius > float(relay.radius) + 0.001:
+			relay.radius = next_radius
+			pressurize(relay.at, int(relay.src),
+					0.30 + float(relay.strength) * 0.55, next_radius)
+			vascular_relay_steps += 1
+		if next_radius >= float(relay.limit) - 0.001:
+			vascular_relays.remove_at(i)
 
 
 ## DT-5 — WHERE OUR SLICE FIRST MEETS THE BODY.

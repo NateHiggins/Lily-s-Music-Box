@@ -52,6 +52,9 @@ uniform vec4 palp_cilia[40];
 // MBIO-1 membrane response: x adapted contrast, y photoshock, z scan phase,
 // w signed side of the beam. It changes the beat of existing anatomy only.
 uniform vec4 palp_photo[40];
+// MBIO-3: x response, y carrier/3, z seconds since reception,
+// w signed direction across the organ.
+uniform vec4 palp_mechanical[40];
 uniform int palp_count = 0;
 // Proof-only clock pin. The production default follows live TIME; lifecycle
 // capture can freeze the same anatomy twice to price the remaining scene
@@ -74,6 +77,7 @@ varying vec4 v_branch;
 // x how erect this cilium is, y the completion beat, z which anatomy this
 // vertex belongs to (0 shaft, 1 cilium), w how near the ciliated band it is.
 varying vec4 v_cilia;
+varying vec4 v_mechanical;
 
 vec3 spine_at(int p, float s) {
 	float x = clamp(s, 0.0, 1.0) * float(JOINTS - 1);
@@ -162,6 +166,7 @@ void cilium(int p, int ci, float along, vec3 ring_n, float grow, float t,
 	vec4 par = palp_params[p];
 	vec4 cil = palp_cilia[p];
 	vec4 photo = palp_photo[p];
+	vec4 mechanical = palp_mechanical[p];
 	float band = clamp(cil.y, 0.10, 0.92);
 	// HOW MANY, AND HOW LONG, ARE PER INDIVIDUAL (§6). A ciliated whisker is
 	// made of these; a gold finger has almost none. Six is the floor because
@@ -215,8 +220,20 @@ void cilium(int p, int ci, float along, vec3 ring_n, float grow, float t,
 	// field. Contrast advances one side and retards the other; a photoshock
 	// reverses the power stroke briefly. No cilium changes length.
 	vec3 across = normalize(cross(tng, radial) + vec3(1e-5, 0.0, 0.0));
+	// A carpet is many motors with neighbouring phase offsets. Sustained hum
+	// loads and slows the field; an impulse reverses the local power stroke.
+	float carrier = floor(mechanical.y * 3.0 + 0.5);
+	float is_impulse = 1.0 - step(0.45, abs(carrier - 1.0));
+	float is_hum = 1.0 - step(0.45, abs(carrier - 3.0));
+	float motor_rate = mix(7.2, 2.0, is_hum * mechanical.x);
+	float motor_direction = mix(1.0, -1.0, is_impulse * mechanical.x);
+	float motor_wave = sin(t * motor_rate * motor_direction
+			+ t_i * 6.2831853 * 1.65 + par.w);
 	d0 = normalize(d0 + across * photo.x
 			* (scan_wave * 0.32 + photo.w * 0.38));
+	d0 = normalize(d0 + across * motor_wave * erect
+			* (0.12 + 0.20 * cil.w) * (1.0 - mechanical.x * is_hum * 0.72)
+			+ across * mechanical.w * mechanical.x * 0.16);
 	d0 = normalize(mix(d0, normalize(-tng * 1.15 + radial * 0.22),
 			photo.y * (0.72 + 0.18 * t_i)));
 	// FOLDED MEANS LYING ALONG THE SURFACE, NOT BURIED IN IT.
@@ -306,6 +323,7 @@ void vertex() {
 		v_matter = palp_matter[p];
 		v_branch = vec4(0.0, 0.0, palp_branch[p].z, palp_branch[p].w);
 		v_cilia = vec4(c_erect, palp_cilia[p].z, 1.0, 1.0);
+		v_mechanical = palp_mechanical[p];
 	} else {
 
 		float v = UV.y;
@@ -345,6 +363,7 @@ void vertex() {
 		float from_band = abs(v - palp_cilia[p].y);
 		v_cilia = vec4(0.0, palp_cilia[p].z, 0.0,
 				1.0 - smoothstep(0.0, 0.18, from_band));
+		v_mechanical = palp_mechanical[p];
 		// STEP 2, in the geometry as well as the colour: congested tissue is
 		// SWOLLEN. And STEP 4: the crease itself is a furrow, so the middle of
 		// the swelling goes back in further than the shoulders come out.
@@ -366,6 +385,12 @@ void fragment() {
 	// the individual carrying it is.
 	float part = v_cilia.z;
 	float beat = v_cilia.y;
+	// The membrane event is local and travels root-to-tip. This band changes
+	// perfusion in the existing tissue stack; it is not an emissive game flash.
+	float relay_front = v_mechanical.z * 0.82;
+	float relay = (1.0 - smoothstep(0.025, 0.16,
+			abs(v_uv.y - relay_front))) * v_mechanical.x;
+	ctx.vein = clamp(ctx.vein + relay * (0.58 + 0.22 * part), 0.0, 1.0);
 	// §12 STEP 9 -- THE COMPLETION BEAT, ON THE SURFACE. The band under the
 	// fine anatomy floods while the job is being finished, exactly the way the
 	// crease floods before the branch opens at step 2. The same tissue doing
@@ -432,6 +457,7 @@ void fragment() {
 	vec3 bruise = ALBEDO * vec3(0.62, 0.48, 1.18);
 	ALBEDO = mix(ALBEDO, exchange_wet, is_exchange * 0.42);
 	ALBEDO = mix(ALBEDO, bruise, is_senescent * 0.52 + is_shed * 0.72);
+	ALBEDO = mix(ALBEDO, ALBEDO * vec3(1.16, 0.70, 1.22), relay * 0.38);
 	// What remains is not a decal. It is the organ's authored silhouette
 	// pressed into the wall: wet hematoma, mineral trace and cold violet
 	// secretion, beautiful enough to invite inspection and wrong enough to

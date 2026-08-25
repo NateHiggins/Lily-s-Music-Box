@@ -9,7 +9,8 @@ const HUM := 1 << 2
 
 static func state() -> Dictionary:
 	return {"response": 0.0, "refractory": 0.0, "carrier": 0,
-			"direction": Vector3.ZERO, "last_src": -2147483648,
+			"direction": Vector3.ZERO, "age": 99.0,
+			"last_src": -2147483648,
 			"last_born": -1.0, "received": 0}
 
 
@@ -26,7 +27,8 @@ static func carrier_bit(carrier: int) -> int:
 
 static func advance(receptor: Dictionary, delta: float) -> void:
 	receptor.refractory = maxf(0.0, float(receptor.refractory) - delta)
-	receptor.response = move_toward(float(receptor.response), 0.0, delta * 1.8)
+	receptor.response = move_toward(float(receptor.response), 0.0, delta * 0.78)
+	receptor.age = float(receptor.age) + delta
 
 
 static func accept(receptor: Dictionary, packet: Dictionary, carrier_mask: int,
@@ -52,6 +54,7 @@ static func accept(receptor: Dictionary, packet: Dictionary, carrier_mask: int,
 	receptor.refractory = 0.26 if int(packet.carrier) \
 			== DreamEcologyDirector.Carrier.IMPULSE else 0.42
 	receptor.carrier = int(packet.carrier)
+	receptor.age = 0.0
 	var direction: Vector3 = packet.get("direction", Vector3.ZERO)
 	receptor.direction = direction.normalized() \
 			if direction.length_squared() > 0.0001 else Vector3.ZERO

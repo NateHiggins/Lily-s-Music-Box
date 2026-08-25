@@ -29,11 +29,14 @@ func _run() -> void:
 	var player = root.get("player")
 	var director = enc.get("ecology") if enc != null else null
 	var margin = enc.get("margin") if enc != null else null
+	var renderer = enc.get("palp_renderer") if enc != null else null
 	var critters = enc.get("critters") if enc != null else null
 	_check("production owns the physical publisher and both recipients",
-			player != null and director != null and margin != null and critters != null
+			player != null and director != null and margin != null and renderer != null
+			and critters != null
 			and player.has_signal("mechanical_stimulus"))
-	if player == null or director == null or margin == null or critters == null:
+	if player == null or director == null or margin == null or renderer == null \
+			or critters == null:
 		return _finish()
 	_check("the ecology connected to physical contact independently of attention",
 			player.mechanical_stimulus.is_connected(director.on_mechanical_stimulus)
@@ -90,6 +93,8 @@ func _run() -> void:
 	crab.pos = palp.tip
 	crab.up = Vector3.UP
 	crab.mechanical = Mechanics.state()
+	var architecture_before := _vascular_response_total(enc)
+	var architecture_relays_before := _active_architecture_relays(enc)
 	director.emit_mechanical_packet(91, at, 2.0, 0.75,
 			DreamEcologyDirector.Carrier.IMPULSE, Vector3.RIGHT, 2.0,
 			DreamEcologyDirector.Substrate.FLOOR, 2.0)
@@ -104,6 +109,10 @@ func _run() -> void:
 	critters._update_mechanoreception(crab, 0.05)
 	_check("deployed cilia feel the arrived floor impulse",
 			int(palp.mechanical.received) == 1)
+	enc._receive_architecture_signals()
+	_check("the cilium returns the same event to living architecture",
+			_vascular_response_total(enc) == architecture_before + 1
+			and _active_architecture_relays(enc) == architecture_relays_before + 1)
 	_check("a crystal listener feels it and arrests its shell",
 			int(listener.mechanical.received) == 1 and not bool(listener.moving))
 	_check("a fold crab genuinely ignores the same packet",
@@ -113,6 +122,16 @@ func _run() -> void:
 	_check("held disturbance is refractory in both recipient families",
 			int(palp.mechanical.received) == 1
 			and int(listener.mechanical.received) == 1)
+	renderer._process(0.0)
+	critters._push()
+	var palp_mechanical = renderer.material.get_shader_parameter("palp_mechanical")
+	var critter_mechanical = critters.material.get_shader_parameter(
+			"critter_mechanical")
+	_check("both local responses reach their existing one-draw pose buffers",
+			palp_mechanical is PackedVector4Array
+			and critter_mechanical is PackedVector4Array
+			and _peak_response(palp_mechanical) > 0.1
+			and _peak_response(critter_mechanical) > 0.1)
 	_check("MBIO-2 creates no nodes, case fact or save seam",
 			_node_count(root) == nodes_before
 			and cases_before == var_to_bytes(RealityState.data.get("cases", {}))
@@ -127,13 +146,34 @@ func _node_count(node: Node) -> int:
 	return total
 
 
+func _peak_response(values: PackedVector4Array) -> float:
+	var peak := 0.0
+	for value in values:
+		peak = maxf(peak, value.x)
+	return peak
+
+
+func _vascular_response_total(enc) -> int:
+	var total := 0
+	for field in enc.fields.values():
+		total += int(field.vascular_responses)
+	return total
+
+
+func _active_architecture_relays(enc) -> int:
+	var total := 0
+	for field in enc.fields.values():
+		total += int(field.vascular_relays.size())
+	return total
+
+
 func _check(label: String, ok: bool) -> void:
 	checks += 1
-	print("[MBIO-2 LIVE] %s %s" % ["PASS" if ok else "FAIL", label])
+	print("[MBIO MECHANICS LIVE] %s %s" % ["PASS" if ok else "FAIL", label])
 	if not ok:
 		failures += 1
 
 
 func _finish() -> void:
-	print("[MBIO-2 LIVE] %d/%d PASS" % [checks - failures, checks])
+	print("[MBIO MECHANICS LIVE] %d/%d PASS" % [checks - failures, checks])
 	get_tree().quit(0 if failures == 0 else 1)

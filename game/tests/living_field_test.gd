@@ -62,6 +62,20 @@ func _ready() -> void:
 			== int(vascular_before.stained_voxels)
 			and (vascular_now.vascular_last_at as Vector3).distance_to(
 					Vector3(0.0, 3.7, 0.0)) < 0.01)
+	pressure_field.tick(0.125)
+	var vascular_moving: Dictionary = pressure_field.census()
+	_check("the vascular reply advances through architecture instead of pulsing globally",
+			int(vascular_moving.vascular_relay_steps) == 1
+			and int(vascular_moving.vascular_active_relays) == 1
+			and int(vascular_moving.live_voxels) >= int(vascular_now.live_voxels))
+	var far_cell: Vector3i = pressure_field._cell_of(Vector3(1.75, 3.7, 1.75))
+	_check("the distant room slice stays untouched; a whole-room pulse fails",
+			float(pressure_field.body[pressure_field._index(
+					far_cell.x, far_cell.y, far_cell.z)]) < 0.01)
+	for _i in 20:
+		pressure_field.tick(0.125)
+	_check("the finite architectural relay leaves no permanent event owner",
+			int(pressure_field.census().vascular_active_relays) == 0)
 
 	# Nothing grows with no intensity.
 	field.set_source_intensity(src, 0.0)

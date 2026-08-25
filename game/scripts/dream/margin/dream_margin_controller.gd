@@ -1098,6 +1098,15 @@ func _update_mechanoreception(p: Dictionary, delta: float) -> void:
 			| MicroMechanicsScript.HUM
 	for packet in _signal_near:
 		if MicroMechanicsScript.accept(receptor, packet, mask, substrate):
+			# The cilium's answer is the existing architecture-addressed vascular
+			# chemistry. The architecture owner decides whether and how to take it
+			# up; this organ cannot mutate a field directly.
+			director.emit_signal_packet(int(p.id),
+					DreamEcologyDirector.SrcClass.CILIA,
+					DreamEcologyDirector.Fn.PULSE, p.tip, 1.1,
+					float(receptor.response),
+					DreamEcologyDirector.Chem.VASCULAR, 1.0, 1.0,
+					DreamEcologyDirector.SrcClass.ARCHITECTURE)
 			break
 
 

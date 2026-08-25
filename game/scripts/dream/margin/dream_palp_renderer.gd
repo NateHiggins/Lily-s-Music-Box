@@ -58,6 +58,8 @@ var _cilia := PackedVector4Array()
 ## MBIO-1: x receptor response, y photoshock, z scan phase/TAU,
 ## w signed beam side. Same mesh and draw; this is pose, not another effect.
 var _photo := PackedVector4Array()
+## MBIO-3: x response, y carrier/3, z event age, w direction across organ.
+var _mechanical := PackedVector4Array()
 var _clock := 0.0
 
 
@@ -71,6 +73,7 @@ func setup(margin: DreamMarginController) -> void:
 	_branch.resize(MAX_PALPS)
 	_cilia.resize(MAX_PALPS)
 	_photo.resize(MAX_PALPS)
+	_mechanical.resize(MAX_PALPS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
 	mesh_instance = MeshInstance3D.new()
@@ -199,6 +202,7 @@ func _process(delta: float) -> void:
 		_params[i] = Vector4.ZERO
 		_cilia[i] = Vector4.ZERO
 		_photo[i] = Vector4.ZERO
+		_mechanical[i] = Vector4.ZERO
 	material.set_shader_parameter("palp_spine", _spine)
 	material.set_shader_parameter("palp_section", _section)
 	material.set_shader_parameter("palp_params", _params)
@@ -206,6 +210,7 @@ func _process(delta: float) -> void:
 	material.set_shader_parameter("palp_branch", _branch)
 	material.set_shader_parameter("palp_cilia", _cilia)
 	material.set_shader_parameter("palp_photo", _photo)
+	material.set_shader_parameter("palp_mechanical", _mechanical)
 	material.set_shader_parameter("palp_count", drawn)
 	if controller.field != null:
 		controller.field.apply_to(material)
@@ -312,6 +317,12 @@ func _lay(slot: int, p: Dictionary) -> void:
 			float(photo.get("shock", 0.0)),
 			float(photo.get("scan", 0.0)) / TAU,
 			float(p.get("photo_side", 0.0)))
+	var mechanical: Dictionary = p.get("mechanical", {})
+	var mech_dir: Vector3 = mechanical.get("direction", Vector3.ZERO)
+	_mechanical[slot] = Vector4(float(mechanical.get("response", 0.0)),
+			float(mechanical.get("carrier", 0)) / 3.0,
+			float(mechanical.get("age", 99.0)),
+			clampf(mech_dir.dot(side), -1.0, 1.0))
 
 
 func census() -> Dictionary:
