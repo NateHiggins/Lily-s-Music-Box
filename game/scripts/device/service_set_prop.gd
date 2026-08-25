@@ -25,6 +25,7 @@ const LAMP_WARM := Color("ffd08a")
 var radio_powered := true
 var lamp_enabled := true
 var order_open := false
+var incoming_call := false
 
 var _work_orders: WorkOrders
 var _aerial: Node3D
@@ -74,6 +75,20 @@ func set_radio_powered(on: bool, animate := true) -> void:
 
 func toggle_radio_power() -> void:
 	set_radio_powered(not radio_powered)
+
+
+func set_incoming_call(waiting: bool) -> void:
+	incoming_call = waiting
+	if _receipt_root and _receipt_label:
+		if waiting:
+			if _receipt_tween:
+				_receipt_tween.kill()
+			_receipt_label.text = "LINE REQUEST\nL. ORTIZ · 2B\nPRESS R"
+			_receipt_root.scale.y = 1.0
+			_receipt_root.visible = true
+		else:
+			_receipt_root.visible = false
+	_apply_state(false)
 
 
 ## A powered set advances one physical field slip. The HUD enlarges the same
@@ -132,7 +147,9 @@ func _refresh_order() -> void:
 
 
 func _apply_state(animate: bool) -> void:
-	_set_jewel(_order_material, AMBER, order_open and radio_powered, 1.25)
+	_set_jewel(_order_material, AMBER,
+			(order_open or incoming_call) and radio_powered,
+			1.65 if incoming_call else 1.25)
 	_set_jewel(_net_material, GREEN, radio_powered, 0.82)
 	_set_jewel(_lamp_indicator_material, RED, lamp_enabled, 0.82)
 	_set_jewel(_lamp_glass_material, LAMP_WARM, lamp_enabled, 2.1)

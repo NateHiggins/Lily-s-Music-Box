@@ -19,8 +19,9 @@ func _ready() -> void:
 	RealityState.reset_campaign_for_tests()
 	var library := MaintenanceJobLibrary.load_default()
 	_check(library.is_valid(), "maintenance_jobs.json loads and validates")
-	_check(library.job_ids() == ([JOB] as Array[String]),
-			"exactly one authored job exists and it is ChirpHunt (%s)"
+	_check(library.job_ids() == ([ServiceRoundDirector.JOB_ID, JOB]
+			as Array[String]),
+			"the chirp and first Service Round are the two authored jobs (%s)"
 			% [library.job_ids()])
 	_check(not library.has_job("steam_hammer_2a"),
 			"steam_hammer_2a is no longer the active graybox job")
@@ -35,6 +36,12 @@ func _ready() -> void:
 			"the required part is a carbon capsule, never a battery")
 	_check(str(library.job(JOB).dream_window.eligible_after_stage) == "repaired",
 			"eligible dream window is metadata only")
+	_check(not library.requires_part(ServiceRoundDirector.JOB_ID)
+			and str(library.job(ServiceRoundDirector.JOB_ID).resident_id)
+					== "lena_ortiz"
+			and library.job(ServiceRoundDirector.JOB_ID).anchor_ids == [
+				"F02_B_RADIATOR_01", "LobbyPorterBoard", "B1_BOILER_01"],
+			"the resident-filed round authors Lena and all three travel anchors")
 
 	tracker = ObjectiveTracker.new()
 	add_child(tracker)

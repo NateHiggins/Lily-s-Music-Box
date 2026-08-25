@@ -39,6 +39,45 @@
 				"repaired": "The line is quiet. Tell Mina the chirp is done.",
 				"closed": "WORK ORDER CLOSED."
 			}
+		},
+		"lena_radiator_round_2b": {
+			"title": "WORK ORDER 002 — BORROWED BREATH",
+			"summary": "Lena Ortiz reports that the 2B radiator exhales while the iron stays cold. Compare the vent's flow with the lobby annunciator's contact and the boiler column's pressure before changing the fitting.",
+			"origins": {
+				"reported": {
+					"source": "resident_service_set_call",
+					"text": "Lena Ortiz asks for the radiator to be read as part of the whole building before anybody replaces what looks wrong."
+				}
+			},
+			"case_id": "lena_unraveling",
+			"resident_id": "lena_ortiz",
+			"unit": "2B",
+			"dream_profile_id": "lena_visible_patch",
+			"required_item_id": "",
+			"repair_target_id": "F02_B_RADIATOR_01",
+			"anchor_ids": [
+				"F02_B_RADIATOR_01",
+				"LobbyPorterBoard",
+				"B1_BOILER_01"
+			],
+			"evidence_flags": [
+				"radiator_airbound",
+				"lobby_contact_compared",
+				"boiler_pressure_compared"
+			],
+			"dream_window": {
+				"eligible_after_stage": "closed",
+				"protected_contexts": ["call", "conversation"]
+			},
+			"stage_objectives": {
+				"issued": "Go to 2B and hear Lena describe what the radiator does before touching it.",
+				"acknowledged": "Inspect the 2B radiator vent, then compare its flow with the lobby call contacts and the basement water column.",
+				"diagnosed": "The boiler has pressure and the call contacts carry it: 2B's air vent is the local restriction.",
+				"awaiting_part": "No purchased part is required for this service round.",
+				"repairable": "Return to 2B. Free and clock the vent, then leave the one-pipe supply fully open.",
+				"repaired": "The radiator breathes before it warms. Return to Lena and tell her what the visible repair proves.",
+				"closed": "WORK ORDER CLOSED — THE PATCH IS VISIBLE AND HOLDING."
+			}
 		}
 	}
 }

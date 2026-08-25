@@ -3329,10 +3329,19 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   The focused activity test passes 33 checks, the three-consumer live test
   passes 18 including `orison_root.tscn`, and frozen A/A plus all four worked
   states are proved at `art/renders/maintenance_boiler_sr3/README.md`.
-- **SR4 — First complete service round.** Author one resident-filed work order
-  through `MaintenanceJobLibrary` / `WorkOrders`: call, apartment radiator,
-  lobby comparison, basement comparison, repair, resident return. It must prove
-  travel/search and conversation rather than chaining three props in a shed.
+- **SR4 — First complete waking service round — COMPLETE 2026-08-24.** Lena's
+  `WORK ORDER 002 — BORROWED BREATH` waits until Mina's opening job closes,
+  arrives as a persistent line slip on the carried 28-R, and runs through the
+  existing resident-interaction and `WorkOrders` owners. The legal order is
+  call → Lena → 2B radiator inspection → lobby contact comparison → basement
+  pressure comparison → 2B repair → deliberate Lena return reply. Wrong order,
+  early mechanism completion, duplicate evidence and proximity closure are all
+  rejected. `ServiceRoundDirector` stores no lifecycle and creates no Dream
+  fact. Focused proof passes 13 checks, the strict job test remains green, the
+  production-root live test binds all three real anchors, and Forward+ A/A / call
+  / threshold frames are at
+  `art/renders/maintenance_service_round_sr4/README.md`. SR5 inserts the shared
+  Dream interruption; do not misreport this waking braid as that answer.
 - **SR5 — Shared Dream answer.** Let the existing organism owners observe the
   same pressure/sound rhythm and answer it. No maintenance-specific Dream
   director, entity, hazard owner, pursuit owner or save record.

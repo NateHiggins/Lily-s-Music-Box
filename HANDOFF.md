@@ -34,7 +34,7 @@ hashes, trims and tests are recorded in `game/docs/title_screen.md`.
 one third of active play as WarioWare-short hands-on maintenance, one third as
 resident communication / travel / search, and one third observing, avoiding
 and eventually communicating with the Dream organism. The binding design is
-`design/ORISON_SERVICE_ROUND_BRIEF.md`. M1, SR2 and SR3 are landed: one strict
+`design/ORISON_SERVICE_ROUND_BRIEF.md`. M1 through SR4 are landed: one strict
 data-authored activity book, transient run, one-at-a-time presentation router,
 narrow in-world paper strip, and three live consumers. Radiator preview moves its
 real wheel/vent without publishing heat state. The production lobby's porter
@@ -44,12 +44,20 @@ final completion alone emits a mechanism result. The production basement's
 coal plant now adds the same ownership proof: two real gauge cocks isolate its
 water column, hold progress drains the visible glass, the returning level meets
 a witness marker, and the passages reopen without publishing boiler state
-until commit. The activity layer cannot advance a job, case or Dream fact.
-Focused tests pass; Forward+ proof lives at
+until commit. SR4 adds the first resident-filed waking route: only after Mina's
+opening order closes does Lena Ortiz's persistent 28-R line slip appear. The
+order then requires Lena's threshold conversation, a non-repair inspection of
+her 2B radiator, the production lobby contact comparison, the production
+basement pressure comparison, the returned 2B repair, and a deliberate Lena
+reply. `ServiceRoundDirector` translates those existing-owner events into
+public `WorkOrders` calls and stores no lifecycle. The activity layer still
+cannot advance a job, case or Dream fact. Focused tests pass; Forward+ proof lives at
 `art/renders/maintenance_service_round_m1/README.md` and
 `art/renders/maintenance_annunciator_sr2/README.md`, and
-`art/renders/maintenance_boiler_sr3/README.md`. Next is SR4's first complete
-resident-filed, travel/search-bearing service round.
+`art/renders/maintenance_boiler_sr3/README.md`, with SR4 A/A / call / resident
+proof at `art/renders/maintenance_service_round_sr4/README.md`. Next is SR5:
+the shared Dream organism must interrupt and answer this route without a
+maintenance-specific Dream director, entity or save fact.
 
 **Dream rendering checkpoint (2026-08-20):** R1–R6 of the production surface
 redesign are landed through `art/renders/dream_rendering_r6/README.md`. The

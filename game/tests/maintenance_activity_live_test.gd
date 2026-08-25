@@ -101,6 +101,14 @@ func _ready() -> void:
 			and production_boiler.get_node_or_null(
 					"WaterGlassReach") is PropControlArea,
 			"the production basement owns this same serviceable water column")
+	var production_round := production_root.get("service_round") \
+			as ServiceRoundDirector
+	_check(production_round != null
+			and production_round._radiator == production_root.get_node_or_null(
+					"F02_B_RADIATOR_01")
+			and production_round._board == production_board
+			and production_round._boiler == production_boiler,
+			"the production route binds 2B, lobby and basement owners by their real anchors")
 
 	var boiler := BoilerProp.new()
 	boiler.name = "TestBoiler"

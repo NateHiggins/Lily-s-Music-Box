@@ -22,6 +22,7 @@ var _bob := 0.0
 var _sway := Vector2.ZERO
 var _proof_pose := 0
 var _sleep_onset := 0.0
+var _service_round: Node
 
 
 func setup(player: PlayerController, camera: Camera3D,
@@ -45,8 +46,29 @@ func lamp_is_enabled() -> bool:
 
 
 func toggle_radio_power() -> void:
+	if _service_round and _service_round.has_method("has_incoming_call") \
+			and bool(_service_round.call("has_incoming_call")):
+		if device and not device.radio_powered:
+			device.set_radio_powered(true)
+			return
+		_service_round.call("answer_incoming_call")
+		return
 	if device:
 		device.toggle_radio_power()
+
+
+func bind_service_round(owner: Node) -> void:
+	_service_round = owner
+	if _service_round and _service_round.has_signal("incoming_call_changed"):
+		_service_round.connect("incoming_call_changed", _on_incoming_call_changed)
+	_on_incoming_call_changed(_service_round != null \
+			and _service_round.has_method("has_incoming_call") \
+			and bool(_service_round.call("has_incoming_call")))
+
+
+func _on_incoming_call_changed(waiting: bool) -> void:
+	if device:
+		device.set_incoming_call(waiting)
 
 
 func set_radio_powered(on: bool) -> void:

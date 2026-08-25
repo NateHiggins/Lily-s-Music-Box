@@ -253,6 +253,7 @@ var work_orders: WorkOrders
 var maintenance_inventory: MaintenanceInventory
 var shop_service: MaintenanceShopService
 var core_loop: CoreLoopDirector
+var service_round: ServiceRoundDirector
 var vantry_points: VantryPointNetwork
 var chirp_hunt: ChirpHunt
 var first_shift_director: FirstShiftDirector
@@ -624,6 +625,13 @@ func _ready() -> void:
 		add_child(core_loop)
 		core_loop.setup(work_orders, player, layout)
 	mina_manifestation.bind_wake(core_loop)
+	# SR4 is the next waking job after the first authored loop. It translates
+	# existing call, resident and mechanism events into WorkOrders calls; it
+	# owns no parallel lifecycle and opens no Dream window.
+	service_round = ServiceRoundDirector.new()
+	service_round.name = "ServiceRoundDirector"
+	add_child(service_round)
+	service_round.setup(work_orders, self, player, service_set_carrier)
 	var room0 := Room0.new()
 	add_child(room0)
 	var anomaly: DoorAnomalyProp = get_node_or_null("F04_B_DOOR_ANOMALY")

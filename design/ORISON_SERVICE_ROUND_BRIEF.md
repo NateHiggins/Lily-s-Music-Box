@@ -131,8 +131,17 @@ comparison → boiler comparison → Dream interruption → repair → resident 
   level. Production-root tests and frozen A/A plus four worked Forward+ frames
   are recorded at `art/renders/maintenance_boiler_sr3/README.md`.
 
-SR4 remains the first resident-filed, travel-bearing work order. It may not be
-collapsed into another isolated prop demonstration.
+- **SR4 / first waking service round (2026-08-24):** Lena Ortiz files Work
+  Order 002 through the carried 28-R only after Mina's opening job closes. Her
+  threshold conversation acknowledges it; opening the 2B radiator reach earns
+  inspection without repair; the production lobby contacts and basement water
+  column must then be proved in order. Those three facts alone make the no-part
+  job repairable. The 2B activity records the repair, and a deliberate return
+  reply—not proximity or a UI close—closes it. `ServiceRoundDirector` translates
+  existing signals into public `WorkOrders` calls and stores no lifecycle.
+  Production A/A, call and resident frames plus executable proof are at
+  `art/renders/maintenance_service_round_sr4/README.md`. SR5 remains the shared
+  Dream interruption/answer; SR4 creates no maintenance-owned Dream fact.
 
 ## Acceptance
 
