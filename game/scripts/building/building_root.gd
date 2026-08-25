@@ -15,6 +15,9 @@ extends Node3D
 ## offset far enough not to cull its own wall is far enough to pop the
 ## corridor beyond a doorway instead.
 
+const PlanarMirrorRendererScript := preload(
+		"res://scripts/building/planar_mirror_renderer.gd")
+
 const FLOOR_SCENES := {
 	"B1": "res://assets/building/floor_b1.gltf",
 	"F01": "res://assets/building/floor_01.gltf",
@@ -593,6 +596,11 @@ func _ready() -> void:
 	player = PlayerController.new()
 	player.position = GameBoot.b2g([0.0, -9.0, 0.1])  # vestibule
 	add_child(player)
+	# Bathroom cabinet glass borrows one sleeping reflected view. It binds only
+	# after the production camera exists and shares this already-built World3D.
+	var mirror_renderer := PlanarMirrorRendererScript.new()
+	add_child(mirror_renderer)
+	mirror_renderer.setup(player.camera)
 	# Encroachment is assembled earlier with the building surfaces. Its field
 	# cannot bind a player that does not exist yet; complete that existing
 	# downstream ownership seam now, alongside traffic and the Vantry points.

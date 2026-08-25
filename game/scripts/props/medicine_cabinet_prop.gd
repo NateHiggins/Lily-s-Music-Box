@@ -7,10 +7,9 @@ extends FunctionalProp
 ## Orison bought the older tell-tale rectangle with two visible pins and a
 ## friction catch. It carries no signal and receives no electrical indulgence.
 ##
-## Compatibility cannot reflect the room. `mirror_aged` therefore records
-## only what belongs to the glass in every room: damp clouding, cleaning marks
-## and failed silver. `glassish` is a Blender-only architectural material and
-## naming it here would silently turn this GDScript prop back into flat colour.
+## The glass keeps its damp clouding, cleaning marks and failed silver as a
+## cheap static fallback. In production, PlanarMirrorRenderer borrows one
+## reflected camera for whichever cabinet is actually useful to the player.
 
 const W := 0.46
 const H := 0.61
@@ -81,6 +80,8 @@ const KEPT := {
 }
 
 var _door: Node3D
+var _mirror_surface: MeshInstance3D
+var _mirror_fallback: Material
 var _open := false
 var _swing := 0.0
 var _squeak: AudioStreamPlayer3D
@@ -178,8 +179,14 @@ func _build_door(enamel: StandardMaterial3D,
 	_box_mat(_door, Vector3(W - 0.012, H - 0.012, 0.012),
 			Vector3(centre_x, 0, 0.004), enamel)
 	var mirror := smat("mirror_aged", Color(0.78, 0.79, 0.76), 0.60)
-	_box_mat(_door, Vector3(W - 0.040, H - 0.040, 0.008),
+	_mirror_surface = _box_mat(_door,
+			Vector3(W - 0.040, H - 0.040, 0.008),
 			Vector3(centre_x, 0, -0.010), mirror)
+	_mirror_surface.name = "MirrorGlass"
+	_mirror_surface.layers = 1 << 19
+	_mirror_surface.add_to_group("planar_mirror_surface")
+	_mirror_surface.set_meta("mirror_size", Vector2(W - 0.040, H - 0.040))
+	_mirror_fallback = mirror
 
 	for x in [centre_x - W * 0.5 + 0.012, centre_x + W * 0.5 - 0.012]:
 		_box_mat(_door, Vector3(0.024, H, 0.018),
@@ -196,7 +203,28 @@ func _build_door(enamel: StandardMaterial3D,
 			Vector3(far_x, 0, -0.026), nickel, Vector3(PI * 0.5, 0, 0))
 	_box_mat(_door, Vector3(0.025, 0.030, 0.018),
 			Vector3(far_x, -0.13, 0.010), nickel)
-	merge_static(_door)
+	# The moving glass must remain addressable: the renderer swaps only its
+	# presentation material while the rest of the door still batches normally.
+	merge_static(_door, [_mirror_surface])
+
+
+func mirror_surface() -> MeshInstance3D:
+	return _mirror_surface
+
+
+func mirror_center() -> Vector3:
+	return _mirror_surface.global_position if _mirror_surface else global_position
+
+
+func mirror_normal() -> Vector3:
+	if _mirror_surface == null:
+		return -global_basis.z.normalized()
+	return (-_mirror_surface.global_basis.z).normalized()
+
+
+func set_live_mirror_material(material: Material) -> void:
+	if _mirror_surface:
+		_mirror_surface.material_override = material if material else _mirror_fallback
 
 
 func _build_kept() -> void:
