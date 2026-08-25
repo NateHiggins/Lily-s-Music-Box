@@ -639,7 +639,14 @@ and hashes are in
 `game/assets/audio/freesound/processed/cellular/README.md`. **Next is MBIO-6:**
 one integrated production encounter proving the full observation and
 communication sequence without creating combat or claiming a waking case
-loop.
+loop. Its executable causal half is now landed: `DreamMicrobiologyEncounterTest`
+passes 12/12 through the real Orison root in the order dark → scan → shock →
+adapt → collision-resolved footfall → finite cilium answer → LivingField uptake
+→ hero vesicle. Raw mechanics remains silent and the cilium/vesicle answers use
+the shared audio pool. Attention, case bytes, persistence, pursuer and hazard
+ownership are unchanged. MBIO-6 remains open only for a one-session Forward+
+storyboard with A/A controls; do not substitute the earlier separate sheets
+and call that an integrated render.
 
 Three top-level projects:
 
