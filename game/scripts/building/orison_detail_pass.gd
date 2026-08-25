@@ -11,6 +11,8 @@ const INFRA_ATLAS := \
 const PROFILE_PATH := "res://data/resident_story_details.json"
 const MailChutePropScript := preload("res://scripts/props/mail_chute_prop.gd")
 const FusePanelPropScript := preload("res://scripts/props/fuse_panel_prop.gd")
+const WatchmanClockPropScript := preload(
+		"res://scripts/props/watchman_clock_prop.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -267,6 +269,46 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		# tighter placement pushes the locked-contact pair into solid wall.
 		interlock.position = GameBoot.b2g([2.22, -6.72, 1.34])
 		floor_nodes["F01"].add_child(interlock)
+		# SR7-F: the watchman's time detector, on the clear run of the east wall
+		# between the 1D and 1C entry doors.
+		#
+		# THE SERVICE END OF THIS WALL IS FULL, and it was measured rather than
+		# assumed. Southward it carries LobbyMailBank (y -8.56..-7.20), the post
+		# tray, LobbyMailChute (-6.92..-6.58), LobbyPorterBoard (-6.33..-6.07) and
+		# LobbyServiceDumbwaiter (-5.32..-4.48). The porter's board is where this
+		# instrument belongs by rights, but the widest gap anywhere near it is the
+		# 0.75 m between the board and the dumbwaiter -- a 0.34 case hung there
+		# stands 0.20 m off two neighbours and reads as clutter.
+		#
+		# The wall's openings are at y -3.77..-2.86 and -0.13..0.78, so the run
+		# BETWEEN the two doors is 2.73 m of unbroken panelling with nothing on it.
+		# The case goes in the middle of it, 1.19 m clear of one door and 1.20 m of
+		# the other, which is the first place on this wall where a glazed
+		# instrument can actually be walked up to and read.
+		#
+		# It is deliberately far from the measured mail-wall composition at the
+		# south end, which walk_test prices against the Vantry master at -8.97.
+		#
+		# Named to the floor-prefix convention the presentation audit expects,
+		# and NOT registered as a `wall_clock` marker: that marker count is a
+		# hard 2 and this is not one of the building's two clocks. It keeps no
+		# WorkOrders reference either -- `clock_prop.gd` is the one prop that
+		# closes a job, and SR7 apparatus deliberately do not.
+		#
+		# -PI/2, as everything else on this run: authored facing local +Z with
+		# the lobby west of the partition.
+		var detector := WatchmanClockPropScript.new()
+		detector.name = "F01_WATCHMAN_DETECTOR"
+		detector.prop_type = "watchman_detector"
+		# HEIGHT IS SET BY THE MILLWORK, not by taste. `build_orison.py` runs the
+		# lobby dado to 1.32 with a 0.04 cap on top and a bullnose bead at 1.355,
+		# and that cap stands about 0.035 proud of the plaster -- further out than
+		# this case is deep. Hung any lower, the chair rail passes straight through
+		# the glass. A clock goes ABOVE the panelling, which is where they were hung
+		# anyway; the dial then centres at 1.66, a standing man's eye.
+		detector.position = GameBoot.b2g([5.24, -1.50, 1.44])
+		detector.rotation.y = -PI * 0.5
+		floor_nodes["F01"].add_child(detector)
 		# The settle west of the street door is a place to actually sit.
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])

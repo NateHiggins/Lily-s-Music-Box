@@ -180,6 +180,29 @@
         "note": "over-fused plug replaced with one rated to the conductor and proved under full load",
         "mechanism_patch": {"fitted_rating": 15, "main_open": false, "plug_out": false, "panel_safe": true}
       }
+    },
+    "watchman_detector_dial": {
+      "title": "THE PAPER HAS TO MOVE",
+      "apparatus": "watchman's time detector, paper dial and station keys",
+      "location_lane": "lobby",
+      "historical_source": "Watchman's clock whose paper dial rotates once in twenty-four hours with the spindle, graduated and numbered, and is embossed with the characters of whichever station key is turned in it, A. Newman of Chicago, US 676,764, patented 18 June 1901; watchman's time-detector in which each key has a barrel of predetermined length differing from the others so that its mark is identified by its position on the dial, and whose stop flange exists because a watchman could otherwise copy a key and work the detector without visiting the station at all, P. Moosmann of Brooklyn, US 1,351,056, filed 1916 and granted 1920",
+      "transferable_verb": "timing",
+      "story": {
+        "material": "The dial turns once round in a day on the clock's own spindle. WHERE a key's mark falls around the dial is when it was made; how far out from the centre is which station made it. A dial that is not on the spindle still takes every mark you give it, and stacks a whole night of them along one line.",
+        "human": "Whoever walked the round last winter brought back a full sheet of marks every morning, and not one person ever looked at where they sat.",
+        "orison": "A station mark stands on the dial at an hour the round has not reached yet."
+      },
+      "steps": [
+        {"id": "read_the_dial", "verb": "align", "target": 0.58, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Run the reading index round last night's dial and see where the marks sit.", "confirmation": "Every station, on one straight line out from the centre. That is a whole night at one instant."},
+        {"id": "stop_the_movement", "verb": "turn", "target": 0.0, "tolerance": 0.07, "expected_seconds": 6.0, "cue": "Throw the stop lever so the spindle is still before you touch the paper.", "confirmation": "The spindle stands. Now the dial can come off without tearing."},
+        {"id": "seat_the_dial", "verb": "align", "target": 0.44, "tolerance": 0.05, "expected_seconds": 8.0, "cue": "Drop a fresh dial on so the drive pin comes up through its index hole, not just the centre.", "confirmation": "The pin is through. The paper is on the spindle now, not merely on the arbor."},
+        {"id": "set_the_datum", "verb": "turn", "target": 0.71, "tolerance": 0.06, "expected_seconds": 8.0, "cue": "Bring the dial's graduation round to the hour the building is actually keeping.", "confirmation": "The datum agrees with the house clock. The marks will mean the hours they claim."},
+        {"id": "prove_the_round", "verb": "hold_release", "target": 0.83, "tolerance": 0.06, "hold_min_seconds": 1.8, "expected_seconds": 8.0, "cue": "Turn a station key, hold while the dial carries the mark away, and mark again.", "confirmation": "Two marks, and daylight between them. That is the only thing that proves the paper moved."}
+      ],
+      "completion": {
+        "note": "dial seated on its drive pin, datum set to the house hour and the movement proved by two separated marks",
+        "mechanism_patch": {"dial_seated": true, "movement_running": true, "datum_set": true, "detector_honest": true}
+      }
     }
   }
 }

@@ -11,23 +11,28 @@ func _ready() -> void:
 	# vertical apparatus one at a time: SR7-A the dumbwaiter's holding brake,
 	# SR7-B the passenger lift's landing-door interlock, SR7-C the roof
 	# house-tank ball cock, SR7-D the mail chute's choke, SR7-E the house
-	# panelboard's fuse rating. The assertion stays CLOSED rather than becoming
-	# a subset check, so a stray ninth activity still fails this line loudly.
+	# panelboard's fuse rating, SR7-F the watchman's time detector -- which
+	# closes the fixed SR7 order. The assertion stays CLOSED rather than
+	# becoming a subset check, so a stray tenth activity still fails loudly.
 	_check(library.activity_ids() == (["annunciator_flag_service",
 			"boiler_water_column_test", "dumbwaiter_brake_service",
 			"elevator_interlock_proof", "fuse_panel_rating_service",
 			"mail_chute_choke_clearing", "radiator_vent_service",
-			"roof_tank_ballcock_service"] as Array[String]),
-			"the round runs apartment, lobby, basement, two shafts, roof, chute and panel")
+			"roof_tank_ballcock_service",
+			"watchman_detector_dial"] as Array[String]),
+			"the round runs the apartment, lobby, basement, shafts, roof and the watchman's round")
 	# The six ruled transferable verbs were complete at SR7-C, so SR7-D is the
 	# first apparatus that had to REUSE one. It takes `flow` deliberately: the
 	# radiator teaches flow as air leaving a pipe before steam can enter, and
 	# the chute teaches the same word for solids, where the obstruction holds
 	# itself up instead of draining away. SR7-E reuses `regulation` on the same
 	# principle: the dumbwaiter's band is sized to the load it must hold and
-	# the fuse link is sized to the conductor it must protect. Verbs are now a
-	# many-to-one map and this assertion is the record of which machine chose
-	# what.
+	# the fuse link is sized to the conductor it must protect. SR7-F reuses
+	# `timing`: the ball cock taught that apparent closure and real holding
+	# differ only over time, and the detector teaches that a mark means nothing
+	# unless the paper under it was moving while the mark was made. Verbs are
+	# now a many-to-one map and this assertion is the record of which machine
+	# chose what.
 	_check({
 		"radiator_vent_service": "flow",
 		"mail_chute_choke_clearing": "flow",
@@ -37,6 +42,7 @@ func _ready() -> void:
 		"fuse_panel_rating_service": "regulation",
 		"elevator_interlock_proof": "continuity",
 		"roof_tank_ballcock_service": "timing",
+		"watchman_detector_dial": "timing",
 	} == _transferable_verbs(library),
 			"each period mechanism names one transferable physical verb")
 	for activity_id in library.activity_ids():
