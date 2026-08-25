@@ -134,6 +134,29 @@
         "note": "float drained and reseated; lever weight set to the riser pressure and the cock proved dry on the witness",
         "mechanism_patch": {"float_waterlogged": false, "weight_set": 0.64, "riser_open": true, "overflow_running": false, "ballcock_serviced": true}
       }
+    },
+    "mail_chute_choke_clearing": {
+      "title": "THE EMPTY BOX LIES",
+      "apparatus": "lobby mail chute, choke and collection box",
+      "location_lane": "lobby",
+      "historical_source": "Cutler mail chute, J. G. Cutler, US 284,951, 1883, whose front must be at least three-fourths glass so that clogs can be identified, whose lobby box is metal with its door not less than two feet six above the floor, and whose chute carries hinged locking doors for dislodging stuck mail; floor-local choke and expansion chamber for over-thick mail, J. J. Cusick, US 1,450,139, filed 1922 and granted 1923",
+      "transferable_verb": "flow",
+      "story": {
+        "material": "Mail is bent and squeezed to get through the slot and then opens again inside the chute. Two letters that spring open across the choke hold each other up by friction alone, and everything above stands on that arch. Pulling the box empty proves nothing, because the box was never where the trouble was.",
+        "human": "The top floor has been carrying its letters down by hand for a fortnight and nobody once thought to say so.",
+        "orison": "A letter posted on a floor that has no slot reaches the box before the test piece does."
+      },
+      "steps": [
+        {"id": "read_the_glass", "verb": "align", "target": 0.72, "tolerance": 0.06, "expected_seconds": 6.0, "cue": "Run the lamp up the glass until you find where the chute stops being empty.", "confirmation": "The box below is empty. The chute is not."},
+        {"id": "unlock_the_cover", "verb": "turn", "target": 1.0, "tolerance": 0.07, "expected_seconds": 5.0, "cue": "Key the locking cover so the glass will move in its grooves.", "confirmation": "The cover is off. The glass is free to draw."},
+        {"id": "take_the_load", "verb": "hold_release", "target": 0.58, "tolerance": 0.09, "hold_min_seconds": 1.5, "expected_seconds": 8.0, "cue": "Hold the catch tray under the choke and draw the glass until the loose mail comes off the arch.", "confirmation": "The weight is off the bridge and in your hand."},
+        {"id": "break_the_arch", "verb": "align", "target": 0.41, "tolerance": 0.05, "expected_seconds": 8.0, "cue": "Set the blade at the corner where the two letters bear on each other and break the span.", "confirmation": "The arch goes, and the choke is a hole again."},
+        {"id": "prove_the_drop", "verb": "hold_release", "target": 0.88, "tolerance": 0.06, "hold_min_seconds": 1.8, "expected_seconds": 8.0, "cue": "Shut the glass, post a test piece at the slot and hold on the box until it lands.", "confirmation": "It arrives. A chute is proved by what comes out of it."}
+      ],
+      "completion": {
+        "note": "arch broken at the choke, load recovered and the chute proved by a test piece to the box",
+        "mechanism_patch": {"arch_standing": false, "load_taken": true, "cover_locked": true, "glass_drawn": 0.0, "chute_clear": true}
+      }
     }
   }
 }

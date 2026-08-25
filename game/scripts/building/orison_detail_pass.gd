@@ -194,6 +194,23 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 				[5.02, MAIL_BANK_Y + POST_TRAY_FROM_BANK, 0.86])
 		tray.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(tray)
+		# SR7-D: the mail chute and its collection box, in the clear stretch of
+		# the east wall between the post tray at y -7.40 and the porter's board
+		# at y -6.20. The box is 0.34 across, so at -6.75 it spans -6.92..-6.58
+		# and touches neither neighbour; walk_test's measured mail-wall
+		# composition -- the 150 mm bank-to-master gap, the 4B leaf sweep and
+		# the 0.70 m standing lane -- is all south of the tray and untouched.
+		#
+		# -PI/2, like the dumbwaiter: props on this run are authored facing
+		# local +Z and the lobby lies west of the partition, so the positive
+		# half-turn the mail bank and porter board still carry would point this
+		# apparatus into the wall.
+		var chute := MailChuteProp.new()
+		chute.name = "LobbyMailChute"
+		chute.prop_type = "mail_chute"
+		chute.position = GameBoot.b2g([5.24, -6.75, 0.0])
+		chute.rotation.y = -PI * 0.5
+		floor_nodes["F01"].add_child(chute)
 		# The porter's board, further up the same wall toward the lift.
 		# There has not been a porter in years, which is why it is yours.
 		var board := OtisProp.new()
