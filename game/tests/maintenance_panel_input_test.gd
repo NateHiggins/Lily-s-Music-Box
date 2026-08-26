@@ -2,8 +2,11 @@ extends Node
 ## The hero repair surface accepts semantic actions, not device keycodes.
 
 class FakePlayer:
-	extends Node
-	var call_locked := false
+	extends PlayerController
+	var primary_uses := 0
+
+	func use_primary_interaction() -> void:
+		primary_uses += 1
 
 class FakeMechanism:
 	extends Node
@@ -70,9 +73,17 @@ func _prove_semantic_panel_route() -> void:
 	_check(is_equal_approx(panel._value, start_value),
 			"semantic right action reverses the travel")
 	panel._value = 0.0
+	# The controller's A button names both actions. PlayerController polls
+	# interact even though the panel receives an activity_commit event; the
+	# modal call lock must keep those meanings from firing together.
+	Input.action_press(&"interact")
+	player._process(0.016)
 	panel._unhandled_input(_action(&"activity_commit", true))
+	Input.action_release(&"interact")
 	_check(panel._director.active_run.step_index == 1,
 			"semantic commit advances the authored operation")
+	_check(player.primary_uses == 0,
+			"controller A commits without double-firing world interaction")
 	panel._unhandled_input(_action(&"activity_commit", true))
 	_check(panel._holding, "semantic commit press begins a hold-release verb")
 	panel._hold_started_msec = Time.get_ticks_msec() - 1500
