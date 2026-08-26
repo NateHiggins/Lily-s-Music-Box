@@ -996,7 +996,10 @@ void fragment() {
 	// The close deck is cooler and slightly darker than the painted upper
 	// cloud. Its changing overlap is the parallax cue. Its value is independent
 	// of the panorama beneath it; otherwise bright stars make bright clouds.
-	vec3 cloud_color = fog_horizon_color * (0.72 + cloud_relief * 1.35);
+	// Keep underside relief inside a stratus value range. The earlier 0.72–2.07
+	// multiplier photographed like charcoal ink and blown white paint by day;
+	// this 0.84–1.66 range survives tonemapping without becoming projected art.
+	vec3 cloud_color = fog_horizon_color * (0.84 + cloud_relief * 0.82);
 	color = mix(color, cloud_color, thickness);
 	float source_angle = acos(clamp(dot(direction,
 			normalize(celestial_direction)), -1.0, 1.0));

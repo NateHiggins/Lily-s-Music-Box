@@ -50,6 +50,19 @@ func _ready() -> void:
 	_check("DayNightDirector is the exterior-key absolute writer",
 			sky_key != null and sky_key.get_meta("absolute_writer", "")
 			== "DayNightDirector")
+	var weather_profile := director.resolved_profile()
+	_check("reported cloud cover attenuates the matching exterior key",
+			is_equal_approx(director._cloud_direct_transmission(0.0), 1.0)
+			and director._cloud_direct_transmission(0.38) < 1.0
+			and director._cloud_direct_transmission(0.38) > 0.12
+			and is_equal_approx(director._cloud_direct_transmission(1.0), 0.12)
+			and float(weather_profile.get("cloud_direct_transmission", 1.0))
+					< 0.20
+			and float(weather_profile.key_e) < float(weather_profile.ambient_e))
+	_check("a dry cloud ceiling cannot silently become ground fog",
+			director._weather_fog_multiplier(1.0, 0.0, 3) < 1.0
+			and director._weather_fog_multiplier(1.0, 1.0, 95) > 1.0
+			and director._weather_fog_multiplier(1.0, 0.0, 45) > 1.0)
 	_check("the global storm uses bounded depth fog",
 			environment != null and environment.fog_enabled
 			and environment.fog_mode == Environment.FOG_MODE_DEPTH
@@ -125,6 +138,7 @@ func _ready() -> void:
 			and sky_code.contains("lower_cloud_strength")
 			and sky_code.contains("Direction-space waves")
 			and sky_code.contains("cloud_relief")
+			and sky_code.contains("cloud_relief * 0.82")
 			and sky_code.contains("exp(-cloud_shape * lower_cloud_strength")
 			and not sky_code.contains("float p = u * 2.0 * PI"))
 	_check("the same sky draw projects the lunar terminator from the real Sun",

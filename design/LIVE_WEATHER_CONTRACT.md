@@ -37,6 +37,21 @@ The density-to-opacity step uses exponential optical depth, so low and broken
 reports remain photographically visible instead of becoming a nearly
 transparent tint; an exact zero-strength clear report still evaluates to zero.
 
+The same normalized total-cover fact also attenuates the one exterior
+directional key and hard-ray term. Clear transmits `1.0`; a closed report keeps
+`0.12` as diffuse-through-cloud directional shape. Ambient Environment fill is
+not multiplied down, so overcast becomes soft rather than implausibly black.
+The sky shader independently obscures the visible Sun or Moon at the exact
+local cloud cell; the bulk coefficient describes average light reaching the
+street and does not add a second light owner.
+
+Low cloud alone supplies only bounded aerial perspective (`0.78–0.84` of the
+authored fog ceiling). Precipitation adds up to `0.18`, and WMO present-weather
+codes 45/48 explicitly receive that full fog term. Thus a dry overcast report
+softens the block without erasing it; rain, storm and actual fog may still close
+the distance. Cloud cover never impersonates ground fog merely because both
+facts are gray.
+
 This separation is the pattern for future reality-selling feeds: network code
 publishes bounded facts; an existing production owner translates those facts;
 failure preserves authored art; and no feed gains authority over cases, saves,

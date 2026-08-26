@@ -259,10 +259,20 @@ func _apply(minute: float) -> void:
 		# with another generic or procedural sky.
 		profile.cloud_depth = clouds
 		profile["cloud_coverage"] = clouds
-		profile.fog_d *= lerpf(0.72, 1.18, low_clouds)
+		# Cloud cover changes illumination as well as the photograph. Preserve the
+		# diffuse Environment fill, but attenuate the single exterior directional
+		# key and its hard-ray term through one measured presentation coefficient.
+		var direct_transmission := _cloud_direct_transmission(clouds)
+		profile.key_e *= direct_transmission
+		profile.rays *= direct_transmission
+		profile["cloud_direct_transmission"] = direct_transmission
+		var precipitation := clampf(float(_live_conditions.get(
+				"precipitation_intensity", 0.0)), 0.0, 1.0)
+		var weather_code := int(_live_conditions.get("weather_code", 0))
+		profile.fog_d *= _weather_fog_multiplier(
+				low_clouds, precipitation, weather_code)
 		profile.mist.a *= lerpf(0.34, 1.0,
-				maxf(low_clouds, float(_live_conditions.get(
-						"precipitation_intensity", 0.0))))
+				maxf(low_clouds, precipitation))
 		profile["live_weather"] = _live_conditions.duplicate(true)
 	var source_a := _source_direction(a.elevation, a.azimuth)
 	var source_b := _source_direction(b.elevation, b.azimuth)
@@ -387,6 +397,25 @@ func _urban_horizon_for_state(state: String) -> float:
 		"evening": return 0.62
 		"morning": return 0.28
 		_: return 0.0
+
+
+func _cloud_direct_transmission(coverage: float) -> float:
+	## Bounded bulk transmission for the one world-space exterior key. The sky
+	## shader still decides whether the actual Sun/Moon disc sits behind a local
+	## cloud cell; this coefficient describes the average light reaching Queens.
+	var optical_cover := smoothstep(0.08, 0.94, clampf(coverage, 0.0, 1.0))
+	return lerpf(1.0, 0.12, optical_cover)
+
+
+func _weather_fog_multiplier(low_clouds: float, precipitation: float,
+		weather_code: int) -> float:
+	## A dry ceiling is not ground fog. Low cloud supplies only modest aerial
+	## perspective; precipitation and WMO fog codes may close the distance.
+	var wet_or_fog := clampf(precipitation, 0.0, 1.0)
+	if weather_code in [45, 48]:
+		wet_or_fog = 1.0
+	return lerpf(0.78, 0.84, clampf(low_clouds, 0.0, 1.0)) \
+			+ wet_or_fog * 0.18
 
 
 func _span_at(minute: float) -> Dictionary:
