@@ -68,6 +68,48 @@
       "caption": "switch snaps off",
       "graph_transmitted": false
     },
+    "interaction.door_move": {
+      "stream_key": "door_squeak",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 48,
+      "volume_db": -18.0,
+      "pitch_scale": 0.99,
+      "unit_size": 2.5,
+      "max_distance": 14.0,
+      "cooldown": 0.08,
+      "max_instances": 5,
+      "caption": "door moves on its hinges",
+      "graph_transmitted": false
+    },
+    "interaction.door_latch": {
+      "stream_key": "tick",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 54,
+      "volume_db": -14.0,
+      "pitch_scale": 0.90,
+      "unit_size": 2.5,
+      "max_distance": 12.0,
+      "cooldown": 0.04,
+      "max_instances": 5,
+      "caption": "door latch catches",
+      "graph_transmitted": false
+    },
+    "interaction.door_locked": {
+      "stream_key": "tick",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 57,
+      "volume_db": -14.0,
+      "pitch_scale": 0.82,
+      "unit_size": 2.5,
+      "max_distance": 12.0,
+      "cooldown": 0.02,
+      "max_instances": 5,
+      "caption": "locked handle rattles",
+      "graph_transmitted": false
+    },
     "state.clockwork_running": {
       "stream_key": "tick",
       "purpose": "state",

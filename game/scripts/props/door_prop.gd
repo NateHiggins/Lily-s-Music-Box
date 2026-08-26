@@ -23,6 +23,7 @@ var open := false
 var _hinge_offset := 0.0
 var _body: AnimatableBody3D
 var _fixed: Node3D
+# Reserved for the LandmarkEntryDoor override. Ordinary leaves leave both null.
 var _click: AudioStreamPlayer3D
 var _squeak: AudioStreamPlayer3D
 var _moving := false
@@ -59,6 +60,12 @@ func _ready() -> void:
 		open = true
 		_body.rotation.y = deg_to_rad(-168.0 if swing_out else 168.0)
 	apply_hinge_setback()
+
+
+## Landmark subclasses may retain a deliberately authored private acoustic
+## body. Ordinary leaves use the shared semantic pool and allocate nothing.
+func _build_audio() -> void:
+	pass
 
 
 func _build_leaf() -> void:
@@ -237,21 +244,6 @@ func _build_fixed_hardware() -> void:
 				metal, 0, 8)
 
 
-func _build_audio() -> void:
-	_click = AudioStreamPlayer3D.new()
-	_click.stream = PropAudio.get_stream("tick")
-	_click.volume_db = -14.0
-	_click.unit_size = 2.5
-	_click.max_distance = 12.0
-	add_child(_click)
-	_squeak = AudioStreamPlayer3D.new()
-	_squeak.stream = PropAudio.get_stream("door_squeak")
-	_squeak.volume_db = -18.0
-	_squeak.unit_size = 2.5
-	_squeak.max_distance = 14.0
-	add_child(_squeak)
-
-
 func interact_prompt() -> String:
 	if leaf_state == "locked":
 		return "[E]  Locked"
@@ -266,9 +258,7 @@ func interact(_player: Node) -> void:
 		return
 	_moving = true
 	open = not open
-	if _squeak:
-		_squeak.pitch_scale = randf_range(0.93, 1.05)
-		_squeak.play()
+	_play_move()
 	var swept := -100.0 if swing_out else 100.0
 	var tween := create_tween()
 	tween.tween_property(_body, "rotation:y",
@@ -284,18 +274,39 @@ func npc_set_open(want_open: bool) -> void:
 
 func _settled() -> void:
 	_moving = false
-	if not open and _click:
-		_click.pitch_scale = 0.9
-		_click.play()
+	if not open:
+		_play_latch()
 
 
 func _rattle() -> void:
-	if not _click:
-		return
 	var tween := create_tween()
 	for i in 3:
-		tween.tween_callback(_click.play)
+		tween.tween_callback(_play_locked)
 		tween.tween_interval(0.09)
+
+
+func _play_move() -> void:
+	if _squeak:
+		_squeak.play()
+	else:
+		AudioPolicy.present_3d(&"interaction.door_move", global_position, 1.0,
+				StringName(name))
+
+
+func _play_latch() -> void:
+	if _click:
+		_click.play()
+	else:
+		AudioPolicy.present_3d(&"interaction.door_latch", global_position, 1.0,
+				StringName(name))
+
+
+func _play_locked() -> void:
+	if _click:
+		_click.play()
+	else:
+		AudioPolicy.present_3d(&"interaction.door_locked", global_position, 1.0,
+				StringName(name))
 
 
 func apply_hinge_setback() -> void:

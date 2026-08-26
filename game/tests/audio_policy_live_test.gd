@@ -49,7 +49,60 @@ func _ready() -> void:
 		_check("semantic presentation writes no save key",
 				not RealityState.data.has("audio_policy")
 				and not RealityState.data.has("audio_cues"))
+	await _prove_standard_doors(root)
 	_finish()
+
+
+func _prove_standard_doors(root: Node) -> void:
+	var standard: Array[DoorProp] = []
+	var closed: DoorProp
+	var locked: DoorProp
+	for candidate in root.find_children("*", "DoorProp", true, false):
+		var door := candidate as DoorProp
+		if door == null or door.get_script().resource_path \
+				!= "res://scripts/props/door_prop.gd":
+			continue
+		standard.append(door)
+		if closed == null and door.leaf_state == "closed" and not door.open:
+			closed = door
+		if locked == null and door.leaf_state == "locked":
+			locked = door
+	_check("production owns %d ordinary door leaves" % standard.size(),
+			standard.size() >= 100)
+	var private_players := 0
+	for door in standard:
+		for child in door.get_children():
+			if child is AudioStreamPlayer3D:
+				private_players += 1
+	_check("%d ordinary doors carry %d private audio players" % [
+			standard.size(), private_players],
+			private_players == 0)
+	_check("closed and locked production leaves exist", closed != null and locked != null)
+	if closed == null or locked == null:
+		return
+	AudioPolicy.clear_diagnostics()
+	closed.interact(root.get("player"))
+	await get_tree().create_timer(0.65).timeout
+	closed.interact(root.get("player"))
+	await get_tree().create_timer(0.65).timeout
+	var movement := AudioPolicy.event_history()
+	_check("open, close and latch are three ordered physical answers",
+			movement.size() == 3
+			and str(movement[0].cue_id) == "interaction.door_move"
+			and str(movement[1].cue_id) == "interaction.door_move"
+			and str(movement[2].cue_id) == "interaction.door_latch")
+	_check("the door is restored shut", not closed.open)
+	AudioPolicy.clear_diagnostics()
+	locked.interact(root.get("player"))
+	await get_tree().create_timer(0.35).timeout
+	var refusal := AudioPolicy.event_history()
+	var only_locked := true
+	for event in refusal:
+		only_locked = only_locked \
+				and str(event.cue_id) == "interaction.door_locked"
+	_check("a locked leaf answers with three rattles and never moves",
+			refusal.size() == 3 and not locked.open
+			and only_locked)
 
 
 func _powered_snapshot(room_id: String, switches: SwitchSystem) -> Array[bool]:
