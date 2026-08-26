@@ -7,6 +7,7 @@ var failures := 0
 
 
 func _ready() -> void:
+	get_viewport().size = Vector2i(1280, 720)
 	var owner = preload("res://scripts/player/player_controller.gd").new()
 	add_child(owner)
 	await get_tree().process_frame
@@ -16,6 +17,14 @@ func _ready() -> void:
 	var baseline_db := AudioServer.get_bus_volume_db(gameplay_bus)
 	_check("escape surface opens during ordinary play", surface.open())
 	_check("opening pauses the night", get_tree().paused and surface.is_open)
+	await get_tree().process_frame
+	var panel_rect: Rect2 = surface.panel.get_global_rect()
+	var viewport_size := get_viewport().get_visible_rect().size
+	print("[PAUSE SERVICES] FIT rect=%s viewport=%s" % [panel_rect, viewport_size])
+	_check("the full services surface fits the minimum viewport",
+			panel_rect.position.x >= 0.0 and panel_rect.position.y >= 0.0
+			and panel_rect.end.x <= viewport_size.x
+			and panel_rect.end.y <= viewport_size.y)
 	_check("surface exposes all six semantic mix controls",
 			surface.sliders.size() == 6)
 	_check("sleep warning accessibility is reachable during play",

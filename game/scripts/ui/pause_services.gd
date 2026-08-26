@@ -14,6 +14,7 @@ const LEVELS := [
 
 var player: Node
 var panel: PanelContainer
+var center: CenterContainer
 var captions: CheckBox
 var onset_warning: CheckBox
 var reduce_roll: CheckBox
@@ -44,6 +45,7 @@ func open() -> bool:
 	if not can_open():
 		return false
 	_load_controls()
+	center.size = get_viewport().get_visible_rect().size
 	_mouse_before = Input.mouse_mode
 	is_open = true
 	panel.visible = true
@@ -80,10 +82,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _build() -> void:
+	center = CenterContainer.new()
+	center.name = "ServicesCenter"
+	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(center)
 	panel = PanelContainer.new()
 	panel.name = "InGameBuildingServices"
-	panel.set_anchors_preset(Control.PRESET_CENTER)
-	panel.position = Vector2(-270, -300)
 	panel.custom_minimum_size = Vector2(540, 600)
 	panel.visible = false
 	var style := StyleBoxFlat.new()
@@ -94,7 +99,7 @@ func _build() -> void:
 	style.border_width_bottom = 1
 	style.border_color = Color(0.50, 0.38, 0.22, 0.78)
 	panel.add_theme_stylebox_override("panel", style)
-	add_child(panel)
+	center.add_child(panel)
 	var margin := MarginContainer.new()
 	for side in ["left", "top", "right", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 22)
