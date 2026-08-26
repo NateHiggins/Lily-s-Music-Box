@@ -70,6 +70,10 @@ var settings := {
 	"music_volume": 1.0,
 	"ui_volume": 1.0,
 	"look_sensitivity": 1.0,
+	"controller_look_sensitivity": 1.0,
+	"controller_invert_y": false,
+	"controller_look_deadzone": 0.18,
+	"controller_look_curve": 1.65,
 	"reduce_camera_roll": false,
 	"reduce_flashing": false,
 	# Privacy: off means only fixed Queens coordinates are sent for weather.

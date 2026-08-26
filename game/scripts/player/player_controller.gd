@@ -330,11 +330,9 @@ func _process(_delta: float) -> void:
 	_carry_service_light(_delta)
 	if not call_locked:
 		var stick_look := Input.get_vector("look_left", "look_right",
-				"look_up", "look_down")
+				"look_up", "look_down", 0.0)
 		if stick_look.length_squared() > 0.0:
-			# apply_look consumes mouse-like travel. Converting the rate here
-			# keeps its sensitivity, pitch clamp and carried-lamp lag shared.
-			apply_look(stick_look * 720.0 * _delta)
+			apply_look_rate(stick_look, _delta)
 	# E is the universal physical verb. A seat is deliberately allowed through
 	# call_locked; every other locked panel continues to own its input.
 	if Input.is_action_just_pressed("interact") \
@@ -524,6 +522,39 @@ func apply_look(rel: Vector2) -> void:
 	if carried_device and carried_device.has_method("apply_look"):
 		carried_device.apply_look(rel)
 	camera.rotation.x = clampf(camera.rotation.x, -1.45, 1.45)
+
+
+## A held stick is a rate, never a mouse delta. Its radial dead zone and curve
+## are applied before radians-per-second conversion; mouse feel remains exact.
+func apply_look_rate(axis: Vector2, delta: float) -> void:
+	if call_locked or delta <= 0.0:
+		return
+	var shaped := resolved_stick_axis(axis,
+			float(GameBoot.settings.get("controller_look_deadzone", 0.18)),
+			float(GameBoot.settings.get("controller_look_curve", 1.65)))
+	if shaped == Vector2.ZERO:
+		return
+	var sensitivity := clampf(float(GameBoot.settings.get(
+			"controller_look_sensitivity", 1.0)), 0.25, 2.0)
+	var y_sign := -1.0 if bool(GameBoot.settings.get(
+			"controller_invert_y", false)) else 1.0
+	rotate_y(-shaped.x * 2.45 * sensitivity * delta)
+	camera.rotate_x(-shaped.y * y_sign * 2.05 * sensitivity * delta)
+	if carried_device and carried_device.has_method("apply_look"):
+		carried_device.apply_look(Vector2(shaped.x, shaped.y * y_sign)
+				* 720.0 * delta)
+	camera.rotation.x = clampf(camera.rotation.x, -1.45, 1.45)
+
+
+static func resolved_stick_axis(axis: Vector2, deadzone: float,
+		curve: float) -> Vector2:
+	var magnitude := minf(axis.length(), 1.0)
+	var inner := clampf(deadzone, 0.0, 0.90)
+	if magnitude <= inner or magnitude <= 0.00001:
+		return Vector2.ZERO
+	var normalized := (magnitude - inner) / (1.0 - inner)
+	var response := pow(normalized, clampf(curve, 1.0, 3.0))
+	return axis.normalized() * response
 
 
 func _set_crouched(on: bool) -> void:

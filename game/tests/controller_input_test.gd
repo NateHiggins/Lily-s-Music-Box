@@ -31,8 +31,16 @@ func _ready() -> void:
 	var player_source := FileAccess.get_file_as_string(
 			"res://scripts/player/player_controller.gd")
 	_check(player_source.contains("Input.get_vector(\"look_left\"")
-			and player_source.contains("apply_look(stick_look"),
-			"right-stick rate look shares the mouse look path")
+			and player_source.contains("apply_look_rate(stick_look"),
+			"right-stick position enters a frame-rate-independent look path")
+	_check(PlayerController.resolved_stick_axis(Vector2(0.1, 0.0),
+			0.18, 1.65) == Vector2.ZERO,
+			"radial drift inside the explicit dead zone is silent")
+	var diagonal := PlayerController.resolved_stick_axis(
+			Vector2(0.7, 0.7), 0.18, 1.65)
+	_check(diagonal.length() <= 1.0 and is_equal_approx(
+			diagonal.normalized().x, diagonal.normalized().y),
+			"response shaping preserves direction and clamps magnitude")
 	print("CONTROLLER INPUT TEST: %s" % (
 			"PASS" if failures == 0 else "FAIL (%d)" % failures))
 	get_tree().quit(failures)
