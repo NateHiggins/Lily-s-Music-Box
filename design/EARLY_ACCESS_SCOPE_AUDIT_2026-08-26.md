@@ -1,5 +1,14 @@
 # Early Access scope audit — 2026-08-26
 
+> **Post-audit implementation update — 2026-08-26:** the “no settings surface”
+> finding below was accurate at audit commit `627eae5` but is no longer current.
+> Pushed production now exposes persistent Master, Gameplay, Voice/Telephone,
+> World/Weather, Music and UI levels; gradual sleep warning; local-weather
+> consent; and opt-in semantic gameplay-sound captions. Mix requests compose
+> against user baselines. This closes ownership of the surface, not the whole
+> accessibility gate: subtitle sizing, complete dialogue captions, dynamic
+> range presets, pause-menu reach, input remapping and external review remain.
+
 **Status:** decision document answering `TASKS.md:30` (**K0-EA**). This is the
 scope ruling that `design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md` names as its
 unblocking dependency ("Once K0-EA declares the target player journey and scope

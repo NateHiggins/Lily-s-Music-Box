@@ -1,5 +1,15 @@
 # Early Access distribution and marketing plan — 2026-08-26
 
+> **Implementation update — 2026-08-26:** the settings-surface blocker recorded
+> in §§9, 12, 17 and 21 was true at this plan's source commit and has since been
+> partially closed. Pushed production now provides persistent Master,
+> Gameplay, Voice/Telephone, World/Weather, Music and UI volume controls plus
+> opt-in captions for the bounded semantic gameplay-cue catalog. Store copy may
+> accurately describe custom volume controls and that narrow cue-caption
+> feature after release-candidate verification. It must not claim full closed
+> captions, subtitle sizing, dynamic-range presets, remapping or pause-menu
+> access until those exist and are tested.
+
 **Status:** operating plan answering **K0-GTM** (`TASKS.md:42`) and the "First
 planning gate" of `design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md`. It converts
 that charter's workstreams into dated dependencies, owners, assets, thresholds

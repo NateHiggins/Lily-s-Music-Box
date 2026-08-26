@@ -22,6 +22,15 @@ masking claims still remain hypotheses until measured in a production walk.
   tree as `Ambience -> World` and `GhostRadio -> Diegetic`.
 - focused policy proof passes 38/38; production policy proof passes 18/18;
   house telephone passes 41/41 focused and 16/16 live.
+- persistent Master, Gameplay, Voice/Telephone, World/Weather, Music and UI
+  controls are reachable from Building Services; mix states add their offsets
+  to those baselines rather than erasing player settings.
+- opt-in semantic cue captions render catalog copy plus one listener-relative
+  sector, cap traffic at three lines, and disclose no distance, room or hidden
+  owner. This is not yet full closed-caption coverage.
+- live weather now gates the storm roof bed and exterior rain/hail events.
+  Known clear, snow and fog conditions cannot borrow rain recordings; missing
+  network weather deliberately retains the authored storm fallback.
 
 This closes the routing emergency, not the listening/masking programme.
 
@@ -307,8 +316,10 @@ teleporting or merely scaling a global bed; clear weather never plays a storm.
 
 ### AU-6 — Mix, accessibility and performance gate (release)
 
-Add category sliders, captions, dynamic-range presets, mono compatibility,
-headphone/speaker checks, voice limits and profiler telemetry. Test ordinary
+Category sliders and semantic cue captions are implemented. Add dynamic-range
+presets, full dialogue/world caption coverage, pause-menu reach, subtitle-size
+control, mono compatibility, headphone/speaker checks, voice limits and
+profiler telemetry. Test ordinary
 laptop speakers and inexpensive headphones, not only the development system.
 
 Acceptance: no clipped master, no persistent critical-band masking, stable
