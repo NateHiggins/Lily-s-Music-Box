@@ -1,7 +1,6 @@
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)]
-    [string]$Scene,
+    [string]$Scene = "",
     [string]$ProjectPath = "",
     [string]$ShotDir = "",
     [string]$LogPath = "",
@@ -49,7 +48,9 @@ try {
     }
     $arguments += @("--path", $ProjectPath)
     $arguments += $ExtraArgs
-    $arguments += $Scene
+    if (-not [string]::IsNullOrWhiteSpace($Scene)) {
+        $arguments += $Scene
+    }
 
     if (-not [string]::IsNullOrWhiteSpace($ShotDir)) {
         $env:SHOT_DIR = $ShotDir

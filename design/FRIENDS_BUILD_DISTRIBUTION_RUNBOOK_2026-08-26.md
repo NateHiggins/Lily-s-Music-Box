@@ -1,5 +1,13 @@
 # Friends-build distribution runbook — 2026-08-26
 
+> **CURRENT BUILD PATH — 2026-08-26:** run
+> `tools/export_friends_build.ps1` from a clean checkout, then
+> `tools/package_friends_build.ps1`. The exporter enters the single Godot lane
+> through `run_godot_serial.ps1` and writes a commit- and hash-bound
+> `.orison_export.json`; the packager refuses an absent, stale or modified
+> export. Historical direct `godot --export-release` commands below describe
+> the original audit and are not the current operator command.
+>
 > **INTEGRATION NOTICE — `a8d8d0c`, 2026-08-26:** this runbook was integrated
 > after the Windows export proof. Its historical acceptance table says clean
 > export/templates were UNRUN; the canonical measured result is now the

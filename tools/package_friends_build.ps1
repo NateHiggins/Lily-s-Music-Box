@@ -27,6 +27,7 @@ $readme = (Resolve-Path -LiteralPath $ReadmePath).Path
 $license = (Resolve-Path -LiteralPath $LicensePath).Path
 $exe = Join-Path $source "PleaseRemainOnTheLine.exe"
 $pck = Join-Path $source "PleaseRemainOnTheLine.pck"
+$exportManifest = Join-Path $source ".orison_export.json"
 foreach ($required in @($exe, $pck)) {
     if (-not (Test-Path -LiteralPath $required -PathType Leaf)) {
         throw "Required paired export artifact is absent: $required"
@@ -36,6 +37,16 @@ foreach ($required in @($exe, $pck)) {
 $commit = (& git -C $repoRoot rev-parse HEAD).Trim()
 if ($LASTEXITCODE -ne 0 -or $commit -notmatch '^[0-9a-f]{40}$') {
     throw "Cannot resolve the exact source commit."
+}
+$manifest = Get-Content -LiteralPath $exportManifest -Raw -ErrorAction Stop |
+    ConvertFrom-Json
+if ($manifest.commit -ne $commit -or $manifest.preset -ne "Windows") {
+    throw "Export manifest does not match HEAD and the Windows preset. Export again from a clean checkout."
+}
+$sourceExeHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $exe).Hash.ToLowerInvariant()
+$sourcePckHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $pck).Hash.ToLowerInvariant()
+if ($manifest.exe_sha256 -ne $sourceExeHash -or $manifest.pck_sha256 -ne $sourcePckHash) {
+    throw "Export artifacts no longer match their source manifest. Export again."
 }
 $shortSha = $commit.Substring(0, 8)
 $projectText = Get-Content -LiteralPath (Join-Path $repoRoot "game\project.godot") -Raw
@@ -77,8 +88,8 @@ $readmeText = $readmeText.Replace('{{VERSION}}', $version)
 Set-Content -LiteralPath (Join-Path $stage "README_TESTER.txt") `
     -Value $readmeText -Encoding utf8NoBOM
 
-$exeHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $exe).Hash.ToLowerInvariant()
-$pckHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $pck).Hash.ToLowerInvariant()
+$exeHash = $sourceExeHash
+$pckHash = $sourcePckHash
 $built = [DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
 $identity = @(
     "build      friends-$number"
