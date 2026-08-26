@@ -15,7 +15,7 @@ var _live: Array[Dictionary] = []
 
 func _ready() -> void:
 	layer = 59
-	enabled = bool(GameBoot.settings.get(SETTING_KEY, false))
+	refresh_setting()
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	margin.offset_top = -190.0
@@ -26,6 +26,10 @@ func _ready() -> void:
 	_rows.alignment = BoxContainer.ALIGNMENT_END
 	_rows.add_theme_constant_override("separation", 6)
 	margin.add_child(_rows)
+
+
+func refresh_setting() -> void:
+	enabled = bool(GameBoot.settings.get(SETTING_KEY, false))
 
 
 func listen_to(policy: Node) -> void:

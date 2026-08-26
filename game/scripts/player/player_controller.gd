@@ -1,6 +1,8 @@
 class_name PlayerController
 extends CharacterBody3D
 
+const PauseServicesScript := preload("res://scripts/ui/pause_services.gd")
+
 ## THE PLAYER CHANGED SOMETHING IN THE WORLD.
 ##
 ## Emitted from the single interaction chokepoint, so it covers every prop
@@ -39,6 +41,7 @@ var flashlight: SpotLight3D
 var _prompt: Label
 var _prompt_panel: PanelContainer
 var telegram_hud: TelegramHud
+var pause_services: CanvasLayer
 var noclip := false
 var crouched := false
 ## True while seated at the support desk: movement and look are frozen and
@@ -277,6 +280,10 @@ func _build_hud() -> void:
 	telegram_hud = TelegramHud.new()
 	telegram_hud.name = "TelegramHud"
 	add_child(telegram_hud)
+	pause_services = PauseServicesScript.new()
+	pause_services.name = "PauseServices"
+	add_child(pause_services)
+	pause_services.call("bind_player", self)
 
 
 ## What the crosshair is looking at, refreshed for the prompt line.
@@ -361,7 +368,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton and event.pressed and not touch_input:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if pause_services and pause_services.call("can_open"):
+			pause_services.call("open")
+			get_viewport().set_input_as_handled()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 ## The service set chases the eye instead of being bolted to it. Every frame
