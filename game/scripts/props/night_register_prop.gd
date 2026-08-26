@@ -170,6 +170,23 @@ var _printed_job := ""
 var _board: MeshInstance3D
 var _shelf: MeshInstance3D
 var _spindle: MeshInstance3D
+## K2-B: THE PAPER DOES NOT APPEAR, IT ARRIVES.
+##
+## MEASURED. From the pose a hand clocks in at, this spindle stands 0.69 m away
+## at YAW +58.5 DEGREES, against a camera frustum half-angle of +-35.0. The
+## report was therefore materialising, silently and instantly, a quarter-turn
+## of the head outside the frame. `_refresh_slip_visibility` set
+## `_slip.visible = true` and that was the whole of it.
+##
+## A spike file does not work like that. Paper is dropped onto the spike, the
+## sheet slides down the point and the spindle takes the weight and nods. So it
+## does that, with the rustle this board already carries an emitter for -- and
+## motion at 58 degrees off-axis is exactly what peripheral vision is for. The
+## eye is handed the paper by the paper.
+const SLIP_LANDING_SECONDS := 0.62
+const SLIP_LANDING_RISE := 0.078
+const SPINDLE_NOD := 0.22
+
 var _slip: MeshInstance3D
 var _stub: MeshInstance3D
 var _desk: Node3D
@@ -189,6 +206,10 @@ var _paper: AudioStreamPlayer3D
 var _knock: AudioStreamPlayer3D
 
 var _balk_left := 0.0
+## K2-B landing state. Transient presentation; nothing here is ever saved.
+var _landing_left := 0.0
+var _slip_was_available := false
+var _landing_armed := false
 var _balk_focus := ""
 var _t := 0.0
 
@@ -972,6 +993,17 @@ func _wrap(text: String, width: int) -> Array[String]:
 
 func _refresh_slip_visibility() -> void:
 	var showing := slip_available()
+	# THE ARRIVAL, and only a real arrival. `_landing_armed` stays false until
+	# the first refresh has run, so a board that is rebuilt with a report
+	# ALREADY on its spindle -- which is what a save resumed mid-shift looks
+	# like -- does not pretend the paper just landed. Nothing arrived; it was
+	# already there.
+	if _landing_armed and showing and not _slip_was_available:
+		_landing_left = SLIP_LANDING_SECONDS
+		if _paper != null:
+			_paper.play()
+	_slip_was_available = showing
+	_landing_armed = true
 	if _slip != null:
 		_slip.visible = showing
 	if _stub != null:
@@ -1257,8 +1289,21 @@ func balking() -> bool:
 	return _balk_left > 0.0
 
 
+## Seconds left of the paper's landing, and whether it is still landing.
+## Public so a deterministic test can drive the pose without watching it.
+func slip_landing() -> bool:
+	return _landing_left > 0.0
+
+
+func slip_landing_remaining() -> float:
+	return _landing_left
+
+
 func _process(delta: float) -> void:
 	_t += delta
+	if _landing_left > 0.0:
+		_landing_left = maxf(0.0, _landing_left - delta)
+		_refresh_board()
 	if _balk_left > 0.0:
 		_balk_left = maxf(0.0, _balk_left - delta)
 		_refresh_board()
@@ -1320,6 +1365,16 @@ func _refresh_board() -> void:
 		_stub.position.y = 0.176
 	if _shelf != null:
 		_shelf.position.y = 0.055
+	# THE LANDING. Posed from the countdown and never from `_t`, so a frozen
+	# frame holds it. It is written here, above the refusal block, so a balk
+	# always wins: a board saying no is louder than a board taking paper.
+	var landing := clampf(_landing_left / SLIP_LANDING_SECONDS, 0.0, 1.0)
+	if landing > 0.0:
+		var fall := landing * landing
+		if _slip != null:
+			_slip.position.y = 0.250 + SLIP_LANDING_RISE * fall
+		if _spindle != null:
+			_spindle.rotation.z = -SPINDLE_NOD * sin(landing * PI)
 	# SR7-H. THE INDEX IS THE SELECTION, so the visible slide is placed from
 	# `index_detent` on every refresh and from nothing else. There is no path
 	# by which the picture and the record can disagree.

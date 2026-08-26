@@ -96,6 +96,44 @@ const BEAT_UNIT_SIZE := 6.0
 ## error on the compare, never wide enough to matter to a clock.
 const BEAT_EPSILON := 0.0001
 
+## K2-B: THE CLOCK ANSWERS WHERE YOU TOUCHED IT.
+##
+## MEASURED FIRST. Standing at the interaction pose b(4.84, -1.50, 1.62) and
+## pressing E, NOTHING on this apparatus moved -- station key, stop lever,
+## paper pivot, movement hand and both proof marks were byte-identical at
+## 0.15 s, 0.5 s, 1.0 s and 3.0 s. The only answer was a `pop`. Meanwhile the
+## thing that actually changed was the report arriving on the register's
+## spindle, 0.69 m away at YAW +58.5 DEGREES against a frustum half-angle of
+## +-35.0 -- comfortably outside the frame, with the register body outside on
+## the pitch axis too.
+##
+## So the clock says it, in the only way a watchman's detector ever said
+## anything: THE STATION KEY TURNS AND THE PUNCH FALLS. That is not decoration
+## added to the act; on a Hahn or Newman detector it IS the act -- the key turn
+## drives the punch, and the punch is what makes clocking in a thing that
+## happened rather than a thing that was claimed.
+##
+## AND THE MARK LANDS IN THE WRONG PLACE, WHICH IS THE POINT. `dial_seated` is
+## false: the sheet is off its pin. The punch is fixed to the case, so it marks
+## whatever part of the paper is standing under it -- which, on a sheet that
+## never moved, is the same spot it would mark at any hour of the night. The
+## player's own first act writes SR7-F's fault into the record before anybody
+## has explained what the fault is.
+const KEY_TURN_SECONDS := 0.55
+const KEY_TURN_RADIANS := 1.18
+## Outside the six station radii, at 12 o'clock in the sheet's own frame, so it
+## cannot be mistaken for a station mark or for either proof mark.
+const SHIFT_MARK_RADIUS := 0.094
+## THE PUNCH HEAD, and it exists because the first pass was measured and found
+## too small. A key turn on its own moved a 24 x 39 pixel region and the mark it
+## leaves is 11 x 13 -- honest, because a punched hole IS small, but not a thing
+## anybody notices at a glance. The key does not work alone on a real detector:
+## it drives a plunger that comes down on the sheet. So the plunger is here, a
+## 45 mm brass stroke standing directly over the spot the mark appears, and it
+## carries the eye from the hand to the paper without a word.
+const PUNCH_REST_Z := 0.152
+const PUNCH_TRAVEL := 0.024
+
 var _service_panel: MaintenanceActivityPanel
 var _clock_source: Node
 var _first_shift: FirstShiftDirector
@@ -123,6 +161,11 @@ var _proof_b: MeshInstance3D
 var _tick: AudioStreamPlayer3D
 var _beat: AudioStreamPlayer3D
 var _beat_left := 0.0
+var _shift_mark: MeshInstance3D
+var _punch_head: MeshInstance3D
+## Seconds left of the key's turn. Transient presentation, never saved: the
+## fact it answers to belongs to FirstShiftDirector.
+var _key_left := 0.0
 var _knock: AudioStreamPlayer3D
 var _punch: AudioStreamPlayer3D
 var _balk_left := 0.0
@@ -297,6 +340,14 @@ func _build_visual() -> void:
 	_proof_a.name = "ProofMarkFirst"
 	_proof_a.rotation_degrees.x = 90.0
 	_proof_a.visible = false
+	# TONIGHT'S SHIFT PUNCH. Bigger than a proof mark and at its own angle, on
+	# the sheet's own pivot so it turns with the paper like the emboss it is.
+	_shift_mark = make_cyl(0.0075, 0.0075, 0.007, Vector3.ZERO,
+			Color(0.16, 0.13, 0.11), 0.62, 0.0)
+	_shift_mark.name = "ShiftPunch"
+	_shift_mark.rotation_degrees.x = 90.0
+	_shift_mark.visible = false
+	_adopt(_shift_mark, _paper)
 	_proof_b = make_cyl(0.0055, 0.0055, 0.006, Vector3.ZERO,
 		Color(0.09, 0.07, 0.26), 0.84, 0.0, _paper)
 	_proof_b.name = "ProofMarkSecond"
@@ -330,6 +381,17 @@ func _build_visual() -> void:
 	_reading_index = make_box(Vector3(0.005, 0.115, 0.004),
 			Vector3(0.0, 0.276, 0.126), Color(0.64, 0.56, 0.30))
 	_reading_index.name = "ReadingIndex"
+
+	# The plunger the station key drives, standing over the sheet at the punch
+	# station. It is fixed to the CASE, not the paper: that is exactly why a
+	# sheet which never turns takes every mark in the same place.
+	_punch_head = make_cyl(0.009, 0.009, 0.045,
+			Vector3(0.0, 0.314, PUNCH_REST_Z), Color(0.60, 0.47, 0.21),
+			0.34, 0.72)
+	_punch_head.name = "PunchHead"
+	_punch_head.rotation.x = PI * 0.5
+	make_cyl(0.017, 0.017, 0.010, Vector3(0.0, 0.314, PUNCH_REST_Z + 0.026),
+			Color(0.52, 0.40, 0.18), 0.36, 0.70).rotation.x = PI * 0.5
 
 	_tick = make_emitter("tick", -22.0)
 	_beat = make_emitter("tick", BEAT_DB)
@@ -432,8 +494,12 @@ func _perform_ritual_action() -> bool:
 			worked = _first_shift.clock_in()
 		FirstShiftDirector.PHASE_FILED:
 			worked = _first_shift.clock_out()
-	if worked and _punch != null:
-		_punch.play()
+	if worked:
+		# The key turns and the punch falls, at the apparatus the hand is on.
+		_key_left = KEY_TURN_SECONDS
+		if _punch != null:
+			_punch.play()
+		_refresh_mechanism()
 	return worked
 
 
@@ -594,6 +660,9 @@ func balking() -> bool:
 func _process(delta: float) -> void:
 	_t += delta
 	_advance_beat(delta)
+	if _key_left > 0.0:
+		_key_left = maxf(0.0, _key_left - delta)
+		_refresh_mechanism()
 	if _balk_left > 0.0:
 		_balk_left = maxf(0.0, _balk_left - delta)
 		_refresh_mechanism()
@@ -630,6 +699,36 @@ func beating() -> bool:
 
 func beat_remaining() -> float:
 	return _beat_left
+
+
+## --- K2-B ---------------------------------------------------------------
+## These live BELOW the escapement on purpose. K2-A's focused suite proves the
+## beat has not learned about the shift by scanning the source between
+## `_advance_beat` and `beating` for the words `ritual` and `phase`; putting
+## `shift_punched()` in that gap tripped it on the first pass. The escapement
+## was untouched -- the anchor was not -- and the right answer is to move the
+## new code out of an existing test's window, never to widen the window.
+
+## Whether tonight's punch is on the sheet. DERIVED from the one opening owner
+## and stored nowhere: this prop must never become the thing that knows whether
+## a shift is open.
+func shift_punched() -> bool:
+	return _ritual_phase() in [
+		FirstShiftDirector.PHASE_CLOCKED_IN,
+		FirstShiftDirector.PHASE_REPORT_ACCEPTED,
+		FirstShiftDirector.PHASE_RETURNED,
+		FirstShiftDirector.PHASE_FILED,
+	]
+
+
+## Seconds left of the key's turn, and whether it is turning. Public so a
+## deterministic test can drive the pose without watching it.
+func key_turning() -> bool:
+	return _key_left > 0.0
+
+
+func key_turn_remaining() -> float:
+	return _key_left
 
 
 func _refresh_mechanism() -> void:
@@ -686,6 +785,21 @@ func _refresh_mechanism() -> void:
 		_hand.position.x = sin(hand_a) * 0.035
 		_hand.position.y = 0.255 + cos(hand_a) * 0.035 - 0.035
 
+	# TONIGHT'S SHIFT PUNCH, DERIVED AND NEVER STORED. The fact that a shift is
+	# open belongs to FirstShiftDirector; this reads it and draws the emboss.
+	# Nothing here writes it, and a resume therefore restores the mark for free
+	# because the phase came back with the save.
+	if _shift_mark != null:
+		_shift_mark.visible = shift_punched()
+		# THE PIN SITS BESIDE ITS GUIDE, by 0.14 rad -- about 13 mm out on this
+		# radius. Measured, not chosen: with the pin dead under the plunger the
+		# mark showed 10 x 4 pixels, because the plunger stands 36 mm proud of
+		# the sheet and covers the hole it just made. A record you have to lift
+		# the punch off to read is not a record anybody reads.
+		var punch_a := 0.14
+		_shift_mark.position = Vector3(sin(punch_a) * SHIFT_MARK_RADIUS,
+				cos(punch_a) * SHIFT_MARK_RADIUS, 0.004)
+
 	# The stop lever, thrown or standing.
 	if _stop_lever != null:
 		_stop_lever.rotation.z = 0.0 if movement_running else -0.62
@@ -716,8 +830,20 @@ func _refresh_mechanism() -> void:
 		_paper.position.z = 0.112
 		_paper.rotation.x = 0.0
 		if _station_key != null:
-			_station_key.rotation.z = 0.0
+			# K2-B: THE KEY'S REST ANGLE IS ITS TURN, and it is written HERE
+			# because this `else` is where this key's angle has always been
+			# decided. The first pass posed the turn thirty lines above and
+			# watched SR7-F's refusal branch set it straight back to zero on
+			# the very same call -- the pose was correct and invisible. One
+			# place decides one part's angle. A refusal still wins, because a
+			# machine saying no is louder than a key coming home.
+			var turn := clampf(_key_left / KEY_TURN_SECONDS, 0.0, 1.0)
+			var stroke := sin(turn * PI)
+			_station_key.rotation.z = -KEY_TURN_RADIANS * stroke
 			_station_key.position.y = 0.058
+			_station_key.position.z = 0.128 - 0.012 * stroke
+			if _punch_head != null:
+				_punch_head.position.z = PUNCH_REST_Z - PUNCH_TRAVEL * stroke
 
 
 func service_wire_card() -> Dictionary:
