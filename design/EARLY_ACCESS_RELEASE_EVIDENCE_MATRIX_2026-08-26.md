@@ -1,5 +1,12 @@
 # Early Access release evidence matrix — 2026-08-26
 
+> **FOCUS / COMFORT FOCUSED VERDICTS — 2026-08-26:** `TitleScreenTest`
+> exits PASS with 0 failures, `PauseServicesTest` passes 16/16, and
+> `WeatherFlashAccessibilityTest` passes 2/2. These prove reachable surfaces,
+> focus acquisition and the code-side reduced-roll/flash contracts. They do not
+> replace pad-only traversal, restart persistence, or a human storm/traffic
+> comfort check; G11, G13 and G14 retain those manual portions.
+>
 > **G15 ROLLBACK GUARD — `RealitySaveCompatTest`:** version 4 now refuses to
 > merge or overwrite any save carrying a newer version. The runtime remains on
 > fresh data with a named read-only latch; an ordinary commit preserves the
@@ -252,8 +259,9 @@ far more (**143 concurrent emitters** measured in
 ### G13 — Reduced camera roll and lightning-flash suppression
 **Owner:** `player_controller.gd:1003` `resolved_camera_roll()`;
 `reduce_flashing`.
-**Automated:** `WeatherFlashAccessibilityTest` exists; `PauseServicesTest`
-extended by `44c921e`/`14d5edf`. **Verdicts UNRUN/UNKNOWN.**
+**Automated:** `WeatherFlashAccessibilityTest` **PASS 2/2**;
+`PauseServicesTest` **PASS 16/16**, including the reachable flash and reduced
+motion controls and preservation of physical inputs.
 **Manual:** ride a traffic stagger and a storm with each toggle both ways.
 **Consequence:** blocks Early Access **only if Camera Comfort is declared** —
 which the accessibility audit currently forbids.
@@ -261,8 +269,8 @@ which the accessibility audit currently forbids.
 ### G14 — Title and in-game focus
 **Owner:** `title_screen.gd:66,298,303`; `pause_services.gd:58` — `grab_focus()`
 now called on open (`ac782b9`, `14f6a94`).
-**Automated:** `TitleScreenTest`, `PauseServicesTest` — **verdicts
-UNRUN/UNKNOWN at these commits.**
+**Automated:** `TitleScreenTest` **PASS (0 failures)** and
+`PauseServicesTest` **PASS 16/16**, including keyboard/controller focus on open.
 **Manual:** traverse every control **keyboard-only**, then **pad-only** once G07
 lands; confirm focus is never nowhere.
 **Consequence:** blocks Early Access.
