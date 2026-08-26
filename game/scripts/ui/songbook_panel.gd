@@ -263,6 +263,7 @@ func _show_mic_consent() -> void:
 
 func _discard_microphone() -> void:
 	if is_instance_valid(_mic):
+		_mic.stop_recording()
 		_mic.stop_input()
 		_mic.queue_free()
 	_mic = null
@@ -271,6 +272,11 @@ func _discard_microphone() -> void:
 func _perform_without_microphone() -> void:
 	_discard_microphone()
 	_start_perform()
+
+
+func _cancel_microphone_to_menu() -> void:
+	_discard_microphone()
+	_show_menu()
 
 
 ## Latency check before any take. The brief calls for it and it is also
@@ -566,7 +572,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if key == KEY_ESCAPE:
 		match mode:
 			Mode.PERFORM: _stop_perform()
-			Mode.EDIT, Mode.MIC_CONSENT, Mode.CLAP, Mode.REVIEW, Mode.OLD: _show_menu()
+			Mode.CLAP: _cancel_microphone_to_menu()
+			Mode.EDIT, Mode.MIC_CONSENT, Mode.REVIEW, Mode.OLD: _show_menu()
 			_: close()
 		get_viewport().set_input_as_handled()
 		return
@@ -643,8 +650,7 @@ func _process(delta: float) -> void:
 
 
 func close() -> void:
-	if _mic:
-		_mic.stop_input()
+	_discard_microphone()
 	if _player and "call_locked" in _player:
 		_player.call_locked = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

@@ -6,10 +6,10 @@
 > Open-Meteo and IP exposure; location text remains a second opt-in. Both
 > Songbook recording routes now stop at one just-in-time local-only microphone
 > notice whose `NOT THIS TIME` branch performs without constructing or starting
-> `MicRecorder`. `SongbookMicConsentTest` PASS 6/6, including the real
+> `MicRecorder`. `SongbookMicConsentTest` PASS 7/7, including the real
 > recorder constructed with neither its microphone stream nor record effect
 > active and a repeat-take refusal that destroys any previously accepted
-> recorder,
+> recorder; cancel and panel close also stop capture synchronously,
 > `LiveWeatherServiceTest` PASS (0 failures), `WeatherSkyTest` PASS (0
 > failures), `TitleScreenTest` PASS (0 failures), and production-root
 > `SongbookTest` PASS (0 failures). `FriendsPrivacySurfaceTest` PASS 8/8 pins
