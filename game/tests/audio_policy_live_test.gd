@@ -50,6 +50,7 @@ func _ready() -> void:
 				not RealityState.data.has("audio_policy")
 				and not RealityState.data.has("audio_cues"))
 	await _prove_standard_doors(root)
+	_prove_legacy_helper_routing(root)
 	_finish()
 
 
@@ -103,6 +104,24 @@ func _prove_standard_doors(root: Node) -> void:
 	_check("a locked leaf answers with three rattles and never moves",
 			refusal.size() == 3 and not locked.open
 			and only_locked)
+
+
+func _prove_legacy_helper_routing(root: Node) -> void:
+	var routed := 0
+	var on_master := 0
+	var bad_bus := 0
+	for node in root.find_children("*", "AudioStreamPlayer3D", true, false):
+		if str(node.get_meta("audio_route", "")) != "legacy_helper":
+			continue
+		routed += 1
+		if node.bus == "Master":
+			on_master += 1
+		if node.bus not in ["Interaction", "Machinery"]:
+			bad_bus += 1
+	_check("%d legacy helper emitters are explicitly marked" % routed,
+			routed >= 50)
+	_check("legacy helper debt no longer bypasses policy on Master",
+			on_master == 0 and bad_bus == 0)
 
 
 func _powered_snapshot(room_id: String, switches: SwitchSystem) -> Array[bool]:

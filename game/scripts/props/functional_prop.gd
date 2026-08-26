@@ -201,12 +201,20 @@ func _perform_synced_event(_index: int, _accent: float, _pitch: float) -> void:
 	pass
 
 
-func make_emitter(stream_key: String, volume_db := -8.0, loop_play := false) -> AudioStreamPlayer3D:
+func make_emitter(stream_key: String, volume_db := -8.0,
+		loop_play := false) -> AudioStreamPlayer3D:
 	var p := AudioStreamPlayer3D.new()
 	p.stream = PropAudio.get_stream(stream_key)
 	p.volume_db = volume_db
 	p.unit_size = 4.0
 	p.max_distance = 26.0
+	# Transitional routing: raw helper keys have not yet earned semantic cue
+	# ids, but they no longer bypass every gameplay mix control on Master.
+	# The marker lets audits distinguish routed debt from completed migration.
+	p.bus = "Machinery" if loop_play or stream_key.ends_with("_loop") \
+			else "Interaction"
+	p.set_meta("audio_route", "legacy_helper")
+	p.set_meta("audio_stream_key", stream_key)
 	add_child(p)
 	if loop_play:
 		p.play()
