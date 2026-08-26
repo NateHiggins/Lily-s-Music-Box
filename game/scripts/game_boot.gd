@@ -78,9 +78,10 @@ var settings := {
 	"controller_look_curve": 1.65,
 	"reduce_camera_roll": false,
 	"reduce_flashing": false,
-	# Privacy: off means only fixed Queens coordinates are sent for weather.
-	# On means the player-authored city/postal text is geocoded by Open-Meteo.
-	# No IP geolocation or device sensor is used behind this choice.
+	# Privacy: network weather is a separate, explicit opt-in. When it is off,
+	# no request is made. Local weather additionally sends player-authored city
+	# or postal text to Open-Meteo; no IP geolocation or device sensor is used.
+	"weather_network_enabled": false,
 	"live_local_weather": false,
 	"weather_location_query": "",
 	# Accessibility: later case profiles may allow a sudden sleep attack, but

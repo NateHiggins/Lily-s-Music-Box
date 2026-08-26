@@ -2,10 +2,9 @@ class_name LiveWeatherService
 extends Node
 ## Privacy-explicit real weather for the waking Orison.
 ##
-## Default sends only the fixed Queens coordinates to Open-Meteo. If the
-## player explicitly enables local weather and supplies a city/postal code,
-## that text is first resolved by Open-Meteo's geocoder; no IP location,
-## device sensor or hidden coordinate collection occurs.
+## Network weather is off by default. If enabled, fixed Queens coordinates are
+## sent to Open-Meteo; a separate local-weather opt-in first resolves the
+## player's city/postal text. No IP geolocation or device sensor is used.
 
 signal weather_updated(snapshot: Dictionary)
 signal weather_failed(reason: String)
@@ -68,6 +67,9 @@ func refresh() -> bool:
 		_snapshot = simulated_snapshot(simulation)
 		weather_updated.emit(snapshot())
 		return true
+	if not bool(GameBoot.settings.get("weather_network_enabled", false)):
+		_location = QUEENS.duplicate(true)
+		return false
 	var local_enabled := bool(GameBoot.settings.get("live_local_weather", false))
 	var query := str(GameBoot.settings.get("weather_location_query", "")).strip_edges()
 	if local_enabled and not query.is_empty():

@@ -20,16 +20,18 @@ invert-Y, dead zone and response curve are available there and on the title.
 
 MICROPHONE — READ BEFORE PLAY
 The optional Songbook recording activity can open your microphone and save a
-vocal recording locally. Nothing in production uploads that recording. Until
-the consent audit is implemented, avoid the Songbook activity or deny the OS
-microphone request if you do not want audio recorded. This capability is under
-active review for friends builds.
+vocal recording locally. Nothing in production uploads that recording. Before
+the first mic check, the Songbook explains this and offers NOT THIS TIME; that
+choice performs the song without opening or recording the microphone. Windows
+may not provide a separate per-app permission prompt for this desktop build.
 
 WEATHER AND NETWORK
-Live local weather is off by default; Queens, New York is the fallback. If you
-opt in and type a location, that text is sent to geocoding/weather providers.
-Like any internet request, providers can also observe connection metadata such
-as your IP address. The game contains no analytics or crash uploader currently
+Network weather is off by default, so weather makes no internet request and the
+authored Queens conditions remain the fallback. If you enable FETCH LIVE
+WEATHER, fixed Queens coordinates are sent to Open-Meteo. If you additionally
+opt into local weather, the city or postal text you type is sent for geocoding.
+Like any internet request, Open-Meteo can observe connection metadata such as
+your IP address. The game contains no analytics or crash uploader currently
 known to us.
 
 LOCAL FILES

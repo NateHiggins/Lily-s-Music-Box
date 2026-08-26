@@ -24,7 +24,7 @@ const AMBER := Color(0.96, 0.74, 0.28)
 const IVORY := Color(0.90, 0.94, 0.88)
 const BG := Color(0.035, 0.055, 0.042, 0.97)
 
-enum Mode { MENU, EDIT, CLAP, PERFORM, REVIEW, READING, OLD }
+enum Mode { MENU, EDIT, MIC_CONSENT, CLAP, PERFORM, REVIEW, READING, OLD }
 
 var song: SongResource
 var mode: int = Mode.MENU
@@ -249,6 +249,18 @@ func _move(step: int) -> void:
 
 
 # ---------------------------------------------------------- CLAP CHECK
+func _show_mic_consent() -> void:
+	mode = Mode.MIC_CONSENT
+	_clear()
+	_line("", GREEN)
+	_line("BEFORE THE MIC CHECK.", GREEN, 22)
+	_line("", GREEN, 10)
+	_line("the Songbook will record your microphone and keep the take on this machine.",
+			IVORY, 15)
+	_line("nothing is uploaded. you can perform without recording.", GREEN_DIM, 15)
+	_status.text = "1  use microphone     2  not this time"
+
+
 ## Latency check before any take. The brief calls for it and it is also
 ## the most diegetic possible calibration: you clap once into the mic,
 ## the machine hears when it actually arrived, and everything after is
@@ -541,7 +553,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if key == KEY_ESCAPE:
 		match mode:
 			Mode.PERFORM: _stop_perform()
-			Mode.EDIT, Mode.CLAP, Mode.REVIEW, Mode.OLD: _show_menu()
+			Mode.EDIT, Mode.MIC_CONSENT, Mode.CLAP, Mode.REVIEW, Mode.OLD: _show_menu()
 			_: close()
 		get_viewport().set_input_as_handled()
 		return
@@ -551,7 +563,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				cursor = 0
 				_show_edit()
 			elif key == KEY_2 and _has_any_words():
-				_show_clap()
+				_show_mic_consent()
 			elif key == KEY_4:
 				_show_old()
 		Mode.OLD:
@@ -576,11 +588,16 @@ func _unhandled_input(event: InputEvent) -> void:
 			if key == KEY_1:
 				_keep()
 			elif key == KEY_2:
-				_show_clap()
+				_show_mic_consent()
 			elif key == KEY_3:
 				_show_menu()
 			elif key == KEY_4 and _take != null:
 				_read_back_take()
+		Mode.MIC_CONSENT:
+			if key == KEY_1:
+				_show_clap()
+			elif key == KEY_2:
+				_start_perform()
 		Mode.READING:
 			_stop_reading()
 

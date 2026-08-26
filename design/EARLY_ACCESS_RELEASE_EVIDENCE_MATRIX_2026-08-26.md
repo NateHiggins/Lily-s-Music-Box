@@ -1,5 +1,17 @@
 # Early Access release evidence matrix — 2026-08-26
 
+> **G22 PRIVACY GATES — 2026-08-26:** network weather is now a separate
+> default-off setting; with it off, `LiveWeatherService` issues no request and
+> retains the authored Queens fallback. Enabling it explicitly names
+> Open-Meteo and IP exposure; location text remains a second opt-in. Both
+> Songbook recording routes now stop at one just-in-time local-only microphone
+> notice whose `NOT THIS TIME` branch performs without constructing or starting
+> `MicRecorder`. `SongbookMicConsentTest` PASS 4/4,
+> `LiveWeatherServiceTest` PASS (0 failures), `WeatherSkyTest` PASS (0
+> failures), `TitleScreenTest` PASS (0 failures), and production-root
+> `SongbookTest` PASS (0 failures). Windows indicator behavior and an actual
+> unplugged-network session remain manual.
+>
 > **FOCUS / COMFORT FOCUSED VERDICTS — 2026-08-26:** `TitleScreenTest`
 > exits PASS with 0 failures, `PauseServicesTest` passes 16/16, and
 > `WeatherFlashAccessibilityTest` passes 2/2. These prove reachable surfaces,

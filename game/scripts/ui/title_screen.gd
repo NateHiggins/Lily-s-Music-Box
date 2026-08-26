@@ -36,6 +36,7 @@ var _fullscreen: CheckBox
 var _always_warn: CheckBox
 var _sound_captions: CheckBox
 var _live_local_weather: CheckBox
+var _weather_network_enabled: CheckBox
 var _weather_location: LineEdit
 var _volume: HSlider
 var _gameplay_volume: HSlider
@@ -261,6 +262,14 @@ func _build_settings() -> void:
 			"gameplay_sound_captions", false)) or bool(GameBoot.settings.get(
 			"dream_directional_captions", false))
 	box.add_child(_sound_captions)
+	_weather_network_enabled = CheckBox.new()
+	_weather_network_enabled.name = "WeatherNetworkEnabled"
+	_weather_network_enabled.text = "FETCH LIVE WEATHER FROM OPEN-METEO"
+	_weather_network_enabled.tooltip_text = \
+			"Makes an internet request and exposes your IP address to Open-Meteo. Off uses the authored Queens weather."
+	_weather_network_enabled.button_pressed = bool(GameBoot.settings.get(
+			"weather_network_enabled", false))
+	box.add_child(_weather_network_enabled)
 	_live_local_weather = CheckBox.new()
 	_live_local_weather.name = "LiveLocalWeather"
 	_live_local_weather.text = "MATCH WEATHER TO MY LOCATION"
@@ -274,9 +283,14 @@ func _build_settings() -> void:
 	_weather_location.placeholder_text = "CITY OR POSTAL CODE  ·  blank uses Queens"
 	_weather_location.text = str(GameBoot.settings.get(
 			"weather_location_query", ""))
-	_weather_location.editable = _live_local_weather.button_pressed
+	_live_local_weather.disabled = not _weather_network_enabled.button_pressed
+	_weather_location.editable = _weather_network_enabled.button_pressed \
+			and _live_local_weather.button_pressed
+	_weather_network_enabled.toggled.connect(func(enabled: bool):
+		_live_local_weather.disabled = not enabled
+		_weather_location.editable = enabled and _live_local_weather.button_pressed)
 	_live_local_weather.toggled.connect(func(enabled: bool):
-		_weather_location.editable = enabled)
+		_weather_location.editable = _weather_network_enabled.button_pressed and enabled)
 	box.add_child(_weather_location)
 	box.add_child(_label("MASTER VOLUME", 12, Color(0.61, 0.60, 0.55)))
 	_volume = HSlider.new()
@@ -495,6 +509,8 @@ func _save_settings() -> void:
 	GameBoot.settings.always_warn_before_sleep = _always_warn.button_pressed
 	GameBoot.settings.gameplay_sound_captions = _sound_captions.button_pressed
 	GameBoot.settings.dream_directional_captions = _sound_captions.button_pressed
+	GameBoot.settings.weather_network_enabled = \
+			_weather_network_enabled.button_pressed
 	GameBoot.settings.live_local_weather = _live_local_weather.button_pressed
 	GameBoot.settings.weather_location_query = \
 			_weather_location.text.strip_edges()

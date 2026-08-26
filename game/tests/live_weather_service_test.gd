@@ -13,6 +13,15 @@ func _check(ok: bool, label: String) -> void:
 
 
 func _ready() -> void:
+	var previous_network: Variant = GameBoot.settings.get(
+			"weather_network_enabled", false)
+	GameBoot.settings.weather_network_enabled = false
+	var offline := WeatherServiceScript.new()
+	add_child(offline)
+	_check(offline._awaiting == "" and offline.snapshot().is_empty(),
+			"default weather mode issues no request and preserves authored fallback")
+	offline.queue_free()
+	GameBoot.settings.weather_network_enabled = previous_network
 	var source := FileAccess.get_file_as_string(
 			"res://scripts/building/live_weather_service.gd")
 	_check(source.contains("func _begin_request(stage: String, url: String)")
