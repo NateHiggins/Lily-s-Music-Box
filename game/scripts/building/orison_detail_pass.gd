@@ -28,6 +28,67 @@ const FireLineCabinetPropScript := preload(
 const SodaAcidExtinguisherPropScript := preload(
 		"res://scripts/props/soda_acid_extinguisher_prop.gd")
 
+## SR7-P. WHAT IS ON EACH OF THE EIGHT BACKBOARDS.
+##
+## The infrastructure loop below batches an identical red backboard at
+## b(-2.76, -3.10) on every floor -- 0.34 wide, 0.08 deep, 0.70 tall, spanning
+## z+0.70 to z+1.40. SR7-O hung one working soda-acid extinguisher on F03's.
+## The other seven read as unfinished dressing, and this table is the fix.
+##
+## THREE PASSIVE CONDITIONS, AND THEY ARE NOT A SHUFFLE. Read the building
+## upward and it is one story about a superintendent with more boards than
+## vessels:
+##
+##   F01, F05 HUNG            The lobby floor is what anybody important walks
+##                            through, and one upper floor simply still has
+##                            its own. A vessel on two straps, and no tag.
+##   F02, F04 EMPTY_BRACKET   The bracket is still bolted up and the vessel is
+##                            gone out of it. A service card hangs on the
+##                            strap where the vessel was.
+##   F03      WORKING         SR7-O's apparatus. Nothing passive is drawn here.
+##   B1, F06  STRIPPED        Bracket and vessel both gone: four bolt heads and
+##                            the paint the straps kept clean. B1 is here
+##                            because its board is in a corner of the cellar
+##                            stair that NOTHING LIGHTS -- the first sheet
+##                            photographed it black -- and a condition nobody
+##                            can see is the wrong place to put the story. The
+##                            cellar's real fire protection is elsewhere in the
+##                            building anyway.
+##   ROOF     STRIPPED        And for a reason the others do not have: the
+##                            charge is two and a half gallons of water, and
+##                            this board is on the outside of a stair bulkhead
+##                            on an open deck. Nothing that freezes lives here.
+##
+## THE DISTRIBUTION IS DELIBERATELY NOT A RULE. Two floors kept theirs, two
+## were emptied, three have nothing left, and one is inspected. A rule is
+## exactly what would make seven boards read as procedural repetition again.
+##
+## NONE OF THESE IS A PROP. Every one is drawn as entries in the SAME per-floor
+## MultiMesh batch that already draws the board, the standpipe and the pipe
+## brackets: no node, no script, no material, no draw call, no Area3D, no
+## collision, no light, no `_process`, no persistence. They cannot be
+## interacted with and they own nothing.
+##
+## AND NONE OF THEM CARRIES A TAG. SR7-O's board has an inspection tag and an
+## enamel charge plate on it; these have neither, because nobody has inspected
+## them. A hung vessel with no tag on it is the weakest claim in the building
+## -- which is the point, and is the thing that keeps an intact silhouette from
+## reading as readiness.
+const BOARD_CONDITIONS := {
+	"B1": "stripped",
+	"F01": "hung",
+	"F02": "empty_bracket",
+	"F03": "working",
+	"F04": "empty_bracket",
+	"F05": "hung",
+	"F06": "stripped",
+	"ROOF": "stripped",
+}
+## Read off the batched board itself: centred at x -2.76, front face at
+## y -3.06 (being -3.10 plus half of 0.08), bottom edge at z+0.70.
+const BOARD_X := -2.76
+const BOARD_FACE_Y := -3.06
+
 var detail_count := 0
 var decal_count := 0
 var _lockdown_layout: Dictionary = {}
@@ -165,6 +226,7 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 				[0.42, 0.08, 0.58], Color(0.30, 0.31, 0.28))
 		_box(batches[floor_id], [-2.76, -3.10, z + 1.05],
 				[0.34, 0.08, 0.70], Color(0.45, 0.09, 0.055))
+		_build_board_condition(batches[floor_id], floor_id, z)
 		for h in [0.42, 1.18, 1.94, 2.70]:
 			_box(batches[floor_id], [2.15, -3.12, z + h],
 					[0.035, 0.045, 0.34], Color(0.36, 0.35, 0.31))
@@ -614,6 +676,92 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 	# has finished spawning before the locks turn.
 	_lockdown_layout = layout
 	call_deferred("_apply_opening_lockdown")
+
+
+## SR7-P: whatever is on this floor's backboard, drawn into the batch the board
+## itself lives in.
+##
+## THE VOCABULARY IS SHAPE, NOT TONE, and that was a measurement rather than a
+## preference. The first sheet photographed all eight boards from the same
+## standing place and the light across them runs from near-black in the B1
+## stair core to open daylight on the roof bulkhead. A dust shadow a few per
+## cent lighter than the board would have been invisible on half the floors, so
+## every condition here is something with an edge that catches light and throws
+## a shadow.
+func _build_board_condition(batch: Dictionary, floor_id: String,
+		z: float) -> void:
+	var condition := str(BOARD_CONDITIONS.get(floor_id, ""))
+	if condition == "" or condition == "working":
+		return
+	# The batch's shared metal material darkens vertex colour as much as the
+	# trim one lifts it: 0.60 copper photographed as a black mass against the
+	# board. Measured up until the vessel reads as metal rather than shadow.
+	var copper := Color(0.880, 0.505, 0.262)
+	var brass := Color(0.905, 0.720, 0.330)
+	# The batch's shared trim material lifts vertex colour considerably: the
+	# first sheet rendered 0.255 grey as bone-coloured and the straps read as
+	# wood. Measured back down until they read as painted iron.
+	var iron := Color(0.088, 0.084, 0.080)
+	# The rectangle the bracket kept clean. A shade LIGHTER than the board and
+	# standing 6 mm proud of it, so it reads by its own edge and its own small
+	# shadow rather than by being a slightly different red.
+	var kept := Color(0.605, 0.150, 0.096)
+	var card := Color(0.760, 0.742, 0.668)
+	var vessel_y := BOARD_FACE_Y + 0.115
+
+	if condition == "stripped":
+		# Bracket and vessel both gone. What is left is the paint the STRAPS
+		# kept clean -- two bands and a foot, in the bracket's own shape rather
+		# than one anonymous rectangle, because the shape is what says a
+		# bracket was bolted here and taken off again.
+		for band_z in [z + 0.86, z + 1.18]:
+			_box(batch, [BOARD_X, BOARD_FACE_Y + 0.003, band_z],
+					[0.300, 0.006, 0.062], kept)
+		_box(batch, [BOARD_X, BOARD_FACE_Y + 0.003, z + 0.755],
+				[0.300, 0.006, 0.048], kept)
+		for bolt in [[-0.138, 0.86], [0.138, 0.86], [-0.138, 1.18],
+				[0.138, 1.18]]:
+			_cylinder(batch, [BOARD_X + bolt[0], BOARD_FACE_Y + 0.011,
+					z + bolt[1]], [0.010, 0.014, 0.010], iron)
+		return
+
+	# Both remaining conditions keep the bracket: two straps and a foot rest,
+	# bolted through the board.
+	for strap_z in [z + 0.86, z + 1.18]:
+		_box(batch, [BOARD_X, vessel_y + 0.126, strap_z],
+				[0.300, 0.024, 0.026], iron)
+		for side in [-0.138, 0.138]:
+			_box(batch, [BOARD_X + side, vessel_y + 0.010, strap_z],
+					[0.024, 0.270, 0.026], iron)
+	_box(batch, [BOARD_X, BOARD_FACE_Y + 0.088, z + 0.745],
+			[0.300, 0.170, 0.020], iron)
+
+	if condition == "empty_bracket":
+		# The bracket is still bolted up and there is nothing in it. Through the
+		# straps you see the board, and the paint the vessel used to keep clean.
+		_box(batch, [BOARD_X, BOARD_FACE_Y + 0.003, z + 1.02],
+				[0.208, 0.006, 0.430], kept)
+		# The card the man who took it away hung on the strap. It says nothing
+		# this file knows; it is a piece of pasteboard on a wire, and it is here
+		# because a bracket with a card on it is a bracket somebody emptied on
+		# purpose rather than a bracket that was never filled.
+		_cylinder(batch, [BOARD_X + 0.086, vessel_y + 0.126, z + 1.128],
+				[0.0016, 0.070, 0.0016], iron)
+		_box(batch, [BOARD_X + 0.086, vessel_y + 0.126, z + 1.062],
+				[0.086, 0.004, 0.062], card)
+		return
+
+	# hung: a complete vessel, and deliberately plainer than SR7-O's. It has no
+	# cage, no cap knurl, no hose, no charge plate and NO TAG, because nothing
+	# here has been inspected. It is a copper pot on two straps.
+	_cylinder(batch, [BOARD_X, vessel_y, z + 1.020],
+			[0.113, 0.520, 0.113], copper)
+	_cylinder(batch, [BOARD_X, vessel_y, z + 0.775],
+			[0.117, 0.030, 0.117], brass)
+	_cylinder(batch, [BOARD_X, vessel_y, z + 1.322],
+			[0.074, 0.086, 0.074], copper)
+	_cylinder(batch, [BOARD_X, vessel_y, z + 1.396],
+			[0.054, 0.062, 0.054], brass)
 
 
 func _build_resident_details(layout: Dictionary, floor_nodes: Dictionary,
