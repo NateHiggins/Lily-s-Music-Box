@@ -46,6 +46,15 @@ Do not generalize Orison’s named job/case schemas into an engine API. Extract
 the ownership pattern, transaction boundary and validation hooks; keep game
 vocabulary in adapters.
 
+### Derived presentation contract
+
+K2-C (`6bed0c0`) demonstrates a useful ownership split for objective text: the
+lifecycle owner supplies its factual sentence, while the phase owner composes
+immediate context from public facts without storing a second objective state.
+Clearing the presenter and rebuilding it from owners produced a byte-identical
+frame. Tests should assert the semantic property—such as “station named but not
+ordered”—rather than brittle literal copy or capitalization.
+
 ## 2. Data builds the world; runtime objects explain it
 
 ### Learned
@@ -258,6 +267,13 @@ real owner, and a frozen test can drive and hold the transient pose directly.
 - A statically typed seam can reject a duck-typed test double before the
   intended call; test stubs must extend the real class or the suite must prove
   the bind succeeded before counting downstream assertions.
+- `AudioStreamPlayer3D.max_distance` is a hard cutoff, while default 3D audio
+  supplies no architectural occlusion. A source may therefore vanish just
+  outside its radius yet remain audible through a slab just inside it. Route
+  guidance must be priced from distance, interval, competing emitters and the
+  actual propagation model rather than from “it is spatial audio.” K2-C counted
+  141 playing emitters at the report desk and rejected making one intermittent
+  upstairs chirp louder as a navigation fix.
 
 ### Reusable engine seam
 
@@ -265,6 +281,9 @@ A small `PoseCountdown` utility could standardize arm/advance/normalized-value
 and remaining-time behavior. A stronger render harness should freeze one
 instant, toggle exactly one fact, derive candidate crops from the measured
 difference bounds, and reject suites whose interesting section was skipped.
+A reusable frame-legibility probe should take a player pose, facing, FOV and a
+target set and report distance, yaw, pitch, occlusion and in-frustum status;
+K2-A through K2-C have each rebuilt this same diagnostic by hand.
 
 ### Failed approaches and extraction caution
 
