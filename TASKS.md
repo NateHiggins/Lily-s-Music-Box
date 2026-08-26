@@ -29,10 +29,10 @@ the immediate executable gates, not a second copy of its milestone status.
 
 - **K1 — CURRENT-TREE BASELINE — RUN 2026-08-26, RED GATES REMAIN.**
   `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
-  lighting green, FAST reproducing its two known failures, GoldenLoop reaching
-  the return leg before its watchdog, and FULL timing out after a failed
-  monitor-door roof route. Isolate physical-travel cost and roof reach, then
-  rerun GoldenLoop/FULL and the eight performance stations before closing K1.
+  lighting green, FAST reproducing its two known failures, and GoldenLoop now
+  passing 87/87 in 53.7 s with permanent phase timings. FULL still times out
+  after a failed monitor-door roof route. Isolate roof reach, then rerun FULL
+  and the eight performance stations before closing K1.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the
   exact first missing or unclear player-facing transition; do not infer it from

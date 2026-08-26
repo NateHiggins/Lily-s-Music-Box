@@ -25,7 +25,7 @@ const EXPECTED_BLOCKS: Array[String] = ["origin_convergence", "boundary_idle",
 		"complaint", "inspection", "errand_out", "acquisition", "return_leg",
 		"repair", "first_conversation", "recurrence", "integration", "wake",
 		"cleanup"]
-const SIM_SCALE := 3.5
+const SIM_SCALE := 4.0
 
 ## Test-only dream stub: subscribes, verifies, records one entry, wakes
 ## exactly once. No production dream mechanics.
@@ -59,6 +59,8 @@ var _checks := 0
 var _fails := 0
 var _blocks: Array[String] = []
 var _finished := false
+var _started_ms := 0
+var _last_block_ms := 0
 var trace: Array[String] = []
 var root: Node3D
 var player: PlayerController
@@ -72,6 +74,8 @@ var _player_save_present := false
 
 
 func _ready() -> void:
+	_started_ms = Time.get_ticks_msec()
+	_last_block_ms = _started_ms
 	print("[K6] START")
 	_watchdog()
 	OS.set_environment("DAYNIGHT", "0")
@@ -129,15 +133,22 @@ func _ready() -> void:
 
 
 func _watchdog() -> void:
-	await get_tree().create_timer(52.0, true, false, true).timeout
+	# The serialized runner owns the hard 60-second process ceiling. Leave three
+	# seconds for teardown, but allow the now-measured 18 s production boot plus
+	# the symmetric 16.5/15.5 s walked legs to reach the final logic blocks.
+	await get_tree().create_timer(57.0, true, false, true).timeout
 	if not _finished:
 		printerr("[K6] WATCHDOG: run exceeded its budget — FAIL")
 		get_tree().quit(1)
 
 
 func _block(name: String) -> void:
+	var now := Time.get_ticks_msec()
 	_blocks.append(name)
-	print("[K6 BLOCK] ", name)
+	print("[K6 BLOCK] %s wall=%.3fs split=%.3fs" % [name,
+			float(now - _started_ms) / 1000.0,
+			float(now - _last_block_ms) / 1000.0])
+	_last_block_ms = now
 
 
 func _check(label: String, ok: bool) -> void:

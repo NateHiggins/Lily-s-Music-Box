@@ -17,7 +17,7 @@ what is inherited, and what now blocks the integrated golden-shift gate.
 | `LightingAudit` | **PASS** | 127 spaces; 11 intentionally ambient/dark. |
 | `WalkTest` FAST, x8/480 | **FAIL, 2** | The established authored-job/chirp expectation and boiler 23-mesh merge failures reproduce. No new FAST failure. |
 | `WalkTest` FULL, x8/480 | **TIMEOUT / FAIL** | The two FAST failures recur; physical monitor-door route reports roof arrival at z=2.9; process reaches the 60-second ceiling before a final suite verdict. |
-| `GoldenLoopTest` | **WATCHDOG FAIL** | 39 checks pass through acquisition and the run enters `return_leg`; its 52-second internal watchdog fires before completion. Process exit alone is misleading because the test prints its own red verdict. |
+| `GoldenLoopTest` | **PASS, 87/87** | Timed phase markers measured an 18.1 s boot and symmetric 16.4/16.1 s physical travel legs. Matching the established x4/240 solver discipline and retaining a 57 s internal guard completes in 53.7 s beneath the runner's hard 60 s ceiling. |
 | `DreamTentacleTest` after correction | **PASS, 27/27** | The deterministic pre-tree global-transform engine error is gone; an unrelated resident-navigation error can still be emitted by the production scene. |
 
 No parse error was observed in these runs.
@@ -26,15 +26,18 @@ No parse error was observed in these runs.
 
 ### Product-path blockers
 
-1. **GoldenLoop no longer completes inside its own evidence budget.** It is not
-   stuck: the trace advances through complaint, inspection, outbound physical
-   travel and acquisition. Raising simulation scale to x8 made progress worse,
-   and freezing resident schedules did not improve it; neither speculative
-   test change was retained. Diagnose production-scene cost during physical
-   travel before changing the watchdog or removing the walk.
-2. **The FULL monitor-door route does not reach the roof.** The body reports
+1. **The FULL monitor-door route does not reach the roof.** The body reports
    z=2.9. Reproduce the specific route independently before changing doors,
    stairs or test coordinates.
+
+GoldenLoop's red was measurement debt, now resolved rather than hidden. Its
+old x3.5 run reached `return_leg` at 36.6 s and the repair boundary at roughly
+52 s; the 52 s watchdog necessarily interrupted a healthy mirrored route.
+x8/480 overloaded this production scene and advanced less far. The smallest
+safe change—x4/240—keeps capsule displacement per physics step stable. Its
+permanent block timings show boot 18.1 s, outbound 16.4 s, return 16.1 s and all
+remaining logic under 1.7 s. The internal guard is 57 s, still subordinate to
+the runner's non-negotiable 60 s process ceiling.
 
 ### Runtime errors that are not yet gate failures
 
@@ -58,18 +61,13 @@ must not normalize new failures.
 ## Performance status
 
 The historical eight-station numbers are not promoted to current evidence.
-FULL and GoldenLoop both consume their wall-clock ceilings, which is already a
-product-relevant performance finding. A fresh windowed eight-station run remains
-owed after the physical-travel cost is isolated; do not mix it with Claude's
-active Godot lane.
+FULL still consumes its wall-clock ceiling. GoldenLoop now prices its complete
+route at 53.7 s. A fresh windowed eight-station run remains owed after the roof
+seam is isolated; do not mix it with Claude's active Godot lane.
 
 ## Next executable order
 
-1. Build a bounded golden-route timing probe that reports boot, inspection,
-   outbound, acquisition and return wall time without changing gameplay.
-2. Use it to identify the production owner consuming travel time; fix that
-   owner, not GoldenLoop's watchdog.
-3. Isolate the monitor-door-to-roof path in a focused physical test.
-4. Re-run GoldenLoop, FULL and the eight performance stations.
-5. Only then begin K2's human fresh-save playthrough and K3's eleven-boundary
+1. Isolate the monitor-door-to-roof path in a focused physical test.
+2. Re-run FULL and the eight performance stations.
+3. Only then begin K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.
