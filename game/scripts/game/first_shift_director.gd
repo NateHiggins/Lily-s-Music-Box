@@ -121,6 +121,21 @@ func observe_station_mark(station_id: String, record: Dictionary) -> bool:
 	return true
 
 
+## SR7-K's central board is the evidence visible at the watchman's desk. It
+## knows number and sequence only; that limitation is preserved here. A local
+## drop with an open wire never calls this method and therefore proves nothing
+## to the opening station.
+func observe_central_signal(station_number: int, sequence: int) -> bool:
+	if station_number != 2:
+		return false
+	return observe_station_mark(OPENING_STATION_ID, {
+		"station_id": OPENING_STATION_ID,
+		"station_number": station_number,
+		"sequence": sequence,
+		"delivered": true,
+	})
+
+
 func station_marks() -> Array[Dictionary]:
 	return _station_marks.duplicate(true)
 

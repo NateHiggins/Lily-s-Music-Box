@@ -68,6 +68,9 @@ func _ready() -> void:
 	_check(root.first_shift_director.station_marks().size() == 1
 			and int(station_network.call("mark_count")) == 1,
 			"working the real box again cannot duplicate optional evidence")
+	_check(bool(root.first_shift_director.station_marks()[0].get(
+			"delivered", false)),
+			"onboarding observes the central indication, not merely the local crank")
 	_check(not root.objective_tracker._objective.text.contains("STATION 2")
 			and root.objective_tracker._objective.text.contains("Follow the chirp"),
 			"after the mark, the objective returns to Mina's unchanged job instruction")
