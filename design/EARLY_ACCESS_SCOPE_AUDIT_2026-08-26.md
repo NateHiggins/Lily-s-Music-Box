@@ -9,6 +9,17 @@
 > accessibility gate: subtitle sizing, complete dialogue captions, dynamic
 > range presets, pause-menu reach, input remapping and external review remain.
 
+> **CORRECTION — 2026-08-26: §14 C-4 IS RETRACTED IN FULL.** This document
+> originally reported that `reality_cases.json` shipped eight case ids and that
+> Peter, Cal and Mae had no case entry. **That was false**, and it was produced
+> by mistaking a truncated eight-of-eighteen diagnostic listing for a complete
+> census. The file holds **eighteen** records, Peter/Cal/Mae are all present,
+> and the data obeys `ORISON_BIBLE.md` §IV.1 throughout. See §14 C-4 for the
+> full retraction and `design/CAST_CASE_AUTHORITY_AUDIT_2026-08-26.md` for the
+> corrective audit. **No cast, case-two or scope conclusion in this document
+> survives on that finding.** The corrective audit's four genuine defects are
+> recorded as C-10 through C-13.
+
 **Status:** decision document answering `TASKS.md:30` (**K0-EA**). This is the
 scope ruling that `design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md` names as its
 unblocking dependency ("Once K0-EA declares the target player journey and scope
@@ -113,7 +124,7 @@ exceeding requires an owner ruling.
 
 | Domain | Early Access ceiling | Currently in tree | Ruling |
 | --- | --- | --- | --- |
-| **Cases** | **1 playable** (Mina) | 8 case ids in `game/data/reality_cases.json` | 7 remain defined-but-unreachable. Do not finish a second. |
+| **Cases** | **1 playable** (Mina) | **18 case records** in `game/data/reality_cases.json`, exactly one `enabled: true` | 17 remain defined-but-disabled, which is `ORISON_BIBLE.md:346` being obeyed. Do not finish a second. *(Count corrected 2026-08-26 — see §14 C-4.)* |
 | **Floors** | **route-visible only**: F01 lobby/office, F02 corridor + 2A, one Passage shop, 4B, one dream pocket | 8 levels, 11 shop interiors | The rest stays walkable and unpolished. No beautification pass off-route. |
 | **Dream material** | **1 pocket, 1 pursuer, 1 wake outcome family, 1 release print** (Mina's) | ten-module substrate, fauna, organelles, microbiology, tentacle, encroachment, temporal specimens | The largest single cut in this document. See §6. |
 | **Maintenance apparatus** | the five on the route: watch detector, night register, tour key, Vantry point, hardware counter | service round, boiler, ballcock, chute, dumbwaiter, fuse, interlock, annunciator | Others may remain present and operable; **none may be required**. |
@@ -527,17 +538,53 @@ referred to by one name.
 **ten** corrected rows. Ten of eleven leaves one. Either the station count or
 the remainder is wrong; both are cited as evidence for closing K1.
 
-**C-4 — The ruled case six and the shipped case data disagree.**
-`TASKS.md:3132` §C (ruled 2026-08-10, `ORISON_BIBLE` §IV.1): *"Six residents
-carry cases: Mina, Peter, Juno, Cal, Omar, Mae. Rhea and Nadia are the
-sanctioned expansion."* `game/data/reality_cases.json` ships eight ids:
-`mina_caption_crisis`, `juno_feedback_tetris`, `omar_unrepairable`,
-`rhea_bad_karaoke`, `nadia_code_pinball`, `sacha_camera_delay`,
-`evelyn_paper_jam`, `teresa_call_bells`.
-**Peter, Cal and Mae — three of the ruled six — have no case entry. Sacha,
-Evelyn and Teresa have entries and are in neither the six nor the expansion.**
-This matters beyond bookkeeping: `PLAN:385` makes Peter the M7 template, and
-Peter is the one canonical case with no data.
+**C-4 — RETRACTED IN FULL, 2026-08-26. THERE IS NO CAST CONTRADICTION.**
+
+The original C-4 claimed that `game/data/reality_cases.json` shipped eight case
+ids, that Peter, Cal and Mae had no case entry, and that Sacha, Evelyn and
+Teresa had entries outside the ruled six. **Every part of that is false.** It is
+retracted here rather than quietly rewritten, because it was reported to the
+owner as the finding most worth acting on and it caused a follow-up audit to be
+commissioned.
+
+**What is actually true**, established by
+`design/CAST_CASE_AUTHORITY_AUDIT_2026-08-26.md` (ADMIN-CAST1):
+
+- `reality_cases.json` contains **eighteen** case records — one for every
+  resident — **not eight**.
+- **Peter, Cal and Mae are all present**, as `peter_form_corridor` (4A),
+  `cal_memory_radio` (5B) and `mae_contradictory_antiques` (6C), each at the
+  apartment `ORISON_BIBLE.md` §IV.1 assigns them.
+- **All eighteen resident schedule units agree with their case units.** Zero
+  mismatches between `resident_schedules.json` and `reality_cases.json`.
+- **Exactly one record is `enabled: true`** — Mina's.
+- Sacha, Evelyn and Teresa holding `enabled: false` records is **the Bible
+  being obeyed, not broken**. `ORISON_BIBLE.md:346` orders precisely this:
+  *"They stay in `reality_cases.json`, `enabled: false`, as the record of what
+  was considered. Promotion needs a ruling; deletion needs a better reason than
+  tidiness."* Each of the three is named in §IV.1's own theme table as a
+  variant the ruling deliberately cut.
+
+**How the mistake was made.** A diagnostic command printed `list(keys)[:8]` of
+an eighteen-key dictionary, and **the truncation was written up as though it
+were the complete record.** The first eight keys happened to exclude Peter, Cal
+and Mae and to include Sacha, Evelyn and Teresa, which produced a symmetrical,
+plausible and entirely invented contradiction. Nothing in the repository ever
+disagreed with anything else. **A census was reported from its first eight
+rows.**
+
+**Everything that depended on this finding is withdrawn**, including the claim
+that Peter *"is the one canonical case with no data"* and any reading of the
+data as evidence of a quiet cast change. **Peter's identity as the ordained
+second case is not in question and is not decided here**: `ORISON_BIBLE.md`
+§IV.1, `PLAN:385` and production code agree on it, and
+`dream_incarnation_profile.gd:9` encodes the ruled six in owner order with
+Peter in slot two. Case-two identity remains exactly where it was — with the
+owner, and undisturbed by this document.
+
+**The corrective audit did surface four real defects that this false one was
+standing in front of.** They are recorded below as C-10 through C-13, and this
+document decides none of them.
 
 **C-5 — The punchlist header contradicts its own rows, and the rows are not
 trivial.** `walkthrough_punchlist.md` header: *"The current triage below
@@ -562,8 +609,11 @@ contradiction in this list that could cost a launch rather than a citation.
 exactly one authored job. `game/data/maintenance_jobs.json` now declares two:
 `vantry_chirp_2a` and `lena_radiator_round_2b`. This has been carried as
 "established baseline debt" in the baseline document and in every K2 handoff.
-**It is a one-line test fix, not a product defect**, and it is currently one of
-the two failures that "must not normalize new failures."
+**Partly superseded 2026-08-26 by C-11.** The assertion is indeed stale, but
+calling it "a one-line test fix, not a product defect" was premature: the
+assertion is stale *because* an unruled second authored job exists for a
+resident outside the ruled six. Fix the test only after that job is ruled on.
+It remains one of the two failures that "must not normalize new failures."
 
 **C-7 — Duplicate scope statements.** `TASKS.md:30` (K0-EA) and
 `EARLY_ACCESS_GO_TO_MARKET_PROJECT.md` §First planning gate both specify the
@@ -584,6 +634,54 @@ permitted to run `tools/audit_shot_suites.py`, so the reconciliation's figures
 are **carried forward unverified**.
 
 ---
+
+**C-10 — `enabled: false` is inert.** Nothing under `game/scripts` reads
+`"enabled"` from a case definition, and `RealityCases.activate_case()`
+(`game/scripts/game/reality_case_manager.gd:51`) checks only that the id
+exists. The Bible's containment mechanism for the seventeen non-playable cases
+is therefore **honoured by convention, not enforced by code** —
+`activate_case("peter_form_corridor")` would succeed today. Nothing calls it, so
+this is a latent hazard rather than a live bug. **Not decided here:** whether to
+enforce the flag or to record it as documentation only.
+
+**C-11 — A second authored work order exists outside the ruled six.**
+`game/data/maintenance_jobs.json` declares `lena_radiator_round_2b`
+("WORK ORDER 002 — BORROWED BREATH") for `lena_ortiz`, unit 2B, with
+`case_id: lena_unraveling` — a case `ORISON_BIBLE.md` §IV.1 places outside the
+six and which is `enabled: false`. It is the only place in the tree where a
+**job** implies case ownership for a non-six resident, and it is the direct
+cause of the standing `WalkTest` failure at `game/tests/walk_test.gd:1152`,
+which asserts exactly one authored job. **Not decided here:** whether the job
+is intended. This supersedes C-6's characterisation of that failure as merely a
+stale assertion — the assertion is stale *because* of an unruled second job.
+
+**C-12 — A dangling dream-profile reference.** That same job declares
+`dream_profile_id: "lena_visible_patch"`. The string appears **nowhere else in
+the repository**; `game/data/dream_profiles.json` contains only the six release
+prints. **Not decided here:** author the profile, or remove the key.
+
+**C-13 — "M7 template" carries three incompatible meanings.**
+`PLAN:385–393` means an **authored playable case** whose purpose is to prove
+the implementation pattern. `RECON:37` means a **future milestone** gated on
+M2–M6. `game/scripts/dream/dream_incarnation_profile.gd:28–30` and
+`design/next_session_dream.md:473` mean a **proof-only scaffold**, and both
+explicitly disclaim enabling any waking case. All three statements are true in
+their own vocabulary, and a reader moving between them can reasonably conclude
+M7 is far further along than the execution plan means. **Not decided here:**
+which meaning is canonical. Relevant to this document only because §12's H4
+lists "M7 Peter" as the first post-launch content beat; under the plan's
+meaning that is a whole authored case, and under the dream lane's meaning much
+of it already exists.
+
+## A procedural stop rule, added because this document needed it
+
+**Print and inspect the complete record before reporting a census
+contradiction.** C-4 was a symmetrical, plausible, entirely invented finding
+produced by a diagnostic that showed eight of eighteen keys. It survived review,
+reached the owner as a recommended action, and cost an audit to undo. A
+truncated listing is a sample; only a full listing is a census. Where a claim in
+this document rests on a count, the count must come from a command that printed
+**every** row, and the reader should be able to reproduce it.
 
 ## 15. Sources
 
@@ -612,7 +710,7 @@ Every claim above traces to one of these. Line numbers are from `0392768`.
 | `design/walkthrough_punchlist.md` | triage counts (exact severity-cell match): 2 blocker (:83, :84), 50 ugly, 45 wish, 31 resolved, 4 info |
 | `design/ENGINE_KNOWLEDGE_LEDGER.md:19` | ownership-before-machinery contract |
 | `game/docs/core_loop.md` | loop spine contract |
-| `game/data/reality_cases.json` | eight shipped case ids |
+| `game/data/reality_cases.json` | **eighteen** case records, one per resident, exactly one `enabled: true` (corrected 2026-08-26) |
 | `game/data/maintenance_jobs.json` | two authored jobs |
 | `game/scripts/game/reality_game_state.gd:9` | `SAVE_VERSION := 4`, save path, `_migrate()` |
 | `game/project.godot:18,34` | title screen main scene; autoloads |
