@@ -27,10 +27,12 @@ quietly removing it.
 Product authority: `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`. These are
 the immediate executable gates, not a second copy of its milestone status.
 
-- **K1 — CURRENT-TREE BASELINE.** Re-run M0 at the pushed checkpoint: fresh
-  checkout/import, focused gameplay suites, FULL WalkTest, warnings/parse
-  errors, critical-route reachability and the named performance stations.
-  Publish one dated baseline with every inherited failure attributed.
+- **K1 — CURRENT-TREE BASELINE — RUN 2026-08-26, RED GATES REMAIN.**
+  `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
+  lighting green, FAST reproducing its two known failures, GoldenLoop reaching
+  the return leg before its watchdog, and FULL timing out after a failed
+  monitor-door roof route. Isolate physical-travel cost and roof reach, then
+  rerun GoldenLoop/FULL and the eight performance stations before closing K1.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the
   exact first missing or unclear player-facing transition; do not infer it from

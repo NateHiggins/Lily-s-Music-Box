@@ -279,8 +279,12 @@ func _build_probe() -> void:
 	_probe.enable_shadows = false
 	_probe.cull_mask = 0xFFFFF
 	_probe.position = Vector3.ZERO
-	_probe.global_position = anchor + anchor_normal * 0.7
 	add_child(_probe)
+	# A Node3D has no global transform until it belongs to the SceneTree. This
+	# probe used to ask for one immediately before add_child(), producing an
+	# engine error every time a waking tentacle emerged. Seat it only after the
+	# parent gives it a world transform.
+	_probe.global_position = anchor + anchor_normal * 0.7
 
 
 ## Review hooks (HERO_PASS §15–§16): the canonical assets have to be able
