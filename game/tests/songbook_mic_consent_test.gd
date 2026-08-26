@@ -23,12 +23,16 @@ func _ready() -> void:
 			"notice itself cannot open or record the microphone")
 	_check(source.contains("1  use microphone     2  not this time")
 			and source.contains("Mode.MIC_CONSENT:\n\t\t\tif key == KEY_1:")
-			and source.contains("elif key == KEY_2:\n\t\t\t\t_start_perform()"),
+			and source.contains("elif key == KEY_2:\n\t\t\t\t_perform_without_microphone()"),
 			"player can affirm or perform without recording")
+	_check(source.contains("func _perform_without_microphone() -> void:\n\t_discard_microphone()\n\t_start_perform()")
+			and source.contains("func _discard_microphone() -> void:")
+			and source.contains("\t_mic = null"),
+			"declining a repeat take cannot reuse a previously accepted recorder")
 	_check(source.count("_show_mic_consent()") == 3,
 			"both recording routes pass through the one notice owner")
 	print("[SONGBOOK MIC CONSENT] %s" % (
-			"PASS 5/5" if failed == 0 else "FAIL %d/5" % failed))
+			"PASS 6/6" if failed == 0 else "FAIL %d/6" % failed))
 	get_tree().quit(0 if failed == 0 else 1)
 
 

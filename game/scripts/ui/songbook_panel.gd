@@ -261,11 +261,24 @@ func _show_mic_consent() -> void:
 	_status.text = "1  use microphone     2  not this time"
 
 
+func _discard_microphone() -> void:
+	if is_instance_valid(_mic):
+		_mic.stop_input()
+		_mic.queue_free()
+	_mic = null
+
+
+func _perform_without_microphone() -> void:
+	_discard_microphone()
+	_start_perform()
+
+
 ## Latency check before any take. The brief calls for it and it is also
 ## the most diegetic possible calibration: you clap once into the mic,
 ## the machine hears when it actually arrived, and everything after is
 ## shifted by the difference. No slider, no numbers.
 func _show_clap() -> void:
+	_discard_microphone()
 	mode = Mode.CLAP
 	_clear()
 	_line("", GREEN)
@@ -597,7 +610,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if key == KEY_1:
 				_show_clap()
 			elif key == KEY_2:
-				_start_perform()
+				_perform_without_microphone()
 		Mode.READING:
 			_stop_reading()
 
