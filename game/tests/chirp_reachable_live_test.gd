@@ -40,7 +40,6 @@ func _ready() -> void:
 	var net: Node = root.get("vantry_points")
 	var door: Node3D = root.find_child("F02_DOOR_02", true, false) as Node3D
 	point = net.get("active_owner") as Node3D
-	var emitter := _emitter(point)
 	director.call("begin_first_shift")
 	root.find_child("F01_WATCHMAN_DETECTOR", true, false).call(
 			"interact_control", "detector", player)
@@ -78,14 +77,17 @@ func _ready() -> void:
 
 	# --- CAN IT BE HEARD, AND DOES IT WIN? ---------------------------------
 	var mid := inside + player.camera.position
-	_check(emitter != null and emitter.max_distance >= mid.distance_to(
+	var cue: Dictionary = AudioPolicy.cue(&"nav.vantry_fault")
+	_check(not cue.is_empty() and float(cue.max_distance) >= mid.distance_to(
 			point.global_position),
 			"the chirp reaches this station: %.2f m inside a %.0f m emitter"
 					% [mid.distance_to(point.global_position),
-							emitter.max_distance if emitter else 0.0])
+							float(cue.get("max_distance", 0.0))])
 	hunt.call("force_chirp")
 	await get_tree().process_frame
-	_check(emitter.playing, "and the fault is sounding")
+	var emitter := AudioPolicy.active_voice(StringName(POINT_ID),
+			&"nav.vantry_fault")
+	_check(emitter != null and emitter.playing, "and the fault is sounding")
 	var rivals := _loudest_rivals(mid, emitter)
 	_check(rivals.size() > 0, "%d other emitters are audible here" % rivals.size())
 	var chirp_score := _score(emitter, mid)

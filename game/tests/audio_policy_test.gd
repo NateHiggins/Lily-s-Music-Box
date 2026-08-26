@@ -24,7 +24,10 @@ func _ready() -> void:
 	_check("Vantry is navigation, unique and not a generic tick",
 			str(nav.purpose) == "navigation" and str(nav.bus) == "Navigation"
 			and str(nav.stream_key) == "vantry_chirp"
-			and int(nav.max_instances) == 1)
+			and int(nav.max_instances) == 1
+			and is_equal_approx(float(nav.max_distance), 16.0)
+			and is_equal_approx(float(nav.unit_size), 4.0)
+			and is_equal_approx(float(nav.volume_db), -14.0))
 	_check("first source-owned Vantry fact presents",
 			policy.present_3d(&"nav.vantry_fault", Vector3(1, 2, 3), 1.0,
 					&"F02_A_VANTRY"))

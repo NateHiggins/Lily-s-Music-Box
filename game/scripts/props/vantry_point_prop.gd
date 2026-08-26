@@ -23,7 +23,6 @@ var _repaired := false
 var _body: Node3D
 var _grille: Node3D
 var _telltale: MeshInstance3D
-var _chirp: AudioStreamPlayer3D
 var _grille_open := 0.0
 var _grille_tween: Tween
 var _haunt_tween: Tween
@@ -89,8 +88,6 @@ func _build_visual() -> void:
 	merge_static(_body)
 	merge_static(_grille)
 	_build_service_area()
-	_chirp = make_emitter("vantry_chirp", -17.0)
-	_chirp.max_distance = 16.0
 
 
 func _start_normal_function() -> void:
@@ -109,16 +106,17 @@ func bind_chirp_hunt(hunt: ChirpHunt) -> void:
 
 func play_chirp(strength := 1.0) -> void:
 	# ChirpHunt decides when a chirp is due; the prop only refuses to voice
-	# a fault its own mechanism has already repaired.
-	if _chirp and not _repaired:
-		_chirp.volume_db = lerpf(-25.0, -14.0, clampf(strength, 0.0, 1.0))
-		_chirp.play()
+	# a fault its own mechanism has already repaired. AudioPolicy owns only
+	# presentation competition; this physical point remains the source owner.
+	if not _repaired:
+		AudioPolicy.present_3d(&"nav.vantry_fault", global_position,
+				clampf(strength, 0.0, 1.0), StringName(point_id))
 
 
 func set_chirping(enabled: bool) -> void:
 	state = PState.OPERATING if enabled else PState.IDLE
-	if not enabled and _chirp:
-		_chirp.stop()
+	if not enabled:
+		AudioPolicy.stop_source(StringName(point_id), &"nav.vantry_fault")
 
 
 func set_grille_open(amount: float, seconds := 0.45) -> void:

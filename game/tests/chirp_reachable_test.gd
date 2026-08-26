@@ -20,6 +20,7 @@ extends Node
 
 const HuntScript := preload("res://scripts/game/chirp_hunt.gd")
 const HUNT_PATH := "res://scripts/game/chirp_hunt.gd"
+const POINT_PATH := "res://scripts/props/vantry_point_prop.gd"
 const CEILING := 45.0
 
 var failures := 0
@@ -34,6 +35,7 @@ func _ready() -> void:
 	_fits_the_ceiling()
 	_owns_nothing_new()
 	_source_discipline()
+	_semantic_presentation()
 	_finish()
 
 
@@ -124,6 +126,19 @@ func _source_discipline() -> void:
 	# someone walked in is a beacon wearing a fault's clothes.
 	_check(not body.contains("is_inside") or body.contains("is_inside_tree"),
 			"and it senses nothing about the listener")
+
+
+func _semantic_presentation() -> void:
+	var text := FileAccess.get_file_as_string(POINT_PATH)
+	_check(text.contains("AudioPolicy.present_3d(&\"nav.vantry_fault\"")
+			and text.contains("StringName(point_id)"),
+			"the physical point requests one semantic cue under its own id")
+	_check(text.contains("AudioPolicy.stop_source(StringName(point_id), "
+			+ "&\"nav.vantry_fault\")"),
+			"repair and disable stop that exact source")
+	_check(not text.contains("make_emitter(\"vantry_chirp\"")
+			and not text.contains("var _chirp:"),
+			"the point did not keep a duplicate private chirp player")
 
 
 func _check(ok: bool, label: String) -> void:

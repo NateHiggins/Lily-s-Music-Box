@@ -95,6 +95,9 @@ func ensure_bus_tree() -> void:
 
 func present_3d(cue_id: StringName, at: Vector3, strength := 1.0,
 		source_id := &"") -> bool:
+	if not is_instance_valid(_listener):
+		_listener = get_tree().get_first_node_in_group("player_controller") \
+				as Node3D
 	if not cues.has(cue_id):
 		return _refuse(cue_id, "unknown_cue")
 	if _voices.is_empty():
@@ -168,6 +171,17 @@ func stop_source(source_id: StringName, cue_id := StringName()) -> int:
 		_record_event({"cue_id":state.cue_id, "source_id":source_id,
 				"outcome":"stopped", "at_second":_clock})
 	return stopped
+
+
+func active_voice(source_id: StringName,
+		cue_id := StringName()) -> AudioStreamPlayer3D:
+	for i in _voice_state.size():
+		var state: Dictionary = _voice_state[i]
+		if float(state.until) <= _clock or state.source_id != source_id:
+			continue
+		if cue_id == &"" or state.cue_id == cue_id:
+			return _voices[i]
+	return null
 
 
 func cue(cue_id: StringName) -> Dictionary:
