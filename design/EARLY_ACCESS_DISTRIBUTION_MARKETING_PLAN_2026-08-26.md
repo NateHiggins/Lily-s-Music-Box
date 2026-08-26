@@ -6,9 +6,11 @@
 > Gameplay, Voice/Telephone, World/Weather, Music and UI volume controls plus
 > opt-in captions for the bounded semantic gameplay-cue catalog. Store copy may
 > accurately describe custom volume controls and that narrow cue-caption
-> feature after release-candidate verification. It must not claim full closed
-> captions, subtitle sizing, dynamic-range presets, remapping or pause-menu
-> access until those exist and are tested.
+> feature after release-candidate verification. In-game Building Services now
+> exists, including sleep warning, look sensitivity, reduced camera roll and
+> flash suppression. It must not claim full closed captions, subtitle sizing,
+> dynamic-range presets or remapping. The authoritative declaration matrix is
+> `design/STEAM_ACCESSIBILITY_DECLARATION_AUDIT_2026-08-26.md`.
 
 **Status:** operating plan answering **K0-GTM** (`TASKS.md:42`) and the "First
 planning gate" of `design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md`. It converts
@@ -358,9 +360,10 @@ its official page states a deadline, with the access date recorded.
 ### Accessibility information
 - Steam's Accessibility Feature Wizard declaration, filled **only** for features
   that actually exist and can be switched on
-- **Declaration is blocked by an ADMIN-EA1 finding:** the mechanisms exist
-  (gradual-only onset, caption opt-out, reduced typewriter) but **no settings
-  surface exists in the tree**, so today the honest declaration is nearly empty.
+- **Current honest declaration: exactly one label, Custom Volume Controls.**
+  The settings surface now exists at title and in play, but narrow sound-cue
+  captions are not full subtitles and code presence is not manual route
+  verification. See `STEAM_ACCESSIBILITY_DECLARATION_AUDIT_2026-08-26.md`.
 - Steam's declarable categories, for the settings panel to aim at **[SOURCED]**:
   *Gameplay* — adjustable difficulty, save anytime; *Audio* — custom volume
   controls, narrated menus, stereo/surround; *Visual* — adjustable text size,
@@ -580,7 +583,7 @@ starts this plan.
 | W5 | Coming Soon page assembled (unpublished); content survey; **German age rating** | — |
 | W6 | press/creator kit skeleton; outreach tracker stood up | — |
 | W7 | devlog 1–2 (apparatus/period — tests hypothesis A3) | — |
-| W8 | accessibility declaration drafted **as a target** | ← needs the settings surface to be true |
+| W8 | accessibility declaration drafted; Custom Volume Controls is the sole current label | ← manual RC verification remains |
 | W9 | — | **H2 gate**: screenshots + trailer capture |
 | W10 | trailer cut; store page review submitted | ← needs W9 |
 | W11 | demo build to `friends`; demo page review | ← needs H2 |
