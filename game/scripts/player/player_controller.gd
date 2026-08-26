@@ -354,7 +354,8 @@ func _process(_delta: float) -> void:
 	# crouch were all in that dead zone: the HUD button lit up and the
 	# game ignored it. Polling is the one path both a key and a thumb
 	# travel, exactly like movement already does.
-	if Input.is_action_just_pressed("noclip"):
+	if GameBoot.developer_overlays_enabled() \
+			and Input.is_action_just_pressed("noclip"):
 		noclip = not noclip
 		collision_layer = 0 if noclip else 1
 		collision_mask = 0 if noclip else 1

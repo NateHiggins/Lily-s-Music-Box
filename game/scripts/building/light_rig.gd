@@ -295,6 +295,9 @@ func tuning_snapshot() -> Dictionary:
 
 
 func export_tuning() -> String:
+	if not GameBoot.developer_overlays_enabled():
+		push_warning("lighting export requires ORISON_DEVELOPER_OVERLAYS=1")
+		return ""
 	var text := JSON.stringify(tuning_snapshot(), "\t") + "\n"
 	var path := "user://orison_lighting_settings.json"
 	var file := FileAccess.open(path, FileAccess.WRITE)

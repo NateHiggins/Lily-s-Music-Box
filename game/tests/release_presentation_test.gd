@@ -24,6 +24,14 @@ func _ready() -> void:
 			"res://scripts/building/light_rig.gd")
 	_check(not rig_source.contains('call_deferred("_build_debug_handles")'),
 			"ordinary boot does not instantiate light tuning handles")
+	_check(rig_source.contains("func export_tuning() -> String:\n\tif not GameBoot.developer_overlays_enabled():")
+			and rig_source.find("if not GameBoot.developer_overlays_enabled():") <
+				rig_source.find("DisplayServer.clipboard_set(text)"),
+			"production cannot write tuning files or replace the clipboard")
+	var player_source := FileAccess.get_file_as_string(
+			"res://scripts/player/player_controller.gd")
+	_check(player_source.contains("if GameBoot.developer_overlays_enabled() \\\n\t\t\tand Input.is_action_just_pressed(\"noclip\")"),
+			"production V cannot disable player collision")
 	OS.set_environment("ORISON_DEVELOPER_OVERLAYS", "1")
 	var diagnostic := CaseInteractable.new()
 	add_child(diagnostic)
