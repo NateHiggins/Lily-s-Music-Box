@@ -4,7 +4,7 @@ extends CanvasLayer
 ##
 ## Eight landings stacked the way they are stacked, the car somewhere
 ## between them, and whoever is waiting standing on their own floor. You
-## click a landing to send the car. That is the whole interface, because
+## choose a landing to send the car. That is the whole interface, because
 ## the difficulty is never "which button" — it is that the car has four
 ## things wrong with it and six people want it at once.
 ##
@@ -39,6 +39,7 @@ func open(player: Node, prop: Node) -> void:
 	if _player and "call_locked" in _player:
 		_player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_view.grab_focus()
 
 
 func _build() -> void:
@@ -50,9 +51,11 @@ func _build() -> void:
 	_view = Control.new()
 	_view.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_view.mouse_filter = Control.MOUSE_FILTER_PASS
+	_view.focus_mode = Control.FOCUS_ALL
 	_view.draw.connect(_draw_shaft)
 	_view.gui_input.connect(_on_input)
 	add_child(_view)
+	_hover = clampi(int(round(game.at)), 0, game.floors.size() - 1)
 
 	var right := MarginContainer.new()
 	_side_anchors(right, 0.66)
@@ -112,7 +115,7 @@ func _refresh() -> void:
 			maxi(0, game.log_lines.size() - 3))
 	_status.text = ("   ·   ".join(PackedStringArray(tail))
 			if not tail.is_empty()
-			else "click a landing to send the car   ·   ESC to leave it")
+			else "choose a landing · arrows / D-pad + accept · ESC to leave")
 
 
 func _shaft_rect() -> Rect2:
@@ -196,6 +199,19 @@ func _draw_shaft() -> void:
 
 
 func _on_input(event: InputEvent) -> void:
+	if _fresh_action_press(event, &"ui_up"):
+		_select_landing(_hover + 1)
+		_view.accept_event()
+		return
+	if _fresh_action_press(event, &"ui_down"):
+		_select_landing(_hover - 1)
+		_view.accept_event()
+		return
+	if _fresh_action_press(event, &"ui_accept") and _hover >= 0:
+		game.call_to(_hover)
+		_refresh()
+		_view.accept_event()
+		return
 	if event is InputEventMouseMotion:
 		var p := (event as InputEventMouseMotion).position
 		var was := _hover
@@ -213,6 +229,16 @@ func _on_input(event: InputEvent) -> void:
 		_refresh()
 
 
+func _select_landing(index: int) -> void:
+	_hover = clampi(index, 0, game.floors.size() - 1)
+	_view.queue_redraw()
+
+
+func _fresh_action_press(event: InputEvent, action: StringName) -> bool:
+	return event.is_action_pressed(action) \
+			and not (event is InputEventKey and (event as InputEventKey).echo)
+
+
 func _process(delta: float) -> void:
 	if game.running:
 		game.tick(delta)
@@ -221,8 +247,7 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed \
-			and (event as InputEventKey).keycode == KEY_ESCAPE:
+	if _fresh_action_press(event, &"ui_cancel"):
 		close()
 		get_viewport().set_input_as_handled()
 

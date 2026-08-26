@@ -117,24 +117,26 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if _closing or _director == null or _director.active_run == null:
 		return
-	if event is InputEventKey:
-		var key := event as InputEventKey
-		if key.pressed and not key.echo and key.keycode == KEY_ESCAPE:
-			_director.abort()
-			get_viewport().set_input_as_handled()
-			return
-		if key.pressed and not key.echo and key.keycode in [KEY_A, KEY_LEFT]:
-			_adjust(-STEP_DELTA)
-			get_viewport().set_input_as_handled()
-			return
-		if key.pressed and not key.echo and key.keycode in [KEY_D, KEY_RIGHT]:
-			_adjust(STEP_DELTA)
-			get_viewport().set_input_as_handled()
-			return
-		if key.keycode in [KEY_E, KEY_SPACE]:
-			_handle_commit_key(key.pressed and not key.echo)
-			get_viewport().set_input_as_handled()
-			return
+	if _fresh_action_press(event, &"ui_cancel"):
+		_director.abort()
+		get_viewport().set_input_as_handled()
+		return
+	if _fresh_action_press(event, &"activity_adjust_left"):
+		_adjust(-STEP_DELTA)
+		get_viewport().set_input_as_handled()
+		return
+	if _fresh_action_press(event, &"activity_adjust_right"):
+		_adjust(STEP_DELTA)
+		get_viewport().set_input_as_handled()
+		return
+	if _fresh_action_press(event, &"activity_commit"):
+		_handle_commit_key(true)
+		get_viewport().set_input_as_handled()
+		return
+	if event.is_action_released(&"activity_commit"):
+		_handle_commit_key(false)
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseMotion:
 		var motion := event as InputEventMouseMotion
 		_adjust(motion.relative.x * 0.0025)
@@ -145,6 +147,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			_adjust(STEP_DELTA)
 		elif button.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			_adjust(-STEP_DELTA)
+
+
+func _fresh_action_press(event: InputEvent, action: StringName) -> bool:
+	return event.is_action_pressed(action) \
+			and not (event is InputEventKey and (event as InputEventKey).echo)
 
 
 func _handle_commit_key(pressed: bool) -> void:
@@ -187,7 +194,7 @@ func _show_step(step: Dictionary) -> void:
 			_director.active_run.step_index + 1,
 			(profile.get("steps", []) as Array).size()]
 	_cue.text = str(step.get("cue", ""))
-	_feedback.text = "A/D or mouse to work it  ·  E to commit  ·  ESC to leave"
+	_feedback.text = "A/D, arrows or mouse to work it  ·  E/Space to commit  ·  ESC to leave"
 	_refresh_track()
 	if str(step.get("verb", "")) != "hold_release" and _mechanism \
 			and _mechanism.has_method("preview_maintenance_step"):

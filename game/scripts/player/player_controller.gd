@@ -328,6 +328,13 @@ func _process(_delta: float) -> void:
 	_update_prompt()
 	_advance_lamp(_delta)
 	_carry_service_light(_delta)
+	if not call_locked:
+		var stick_look := Input.get_vector("look_left", "look_right",
+				"look_up", "look_down")
+		if stick_look.length_squared() > 0.0:
+			# apply_look consumes mouse-like travel. Converting the rate here
+			# keeps its sensitivity, pitch clamp and carried-lamp lag shared.
+			apply_look(stick_look * 720.0 * _delta)
 	# E is the universal physical verb. A seat is deliberately allowed through
 	# call_locked; every other locked panel continues to own its input.
 	if Input.is_action_just_pressed("interact") \

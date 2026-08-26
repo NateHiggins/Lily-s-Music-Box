@@ -17,8 +17,39 @@ const ACTIONS := {
 ## feed the same named actions as keyboard and touch; PlayerController never
 ## branches on input device.
 const JOYPAD_ACTIONS := {
+	"interact": JOY_BUTTON_A,
+	"jump": JOY_BUTTON_Y,
+	"crouch": JOY_BUTTON_LEFT_STICK,
 	"lamp_toggle": JOY_BUTTON_LEFT_SHOULDER,
 	"radio_toggle": JOY_BUTTON_RIGHT_SHOULDER,
+	"activity_adjust_left": JOY_BUTTON_DPAD_LEFT,
+	"activity_adjust_right": JOY_BUTTON_DPAD_RIGHT,
+	"activity_commit": JOY_BUTTON_A,
+}
+
+const JOYPAD_AXES := {
+	"move_left": [JOY_AXIS_LEFT_X, -1.0],
+	"move_right": [JOY_AXIS_LEFT_X, 1.0],
+	"move_forward": [JOY_AXIS_LEFT_Y, -1.0],
+	"move_back": [JOY_AXIS_LEFT_Y, 1.0],
+	"look_left": [JOY_AXIS_RIGHT_X, -1.0],
+	"look_right": [JOY_AXIS_RIGHT_X, 1.0],
+	"look_up": [JOY_AXIS_RIGHT_Y, -1.0],
+	"look_down": [JOY_AXIS_RIGHT_Y, 1.0],
+	"run": [JOY_AXIS_TRIGGER_LEFT, 1.0],
+}
+
+const JOYPAD_UI_ACTIONS := {
+	"ui_cancel": [JOY_BUTTON_B, JOY_BUTTON_START],
+}
+
+## Maintenance panels consume meanings, never device keycodes. Keep commit
+## separate from `interact`: PlayerController polls interact before call_locked
+## can protect the newly opened panel, so sharing it can double-fire one press.
+const ACTIVITY_KEY_ACTIONS := {
+	"activity_adjust_left": [KEY_A, KEY_LEFT],
+	"activity_adjust_right": [KEY_D, KEY_RIGHT],
+	"activity_commit": [KEY_E, KEY_SPACE],
 }
 
 const SETTINGS_PATH := "user://orison_settings.cfg"
@@ -80,6 +111,27 @@ func _ready() -> void:
 		var button_event := InputEventJoypadButton.new()
 		button_event.button_index = JOYPAD_ACTIONS[action]
 		_ensure_action_event(action, button_event)
+	for action in ACTIVITY_KEY_ACTIONS:
+		if not InputMap.has_action(action):
+			InputMap.add_action(action)
+		for keycode in ACTIVITY_KEY_ACTIONS[action]:
+			var key_event := InputEventKey.new()
+			key_event.physical_keycode = keycode
+			_ensure_action_event(action, key_event)
+	for action in JOYPAD_AXES:
+		if not InputMap.has_action(action):
+			InputMap.add_action(action)
+		var axis_event := InputEventJoypadMotion.new()
+		axis_event.axis = JOYPAD_AXES[action][0]
+		axis_event.axis_value = JOYPAD_AXES[action][1]
+		_ensure_action_event(action, axis_event)
+	for action in JOYPAD_UI_ACTIONS:
+		if not InputMap.has_action(action):
+			InputMap.add_action(action)
+		for button in JOYPAD_UI_ACTIONS[action]:
+			var button_event := InputEventJoypadButton.new()
+			button_event.button_index = button
+			_ensure_action_event(action, button_event)
 
 
 func _ensure_action_event(action: StringName, event: InputEvent) -> void:
