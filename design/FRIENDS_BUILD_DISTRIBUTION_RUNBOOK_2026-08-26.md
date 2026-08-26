@@ -1,5 +1,13 @@
 # Friends-build distribution runbook — 2026-08-26
 
+> **INTEGRATION NOTICE — `a8d8d0c`, 2026-08-26:** this runbook was integrated
+> after the Windows export proof. Its historical acceptance table says clean
+> export/templates were UNRUN; the canonical measured result is now the
+> release evidence matrix G27 notice: Windows x86-64 export exit 0, 14.5 s,
+> 109,071,360-byte EXE plus 1,250,936,396-byte PCK. `packageable`,
+> `distributable`, second-machine `installable`, `playable` and `diagnosable`
+> remain open exactly as ruled below.
+
 **Purpose:** the smallest honest distribution path for a private friends build,
 beginning the moment Codex supplies a working Windows export preset. This
 resolves **G23** from `EARLY_ACCESS_RELEASE_EVIDENCE_MATRIX_2026-08-26.md`.
