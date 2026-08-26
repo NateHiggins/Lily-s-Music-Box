@@ -16,6 +16,7 @@ var _stagger_guard := 0.0
 var _event_index := 0
 var _last_radiator: Node3D
 var _rng := RandomNumberGenerator.new()
+var _live_conditions: Dictionary = {}
 
 
 func setup(target: Node3D) -> void:
@@ -46,6 +47,22 @@ func _ready() -> void:
 		add_child(event)
 		_event_players.append(event)
 	RealityCases.case_changed.connect(_on_case_changed)
+	call_deferred("_bind_live_weather")
+
+
+func _bind_live_weather() -> void:
+	var service := get_parent().get_node_or_null("LiveWeatherService")
+	if service == null:
+		return
+	if not service.weather_updated.is_connected(_on_weather_updated):
+		service.weather_updated.connect(_on_weather_updated)
+	var current: Dictionary = service.call("snapshot")
+	if not current.is_empty():
+		_on_weather_updated(current)
+
+
+func _on_weather_updated(snapshot: Dictionary) -> void:
+	_live_conditions = LiveWeatherService.presentation(snapshot)
 
 
 func _ensure_bus() -> void:
@@ -107,7 +124,7 @@ func _process(delta: float) -> void:
 	_fade("city", (-17.0 if outside else -33.0) - duck, delta)
 	_fade("building", (-23.0 if not outside else -38.0) - duck, delta)
 	_fade("basement", (-17.5 if basement else -60.0) - duck, delta)
-	_fade("roof", (-16.5 if roof else -60.0) - duck, delta)
+	_fade("roof", roof_weather_db(_live_conditions, roof) - duck, delta)
 	_next_event -= delta
 	_next_radiator -= delta
 	_next_signature -= delta
@@ -176,7 +193,7 @@ func _cue_radiator(pressure: float) -> void:
 func _cue_architecture(outside: bool, basement: bool, pressure: float) -> void:
 	var keys: Array
 	if outside:
-		keys = ["distant_rain_people", "hail_window", "rain_on_metal"]
+		keys = outdoor_event_keys(_live_conditions)
 	elif basement:
 		keys = ["basement_stairs", "door_squeak", "water_droplets", "creak"]
 	else:
@@ -189,6 +206,31 @@ func _cue_architecture(outside: bool, basement: bool, pressure: float) -> void:
 	var key: String = keys[_rng.randi_range(0, keys.size() - 1)]
 	_play_at(key, _architectural_source(), _rng.randf_range(-29.0, -22.0)
 			- pressure * 4.0)
+
+
+static func roof_weather_db(conditions: Dictionary, on_roof: bool) -> float:
+	if not on_roof:
+		return -60.0
+	# An absent snapshot preserves the authored storm fallback. Once real or
+	# simulated conditions arrive, this specifically storm-recorded bed may
+	# speak only for liquid weather. Snow, fog and clear wind need their own
+	# recordings rather than pitch-shifted rain.
+	if conditions.is_empty():
+		return -16.5
+	if not bool(conditions.get("wet", false)):
+		return -60.0
+	return lerpf(-31.0, -16.5, clampf(float(conditions.get(
+			"rain_intensity", 0.0)), 0.0, 1.0))
+
+
+static func outdoor_event_keys(conditions: Dictionary) -> Array:
+	if conditions.is_empty():
+		return ["distant_rain_people", "hail_window", "rain_on_metal"]
+	if bool(conditions.get("hailing", false)):
+		return ["hail_window", "rain_on_metal"]
+	if bool(conditions.get("wet", false)):
+		return ["distant_rain_people", "rain_on_metal"]
+	return ["creak"]
 
 
 ## A resident need not have an active work order to infect the air around
