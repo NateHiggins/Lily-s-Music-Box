@@ -13,6 +13,8 @@ const PHASE_REPORT_ACCEPTED := "report_accepted"
 const PHASE_RETURNED := "returned"
 const PHASE_FILED := "filed"
 const PHASE_COMPLETE := "complete"
+const OPENING_JOB_ID := "vantry_chirp_2a"
+const OPENING_STATION_ID := "F02_STATION_2A_LANDING"
 const FILING_OUTCOMES: Array[String] = [
 	"fault_corrected",
 	"disturbance_persists",
@@ -114,6 +116,8 @@ func observe_station_mark(station_id: String, record: Dictionary) -> bool:
 			return false
 	_station_marks.append(record.duplicate(true))
 	station_mark_observed.emit(station_id, record.duplicate(true))
+	if str(_ritual().get("report_id", "")) == OPENING_JOB_ID:
+		_present_active_report()
 	return true
 
 
@@ -156,8 +160,10 @@ func _present_active_report() -> void:
 	var stage := work_orders.job_stage(job_id)
 	if spec.is_empty() or stage == "missing":
 		return
-	_show(str(spec.get("title", "NIGHT REGISTER")),
-			work_orders.job_library.stage_objective(job_id, stage))
+	var objective := work_orders.job_library.stage_objective(job_id, stage)
+	if job_id == OPENING_JOB_ID and not has_station_mark(OPENING_STATION_ID):
+		objective += " On the way, work STATION 2 if you see it. The mark is evidence, not permission."
+	_show(str(spec.get("title", "NIGHT REGISTER")), objective)
 
 
 func clock_in() -> bool:
@@ -195,6 +201,7 @@ func accept_report(job_id: String) -> bool:
 	state.phase = PHASE_REPORT_ACCEPTED
 	state.report_id = job_id
 	_commit_ritual()
+	_present_active_report()
 	return true
 
 

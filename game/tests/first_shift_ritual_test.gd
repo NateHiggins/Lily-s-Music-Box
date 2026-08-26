@@ -68,6 +68,8 @@ func _ready() -> void:
 	_check(tracker._title.text.contains("BORROWED BREATH")
 			and tracker._objective.text.contains("Inspect the 2B radiator"),
 			"reload with a report reconstructs its owner-authored stage objective")
+	_check(not tracker._objective.text.contains("STATION 2"),
+			"the opening station hint is not pasted onto unrelated later reports")
 	_check(not director.accept_report(JOB), "a report cannot be taken twice")
 	var valid_filing := {"job_id": JOB, "filing": "disturbance_persists",
 			"report_out": false, "keys_out": []}

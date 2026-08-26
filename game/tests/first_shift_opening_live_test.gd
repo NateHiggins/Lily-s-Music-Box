@@ -50,6 +50,11 @@ func _ready() -> void:
 			and str(RealityState.data.current_case_id) == CASE
 			and str(RealityState.case_state(CASE).stage) == "active",
 			"taking the paper acknowledges its job and activates only its declared case")
+	_check(root.objective_tracker._objective.text.contains("STATION 2")
+			and root.objective_tracker._objective.text.contains("if you see it")
+			and root.objective_tracker._objective.text.contains(
+					"evidence, not permission"),
+			"Mina's objective teaches the optional station without making it a waypoint")
 	var station_network: Node = root.find_child("WatchStationNetwork", true, false)
 	var station: Node = root.find_child("F02_WATCH_STATION_01", true, false)
 	_check(station_network != null and station != null
@@ -63,6 +68,9 @@ func _ready() -> void:
 	_check(root.first_shift_director.station_marks().size() == 1
 			and int(station_network.call("mark_count")) == 1,
 			"working the real box again cannot duplicate optional evidence")
+	_check(not root.objective_tracker._objective.text.contains("STATION 2")
+			and root.objective_tracker._objective.text.contains("Follow the chirp"),
+			"after the mark, the objective returns to Mina's unchanged job instruction")
 	_check(not root.first_shift_director.clock_in()
 			and RealityState.data.maintenance_jobs.size() == 1,
 			"the committed clock-in cannot replay or duplicate the report")
