@@ -39,6 +39,16 @@ the immediate executable gates, not a second copy of its milestone status.
   hard go/no-go checklist. Preserve the long game as the roadmap beyond Early
   Access; do not require every authored system or case before release.
 
+- **K0-GTM — PRIORITY PROJECT: BUILD DISTRIBUTION AND MARKETING ALONGSIDE THE
+  RELEASE.** Own platform/store delivery, positioning, store conversion,
+  audience development, press and creator relations, festivals/demos, launch
+  operations, community/support, privacy-respecting measurement and the
+  pricing/runway/funding model. Begin all work that does not require content
+  lock now; bind promises and capture to K0-EA's actual shipping scope. Deliver
+  the decision matrix, campaign calendar, asset/press kit, release and rollback
+  runbooks, outreach tracker, metrics dashboard and go/no-go thresholds defined
+  in `design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md`.
+
 - **K0-ENGINE — PRIORITY / CONTINUOUS: WRITE THE ENGINE WE ARE DISCOVERING.**
   Treat this project as an evidence-producing engine-development programme,
   not only a game. Beginning now, maintain a durable, source-linked knowledge
