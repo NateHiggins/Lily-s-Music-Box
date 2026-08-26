@@ -6,6 +6,18 @@ param(
 $ErrorActionPreference = "Stop"
 $repoRoot = (Resolve-Path -LiteralPath (Split-Path $PSScriptRoot -Parent)).Path
 $project = Join-Path $repoRoot "game"
+
+function Get-SourceChanges {
+    $changes = @()
+    $changes += @(& git -C $repoRoot diff --name-only --ignore-cr-at-eol)
+    if ($LASTEXITCODE -ne 0) { throw "Cannot inspect unstaged source changes." }
+    $changes += @(& git -C $repoRoot diff --cached --name-only)
+    if ($LASTEXITCODE -ne 0) { throw "Cannot inspect staged source changes." }
+    $changes += @(& git -C $repoRoot ls-files --others --exclude-standard)
+    if ($LASTEXITCODE -ne 0) { throw "Cannot inspect untracked source paths." }
+    return @($changes | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } |
+        Sort-Object -Unique)
+}
 if ([string]::IsNullOrWhiteSpace($OutputDir)) {
     $OutputDir = Join-Path $repoRoot "build\windows"
 }
@@ -17,10 +29,7 @@ if (-not $OutputDir.StartsWith(
     throw "OutputDir must resolve beneath the repository build directory."
 }
 
-$dirty = @(& git -C $repoRoot status --porcelain=v1 --untracked-files=all)
-if ($LASTEXITCODE -ne 0) {
-    throw "Cannot inspect the source checkout."
-}
+$dirty = @(Get-SourceChanges)
 if ($dirty.Count -ne 0) {
     throw "Friends exports require a clean checkout; found $($dirty.Count) dirty or untracked paths."
 }
@@ -53,10 +62,7 @@ foreach ($line in $filtered) { Write-Output $line }
 if ($engineExit -ne 0) {
     throw "Windows export failed with exit $engineExit."
 }
-$postExportDirty = @(& git -C $repoRoot status --porcelain=v1 --untracked-files=all)
-if ($LASTEXITCODE -ne 0) {
-    throw "Cannot verify the source checkout after export."
-}
+$postExportDirty = @(Get-SourceChanges)
 if ($postExportDirty.Count -ne 0) {
     throw "Godot changed $($postExportDirty.Count) tracked or untracked paths during export; no source manifest will be written."
 }
