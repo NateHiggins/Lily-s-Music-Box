@@ -5,6 +5,7 @@ extends Node
 ## campaign state, startup policy, and the first actionable objective live here.
 
 signal ritual_changed(phase: String, state: Dictionary)
+signal station_mark_observed(station_id: String, record: Dictionary)
 
 const PHASE_ARRIVED := "arrived"
 const PHASE_CLOCKED_IN := "clocked_in"
@@ -24,6 +25,7 @@ var tracker: ObjectiveTracker
 var intro: VirusSoundDirector
 var work_orders: WorkOrders
 var _opening_report_offer: Callable
+var _station_marks: Array[Dictionary] = []
 
 ## The shift begins on the south walk, just outside the passenger side of the
 ## eastbound car. Looking across the road teaches the complete 30 ft crossing
@@ -96,6 +98,34 @@ func ritual_phase() -> String:
 ## job; until then an unbound first shift manufactures nothing.
 func bind_opening_report_offer(offer: Callable) -> void:
 	_opening_report_offer = offer
+
+
+## Optional session evidence from SR7-J's network. It is deliberately absent
+## from RealityState: the current building has no central tape/register owner,
+## and onboarding must not quietly invent one. SR7-K may supply that owner.
+func observe_station_mark(station_id: String, record: Dictionary) -> bool:
+	if ritual_phase() != PHASE_REPORT_ACCEPTED \
+			or station_id != str(record.get("station_id", "")):
+		return false
+	var sequence := int(record.get("sequence", -1))
+	for seen in _station_marks:
+		if str(seen.get("station_id", "")) == station_id \
+				and int(seen.get("sequence", -2)) == sequence:
+			return false
+	_station_marks.append(record.duplicate(true))
+	station_mark_observed.emit(station_id, record.duplicate(true))
+	return true
+
+
+func station_marks() -> Array[Dictionary]:
+	return _station_marks.duplicate(true)
+
+
+func has_station_mark(station_id: String) -> bool:
+	for record in _station_marks:
+		if str(record.get("station_id", "")) == station_id:
+			return true
+	return false
 
 
 ## Reconstruct presentation from owners after load. No lifecycle method is

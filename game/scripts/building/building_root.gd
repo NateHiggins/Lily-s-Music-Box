@@ -642,6 +642,10 @@ func _ready() -> void:
 		night_register.report_taken.connect(first_shift_director.accept_report)
 		night_register.register_signed.connect(
 				first_shift_director.accept_signed_register)
+	var watch_stations := find_child("WatchStationNetwork", true, false)
+	if watch_stations != null:
+		watch_stations.station_marked.connect(
+				first_shift_director.observe_station_mark)
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)
