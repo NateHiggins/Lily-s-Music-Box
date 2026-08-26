@@ -26,6 +26,12 @@
     "in_custody": {"house":"carrying", "plain":"held in a person's custody", "kind":"state", "origin":"trade_semantic_extension"},
     "radiator": {"house":"heat-iron", "plain":"radiator", "kind":"object", "origin":"orison_invention"},
     "work_order": {"house":"work-paper", "plain":"work order", "kind":"object", "origin":"orison_invention"},
-    "register_sheet": {"house":"night-paper", "plain":"night register sheet", "kind":"object", "origin":"orison_invention"}
+    "register_sheet": {"house":"night-paper", "plain":"night register sheet", "kind":"object", "origin":"orison_invention"},
+    "line": {"house":"line", "plain":"telephone circuit", "kind":"telephone", "origin":"documented_trade_usage"},
+    "asking": {"house":"asking", "plain":"requesting an answer", "kind":"telephone", "origin":"documented_bell_usage"},
+    "order": {"house":"order", "plain":"requested destination", "kind":"telephone", "origin":"documented_bell_usage"},
+    "carrying": {"house":"carrying", "plain":"physically connected through a cord or trunk", "kind":"telephone", "origin":"trade_semantic_extension"},
+    "busy": {"house":"busy", "plain":"occupied by another connection", "kind":"telephone", "origin":"documented_trade_usage"},
+    "unanswered": {"house":"unanswered", "plain":"rung but not taken", "kind":"telephone", "origin":"documented_trade_usage"}
   }
 }

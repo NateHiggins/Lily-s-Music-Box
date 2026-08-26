@@ -23,6 +23,27 @@ static func render_report(fact: Dictionary, mode := "house") -> String:
 			unit, evidence, apparatus, state, term("work_order", mode)]
 
 
+static func render_line(fact: Dictionary, mode := "house") -> String:
+	## One physical record, two surfaces. The mode may explain house words but
+	## cannot add or delete an endpoint, operator hand, trunk, or line state.
+	var endpoint := str(fact.get("endpoint", "THE HOUSE")).to_upper()
+	var phase := str(fact.get("state", "IDLE")).to_upper()
+	var trunk := str(fact.get("trunk", "")).replace("_", " ")
+	if mode == "plain":
+		match phase:
+			"ASKING": return "%s telephone circuit is requesting an answer." % endpoint
+			"ANSWERED": return "Operator A answered %s; destination is not connected." % endpoint
+			"CARRYING": return "Operator B carries %s through %s." % [endpoint, trunk]
+			"UNANSWERED": return "%s rang but was not taken." % endpoint
+			_: return "%s telephone circuit is idle." % endpoint
+	match phase:
+		"ASKING": return "%s line asking. A answer." % endpoint
+		"ANSWERED": return "A has %s. Take order." % endpoint
+		"CARRYING": return "A answered. B carries %s on %s." % [endpoint, trunk]
+		"UNANSWERED": return "%s unanswered. Line rests." % endpoint
+		_: return "%s line rests." % endpoint
+
+
 static func _load() -> void:
 	if not _terms.is_empty(): return
 	var parsed: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(PATH))
