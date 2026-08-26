@@ -524,25 +524,71 @@ func _build_landing_plates() -> void:
 		# clear of the device carried in the lower right.
 		plate.position = GameBoot.b2g([-0.35, -1.95, level + 0.95])
 		add_child(plate)
-		_box(plate, Vector3(0.58, 0.26, 0.020), Vector3.ZERO, _dark_brass)
+		_box(plate, Vector3(0.62, 0.30, 0.020), Vector3.ZERO, _dark_brass)
 		var board := _metal(Color(0.085, 0.062, 0.048), 0.62, 0.04)
-		_box(plate, Vector3(0.51, 0.19, 0.008), Vector3(0, 0, 0.014), board)
+		_box(plate, Vector3(0.55, 0.23, 0.008), Vector3(0, 0, 0.014), board)
 		var head := "FLOOR 1 — STREET" if number == 1 else "FLOOR %d" % number
-		_label(plate, head, Vector3(0, 0.062, 0.026), 17, 0.0010,
+		_label(plate, head, Vector3(0, 0.082, 0.026), 16, 0.0010,
 				Color(0.92, 0.78, 0.44))
-		# UP exists on every floor below the top one.
+
+		# K2-F: WHICH WAY THE APARTMENTS LIE.
+		#
+		# A floor number is not an apartment. Measured at the real F02 stair
+		# arrival, b(2.50, -2.26): the 2A door is 7.95 m away and BLOCKED, its
+		# brass number is blocked, and so is every other unit plate, the floor
+		# directory, the fire plate and K2-D's corridor pair. THE ONLY CLEAR CUE
+		# IS THIS PLATE, and until now it named the floor and nothing else.
+		#
+		# The sides are read off the doors this pass has already numbered, so
+		# the line cannot drift from the building: `_numbered_doors` is filled
+		# by `_build_apartment_numbers`, which runs first. Measured recurrence —
+		# A and B west, C and D east, every door at x +-5.33, on all six floors
+		# — is a fact this derives rather than a rule it asserts.
+		#
+		# HANDEDNESS, derived and then tested. This plate faces SOUTH, so its
+		# reader faces NORTH; a north-facing reader's right is building +x,
+		# which is EAST. West units therefore take the left glyph and east units
+		# the right. The focused suite asserts that against the doors' actual x
+		# rather than trusting this comment.
+		var west: Array[String] = []
+		var east: Array[String] = []
+		for door in _numbered_doors:
+			if not is_instance_valid(door):
+				continue
+			if absf(door.global_position.y - level) > 1.2:
+				continue
+			if door.global_position.x < 0.0:
+				west.append(str(_numbered_doors[door]))
+			else:
+				east.append(str(_numbered_doors[door]))
+		west.sort()
+		east.sort()
+		# TWO LABELS, ONE PER SIDE, and the first version was one. A single
+		# line reading "←  2A  2B        2C  →" is unreadable to a parser and
+		# only just readable to a person: everything after the first arrow looks
+		# like it belongs to it, and the focused suite duly reported seven east
+		# units as pointing west. Each side now carries its own glyph beside its
+		# own units, which is unambiguous on the plate and unambiguous in a test.
+		if not west.is_empty():
+			_label(plate, "←  " + "  ".join(PackedStringArray(west)),
+					Vector3(-0.135, 0.008, 0.026), 20, 0.0010,
+					Color(0.94, 0.92, 0.84))
+		if not east.is_empty():
+			_label(plate, "  ".join(PackedStringArray(east)) + "  →",
+					Vector3(0.135, 0.008, 0.026), 20, 0.0010,
+					Color(0.94, 0.92, 0.84))
+
+		# The vertical line, which has no handedness to get wrong.
+		var vertical := ""
 		if number < 6:
-			var up := "↑  2 — 6" if number == 1 					else "↑  %d — 6" % (number + 1)
-			_label(plate, up, Vector3(0, -0.006, 0.026), 26, 0.0010,
-					Color(0.94, 0.92, 0.84))
+			vertical = "↑  2 — 6" if number == 1 else "↑  %d — 6" % (number + 1)
 		else:
-			_label(plate, "TOP FLOOR", Vector3(0, -0.006, 0.026), 22, 0.0010,
-					Color(0.94, 0.92, 0.84))
-		# DOWN only where there is a floor below to go down to.
+			vertical = "TOP FLOOR"
 		if number > 1:
-			var down := "↓  STREET" if number == 2 					else "↓  %d — STREET" % (number - 1)
-			_label(plate, down, Vector3(0, -0.070, 0.026), 14, 0.0009,
-					Color(0.80, 0.76, 0.66))
+			vertical += "        "
+			vertical += "↓  STREET" if number == 2 					else "↓  %d — STREET" % (number - 1)
+		_label(plate, vertical, Vector3(0, -0.078, 0.026), 15, 0.0009,
+				Color(0.80, 0.76, 0.66))
 		landing_plates += 1
 
 
