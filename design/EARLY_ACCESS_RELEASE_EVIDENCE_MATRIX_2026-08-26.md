@@ -11,7 +11,10 @@
 > active,
 > `LiveWeatherServiceTest` PASS (0 failures), `WeatherSkyTest` PASS (0
 > failures), `TitleScreenTest` PASS (0 failures), and production-root
-> `SongbookTest` PASS (0 failures). Windows indicator behavior and an actual
+> `SongbookTest` PASS (0 failures). `FriendsPrivacySurfaceTest` PASS 8/8 pins
+> the production capability census at one HTTP client, one microphone stream,
+> one developer-gated clipboard writer, and zero raw socket/process/shell/device
+> identifier APIs. Windows indicator behavior and an actual
 > unplugged-network session remain manual.
 >
 > **FOCUS / COMFORT FOCUSED VERDICTS — 2026-08-26:** `TitleScreenTest`
