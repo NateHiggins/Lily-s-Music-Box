@@ -152,7 +152,10 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 			float(snapshot.get("rain_mm", 0.0))
 			+ float(snapshot.get("showers_mm", 0.0)))
 	var snowfall := maxf(0.0, float(snapshot.get("snowfall_cm", 0.0)))
+	var location: Dictionary = snapshot.get("location", {})
 	return {
+		"latitude": float(location.get("latitude", QUEENS.latitude)),
+		"longitude": float(location.get("longitude", QUEENS.longitude)),
 		"cloud_total": clampf(float(snapshot.get("cloud_total", 0.0)), 0.0, 1.0),
 		"cloud_low": clampf(float(snapshot.get("cloud_low", 0.0)), 0.0, 1.0),
 		"cloud_mid": clampf(float(snapshot.get("cloud_mid", 0.0)), 0.0, 1.0),

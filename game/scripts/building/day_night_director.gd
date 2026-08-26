@@ -5,6 +5,8 @@ extends Node
 ## owner-facing gains; WeatherFX receives the resolved presentation profile.
 
 const SKY_DIR := "res://assets/building/textures/sky/"
+const CelestialEphemerisScript := preload(
+		"res://scripts/building/celestial_ephemeris.gd")
 const SKY_PATHS := {
 	"morning": SKY_DIR + "orison_queens_morning_rain_half_dome_4k.png",
 	"day": SKY_DIR + "orison_queens_day_rain_half_dome_4k.png",
@@ -19,6 +21,22 @@ const STATE_MINUTES := {
 	"evening": 1050,
 	"twilight": 1050,
 }
+## J2000 catalog RA/declination degrees. Proper motion since 1928 is below the
+## visual radius used here; sidereal rotation and observer geometry are live.
+const BRIGHT_STARS := [
+	Vector2(101.287, -16.716), # Sirius
+	Vector2(95.988, -52.696),  # Canopus
+	Vector2(213.915, 19.182),  # Arcturus
+	Vector2(279.235, 38.784),  # Vega
+	Vector2(79.172, 45.998),   # Capella
+	Vector2(78.634, -8.202),   # Rigel
+	Vector2(114.825, 5.225),   # Procyon
+	Vector2(88.793, 7.407),    # Betelgeuse
+	Vector2(297.696, 8.868),   # Altair
+	Vector2(68.980, 16.509),   # Aldebaran
+	Vector2(201.298, -11.161), # Spica
+	Vector2(247.352, -26.432), # Antares
+]
 
 ## Profiles repeat at the shoulders so the settled parts of each state hold
 ## before a long clock-driven blend to the next. Angles are degrees: azimuth 0
@@ -248,6 +266,26 @@ func _apply(minute: float) -> void:
 	var source_a := _source_direction(a.elevation, a.azimuth)
 	var source_b := _source_direction(b.elevation, b.azimuth)
 	var source_dir := source_a.slerp(source_b, t).normalized()
+	if OS.get_environment("DAYNIGHT") != "0" \
+			and OS.get_environment("DAYNIGHT_FORCE").is_empty():
+		var utc := Time.get_datetime_dict_from_system(true)
+		var latitude := float(_live_conditions.get("latitude", 40.75))
+		var longitude := float(_live_conditions.get("longitude", -73.92))
+		var sun: Vector3 = CelestialEphemerisScript.sun_direction(
+				utc, latitude, longitude)
+		var moon: Vector3 = CelestialEphemerisScript.moon_direction(
+				utc, latitude, longitude)
+		source_dir = sun if sun.y > -0.035 else moon
+		profile["sun_direction"] = sun
+		profile["moon_direction"] = moon
+		profile["observer"] = Vector2(latitude, longitude)
+		var stars := PackedVector3Array()
+		for catalog_position: Vector2 in BRIGHT_STARS:
+			stars.append(CelestialEphemerisScript.star_direction(
+					catalog_position.x, catalog_position.y, utc,
+					latitude, longitude))
+		profile["bright_stars"] = stars
+		profile["star_strength"] = clampf((-sun.y - 0.04) / 0.18, 0.0, 1.0)
 
 	_env.fog_mode = Environment.FOG_MODE_DEPTH
 	_env.fog_enabled = true
@@ -275,6 +313,11 @@ func _apply(minute: float) -> void:
 		_sky.set_shader_parameter("celestial_strength", profile.source_e)
 		_sky.set_shader_parameter("celestial_core_radius", deg_to_rad(2.2))
 		_sky.set_shader_parameter("celestial_halo_radius", deg_to_rad(18.0))
+		if profile.has("bright_stars"):
+			_sky.set_shader_parameter("bright_stars", profile.bright_stars)
+			_sky.set_shader_parameter("star_strength", profile.star_strength)
+		else:
+			_sky.set_shader_parameter("star_strength", 0.0)
 		_sky.set_shader_parameter("lower_cloud_strength", profile.cloud_depth)
 		var rays_enabled := OS.get_environment("WEATHER_RAYS") != "0"
 		_sky.set_shader_parameter("ray_strength",

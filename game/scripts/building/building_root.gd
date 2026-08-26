@@ -911,6 +911,8 @@ uniform float ray_strength = 0.0;
 uniform float lower_cloud_strength = 0.28;
 uniform float cloud_phase = 0.0;
 uniform float weather_flash = 0.0;
+uniform vec3 bright_stars[12];
+uniform float star_strength = 0.0;
 
 float lower_clouds(float u, float v) {
 	// Integer azimuth frequencies make both moving bands exactly periodic at
@@ -954,6 +956,12 @@ void fragment() {
 			celestial_halo_radius, source_angle);
 	float core = 1.0 - smoothstep(0.0, celestial_core_radius, source_angle);
 	float obscured = pow(1.0 - thickness, 2.4);
+	float star_field = 0.0;
+	for (int i = 0; i < 12; i++) {
+		float star_dot = dot(direction, normalize(bright_stars[i]));
+		star_field = max(star_field, smoothstep(0.99991, 0.99998, star_dot));
+	}
+	color += vec3(0.76, 0.82, 1.0) * star_field * star_strength * obscured;
 	color += celestial_color * celestial_strength
 			* (halo * 0.42 + core * 0.24) * obscured;
 	// Rare, vague fingers belong to the same hidden source. Cloud density

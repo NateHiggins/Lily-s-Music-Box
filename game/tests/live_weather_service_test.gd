@@ -53,7 +53,9 @@ func _ready() -> void:
 	_check(bool(presentation.wet)
 			and is_equal_approx(float(presentation.precipitation_intensity), 0.48)
 			and is_equal_approx(float(presentation.cloud_high), 0.88)
-			and is_equal_approx(float(presentation.wind_direction_degrees), 41.0),
+			and is_equal_approx(float(presentation.wind_direction_degrees), 41.0)
+			and is_equal_approx(float(presentation.latitude), 43.6591)
+			and is_equal_approx(float(presentation.longitude), -70.2568),
 			"the service publishes normalized facts without owning visual nodes")
 	_check(WeatherServiceScript.presentation({}).is_empty(),
 			"no observation leaves the authored Queens storm untouched")
