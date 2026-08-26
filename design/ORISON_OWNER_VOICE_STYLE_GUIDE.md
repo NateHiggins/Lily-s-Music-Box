@@ -449,3 +449,28 @@ Nobody needs to announce the theme after the action proves it.
 
 The house register compresses custody and evidence. It does not impersonate a
 tenant's ethnicity.
+
+## 14. Mechanical audit, human verdict
+
+`tools/audit_authored_voice.py` checks dialogue-tree structure, reachability,
+choice targets, authored silence and the correspondence between node ids and
+recorded takes. It also reports descriptive voice-guide signals—corrections,
+measurements, institutional language, body details, physical carriers and
+repeated four-word phrases.
+
+Run the canonical Mina baseline from the repository root:
+
+```powershell
+python tools/audit_authored_voice.py game/data/case01_dialogue.json `
+  --voice-dir game/assets/audio/voice --strict-takes
+```
+
+At introduction, the baseline is 34/34 reachable nodes, 34/34 expected takes,
+and authored silence on 28 nodes. `CALLER DECLINES TO STATE` is the only
+four-word phrase appearing in at least three nodes, and it is an intentional
+mutating callback.
+
+Structural contradictions fail the command. Style observations never do. A
+regex cannot know whether a correction earned its blade, whether a touch was
+mutual, or whether the best sentence is showing off. Those remain human review
+questions under the checksum above.
