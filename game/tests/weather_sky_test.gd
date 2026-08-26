@@ -122,7 +122,11 @@ func _ready() -> void:
 			dome != null and sky_code.count("uniform sampler2D panorama_") == 2)
 	_check("the dynamic lower cloud deck lives in that same sky draw",
 			sky_code.contains("lower_clouds")
-			and sky_code.contains("lower_cloud_strength"))
+			and sky_code.contains("lower_cloud_strength")
+			and sky_code.contains("Direction-space waves")
+			and sky_code.contains("cloud_relief")
+			and sky_code.contains("exp(-cloud_shape * lower_cloud_strength")
+			and not sky_code.contains("float p = u * 2.0 * PI"))
 	_check("the same sky draw projects the lunar terminator from the real Sun",
 			sky_code.contains("moon_phase_enabled")
 			and sky_code.contains("surface_normal")

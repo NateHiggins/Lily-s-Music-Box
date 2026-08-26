@@ -928,21 +928,29 @@ uniform vec3 bright_stars[12];
 uniform float star_strength = 0.0;
 uniform float urban_horizon_gain = 0.0;
 
-float lower_clouds(float u, float v) {
-	// Integer azimuth frequencies make both moving bands exactly periodic at
-	// the panorama seam. Two slow, opposed drifts give the painted storm a
-	// nearer layer without advertising a rotating texture shell.
-	float p = u * 2.0 * PI;
+vec2 lower_clouds(vec3 direction) {
+	// Direction-space waves cross the panorama seam continuously and avoid an
+	// azimuth/elevation grid. Six non-parallel bands approximate broad rolling
+	// cloud cells more cheaply than a sampled 3D noise volume.
 	float drift_a = TIME * 0.016 + cloud_phase;
 	float drift_b = TIME * -0.0095 + cloud_phase * 1.71;
-	float broad = sin(p * 3.0 + drift_a + v * 9.0) * 0.50;
-	broad += sin(p * 7.0 + drift_b - v * 15.0) * 0.27;
-	broad += sin(p * 13.0 + drift_a * 0.61 + v * 25.0) * 0.13;
+	vec3 p = normalize(direction);
+	float broad = sin(dot(p, vec3(3.7, 1.9, 5.1)) * 2.1 + drift_a) * 0.31;
+	broad += sin(dot(p, vec3(-6.2, 3.4, 2.7)) * 1.7 + drift_b) * 0.23;
+	broad += sin(dot(p, vec3(2.3, -5.8, 7.1)) * 2.6
+			- drift_a * 0.73) * 0.18;
+	broad += sin(dot(p, vec3(9.1, 4.2, -3.3)) * 3.1
+			+ drift_b * 1.17) * 0.13;
+	broad += sin(dot(p, vec3(-4.7, 8.6, 6.4)) * 4.3
+			+ drift_a * 0.41) * 0.09;
+	broad += sin(dot(p, vec3(11.3, -7.2, 5.9)) * 5.2
+			- drift_b * 0.56) * 0.06;
 	// Coverage moves the threshold, not merely opacity: clear is genuinely
 	// empty, scattered has holes, and overcast closes the whole hemisphere.
 	float threshold_a = mix(0.58, -1.15, cloud_coverage);
 	float threshold_b = mix(0.78, -0.28, cloud_coverage);
-	return smoothstep(threshold_a, threshold_b, broad);
+	return vec2(smoothstep(threshold_a, threshold_b, broad),
+			clamp(broad * 0.5 + 0.5, 0.0, 1.0));
 }
 
 void fragment() {
@@ -973,8 +981,12 @@ void fragment() {
 	vec4 authored_b = texture(panorama_b,
 			panorama_b_celestial ? galactic_uv : vec2(u, v));
 	vec4 authored = mix(authored_a, authored_b, sky_blend);
-	float cloud_shape = lower_clouds(u, v);
-	float lower = cloud_shape * lower_cloud_strength;
+	vec2 cloud_field = lower_clouds(direction);
+	float cloud_shape = cloud_field.x;
+	float cloud_relief = smoothstep(0.34, 0.66, cloud_field.y);
+	// Optical depth is exponential: a modest scattered report must still make
+	// plainly visible clouds, while a zero-strength clear report stays exact.
+	float lower = 1.0 - exp(-cloud_shape * lower_cloud_strength * 3.8);
 	// Near-complete reports describe an optical ceiling, not a transparent
 	// gray filter. Close the remaining procedural holes over the last 14% of
 	// observed coverage so 100% overcast cannot leak a photographic Milky Way.
@@ -984,7 +996,7 @@ void fragment() {
 	// The close deck is cooler and slightly darker than the painted upper
 	// cloud. Its changing overlap is the parallax cue. Its value is independent
 	// of the panorama beneath it; otherwise bright stars make bright clouds.
-	vec3 cloud_color = fog_horizon_color * (1.16 + cloud_shape * 0.34);
+	vec3 cloud_color = fog_horizon_color * (0.72 + cloud_relief * 1.35);
 	color = mix(color, cloud_color, thickness);
 	float source_angle = acos(clamp(dot(direction,
 			normalize(celestial_direction)), -1.0, 1.0));

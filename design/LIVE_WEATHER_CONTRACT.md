@@ -24,6 +24,19 @@ exterior key and sky material. Live cloud cover adjusts the depth of the lower
 cloud deck and horizon atmosphere while retaining the four authored Orison
 panoramas. `WeatherFX` remains the owner of precipitation, mist and wind.
 
+The lower deck is evaluated from the view direction, not panorama UV. Six
+nonparallel analytic waves form broad moving cells on the dome; because the
+input direction is continuous, the result has no equirectangular seam and no
+latitude/azimuth grid. Coverage moves a density threshold rather than merely
+changing opacity. Zero coverage therefore remains literally empty, scattered
+weather has holes, and the final overcast band closes the hemisphere while
+retaining a separate, unsaturated underside-relief channel from the same six
+wave evaluations. It stays in the existing sky draw and
+adds no texture, volume, node, light or shadow caster.
+The density-to-opacity step uses exponential optical depth, so low and broken
+reports remain photographically visible instead of becoming a nearly
+transparent tint; an exact zero-strength clear report still evaluates to zero.
+
 This separation is the pattern for future reality-selling feeds: network code
 publishes bounded facts; an existing production owner translates those facts;
 failure preserves authored art; and no feed gains authority over cases, saves,
