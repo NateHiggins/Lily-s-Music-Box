@@ -72,9 +72,12 @@ func _ready() -> void:
 			WeatherServiceScript.simulated_snapshot("snow"))
 	_check(not bool(clear.wet) and is_zero_approx(float(clear.cloud_total)),
 			"the clear simulator reaches true zero cloud and precipitation")
-	_check(bool(storm.wet) and is_equal_approx(float(storm.cloud_total), 1.0)
+	_check(bool(storm.wet) and bool(storm.thunderstorm)
+			and is_equal_approx(float(storm.cloud_total), 1.0)
 			and is_equal_approx(float(storm.precipitation_intensity), 1.0),
-			"the storm simulator reaches closed cloud and maximum rain")
+			"the storm simulator alone carries thunder with closed cloud and maximum rain")
+	_check(not bool(clear.thunderstorm) and not bool(snow.thunderstorm),
+			"clear and frozen precipitation cannot invent lightning")
 	_check(bool(snow.snowing) and not bool(snow.wet)
 			and is_zero_approx(float(snow.rain_intensity))
 			and float(snow.snow_intensity) > 0.0

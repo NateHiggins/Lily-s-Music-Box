@@ -40,6 +40,7 @@ var _rng := RandomNumberGenerator.new()
 var _seed := 19280731
 var _rain_enabled := true
 var _mist_enabled := true
+var _lightning_enabled := false
 var _live_conditions: Dictionary = {}
 
 
@@ -148,6 +149,9 @@ func set_live_conditions(conditions: Dictionary) -> void:
 			"rain_intensity", 1.0 if wet else 0.0))
 	_rain_enabled = rain_intensity > 0.008 \
 			and OS.get_environment("WEATHER_RAIN") != "0"
+	_lightning_enabled = bool(_live_conditions.get("thunderstorm", false))
+	if not _lightning_enabled:
+		_lightning_age = -1.0
 	_mist_enabled = (wet or float(_live_conditions.get("cloud_low", 0.0)) > 0.68) \
 			and OS.get_environment("WEATHER_MIST") != "0"
 	var speed := float(_live_conditions.get("wind_speed_kmh", 0.0)) / 3.6
@@ -178,6 +182,7 @@ func diagnostic_snapshot() -> Dictionary:
 		"leaf_count": LEAF_COUNT,
 		"rain_enabled": _rain_enabled,
 		"snow_enabled": bool(_live_conditions.get("snowing", false)),
+		"lightning_enabled": _lightning_enabled,
 		"mist_enabled": _mist_enabled,
 		"live_conditions": _live_conditions.duplicate(true),
 		"exposed": is_exposed_at(_player.global_position) if _player else false,
@@ -472,6 +477,9 @@ func _process(delta: float) -> void:
 
 
 func _update_lightning(delta: float) -> void:
+	if not _lightning_enabled:
+		weather_flash_changed.emit(0.0)
+		return
 	_lightning_wait -= delta
 	if _lightning_age < 0.0 and _lightning_wait <= 0.0:
 		_lightning_age = 0.0

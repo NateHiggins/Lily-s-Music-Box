@@ -28,6 +28,10 @@ retaining their maximum as the general atmospheric precipitation term. Mixed
 observations may emit both. The named `snow` simulator is pure frozen
 precipitation, and the rain spatter/middle batches must be off while its snow
 field is on; every player-following branch shares the building exposure query.
+Lightning is equally literal: only WMO thunderstorm codes 95, 96 and 99 arm the
+existing two-pulse flash. Changing to any other observation cancels an active
+flash and holds its published level at zero, so clear, fog and snow cannot
+inherit a scheduler that happened to start under an earlier storm.
 
 The lower deck is evaluated from the view direction, not panorama UV. Six
 nonparallel analytic waves form broad moving cells on the dome; because the

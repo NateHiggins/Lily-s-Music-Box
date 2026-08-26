@@ -233,6 +233,19 @@ func _ready() -> void:
 			root.weather.get_node("LiveSnow").emitting
 			and not root.weather.get_node("DrivingRainSpatter").emitting
 			and not root.weather.get_node("DrivingRainMiddle").visible)
+	root.weather._lightning_wait = 0.0
+	root.weather._update_lightning(0.2)
+	_check("snow cannot silently schedule a clear-sky lightning flash",
+			root.weather._lightning_age < 0.0
+			and not bool(root.weather.diagnostic_snapshot().lightning_enabled))
+	var storm_conditions: Dictionary = WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("storm"))
+	root.weather.set_live_conditions(storm_conditions)
+	root.weather._lightning_wait = 0.0
+	root.weather._update_lightning(0.2)
+	_check("the observed thunderstorm code can schedule the existing flash",
+			root.weather._lightning_age >= 0.0
+			and bool(root.weather.diagnostic_snapshot().lightning_enabled))
 	root.player.global_position = Vector3(0.0, 0.05, 0.0)
 	root.weather._process(0.2)
 	_check("all player-following precipitation suppresses indoors",
