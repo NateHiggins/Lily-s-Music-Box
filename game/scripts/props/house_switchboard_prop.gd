@@ -11,12 +11,14 @@ var network: Node
 var _asking_lamp: MeshInstance3D
 var _cord: Node3D
 var _key: Node3D
+var _heard_phase := ""
 
 
 func bind_line(owner: Node) -> void:
 	network = owner
 	if not owner.is_connected("line_changed", _on_line_changed):
 		owner.connect("line_changed", _on_line_changed)
+	_on_line_changed(owner.call("snapshot"))
 
 
 func _build_visual() -> void:
@@ -90,6 +92,18 @@ func interact(_actor: Node = null) -> Dictionary:
 
 func _on_line_changed(line: Dictionary) -> void:
 	var phase := str(line.get("state", "IDLE"))
+	if phase != _heard_phase:
+		var cue := {
+			"ASKING": &"telephone.asking",
+			"ANSWERED": &"telephone.answered",
+			"CARRYING": &"telephone.connected",
+			"IDLE": &"telephone.released",
+		}.get(phase, &"") as StringName
+		# Binding starts quietly; only a real transition is an answer.
+		if _heard_phase != "" and cue != &"":
+			AudioPolicy.present_3d(cue, global_position, 1.0,
+					StringName(name))
+		_heard_phase = phase
 	if _asking_lamp != null:
 		_asking_lamp.material_override = _pmat(Color(1.0, 0.28, 0.035)
 				if phase == "ASKING" else Color(0.18, 0.06, 0.02))

@@ -51,6 +51,7 @@ func _ready() -> void:
 	_check(not network.call("answer", "house_board"), "idle cannot be answered")
 	_check(not network.call("carry", "outside_trunk"), "idle cannot be carried")
 	_check(not network.call("release", "house_board"), "idle cannot be released")
+	AudioPolicy.clear_diagnostics()
 	_check(network.call("request", "apt_4b"), "a known endpoint may ask once")
 	var first_sequence := int((network.call("snapshot") as Dictionary).sequence)
 	_check(not network.call("expire_unanswered", first_sequence + 1),
@@ -73,6 +74,14 @@ func _ready() -> void:
 	_check(events == ["state:ASKING", "answer:apt_4b", "state:ANSWERED",
 			"state:CARRYING", "connect:apt_4b:outside_trunk", "state:IDLE", "release"],
 			"one ordinary call emits one deterministic neutral event chain")
+	var heard := AudioPolicy.event_history()
+	var heard_ids: Array[String] = []
+	for event in heard:
+		if str(event.get("outcome", "")) == "presented":
+			heard_ids.append(str(event.get("cue_id", "")))
+	_check(heard_ids == ["telephone.asking", "telephone.answered",
+			"telephone.connected", "telephone.released"],
+			"the same call has four ordered acoustic states")
 	events.clear()
 	_check(network.call("request", "apt_3d"), "a second ordinary endpoint may ask")
 	var missed_sequence := int((network.call("snapshot") as Dictionary).sequence)

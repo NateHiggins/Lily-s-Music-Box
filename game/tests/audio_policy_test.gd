@@ -11,7 +11,7 @@ func _ready() -> void:
 	var master_before := AudioServer.get_bus_volume_db(
 			AudioServer.get_bus_index("Master"))
 	_check("catalog and bus tree build", policy.setup())
-	_check("catalog owns sixteen semantic cues", int(policy.census().catalog_size) == 16)
+	_check("catalog owns twenty semantic cues", int(policy.census().catalog_size) == 20)
 	_check("voice allocation is bounded at sixteen",
 			int(policy.census().voices) == PolicyScript.VOICE_CAP
 			and policy.find_children("*", "AudioStreamPlayer3D", true, false).size()
@@ -45,6 +45,13 @@ func _ready() -> void:
 			and str(policy.cue(&"interaction.register_index").stream_key) == "tick"
 			and float(policy.cue(&"interaction.register_key").pitch_scale) > 1.0
 			and float(policy.cue(&"interaction.register_refuse").pitch_scale) < 1.0)
+	_check("telephone phases answer above ordinary interaction noise",
+			int(policy.cue(&"telephone.asking").priority)
+			> int(policy.cue(&"interaction.switch_on").priority)
+			and str(policy.cue(&"telephone.asking").bus) == "Telephone"
+			and str(policy.cue(&"telephone.answered").caption).contains("answers")
+			and str(policy.cue(&"telephone.connected").caption).contains("trunk")
+			and str(policy.cue(&"telephone.released").caption).contains("return"))
 	_check("first source-owned Vantry fact presents",
 			policy.present_3d(&"nav.vantry_fault", Vector3(1, 2, 3), 1.0,
 					&"F02_A_VANTRY"))
@@ -89,7 +96,7 @@ func _ready() -> void:
 	policy.clear_diagnostics()
 	_check("diagnostic reset changes no catalog or mix truth",
 			int(policy.census().history) == 0
-			and int(policy.census().catalog_size) == 16
+			and int(policy.census().catalog_size) == 20
 			and int(policy.census().mix_requests) == 0)
 	_finish(policy)
 
