@@ -1,6 +1,6 @@
 extends Node
-## Production proof for the new game's first three physical facts:
-## clock in, see Mina's authored paper, take that exact report.
+## Production proof for the complete opening ritual: clock in, see Mina's
+## authored paper, take it, return and sign the factual record, clock out.
 
 const JOB := "vantry_chirp_2a"
 const CASE := "mina_caption_crisis"
@@ -53,6 +53,33 @@ func _ready() -> void:
 	_check(not root.first_shift_director.clock_in()
 			and RealityState.data.maintenance_jobs.size() == 1,
 			"the committed clock-in cannot replay or duplicate the report")
+
+	# Field gameplay owns how these legal public stages are earned. This live
+	# proof advances the real owner directly so it can test the station's return
+	# half without duplicating ChirpHunt and shop-service coverage here.
+	_check(root.work_orders.diagnose_job(JOB)
+			and root.work_orders.mark_job_awaiting_part(JOB)
+			and root.work_orders.mark_job_repairable(JOB)
+			and root.work_orders.record_job_repair(JOB, {
+				"quality": "good", "note": "production ritual proof"}),
+			"the existing WorkOrders owner reaches repaired through legal stages")
+	_check(register.call("replace_slip")
+			and register.call("select_outcome", "disturbance_persists")
+			and register.call("sign_register"),
+			"the player returns Mina's paper, chooses a factual conclusion and signs")
+	var lines: Array = RealityState.data.get("night_register", {}).get("lines", [])
+	_check(lines.size() == 1 and str(lines[0].job_id) == JOB
+			and str(lines[0].filing) == "disturbance_persists"
+			and root.first_shift_director.ritual_phase()
+					== FirstShiftDirector.PHASE_FILED,
+			"the neutral receipt carries Mina's job and prepares physical clock-out")
+	_check(root.work_orders.job_stage(JOB) == "repaired",
+			"filing does not close the WorkOrder behind CoreLoopDirector")
+	_check(detector.call("control_prompt", "detector").contains("Clock out")
+			and detector.call("interact_control", "detector", root.player)
+			and root.first_shift_director.ritual_phase()
+					== FirstShiftDirector.PHASE_COMPLETE,
+			"the player removes the paper and completes the production first shift")
 
 	print("[FIRST SHIFT OPENING LIVE] RESULT: %s (%d failures)" % [
 			"PASS" if fails == 0 else "FAIL", fails])
