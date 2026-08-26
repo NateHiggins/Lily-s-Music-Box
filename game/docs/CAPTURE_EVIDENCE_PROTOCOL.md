@@ -57,7 +57,7 @@ handling. Design to this target:
 | Phase | Target | Hard design warning |
 | --- | ---: | ---: |
 | Focused/isolated boot | ≤ 18 s | 24 s |
-| Full `orison_root` boot | first observed 32.519 s | investigate above 36 s |
+| Full `orison_root` boot | provisional 32.84 s (n=2) | investigate above 36 s |
 | Resolve owners/player/camera | ≤ 4 s | 6 s |
 | Visual warm-up | ≤ 6 s | 8 s |
 | Camera/state changes | ≤ 6 s total | 10 s |
@@ -67,11 +67,13 @@ handling. Design to this target:
 
 An 18-frame focused suite at the original targets costs roughly 42 seconds and
 retains twelve seconds of scene margin. A full-production suite does not have
-that budget: K2-F's first protocol receipt measured `orison_root` ready at
-32.519 seconds, first capture at 37.4 and eleven frames finished at 42.692. For
-full-root work, target 8–12 frames and split independently meaningful subjects
-before cutting visual settling. Do not treat the one K2-F sample as p50 yet;
-record five suites, then set p50/p90 budgets.
+that budget. K2-F measured `orison_root` ready at 32.519 seconds; K2-G measured
+33.160 seconds. Their provisional mean is 32.840 seconds, but two samples still
+do not establish p50/p90. K2-G had only 9.6 seconds of scene margin after eleven
+captures and ordinary state preparation. For full-root work, target 8–12
+frames, treat 15 as a stop-and-shard warning, and split independently meaningful
+subjects before cutting visual settling. Record five suites, then set p50/p90
+budgets.
 
 Every scene using `ShotHarness` prints checkpoints as:
 
@@ -84,6 +86,12 @@ Every scene using `ShotHarness` prints checkpoints as:
 This distinguishes slow boot, slow state preparation, render starvation and
 teardown. A timeout with no capture line is not an image failure; it is a
 budget/boot failure.
+
+Every timing checkpoint also prints a reserve line. `outstanding` is the
+declared frame count still owed, `reserve` prices those frames at 0.35 s each
+plus two seconds to finish, and `slack` is the remainder. Negative slack means
+the declared suite no longer fits even before optional settling; stop and shard
+instead of deleting evidence or lowering the expected count.
 
 ## New scene skeleton
 

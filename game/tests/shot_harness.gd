@@ -11,6 +11,8 @@ var output_dir := ""
 var captures: Array[Dictionary] = []
 var _started_msec := 0
 var _failed := false
+const CAPTURE_RESERVE_SECONDS := 0.35
+const FINISH_RESERVE_SECONDS := 2.0
 
 
 func setup(owner: Node, suite_tag: String, expected: int,
@@ -44,8 +46,13 @@ func remaining_seconds() -> float:
 
 
 func checkpoint(label: String) -> void:
+	var outstanding := maxi(0, expected_frames - captures.size())
+	var reserve := outstanding * CAPTURE_RESERVE_SECONDS \
+			+ FINISH_RESERVE_SECONDS
 	print("[%s TIMING] stage=%s elapsed=%.3f remaining=%.3f" % [
 			tag, label, elapsed_seconds(), remaining_seconds()])
+	print("[%s BUDGET] stage=%s outstanding=%d reserve=%.3f slack=%.3f" % [
+			tag, label, outstanding, reserve, remaining_seconds() - reserve])
 
 
 func settle(seconds: float, label := "settle") -> bool:
