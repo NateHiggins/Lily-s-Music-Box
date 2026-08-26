@@ -57,7 +57,9 @@ func _ready() -> void:
 			"Mina's objective teaches the optional station without making it a waypoint")
 	var station_network: Node = root.find_child("WatchStationNetwork", true, false)
 	var station: Node = root.find_child("F02_WATCH_STATION_01", true, false)
-	_check(station_network != null and station != null
+	var key_guard: Node = root.find_child("F01_TOUR_KEY_GUARD", true, false)
+	_check(station_network != null and station != null and key_guard != null
+			and key_guard.call("take_key")
 			and station.call("interact_control", "station", root.player)
 			and station.call("interact_control", "station", root.player)
 			and root.first_shift_director.has_station_mark(

@@ -28,8 +28,9 @@ func _ready() -> void:
 	var network: Node = root.find_child("WatchStationNetwork", true, false)
 	var station: Node = root.find_child("F02_WATCH_STATION_01", true, false)
 	var receiver: Node = root.find_child("F01_SIGNAL_REGISTER", true, false)
+	var key_guard: Node = root.find_child("F01_TOUR_KEY_GUARD", true, false)
 	_check(detector != null and register != null and network != null
-			and station != null and receiver != null,
+			and station != null and receiver != null and key_guard != null,
 			"the production building owns the complete opening and watch circuit")
 
 	_check(root.first_shift_director.begin_first_shift()
@@ -42,9 +43,10 @@ func _ready() -> void:
 
 	_check(network.call("set_line_closed", false),
 			"the production closed circuit can acquire an open-line fault")
-	_check(station.call("interact_control", "station", root.player)
+	_check(key_guard.call("take_key")
+			and station.call("interact_control", "station", root.player)
 			and station.call("interact_control", "station", root.player),
-			"the player opens and works the real F02 station despite the break")
+			"the player takes the tour key and works F02 despite the break")
 	_check(bool(station.get("drop_fallen"))
 			and int(network.call("mark_count")) == 1
 			and int(network.call("undelivered_count")) == 1,
