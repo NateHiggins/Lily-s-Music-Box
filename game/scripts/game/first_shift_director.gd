@@ -15,6 +15,12 @@ const PHASE_FILED := "filed"
 const PHASE_COMPLETE := "complete"
 const OPENING_JOB_ID := "vantry_chirp_2a"
 const OPENING_STATION_ID := "F02_STATION_2A_LANDING"
+const ARRIVAL_INSTRUCTION := \
+		"Cross to the Orison lobby. Clock in at the watchman's detector; " \
+		+ "tonight's first report is waiting beside it."
+const CLOCKED_IN_INSTRUCTION := \
+		"At the sloping register, lift the waiting report from its spindle. " \
+		+ "The clock records your shift; the paper begins the case."
 const FILING_OUTCOMES: Array[String] = [
 	"fault_corrected",
 	"disturbance_persists",
@@ -80,8 +86,7 @@ func begin_first_shift() -> bool:
 	RealityState.commit()
 	if tracker:
 		tracker.show_objective("FIRST SHIFT — ORISON APARTMENTS",
-				"Report to the watchman's station. Seat the paper, take one " +
-				"report, and sign out only the keys you need.")
+				ARRIVAL_INSTRUCTION)
 	_emit_ritual()
 	return true
 
@@ -175,11 +180,9 @@ func present_resume() -> void:
 	match ritual_phase():
 		PHASE_ARRIVED:
 			_show("FIRST SHIFT — ORISON APARTMENTS",
-					"Report to the watchman's station. Seat the paper, take one " +
-					"report, and sign out only the keys you need.")
+					ARRIVAL_INSTRUCTION)
 		PHASE_CLOCKED_IN:
-			_show("NIGHT REGISTER",
-					"Read the waiting reports. Take one; the clock records the shift, not the case.")
+			_show("NIGHT REGISTER", CLOCKED_IN_INSTRUCTION)
 		PHASE_REPORT_ACCEPTED:
 			_present_active_report()
 		PHASE_RETURNED:
@@ -214,7 +217,7 @@ func clock_in() -> bool:
 	if _opening_report_offer.is_valid():
 		_opening_report_offer.call()
 	_commit_ritual()
-	_show("NIGHT REGISTER", "Read the waiting reports. Take one; the clock records the shift, not the case.")
+	_show("NIGHT REGISTER", CLOCKED_IN_INSTRUCTION)
 	return true
 
 

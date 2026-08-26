@@ -31,6 +31,9 @@ func _ready() -> void:
 			"before clock-in neither coordinator nor register manufactures a report")
 	_check(root.first_shift_director.begin_first_shift(),
 			"the production first-shift owner commits the arrival")
+	_check(root.objective_tracker._objective.text.contains("Cross to the Orison lobby")
+			and root.objective_tracker._objective.text.contains("watchman's detector"),
+			"the first production objective walks the player from curb to clock")
 	var cases_before := var_to_bytes(RealityState.data.cases)
 	_check(detector.call("interact_control", "detector", root.player),
 			"the player clocks in through the production detector")
@@ -41,6 +44,9 @@ func _ready() -> void:
 	_check(var_to_bytes(RealityState.data.cases) == cases_before
 			and str(RealityState.data.current_case_id) == "",
 			"offering the paper activates no case")
+	_check(root.objective_tracker._objective.text.contains("sloping register")
+			and root.objective_tracker._objective.text.contains("spindle"),
+			"clock-in points to the physical report rather than an abstract menu")
 	_check(register.call("presented_job_id") == JOB
 			and register.call("slip_available"),
 			"SR7-I presents Mina's issued paper on the real spindle")

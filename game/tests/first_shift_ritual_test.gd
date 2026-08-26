@@ -40,6 +40,11 @@ func _ready() -> void:
 
 	_check(not director.clock_in(), "cannot clock in before arrival is committed")
 	RealityState.data.intro_complete = true
+	director.present_resume()
+	_check(tracker._objective.text.contains("Cross to the Orison lobby")
+			and tracker._objective.text.contains("watchman's detector")
+			and not tracker._objective.text.contains("sign out"),
+			"arrival gives a concrete curb-to-clock instruction without conflating keys")
 	_check(detector.control_prompt("detector").contains("Clock in"),
 			"the production prop offers the first physical ritual")
 	_check(detector.interact_control("detector", null),
@@ -52,8 +57,10 @@ func _ready() -> void:
 			"the open shift points back to reports instead of opening repair UI")
 	director.present_resume()
 	_check(tracker._title.text == "NIGHT REGISTER"
-			and tracker._objective.text.contains("waiting reports"),
-			"reload while clocked in reconstructs the register instruction")
+			and tracker._objective.text.contains("sloping register")
+			and tracker._objective.text.contains("spindle")
+			and tracker._objective.text.contains("paper begins the case"),
+			"clock-in names the next physical object and distinguishes shift from case")
 	_check(not director.accept_report(JOB), "the desk cannot invent an unissued report")
 	_check(orders.issue_job(JOB, "reported"), "the existing spine issues Lena's report")
 	var jobs_before: int = RealityState.data.maintenance_jobs.size()
