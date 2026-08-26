@@ -78,8 +78,9 @@ the immediate executable gates, not a second copy of its milestone status.
   atrium 33.33 ms, playable landing 23.70 ms, lobby 18.06 ms, carriageway
   16.67 ms, while corrected corridor F04 passes at 12.96 ms and apartment 4B
   at 10.61 ms; the playerless street-elevation composition camera costs 27.08
-  ms, while the corrected roof passes at 6.45 ms. Finish the remaining five
-  rows and price a visually proved shadow policy before closing K1; FULL
+  ms, while the corrected roof passes at 6.45 ms and dense Harukiya at 11.31
+  ms and the five-live-machine arcade cluster at 10.61 ms. Finish the remaining
+  three rows and price a visually proved shadow policy before closing K1; FULL
   verdict recovery itself is complete.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the

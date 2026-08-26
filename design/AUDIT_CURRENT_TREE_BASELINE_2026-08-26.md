@@ -129,6 +129,8 @@ gameplay views the old list lacked. Corrected rows so far:
 | street elevation | composition | 17,504 | 17,504 | 13,162,494 | 27.08 | 36.9 | OVER |
 | carriageway north pavement | playable | 10,162 | 10,162 | 9,867,193 | 16.67 | 60 | OVER (boundary) |
 | roof | playable | 2,544 | 2,544 | 687,568 | 6.45 | 155.0 | PASS |
+| Harukiya (16 fixtures) | playable | 5,110 | 4,849 | 5,813,296 | 11.31 | 88.4 | PASS |
+| arcade cluster (5 live) | playable | 4,016 | 3,753 | 5,756,000 | 10.61 | 94.3 | PASS |
 
 The original atrium-eye lens is over the open void: moving the player there
 made the body fall to B1 while the detached lens stayed aloft. It remains a
@@ -138,7 +140,7 @@ Carriageway, like corridor F04 in the superseded sweep, misses the strict gate
 by 0.07 ms and is treated as a boundary measurement rather than as equivalent
 to the clear long-view hotspots. Correct feet-based streaming moves corridor
 F04 from 16.67 to a clear 12.96 ms pass and lobby from 23.81 to 18.06 ms. The
-remaining five corrected stations are owed.
+remaining three corrected stations are owed.
 
 The corrected landing census explains the shape: roughly 1,314 visible calls
 and 19,299 shadow calls. The frame is dominated by repeated caster submission,
@@ -163,7 +165,7 @@ is interleaved with Claude's K2 proof runs without contention.
 
 ## Next executable order
 
-1. Finish the remaining five corrected performance stations, then measure the
+1. Finish the remaining three corrected performance stations, then measure the
    shadow-budget policy against the playable atrium landing with a visual A/B.
 2. Continue K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.
