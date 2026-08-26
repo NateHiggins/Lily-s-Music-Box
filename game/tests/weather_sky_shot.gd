@@ -27,7 +27,8 @@ func _ready() -> void:
 		OS.set_environment("DAYNIGHT_FORCE", "night")
 	if OS.get_environment("WEATHER_SEED") == "":
 		OS.set_environment("WEATHER_SEED", "19280731")
-	if OS.get_environment("CELESTIAL_PHASE_PAIR") == "1":
+	if OS.get_environment("CELESTIAL_PHASE_PAIR") == "1" \
+			or OS.get_environment("CELESTIAL_SIDEREAL_PAIR") == "1":
 		# A terminator proof needs a clear line of sight. This selects the public
 		# deterministic weather simulation before production assembly.
 		OS.set_environment("WEATHER_SIMULATE", "clear")
@@ -48,7 +49,8 @@ func _ready() -> void:
 			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" \
 			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1" \
 			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1" \
-			or OS.get_environment("CELESTIAL_PHASE_PAIR") == "1"
+			or OS.get_environment("CELESTIAL_PHASE_PAIR") == "1" \
+			or OS.get_environment("CELESTIAL_SIDEREAL_PAIR") == "1"
 	if destructive_pair and requested == "":
 		push_error("A destructive A/A/B mode requires one SHOT_STATION; "
 				+ "its final state cannot become the next station's control")
@@ -60,7 +62,8 @@ func _ready() -> void:
 			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" \
 			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1" \
 			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1" \
-			or OS.get_environment("CELESTIAL_PHASE_PAIR") == "1" else 1
+			or OS.get_environment("CELESTIAL_PHASE_PAIR") == "1" \
+			or OS.get_environment("CELESTIAL_SIDEREAL_PAIR") == "1" else 1
 	for station: Dictionary in STATIONS:
 		if requested != "" and requested != station.name:
 			continue
@@ -105,6 +108,10 @@ func _capture_godot(label: String, eye: Vector3, target: Vector3) -> void:
 	# pavement eye height. LightRig still derives occupied height from the lens.
 	root.view_override = null
 	await get_tree().create_timer(1.0).timeout
+	if label == "04_roof_skyline" \
+			and OS.get_environment("CELESTIAL_SIDEREAL_PAIR") == "1":
+		await _capture_sidereal_pair(label)
+		return
 	if label == "04_roof_skyline" \
 			and OS.get_environment("CELESTIAL_PHASE_PAIR") == "1":
 		await _capture_lunar_phase_pair(label, eye)
@@ -180,6 +187,31 @@ func _capture_godot(label: String, eye: Vector3, target: Vector3) -> void:
 		_hold_orison_core_shadows = true
 		_suppress_orison_core_light_shadows(root)
 	await _save_current_frame(label)
+
+
+func _capture_sidereal_pair(label: String) -> void:
+	var dome := root.get_node("NightSkyHalfDome") as MeshInstance3D
+	var sky := dome.material_override as ShaderMaterial
+	var utc_a := {"year": 2026, "month": 8, "day": 26,
+			"hour": 2, "minute": 0}
+	var utc_b := {"year": 2026, "month": 8, "day": 26,
+			"hour": 8, "minute": 0}
+	root.day_night_director.set_process(false)
+	root.light_rig.set_process(false)
+	_set_sidereal_axes(sky, CelestialEphemeris.equatorial_axes(
+			utc_a, 40.75, -73.92))
+	await _save_current_frame(label + "_sidereal_control_a")
+	await _save_current_frame(label + "_sidereal_control_b")
+	_set_sidereal_axes(sky, CelestialEphemeris.equatorial_axes(
+			utc_b, 40.75, -73.92))
+	await _save_current_frame(label + "_sidereal_plus_6h")
+
+
+func _set_sidereal_axes(sky: ShaderMaterial,
+		axes: PackedVector3Array) -> void:
+	sky.set_shader_parameter("equatorial_axis_x", axes[0])
+	sky.set_shader_parameter("equatorial_axis_y", axes[1])
+	sky.set_shader_parameter("equatorial_axis_z", axes[2])
 
 
 func _capture_lunar_phase_pair(label: String, eye: Vector3) -> void:

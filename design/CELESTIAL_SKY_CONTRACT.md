@@ -32,11 +32,20 @@ Because this visual ephemeris does not yet evaluate optical libration, the
 surface orientation remains stable rather than pretending to an accuracy the
 direction solution does not own.
 
+The night foundation is ESO/S. Brunier's GigaGalaxy full celestial sphere in
+Galactic coordinates. The shader converts each local horizon ray through the
+observer's current J2000 equatorial basis and the standard IAU Galactic
+rotation before sampling it. The Milky Way therefore rises, culminates and
+sets with the sky instead of being nailed to the Orison. ESO notes that its
+multi-month photographic composite retains a few bright planets; computed Sun
+and Moon positions remain authoritative, and removing those residual bodies
+is a future plate-cleaning task rather than a claim made here.
+
 Twelve bright catalog stars are evaluated as observer-relative directions and
-drawn inside the existing half-dome shader. They add no submission, light or
-shadow caster. The same authored and live cloud thickness that hides the sun
-and moon also hides the stars. This avoids the familiar failure where stars
-shine through an overcast sky.
+drawn inside the same half-dome shader. They add no submission, light or
+shadow caster, and share the map's sidereal basis. The same authored and live
+cloud thickness that hides the sun and moon also hides the stars. This avoids
+the familiar failure where stars shine through an overcast sky.
 
 Forced test hours retain the authored deterministic source direction.
 Production uses the real UTC instant: the sun is the visible source through
@@ -58,6 +67,8 @@ Primary numerical references:
   https://aa.usno.navy.mil/calculated/moon/phases?date=2022-07-12&format=p&nump=50&submit=Get+Data
 - NASA Scientific Visualization Studio, CGI Moon Kit and LROC WAC color map:
   https://svs.gsfc.nasa.gov/4720
+- European Southern Observatory, GigaGalaxy full celestial sphere:
+  https://www.eso.org/public/images/eso0932a/
 
 `CelestialEphemerisTest` proves calendar epoch, sidereal angle, equinox solar
 geometry, observer dependence, lunar normalization, the published full/new

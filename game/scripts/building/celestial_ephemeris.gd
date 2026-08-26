@@ -85,6 +85,18 @@ static func star_direction(ra_degrees: float, dec_degrees: float,
 	return equatorial_direction(ra_degrees, dec_degrees, julian_day(utc),
 			latitude, longitude)
 
+static func equatorial_axes(utc: Dictionary, latitude: float,
+		longitude: float) -> PackedVector3Array:
+	# World-space directions of J2000 equatorial +X (RA 0), +Y (RA 90)
+	# and +Z (north celestial pole). Dotting a horizon direction against
+	# these axes recovers its inertial equatorial vector for all-sky maps.
+	var jd := julian_day(utc)
+	return PackedVector3Array([
+		equatorial_direction(0.0, 0.0, jd, latitude, longitude),
+		equatorial_direction(90.0, 0.0, jd, latitude, longitude),
+		equatorial_direction(0.0, 90.0, jd, latitude, longitude),
+	])
+
 static func equatorial_direction(ra_degrees: float, dec_degrees: float,
 		jd: float, latitude: float, longitude: float) -> Vector3:
 	var hour_angle := deg_to_rad(fposmod(greenwich_sidereal_degrees(jd)

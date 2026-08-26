@@ -11,7 +11,7 @@ const SKY_PATHS := {
 	"morning": SKY_DIR + "orison_clear_twilight_half_dome_4k.png",
 	"day": SKY_DIR + "orison_clear_day_half_dome_4k.png",
 	"evening": SKY_DIR + "orison_clear_twilight_half_dome_4k.png",
-	"night": SKY_DIR + "orison_clear_milky_way_half_dome_4k.png",
+	"night": SKY_DIR + "eso_gigagalaxy_galactic_half_dome_4k.jpg",
 }
 const STATE_MINUTES := {
 	"night": 180,
@@ -284,6 +284,8 @@ func _apply(minute: float) -> void:
 						utc, latitude, longitude)
 		profile["moon_phase_enabled"] = sun.y <= -0.035
 		profile["observer"] = Vector2(latitude, longitude)
+		profile["equatorial_axes"] = CelestialEphemerisScript.equatorial_axes(
+				utc, latitude, longitude)
 		var stars := PackedVector3Array()
 		for catalog_position: Vector2 in BRIGHT_STARS:
 			stars.append(CelestialEphemerisScript.star_direction(
@@ -328,6 +330,10 @@ func _apply(minute: float) -> void:
 				deg_to_rad(0.27 if profile.has("sun_direction") else 2.2))
 		_sky.set_shader_parameter("celestial_halo_radius", deg_to_rad(18.0))
 		if profile.has("bright_stars"):
+			var axes: PackedVector3Array = profile.equatorial_axes
+			_sky.set_shader_parameter("equatorial_axis_x", axes[0])
+			_sky.set_shader_parameter("equatorial_axis_y", axes[1])
+			_sky.set_shader_parameter("equatorial_axis_z", axes[2])
 			_sky.set_shader_parameter("bright_stars", profile.bright_stars)
 			_sky.set_shader_parameter("star_strength", profile.star_strength)
 		else:
@@ -384,6 +390,8 @@ func _set_sky_pair(state_a: String, state_b: String) -> void:
 	_texture_b = load(SKY_PATHS[state_b]) as Texture2D
 	_sky.set_shader_parameter("panorama_a", _texture_a)
 	_sky.set_shader_parameter("panorama_b", _texture_b)
+	_sky.set_shader_parameter("panorama_a_celestial", state_a == "night")
+	_sky.set_shader_parameter("panorama_b_celestial", state_b == "night")
 
 
 func _source_direction(elevation_degrees: float,

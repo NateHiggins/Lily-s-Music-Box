@@ -31,7 +31,8 @@ func _ready() -> void:
 	for state in ["morning", "day", "evening", "night"]:
 		var resource_path: String = paths.get(state, "")
 		_check("%s sky is a production 4K half-dome" % state,
-				resource_path.ends_with("_half_dome_4k.png")
+				resource_path.get_basename().ends_with("_half_dome_4k")
+				and resource_path.get_extension().to_lower() in ["png", "jpg"]
 				and ResourceLoader.exists(resource_path))
 		var source_path := ProjectSettings.globalize_path(resource_path)
 		var image := Image.load_from_file(source_path)
@@ -119,6 +120,10 @@ func _ready() -> void:
 			sky_code.contains("moon_phase_enabled")
 			and sky_code.contains("surface_normal")
 			and sky_code.contains("dot(surface_normal, normalize(sun_direction))"))
+	_check("the measured Milky Way shares the catalog stars' sidereal basis",
+			sky_code.contains("equatorial_axis_x")
+			and sky_code.contains("galactic_uv")
+			and sky_code.contains("panorama_a_celestial"))
 	_check("the projected Moon samples measured LROC near-side geography",
 			sky_code.contains("moon_surface")
 			and sky_code.contains("lunar_lon")

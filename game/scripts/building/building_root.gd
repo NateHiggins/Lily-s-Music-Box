@@ -901,6 +901,11 @@ uniform sampler2D panorama_a : source_color, filter_linear_mipmap,
 		repeat_enable;
 uniform sampler2D panorama_b : source_color, filter_linear_mipmap,
 		repeat_enable;
+uniform bool panorama_a_celestial = false;
+uniform bool panorama_b_celestial = false;
+uniform vec3 equatorial_axis_x = vec3(1.0, 0.0, 0.0);
+uniform vec3 equatorial_axis_y = vec3(0.0, 1.0, 0.0);
+uniform vec3 equatorial_axis_z = vec3(0.0, 0.0, 1.0);
 uniform float sky_blend = 0.0;
 uniform float exposure = 0.76;
 uniform vec3 fog_horizon_color = vec3(0.05, 0.06, 0.10);
@@ -949,8 +954,23 @@ void fragment() {
 	// immediately so skyline pixels never stretch into vertical bars.
 	float elevation = asin(clamp(direction.y, 0.0, 1.0));
 	float v = 1.0 - elevation / (0.5 * PI);
-	vec4 authored_a = texture(panorama_a, vec2(u, v));
-	vec4 authored_b = texture(panorama_b, vec2(u, v));
+	// A measured night map lives in inertial Galactic coordinates, not on the
+	// building. Recover J2000 equatorial direction from the observer's local
+	// horizon basis, then apply the standard IAU equatorial-to-Galactic matrix.
+	vec3 equatorial = vec3(dot(direction, equatorial_axis_x),
+			dot(direction, equatorial_axis_y),
+			dot(direction, equatorial_axis_z));
+	vec3 galactic = mat3(
+			vec3(-0.0548755604, 0.4941094279, -0.8676661490),
+			vec3(-0.8734370902, -0.4448296300, -0.1980763734),
+			vec3(-0.4838350155, 0.7469822445, 0.4559837762)) * equatorial;
+	vec2 galactic_uv = vec2(atan(galactic.y, galactic.x)
+			/ (2.0 * PI) + 0.5,
+			0.5 - asin(clamp(galactic.z, -1.0, 1.0)) / PI);
+	vec4 authored_a = texture(panorama_a,
+			panorama_a_celestial ? galactic_uv : vec2(u, v));
+	vec4 authored_b = texture(panorama_b,
+			panorama_b_celestial ? galactic_uv : vec2(u, v));
 	vec4 authored = mix(authored_a, authored_b, sky_blend);
 	float cloud_shape = lower_clouds(u, v);
 	float lower = cloud_shape * lower_cloud_strength;
