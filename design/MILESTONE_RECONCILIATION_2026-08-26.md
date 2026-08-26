@@ -62,11 +62,11 @@ collection of PNGs. New or actively changed evidence suites use
 K2-F is the first full-root migration datum: production ready at 32.519 s,
 11/11 frames finished at 42.692 s, and the process exited cleanly at 47.537 s.
 
-The static inventory currently finds 102 `*_shot.gd` suites: 62 appear to boot
-the production root, 45 contain an unchecked PNG save and 39 still document a
-direct Godot launch. None in the shared checkout yet use `ShotHarness`; K2-F's
-first adopter remains in its unintegrated branch commit. This is maintenance
-debt, not 102 launch blockers.
+The pre-integration static inventory found 102 `*_shot.gd` suites: 62 appeared
+to boot the production root, 45 contained an unchecked PNG save and 39 still
+documented a direct Godot launch. K2-F is now the first `ShotHarness` adopter in
+the shared history. The remaining legacy population is maintenance debt, not
+101 launch blockers.
 
 Migration policy:
 

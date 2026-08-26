@@ -88,142 +88,193 @@ is a 1912 building. That justifies the *idiom*, not this particular plate.
 
 ## Conditions, declared
 
+Captured through the canonical wrapper of
+`game/docs/CAPTURE_EVIDENCE_PROTOCOL.md`, and migrated onto `ShotHarness`
+because this suite was being changed anyway.
+
+```powershell
+pwsh -NoProfile -File tools/run_godot_capture.ps1 `
+  -Scene res://tests/UnitDirectionShot.tscn `
+  -ProjectPath <worktree>/game `
+  -ShotRoot <worktree>/art/renders/first_minute_k2f `
+  -RunName production_02 -ExpectedFrames 11 -TimeoutSeconds 60 `
+  -Resolution 1280x720
+```
+
 | | |
 | --- | --- |
 | Base | `19adcda` "PHONE-B: put the ordinary house line in production" |
+| Run | `production_02/` — receipts, metrics, manifest and contact sheet beside the frames |
 | Scene | production `orison_root.tscn`, fresh campaign |
-| Camera | the player's own — body, eye and carried detector agree with the frame |
-| Clock | `DAYNIGHT=0` · lamp off · HUD on |
-| Freeze | physics off → aim → lamp off → 1.6 s real → process off → `time_scale = 0` → **8 s real settle** |
-| EXACT box | `131x17+447+529` of 1280×720 — the measured difference bounding box |
-| UNITS crop | `185x55+420+510` — that box with margin |
-| PLATE crop | `330x160+350+465` — the whole board |
+| Camera class | **playable** — the player's own body, eye, carried service set and streaming origin all agree with every frame |
+| Clock | `DAYNIGHT=0` · lamp off · **HUD hidden by name** |
+| Resolution | 1280×720 |
+| EXACT box | `[578, 356, 117, 9]` — the measured difference bounding box |
+| UNITS crop | `[555, 340, 160, 40]` — that box with margin |
+| PLATE crop | `[470, 290, 320, 150]` — the whole board, and the protocol-conformant claim crop |
 
-**The crops were derived from the measured difference bounding box before
-anything was priced**, and the box is **the same at 6 % as at 20 %**: the change
-has no low-amplitude spread beyond its own 131 × 17 footprint. The crops are
-re-derived on every base, because the framing is not stable across them — the
-plate sat at (578, 356) on `35b7e84` and at (447, 529) on this one, from changes
-outside this lane. A crop declared on one base and reused on the next silently
-prices empty wall, and two figures were caught doing exactly that.
+**Every figure below is linear-RGB RMSE from `tools/measure_shot_sheet.py`.**
+Earlier revisions of this file quoted sRGB-space numbers from ImageMagick; they
+are not comparable, and have been replaced rather than set beside these.
+
+**The crops were derived from this run's own difference bounding box before
+anything was priced**, and the box is **identical at 6 % and at 20 %**: the
+change has no low-amplitude spread beyond its own 117 × 9 footprint.
+
+PLATE is the crop the protocol's framing guideline asks for — 320 × 150, larger
+than the 160 × 120 floor, and the whole subject. UNITS and EXACT are tighter
+diagnostic crops, and the declared exception is simple: **the glyphs that change
+are 9 pixels tall.** Any crop big enough to satisfy the guideline necessarily
+dilutes them, so all three are reported and the reader can watch the dilution
+happen.
 
 Origin moved **six times** while this task was in flight — `5653d70` →
-`f21e1bf` → `4962a4b` → `35b7e84` → `b66fdde` → `94abe8d` → `19adcda`.
-The branch was replayed onto each new head, and the whole sheet re-shot and
-every figure re-measured, five times over. None of those commits touches this
-stair's signage, and none overlaps a file this task edits; two of them
-nevertheless changed what the sheet had to prove, as below.
+`f21e1bf` → `4962a4b` → `35b7e84` → `b66fdde` → `94abe8d` → `19adcda`. The
+branch was replayed onto each new head and the sheet re-shot on each. None of
+those commits touches this stair's signage, and none overlaps a file this task
+edits.
 
-### Three contaminants this sheet found in its own measurements
+## What the capture receipt actually revealed
 
-**1. The HUD keeps its own clock.** The sheet was priced once with a difference
-box of **671×288 centred on the objective card, not on the plate**. The arrival
-toast was still fading when the world froze — that overlay decays on **real
-time**, not on `Engine.time_scale`. A real-time settle with the world stopped
-takes the HUD region's residual to **exactly 0**. Priced before that, this sheet
-would have measured its own HUD.
+| Stage | Elapsed | Protocol target |
+| --- | ---: | --- |
+| `production_ready` | **32.519 s** | ≤ 18 s, hard warning at 24 s |
+| `owners_resolved` | 32.522 s | ≤ 4 s — 0.003 s here |
+| `lamp_and_camera_settled` | 36.950 s | ≤ 6 s warm-up — 4.4 s here |
+| `overlays_hidden` | 36.972 s | — |
+| eleven captures | 36.972 → 42.692 s | 0.35 s each budgeted, 0.52 s actual |
+| `finish` | 42.692 s, **11.3 s of scene margin** | ≤ 54 s |
+
+**Boot is the cost, and it is 8.5 seconds past the protocol's hard warning.**
+That is a repository-wide property of `orison_root.tscn` rather than something
+this sheet can trim, and it is why the old blind eight-second HUD wait was
+dangerous rather than merely wasteful: at 32.5 s of boot, eight idle seconds put
+the run at roughly 50.7 s against a 60 s ceiling. An earlier attempt at a
+sixteen-second settle **did** blow the ceiling, and wrote five of eleven frames.
+
+## Three contaminants this sheet found in its own measurements
+
+**1. The HUD keeps its own clock, and elapsed time is not a fix.** This sheet
+was once priced with a difference box of **671×288 centred on the objective
+card, not on the plate**: the arrival toast was still fading when the world
+froze, because that overlay decays on real time rather than on
+`Engine.time_scale`. The blind wait that hid the symptom is gone. Two owners are
+now switched off **by name** — `ObjectiveTracker` and the player's
+`TelegramHud` — and every other `CanvasLayer` outside the player is swept as a
+backstop (twelve layers, including `FourthWall`, `TouchControls` and
+`ServiceRoundDialogue`). Literal waits fall from **14.7 s to 3.4 s**.
 
 That contaminated measurement also produced a **wrong explanation that the fix
 retired**: with the toast still decaying, the 6 % box spread to `781x543`, and
 the obvious story was that two bright labels were changing the stairwell's
-indirect light. They are not. With the settle in place the 6 % box collapses
-onto the labels themselves.
+indirect light. They are not. The halo was the toast's tail.
 
-**2. A leading control cannot see drift that happens after it.** On `b66fdde`
+**2. A leading control cannot see drift that starts after it.** On `b66fdde`
 the before/after pair suddenly measured a `894x663` difference. Holding the
 change constant — comparing two *units-on* frames from the same camera — showed
-**0.0334 of drift with nothing under test**, so the new household wireless props
-were still settling when the old wait expired. The sheet now carries a
-**trailing control** shot immediately after the priced frame, so the A/A floor
-**brackets** the pair rather than preceding it. All three arrival controls are
-now byte-identical to one another.
+**0.0334 of drift with nothing under test**. The sheet now carries a **trailing
+control** taken immediately after the priced frame, so the floor **brackets**
+the pair rather than merely preceding it.
 
-**3. And the turned-head camera has a floor this sheet does not hide.** Its A/A
-pair measures **0.136**, and the difference bounding box is `360x170+22+38` —
-the objective card, not the stair. Moving the camera moves the body, and the HUD
-answers to where the body is, so the card re-settles after each camera move.
-`04_the_way_the_glyph_points` is taken third, after that pair, and sits within
-**0.000595** of the control immediately before it. **Nothing is priced on that
-camera**; frame 04 is context, and its floor is stated rather than cropped
-away.
+**3. A sweep that flatters the frame is worse than no sweep.** The first version
+of the overlay hide swept *every* `CanvasLayer` in the tree. The carried service
+set is composited through a `CanvasLayer` of its own — `service_set_carrier.gd`
+renders it into a `SubViewport` and shows it on a layer — so that sweep **took
+the device out of the player's hands in all eleven frames**. It made frame 04
+look better, because the detector stopped occluding the plate's left label,
+which is exactly how it was caught. This is a playable camera; an evidence sheet
+does not get to quietly put the lamp down. The sweep now stops at the player,
+and that run was discarded and retaken.
 
 ## The floors, first
 
-| A/A pair | whole frame | UNITS | PLATE | EXACT box |
-| --- | ---: | ---: | ---: | ---: |
-| **leading** (`00_a` vs `00_b`) | **0** | **0** | **0** | **0** |
-| **spanning** (`00_b` vs `02_c`) | **0** | **0** | **0** | **0** |
-| **trailing** (`02` vs `02_c`) | **0** | **0** | **0** | **0** |
-| corridor (`03_a` vs `03_b`) | 0.136 — the HUD | 0.000330 | 0.000329 | 0.000382 |
-| corridor, settled (`03_b` vs `04`) | 0.000595 | — | — | — |
+Every claim is priced against a control **on the same camera at the same crop**.
+No floor is shared across stations.
 
-**All three arrival controls are one identical file.** Before the priced pair,
-after it, and spanning it, the frozen world did not move a single bit. That is
-the strongest statement this sheet can make, and it is the camera every number
-below is priced on.
+| Control | crop | linear RMSE |
+| --- | --- | ---: |
+| arrival, leading (`00_a` vs `00_b`) | PLATE | 0.0000190 |
+| arrival, leading | UNITS | 0.0000022 |
+| arrival, leading | EXACT | **0.0000000** |
+| arrival, spanning (`00_b` vs `02_c`) | PLATE | **0.0000000** |
+| arrival, trailing (`02` vs `02_c`) | PLATE | 0.0000034 |
+| corridor station (`03_a` vs `03_b`) | whole frame | 0.0007028 |
 
-The corridor camera is the exception, and it is reported rather than trimmed:
-its floor is the objective card re-settling after the camera move, and it is
-**not** a floor under any claim.
+These are **real repeated renders**, not one image written twice: every frame in
+this run is a distinct file. The corridor floor is 0.0007 — down from **0.136**
+before the HUD was hidden by name, which is the clearest single measure of what
+that change bought.
 
-## Frames
-
-| File | md5 | What it is |
-| --- | --- | --- |
-| `00_arrival_control_a.png` | `a4e867d038c6a4ca282a8340b4dede95` | **A/A** at the reading position. |
-| `00_arrival_control_b.png` | `a4e867d038c6a4ca282a8340b4dede95` | The same file, bit for bit. |
-| `01_arrival_before.png` | `5c40b1811d5cd296ca09db7c13292aa1` | The landing **with the units line hidden** — an order that says 2A, a building that says 2. |
-| `02_arrival_after.png` | `a4e867d038c6a4ca282a8340b4dede95` | The same instant, same light, **with the units line**. |
-| `02_arrival_control_c.png` | `a4e867d038c6a4ca282a8340b4dede95` | **Trailing A/A**, taken after the priced pair — identical to the leading control. |
-| `03_corridor_control_a.png` | `95db500cb94466d69f8710be9ca22005` | **A/A** on the turned-head camera. |
-| `03_corridor_control_b.png` | `aed4da14a3a756960405c41dc3075b8b` | The same, untouched. |
-| `04_the_way_the_glyph_points.png` | `fc2c1c4829c3599abafe5a3c85275436` | **The cue and its destination in one frame** — plate at frame right, the west corridor open at frame left. |
-| `05_the_2a_door.png` | `2a85bcd438df76a13272f609ba7e5590` | **The door reached**, at the west end of the arm the left glyph points down. |
-| `06_floor_four_reads_its_own_floor.png` | `897e4f2e29be91d8ca570b1cb5647391` | **Recurrence**: `FLOOR 4` · `← 4A` · `4C 4D →`. |
-| `07_a_later_shift.png` | `51cbdcc78da657d3ac4503d2d5fe5170` | An ordinary walk through the landing, nothing staged. |
-
-Eleven frames, **eight distinct**: `00_a`, `00_b`, `02_arrival_after` and
-`02_arrival_control_c` are one and the same file. The frozen world is genuinely
-still, and **the "after" state is simply the shipped state** — so the controls
-and the answer frame are one photograph. Only `01_arrival_before` shows
-something a player never sees.
+**Frames 05, 06 and 07 have no local control and therefore appear in no pair.**
+They are production-placement context. They do not borrow the arrival or the
+corridor floor, and no RMSE is reported against them anywhere in this sheet.
 
 ## The claims
 
-| Change | crop | RMSE | its floor |
-| --- | --- | ---: | ---: |
-| no units line → **units line** | EXACT box | **0.183** | 0 |
-| the same | UNITS | **0.0860** | 0 |
-| the same, on the whole board | PLATE | 0.0378 | 0 |
-| the same, whole frame | — | 0.00904 | 0 |
-| the HUD, during that change | HUD region | **0** | 0 |
+| Change | crop | linear RMSE | floor | ratio | declared minimum |
+| --- | --- | ---: | ---: | ---: | ---: |
+| no units line → **units line** | PLATE | **0.0287** | 0.0000190 | **1513×** | 0.005 / 3× |
+| the same | UNITS | **0.0787** | 0.0000022 | **35931×** | 0.010 / 3× |
+| the same | EXACT box | **0.1940** | 0.0000000 | — | 0.010 / 3× |
 
-**The whole-frame figure is small because the change is small.** Two lines of
-text on a 1280×720 frame move about 0.24 % of the pixels; the exact-box figure,
-**0.183 against a floor of exactly zero**, is what prices the legend. The 6 %
-difference box equals the 20 % box, so nothing outside those two labels changed
-at all.
+`measure_shot_sheet.py` reports **PASS, 11 frames, 9 pairs, 0 failures**.
+
+**One caveat on the ratio column, stated because the tool cannot state it.** A
+floor of exactly zero makes the `min_floor_ratio` gate vacuous — `value < 0 × 3`
+is never true — so on the EXACT crop the real gate is the absolute minimum,
+0.010, which the measured 0.194 clears by 19×. The PLATE row is the one where
+both gates bite: it clears the absolute minimum by 5.7× and its own floor by
+1513×.
+
+**No luma warnings.** Black fraction peaks at 0.018 against a 0.65 inspection
+threshold, and clipped fraction is 0.000000 in all eleven frames.
+
+## Frames
+
+All eleven inspected at full size. `production_02/contact_sheet.png` tiles them.
+
+| File | What it is | Role |
+| --- | --- | --- |
+| `00_arrival_control_a.png` | the reading position | **A/A** |
+| `00_arrival_control_b.png` | the same, unchanged | **A/A** |
+| `01_arrival_before.png` | units line hidden — an order that says 2A, a building that says 2 | **A/B** |
+| `02_arrival_after.png` | the same instant, same light, with the units line | **A/B** |
+| `02_arrival_control_c.png` | after the priced pair, so the floor brackets it | **A/A** |
+| `03_corridor_control_a.png` | the turned-head station | **A/A** |
+| `03_corridor_control_b.png` | the same, unchanged | **A/A** |
+| `04_the_way_the_glyph_points.png` | plate at frame right, west corridor at frame left | **context** |
+| `05_the_2a_door.png` | the door reached, at the west end of the arm | **context** |
+| `06_floor_four_reads_its_own_floor.png` | `FLOOR 4` · `← 4A` · `4C 4D →` | **context** |
+| `07_a_later_shift.png` | an ordinary walk through the landing | **context** |
+
+Per-frame SHA-256, byte size and luma percentiles are in
+`production_02/shot_metrics.json`; the process receipt is in
+`production_02/capture_receipt.json` and the scene receipt in
+`production_02/scene_capture_receipt.json`.
 
 ## What the frames do not show, stated plainly
 
-1. **Frame 04 cannot show both things square-on, and no camera can.** The plate
-   faces due south; the corridor it points down runs due west. This frame is the
-   reading position with the head turned 38° left — the plate 31° right of the
-   axis, the corridor mouth 37° left, both inside an 88° frustum. **The carried
-   detector covers the plate's left label at that angle**, so `2C →` is legible
-   in it and `← 2A 2B` is not. Frame 02 is where the legend is read.
-2. **The brass 2A number is present in frame 05 but not legible**, a small dim
+1. **Frame 04 is context, not a claim.** Its station carries no state change, so
+   it is named context rather than dressed as an A/B pair. It also cannot show
+   both subjects square-on, and no camera can: the plate faces due south and the
+   corridor it points down runs due west. This is the reading position with the
+   head turned 38° left — plate 31° right of the axis, corridor mouth 37° left,
+   both inside an 88° frustum. **The carried service set occludes the plate's
+   left label at that angle**, so `2C →` is legible in it and `← 2A 2B` is not.
+   Frame 02 is where the legend is read.
+2. **The work-order card is absent from every frame, by choice.** That the order
+   names unit 2A is asserted in `UnitDirectionLiveTest` as a string comparison,
+   which is a better place for it than a photograph.
+3. **The brass 2A number is present in frame 05 but not legible**, a small dim
    plaque on an unlit corridor wall at 1.5 m. That is not a defect in the
    photograph; it is the reason the landing plate has to carry the information
    at all.
-3. **The arrival itself is not the reading position.** From b(2.50, −2.26) the
-   plate is 2.90 m away at **65° off its own normal** — 0.62 m of board
-   foreshortened to 0.26 m — which is why the first pass of this sheet
-   photographed a landing with no legible sign in it. The cameras stand where a
-   player crossing toward the west corridor actually passes, 1.35 m out and
-   square. **The plate is visible from the arrival and read a step later**: the
-   live suite asserts the first half of that with a ray, and does not assert the
-   second half with an adjective.
+4. **The arrival is not the reading position.** From b(2.50, −2.26) the plate is
+   2.90 m away at **65° off its own normal** — 0.62 m of board foreshortened to
+   0.26 m. The cameras stand where a player crossing toward the west corridor
+   actually passes, 1.35 m out and square. **The plate is visible from the
+   arrival and read a step later**: the live suite asserts the first half with a
+   ray, and does not assert the second half with an adjective.
 
 ## What this does not do
 

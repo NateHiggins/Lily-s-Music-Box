@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scene": "res://tests/UnitDirectionShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02",
+  "started_utc": "2026-08-26T18:46:32.9591566Z",
+  "elapsed_seconds": 47.537,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "engine_exit": 0,
+  "expected_frames": 11,
+  "actual_frames": 11,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_production_02_20260826T184632959Z.log",
+  "filtered_process_output": [
+    "[PASSAGE] 304 interior, 20 shell and 187 foreign F01 draws indexed",
+    "[PASSAGE HOURS] AFTER_HOURS; 10 grilles drawn",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[NAV] 4 schedule anchors installed in PASSAGE",
+    "[PASSAGE] late sweep: 114 interior, 815 foreign, 6 shared late-built F01 draws registered",
+    "[PASSAGE] root sweep: 17 interior, 947 foreign draws, 40 foreign lights registered",
+    "[UNIT DIRECTION SHOT CAPTURE] 1/11 label=00_arrival_control_a elapsed=38.845 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/00_arrival_control_a.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 2/11 label=00_arrival_control_b elapsed=39.187 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/00_arrival_control_b.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 3/11 label=01_arrival_before elapsed=39.524 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/01_arrival_before.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 4/11 label=02_arrival_after elapsed=39.869 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/02_arrival_after.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 5/11 label=02_arrival_control_c elapsed=40.215 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/02_arrival_control_c.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 6/11 label=03_corridor_control_a elapsed=40.650 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/03_corridor_control_a.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 7/11 label=03_corridor_control_b elapsed=41.006 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/03_corridor_control_b.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 8/11 label=04_the_way_the_glyph_points elapsed=41.416 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/04_the_way_the_glyph_points.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 9/11 label=05_the_2a_door elapsed=41.766 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/05_the_2a_door.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 10/11 label=06_floor_four_reads_its_own_floor elapsed=42.224 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/06_floor_four_reads_its_own_floor.png",
+    "[UNIT DIRECTION SHOT CAPTURE] 11/11 label=07_a_later_shift elapsed=42.690 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2f\\production_02/07_a_later_shift.png",
+    "[UNIT DIRECTION SHOT] RESULT: PASS captures=11 expected=11 elapsed=42.693",
+    "       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)",
+    "       [1] build (res://scripts/building/found_art_pass.gd:21)"
+  ],
+  "files": [
+    {
+      "name": "00_arrival_control_a.png",
+      "bytes": 1181215,
+      "sha256": "f82960b3f51125619336a72b4421aa4efd0eed00c8fe9f0118cbc850bbb47aab"
+    },
+    {
+      "name": "00_arrival_control_b.png",
+      "bytes": 1181180,
+      "sha256": "876735cecf6fcff3b10187f79200b6f24b7bb87a2943ef3b6d217b674e9d0751"
+    },
+    {
+      "name": "01_arrival_before.png",
+      "bytes": 1178964,
+      "sha256": "dbe65f966b0fc479960b19a65125c4f253993215e112a61104d912f73c1901d7"
+    },
+    {
+      "name": "02_arrival_after.png",
+      "bytes": 1181171,
+      "sha256": "35681d7c80435a8ddd3eb83ea46d12e2d45ae82883eac7d41ecbfca8021b91e9"
+    },
+    {
+      "name": "02_arrival_control_c.png",
+      "bytes": 1181178,
+      "sha256": "570a1e7d0e9815602b24b636913cacb579fa5cdc16a4a4ac4f3249cf0be1ba40"
+    },
+    {
+      "name": "03_corridor_control_a.png",
+      "bytes": 1077250,
+      "sha256": "3c1911b0b4d63161c98581bf7a3f5fe35c3cfc5b01ca3991fb2d86722903f2af"
+    },
+    {
+      "name": "03_corridor_control_b.png",
+      "bytes": 1074769,
+      "sha256": "36abd84a56a0e9015bfe5268b698524491be07690fefe2d94c7997f06b8cf8ea"
+    },
+    {
+      "name": "04_the_way_the_glyph_points.png",
+      "bytes": 1074836,
+      "sha256": "24811e05c35672bb148d67b7cf2a219031be9eb36b53f085d20e75eb4267c217"
+    },
+    {
+      "name": "05_the_2a_door.png",
+      "bytes": 895960,
+      "sha256": "52824ec60a07c614949e5114665799de38049831cdc72f5c2492e595c19be074"
+    },
+    {
+      "name": "06_floor_four_reads_its_own_floor.png",
+      "bytes": 1090309,
+      "sha256": "d9714751619aa1ef80fbf8adbc2ba51956bb57cb24b7c5cb1a8b717b2152ca63"
+    },
+    {
+      "name": "07_a_later_shift.png",
+      "bytes": 1024663,
+      "sha256": "926228d93d53b53ac5a7917a33fd9febb6b31dd6728fd9e5fe94bd5d8ec6d925"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "_comment": [
+    "K2-F. Crops are [x, y, w, h] and were derived from this run's own measured",
+    "difference bounding box (117x9+578+356, identical at 6% and 20%) BEFORE any",
+    "figure was priced.",
+    "PLATE (320x150) is the protocol-conformant claim crop: >= 160x120 and the",
+    "whole subject board. UNITS and EXACT are tighter diagnostic crops; the",
+    "declared exception is that the changed glyphs are genuinely 9 px tall, so a",
+    "crop large enough to satisfy the framing guideline necessarily dilutes them.",
+    "Every claim is priced against a control taken on the SAME camera at the SAME",
+    "crop. Frames 05, 06 and 07 are context: they have no local control and",
+    "therefore appear in no pair, rather than borrowing the arrival or corridor",
+    "floor. Frame 04 is context for the same reason - its station has no state",
+    "change - and the corridor pair is measured only to show that station is",
+    "reproducible."
+  ],
+  "pairs": [
+    {
+      "name": "arrival_floor_plate",
+      "a": "00_arrival_control_a.png",
+      "b": "00_arrival_control_b.png",
+      "kind": "control",
+      "crop": [470, 290, 320, 150]
+    },
+    {
+      "name": "arrival_floor_units",
+      "a": "00_arrival_control_a.png",
+      "b": "00_arrival_control_b.png",
+      "kind": "control",
+      "crop": [555, 340, 160, 40]
+    },
+    {
+      "name": "arrival_floor_exact",
+      "a": "00_arrival_control_a.png",
+      "b": "00_arrival_control_b.png",
+      "kind": "control",
+      "crop": [578, 356, 117, 9]
+    },
+    {
+      "name": "arrival_floor_spanning_plate",
+      "a": "00_arrival_control_b.png",
+      "b": "02_arrival_control_c.png",
+      "kind": "control",
+      "crop": [470, 290, 320, 150]
+    },
+    {
+      "name": "arrival_floor_trailing_plate",
+      "a": "02_arrival_after.png",
+      "b": "02_arrival_control_c.png",
+      "kind": "control",
+      "crop": [470, 290, 320, 150]
+    },
+    {
+      "name": "corridor_station_floor",
+      "a": "03_corridor_control_a.png",
+      "b": "03_corridor_control_b.png",
+      "kind": "control"
+    },
+    {
+      "name": "units_line_on_the_board",
+      "a": "01_arrival_before.png",
+      "b": "02_arrival_after.png",
+      "kind": "claim",
+      "floor": "arrival_floor_plate",
+      "crop": [470, 290, 320, 150],
+      "min_rmse": 0.005,
+      "min_floor_ratio": 3.0
+    },
+    {
+      "name": "units_line_units_crop",
+      "a": "01_arrival_before.png",
+      "b": "02_arrival_after.png",
+      "kind": "claim",
+      "floor": "arrival_floor_units",
+      "crop": [555, 340, 160, 40],
+      "min_rmse": 0.010,
+      "min_floor_ratio": 3.0
+    },
+    {
+      "name": "units_line_exact_box",
+      "a": "01_arrival_before.png",
+      "b": "02_arrival_after.png",
+      "kind": "claim",
+      "floor": "arrival_floor_exact",
+      "crop": [578, 356, 117, 9],
+      "min_rmse": 0.010,
+      "min_floor_ratio": 3.0
+    }
+  ]
+}

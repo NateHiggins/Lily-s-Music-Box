@@ -150,4 +150,3 @@ func _fail(message: String) -> void:
 	_failed = true
 	push_error("[%s CAPTURE FAIL] %s" % [tag, message])
 	print("[%s CAPTURE FAIL] %s" % [tag, message])
-
