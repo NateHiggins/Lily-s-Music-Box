@@ -20,6 +20,7 @@ var onset_warning: CheckBox
 var reduce_roll: CheckBox
 var reduce_flashing: CheckBox
 var look_sensitivity: HSlider
+var apply_button: Button
 var sliders: Dictionary = {}
 var is_open := false
 var _mouse_before := Input.MOUSE_MODE_CAPTURED
@@ -54,6 +55,7 @@ func open() -> bool:
 	if policy and policy.has_method("request_mix"):
 		policy.call("request_mix", &"pause_services", &"paused")
 	get_tree().paused = true
+	apply_button.grab_focus()
 	return true
 
 
@@ -71,6 +73,7 @@ func close(save := false) -> void:
 	if policy and policy.has_method("release_mix"):
 		policy.call("release_mix", &"pause_services")
 	panel.visible = false
+	apply_button.release_focus()
 	is_open = false
 	Input.mouse_mode = _mouse_before
 
@@ -153,11 +156,11 @@ func _build() -> void:
 	look_sensitivity.max_value = 2.0
 	look_sensitivity.step = 0.05
 	box.add_child(look_sensitivity)
-	var apply := Button.new()
-	apply.name = "ApplyAndReturn"
-	apply.text = "APPLY AND RETURN TO THE NIGHT"
-	apply.pressed.connect(func(): close(true))
-	box.add_child(apply)
+	apply_button = Button.new()
+	apply_button.name = "ApplyAndReturn"
+	apply_button.text = "APPLY AND RETURN TO THE NIGHT"
+	apply_button.pressed.connect(func(): close(true))
+	box.add_child(apply_button)
 	var resume := Button.new()
 	resume.name = "ReturnWithoutSaving"
 	resume.text = "RETURN WITHOUT SAVING"

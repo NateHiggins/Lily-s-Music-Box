@@ -18,6 +18,8 @@ func _ready() -> void:
 	_check("escape surface opens during ordinary play", surface.open())
 	_check("opening pauses the night", get_tree().paused and surface.is_open)
 	await get_tree().process_frame
+	_check("services establishes keyboard and controller focus",
+			surface.apply_button.has_focus())
 	var panel_rect: Rect2 = surface.panel.get_global_rect()
 	var viewport_size := get_viewport().get_visible_rect().size
 	print("[PAUSE SERVICES] FIT rect=%s viewport=%s" % [panel_rect, viewport_size])
