@@ -926,6 +926,7 @@ uniform float cloud_phase = 0.0;
 uniform float weather_flash = 0.0;
 uniform vec3 bright_stars[12];
 uniform float star_strength = 0.0;
+uniform float urban_horizon_gain = 0.0;
 
 float lower_clouds(float u, float v) {
 	// Integer azimuth frequencies make both moving bands exactly periodic at
@@ -1040,10 +1041,19 @@ void fragment() {
 	// keeps any equirectangular pole stretch out of the playable horizon.
 	float horizon_haze = smoothstep(0.60, 0.96, v);
 	color = mix(color, fog_horizon_color, horizon_haze * 0.82);
+	// Queens never owns a coal-black horizon. Keep the glow shallow so the
+	// measured Milky Way survives overhead while distant building feet belong
+	// to the same atmosphere as their silhouettes.
+	float urban_band = smoothstep(0.72, 1.0, v);
+	vec3 urban_glow = mix(vec3(0.055, 0.042, 0.036),
+			fog_horizon_color * 1.35, 0.42);
+	color += urban_glow * urban_horizon_gain * urban_band * 0.72;
 	color += celestial_color * weather_flash * (0.09 + (1.0 - thickness) * 0.14);
 	if (direction.y < 0.0) {
 		float haze = smoothstep(0.0, 0.025, -direction.y);
-		color = mix(color, fog_horizon_color * 0.34, haze);
+		vec3 lower_air = fog_horizon_color
+				* (0.34 + urban_horizon_gain * 0.74);
+		color = mix(color, lower_air, haze);
 	}
 	ALBEDO = color;
 }

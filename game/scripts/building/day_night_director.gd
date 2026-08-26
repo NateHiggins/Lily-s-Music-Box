@@ -341,6 +341,9 @@ func _apply(minute: float) -> void:
 		_sky.set_shader_parameter("lower_cloud_strength", profile.cloud_depth)
 		_sky.set_shader_parameter("cloud_coverage",
 				float(profile.get("cloud_coverage", profile.cloud_depth)))
+		_sky.set_shader_parameter("urban_horizon_gain", lerpf(
+				_urban_horizon_for_state(str(a.state)),
+				_urban_horizon_for_state(str(b.state)), t))
 		var rays_enabled := OS.get_environment("WEATHER_RAYS") != "0"
 		_sky.set_shader_parameter("ray_strength",
 				profile.rays if rays_enabled else 0.0)
@@ -351,6 +354,9 @@ func _apply(minute: float) -> void:
 		_exterior.set_neighbour_occupancy_gain(lerpf(
 				_neighbour_occupancy_for_state(str(a.state)),
 				_neighbour_occupancy_for_state(str(b.state)), t))
+		_exterior.set_neighbour_light_profile(lerpf(
+				_neighbour_light_for_state(str(a.state)),
+				_neighbour_light_for_state(str(b.state)), t), source_dir)
 	if _root:
 		if _root.get("moon_fill") != null and _root.moon_fill != null:
 			_root.moon_fill.energy_scale = profile.fill
@@ -365,6 +371,22 @@ func _neighbour_occupancy_for_state(state: String) -> float:
 		"morning": return 0.18
 		"evening": return 0.72
 		_: return 1.0
+
+
+func _neighbour_light_for_state(state: String) -> float:
+	match state:
+		"day": return 3.25
+		"morning": return 2.05
+		"evening": return 1.38
+		_: return 1.0
+
+
+func _urban_horizon_for_state(state: String) -> float:
+	match state:
+		"night": return 1.0
+		"evening": return 0.62
+		"morning": return 0.28
+		_: return 0.0
 
 
 func _span_at(minute: float) -> Dictionary:

@@ -98,7 +98,14 @@ func _ready() -> void:
 	var facade_code := facade_material.shader.code if facade_material else ""
 	_check("one facade calculation owns both window recess and occupancy light",
 			facade_code.contains("float window")
-			and facade_code.contains("EMISSION = warm_room * occupied * window"))
+			and facade_code.contains("EMISSION = warm_room * occupied * window")
+			and facade_code.contains("instance_seed")
+			and facade_code.contains("reveal")
+			and not facade_code.contains("floor(world_position.xz"))
+	_check("facade exposure follows daylight without inventing occupied rooms",
+			director._neighbour_light_for_state("day")
+					> director._neighbour_light_for_state("night")
+			and director._neighbour_occupancy_for_state("day") == 0.0)
 	var legacy_site_panes: Array[Node] = _descendants(root.window_glow).filter(
 			func(node): return node.name.begins_with("SitePanes_"))
 	_check("legacy site cards cannot independently overlight the facade",
@@ -124,6 +131,12 @@ func _ready() -> void:
 			sky_code.contains("equatorial_axis_x")
 			and sky_code.contains("galactic_uv")
 			and sky_code.contains("panorama_a_celestial"))
+	_check("urban airglow grounds the skyline without reaching the zenith",
+			sky_code.contains("urban_horizon_gain")
+			and sky_code.contains("smoothstep(0.72, 1.0, v)")
+			and sky_code.contains("lower_air")
+			and director._urban_horizon_for_state("night")
+					> director._urban_horizon_for_state("day"))
 	_check("the projected Moon samples measured LROC near-side geography",
 			sky_code.contains("moon_surface")
 			and sky_code.contains("lunar_lon")

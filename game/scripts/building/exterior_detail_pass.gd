@@ -21,6 +21,7 @@ var _puddles: Array = []
 var _puddle_material: ShaderMaterial
 var _storm_materials: Array[ShaderMaterial] = []
 var _city_facade_material: ShaderMaterial
+var _city_mass_material: ShaderMaterial
 
 const STREET_END_PROBE_LAYER := 1 << 20
 
@@ -114,6 +115,14 @@ func set_neighbour_occupancy_gain(gain: float) -> void:
 	if _city_facade_material:
 		_city_facade_material.set_shader_parameter(
 				"occupancy_gain", clampf(gain, 0.0, 1.0))
+
+
+func set_neighbour_light_profile(gain: float, direction: Vector3) -> void:
+	for material in [_city_mass_material, _city_facade_material]:
+		if material:
+			material.set_shader_parameter("facade_light_gain",
+					clampf(gain, 0.65, 4.5))
+			material.set_shader_parameter("facade_light_direction", direction)
 
 
 func _build_street_hardware() -> void:
@@ -786,9 +795,13 @@ func _emit_city_masses(parent: Node3D) -> void:
 	shader.code = """
 shader_type spatial;
 render_mode unshaded, shadows_disabled;
+uniform float facade_light_gain = 1.0;
+uniform vec3 facade_light_direction = vec3(0.0, 1.0, 0.0);
 varying vec3 world_position;
+varying vec3 world_normal;
 void vertex() {
 	world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	world_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
 }
 void fragment() {
 	// These are the unlit side and rear planes of the same authored envelopes.
@@ -799,11 +812,15 @@ void fragment() {
 	float soot = 0.84 + 0.10 * sin(world_position.x * 0.17
 			+ world_position.z * 0.11);
 	vec3 brick = vec3(0.044, 0.027, 0.020) * soot;
-	ALBEDO = mix(brick, vec3(0.060, 0.046, 0.038), courses * 0.18);
+	float exposure = 0.62 + 0.38 * abs(dot(normalize(world_normal),
+			normalize(-facade_light_direction)));
+	ALBEDO = mix(brick, vec3(0.060, 0.046, 0.038), courses * 0.18)
+			* facade_light_gain * exposure;
 }
 """
 	var material := ShaderMaterial.new()
 	material.shader = shader
+	_city_mass_material = material
 	mesh.material = material
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
@@ -830,9 +847,15 @@ func _emit_city_facades(parent: Node3D) -> void:
 shader_type spatial;
 render_mode unshaded, cull_disabled, shadows_disabled;
 uniform float occupancy_gain = 1.0;
+uniform float facade_light_gain = 1.0;
+uniform vec3 facade_light_direction = vec3(0.0, 1.0, 0.0);
 varying vec3 world_position;
+varying vec3 world_normal;
+varying flat float instance_seed;
 void vertex() {
 	world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	world_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
+	instance_seed = float(INSTANCE_ID);
 }
 void fragment() {
 	// A cheap 1920s apartment-house finish. Window recess and light are one
@@ -845,6 +868,9 @@ void fragment() {
 	vec2 edge = abs(cell - vec2(0.5));
 	float window = (1.0 - step(0.255, edge.x))
 			* (1.0 - step(0.305, edge.y));
+	float opening = (1.0 - step(0.292, edge.x))
+			* (1.0 - step(0.342, edge.y));
+	float reveal = max(0.0, opening - window);
 	float sash = max(1.0 - step(0.018, abs(cell.x - 0.5)),
 			1.0 - step(0.014, abs(cell.y - 0.5))) * window;
 	float course = smoothstep(0.955, 1.0, fract(UV.y * 82.0));
@@ -862,15 +888,21 @@ void fragment() {
 	result = mix(result, stone * 0.62, storey * 0.42);
 	result = mix(result, brick * 0.58, parapet * 0.72);
 	result = mix(result, vec3(0.025, 0.027, 0.027), basement * 0.75);
-	float room_hash = fract(sin(dot(cell_id + floor(world_position.xz * 0.07),
+	result = mix(result, brick * 0.24, reveal);
+	float room_hash = fract(sin(dot(cell_id + vec2(instance_seed * 0.37,
+			instance_seed * 1.13),
 			vec2(12.9898, 78.233))) * 43758.5453);
 	float occupied = step(0.68, room_hash) * occupancy_gain;
 	vec3 dark_glass = vec3(0.006, 0.009, 0.012);
 	vec3 warm_room = mix(vec3(0.095, 0.047, 0.017),
 			vec3(0.050, 0.061, 0.066), step(0.90, room_hash));
 	result = mix(result, mix(dark_glass, warm_room, occupied), window);
+	float head_shadow = window * smoothstep(0.36, 0.50, cell.y) * 0.18;
+	result *= 1.0 - head_shadow;
 	result = mix(result, vec3(0.020, 0.017, 0.015), sash);
-	ALBEDO = result;
+	float exposure = 0.60 + 0.40 * abs(dot(normalize(world_normal),
+			normalize(-facade_light_direction)));
+	ALBEDO = result * facade_light_gain * exposure;
 	EMISSION = warm_room * occupied * window * (0.08 + room_hash * 0.08);
 }
 """

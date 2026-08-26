@@ -533,6 +533,33 @@ architecture and light pools survive. `StreetCoreVisibilityTest` is 20/20.
 **T7 is complete.** The actual playable north pavement passes the 16.6 ms
 release gate at the ruled resolution, time state and 16/16 lighting budget.
 
+### Persistent neighbour facade contract
+
+The roof and upper windows see neighbour scenery after F01 streaming, so two
+root-owned MultiMeshes retain the surrounding mass and its street-facing
+facades. They are scenery, not a second building simulation: no collision,
+light, interior, resident or shadow caster is added.
+
+One facade shader owns opening, reveal, sash, dark glass and occupied-room
+emission. Room identity is hashed from the window cell and stable MultiMesh
+instance id. It must never depend on per-pixel world position; that old rule
+could split one pane between incompatible room states and make its light miss
+its own window. Daytime occupancy is zero. Morning, evening and night gains
+come from `DayNightDirector`, the same absolute time owner as the exterior key.
+
+The material remains unshaded to avoid adding thousands of shadowed panes, but
+it receives one analytic exposure from the real exterior source direction.
+The same gain reaches the side/rear mass material, so a building cannot have a
+bright facade attached to a coal-black box or remain at its night value in
+daylight. Window reveals and a shallow head shadow supply depth without more
+geometry or submissions.
+
+Queens also does not own a coal-black astronomical horizon. A shallow urban
+airglow band lives inside the existing sky shader, peaks at the horizon and
+falls to zero well below the zenith. It grounds the distant building feet
+without bleaching the measured Milky Way overhead. Cloud extinction and fog
+remain the weather owners; the glow adds no dome, light or draw.
+
 ---
 
 ## 8. Owner rulings, reconciled from the built street 2026-08-14
