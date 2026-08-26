@@ -255,9 +255,12 @@ the rule of cool after physical truth is legible.
 
 1. **PHONE-A — census and ordinary line:** catalog, router contract, lobby board
    and deterministic focused proof.
-2. **PHONE-B — first report through iron:** connect the existing opening report
-   owner to the physical board without duplicate issuance; production-live and
-   opening-shift proof.
+2. **PHONE-B — ordinary iron in production:** place the physical board and
+   router, prove the ordinary line in the real lobby, and prove the existing
+   opening ritual unchanged. Audit correction: the opening report is Mina
+   2A's chirp and Mina owns an intercom, not a subscriber telephone; routing
+   that paper through the house board would lie about both medium and owner.
+   The first story connection waits for a genuine telephone-origin fact.
 3. **PHONE-C — home line and message bureau:** 4B suite set, message custody,
    period-correct unanswered service and first House English learning beat.
 4. **PHONE-D — Rhea's trustworthy/open line:** ordinary 3D operation followed by

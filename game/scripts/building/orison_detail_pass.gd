@@ -31,6 +31,10 @@ const SodaAcidExtinguisherPropScript := preload(
 		"res://scripts/props/soda_acid_extinguisher_prop.gd")
 const DomesticRadioPassScript := preload(
 		"res://scripts/building/domestic_radio_pass.gd")
+const HouseTelephoneNetworkScript := preload(
+		"res://scripts/building/house_telephone_network.gd")
+const HouseSwitchboardPropScript := preload(
+		"res://scripts/props/house_switchboard_prop.gd")
 
 ## SR7-P. WHAT IS ON EACH OF THE EIGHT BACKBOARDS.
 ##
@@ -419,6 +423,31 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])
 		floor_nodes["F01"].add_child(bench)
+		# PHONE-B placement audit. The east service wall is full. The west run
+		# is documented in building_root as 2.72 m of unbroken plaster; its
+		# 1.42 m Orison ad board centred at y -8.29 ends at -7.58. This 0.66 m
+		# board centred at -6.62 spans -6.95..-6.29, leaving 0.63 m between
+		# objects and ending 10 mm before the wall break. Bottom z 1.42 is
+		# 65 mm above the lobby dado cap, while the key remains hand-height.
+		var telephone_line := HouseTelephoneNetworkScript.new()
+		telephone_line.name = "HouseTelephoneNetwork"
+		add_child(telephone_line)
+		var telephone_catalog: Dictionary = JSON.parse_string(
+				FileAccess.get_file_as_string("res://data/house_telephones.json"))
+		for endpoint in telephone_catalog.get("endpoints", []):
+			telephone_line.call("register_endpoint", endpoint)
+		var telephone_board := HouseSwitchboardPropScript.new()
+		telephone_board.name = "F01_HOUSE_TELEPHONE_BOARD"
+		telephone_board.prop_type = "house_switchboard"
+		telephone_board.call("bind_line", telephone_line)
+		# The neighboring ad frame has a proud horizontal stay. Centre x -5.05
+		# leaves the 0.16-deep case's back 40 mm off the -5.17 plaster on
+		# mounting cleats, so the older stay passes behind rather than through
+		# the jack field.
+		telephone_board.position = GameBoot.b2g([-5.05, -6.62, 1.42])
+		# Working face is local -Z; -PI/2 turns it east into the lobby.
+		telephone_board.rotation.y = -PI * 0.5
+		floor_nodes["F01"].add_child(telephone_board)
 	# SR7-K: the watchman's line has two ends on two different floors, so the
 	# network that IS the line is built before either of them.
 	var stations := WatchStationNetworkScript.new()

@@ -20,8 +20,8 @@ func bind_line(owner: Node) -> void:
 
 
 func _build_visual() -> void:
-	make_box(Vector3(0.78, 0.68, 0.16), Vector3(0, 0.34, 0), WOOD)
-	make_box(Vector3(0.70, 0.55, 0.025), Vector3(0, 0.37, -0.095), EBONITE)
+	make_box(Vector3(0.66, 0.68, 0.16), Vector3(0, 0.34, 0), WOOD)
+	make_box(Vector3(0.60, 0.55, 0.025), Vector3(0, 0.37, -0.095), EBONITE)
 	_label("HOUSE  LINE", Vector3(0, 0.642, -0.116), 0.00042)
 	_label("A", Vector3(-0.29, 0.485, -0.121), 0.00032)
 	_label("B", Vector3(-0.29, 0.355, -0.121), 0.00032)

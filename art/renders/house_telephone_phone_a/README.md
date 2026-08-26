@@ -10,9 +10,9 @@ Sequence:
   `0.000000`.
 - `01_asking`: one endpoint asks and the upper answering lamp falls bright;
   against idle RMSE `0.0160153`.
-- `02_answered`: A's listening key is thrown; RMSE `0.0108318`.
+- `02_answered`: A's listening key is thrown; RMSE `0.0107138`.
 - `03_carrying`: the key remains thrown and one cloth cord hangs in a U between
-  the board and trunk; RMSE `0.0146625`.
+  the board and trunk; RMSE `0.0145755`.
 - `04_released`: physical line returned to idle. Whole-frame difference from
   the session-opening control is `0.0029573`; this is not claimed as zero.
 - `05_unanswered`: an asking appearance expires and the apparatus returns to
