@@ -60,14 +60,31 @@ must not normalize new failures.
 
 ## Performance status
 
-The historical eight-station numbers are not promoted to current evidence.
-FULL still consumes its wall-clock ceiling. GoldenLoop now prices its complete
-route at 53.7 s. A fresh windowed eight-station run remains owed after the roof
-seam is isolated; do not mix it with Claude's active Godot lane.
+The historical eight-station numbers are not promoted to current evidence; the
+production harness now owns eleven stations. Its aggregate run warms all eleven
+and can no longer finish under the 60-second ceiling, so current evidence must
+use `PERF_STATION` with one fresh serialized process per camera.
+
+Current 2560×1440 Forward+ rows at the shipping 64-light/16-shadow budget:
+
+| station | objects | calls | primitives | mean ms | fps | status |
+|---|---:|---:|---:|---:|---:|---|
+| lobby | 22,754 | 22,620 | 23,384,479 | 23.81 | 42 | OVER |
+| atrium eye (7 storeys) | 26,276 | 26,143 | 37,219,096 | 33.33 | 30 | OVER |
+
+Both improve on the old indicative map baseline (lobby 28.78 ms; atrium
+41.24 ms), but neither meets 16.6 ms. A diagnostic hidden-fixture guard produced
+a 5.56 ms roof row, but Claude's continuously owned serial lane prevented the
+required fresh-process control; the candidate code was withdrawn and that row
+is **not** production evidence.
+
+FULL still consumes its wall-clock ceiling. GoldenLoop prices its complete
+route at 53.7 s. Nine focused production stations remain owed after SR7-Q
+releases the lane.
 
 ## Next executable order
 
 1. Isolate the monitor-door-to-roof path in a focused physical test.
-2. Re-run FULL and the eight performance stations.
+2. Re-run FULL and finish the remaining nine focused performance stations.
 3. Only then begin K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.
