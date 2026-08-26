@@ -53,6 +53,13 @@ foreach ($line in $filtered) { Write-Output $line }
 if ($engineExit -ne 0) {
     throw "Windows export failed with exit $engineExit."
 }
+$postExportDirty = @(& git -C $repoRoot status --porcelain=v1 --untracked-files=all)
+if ($LASTEXITCODE -ne 0) {
+    throw "Cannot verify the source checkout after export."
+}
+if ($postExportDirty.Count -ne 0) {
+    throw "Godot changed $($postExportDirty.Count) tracked or untracked paths during export; no source manifest will be written."
+}
 foreach ($required in @($exe, $pck)) {
     if (-not (Test-Path -LiteralPath $required -PathType Leaf)) {
         throw "Windows export did not produce $required"

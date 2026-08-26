@@ -7,6 +7,11 @@
 > `.orison_export.json`; the packager refuses an absent, stale or modified
 > export. Historical direct `godot --export-release` commands below describe
 > the original audit and are not the current operator command.
+> The exporter checks cleanliness both before and after Godot. A fresh detached
+> checkout at `88a37a1` exhausted the 60-second lane at 98% reimport, produced
+> no binary, and left tracked `.import` files modified. That is now an open
+> reproducible-source blocker: warm/import the exact release checkout without
+> source mutation before calling this path; do not relax the post-export gate.
 >
 > **INTEGRATION NOTICE — `a8d8d0c`, 2026-08-26:** this runbook was integrated
 > after the Windows export proof. Its historical acceptance table says clean
