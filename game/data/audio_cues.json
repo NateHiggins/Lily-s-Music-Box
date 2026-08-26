@@ -40,6 +40,34 @@
       "caption": "mechanism stops short",
       "graph_transmitted": false
     },
+    "interaction.switch_on": {
+      "stream_key": "tick",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 62,
+      "volume_db": -6.0,
+      "pitch_scale": 1.06,
+      "unit_size": 1.6,
+      "max_distance": 9.0,
+      "cooldown": 0.04,
+      "max_instances": 4,
+      "caption": "switch snaps on",
+      "graph_transmitted": false
+    },
+    "interaction.switch_off": {
+      "stream_key": "tick",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 62,
+      "volume_db": -6.0,
+      "pitch_scale": 0.94,
+      "unit_size": 1.6,
+      "max_distance": 9.0,
+      "cooldown": 0.04,
+      "max_instances": 4,
+      "caption": "switch snaps off",
+      "graph_transmitted": false
+    },
     "state.clockwork_running": {
       "stream_key": "tick",
       "purpose": "state",

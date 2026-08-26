@@ -64,16 +64,8 @@ func build(layout: Dictionary, root: Node3D) -> int:
 					bool(fu.get("bathroom_switch", false)))
 			body.set_meta("wet_clearance",
 					float(fu.get("wet_clearance", -1.0)))
-			# The click is the whole point of a switch. Without it a
-			# plate is a texture you press and a room that changes
-			# behind you.
-			var click := AudioStreamPlayer3D.new()
-			click.name = "Click"
-			click.stream = PropAudio.get_stream("tick")
-			click.volume_db = -6.0
-			click.unit_size = 1.6
-			click.max_distance = 9.0
-			body.add_child(click)
+			# The semantic audio pool answers each plate at its own position;
+			# hundreds of permanent private Click nodes carry no state.
 			body.set_script(preload("res://scripts/building/switch_plate.gd"))
 			body.system = self
 			add_child(body)

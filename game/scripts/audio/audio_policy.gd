@@ -132,7 +132,7 @@ func present_3d(cue_id: StringName, at: Vector3, strength := 1.0,
 			clampf(strength, 0.05, 1.0))
 	voice.unit_size = float(cue.unit_size)
 	voice.max_distance = float(cue.max_distance)
-	voice.pitch_scale = 1.0
+	voice.pitch_scale = float(cue.get("pitch_scale", 1.0))
 	voice.play()
 	var duration := maxf(0.05, stream.get_length())
 	_voice_state[slot] = {"cue_id":cue_id, "priority":int(cue.priority),

@@ -10,14 +10,17 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> void:
-	# The click first, and unconditionally. A toggle brake (an empty room,
+	# The click is unconditional. A toggle brake (an empty room,
 	# a fixture already dead) must still feel like a switch under the
 	# hand — a plate that answers silently reads as broken scenery.
-	var click := get_node_or_null("Click")
-	if click and click is AudioStreamPlayer3D:
-		var player := click as AudioStreamPlayer3D
-		# A real toggle is two different sounds: the throw and the return.
-		player.pitch_scale = randf_range(0.94, 1.06)
-		player.play()
+	var now_on := false
 	if system:
-		system.toggle_room(str(get_meta("room_id", "")))
+		now_on = system.toggle_room(str(get_meta("room_id", "")))
+	# Unlike the old random pitch, throw and return now report the circuit
+	# verdict consistently. The plate remains the physical source.
+	if now_on:
+		AudioPolicy.present_3d(&"interaction.switch_on", global_position,
+				1.0, StringName(name))
+	else:
+		AudioPolicy.present_3d(&"interaction.switch_off", global_position,
+				1.0, StringName(name))
