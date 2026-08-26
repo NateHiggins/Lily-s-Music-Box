@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "register": "house_english",
+  "status": "opening_shift_prototype",
+  "comment": "Controlled alternate-history occupational cant. Historical source, inference and invention must never be collapsed.",
+  "corpus_seeds": {
+    "cahan_levinsky": {"date":"1917", "url":"https://www.gutenberg.org/ebooks/2803", "use":"Immigrant-authored account of English borrowing, status, work and belonging."},
+    "cahan_yekl": {"date":"1896", "url":"https://www.gutenberg.org/ebooks/36715", "use":"Immigrant-authored New York shop speech; evidence for contact and code-switching, not a phonetic template."},
+    "nypl_jewish_press": {"date":"1910s-1920s", "url":"https://www.nypl.org/blog/2020/08/12/nypl-historical-jewish-press-project", "use":"Map of New York Yiddish and Ladino newspaper communities and primary holdings."},
+    "loc_philip_dash": {"date":"1938 retrospective", "url":"https://www.loc.gov/item/wpalh001494/", "use":"Worker life history; occupational rhythm with its later date explicitly marked."}
+  },
+  "terms": {
+    "reported": {"house":"tenant-says", "plain":"reported by the occupant", "kind":"evidence", "origin":"orison_inference"},
+    "visible": {"house":"glass-says", "plain":"directly visible", "kind":"evidence", "origin":"orison_inference"},
+    "signalled": {"house":"line-says", "plain":"indicated over the line", "kind":"evidence", "origin":"orison_inference"},
+    "tested": {"house":"hand-proved", "plain":"physically tested", "kind":"evidence", "origin":"orison_inference"},
+    "corroborated": {"house":"house-says", "plain":"corroborated by building systems", "kind":"evidence", "origin":"orison_invention"},
+    "unreliable_experience": {"house":"dream-says", "plain":"experienced without reliable ownership", "kind":"evidence", "origin":"orison_invention"},
+    "verified_complete": {"house":"square", "plain":"restored and honestly recorded", "kind":"state", "origin":"trade_semantic_extension"},
+    "contradictory": {"house":"cross", "plain":"wrong, obstructed, or contradictory", "kind":"state", "origin":"trade_semantic_extension"},
+    "energized": {"house":"hot", "plain":"energized or pressurized", "kind":"state", "origin":"documented_trade_usage"},
+    "unindicated": {"house":"blind", "plain":"working without trustworthy indication", "kind":"state", "origin":"trade_semantic_extension"},
+    "propagating": {"house":"walking", "plain":"propagating through connected systems", "kind":"state", "origin":"orison_inference"},
+    "dormant": {"house":"sleeping", "plain":"inactive but capable of returning", "kind":"state", "origin":"orison_inference"},
+    "outstanding": {"house":"owing", "plain":"still requiring accountable action", "kind":"state", "origin":"orison_inference"},
+    "in_custody": {"house":"carrying", "plain":"held in a person's custody", "kind":"state", "origin":"trade_semantic_extension"},
+    "radiator": {"house":"heat-iron", "plain":"radiator", "kind":"object", "origin":"orison_invention"},
+    "work_order": {"house":"work-paper", "plain":"work order", "kind":"object", "origin":"orison_invention"},
+    "register_sheet": {"house":"night-paper", "plain":"night register sheet", "kind":"object", "origin":"orison_invention"}
+  }
+}

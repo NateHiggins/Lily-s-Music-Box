@@ -73,6 +73,15 @@ the immediate executable gates, not a second copy of its milestone status.
   prematurely generalize production code or let productization destabilize the
   current game. Living record: `design/ENGINE_KNOWLEDGE_LEDGER.md`.
 
+- **K0-LANGUAGE — ATTENTION MULTIPLIER: HOUSE ENGLISH IS INVESTIGATIVE
+  EQUIPMENT.** Build the source-grounded alternate-history occupational contact
+  language specified in `design/HOUSE_ENGLISH_LANGUAGE_STRATEGY.md`. Prototype
+  only the opening shift first: semantic source records, 10–25 teachable terms,
+  evolving comprehension, plain/parallel accessibility surfaces, resident
+  idiolects and cultural review. Never turn immigrant identity into phonetic
+  caricature, obscure safety/navigation facts, or let presentation own story
+  state. Scale only after blind players infer and act on a novel instruction.
+
 - **K1 — CURRENT-TREE BASELINE — RUN 2026-08-26, RED GATES REMAIN.**
   `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
   lighting green, FAST reproducing its two known failures, and GoldenLoop now
