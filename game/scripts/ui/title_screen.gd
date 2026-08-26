@@ -32,6 +32,8 @@ var _settings_panel: PanelContainer
 var _quality: OptionButton
 var _fullscreen: CheckBox
 var _always_warn: CheckBox
+var _live_local_weather: CheckBox
+var _weather_location: LineEdit
 var _volume: HSlider
 var _record_label: Label
 var _record_note: Label
@@ -190,8 +192,8 @@ func _build_settings() -> void:
 	_settings_panel = PanelContainer.new()
 	_settings_panel.name = "BuildingServices"
 	_settings_panel.set_anchors_preset(Control.PRESET_CENTER)
-	_settings_panel.position = Vector2(-230, -175)
-	_settings_panel.custom_minimum_size = Vector2(460, 350)
+	_settings_panel.position = Vector2(-250, -245)
+	_settings_panel.custom_minimum_size = Vector2(500, 490)
 	_settings_panel.visible = false
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.025, 0.029, 0.034, 0.97)
@@ -233,6 +235,23 @@ func _build_settings() -> void:
 	_always_warn.button_pressed = bool(GameBoot.settings.get(
 			"always_warn_before_sleep", false))
 	box.add_child(_always_warn)
+	_live_local_weather = CheckBox.new()
+	_live_local_weather.name = "LiveLocalWeather"
+	_live_local_weather.text = "MATCH WEATHER TO MY LOCATION"
+	_live_local_weather.tooltip_text = \
+			"Opt in by entering a city or postal code. Otherwise the Orison uses Queens, New York."
+	_live_local_weather.button_pressed = bool(GameBoot.settings.get(
+			"live_local_weather", false))
+	box.add_child(_live_local_weather)
+	_weather_location = LineEdit.new()
+	_weather_location.name = "WeatherLocation"
+	_weather_location.placeholder_text = "CITY OR POSTAL CODE  ·  blank uses Queens"
+	_weather_location.text = str(GameBoot.settings.get(
+			"weather_location_query", ""))
+	_weather_location.editable = _live_local_weather.button_pressed
+	_live_local_weather.toggled.connect(func(enabled: bool):
+		_weather_location.editable = enabled)
+	box.add_child(_weather_location)
 	box.add_child(_label("MASTER VOLUME", 12, Color(0.61, 0.60, 0.55)))
 	_volume = HSlider.new()
 	_volume.min_value = 0.0
@@ -365,6 +384,9 @@ func _save_settings() -> void:
 	GameBoot.settings.quality = _quality.selected
 	GameBoot.settings.fullscreen = _fullscreen.button_pressed
 	GameBoot.settings.always_warn_before_sleep = _always_warn.button_pressed
+	GameBoot.settings.live_local_weather = _live_local_weather.button_pressed
+	GameBoot.settings.weather_location_query = \
+			_weather_location.text.strip_edges()
 	GameBoot.settings.master_volume = _volume.value
 	GameBoot.save_settings()
 	_settings_panel.visible = false

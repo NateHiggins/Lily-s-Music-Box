@@ -19,6 +19,8 @@ const PlanarMirrorRendererScript := preload(
 		"res://scripts/building/planar_mirror_renderer.gd")
 const PeriodRealityLayerScript := preload(
 		"res://scripts/building/period_reality_layer.gd")
+const LiveWeatherServiceScript := preload(
+		"res://scripts/building/live_weather_service.gd")
 
 const FLOOR_SCENES := {
 	"B1": "res://assets/building/floor_b1.gltf",
@@ -243,6 +245,7 @@ var warehouse: PropWarehouse
 var touch: TouchControls
 var service_set_carrier: ServiceSetCarrier
 var weather: WeatherFX
+var live_weather: Node
 var day_night_director: DayNightDirector
 var period_reality: Node3D
 var mina_manifestation: MinaCaptionManifestation
@@ -730,6 +733,10 @@ func _ready() -> void:
 	add_child(weather)
 	weather.build_reflections(layout)
 	day_night_director.bind_weather(weather, exterior_detail_pass)
+	live_weather = LiveWeatherServiceScript.new()
+	live_weather.name = "LiveWeatherService"
+	live_weather.weather_updated.connect(_on_live_weather_updated)
+	add_child(live_weather)
 	period_reality = PeriodRealityLayerScript.new()
 	period_reality.name = "PeriodRealityLayer"
 	add_child(period_reality)
@@ -2562,6 +2569,16 @@ func _point_is_in_passage(p: Vector3) -> bool:
 ## from one height. STREET and the open roof get rain; the atrium, apartments,
 ## basement and the roofed Vantry Arcade do not. This is deliberately the
 ## same Passage predicate as the render/navigation gates.
+func _on_live_weather_updated(snapshot: Dictionary) -> void:
+	var conditions: Dictionary = LiveWeatherServiceScript.presentation(snapshot)
+	day_night_director.set_live_conditions(conditions)
+	weather.set_live_conditions(conditions)
+	print("[WEATHER] live conditions for %s: cloud %.0f%%, precipitation %.2f mm" % [
+			str(snapshot.get("location", {}).get("name", "Queens, New York")),
+			float(snapshot.get("cloud_total", 0.0)) * 100.0,
+			float(snapshot.get("precipitation_mm", 0.0))])
+
+
 func weather_exposure_at(p: Vector3) -> bool:
 	if _point_is_in_passage(p):
 		return false

@@ -32,6 +32,11 @@ var settings := {
 	"quality": 0, # 0 cinematic, 1 balanced
 	"fullscreen": false,
 	"master_volume": 0.82,
+	# Privacy: off means only fixed Queens coordinates are sent for weather.
+	# On means the player-authored city/postal text is geocoded by Open-Meteo.
+	# No IP geolocation or device sensor is used behind this choice.
+	"live_local_weather": false,
+	"weather_location_query": "",
 	# Accessibility: later case profiles may allow a sudden sleep attack, but
 	# this forces the same legible gradual warning Mina teaches first.
 	"always_warn_before_sleep": false,

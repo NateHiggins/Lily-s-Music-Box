@@ -129,6 +129,7 @@ var _pair_key := ""
 var _texture_a: Texture2D
 var _texture_b: Texture2D
 var _last_profile: Dictionary = {}
+var _live_conditions: Dictionary = {}
 
 
 func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,
@@ -167,6 +168,11 @@ func set_weather_flash(level: float) -> void:
 
 func resolved_profile() -> Dictionary:
 	return _last_profile.duplicate(true)
+
+
+func set_live_conditions(conditions: Dictionary) -> void:
+	_live_conditions = conditions.duplicate(true)
+	_apply(_last_minute)
 
 
 func state_texture_paths() -> Dictionary:
@@ -228,6 +234,17 @@ func _apply(minute: float) -> void:
 		"atrium": (a.atrium as Color).lerp(b.atrium, t),
 		"atrium_e": lerpf(a.atrium_e, b.atrium_e, t),
 	}
+	if not _live_conditions.is_empty():
+		var clouds := clampf(float(_live_conditions.get("cloud_total", 0.0)), 0.0, 1.0)
+		var low_clouds := clampf(float(_live_conditions.get("cloud_low", clouds)), 0.0, 1.0)
+		# Current conditions tune the authored panorama rather than replacing it
+		# with another generic or procedural sky.
+		profile.cloud_depth = lerpf(0.04, 0.62, clouds)
+		profile.fog_d *= lerpf(0.72, 1.18, low_clouds)
+		profile.mist.a *= lerpf(0.34, 1.0,
+				maxf(low_clouds, float(_live_conditions.get(
+						"precipitation_intensity", 0.0))))
+		profile["live_weather"] = _live_conditions.duplicate(true)
 	var source_a := _source_direction(a.elevation, a.azimuth)
 	var source_b := _source_direction(b.elevation, b.azimuth)
 	var source_dir := source_a.slerp(source_b, t).normalized()

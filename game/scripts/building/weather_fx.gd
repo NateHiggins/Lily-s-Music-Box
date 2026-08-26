@@ -38,6 +38,7 @@ var _rng := RandomNumberGenerator.new()
 var _seed := 19280731
 var _rain_enabled := true
 var _mist_enabled := true
+var _live_conditions: Dictionary = {}
 
 
 func setup(player: Node3D, exposure_query := Callable(),
@@ -134,6 +135,21 @@ func apply_profile(profile: Dictionary) -> void:
 		_mist_material.set_shader_parameter("mist_color", mist_color)
 
 
+func set_live_conditions(conditions: Dictionary) -> void:
+	_live_conditions = conditions.duplicate(true)
+	if _live_conditions.is_empty():
+		return
+	var wet := bool(_live_conditions.get("wet", false))
+	_rain_enabled = wet and OS.get_environment("WEATHER_RAIN") != "0"
+	_mist_enabled = (wet or float(_live_conditions.get("cloud_low", 0.0)) > 0.68) \
+			and OS.get_environment("WEATHER_MIST") != "0"
+	var speed := float(_live_conditions.get("wind_speed_kmh", 0.0)) / 3.6
+	var bearing := deg_to_rad(float(_live_conditions.get(
+			"wind_direction_degrees", 0.0)))
+	# Meteorological bearings say where wind comes from.
+	wind = Vector3(-sin(bearing), 0.0, cos(bearing)) * speed
+
+
 func is_exposed_at(point: Vector3) -> bool:
 	if _exposure_query.is_valid():
 		return bool(_exposure_query.call(point))
@@ -154,6 +170,7 @@ func diagnostic_snapshot() -> Dictionary:
 		"leaf_count": LEAF_COUNT,
 		"rain_enabled": _rain_enabled,
 		"mist_enabled": _mist_enabled,
+		"live_conditions": _live_conditions.duplicate(true),
 		"exposed": is_exposed_at(_player.global_position) if _player else false,
 		"covered": is_covered_at(_player.global_position) if _player else false,
 		"steady_weather_submissions": 4,
