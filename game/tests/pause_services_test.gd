@@ -23,6 +23,9 @@ func _ready() -> void:
 			and surface.onset_warning.name == "AlwaysWarnBeforeSleep")
 	_check("camera comfort controls are reachable during play",
 			surface.reduce_roll != null and surface.look_sensitivity != null)
+	_check("lightning flash suppression is reachable during play",
+			surface.reduce_flashing != null
+			and surface.reduce_flashing.name == "ReduceFlashing")
 	var prior_roll_setting := bool(GameBoot.settings.reduce_camera_roll)
 	GameBoot.settings.reduce_camera_roll = true
 	_check("reduced motion removes visual roll but not its physical inputs",

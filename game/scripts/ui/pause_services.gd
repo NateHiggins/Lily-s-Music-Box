@@ -17,6 +17,7 @@ var panel: PanelContainer
 var captions: CheckBox
 var onset_warning: CheckBox
 var reduce_roll: CheckBox
+var reduce_flashing: CheckBox
 var look_sensitivity: HSlider
 var sliders: Dictionary = {}
 var is_open := false
@@ -134,6 +135,12 @@ func _build() -> void:
 	reduce_roll.tooltip_text = \
 			"Keeps traffic impacts and altered gravity physical without rolling the view."
 	box.add_child(reduce_roll)
+	reduce_flashing = CheckBox.new()
+	reduce_flashing.name = "ReduceFlashing"
+	reduce_flashing.text = "SUPPRESS LIGHTNING FLASHES"
+	reduce_flashing.tooltip_text = \
+			"Weather remains truthful, but lightning no longer flashes the sky or street."
+	box.add_child(reduce_flashing)
 	box.add_child(_label("LOOK SENSITIVITY", 11, Color("9c998e")))
 	look_sensitivity = HSlider.new()
 	look_sensitivity.name = "LookSensitivity"
@@ -164,6 +171,8 @@ func _load_controls() -> void:
 			"always_warn_before_sleep", false))
 	reduce_roll.button_pressed = bool(GameBoot.settings.get(
 			"reduce_camera_roll", false))
+	reduce_flashing.button_pressed = bool(GameBoot.settings.get(
+			"reduce_flashing", false))
 	look_sensitivity.value = float(GameBoot.settings.get("look_sensitivity", 1.0))
 
 
@@ -185,6 +194,7 @@ func _store_controls() -> void:
 	GameBoot.settings.dream_directional_captions = captions.button_pressed
 	GameBoot.settings.always_warn_before_sleep = onset_warning.button_pressed
 	GameBoot.settings.reduce_camera_roll = reduce_roll.button_pressed
+	GameBoot.settings.reduce_flashing = reduce_flashing.button_pressed
 	GameBoot.settings.look_sensitivity = look_sensitivity.value
 	GameBoot.save_settings()
 	var policy := get_node_or_null("/root/AudioPolicy")

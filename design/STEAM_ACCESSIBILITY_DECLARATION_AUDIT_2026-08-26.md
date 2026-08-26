@@ -25,8 +25,9 @@ Valve's own stated requirement.
 
 **Post-audit implementation update:** the in-game Building Services surface now
 also exposes the gradual sleep warning, look sensitivity, and a reduced-camera-
-roll option. Focus/manual coverage is still unverified, so this update does not
-add a Steam declaration by itself.
+roll option, plus suppression of lightning flashes without changing reported
+weather. Focus/manual coverage is still unverified, so this update does not add
+a Steam declaration by itself.
 
 ---
 
@@ -298,7 +299,7 @@ No dates and no implementation are proposed.
 | **B1 — CLOSED IN CODE, MANUAL REACH PENDING** | **Sleep-onset warning was title-screen only** | The in-game panel now exposes the same persistent setting; controller/keyboard focus still needs manual verification |
 | **B2** | **Controller is two shoulder buttons** | Not an accessibility label, but a claim a store page or press kit would make almost reflexively, and it would be false |
 | **B3** | **Subtitle coverage is unverified** | We cannot say what fraction of meaningful audio is captioned. Until someone plays the shift and lists every uncaptioned beat, no subtitle claim is available |
-| **B4** | **Uncontrolled lightning flash** | Photosensitivity has no label in Valve's list, so it will not appear on the store page — which makes it a duty of care rather than a compliance item |
+| **B4 — CLOSED IN CODE, MANUAL COVERAGE PENDING** | **Lightning flash lacked a suppression control** | Building Services now suppresses the visual sky/street flash while leaving the thunderstorm condition intact. Photosensitivity still has no Valve label, so manual route verification remains a duty of care rather than a form requirement. |
 | **B5 — CLOSED IN CODE, MANUAL COVERAGE PENDING** | **Event-driven camera roll lacked reduction and look lacked sensitivity** | The in-game panel now exposes both. Reduced roll suppresses only the camera presentation; traffic shove and altered-gravity state remain physical. A human still must verify every release-route camera owner before *Camera Comfort* may be declared. |
 
 **Post-launch improvements** (would each unlock a label, none blocks honesty):

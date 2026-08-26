@@ -178,10 +178,17 @@ func set_tuning_offsets(ambient_gain: float, fog_gain: float,
 
 
 func set_weather_flash(level: float) -> void:
+	level = visible_weather_flash(level)
 	if _sky:
 		_sky.set_shader_parameter("weather_flash", clampf(level, 0.0, 1.0))
 	if _exterior:
 		_exterior.set_weather_flash(level)
+
+
+func visible_weather_flash(level: float) -> float:
+	if bool(GameBoot.settings.get("reduce_flashing", false)):
+		return 0.0
+	return clampf(level, 0.0, 1.0)
 
 
 func resolved_profile() -> Dictionary:
