@@ -14,6 +14,14 @@
 > 4/4). O1 and the code-side half of O8 are closed. The exact Windows-resolved
 > path and uninstall/removal instructions still require one real exported run;
 > no previous development save directory was deleted or silently migrated.
+>
+> **PACKAGING CONTRACT CORRECTION:** the earlier template required the final
+> ZIP SHA-256 inside `BUILD_ID.txt`. That is self-referential: inserting a ZIP
+> hash changes the ZIP and therefore changes its hash. The canonical contract
+> is now EXE and PCK hashes inside `BUILD_ID.txt`, plus the final ZIP hash in a
+> sibling `<archive>.zip.sha256` file. `tools/package_friends_build.ps1`
+> enforces the exact five-file payload, refuses overwrite/reused build numbers,
+> requires an owner-supplied license path, and writes the external sidecar.
 
 **Purpose:** the smallest honest distribution path for a private friends build,
 beginning the moment Codex supplies a working Windows export preset. This
