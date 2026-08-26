@@ -23,6 +23,11 @@ accessibility label — **Custom Volume Controls** — with **Stereo Sound**
 pending manual verification. Everything else is absent, narrow, or fails
 Valve's own stated requirement.
 
+**Post-audit implementation update:** the in-game Building Services surface now
+also exposes the gradual sleep warning, look sensitivity, and a reduced-camera-
+roll option. Focus/manual coverage is still unverified, so this update does not
+add a Steam declaration by itself.
+
 ---
 
 ## 1. Volume controls
@@ -52,7 +57,8 @@ lower weather without lowering room tone and machinery with it.
 | --- | --- | --- |
 | six volume sliders | ✔ | ✔ |
 | sound-caption switch | ✔ | ✔ |
-| **sleep-onset warning** | ✔ `_always_warn` | **✘ absent** |
+| **sleep-onset warning** | ✔ `_always_warn` | ✔ `AlwaysWarnBeforeSleep` |
+| look sensitivity / reduced camera roll | ✘ | ✔ |
 | fullscreen | ✔ | ✘ |
 | quality | ✔ | ✘ |
 | local-weather consent | ✔ | ✘ |
@@ -289,11 +295,11 @@ No dates and no implementation are proposed.
 
 | # | Gap | Why it blocks a credible declaration |
 | --- | --- | --- |
-| **B1** | **Sleep-onset warning is title-screen only** | The game's central mechanic has an accessibility option a player cannot reach once they need it. Adding it to the in-game panel costs one control on a surface that already exists |
+| **B1 — CLOSED IN CODE, MANUAL REACH PENDING** | **Sleep-onset warning was title-screen only** | The in-game panel now exposes the same persistent setting; controller/keyboard focus still needs manual verification |
 | **B2** | **Controller is two shoulder buttons** | Not an accessibility label, but a claim a store page or press kit would make almost reflexively, and it would be false |
 | **B3** | **Subtitle coverage is unverified** | We cannot say what fraction of meaningful audio is captioned. Until someone plays the shift and lists every uncaptioned beat, no subtitle claim is available |
 | **B4** | **Uncontrolled lightning flash** | Photosensitivity has no label in Valve's list, so it will not appear on the store page — which makes it a duty of care rather than a compliance item |
-| **B5** | **Event-driven camera roll has no reduction control and look has no sensitivity control** | Blocks *Camera Comfort*. The always-on breathing motion belongs to the held service lamp, not the camera; traffic stagger and altered gravity are the uncontrolled camera motions. |
+| **B5 — CLOSED IN CODE, MANUAL COVERAGE PENDING** | **Event-driven camera roll lacked reduction and look lacked sensitivity** | The in-game panel now exposes both. Reduced roll suppresses only the camera presentation; traffic shove and altered-gravity state remain physical. A human still must verify every release-route camera owner before *Camera Comfort* may be declared. |
 
 **Post-launch improvements** (would each unlock a label, none blocks honesty):
 text scaling → *Adjustable Text Size*; subtitle background/scale + full coverage

@@ -16,6 +16,8 @@ var player: Node
 var panel: PanelContainer
 var captions: CheckBox
 var onset_warning: CheckBox
+var reduce_roll: CheckBox
+var look_sensitivity: HSlider
 var sliders: Dictionary = {}
 var is_open := false
 var _mouse_before := Input.MOUSE_MODE_CAPTURED
@@ -126,6 +128,19 @@ func _build() -> void:
 	onset_warning.tooltip_text = \
 			"Uses the legible gradual warning for every sleep onset."
 	box.add_child(onset_warning)
+	reduce_roll = CheckBox.new()
+	reduce_roll.name = "ReduceCameraRoll"
+	reduce_roll.text = "REDUCE CAMERA ROLL"
+	reduce_roll.tooltip_text = \
+			"Keeps traffic impacts and altered gravity physical without rolling the view."
+	box.add_child(reduce_roll)
+	box.add_child(_label("LOOK SENSITIVITY", 11, Color("9c998e")))
+	look_sensitivity = HSlider.new()
+	look_sensitivity.name = "LookSensitivity"
+	look_sensitivity.min_value = 0.25
+	look_sensitivity.max_value = 2.0
+	look_sensitivity.step = 0.05
+	box.add_child(look_sensitivity)
 	var apply := Button.new()
 	apply.name = "ApplyAndReturn"
 	apply.text = "APPLY AND RETURN TO THE NIGHT"
@@ -147,6 +162,9 @@ func _load_controls() -> void:
 			"dream_directional_captions", false))
 	onset_warning.button_pressed = bool(GameBoot.settings.get(
 			"always_warn_before_sleep", false))
+	reduce_roll.button_pressed = bool(GameBoot.settings.get(
+			"reduce_camera_roll", false))
+	look_sensitivity.value = float(GameBoot.settings.get("look_sensitivity", 1.0))
 
 
 func _preview(value: float, key: String) -> void:
@@ -166,6 +184,8 @@ func _store_controls() -> void:
 	GameBoot.settings.gameplay_sound_captions = captions.button_pressed
 	GameBoot.settings.dream_directional_captions = captions.button_pressed
 	GameBoot.settings.always_warn_before_sleep = onset_warning.button_pressed
+	GameBoot.settings.reduce_camera_roll = reduce_roll.button_pressed
+	GameBoot.settings.look_sensitivity = look_sensitivity.value
 	GameBoot.save_settings()
 	var policy := get_node_or_null("/root/AudioPolicy")
 	if policy:

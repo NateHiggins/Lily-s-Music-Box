@@ -508,8 +508,10 @@ func _measure_throw() -> void:
 func apply_look(rel: Vector2) -> void:
 	if call_locked:
 		return
-	rotate_y(-rel.x * MOUSE_SENS)
-	camera.rotate_x(-rel.y * MOUSE_SENS)
+	var sensitivity := clampf(float(GameBoot.settings.get(
+			"look_sensitivity", 1.0)), 0.25, 2.0)
+	rotate_y(-rel.x * MOUSE_SENS * sensitivity)
+	camera.rotate_x(-rel.y * MOUSE_SENS * sensitivity)
 	# The hand trails the view. One look path in, one hand lag out, so
 	# a mouse and a dragged thumb can never disagree about it.
 	if carried_device and carried_device.has_method("apply_look"):
@@ -968,8 +970,9 @@ func _physics_process(delta: float) -> void:
 		gravity_direction = Vector3.DOWN
 	up_direction = -gravity_direction
 	var stagger_weight := clampf(_stagger_left / STAGGER_SECONDS, 0.0, 1.0)
-	camera.rotation.z = lerpf(camera.rotation.z,
-			-gravity_direction.x * 0.42 + _stagger_roll * stagger_weight,
+	var roll_target := resolved_camera_roll(gravity_direction,
+			_stagger_roll * stagger_weight)
+	camera.rotation.z = lerpf(camera.rotation.z, roll_target,
 			minf(1.0, delta * (10.0 if _stagger_left > 0.0 else 4.5)))
 	var speed := CROUCH_SPEED if crouched \
 			else (RUN if Input.is_action_pressed("run") else WALK)
@@ -995,6 +998,13 @@ func _physics_process(delta: float) -> void:
 		if _stagger_left <= 0.0:
 			_stagger_velocity = Vector3.ZERO
 			_stagger_roll = 0.0
+
+
+func resolved_camera_roll(gravity_direction: Vector3,
+		stagger_roll: float) -> float:
+	if bool(GameBoot.settings.get("reduce_camera_roll", false)):
+		return 0.0
+	return -gravity_direction.x * 0.42 + stagger_roll
 
 
 ## A step is measured after collision resolution. Animation and footstep

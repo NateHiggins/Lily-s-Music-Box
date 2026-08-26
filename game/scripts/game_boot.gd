@@ -37,6 +37,8 @@ var settings := {
 	"world_volume": 1.0,
 	"music_volume": 1.0,
 	"ui_volume": 1.0,
+	"look_sensitivity": 1.0,
+	"reduce_camera_roll": false,
 	# Privacy: off means only fixed Queens coordinates are sent for weather.
 	# On means the player-authored city/postal text is geocoded by Open-Meteo.
 	# No IP geolocation or device sensor is used behind this choice.

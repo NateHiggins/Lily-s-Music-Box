@@ -21,6 +21,21 @@ func _ready() -> void:
 	_check("sleep warning accessibility is reachable during play",
 			surface.onset_warning != null
 			and surface.onset_warning.name == "AlwaysWarnBeforeSleep")
+	_check("camera comfort controls are reachable during play",
+			surface.reduce_roll != null and surface.look_sensitivity != null)
+	var prior_roll_setting := bool(GameBoot.settings.reduce_camera_roll)
+	GameBoot.settings.reduce_camera_roll = true
+	_check("reduced motion removes visual roll but not its physical inputs",
+			is_zero_approx(owner.resolved_camera_roll(Vector3(0.7, -0.7, 0), 0.08)))
+	GameBoot.settings.reduce_camera_roll = prior_roll_setting
+	var prior_sensitivity := float(GameBoot.settings.look_sensitivity)
+	GameBoot.settings.look_sensitivity = 0.5
+	owner.rotation.y = 0.0
+	owner.apply_look(Vector2(100.0, 0.0))
+	_check("look sensitivity scales the one mouse and touch look path",
+			is_equal_approx(owner.rotation.y, -0.115))
+	owner.rotation.y = 0.0
+	GameBoot.settings.look_sensitivity = prior_sensitivity
 	surface.sliders.gameplay_volume.value = 0.13
 	surface.close(false)
 	_check("return resumes the night", not get_tree().paused and not surface.is_open)
