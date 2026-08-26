@@ -23,6 +23,14 @@ func _ready() -> void:
 	_check("the real title replaces the maintenance placeholder",
 			screen.find_child("GameTitle", true, false).text \
 			== "PLEASE\nREMAIN ON\nTHE LINE")
+	_check("title establishes keyboard and controller focus",
+			screen._first_menu_button.has_focus())
+	screen._open_settings()
+	_check("building services takes focus when opened",
+			screen._quality.has_focus())
+	screen._close_settings()
+	_check("closing services returns focus to its launcher",
+			screen._services_button.has_focus())
 	_check("two complete title masters are installed", screen._tracks.size() == 2)
 	_check("Escapement Failure retains its full 112.58 second form",
 			is_equal_approx(screen._tracks[0].get_length(), 112.576875))

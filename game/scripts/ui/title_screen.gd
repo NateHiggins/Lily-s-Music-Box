@@ -29,6 +29,8 @@ var _track_notes := [
 var _hero_art: TextureRect
 var _shade: TextureRect
 var _settings_panel: PanelContainer
+var _first_menu_button: Button
+var _services_button: Button
 var _quality: OptionButton
 var _fullscreen: CheckBox
 var _always_warn: CheckBox
@@ -61,6 +63,7 @@ func _ready() -> void:
 	_build_menu()
 	_build_settings()
 	_build_music()
+	_first_menu_button.grab_focus()
 	get_viewport().size_changed.connect(_place_backdrop)
 	_place_backdrop()
 
@@ -182,10 +185,9 @@ func _build_menu() -> void:
 	_record_button = _add_button(menu, "", _toggle_record, true)
 	_record_button.name = "RecordSwitch"
 	menu.add_child(HSeparator.new())
-	_add_button(menu, "BEGIN THE NIGHT", _new_game)
+	_first_menu_button = _add_button(menu, "BEGIN THE NIGHT", _new_game)
 	_add_button(menu, "DEBUG BUILDING", _debug_game)
-	_add_button(menu, "BUILDING SERVICES", func():
-		_settings_panel.visible = true)
+	_services_button = _add_button(menu, "BUILDING SERVICES", _open_settings)
 
 	var foot := _label(
 			"AN ORISON PROPERTY  ·  EST. 1912\nPARTIALLY REOPENED 1928",
@@ -288,7 +290,17 @@ func _build_settings() -> void:
 	_music_volume = _add_volume_control(mix, "MUSIC", "music_volume")
 	_ui_volume = _add_volume_control(mix, "INTERFACE", "ui_volume")
 	_add_button(box, "APPLY", _save_settings)
-	_add_button(box, "BACK", func(): _settings_panel.visible = false)
+	_add_button(box, "BACK", _close_settings)
+
+
+func _open_settings() -> void:
+	_settings_panel.visible = true
+	_quality.grab_focus()
+
+
+func _close_settings() -> void:
+	_settings_panel.visible = false
+	_services_button.grab_focus()
 
 
 func _build_music() -> void:
@@ -449,7 +461,7 @@ func _save_settings() -> void:
 	GameBoot.settings.music_volume = _music_volume.value
 	GameBoot.settings.ui_volume = _ui_volume.value
 	GameBoot.save_settings()
-	_settings_panel.visible = false
+	_close_settings()
 
 
 func _place_backdrop() -> void:
@@ -484,4 +496,4 @@ func _format_time(seconds: float) -> String:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and _settings_panel.visible:
-		_settings_panel.visible = false
+		_close_settings()
