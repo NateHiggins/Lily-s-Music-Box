@@ -83,6 +83,7 @@ func _ensure_bus() -> void:
 		AudioServer.add_bus()
 		index = AudioServer.bus_count - 1
 		AudioServer.set_bus_name(index, "GhostRadio")
+	AudioServer.set_bus_send(index, "Diegetic")
 	AudioServer.set_bus_volume_db(index, -2.0)
 	if AudioServer.get_bus_effect_count(index) == 0:
 		var low_pass := AudioEffectLowPassFilter.new()

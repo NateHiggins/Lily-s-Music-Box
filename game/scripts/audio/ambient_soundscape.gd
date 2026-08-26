@@ -53,6 +53,7 @@ func _ensure_bus() -> void:
 		AudioServer.add_bus()
 		AudioServer.set_bus_name(AudioServer.bus_count - 1, "Ambience")
 	var bus := AudioServer.get_bus_index("Ambience")
+	AudioServer.set_bus_send(bus, "World")
 	AudioServer.set_bus_volume_db(bus, -6.0)
 
 

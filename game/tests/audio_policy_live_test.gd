@@ -145,6 +145,12 @@ func _prove_production_bus_census(root: Node) -> void:
 		print("[AUDIO POLICY LIVE] MASTER PATHS %s" % ", ".join(master_paths))
 	_check("all %d production audio players declare a bus" % players.size(),
 			master_paths.is_empty())
+	_check("processed ambience rejoins the canonical World mix",
+			AudioServer.get_bus_send(AudioServer.get_bus_index("Ambience"))
+			== "World")
+	_check("processed ghost radio rejoins canonical diegetic music",
+			AudioServer.get_bus_send(AudioServer.get_bus_index("GhostRadio"))
+			== "Diegetic")
 
 
 func _collect_audio_players(node: Node, out: Array[Node]) -> void:
