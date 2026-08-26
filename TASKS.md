@@ -27,15 +27,33 @@ quietly removing it.
 Product authority: `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`. These are
 the immediate executable gates, not a second copy of its milestone status.
 
+- **K0-ENGINE — PRIORITY / CONTINUOUS: WRITE THE ENGINE WE ARE DISCOVERING.**
+  Treat this project as an evidence-producing engine-development programme,
+  not only a game. Beginning now, maintain a durable, source-linked knowledge
+  ledger covering: subsystem ownership and contracts; data-driven construction
+  patterns; deterministic simulation and save boundaries; rendering,
+  performance and proof instrumentation; content/compiler pipelines; test and
+  render-sheet methods; failed approaches and why they failed; Godot-specific
+  constraints; what is Orison-specific versus reusable; and the seams that
+  would need stable APIs, documentation, packaging, licensing and support to
+  become a standalone tool. Record decisions when learned, with commit/test/
+  measurement evidence and migration cautions. Before the next project, turn
+  the ledger into an engine requirements document and extraction plan; do not
+  prematurely generalize production code or let productization destabilize the
+  current game.
+
 - **K1 — CURRENT-TREE BASELINE — RUN 2026-08-26, RED GATES REMAIN.**
   `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
   lighting green, FAST reproducing its two known failures, and GoldenLoop now
-  passing 87/87 in 53.7 s with permanent phase timings. FULL still times out
-  after reproducing the same two failures, but its roof route is repaired: the
-  generated stair leaf now swings with egress and the body reaches z=4.5.
-  Focused 1440p performance has lobby at 23.81 ms and atrium at 33.33 ms; nine
-  of the current eleven stations remain to measure. Finish the focused table
-  and recover FULL's final verdict before closing K1.
+  passing 87/87 in 53.7 s with permanent phase timings. FULL is now honestly
+  split into physical and all-cases production shards; both print final
+  verdicts beneath 60 s and reproduce only the same two failures. The roof
+  route reaches z=4.5 and the lift proof carries its rider on one real trip.
+  The current eleven-station focused 1440p table is complete: seven pass; lobby
+  23.81 ms, atrium 33.33 ms, street 27.45 ms and corridor F04 16.67 ms breach
+  the strict 16.6 ms target. The other interiors, roof and all three Passage
+  views pass. Triage those concentrated long-view submission breaches before
+  closing K1; FULL verdict recovery itself is complete.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the
   exact first missing or unclear player-facing transition; do not infer it from

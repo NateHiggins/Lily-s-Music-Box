@@ -1,7 +1,7 @@
 # Current-tree baseline — 2026-08-26
 
-Checkpoint under test: `14a47cd` plus the subsequently verified tentacle
-tree-order correction committed with this report. Platform: Windows,
+Checkpoint under test: pushed `f7db405` plus the K1 release-gate corrections
+committed with this report. Platform: Windows,
 Godot 4.7.1 Forward+, one serialized instance through
 `tools/run_godot_serial.ps1`, 60-second process ceiling. Engine output was
 redirected to temporary logs and only verdict/error lines were reviewed.
@@ -15,8 +15,9 @@ what is inherited, and what now blocks the integrated golden-shift gate.
 |---|---|---|
 | `FirstShiftOpeningLiveTest` | **PASS, 0 failures** | Production arrival, watch apparatus and opening-report route complete under the ceiling. |
 | `LightingAudit` | **PASS** | 127 spaces; 11 intentionally ambient/dark. |
-| `WalkTest` FAST, x8/480 | **FAIL, 2** | The established authored-job/chirp expectation and boiler 23-mesh merge failures reproduce. No new FAST failure. |
-| `WalkTest` FULL, x8/480 | **TIMEOUT / 2 established failures** | The stair leaf now swings with egress and the physical body reaches the roof at z=4.5. The two FAST failures recur; the process still reaches the 60-second ceiling before a final suite verdict. |
+| `WalkTest` FAST, x4/240 | **FAIL, 2; verdict printed** | The established authored-job/chirp expectation and boiler 23-mesh merge failures reproduce. No new FAST failure. |
+| `WalkTest` FULL-PHYSICAL, x4/240 | **FAIL, 2; verdict printed** | Completes the physical route, rider-carrying lift trip, Case 01, street, roof and Room 0 under 60 s. Only the two established failures recur. |
+| `WalkTest` FULL-CASES, x4/240 | **FAIL, 2; verdict printed** | Completes all eight calls, convergence, broadcast, Evelyn and sanity in a complementary production boot under 60 s. Only the two established failures recur. |
 | `GoldenLoopTest` | **PASS, 87/87** | Timed phase markers measured an 18.1 s boot and symmetric 16.4/16.1 s physical travel legs. Matching the established x4/240 solver discipline and retaining a 57 s internal guard completes in 53.7 s beneath the runner's hard 60 s ceiling. |
 | `DreamTentacleTest` after correction | **PASS, 27/27** | The deterministic pre-tree global-transform engine error is gone; an unrelated resident-navigation error can still be emitted by the production scene. |
 
@@ -41,6 +42,20 @@ safe change—x4/240—keeps capsule displacement per physics step stable. Its
 permanent block timings show boot 18.1 s, outbound 16.4 s, return 16.1 s and all
 remaining logic under 1.7 s. The internal guard is 57 s, still subordinate to
 the runner's non-negotiable 60 s process ceiling.
+
+WalkTest's monolithic FULL was also measurement debt. Permanent phase markers
+showed that its physical prefix and its eight authored call performances were
+both healthy but could not share one 60-second process. Random resident lift
+use added more than twenty seconds because independent service was taken only
+after a resident trip began. FULL now takes the service key before simulation,
+combines its duplicate empty and occupied shaft trips into one real
+rider-carrying F01→F06 journey, and exposes a production-neutral test travel
+multiplier. `CallInterface.fast_factor` makes the existing test hook explicit;
+shipping remains 1.0 while WalkTest uses 0.02 and still observes every verb,
+consequence and transition. The release proof is honestly sharded: PHYSICAL
+owns traversal through Case 01/Room 0; CASES owns the complete call and
+presentation batch. Both boot production independently, print verdicts, and
+together retain the former coverage without relaxing the runner ceiling.
 
 ### Runtime errors that are not yet gate failures
 
@@ -74,21 +89,37 @@ Current 2560×1440 Forward+ rows at the shipping 64-light/16-shadow budget:
 |---|---:|---:|---:|---:|---:|---|
 | lobby | 22,754 | 22,620 | 23,384,479 | 23.81 | 42 | OVER |
 | atrium eye (7 storeys) | 26,276 | 26,143 | 37,219,096 | 33.33 | 30 | OVER |
+| corridor F04 | 15,685 | 15,685 | 18,333,849 | 16.67 | 60 | OVER |
+| apartment 4B | 4,082 | 4,082 | 5,774,976 | 11.67 | 85.7 | PASS |
+| street elevation | 17,480 | 17,480 | 13,133,510 | 27.45 | 36.4 | OVER |
+| roof | 2,466 | 2,466 | 662,076 | 6.25 | 160 | PASS |
+| Harukiya (16 fixtures) | 5,327 | 5,067 | 6,266,534 | 11.67 | 85.7 | PASS |
+| arcade cluster (5 live) | 3,747 | 3,484 | 5,143,404 | 10.00 | 100 | PASS |
+| Passage throat reveal | 3,158 | 2,898 | 945,578 | 8.33 | 120 | PASS |
+| Passage hall southbound | 3,590 | 3,184 | 903,974 | 9.26 | 108 | PASS |
+| Passage hall northbound | 6,166 | 6,024 | 3,704,731 | 11.11 | 90 | PASS |
 
-Both improve on the old indicative map baseline (lobby 28.78 ms; atrium
-41.24 ms), but neither meets 16.6 ms. A diagnostic hidden-fixture guard produced
-a 5.56 ms roof row, but Claude's continuously owned serial lane prevented the
-required fresh-process control; the candidate code was withdrawn and that row
-is **not** production evidence.
+Lobby and atrium improve on the old indicative map baseline (28.78 ms and
+41.24 ms respectively), but neither meets 16.6 ms. Corridor F04 sits on the
+boundary but fails the strict target at 16.67 ms. Street elevation is the third
+clear hotspot at 27.45 ms, while apartment 4B, Harukiya, the arcade cluster and
+two Passage views and the unmodified production roof all pass. This concentrates
+the current breach in lobby/atrium/street long views rather than Passage content,
+separates exterior composition cost from Harukiya's sixteen fixtures, and
+supersedes the earlier unpaired hidden-fixture diagnostic with no license for
+that withdrawn candidate.
 
-FULL still consumes its wall-clock ceiling. GoldenLoop prices its complete
-route at 53.7 s. Nine focused production stations remain owed after SR7-Q
-releases the lane.
+Both FULL shards now print final verdicts below the wall-clock ceiling.
+GoldenLoop prices its complete route at 53.7 s. All eleven focused stations are
+now priced. Four breach the
+strict 16.6 ms target: lobby, atrium, corridor F04 by 0.07 ms, and street
+elevation. The remaining seven pass. Serialized measurement was interleaved
+with Claude's K2-A proof runs without contention.
 
 ## Next executable order
 
-1. Finish the remaining nine focused performance stations.
-2. Profile why FULL cannot print its final verdict beneath the ceiling even
-   after its physical route assertions complete.
-3. Begin K2's human fresh-save playthrough and K3's eleven-boundary
+1. Triage the concentrated lobby/atrium/street submission breaches; treat
+   corridor F04's 0.07 ms overage as a boundary measurement, not equal to the
+   three clear hotspots.
+2. Continue K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.

@@ -6,12 +6,17 @@ extends Node
 ## WALKTEST_FULL=1 adds the slow physical walks, elevator rides and case
 ## simulations for release gates. Making every mesh edit wait for those
 ## authored performances trained people to stop running the test at all.
+## WALKTEST_CASES=1 runs the complementary production case/presentation shard.
+## Each shard boots the same scene and prints its own verdict under the hard
+## 60-second process ceiling; together they retain the former monolithic FULL.
 ## Exits with the failure count as exit code.
 
 var root: Node3D
 var _failures := 0
 var _arrivals := {}
-var _full := OS.get_environment("WALKTEST_FULL") == "1"
+var _cases_only := OS.get_environment("WALKTEST_CASES") == "1"
+var _full := OS.get_environment("WALKTEST_FULL") == "1" or _cases_only
+var _wall_mark_ms := 0
 ## HOW FAST THE CLOCK RUNS. The FULL pass is gated on a body physically
 ## walking the building at 2.8 m/s — up the stair, round two flats, into
 ## the lift and back — and every metre of that was wall-clock time
@@ -120,12 +125,22 @@ func _ready() -> void:
 
 
 func _run() -> void:
+	_wall_mark_ms = Time.get_ticks_msec()
 	Engine.time_scale = _scale
 	Engine.physics_ticks_per_second = int(round(BASE_TICKS * _scale))
 	print("[WALKTEST] %s mode, sim x%.1f (%d Hz physics)"
-			% ["FULL" if _full else "FAST", _scale,
+			% ["FULL-CASES" if _cases_only else ("FULL-PHYSICAL" if _full else "FAST"), _scale,
 			Engine.physics_ticks_per_second])
+	# Take the independent-service key before the first simulated frame. Taking
+	# it only when the elevator assertions began allowed a resident's random
+	# boot route to start a full-height trip first; the inspection then waited
+	# behind that trip and varied by more than twenty wall seconds. Residents
+	# still roam throughout the physical walk, but correctly receive no hall
+	# calls while maintenance holds the car.
+	if _full:
+		root.elevator.service_mode = true
 	await get_tree().create_timer(0.6).timeout
+	_phase("production boot")
 	root.show_all_floors = true
 	# The sanity director moves furniture and rewrites light energies on its
 	# own schedule, which is exactly what the lighting and prop assertions
@@ -244,6 +259,12 @@ func _run() -> void:
 	_entrance_marquee_check()
 	if not _full:
 		await _finish("FAST")
+		return
+	_phase("shared assertions")
+	if _cases_only:
+		await _vertical_slice_checks()
+		_phase("vertical-slice assertions")
+		await _finish("FULL-CASES")
 		return
 	# Placeholders land at the centre of each resident's main room, which is
 	# where the door-to-bedroom route runs. Solid ones block it, and the
@@ -452,6 +473,7 @@ func _run() -> void:
 	_check(pl0.global_position.z < 1.1 and pl0.global_position.y < -2.0,
 			"reading nook reached on foot at the tree's base (z=%.2f)"
 			% pl0.global_position.z)
+	_phase("reading nook walk")
 
 	# --- south corridor -> elevator hall -> atrium deck -> up the west
 	# flight to the north landing -> east flight onto the F02 deck
@@ -469,6 +491,7 @@ func _run() -> void:
 	_check(pl.global_position.y > 2.9,
 			"atrium stair climbed corridor-to-corridor (y=%.2f)"
 			% pl.global_position.y)
+	_phase("atrium stair walk")
 
 	# --- physical movement sweep: corridor ring loop on F02, then into
 	# 2A and through the RELOCATED bedroom door (the audit's biggest find)
@@ -522,6 +545,7 @@ func _run() -> void:
 	_check(pl.global_position.z > 6.8,
 			"2A bedroom reached through its own door (z=%.2f)"
 			% pl.global_position.z)
+	_phase("F02 ring and 2A walk")
 
 	# every fixture must hang from its own storey's ceiling — a fixture
 	# low over its floor means it punched through into the level above
@@ -639,13 +663,12 @@ func _run() -> void:
 			func(streamed_door): return not streamed_door.visible),
 			"closed-storey doors leave the render and shadow passes")
 	root.show_all_floors = true
+	_phase("streaming assertions")
 
 	# --- elevator travel across full range
-	# Residents roam from boot now and share the car; the inspection takes
-	# the independent-service key (hall calls refused), waits out any trip
-	# in progress, and parks the car at F01 so the sequence is its own.
+	# The inspection took the independent-service key before simulation began
+	# (hall calls refused), then parks the car at F01 so the sequence is its own.
 	var ele: OrisonElevator = root.elevator
-	ele.service_mode = true
 	await _until(func(): return not ele.moving, 30.0)
 	if ele.current != "F01":
 		ele.travel_to("F01")
@@ -659,8 +682,15 @@ func _run() -> void:
 			_check(ele._doors[lvl]["t"] < 0.01,
 					"landing %s is closed off while the car is elsewhere" % lvl)
 			break
-	ele.travel_to("F06")
+	# Carry the rider on this full-height trip. The former sequence ran it
+	# empty, then repeated the shaft F06 -> B1 only to prove cabin carriage.
+	var pl2: PlayerController = root.player
+	pl2.global_position = ele._cabin.global_position + Vector3(0, 0.9, 0)
+	pl2.velocity = Vector3.ZERO
 	await get_tree().physics_frame
+	var rode_from := pl2.global_position.y
+	ele.test_travel_scale = 2.0
+	ele.travel_to("F06")
 	await get_tree().physics_frame
 	_check(ele._doors["F01"]["t"] < 1.0,
 			"doors start closing before the car leaves")
@@ -669,19 +699,12 @@ func _run() -> void:
 	_check(ele._doors["F06"]["t"] > 0.99, "doors reopen on arrival at F06")
 	_check(ele._doors["F01"]["t"] < 0.01,
 			"the landing it left is sealed behind it")
-	# a rider standing in the cab is carried, not left on the slab
-	var pl2: PlayerController = root.player
-	pl2.global_position = ele._cabin.global_position + Vector3(0, 0.9, 0)
-	pl2.velocity = Vector3.ZERO
-	await get_tree().physics_frame
-	var rode_from := pl2.global_position.y
-	ele.travel_to("B1")
-	await _until(func(): return not ele.moving, 30.0)
-	_check(ele.current == "B1", "elevator reached B1")
-	_check(pl2.global_position.y < rode_from - 12.0,
+	_check(pl2.global_position.y > rode_from + 12.0,
 			"a rider in the cab travels with it (%.1f m)" %
-			(rode_from - pl2.global_position.y))
+			(pl2.global_position.y - rode_from))
+	ele.test_travel_scale = 1.0
 	ele.service_mode = false  # hand the car back to the building
+	_phase("elevator sequence")
 
 	_check(AcousticGraphData.nodes.size() >= 25,
 			"acoustic graph loaded (%d nodes)" % AcousticGraphData.nodes.size())
@@ -689,8 +712,16 @@ func _run() -> void:
 			"4B radiator connected to heating network")
 
 	await _vertical_slice_checks()
+	_phase("vertical-slice assertions")
 
-	await _finish("FULL")
+	await _finish("FULL-PHYSICAL")
+
+
+func _phase(label: String) -> void:
+	var now := Time.get_ticks_msec()
+	print("[WALKTEST PHASE] %s: %.2f s wall" % [
+			label, float(now - _wall_mark_ms) / 1000.0])
+	_wall_mark_ms = now
 
 
 func _finish(mode: String) -> void:
@@ -1254,6 +1285,7 @@ func _vertical_slice_checks() -> void:
 	for rid3 in ["F01_OFFICE", "F01_PACKAGE", "F01_RESTROOM"]:
 		_check(ids.has(rid3), "%s in layout" % rid3)
 	await _door_checks()
+	_phase("vertical: doors, appliances and Case 01")
 
 
 func _door_checks() -> void:
@@ -1336,6 +1368,7 @@ func _door_checks() -> void:
 			Vector3(-14.5, 11.2, 6.89), Vector3(-13.0, 11.2, 6.89))
 	_check(not space.intersect_ray(p).is_empty(),
 			"window glazing blocks the A-stack opening")
+	_phase("vertical: door mechanics")
 
 	# enter apartment 4B from the corridor through its real entry door
 	var pl: PlayerController = root.player
@@ -1366,6 +1399,7 @@ func _door_checks() -> void:
 		_check(toaster.cycles_completed >= 1, "toaster completed a full cycle")
 		_check(toaster.state == toaster.PState.IDLE,
 				"toaster returned to IDLE")
+	_phase("vertical: 4B entry and toaster")
 
 	# Six kettles are household evidence, not a kitchen default. 4C is also
 	# the first clause of case 4519, so losing it breaks a call, not dressing.
@@ -1420,6 +1454,7 @@ func _door_checks() -> void:
 				and bool(kettle_service.whistle_open)
 				and bool(kettle_service.lifted),
 				"kettle service pose opens cap and lid and lifts the vessel")
+	_phase("vertical: kettle")
 	# Eight generator-authored hero shelves replace the repeated baked cases.
 	# Covers and pages remain two surfaces regardless of how many colours the
 	# resident owns; sectionals pay exactly one retained mesh per lifting tier.
@@ -1461,6 +1496,7 @@ func _door_checks() -> void:
 				% clock.interval)
 		Conductor.bpm = 72.0
 		Conductor.infection = 0.15
+	_phase("vertical: shelves and clock")
 
 	# networked propagation: same event reaches F05 later than F02 on H-B
 	Conductor.propagation_mode = "network"
@@ -1468,7 +1504,9 @@ func _door_checks() -> void:
 	Conductor.infection = 1.0
 	_arrivals.clear()
 	AcousticGraphData.network_event.connect(_record_arrival)
+	_phase("vertical: acoustic wait begins (scale %.1f)" % Engine.time_scale)
 	await _until(_both_radiators_reached, 8.0)
+	_phase("vertical: acoustic wait ended")
 	AcousticGraphData.network_event.disconnect(_record_arrival)
 	if _both_radiators_reached():
 		var dt := _riser_delta_ms()
@@ -1493,6 +1531,7 @@ func _door_checks() -> void:
 		await get_tree().create_timer(2.5).timeout
 		_check(anomaly.is_manifest(), "door seam manifests at infection 1.0")
 	Conductor.infection = 0.15
+	_phase("vertical: acoustic propagation")
 
 	await _call_case_checks(anomaly)
 
@@ -1504,6 +1543,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	if ci == null:
 		return
 	ci.fast = true
+	ci.fast_factor = 0.02
 	ci.enter(root.player)
 	_check(root.player.call_locked, "player locked to desk during call")
 	var ok: bool = await _until(func(): return not ci._isolate_btn.disabled, 15.0)
@@ -1530,6 +1570,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 				"call: door anomaly manifests after Complete")
 	ci.leave()
 	_check(not root.player.call_locked, "player released after leaving desk")
+	_phase("vertical: Case 01 call")
 
 	# out the front door: lobby -> street door -> stoop -> sidewalk
 	var pl2: PlayerController = root.player
@@ -1565,6 +1606,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 				"walked out onto the sidewalk (z=%.1f)" % pl2.global_position.z)
 	_check(_floor_below(Vector3(0.0, 1.0, 12.5)), "sidewalk is solid")
 	_check(_floor_below(Vector3(0.0, 1.0, -11.5)), "rear alley is solid")
+	_phase("vertical: street walk")
 	# roof egress: the last exterior door — up from the F06 deck through
 	# the monitor door onto the open roof
 	pl2.global_position = Vector3(-0.5, 19.35, 2.6)  # roof-level deck
@@ -1582,6 +1624,7 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	_check(pl2.global_position.z > 3.8 and pl2.global_position.y > 19.0,
 			"walked out the monitor door onto the roof (z=%.1f)"
 			% pl2.global_position.z)
+	_phase("vertical: roof walk")
 
 	var cab: DoorProp = root.get_node_or_null("F04_CAB_UPPER_1")
 	_check(cab != null, "kitchen cabinet doors spawned")
@@ -1608,6 +1651,9 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 		Conductor.bpm = 72.0
 	else:
 		_check(false, "Room 0 reachable from anomaly")
+	_phase("vertical: cabinet and Room 0")
+	if not _cases_only:
+		return
 	# Cases 02 and 03 run last, after Case 01's own consequences (the seam,
 	# Room 0) have been checked against the state Case 01 left. They move
 	# infection around freely, and an earlier version of this ordering
@@ -1618,15 +1664,21 @@ func _call_case_checks(anomaly: DoorAnomalyProp) -> void:
 	# schedules, but leaving eighteen unrelated routines live made this release
 	# gate exceed the mandatory process watchdog. ScheduleTest owns those clocks;
 	# pause them only while the console drives Cases 02-08 in the same order.
+	# CallInterface's explicit test-only fast factor compresses authored waits;
+	# overclocking the whole world here starved the response coroutine instead.
 	var routines_were_processing: bool = root.resident_routines.is_processing()
 	root.resident_routines.set_process(false)
 	await _case_network_checks(ci)
+	_phase("vertical: Cases 02-08")
 	root.resident_routines.set_process(routines_were_processing)
 	_wall_art_report()
 	_door_glow_checks()
 	await _broadcast_checks()
+	_phase("vertical: broadcast")
 	await _evelyn_checks()
+	_phase("vertical: Evelyn")
 	await _sanity_checks()
+	_phase("vertical: sanity")
 	Conductor.infection = 0.15
 	Conductor.origin_node = "B1_BOILER_01"
 
@@ -2186,6 +2238,7 @@ func _case_network_checks(ci: CallInterface) -> void:
 					"case 02: the door does not open on the first night")
 	ci.leave()
 	_check(ci.case_index == 2, "case 02 closed and the queue advanced")
+	_phase("vertical: Case 02")
 
 	# --- Case 03: matching the imitation exactly is the one that costs you
 	ci.enter(root.player)
@@ -2201,6 +2254,7 @@ func _case_network_checks(ci: CallInterface) -> void:
 	ci.leave()
 	_check(ci.case_index == 3, "case 03 closed and the queue advanced")
 	_check(ci.closed_outcomes.size() == 3, "first three outcomes recorded")
+	_phase("vertical: Case 03")
 
 	# --- Cases 04-07 and the convergence: authored as data, driven by the
 	# same three verbs. One response each — the checks are that each case is
@@ -2223,6 +2277,7 @@ func _case_network_checks(ci: CallInterface) -> void:
 			_check(ci.flags.has(spec[3]),
 					"%s leaves its mark (%s)" % [spec[0], spec[3]])
 		ci.leave()
+		_phase("vertical: %s" % spec[0])
 	_check(ci.case_index == 8, "the queue ends after the convergence")
 	_check(ci.closed_outcomes.size() == 8, "all eight outcomes recorded")
 	# Conditional beats: giving Juno the loop in case 04 changes what the

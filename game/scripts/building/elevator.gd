@@ -27,6 +27,10 @@ var _pending := ""
 ## Independent service: the car answers no hall calls while a keyholder
 ## (maintenance, or a test) has it. Residents shrug and take the stairs.
 var service_mode := false
+## Test-only multiplier for a physically simulated inspection ride. Shipping
+## leaves this at 1.0; release gates may shorten shaft time without teleporting
+## the cabin or weakening door/interlock assertions.
+var test_travel_scale := 1.0
 
 var _cabin: AnimatableBody3D
 var _bell: AudioStreamPlayer3D
@@ -652,7 +656,8 @@ func _physics_process(delta: float) -> void:
 			var target: float = stops[_pending]
 			var dy := target - _cabin.position.y
 			var dist := absf(dy)
-			var v := SPEED * clampf(dist / SETTLE, 0.25, 1.0)
+			var v := SPEED * test_travel_scale \
+					* clampf(dist / SETTLE, 0.25, 1.0)
 			var step := minf(dist, v * delta)
 			_cabin.position.y += signf(dy) * step
 			if dist <= 0.005:

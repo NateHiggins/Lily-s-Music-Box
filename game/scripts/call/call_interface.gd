@@ -38,6 +38,7 @@ var _field_live := false
 var stage: Stage = Stage.IDLE
 var outcome := ""
 var fast := false          # test hook: compress waits
+var fast_factor := 0.1     # explicit so large integration suites needn't overclock the world
 
 ## Which case is on the line, and what every closed case resolved to.
 var case_index := 0
@@ -329,7 +330,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 # ------------------------------------------------------------ beat player
 
 func _delay(sec: float, rid: int) -> bool:
-	await get_tree().create_timer(sec * (0.1 if fast else 1.0), false).timeout
+	await get_tree().create_timer(sec * (fast_factor if fast else 1.0), false).timeout
 	return rid == _run_id
 
 
@@ -370,7 +371,7 @@ func _run_beats(beats: Array, rid: int) -> bool:
 			_infection_tween = create_tween()
 			_infection_tween.tween_method(func(v): Conductor.infection = v,
 					Conductor.infection, beat.infection_to[0],
-					beat.infection_to[1] * (0.2 if fast else 1.0))
+					beat.infection_to[1] * (fast_factor * 2.0 if fast else 1.0))
 		elif beat.has("origin"):
 			# The captured loop now plays from here, and the building hears
 			# it through the acoustic graph with real per-node delays.
@@ -487,7 +488,7 @@ func _open_response(hint: String) -> void:
 	# it: 16 seconds is a beat at the desk, and two floors away it is a
 	# door closing in your face.
 	_silence_left = float(_case.get("window", SILENCE_WINDOW)) \
-			* (0.15 if fast else 1.0)
+			* (fast_factor * 1.5 if fast else 1.0)
 	_open_field()
 	print("[CALL] response window open")
 
