@@ -83,7 +83,12 @@ production harness now owns eleven stations. Its aggregate run warms all eleven
 and can no longer finish under the 60-second ceiling, so current evidence must
 use `PERF_STATION` with one fresh serialized process per camera.
 
-Current 2560×1440 Forward+ rows at the shipping 64-light/16-shadow budget:
+The first 2560×1440 Forward+ sweep at the shipping 64-light/16-shadow budget
+produced the following table. It is retained to show how the diagnosis moved,
+but it is **superseded as production evidence**: the detached benchmark camera
+moved while the player, carried shadow-casting lamp and streaming origin stayed
+elsewhere. Composition cameras also silently inherited a player light despite
+occupying positions no body can reach.
 
 | station | objects | calls | primitives | mean ms | fps | status |
 |---|---:|---:|---:|---:|---:|---|
@@ -109,17 +114,38 @@ separates exterior composition cost from Harukiya's sixteen fixtures, and
 supersedes the earlier unpaired hidden-fixture diagnostic with no license for
 that withdrawn candidate.
 
+The corrected instrument declares every station `playable` or `composition`.
+Playable stations move body, eye, carried light and streaming origin together;
+composition cameras have no invented player light. It also adds the two
+gameplay views the old list lacked. Corrected rows so far:
+
+| station | class | objects | calls | primitives | mean ms | fps | status |
+|---|---|---:|---:|---:|---:|---:|---|
+| atrium eye (7 storeys) | composition | 26,316 | 26,183 | 37,225,302 | 33.33 | 30 | OVER |
+| atrium F03 landing | playable | 21,149 | 21,149 | 36,040,694 | 23.70 | 42.2 | OVER |
+| carriageway north pavement | playable | 10,162 | 10,162 | 9,867,193 | 16.67 | 60 | OVER (boundary) |
+
+The original atrium-eye lens is over the open void: moving the player there
+made the body fall to B1 while the detached lens stayed aloft. It remains a
+useful worst-case composition camera but is not cited as gameplay performance.
+The F03 landing is a real player position and proves a material 23.70 ms breach.
+Carriageway, like corridor F04 in the superseded sweep, misses the strict gate
+by 0.07 ms and is treated as a boundary measurement rather than as equivalent
+to the clear long-view hotspots. The remaining ten corrected stations are owed.
+
+The corrected landing census explains the shape: roughly 1,314 visible calls
+and 19,299 shadow calls. The frame is dominated by repeated caster submission,
+not visible scene complexity. Blind prop merging and a 12 m prop cull were
+rejected by current decomposition; neither improves this frame reliably.
+
 Both FULL shards now print final verdicts below the wall-clock ceiling.
-GoldenLoop prices its complete route at 53.7 s. All eleven focused stations are
-now priced. Four breach the
-strict 16.6 ms target: lobby, atrium, corridor F04 by 0.07 ms, and street
-elevation. The remaining seven pass. Serialized measurement was interleaved
-with Claude's K2-A proof runs without contention.
+GoldenLoop prices its complete route at 53.7 s. Performance evidence is being
+rebuilt on the corrected thirteen-station instrument. Serialized measurement
+is interleaved with Claude's K2 proof runs without contention.
 
 ## Next executable order
 
-1. Triage the concentrated lobby/atrium/street submission breaches; treat
-   corridor F04's 0.07 ms overage as a boundary measurement, not equal to the
-   three clear hotspots.
+1. Finish the remaining ten corrected performance stations, then measure the
+   shadow-budget policy against the playable atrium landing with a visual A/B.
 2. Continue K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.

@@ -40,7 +40,7 @@ the immediate executable gates, not a second copy of its milestone status.
   measurement evidence and migration cautions. Before the next project, turn
   the ledger into an engine requirements document and extraction plan; do not
   prematurely generalize production code or let productization destabilize the
-  current game.
+  current game. Living record: `design/ENGINE_KNOWLEDGE_LEDGER.md`.
 
 - **K1 — CURRENT-TREE BASELINE — RUN 2026-08-26, RED GATES REMAIN.**
   `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
@@ -49,11 +49,13 @@ the immediate executable gates, not a second copy of its milestone status.
   split into physical and all-cases production shards; both print final
   verdicts beneath 60 s and reproduce only the same two failures. The roof
   route reaches z=4.5 and the lift proof carries its rider on one real trip.
-  The current eleven-station focused 1440p table is complete: seven pass; lobby
-  23.81 ms, atrium 33.33 ms, street 27.45 ms and corridor F04 16.67 ms breach
-  the strict 16.6 ms target. The other interiors, roof and all three Passage
-  views pass. Triage those concentrated long-view submission breaches before
-  closing K1; FULL verdict recovery itself is complete.
+  The first eleven-station table is superseded: its detached camera left the
+  player, carried shadow light and streaming origin elsewhere. The corrected
+  harness declares playable versus composition cameras and adds a real F03
+  landing plus player-height carriageway. Corrected evidence so far: composition
+  atrium 33.33 ms, playable landing 23.70 ms, carriageway 16.67 ms. Finish the
+  remaining ten rows and price a visually proved shadow policy before closing
+  K1; FULL verdict recovery itself is complete.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the
   exact first missing or unclear player-facing transition; do not infer it from

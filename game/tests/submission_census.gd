@@ -57,7 +57,7 @@ func _ready() -> void:
 	add_child(cam)
 	cam.make_current()
 	root.view_override = cam
-	var station: Dictionary = PERF.STATIONS[10]
+	var station: Dictionary = PERF.STATIONS[PERF.STATIONS.size() - 1]
 	if OS.get_environment("SUB_PLAYABLE_STREET") == "1":
 		station = PLAYABLE_STREET
 	var wanted := OS.get_environment("SUB_STATION")
@@ -68,11 +68,16 @@ func _ready() -> void:
 				break
 	cam.global_position = station["pos"]
 	cam.look_at(station["look"])
-	if bool(station.get("player_at_lens", false)):
+	var player_at_lens: bool = bool(station.get("player_at_lens", true))
+	root.player.flashlight.visible = player_at_lens
+	if player_at_lens:
 		root.player.global_position = cam.global_position - Vector3(
 				0.0, PlayerController.STANDING_EYE, 0.0)
 		root.player.velocity = Vector3.ZERO
 		root.player.set_physics_process(false)
+		root.player.camera.global_transform = cam.global_transform
+		root.view_override = null
+	if bool(station.get("player_at_lens", false)):
 		# This station models ordinary play, not a flying diagnostic camera.
 		# BuildingRoot streams from the controller's feet in production. Leaving
 		# the camera override active asks it about eye height instead, which sits

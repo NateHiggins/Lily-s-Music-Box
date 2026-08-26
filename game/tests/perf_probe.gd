@@ -41,13 +41,17 @@ const STATIONS := [
 	{"name": "lobby", "pos": Vector3(-0.4, 1.72, 9.1),
 	 "look": Vector3(3.6, 1.25, 6.6)},
 	{"name": "atrium eye (7 storeys)", "pos": Vector3(0.0, 1.8, 0.2),
-	 "look": Vector3(0.3, 21.5, 0.0)},
+	 "look": Vector3(0.3, 21.5, 0.0), "player_at_lens": false},
+	{"name": "atrium F03 landing (playable)",
+	 "pos": Vector3(0.0, 9.56, -2.31), "look": Vector3(0.3, 16.0, 0.0)},
 	{"name": "corridor F04", "pos": Vector3(4.3, 11.25, 7.6),
 	 "look": Vector3(4.3, 10.8, -6.0)},
 	{"name": "apartment 4B", "pos": Vector3(-8.1, 11.25, -3.2),
 	 "look": Vector3(-13.2, 10.2, -8.0)},
 	{"name": "street elevation", "pos": Vector3(16, 12, 34),
-	 "look": Vector3(0, 8, 0)},
+	 "look": Vector3(0, 8, 0), "player_at_lens": false},
+	{"name": "carriageway north pavement (playable)",
+	 "pos": Vector3(-16.0, 1.68, 13.5), "look": Vector3(26.0, 1.30, 19.6)},
 	{"name": "roof", "pos": Vector3(-6, 21.4, 9.5),
 	 "look": Vector3(2, 19.4, -4)},
 	# THE DENSEST LIT ROOM IN THE GAME, added when the light budget came
@@ -249,8 +253,7 @@ func _ready() -> void:
 	# otherwise absorbs the cost of the whole building's materials and
 	# reports several times its true frame time.
 	for s in stations:
-		cam.global_position = s["pos"]
-		cam.look_at(s["look"])
+		_place_station(s)
 		for i in WARMUP:
 			await get_tree().process_frame
 	_report_mesh_census()
@@ -520,8 +523,7 @@ func _diagnose_corridor_submissions() -> void:
 
 
 func _diag_snapshot(label: String, station: Dictionary) -> void:
-	cam.global_position = station.pos
-	cam.look_at(station.look)
+	_place_station(station)
 	for i in WARMUP:
 		await get_tree().process_frame
 	var total := 0.0
@@ -563,9 +565,31 @@ func _collect_geometry(node: Node, into: Array[GeometryInstance3D]) -> void:
 		_collect_geometry(child, into)
 
 
-func _measure(station: Dictionary) -> void:
+## A free camera without its player is not a gameplay station. The carried
+## lamp used to remain in the lobby while this camera visited every floor,
+## contributing a large off-camera shadow pass that no player can create.
+## Reachable stations move the body, eye and service light together. Authored
+## composition cameras explicitly have no player and no lamp.
+func _place_station(station: Dictionary) -> void:
 	cam.global_position = station["pos"]
 	cam.look_at(station["look"])
+	var at_lens: bool = bool(station.get("player_at_lens", true))
+	root.player.flashlight.visible = at_lens
+	if not at_lens:
+		root.view_override = cam
+		return
+	root.player.global_position = cam.global_position \
+			- Vector3.UP * PlayerController.STANDING_EYE
+	root.player.velocity = Vector3.ZERO
+	root.player.set_physics_process(false)
+	root.player.camera.global_transform = cam.global_transform
+	# Production streams from the body at the lens, not the detached eye. Eye
+	# height alone sits inside storey overlap bands and can submit a second floor.
+	root.view_override = null
+
+
+func _measure(station: Dictionary) -> void:
+	_place_station(station)
 	# let streaming, the light rig and the lerped fixtures settle first
 	for i in WARMUP:
 		await get_tree().process_frame
