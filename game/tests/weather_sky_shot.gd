@@ -70,14 +70,6 @@ func _ready() -> void:
 			await _capture_godot("04b_roof_cloud_plus_%ds" % int(motion_seconds),
 					Vector3(-6.0, 21.4, 9.5), Vector3(-6.0, 19.8, 60.0))
 			captured += captures_per_station
-	# STRAIGHT UP. No shot in this suite has ever pointed at the zenith, which
-	# is precisely why a flat convergence disc sat overhead in all four
-	# authored plates without any harness noticing. From the roof, looking at
-	# the pole, so the equirect singularity is dead centre of frame.
-	if not street_only and (requested == "" or requested == "06_roof_zenith"):
-		await _capture_godot("06_roof_zenith",
-				Vector3(-6.0, 21.4, 9.5), Vector3(-6.0, 121.4, 9.5))
-		captured += captures_per_station
 	if not street_only and (requested == "" or requested == "05_atrium_skylight"):
 		await _capture_godot("05_atrium_skylight",
 				Vector3(0.0, 1.75, 1.58), Vector3(0.12, 15.0, 0.10))
