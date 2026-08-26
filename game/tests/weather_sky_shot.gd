@@ -27,6 +27,10 @@ func _ready() -> void:
 		OS.set_environment("DAYNIGHT_FORCE", "night")
 	if OS.get_environment("WEATHER_SEED") == "":
 		OS.set_environment("WEATHER_SEED", "19280731")
+	if OS.get_environment("CELESTIAL_PHASE_PAIR") == "1":
+		# A terminator proof needs a clear line of sight. This selects the public
+		# deterministic weather simulation before production assembly.
+		OS.set_environment("WEATHER_SIMULATE", "clear")
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
@@ -43,7 +47,8 @@ func _ready() -> void:
 	var destructive_pair := OS.get_environment("WEATHER_CORE_SHADOW_PAIR") == "1" \
 			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" \
 			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1" \
-			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1"
+			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1" \
+			or OS.get_environment("CELESTIAL_PHASE_PAIR") == "1"
 	if destructive_pair and requested == "":
 		push_error("A destructive A/A/B mode requires one SHOT_STATION; "
 				+ "its final state cannot become the next station's control")
@@ -54,7 +59,8 @@ func _ready() -> void:
 			if OS.get_environment("WEATHER_CORE_SHADOW_PAIR") == "1" \
 			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" \
 			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1" \
-			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1" else 1
+			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1" \
+			or OS.get_environment("CELESTIAL_PHASE_PAIR") == "1" else 1
 	for station: Dictionary in STATIONS:
 		if requested != "" and requested != station.name:
 			continue
@@ -99,6 +105,10 @@ func _capture_godot(label: String, eye: Vector3, target: Vector3) -> void:
 	# pavement eye height. LightRig still derives occupied height from the lens.
 	root.view_override = null
 	await get_tree().create_timer(1.0).timeout
+	if label == "04_roof_skyline" \
+			and OS.get_environment("CELESTIAL_PHASE_PAIR") == "1":
+		await _capture_lunar_phase_pair(label, eye)
+		return
 	var airmail_proof := label == "04_roof_skyline" \
 			and (OS.get_environment("PERIOD_AIRMAIL_SHOT") == "1" \
 			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1")
@@ -170,6 +180,33 @@ func _capture_godot(label: String, eye: Vector3, target: Vector3) -> void:
 		_hold_orison_core_shadows = true
 		_suppress_orison_core_light_shadows(root)
 	await _save_current_frame(label)
+
+
+func _capture_lunar_phase_pair(label: String, eye: Vector3) -> void:
+	# Observe the production dome at its production 0.54-degree diameter. The
+	# declared 8-degree lens is an observational close-up, not a larger Moon.
+	var dome := root.get_node("NightSkyHalfDome") as MeshInstance3D
+	var sky := dome.material_override as ShaderMaterial
+	var moon := Vector3(0.0, 0.34, 0.94).normalized()
+	var side := moon.cross(Vector3.UP).normalized()
+	cam.fov = 8.0
+	cam.look_at(eye + moon * 100.0)
+	sky.set_shader_parameter("celestial_direction", moon)
+	sky.set_shader_parameter("celestial_core_radius", deg_to_rad(0.27))
+	sky.set_shader_parameter("celestial_strength", 1.0)
+	sky.set_shader_parameter("moon_phase_enabled", true)
+	sky.set_shader_parameter("moon_illumination", 1.0)
+	sky.set_shader_parameter("sun_direction", -moon)
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	root.day_night_director.set_process(false)
+	root.light_rig.set_process(false)
+	await _save_current_frame(label + "_full_control_a")
+	await _save_current_frame(label + "_full_control_b")
+	# cos(elongation)=0.70 gives (1-cos)/2 = 0.15 illumination.
+	var crescent_sun := (moon * 0.70 + side * sqrt(0.51)).normalized()
+	sky.set_shader_parameter("sun_direction", crescent_sun)
+	sky.set_shader_parameter("moon_illumination", 0.15)
+	await _save_current_frame(label + "_crescent_final")
 
 
 func _save_current_frame(label: String) -> void:
