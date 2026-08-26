@@ -31,10 +31,11 @@ the immediate executable gates, not a second copy of its milestone status.
   `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
   lighting green, FAST reproducing its two known failures, and GoldenLoop now
   passing 87/87 in 53.7 s with permanent phase timings. FULL still times out
-  after a failed monitor-door roof route. Focused 1440p performance has lobby
-  at 23.81 ms and atrium at 33.33 ms; nine of the current eleven stations remain
-  to measure. Isolate roof reach, then rerun FULL and finish the focused table
-  before closing K1.
+  after reproducing the same two failures, but its roof route is repaired: the
+  generated stair leaf now swings with egress and the body reaches z=4.5.
+  Focused 1440p performance has lobby at 23.81 ms and atrium at 33.33 ms; nine
+  of the current eleven stations remain to measure. Finish the focused table
+  and recover FULL's final verdict before closing K1.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the
   exact first missing or unclear player-facing transition; do not infer it from

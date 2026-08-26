@@ -2566,7 +2566,8 @@ def build_floor(floor_id):
               "sill": 1.30}
         walls.append(wall((-COURT, -COURT), (COURT, -COURT), CORR_T, 2.55,
                           z, [door(abs(-0.85 - (-COURT)), DOOR_SERV,
-                                   "closed"), dict(gl, w=3.0, at=4.7)]))
+                                   "closed", swing="out"),
+                              dict(gl, w=3.0, at=4.7)]))
         walls.append(wall((-COURT, COURT), (COURT, COURT), CORR_T, 2.55,
                           z, [dict(gl)]))
         walls.append(wall((-COURT, -COURT), (-COURT, COURT), CORR_T, 2.55,

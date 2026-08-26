@@ -16,7 +16,7 @@ what is inherited, and what now blocks the integrated golden-shift gate.
 | `FirstShiftOpeningLiveTest` | **PASS, 0 failures** | Production arrival, watch apparatus and opening-report route complete under the ceiling. |
 | `LightingAudit` | **PASS** | 127 spaces; 11 intentionally ambient/dark. |
 | `WalkTest` FAST, x8/480 | **FAIL, 2** | The established authored-job/chirp expectation and boiler 23-mesh merge failures reproduce. No new FAST failure. |
-| `WalkTest` FULL, x8/480 | **TIMEOUT / FAIL** | The two FAST failures recur; physical monitor-door route reports roof arrival at z=2.9; process reaches the 60-second ceiling before a final suite verdict. |
+| `WalkTest` FULL, x8/480 | **TIMEOUT / 2 established failures** | The stair leaf now swings with egress and the physical body reaches the roof at z=4.5. The two FAST failures recur; the process still reaches the 60-second ceiling before a final suite verdict. |
 | `GoldenLoopTest` | **PASS, 87/87** | Timed phase markers measured an 18.1 s boot and symmetric 16.4/16.1 s physical travel legs. Matching the established x4/240 solver discipline and retaining a 57 s internal guard completes in 53.7 s beneath the runner's hard 60 s ceiling. |
 | `DreamTentacleTest` after correction | **PASS, 27/27** | The deterministic pre-tree global-transform engine error is gone; an unrelated resident-navigation error can still be emitted by the production scene. |
 
@@ -26,9 +26,12 @@ No parse error was observed in these runs.
 
 ### Product-path blockers
 
-1. **The FULL monitor-door route does not reach the roof.** The body reports
-   z=2.9. Reproduce the specific route independently before changing doors,
-   stairs or test coordinates.
+The former monitor-door blocker is closed. `ROOF_DOOR_01` was correctly placed
+at the only stair enclosure, but its generated opening omitted the existing
+`swing="out"` egress convention. The leaf therefore swung across the player's
+approach and stopped the capsule at z=2.9. The generator now authors the egress
+swing, both generated layout copies agree, SR7-Q's closer remains green
+(116/116 focused, 35/35 live), and FULL walks the body through to z=4.5.
 
 GoldenLoop's red was measurement debt, now resolved rather than hidden. Its
 old x3.5 run reached `return_leg` at 36.6 s and the repair boundary at roughly
@@ -84,7 +87,8 @@ releases the lane.
 
 ## Next executable order
 
-1. Isolate the monitor-door-to-roof path in a focused physical test.
-2. Re-run FULL and finish the remaining nine focused performance stations.
-3. Only then begin K2's human fresh-save playthrough and K3's eleven-boundary
+1. Finish the remaining nine focused performance stations.
+2. Profile why FULL cannot print its final verdict beneath the ceiling even
+   after its physical route assertions complete.
+3. Begin K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.
