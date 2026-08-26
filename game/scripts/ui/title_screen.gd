@@ -43,6 +43,10 @@ var _voice_volume: HSlider
 var _world_volume: HSlider
 var _music_volume: HSlider
 var _ui_volume: HSlider
+var _controller_look_sensitivity: HSlider
+var _controller_look_deadzone: HSlider
+var _controller_look_curve: HSlider
+var _controller_invert_y: CheckBox
 var _record_label: Label
 var _record_note: Label
 var _record_time: Label
@@ -212,10 +216,15 @@ func _build_settings() -> void:
 	style.border_color = Color(0.50, 0.38, 0.22, 0.72)
 	_settings_panel.add_theme_stylebox_override("panel", style)
 	add_child(_settings_panel)
+	var scroll := ScrollContainer.new()
+	scroll.name = "BuildingServicesScroll"
+	scroll.custom_minimum_size = Vector2(564, 604)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_settings_panel.add_child(scroll)
 	var margin := MarginContainer.new()
 	for side in ["left", "top", "right", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 18)
-	_settings_panel.add_child(margin)
+	scroll.add_child(margin)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 10)
 	margin.add_child(box)
@@ -289,6 +298,24 @@ func _build_settings() -> void:
 	_world_volume = _add_volume_control(mix, "WORLD / WEATHER", "world_volume")
 	_music_volume = _add_volume_control(mix, "MUSIC", "music_volume")
 	_ui_volume = _add_volume_control(mix, "INTERFACE", "ui_volume")
+	box.add_child(_label("CONTROLLER LOOK", 12, Color(0.61, 0.60, 0.55)))
+	var controller_grid := GridContainer.new()
+	controller_grid.columns = 2
+	controller_grid.add_theme_constant_override("h_separation", 18)
+	controller_grid.add_theme_constant_override("v_separation", 6)
+	box.add_child(controller_grid)
+	_controller_look_sensitivity = _add_controller_slider(controller_grid,
+			"SENSITIVITY", "controller_look_sensitivity", 0.25, 2.0, 0.05)
+	_controller_look_deadzone = _add_controller_slider(controller_grid,
+			"DEAD ZONE", "controller_look_deadzone", 0.05, 0.40, 0.01)
+	_controller_look_curve = _add_controller_slider(controller_grid,
+			"RESPONSE CURVE", "controller_look_curve", 1.0, 3.0, 0.05)
+	_controller_invert_y = CheckBox.new()
+	_controller_invert_y.name = "ControllerInvertY"
+	_controller_invert_y.text = "INVERT Y"
+	_controller_invert_y.button_pressed = bool(GameBoot.settings.get(
+			"controller_invert_y", false))
+	controller_grid.add_child(_controller_invert_y)
 	_add_button(box, "APPLY", _save_settings)
 	_add_button(box, "BACK", _close_settings)
 
@@ -331,6 +358,23 @@ func _add_volume_control(parent: Control, words: String,
 	slider.min_value = 0.0
 	slider.max_value = 1.0
 	slider.step = 0.01
+	slider.value = float(GameBoot.settings.get(setting_key, 1.0))
+	cell.add_child(slider)
+	return slider
+
+
+func _add_controller_slider(parent: Control, words: String, setting_key: String,
+		minimum: float, maximum: float, increment: float) -> HSlider:
+	var cell := VBoxContainer.new()
+	cell.custom_minimum_size.x = 245.0
+	cell.add_theme_constant_override("separation", 2)
+	parent.add_child(cell)
+	cell.add_child(_label(words, 10, Color(0.56, 0.55, 0.51)))
+	var slider := HSlider.new()
+	slider.name = setting_key.to_pascal_case()
+	slider.min_value = minimum
+	slider.max_value = maximum
+	slider.step = increment
 	slider.value = float(GameBoot.settings.get(setting_key, 1.0))
 	cell.add_child(slider)
 	return slider
@@ -460,6 +504,11 @@ func _save_settings() -> void:
 	GameBoot.settings.world_volume = _world_volume.value
 	GameBoot.settings.music_volume = _music_volume.value
 	GameBoot.settings.ui_volume = _ui_volume.value
+	GameBoot.settings.controller_look_sensitivity = \
+			_controller_look_sensitivity.value
+	GameBoot.settings.controller_look_deadzone = _controller_look_deadzone.value
+	GameBoot.settings.controller_look_curve = _controller_look_curve.value
+	GameBoot.settings.controller_invert_y = _controller_invert_y.button_pressed
 	GameBoot.save_settings()
 	_close_settings()
 

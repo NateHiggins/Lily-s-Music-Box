@@ -20,6 +20,10 @@ var onset_warning: CheckBox
 var reduce_roll: CheckBox
 var reduce_flashing: CheckBox
 var look_sensitivity: HSlider
+var controller_look_sensitivity: HSlider
+var controller_look_deadzone: HSlider
+var controller_look_curve: HSlider
+var controller_invert_y: CheckBox
 var apply_button: Button
 var sliders: Dictionary = {}
 var is_open := false
@@ -103,10 +107,15 @@ func _build() -> void:
 	style.border_color = Color(0.50, 0.38, 0.22, 0.78)
 	panel.add_theme_stylebox_override("panel", style)
 	center.add_child(panel)
+	var scroll := ScrollContainer.new()
+	scroll.name = "ServicesScroll"
+	scroll.custom_minimum_size = Vector2(496, 556)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	panel.add_child(scroll)
 	var margin := MarginContainer.new()
 	for side in ["left", "top", "right", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 22)
-	panel.add_child(margin)
+	scroll.add_child(margin)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 9)
 	margin.add_child(box)
@@ -156,6 +165,31 @@ func _build() -> void:
 	look_sensitivity.max_value = 2.0
 	look_sensitivity.step = 0.05
 	box.add_child(look_sensitivity)
+	box.add_child(_label("CONTROLLER LOOK SENSITIVITY", 11, Color("9c998e")))
+	controller_look_sensitivity = HSlider.new()
+	controller_look_sensitivity.name = "ControllerLookSensitivity"
+	controller_look_sensitivity.min_value = 0.25
+	controller_look_sensitivity.max_value = 2.0
+	controller_look_sensitivity.step = 0.05
+	box.add_child(controller_look_sensitivity)
+	controller_invert_y = CheckBox.new()
+	controller_invert_y.name = "ControllerInvertY"
+	controller_invert_y.text = "INVERT CONTROLLER LOOK Y"
+	box.add_child(controller_invert_y)
+	box.add_child(_label("CONTROLLER DEAD ZONE", 11, Color("9c998e")))
+	controller_look_deadzone = HSlider.new()
+	controller_look_deadzone.name = "ControllerLookDeadzone"
+	controller_look_deadzone.min_value = 0.05
+	controller_look_deadzone.max_value = 0.40
+	controller_look_deadzone.step = 0.01
+	box.add_child(controller_look_deadzone)
+	box.add_child(_label("CONTROLLER RESPONSE CURVE", 11, Color("9c998e")))
+	controller_look_curve = HSlider.new()
+	controller_look_curve.name = "ControllerLookCurve"
+	controller_look_curve.min_value = 1.0
+	controller_look_curve.max_value = 3.0
+	controller_look_curve.step = 0.05
+	box.add_child(controller_look_curve)
 	apply_button = Button.new()
 	apply_button.name = "ApplyAndReturn"
 	apply_button.text = "APPLY AND RETURN TO THE NIGHT"
@@ -182,6 +216,14 @@ func _load_controls() -> void:
 	reduce_flashing.button_pressed = bool(GameBoot.settings.get(
 			"reduce_flashing", false))
 	look_sensitivity.value = float(GameBoot.settings.get("look_sensitivity", 1.0))
+	controller_look_sensitivity.value = float(GameBoot.settings.get(
+			"controller_look_sensitivity", 1.0))
+	controller_invert_y.button_pressed = bool(GameBoot.settings.get(
+			"controller_invert_y", false))
+	controller_look_deadzone.value = float(GameBoot.settings.get(
+			"controller_look_deadzone", 0.18))
+	controller_look_curve.value = float(GameBoot.settings.get(
+			"controller_look_curve", 1.65))
 
 
 func _preview(value: float, key: String) -> void:
@@ -204,6 +246,11 @@ func _store_controls() -> void:
 	GameBoot.settings.reduce_camera_roll = reduce_roll.button_pressed
 	GameBoot.settings.reduce_flashing = reduce_flashing.button_pressed
 	GameBoot.settings.look_sensitivity = look_sensitivity.value
+	GameBoot.settings.controller_look_sensitivity = \
+			controller_look_sensitivity.value
+	GameBoot.settings.controller_invert_y = controller_invert_y.button_pressed
+	GameBoot.settings.controller_look_deadzone = controller_look_deadzone.value
+	GameBoot.settings.controller_look_curve = controller_look_curve.value
 	GameBoot.save_settings()
 	var policy := get_node_or_null("/root/AudioPolicy")
 	if policy:
