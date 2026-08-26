@@ -201,9 +201,6 @@ var _checks: Dictionary = {}
 var _tags: Dictionary = {}
 var _hooks: Dictionary = {}
 var _hook_rest: Dictionary = {}
-var _clink: AudioStreamPlayer3D
-var _paper: AudioStreamPlayer3D
-var _knock: AudioStreamPlayer3D
 
 var _balk_left := 0.0
 ## K2-B landing state. Transient presentation; nothing here is ever saved.
@@ -462,8 +459,7 @@ func card_line() -> String:
 ## by accident on your way to a fifth position -- there is no fifth position.
 func advance_index() -> bool:
 	index_detent = (index_detent + 1) % (OUTCOMES.size() + 1)
-	if _clink != null:
-		_clink.play()
+	_present_register_sound(&"interaction.register_index")
 	_refresh_board()
 	return true
 
@@ -519,8 +515,7 @@ func take_slip() -> bool:
 	# SR7-H: the round is open from here. Nothing else opens one, and nothing
 	# closes one but a signature or an abandoned session.
 	round_open = true
-	if _paper != null:
-		_paper.play()
+	_present_register_sound(&"interaction.register_paper")
 	# SR7-I: the paper is LATCHED to the id read before anything moved. From
 	# this instant the presented report cannot change under the player, and
 	# every line below acts on that one id rather than re-deriving it.
@@ -548,8 +543,7 @@ func replace_slip() -> bool:
 		_balk(1.4, "slip")
 		return false
 	slip_taken = false
-	if _paper != null:
-		_paper.play()
+	_present_register_sound(&"interaction.register_paper")
 	_refresh_board()
 	return true
 
@@ -562,8 +556,7 @@ func take_key(hook: String) -> bool:
 		_balk(1.2, hook)
 		return false
 	keys_out[hook] = true
-	if _clink != null:
-		_clink.play()
+	_present_register_sound(&"interaction.register_key")
 	_refresh_board()
 	return true
 
@@ -577,8 +570,7 @@ func return_key(hook: String) -> bool:
 		_balk(1.2, hook)
 		return false
 	keys_out[hook] = false
-	if _clink != null:
-		_clink.play()
+	_present_register_sound(&"interaction.register_key")
 	_refresh_board()
 	return true
 
@@ -650,8 +642,7 @@ func sign_register() -> bool:
 	# next report can come up on the spindle. What was signed is not lost: it
 	# is the line in the book and the `filing_printed` in the record.
 	index_detent = 0
-	if _paper != null:
-		_paper.play()
+	_present_register_sound(&"interaction.register_paper")
 	_balk_left = 0.0
 	_refresh_board()
 	register_signed.emit(line.duplicate(true))
@@ -912,9 +903,6 @@ func _build_visual() -> void:
 
 	_build_conclusion_card(brass, paper, slate)
 
-	_clink = make_emitter("knock", -18.0)
-	_paper = make_emitter("pop", -20.0)
-	_knock = make_emitter("knock", -13.0)
 	_build_reaches()
 	_refresh_board()
 
@@ -1000,8 +988,7 @@ func _refresh_slip_visibility() -> void:
 	# already there.
 	if _landing_armed and showing and not _slip_was_available:
 		_landing_left = SLIP_LANDING_SECONDS
-		if _paper != null:
-			_paper.play()
+		_present_register_sound(&"interaction.register_paper")
 	_slip_was_available = showing
 	_landing_armed = true
 	if _slip != null:
@@ -1275,14 +1262,18 @@ func _balk(seconds: float, focus := "") -> void:
 	var already := _balk_left > 0.0
 	_balk_focus = focus
 	_balk_left = maxf(_balk_left, clampf(seconds, 0.0, 3.0))
-	if not already and _knock != null:
-		_knock.play()
+	if not already:
+		_present_register_sound(&"interaction.register_refuse")
 	# THE POSE IS APPLIED HERE, not left to `_process`. A proof sheet freezes
 	# `_process` so a refusal survives the exposure -- and a refusal that only
 	# renders on the next tick is a refusal that photographs as nothing at
 	# all. SR7-E paid for this once with a byte-identical frame; SR7-G caught
 	# it a second time on the sheet.
 	_refresh_board()
+
+
+func _present_register_sound(cue_id: StringName) -> void:
+	AudioPolicy.present_3d(cue_id, global_position, 1.0, StringName(name))
 
 
 func balking() -> bool:
