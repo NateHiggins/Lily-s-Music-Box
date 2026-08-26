@@ -140,6 +140,19 @@ func _ready() -> void:
 			"temperature and humidity simulation stay inside the public bounds")
 	_check(WeatherServiceScript.simulated_snapshot("not_weather").is_empty(),
 			"unknown simulation names cannot silently become weather")
+	var simulated_codes := {}
+	for preset in ["clear", "scattered", "overcast", "drizzle", "rain",
+			"freezing_rain", "storm", "hail_storm", "snow", "snow_shower",
+			"fog"]:
+		var branch: Dictionary = WeatherServiceScript.simulated_snapshot(preset)
+		simulated_codes[preset] = int(branch.get("weather_code", -1))
+	_check(simulated_codes == {
+		"clear": 0, "scattered": 2, "overcast": 3, "drizzle": 51,
+		"rain": 61, "freezing_rain": 66, "storm": 95,
+		"hail_storm": 96, "snow": 73, "snow_shower": 85, "fog": 45,
+	} and float(WeatherServiceScript.simulated_snapshot(
+			"freezing_rain").temperature_c) < 0.0,
+			"simulation can deliberately reach every major production weather family")
 	_check(WeatherServiceScript.parse_weather({"current": {"time": "bad"}},
 			location).is_empty(),
 			"an incomplete response cannot partially mutate the sky")

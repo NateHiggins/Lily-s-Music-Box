@@ -26,9 +26,13 @@ const SIMULATION_PRESETS := {
 	"clear": {"code": 0, "cloud": 0.0, "low": 0.0, "rain": 0.0, "snow": 0.0, "wind": 5.0},
 	"scattered": {"code": 2, "cloud": 0.38, "low": 0.24, "rain": 0.0, "snow": 0.0, "wind": 10.0},
 	"overcast": {"code": 3, "cloud": 1.0, "low": 0.92, "rain": 0.0, "snow": 0.0, "wind": 13.0},
+	"drizzle": {"code": 51, "cloud": 0.78, "low": 0.70, "rain": 0.18, "snow": 0.0, "wind": 9.0},
 	"rain": {"code": 61, "cloud": 0.92, "low": 0.84, "rain": 1.2, "snow": 0.0, "wind": 22.0},
+	"freezing_rain": {"code": 66, "cloud": 0.96, "low": 0.90, "rain": 0.8, "snow": 0.0, "wind": 16.0, "temperature": -1.5},
 	"storm": {"code": 95, "cloud": 1.0, "low": 1.0, "rain": 4.0, "snow": 0.0, "wind": 42.0},
+	"hail_storm": {"code": 96, "cloud": 1.0, "low": 1.0, "rain": 4.5, "snow": 0.0, "wind": 48.0},
 	"snow": {"code": 73, "cloud": 0.96, "low": 0.90, "rain": 0.0, "snow": 1.4, "wind": 17.0},
+	"snow_shower": {"code": 85, "cloud": 0.72, "low": 0.64, "rain": 0.0, "snow": 0.7, "wind": 24.0, "temperature": -3.0},
 	"fog": {"code": 45, "cloud": 0.76, "low": 1.0, "rain": 0.0, "snow": 0.0, "wind": 2.0},
 }
 
@@ -228,7 +232,7 @@ static func simulated_snapshot(preset: String) -> Dictionary:
 	var cloud_low := float(value.low)
 	var cloud_mid := float(value.cloud) * 0.72
 	var cloud_high := float(value.cloud) * 0.48
-	var temperature := 12.0
+	var temperature := float(value.get("temperature", 12.0))
 	var humidity := 70.0
 	var temperature_override := OS.get_environment("WEATHER_SIMULATE_TEMPERATURE_C")
 	var humidity_override := OS.get_environment("WEATHER_SIMULATE_HUMIDITY")

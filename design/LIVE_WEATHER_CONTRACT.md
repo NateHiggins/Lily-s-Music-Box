@@ -58,6 +58,12 @@ shower and thunderstorm codes may resolve that nonzero total as liquid, while
 snow and snow-shower codes may resolve it as frozen. Zero total still means
 zero emission, and overcast/fog codes cannot manufacture precipitation.
 
+`WEATHER_SIMULATE` exposes one bounded representative of every major production
+family: `clear`, `scattered`, `overcast`, `drizzle`, `rain`, `freezing_rain`,
+`storm`, `hail_storm`, `snow`, `snow_shower`, and `fog`. Cold presets carry a
+cold authored temperature unless the existing temperature override replaces
+it. These are QA inputs only; they never persist or alter the network policy.
+
 The lower deck is evaluated from the view direction, not panorama UV. Six
 nonparallel analytic waves form broad moving cells on the dome; because the
 input direction is continuous, the result has no equirectangular seam and no
