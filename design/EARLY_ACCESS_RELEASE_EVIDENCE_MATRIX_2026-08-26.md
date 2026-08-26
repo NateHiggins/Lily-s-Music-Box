@@ -21,6 +21,16 @@
 > family or hot-swap session has been signed off. G08 remains open independently
 > for the controller-only Dream route.
 
+> **G18 STATUS — `d205e5a`, 2026-08-26:** generic case-object titles,
+> resident/status nameplates and light-tuning handles are now absent unless
+> `ORISON_DEVELOPER_OVERLAYS=1` is explicitly set; ordinary boot no longer
+> instantiates the handles. `ReleasePresentationTest` PASS 5/5, Mina gameplay
+> and character suites PASS, and InteractionInventory exits 0. The floating
+> `SOFA`, `DESK`, `WINDOW` and `MINA` nouns remain intentionally: they are the
+> authored caption anomaly and removing them would remove the case mechanic,
+> not debug UI. G18 is code-closed for those audited affordances but still
+> requires a fresh production capture before public media is cleared.
+
 **Purpose:** one authoritative view of every release gate, what evidence exists
 for it today, and what is still owed. **This is not a backlog and it invents no
 scope.** Every gate traces to a promise already made in a pushed document.
