@@ -10,6 +10,17 @@
 > does not prove packaging, installation, launch on a second machine, signing,
 > or distribution, and the 1.25 GB payload is now a measured packaging cost.
 
+> **CONTROLLER STATUS — `a6c4ba1`, 2026-08-26:** G03 is no longer blocked by
+> raw keycodes: the maintenance hero mechanism and Otis board consume semantic
+> actions, controller movement/look/world/UI bindings are registered, look
+> settings are persisted on both settings surfaces, pause and cancel have
+> distinct ownership, and the shared-A double-fire is dynamically refused.
+> Focused evidence is green, including `MaintenancePanelInputTest` 18/18.
+> G07 remains open at **MANUAL/PHYSICAL PAD**, not code-absent: no person has
+> yet completed the eleven-beat first route pad-only, and no second controller
+> family or hot-swap session has been signed off. G08 remains open independently
+> for the controller-only Dream route.
+
 **Purpose:** one authoritative view of every release gate, what evidence exists
 for it today, and what is still owed. **This is not a backlog and it invents no
 scope.** Every gate traces to a promise already made in a pushed document.
