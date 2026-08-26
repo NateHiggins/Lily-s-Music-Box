@@ -37,6 +37,11 @@ $commit = (& git -C $repoRoot rev-parse HEAD).Trim()
 if ($LASTEXITCODE -ne 0 -or $commit -notmatch '^[0-9a-f]{40}$') {
     throw "Cannot resolve the exact source commit."
 }
+$importMarker = Join-Path $project ".godot\.orison_import_ready"
+if (-not (Test-Path -LiteralPath $importMarker -PathType Leaf) -or
+        (Get-Content -LiteralPath $importMarker -Raw).Trim() -ne $commit) {
+    throw "Release checkout is not warmed for $commit; run tools/warm_release_checkout.ps1 first."
+}
 
 New-Item -ItemType Directory -Force -Path $OutputDir | Out-Null
 $exe = Join-Path $OutputDir "PleaseRemainOnTheLine.exe"

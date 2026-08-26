@@ -12,8 +12,13 @@
 > and produced no binary. Git initially reported 306 `.import` paths modified,
 > but their blob hashes matched and `--ignore-cr-at-eol` proved this was CRLF
 > worktree noise, not content mutation. The open blocker is cold-import time:
-> warm/import the exact release checkout through the serialized lane before
-> exporting; do not relax the post-export content gate.
+> run `tools/warm_release_checkout.ps1` on the exact release checkout before
+> exporting. A cold run may hit exit 73; invoke it again manually after reading
+> the filtered process result. It never retries itself. Only a completed clean
+> import writes the commit-bound readiness marker the exporter requires. In the
+> proof worktree, the continuation import completed in 23.6 s and the export in
+> 15.3 s, producing a 109,071,360-byte EXE and 1,186,496,136-byte PCK. Do not
+> relax the post-export content gate.
 >
 > **INTEGRATION NOTICE — `a8d8d0c`, 2026-08-26:** this runbook was integrated
 > after the Windows export proof. Its historical acceptance table says clean
