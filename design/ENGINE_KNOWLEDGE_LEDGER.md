@@ -285,6 +285,23 @@ A reusable frame-legibility probe should take a player pose, facing, FOV and a
 target set and report distance, yaw, pitch, occlusion and in-frustum status;
 K2-A through K2-C have each rebuilt this same diagnostic by hand.
 
+### World-wayfinding contract
+
+K2-D (`3b9fa4b`) found that a directional sign can be present, readable and
+still lie. Its complete contract has four independently measured facts: where
+the sign hangs, which way its readable face points, which way that makes the
+reader face, and where traversable geometry actually opens. The reusable
+invariant is `glyph_direction == traversable_opening_direction`, proved by
+collision queries rather than by authored coordinates alone.
+
+Godot makes this unusually easy to invert: a `Label3D` reads toward local
+`+basis.z`, while a camera looks along `-basis.z`. Any bearing implementation
+must be checked against one rendered frame before it is trusted across a sign
+family. A single body-height ray also cannot distinguish a solid wall from a
+borrowed-light window; a vertical wall-profile sweep separates solid wall,
+floor-up doorway and high-only opening. Add both sign-facing and wall-profile
+queries to the planned frame-legibility tool.
+
 ### Failed approaches and extraction caution
 
 Two writers setting the same transform can leave correct state with a
