@@ -101,6 +101,10 @@ func _ready() -> void:
 			"the neutral receipt carries Mina's job and prepares physical clock-out")
 	_check(root.work_orders.job_stage(JOB) == "repaired",
 			"filing does not close the WorkOrder behind CoreLoopDirector")
+	_check(detector.call("control_prompt", "detector").contains("Return the tour key")
+			and not root.first_shift_director.clock_out()
+			and key_guard.call("return_key"),
+			"clock-out refuses custody until the player returns the tour key")
 	_check(detector.call("control_prompt", "detector").contains("Clock out")
 			and detector.call("interact_control", "detector", root.player)
 			and root.first_shift_director.ritual_phase()

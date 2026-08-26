@@ -28,6 +28,7 @@ var intro: VirusSoundDirector
 var work_orders: WorkOrders
 var _opening_report_offer: Callable
 var _station_marks: Array[Dictionary] = []
+var _tour_key_carried := false
 
 ## The shift begins on the south walk, just outside the passenger side of the
 ## eastbound car. Looking across the road teaches the complete 30 ft crossing
@@ -136,6 +137,27 @@ func observe_central_signal(station_number: int, sequence: int) -> bool:
 	})
 
 
+## Custody is session state owned by the iron hook, not campaign state. First
+## shift observes it only to teach the physical handoff and to prevent a
+## clock-out that leaves the building's tour key in the player's pocket.
+func observe_tour_key_taken(_check_number: int) -> void:
+	_tour_key_carried = true
+	if ritual_phase() == PHASE_REPORT_ACCEPTED:
+		_present_active_report()
+
+
+func observe_tour_key_returned() -> void:
+	_tour_key_carried = false
+	if ritual_phase() == PHASE_REPORT_ACCEPTED:
+		_present_active_report()
+	elif ritual_phase() == PHASE_FILED:
+		_show("NIGHT REGISTER", "Remove the detector dial and clock out.")
+
+
+func tour_key_carried() -> bool:
+	return _tour_key_carried
+
+
 func station_marks() -> Array[Dictionary]:
 	return _station_marks.duplicate(true)
 
@@ -177,6 +199,8 @@ func _present_active_report() -> void:
 		return
 	var objective := work_orders.job_library.stage_objective(job_id, stage)
 	if job_id == OPENING_JOB_ID and not has_station_mark(OPENING_STATION_ID):
+		if not _tour_key_carried:
+			objective += " Before you leave the lobby, take the TOUR KEY from its hook. It opens no door."
 		objective += " On the way, work STATION 2 if you see it. The mark is evidence, not permission."
 	_show(str(spec.get("title", "NIGHT REGISTER")), objective)
 
@@ -239,7 +263,11 @@ func file_outcome(outcome: String) -> bool:
 	state.phase = PHASE_FILED
 	state.filing = outcome
 	_commit_ritual()
-	_show("NIGHT REGISTER", "Remove the detector dial and clock out.")
+	if _tour_key_carried:
+		_show("NIGHT REGISTER",
+				"Hang the TOUR KEY back on its hook. Then remove the detector dial and clock out.")
+	else:
+		_show("NIGHT REGISTER", "Remove the detector dial and clock out.")
 	return true
 
 
@@ -261,7 +289,7 @@ func accept_signed_register(record: Dictionary) -> bool:
 
 
 func clock_out() -> bool:
-	if ritual_phase() != PHASE_FILED:
+	if ritual_phase() != PHASE_FILED or _tour_key_carried:
 		return false
 	_ritual().phase = PHASE_COMPLETE
 	_commit_ritual()

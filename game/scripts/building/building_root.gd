@@ -646,6 +646,12 @@ func _ready() -> void:
 	if signal_register != null:
 		signal_register.signal_displayed.connect(
 				first_shift_director.observe_central_signal)
+	var tour_key_guard := find_child("F01_TOUR_KEY_GUARD", true, false)
+	if tour_key_guard != null:
+		tour_key_guard.tour_key_taken.connect(
+				first_shift_director.observe_tour_key_taken)
+		tour_key_guard.tour_key_returned.connect(
+				first_shift_director.observe_tour_key_returned)
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)

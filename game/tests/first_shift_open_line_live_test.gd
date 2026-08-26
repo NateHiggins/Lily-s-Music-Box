@@ -73,10 +73,13 @@ func _ready() -> void:
 			== FirstShiftDirector.PHASE_FILED
 			and root.work_orders.job_stage(JOB) == "repaired",
 			"filing advances the ritual without stealing the job lifecycle")
-	_check(detector.call("interact_control", "detector", root.player)
+	_check(detector.call("control_prompt", "detector").contains("Return the tour key")
+			and not root.first_shift_director.clock_out()
+			and key_guard.call("return_key")
+			and detector.call("interact_control", "detector", root.player)
 			and root.first_shift_director.ritual_phase()
 			== FirstShiftDirector.PHASE_COMPLETE,
-			"the player can clock out with the watch line still open")
+			"the player returns custody and clocks out with the line still open")
 	_check(int(network.call("mark_count")) == 1
 			and int(network.call("delivered_count")) == 0
 			and root.first_shift_director.station_marks().is_empty(),

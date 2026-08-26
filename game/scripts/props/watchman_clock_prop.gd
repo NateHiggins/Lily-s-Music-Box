@@ -365,6 +365,8 @@ func control_prompt(control_id: String) -> String:
 		FirstShiftDirector.PHASE_RETURNED:
 			return "Shift open — file the report"
 		FirstShiftDirector.PHASE_FILED:
+			if _first_shift.tour_key_carried():
+				return "Return the tour key before clocking out"
 			return "[E]  Clock out — remove tonight's paper"
 	if not detector_honest:
 		return "[E]  Read the watchman's dial"
@@ -408,6 +410,7 @@ func _ritual_owns_clock() -> bool:
 		FirstShiftDirector.PHASE_CLOCKED_IN,
 		FirstShiftDirector.PHASE_REPORT_ACCEPTED,
 		FirstShiftDirector.PHASE_RETURNED,
+		FirstShiftDirector.PHASE_FILED,
 	]
 
 
