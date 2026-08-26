@@ -9,6 +9,13 @@ const WARNING_MS := 24000.0
 
 func _ready() -> void:
 	RealityState.persistence_enabled = false
+	print("[BOOT COST] context renderer=%s display=%s window=%s " % [
+			RenderingServer.get_current_rendering_method(),
+			DisplayServer.get_name(), DisplayServer.window_get_size()] +
+			"surface=%s stats_cache=%s encroach=%s living=%s commensals=%s" % [
+			_resolved_gate("SURFACE"), _resolved_gate("SURFACE_STATS_CACHE"),
+			_resolved_gate("ENCROACH"), _resolved_gate("LIVING"),
+			"off" if OS.get_environment("PERF_COMMENSALS_OFF") == "1" else "on"])
 	var start := Time.get_ticks_usec()
 	var packed := load(ROOT_SCENE) as PackedScene
 	var loaded := Time.get_ticks_usec()
@@ -33,3 +40,7 @@ func _ready() -> void:
 	print("[BOOT COST] RESULT: %s (warning ceiling %.0f ms)" % [
 			"PASS" if total_ms <= WARNING_MS else "WARN", WARNING_MS])
 	get_tree().quit(0)
+
+
+func _resolved_gate(key: String) -> String:
+	return "off" if OS.get_environment(key) == "0" else "on"
