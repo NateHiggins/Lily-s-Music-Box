@@ -19,6 +19,9 @@ const QUEENS := {
 const GEOCODE_ENDPOINT := "https://geocoding-api.open-meteo.com/v1/search"
 const WEATHER_ENDPOINT := "https://api.open-meteo.com/v1/forecast"
 const REFRESH_SECONDS := 15.0 * 60.0
+const LIQUID_WEATHER_CODES := [51, 53, 55, 56, 57, 61, 63, 65, 66, 67,
+		80, 81, 82, 95, 96, 99]
+const FROZEN_WEATHER_CODES := [71, 73, 75, 77, 85, 86]
 const SIMULATION_PRESETS := {
 	"clear": {"code": 0, "cloud": 0.0, "low": 0.0, "rain": 0.0, "snow": 0.0, "wind": 5.0},
 	"scattered": {"code": 2, "cloud": 0.38, "low": 0.24, "rain": 0.0, "snow": 0.0, "wind": 10.0},
@@ -174,10 +177,19 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 	var precipitation := maxf(float(snapshot.get("precipitation_mm", 0.0)),
 			float(snapshot.get("rain_mm", 0.0))
 			+ float(snapshot.get("showers_mm", 0.0)))
+	var weather_code := int(snapshot.get("weather_code", 0))
+	var reported_total := maxf(0.0, float(snapshot.get(
+			"precipitation_mm", 0.0)))
 	var snowfall := maxf(0.0, float(snapshot.get("snowfall_cm", 0.0)))
 	var liquid := maxf(0.0, float(snapshot.get("rain_mm", 0.0))
 			+ float(snapshot.get("showers_mm", 0.0)))
-	var weather_code := int(snapshot.get("weather_code", 0))
+	# Open-Meteo supplies one general precipitation measure and narrower
+	# hydrometeor fields. The WMO code resolves a nonzero total when a narrow
+	# field is absent; it never turns a zero observation into invented weather.
+	if weather_code in FROZEN_WEATHER_CODES:
+		snowfall = maxf(snowfall, reported_total)
+	elif weather_code in LIQUID_WEATHER_CODES:
+		liquid = maxf(liquid, reported_total)
 	precipitation = maxf(precipitation, snowfall)
 	var location: Dictionary = snapshot.get("location", {})
 	return {

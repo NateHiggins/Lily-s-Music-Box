@@ -52,6 +52,12 @@ rime-fog code 48. A 100% dry overcast therefore owns a ceiling but no street
 mist; the feed's named `fog` simulator reaches the same existing mist owner
 without pretending that rain fell.
 
+The general precipitation field is a measured fallback, not an ignored spare.
+When a narrower hydrometeor field is zero, WMO drizzle/rain/freezing-rain,
+shower and thunderstorm codes may resolve that nonzero total as liquid, while
+snow and snow-shower codes may resolve it as frozen. Zero total still means
+zero emission, and overcast/fog codes cannot manufacture precipitation.
+
 The lower deck is evaluated from the view direction, not panorama UV. Six
 nonparallel analytic waves form broad moving cells on the dome; because the
 input direction is continuous, the result has no equirectangular seam and no

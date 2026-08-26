@@ -95,6 +95,21 @@ func _ready() -> void:
 			and float(snow.snow_intensity) > 0.0
 			and float(snow.precipitation_intensity) > 0.0,
 			"the snow simulator is a distinct frozen precipitation branch")
+	var freezing_rain := WeatherServiceScript.presentation({
+		"weather_code": 66, "precipitation_mm": 0.6,
+		"rain_mm": 0.0, "showers_mm": 0.0, "snowfall_cm": 0.0})
+	var coded_snow := WeatherServiceScript.presentation({
+		"weather_code": 85, "precipitation_mm": 0.4,
+		"rain_mm": 0.0, "showers_mm": 0.0, "snowfall_cm": 0.0})
+	var dry_code := WeatherServiceScript.presentation({
+		"weather_code": 3, "precipitation_mm": 0.0})
+	_check(bool(freezing_rain.wet)
+			and float(freezing_rain.rain_intensity) > 0.0
+			and not bool(freezing_rain.snowing)
+			and bool(coded_snow.snowing) and not bool(coded_snow.wet)
+			and float(coded_snow.snow_intensity) > 0.0
+			and not bool(dry_code.wet) and not bool(dry_code.snowing),
+			"WMO hydrometeors resolve a reported total without inventing precipitation")
 	OS.set_environment("WEATHER_SIMULATE_WIND_KMH", "37.5")
 	OS.set_environment("WEATHER_SIMULATE_WIND_DEGREES", "450")
 	var directed := WeatherServiceScript.simulated_snapshot("scattered")
