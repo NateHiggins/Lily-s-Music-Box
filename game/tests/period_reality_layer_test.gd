@@ -35,17 +35,18 @@ func _ready() -> void:
 			"the distant rail event refuses an overlapping replay")
 	var clear := {
 		"cloud_low": 0.0, "precipitation_intensity": 0.0,
-		"wind_speed_kmh": 18.0, "wind_direction_deg": 90.0,
+		"wind_speed_kmh": 18.0, "wind_direction_degrees": 90.0,
 		"weather_code": 0,
 	}
 	layer.call("set_live_conditions", clear)
 	var clear_state: Dictionary = layer.call("diagnostic_snapshot")
 	_check(float(clear_state.aircraft_contrast) == 1.0
-			and (clear_state.wind_mps as Vector3).length() > 4.9,
-			"clear weather preserves the silhouette and supplies observed crosswind")
+			and (clear_state.wind_mps as Vector3).x < -4.9
+			and absf((clear_state.wind_mps as Vector3).z) < 0.001,
+			"clear weather preserves the silhouette and carries east wind west")
 	var storm := {
 		"cloud_low": 1.0, "precipitation_intensity": 3.0,
-		"wind_speed_kmh": 40.0, "wind_direction_deg": 220.0,
+		"wind_speed_kmh": 40.0, "wind_direction_degrees": 220.0,
 		"weather_code": 95,
 	}
 	layer.call("set_live_conditions", storm)

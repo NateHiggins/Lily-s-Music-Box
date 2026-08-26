@@ -171,6 +171,7 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 	return {
 		"latitude": float(location.get("latitude", QUEENS.latitude)),
 		"longitude": float(location.get("longitude", QUEENS.longitude)),
+		"weather_code": int(snapshot.get("weather_code", 0)),
 		"cloud_total": clampf(float(snapshot.get("cloud_total", 0.0)), 0.0, 1.0),
 		"cloud_low": clampf(float(snapshot.get("cloud_low", 0.0)), 0.0, 1.0),
 		"cloud_mid": clampf(float(snapshot.get("cloud_mid", 0.0)), 0.0, 1.0),

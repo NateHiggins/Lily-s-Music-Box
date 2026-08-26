@@ -51,6 +51,7 @@ func _ready() -> void:
 			"weather JSON normalizes cloud strata, precipitation, wind and daylight")
 	var presentation: Dictionary = WeatherServiceScript.presentation(weather)
 	_check(bool(presentation.wet)
+			and int(presentation.weather_code) == 61
 			and is_equal_approx(float(presentation.precipitation_intensity), 0.48)
 			and is_equal_approx(float(presentation.cloud_high), 0.88)
 			and is_equal_approx(float(presentation.wind_direction_degrees), 41.0)

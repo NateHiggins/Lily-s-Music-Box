@@ -97,8 +97,11 @@ func set_live_conditions(conditions: Dictionary) -> void:
 			- minf(precipitation, 4.0) * 0.10 - (0.28 if fogged else 0.0),
 			0.04, 1.0)
 	var speed := maxf(float(_conditions.get("wind_speed_kmh", 0.0)), 0.0) / 3.6
-	var bearing := deg_to_rad(float(_conditions.get("wind_direction_deg", 0.0)))
-	_wind_mps = Vector3(sin(bearing), 0.0, -cos(bearing)) * speed
+	var bearing := deg_to_rad(float(_conditions.get(
+			"wind_direction_degrees", 0.0)))
+	# Meteorological bearings say where wind comes from. Background displacement
+	# must travel the opposite way, in the same X/Z convention as the cloud deck.
+	_wind_mps = Vector3(-sin(bearing), 0.0, cos(bearing)) * speed
 	if _aircraft:
 		_aircraft.transparency = 1.0 - _aircraft_contrast
 	# Rain and low cloud remove high frequencies with distance; they never make

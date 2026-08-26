@@ -60,6 +60,12 @@ keeps the analytic field from reading as a rigid painted shell. Precipitation,
 clouds and period ambience therefore agree on one reported wind without
 sharing node ownership.
 
+`weather_code` and `wind_direction_degrees` remain canonical presentation
+facts after normalization. Consumers must not invent shortened aliases. The
+period aircraft reverses the meteorological “comes from” bearing through the
+same X/Z convention as the cloud deck, so an east wind moves both west; WMO fog
+codes can reach the weather and distant-ambience consumers intact.
+
 This separation is the pattern for future reality-selling feeds: network code
 publishes bounded facts; an existing production owner translates those facts;
 failure preserves authored art; and no feed gains authority over cases, saves,
