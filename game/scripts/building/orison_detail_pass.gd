@@ -15,6 +15,10 @@ const WatchmanClockPropScript := preload(
 		"res://scripts/props/watchman_clock_prop.gd")
 const NightRegisterPropScript := preload(
 		"res://scripts/props/night_register_prop.gd")
+const WatchStationPropScript := preload(
+		"res://scripts/props/watch_station_prop.gd")
+const WatchStationNetworkScript := preload(
+		"res://scripts/building/watch_station_network.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -336,6 +340,40 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])
 		floor_nodes["F01"].add_child(bench)
+	if floor_nodes.has("F02"):
+		# SR7-J: the first watch station, on the way to Mina's Vantry point.
+		#
+		# THE ROUTE IS WHY IT IS HERE. The lift lands on the corridor ring's
+		# south-east side (`LiftSheave` b(4.86, -4.73)); 2A's entry is
+		# `F02_DOOR_02` on the ring's WEST wall at b(-5.33, -2.11); and the
+		# Vantry point the opening report sends you to is inside that flat at
+		# b(-9.20, -3.04). So the approach runs west along the south leg and
+		# then NORTH up the west wall, and this box is the last thing on that
+		# wall before the door -- passed on the way in, at eye level, without
+		# being a waypoint anybody has to be told about.
+		#
+		# The wall face is x = -5.33 and the case builds outward into the
+		# corridor, so it faces EAST: `rotation.y = +PI/2` (the lobby register
+		# faces west off the opposite wall with -PI/2).
+		#
+		# F02's floor is at z 3.2 and floor nodes sit at the origin, so the
+		# height passed here is ABSOLUTE: 3.2 + 1.42 = 4.62, the same 1.42 the
+		# lobby apparatus hangs at and squarely in a standing eye line.
+		#
+		# It registers no marker kind, owns no light, no job, no case and no
+		# save key, and its only body is an Area3D reach, which reports
+		# overlaps and blocks nothing.
+		var stations := WatchStationNetworkScript.new()
+		stations.name = "WatchStationNetwork"
+		add_child(stations)
+		var station := WatchStationPropScript.new()
+		station.name = "F02_WATCH_STATION_01"
+		station.prop_type = "watch_station"
+		station.station_id = "F02_STATION_2A_LANDING"
+		station.position = GameBoot.b2g([-5.33, -3.10, 4.62])
+		station.rotation.y = PI * 0.5
+		floor_nodes["F02"].add_child(station)
+		stations.register(station)
 	if floor_nodes.has("B1"):
 		# SR7-E: the working face of the first house panelboard.
 		#
