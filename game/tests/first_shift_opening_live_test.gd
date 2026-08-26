@@ -56,10 +56,12 @@ func _ready() -> void:
 			and str(RealityState.data.current_case_id) == CASE
 			and str(RealityState.case_state(CASE).stage) == "active",
 			"taking the paper acknowledges its job and activates only its declared case")
+	# K2-C moved this clause into the indicative; the property under test is
+	# that the station is named and not ordered, which is what this now asks.
 	_check(root.objective_tracker._objective.text.contains("STATION 2")
-			and root.objective_tracker._objective.text.contains("if you see it")
+			and not root.objective_tracker._objective.text.contains("work STATION")
 			and root.objective_tracker._objective.text.contains(
-					"evidence, not permission"),
+					"never permission"),
 			"Mina's objective teaches the optional station without making it a waypoint")
 	var station_network: Node = root.find_child("WatchStationNetwork", true, false)
 	var station: Node = root.find_child("F02_WATCH_STATION_01", true, false)

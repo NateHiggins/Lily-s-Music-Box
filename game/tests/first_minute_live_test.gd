@@ -157,7 +157,13 @@ func _ready() -> void:
 
 	# --- the optional round stays optional ----------------------------------
 	var objective := str(tracker._objective.text)
-	_check(objective.contains("STATION 2") and objective.contains("if you see"),
+	# K2-C reworded this clause from "work STATION 2 if you see it" into the
+	# indicative. The assertion now tests the PROPERTY the check was always
+	# about — the station is named and never ordered — rather than the exact
+	# sentence, so a future rewording cannot break it for the wrong reason.
+	_check(objective.contains("STATION 2")
+			and not objective.contains("work STATION")
+			and not objective.contains("Before you leave"),
 			"the watch station is OFFERED, not demanded: \"%s\"" % objective)
 	_check(not bool(director.call("has_station_mark",
 			"F02_STATION_2A_LANDING")),

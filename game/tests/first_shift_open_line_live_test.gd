@@ -37,8 +37,10 @@ func _ready() -> void:
 			and detector.call("interact_control", "detector", root.player)
 			and register.call("take_slip"),
 			"the player clocks in and takes Mina's existing authored report")
+	# K2-C moved this clause into the indicative. The property under test
+	# is that the station is named and never ordered.
 	_check(root.objective_tracker._objective.text.contains("STATION 2")
-			and root.objective_tracker._objective.text.contains("if you see it"),
+			and not root.objective_tracker._objective.text.contains("work STATION"),
 			"the report offers the watch station as optional evidence")
 
 	_check(network.call("set_line_closed", false),

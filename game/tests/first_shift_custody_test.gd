@@ -38,15 +38,21 @@ func _ready() -> void:
 	director.observe_tour_key_taken(3)
 	_check(director.tour_key_carried() and director.accept_report(JOB),
 			"custody may begin before the player takes the report")
-	_check(not tracker._objective.text.contains("take the TOUR KEY")
+	# K2-C moved this clause into the indicative. The property under test
+	# is that the station is named and never ordered.
+	_check(not tracker._objective.text.contains("TOUR KEY")
 			and tracker._objective.text.contains("STATION 2")
-			and tracker._objective.text.contains("if you see it"),
+			and not tracker._objective.text.contains("work STATION"),
 			"the objective recognizes custody while keeping the station optional")
 
 	director.observe_tour_key_returned()
+	# K2-C: the clause returns, but in the indicative — the card now says the
+	# key HANGS by the register rather than ordering anyone to take it. The
+	# property under test is that returning it puts the clause back.
 	_check(not director.tour_key_carried()
-			and tracker._objective.text.contains("take the TOUR KEY"),
-			"returning an unused key restores the optional custody instruction")
+			and tracker._objective.text.contains("TOUR KEY")
+			and not tracker._objective.text.contains("take the TOUR KEY"),
+			"returning an unused key restores the optional custody clause")
 	_check(director.station_marks().is_empty(),
 			"returning the key manufactures no station evidence")
 

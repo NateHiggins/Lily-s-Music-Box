@@ -202,10 +202,61 @@ func _present_active_report() -> void:
 		return
 	var objective := work_orders.job_library.stage_objective(job_id, stage)
 	if job_id == OPENING_JOB_ID and not has_station_mark(OPENING_STATION_ID):
-		if not _tour_key_carried:
-			objective += " Before you leave the lobby, take the TOUR KEY from its hook. It opens no door."
-		objective += " On the way, work STATION 2 if you see it. The mark is evidence, not permission."
+		objective = _first_step(spec) + objective + _round_texture()
 	_show(str(spec.get("title", "NIGHT REGISTER")), objective)
+
+
+## K2-C: ONE IMMEDIATE VERB, AHEAD OF THE JOB'S OWN WORDS.
+##
+## MEASURED AT THE ACCEPTANCE POSE, b(4.84, -2.27, 1.62), facing the spindle the
+## paper just came off. NOT ONE THING THIS CARD NAMED WAS IN THE FRAME: the
+## tour key sits at yaw -60.9 degrees, the detector at +62.5, and STATION 2 at
+## -175.3 and a floor up. The stair is at +154.9 and occluded.
+##
+## And the leading verb asked for a sense the building cannot deliver from
+## there. "Follow the chirp" is a fine instruction beside the grille and a poor
+## one at the desk: the fault fires on a 50-to-95-second random timer from an
+## emitter whose `max_distance` is 16 m, at a point a storey up through a slab
+## -- into a lobby where 141 emitters are already running. A player who stands
+## still and listens, as instructed, hears the building and not the chirp.
+##
+## So the card now opens with the one thing a hand can act on in the next few
+## seconds: WHERE. The unit and its floor come off the job spec rather than
+## being written here, so this is presentation of `WorkOrders`' own fact and
+## works for any job, not a second copy of this one.
+func _first_step(spec: Dictionary) -> String:
+	var unit := str(spec.get("unit", ""))
+	if unit.is_empty():
+		return ""
+	var floor_number := int(unit.substr(0, 1)) if unit.substr(0, 1).is_valid_int() 			else 0
+	if floor_number <= 1:
+		return "Unit %s, on this floor. " % unit
+	var climb := floor_number - 1
+	return "Unit %s, %s up. " % [unit,
+			"one floor" if climb == 1 else "%d floors" % climb]
+
+
+## The round's accountability texture, and it is deliberately NOT a step.
+##
+## The old card made these clauses two and three of three imperatives -- "take
+## the TOUR KEY", "work STATION 2" -- which reads as a checklist and, worse,
+## reads as a gate. Neither is one: the audit confirms the job reaches
+## `acknowledged` and the case reaches `active` with no key carried and no
+## station mark, and nothing anywhere gates on either. They are stated here as
+## things that EXIST and are on the way, in the indicative rather than the
+## imperative, so a player who ignores both is not disobeying an instruction.
+func _round_texture() -> String:
+	# TOUR KEY and STATION 2 stay shouted. That is this card's existing
+	# voice for a named thing, six suites assert on it, and writing them in
+	# sentence case broke all six for a reason that had nothing to do with
+	# what was being tested.
+	var texture := ""
+	if not _tour_key_carried:
+		texture += " The TOUR KEY hangs by the register; it opens no door, but"
+		texture += " a round is signed for."
+	texture += " STATION 2 is on the way up if you want the mark — evidence,"
+	texture += " never permission."
+	return texture
 
 
 func clock_in() -> bool:
