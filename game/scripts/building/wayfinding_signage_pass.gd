@@ -57,6 +57,7 @@ var _last_bell_state := "READY"
 var apartment_numbers := 0
 var floor_directories := 0
 var fire_signs := 0
+var spine_plates := 0
 var _numbered_doors := {}
 
 
@@ -67,10 +68,12 @@ func build(world: Node3D) -> Dictionary:
 	_build_floor_directories()
 	_build_fire_directions()
 	_build_front_directory()
-	print("[WAYFINDING] %d brass unit numbers, %d directories, %d fire signs"
-			% [apartment_numbers, floor_directories, fire_signs])
+	_build_service_spine_plate()
+	print("[WAYFINDING] %d brass unit numbers, %d directories, %d fire signs, "
+			% [apartment_numbers, floor_directories, fire_signs]
+			+ "%d spine plates" % spine_plates)
 	return {"numbers":apartment_numbers, "directories":floor_directories,
-			"fire_signs":fire_signs}
+			"fire_signs":fire_signs, "spine_plates":spine_plates}
 
 
 func _build_materials() -> void:
@@ -243,6 +246,69 @@ func _build_fire_directions() -> void:
 		_label(sign, "DO NOT USE ELEVATOR", Vector3(0, -0.115, 0.031), 13,
 				0.0009, Color(0.76, 0.30, 0.24))
 		fire_signs += 1
+
+
+## K2-A: the plate this building was missing.
+##
+## THE MEASUREMENT THAT ASKED FOR IT. The east wall of the ground floor is the
+## Orison's entire working spine, in order, from the front wall northward: the
+## lobby clock, the post tray, the mail chute, the porter's board, the service
+## dumbwaiter, the signal register, the tour-key guard, the night register and
+## the watchman's detector at the head of it. Standing just inside the front
+## door and looking east, ALL of it is on one clear 7.5 m axis -- the sightline
+## opens at x +3.00 and holds to x +5.00.
+##
+## And a fresh player has no reason on earth to turn that way. The opening
+## objective names "the watchman's detector", an object they have never seen;
+## of 831 walkable ground-floor places the detector's face is visible from 112,
+## and not one of those is in the entrance hall. On the direct walk from door to
+## desk the first clear sight of it comes at 2.60 m -- barely ahead of the
+## player's own 2.10 m prompt ray. The building was not hiding the desk. It
+## simply never said which way it was.
+##
+## SO IT SAYS SO, THE WAY A 1912 BUILDING SAYS THINGS. This is the same
+## brass-and-enamel plate as the fire directions twenty lines above, in the same
+## vocabulary, hung on a real measured wall: the south face of the entrance
+## hall's north wall at y -6.84, which is dead ahead of anyone who has just come
+## through the front door. It names what is down there in the order they will
+## pass it and points right. It is a sign. It knows nothing, owns nothing,
+## mutates nothing, and it is as true at the end of the game as at the start.
+func _build_service_spine_plate() -> void:
+	var plate := Node3D.new()
+	plate.name = "ServiceSpineDirection"
+	# MEASURED, AND THE FIRST GUESS WAS WRONG. The entrance hall's north wall at
+	# y -6.84 is not continuous: it is solid across x 0.8..1.2 and x 2.4..3.2 and
+	# OPEN between, because the elevator stands in the gap. A plate at x 2.20 --
+	# where this went first -- hung in the lift doorway with nothing behind it.
+	# The pier at x 2.8 carries it: solid wall, 4.05 m from the door, and inside
+	# the forward view of anyone who has just come through it.
+	#
+	# The face is at y -6.84 and the plate stands 60 mm proud of it, facing south
+	# into the hall. rotation.y 0 puts local +z on building -y, which is south --
+	# the same convention the fire directions use to face west with -PI/2.
+	plate.position = GameBoot.b2g([2.80, -6.90, 1.62])
+	add_child(plate)
+	# THE FIELD IS PAINTED BOARD, AND BOTH EARLIER VERSIONS ARE WHY.
+	#
+	# Built in the fire signs' vitreous `_enamel` -- Color(0.055, 0.075, 0.068)
+	# at roughness 0.08 -- it photographed against warm lobby plaster as a black
+	# glossy rectangle and read as a flat screen hung on a 1912 wall. Rebuilt in
+	# `_brass`, it went darker still: this pier is a dim corner, and a metallic
+	# material with nothing to reflect renders black, taking the engraved
+	# letters with it. Enamel is right for a fire direction in a lit stair and
+	# brass is right for a unit number at arm's length; a lobby directory read
+	# from four metres in low light is a PAINTED BOARD with pale lettering, and
+	# roughness is what stops it looking like a screen.
+	var board := _metal(Color(0.085, 0.062, 0.048), 0.62, 0.04)
+	_box(plate, Vector3(0.64, 0.30, 0.020), Vector3.ZERO, _dark_brass)
+	_box(plate, Vector3(0.57, 0.23, 0.008), Vector3(0, 0, 0.014), board)
+	_label(plate, "NIGHT WATCHMAN", Vector3(0, 0.078, 0.020), 19, 0.0010,
+			Color(0.92, 0.78, 0.44))
+	_label(plate, "POST AND REGISTER  →", Vector3(0, 0.000, 0.020), 23, 0.0010,
+			Color(0.94, 0.92, 0.84))
+	_label(plate, "PORTER · MAILS · SERVICE LIFT", Vector3(0, -0.076, 0.020),
+			14, 0.0009, Color(0.80, 0.76, 0.66))
+	spine_plates += 1
 
 
 func _build_front_directory() -> void:

@@ -69,6 +69,33 @@ const DATUM_TOLERANCE := 0.06
 ## key barrels differ in length, and this is what that difference buys.
 const STATION_RADII := [0.030, 0.044, 0.058, 0.072, 0.086, 0.100]
 
+## K2-A: THE CLOCK IS RUNNING, SO THE CLOCK IS AUDIBLE.
+##
+## Measured first, then written. From 831 walkable places on the ground floor,
+## this detector's face can be seen from 112 -- and NONE of them are anywhere
+## near the front door. A player who is told to "clock in at the watchman's
+## detector" walks into a lobby where the thing named is behind them and to the
+## right, and gets a prompt only inside 2.10 m.
+##
+## The prop already knew it was running and said nothing about it. A wound
+## movement in an empty lobby at three in the morning is the one sound in the
+## building with a pulse, and it comes from the head of the service corridor.
+## So it beats, quietly, and a player who cannot see the desk can still hear
+## which way it is.
+##
+## IT IS HONEST BECAUSE IT STOPS. The beat is a function of `movement_running`
+## and nothing else -- not of the ritual phase, not of where the player is, not
+## of whether the game would like some help right now. Pull the stop lever and
+## the lobby goes quiet, which is SR7-F's whole lesson said out loud.
+const BEAT_SECONDS := 1.0
+## Quieter at the case than the working sounds, but carried further, because
+## this one has 9.7 m of corridor to cross.
+const BEAT_DB := -24.0
+const BEAT_UNIT_SIZE := 6.0
+## A tenth of a millisecond. Only wide enough to absorb binary representation
+## error on the compare, never wide enough to matter to a clock.
+const BEAT_EPSILON := 0.0001
+
 var _service_panel: MaintenanceActivityPanel
 var _clock_source: Node
 var _first_shift: FirstShiftDirector
@@ -94,6 +121,8 @@ var _night_marks: Array[MeshInstance3D] = []
 var _proof_a: MeshInstance3D
 var _proof_b: MeshInstance3D
 var _tick: AudioStreamPlayer3D
+var _beat: AudioStreamPlayer3D
+var _beat_left := 0.0
 var _knock: AudioStreamPlayer3D
 var _punch: AudioStreamPlayer3D
 var _balk_left := 0.0
@@ -303,6 +332,9 @@ func _build_visual() -> void:
 	_reading_index.name = "ReadingIndex"
 
 	_tick = make_emitter("tick", -22.0)
+	_beat = make_emitter("tick", BEAT_DB)
+	_beat.unit_size = BEAT_UNIT_SIZE
+	_beat_left = BEAT_SECONDS
 	_knock = make_emitter("knock", -14.0)
 	_punch = make_emitter("pop", -16.0)
 	_build_detector_reach()
@@ -561,9 +593,43 @@ func balking() -> bool:
 
 func _process(delta: float) -> void:
 	_t += delta
+	_advance_beat(delta)
 	if _balk_left > 0.0:
 		_balk_left = maxf(0.0, _balk_left - delta)
 		_refresh_mechanism()
+
+
+## The escapement, out loud. A stopped movement makes no sound at all, and the
+## countdown is reset rather than carried so the first beat after a restart is
+## a whole beat and not whatever was left over.
+func _advance_beat(delta: float) -> void:
+	if _beat == null:
+		return
+	if not movement_running:
+		_beat_left = BEAT_SECONDS
+		return
+	_beat_left -= delta
+	if _beat_left > BEAT_EPSILON:
+		return
+	# CARRY THE OVERSHOOT, DO NOT DISCARD IT. Reloading the countdown to a flat
+	# `BEAT_SECONDS` throws away however far past zero this frame went, and a
+	# clock that throws away a slice of every second runs slow: driven at a
+	# tenth of a second the first version lost a whole beat in ten, because
+	# 1.0 - 10 x 0.1 lands a hair ABOVE zero in binary and the tenth beat fell
+	# on the eleventh step. A pendulum does not lose the remainder, and neither
+	# does this.
+	_beat_left += BEAT_SECONDS
+	_beat.play()
+
+
+## Seconds until the next beat, and whether there will be one. Public so a
+## deterministic test can drive the escapement without listening to it.
+func beating() -> bool:
+	return movement_running and _beat != null
+
+
+func beat_remaining() -> float:
+	return _beat_left
 
 
 func _refresh_mechanism() -> void:
