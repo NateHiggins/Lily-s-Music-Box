@@ -52,6 +52,10 @@ codes 45/48 explicitly receive that full fog term. Thus a dry overcast report
 softens the block without erasing it; rain, storm and actual fog may still close
 the distance. Cloud cover never impersonates ground fog merely because both
 facts are gray.
+Relative humidity is normalized to `0–1`; only the band above `0.72` adds haze,
+with a hard maximum of `0.08`. Even saturated clear air therefore remains below
+the extinction supplied by rain or WMO fog codes. Temperature is carried and
+bounded for downstream ambience but does not independently recolor the sky.
 
 The normalized meteorological wind also advects the lower deck. The service's
 degrees-from-north bearing is reversed from “comes from” to “moves toward” and
@@ -103,6 +107,8 @@ calm, speed and every meteorological bearing through that same contract.
 `0–1` fractions. When one or more strata are supplied without `_TOTAL`, the
 simulator derives total cover from their maximum. This permits high-only,
 mid-only and low-deck proofs without contradictory illumination facts.
+`WEATHER_SIMULATE_TEMPERATURE_C` is bounded to `-50–55`; humidity is supplied
+as `WEATHER_SIMULATE_HUMIDITY` in percent and bounded to `0–100`.
 
 ## Verification
 

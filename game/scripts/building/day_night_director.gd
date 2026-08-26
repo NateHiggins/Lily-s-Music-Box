@@ -273,9 +273,11 @@ func _apply(minute: float) -> void:
 		profile["cloud_direct_transmission"] = direct_transmission
 		var precipitation := clampf(float(_live_conditions.get(
 				"precipitation_intensity", 0.0)), 0.0, 1.0)
+		var humidity := clampf(float(_live_conditions.get(
+				"relative_humidity", 0.70)), 0.0, 1.0)
 		var weather_code := int(_live_conditions.get("weather_code", 0))
 		profile.fog_d *= _weather_fog_multiplier(
-				low_clouds, precipitation, weather_code)
+				low_clouds, precipitation, weather_code, humidity)
 		profile.mist.a *= lerpf(0.34, 1.0,
 				maxf(low_clouds, precipitation))
 		profile["live_weather"] = _live_conditions.duplicate(true)
@@ -444,14 +446,15 @@ func _cloud_strata(low: float, mid: float, high: float) -> Dictionary:
 
 
 func _weather_fog_multiplier(low_clouds: float, precipitation: float,
-		weather_code: int) -> float:
+		weather_code: int, humidity: float = 0.70) -> float:
 	## A dry ceiling is not ground fog. Low cloud supplies only modest aerial
 	## perspective; precipitation and WMO fog codes may close the distance.
 	var wet_or_fog := clampf(precipitation, 0.0, 1.0)
 	if weather_code in [45, 48]:
 		wet_or_fog = 1.0
+	var humid_haze := smoothstep(0.72, 1.0, clampf(humidity, 0.0, 1.0)) * 0.08
 	return lerpf(0.78, 0.84, clampf(low_clouds, 0.0, 1.0)) \
-			+ wet_or_fog * 0.18
+			+ wet_or_fog * 0.18 + humid_haze
 
 
 func _wind_direction_vector(degrees_from_north: float) -> Vector3:

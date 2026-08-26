@@ -52,6 +52,8 @@ func _ready() -> void:
 	var presentation: Dictionary = WeatherServiceScript.presentation(weather)
 	_check(bool(presentation.wet)
 			and int(presentation.weather_code) == 61
+			and is_equal_approx(float(presentation.temperature_c), 18.4)
+			and is_equal_approx(float(presentation.relative_humidity), 0.91)
 			and is_equal_approx(float(presentation.precipitation_intensity), 0.48)
 			and is_equal_approx(float(presentation.cloud_high), 0.88)
 			and is_equal_approx(float(presentation.wind_direction_degrees), 41.0)
@@ -92,6 +94,14 @@ func _ready() -> void:
 			and is_equal_approx(float(high_only.cloud_high), 1.0)
 			and is_equal_approx(float(high_only.cloud_total), 1.0),
 			"strata simulation derives coherent total cover when not overridden")
+	OS.set_environment("WEATHER_SIMULATE_TEMPERATURE_C", "-80")
+	OS.set_environment("WEATHER_SIMULATE_HUMIDITY", "140")
+	var bounded_air := WeatherServiceScript.simulated_snapshot("clear")
+	OS.set_environment("WEATHER_SIMULATE_TEMPERATURE_C", "")
+	OS.set_environment("WEATHER_SIMULATE_HUMIDITY", "")
+	_check(is_equal_approx(float(bounded_air.temperature_c), -50.0)
+			and is_equal_approx(float(bounded_air.relative_humidity), 100.0),
+			"temperature and humidity simulation stay inside the public bounds")
 	_check(WeatherServiceScript.simulated_snapshot("not_weather").is_empty(),
 			"unknown simulation names cannot silently become weather")
 	_check(WeatherServiceScript.parse_weather({"current": {"time": "bad"}},

@@ -172,6 +172,10 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 		"latitude": float(location.get("latitude", QUEENS.latitude)),
 		"longitude": float(location.get("longitude", QUEENS.longitude)),
 		"weather_code": int(snapshot.get("weather_code", 0)),
+		"temperature_c": clampf(float(snapshot.get("temperature_c", 12.0)),
+				-50.0, 55.0),
+		"relative_humidity": clampf(float(snapshot.get(
+				"relative_humidity", 70.0)) / 100.0, 0.0, 1.0),
 		"cloud_total": clampf(float(snapshot.get("cloud_total", 0.0)), 0.0, 1.0),
 		"cloud_low": clampf(float(snapshot.get("cloud_low", 0.0)), 0.0, 1.0),
 		"cloud_mid": clampf(float(snapshot.get("cloud_mid", 0.0)), 0.0, 1.0),
@@ -196,6 +200,14 @@ static func simulated_snapshot(preset: String) -> Dictionary:
 	var cloud_low := float(value.low)
 	var cloud_mid := float(value.cloud) * 0.72
 	var cloud_high := float(value.cloud) * 0.48
+	var temperature := 12.0
+	var humidity := 70.0
+	var temperature_override := OS.get_environment("WEATHER_SIMULATE_TEMPERATURE_C")
+	var humidity_override := OS.get_environment("WEATHER_SIMULATE_HUMIDITY")
+	if temperature_override.is_valid_float():
+		temperature = clampf(float(temperature_override), -50.0, 55.0)
+	if humidity_override.is_valid_float():
+		humidity = clampf(float(humidity_override), 0.0, 100.0)
 	var strata_overridden := false
 	for field in [
 			["WEATHER_SIMULATE_CLOUD_LOW", "low"],
@@ -225,7 +237,7 @@ static func simulated_snapshot(preset: String) -> Dictionary:
 	return {
 		"source": "simulation", "observed_at": "simulated",
 		"location": QUEENS.duplicate(true), "weather_code": int(value.code),
-		"temperature_c": 12.0, "relative_humidity": 70.0,
+		"temperature_c": temperature, "relative_humidity": humidity,
 		"precipitation_mm": float(value.rain), "rain_mm": float(value.rain),
 		"showers_mm": 0.0, "snowfall_cm": float(value.snow),
 		"cloud_total": cloud_total, "cloud_low": cloud_low,

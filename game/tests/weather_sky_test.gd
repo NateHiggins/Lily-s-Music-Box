@@ -62,7 +62,9 @@ func _ready() -> void:
 	_check("a dry cloud ceiling cannot silently become ground fog",
 			director._weather_fog_multiplier(1.0, 0.0, 3) < 1.0
 			and director._weather_fog_multiplier(1.0, 1.0, 95) > 1.0
-			and director._weather_fog_multiplier(1.0, 0.0, 45) > 1.0)
+			and director._weather_fog_multiplier(1.0, 0.0, 45) > 1.0
+			and director._weather_fog_multiplier(0.0, 0.0, 0, 1.0)
+					< director._weather_fog_multiplier(0.0, 0.0, 45, 0.7))
 	_check("meteorological wind advects the same lower cloud deck",
 			director._wind_direction_vector(0.0).is_equal_approx(Vector3.BACK)
 			and director._wind_direction_vector(90.0).is_equal_approx(Vector3.LEFT))
