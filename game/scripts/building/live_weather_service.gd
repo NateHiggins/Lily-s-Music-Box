@@ -25,7 +25,7 @@ const SIMULATION_PRESETS := {
 	"overcast": {"code": 3, "cloud": 1.0, "low": 0.92, "rain": 0.0, "snow": 0.0, "wind": 13.0},
 	"rain": {"code": 61, "cloud": 0.92, "low": 0.84, "rain": 1.2, "snow": 0.0, "wind": 22.0},
 	"storm": {"code": 95, "cloud": 1.0, "low": 1.0, "rain": 4.0, "snow": 0.0, "wind": 42.0},
-	"snow": {"code": 73, "cloud": 0.96, "low": 0.90, "rain": 0.3, "snow": 1.4, "wind": 17.0},
+	"snow": {"code": 73, "cloud": 0.96, "low": 0.90, "rain": 0.0, "snow": 1.4, "wind": 17.0},
 	"fog": {"code": 45, "cloud": 0.76, "low": 1.0, "rain": 0.0, "snow": 0.0, "wind": 2.0},
 }
 
@@ -167,6 +167,9 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 			float(snapshot.get("rain_mm", 0.0))
 			+ float(snapshot.get("showers_mm", 0.0)))
 	var snowfall := maxf(0.0, float(snapshot.get("snowfall_cm", 0.0)))
+	var liquid := maxf(0.0, float(snapshot.get("rain_mm", 0.0))
+			+ float(snapshot.get("showers_mm", 0.0)))
+	precipitation = maxf(precipitation, snowfall)
 	var location: Dictionary = snapshot.get("location", {})
 	return {
 		"latitude": float(location.get("latitude", QUEENS.latitude)),
@@ -180,8 +183,10 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 		"cloud_low": clampf(float(snapshot.get("cloud_low", 0.0)), 0.0, 1.0),
 		"cloud_mid": clampf(float(snapshot.get("cloud_mid", 0.0)), 0.0, 1.0),
 		"cloud_high": clampf(float(snapshot.get("cloud_high", 0.0)), 0.0, 1.0),
-		"wet": precipitation > 0.02,
+		"wet": liquid > 0.02,
 		"precipitation_intensity": clampf(precipitation / 2.5, 0.0, 1.0),
+		"rain_intensity": clampf(liquid / 2.5, 0.0, 1.0),
+		"snow_intensity": clampf(snowfall / 2.5, 0.0, 1.0),
 		"snowing": snowfall > 0.01,
 		"wind_speed_kmh": maxf(0.0, float(snapshot.get("wind_speed_kmh", 0.0))),
 		"wind_direction_degrees": fposmod(float(snapshot.get(

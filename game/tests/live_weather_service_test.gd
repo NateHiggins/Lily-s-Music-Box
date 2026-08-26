@@ -55,6 +55,8 @@ func _ready() -> void:
 			and is_equal_approx(float(presentation.temperature_c), 18.4)
 			and is_equal_approx(float(presentation.relative_humidity), 0.91)
 			and is_equal_approx(float(presentation.precipitation_intensity), 0.48)
+			and is_equal_approx(float(presentation.rain_intensity), 0.48)
+			and is_zero_approx(float(presentation.snow_intensity))
 			and is_equal_approx(float(presentation.cloud_high), 0.88)
 			and is_equal_approx(float(presentation.wind_direction_degrees), 41.0)
 			and is_equal_approx(float(presentation.latitude), 43.6591)
@@ -73,7 +75,11 @@ func _ready() -> void:
 	_check(bool(storm.wet) and is_equal_approx(float(storm.cloud_total), 1.0)
 			and is_equal_approx(float(storm.precipitation_intensity), 1.0),
 			"the storm simulator reaches closed cloud and maximum rain")
-	_check(bool(snow.snowing), "the simulator carries snow as a distinct fact")
+	_check(bool(snow.snowing) and not bool(snow.wet)
+			and is_zero_approx(float(snow.rain_intensity))
+			and float(snow.snow_intensity) > 0.0
+			and float(snow.precipitation_intensity) > 0.0,
+			"the snow simulator is a distinct frozen precipitation branch")
 	OS.set_environment("WEATHER_SIMULATE_WIND_KMH", "37.5")
 	OS.set_environment("WEATHER_SIMULATE_WIND_DEGREES", "450")
 	var directed := WeatherServiceScript.simulated_snapshot("scattered")

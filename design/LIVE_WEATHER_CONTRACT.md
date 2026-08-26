@@ -23,6 +23,11 @@ humidity and daylight into a data-only snapshot. It owns no renderer node.
 exterior key and sky material. Live cloud cover adjusts the depth of the lower
 cloud deck and horizon atmosphere while retaining the four authored Orison
 panoramas. `WeatherFX` remains the owner of precipitation, mist and wind.
+Presentation carries `rain_intensity` and `snow_intensity` separately while
+retaining their maximum as the general atmospheric precipitation term. Mixed
+observations may emit both. The named `snow` simulator is pure frozen
+precipitation, and the rain spatter/middle batches must be off while its snow
+field is on; every player-following branch shares the building exposure query.
 
 The lower deck is evaluated from the view direction, not panorama UV. Six
 nonparallel analytic waves form broad moving cells on the dome; because the

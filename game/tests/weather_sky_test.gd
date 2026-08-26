@@ -2,6 +2,9 @@ extends Node
 ## T8 contract proof: one authoritative weather clock, four production skies,
 ## bounded depth fog, deterministic layered rain, and building-owned exposure.
 
+const WeatherServiceScript := preload(
+		"res://scripts/building/live_weather_service.gd")
+
 var _fails := 0
 
 
@@ -222,11 +225,20 @@ func _ready() -> void:
 	_check("near and middle rain share one visible batch outdoors",
 			root.weather.get_node("DrivingRainSpatter").emitting
 			and root.weather.get_node("DrivingRainMiddle").visible)
+	var snow_conditions: Dictionary = WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("snow"))
+	root.weather.set_live_conditions(snow_conditions)
+	root.weather._process(0.2)
+	_check("frozen precipitation cannot silently retain the rain branch",
+			root.weather.get_node("LiveSnow").emitting
+			and not root.weather.get_node("DrivingRainSpatter").emitting
+			and not root.weather.get_node("DrivingRainMiddle").visible)
 	root.player.global_position = Vector3(0.0, 0.05, 0.0)
 	root.weather._process(0.2)
 	_check("all player-following precipitation suppresses indoors",
 			not root.weather.get_node("DrivingRainSpatter").emitting
-			and not root.weather.get_node("DrivingRainMiddle").visible)
+			and not root.weather.get_node("DrivingRainMiddle").visible
+			and not root.weather.get_node("LiveSnow").emitting)
 
 	_check("traffic's crossing promise remains eight seconds",
 			StreetTraffic.MAX_WAIT == 8.0)

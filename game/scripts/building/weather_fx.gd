@@ -144,7 +144,10 @@ func set_live_conditions(conditions: Dictionary) -> void:
 	if _live_conditions.is_empty():
 		return
 	var wet := bool(_live_conditions.get("wet", false))
-	_rain_enabled = wet and OS.get_environment("WEATHER_RAIN") != "0"
+	var rain_intensity := float(_live_conditions.get(
+			"rain_intensity", 1.0 if wet else 0.0))
+	_rain_enabled = rain_intensity > 0.008 \
+			and OS.get_environment("WEATHER_RAIN") != "0"
 	_mist_enabled = (wet or float(_live_conditions.get("cloud_low", 0.0)) > 0.68) \
 			and OS.get_environment("WEATHER_MIST") != "0"
 	var speed := float(_live_conditions.get("wind_speed_kmh", 0.0)) / 3.6
@@ -174,6 +177,7 @@ func diagnostic_snapshot() -> Dictionary:
 		"spatter_count": SPATTER_COUNT,
 		"leaf_count": LEAF_COUNT,
 		"rain_enabled": _rain_enabled,
+		"snow_enabled": bool(_live_conditions.get("snowing", false)),
 		"mist_enabled": _mist_enabled,
 		"live_conditions": _live_conditions.duplicate(true),
 		"exposed": is_exposed_at(_player.global_position) if _player else false,
@@ -251,7 +255,7 @@ func _make_leaves() -> CPUParticles3D:
 func _make_snow() -> CPUParticles3D:
 	var particles := CPUParticles3D.new()
 	particles.name = "LiveSnow"
-	particles.amount = 180
+	particles.amount = 480
 	particles.lifetime = 6.0
 	particles.preprocess = 6.0
 	particles.local_coords = false
@@ -263,17 +267,30 @@ func _make_snow() -> CPUParticles3D:
 	particles.initial_velocity_min = 0.45
 	particles.initial_velocity_max = 1.5
 	particles.gravity = Vector3(0.22, -0.42, 0.08)
-	particles.scale_amount_min = 0.35
-	particles.scale_amount_max = 1.0
+	particles.scale_amount_min = 0.28
+	particles.scale_amount_max = 1.55
 	var flake := QuadMesh.new()
-	flake.size = Vector2(0.025, 0.025)
+	flake.size = Vector2(0.045, 0.045)
 	particles.mesh = flake
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = Color(0.88, 0.92, 1.0, 0.78)
-	material.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
-	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var material := ShaderMaterial.new()
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, blend_mix, cull_disabled, depth_prepass_alpha,
+		shadows_disabled;
+void vertex() {
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
+		INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);
+}
+void fragment() {
+	vec2 p = UV * 2.0 - 1.0;
+	float radius = length(p);
+	float core = 1.0 - smoothstep(0.26, 0.92, radius);
+	ALBEDO = vec3(0.88, 0.93, 1.0);
+	ALPHA = core * 0.76;
+}
+"""
+	material.shader = shader
 	particles.material_override = material
 	particles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	particles.emitting = false
