@@ -211,7 +211,7 @@ for running is the only fully supported scheme.
 | Colour alternatives | **ABSENT** | no colourblind mode found |
 | Colour dependence | **UNKNOWN — MANUAL** | not audited; the signage family uses brass-on-dark and the dream uses a strongly coloured palette |
 | Flashing / flicker | **PRESENT, UNCONTROLLED** | `weather_flash` drives a lightning term in the sky shader (`building_root.gd:929,1085`), fed by `day_night_director.gd:167`. **No intensity or disable option.** A photosensitivity consideration with no player control. |
-| Camera motion | **PRESENT, UNCONTROLLED** | a breathing sway, larger while walking (`player_controller.gd:381–405`). No disable, and **no look-sensitivity setting was found**. |
+| Camera motion | **PRESENT, UNCONTROLLED** | the camera rolls during traffic stagger and altered gravity (`player_controller.gd:919–973`). No reduction toggle, and **no look-sensitivity setting was found**. The breathing sway at `player_controller.gd:381–405` belongs to the held service lamp, not the camera. |
 | Fullscreen | **IMPLEMENTED — title screen only** | `game_boot.gd:113–116`; absent from the in-game panel |
 | Quality | **IMPLEMENTED — title screen only** | `quality` 0 cinematic / 1 balanced |
 
@@ -259,7 +259,7 @@ label** — non-speech captioning is folded into *Subtitle Options*.
 | --- | --- |
 | **Subtitle Options** | Requires customisable display **for all spoken content and essential audio information**, with adjustable background opacity and separate text scaling. We have two fixed-size surfaces, no customisation of any kind, and unverified coverage (§3) |
 | **Adjustable Text Size** | Requires large default text or user increase to **≥38 px at 1080p**. Ours are 13/16/17 px, fixed |
-| **Camera Comfort** | Requires disabling or reducing camera bob/shake **or not having them**. We have an always-on breathing sway and no look-sensitivity control (§5) |
+| **Camera Comfort** | Requires disabling or reducing camera bob/shake **or not having them**. Camera roll during stagger and altered gravity cannot be reduced, and look has no sensitivity control (§5). The held lamp sways; the camera does not continuously breathe. |
 | **Save Anytime** | Requires saving at any point with separate manual and auto slots. We autosave to one file (§6) |
 | **Playable at Your Own Pace** | Requires no time limits in core gameplay. The dark scramble is a timed pursuit (§6) |
 | **Keyboard Only Option** | Requires binding **all** actions including camera. Look is mouse-only (§4) |
@@ -293,7 +293,7 @@ No dates and no implementation are proposed.
 | **B2** | **Controller is two shoulder buttons** | Not an accessibility label, but a claim a store page or press kit would make almost reflexively, and it would be false |
 | **B3** | **Subtitle coverage is unverified** | We cannot say what fraction of meaningful audio is captioned. Until someone plays the shift and lists every uncaptioned beat, no subtitle claim is available |
 | **B4** | **Uncontrolled lightning flash** | Photosensitivity has no label in Valve's list, so it will not appear on the store page — which makes it a duty of care rather than a compliance item |
-| **B5** | **Camera sway has no disable and look has no sensitivity control** | Blocks *Camera Comfort* and is a common motion-sickness complaint |
+| **B5** | **Event-driven camera roll has no reduction control and look has no sensitivity control** | Blocks *Camera Comfort*. The always-on breathing motion belongs to the held service lamp, not the camera; traffic stagger and altered gravity are the uncontrolled camera motions. |
 
 **Post-launch improvements** (would each unlock a label, none blocks honesty):
 text scaling → *Adjustable Text Size*; subtitle background/scale + full coverage
