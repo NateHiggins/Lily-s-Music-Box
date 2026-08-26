@@ -59,6 +59,7 @@ var floor_directories := 0
 var fire_signs := 0
 var spine_plates := 0
 var stair_pairs := 0
+var landing_plates := 0
 var _numbered_doors := {}
 
 
@@ -71,12 +72,14 @@ func build(world: Node3D) -> Dictionary:
 	_build_front_directory()
 	_build_service_spine_plate()
 	_build_stair_pair_plates()
+	_build_landing_plates()
 	print("[WAYFINDING] %d brass unit numbers, %d directories, %d fire signs, "
 			% [apartment_numbers, floor_directories, fire_signs]
-			+ "%d spine plates, %d stair pairs" % [spine_plates, stair_pairs])
+			+ "%d spine plates, %d stair pairs, %d landing plates"
+					% [spine_plates, stair_pairs, landing_plates])
 	return {"numbers":apartment_numbers, "directories":floor_directories,
 			"fire_signs":fire_signs, "spine_plates":spine_plates,
-			"stair_pairs":stair_pairs}
+			"stair_pairs":stair_pairs, "landing_plates":landing_plates}
 
 
 func _build_materials() -> void:
@@ -256,7 +259,15 @@ func _build_fire_directions() -> void:
 		# This is a correction to a sign that was already here, not a new claim.
 		_label(sign, "FIRE EXIT — STAIRS  →", Vector3(0, 0.025, 0.031), 21,
 				0.0010, Color(0.86, 0.93, 0.72))
-		_label(sign, "STREET LEVEL ↓", Vector3(0, -0.055, 0.031), 17,
+		# K2-E: "STREET LEVEL ↓" IS FALSE ON FLOOR 1, and K2-D reported it.
+		# Street level IS floor 1, and a body walked out of the F01 stair
+		# landing in six directions without descending a single centimetre —
+		# lowest z reached +0.00 every time. Pointing a man downstairs to the
+		# street from the street is the same class of error as the arrow this
+		# plate carried before K2-D. On every floor above it the line is true
+		# and is left alone.
+		var street := "STREET LEVEL ↓" if fid != "F01" else "STREET LEVEL — THIS FLOOR"
+		_label(sign, street, Vector3(0, -0.055, 0.031), 17,
 				0.0010, Color(0.86, 0.93, 0.72))
 		_label(sign, "DO NOT USE ELEVATOR", Vector3(0, -0.115, 0.031), 13,
 				0.0009, Color(0.76, 0.30, 0.24))
@@ -444,6 +455,95 @@ func _press_directory_button() -> void:
 	_bell_tween.tween_property(_bell_button, "position:z",
 			_bell_button_rest.z, 0.13) \
 			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+## --- K2-E ------------------------------------------------------------------
+## This lives BELOW `_build_front_directory` on purpose. K2-D's focused suite
+## proves its own builder owns no player by scanning the source between
+## `_build_stair_pair_plates` and `_build_front_directory`; dropping this
+## function into that gap tripped it on a COMMENT that says "the player
+## arriving from the entrance hall". K2-D's builder was untouched -- its anchor
+## was not -- and the right answer is to move the new code out of an existing
+## test's window rather than widen the window. Second time this exact trap has
+## been paid for in this series; see the ledger notes.
+
+## K2-E: the plate that tells a landing which way is up.
+##
+## MEASURED, BY WALKING, NOT BY READING THE MESH. From the F01 landing at
+## b(0.00, -2.60) a body under production collision is BLOCKED STRAIGHT AHEAD
+## at y -1.88 by the well guard, and must go round it. Going west then north
+## climbs 0.15 -> 1.60 to the half-landing; crossing east and walking south then
+## climbs 1.60 -> 2.90 toward F02's floor at 3.20. That is the whole route:
+## WEST ARM UP, TURN, EAST ARM UP.
+##
+## DOWN IS DELIBERATELY UNCLAIMED ON FLOOR ONE. Six walks out of that landing
+## all ended at +0.00, but repeating them from 0.8 m further south sends one
+## long diagonal into the open well and down to -1.40 — mid-well, not the cellar
+## floor at -2.80. I could not separate "a flight down" from "a body falling
+## into an open well" robustly, so floor one's plate asserts only what is
+## certain: street level IS this floor, and up is 2-6. Floors above it carry a
+## DOWN line because the flight this suite walks IS their way down.
+##
+## WHY A PLATE AND NOT A LIGHT OR AN ARROW IN THE AIR. The flight itself is
+## plainly visible from the choice point — the frame shows it climbing away to
+## the left past the balustrade. What the stair cannot say for itself is WHICH
+## FLOOR it arrives at, and that is the only thing a man carrying a work order
+## for 2A actually needs. So the plate names floors and nothing else.
+##
+## The glyphs are ↑ and ↓, which have no handedness. K2-D lost a pass to a
+## left/right arrow whose meaning depended on which way the reader faced; a
+## vertical arrow cannot be inverted by standing somewhere else.
+##
+## Hung on the south face of the well guard the arriving player walks into, so
+## it is read head-on from the choice point without turning.
+func _build_landing_plates() -> void:
+	for fid in LEVELS:
+		if fid in ["B1", "ROOF"]:
+			continue
+		var level: float = LEVELS[fid]
+		var number := int(fid.right(2))
+		var plate := Node3D.new()
+		plate.name = "LandingPlate_" + fid
+		# The guard the walk stopped against is at y -1.88; the plate stands
+		# just south of it, facing the arriving player. rotation.y 0 puts the
+		# readable face on building -y, which is south.
+		# MEASURED HEIGHT, and the first guess was 0.55 m too high. Casting
+		# north across the guard from the arrival shows it SOLID from z 0.4 to
+		# 1.0 across x -1.5..+1.5 and OPEN above 1.2: a dwarf wall with an open
+		# balustrade over it. A plate at 1.30 hung in the air above the rail,
+		# which is what the first frame showed. It goes on the solid panel.
+		# x -0.80, not 0.00: dead centre puts the plate behind the device the
+		# player carries in the lower middle of the frame, and off-centre it
+		# also sits on the half of the guard nearer the arm that actually
+		# climbs. z 0.95 is the top of the solid band, just under the handrail,
+		# which is where a plate gets screwed to a closed string.
+		# x -0.35, MEASURED: at -0.80 the plate stood 51 degrees off the
+		# direction of travel, outside a 70 degree frustum's +-35, so a man
+		# walking in never had it on screen. 0.65 m of approach allows
+		# 0.65*tan(35) = 0.46 m of offset; -0.35 keeps it in frame and still
+		# clear of the device carried in the lower right.
+		plate.position = GameBoot.b2g([-0.35, -1.95, level + 0.95])
+		add_child(plate)
+		_box(plate, Vector3(0.58, 0.26, 0.020), Vector3.ZERO, _dark_brass)
+		var board := _metal(Color(0.085, 0.062, 0.048), 0.62, 0.04)
+		_box(plate, Vector3(0.51, 0.19, 0.008), Vector3(0, 0, 0.014), board)
+		var head := "FLOOR 1 — STREET" if number == 1 else "FLOOR %d" % number
+		_label(plate, head, Vector3(0, 0.062, 0.026), 17, 0.0010,
+				Color(0.92, 0.78, 0.44))
+		# UP exists on every floor below the top one.
+		if number < 6:
+			var up := "↑  2 — 6" if number == 1 					else "↑  %d — 6" % (number + 1)
+			_label(plate, up, Vector3(0, -0.006, 0.026), 26, 0.0010,
+					Color(0.94, 0.92, 0.84))
+		else:
+			_label(plate, "TOP FLOOR", Vector3(0, -0.006, 0.026), 22, 0.0010,
+					Color(0.94, 0.92, 0.84))
+		# DOWN only where there is a floor below to go down to.
+		if number > 1:
+			var down := "↓  STREET" if number == 2 					else "↓  %d — STREET" % (number - 1)
+			_label(plate, down, Vector3(0, -0.070, 0.026), 14, 0.0009,
+					Color(0.80, 0.76, 0.66))
+		landing_plates += 1
 
 
 func _metal(color: Color, metallic: float, roughness: float) -> StandardMaterial3D:
