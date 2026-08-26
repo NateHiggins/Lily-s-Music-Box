@@ -7,6 +7,13 @@
 > 109,071,360-byte EXE plus 1,250,936,396-byte PCK. `packageable`,
 > `distributable`, second-machine `installable`, `playable` and `diagnosable`
 > remain open exactly as ruled below.
+>
+> **IDENTITY NOTICE — `8d036fc`, 2026-08-26:** the product now reports
+> `Please Remain on the Line`, version `0.1.0`, and opts into the stable ASCII
+> custom user directory `PleaseRemainOnTheLine` (`ProjectIdentityTest` PASS
+> 4/4). O1 and the code-side half of O8 are closed. The exact Windows-resolved
+> path and uninstall/removal instructions still require one real exported run;
+> no previous development save directory was deleted or silently migrated.
 
 **Purpose:** the smallest honest distribution path for a private friends build,
 beginning the moment Codex supplies a working Windows export preset. This
