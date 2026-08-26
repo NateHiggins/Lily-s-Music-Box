@@ -25,6 +25,8 @@ const TourKeyGuardPropScript := preload(
 		"res://scripts/props/tour_key_guard_prop.gd")
 const FireLineCabinetPropScript := preload(
 		"res://scripts/props/fire_line_cabinet_prop.gd")
+const DoorCheckCloserPropScript := preload(
+		"res://scripts/props/door_check_closer_prop.gd")
 const SodaAcidExtinguisherPropScript := preload(
 		"res://scripts/props/soda_acid_extinguisher_prop.gd")
 
@@ -676,6 +678,55 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 	# has finished spawning before the locks turn.
 	_lockdown_layout = layout
 	call_deferred("_apply_opening_lockdown")
+	# SR7-Q: a door check goes on a leaf, and no leaf exists yet either.
+	call_deferred("_mount_stair_door_check")
+
+
+## SR7-Q: the overhead liquid door check, on the one stair-enclosure leaf this
+## building has.
+##
+## THE AUDIT PICKED THIS DOOR, AND IT CORRECTED THE PREMISE IT WAS GIVEN.
+## Sweeping every leaf in the built tree returns 113 doors, and exactly ONE of
+## them stands on the stair enclosure: `ROOF_DOOR_01`, the galvanized service
+## leaf at the head of the stair, measured at b(-1.330, -3.250, 19.200), 0.96
+## wide, hung to swing north into the bulkhead. EVERY OTHER STAIR CORE IN THE
+## ORISON OPENS THROUGH A 3.2 m CASED OPENING WITH NO LEAF IN IT AT ALL, so
+## "the stair-enclosure doors" is not a thing this building has. This one is.
+##
+## WHY THIS LEAF EARNS A CHECK ANYWAY. It is the door between a stair shaft and
+## the open roof: the one leaf in the Orison where a draught has somewhere to
+## go, and the only one whose being left standing open changes the weather
+## inside the stair. If any leaf here was ever fitted with a check, this is it.
+##
+## DEFERRED for the same reason the opening lockdown two lines above is:
+## `building_root._spawn_props()` runs AFTER this pass, so at `build()` time
+## there is not a single door in the tree to hang anything on.
+##
+## MOUNTED ON THE DOOR NODE, WHICH IS THE FRAME -- never on `HingedLeaf`, which
+## is the moving body. The DoorProp node sits on the fixed hinge line, so a
+## child of it is frame-fixed, which is where a spring box belongs and which
+## keeps this apparatus out of the leaf's transform entirely.
+##
+## CLEARANCE, MEASURED, AGAINST SR7-P. The roof backboard is authored at
+## b(-2.76, -3.06) and this hinge stands at x -1.330; the closer's own iron
+## occupies local x 0.13..0.78 east of the hinge, which puts its NEAREST part
+## at x -1.200 and its far end at x -0.550 -- 1.56 m and 2.21 m east of the
+## board's centre. The live suite measures the near figure rather than trusting
+## this comment. Nothing overlaps, and the board keeps every clearance SR7-P
+## proved for it.
+func _mount_stair_door_check() -> void:
+	var root := get_parent()
+	var leaf: Node = root.find_child("ROOF_DOOR_01", true, false) if root else null
+	if leaf == null or leaf.get("leaf_state") == null:
+		push_warning("[SR7-Q] ROOF_DOOR_01 absent; no door check mounted")
+		return
+	var check := DoorCheckCloserPropScript.new()
+	check.name = "ROOF_DOOR_CHECK"
+	check.prop_type = "door_check_closer"
+	# The leaf authority is this node's own parent, and the only thing this
+	# apparatus is ever allowed to ask.
+	check.door_path = NodePath("..")
+	leaf.add_child(check)
 
 
 ## SR7-P: whatever is on this floor's backboard, drawn into the batch the board
