@@ -30,6 +30,14 @@
 > authored caption anomaly and removing them would remove the case mechanic,
 > not debug UI. G18 is code-closed for those audited affordances but still
 > requires a fresh production capture before public media is cleared.
+>
+> **G18 VISUAL EVIDENCE — `art/renders/release_presentation_g18/`:** a fresh
+> windowed production capture with overlays unset shows no resident/status
+> nameplate, generic object title or light marker in the resolved 2A control;
+> the final frame adds only the intended `REFRIGERATOR` waking residue. The
+> measured residue delta is 3.39× the temporal A/A floor. G18 is therefore
+> closed for the audited 2A affordances. This does not approve arbitrary older
+> screenshots, which may still contain overlays baked before `d205e5a`.
 
 **Purpose:** one authoritative view of every release gate, what evidence exists
 for it today, and what is still owed. **This is not a backlog and it invents no
