@@ -49,15 +49,6 @@ the immediate executable gates, not a second copy of its milestone status.
   runbooks, outreach tracker, metrics dashboard and go/no-go thresholds defined
   in `design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md`.
 
-- **K0-RADIO — ATTENTION MULTIPLIER: EVERY OCCUPIED APARTMENT HAS A RECEIVER,
-  NOT THE SAME RECEIVER.** Build the authored 18-household distribution in
-  `game/data/domestic_radios.json`: six sourced 1920s equipment languages,
-  resident-specific finish/speaker/condition/placement, ordinary local tuning,
-  and no duplicate broadcast or case owner. Preserve Cal's collector bank and
-  the existing baked radios as additional biography. Prove one receiver per
-  occupied unit, period silhouettes, collision-safe placement, bounded audio,
-  save behavior, performance, and a representative cross-class render sheet.
-
 - **K0-ENGINE — PRIORITY / CONTINUOUS: WRITE THE ENGINE WE ARE DISCOVERING.**
   Treat this project as an evidence-producing engine-development programme,
   not only a game. Beginning now, maintain a durable, source-linked knowledge

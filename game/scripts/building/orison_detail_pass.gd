@@ -29,6 +29,8 @@ const DoorCheckCloserPropScript := preload(
 		"res://scripts/props/door_check_closer_prop.gd")
 const SodaAcidExtinguisherPropScript := preload(
 		"res://scripts/props/soda_acid_extinguisher_prop.gd")
+const DomesticRadioPassScript := preload(
+		"res://scripts/building/domestic_radio_pass.gd")
 
 ## SR7-P. WHAT IS ON EACH OF THE EIGHT BACKBOARDS.
 ##
@@ -198,6 +200,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> Dictionary:
 		batches[floor_id] = {"boxes": [], "cylinders": []}
 	_build_infrastructure(layout, floor_nodes, batches)
 	_build_resident_details(layout, floor_nodes, batches)
+	var radio_pass: Node = DomesticRadioPassScript.new()
+	radio_pass.name = "DomesticRadioPass"
+	add_child(radio_pass)
+	var radio_stats: Dictionary = radio_pass.call("build", layout, floor_nodes)
 	for floor_id in batches:
 		var parent: Node3D = floor_nodes[floor_id]
 		_emit_batch(parent, batches[floor_id].boxes, BoxMesh.new(), "trim")
@@ -207,7 +213,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary) -> Dictionary:
 		cylinder.height = 1.0
 		cylinder.radial_segments = 10
 		_emit_batch(parent, batches[floor_id].cylinders, cylinder, "metal")
-	return {"details": detail_count, "decals": decal_count}
+	return {"details": detail_count, "decals": decal_count,
+			"domestic_radios":radio_stats}
 
 
 func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
