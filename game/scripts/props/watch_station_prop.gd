@@ -105,6 +105,9 @@ var _socket: MeshInstance3D
 var _knock: AudioStreamPlayer3D
 var _click: AudioStreamPlayer3D
 var _clock_source: Node
+## SR7-L. The line this box is on, if it is on one. Asked -- never told -- who
+## is carrying the tour key, and only ever about the key.
+var _line: Node
 
 ## THE DETERMINISTIC PHYSICAL STATE, and all of it.
 ## `door_open` -- the Gamewell door is shut or open, never between.
@@ -195,9 +198,32 @@ func close_door() -> bool:
 ## with the drop already fallen, because the transmitter's lock-out pawl is
 ## exactly what stops one man cranking a station twenty times. Both refusals
 ## are ACKNOWLEDGED: the box knocks and the pawl is visibly against its stop.
+## SR7-L. Whether a hand with the tour key is at this box. A station with no
+## line, or a line with no guard, answers false: SR7-J's socket was empty and
+## the box worked anyway, which was the one thing about it that was not
+## period-true. It is true now.
+func tour_key_available() -> bool:
+	if _line == null or not is_instance_valid(_line):
+		return false
+	return bool(_line.call("tour_key_carried"))
+
+
+## Called by the network when it adopts this box. One narrow contract, one
+## question, no reaching into the scene tree.
+func bind_line(line: Node) -> void:
+	_line = line
+
+
 func turn_crank() -> bool:
 	if not door_open:
 		_balk(1.2, "door")
+		return false
+	if not tour_key_available():
+		# THE SOCKET IS EMPTY. The crank runs the coded wheel, but the wheel is
+		# tripped by the tour key's ward and there is no key in the socket, so
+		# the crank turns against nothing at all. The box says so and stays
+		# exactly as it was: no drop, no mark, no signal.
+		_balk(1.6, "socket")
 		return false
 	if drop_fallen:
 		# The pawl is home. The wheel will not run a second time until the box
@@ -571,6 +597,8 @@ func _refresh_station() -> void:
 				else 0.0
 	if _crank != null:
 		_crank.rotation.z = 0.0
+	if _socket != null:
+		_socket.position.z = 0.074
 
 	var balk := clampf(_balk_left, 0.0, 1.0)
 	if balk <= 0.0:
@@ -587,6 +615,15 @@ func _refresh_station() -> void:
 				_crank.rotation.z = -0.55 * balk
 			if _counter != null:
 				_counter.position.x = 0.014 - 0.012 * balk
+		"socket":
+			# A DIFFERENT REFUSAL AND IT LOOKS DIFFERENT. The crank swings its
+			# whole travel because nothing is engaging it, and the empty
+			# socket is shoved forward so the eye lands on the hole where the
+			# key should be.
+			if _crank != null:
+				_crank.rotation.z = 0.95 * balk
+			if _socket != null:
+				_socket.position.z = 0.074 + 0.014 * balk
 		"drop":
 			if _drop != null:
 				_drop.rotation.z = 0.22 * balk

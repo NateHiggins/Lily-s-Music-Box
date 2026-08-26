@@ -109,6 +109,13 @@ func _ready() -> void:
 	var dispatched_before: int = int((schedule.get("_dispatched")
 			as Dictionary).size()) if schedule != null else -1
 
+	# SR7-L: the production box will not run its wheel with the tour key on
+	# its hook in the lobby. Take it first -- this is now what walking a round
+	# actually costs, and the gate itself is proved in `TourKeyLiveTest`.
+	var key_guard: Node = root.find_child("F01_TOUR_KEY_GUARD", true, false)
+	_check(key_guard != null and key_guard.call("take_key"),
+			"the production tour key comes off its hook for the round")
+
 	# --- ONE SIGNAL, END TO END, IN THE REAL BUILDING -----------------------
 	var shown: Array[Dictionary] = []
 	board.connect("signal_displayed",

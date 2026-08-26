@@ -42,6 +42,10 @@ signal station_marked(station_id: String, mark_record: Dictionary)
 ## receiver watches its own line so a board with no network still reads OPEN.
 signal line_condition_changed(closed: bool)
 
+## SR7-L. The guard that holds the tour key, if the building has one. The
+## network does not own custody -- it knows where to ask, which is the narrow
+## contract a station needs and nothing wider.
+var _key_guard: Node
 var _stations: Dictionary = {}
 var _marks: Array[Dictionary] = []
 var _delivered: Array[Dictionary] = []
@@ -62,6 +66,9 @@ func register(station: Node) -> bool:
 		return false
 	_stations[id] = station
 	station.station_marked.connect(_on_station_marked)
+	# SR7-L: hand the box the line it is on, so it can ask about the key.
+	if station.has_method("bind_line"):
+		station.call("bind_line", self)
 	return true
 
 
@@ -76,6 +83,35 @@ func attach_receiver(receiver: Node) -> bool:
 	if receiver.has_method("set_line_closed"):
 		receiver.call("set_line_closed", line_closed)
 	return true
+
+
+## SR7-L -- WHO HOLDS THE KEY QUESTION. The guard owns custody; this only
+## carries the question to it, so a station never has to find a guard in the
+## scene tree and a building with no guard answers honestly.
+func attach_key_guard(guard: Node) -> bool:
+	if guard == null or not guard.has_method("key_carried"):
+		return false
+	if _key_guard != null and is_instance_valid(_key_guard):
+		return false
+	_key_guard = guard
+	return true
+
+
+func has_key_guard() -> bool:
+	return _key_guard != null and is_instance_valid(_key_guard)
+
+
+func key_guard() -> Node:
+	return _key_guard if has_key_guard() else null
+
+
+## Whether the tour key is off its hook. A building with NO guard answers
+## false -- which is the SR7-J condition, and the honest one: a station cannot
+## be worked with a key that does not exist.
+func tour_key_carried() -> bool:
+	if not has_key_guard():
+		return false
+	return bool(_key_guard.call("key_carried"))
 
 
 func has_receiver() -> bool:

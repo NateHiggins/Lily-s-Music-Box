@@ -13,6 +13,9 @@ extends Node
 const StationScript := preload("res://scripts/props/watch_station_prop.gd")
 const NetworkScript := preload("res://scripts/building/watch_station_network.gd")
 const RegisterScript := preload("res://scripts/props/watch_register_prop.gd")
+## SR7-L: a station will not run its wheel without the tour key, so the line
+## this test builds now has a guard on it and the round starts by taking it.
+const GuardScript := preload("res://scripts/props/tour_key_guard_prop.gd")
 
 var failures := 0
 var checks := 0
@@ -20,6 +23,7 @@ var checks := 0
 var station: WatchStationProp
 var network: WatchStationNetwork
 var board: WatchRegisterProp
+var guard: TourKeyGuardProp
 var facts: Array[Dictionary] = []
 var shown: Array[Dictionary] = []
 
@@ -50,6 +54,8 @@ func _wire_up() -> void:
 		network.queue_free()
 	if board != null:
 		board.queue_free()
+	if guard != null:
+		guard.queue_free()
 	network = NetworkScript.new() as WatchStationNetwork
 	add_child(network)
 	board = RegisterScript.new() as WatchRegisterProp
@@ -59,6 +65,10 @@ func _wire_up() -> void:
 	station.prop_type = "watch_station"
 	station.station_id = "F02_STATION_2A_LANDING"
 	add_child(station)
+	guard = GuardScript.new() as TourKeyGuardProp
+	guard.prop_type = "tour_key_guard"
+	add_child(guard)
+	network.attach_key_guard(guard)
 	network.attach_receiver(board)
 	network.register(station)
 	facts.clear()
@@ -70,8 +80,11 @@ func _wire_up() -> void:
 				shown.append({"number": n, "sequence": seq}))
 
 
-## Work the box the way a hand does.
+## Work the box the way a hand does -- which since SR7-L means with the tour
+## key off its hook. A round without it is a round that never reaches the wheel.
 func _mark() -> bool:
+	if not guard.key_carried():
+		guard.take_key()
 	station.open_door()
 	return station.turn_crank()
 
@@ -232,7 +245,14 @@ func _no_receiver() -> void:
 	box.prop_type = "watch_station"
 	box.station_id = "F02_STATION_2A_LANDING"
 	add_child(box)
+	# SR7-L: the box follows this line now, so it needs a key on it. The point
+	# of this section is a missing RECEIVER, not a missing key.
+	var lone_guard := GuardScript.new() as TourKeyGuardProp
+	lone_guard.prop_type = "tour_key_guard"
+	add_child(lone_guard)
+	lone.attach_key_guard(lone_guard)
 	lone.register(box)
+	lone_guard.take_key()
 	_check("a line with no board on it is a legal building",
 			not lone.has_receiver() and lone.receiver() == null)
 	box.open_door()
@@ -244,6 +264,7 @@ func _no_receiver() -> void:
 			lone.attach_receiver(board) and not lone.attach_receiver(board))
 	lone.queue_free()
 	box.queue_free()
+	lone_guard.queue_free()
 
 
 # --- reset -------------------------------------------------------------------

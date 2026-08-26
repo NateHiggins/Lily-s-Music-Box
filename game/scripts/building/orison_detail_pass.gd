@@ -21,6 +21,8 @@ const WatchStationNetworkScript := preload(
 		"res://scripts/building/watch_station_network.gd")
 const WatchRegisterPropScript := preload(
 		"res://scripts/props/watch_register_prop.gd")
+const TourKeyGuardPropScript := preload(
+		"res://scripts/props/tour_key_guard_prop.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -366,6 +368,26 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		receiver.rotation.y = -PI * 0.5
 		floor_nodes["F01"].add_child(receiver)
 		stations.attach_receiver(receiver)
+		# SR7-L: the tour key's own guard, between the signal register and the
+		# night register.
+		#
+		# MEASURED PLACEMENT. The lane's east wall now reads, north-bound:
+		# dumbwaiter to -4.48, signal register -3.75..-3.35, night register
+		# shelf -2.63..-1.91, detector -1.68..-1.32. The 0.72 m of plaster
+		# between the receiver and the register shelf is the only gap left in
+		# the lane, and a 0.16 guard centred on -2.99 sits in the middle of it
+		# with 0.28 m clear on each side.
+		#
+		# MECHANICALLY SEPARATE FROM THE NIGHT REGISTER, and physically so: a
+		# different board, a different hook, a different check number. The
+		# apartment and plant keys account for rooms; this one works stations.
+		var guard := TourKeyGuardPropScript.new()
+		guard.name = "F01_TOUR_KEY_GUARD"
+		guard.prop_type = "tour_key_guard"
+		guard.position = GameBoot.b2g([5.24, -2.99, 1.42])
+		guard.rotation.y = -PI * 0.5
+		floor_nodes["F01"].add_child(guard)
+		stations.attach_key_guard(guard)
 	if floor_nodes.has("F02"):
 		# SR7-J: the first watch station, on the way to Mina's Vantry point.
 		#

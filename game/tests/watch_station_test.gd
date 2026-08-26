@@ -14,12 +14,18 @@ extends Node
 
 const StationScript := preload("res://scripts/props/watch_station_prop.gd")
 const NetworkScript := preload("res://scripts/building/watch_station_network.gd")
+## SR7-L put a tour key in the socket this box always had. A station is only
+## workable with the key carried, so every test below that expects a mark now
+## wires a guard and takes it -- and the two that expect a REFUSAL leave it
+## hanging, which is the new first refusal in the chain.
+const GuardScript := preload("res://scripts/props/tour_key_guard_prop.gd")
 
 var failures := 0
 var checks := 0
 
 var station: WatchStationProp
 var network: WatchStationNetwork
+var guard: TourKeyGuardProp
 var heard: Array[Dictionary] = []
 
 
@@ -47,9 +53,21 @@ func _build() -> void:
 	_fresh_station()
 
 
+## A station on a line with a guard, and the tour key in hand -- the ordinary
+## condition of a watchman actually walking a round.
 func _fresh_station() -> void:
+	_bare_station()
+	_carry_the_key()
+
+
+## A station whose socket is empty, for the checks that are about the box
+## itself rather than about the round.
+func _bare_station() -> void:
 	if station != null:
 		station.queue_free()
+	if guard != null:
+		guard.queue_free()
+		guard = null
 	station = StationScript.new() as WatchStationProp
 	station.prop_type = "watch_station"
 	station.station_id = "F02_STATION_2A_LANDING"
@@ -60,9 +78,35 @@ func _fresh_station() -> void:
 				heard.append({"id": id, "record": r}))
 
 
+## Give this station a line with a guard on it and take the key.
+func _carry_the_key() -> void:
+	var line := NetworkScript.new() as WatchStationNetwork
+	add_child(line)
+	guard = GuardScript.new() as TourKeyGuardProp
+	guard.prop_type = "tour_key_guard"
+	add_child(guard)
+	line.attach_key_guard(guard)
+	line.register(station)
+	guard.take_key()
+
+
 # --- the iron ----------------------------------------------------------------
 
 func _the_box() -> void:
+	# SR7-L: the socket matters now, so this section starts bare and proves
+	# the gate before the rest of the iron is exercised with the key in hand.
+	_bare_station()
+	_check("SR7-L: with no tour key carried, the box reports an empty socket",
+			not station.tour_key_available())
+	station.open_door()
+	_check("REFUSAL: and the crank will not run the wheel",
+			not station.turn_crank() and station.balking()
+			and station.marks == 0)
+	station.restore_maintenance_snapshot(station.maintenance_snapshot())
+	station.close_door()
+	_carry_the_key()
+	_check("with the key taken, the same box reports it at the socket",
+			station.tour_key_available())
 	_check("the authored station table holds this box",
 			WatchStationProp.STATIONS.has("F02_STATION_2A_LANDING")
 			and station.station_number() == 2
@@ -230,6 +274,13 @@ func _the_network() -> void:
 			net.station_count() == 0 and net.mark_count() == 0
 			and net.marked_stations().is_empty())
 	_fresh_station()
+	# SR7-L: a box follows whichever line last adopted it, and a line with no
+	# guard has no key -- so this network gets a guard of its own before the
+	# round, exactly as the production one does.
+	var net_guard := GuardScript.new() as TourKeyGuardProp
+	net_guard.prop_type = "tour_key_guard"
+	add_child(net_guard)
+	net.attach_key_guard(net_guard)
 	_check("it adopts a box once, and refuses a second adoption",
 			net.register(station) and not net.register(station)
 			and net.station_count() == 1
@@ -240,6 +291,7 @@ func _the_network() -> void:
 	_check("before the round, nothing is marked",
 			not net.has_mark("F02_STATION_2A_LANDING")
 			and net.mark_for("F02_STATION_2A_LANDING").is_empty())
+	net_guard.take_key()
 	station.open_door()
 	station.turn_crank()
 	_check("the mark reaches the network once, and is relayed once",
@@ -260,6 +312,7 @@ func _the_network() -> void:
 			and not net.has_method("require")
 			and not net.has_method("complete"))
 	net.queue_free()
+	net_guard.queue_free()
 
 
 # --- what the station is not -------------------------------------------------

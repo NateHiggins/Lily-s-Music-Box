@@ -139,6 +139,13 @@ func _ready() -> void:
 	for leaf in root.find_children("F02_DOOR_*", "", true, false):
 		doors_before[str(leaf.name)] = str(leaf.get("leaf_state"))
 
+	# SR7-L: the production box will not run its wheel with the tour key on
+	# its hook in the lobby. Take it first -- this is now what walking a round
+	# actually costs, and the gate itself is proved in `TourKeyLiveTest`.
+	var key_guard: Node = root.find_child("F01_TOUR_KEY_GUARD", true, false)
+	_check(key_guard != null and key_guard.call("take_key"),
+			"the production tour key comes off its hook for the round")
+
 	# --- work the real box --------------------------------------------------
 	var heard: Array[Dictionary] = []
 	box.connect("station_marked",
