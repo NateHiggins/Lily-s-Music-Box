@@ -58,6 +58,7 @@ var apartment_numbers := 0
 var floor_directories := 0
 var fire_signs := 0
 var spine_plates := 0
+var stair_pairs := 0
 var _numbered_doors := {}
 
 
@@ -69,11 +70,13 @@ func build(world: Node3D) -> Dictionary:
 	_build_fire_directions()
 	_build_front_directory()
 	_build_service_spine_plate()
+	_build_stair_pair_plates()
 	print("[WAYFINDING] %d brass unit numbers, %d directories, %d fire signs, "
 			% [apartment_numbers, floor_directories, fire_signs]
-			+ "%d spine plates" % spine_plates)
+			+ "%d spine plates, %d stair pairs" % [spine_plates, stair_pairs])
 	return {"numbers":apartment_numbers, "directories":floor_directories,
-			"fire_signs":fire_signs, "spine_plates":spine_plates}
+			"fire_signs":fire_signs, "spine_plates":spine_plates,
+			"stair_pairs":stair_pairs}
 
 
 func _build_materials() -> void:
@@ -239,7 +242,19 @@ func _build_fire_directions() -> void:
 				("CELLAR" if fid == "B1" else "FLOOR %d" % int(fid.right(2)))
 		_label(sign, floor_text, Vector3(0, 0.105, 0.031), 18, 0.0010,
 				Color(0.90, 0.74, 0.40))
-		_label(sign, "←  FIRE EXIT — STAIRS", Vector3(0, 0.025, 0.031), 21,
+		# K2-D: THE ARROW WAS POINTING AWAY FROM THE ONLY ROUTE.
+		#
+		# This plate hangs at b(4.98, 2.92) and its readable face looks WEST, so
+		# a reader stands in the corridor facing EAST and their LEFT is NORTH.
+		# It said "←", i.e. north. Measured at body height on every residential
+		# floor, THE EAST CORRIDOR'S WEST WALL IS UNBROKEN FROM y +4.4 TO
+		# y -6.8 AND OPENS ONLY AT y -9.2..-7.2 -- six open samples per floor,
+		# all south of this plate, none north of it. The stair could only ever
+		# be reached by going the other way.
+		#
+		# A reader facing east has SOUTH on their right, so the glyph is "→".
+		# This is a correction to a sign that was already here, not a new claim.
+		_label(sign, "FIRE EXIT — STAIRS  →", Vector3(0, 0.025, 0.031), 21,
 				0.0010, Color(0.86, 0.93, 0.72))
 		_label(sign, "STREET LEVEL ↓", Vector3(0, -0.055, 0.031), 17,
 				0.0010, Color(0.86, 0.93, 0.72))
@@ -309,6 +324,60 @@ func _build_service_spine_plate() -> void:
 	_label(plate, "PORTER · MAILS · SERVICE LIFT", Vector3(0, -0.076, 0.020),
 			14, 0.0009, Color(0.80, 0.76, 0.66))
 	spine_plates += 1
+
+
+## K2-D: the plate's pair, on the other wall of the same corridor.
+##
+## WHY A SECOND ONE AT ALL. The fire plate above hangs at the corridor's NORTH
+## end, on its EAST wall, and is read facing east. The night watchman's desk is
+## 5.19 m south of it and FACES that same east wall -- so from the pose where a
+## man takes his first report, the only stair sign in the building is edge-on,
+## behind his shoulder, and 88.5 degrees off his line of sight. It was correct
+## for one approach and invisible from the one that matters.
+##
+## A corridor with a desk in the middle of it carries the direction on BOTH
+## walls. This is that pair: the corridor's WEST wall, directly opposite the
+## register, facing EAST so it is read head-on the moment a man turns round
+## from the desk. It is 1.29 m from the acceptance pose.
+##
+## A reader facing WEST has SOUTH on their left, and south is where the corridor
+## opens -- so this one carries "←" while its partner across the corridor
+## carries "→". Both point at the same opening from opposite sides, which is
+## what a paired plate IS.
+##
+## It is permanent building fabric: no state, no script, no save key, and as
+## true on the last night of the game as on the first.
+func _build_stair_pair_plates() -> void:
+	for fid in LEVELS:
+		if fid in ["B1", "ROOF"]:
+			continue
+		var level: float = LEVELS[fid]
+		var plate := Node3D.new()
+		plate.name = "StairDirectionPair_" + fid
+		# The corridor's west wall face is at x 3.52; the plate stands proud.
+		plate.position = GameBoot.b2g([3.56, -2.10, level + 1.55])
+		# +PI/2 puts the readable face on building +x, i.e. looking EAST at a
+		# man who has turned round from the desk. Its partner uses -PI/2.
+		plate.rotation.y = PI * 0.5
+		add_child(plate)
+		# PAINTED BOARD, NOT VITREOUS ENAMEL, and K2-A already paid for this
+		# lesson on this exact wall: `_enamel` is Color(0.055, 0.075, 0.068) at
+		# roughness 0.08, and against warm lobby plaster it photographs as a
+		# black glossy rectangle that reads as a flat screen hung on a 1912
+		# wall. Enamel is right for a fire direction in a lit stair; a corridor
+		# plate read at conversational distance in low light is a painted board,
+		# and roughness is what stops it looking like a screen.
+		var board := _metal(Color(0.085, 0.062, 0.048), 0.62, 0.04)
+		_box(plate, Vector3(0.64, 0.30, 0.022), Vector3.ZERO, _dark_brass)
+		_box(plate, Vector3(0.57, 0.23, 0.010), Vector3(0, 0, 0.017), board)
+		var floor_text := "FLOOR %d" % int(fid.right(2))
+		_label(plate, floor_text, Vector3(0, 0.078, 0.031), 19, 0.0010,
+				Color(0.92, 0.78, 0.44))
+		_label(plate, "←  STAIRS", Vector3(0, -0.004, 0.031), 32, 0.0010,
+				Color(0.94, 0.92, 0.84))
+		_label(plate, "ALL FLOORS", Vector3(0, -0.082, 0.031), 14, 0.0009,
+				Color(0.80, 0.76, 0.66))
+		stair_pairs += 1
 
 
 func _build_front_directory() -> void:
