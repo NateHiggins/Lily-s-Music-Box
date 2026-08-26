@@ -1,8 +1,29 @@
 # Sound is the house answering — gameplay-audio architecture audit
 
-Status: source audit and implementation plan, 2026-08-26. No listening test or
-Godot process was used for this first pass. Numeric loudness and masking claims
-remain hypotheses until measured in a production walk.
+Status: implementation audit and plan, updated 2026-08-26. The policy, bus
+tree, bounded pool and production census now exist. Numeric loudness and
+masking claims still remain hypotheses until measured in a production walk.
+
+## Implemented checkpoints
+
+- `AudioPolicy` builds the canonical 18-bus hierarchy, a bounded 16-voice
+  semantic pool, priority/cooldown/instance rules, a composable volume mix
+  stack and ordered diagnostics.
+- `audio_cues.json` owns 20 semantic cues. The release route now distinguishes
+  the Vantry fault, switch on/off, ordinary door motion/latch/refusal, clock
+  proof/refusal, register index/paper/key/refusal, and all four house-line
+  states.
+- ordinary switches and doors no longer carry hundreds of private one-shot
+  players; the opening clock and night register have shed five more.
+- every direct constructor has a bus assignment in its creating function.
+  `audit_audio_emitters.py` makes that a repeatable static check.
+- the full production scene-tree census currently finds 776 players and zero
+  Master fallbacks. The two processed extension buses rejoin the canonical
+  tree as `Ambience -> World` and `GhostRadio -> Diegetic`.
+- focused policy proof passes 38/38; production policy proof passes 18/18;
+  house telephone passes 41/41 focused and 16/16 live.
+
+This closes the routing emergency, not the listening/masking programme.
 
 ## Product ruling
 
@@ -42,12 +63,12 @@ These are islands of good ownership, not yet one mix architecture.
 
 ## Static findings
 
-The current scripts contain at least 55 direct `AudioStreamPlayer`/
-`AudioStreamPlayer3D` constructions plus 86 literal calls through
-`make_emitter()`. Only four literal `.bus = "..."` assignments were found in
-the gameplay scripts (`Ambience` twice, `GhostRadio`, `Master`); other special
-buses are assigned through constants. The overwhelming default is therefore
-`Master`.
+The current scripts contain 53 direct `AudioStreamPlayer`/
+`AudioStreamPlayer3D` constructions plus 80 literal calls through
+`make_emitter()`. All 53 direct constructions now declare a bus in the same
+function. The helper also routes its remaining legacy emitters and marks them
+for runtime census. This replaces the original finding that most fell through
+to `Master`.
 
 The shared emitter helper hard-codes `unit_size = 4.0` and
 `max_distance = 26.0` for objects as different as a toaster latch, key punch,
@@ -107,6 +128,23 @@ Production has no single declaration for:
 - audio settings beyond master gain;
 - automated proof that a cue starts, stops, remains unique and is audible from
   the player poses where the task expects it.
+
+### Locomotion finding: truthful contacts, no audible shoe
+
+`PlayerController._publish_foot_contacts()` already does the difficult part
+correctly. It measures travel after collision resolution, rejects airborne,
+teleport and noclip movement, varies stride for crouching, derives force from
+actual planar speed, and publishes contact position/direction. Dream mechanics
+consume that fact. No audio owner does.
+
+Do not bind `stairs_footsteps.ogg` to each contact: it is a multi-step event,
+so retriggering it would overlap phantom feet and sever sound from the measured
+stride. The next slice needs a small licensed mono one-shot set for wood,
+terrazzo/tile, concrete and metal stair/plant surfaces, plus shoe variants.
+Surface identity should come from the collision owner or an authored floor
+zone; a downward ray should be fallback only. One pooled listener-relative
+owner can then turn the existing contact fact into sound without changing
+movement or Dream stimulus truth.
 
 ## Proposed architecture
 
