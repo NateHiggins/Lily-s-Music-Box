@@ -51,17 +51,18 @@ func _ready() -> void:
 			and str(RealityState.case_state(CASE).stage) == "active",
 			"taking the paper acknowledges its job and activates only its declared case")
 	var station_network: Node = root.find_child("WatchStationNetwork", true, false)
-	var mark := {"station_id": "F02_STATION_2A_LANDING", "station_number": 2,
-			"serves": "F02 2A", "at_minute": 181.0, "sequence": 1}
-	if station_network != null:
-		station_network.station_marked.emit("F02_STATION_2A_LANDING", mark)
-	_check(station_network != null
+	var station: Node = root.find_child("F02_WATCH_STATION_01", true, false)
+	_check(station_network != null and station != null
+			and station.call("interact_control", "station", root.player)
+			and station.call("interact_control", "station", root.player)
 			and root.first_shift_director.has_station_mark(
 					"F02_STATION_2A_LANDING"),
-			"the first-shift owner observes the network's neutral station fact")
-	station_network.station_marked.emit("F02_STATION_2A_LANDING", mark)
-	_check(root.first_shift_director.station_marks().size() == 1,
-			"the same station sequence cannot duplicate optional evidence")
+			"the real box marks, the network relays and first shift observes the fact")
+	station.call("interact_control", "station", root.player)
+	station.call("interact_control", "station", root.player)
+	_check(root.first_shift_director.station_marks().size() == 1
+			and int(station_network.call("mark_count")) == 1,
+			"working the real box again cannot duplicate optional evidence")
 	_check(not root.first_shift_director.clock_in()
 			and RealityState.data.maintenance_jobs.size() == 1,
 			"the committed clock-in cannot replay or duplicate the report")
