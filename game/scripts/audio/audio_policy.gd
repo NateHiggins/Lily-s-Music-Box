@@ -282,6 +282,9 @@ func _build_voice_pool() -> void:
 	for i in VOICE_CAP:
 		var voice := AudioStreamPlayer3D.new()
 		voice.name = "PolicyVoice%02d" % i
+		# Idle pooled voices still declare their role; a presented cue replaces
+		# this with its catalog bus before playback.
+		voice.bus = "State"
 		voice.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
 		voice.panning_strength = 1.0
 		add_child(voice)

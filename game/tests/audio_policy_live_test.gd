@@ -51,7 +51,7 @@ func _ready() -> void:
 				and not RealityState.data.has("audio_cues"))
 	await _prove_standard_doors(root)
 	_prove_legacy_helper_routing(root)
-	_prove_production_bus_census(root)
+	_prove_production_bus_census(get_tree().root)
 	_finish()
 
 

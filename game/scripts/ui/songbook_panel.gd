@@ -440,10 +440,12 @@ func _read_back() -> void:
 	_read_t = 0.0
 	_read_from_old = false
 	_read_is_trace = true
+	BarPA.ensure_bus()
 	if _reader == null:
 		_reader = AudioStreamPlayer.new()
 		add_child(_reader)
 	_reader.stream = _take
+	_reader.bus = BarPA.BUS
 	_reader.volume_db = 0.0
 	_read_speed = PhonautogramReader.attach_stream(_reader, "take_%d" % Time.get_ticks_msec())
 	_reader.play()
