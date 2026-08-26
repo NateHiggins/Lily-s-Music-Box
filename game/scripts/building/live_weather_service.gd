@@ -64,12 +64,20 @@ func refresh() -> bool:
 	var local_enabled := bool(GameBoot.settings.get("live_local_weather", false))
 	var query := str(GameBoot.settings.get("weather_location_query", "")).strip_edges()
 	if local_enabled and not query.is_empty():
-		_awaiting = "geocode"
-		return _request.request(geocode_url(query)) == OK
+		return _begin_request("geocode", geocode_url(query))
 	_location = QUEENS.duplicate(true)
-	_awaiting = "weather"
-	return _request.request(weather_url(_location.latitude,
-			_location.longitude)) == OK
+	return _begin_request("weather", weather_url(_location.latitude,
+			_location.longitude))
+
+
+func _begin_request(stage: String, url: String) -> bool:
+	_awaiting = stage
+	var error := _request.request(url)
+	if error == OK:
+		return true
+	_awaiting = ""
+	_fail("%s request could not start (%d)" % [stage, error])
+	return false
 
 
 func snapshot() -> Dictionary:
@@ -269,11 +277,11 @@ func _on_request_completed(result: int, response_code: int,
 			_fail("location was not found")
 			return
 		_location = found
-		_awaiting = "weather"
-		if _request.request(weather_url(_location.latitude,
-				_location.longitude)) != OK:
-			_awaiting = ""
-			_fail("weather request could not start")
+		if not _begin_request("weather", weather_url(_location.latitude,
+				_location.longitude)):
+			return
+		# The geocoder body is not a weather body. The newly-started request
+		# completes through this handler again with stage == "weather".
 		return
 	var parsed := parse_weather(payload, _location)
 	if parsed.is_empty():

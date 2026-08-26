@@ -12,6 +12,10 @@ borrow the player's location.
 - Disabling the checkbox stops sending the authored query. A blank query also
   resolves to Queens.
 - A failed or incomplete request leaves the authored Queens storm intact.
+- A request that cannot start clears its in-flight gate before reporting
+  failure, so a later fifteen-minute refresh can retry instead of freezing.
+- A successful geocode starts one weather request and returns immediately;
+  geocoder JSON is never cross-parsed as a failed weather observation.
 
 ## Data and ownership
 

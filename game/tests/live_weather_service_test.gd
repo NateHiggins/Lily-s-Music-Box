@@ -13,6 +13,13 @@ func _check(ok: bool, label: String) -> void:
 
 
 func _ready() -> void:
+	var source := FileAccess.get_file_as_string(
+			"res://scripts/building/live_weather_service.gd")
+	_check(source.contains("func _begin_request(stage: String, url: String)")
+			and source.contains("_awaiting = \"\"\n\t_fail(")
+			and source.count("return _begin_request(") == 2
+			and source.contains("stage == \"weather\".\n\t\treturn"),
+			"request stages release failure gates and never cross-parse their bodies")
 	var queens_url: String = WeatherServiceScript.weather_url(
 			WeatherServiceScript.QUEENS.latitude,
 			WeatherServiceScript.QUEENS.longitude)
