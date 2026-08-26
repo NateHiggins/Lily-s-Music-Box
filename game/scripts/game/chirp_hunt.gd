@@ -22,6 +22,36 @@ const JOB_ID := "vantry_chirp_2a"
 const LEGACY_ORDER_ID := "WO-VANTRY-001"
 const REPAIR_NOTE := "capsule seated; contacts secured; line tested"
 
+## HOW OFTEN A DEAD CAPSULE ANNOUNCES ITSELF.
+##
+## The authored instruction for this job is "Find it by ear." That is a good
+## instruction and it is not a lie; it was simply not survivable. The interval
+## was randf_range(50, 95), and the loop starts at building boot, so a player
+## walking into 2A arrives at an arbitrary phase of it: mean wait about 36 s,
+## worst case 95 s, for the one cue the objective tells them to use. Measured
+## from the 2A threshold, the target is 3.5 m away and 3.02 m up; there is
+## nothing else in the room that sounds; and there is nothing to do but stand
+## still and hope. That is not listening, it is waiting.
+##
+## Bounding the maximum is what makes the instruction honest:
+##   - the FIRST cue arrives within CHIRP_MAX seconds of arriving, always;
+##   - a SECOND arrives within 2 x CHIRP_MAX, which is what makes the point
+##     findable by inference rather than by luck - hear it, move, hear it
+##     again, and the direction resolves;
+##   - both fit inside the 45-second ceiling with the walk still to spend.
+##
+## It stays a fault, not a beacon. Twelve to twenty-two seconds of silence at a
+## stretch is a long time in a dark flat, and the player still has to listen,
+## move and compare. What changed is that the room can no longer refuse to
+## answer for a minute and a half.
+##
+## The fiction cost is stated rather than hidden: the chirp now recurs roughly
+## three times a minute instead of roughly once. Mina reports it "annotated to
+## the minute", which this does not contradict, but it is a real change to the
+## character of the fault and it was made deliberately.
+const CHIRP_MIN := 12.0
+const CHIRP_MAX := 22.0
+
 var network: VantryPointNetwork
 var work_orders: WorkOrders
 var inventory: MaintenanceInventory
@@ -126,7 +156,8 @@ func _job_point() -> String:
 func _chirp_loop() -> void:
 	while _running and is_inside_tree():
 		await get_tree().create_timer(
-				network.active_owner.rng.randf_range(50.0, 95.0), false).timeout
+				network.active_owner.rng.randf_range(CHIRP_MIN, CHIRP_MAX),
+				false).timeout
 		if _running and fault_active():
 			network.active_owner.play_chirp(1.0)
 			AcousticGraphData.propagate(active_point_id, 0, 1.0, 0.0)

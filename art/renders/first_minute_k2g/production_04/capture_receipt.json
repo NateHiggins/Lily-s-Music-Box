@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scene": "res://tests/ChirpReachableShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04",
+  "started_utc": "2026-08-26T19:30:56.6621889Z",
+  "elapsed_seconds": 49.369,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "engine_exit": 0,
+  "expected_frames": 11,
+  "actual_frames": 11,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_production_04_20260826T193056662Z.log",
+  "filtered_process_output": [
+    "[PASSAGE] 304 interior, 20 shell and 187 foreign F01 draws indexed",
+    "[PASSAGE HOURS] AFTER_HOURS; 10 grilles drawn",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[NAV] 4 schedule anchors installed in PASSAGE",
+    "[PASSAGE] late sweep: 114 interior, 815 foreign, 6 shared late-built F01 draws registered",
+    "[PASSAGE] root sweep: 17 interior, 947 foreign draws, 40 foreign lights registered",
+    "[CHIRP REACHABLE SHOT CAPTURE] 1/11 label=00_threshold_control_a elapsed=41.102 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/00_threshold_control_a.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 2/11 label=00_threshold_control_b elapsed=41.398 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/00_threshold_control_b.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 3/11 label=01_the_room_from_the_threshold elapsed=41.739 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/01_the_room_from_the_threshold.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 4/11 label=02_a_plausible_wrong_station elapsed=42.148 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/02_a_plausible_wrong_station.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 5/11 label=03_point_control_a elapsed=42.512 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/03_point_control_a.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 6/11 label=03_point_control_b elapsed=42.814 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/03_point_control_b.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 7/11 label=04_the_grille_closed elapsed=43.118 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/04_the_grille_closed.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 8/11 label=05_the_grille_open elapsed=43.418 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/05_the_grille_open.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 9/11 label=06_the_point_from_the_threshold elapsed=43.755 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/06_the_point_from_the_threshold.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 10/11 label=07_the_door_to_target_line elapsed=44.100 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/07_the_door_to_target_line.png",
+    "[CHIRP REACHABLE SHOT CAPTURE] 11/11 label=08_an_ordinary_flat elapsed=44.425 path=C:\\PleaseRemainOnTheLine\\.claude\\worktrees\\juno-kells-dream-profile-5c8621\\art\\renders\\first_minute_k2g\\production_04/08_an_ordinary_flat.png",
+    "[CHIRP REACHABLE SHOT] RESULT: PASS captures=11 expected=11 elapsed=44.427",
+    "       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)",
+    "       [1] build (res://scripts/building/found_art_pass.gd:21)"
+  ],
+  "files": [
+    {
+      "name": "00_threshold_control_a.png",
+      "bytes": 890891,
+      "sha256": "b00b89ca142d61871d0966ca1672ffbac178acb417aab5a408b93b5db43f8273"
+    },
+    {
+      "name": "00_threshold_control_b.png",
+      "bytes": 891252,
+      "sha256": "54f2a9ab074ffe3ea72b3b91a0f9aa1be94626a23d6f849ec5db5566d2e2f416"
+    },
+    {
+      "name": "01_the_room_from_the_threshold.png",
+      "bytes": 882567,
+      "sha256": "828b58b345f8b28a84a0d58a4e21e655f0cfe0414644ccee1f5bd8f21e961e3d"
+    },
+    {
+      "name": "02_a_plausible_wrong_station.png",
+      "bytes": 1186081,
+      "sha256": "9a21e6217bd8e1a76480e6c048aa4ac02fba69f5c5b8aba5f4856303269fc004"
+    },
+    {
+      "name": "03_point_control_a.png",
+      "bytes": 912713,
+      "sha256": "223f6b5c525da6555964a89de1f1a2b6c1207b8f890c4b771cff5e47471ba84f"
+    },
+    {
+      "name": "03_point_control_b.png",
+      "bytes": 912689,
+      "sha256": "d43da2196c7712a4077520d16367f0fe8ea2d4714712544d822e18ad5a94a477"
+    },
+    {
+      "name": "04_the_grille_closed.png",
+      "bytes": 912689,
+      "sha256": "d43da2196c7712a4077520d16367f0fe8ea2d4714712544d822e18ad5a94a477"
+    },
+    {
+      "name": "05_the_grille_open.png",
+      "bytes": 913907,
+      "sha256": "70cf8266111dd924dc8495ac3d2a0730868c14575efca064c8f2a4793d3b2fb2"
+    },
+    {
+      "name": "06_the_point_from_the_threshold.png",
+      "bytes": 881285,
+      "sha256": "4de145c1233c6fb4515dcd9cc810a03bc9a81dbd8d5de908fba04cf6a1ecdb91"
+    },
+    {
+      "name": "07_the_door_to_target_line.png",
+      "bytes": 1208279,
+      "sha256": "b9fb1eaeca931ebf6d7204bd41da6e599811d4b8a7c587b435311d7665dce170"
+    },
+    {
+      "name": "08_an_ordinary_flat.png",
+      "bytes": 1172105,
+      "sha256": "71feeaf9420f18ec6a9c43862b25ba6b6dad8cea7008240233f06ed4e13cedf2"
+    }
+  ]
+}

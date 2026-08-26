@@ -1,0 +1,25 @@
+{
+  "_comment": [
+    "K2-G. Crops are [x, y, w, h], derived from THIS run's own difference",
+    "bounding box (99x103+591+335 at 6 percent, 89x87 at 20) before any figure",
+    "was priced. GRILLE (180x150) clears the protocol's 160x120 framing floor",
+    "and holds the whole subject; EXACT is the measured box itself.",
+    "K2-G's change is a schedule - an interval, not a pixel - and there is no",
+    "honest way to photograph one. So exactly ONE visual A/B claim is made: the",
+    "grille, the physical outcome of working the correct target, driven through",
+    "the prop's own set_grille_open.",
+    "Frames 01, 02, 06, 07 and 08 are declared CONTEXT. They have no local",
+    "control and appear in no pair, rather than borrowing the point station's",
+    "floor. The threshold station's A/A is measured and reported even though",
+    "nothing is priced on it, because it is not zero and hiding that would be",
+    "worse than explaining it."
+  ],
+  "pairs": [
+    {"name": "threshold_station_floor", "a": "00_threshold_control_a.png", "b": "00_threshold_control_b.png", "kind": "control"},
+    {"name": "point_station_floor_full", "a": "03_point_control_a.png", "b": "03_point_control_b.png", "kind": "control"},
+    {"name": "point_station_floor_grille", "a": "03_point_control_a.png", "b": "03_point_control_b.png", "kind": "control", "crop": [550, 311, 180, 150]},
+    {"name": "point_station_floor_exact", "a": "03_point_control_a.png", "b": "03_point_control_b.png", "kind": "control", "crop": [591, 335, 99, 103]},
+    {"name": "the_grille_drops", "a": "04_the_grille_closed.png", "b": "05_the_grille_open.png", "kind": "claim", "floor": "point_station_floor_grille", "crop": [550, 311, 180, 150], "min_rmse": 0.010, "min_floor_ratio": 3.0},
+    {"name": "the_grille_drops_exact_box", "a": "04_the_grille_closed.png", "b": "05_the_grille_open.png", "kind": "claim", "floor": "point_station_floor_exact", "crop": [591, 335, 99, 103], "min_rmse": 0.010, "min_floor_ratio": 3.0}
+  ]
+}
