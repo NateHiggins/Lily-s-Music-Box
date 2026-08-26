@@ -13,6 +13,17 @@ solution suitable for a visual sky, not navigation. If navigational lunar
 accuracy ever becomes a requirement, replace that one calculation with a
 baked JPL DE/Horizons table while preserving the same direction API.
 
+The Moon is not a painted circle. Its illuminated fraction is derived from
+the angular separation of the evaluated Sun and Moon directions, and the sky
+shader projects the solar direction onto a sphere to draw the terminator. In
+production the disc keeps the Moon's approximately 0.54-degree apparent
+diameter; forced showcase hours retain the older enlarged disc only so their
+existing composition remains deterministic. The halo fades with illuminated
+fraction, while cloud extinction still owns whether either body can be seen.
+This is an astronomical visual model: it correctly distinguishes new,
+quarter and full geometry, but does not model libration, topography, eclipses
+or atmospheric refraction at the horizon.
+
 Twelve bright catalog stars are evaluated as observer-relative directions and
 drawn inside the existing half-dome shader. They add no submission, light or
 shadow caster. The same authored and live cloud thickness that hides the sun
@@ -32,7 +43,13 @@ Primary numerical references:
   https://aa.usno.navy.mil/faq/GAST
 - JPL Solar System Dynamics, ephemerides and Horizons guidance:
   https://ssd.jpl.nasa.gov/planets/orbits.html
+- JPL Horizons manual, phase angle and illuminated-fraction geometry:
+  https://ssd.jpl.nasa.gov/horizons/manual.html
+- U.S. Naval Observatory, primary Moon phases (including the 2023-01-06 full
+  Moon and 2023-01-21 new Moon numerical test references):
+  https://aa.usno.navy.mil/calculated/moon/phases?date=2022-07-12&format=p&nump=50&submit=Get+Data
 
 `CelestialEphemerisTest` proves calendar epoch, sidereal angle, equinox solar
-geometry, observer dependence, lunar normalization and sidereal-day closure.
+geometry, observer dependence, lunar normalization, the published full/new
+phase instants and sidereal-day closure.
 `WeatherSkyTest` proves the integrated shader and production ownership.

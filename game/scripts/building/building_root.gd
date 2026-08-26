@@ -905,10 +905,13 @@ uniform float sky_blend = 0.0;
 uniform float exposure = 0.76;
 uniform vec3 fog_horizon_color = vec3(0.05, 0.06, 0.10);
 uniform vec3 celestial_direction = vec3(0.0, 0.6, -0.8);
+uniform vec3 sun_direction = vec3(0.0, -0.6, 0.8);
 uniform vec3 celestial_color = vec3(0.60, 0.68, 0.88);
 uniform float celestial_strength = 0.30;
 uniform float celestial_core_radius = 0.038;
 uniform float celestial_halo_radius = 0.31;
+uniform bool moon_phase_enabled = false;
+uniform float moon_illumination = 1.0;
 uniform float ray_strength = 0.0;
 uniform float lower_cloud_strength = 0.28;
 uniform float cloud_coverage = 0.28;
@@ -965,6 +968,28 @@ void fragment() {
 	float halo = 1.0 - smoothstep(celestial_core_radius,
 			celestial_halo_radius, source_angle);
 	float core = 1.0 - smoothstep(0.0, celestial_core_radius, source_angle);
+	if (moon_phase_enabled) {
+		// Project the visible hemisphere and light it from the real Sun vector.
+		// This draws crescent/gibbous geometry in the existing sky submission;
+		// illumination is not a circular opacity mask.
+		vec3 moon = normalize(celestial_direction);
+		vec3 reference = abs(moon.y) > 0.96 ? vec3(1.0, 0.0, 0.0)
+				: vec3(0.0, 1.0, 0.0);
+		vec3 right = normalize(cross(reference, moon));
+		vec3 disc_up = normalize(cross(moon, right));
+		float radius_sine = max(sin(celestial_core_radius), 0.00001);
+		vec2 disc = vec2(dot(direction, right), dot(direction, disc_up))
+				/ radius_sine;
+		float radial2 = dot(disc, disc);
+		float sphere_z = sqrt(max(0.0, 1.0 - radial2));
+		vec3 surface_normal = normalize(right * disc.x + disc_up * disc.y
+				- moon * sphere_z);
+		float sunlit = smoothstep(-0.018, 0.018,
+				dot(surface_normal, normalize(sun_direction)));
+		float disc_edge = 1.0 - smoothstep(0.96, 1.0, sqrt(radial2));
+		core = disc_edge * sunlit;
+		halo *= sqrt(max(moon_illumination, 0.0));
+	}
 	float obscured = pow(1.0 - thickness, 2.4);
 	float star_field = 0.0;
 	for (int i = 0; i < 12; i++) {

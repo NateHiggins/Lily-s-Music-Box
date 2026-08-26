@@ -115,6 +115,10 @@ func _ready() -> void:
 	_check("the dynamic lower cloud deck lives in that same sky draw",
 			sky_code.contains("lower_clouds")
 			and sky_code.contains("lower_cloud_strength"))
+	_check("the same sky draw projects the lunar terminator from the real Sun",
+			sky_code.contains("moon_phase_enabled")
+			and sky_code.contains("surface_normal")
+			and sky_code.contains("dot(surface_normal, normalize(sun_direction))"))
 	_check("the dome, middle rain and roadway mist cast no shadows",
 			dome.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			and root.weather.get_node("DrivingRainMiddle").cast_shadow

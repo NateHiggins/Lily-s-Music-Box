@@ -71,6 +71,15 @@ static func moon_direction(utc: Dictionary, latitude: float,
 			sqrt(equatorial.x * equatorial.x + equatorial.z * equatorial.z)))
 	return equatorial_direction(ra, dec, jd, latitude, longitude)
 
+static func moon_illuminated_fraction(utc: Dictionary, latitude: float,
+		longitude: float) -> float:
+	# JPL defines lunar illumination through the Sun-target-observer phase
+	# geometry. At Earth scale the apparent Sun/Moon elongation supplies the
+	# rendering fraction: conjunction is new (0), opposition is full (1).
+	var sun := sun_direction(utc, latitude, longitude)
+	var moon := moon_direction(utc, latitude, longitude)
+	return clampf((1.0 - sun.dot(moon)) * 0.5, 0.0, 1.0)
+
 static func star_direction(ra_degrees: float, dec_degrees: float,
 		utc: Dictionary, latitude: float, longitude: float) -> Vector3:
 	return equatorial_direction(ra_degrees, dec_degrees, julian_day(utc),

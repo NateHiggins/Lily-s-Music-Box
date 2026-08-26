@@ -279,6 +279,10 @@ func _apply(minute: float) -> void:
 		source_dir = sun if sun.y > -0.035 else moon
 		profile["sun_direction"] = sun
 		profile["moon_direction"] = moon
+		profile["moon_illumination"] = \
+				CelestialEphemerisScript.moon_illuminated_fraction(
+						utc, latitude, longitude)
+		profile["moon_phase_enabled"] = sun.y <= -0.035
 		profile["observer"] = Vector2(latitude, longitude)
 		var stars := PackedVector3Array()
 		for catalog_position: Vector2 in BRIGHT_STARS:
@@ -310,9 +314,18 @@ func _apply(minute: float) -> void:
 		_sky.set_shader_parameter("exposure", lerpf(a.sky_e, b.sky_e, t))
 		_sky.set_shader_parameter("fog_horizon_color", profile.fog)
 		_sky.set_shader_parameter("celestial_direction", source_dir)
+		_sky.set_shader_parameter("sun_direction",
+				profile.get("sun_direction", -source_dir))
 		_sky.set_shader_parameter("celestial_color", profile.source)
 		_sky.set_shader_parameter("celestial_strength", profile.source_e)
-		_sky.set_shader_parameter("celestial_core_radius", deg_to_rad(2.2))
+		var phase_enabled := bool(profile.get("moon_phase_enabled", false))
+		_sky.set_shader_parameter("moon_phase_enabled", phase_enabled)
+		_sky.set_shader_parameter("moon_illumination",
+				float(profile.get("moon_illumination", 1.0)))
+		# Sun and Moon both span roughly half a degree. Retain the old larger
+		# authored core only for forced showcase states with no UTC ephemeris.
+		_sky.set_shader_parameter("celestial_core_radius",
+				deg_to_rad(0.27 if profile.has("sun_direction") else 2.2))
 		_sky.set_shader_parameter("celestial_halo_radius", deg_to_rad(18.0))
 		if profile.has("bright_stars"):
 			_sky.set_shader_parameter("bright_stars", profile.bright_stars)

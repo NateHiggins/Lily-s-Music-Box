@@ -20,6 +20,16 @@ func _ready() -> void:
 	_check(absf(Ephemeris.moon_direction(
 			equinox, 40.75, -73.92).length() - 1.0) < 0.00001,
 			"the lunar solution is normalized")
+	var usno_full := {"year": 2023, "month": 1, "day": 6,
+			"hour": 23, "minute": 8}
+	var usno_new := {"year": 2023, "month": 1, "day": 21,
+			"hour": 20, "minute": 53}
+	_check(Ephemeris.moon_illuminated_fraction(
+			usno_full, 40.75, -73.92) > 0.96,
+			"USNO's January 2023 full moon resolves nearly fully illuminated")
+	_check(Ephemeris.moon_illuminated_fraction(
+			usno_new, 40.75, -73.92) < 0.04,
+			"USNO's January 2023 new moon resolves nearly unilluminated")
 	var star_a: Vector3 = Ephemeris.star_direction(101.287, -16.716,
 			equinox, 40.75, -73.92)
 	var next_sidereal := {"year": 2026, "month": 3, "day": 21,
