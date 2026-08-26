@@ -9,6 +9,7 @@ func _ready() -> void:
 	_button(&"jump", JOY_BUTTON_Y, "Y reaches jump")
 	_button(&"crouch", JOY_BUTTON_LEFT_STICK, "L3 reaches crouch")
 	_button(&"lamp_toggle", JOY_BUTTON_LEFT_SHOULDER, "LB reaches the lamp")
+	_button(&"lamp_toggle", JOY_BUTTON_X, "X is the lamp's second home")
 	_button(&"radio_toggle", JOY_BUTTON_RIGHT_SHOULDER, "RB reaches the radio")
 	_button(&"activity_adjust_left", JOY_BUTTON_DPAD_LEFT,
 			"D-pad left works a maintenance mechanism")

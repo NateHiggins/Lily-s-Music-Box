@@ -39,7 +39,8 @@ const JOYPAD_AXES := {
 	"run": [JOY_AXIS_TRIGGER_LEFT, 1.0],
 }
 
-const JOYPAD_UI_ACTIONS := {
+const JOYPAD_EXTRA_BUTTONS := {
+	"lamp_toggle": [JOY_BUTTON_X],
 	"ui_cancel": [JOY_BUTTON_B, JOY_BUTTON_START],
 }
 
@@ -125,10 +126,10 @@ func _ready() -> void:
 		axis_event.axis = JOYPAD_AXES[action][0]
 		axis_event.axis_value = JOYPAD_AXES[action][1]
 		_ensure_action_event(action, axis_event)
-	for action in JOYPAD_UI_ACTIONS:
+	for action in JOYPAD_EXTRA_BUTTONS:
 		if not InputMap.has_action(action):
 			InputMap.add_action(action)
-		for button in JOYPAD_UI_ACTIONS[action]:
+		for button in JOYPAD_EXTRA_BUTTONS[action]:
 			var button_event := InputEventJoypadButton.new()
 			button_event.button_index = button
 			_ensure_action_event(action, button_event)
