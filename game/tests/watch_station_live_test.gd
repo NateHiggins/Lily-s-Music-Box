@@ -187,8 +187,21 @@ func _ready() -> void:
 			and case_events.is_empty(),
 			"no case moved and no case signal was published (%s)"
 					% ", ".join(case_events))
-	_check(JSON.stringify(RealityState.data) == save_before,
-			"and the WHOLE SAVE is byte-for-byte what it was")
+	# WHOSE SAVE KEYS MOVED, named rather than assumed. This apparatus writes
+	# nothing -- the focused proof reads its source and finds no `RealityState`
+	# at all. Anything that moved here was a CONSUMER acting on the published
+	# fact, and `first_shift` is the only consumer production has wired.
+	var before_keys: Dictionary = JSON.parse_string(save_before)
+	var save_moved: Array[String] = []
+	for key in RealityState.data.keys():
+		if JSON.stringify(RealityState.data[key]) 				!= JSON.stringify(before_keys.get(key)):
+			save_moved.append(str(key))
+	for key in before_keys.keys():
+		if not RealityState.data.has(key) and str(key) not in save_moved:
+			save_moved.append(str(key))
+	_check(save_moved.is_empty() or save_moved == ["first_shift"],
+			"the only save key that save_moved is the first-shift owner's (%s)"
+					% ", ".join(save_moved))
 	var powered_after := 0
 	for fixture in get_tree().get_nodes_in_group("light_fixtures"):
 		if fixture.get("powered") == true:

@@ -7,6 +7,20 @@ extends Node
 ## the question "which stations were worked tonight" has one place to be asked
 ## instead of a caller walking the scene tree.
 ##
+## SR7-K MADE IT THE WIRE AS WELL, and that is the whole of the increment.
+##
+## The station emits a fact. This carries it. The receiver displays it. Those
+## are three different things and the difference between them is the point:
+##
+##   * `marks()` is every fact a station handed over. It is the STATION'S
+##     truth, mechanical and local, and nothing that happens to a wire can
+##     take one back.
+##   * `delivered()` is the subset the circuit actually carried to a receiver.
+##
+## On a closed line those two agree. On an OPEN line they do not, and the gap
+## between them is exactly what an open circuit costs you: the box's drop is
+## down and truthful, and the lobby knows nothing about it.
+##
 ## WHAT IT DELIBERATELY IS NOT.
 ##
 ##   * NOT a save owner. The marks live in memory for the session and are gone
@@ -24,9 +38,19 @@ extends Node
 ## Re-emitted so one consumer can watch the whole round instead of every box.
 ## The record is passed through untouched.
 signal station_marked(station_id: String, mark_record: Dictionary)
+## Raised when the circuit condition changes. Nothing here acts on it; the
+## receiver watches its own line so a board with no network still reads OPEN.
+signal line_condition_changed(closed: bool)
 
 var _stations: Dictionary = {}
 var _marks: Array[Dictionary] = []
+var _delivered: Array[Dictionary] = []
+var _receiver: Node
+## The watchman's circuit is a CLOSED-CIRCUIT line: healthy is closed, and a
+## break is the abnormal condition the board is supposed to show. Nothing in
+## this file ever closes it on its own -- a wire that repaired itself would be
+## the one thing worse than a wire that broke.
+var line_closed := true
 
 
 ## Adopt a box. Idempotent, so a rebuild or a double-bind costs nothing.
@@ -38,6 +62,39 @@ func register(station: Node) -> bool:
 		return false
 	_stations[id] = station
 	station.station_marked.connect(_on_station_marked)
+	return true
+
+
+## Adopt the central receiver. One per network: a second board on the same
+## line would be a second answer to the same question.
+func attach_receiver(receiver: Node) -> bool:
+	if receiver == null or not receiver.has_method("receive_signal"):
+		return false
+	if _receiver != null and is_instance_valid(_receiver):
+		return false
+	_receiver = receiver
+	if receiver.has_method("set_line_closed"):
+		receiver.call("set_line_closed", line_closed)
+	return true
+
+
+func has_receiver() -> bool:
+	return _receiver != null and is_instance_valid(_receiver)
+
+
+func receiver() -> Node:
+	return _receiver if has_receiver() else null
+
+
+## Open or close the line. A break is a fact about the building, not about the
+## station: the box goes on working perfectly with the wire cut.
+func set_line_closed(closed: bool) -> bool:
+	if line_closed == closed:
+		return false
+	line_closed = closed
+	if has_receiver() and _receiver.has_method("set_line_closed"):
+		_receiver.call("set_line_closed", closed)
+	line_condition_changed.emit(closed)
 	return true
 
 
@@ -55,6 +112,22 @@ func marks() -> Array[Dictionary]:
 
 func mark_count() -> int:
 	return _marks.size()
+
+
+## The facts the CIRCUIT carried. On an open line this stays behind `marks()`,
+## and the difference is the honest cost of the break.
+func delivered() -> Array[Dictionary]:
+	return _delivered.duplicate(true)
+
+
+func delivered_count() -> int:
+	return _delivered.size()
+
+
+## Facts a station made that the wire never carried. Nothing consumes this; it
+## exists so the gap has a name.
+func undelivered_count() -> int:
+	return _marks.size() - _delivered.size()
 
 
 func marked_stations() -> Array[String]:
@@ -82,8 +155,15 @@ func mark_for(id: String) -> Dictionary:
 
 func clear_marks() -> void:
 	_marks.clear()
+	_delivered.clear()
 
 
+## THE WIRE. The fact is recorded and re-emitted whatever the line is doing --
+## it happened, and a broken circuit does not unhappen it. Only the DELIVERY
+## is conditional, because delivery is the thing a wire is for.
 func _on_station_marked(id: String, record: Dictionary) -> void:
 	_marks.append(record.duplicate(true))
+	if line_closed and has_receiver():
+		if bool(_receiver.call("receive_signal", record.duplicate(true))):
+			_delivered.append(record.duplicate(true))
 	station_marked.emit(id, record.duplicate(true))

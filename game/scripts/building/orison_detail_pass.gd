@@ -19,6 +19,8 @@ const WatchStationPropScript := preload(
 		"res://scripts/props/watch_station_prop.gd")
 const WatchStationNetworkScript := preload(
 		"res://scripts/building/watch_station_network.gd")
+const WatchRegisterPropScript := preload(
+		"res://scripts/props/watch_register_prop.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -340,6 +342,30 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])
 		floor_nodes["F01"].add_child(bench)
+	# SR7-K: the watchman's line has two ends on two different floors, so the
+	# network that IS the line is built before either of them.
+	var stations := WatchStationNetworkScript.new()
+	stations.name = "WatchStationNetwork"
+	add_child(stations)
+	if floor_nodes.has("F01"):
+		# SR7-K: the far end of the wire, at the lobby watchman station.
+		#
+		# MEASURED PLACEMENT. The east wall's clear run between the service
+		# dumbwaiter's north edge (b y -4.48) and the night register's shelf
+		# (-2.63) is 1.85 m of plaster with nothing on it. A 0.40 case centred
+		# on -3.55 spans -3.75..-3.35: 0.73 m clear of the dumbwaiter and
+		# 0.72 m clear of the register.
+		#
+		# NEAR the detector and the register, and MECHANICALLY DISTINCT from
+		# both -- three instruments in one lane, each answering one question.
+		# It hangs at the same 1.42 the rest of the station does.
+		var receiver := WatchRegisterPropScript.new()
+		receiver.name = "F01_SIGNAL_REGISTER"
+		receiver.prop_type = "signal_register"
+		receiver.position = GameBoot.b2g([5.24, -3.55, 1.42])
+		receiver.rotation.y = -PI * 0.5
+		floor_nodes["F01"].add_child(receiver)
+		stations.attach_receiver(receiver)
 	if floor_nodes.has("F02"):
 		# SR7-J: the first watch station, on the way to Mina's Vantry point.
 		#
@@ -363,9 +389,6 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		# It registers no marker kind, owns no light, no job, no case and no
 		# save key, and its only body is an Area3D reach, which reports
 		# overlaps and blocks nothing.
-		var stations := WatchStationNetworkScript.new()
-		stations.name = "WatchStationNetwork"
-		add_child(stations)
 		var station := WatchStationPropScript.new()
 		station.name = "F02_WATCH_STATION_01"
 		station.prop_type = "watch_station"
