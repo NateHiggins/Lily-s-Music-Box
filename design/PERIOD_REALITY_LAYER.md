@@ -62,6 +62,16 @@ Weather-reactive details should consume the resolved live-weather snapshot:
 - precipitation: sound filtering, wetness and event scarcity;
 - visibility: distant geometry fade, never gameplay reach.
 
+The first set now follows that contract. `BuildingRoot` constructs the period
+layer before the live-weather service can publish, then hands it the same
+normalized snapshot used by sky and precipitation. Observed wind displaces the
+middle of the mailwing track while preserving both horizon endpoints. Low cloud,
+fog and precipitation reduce silhouette contrast; a closed ceiling suppresses
+an unseeable flyby rather than staging it behind the cloud. The existing
+aircraft and rail players lower their distance-filter cutoff in wet/low-cloud
+conditions. No weather fact alters the deterministic schedule, publishes a
+signal, or enters persistence.
+
 ## Shared ephemera atlas
 
 `orison_1928_ephemera_substrates_v1.png` contains sixteen blank paper, enamel

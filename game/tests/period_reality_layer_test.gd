@@ -33,6 +33,27 @@ func _ready() -> void:
 	_check(layer.call("trigger_train_pass")
 			and not layer.call("trigger_train_pass"),
 			"the distant rail event refuses an overlapping replay")
+	var clear := {
+		"cloud_low": 0.0, "precipitation_intensity": 0.0,
+		"wind_speed_kmh": 18.0, "wind_direction_deg": 90.0,
+		"weather_code": 0,
+	}
+	layer.call("set_live_conditions", clear)
+	var clear_state: Dictionary = layer.call("diagnostic_snapshot")
+	_check(float(clear_state.aircraft_contrast) == 1.0
+			and (clear_state.wind_mps as Vector3).length() > 4.9,
+			"clear weather preserves the silhouette and supplies observed crosswind")
+	var storm := {
+		"cloud_low": 1.0, "precipitation_intensity": 3.0,
+		"wind_speed_kmh": 40.0, "wind_direction_deg": 220.0,
+		"weather_code": 95,
+	}
+	layer.call("set_live_conditions", storm)
+	var storm_state: Dictionary = layer.call("diagnostic_snapshot")
+	_check(float(storm_state.aircraft_contrast) < 0.10
+			and float(storm_state.air_filter_hz) < float(clear_state.air_filter_hz)
+			and float(storm_state.train_filter_hz) < float(clear_state.train_filter_hz),
+			"closed storm weather suppresses the flyby and muffles distant events")
 
 	print("[PERIOD REALITY LAYER] RESULT: %s (%d failures)" % [
 			"PASS" if fails == 0 else "FAIL", fails])

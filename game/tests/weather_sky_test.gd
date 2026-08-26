@@ -77,6 +77,11 @@ func _ready() -> void:
 			directional.size() == 1 and directional[0] == sky_key)
 	_check("WeatherFX adds no realtime lights",
 			_descendants(root.weather).all(func(node): return node is not Light3D))
+	var period_weather: Dictionary = root.period_reality.diagnostic_snapshot()
+	_check("distant 1928 life consumes weather without another visual owner",
+			float(period_weather.aircraft_contrast) < 1.0
+			and float(period_weather.air_filter_hz) < 14500.0
+			and int(period_weather.aircraft_collision_bodies) == 0)
 	var neighbour_masses := root.get_node_or_null("PersistentNeighbourMasses")
 	var neighbour_facades := root.get_node_or_null("PersistentNeighbourFacades")
 	_check("neighbour envelopes survive coarse storey streaming",

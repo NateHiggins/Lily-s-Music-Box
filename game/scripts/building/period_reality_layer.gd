@@ -20,6 +20,9 @@ var _air_elapsed := -1.0
 var _until_aircraft := 0.0
 var _until_train := 0.0
 var _rng := RandomNumberGenerator.new()
+var _conditions: Dictionary = {}
+var _aircraft_contrast := 1.0
+var _wind_mps := Vector3.ZERO
 
 
 func _ready() -> void:
@@ -47,6 +50,12 @@ func _process(delta: float) -> void:
 func start_airmail_pass() -> bool:
 	if _air_elapsed >= 0.0:
 		return false
+	# The flight may still exist above a closed ceiling; this layer only owns
+	# what the player can corroborate. Do not stage a visible flyby in conditions
+	# that reduce the aircraft below silhouette contrast.
+	if _aircraft_contrast < 0.10:
+		_until_aircraft = _rng.randf_range(AIR_PASS_MIN, AIR_PASS_MAX)
+		return false
 	_air_elapsed = 0.0
 	_aircraft.visible = true
 	_air_audio.play()
@@ -71,7 +80,37 @@ func diagnostic_snapshot() -> Dictionary:
 		"aircraft_shadow": _aircraft.cast_shadow if _aircraft else -1,
 		"audio_streams": 2,
 		"persistent": false,
+		"aircraft_contrast": _aircraft_contrast,
+		"wind_mps": _wind_mps,
+		"air_filter_hz": _air_audio.attenuation_filter_cutoff_hz,
+		"train_filter_hz": _train_audio.attenuation_filter_cutoff_hz,
 	}
+
+
+func set_live_conditions(conditions: Dictionary) -> void:
+	_conditions = conditions.duplicate(true)
+	var low_cloud := clampf(float(_conditions.get("cloud_low", 0.0)), 0.0, 1.0)
+	var precipitation := maxf(float(_conditions.get(
+			"precipitation_intensity", 0.0)), 0.0)
+	var fogged := int(_conditions.get("weather_code", 0)) in [45, 48]
+	_aircraft_contrast = clampf(1.0 - low_cloud * 0.78
+			- minf(precipitation, 4.0) * 0.10 - (0.28 if fogged else 0.0),
+			0.04, 1.0)
+	var speed := maxf(float(_conditions.get("wind_speed_kmh", 0.0)), 0.0) / 3.6
+	var bearing := deg_to_rad(float(_conditions.get("wind_direction_deg", 0.0)))
+	_wind_mps = Vector3(sin(bearing), 0.0, -cos(bearing)) * speed
+	if _aircraft:
+		_aircraft.transparency = 1.0 - _aircraft_contrast
+	# Rain and low cloud remove high frequencies with distance; they never make
+	# either event louder. These are the existing 3D players, not a new bus.
+	var muffling := clampf(low_cloud * 0.48 + minf(precipitation, 3.0) * 0.12,
+			0.0, 0.78)
+	var cutoff := lerpf(14500.0, 2400.0, muffling)
+	if _air_audio:
+		_air_audio.attenuation_filter_cutoff_hz = cutoff
+	if _train_audio:
+		_train_audio.attenuation_filter_cutoff_hz = lerpf(12500.0, 1900.0,
+				clampf(muffling * 1.12, 0.0, 0.86))
 
 
 func _update_aircraft() -> void:
@@ -80,7 +119,12 @@ func _update_aircraft() -> void:
 	var finish := Vector3(98.0, 58.0, 82.0)
 	var direction := (finish - start).normalized()
 	_aircraft.position = start.lerp(finish, t)
+	# Crosswind displaces the middle of the visible track but returns to the
+	# authored horizon endpoints. A restrained gust rides on that displacement;
+	# no physics body or raycast enters the background layer.
+	_aircraft.position += _wind_mps * (sin(t * PI) * 0.42)
 	_aircraft.position.y += sin(t * PI) * 5.0 + sin(t * TAU * 3.0) * 0.18
+	_aircraft.position.y += sin(t * TAU * 5.0) * _wind_mps.length() * 0.012
 	_aircraft.look_at(_aircraft.position + direction, Vector3.UP)
 	_air_audio.position = _aircraft.position
 	if t >= 1.0:

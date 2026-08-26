@@ -733,13 +733,15 @@ func _ready() -> void:
 	add_child(weather)
 	weather.build_reflections(layout)
 	day_night_director.bind_weather(weather, exterior_detail_pass)
+	# Construct every weather consumer before LiveWeatherService enters the tree:
+	# simulated conditions can publish synchronously from its _ready().
+	period_reality = PeriodRealityLayerScript.new()
+	period_reality.name = "PeriodRealityLayer"
+	add_child(period_reality)
 	live_weather = LiveWeatherServiceScript.new()
 	live_weather.name = "LiveWeatherService"
 	live_weather.weather_updated.connect(_on_live_weather_updated)
 	add_child(live_weather)
-	period_reality = PeriodRealityLayerScript.new()
-	period_reality.name = "PeriodRealityLayer"
-	add_child(period_reality)
 	if OS.get_environment("PERF_COMMENSALS_OFF") != "1":
 		commensals = CommensalDirector.new()
 		commensals.name = "CommensalDirector"
@@ -2591,6 +2593,8 @@ func _on_live_weather_updated(snapshot: Dictionary) -> void:
 	var conditions: Dictionary = LiveWeatherServiceScript.presentation(snapshot)
 	day_night_director.set_live_conditions(conditions)
 	weather.set_live_conditions(conditions)
+	if period_reality:
+		period_reality.set_live_conditions(conditions)
 	print("[WEATHER] live conditions for %s: cloud %.0f%%, precipitation %.2f mm" % [
 			str(snapshot.get("location", {}).get("name", "Queens, New York")),
 			float(snapshot.get("cloud_total", 0.0)) * 100.0,
