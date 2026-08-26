@@ -13,6 +13,7 @@ signal weather_flash_changed(level: float)
 const SPATTER_COUNT := 72
 const LEAF_COUNT := 8
 const SNOW_COUNT := 480
+const HAIL_COUNT := 220
 const LEAF_BOX := Vector3(15.0, 2.0, 15.0)
 const LEAF_HEIGHT := 11.0
 const WIND_BASE := Vector3(4.8, 0.0, 2.1)
@@ -25,6 +26,7 @@ var _observed_wind := WIND_BASE
 var _splash: CPUParticles3D
 var _leaves: CPUParticles3D
 var _snow: CPUParticles3D
+var _hail: CPUParticles3D
 var _middle_rain: MultiMeshInstance3D
 var _middle_material: ShaderMaterial
 var _road_mist: MultiMeshInstance3D
@@ -67,6 +69,8 @@ func _ready() -> void:
 	add_child(_leaves)
 	_snow = _make_snow()
 	add_child(_snow)
+	_hail = _make_hail()
+	add_child(_hail)
 	_middle_rain = _make_middle_rain()
 	add_child(_middle_rain)
 	_road_mist = _make_road_mist()
@@ -198,6 +202,7 @@ func diagnostic_snapshot() -> Dictionary:
 		"rain_intensity": _rain_intensity,
 		"snow_enabled": bool(_live_conditions.get("snowing", false)),
 		"snow_intensity": _snow_intensity,
+		"hail_enabled": bool(_live_conditions.get("hailing", false)),
 		"lightning_enabled": _lightning_enabled,
 		"mist_enabled": _mist_enabled,
 		"live_conditions": _live_conditions.duplicate(true),
@@ -312,6 +317,38 @@ void fragment() {
 }
 """
 	material.shader = shader
+	particles.material_override = material
+	particles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	particles.emitting = false
+	return particles
+
+
+func _make_hail() -> CPUParticles3D:
+	var particles := CPUParticles3D.new()
+	particles.name = "LiveHail"
+	particles.amount = HAIL_COUNT
+	particles.lifetime = 2.2
+	particles.preprocess = 2.2
+	particles.local_coords = false
+	particles.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	particles.emission_box_extents = Vector3(11.0, 0.6, 11.0)
+	particles.position = Vector3(0.0, 10.0, 0.0)
+	particles.direction = Vector3(0.0, -1.0, 0.0)
+	particles.spread = 7.0
+	particles.initial_velocity_min = 7.0
+	particles.initial_velocity_max = 12.0
+	particles.gravity = Vector3(0.0, -12.0, 0.0)
+	particles.scale_amount_min = 0.45
+	particles.scale_amount_max = 1.15
+	var pellet := SphereMesh.new()
+	pellet.radius = 0.012
+	pellet.height = 0.024
+	pellet.radial_segments = 5
+	pellet.rings = 3
+	particles.mesh = pellet
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.albedo_color = Color(0.78, 0.86, 0.94, 0.86)
 	particles.material_override = material
 	particles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	particles.emitting = false
@@ -480,6 +517,8 @@ func _process(delta: float) -> void:
 		# Flakes share the observed horizontal air mass but retain their own
 		# shallow terminal fall. This is drift, not a second wind owner.
 		_snow.gravity = Vector3(wind.x * 0.16, -0.42, wind.z * 0.16)
+	if _hail:
+		_hail.gravity = Vector3(wind.x * 0.08, -12.0, wind.z * 0.08)
 	if _player == null:
 		return
 	var player_position := _player.global_position
@@ -491,11 +530,14 @@ func _process(delta: float) -> void:
 	_splash.global_position = at + Vector3(0, 0.025, 0)
 	_middle_rain.global_position = at + Vector3(0, 4.0, 0)
 	_snow.global_position = at + Vector3(0, 10.0, 0)
+	_hail.global_position = at + Vector3(0, 10.0, 0)
 	_splash.emitting = exposed and not covered and _rain_enabled
 	_leaves.emitting = exposed and not covered and _rain_enabled
 	_middle_rain.visible = exposed and _rain_enabled
 	_snow.emitting = exposed and not covered \
 			and bool(_live_conditions.get("snowing", false))
+	_hail.emitting = exposed and not covered \
+			and bool(_live_conditions.get("hailing", false))
 	_middle_material.set_shader_parameter("close_suppression",
 			1.0 if covered else 0.0)
 	_road_mist.visible = _mist_enabled

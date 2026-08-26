@@ -63,6 +63,10 @@ family: `clear`, `scattered`, `overcast`, `drizzle`, `rain`, `freezing_rain`,
 `storm`, `hail_storm`, `snow`, `snow_shower`, and `fog`. Cold presets carry a
 cold authored temperature unless the existing temperature override replaces
 it. These are QA inputs only; they never persist or alter the network policy.
+WMO 96/99 hail-bearing thunder retains its liquid rain and additionally emits
+one bounded, shadowless hard-pellet field from `WeatherFX`. It shares the snow
+field's player-following placement, wind and exterior/cover queries, but its
+fast fall and small faceted pellets remain physically distinct from soft snow.
 
 The lower deck is evaluated from the view direction, not panorama UV. Six
 nonparallel analytic waves form broad moving cells on the dome; because the

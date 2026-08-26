@@ -262,6 +262,15 @@ func _ready() -> void:
 	_check("the observed thunderstorm code can schedule the existing flash",
 			root.weather._lightning_age >= 0.0
 			and bool(root.weather.diagnostic_snapshot().lightning_enabled))
+	var hail_conditions: Dictionary = WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("hail_storm"))
+	root.weather.set_live_conditions(hail_conditions)
+	root.weather._process(0.2)
+	_check("hail-bearing thunder mixes hard pellets with its rain branch",
+			root.weather.get_node("LiveHail").emitting
+			and root.weather.get_node("DrivingRainSpatter").emitting
+			and root.weather.get_node("LiveHail").cast_shadow
+					== GeometryInstance3D.SHADOW_CASTING_SETTING_OFF)
 	var overcast_conditions: Dictionary = WeatherServiceScript.presentation(
 			WeatherServiceScript.simulated_snapshot("overcast"))
 	root.weather.set_live_conditions(overcast_conditions)
@@ -280,7 +289,8 @@ func _ready() -> void:
 	_check("all player-following precipitation suppresses indoors",
 			not root.weather.get_node("DrivingRainSpatter").emitting
 			and not root.weather.get_node("DrivingRainMiddle").visible
-			and not root.weather.get_node("LiveSnow").emitting)
+			and not root.weather.get_node("LiveSnow").emitting
+			and not root.weather.get_node("LiveHail").emitting)
 
 	_check("traffic's crossing promise remains eight seconds",
 			StreetTraffic.MAX_WAIT == 8.0)
