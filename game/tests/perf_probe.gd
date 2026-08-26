@@ -173,7 +173,14 @@ func _ready() -> void:
 	# Pin the comparison in executable code. Environment overrides are applied
 	# before BuildingRoot's production profile and cannot be trusted as proof of
 	# the resolved value; the benchmark owns the value it reports.
-	root.light_rig.set_budgets(PINNED_LIGHT_BUDGET, PINNED_SHADOW_BUDGET)
+	var measured_shadow_budget := PINNED_SHADOW_BUDGET
+	var shadow_override := OS.get_environment("PERF_SHADOW_BUDGET")
+	if shadow_override != "":
+		measured_shadow_budget = clampi(int(shadow_override),
+				0, PINNED_LIGHT_BUDGET)
+		print("PERF: explicit shadow comparison budget %d" \
+				% measured_shadow_budget)
+	root.light_rig.set_budgets(PINNED_LIGHT_BUDGET, measured_shadow_budget)
 	for c in root.get_children():
 		if c is CanvasLayer:
 			c.visible = false

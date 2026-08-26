@@ -32,10 +32,20 @@ func _ready() -> void:
 		push_error("[SHADOWSHOT] SHOT_DIR unset")
 		get_tree().quit(1)
 		return
+	var mkdir_error := DirAccess.make_dir_recursive_absolute(dir)
+	if mkdir_error != OK:
+		push_error("[SHADOWSHOT] cannot create SHOT_DIR %s (%d)" % [dir, mkdir_error])
+		get_tree().quit(1)
+		return
 	root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
+	var measured_shadow_budget := PERF.PINNED_SHADOW_BUDGET
+	var shadow_override := OS.get_environment("PERF_SHADOW_BUDGET")
+	if shadow_override != "":
+		measured_shadow_budget = clampi(int(shadow_override),
+				0, PERF.PINNED_LIGHT_BUDGET)
 	root.light_rig.set_budgets(PERF.PINNED_LIGHT_BUDGET,
-			PERF.PINNED_SHADOW_BUDGET)
+			measured_shadow_budget)
 	await get_tree().create_timer(2.0).timeout
 	for c in get_tree().root.get_children():
 		_hide_ui(c)
@@ -51,8 +61,10 @@ func _ready() -> void:
 	var stations: Array = PERF.STATIONS
 	var wanted := OS.get_environment("SHADOW_SHOT_STATION")
 	if wanted != "":
+		var needles: Array = Array(wanted.split("|", false))
 		stations = PERF.STATIONS.filter(func(s):
-			return String(s["name"]).findn(wanted) >= 0)
+			return needles.any(func(needle):
+				return String(s["name"]).findn(needle) >= 0))
 		if stations.is_empty():
 			push_error("[SHADOWSHOT] unknown station %s" % wanted)
 			get_tree().quit(1)
@@ -69,8 +81,12 @@ func _ready() -> void:
 		var slug := String(s["name"]).to_lower()
 		for bad in [" ", "(", ")", "/"]:
 			slug = slug.replace(bad, "_")
-		get_viewport().get_texture().get_image().save_png(
-				"%s/%02d_%s.png" % [dir, i, slug])
+		var path := "%s/%02d_%s.png" % [dir, i, slug]
+		var save_error := get_viewport().get_texture().get_image().save_png(path)
+		if save_error != OK:
+			push_error("[SHADOWSHOT] save_png %s returned %d" % [path, save_error])
+			get_tree().quit(1)
+			return
 		print("[SHADOWSHOT] %02d %s" % [i, s["name"]])
 	print("[SHADOWSHOT] %d stations saved" % i)
 	get_tree().quit(0)
