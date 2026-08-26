@@ -1,5 +1,17 @@
 # Controller input contract audit — 2026-08-26
 
+> **IMPLEMENTATION NOTICE — `1112cb9`, 2026-08-26:** the H1, H2, H4 and H5
+> blockers identified below are now implemented on `main`. Maintenance uses
+> semantic adjust/commit/cancel actions; the Otis board owns focus and accepts
+> directional selection, accept and cancel; left-stick movement and
+> right-stick rate look reach the shared player paths; and the first complete
+> world/UI controller map is registered in `game_boot.gd`. Evidence:
+> `ControllerInputTest` PASS 20/20, `MaintenancePanelInputTest` PASS 17/17,
+> `OtisPanelInputTest` PASS 7/7, `MaintenanceActivityTest` PASS, and
+> `InteractionInventory` exit 0. This is an implementation milestone, **not a
+> certification claim**: the physical-pad matrix and first-minute playthrough
+> required by §§7–8 remain outstanding.
+
 **Purpose:** the complete input contract for the Early Access vertical slice, as
 an implementation brief and acceptance matrix. **This document does not claim
 controller support exists. It defines what would have to be true before anyone
