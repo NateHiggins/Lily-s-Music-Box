@@ -166,8 +166,6 @@ var _punch_head: MeshInstance3D
 ## Seconds left of the key's turn. Transient presentation, never saved: the
 ## fact it answers to belongs to FirstShiftDirector.
 var _key_left := 0.0
-var _knock: AudioStreamPlayer3D
-var _punch: AudioStreamPlayer3D
 var _balk_left := 0.0
 var _t := 0.0
 
@@ -397,8 +395,6 @@ func _build_visual() -> void:
 	_beat = make_emitter("tick", BEAT_DB)
 	_beat.unit_size = BEAT_UNIT_SIZE
 	_beat_left = BEAT_SECONDS
-	_knock = make_emitter("knock", -14.0)
-	_punch = make_emitter("pop", -16.0)
 	_build_detector_reach()
 	_refresh_mechanism()
 
@@ -497,8 +493,7 @@ func _perform_ritual_action() -> bool:
 	if worked:
 		# The key turns and the punch falls, at the apparatus the hand is on.
 		_key_left = KEY_TURN_SECONDS
-		if _punch != null:
-			_punch.play()
+		_present_mechanism(&"interaction.metal_accept")
 		_refresh_mechanism()
 	return worked
 
@@ -593,8 +588,7 @@ func preview_maintenance_step(step: Dictionary, value: float) -> void:
 				# it away; the release marks again.
 				if proof_first < 0.0:
 					proof_first = _dial_angle()
-					if _punch != null:
-						_punch.play()
+					_present_mechanism(&"interaction.metal_accept")
 				proof_second = fposmod(proof_first + 0.026
 						+ 0.05 * worked, 1.0)
 	_refresh_mechanism()
@@ -649,8 +643,12 @@ func apply_maintenance_result(result: Dictionary) -> void:
 func _balk(seconds: float) -> void:
 	var already := _balk_left > 0.0
 	_balk_left = maxf(_balk_left, clampf(seconds, 0.0, 3.0))
-	if not already and _knock != null:
-		_knock.play()
+	if not already:
+		_present_mechanism(&"interaction.metal_refuse")
+
+
+func _present_mechanism(cue_id: StringName) -> void:
+	AudioPolicy.present_3d(cue_id, global_position, 1.0, StringName(name))
 
 
 func balking() -> bool:

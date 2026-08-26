@@ -204,10 +204,16 @@ func _dial() -> void:
 							+ WatchmanScript.FRESH_DIAL_OFFSET, 1.0)))
 
 	# REFUSAL 1: you cannot seat a dial against a turning spindle.
+	AudioPolicy.clear_diagnostics()
 	det.restore_maintenance_snapshot(before)
 	det.preview_maintenance_step({"id": "seat_the_dial"}, 0.44)
 	_check("REFUSAL: the dial will not seat against a running movement",
 			not det.dial_seated and det.balking())
+	var refusal_audio := AudioPolicy.event_history()
+	_check("the physical refusal enters the bounded semantic mix",
+			refusal_audio.size() == 1
+			and str(refusal_audio[0].cue_id) == "interaction.metal_refuse"
+			and str(refusal_audio[0].source_id) == "TestDetector")
 
 	# REFUSAL 2: a loose dial has no datum to set.
 	det.restore_maintenance_snapshot(before)
@@ -246,6 +252,7 @@ func _dial() -> void:
 			not det.marks_prove_movement() and det.balking())
 
 	# THE HONEST ORDER, and the proof itself.
+	AudioPolicy.clear_diagnostics()
 	det.restore_maintenance_snapshot(before)
 	det.preview_maintenance_step({"id": "read_the_dial"}, 0.58)
 	det.preview_maintenance_step({"id": "stop_the_movement"}, 0.0)
@@ -258,6 +265,11 @@ func _dial() -> void:
 			and det.proof_second >= 0.0
 			and not is_equal_approx(det.proof_first, det.proof_second))
 	_check("and only then is the record honest", det.record_is_honest())
+	var accept_audio := AudioPolicy.event_history()
+	_check("the proof punch answers differently from a balk",
+			accept_audio.size() == 1
+			and str(accept_audio[0].cue_id) == "interaction.metal_accept"
+			and str(accept_audio[0].source_id) == "TestDetector")
 
 	# PREVIEW PUBLISHES NOTHING.
 	_check("working the visible detector publishes nothing before the commit",
