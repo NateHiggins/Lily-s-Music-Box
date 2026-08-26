@@ -19,9 +19,11 @@ const GUST_SPEED := 0.21
 const GUST_STRENGTH := 0.38
 
 var wind := WIND_BASE
+var _observed_wind := WIND_BASE
 
 var _splash: CPUParticles3D
 var _leaves: CPUParticles3D
+var _snow: CPUParticles3D
 var _middle_rain: MultiMeshInstance3D
 var _middle_material: ShaderMaterial
 var _road_mist: MultiMeshInstance3D
@@ -59,6 +61,8 @@ func _ready() -> void:
 	add_child(_splash)
 	_leaves = _make_leaves()
 	add_child(_leaves)
+	_snow = _make_snow()
+	add_child(_snow)
 	_middle_rain = _make_middle_rain()
 	add_child(_middle_rain)
 	_road_mist = _make_road_mist()
@@ -147,7 +151,8 @@ func set_live_conditions(conditions: Dictionary) -> void:
 	var bearing := deg_to_rad(float(_live_conditions.get(
 			"wind_direction_degrees", 0.0)))
 	# Meteorological bearings say where wind comes from.
-	wind = Vector3(-sin(bearing), 0.0, cos(bearing)) * speed
+	_observed_wind = Vector3(-sin(bearing), 0.0, cos(bearing)) * speed
+	wind = _observed_wind
 
 
 func is_exposed_at(point: Vector3) -> bool:
@@ -240,6 +245,38 @@ func _make_leaves() -> CPUParticles3D:
 	material.cull_mode = BaseMaterial3D.CULL_DISABLED
 	particles.material_override = material
 	particles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	return particles
+
+
+func _make_snow() -> CPUParticles3D:
+	var particles := CPUParticles3D.new()
+	particles.name = "LiveSnow"
+	particles.amount = 180
+	particles.lifetime = 6.0
+	particles.preprocess = 6.0
+	particles.local_coords = false
+	particles.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
+	particles.emission_box_extents = Vector3(13.0, 1.0, 13.0)
+	particles.position = Vector3(0.0, 10.0, 0.0)
+	particles.direction = Vector3(0.08, -1.0, 0.03)
+	particles.spread = 18.0
+	particles.initial_velocity_min = 0.45
+	particles.initial_velocity_max = 1.5
+	particles.gravity = Vector3(0.22, -0.42, 0.08)
+	particles.scale_amount_min = 0.35
+	particles.scale_amount_max = 1.0
+	var flake := QuadMesh.new()
+	flake.size = Vector2(0.025, 0.025)
+	particles.mesh = flake
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.albedo_color = Color(0.88, 0.92, 1.0, 0.78)
+	material.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	particles.material_override = material
+	particles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	particles.emitting = false
 	return particles
 
 
@@ -393,7 +430,7 @@ func _process(delta: float) -> void:
 	_update_lightning(delta)
 	var gust := sin(_t * GUST_SPEED) * 0.6 \
 			+ sin(_t * GUST_SPEED * 2.7) * 0.4
-	wind = WIND_BASE * (1.0 + gust * GUST_STRENGTH)
+	wind = _observed_wind * (1.0 + gust * GUST_STRENGTH)
 	if _leaves:
 		_leaves.gravity = Vector3(wind.x * 0.85, -1.5, wind.z * 0.85)
 	if _player == null:
@@ -406,9 +443,12 @@ func _process(delta: float) -> void:
 	_leaves.global_position = at + Vector3(0, LEAF_HEIGHT, 0)
 	_splash.global_position = at + Vector3(0, 0.025, 0)
 	_middle_rain.global_position = at + Vector3(0, 4.0, 0)
+	_snow.global_position = at + Vector3(0, 10.0, 0)
 	_splash.emitting = exposed and not covered and _rain_enabled
 	_leaves.emitting = exposed and not covered and _rain_enabled
 	_middle_rain.visible = exposed and _rain_enabled
+	_snow.emitting = exposed and not covered \
+			and bool(_live_conditions.get("snowing", false))
 	_middle_material.set_shader_parameter("close_suppression",
 			1.0 if covered else 0.0)
 	_road_mist.visible = _mist_enabled

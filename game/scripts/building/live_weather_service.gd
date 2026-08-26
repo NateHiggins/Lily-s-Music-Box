@@ -19,6 +19,15 @@ const QUEENS := {
 const GEOCODE_ENDPOINT := "https://geocoding-api.open-meteo.com/v1/search"
 const WEATHER_ENDPOINT := "https://api.open-meteo.com/v1/forecast"
 const REFRESH_SECONDS := 15.0 * 60.0
+const SIMULATION_PRESETS := {
+	"clear": {"code": 0, "cloud": 0.0, "low": 0.0, "rain": 0.0, "snow": 0.0, "wind": 5.0},
+	"scattered": {"code": 2, "cloud": 0.38, "low": 0.24, "rain": 0.0, "snow": 0.0, "wind": 10.0},
+	"overcast": {"code": 3, "cloud": 1.0, "low": 0.92, "rain": 0.0, "snow": 0.0, "wind": 13.0},
+	"rain": {"code": 61, "cloud": 0.92, "low": 0.84, "rain": 1.2, "snow": 0.0, "wind": 22.0},
+	"storm": {"code": 95, "cloud": 1.0, "low": 1.0, "rain": 4.0, "snow": 0.0, "wind": 42.0},
+	"snow": {"code": 73, "cloud": 0.96, "low": 0.90, "rain": 0.3, "snow": 1.4, "wind": 17.0},
+	"fog": {"code": 45, "cloud": 0.76, "low": 1.0, "rain": 0.0, "snow": 0.0, "wind": 2.0},
+}
 
 var _request: HTTPRequest
 var _location := QUEENS.duplicate(true)
@@ -46,6 +55,12 @@ func refresh() -> bool:
 	if _request == null or _awaiting != "":
 		return false
 	_refresh_left = REFRESH_SECONDS
+	var simulation := OS.get_environment("WEATHER_SIMULATE").to_lower()
+	if SIMULATION_PRESETS.has(simulation):
+		_location = QUEENS.duplicate(true)
+		_snapshot = simulated_snapshot(simulation)
+		weather_updated.emit(snapshot())
+		return true
 	var local_enabled := bool(GameBoot.settings.get("live_local_weather", false))
 	var query := str(GameBoot.settings.get("weather_location_query", "")).strip_edges()
 	if local_enabled and not query.is_empty():
@@ -167,6 +182,24 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 		"wind_direction_degrees": fposmod(float(snapshot.get(
 				"wind_direction_degrees", 0.0)), 360.0),
 		"wind_gusts_kmh": maxf(0.0, float(snapshot.get("wind_gusts_kmh", 0.0))),
+	}
+
+
+static func simulated_snapshot(preset: String) -> Dictionary:
+	if not SIMULATION_PRESETS.has(preset):
+		return {}
+	var value: Dictionary = SIMULATION_PRESETS[preset]
+	return {
+		"source": "simulation", "observed_at": "simulated",
+		"location": QUEENS.duplicate(true), "weather_code": int(value.code),
+		"temperature_c": 12.0, "relative_humidity": 70.0,
+		"precipitation_mm": float(value.rain), "rain_mm": float(value.rain),
+		"showers_mm": 0.0, "snowfall_cm": float(value.snow),
+		"cloud_total": float(value.cloud), "cloud_low": float(value.low),
+		"cloud_mid": float(value.cloud) * 0.72,
+		"cloud_high": float(value.cloud) * 0.48,
+		"wind_speed_kmh": float(value.wind), "wind_direction_degrees": 225.0,
+		"wind_gusts_kmh": float(value.wind) * 1.45, "is_day": true,
 	}
 
 

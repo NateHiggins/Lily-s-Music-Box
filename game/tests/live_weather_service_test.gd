@@ -59,6 +59,20 @@ func _ready() -> void:
 			"the service publishes normalized facts without owning visual nodes")
 	_check(WeatherServiceScript.presentation({}).is_empty(),
 			"no observation leaves the authored Queens storm untouched")
+	var clear := WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("clear"))
+	var storm := WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("storm"))
+	var snow := WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("snow"))
+	_check(not bool(clear.wet) and is_zero_approx(float(clear.cloud_total)),
+			"the clear simulator reaches true zero cloud and precipitation")
+	_check(bool(storm.wet) and is_equal_approx(float(storm.cloud_total), 1.0)
+			and is_equal_approx(float(storm.precipitation_intensity), 1.0),
+			"the storm simulator reaches closed cloud and maximum rain")
+	_check(bool(snow.snowing), "the simulator carries snow as a distinct fact")
+	_check(WeatherServiceScript.simulated_snapshot("not_weather").is_empty(),
+			"unknown simulation names cannot silently become weather")
 	_check(WeatherServiceScript.parse_weather({"current": {"time": "bad"}},
 			location).is_empty(),
 			"an incomplete response cannot partially mutate the sky")

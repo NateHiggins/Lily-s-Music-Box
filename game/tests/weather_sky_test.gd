@@ -14,6 +14,7 @@ func _check(label: String, ok: bool) -> void:
 func _ready() -> void:
 	OS.set_environment("DAYNIGHT_FORCE", "night")
 	OS.set_environment("WEATHER_SEED", "19280731")
+	OS.set_environment("WEATHER_SIMULATE", "rain")
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	var root: Node3D = load(
@@ -30,14 +31,14 @@ func _ready() -> void:
 	for state in ["morning", "day", "evening", "night"]:
 		var resource_path: String = paths.get(state, "")
 		_check("%s sky is a production 4K half-dome" % state,
-				resource_path.ends_with("_rain_half_dome_4k.png")
+				resource_path.ends_with("_half_dome_4k.png")
 				and ResourceLoader.exists(resource_path))
 		var source_path := ProjectSettings.globalize_path(resource_path)
 		var image := Image.load_from_file(source_path)
-		_check("%s sky source is 4096x2048 RGBA" % state,
+		_check("%s sky source is 4096x2048 color" % state,
 				image != null and image.get_width() == 4096
 				and image.get_height() == 2048
-				and image.get_format() == Image.FORMAT_RGBA8)
+				and image.get_format() in [Image.FORMAT_RGB8, Image.FORMAT_RGBA8])
 
 	var world := root.get_node_or_null("WorldEnvironment") as WorldEnvironment
 	var environment := world.environment if world else null
@@ -76,6 +77,30 @@ func _ready() -> void:
 			directional.size() == 1 and directional[0] == sky_key)
 	_check("WeatherFX adds no realtime lights",
 			_descendants(root.weather).all(func(node): return node is not Light3D))
+	var neighbour_masses := root.get_node_or_null("PersistentNeighbourMasses")
+	var neighbour_facades := root.get_node_or_null("PersistentNeighbourFacades")
+	_check("neighbour envelopes survive coarse storey streaming",
+			neighbour_masses is MultiMeshInstance3D
+			and neighbour_facades is MultiMeshInstance3D
+			and neighbour_masses.get_parent() == root
+			and neighbour_facades.get_parent() == root)
+	_check("persistent skyline contains authored mass and facade instances",
+			neighbour_masses.multimesh.instance_count > 0
+			and neighbour_facades.multimesh.instance_count > 0)
+	var facade_material := neighbour_facades.multimesh.mesh.material \
+			as ShaderMaterial
+	var facade_code := facade_material.shader.code if facade_material else ""
+	_check("one facade calculation owns both window recess and occupancy light",
+			facade_code.contains("float window")
+			and facade_code.contains("EMISSION = warm_room * occupied * window"))
+	var legacy_site_panes: Array[Node] = _descendants(root.window_glow).filter(
+			func(node): return node.name.begins_with("SitePanes_"))
+	_check("legacy site cards cannot independently overlight the facade",
+			not legacy_site_panes.is_empty()
+			and legacy_site_panes.all(func(node):
+				var mat := node.material_override as StandardMaterial3D
+				return not node.visible and mat != null \
+						and mat.emission_energy_multiplier <= 0.02))
 
 	var dome := root.get_node_or_null("NightSkyHalfDome") as MeshInstance3D
 	var sky_material := dome.material_override as ShaderMaterial if dome else null

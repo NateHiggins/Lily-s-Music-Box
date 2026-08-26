@@ -8,10 +8,10 @@ const SKY_DIR := "res://assets/building/textures/sky/"
 const CelestialEphemerisScript := preload(
 		"res://scripts/building/celestial_ephemeris.gd")
 const SKY_PATHS := {
-	"morning": SKY_DIR + "orison_queens_morning_rain_half_dome_4k.png",
-	"day": SKY_DIR + "orison_queens_day_rain_half_dome_4k.png",
-	"evening": SKY_DIR + "orison_queens_evening_rain_half_dome_4k.png",
-	"night": SKY_DIR + "orison_queens_night_rain_half_dome_4k.png",
+	"morning": SKY_DIR + "orison_clear_twilight_half_dome_4k.png",
+	"day": SKY_DIR + "orison_clear_day_half_dome_4k.png",
+	"evening": SKY_DIR + "orison_clear_twilight_half_dome_4k.png",
+	"night": SKY_DIR + "orison_clear_milky_way_half_dome_4k.png",
 }
 const STATE_MINUTES := {
 	"night": 180,
@@ -257,7 +257,8 @@ func _apply(minute: float) -> void:
 		var low_clouds := clampf(float(_live_conditions.get("cloud_low", clouds)), 0.0, 1.0)
 		# Current conditions tune the authored panorama rather than replacing it
 		# with another generic or procedural sky.
-		profile.cloud_depth = lerpf(0.04, 0.62, clouds)
+		profile.cloud_depth = clouds
+		profile["cloud_coverage"] = clouds
 		profile.fog_d *= lerpf(0.72, 1.18, low_clouds)
 		profile.mist.a *= lerpf(0.34, 1.0,
 				maxf(low_clouds, float(_live_conditions.get(
@@ -319,6 +320,8 @@ func _apply(minute: float) -> void:
 		else:
 			_sky.set_shader_parameter("star_strength", 0.0)
 		_sky.set_shader_parameter("lower_cloud_strength", profile.cloud_depth)
+		_sky.set_shader_parameter("cloud_coverage",
+				float(profile.get("cloud_coverage", profile.cloud_depth)))
 		var rays_enabled := OS.get_environment("WEATHER_RAYS") != "0"
 		_sky.set_shader_parameter("ray_strength",
 				profile.rays if rays_enabled else 0.0)
@@ -326,12 +329,23 @@ func _apply(minute: float) -> void:
 		_weather.apply_profile(profile)
 	if _exterior:
 		_exterior.set_weather_profile(profile.mist)
+		_exterior.set_neighbour_occupancy_gain(lerpf(
+				_neighbour_occupancy_for_state(str(a.state)),
+				_neighbour_occupancy_for_state(str(b.state)), t))
 	if _root:
 		if _root.get("moon_fill") != null and _root.moon_fill != null:
 			_root.moon_fill.energy_scale = profile.fill
 		_apply_atrium(profile.atrium, profile.atrium_e)
 	_last_profile = profile
 	_last_profile["source_direction"] = source_dir
+
+
+func _neighbour_occupancy_for_state(state: String) -> float:
+	match state:
+		"day": return 0.0
+		"morning": return 0.18
+		"evening": return 0.72
+		_: return 1.0
 
 
 func _span_at(minute: float) -> Dictionary:

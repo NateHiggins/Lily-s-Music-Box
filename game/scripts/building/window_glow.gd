@@ -86,11 +86,11 @@ func build(layout: Dictionary) -> int:
 ## of a street and obviously wrong from across the road. Giving each one a
 ## frame and a pair of mullions would have quadrupled that count.
 ##
-## So they are welded instead. Every pane in an intensity bucket becomes
-## one mesh, and every frame bar in the whole city becomes another: the
-## detail arrives and the cost drops by two orders of magnitude at the same
-## time. Buckets exist only because emissive strength has to live on the
-## material, so windows that share a brightness can share a surface.
+## So they are welded instead. Every pane in an intensity bucket becomes one
+## compatibility mesh, and every frame bar in the whole city becomes another.
+## The persistent neighbour facade now owns visible recess and occupancy in a
+## single calculation; these batches remain dark so old street visibility and
+## geometry indexing contracts survive without a second, misregistered light.
 const TONE_WARM := Color(1.0, 0.82, 0.56)
 const TONE_COOL := Color(0.74, 0.84, 0.96)
 const BUCKETS := 4          # intensity steps per tone
@@ -122,10 +122,13 @@ func _site_lights(fl: Dictionary) -> void:
 		var xf := Transform3D(
 				Basis(Vector3.UP, deg_to_rad(-float(s.get("yaw", 0)))),
 				GameBoot.b2g([float(p[0]), float(p[1]), float(p[2]) + fz]))
-		_quad(panes[key], xf, 0.0, 0.0, w, h, 0.0)
+		# The persistent masonry finish stands 6 mm off the envelope. Keep the
+		# authored glass and sash in front of it so depth testing cannot detach a
+		# lit card from its own opening at distant roof angles.
+		_quad(panes[key], xf, 0.0, 0.0, w, h, 0.014)
 		# sash: a border and a cross, standing a few millimetres proud so
 		# they read against the pane instead of z-fighting it
-		var d := 0.012
+		var d := 0.024
 		_quad(bars, xf, 0.0, (h - FRAME) * 0.5, w, FRAME, d)
 		_quad(bars, xf, 0.0, -(h - FRAME) * 0.5, w, FRAME, d)
 		_quad(bars, xf, -(w - FRAME) * 0.5, 0.0, FRAME, h, d)
@@ -139,10 +142,18 @@ func _site_lights(fl: Dictionary) -> void:
 		var tone: Color = TONE_WARM if warm else TONE_COOL
 		var mat := StandardMaterial3D.new()
 		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		mat.albedo_color = tone
+		# A distant lit room is not an opaque white card. The dark face retains
+		# color while emission supplies the filament seen through real glass.
+		# Persistent neighbour facades now own both recess and occupancy in one
+		# calculation. Retain these authored batches for street-visibility
+		# compatibility, but remove their old independent light contribution.
+		mat.albedo_color = Color(0.008, 0.010, 0.012)
 		mat.emission_enabled = true
-		mat.emission = tone
-		mat.emission_energy_multiplier = float(step) / BUCKETS * 1.5
+		mat.emission = Color(0.008, 0.010, 0.012)
+		# Bright enough to read behind the new recessed-window rhythm, but well
+		# below the old opaque light-card value. Only the authored occupied rooms
+		# glow; the shader behind them supplies dark glass, never invented light.
+		mat.emission_energy_multiplier = 0.02
 		mat.cull_mode = BaseMaterial3D.CULL_BACK
 		_batch(panes[key], mat, "SitePanes_" + key)
 	var fm := StandardMaterial3D.new()
@@ -179,6 +190,11 @@ func _batch(st: SurfaceTool, mat: StandardMaterial3D, node_name: String) -> void
 	mi.mesh = mesh
 	mi.material_override = mat
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	# Neighbour facade shader supersedes both SitePanes and SiteSashes. Keep the
+	# nodes for compatibility/indexing contracts, but never submit their retired
+	# floating geometry to the renderer.
+	if node_name.begins_with("Site"):
+		mi.visible = false
 	add_child(mi)
 
 

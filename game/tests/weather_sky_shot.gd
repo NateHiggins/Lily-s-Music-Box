@@ -22,7 +22,8 @@ var _hold_orison_core_shadows := false
 
 func _ready() -> void:
 	process_priority = 1000
-	if OS.get_environment("DAYNIGHT_FORCE") == "":
+	if OS.get_environment("DAYNIGHT_FORCE") == "" \
+			and OS.get_environment("CELESTIAL_REALTIME") != "1":
 		OS.set_environment("DAYNIGHT_FORCE", "night")
 	if OS.get_environment("WEATHER_SEED") == "":
 		OS.set_environment("WEATHER_SEED", "19280731")
@@ -145,21 +146,21 @@ func _capture_godot(label: String, eye: Vector3, target: Vector3) -> void:
 
 
 func _save_current_frame(label: String) -> void:
-	var expected_frame := _frame_serial + 1
-	RenderingServer.frame_post_draw.connect(_mark_frame, CONNECT_ONE_SHOT)
-	var deadline := Time.get_ticks_msec() + 2000
-	while _frame_serial < expected_frame and Time.get_ticks_msec() < deadline:
-		await get_tree().process_frame
-	if RenderingServer.frame_post_draw.is_connected(_mark_frame):
-		RenderingServer.frame_post_draw.disconnect(_mark_frame)
-	if _frame_serial < expected_frame:
+	# Godot 4.7's headless Forward+ driver can complete the viewport without
+	# emitting frame_post_draw. Two process frames are the actual contract we
+	# need; validate the resulting image rather than waiting on that signal.
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var image := get_viewport().get_texture().get_image()
+	if image == null or image.is_empty():
 		_capture_failed = true
 		push_error("No rendered frame arrived for %s" % label)
 		return
 	var out_dir := OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(out_dir)
-	get_viewport().get_texture().get_image().save_png(
-			out_dir.path_join(label + ".png"))
+	if image.save_png(out_dir.path_join(label + ".png")) != OK:
+		_capture_failed = true
+		push_error("Could not save rendered frame for %s" % label)
 
 
 func _mark_frame() -> void:

@@ -36,6 +36,15 @@ simulation time or unrelated systems.
 - No additional sky draw, light or shadow caster.
 - No per-frame network polling.
 
+## Complete simulation
+
+Set `WEATHER_SIMULATE` to `clear`, `scattered`, `overcast`, `rain`, `storm`,
+`snow`, or `fog`. Simulation bypasses the network and uses the same normalized
+contract as live observations. `clear` is exactly zero cloud and precipitation;
+`overcast` and `storm` close the dynamic hemisphere. Snow owns a distinct
+particle field rather than masquerading as rain. These presets are production
+debug inputs, not a second visual implementation.
+
 ## Verification
 
 `LiveWeatherServiceTest` proves Queens fallback, explicit text-only geocoding,

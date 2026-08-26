@@ -14,10 +14,13 @@ var boundary_count := 0
 var boundary_visible_spans: Array = []
 
 var _boxes: Array = []
+var _city_masses: Array = []
+var _city_facades: Array = []
 var _cylinders: Array = []
 var _puddles: Array = []
 var _puddle_material: ShaderMaterial
 var _storm_materials: Array[ShaderMaterial] = []
+var _city_facade_material: ShaderMaterial
 
 const STREET_END_PROBE_LAYER := 1 << 20
 
@@ -55,6 +58,11 @@ func build(layout: Dictionary, parent: Node3D) -> Dictionary:
 	# forever outside the door. See design/ORISON_STREET_BRIEF.md.
 	_build_street_ends(parent)
 	_emit_boxes(parent)
+	# Unlike street hardware, neighbour scenery must survive F01 storey
+	# streaming when the eye is on the roof. The pass itself is root-owned.
+	var persistent_parent := get_parent() as Node3D
+	_emit_city_masses(persistent_parent)
+	_emit_city_facades(persistent_parent)
 	_emit_cylinders(parent)
 	_emit_puddles(parent)
 	print("[BUILDING] exterior finish: %d batched details, %d decals, %d puddles"
@@ -100,6 +108,12 @@ func set_weather_flash(level: float) -> void:
 func set_weather_profile(mist_color: Color) -> void:
 	for material in _storm_materials:
 		material.set_shader_parameter("storm_color", mist_color)
+
+
+func set_neighbour_occupancy_gain(gain: float) -> void:
+	if _city_facade_material:
+		_city_facade_material.set_shader_parameter(
+				"occupancy_gain", clampf(gain, 0.0, 1.0))
 
 
 func _build_street_hardware() -> void:
@@ -199,17 +213,28 @@ func _build_puddles() -> void:
 
 func _build_city_silhouettes(floor: Dictionary) -> void:
 	var buildings: Array = []
+	var envelope_tops := {}
 	for item in floor.furniture:
 		var id: String = item.id
 		if not id.begins_with("site_") or id.ends_with("_cap"):
 			continue
-		if float(item.get("h", 0.0)) < 8.0:
+		var is_mass_segment := id.ends_with("_base0") \
+				or id.ends_with("_s0") or id.ends_with("_s1")
+		if float(item.get("h", 0.0)) < 8.0 and not is_mass_segment:
 			continue
 		if id.contains("ground") or id.contains("car"):
 			continue
 		buildings.append(item)
+		if is_mass_segment:
+			var envelope_id := id.trim_suffix("_base0").trim_suffix("_s0") \
+					.trim_suffix("_s1")
+			var top := float(item.get("z0", 0.0)) + float(item.h)
+			if not envelope_tops.has(envelope_id) \
+					or top > float(envelope_tops[envelope_id].top):
+				envelope_tops[envelope_id] = {"item": item, "top": top}
 	for index in buildings.size():
 		var item: Dictionary = buildings[index]
+		var id: String = item.id
 		var rect: Array = item.rect
 		var x := (float(rect[0]) + float(rect[2])) * 0.5
 		var y := (float(rect[1]) + float(rect[3])) * 0.5
@@ -219,6 +244,39 @@ func _build_city_silhouettes(floor: Dictionary) -> void:
 			Color(0.18, 0.12, 0.095), Color(0.13, 0.15, 0.16),
 			Color(0.20, 0.16, 0.11), Color(0.12, 0.105, 0.10)
 		][index % 4]
+		# The imported neighbour envelopes live in F01 and correctly disappear
+		# with that storey's interiors. Their windows are root-owned, though,
+		# which left floating luminous cards from roof viewpoints. Rebuild only
+		# each authored base envelope here; interiors remain streamed out.
+		if id.ends_with("_base0") or id.ends_with("_s0") \
+				or id.ends_with("_s1"):
+			var depth := float(rect[3]) - float(rect[1])
+			var z0 := float(item.get("z0", 0.0))
+			_city_masses.append({
+				"transform": Transform3D(Basis.IDENTITY.scaled(
+						Vector3(width, h, depth)),
+						GameBoot.b2g([x, y, z0 + h * 0.5])),
+				"color": tone.lightened(0.08),
+			})
+			var horizontal_face := absf(x) <= absf(y)
+			var face_width := width if horizontal_face else depth
+			# Stand the finish 6 mm proud of the envelope toward the Orison.
+			# Coplanar quads survived some angles and vanished at others, which is
+			# exactly the partial-rendering defect visible in the roof captures. The
+			# authored window panes stand another 8 mm proud of this finish.
+			var face_x := x if horizontal_face else (float(rect[0]) - 0.006 \
+					if x > 0.0 else float(rect[2]) + 0.006)
+			var face_y := (float(rect[1]) - 0.006 \
+					if y > 0.0 else float(rect[3]) + 0.006) \
+					if horizontal_face else y
+			var angle := 0.0 if horizontal_face else PI * 0.5
+			var basis := Basis(Vector3.UP, angle) \
+					* Basis.from_scale(Vector3(face_width, h, 1.0))
+			_city_facades.append({
+				"transform": Transform3D(basis,
+						GameBoot.b2g([face_x, face_y, z0 + h * 0.5])),
+				"color": tone.lightened(0.18),
+			})
 		# Uneven rooftop bulkhead and mechanical cluster break box silhouettes.
 		_box([x + width * 0.16, y, h + 0.55],
 				[minf(width * 0.28, 3.4), 2.0, 1.1], tone)
@@ -233,6 +291,30 @@ func _build_city_silhouettes(floor: Dictionary) -> void:
 		var street_y := float(rect[1]) - 0.035
 		_box([x, street_y, h * 0.63], [width * 0.72, 0.055, 0.16],
 				tone.lightened(0.10))
+	# Roof furniture is skyline information, so it shares the persistent owner.
+	# One irregular stair bulkhead per authored envelope breaks the procedural
+	# parapets without adding a node or draw call per building.
+	for envelope_id in envelope_tops:
+		var record: Dictionary = envelope_tops[envelope_id]
+		var item: Dictionary = record.item
+		var rect: Array = item.rect
+		var x := (float(rect[0]) + float(rect[2])) * 0.5
+		var y := (float(rect[1]) + float(rect[3])) * 0.5
+		var width := float(rect[2]) - float(rect[0])
+		var depth := float(rect[3]) - float(rect[1])
+		var top := float(record.top)
+		var seed := absi(hash(envelope_id))
+		var bulk_w := minf(width * (0.14 + float(seed % 7) * 0.012), 3.8)
+		var bulk_d := minf(depth * 0.20, 2.6)
+		var bulk_h := 0.75 + float(seed % 5) * 0.16
+		var offset := (float((seed / 7) % 9) / 8.0 - 0.5) * width * 0.36
+		_city_masses.append({
+			"transform": Transform3D(Basis.IDENTITY.scaled(
+					Vector3(bulk_w, bulk_h, bulk_d)),
+					GameBoot.b2g([x + offset, y, top + bulk_h * 0.5])),
+			"color": Color(0.08, 0.055, 0.043),
+		})
+		detail_count += 1
 
 
 func _build_car_details(floor: Dictionary) -> void:
@@ -694,6 +776,121 @@ func _cylinder_rot(position_b: Array, size_b: Array, color: Color,
 func _emit_boxes(parent: Node3D) -> void:
 	var mesh := BoxMesh.new()
 	_emit_colored_batch(parent, _boxes, mesh, 0.62)
+
+
+func _emit_city_masses(parent: Node3D) -> void:
+	if _city_masses.is_empty():
+		return
+	var mesh := BoxMesh.new()
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, shadows_disabled;
+varying vec3 world_position;
+void vertex() {
+	world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+void fragment() {
+	// These are the unlit side and rear planes of the same authored envelopes.
+	// Keep them below the facade value: a night skyline needs volume, not
+	// luminous cardboard boxes. World-space variation stops adjacent segments
+	// from becoming one perfectly flat CG slab.
+	float courses = smoothstep(0.965, 1.0, fract(world_position.y * 2.55));
+	float soot = 0.84 + 0.10 * sin(world_position.x * 0.17
+			+ world_position.z * 0.11);
+	vec3 brick = vec3(0.044, 0.027, 0.020) * soot;
+	ALBEDO = mix(brick, vec3(0.060, 0.046, 0.038), courses * 0.18);
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	mesh.material = material
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_colors = true
+	multimesh.mesh = mesh
+	multimesh.instance_count = _city_masses.size()
+	for index in _city_masses.size():
+		multimesh.set_instance_transform(index, _city_masses[index].transform)
+		multimesh.set_instance_color(index, _city_masses[index].color)
+	var visual := MultiMeshInstance3D.new()
+	visual.name = "PersistentNeighbourMasses"
+	visual.multimesh = multimesh
+	visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	parent.add_child(visual)
+
+
+func _emit_city_facades(parent: Node3D) -> void:
+	if _city_facades.is_empty():
+		return
+	var quad := QuadMesh.new()
+	quad.size = Vector2.ONE
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, cull_disabled, shadows_disabled;
+uniform float occupancy_gain = 1.0;
+varying vec3 world_position;
+void vertex() {
+	world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+void fragment() {
+	// A cheap 1920s apartment-house finish. Window recess and light are one
+	// calculation, so illumination physically cannot miss its opening. The old
+	// site-light cards remain only as non-emissive compatibility geometry.
+	float bays = 7.0;
+	float floors = 5.0;
+	vec2 cell_id = floor(vec2(UV.x * bays, UV.y * floors));
+	vec2 cell = fract(vec2(UV.x * bays, UV.y * floors));
+	vec2 edge = abs(cell - vec2(0.5));
+	float window = (1.0 - step(0.255, edge.x))
+			* (1.0 - step(0.305, edge.y));
+	float sash = max(1.0 - step(0.018, abs(cell.x - 0.5)),
+			1.0 - step(0.014, abs(cell.y - 0.5))) * window;
+	float course = smoothstep(0.955, 1.0, fract(UV.y * 82.0));
+	float pier = smoothstep(0.925, 1.0, fract(UV.x * bays));
+	float storey = smoothstep(0.955, 1.0, fract(UV.y * floors));
+	float parapet = smoothstep(0.90, 0.94, UV.y);
+	float basement = 1.0 - smoothstep(0.0, 0.11, UV.y);
+	float grime = 0.82 + 0.12 * sin(UV.y * 31.0 + UV.x * 13.0
+			+ world_position.x * 0.07);
+	vec3 brick = vec3(0.070, 0.035, 0.024) * grime;
+	brick = mix(brick, vec3(0.090, 0.052, 0.036), course * 0.24);
+	brick *= 0.82 + 0.12 * max(pier, storey);
+	vec3 stone = vec3(0.092, 0.080, 0.066);
+	vec3 result = brick;
+	result = mix(result, stone * 0.62, storey * 0.42);
+	result = mix(result, brick * 0.58, parapet * 0.72);
+	result = mix(result, vec3(0.025, 0.027, 0.027), basement * 0.75);
+	float room_hash = fract(sin(dot(cell_id + floor(world_position.xz * 0.07),
+			vec2(12.9898, 78.233))) * 43758.5453);
+	float occupied = step(0.68, room_hash) * occupancy_gain;
+	vec3 dark_glass = vec3(0.006, 0.009, 0.012);
+	vec3 warm_room = mix(vec3(0.095, 0.047, 0.017),
+			vec3(0.050, 0.061, 0.066), step(0.90, room_hash));
+	result = mix(result, mix(dark_glass, warm_room, occupied), window);
+	result = mix(result, vec3(0.020, 0.017, 0.015), sash);
+	ALBEDO = result;
+	EMISSION = warm_room * occupied * window * (0.08 + room_hash * 0.08);
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	_city_facade_material = material
+	quad.material = material
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_colors = true
+	multimesh.mesh = quad
+	multimesh.instance_count = _city_facades.size()
+	for index in _city_facades.size():
+		multimesh.set_instance_transform(index, _city_facades[index].transform)
+		multimesh.set_instance_color(index, _city_facades[index].color)
+	var visual := MultiMeshInstance3D.new()
+	visual.name = "PersistentNeighbourFacades"
+	visual.multimesh = multimesh
+	visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	parent.add_child(visual)
 
 
 func _emit_cylinders(parent: Node3D) -> void:

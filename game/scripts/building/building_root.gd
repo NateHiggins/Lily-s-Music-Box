@@ -909,6 +909,7 @@ uniform float celestial_core_radius = 0.038;
 uniform float celestial_halo_radius = 0.31;
 uniform float ray_strength = 0.0;
 uniform float lower_cloud_strength = 0.28;
+uniform float cloud_coverage = 0.28;
 uniform float cloud_phase = 0.0;
 uniform float weather_flash = 0.0;
 uniform vec3 bright_stars[12];
@@ -924,11 +925,11 @@ float lower_clouds(float u, float v) {
 	float broad = sin(p * 3.0 + drift_a + v * 9.0) * 0.50;
 	broad += sin(p * 7.0 + drift_b - v * 15.0) * 0.27;
 	broad += sin(p * 13.0 + drift_a * 0.61 + v * 25.0) * 0.13;
-	// This is the lower deck, not cloud pasted over the skyline: it lives in
-	// the middle elevations and is gone before the authored roofline begins.
-	float altitude = smoothstep(0.12, 0.28, v)
-			* (1.0 - smoothstep(0.70, 0.86, v));
-	return smoothstep(-0.34, 0.43, broad) * altitude;
+	// Coverage moves the threshold, not merely opacity: clear is genuinely
+	// empty, scattered has holes, and overcast closes the whole hemisphere.
+	float threshold_a = mix(0.58, -1.15, cloud_coverage);
+	float threshold_b = mix(0.78, -0.28, cloud_coverage);
+	return smoothstep(threshold_a, threshold_b, broad);
 }
 
 void fragment() {
@@ -944,12 +945,19 @@ void fragment() {
 	vec4 authored_a = texture(panorama_a, vec2(u, v));
 	vec4 authored_b = texture(panorama_b, vec2(u, v));
 	vec4 authored = mix(authored_a, authored_b, sky_blend);
-	float lower = lower_clouds(u, v) * lower_cloud_strength;
-	float thickness = clamp(authored.a + lower, 0.0, 1.0);
+	float cloud_shape = lower_clouds(u, v);
+	float lower = cloud_shape * lower_cloud_strength;
+	// Near-complete reports describe an optical ceiling, not a transparent
+	// gray filter. Close the remaining procedural holes over the last 14% of
+	// observed coverage so 100% overcast cannot leak a photographic Milky Way.
+	float closed_ceiling = smoothstep(0.86, 1.0, cloud_coverage);
+	float thickness = clamp(max(lower, closed_ceiling * 0.995), 0.0, 1.0);
 	vec3 color = authored.rgb * exposure;
 	// The close deck is cooler and slightly darker than the painted upper
-	// cloud. Its changing overlap is the parallax cue.
-	color = mix(color, color * vec3(0.69, 0.73, 0.78), lower * 0.48);
+	// cloud. Its changing overlap is the parallax cue. Its value is independent
+	// of the panorama beneath it; otherwise bright stars make bright clouds.
+	vec3 cloud_color = fog_horizon_color * (1.16 + cloud_shape * 0.34);
+	color = mix(color, cloud_color, thickness);
 	float source_angle = acos(clamp(dot(direction,
 			normalize(celestial_direction)), -1.0, 1.0));
 	float halo = 1.0 - smoothstep(celestial_core_radius,
@@ -969,8 +977,10 @@ void fragment() {
 	float fingers = pow(max(0.0, sin((u * 18.0 + cloud_phase) * 2.0 * PI)), 12.0);
 	color += celestial_color * ray_strength * fingers * halo
 			* (1.0 - thickness) * 0.18;
-	float horizon_haze = smoothstep(0.78, 0.98, v);
-	color = mix(color, fog_horizon_color, horizon_haze * 0.58);
+	// Long atmospheric paths extinguish stars before the zenith. This also
+	// keeps any equirectangular pole stretch out of the playable horizon.
+	float horizon_haze = smoothstep(0.60, 0.96, v);
+	color = mix(color, fog_horizon_color, horizon_haze * 0.82);
 	color += celestial_color * weather_flash * (0.09 + (1.0 - thickness) * 0.14);
 	if (direction.y < 0.0) {
 		float haze = smoothstep(0.0, 0.025, -direction.y);
