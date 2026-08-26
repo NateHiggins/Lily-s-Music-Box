@@ -27,6 +27,18 @@ quietly removing it.
 Product authority: `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`. These are
 the immediate executable gates, not a second copy of its milestone status.
 
+- **K0-EA — PRIORITY: REORGANIZE THE MILESTONES AROUND A FUNDABLE EARLY-ACCESS
+  BUILD.** Define the smallest release that delivers Orison's distinctive
+  promise in a polished, replayable opening shift; earns attention through a
+  strong trailer/demo story; and produces credible player, press and funding
+  evidence. Audit every milestone and open task into `launch blocker`,
+  `attention multiplier`, `post-launch`, or `cut`, then publish a dated release
+  roadmap with scope ceiling, target player journey, content floor, performance/
+  save/accessibility gates, store-page and trailer assets, playtest cadence,
+  telemetry/feedback plan, pricing/funding assumptions, risk register and a
+  hard go/no-go checklist. Preserve the long game as the roadmap beyond Early
+  Access; do not require every authored system or case before release.
+
 - **K0-ENGINE — PRIORITY / CONTINUOUS: WRITE THE ENGINE WE ARE DISCOVERING.**
   Treat this project as an evidence-producing engine-development programme,
   not only a game. Beginning now, maintain a durable, source-linked knowledge
@@ -57,9 +69,8 @@ the immediate executable gates, not a second copy of its milestone status.
   16.67 ms, while corrected corridor F04 passes at 12.96 ms and apartment 4B
   at 10.61 ms; the playerless street-elevation composition camera costs 27.08
   ms, while the corrected roof passes at 6.45 ms. Finish the remaining five
-  rows and price a visually proved shadow policy
-  before
-  closing K1; FULL verdict recovery itself is complete.
+  rows and price a visually proved shadow policy before closing K1; FULL
+  verdict recovery itself is complete.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the
   exact first missing or unclear player-facing transition; do not infer it from
