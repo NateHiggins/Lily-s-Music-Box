@@ -125,11 +125,16 @@ func _ready() -> void:
 			and neighbour_masses.get_parent() == root
 			and neighbour_facades.get_parent() == root)
 	_check("persistent skyline contains authored mass and facade instances",
-			neighbour_masses.multimesh.instance_count > 0
+			neighbour_masses.multimesh.instance_count > 8
 			and neighbour_facades.multimesh.instance_count > 0)
 	var facade_material := neighbour_facades.multimesh.mesh.material \
 			as ShaderMaterial
 	var facade_code := facade_material.shader.code if facade_material else ""
+	var exterior_source := FileAccess.get_file_as_string(
+			"res://scripts/building/exterior_detail_pass.gd")
+	var mass_material := neighbour_masses.multimesh.mesh.material \
+			as ShaderMaterial
+	var mass_code := mass_material.shader.code if mass_material else ""
 	_check("one facade calculation owns both window recess and occupancy light",
 			facade_code.contains("float window")
 			and facade_code.contains("EMISSION = warm_room * occupied * window")
@@ -139,6 +144,12 @@ func _ready() -> void:
 			and facade_code.contains("instance_extent.x / 1.45")
 			and facade_code.contains("reveal")
 			and not facade_code.contains("floor(world_position.xz"))
+	_check("oblique neighbour mass faces remain measured apartment elevations",
+			mass_code.contains(
+					"float along = abs(world_normal.x) > abs(world_normal.z)")
+			and mass_code.contains("world_position.y / 2.70")
+			and mass_code.contains("EMISSION = warm_room * occupied * window")
+			and mass_code.contains("uniform float occupancy_gain"))
 	_check("facade exposure follows daylight without inventing occupied rooms",
 			director._neighbour_light_for_state("day")
 					> director._neighbour_light_for_state("night")

@@ -124,6 +124,13 @@ period aircraft reverses the meteorological “comes from” bearing through the
 same X/Z convention as the cloud deck, so an east wind moves both west; WMO fog
 codes can reach the weather and distant-ambience consumers intact.
 
+Every persistent neighbour envelope now treats all four vertical box faces as
+apartment elevations. The primary face keeps its UV/measured-extent grid; side
+and rear mass faces derive the same 1.45 m bay and 2.70 m storey rhythm from
+world-space tangents. Both consume the one occupancy gain, and each opening
+owns its matching emission calculation. This removes black windowless slabs
+at oblique roof views without another mesh, material owner, light, or draw.
+
 This separation is the pattern for future reality-selling feeds: network code
 publishes bounded facts; an existing production owner translates those facts;
 failure preserves authored art; and no feed gains authority over cases, saves,

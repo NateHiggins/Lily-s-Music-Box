@@ -112,9 +112,10 @@ func set_weather_profile(mist_color: Color) -> void:
 
 
 func set_neighbour_occupancy_gain(gain: float) -> void:
-	if _city_facade_material:
-		_city_facade_material.set_shader_parameter(
-				"occupancy_gain", clampf(gain, 0.0, 1.0))
+	for material in [_city_mass_material, _city_facade_material]:
+		if material:
+			material.set_shader_parameter(
+					"occupancy_gain", clampf(gain, 0.0, 1.0))
 
 
 func set_neighbour_light_profile(gain: float, direction: Vector3) -> void:
@@ -324,8 +325,6 @@ func _build_city_silhouettes(floor: Dictionary) -> void:
 			"color": Color(0.08, 0.055, 0.043),
 		})
 		detail_count += 1
-
-
 func _build_car_details(floor: Dictionary) -> void:
 	var car_index := 0
 	for item in floor.furniture:
@@ -797,6 +796,7 @@ shader_type spatial;
 render_mode unshaded, shadows_disabled;
 uniform float facade_light_gain = 1.0;
 uniform vec3 facade_light_direction = vec3(0.0, 1.0, 0.0);
+uniform float occupancy_gain = 1.0;
 varying vec3 world_position;
 varying vec3 world_normal;
 varying flat vec4 instance_tint;
@@ -813,15 +813,34 @@ void fragment() {
 	float courses = smoothstep(0.965, 1.0, fract(world_position.y * 2.55));
 	float soot = 0.84 + 0.10 * sin(world_position.x * 0.17
 			+ world_position.z * 0.11);
-	vec3 brick = vec3(0.044, 0.027, 0.020) * soot;
+	vec3 brick = vec3(0.062, 0.038, 0.028) * soot;
 	float tint_luma = max(dot(instance_tint.rgb,
 			vec3(0.2126, 0.7152, 0.0722)), 0.001);
 	vec3 authored_tint = mix(vec3(1.0), instance_tint.rgb / tint_luma, 0.28);
 	brick *= authored_tint;
-	float exposure = 0.62 + 0.38 * abs(dot(normalize(world_normal),
+	float exposure = 0.70 + 0.30 * abs(dot(normalize(world_normal),
 			normalize(-facade_light_direction)));
-	ALBEDO = mix(brick, vec3(0.060, 0.046, 0.038), courses * 0.18)
-			* facade_light_gain * exposure;
+	vec3 result = mix(brick, vec3(0.078, 0.058, 0.046), courses * 0.18);
+	// A box side is still an apartment elevation. Build its grid in metres
+	// from the dominant horizontal tangent so rear and return walls cannot
+	// become windowless charcoal slabs when the roof camera sees past a corner.
+	float along = abs(world_normal.x) > abs(world_normal.z)
+			? world_position.z : world_position.x;
+	vec2 grid = vec2(along / 1.45, world_position.y / 2.70);
+	vec2 cell_id = floor(grid);
+	vec2 edge = abs(fract(grid) - vec2(0.5));
+	float vertical_face = 1.0 - step(0.35, abs(world_normal.y));
+	float window = (1.0 - step(0.255, edge.x))
+			* (1.0 - step(0.305, edge.y)) * vertical_face;
+	float room_hash = fract(sin(dot(cell_id,
+			vec2(12.9898, 78.233))) * 43758.5453);
+	float occupied = step(0.72, room_hash) * occupancy_gain;
+	vec3 dark_glass = vec3(0.007, 0.010, 0.013);
+	vec3 warm_room = mix(vec3(0.088, 0.044, 0.016),
+			vec3(0.046, 0.056, 0.061), step(0.91, room_hash));
+	result = mix(result, mix(dark_glass, warm_room, occupied), window);
+	ALBEDO = result * facade_light_gain * exposure;
+	EMISSION = warm_room * occupied * window * (0.06 + room_hash * 0.06);
 }
 """
 	var material := ShaderMaterial.new()
