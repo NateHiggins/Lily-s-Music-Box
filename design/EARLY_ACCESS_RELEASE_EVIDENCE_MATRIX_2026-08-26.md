@@ -1,5 +1,14 @@
 # Early Access release evidence matrix — 2026-08-26
 
+> **G27 STATUS NOTICE — `2165c3c`, 2026-08-26:** G27 is closed. A tracked
+> 64-bit `Windows Desktop` release preset now exports successfully through the
+> serial Godot lane. The proved artifact is a 109,071,360-byte executable plus
+> a separate 1,317,970,976-byte PCK; export completed in 25.8 seconds with exit
+> 0 and no filtered parse/script error. The generated files are ignored under
+> `build/`. This changes the shortest friends-build path to **G23 → G15**. It
+> does not prove packaging, installation, launch on a second machine, signing,
+> or distribution, and the 1.32 GB payload is now a measured packaging cost.
+
 **Purpose:** one authoritative view of every release gate, what evidence exists
 for it today, and what is still owed. **This is not a backlog and it invents no
 scope.** Every gate traces to a promise already made in a pushed document.
