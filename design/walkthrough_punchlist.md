@@ -1,5 +1,13 @@
 # Walkthrough punchlist
 
+**Milestone intake (2026-08-26):** this file is the visual evidence ledger, not
+a parallel roadmap. `design/MILESTONE_RECONCILIATION_2026-08-26.md` defines how
+rows enter the large plan: blockers immediately; uglies only when golden-route
+visible or systemic; wishes only after playtest or owner promotion. Resolved and
+info rows remain evidence and are not open-task counts. The current triage below
+reports no open blocker, so the next pass begins with stable cameras on M2's
+fresh-save route rather than a building-wide beauty sweep.
+
 Live log for the room-by-room pass. One line per finding:
 `room | symptom | severity` — severity is `blocker` (breaks play),
 `ugly` (wrong but survivable), or `wish` (make it better).

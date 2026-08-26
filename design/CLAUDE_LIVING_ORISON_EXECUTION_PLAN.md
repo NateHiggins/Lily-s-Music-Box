@@ -248,6 +248,13 @@ placement. Generated JSON and GLBs are outputs, never hand-edited sources.
 Milestones are evidence gates, not dates. Do not begin the next one because the
 previous one “mostly works.”
 
+**Current status overlay (2026-08-26):**
+`design/MILESTONE_RECONCILIATION_2026-08-26.md` maps the integrated tree,
+`TASKS.md` and the walkthrough punchlist onto these gates. M1 is structurally
+complete; M2's fresh-save eleven-beat playthrough is the active product gate.
+The overlay reports status only and does not alter the milestone definitions
+below.
+
 ### M0 — Freeze and establish the current truth
 
 1. Preserve unrelated dirty work; never stage with `git add -A`.

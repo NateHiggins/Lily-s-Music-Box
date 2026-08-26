@@ -27,8 +27,26 @@ quietly removing it.
 Product authority: `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`. These are
 the immediate executable gates, not a second copy of its milestone status.
 
-- **K1** Run M0 against the current tree: fresh-save Mina state trace, existing
-  tests, warnings, critical-route reachability and performance baseline.
+- **K1 — CURRENT-TREE BASELINE.** Re-run M0 at the pushed checkpoint: fresh
+  checkout/import, focused gameplay suites, FULL WalkTest, warnings/parse
+  errors, critical-route reachability and the named performance stations.
+  Publish one dated baseline with every inherited failure attributed.
+- **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
+  wake without console, debug panel, noclip or source knowledge. Record the
+  exact first missing or unclear player-facing transition; do not infer it from
+  a green unit test.
+- **K3 — ELEVEN-BOUNDARY SAVE MATRIX.** Save and reload after every golden-shift
+  beat. Prove the immediate practical intention, job/case owner and physical
+  world state reconstruct correctly at each boundary.
+- **K4 — ROUTE POLISH INTAKE.** After K2 produces a stable route, promote only
+  route-visible `blocker`/`ugly` rows from `design/walkthrough_punchlist.md`
+  into bounded M3–M6 tasks. Wishes remain in the evidence ledger unless a
+  playtest promotes them.
+
+Status and sequencing rationale:
+`design/MILESTONE_RECONCILIATION_2026-08-26.md`. M1's shared spine is already
+implemented and documented in `game/docs/core_loop.md`; K is now an integrated
+product proof, not another spine rewrite.
 ---
 
 ## D — Needs a decision from the owner
