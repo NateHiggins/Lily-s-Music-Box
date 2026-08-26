@@ -18,6 +18,9 @@ func _ready() -> void:
 	_check("opening pauses the night", get_tree().paused and surface.is_open)
 	_check("surface exposes all six semantic mix controls",
 			surface.sliders.size() == 6)
+	_check("sleep warning accessibility is reachable during play",
+			surface.onset_warning != null
+			and surface.onset_warning.name == "AlwaysWarnBeforeSleep")
 	surface.sliders.gameplay_volume.value = 0.13
 	surface.close(false)
 	_check("return resumes the night", not get_tree().paused and not surface.is_open)

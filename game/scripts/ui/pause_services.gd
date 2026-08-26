@@ -15,6 +15,7 @@ const LEVELS := [
 var player: Node
 var panel: PanelContainer
 var captions: CheckBox
+var onset_warning: CheckBox
 var sliders: Dictionary = {}
 var is_open := false
 var _mouse_before := Input.MOUSE_MODE_CAPTURED
@@ -119,6 +120,12 @@ func _build() -> void:
 	captions.text = "CAPTION GAMEPLAY AND DREAM SOUND CUES"
 	captions.tooltip_text = "Names semantic cues and direction without revealing distance or hidden ownership."
 	box.add_child(captions)
+	onset_warning = CheckBox.new()
+	onset_warning.name = "AlwaysWarnBeforeSleep"
+	onset_warning.text = "ALWAYS GIVE THE GRADUAL SLEEP WARNING"
+	onset_warning.tooltip_text = \
+			"Uses the legible gradual warning for every sleep onset."
+	box.add_child(onset_warning)
 	var apply := Button.new()
 	apply.name = "ApplyAndReturn"
 	apply.text = "APPLY AND RETURN TO THE NIGHT"
@@ -138,6 +145,8 @@ func _load_controls() -> void:
 	captions.button_pressed = bool(GameBoot.settings.get(
 			"gameplay_sound_captions", false)) or bool(GameBoot.settings.get(
 			"dream_directional_captions", false))
+	onset_warning.button_pressed = bool(GameBoot.settings.get(
+			"always_warn_before_sleep", false))
 
 
 func _preview(value: float, key: String) -> void:
@@ -156,6 +165,7 @@ func _store_controls() -> void:
 		GameBoot.settings[key] = sliders[key].value
 	GameBoot.settings.gameplay_sound_captions = captions.button_pressed
 	GameBoot.settings.dream_directional_captions = captions.button_pressed
+	GameBoot.settings.always_warn_before_sleep = onset_warning.button_pressed
 	GameBoot.save_settings()
 	var policy := get_node_or_null("/root/AudioPolicy")
 	if policy:
