@@ -4,6 +4,12 @@ var failed := 0
 
 
 func _ready() -> void:
+	var recorder := preload("res://scripts/songbook/mic_recorder.gd").new()
+	add_child(recorder)
+	await get_tree().process_frame
+	_check(not recorder._mic_player.playing
+			and not recorder._rec.is_recording_active(),
+			"constructing the real recorder opens no input stream or recording")
 	var source := FileAccess.get_file_as_string(
 			"res://scripts/ui/songbook_panel.gd")
 	var consent_start := source.find("func _show_mic_consent()")
@@ -22,7 +28,7 @@ func _ready() -> void:
 	_check(source.count("_show_mic_consent()") == 3,
 			"both recording routes pass through the one notice owner")
 	print("[SONGBOOK MIC CONSENT] %s" % (
-			"PASS 4/4" if failed == 0 else "FAIL %d/4" % failed))
+			"PASS 5/5" if failed == 0 else "FAIL %d/5" % failed))
 	get_tree().quit(0 if failed == 0 else 1)
 
 
