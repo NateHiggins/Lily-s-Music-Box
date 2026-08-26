@@ -923,6 +923,8 @@ uniform float ray_strength = 0.0;
 uniform float lower_cloud_strength = 0.28;
 uniform float cloud_coverage = 0.28;
 uniform float cloud_phase = 0.0;
+uniform vec3 cloud_wind_direction = vec3(1.0, 0.0, 0.0);
+uniform float cloud_wind_speed = 8.0;
 uniform float weather_flash = 0.0;
 uniform vec3 bright_stars[12];
 uniform float star_strength = 0.0;
@@ -932,9 +934,14 @@ vec2 lower_clouds(vec3 direction) {
 	// Direction-space waves cross the panorama seam continuously and avoid an
 	// azimuth/elevation grid. Six non-parallel bands approximate broad rolling
 	// cloud cells more cheaply than a sampled 3D noise volume.
-	float drift_a = TIME * 0.016 + cloud_phase;
-	float drift_b = TIME * -0.0095 + cloud_phase * 1.71;
-	vec3 p = normalize(direction);
+	// Advect the field in the reported horizontal wind direction. A much
+	// slower opposed evolution prevents a perfectly rigid painted sheet.
+	// 0.00012 rad/s per km/h approximates angular travel for a roughly 2.3 km
+	// cloud base: visible over tens of seconds, never a racing texture belt.
+	float advection = TIME * cloud_wind_speed * 0.00012;
+	float drift_a = TIME * 0.003 + cloud_phase;
+	float drift_b = TIME * -0.0017 + cloud_phase * 1.71;
+	vec3 p = normalize(direction + normalize(cloud_wind_direction) * advection);
 	float broad = sin(dot(p, vec3(3.7, 1.9, 5.1)) * 2.1 + drift_a) * 0.31;
 	broad += sin(dot(p, vec3(-6.2, 3.4, 2.7)) * 1.7 + drift_b) * 0.23;
 	broad += sin(dot(p, vec3(2.3, -5.8, 7.1)) * 2.6

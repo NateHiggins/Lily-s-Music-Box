@@ -63,6 +63,9 @@ func _ready() -> void:
 			director._weather_fog_multiplier(1.0, 0.0, 3) < 1.0
 			and director._weather_fog_multiplier(1.0, 1.0, 95) > 1.0
 			and director._weather_fog_multiplier(1.0, 0.0, 45) > 1.0)
+	_check("meteorological wind advects the same lower cloud deck",
+			director._wind_direction_vector(0.0).is_equal_approx(Vector3.BACK)
+			and director._wind_direction_vector(90.0).is_equal_approx(Vector3.LEFT))
 	_check("the global storm uses bounded depth fog",
 			environment != null and environment.fog_enabled
 			and environment.fog_mode == Environment.FOG_MODE_DEPTH
@@ -139,6 +142,8 @@ func _ready() -> void:
 			and sky_code.contains("Direction-space waves")
 			and sky_code.contains("cloud_relief")
 			and sky_code.contains("cloud_relief * 0.82")
+			and sky_code.contains("cloud_wind_direction")
+			and sky_code.contains("cloud_wind_speed")
 			and sky_code.contains("exp(-cloud_shape * lower_cloud_strength")
 			and not sky_code.contains("float p = u * 2.0 * PI"))
 	_check("the same sky draw projects the lunar terminator from the real Sun",

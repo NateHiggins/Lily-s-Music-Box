@@ -71,6 +71,14 @@ func _ready() -> void:
 			and is_equal_approx(float(storm.precipitation_intensity), 1.0),
 			"the storm simulator reaches closed cloud and maximum rain")
 	_check(bool(snow.snowing), "the simulator carries snow as a distinct fact")
+	OS.set_environment("WEATHER_SIMULATE_WIND_KMH", "37.5")
+	OS.set_environment("WEATHER_SIMULATE_WIND_DEGREES", "450")
+	var directed := WeatherServiceScript.simulated_snapshot("scattered")
+	OS.set_environment("WEATHER_SIMULATE_WIND_KMH", "")
+	OS.set_environment("WEATHER_SIMULATE_WIND_DEGREES", "")
+	_check(is_equal_approx(float(directed.wind_speed_kmh), 37.5)
+			and is_equal_approx(float(directed.wind_direction_degrees), 90.0),
+			"simulation can exercise bounded speed and every wind bearing")
 	_check(WeatherServiceScript.simulated_snapshot("not_weather").is_empty(),
 			"unknown simulation names cannot silently become weather")
 	_check(WeatherServiceScript.parse_weather({"current": {"time": "bad"}},

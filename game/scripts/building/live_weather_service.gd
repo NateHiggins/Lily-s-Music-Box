@@ -189,6 +189,14 @@ static func simulated_snapshot(preset: String) -> Dictionary:
 	if not SIMULATION_PRESETS.has(preset):
 		return {}
 	var value: Dictionary = SIMULATION_PRESETS[preset]
+	var wind_speed := float(value.wind)
+	var wind_direction := 225.0
+	var speed_override := OS.get_environment("WEATHER_SIMULATE_WIND_KMH")
+	var direction_override := OS.get_environment("WEATHER_SIMULATE_WIND_DEGREES")
+	if speed_override.is_valid_float():
+		wind_speed = clampf(float(speed_override), 0.0, 120.0)
+	if direction_override.is_valid_float():
+		wind_direction = fposmod(float(direction_override), 360.0)
 	return {
 		"source": "simulation", "observed_at": "simulated",
 		"location": QUEENS.duplicate(true), "weather_code": int(value.code),
@@ -198,8 +206,8 @@ static func simulated_snapshot(preset: String) -> Dictionary:
 		"cloud_total": float(value.cloud), "cloud_low": float(value.low),
 		"cloud_mid": float(value.cloud) * 0.72,
 		"cloud_high": float(value.cloud) * 0.48,
-		"wind_speed_kmh": float(value.wind), "wind_direction_degrees": 225.0,
-		"wind_gusts_kmh": float(value.wind) * 1.45, "is_day": true,
+		"wind_speed_kmh": wind_speed, "wind_direction_degrees": wind_direction,
+		"wind_gusts_kmh": wind_speed * 1.45, "is_day": true,
 	}
 
 

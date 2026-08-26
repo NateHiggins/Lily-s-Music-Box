@@ -351,6 +351,12 @@ func _apply(minute: float) -> void:
 		_sky.set_shader_parameter("lower_cloud_strength", profile.cloud_depth)
 		_sky.set_shader_parameter("cloud_coverage",
 				float(profile.get("cloud_coverage", profile.cloud_depth)))
+		var live_weather: Dictionary = profile.get("live_weather", {})
+		_sky.set_shader_parameter("cloud_wind_direction",
+				_wind_direction_vector(float(live_weather.get(
+						"wind_direction_degrees", 270.0))))
+		_sky.set_shader_parameter("cloud_wind_speed", clampf(float(
+				live_weather.get("wind_speed_kmh", 8.0)), 0.0, 120.0))
 		_sky.set_shader_parameter("urban_horizon_gain", lerpf(
 				_urban_horizon_for_state(str(a.state)),
 				_urban_horizon_for_state(str(b.state)), t))
@@ -416,6 +422,13 @@ func _weather_fog_multiplier(low_clouds: float, precipitation: float,
 		wet_or_fog = 1.0
 	return lerpf(0.78, 0.84, clampf(low_clouds, 0.0, 1.0)) \
 			+ wet_or_fog * 0.18
+
+
+func _wind_direction_vector(degrees_from_north: float) -> Vector3:
+	## Meteorological direction is the bearing wind comes from. Cloud motion is
+	## where it goes, so reverse the north/east bearing into Godot X/Z space.
+	var bearing := deg_to_rad(fposmod(degrees_from_north, 360.0))
+	return Vector3(-sin(bearing), 0.0, cos(bearing)).normalized()
 
 
 func _span_at(minute: float) -> Dictionary:

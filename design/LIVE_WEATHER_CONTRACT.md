@@ -52,6 +52,14 @@ softens the block without erasing it; rain, storm and actual fog may still close
 the distance. Cloud cover never impersonates ground fog merely because both
 facts are gray.
 
+The normalized meteorological wind also advects the lower deck. The service's
+degrees-from-north bearing is reversed from “comes from” to “moves toward” and
+converted once into Godot X/Z space; observed kilometres per hour scale the
+angular motion. Zero wind freezes bulk travel while a small opposed evolution
+keeps the analytic field from reading as a rigid painted shell. Precipitation,
+clouds and period ambience therefore agree on one reported wind without
+sharing node ownership.
+
 This separation is the pattern for future reality-selling feeds: network code
 publishes bounded facts; an existing production owner translates those facts;
 failure preserves authored art; and no feed gains authority over cases, saves,
@@ -72,6 +80,9 @@ contract as live observations. `clear` is exactly zero cloud and precipitation;
 `overcast` and `storm` close the dynamic hemisphere. Snow owns a distinct
 particle field rather than masquerading as rain. These presets are production
 debug inputs, not a second visual implementation.
+Set `WEATHER_SIMULATE_WIND_KMH` (bounded `0–120`) and
+`WEATHER_SIMULATE_WIND_DEGREES` (wrapped through `0–359.999…`) to exercise
+calm, speed and every meteorological bearing through that same contract.
 
 ## Verification
 
