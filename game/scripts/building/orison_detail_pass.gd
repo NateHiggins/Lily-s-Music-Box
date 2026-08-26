@@ -25,6 +25,8 @@ const TourKeyGuardPropScript := preload(
 		"res://scripts/props/tour_key_guard_prop.gd")
 const FireLineCabinetPropScript := preload(
 		"res://scripts/props/fire_line_cabinet_prop.gd")
+const SodaAcidExtinguisherPropScript := preload(
+		"res://scripts/props/soda_acid_extinguisher_prop.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -469,6 +471,54 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		station.rotation.y = PI * 0.5
 		floor_nodes["F02"].add_child(station)
 		stations.register(station)
+	if floor_nodes.has("F03"):
+		# SR7-O: the soda-acid extinguisher, on the backboard this file already
+		# draws.
+		#
+		# THE BOARD IS NOT NEW AND IS NOT REDRAWN. The infrastructure loop at
+		# the top of this function batches, on EVERY floor, a flat red box at
+		# b(-2.76, -3.10) that is 0.34 wide, 0.08 DEEP and 0.70 tall, and the
+		# comment beside it calls it an extinguisher cabinet. Eighty
+		# millimetres cannot hold a vessel 230 across, so it is not a cabinet:
+		# it is the painted BACKBOARD an extinguisher hangs in front of, and
+		# reading it that way is what lets this apparatus bind to the authored
+		# location instead of inventing a second visual family. The box stays
+		# batched, exactly as it was, on all eight floors.
+		#
+		# THE ORIGIN IS THE BOARD. The box is centred at y -3.10 and 0.08 deep,
+		# so its front face is at -3.06; it spans z+0.70 to z+1.40, so its
+		# bottom edge is z+0.70. The prop's local origin is that face at that
+		# edge -- b(-2.76, -3.06, z+0.70) -- and the vessel is built OUTWARD
+		# from it, projecting 0.25 into the landing and reaching z+1.51 at the
+		# cap. Nothing here is a free choice; every number is read off the box.
+		#
+		# WHY F03. The board exists on all eight floors and this hangs on one.
+		# F03's core pendant `F03_ATRIUM_FRUIT_1` is 3.15 m from the board --
+		# the closest any floor's core light comes to it, against 3.95 on F01
+		# and worse above -- so this is the one instance a man could actually
+		# read by the stair's own light. It is also two floors above SR7-N's
+		# standpipe cabinet, 5.90 apart, which keeps two different fire
+		# apparatus from being mistaken for one lane.
+		#
+		# CIRCULATION, and these are the LIVE PROOF'S numbers rather than this
+		# comment's. The south strip of the well, x -3.16..3.16 by
+		# y -3.16..-1.46, is a solid landing at every level. The stair doorway
+		# in the south wall spans x -1.6..1.6, so the board's west edge stands
+		# 0.99 clear of its jamb, out of the traffic line; the up-flight from
+		# this floor runs in the WEST strip through y -1.46..1.46, well north
+		# of the board. The vessel's face reaches y -2.812, leaving 1.35 of
+		# landing in front of it. F03's pendant is measured at 3.18, and
+		# SR7-N's cabinet at 5.90 below.
+		#
+		# PI, so local +z maps to building +y and the extinguisher faces north
+		# off the south wall onto the landing; local +x then runs west.
+		var extinguisher := SodaAcidExtinguisherPropScript.new()
+		extinguisher.name = "F03_EXTINGUISHER_STAIR"
+		extinguisher.prop_type = "soda_acid_extinguisher"
+		extinguisher.station_id = "F03_EXTINGUISHER_STAIR"
+		extinguisher.position = GameBoot.b2g([-2.76, -3.06, 6.4 + 0.70])
+		extinguisher.rotation.y = PI
+		floor_nodes["F03"].add_child(extinguisher)
 	if floor_nodes.has("B1"):
 		# SR7-M: the second watch station, at the boiler.
 		#
