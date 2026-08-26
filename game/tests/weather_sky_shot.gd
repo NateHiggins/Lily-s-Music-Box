@@ -42,7 +42,8 @@ func _ready() -> void:
 	var requested := OS.get_environment("SHOT_STATION")
 	var destructive_pair := OS.get_environment("WEATHER_CORE_SHADOW_PAIR") == "1" \
 			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" \
-			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1"
+			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1" \
+			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1"
 	if destructive_pair and requested == "":
 		push_error("A destructive A/A/B mode requires one SHOT_STATION; "
 				+ "its final state cannot become the next station's control")
@@ -52,7 +53,8 @@ func _ready() -> void:
 	var captures_per_station := 3 \
 			if OS.get_environment("WEATHER_CORE_SHADOW_PAIR") == "1" \
 			or OS.get_environment("WEATHER_STREET_CORE_PAIR") == "1" \
-			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1" else 1
+			or OS.get_environment("WEATHER_HARUKIYA_PAIR") == "1" \
+			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1" else 1
 	for station: Dictionary in STATIONS:
 		if requested != "" and requested != station.name:
 			continue
@@ -97,6 +99,31 @@ func _capture_godot(label: String, eye: Vector3, target: Vector3) -> void:
 	# pavement eye height. LightRig still derives occupied height from the lens.
 	root.view_override = null
 	await get_tree().create_timer(1.0).timeout
+	var airmail_proof := label == "04_roof_skyline" \
+			and (OS.get_environment("PERIOD_AIRMAIL_SHOT") == "1" \
+			or OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1")
+	if airmail_proof:
+		root.period_reality.set_live_conditions({
+			"cloud_low": 0.0, "precipitation_intensity": 0.0,
+			"wind_speed_kmh": 14.0, "wind_direction_deg": 245.0,
+			"weather_code": 0,
+		})
+		root.period_reality.start_airmail_pass()
+		root.period_reality._process(PeriodRealityLayer.AIR_DURATION * 0.82)
+		root.period_reality.set_process(false)
+		var mailwing := root.period_reality.get_node("CAM19Mailwing") as MeshInstance3D
+		cam.look_at(mailwing.global_position)
+		label = "04_roof_airmail"
+		if OS.get_environment("PERIOD_AIRMAIL_PAIR") == "1":
+			process_mode = Node.PROCESS_MODE_ALWAYS
+			mailwing.visible = false
+			get_tree().paused = true
+			await _save_current_frame(label + "_control_a")
+			await _save_current_frame(label + "_control_b")
+			mailwing.visible = true
+			await _save_current_frame(label + "_final")
+			get_tree().paused = false
+			return
 	# Same-process visual proof for T7b. Start this mode with
 	# PERF_STREET_CORE_SHADOWS_ON=1 so the first two frames reproduce the old
 	# production state, pause every scene owner, then change exactly the eleven
