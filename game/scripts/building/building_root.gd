@@ -17,6 +17,8 @@ extends Node3D
 
 const PlanarMirrorRendererScript := preload(
 		"res://scripts/building/planar_mirror_renderer.gd")
+const PeriodRealityLayerScript := preload(
+		"res://scripts/building/period_reality_layer.gd")
 
 const FLOOR_SCENES := {
 	"B1": "res://assets/building/floor_b1.gltf",
@@ -242,6 +244,7 @@ var touch: TouchControls
 var service_set_carrier: ServiceSetCarrier
 var weather: WeatherFX
 var day_night_director: DayNightDirector
+var period_reality: Node3D
 var mina_manifestation: MinaCaptionManifestation
 var mina_gameplay: MinaCaseGameplay
 var portal_rule_display: PortalRuleDisplay
@@ -727,6 +730,9 @@ func _ready() -> void:
 	add_child(weather)
 	weather.build_reflections(layout)
 	day_night_director.bind_weather(weather, exterior_detail_pass)
+	period_reality = PeriodRealityLayerScript.new()
+	period_reality.name = "PeriodRealityLayer"
+	add_child(period_reality)
 	if OS.get_environment("PERF_COMMENSALS_OFF") != "1":
 		commensals = CommensalDirector.new()
 		commensals.name = "CommensalDirector"
