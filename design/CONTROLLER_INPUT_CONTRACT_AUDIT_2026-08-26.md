@@ -11,6 +11,16 @@
 > `InteractionInventory` exit 0. This is an implementation milestone, **not a
 > certification claim**: the physical-pad matrix and first-minute playthrough
 > required by §§7–8 remain outstanding.
+>
+> **FOLLOW-UP — `d0fc374`, 2026-08-26:** controller look now has independent,
+> persisted sensitivity, invert-Y, radial dead zone and response curve on both
+> title and in-game scroll surfaces (`ControllerSettingsTest` PASS 12/12).
+> Menu/Escape owns `pause_services`; B owns `ui_cancel`, closing C1 without
+> overloading ordinary play. The shared-A risk C5 is dynamically proved:
+> `MaintenancePanelInputTest` PASS 18/18 advances a repair while a real
+> `PlayerController` polls `interact`, with zero world-interaction calls.
+> A6 and A7 therefore have automated evidence; A1, A2, A5, A8 and A10 still
+> require the physical-pad/manual route evidence specified below.
 
 **Purpose:** the complete input contract for the Early Access vertical slice, as
 an implementation brief and acceptance matrix. **This document does not claim
