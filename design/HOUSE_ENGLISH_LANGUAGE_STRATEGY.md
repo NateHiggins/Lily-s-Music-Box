@@ -123,6 +123,9 @@ performance, and allows comprehension modes without duplicating story state.
 `game/data/house_english_lexicon.json` is the initial provenance-bearing
 lexicon. `game/scripts/language/house_english.gd` is a deliberately small
 prototype renderer. It owns no dialogue, case, job, save or UI state.
+Real candidate expressions and their integration risks live in the maintained
+`design/HOUSE_ENGLISH_ARTIFACT_APPENDIX.md`; writers must consult it before
+adding historical flavor.
 
 Before broad conversion:
 
