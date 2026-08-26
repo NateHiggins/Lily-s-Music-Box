@@ -32,6 +32,7 @@ var _settings_panel: PanelContainer
 var _quality: OptionButton
 var _fullscreen: CheckBox
 var _always_warn: CheckBox
+var _sound_captions: CheckBox
 var _live_local_weather: CheckBox
 var _weather_location: LineEdit
 var _volume: HSlider
@@ -197,8 +198,8 @@ func _build_settings() -> void:
 	_settings_panel = PanelContainer.new()
 	_settings_panel.name = "BuildingServices"
 	_settings_panel.set_anchors_preset(Control.PRESET_CENTER)
-	_settings_panel.position = Vector2(-300, -300)
-	_settings_panel.custom_minimum_size = Vector2(600, 600)
+	_settings_panel.position = Vector2(-300, -320)
+	_settings_panel.custom_minimum_size = Vector2(600, 640)
 	_settings_panel.visible = false
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.025, 0.029, 0.034, 0.97)
@@ -240,6 +241,14 @@ func _build_settings() -> void:
 	_always_warn.button_pressed = bool(GameBoot.settings.get(
 			"always_warn_before_sleep", false))
 	box.add_child(_always_warn)
+	_sound_captions = CheckBox.new()
+	_sound_captions.name = "GameplaySoundCaptions"
+	_sound_captions.text = "CAPTION GAMEPLAY SOUND CUES"
+	_sound_captions.tooltip_text = \
+			"Names semantic cues and their direction without revealing distance or hidden ownership."
+	_sound_captions.button_pressed = bool(GameBoot.settings.get(
+			"gameplay_sound_captions", false))
+	box.add_child(_sound_captions)
 	_live_local_weather = CheckBox.new()
 	_live_local_weather.name = "LiveLocalWeather"
 	_live_local_weather.text = "MATCH WEATHER TO MY LOCATION"
@@ -427,6 +436,7 @@ func _save_settings() -> void:
 	GameBoot.settings.quality = _quality.selected
 	GameBoot.settings.fullscreen = _fullscreen.button_pressed
 	GameBoot.settings.always_warn_before_sleep = _always_warn.button_pressed
+	GameBoot.settings.gameplay_sound_captions = _sound_captions.button_pressed
 	GameBoot.settings.live_local_weather = _live_local_weather.button_pressed
 	GameBoot.settings.weather_location_query = \
 			_weather_location.text.strip_edges()

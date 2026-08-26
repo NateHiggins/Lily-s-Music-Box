@@ -43,6 +43,10 @@ func _ready() -> void:
 			and screen._always_warn.name == "AlwaysWarnBeforeSleep"
 			and screen._always_warn.button_pressed == bool(
 					GameBoot.settings.always_warn_before_sleep))
+	_check("building services exposes opt-in semantic sound captions",
+			screen._sound_captions != null
+			and screen._sound_captions.name == "GameplaySoundCaptions"
+			and GameBoot.settings.has("gameplay_sound_captions"))
 	_check("building services exposes five independent mix categories",
 			screen._gameplay_volume != null and screen._voice_volume != null
 			and screen._world_volume != null and screen._music_volume != null

@@ -52,6 +52,9 @@ var settings := {
 	# Off by default: the mix already carries this, and the dream's grammar
 	# is listening.
 	"dream_directional_captions": false,
+	# Captions semantic gameplay cues with only the source class and relative
+	# sector already available to a listener. No distance, room or case owner.
+	"gameplay_sound_captions": false,
 	# Measured once by the Songbook's clap check and kept for good.
 	# _load_settings only reads keys that already exist here, so a
 	# setting absent from this dict is a setting that never persists.

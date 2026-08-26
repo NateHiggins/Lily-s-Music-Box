@@ -55,6 +55,7 @@ var _presented := 0
 var _refused := 0
 var _stolen := 0
 var _listener: Node3D
+var _caption_layer: CanvasLayer
 
 
 func _ready() -> void:
@@ -62,6 +63,10 @@ func _ready() -> void:
 	if not setup():
 		for error in errors:
 			push_error("AudioPolicy: %s" % error)
+	_caption_layer = preload("res://scripts/ui/audio_caption_layer.gd").new()
+	_caption_layer.name = "AudioCaptionLayer"
+	add_child(_caption_layer)
+	_caption_layer.call("listen_to", self)
 
 
 func setup(catalog_path := CATALOG_PATH, build_voices := true) -> bool:
@@ -146,9 +151,26 @@ func present_3d(cue_id: StringName, at: Vector3, strength := 1.0,
 			"outcome":"presented", "at_second":_clock,
 			"listener_distance":_listener.global_position.distance_to(at)
 					if is_instance_valid(_listener) else -1.0}
+	snapshot["sector"] = relative_sector(_listener, at)
 	_record_event(snapshot)
 	cue_presented.emit(cue_id, snapshot)
 	return true
+
+
+static func relative_sector(listener: Node3D, at: Vector3) -> String:
+	if not is_instance_valid(listener):
+		return ""
+	var delta := at - listener.global_position
+	if delta.length() < 0.75:
+		return "HERE"
+	var right := listener.global_transform.basis.x.normalized()
+	var forward := -listener.global_transform.basis.z.normalized()
+	var angle := rad_to_deg(atan2(delta.dot(right), delta.dot(forward)))
+	var index := wrapi(roundi(angle / 45.0), -4, 4)
+	return {
+		-4:"BEHIND", -3:"BEHIND LEFT", -2:"LEFT", -1:"AHEAD LEFT",
+		0:"AHEAD", 1:"AHEAD RIGHT", 2:"RIGHT", 3:"BEHIND RIGHT",
+	}.get(index, "BEHIND")
 
 
 func advance_for_test(seconds: float) -> void:

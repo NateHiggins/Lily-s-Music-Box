@@ -52,6 +52,12 @@ func _ready() -> void:
 			and str(policy.cue(&"telephone.answered").caption).contains("answers")
 			and str(policy.cue(&"telephone.connected").caption).contains("trunk")
 			and str(policy.cue(&"telephone.released").caption).contains("return"))
+	var listener := Node3D.new()
+	add_child(listener)
+	_check("caption sectors disclose direction but no distance or room",
+			PolicyScript.relative_sector(listener, Vector3(0, 0, -3)) == "AHEAD"
+			and PolicyScript.relative_sector(listener, Vector3(3, 0, 0)) == "RIGHT"
+			and PolicyScript.relative_sector(listener, Vector3(0, 0, 3)) == "BEHIND")
 	_check("first source-owned Vantry fact presents",
 			policy.present_3d(&"nav.vantry_fault", Vector3(1, 2, 3), 1.0,
 					&"F02_A_VANTRY"))
