@@ -33,6 +33,12 @@ existing two-pulse flash. Changing to any other observation cancels an active
 flash and holds its published level at zero, so clear, fog and snow cannot
 inherit a scheduler that happened to start under an earlier storm.
 
+Normalized precipitation magnitude is not merely an enable bit. Liquid
+intensity drives the existing close-particle occupancy and the optical strength
+of both middle-distance shells; frozen intensity drives the existing snow-field
+occupancy. Thus drizzle, steady rain and storm remain quantitatively distinct
+without another draw owner or an unbounded particle count.
+
 The lower deck is evaluated from the view direction, not panorama UV. Six
 nonparallel analytic waves form broad moving cells on the dome; because the
 input direction is continuous, the result has no equirectangular seam and no

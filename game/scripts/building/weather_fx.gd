@@ -12,6 +12,7 @@ signal weather_flash_changed(level: float)
 
 const SPATTER_COUNT := 72
 const LEAF_COUNT := 8
+const SNOW_COUNT := 480
 const LEAF_BOX := Vector3(15.0, 2.0, 15.0)
 const LEAF_HEIGHT := 11.0
 const WIND_BASE := Vector3(4.8, 0.0, 2.1)
@@ -41,6 +42,8 @@ var _seed := 19280731
 var _rain_enabled := true
 var _mist_enabled := true
 var _lightning_enabled := false
+var _rain_intensity := 1.0
+var _snow_intensity := 0.0
 var _live_conditions: Dictionary = {}
 
 
@@ -147,8 +150,19 @@ func set_live_conditions(conditions: Dictionary) -> void:
 	var wet := bool(_live_conditions.get("wet", false))
 	var rain_intensity := float(_live_conditions.get(
 			"rain_intensity", 1.0 if wet else 0.0))
-	_rain_enabled = rain_intensity > 0.008 \
+	_rain_intensity = clampf(rain_intensity, 0.0, 1.0)
+	_snow_intensity = clampf(float(_live_conditions.get(
+			"snow_intensity", 0.0)), 0.0, 1.0)
+	_rain_enabled = _rain_intensity > 0.008 \
 			and OS.get_environment("WEATHER_RAIN") != "0"
+	if _splash:
+		_splash.amount = maxi(1, roundi(SPATTER_COUNT * _rain_intensity))
+	if _leaves:
+		_leaves.amount = maxi(1, roundi(LEAF_COUNT * _rain_intensity))
+	if _snow:
+		_snow.amount = maxi(1, roundi(SNOW_COUNT * _snow_intensity))
+	if _middle_material:
+		_middle_material.set_shader_parameter("rain_intensity", _rain_intensity)
 	_lightning_enabled = bool(_live_conditions.get("thunderstorm", false))
 	if not _lightning_enabled:
 		_lightning_age = -1.0
@@ -181,7 +195,9 @@ func diagnostic_snapshot() -> Dictionary:
 		"spatter_count": SPATTER_COUNT,
 		"leaf_count": LEAF_COUNT,
 		"rain_enabled": _rain_enabled,
+		"rain_intensity": _rain_intensity,
 		"snow_enabled": bool(_live_conditions.get("snowing", false)),
+		"snow_intensity": _snow_intensity,
 		"lightning_enabled": _lightning_enabled,
 		"mist_enabled": _mist_enabled,
 		"live_conditions": _live_conditions.duplicate(true),
@@ -260,7 +276,7 @@ func _make_leaves() -> CPUParticles3D:
 func _make_snow() -> CPUParticles3D:
 	var particles := CPUParticles3D.new()
 	particles.name = "LiveSnow"
-	particles.amount = 480
+	particles.amount = SNOW_COUNT
 	particles.lifetime = 6.0
 	particles.preprocess = 6.0
 	particles.local_coords = false
@@ -311,6 +327,7 @@ render_mode unshaded, blend_mix, cull_front, depth_prepass_alpha,
 uniform vec4 rain_color : source_color = vec4(0.52, 0.63, 0.82, 0.28);
 uniform float seed = 0.0;
 uniform float close_suppression = 0.0;
+uniform float rain_intensity = 1.0;
 varying flat float rain_shell;
 float hash(vec2 n) {
 	return fract(sin(dot(n, vec2(91.73, 37.11)) + seed) * 43758.5453);
@@ -364,7 +381,11 @@ void fragment() {
 			* smoothstep(0.02, 0.14, 1.0 - SCREEN_UV.y);
 	ALBEDO = rain_color.rgb;
 	EMISSION = rain_color.rgb * 0.015;
-	ALPHA = streak * edge * rain_color.a;
+	// Keep light rain visible without allowing drizzle to photograph as the
+	// same opaque storm. Particle occupancy handles the close field; this
+	// optical response handles the two screen-space distance shells.
+	ALPHA = streak * edge * rain_color.a * mix(0.28, 1.0,
+			sqrt(clamp(rain_intensity, 0.0, 1.0)));
 }
 """
 	_middle_material = ShaderMaterial.new()

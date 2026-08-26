@@ -4,6 +4,7 @@ extends Node
 
 const WeatherServiceScript := preload(
 		"res://scripts/building/live_weather_service.gd")
+const WeatherFXScript := preload("res://scripts/building/weather_fx.gd")
 
 var _fails := 0
 
@@ -225,6 +226,12 @@ func _ready() -> void:
 	_check("near and middle rain share one visible batch outdoors",
 			root.weather.get_node("DrivingRainSpatter").emitting
 			and root.weather.get_node("DrivingRainMiddle").visible)
+	var rain_state: Dictionary = root.weather.diagnostic_snapshot()
+	_check("observed rain magnitude reaches the existing visual owner",
+			root.weather.get_node("DrivingRainSpatter").amount
+					== roundi(WeatherFXScript.SPATTER_COUNT
+					* float(rain_state.rain_intensity))
+			and float(rain_state.rain_intensity) > 0.0)
 	var snow_conditions: Dictionary = WeatherServiceScript.presentation(
 			WeatherServiceScript.simulated_snapshot("snow"))
 	root.weather.set_live_conditions(snow_conditions)
@@ -232,7 +239,10 @@ func _ready() -> void:
 	_check("frozen precipitation cannot silently retain the rain branch",
 			root.weather.get_node("LiveSnow").emitting
 			and not root.weather.get_node("DrivingRainSpatter").emitting
-			and not root.weather.get_node("DrivingRainMiddle").visible)
+			and not root.weather.get_node("DrivingRainMiddle").visible
+			and root.weather.get_node("LiveSnow").amount
+					== roundi(WeatherFXScript.SNOW_COUNT
+					* float(snow_conditions.snow_intensity)))
 	root.weather._lightning_wait = 0.0
 	root.weather._update_lightning(0.2)
 	_check("snow cannot silently schedule a clear-sky lightning flash",
