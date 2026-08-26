@@ -177,6 +177,7 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 		"longitude": float(location.get("longitude", QUEENS.longitude)),
 		"weather_code": weather_code,
 		"thunderstorm": weather_code in [95, 96, 99],
+		"foggy": weather_code in [45, 48],
 		"temperature_c": clampf(float(snapshot.get("temperature_c", 12.0)),
 				-50.0, 55.0),
 		"relative_humidity": clampf(float(snapshot.get(

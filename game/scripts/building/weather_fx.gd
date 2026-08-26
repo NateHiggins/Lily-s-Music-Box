@@ -166,7 +166,7 @@ func set_live_conditions(conditions: Dictionary) -> void:
 	_lightning_enabled = bool(_live_conditions.get("thunderstorm", false))
 	if not _lightning_enabled:
 		_lightning_age = -1.0
-	_mist_enabled = (wet or float(_live_conditions.get("cloud_low", 0.0)) > 0.68) \
+	_mist_enabled = (wet or bool(_live_conditions.get("foggy", false))) \
 			and OS.get_environment("WEATHER_MIST") != "0"
 	var speed := float(_live_conditions.get("wind_speed_kmh", 0.0)) / 3.6
 	var bearing := deg_to_rad(float(_live_conditions.get(

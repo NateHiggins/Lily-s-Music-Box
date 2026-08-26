@@ -70,6 +70,8 @@ func _ready() -> void:
 			WeatherServiceScript.simulated_snapshot("storm"))
 	var snow := WeatherServiceScript.presentation(
 			WeatherServiceScript.simulated_snapshot("snow"))
+	var fog := WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("fog"))
 	_check(not bool(clear.wet) and is_zero_approx(float(clear.cloud_total)),
 			"the clear simulator reaches true zero cloud and precipitation")
 	_check(bool(storm.wet) and bool(storm.thunderstorm)
@@ -78,6 +80,9 @@ func _ready() -> void:
 			"the storm simulator alone carries thunder with closed cloud and maximum rain")
 	_check(not bool(clear.thunderstorm) and not bool(snow.thunderstorm),
 			"clear and frozen precipitation cannot invent lightning")
+	_check(bool(fog.foggy) and not bool(fog.wet)
+			and not bool(storm.foggy),
+			"WMO fog stays distinct from both dry cloud and liquid weather")
 	_check(bool(snow.snowing) and not bool(snow.wet)
 			and is_zero_approx(float(snow.rain_intensity))
 			and float(snow.snow_intensity) > 0.0

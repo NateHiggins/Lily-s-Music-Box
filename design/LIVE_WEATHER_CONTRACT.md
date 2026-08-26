@@ -39,6 +39,12 @@ of both middle-distance shells; frozen intensity drives the existing snow-field
 occupancy. Thus drizzle, steady rain and storm remain quantitatively distinct
 without another draw owner or an unbounded particle count.
 
+Ground mist is not inferred from low cloud fraction. Wet weather may keep the
+authored roadway vapor, while dry vapor requires WMO fog code 45 or depositing
+rime-fog code 48. A 100% dry overcast therefore owns a ceiling but no street
+mist; the feed's named `fog` simulator reaches the same existing mist owner
+without pretending that rain fell.
+
 The lower deck is evaluated from the view direction, not panorama UV. Six
 nonparallel analytic waves form broad moving cells on the dome; because the
 input direction is continuous, the result has no equirectangular seam and no

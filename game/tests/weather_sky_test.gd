@@ -256,6 +256,19 @@ func _ready() -> void:
 	_check("the observed thunderstorm code can schedule the existing flash",
 			root.weather._lightning_age >= 0.0
 			and bool(root.weather.diagnostic_snapshot().lightning_enabled))
+	var overcast_conditions: Dictionary = WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("overcast"))
+	root.weather.set_live_conditions(overcast_conditions)
+	root.weather._process(0.2)
+	_check("a dry low cloud ceiling cannot invent roadway mist",
+			not root.weather.get_node("RoadwayMist").visible)
+	var fog_conditions: Dictionary = WeatherServiceScript.presentation(
+			WeatherServiceScript.simulated_snapshot("fog"))
+	root.weather.set_live_conditions(fog_conditions)
+	root.weather._process(0.2)
+	_check("the WMO fog branch reaches the existing roadway mist",
+			root.weather.get_node("RoadwayMist").visible
+			and bool(fog_conditions.foggy))
 	root.player.global_position = Vector3(0.0, 0.05, 0.0)
 	root.weather._process(0.2)
 	_check("all player-following precipitation suppresses indoors",
