@@ -11,6 +11,11 @@ const SAVE_PATH := "user://reality_maintenance_save.json"
 
 var data: Dictionary = {}
 var persistence_enabled := true
+## A rollback may encounter a save written by a newer build. That file is not
+## ours to migrate or overwrite. Runtime state remains fresh and commits stay
+## read-only until the player explicitly starts a new campaign.
+var save_write_blocked := false
+var incompatible_save_version := 0
 ## Injectable so a harness can exercise the real save/load path against its
 ## own file under user://tests/ without touching the player's save.
 ## Production never changes it.
@@ -99,6 +104,10 @@ func commit() -> void:
 
 
 func save_game() -> bool:
+	if save_write_blocked:
+		push_warning("refusing to overwrite newer Reality Maintenance save version %d"
+				% incompatible_save_version)
+		return false
 	var file := FileAccess.open(save_path, FileAccess.WRITE)
 	if file == null:
 		push_warning("could not write Reality Maintenance save")
@@ -109,6 +118,8 @@ func save_game() -> bool:
 
 func load_game() -> void:
 	data = _fresh_data()
+	save_write_blocked = false
+	incompatible_save_version = 0
 	if not FileAccess.file_exists(save_path):
 		_announce_loaded()
 		return
@@ -118,6 +129,14 @@ func load_game() -> void:
 		return
 	var parsed: Variant = JSON.parse_string(file.get_as_text())
 	if parsed is Dictionary:
+		var loaded_version := int((parsed as Dictionary).get("version", 0))
+		if loaded_version > SAVE_VERSION:
+			save_write_blocked = true
+			incompatible_save_version = loaded_version
+			push_warning("save version %d is newer than supported version %d; running read-only"
+					% [loaded_version, SAVE_VERSION])
+			_announce_loaded()
+			return
 		data.merge(parsed, true)
 		if not data.has("music_library"):
 			data.music_library = []
@@ -162,6 +181,8 @@ func _announce_loaded() -> void:
 
 
 func start_new_campaign() -> void:
+	save_write_blocked = false
+	incompatible_save_version = 0
 	data = _fresh_data()
 	save_game()
 	state_changed.emit()
@@ -173,6 +194,8 @@ func _migrate() -> void:
 
 
 func reset_campaign_for_tests() -> void:
+	save_write_blocked = false
+	incompatible_save_version = 0
 	data = _fresh_data()
 	state_changed.emit()
 

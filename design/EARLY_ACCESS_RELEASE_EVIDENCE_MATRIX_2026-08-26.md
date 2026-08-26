@@ -1,5 +1,13 @@
 # Early Access release evidence matrix — 2026-08-26
 
+> **G15 ROLLBACK GUARD — `RealitySaveCompatTest`:** version 4 now refuses to
+> merge or overwrite any save carrying a newer version. The runtime remains on
+> fresh data with a named read-only latch; an ordinary commit preserves the
+> future file byte-for-byte, and only the player's explicit new-campaign action
+> releases the latch. Focused proof passes 7/7 and the existing production-root
+> `DreamBoundaryTest` remains PASS (39 checks). The eleven-boundary manual save
+> matrix is still open, so G15 remains partial rather than proved.
+>
 > **G27 STATUS NOTICE — `2165c3c`, 2026-08-26:** G27 is closed. A tracked
 > 64-bit `Windows Desktop` release preset now exports successfully through the
 > serial Godot lane. The proved artifact is a 109,071,360-byte executable plus
@@ -265,9 +273,9 @@ lands; confirm focus is never nowhere.
 **Automated:** save/resume assertions inside the K2 live suites (e.g. resume
 reconstructs the same card and commits nothing).
 **Manual:** **K3, the eleven-boundary matrix** (`TASKS.md:109`) — never done.
-**Missing entirely:** a cross-version guard. A save written by a newer build can
-be loaded by an older one after a rollback — flagged as `K0-SAVEGUARD` in the
-distribution plan §15, **not implemented**.
+**Cross-version guard:** implemented and focused-proved as recorded in the G15
+status notice above. This closes the rollback overwrite mechanism, not the
+manual eleven-boundary save matrix.
 **Consequence:** blocks internal playable.
 **Forbidden while open:** "save anywhere", "Save Anytime" label.
 
