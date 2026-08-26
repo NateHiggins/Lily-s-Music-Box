@@ -243,11 +243,12 @@ func _build_settings() -> void:
 	box.add_child(_always_warn)
 	_sound_captions = CheckBox.new()
 	_sound_captions.name = "GameplaySoundCaptions"
-	_sound_captions.text = "CAPTION GAMEPLAY SOUND CUES"
+	_sound_captions.text = "CAPTION GAMEPLAY AND DREAM SOUND CUES"
 	_sound_captions.tooltip_text = \
 			"Names semantic cues and their direction without revealing distance or hidden ownership."
 	_sound_captions.button_pressed = bool(GameBoot.settings.get(
-			"gameplay_sound_captions", false))
+			"gameplay_sound_captions", false)) or bool(GameBoot.settings.get(
+			"dream_directional_captions", false))
 	box.add_child(_sound_captions)
 	_live_local_weather = CheckBox.new()
 	_live_local_weather.name = "LiveLocalWeather"
@@ -437,6 +438,7 @@ func _save_settings() -> void:
 	GameBoot.settings.fullscreen = _fullscreen.button_pressed
 	GameBoot.settings.always_warn_before_sleep = _always_warn.button_pressed
 	GameBoot.settings.gameplay_sound_captions = _sound_captions.button_pressed
+	GameBoot.settings.dream_directional_captions = _sound_captions.button_pressed
 	GameBoot.settings.live_local_weather = _live_local_weather.button_pressed
 	GameBoot.settings.weather_location_query = \
 			_weather_location.text.strip_edges()

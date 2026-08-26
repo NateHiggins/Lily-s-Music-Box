@@ -116,7 +116,7 @@ func _build() -> void:
 		sliders[key] = slider
 	captions = CheckBox.new()
 	captions.name = "GameplaySoundCaptions"
-	captions.text = "CAPTION GAMEPLAY SOUND CUES"
+	captions.text = "CAPTION GAMEPLAY AND DREAM SOUND CUES"
 	captions.tooltip_text = "Names semantic cues and direction without revealing distance or hidden ownership."
 	box.add_child(captions)
 	var apply := Button.new()
@@ -136,7 +136,8 @@ func _load_controls() -> void:
 		var key: String = record[1]
 		sliders[key].set_value_no_signal(float(GameBoot.settings.get(key, 1.0)))
 	captions.button_pressed = bool(GameBoot.settings.get(
-			"gameplay_sound_captions", false))
+			"gameplay_sound_captions", false)) or bool(GameBoot.settings.get(
+			"dream_directional_captions", false))
 
 
 func _preview(value: float, key: String) -> void:
@@ -154,12 +155,16 @@ func _store_controls() -> void:
 	for key in sliders:
 		GameBoot.settings[key] = sliders[key].value
 	GameBoot.settings.gameplay_sound_captions = captions.button_pressed
+	GameBoot.settings.dream_directional_captions = captions.button_pressed
 	GameBoot.save_settings()
 	var policy := get_node_or_null("/root/AudioPolicy")
 	if policy:
 		var caption_layer = policy.get("_caption_layer")
 		if caption_layer and caption_layer.has_method("refresh_setting"):
 			caption_layer.call("refresh_setting")
+	var dream_layer := get_tree().root.find_child("DreamCaptionLayer", true, false)
+	if dream_layer and dream_layer.has_method("refresh_setting"):
+		dream_layer.call("refresh_setting")
 
 
 func _label(copy: String, size: int, color: Color) -> Label:

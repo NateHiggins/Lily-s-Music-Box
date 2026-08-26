@@ -32,7 +32,7 @@ var _live: Array[Dictionary] = []
 
 func _ready() -> void:
 	layer = 60
-	enabled = _setting_enabled()
+	refresh_setting()
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	margin.offset_top = -190.0
@@ -44,6 +44,10 @@ func _ready() -> void:
 	_rows.add_theme_constant_override("separation", 6)
 	_rows.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	margin.add_child(_rows)
+
+
+func refresh_setting() -> void:
+	enabled = _setting_enabled()
 
 
 ## Connect to a field's tell. The field emits a bearing in degrees; the sector
