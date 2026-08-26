@@ -23,6 +23,8 @@ const WatchRegisterPropScript := preload(
 		"res://scripts/props/watch_register_prop.gd")
 const TourKeyGuardPropScript := preload(
 		"res://scripts/props/tour_key_guard_prop.gd")
+const FireLineCabinetPropScript := preload(
+		"res://scripts/props/fire_line_cabinet_prop.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -388,6 +390,54 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		guard.rotation.y = -PI * 0.5
 		floor_nodes["F01"].add_child(guard)
 		stations.attach_key_guard(guard)
+		# SR7-N: the standpipe hose station, on the riser this file already
+		# draws.
+		#
+		# EVERY NUMBER HERE IS DERIVED. The infrastructure loop above puts a
+		# continuous red riser at b(3.02, -3.02) on every floor with brass
+		# couplings at z+0.18, z+1.55 and z+2.92 -- geometry with no owner,
+		# batched into a MultiMesh that has no collision and no script. This
+		# apparatus is deliberately NOT a second standpipe. It hangs on that
+		# one.
+		#
+		# THE WALL. The stair core is the atrium, and the layout gives it a
+		# south wall on y -3.25 and an east wall on x 3.25, both 0.18 thick,
+		# so their inner faces are y -3.16 and x 3.16. Every floor also has a
+		# solid landing across the south strip, x -3.16..3.16 by y -3.16..-1.46
+		# -- which is what makes this a place a man can stand.
+		#
+		# The south face is taken: the batched electrical panel spans x
+		# 2.52..2.94, its decal 2.12..2.60, the brackets 2.15, and the riser
+		# itself is jammed into the corner at 3.02 with only 0.14 to the east
+		# wall. The EAST face is empty from the corner up to the first window,
+		# whose opening starts at y -1.45. So the cabinet goes on x 3.16 at
+		# y -2.48, facing west.
+		#
+		# THE 0.14 IS NOT DECORATION. The cabinet is 0.62 wide, so its south
+		# cheek stands at y -2.79 and the riser's west face at -2.965: 0.175 m
+		# of open wall between them, which is exactly enough for the branch to
+		# be SEEN crossing. The first sheet was shot with the cabinet at -2.62,
+		# where the gap is 0.035 and the connection to the riser was a claim
+		# nobody could photograph. It was moved for that reason.
+		#
+		# THE HEIGHT IS THE CODE'S. C26-1403.0 wants the rack between five and
+		# six and one-half feet above the landing; the rack pins sit at local
+		# y 0.42, so the origin goes at 1.62 - 0.42 = 1.20 and the pins land at
+		# 1.62 m, which is 5 ft 4 in. The riser's own coupling at 1.55 is
+		# inside the same band, which is why the branch has anywhere to come
+		# from.
+		#
+		# -PI/2, so local +z maps to building -x and the cabinet faces west
+		# onto the landing; local +x then runs south, toward the riser.
+		var fire_line := FireLineCabinetPropScript.new()
+		fire_line.name = "F01_FIRE_LINE_STAIR"
+		fire_line.prop_type = "fire_line_cabinet"
+		fire_line.station_id = "F01_FIRE_LINE_STAIR"
+		fire_line.position = GameBoot.b2g([3.16, -2.48,
+				FireLineCabinetPropScript.RACK_ABOVE_FLOOR
+				- FireLineCabinetPropScript.RACK_LOCAL_Y])
+		fire_line.rotation.y = -PI * 0.5
+		floor_nodes["F01"].add_child(fire_line)
 	if floor_nodes.has("F02"):
 		# SR7-J: the first watch station, on the way to Mina's Vantry point.
 		#
