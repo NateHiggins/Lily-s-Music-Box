@@ -107,10 +107,19 @@ func _ready() -> void:
 
 	# --- the network --------------------------------------------------------
 	var net: Node = root.find_child("WatchStationNetwork", true, false)
-	_check(net != null and int(net.call("station_count")) == 1
-			and (net.call("station_ids") as Array)
-					== ["F02_STATION_2A_LANDING"],
-			"the production network has adopted exactly this one station")
+	# SR7-M put a second box on this line, at the boiler. What matters to THIS
+	# test is that the line carries the landing station and that every box on
+	# it is one the building actually authored -- not that there is only one.
+	var adopted: Array = net.call("station_ids") if net != null else []
+	var unauthored: Array[String] = []
+	for id in adopted:
+		if not WatchStationProp.STATIONS.has(str(id)):
+			unauthored.append(str(id))
+	_check(net != null and "F02_STATION_2A_LANDING" in adopted
+			and unauthored.is_empty()
+			and int(net.call("station_count")) == adopted.size(),
+			"the production network carries this station, and only authored "
+					+ "ones (%s)" % ", ".join(adopted))
 	_check(int(net.call("mark_count")) == 0,
 			"and at boot nothing has been marked")
 

@@ -79,6 +79,20 @@ const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 ## The authored stations. One today; the table is the architecture, so a second
 ## box is a line here and a placement, not a new class.
 const STATIONS := {
+	# SR7-M. STATION 1 IS THE BOILER, and the number is not an accident: a
+	# watch round in a coal-fired 1928 apartment house starts at the plant,
+	# because the plant is the reason the building employs a watchman at all.
+	#
+	# It is also the increment's whole lesson. The numbers say which BOX; the
+	# register's sequence says which ARRIVED FIRST; and nothing anywhere says
+	# which way anybody walked. A watchman who works 2 before 1 leaves a
+	# perfectly good record of two boxes and a perfectly useless record of a
+	# route -- which is the point, and is measured.
+	"B1_STATION_BOILER": {
+		"number": 1,
+		"serves": "boiler",
+		"legend": "STATION 1",
+	},
 	"F02_STATION_2A_LANDING": {
 		"number": 2,
 		"serves": "2A",

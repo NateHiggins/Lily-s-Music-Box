@@ -420,6 +420,48 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		floor_nodes["F02"].add_child(station)
 		stations.register(station)
 	if floor_nodes.has("B1"):
+		# SR7-M: the second watch station, at the boiler.
+		#
+		# WHY HERE, AND WHY IT MATTERS TO A 1928 WATCHMAN. `B1_BOILER` is a
+		# real generated room with a real boiler standing in it at
+		# b(9.05, 1.55), 2.05 m tall, and a real coal bunker `B1_COAL` off it
+		# through `B1_DOOR_07`. A coal-fired plant is the fire risk that put a
+		# watchman on the payroll in the first place: banked fires, hot ash and
+		# a coal pile that can heat itself. The insurance round exists for this
+		# room before it exists for anything else.
+		#
+		# IT CONTRASTS WITH STATION 2 IN EVERY WAY THAT MATTERS. That one is a
+		# papered residential corridor at eye level on the way to a resident's
+		# door; this one is the plant -- basement, machinery, heat, and a place
+		# nobody lives. Two boxes, two reasons, one key.
+		#
+		# MEASURED PLACEMENT: the COAL BUNKER'S north wall, y 2.70, between the
+		# boiler at b(9.05, 1.55) and the coal behind the wall it hangs on.
+		# Both fire risks in one standing position, which is the whole reason
+		# an insurer wanted a man down here.
+		#
+		# AND IT IS THE ONLY LIT WALL IN THE ROOM. `B1_BOILER` has exactly one
+		# fixture, `B1_BOILER_LT_CAGE_BULB` at b(9.58, 4.38); the boiler-room
+		# south party wall -- the first choice, on the boiler's own axis -- is
+		# 5.3 m from it with the boiler itself in the way, and photographed as
+		# a black rectangle. This wall is 2.4 m from that bulb. A station a
+		# watchman cannot read by the room's own light is a station he cannot
+		# work, and the sheet proved it before the reasoning did.
+		#
+		# B1's floor is at z -2.8 and floor nodes sit at the origin, so the
+		# height is ABSOLUTE: -2.8 + 1.42 = -1.38, the same 1.42 above the
+		# boards the rest of the apparatus hangs at.
+		#
+		# Facing NORTH into the room: local +z maps to world -z at rotation.y
+		# = PI, where the F02 box faces east at +PI/2.
+		var boiler_station := WatchStationPropScript.new()
+		boiler_station.name = "B1_WATCH_STATION_01"
+		boiler_station.prop_type = "watch_station"
+		boiler_station.station_id = "B1_STATION_BOILER"
+		boiler_station.position = GameBoot.b2g([12.00, 2.70, -1.38])
+		boiler_station.rotation.y = PI
+		floor_nodes["B1"].add_child(boiler_station)
+		stations.register(boiler_station)
 		# SR7-E: the working face of the first house panelboard.
 		#
 		# The electrical plant is NOT invented here. `B1_ELECTRICAL` is a real
