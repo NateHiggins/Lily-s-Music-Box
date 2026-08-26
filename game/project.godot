@@ -31,6 +31,7 @@ driver/enable_input=true
 GameBoot="*res://scripts/game_boot.gd"
 Conductor="*res://scripts/audio/conductor_clock.gd"
 AcousticGraphData="*res://scripts/audio/acoustic_graph.gd"
+AudioPolicy="*res://scripts/audio/audio_policy.gd"
 RealityState="*res://scripts/game/reality_game_state.gd"
 RealityCases="*res://scripts/game/reality_case_manager.gd"
 RealityRules="*res://scripts/game/reality_rule_director.gd"

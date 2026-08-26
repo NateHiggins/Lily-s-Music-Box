@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "cues": {
+    "nav.vantry_fault": {
+      "stream_key": "vantry_chirp",
+      "purpose": "navigation",
+      "bus": "Navigation",
+      "priority": 90,
+      "volume_db": -17.0,
+      "unit_size": 2.2,
+      "max_distance": 18.0,
+      "cooldown": 0.65,
+      "max_instances": 1,
+      "caption": "Vantry chirp",
+      "graph_transmitted": false
+    },
+    "interaction.metal_accept": {
+      "stream_key": "pop",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 55,
+      "volume_db": -18.0,
+      "unit_size": 1.0,
+      "max_distance": 6.0,
+      "cooldown": 0.05,
+      "max_instances": 3,
+      "caption": "metal catch seats",
+      "graph_transmitted": false
+    },
+    "interaction.metal_refuse": {
+      "stream_key": "knock",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 58,
+      "volume_db": -17.0,
+      "unit_size": 1.1,
+      "max_distance": 6.0,
+      "cooldown": 0.08,
+      "max_instances": 2,
+      "caption": "mechanism stops short",
+      "graph_transmitted": false
+    },
+    "state.clockwork_running": {
+      "stream_key": "tick",
+      "purpose": "state",
+      "bus": "State",
+      "priority": 32,
+      "volume_db": -27.0,
+      "unit_size": 0.8,
+      "max_distance": 5.5,
+      "cooldown": 0.0,
+      "max_instances": 4,
+      "caption": "clockwork ticking",
+      "graph_transmitted": false
+    },
+    "world.pipe_knock": {
+      "stream_key": "knock",
+      "purpose": "world",
+      "bus": "Architecture",
+      "priority": 22,
+      "volume_db": -25.0,
+      "unit_size": 3.0,
+      "max_distance": 22.0,
+      "cooldown": 0.4,
+      "max_instances": 2,
+      "caption": "pipe knock",
+      "graph_transmitted": true
+    },
+    "world.weather_rain_metal": {
+      "stream_key": "rain_on_metal",
+      "purpose": "world",
+      "bus": "Weather",
+      "priority": 12,
+      "volume_db": -27.0,
+      "unit_size": 5.0,
+      "max_distance": 24.0,
+      "cooldown": 1.0,
+      "max_instances": 1,
+      "caption": "rain on metal",
+      "graph_transmitted": false
+    },
+    "hazard.electrical_live": {
+      "stream_key": "buzz_loop",
+      "purpose": "hazard",
+      "bus": "Hazard",
+      "priority": 100,
+      "volume_db": -21.0,
+      "unit_size": 1.8,
+      "max_distance": 11.0,
+      "cooldown": 0.0,
+      "max_instances": 2,
+      "caption": "live electrical buzz",
+      "graph_transmitted": false
+    }
+  }
+}
