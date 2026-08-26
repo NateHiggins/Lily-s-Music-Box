@@ -41,15 +41,17 @@ func setup(title: String, prompt: String, callback: Callable,
 	collision.shape = shape
 	collision.position.y = size.y * 0.5
 	add_child(collision)
-	_label = Label3D.new()
-	_label.text = title
-	_label.position.y = size.y + 0.15
-	_label.font_size = 28
-	_label.pixel_size = 0.002
-	_label.outline_size = 8
-	_label.outline_modulate = Color(0.01, 0.02, 0.02, 0.9)
-	_label.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-	add_child(_label)
+	if GameBoot.developer_overlays_enabled():
+		_label = Label3D.new()
+		_label.name = "DeveloperObjectLabel"
+		_label.text = title
+		_label.position.y = size.y + 0.15
+		_label.font_size = 28
+		_label.pixel_size = 0.002
+		_label.outline_size = 8
+		_label.outline_modulate = Color(0.01, 0.02, 0.02, 0.9)
+		_label.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+		add_child(_label)
 	_response_sound = AudioStreamPlayer3D.new()
 	_response_sound.bus = "Dialogue"
 	_response_sound.name = "CaseOwnedHandling"

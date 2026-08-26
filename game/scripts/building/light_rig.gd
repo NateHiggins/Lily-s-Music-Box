@@ -182,7 +182,6 @@ func _ready() -> void:
 		print("PERF STREET CORE SHADOW CONTROL: production gate disabled")
 	_bind_environment()
 	_load_provenance()
-	call_deferred("_build_debug_handles")
 	call_deferred("_report_authored_lights")
 
 
@@ -204,6 +203,9 @@ func _build_debug_handles() -> void:
 
 
 func set_debug_inspection(enabled: bool) -> void:
+	if enabled and not GameBoot.developer_overlays_enabled():
+		push_warning("Light inspection requires ORISON_DEVELOPER_OVERLAYS=1")
+		enabled = false
 	debug_inspect_enabled = enabled
 	if enabled and _debug_handles.is_empty():
 		_build_debug_handles()

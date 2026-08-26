@@ -103,6 +103,13 @@ var settings := {
 }
 
 
+## Diagnostics must be deliberately requested. Debug engine builds are also
+## used for production captures, so OS.is_debug_build() is not a presentation
+## boundary and must never make labels leak into evidence or store media.
+static func developer_overlays_enabled() -> bool:
+	return OS.get_environment("ORISON_DEVELOPER_OVERLAYS") == "1"
+
+
 func _ready() -> void:
 	_load_settings()
 	apply_user_settings()

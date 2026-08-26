@@ -74,17 +74,18 @@ func _ready() -> void:
 	interaction.add_child(interaction_shape)
 	add_child(interaction)
 
-	_nameplate = Label3D.new()
-	_nameplate.name = "Nameplate"
-	_nameplate.position.y = 1.88
-	_nameplate.font_size = 34
-	_nameplate.pixel_size = 0.002
-	_nameplate.modulate = Color(0.82, 0.84, 0.80, 0.72)
-	_nameplate.outline_modulate = Color(0.02, 0.025, 0.03, 0.9)
-	_nameplate.outline_size = 8
-	_nameplate.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-	_nameplate.no_depth_test = false
-	add_child(_nameplate)
+	if GameBoot.developer_overlays_enabled():
+		_nameplate = Label3D.new()
+		_nameplate.name = "DeveloperResidentNameplate"
+		_nameplate.position.y = 1.88
+		_nameplate.font_size = 34
+		_nameplate.pixel_size = 0.002
+		_nameplate.modulate = Color(0.82, 0.84, 0.80, 0.72)
+		_nameplate.outline_modulate = Color(0.02, 0.025, 0.03, 0.9)
+		_nameplate.outline_size = 8
+		_nameplate.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+		_nameplate.no_depth_test = false
+		add_child(_nameplate)
 	RealityCases.case_changed.connect(_on_case_changed)
 	_refresh_nameplate()
 
@@ -106,6 +107,8 @@ func _on_case_changed(case_id: String, _state: Dictionary) -> void:
 
 
 func _refresh_nameplate() -> void:
+	if _nameplate == null:
+		return
 	var case_id := RealityCases.case_for_resident(resident_id)
 	var state: Dictionary = RealityState.case_state(case_id)
 	var stage: String = state.get("stage", "unseen")

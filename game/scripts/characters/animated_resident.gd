@@ -116,7 +116,10 @@ func _build_interaction() -> void:
 
 
 func _build_nameplate() -> void:
+	if not GameBoot.developer_overlays_enabled():
+		return
 	_nameplate = Label3D.new()
+	_nameplate.name = "DeveloperResidentNameplate"
 	_nameplate.position.y = 1.88
 	_nameplate.font_size = 34
 	_nameplate.pixel_size = 0.002
