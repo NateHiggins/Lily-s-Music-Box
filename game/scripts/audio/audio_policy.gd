@@ -68,6 +68,7 @@ func setup(catalog_path := CATALOG_PATH, build_voices := true) -> bool:
 	errors.clear()
 	_load_catalog(catalog_path)
 	ensure_bus_tree()
+	GameBoot.apply_audio_settings(false)
 	if build_voices and _voices.is_empty():
 		_build_voice_pool()
 	return errors.is_empty()
@@ -205,6 +206,10 @@ func release_mix(owner_id: StringName) -> bool:
 	return true
 
 
+func reapply_mix() -> void:
+	_apply_mix()
+
+
 func mix_snapshot() -> Dictionary:
 	var buses := {}
 	for spec in BUS_SPECS:
@@ -326,8 +331,9 @@ func _apply_mix() -> void:
 		if index >= 0:
 			var duck := float(ducks[bus_name])
 			# A requested duck always wins over a focus boost on the same bus.
-			AudioServer.set_bus_volume_db(index, duck if duck < 0.0 \
-					else float(boosts[bus_name]))
+			var offset := duck if duck < 0.0 else float(boosts[bus_name])
+			AudioServer.set_bus_volume_db(index,
+					GameBoot.audio_bus_db(str(bus_name)) + offset)
 
 
 func _refuse(cue_id: StringName, reason: String) -> bool:

@@ -77,22 +77,30 @@ func _ready() -> void:
 			and str(history[2].reason) == "unknown_cue"
 			and str(history[3].outcome) == "presented"
 			and str(history[4].outcome) == "stopped")
+	var world_setting_before := float(GameBoot.settings.world_volume)
+	GameBoot.settings.world_volume = 0.5
+	GameBoot.apply_audio_settings(false)
+	var world_baseline := GameBoot.audio_bus_db("World")
 	_check("dialogue and sleep can request mix independently",
 			policy.request_mix(&"dialogue_owner", &"dialogue", 1.0)
 			and policy.request_mix(&"sleep_owner", &"sleep_onset", 0.5))
 	var mixed: Dictionary = policy.mix_snapshot()
-	_check("mix stack takes deepest World duck without summing owners",
-			is_equal_approx(float(mixed.buses.World), -5.0)
+	_check("mix stack adds its deepest duck to the user's World baseline",
+			is_equal_approx(float(mixed.buses.World), world_baseline - 5.0)
 			and int(policy.census().mix_requests) == 2)
 	_check("releasing one owner preserves the other request",
 			policy.release_mix(&"dialogue_owner")
-			and is_equal_approx(float(policy.mix_snapshot().buses.World), -2.0)
+			and is_equal_approx(float(policy.mix_snapshot().buses.World),
+					world_baseline - 2.0)
 			and int(policy.census().mix_requests) == 1)
 	_check("last release restores canonical zero without touching Master",
 			policy.release_mix(&"sleep_owner")
-			and is_equal_approx(float(policy.mix_snapshot().buses.World), 0.0)
+			and is_equal_approx(float(policy.mix_snapshot().buses.World),
+					world_baseline)
 			and is_equal_approx(AudioServer.get_bus_volume_db(
 					AudioServer.get_bus_index("Master")), master_before))
+	GameBoot.settings.world_volume = world_setting_before
+	GameBoot.apply_audio_settings(false)
 	policy.clear_diagnostics()
 	_check("diagnostic reset changes no catalog or mix truth",
 			int(policy.census().history) == 0

@@ -32,6 +32,11 @@ var settings := {
 	"quality": 0, # 0 cinematic, 1 balanced
 	"fullscreen": false,
 	"master_volume": 0.82,
+	"gameplay_volume": 1.0,
+	"voice_volume": 1.0,
+	"world_volume": 1.0,
+	"music_volume": 1.0,
+	"ui_volume": 1.0,
 	# Privacy: off means only fixed Queens coordinates are sent for weather.
 	# On means the player-authored city/postal text is geocoded by Open-Meteo.
 	# No IP geolocation or device sensor is used behind this choice.
@@ -107,10 +112,39 @@ func apply_user_settings() -> void:
 	var fullscreen := bool(settings.get("fullscreen", false))
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 			if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED)
-	var bus := AudioServer.get_bus_index("Master")
-	if bus >= 0:
-		AudioServer.set_bus_volume_db(bus, linear_to_db(
-				maxf(0.001, float(settings.get("master_volume", 0.82)))))
+	apply_audio_settings()
+
+
+func apply_audio_settings(reapply_policy := true) -> void:
+	for record in [
+		["Master", "master_volume", 0.82],
+		["Gameplay", "gameplay_volume", 1.0],
+		["Voice", "voice_volume", 1.0],
+		["World", "world_volume", 1.0],
+		["Music", "music_volume", 1.0],
+		["UI", "ui_volume", 1.0],
+	]:
+		var bus := AudioServer.get_bus_index(str(record[0]))
+		if bus >= 0:
+			AudioServer.set_bus_volume_db(bus, audio_bus_db(str(record[0])))
+	if reapply_policy:
+		var policy := get_node_or_null("/root/AudioPolicy")
+		if policy != null and policy.has_method("reapply_mix"):
+			policy.call("reapply_mix")
+
+
+func audio_bus_db(bus_name: String) -> float:
+	var keys := {
+		"Master":"master_volume", "Gameplay":"gameplay_volume",
+		"Voice":"voice_volume", "World":"world_volume",
+		"Music":"music_volume", "UI":"ui_volume",
+	}
+	var defaults := {"Master":0.82, "Gameplay":1.0, "Voice":1.0,
+		"World":1.0, "Music":1.0, "UI":1.0}
+	if not keys.has(bus_name):
+		return 0.0
+	return linear_to_db(maxf(0.001, float(settings.get(
+			keys[bus_name], defaults[bus_name]))))
 
 
 func save_settings() -> void:

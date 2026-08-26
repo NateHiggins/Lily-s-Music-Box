@@ -35,6 +35,11 @@ var _always_warn: CheckBox
 var _live_local_weather: CheckBox
 var _weather_location: LineEdit
 var _volume: HSlider
+var _gameplay_volume: HSlider
+var _voice_volume: HSlider
+var _world_volume: HSlider
+var _music_volume: HSlider
+var _ui_volume: HSlider
 var _record_label: Label
 var _record_note: Label
 var _record_time: Label
@@ -192,8 +197,8 @@ func _build_settings() -> void:
 	_settings_panel = PanelContainer.new()
 	_settings_panel.name = "BuildingServices"
 	_settings_panel.set_anchors_preset(Control.PRESET_CENTER)
-	_settings_panel.position = Vector2(-250, -245)
-	_settings_panel.custom_minimum_size = Vector2(500, 490)
+	_settings_panel.position = Vector2(-300, -300)
+	_settings_panel.custom_minimum_size = Vector2(600, 600)
 	_settings_panel.visible = false
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.025, 0.029, 0.034, 0.97)
@@ -206,10 +211,10 @@ func _build_settings() -> void:
 	add_child(_settings_panel)
 	var margin := MarginContainer.new()
 	for side in ["left", "top", "right", "bottom"]:
-		margin.add_theme_constant_override("margin_" + side, 28)
+		margin.add_theme_constant_override("margin_" + side, 18)
 	_settings_panel.add_child(margin)
 	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 16)
+	box.add_theme_constant_override("separation", 10)
 	margin.add_child(box)
 	var heading := _label("BUILDING SERVICES", 24,
 			Color(0.86, 0.80, 0.66))
@@ -259,6 +264,19 @@ func _build_settings() -> void:
 	_volume.step = 0.01
 	_volume.value = float(GameBoot.settings.get("master_volume", 0.82))
 	box.add_child(_volume)
+	box.add_child(_label("MIX CATEGORIES", 12, Color(0.61, 0.60, 0.55)))
+	var mix := GridContainer.new()
+	mix.columns = 2
+	mix.add_theme_constant_override("h_separation", 18)
+	mix.add_theme_constant_override("v_separation", 6)
+	box.add_child(mix)
+	_gameplay_volume = _add_volume_control(mix, "GAMEPLAY",
+			"gameplay_volume")
+	_voice_volume = _add_volume_control(mix, "VOICE / TELEPHONE",
+			"voice_volume")
+	_world_volume = _add_volume_control(mix, "WORLD / WEATHER", "world_volume")
+	_music_volume = _add_volume_control(mix, "MUSIC", "music_volume")
+	_ui_volume = _add_volume_control(mix, "INTERFACE", "ui_volume")
 	_add_button(box, "APPLY", _save_settings)
 	_add_button(box, "BACK", func(): _settings_panel.visible = false)
 
@@ -274,12 +292,39 @@ func _build_music() -> void:
 		add_child(player)
 		_players.append(player)
 	if _volume:
-		_volume.value_changed.connect(func(_v):
-			if _music_fade and _music_fade.is_valid():
-				_music_fade.kill()
-			if not _players.is_empty():
-				_players[_current_track].volume_db = _music_db(_current_track))
+		for slider in [_volume, _gameplay_volume, _voice_volume, _world_volume,
+				_music_volume, _ui_volume]:
+			slider.value_changed.connect(func(_v): _preview_audio_settings())
 	_start_track(TRACK_ORIGINAL, true)
+
+
+func _add_volume_control(parent: Control, words: String,
+		setting_key: String) -> HSlider:
+	var cell := VBoxContainer.new()
+	cell.custom_minimum_size.x = 245.0
+	cell.add_theme_constant_override("separation", 2)
+	parent.add_child(cell)
+	cell.add_child(_label(words, 10, Color(0.56, 0.55, 0.51)))
+	var slider := HSlider.new()
+	slider.min_value = 0.0
+	slider.max_value = 1.0
+	slider.step = 0.01
+	slider.value = float(GameBoot.settings.get(setting_key, 1.0))
+	cell.add_child(slider)
+	return slider
+
+
+func _preview_audio_settings() -> void:
+	var levels := {
+		"Master":_volume.value, "Gameplay":_gameplay_volume.value,
+		"Voice":_voice_volume.value, "World":_world_volume.value,
+		"Music":_music_volume.value, "UI":_ui_volume.value,
+	}
+	for bus_name in levels:
+		var index := AudioServer.get_bus_index(bus_name)
+		if index >= 0:
+			AudioServer.set_bus_volume_db(index, linear_to_db(
+					maxf(0.001, float(levels[bus_name]))))
 
 
 func _start_track(index: int, immediate := false) -> void:
@@ -325,10 +370,7 @@ func _on_track_finished(index: int) -> void:
 
 
 func _music_db(index: int) -> float:
-	var level := float(_volume.value) if _volume else 0.82
-	if level <= 0.001:
-		return -60.0
-	return linear_to_db(level) + float(TRACK_TRIM_DB[index])
+	return float(TRACK_TRIM_DB[index])
 
 
 func _leave(go: Callable) -> void:
@@ -389,6 +431,11 @@ func _save_settings() -> void:
 	GameBoot.settings.weather_location_query = \
 			_weather_location.text.strip_edges()
 	GameBoot.settings.master_volume = _volume.value
+	GameBoot.settings.gameplay_volume = _gameplay_volume.value
+	GameBoot.settings.voice_volume = _voice_volume.value
+	GameBoot.settings.world_volume = _world_volume.value
+	GameBoot.settings.music_volume = _music_volume.value
+	GameBoot.settings.ui_volume = _ui_volume.value
 	GameBoot.save_settings()
 	_settings_panel.visible = false
 

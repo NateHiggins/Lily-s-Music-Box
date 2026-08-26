@@ -13,6 +13,7 @@ func _check(label: String, ok: bool) -> void:
 
 func _ready() -> void:
 	OS.set_environment("TITLE_SCREEN_SILENT", "1")
+	get_tree().root.size = Vector2i(1280, 720)
 	var screen = load(
 			"res://scenes/ui/title_screen.tscn").instantiate()
 	add_child(screen)
@@ -42,6 +43,18 @@ func _ready() -> void:
 			and screen._always_warn.name == "AlwaysWarnBeforeSleep"
 			and screen._always_warn.button_pressed == bool(
 					GameBoot.settings.always_warn_before_sleep))
+	_check("building services exposes five independent mix categories",
+			screen._gameplay_volume != null and screen._voice_volume != null
+			and screen._world_volume != null and screen._music_volume != null
+			and screen._ui_volume != null)
+	var settings_rect: Rect2 = screen._settings_panel.get_global_rect()
+	var viewport_rect := Rect2(Vector2.ZERO, screen.get_viewport_rect().size)
+	_check("the expanded mix surface %s remains inside launch viewport %s" % [
+			settings_rect, viewport_rect],
+			viewport_rect.encloses(settings_rect))
+	_check("all category levels are persistent settings rather than UI-only state",
+			["gameplay_volume", "voice_volume", "world_volume", "music_volume",
+					"ui_volume"].all(func(key): return GameBoot.settings.has(key)))
 
 	screen._start_track(0, true)
 	await get_tree().process_frame
