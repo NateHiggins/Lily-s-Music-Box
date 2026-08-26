@@ -69,6 +69,7 @@ func _ready() -> void:
 	exit_door.add_child(frame)
 
 	_hum = AudioStreamPlayer3D.new()
+	_hum.bus = "Hazard"
 	_hum.stream = PropAudio.get_stream("hum_loop")
 	_hum.pitch_scale = 0.5
 	_hum.volume_db = -14.0

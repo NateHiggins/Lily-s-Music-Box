@@ -122,6 +122,7 @@ func _build_dialogue() -> void:
 	# Voice takes play from Mina's living room; subtitles are the panel
 	# itself, sourced from the same JSON, so text and voice cannot drift.
 	_voice = AudioStreamPlayer3D.new()
+	_voice.bus = "Dialogue"
 	_voice.position = GameBoot.b2g([-9.6, -3.35, 4.7])
 	_voice.unit_size = 6.0
 	add_child(_voice)

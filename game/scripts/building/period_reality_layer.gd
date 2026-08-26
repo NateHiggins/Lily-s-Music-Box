@@ -172,6 +172,7 @@ func _build_aircraft() -> void:
 
 func _build_audio() -> void:
 	_air_audio = AudioStreamPlayer3D.new()
+	_air_audio.bus = "World"
 	_air_audio.name = "DistantRadialEngine"
 	_air_audio.stream = _synthesize_loop(2.0, true)
 	_air_audio.volume_db = -18.0
@@ -179,6 +180,7 @@ func _build_audio() -> void:
 	_air_audio.unit_size = 32.0
 	add_child(_air_audio)
 	_train_audio = AudioStreamPlayer3D.new()
+	_train_audio.bus = "World"
 	_train_audio.name = "DistantFlushingLine"
 	_train_audio.stream = _synthesize_loop(9.0, false)
 	_train_audio.position = Vector3(-78.0, 7.0, -42.0)

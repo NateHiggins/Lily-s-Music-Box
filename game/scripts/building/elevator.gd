@@ -80,10 +80,12 @@ func setup(elevator_data: Dictionary) -> void:
 	light.position = Vector3(0, 2.12, 0)
 	_cabin.add_child(light)
 	_bell = AudioStreamPlayer3D.new()
+	_bell.bus = "Interaction"
 	_bell.stream = PropAudio.get_stream("bell")
 	_bell.volume_db = -10.0
 	_cabin.add_child(_bell)
 	_hum = AudioStreamPlayer3D.new()
+	_hum.bus = "Machinery"
 	_hum.stream = PropAudio.get_stream("elevator_machine_loop")
 	_hum.volume_db = -60.0
 	_cabin.add_child(_hum)

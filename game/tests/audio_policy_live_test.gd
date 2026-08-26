@@ -51,6 +51,7 @@ func _ready() -> void:
 				and not RealityState.data.has("audio_cues"))
 	await _prove_standard_doors(root)
 	_prove_legacy_helper_routing(root)
+	_prove_production_bus_census(root)
 	_finish()
 
 
@@ -116,12 +117,42 @@ func _prove_legacy_helper_routing(root: Node) -> void:
 		routed += 1
 		if node.bus == "Master":
 			on_master += 1
-		if node.bus not in ["Interaction", "Machinery"]:
+		if AudioServer.get_bus_index(node.bus) < 0:
 			bad_bus += 1
 	_check("%d legacy helper emitters are explicitly marked" % routed,
 			routed >= 50)
 	_check("legacy helper debt no longer bypasses policy on Master",
 			on_master == 0 and bad_bus == 0)
+
+
+func _prove_production_bus_census(root: Node) -> void:
+	var players: Array[Node] = []
+	_collect_audio_players(root, players)
+	var census: Dictionary = {}
+	var master_paths: Array[String] = []
+	for node in players:
+		var bus := str(node.get("bus"))
+		census[bus] = int(census.get(bus, 0)) + 1
+		if bus == "Master":
+			master_paths.append(str(root.get_path_to(node)))
+	var buses := census.keys()
+	buses.sort()
+	var entries: Array[String] = []
+	for bus in buses:
+		entries.append("%s=%d" % [bus, int(census[bus])])
+	print("[AUDIO POLICY LIVE] BUS CENSUS %s" % ", ".join(entries))
+	if not master_paths.is_empty():
+		print("[AUDIO POLICY LIVE] MASTER PATHS %s" % ", ".join(master_paths))
+	_check("all %d production audio players declare a bus" % players.size(),
+			master_paths.is_empty())
+
+
+func _collect_audio_players(node: Node, out: Array[Node]) -> void:
+	for child in node.get_children():
+		if child is AudioStreamPlayer or child is AudioStreamPlayer2D \
+				or child is AudioStreamPlayer3D:
+			out.append(child)
+		_collect_audio_players(child, out)
 
 
 func _powered_snapshot(room_id: String, switches: SwitchSystem) -> Array[bool]:

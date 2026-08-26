@@ -119,6 +119,7 @@ func _build_close_acoustics() -> void:
 func _build_fifth_position() -> void:
 	var signature := PoltergeistLibrary.signature(case_id)
 	_case_sound = AudioStreamPlayer.new()
+	_case_sound.bus = "Hazard"
 	_case_sound.name = "CaseSoundFifthPosition"
 	_case_sound.stream = PropAudio.get_stream(str(signature.get("sound", "pop")))
 	_case_sound.pitch_scale = float(signature.get("pitch", 1.0))

@@ -229,6 +229,7 @@ func build(player: Node3D = null) -> void:
 	_hooves = _forge(2.0, true)
 	for i in VOICES:
 		var v := AudioStreamPlayer3D.new()
+		v.bus = "World"
 		v.unit_size = 9.0
 		v.max_distance = 46.0
 		v.volume_db = -12.0

@@ -250,6 +250,7 @@ func _attach_audio(entity: SwcEntity, audio: Dictionary) -> void:
 			continue
 		if looping:
 			var player := AudioStreamPlayer3D.new()
+			player.bus = "Interaction"
 			player.name = "Ambience"
 			player.stream = stream
 			player.volume_db = float(entity.param("volume_db", -14.0))
@@ -341,6 +342,7 @@ func start_music(parent: Node) -> void:
 	if stream == null:
 		return
 	_music_player = AudioStreamPlayer.new()
+	_music_player.bus = "Diegetic"
 	_music_player.name = "Music"
 	_music_player.stream = stream
 	_music_player.volume_db = -16.0

@@ -31,6 +31,7 @@ func setup() -> void:
 	if _voices.is_empty():
 		for i in VOICE_CAP:
 			var voice := AudioStreamPlayer3D.new()
+			voice.bus = "Hazard"
 			voice.name = "CellularVoice%d" % i
 			voice.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
 			voice.unit_size = UNIT_SIZE_M

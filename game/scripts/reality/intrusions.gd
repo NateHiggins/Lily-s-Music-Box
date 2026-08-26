@@ -363,6 +363,7 @@ func _sound(key: String) -> bool:
 	if stream == null:
 		return false
 	var emitter := AudioStreamPlayer3D.new()
+	emitter.bus = "Hazard"
 	emitter.stream = stream
 	emitter.unit_size = 6.0
 	emitter.volume_db = -6.0

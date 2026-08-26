@@ -216,6 +216,7 @@ func _button_plate(fill: Color, rim: Color) -> StyleBoxFlat:
 
 func _mk_audio(key: String, volume_db: float, autoplay := false) -> AudioStreamPlayer:
 	var p := AudioStreamPlayer.new()
+	p.bus = "Telephone"
 	p.stream = PropAudio.get_stream(key)
 	p.volume_db = volume_db
 	add_child(p)

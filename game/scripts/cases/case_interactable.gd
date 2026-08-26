@@ -51,6 +51,7 @@ func setup(title: String, prompt: String, callback: Callable,
 	_label.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	add_child(_label)
 	_response_sound = AudioStreamPlayer3D.new()
+	_response_sound.bus = "Dialogue"
 	_response_sound.name = "CaseOwnedHandling"
 	_response_sound.stream = PropAudio.get_stream("tick")
 	_response_sound.volume_db = -20.0

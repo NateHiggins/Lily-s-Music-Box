@@ -355,6 +355,7 @@ void fragment() {
 	_overlay.material = _overlay_material
 	layer.add_child(_overlay)
 	_hum = AudioStreamPlayer.new()
+	_hum.bus = "Hazard"
 	_hum.name = "Room0OnsetHum"
 	_hum.stream = PropAudio.get_stream("hum_loop")
 	_hum.pitch_scale = 0.5

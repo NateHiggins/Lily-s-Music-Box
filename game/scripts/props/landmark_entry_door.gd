@@ -280,12 +280,14 @@ func _wire_grid(parent: Node3D, center: Vector3, size: Vector2,
 
 func _build_audio() -> void:
 	_click = AudioStreamPlayer3D.new()
+	_click.bus = "Interaction"
 	_click.stream = PropAudio.get_stream("thud")
 	_click.volume_db = -14.0
 	_click.unit_size = 2.8
 	_click.max_distance = 18.0
 	add_child(_click)
 	_squeak = AudioStreamPlayer3D.new()
+	_squeak.bus = "Interaction"
 	_squeak.stream = PropAudio.get_stream("door_squeak")
 	_squeak.volume_db = -15.5
 	_squeak.pitch_scale = 0.76

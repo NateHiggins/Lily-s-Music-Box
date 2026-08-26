@@ -412,6 +412,7 @@ func _build_front_directory() -> void:
 	area.add_child(shape_node)
 	panel.add_child(area)
 	_bell = AudioStreamPlayer3D.new()
+	_bell.bus = "Navigation"
 	_bell.stream = PropAudio.get_stream("bell")
 	_bell.volume_db = -16.0
 	_bell.max_distance = 18.0

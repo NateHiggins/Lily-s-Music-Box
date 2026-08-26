@@ -16,6 +16,7 @@ func setup(owner_service: MaintenanceShopService, id: String) -> void:
 	service = owner_service
 	shop_id = id
 	_counter_tap = AudioStreamPlayer3D.new()
+	_counter_tap.bus = "Interaction"
 	_counter_tap.stream = PropAudio.get_stream("tick")
 	_counter_tap.volume_db = -15.0
 	_counter_tap.unit_size = 3.0

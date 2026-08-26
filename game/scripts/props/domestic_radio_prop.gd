@@ -45,6 +45,7 @@ func _build_visual() -> void:
 		_: _build_three_dial()
 	_build_speaker(str(radio_profile.get("speaker", "cone")))
 	_programme = make_emitter("murmur_loop", -31.0)
+	_programme.bus = "Broadcast"
 	_programme.max_distance = 5.5
 	_programme.unit_size = 1.2
 	_programme.stop()

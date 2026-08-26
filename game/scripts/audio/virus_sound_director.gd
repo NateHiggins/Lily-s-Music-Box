@@ -79,6 +79,7 @@ func _ready() -> void:
 	else:
 		push_warning("viral seed feature map missing")
 	_player = AudioStreamPlayer3D.new()
+	_player.bus = "Hazard"
 	_player.name = "ViralSeedEmitter"
 	_player.stream = AUDIO
 	_player.volume_db = -5.0

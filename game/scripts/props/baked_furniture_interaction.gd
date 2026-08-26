@@ -157,6 +157,7 @@ func _build_paper_control() -> void:
 	_paper_touch_home = _paper_touch.position
 
 	_paper_tap = AudioStreamPlayer3D.new()
+	_paper_tap.bus = "Interaction"
 	_paper_tap.name = "PaperHandlingTick"
 	_paper_tap.stream = PropAudio.get_stream("tick")
 	_paper_tap.volume_db = -24.0
@@ -192,6 +193,7 @@ func _build_toilet_control() -> void:
 	_lever.add_child(mesh_node)
 
 	_water = AudioStreamPlayer3D.new()
+	_water.bus = "Machinery"
 	_water.name = "CisternWater"
 	_water.stream = PropAudio.get_stream("sink_water")
 	_water.volume_db = -14.0
@@ -229,6 +231,7 @@ func _build_radio_control() -> void:
 	_radio_knob.add_child(mesh_node)
 
 	_control_click = AudioStreamPlayer3D.new()
+	_control_click.bus = "Interaction"
 	_control_click.name = "RadioSwitchClick"
 	_control_click.stream = PropAudio.get_stream("tick")
 	_control_click.volume_db = -20.0
@@ -236,6 +239,7 @@ func _build_radio_control() -> void:
 	_control_click.max_distance = 6.0
 	add_child(_control_click)
 	_radio_bed = AudioStreamPlayer3D.new()
+	_radio_bed.bus = "Broadcast"
 	_radio_bed.name = "ValveProgramme"
 	_radio_bed.stream = PropAudio.get_stream("murmur_loop")
 	_radio_bed.volume_db = -28.0
@@ -256,6 +260,7 @@ func _build_wardrobe_control() -> void:
 	_wardrobe_right_leaf = _build_wardrobe_leaf(1.0)
 
 	_wardrobe_rattle = AudioStreamPlayer3D.new()
+	_wardrobe_rattle.bus = "Interaction"
 	_wardrobe_rattle.name = "PrivateLeafRattle"
 	_wardrobe_rattle.stream = PropAudio.get_stream("creak")
 	_wardrobe_rattle.volume_db = -19.0
@@ -362,6 +367,7 @@ func _build_jukebox_control() -> void:
 	add_child(sign)
 
 	_control_click = AudioStreamPlayer3D.new()
+	_control_click.bus = "Interaction"
 	_control_click.name = "SelectorMechanism"
 	_control_click.stream = PropAudio.get_stream("tick")
 	_control_click.volume_db = -13.0
@@ -369,6 +375,7 @@ func _build_jukebox_control() -> void:
 	_control_click.max_distance = 8.0
 	add_child(_control_click)
 	_jukebox_player = AudioStreamPlayer3D.new()
+	_jukebox_player.bus = "Diegetic"
 	_jukebox_player.name = "LocalRecordPickup"
 	_jukebox_player.volume_db = -13.0
 	_jukebox_player.unit_size = 3.0

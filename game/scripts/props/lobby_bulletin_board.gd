@@ -132,6 +132,7 @@ func _build_inspection_owner(size: Vector3) -> void:
 	area.add_child(shape_node)
 	add_child(area)
 	_inspection_tap = AudioStreamPlayer3D.new()
+	_inspection_tap.bus = "Interaction"
 	_inspection_tap.stream = PropAudio.get_stream("tick")
 	_inspection_tap.volume_db = -19.0
 	_inspection_tap.max_distance = 3.5

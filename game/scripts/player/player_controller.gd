@@ -199,7 +199,7 @@ func _ready() -> void:
 	# reads the lamp's STATE through lamp_is_enabled(), never its noise.
 	_lamp_audio = AudioStreamPlayer.new()
 	_lamp_audio.name = "LampSwitch"
-	_lamp_audio.bus = "Master"
+	_lamp_audio.bus = "Interaction"
 	add_child(_lamp_audio)
 	_lamp_on_wav = _lamp_stream(true)
 	_lamp_off_wav = _lamp_stream(false)

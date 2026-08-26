@@ -34,6 +34,7 @@ func setup(id_: String, cargo_: String) -> void:
 	_build_visual()
 	_build_night_chain()
 	_chain_rattle = AudioStreamPlayer3D.new()
+	_chain_rattle.bus = "Architecture"
 	_chain_rattle.stream = PropAudio.get_stream("tick")
 	_chain_rattle.volume_db = -8.0
 	_chain_rattle.unit_size = 4.0

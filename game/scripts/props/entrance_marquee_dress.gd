@@ -31,6 +31,7 @@ func _ready() -> void:
 	_nameplate()
 	_build_interaction()
 	_inspection_tap = AudioStreamPlayer3D.new()
+	_inspection_tap.bus = "Interaction"
 	_inspection_tap.name = "MarqueeBracketTap"
 	_inspection_tap.stream = PropAudio.get_stream("tick")
 	_inspection_tap.volume_db = -19.0

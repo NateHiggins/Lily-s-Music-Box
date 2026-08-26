@@ -266,6 +266,7 @@ func _build_settings() -> void:
 func _build_music() -> void:
 	for i in _tracks.size():
 		var player := AudioStreamPlayer.new()
+		player.bus = "Nondiegetic"
 		player.name = "TitleRecord%d" % (i + 1)
 		player.stream = _tracks[i]
 		player.volume_db = -60.0

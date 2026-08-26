@@ -64,6 +64,7 @@ func setup(owner_director: Node, unit_id: String, shared: ShaderMaterial) -> voi
 	glow.visible = false
 	add_child(glow)
 	_voice = AudioStreamPlayer3D.new()
+	_voice.bus = "Broadcast"
 	_voice.position = Vector3(0.0, 0.8, 0.0)
 	_voice.unit_size = 3.0
 	_voice.max_distance = 15.0

@@ -406,10 +406,12 @@ func _build_model() -> void:
 			0.00019, Color("261f19"), true, Vector3.ZERO, _receipt_root)
 
 	_printer_tick = AudioStreamPlayer.new()
+	_printer_tick.bus = "UI"
 	_printer_tick.stream = PropAudio.get_stream("tick")
 	_printer_tick.volume_db = -13.0
 	add_child(_printer_tick)
 	_printer_feed = AudioStreamPlayer.new()
+	_printer_feed.bus = "UI"
 	_printer_feed.stream = PropAudio.get_stream("pop")
 	_printer_feed.volume_db = -18.0
 	_printer_feed.pitch_scale = 1.7
@@ -520,10 +522,12 @@ func _build_legacy_model() -> void:
 	_receipt_label = _label("WIRE 0000", Vector3(0, 0.031, -0.0012),
 			0.00019, Color("261f19"), true, Vector3.ZERO, _receipt_root)
 	_printer_tick = AudioStreamPlayer.new()
+	_printer_tick.bus = "UI"
 	_printer_tick.stream = PropAudio.get_stream("tick")
 	_printer_tick.volume_db = -13.0
 	add_child(_printer_tick)
 	_printer_feed = AudioStreamPlayer.new()
+	_printer_feed.bus = "UI"
 	_printer_feed.stream = PropAudio.get_stream("pop")
 	_printer_feed.volume_db = -18.0
 	_printer_feed.pitch_scale = 1.7

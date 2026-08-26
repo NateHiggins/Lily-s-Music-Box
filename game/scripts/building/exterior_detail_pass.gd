@@ -88,6 +88,7 @@ func configure_street_lights(world: Node) -> void:
 				continue
 			child.set_intermittent_exterior_fault(true)
 			var buzz := AudioStreamPlayer3D.new()
+			buzz.bus = "Machinery"
 			buzz.name = "FailingBallastAudio"
 			buzz.stream = PropAudio.get_stream("streetlamp_buzz_loop")
 			buzz.volume_db = -18.0

@@ -149,6 +149,7 @@ func play_sound(event: String, volume_db: float = 0.0) -> void:
 	if stream == null:
 		return
 	var player := AudioStreamPlayer3D.new()
+	player.bus = "Interaction"
 	player.stream = stream
 	player.volume_db = volume_db
 	player.unit_size = 8.0
