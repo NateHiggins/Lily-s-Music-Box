@@ -82,6 +82,17 @@ the immediate executable gates, not a second copy of its milestone status.
   caricature, obscure safety/navigation facts, or let presentation own story
   state. Scale only after blind players infer and act on a novel instruction.
 
+- **K0-PHONE — ATTENTION MULTIPLIER: THE HOUSE HAS LINES, NOT GENERIC
+  PHONES.** Execute `design/HOUSE_TELEPHONE_ECOLOGY_BRIEF.md`: a physical F01
+  apartment-house board, period-correct 4B suite set and message-bureau custody,
+  trustworthy 3D subscriber set, completed public booth, and only the
+  professionally justified private subscribers. Route existing call/report
+  owners through transient lamps, cords, bells, jacks and slips without
+  duplicating jobs, cases, dialogue or persistence. Teach House English's
+  line/order/carrying/A–B vocabulary through ordinary operation before the
+  first impossible connection. Ship in PHONE-A…F slices with production-live,
+  accessibility, performance and quantitative render gates.
+
 - **K1 — CURRENT-TREE BASELINE — RUN 2026-08-26, RED GATES REMAIN.**
   `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
   lighting green, FAST reproducing its two known failures, and GoldenLoop now
