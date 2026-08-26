@@ -912,6 +912,8 @@ uniform float celestial_core_radius = 0.038;
 uniform float celestial_halo_radius = 0.31;
 uniform bool moon_phase_enabled = false;
 uniform float moon_illumination = 1.0;
+uniform sampler2D moon_surface : source_color, filter_linear_mipmap,
+		repeat_enable;
 uniform float ray_strength = 0.0;
 uniform float lower_cloud_strength = 0.28;
 uniform float cloud_coverage = 0.28;
@@ -968,6 +970,7 @@ void fragment() {
 	float halo = 1.0 - smoothstep(celestial_core_radius,
 			celestial_halo_radius, source_angle);
 	float core = 1.0 - smoothstep(0.0, celestial_core_radius, source_angle);
+	vec3 lunar_surface = vec3(1.0);
 	if (moon_phase_enabled) {
 		// Project the visible hemisphere and light it from the real Sun vector.
 		// This draws crescent/gibbous geometry in the existing sky submission;
@@ -988,6 +991,14 @@ void fragment() {
 				dot(surface_normal, normalize(sun_direction)));
 		float disc_edge = 1.0 - smoothstep(0.96, 1.0, sqrt(radial2));
 		core = disc_edge * sunlit;
+		// NASA LROC's cylindrical map is centered on the familiar near side.
+		// Keep lunar north upright; libration is deliberately outside this
+		// visual ephemeris, but geography is measured rather than invented.
+		float lunar_lon = atan(disc.x, sphere_z);
+		float lunar_lat = asin(clamp(disc.y, -1.0, 1.0));
+		vec2 lunar_uv = vec2(lunar_lon / (2.0 * PI) + 0.5,
+				0.5 - lunar_lat / PI);
+		lunar_surface = texture(moon_surface, lunar_uv).rgb;
 		halo *= sqrt(max(moon_illumination, 0.0));
 	}
 	float obscured = pow(1.0 - thickness, 2.4);
@@ -997,8 +1008,9 @@ void fragment() {
 		star_field = max(star_field, smoothstep(0.99991, 0.99998, star_dot));
 	}
 	color += vec3(0.76, 0.82, 1.0) * star_field * star_strength * obscured;
-	color += celestial_color * celestial_strength
-			* (halo * 0.42 + core * 0.24) * obscured;
+	color += celestial_color * celestial_strength * halo * 0.42 * obscured;
+	color += celestial_color * lunar_surface * celestial_strength
+			* core * 0.48 * obscured;
 	// Rare, vague fingers belong to the same hidden source. Cloud density
 	// breaks them up; no crisp radial god-ray fan survives the rain.
 	float fingers = pow(max(0.0, sin((u * 18.0 + cloud_phase) * 2.0 * PI)), 12.0);
@@ -1020,6 +1032,8 @@ void fragment() {
 	material.shader = shader
 	material.set_shader_parameter("panorama_a", panorama)
 	material.set_shader_parameter("panorama_b", panorama)
+	material.set_shader_parameter("moon_surface", load(
+			"res://assets/environment/lroc_color_poles_1k.jpg"))
 	var cloud_seed := 19280731
 	if OS.get_environment("WEATHER_SEED").is_valid_int():
 		cloud_seed = int(OS.get_environment("WEATHER_SEED"))

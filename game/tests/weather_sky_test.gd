@@ -119,6 +119,11 @@ func _ready() -> void:
 			sky_code.contains("moon_phase_enabled")
 			and sky_code.contains("surface_normal")
 			and sky_code.contains("dot(surface_normal, normalize(sun_direction))"))
+	_check("the projected Moon samples measured LROC near-side geography",
+			sky_code.contains("moon_surface")
+			and sky_code.contains("lunar_lon")
+			and ResourceLoader.exists(
+					"res://assets/environment/lroc_color_poles_1k.jpg"))
 	_check("the dome, middle rain and roadway mist cast no shadows",
 			dome.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			and root.weather.get_node("DrivingRainMiddle").cast_shadow

@@ -24,6 +24,14 @@ This is an astronomical visual model: it correctly distinguishes new,
 quarter and full geometry, but does not model libration, topography, eclipses
 or atmospheric refraction at the horizon.
 
+The disc's geography comes from NASA SVS's 1024x512 LROC WAC color mosaic,
+mapped cylindrically onto that projected sphere with lunar north upright and
+the measured near side centered. At naked-eye scale its mip chain becomes a
+very small cached sample; the source resolution is intentionally modest.
+Because this visual ephemeris does not yet evaluate optical libration, the
+surface orientation remains stable rather than pretending to an accuracy the
+direction solution does not own.
+
 Twelve bright catalog stars are evaluated as observer-relative directions and
 drawn inside the existing half-dome shader. They add no submission, light or
 shadow caster. The same authored and live cloud thickness that hides the sun
@@ -48,6 +56,8 @@ Primary numerical references:
 - U.S. Naval Observatory, primary Moon phases (including the 2023-01-06 full
   Moon and 2023-01-21 new Moon numerical test references):
   https://aa.usno.navy.mil/calculated/moon/phases?date=2022-07-12&format=p&nump=50&submit=Get+Data
+- NASA Scientific Visualization Studio, CGI Moon Kit and LROC WAC color map:
+  https://svs.gsfc.nasa.gov/4720
 
 `CelestialEphemerisTest` proves calendar epoch, sidereal angle, equinox solar
 geometry, observer dependence, lunar normalization, the published full/new

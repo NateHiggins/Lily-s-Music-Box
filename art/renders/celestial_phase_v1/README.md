@@ -2,7 +2,8 @@
 
 This is an observational evidence pair, not a player-view composition. It
 uses the production `NightSkyHalfDome`, the production projected-sphere lunar
-terminator and the production 0.27-degree angular radius. The proof camera is
+terminator, NASA's LROC WAC near-side color mosaic and the production
+0.27-degree angular radius. The proof camera is
 declared at an 8-degree vertical field of view so the approximately
 0.54-degree Moon can be inspected without making the Moon itself larger.
 
@@ -15,12 +16,13 @@ to the 15%-illuminated geometry.
 Measurements over the whole 1280x720 frame:
 
 - control A versus control B: SHA-256 byte-identical; RMSE `0.000000`
-- control B versus crescent: normalized RMSE `0.164651`
+- control B versus crescent: normalized RMSE `0.164522`
 
 The magnified soft background stars come from observing the 4K panorama
 through this narrow proof lens. They are not representative of the player's
-72-degree camera. The argument priced here is only the lunar disc: a stable
-full circle becomes a geometrically lit crescent above a zero renderer floor.
+72-degree camera. The argument priced here is only the lunar disc: a stable,
+geographically textured full circle becomes a geometrically lit crescent
+above a zero renderer floor.
 
 Capture contract:
 
