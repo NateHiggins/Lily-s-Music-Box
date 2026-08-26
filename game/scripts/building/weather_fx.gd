@@ -476,6 +476,10 @@ func _process(delta: float) -> void:
 	wind = _observed_wind * (1.0 + gust * GUST_STRENGTH)
 	if _leaves:
 		_leaves.gravity = Vector3(wind.x * 0.85, -1.5, wind.z * 0.85)
+	if _snow:
+		# Flakes share the observed horizontal air mass but retain their own
+		# shallow terminal fall. This is drift, not a second wind owner.
+		_snow.gravity = Vector3(wind.x * 0.16, -0.42, wind.z * 0.16)
 	if _player == null:
 		return
 	var player_position := _player.global_position

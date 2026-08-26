@@ -234,6 +234,8 @@ func _ready() -> void:
 			and float(rain_state.rain_intensity) > 0.0)
 	var snow_conditions: Dictionary = WeatherServiceScript.presentation(
 			WeatherServiceScript.simulated_snapshot("snow"))
+	snow_conditions.wind_speed_kmh = 36.0
+	snow_conditions.wind_direction_degrees = 90.0
 	root.weather.set_live_conditions(snow_conditions)
 	root.weather._process(0.2)
 	_check("frozen precipitation cannot silently retain the rain branch",
@@ -243,6 +245,10 @@ func _ready() -> void:
 			and root.weather.get_node("LiveSnow").amount
 					== roundi(WeatherFXScript.SNOW_COUNT
 					* float(snow_conditions.snow_intensity)))
+	_check("snow drifts downwind from the observed meteorological bearing",
+			root.weather.get_node("LiveSnow").gravity.x < -1.0
+			and absf(root.weather.get_node("LiveSnow").gravity.z) < 0.01
+			and is_equal_approx(root.weather.get_node("LiveSnow").gravity.y, -0.42))
 	root.weather._lightning_wait = 0.0
 	root.weather._update_lightning(0.2)
 	_check("snow cannot silently schedule a clear-sky lightning flash",

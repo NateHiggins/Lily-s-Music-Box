@@ -38,6 +38,9 @@ intensity drives the existing close-particle occupancy and the optical strength
 of both middle-distance shells; frozen intensity drives the existing snow-field
 occupancy. Thus drizzle, steady rain and storm remain quantitatively distinct
 without another draw owner or an unbounded particle count.
+Snow's horizontal gravity follows the same gusted meteorological vector as the
+existing windborne debris while retaining a shallow authored terminal fall; an
+east wind therefore carries both clouds and flakes west.
 
 Ground mist is not inferred from low cloud fraction. Wet weather may keep the
 authored roadway vapor, while dry vapor requires WMO fog code 45 or depositing
