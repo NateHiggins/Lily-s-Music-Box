@@ -660,6 +660,11 @@ func _ready() -> void:
 		core_loop.name = "CoreLoopDirector"
 		add_child(core_loop)
 		core_loop.setup(work_orders, player, layout)
+	# Clock-in asks the campaign owner to offer job 001. The register merely
+	# presents the issued paper SR7-I can now identify; neither physical prop
+	# gains an issuing seam or learns campaign order.
+	first_shift_director.bind_opening_report_offer(
+			Callable(core_loop, "offer_opening_report"))
 	mina_manifestation.bind_wake(core_loop)
 	# SR4 is the next waking job after the first authored loop. It translates
 	# existing call, resident and mechanism events into WorkOrders calls; it
