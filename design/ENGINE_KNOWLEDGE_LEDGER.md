@@ -246,7 +246,38 @@ Provide a render-proof manifest containing camera, crop, state fixture, random
 seed, temporal controls, hashes and difference metric. The tool should flag
 claims priced against a different camera’s floor.
 
+`game/docs/CAPTURE_EVIDENCE_PROTOCOL.md` and the paired capture/measurement
+tools now make this operational: one non-retrying serialized windowed wrapper,
+a 54-second scene budget with timing checkpoints, exact frame receipts,
+no-overwrite output, linear-RGB pair metrics and an automatically labelled
+contact sheet. After five migrated suites, replace the provisional phase
+targets with measured p50/p90 timing rather than folklore.
+
+K2-F's first migrated run is the initial datum: full production ready at
+32.519 s, first capture at 37.4, eleven frames finished at 42.692, process exit
+at 47.537. Explicit HUD hiding reduced literal waits from 14.7 to 3.4 s and the
+corridor A/A floor from 0.136 to 0.0007028. A rejected run also proved that a
+generic CanvasLayer sweep can remove carried equipment; capture masks are part
+of playable-camera state and must preserve the player subtree deliberately.
+
 ## 8. Transient presentation should be reconstructible
+
+### Subtraction is a first-class world change
+
+Removing an object is not proved by deleting one spawn call. A baked carcass,
+generated layout record, late runtime builder, interaction expectation or old
+camera composition can preserve different versions of the same retired thing.
+The PHONE-C arrival-wall audit therefore treats absence as a compiled
+invariant: remove the canonical generator record, regenerate mirrored data and
+baked geometry, forbid both authored id and runtime node, narrow dependent
+tests deliberately, and retain a same-camera empty-wall control. This pattern
+belongs in a reusable world compiler as an `absence assertion`, not as an
+informal cleanup note.
+
+The failed alternative is asset substitution: replacing obsolete wall art
+with a newer bitmap preserves the unearned footprint and often hides why the
+object failed. Archive provenance separately; make the empty composition earn
+or reject any successor.
 
 ### Learned
 
@@ -284,6 +315,17 @@ difference bounds, and reject suites whose interesting section was skipped.
 A reusable frame-legibility probe should take a player pose, facing, FOV and a
 target set and report distance, yaw, pitch, occlusion and in-frustum status;
 K2-A through K2-C have each rebuilt this same diagnostic by hand.
+
+### Visible state belongs in snapshots
+
+The A11 fortune-head static audit caught a common split-brain bug before its
+engine run: `coin_loaded` and sequence were snapshotted, but the last nod/shake
+pose was not. A gameplay snapshot that restores variables while leaving a
+different visible answer is not a restoration. Reusable snapshot tooling should
+require each animated part to declare the state field or deterministic derive
+function that owns its settled transform. Abort tests must compare both the
+state dictionary and every declared visible pose; refusal poses need the same
+coverage because “nothing happened” is not an acknowledged interaction.
 
 ### World-wayfinding contract
 

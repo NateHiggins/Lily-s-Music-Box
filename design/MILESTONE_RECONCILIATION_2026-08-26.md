@@ -53,6 +53,36 @@ through the gate.
    and acceptance test. Do not pre-author a replacement backlog from source
    speculation.
 
+### Evidence infrastructure supporting K2–M6
+
+The screenshot system is now a measured production dependency, not an informal
+collection of PNGs. New or actively changed evidence suites use
+`tools/run_godot_capture.ps1`, `game/tests/shot_harness.gd` and
+`tools/measure_shot_sheet.py` under `game/docs/CAPTURE_EVIDENCE_PROTOCOL.md`.
+K2-F is the first full-root migration datum: production ready at 32.519 s,
+11/11 frames finished at 42.692 s, and the process exited cleanly at 47.537 s.
+
+The static inventory currently finds 102 `*_shot.gd` suites: 62 appear to boot
+the production root, 45 contain an unchecked PNG save and 39 still document a
+direct Godot launch. None in the shared checkout yet use `ShotHarness`; K2-F's
+first adopter remains in its unintegrated branch commit. This is maintenance
+debt, not 102 launch blockers.
+
+Migration policy:
+
+1. Every new suite uses the protocol.
+2. A legacy suite migrates when its subject is already changed, with combined
+   hazards and critical-route production suites first.
+3. Do not bulk-edit historical evidence scenes; accepted old sheets retain the
+   protocol they actually ran under.
+4. Before an M2, M5 or M6 visual claim closes, require a local temporal control,
+   an absolute threshold for zero-floor comparisons and full-size human review.
+5. After five migrated full-root suites, replace the provisional timing targets
+   with measured p50/p90 values.
+
+Run `python tools/audit_shot_suites.py` to refresh the read-only inventory. Do
+not commit generated audit snapshots unless a milestone explicitly adopts one.
+
 ### Next — make the proven route irresistible
 
 1. Tune Mina's hero mechanism, hands, sound and confirmation to the best SR7
@@ -69,6 +99,13 @@ through the gate.
 ### Later — breadth after the slice
 
 - Peter and the remaining campaign cases.
+- A11 “The House Heard Big”: preserve PHONE-C's cleared lobby wall as the
+  control, validate the 1927 answering head in isolation, then treat the
+  vignette as optional post-first-shift M6 delight. It is not an M2 tutorial
+  dependency and cannot delay the golden shift. If it clears its ownership,
+  route and visual gates, its coin/hand/house escalation is a strong trailer or
+  demo anecdote because it demonstrates the game's apparatus logic using one
+  new prop and several existing owners.
 - Deferred Dream family breadth, tentacle hero remodelling and non-route
   environmental completeness.
 - Arcade/studio/film expansions and mobile optimisation unless a golden-shift
