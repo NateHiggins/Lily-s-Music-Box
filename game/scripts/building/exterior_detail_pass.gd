@@ -799,9 +799,11 @@ uniform float facade_light_gain = 1.0;
 uniform vec3 facade_light_direction = vec3(0.0, 1.0, 0.0);
 varying vec3 world_position;
 varying vec3 world_normal;
+varying flat vec4 instance_tint;
 void vertex() {
 	world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	world_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
+	instance_tint = COLOR;
 }
 void fragment() {
 	// These are the unlit side and rear planes of the same authored envelopes.
@@ -812,6 +814,10 @@ void fragment() {
 	float soot = 0.84 + 0.10 * sin(world_position.x * 0.17
 			+ world_position.z * 0.11);
 	vec3 brick = vec3(0.044, 0.027, 0.020) * soot;
+	float tint_luma = max(dot(instance_tint.rgb,
+			vec3(0.2126, 0.7152, 0.0722)), 0.001);
+	vec3 authored_tint = mix(vec3(1.0), instance_tint.rgb / tint_luma, 0.28);
+	brick *= authored_tint;
 	float exposure = 0.62 + 0.38 * abs(dot(normalize(world_normal),
 			normalize(-facade_light_direction)));
 	ALBEDO = mix(brick, vec3(0.060, 0.046, 0.038), courses * 0.18)
@@ -852,17 +858,24 @@ uniform vec3 facade_light_direction = vec3(0.0, 1.0, 0.0);
 varying vec3 world_position;
 varying vec3 world_normal;
 varying flat float instance_seed;
+varying flat vec2 instance_extent;
+varying flat vec4 instance_tint;
 void vertex() {
 	world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	world_normal = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
 	instance_seed = float(INSTANCE_ID);
+	instance_extent = vec2(length(MODEL_MATRIX[0].xyz),
+			length(MODEL_MATRIX[1].xyz));
+	instance_tint = COLOR;
 }
 void fragment() {
 	// A cheap 1920s apartment-house finish. Window recess and light are one
 	// calculation, so illumination physically cannot miss its opening. The old
 	// site-light cards remain only as non-emissive compatibility geometry.
-	float bays = 7.0;
-	float floors = 5.0;
+	// Derive the grid from metres, not UV. Fixed 7x5 cells stretched narrow
+	// windows across wide houses and compressed them on tall ones.
+	float bays = clamp(floor(instance_extent.x / 1.45), 4.0, 10.0);
+	float floors = clamp(floor(instance_extent.y / 2.70), 3.0, 8.0);
 	vec2 cell_id = floor(vec2(UV.x * bays, UV.y * floors));
 	vec2 cell = fract(vec2(UV.x * bays, UV.y * floors));
 	vec2 edge = abs(cell - vec2(0.5));
@@ -881,6 +894,10 @@ void fragment() {
 	float grime = 0.82 + 0.12 * sin(UV.y * 31.0 + UV.x * 13.0
 			+ world_position.x * 0.07);
 	vec3 brick = vec3(0.070, 0.035, 0.024) * grime;
+	float tint_luma = max(dot(instance_tint.rgb,
+			vec3(0.2126, 0.7152, 0.0722)), 0.001);
+	vec3 authored_tint = mix(vec3(1.0), instance_tint.rgb / tint_luma, 0.34);
+	brick *= authored_tint;
 	brick = mix(brick, vec3(0.090, 0.052, 0.036), course * 0.24);
 	brick *= 0.82 + 0.12 * max(pier, storey);
 	vec3 stone = vec3(0.092, 0.080, 0.066);

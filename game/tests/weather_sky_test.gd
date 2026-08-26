@@ -116,6 +116,9 @@ func _ready() -> void:
 			facade_code.contains("float window")
 			and facade_code.contains("EMISSION = warm_room * occupied * window")
 			and facade_code.contains("instance_seed")
+			and facade_code.contains("instance_extent")
+			and facade_code.contains("instance_tint")
+			and facade_code.contains("instance_extent.x / 1.45")
 			and facade_code.contains("reveal")
 			and not facade_code.contains("floor(world_position.xz"))
 	_check("facade exposure follows daylight without inventing occupied rooms",

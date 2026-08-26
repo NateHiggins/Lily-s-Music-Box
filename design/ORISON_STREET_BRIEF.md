@@ -554,6 +554,14 @@ bright facade attached to a coal-black box or remain at its night value in
 daylight. Window reveals and a shallow head shadow supply depth without more
 geometry or submissions.
 
+Facade grids are measured from each MultiMesh transform: approximately one bay
+per 1.45 m and one storey per 2.70 m, clamped only at the scenery LOD bounds.
+A fixed 7×5 UV grid is forbidden because it stretches openings on wide houses
+and compresses them on tall ones. The already-authored per-instance color is
+normalized for luminance and used only as a restrained masonry hue shift, so
+adjacent envelopes stop looking cloned without changing their exposure. The
+mass and facade shaders consume the same instance palette.
+
 Queens also does not own a coal-black astronomical horizon. A shallow urban
 airglow band lives inside the existing sky shader, peaks at the horizon and
 falls to zero well below the zenith. It grounds the distant building feet
