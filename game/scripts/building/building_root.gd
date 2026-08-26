@@ -922,6 +922,7 @@ uniform sampler2D moon_surface : source_color, filter_linear_mipmap,
 uniform float ray_strength = 0.0;
 uniform float lower_cloud_strength = 0.28;
 uniform float cloud_coverage = 0.28;
+uniform float high_cloud_strength = 0.0;
 uniform float cloud_phase = 0.0;
 uniform vec3 cloud_wind_direction = vec3(1.0, 0.0, 0.0);
 uniform float cloud_wind_speed = 8.0;
@@ -991,6 +992,13 @@ void fragment() {
 	vec2 cloud_field = lower_clouds(direction);
 	float cloud_shape = cloud_field.x;
 	float cloud_relief = smoothstep(0.34, 0.66, cloud_field.y);
+	// High cloud is a thin veil, never a counterfeit low ceiling. Reuse the
+	// direction field with one fine fold so the added stratum costs no texture
+	// or draw and remains continuous through the panorama seam.
+	// At this scenery LOD high cloud is honest cirrostratus: a homogeneous thin
+	// veil. Invented procedural wisps repeatedly photographed as stripes or
+	// cubic shards; reserve shaped motion for the lower/middle optical deck.
+	float high_opacity = high_cloud_strength * 0.18;
 	// Optical depth is exponential: a modest scattered report must still make
 	// plainly visible clouds, while a zero-strength clear report stays exact.
 	float lower = 1.0 - exp(-cloud_shape * lower_cloud_strength * 3.8);
@@ -1000,6 +1008,9 @@ void fragment() {
 	float closed_ceiling = smoothstep(0.86, 1.0, cloud_coverage);
 	float thickness = clamp(max(lower, closed_ceiling * 0.995), 0.0, 1.0);
 	vec3 color = authored.rgb * exposure;
+	vec3 high_color = fog_horizon_color * 1.35
+			+ vec3(0.055, 0.045, 0.038) * urban_horizon_gain * 1.10;
+	color = mix(color, high_color, high_opacity);
 	// The close deck is cooler and slightly darker than the painted upper
 	// cloud. Its changing overlap is the parallax cue. Its value is independent
 	// of the panorama beneath it; otherwise bright stars make bright clouds.
@@ -1044,7 +1055,8 @@ void fragment() {
 		lunar_surface = texture(moon_surface, lunar_uv).rgb;
 		halo *= sqrt(max(moon_illumination, 0.0));
 	}
-	float obscured = pow(1.0 - thickness, 2.4);
+	float obscured = pow(1.0 - thickness, 2.4)
+			* (1.0 - high_opacity * 0.78);
 	float star_field = 0.0;
 	for (int i = 0; i < 12; i++) {
 		float star_dot = dot(direction, normalize(bright_stars[i]));

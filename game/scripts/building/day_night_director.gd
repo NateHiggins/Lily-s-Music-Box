@@ -255,14 +255,19 @@ func _apply(minute: float) -> void:
 	if not _live_conditions.is_empty():
 		var clouds := clampf(float(_live_conditions.get("cloud_total", 0.0)), 0.0, 1.0)
 		var low_clouds := clampf(float(_live_conditions.get("cloud_low", clouds)), 0.0, 1.0)
+		var mid_clouds := clampf(float(_live_conditions.get("cloud_mid", 0.0)), 0.0, 1.0)
+		var high_clouds := clampf(float(_live_conditions.get("cloud_high", 0.0)), 0.0, 1.0)
+		var strata := _cloud_strata(low_clouds, mid_clouds, high_clouds)
 		# Current conditions tune the authored panorama rather than replacing it
 		# with another generic or procedural sky.
-		profile.cloud_depth = clouds
-		profile["cloud_coverage"] = clouds
+		profile.cloud_depth = strata.lower_strength
+		profile["cloud_coverage"] = strata.lower_coverage
+		profile["high_cloud_strength"] = strata.high_strength
 		# Cloud cover changes illumination as well as the photograph. Preserve the
 		# diffuse Environment fill, but attenuate the single exterior directional
 		# key and its hard-ray term through one measured presentation coefficient.
-		var direct_transmission := _cloud_direct_transmission(clouds)
+		var direct_transmission := _cloud_direct_transmission_strata(
+				low_clouds, mid_clouds, high_clouds)
 		profile.key_e *= direct_transmission
 		profile.rays *= direct_transmission
 		profile["cloud_direct_transmission"] = direct_transmission
@@ -351,6 +356,8 @@ func _apply(minute: float) -> void:
 		_sky.set_shader_parameter("lower_cloud_strength", profile.cloud_depth)
 		_sky.set_shader_parameter("cloud_coverage",
 				float(profile.get("cloud_coverage", profile.cloud_depth)))
+		_sky.set_shader_parameter("high_cloud_strength",
+				float(profile.get("high_cloud_strength", 0.0)))
 		var live_weather: Dictionary = profile.get("live_weather", {})
 		_sky.set_shader_parameter("cloud_wind_direction",
 				_wind_direction_vector(float(live_weather.get(
@@ -411,6 +418,29 @@ func _cloud_direct_transmission(coverage: float) -> float:
 	## cloud cell; this coefficient describes the average light reaching Queens.
 	var optical_cover := smoothstep(0.08, 0.94, clampf(coverage, 0.0, 1.0))
 	return lerpf(1.0, 0.12, optical_cover)
+
+
+func _cloud_direct_transmission_strata(low: float, mid: float,
+		high: float) -> float:
+	## Equal total fractions do not imply equal optical depth. Treat low deck as
+	## the scalar boundary, mid as 68%, and thin high veil as 32% effective cover.
+	var effective_cover := maxf(clampf(low, 0.0, 1.0), maxf(
+			clampf(mid, 0.0, 1.0) * 0.68,
+			clampf(high, 0.0, 1.0) * 0.32))
+	return _cloud_direct_transmission(effective_cover)
+
+
+func _cloud_strata(low: float, mid: float, high: float) -> Dictionary:
+	## Mid-level cloud contributes to both presentations but cannot close the
+	## low deck by itself. High-only cover remains a translucent veil.
+	return {
+		"lower_strength": maxf(clampf(low, 0.0, 1.0),
+				clampf(mid, 0.0, 1.0) * 0.48),
+		"lower_coverage": maxf(clampf(low, 0.0, 1.0),
+				clampf(mid, 0.0, 1.0) * 0.38),
+		"high_strength": maxf(clampf(high, 0.0, 1.0),
+				clampf(mid, 0.0, 1.0) * 0.55),
+	}
 
 
 func _weather_fog_multiplier(low_clouds: float, precipitation: float,

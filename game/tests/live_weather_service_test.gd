@@ -80,6 +80,18 @@ func _ready() -> void:
 	_check(is_equal_approx(float(directed.wind_speed_kmh), 37.5)
 			and is_equal_approx(float(directed.wind_direction_degrees), 90.0),
 			"simulation can exercise bounded speed and every wind bearing")
+	OS.set_environment("WEATHER_SIMULATE_CLOUD_LOW", "0")
+	OS.set_environment("WEATHER_SIMULATE_CLOUD_MID", "0")
+	OS.set_environment("WEATHER_SIMULATE_CLOUD_HIGH", "1")
+	var high_only := WeatherServiceScript.simulated_snapshot("clear")
+	OS.set_environment("WEATHER_SIMULATE_CLOUD_LOW", "")
+	OS.set_environment("WEATHER_SIMULATE_CLOUD_MID", "")
+	OS.set_environment("WEATHER_SIMULATE_CLOUD_HIGH", "")
+	_check(is_zero_approx(float(high_only.cloud_low))
+			and is_zero_approx(float(high_only.cloud_mid))
+			and is_equal_approx(float(high_only.cloud_high), 1.0)
+			and is_equal_approx(float(high_only.cloud_total), 1.0),
+			"strata simulation derives coherent total cover when not overridden")
 	_check(WeatherServiceScript.simulated_snapshot("not_weather").is_empty(),
 			"unknown simulation names cannot silently become weather")
 	_check(WeatherServiceScript.parse_weather({"current": {"time": "bad"}},

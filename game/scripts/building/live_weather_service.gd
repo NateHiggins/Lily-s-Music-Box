@@ -192,6 +192,30 @@ static func simulated_snapshot(preset: String) -> Dictionary:
 	var value: Dictionary = SIMULATION_PRESETS[preset]
 	var wind_speed := float(value.wind)
 	var wind_direction := 225.0
+	var cloud_total := float(value.cloud)
+	var cloud_low := float(value.low)
+	var cloud_mid := float(value.cloud) * 0.72
+	var cloud_high := float(value.cloud) * 0.48
+	var strata_overridden := false
+	for field in [
+			["WEATHER_SIMULATE_CLOUD_LOW", "low"],
+			["WEATHER_SIMULATE_CLOUD_MID", "mid"],
+			["WEATHER_SIMULATE_CLOUD_HIGH", "high"],
+	]:
+		var raw := OS.get_environment(field[0])
+		if not raw.is_valid_float():
+			continue
+		var bounded := clampf(float(raw), 0.0, 1.0)
+		match field[1]:
+			"low": cloud_low = bounded
+			"mid": cloud_mid = bounded
+			"high": cloud_high = bounded
+		strata_overridden = true
+	var total_override := OS.get_environment("WEATHER_SIMULATE_CLOUD_TOTAL")
+	if total_override.is_valid_float():
+		cloud_total = clampf(float(total_override), 0.0, 1.0)
+	elif strata_overridden:
+		cloud_total = maxf(cloud_low, maxf(cloud_mid, cloud_high))
 	var speed_override := OS.get_environment("WEATHER_SIMULATE_WIND_KMH")
 	var direction_override := OS.get_environment("WEATHER_SIMULATE_WIND_DEGREES")
 	if speed_override.is_valid_float():
@@ -204,9 +228,8 @@ static func simulated_snapshot(preset: String) -> Dictionary:
 		"temperature_c": 12.0, "relative_humidity": 70.0,
 		"precipitation_mm": float(value.rain), "rain_mm": float(value.rain),
 		"showers_mm": 0.0, "snowfall_cm": float(value.snow),
-		"cloud_total": float(value.cloud), "cloud_low": float(value.low),
-		"cloud_mid": float(value.cloud) * 0.72,
-		"cloud_high": float(value.cloud) * 0.48,
+		"cloud_total": cloud_total, "cloud_low": cloud_low,
+		"cloud_mid": cloud_mid, "cloud_high": cloud_high,
 		"wind_speed_kmh": wind_speed, "wind_direction_degrees": wind_direction,
 		"wind_gusts_kmh": wind_speed * 1.45, "is_day": true,
 	}

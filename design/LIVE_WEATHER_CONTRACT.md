@@ -37,9 +37,10 @@ The density-to-opacity step uses exponential optical depth, so low and broken
 reports remain photographically visible instead of becoming a nearly
 transparent tint; an exact zero-strength clear report still evaluates to zero.
 
-The same normalized total-cover fact also attenuates the one exterior
-directional key and hard-ray term. Clear transmits `1.0`; a closed report keeps
-`0.12` as diffuse-through-cloud directional shape. Ambient Environment fill is
+The same normalized strata also attenuate the one exterior directional key and
+hard-ray term. Low cover supplies full effective depth, mid cover `0.68`, and
+high cover `0.32`. Clear transmits `1.0`; a closed low report keeps `0.12` as
+diffuse-through-cloud directional shape. Ambient Environment fill is
 not multiplied down, so overcast becomes soft rather than implausibly black.
 The sky shader independently obscures the visible Sun or Moon at the exact
 local cloud cell; the bulk coefficient describes average light reaching the
@@ -59,6 +60,15 @@ angular motion. Zero wind freezes bulk travel while a small opposed evolution
 keeps the analytic field from reading as a rigid painted shell. Precipitation,
 clouds and period ambience therefore agree on one reported wind without
 sharing node ownership.
+
+Cloud strata remain distinct after normalization. Low cover owns the optical
+deck; mid cover contributes at `0.48` strength / `0.38` coverage and also feeds
+a `0.55` high veil; high cover owns only that translucent veil. A 100% high-only
+report therefore cannot close the hemisphere like stratus. At this scenery LOD
+the high stratum is a homogeneous `0.18` cirrostratus veil: it partially
+extinguishes stars and the celestial source without inventing procedural wisps
+that read as projected stripes or cubic shards. It adds no texture, volume,
+node or light; shaped wind motion remains the lower/middle deck's job.
 
 `weather_code` and `wind_direction_degrees` remain canonical presentation
 facts after normalization. Consumers must not invent shortened aliases. The
@@ -89,6 +99,10 @@ debug inputs, not a second visual implementation.
 Set `WEATHER_SIMULATE_WIND_KMH` (bounded `0–120`) and
 `WEATHER_SIMULATE_WIND_DEGREES` (wrapped through `0–359.999…`) to exercise
 calm, speed and every meteorological bearing through that same contract.
+`WEATHER_SIMULATE_CLOUD_LOW`, `_MID`, `_HIGH` and `_TOTAL` accept bounded
+`0–1` fractions. When one or more strata are supplied without `_TOTAL`, the
+simulator derives total cover from their maximum. This permits high-only,
+mid-only and low-deck proofs without contradictory illumination facts.
 
 ## Verification
 

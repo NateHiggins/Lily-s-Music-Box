@@ -66,6 +66,18 @@ func _ready() -> void:
 	_check("meteorological wind advects the same lower cloud deck",
 			director._wind_direction_vector(0.0).is_equal_approx(Vector3.BACK)
 			and director._wind_direction_vector(90.0).is_equal_approx(Vector3.LEFT))
+	var high_only: Dictionary = director._cloud_strata(0.0, 0.0, 1.0)
+	var mid_only: Dictionary = director._cloud_strata(0.0, 1.0, 0.0)
+	_check("cloud strata cannot turn high cirrus into a low ceiling",
+			is_zero_approx(float(high_only.lower_strength))
+			and is_zero_approx(float(high_only.lower_coverage))
+			and is_equal_approx(float(high_only.high_strength), 1.0)
+			and float(mid_only.lower_coverage) < float(mid_only.high_strength))
+	_check("equal stratum fractions retain unequal optical depth",
+			director._cloud_direct_transmission_strata(0.0, 0.0, 1.0)
+					> director._cloud_direct_transmission_strata(0.0, 1.0, 0.0)
+			and director._cloud_direct_transmission_strata(0.0, 1.0, 0.0)
+					> director._cloud_direct_transmission_strata(1.0, 0.0, 0.0))
 	_check("the global storm uses bounded depth fog",
 			environment != null and environment.fog_enabled
 			and environment.fog_mode == Environment.FOG_MODE_DEPTH
@@ -147,6 +159,11 @@ func _ready() -> void:
 			and sky_code.contains("cloud_relief * 0.82")
 			and sky_code.contains("cloud_wind_direction")
 			and sky_code.contains("cloud_wind_speed")
+			and sky_code.contains("high_cloud_strength")
+			and sky_code.contains("high_opacity")
+			and sky_code.contains("high_cloud_strength * 0.18")
+			and not sky_code.contains("cloud_noise_3d")
+			and not sky_code.contains("float high_fold")
 			and sky_code.contains("exp(-cloud_shape * lower_cloud_strength")
 			and not sky_code.contains("float p = u * 2.0 * PI"))
 	_check("the same sky draw projects the lunar terminator from the real Sun",
