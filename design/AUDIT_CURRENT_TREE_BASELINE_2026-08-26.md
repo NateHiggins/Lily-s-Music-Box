@@ -121,9 +121,14 @@ gameplay views the old list lacked. Corrected rows so far:
 
 | station | class | objects | calls | primitives | mean ms | fps | status |
 |---|---|---:|---:|---:|---:|---:|---|
+| lobby | playable | 15,797 | 15,669 | 13,401,880 | 18.06 | 55.4 | OVER |
 | atrium eye (7 storeys) | composition | 26,316 | 26,183 | 37,225,302 | 33.33 | 30 | OVER |
 | atrium F03 landing | playable | 21,149 | 21,149 | 36,040,694 | 23.70 | 42.2 | OVER |
+| corridor F04 | playable | 9,245 | 9,245 | 9,305,874 | 12.96 | 77.1 | PASS |
+| apartment 4B | playable | 2,883 | 2,883 | 3,644,382 | 10.61 | 94.3 | PASS |
+| street elevation | composition | 17,504 | 17,504 | 13,162,494 | 27.08 | 36.9 | OVER |
 | carriageway north pavement | playable | 10,162 | 10,162 | 9,867,193 | 16.67 | 60 | OVER (boundary) |
+| roof | playable | 2,544 | 2,544 | 687,568 | 6.45 | 155.0 | PASS |
 
 The original atrium-eye lens is over the open void: moving the player there
 made the body fall to B1 while the detached lens stayed aloft. It remains a
@@ -131,12 +136,25 @@ useful worst-case composition camera but is not cited as gameplay performance.
 The F03 landing is a real player position and proves a material 23.70 ms breach.
 Carriageway, like corridor F04 in the superseded sweep, misses the strict gate
 by 0.07 ms and is treated as a boundary measurement rather than as equivalent
-to the clear long-view hotspots. The remaining ten corrected stations are owed.
+to the clear long-view hotspots. Correct feet-based streaming moves corridor
+F04 from 16.67 to a clear 12.96 ms pass and lobby from 23.81 to 18.06 ms. The
+remaining five corrected stations are owed.
 
 The corrected landing census explains the shape: roughly 1,314 visible calls
 and 19,299 shadow calls. The frame is dominated by repeated caster submission,
 not visible scene complexity. Blind prop merging and a 12 m prop cull were
 rejected by current decomposition; neither improves this frame reliably.
+
+A focused shadow-budget sweep keeps all 64 lights and changes only how many
+ranked fixtures cast. Fresh-process landing results: 64/16 = 23.70 ms; 64/8 =
+18.02 ms; 64/6 = 16.67 ms (strict boundary fail); 64/5 = 15.28 ms (pass,
+16.18 ms wall average). This is a measured bound, not yet a shipping policy.
+The 64/5 result repeated at 15.28 ms. Its frozen same-camera visual pair prices
+at 0.01761 RMSE on the architecture crop against a 0.01098 temporal floor
+(1.60x); inspection finds no lost railing, landing, relief or practical-light
+legibility. That clears the playable atrium candidate, but not a global cap:
+representative interiors and the exterior still require paired review before
+production lighting changes.
 
 Both FULL shards now print final verdicts below the wall-clock ceiling.
 GoldenLoop prices its complete route at 53.7 s. Performance evidence is being
@@ -145,7 +163,7 @@ is interleaved with Claude's K2 proof runs without contention.
 
 ## Next executable order
 
-1. Finish the remaining ten corrected performance stations, then measure the
+1. Finish the remaining five corrected performance stations, then measure the
    shadow-budget policy against the playable atrium landing with a visual A/B.
 2. Continue K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.

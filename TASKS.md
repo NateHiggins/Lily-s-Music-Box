@@ -53,9 +53,13 @@ the immediate executable gates, not a second copy of its milestone status.
   player, carried shadow light and streaming origin elsewhere. The corrected
   harness declares playable versus composition cameras and adds a real F03
   landing plus player-height carriageway. Corrected evidence so far: composition
-  atrium 33.33 ms, playable landing 23.70 ms, carriageway 16.67 ms. Finish the
-  remaining ten rows and price a visually proved shadow policy before closing
-  K1; FULL verdict recovery itself is complete.
+  atrium 33.33 ms, playable landing 23.70 ms, lobby 18.06 ms, carriageway
+  16.67 ms, while corrected corridor F04 passes at 12.96 ms and apartment 4B
+  at 10.61 ms; the playerless street-elevation composition camera costs 27.08
+  ms, while the corrected roof passes at 6.45 ms. Finish the remaining five
+  rows and price a visually proved shadow policy
+  before
+  closing K1; FULL verdict recovery itself is complete.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the
   exact first missing or unclear player-facing transition; do not infer it from

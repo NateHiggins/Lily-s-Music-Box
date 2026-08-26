@@ -1,5 +1,5 @@
 extends Node
-## Matched production-lighting stills at the ELEVEN PERF STATIONS, so a
+## Matched production-lighting stills at the PERF STATIONS, so a
 ## shadow policy's visual cost and its frame-time benefit are measured from
 ## the same viewpoints and can never quietly describe different places.
 ##
@@ -12,7 +12,7 @@ extends Node
 ## cameras — which is exactly the class of error this whole check exists to
 ## avoid.
 ##
-## Production lighting means production lighting: the same 16/16 budget the
+## Production lighting means production lighting: the same 64/16 budget the
 ## benchmark pins, the day/night director frozen so a pair differs by the
 ## policy alone, and no debug fill of any kind.
 
@@ -48,11 +48,19 @@ func _ready() -> void:
 	PERF.apply_shadow_policy(root, self)
 	await get_tree().create_timer(1.5).timeout
 
+	var stations: Array = PERF.STATIONS
+	var wanted := OS.get_environment("SHADOW_SHOT_STATION")
+	if wanted != "":
+		stations = PERF.STATIONS.filter(func(s):
+			return String(s["name"]).findn(wanted) >= 0)
+		if stations.is_empty():
+			push_error("[SHADOWSHOT] unknown station %s" % wanted)
+			get_tree().quit(1)
+			return
 	var i := 0
-	for s in PERF.STATIONS:
+	for s in stations:
 		i += 1
-		cam.global_position = s["pos"]
-		cam.look_at(s["look"])
+		_place_station(s)
 		# Godot compiles shaders on first draw and streams floors off the
 		# override camera; a single frame here photographs a half-built view.
 		for j in 30:
@@ -66,6 +74,22 @@ func _ready() -> void:
 		print("[SHADOWSHOT] %02d %s" % [i, s["name"]])
 	print("[SHADOWSHOT] %d stations saved" % i)
 	get_tree().quit(0)
+
+
+func _place_station(station: Dictionary) -> void:
+	cam.global_position = station["pos"]
+	cam.look_at(station["look"])
+	var at_lens: bool = bool(station.get("player_at_lens", true))
+	root.player.flashlight.visible = at_lens
+	if not at_lens:
+		root.view_override = cam
+		return
+	root.player.global_position = cam.global_position \
+			- Vector3.UP * PlayerController.STANDING_EYE
+	root.player.velocity = Vector3.ZERO
+	root.player.set_physics_process(false)
+	root.player.camera.global_transform = cam.global_transform
+	root.view_override = null
 
 
 func _hide_ui(n: Node) -> void:

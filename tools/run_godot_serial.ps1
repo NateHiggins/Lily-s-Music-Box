@@ -4,6 +4,7 @@ param(
     [string]$Scene,
     [string]$ProjectPath = "",
     [string]$ShotDir = "",
+    [string]$LogPath = "",
     [switch]$Windowed,
     [ValidateRange(1, 60)]
     [int]$TimeoutSeconds = 60,
@@ -53,8 +54,24 @@ try {
     if (-not [string]::IsNullOrWhiteSpace($ShotDir)) {
         $env:SHOT_DIR = $ShotDir
     }
-    $process = Start-Process -FilePath $godot -ArgumentList $arguments `
-        -NoNewWindow -PassThru
+    $start = @{
+        FilePath = $godot
+        ArgumentList = $arguments
+        NoNewWindow = $true
+        PassThru = $true
+    }
+    if (-not [string]::IsNullOrWhiteSpace($LogPath)) {
+        $logParent = Split-Path -Parent $LogPath
+        if (-not [string]::IsNullOrWhiteSpace($logParent)) {
+            New-Item -ItemType Directory -Force -Path $logParent | Out-Null
+        }
+        # Start-Process requires distinct files. The caller can filter both;
+        # keeping stderr separate also preserves which channel diagnosed a
+        # parse failure or timeout.
+        $start.RedirectStandardOutput = $LogPath
+        $start.RedirectStandardError = "$LogPath.stderr"
+    }
+    $process = Start-Process @start
     $env:SHOT_DIR = $previousShotDir
 
     if (-not $process.WaitForExit($TimeoutSeconds * 1000)) {

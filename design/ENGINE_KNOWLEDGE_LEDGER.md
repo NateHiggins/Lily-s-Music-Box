@@ -203,6 +203,17 @@ fill, VRAM, physics, audio or persistence.
 - Distant prop culling did not move the current atrium frame.
 - Disabling all shadows is an upper-bound control, not a visual policy.
 
+### Current decision example
+
+At the playable F03 landing, retaining 64 lit fixtures while reducing ranked
+shadow casters measures 23.70 ms at 16 shadows, 18.02 at 8, 16.67 at 6 and
+15.28 at 5, repeated at the same 15.28 ms. The same-camera architecture crop
+prices the five-shadow image at 0.01761 RMSE against a 0.01098 temporal floor,
+with no inspected loss of architectural or light-pool legibility. That licenses
+an atrium candidate, not a building-wide default: a policy is only as broad as
+the views its A/B evidence covers. Performance evidence licenses a visual
+decision; it does not make the decision by itself.
+
 ## 7. Visual proof requires its own control floor
 
 ### Learned
@@ -226,7 +237,44 @@ Provide a render-proof manifest containing camera, crop, state fixture, random
 seed, temporal controls, hashes and difference metric. The tool should flag
 claims priced against a different camera’s floor.
 
-## 8. Process safety is part of the engine workflow
+## 8. Transient presentation should be reconstructible
+
+### Learned
+
+A satisfying physical answer does not require a new durable fact. K2-B derives
+the watch-clock punch from the first-shift phase and the report landing from
+the register's existing availability. Each effect is a float countdown decayed
+in `_process`, while one `_refresh_*` function is the sole writer of every
+moving part's pose. Save/load reconstructs the settled presentation from its
+real owner, and a frozen test can drive and hold the transient pose directly.
+
+### Godot-specific constraints
+
+- `Engine.time_scale = 0` stops tweens and `_process`; a pose that must survive
+  a frozen evidence frame should be computed from explicit state, not entrusted
+  to an active Tween.
+- Shader time may continue independently, so weather in frame needs its own
+  A/A floor even when gameplay time is frozen.
+- A statically typed seam can reject a duck-typed test double before the
+  intended call; test stubs must extend the real class or the suite must prove
+  the bind succeeded before counting downstream assertions.
+
+### Reusable engine seam
+
+A small `PoseCountdown` utility could standardize arm/advance/normalized-value
+and remaining-time behavior. A stronger render harness should freeze one
+instant, toggle exactly one fact, derive candidate crops from the measured
+difference bounds, and reject suites whose interesting section was skipped.
+
+### Failed approaches and extraction caution
+
+Two writers setting the same transform can leave correct state with a
+byte-identical image; one place must decide one part's pose. Source-scan tests
+bounded by two unrelated function names are also placement-fragile—scan the
+specific function contract instead. Package the countdown and proof protocol,
+not Orison's named ritual phases or apparatus geometry.
+
+## 9. Process safety is part of the engine workflow
 
 ### Learned
 
@@ -248,7 +296,7 @@ Bundle serialized execution, structured result extraction, stable temp-log
 locations, exact artifact manifests, dirty-tree guards and ownership-aware
 worktree support. These are product features if the tool will be leased.
 
-## 9. Productization questions to answer before extraction
+## 10. Productization questions to answer before extraction
 
 1. Which modules can run without Orison’s autoloads and data schemas?
 2. What are the stable extension points for compilers, props, cases, saves,
@@ -265,7 +313,7 @@ worktree support. These are product features if the tool will be leased.
 8. What automated compatibility, migration, security and support commitments
    would leasing require?
 
-## 10. Next ledger work
+## 11. Next ledger work
 
 - Backfill the save/reload transaction model and eleven-boundary K3 findings.
 - Map the generator/runtime interfaces and their current dependency graph.
