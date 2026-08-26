@@ -9,6 +9,7 @@ const ACTIONS := {
 	"interact": KEY_E, "shot_capture": KEY_F,
 	"lamp_toggle": KEY_L, "radio_toggle": KEY_R,
 	"music_player": KEY_M,
+	"pause_services": KEY_ESCAPE,
 	"noclip": KEY_V, "debug_panel": KEY_F1,
 	"intro": KEY_F2,
 }
@@ -25,6 +26,7 @@ const JOYPAD_ACTIONS := {
 	"activity_adjust_left": JOY_BUTTON_DPAD_LEFT,
 	"activity_adjust_right": JOY_BUTTON_DPAD_RIGHT,
 	"activity_commit": JOY_BUTTON_A,
+	"pause_services": JOY_BUTTON_START,
 }
 
 const JOYPAD_AXES := {
@@ -41,7 +43,7 @@ const JOYPAD_AXES := {
 
 const JOYPAD_EXTRA_BUTTONS := {
 	"lamp_toggle": [JOY_BUTTON_X],
-	"ui_cancel": [JOY_BUTTON_B, JOY_BUTTON_START],
+	"ui_cancel": [JOY_BUTTON_B],
 }
 
 ## Maintenance panels consume meanings, never device keycodes. Keep commit

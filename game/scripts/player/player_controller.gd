@@ -372,7 +372,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		apply_look(event.relative)
 	elif event is InputEventMouseButton and event.pressed and not touch_input:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	elif event.is_action_pressed("ui_cancel"):
+	elif event.is_action_pressed("pause_services"):
 		if pause_services and pause_services.call("can_open"):
 			pause_services.call("open")
 			get_viewport().set_input_as_handled()

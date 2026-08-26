@@ -10,6 +10,7 @@ func _ready() -> void:
 	get_viewport().size = Vector2i(1280, 720)
 	await _prove_title_surface()
 	await _prove_pause_surface()
+	await _prove_open_cancel_split()
 	print("CONTROLLER SETTINGS TEST: %s" % (
 			"PASS" if failures == 0 else "FAIL (%d)" % failures))
 	get_tree().quit(failures)
@@ -52,6 +53,28 @@ func _prove_pause_surface() -> void:
 			"controller_look_deadzone", "controller_look_curve"]:
 		_check(GameBoot.settings.has(key), "%s persists at the settings owner" % key)
 	surface.queue_free()
+
+
+func _prove_open_cancel_split() -> void:
+	var player := PlayerController.new()
+	add_child(player)
+	await get_tree().process_frame
+	player._unhandled_input(_action(&"ui_cancel"))
+	_check(not player.pause_services.is_open,
+			"B-style cancel does not open services during play")
+	player._unhandled_input(_action(&"pause_services"))
+	_check(player.pause_services.is_open and get_tree().paused,
+			"Menu-style pause_services opens the focused surface")
+	player.pause_services.close(false)
+	player.queue_free()
+	await get_tree().process_frame
+
+
+func _action(action: StringName) -> InputEventAction:
+	var event := InputEventAction.new()
+	event.action = action
+	event.pressed = true
+	return event
 
 
 func _inside_viewport(control: Control) -> bool:

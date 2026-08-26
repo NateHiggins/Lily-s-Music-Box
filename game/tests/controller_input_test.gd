@@ -18,7 +18,9 @@ func _ready() -> void:
 	_button(&"activity_commit", JOY_BUTTON_A,
 			"A commits the modal maintenance action")
 	_button(&"ui_cancel", JOY_BUTTON_B, "B cancels modal UI")
-	_button(&"ui_cancel", JOY_BUTTON_START, "Menu opens or closes services")
+	_button(&"pause_services", JOY_BUTTON_START, "Menu opens Building Services")
+	_check(not _has_button(&"ui_cancel", JOY_BUTTON_START),
+			"Menu and B are distinct semantic actions")
 	_axis(&"move_left", JOY_AXIS_LEFT_X, -1.0, "left stick moves left")
 	_axis(&"move_right", JOY_AXIS_LEFT_X, 1.0, "left stick moves right")
 	_axis(&"move_forward", JOY_AXIS_LEFT_Y, -1.0, "left stick moves forward")
@@ -47,12 +49,15 @@ func _ready() -> void:
 
 
 func _button(action: StringName, button: JoyButton, label: String) -> void:
-	var found := false
+	_check(_has_button(action, button), label)
+
+
+func _has_button(action: StringName, button: JoyButton) -> bool:
 	for event in InputMap.action_get_events(action):
 		if event is InputEventJoypadButton \
 				and (event as InputEventJoypadButton).button_index == button:
-			found = true
-	_check(found, label)
+			return true
+	return false
 
 
 func _axis(action: StringName, axis: JoyAxis, value: float, label: String) -> void:
