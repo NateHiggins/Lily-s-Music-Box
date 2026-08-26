@@ -93,6 +93,31 @@ plus two seconds to finish, and `slack` is the remainder. Negative slack means
 the declared suite no longer fits even before optional settling; stop and shard
 instead of deleting evidence or lowering the expected count.
 
+### Production-root cost belongs to the claim
+
+A 2026-08-26 controlled `BootCostProbe` series separated the windowed cost:
+
+| 1600x900 profile | resource | assembly | first frame | total |
+| --- | ---: | ---: | ---: | ---: |
+| production | 1.980 s | 22.854 s | 2.881 s | 27.716 s |
+| `SURFACE=0` only | 1.979 s | 21.482 s | 1.128 s | 24.590 s |
+| encroachment/living/commensals off | 1.979 s | 21.372 s | 1.355 s | 24.705 s |
+| both groups off | 1.981 s | 19.854 s | 1.117 s | 22.951 s |
+
+The same production profile was 16.800 s headless. The expensive remainder is
+therefore windowed assembly and first draw, not merely scene resource loading.
+The two feature groups overlap and neither is a universal boot fix.
+
+A shot may disable a feature group only when that group is outside the claim
+and the receipt declares the exact gates. The canonical wrapper records its
+capture-affecting process environment in the receipt's `capture_gates` object;
+do not invoke a lower-level runner to evade that record. For example, an isolated mechanical
+prop sheet may omit living encroachment; a production-placement, material,
+lighting, weather, Dream or whole-room claim may not. A reduced profile is
+never described as an unqualified production capture. If the subject needs the
+full root, shard the sheet instead of switching off the world that establishes
+the claim.
+
 ## New scene skeleton
 
 ```gdscript

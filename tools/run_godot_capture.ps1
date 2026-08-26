@@ -70,6 +70,25 @@ $logPath = Join-Path ([System.IO.Path]::GetTempPath()) "orison_capture_${safeNam
 $serial = Join-Path $PSScriptRoot "run_godot_serial.ps1"
 $engineArgs = @("--audio-driver", "Dummy", "--resolution", $Resolution)
 $engineArgs += $ExtraArgs
+$captureGateNames = @(
+    "SURFACE",
+    "SURFACE_STATS_CACHE",
+    "ENCROACH",
+    "LIVING",
+    "PERF_COMMENSALS_OFF",
+    "DAYNIGHT",
+    "DAYNIGHT_FORCE",
+    "WEATHER_FORCE",
+    "PERF_SHADOW_BUDGET",
+    "PERF_SHADOW_OFF"
+)
+$captureGates = [ordered]@{}
+foreach ($gateName in $captureGateNames) {
+    $gateValue = [Environment]::GetEnvironmentVariable($gateName, "Process")
+    if (-not [string]::IsNullOrEmpty($gateValue)) {
+        $captureGates[$gateName] = $gateValue
+    }
+}
 
 # There is deliberately no retry loop. Exit 73 means the lane is occupied or
 # the ceiling fired. Retrying in a shell hides contention and can starve the
@@ -112,7 +131,7 @@ $zeroByte = @($pngs | Where-Object { $_.Length -eq 0 }).Count
 $pass = $engineExit -eq 0 -and $pngs.Count -eq $ExpectedFrames -and $zeroByte -eq 0
 $status = if ($engineExit -eq 73) { "BUSY_OR_TIMEOUT" } elseif ($pass) { "PASS" } else { "FAIL" }
 $receipt = [ordered]@{
-    schema_version = 1
+    schema_version = 2
     status = $status
     scene = $Scene
     project_path = $ProjectPath
@@ -121,6 +140,7 @@ $receipt = [ordered]@{
     elapsed_seconds = [Math]::Round($clock.Elapsed.TotalSeconds, 3)
     timeout_seconds = $TimeoutSeconds
     resolution = $Resolution
+    capture_gates = $captureGates
     engine_exit = $engineExit
     expected_frames = $ExpectedFrames
     actual_frames = $pngs.Count
