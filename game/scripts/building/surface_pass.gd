@@ -533,8 +533,18 @@ static func height_range(height: Texture2D) -> Vector2:
 
 ## Means of the albedo and roughness maps from a 32x32 resample — the
 ## variance-preserving coverage blend and the self-detail overlay both need
-## to know what "average" is. Once per shipping material at build.
+## to know what "average" is. Textures are shared across storeys and material
+## variants, so cache by the actual texture pair rather than recomputing the
+## same decompression/resample once per material.
+static var _stats_cache := {}
 static func texture_stats(original: BaseMaterial3D) -> Dictionary:
+	var rough_id := original.roughness_texture.get_instance_id() \
+			if original.roughness_texture != null else 0
+	var cache_key := "%d|%d|%d" % [original.albedo_texture.get_instance_id(),
+			rough_id, int(original.roughness_texture_channel)]
+	var use_cache := OS.get_environment("SURFACE_STATS_CACHE") != "0"
+	if use_cache and _stats_cache.has(cache_key):
+		return _stats_cache[cache_key]
 	var out := {"albedo_mean": Vector3(0.5, 0.5, 0.5), "rough_mean": 0.5}
 	var img := original.albedo_texture.get_image()
 	if img != null:
@@ -560,4 +570,6 @@ static func texture_stats(original: BaseMaterial3D) -> Dictionary:
 					var c := rimg.get_pixel(x, y)
 					rsum += c.g if green else c.r
 			out.rough_mean = rsum / 1024.0
+	if use_cache:
+		_stats_cache[cache_key] = out
 	return out
