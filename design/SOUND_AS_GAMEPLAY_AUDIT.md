@@ -24,7 +24,9 @@ masking claims still remain hypotheses until measured in a production walk.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.
-  `audit_audio_emitters.py` makes that a repeatable static check.
+  `audit_audio_emitters.py --check` makes that a release-blocking static check;
+  it also rejects literal semantic cue ids absent from the canonical catalogue
+  and sees both allocated cues and observations of bespoke physical players.
 - the full production scene-tree census currently finds 771 players and zero
   Master fallbacks. The two processed extension buses rejoin the canonical
   tree as `Ambience -> World` and `GhostRadio -> Diegetic`.

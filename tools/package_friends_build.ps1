@@ -14,7 +14,8 @@ $ErrorActionPreference = "Stop"
 $repoRoot = (Resolve-Path -LiteralPath (Split-Path $PSScriptRoot -Parent)).Path
 foreach ($audit in @(
     @{ Script = "audit_music_catalog.py"; Args = @((Join-Path $repoRoot "game/data/music_catalog.json")) },
-    @{ Script = "audit_period_dates.py"; Args = @($repoRoot) }
+    @{ Script = "audit_period_dates.py"; Args = @($repoRoot) },
+    @{ Script = "audit_audio_emitters.py"; Args = @("--repo", $repoRoot, "--check", "--quiet") }
 )) {
     $auditPath = Join-Path $PSScriptRoot $audit.Script
     & python $auditPath @($audit.Args)

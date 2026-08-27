@@ -72,7 +72,9 @@ foreach ($token in @("{{BUILD_NUMBER}}", "{{SHORT_SHA}}", "{{VERSION}}")) {
 
 $packageSource = Get-Content -LiteralPath (Join-Path $PSScriptRoot `
     "package_friends_build.ps1") -Raw
-foreach ($audit in @("audit_music_catalog.py", "audit_period_dates.py")) {
+foreach ($audit in @(
+    "audit_music_catalog.py", "audit_period_dates.py", "audit_audio_emitters.py"
+)) {
     Assert-Contract ($packageSource.Contains($audit)) `
         "friends packaging runs $audit"
 }

@@ -17,7 +17,9 @@ DIRECT_BINDING = re.compile(
 )
 HELPER = re.compile(r'make_emitter\(\s*"([^"]+)"')
 BUS = re.compile(r'\.bus\s*=\s*"([^"]+)"')
-CUE = re.compile(r'present_3d\(\s*&?"([^"]+)"')
+CUE = re.compile(
+    r'(?:present_3d|observe_existing_3d)\(\s*&?"([^"]+)"'
+)
 
 
 def audit(repo: Path) -> dict:
@@ -62,6 +64,10 @@ def audit(repo: Path) -> dict:
                 "explicit_buses": explicit_buses,
                 "semantic_cues": cue_ids,
             })
+    catalog_path = repo / "game" / "data" / "audio_cues.json"
+    catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    catalog_ids = set(catalog.get("cues", {}))
+    unknown_semantic = sorted(set(semantic) - catalog_ids)
     return {
         "schema_version": 1,
         "files": rows,
@@ -76,8 +82,10 @@ def audit(repo: Path) -> dict:
             "explicit_bus_counts": dict(buses.most_common()),
             "semantic_cue_counts": dict(semantic.most_common()),
             "unclassified_direct_players": len(unclassified),
+            "unknown_literal_semantic_cues": len(unknown_semantic),
         },
         "unclassified_direct_sites": unclassified,
+        "unknown_literal_semantic_cues": unknown_semantic,
     }
 
 
@@ -94,6 +102,8 @@ def markdown(report: dict) -> str:
         f'- Literal semantic requests: {summary["literal_semantic_requests"]}',
         f'- Direct players without a same-function bus assignment: '
         f'{summary["unclassified_direct_players"]}',
+        f'- Literal semantic cue ids absent from the catalogue: '
+        f'{summary["unknown_literal_semantic_cues"]}',
         "",
         "## Reused helper keys",
         "",
@@ -120,13 +130,31 @@ def main() -> int:
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--format", choices=("markdown", "json"), default="markdown")
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--check", action="store_true",
+        help="fail when a direct player lacks a bus or a literal cue is unknown",
+    )
+    parser.add_argument("--quiet", action="store_true", help="print only the check verdict")
     args = parser.parse_args()
     report = audit(args.repo.resolve())
     rendered = json.dumps(report, indent=2) + "\n" if args.format == "json" else markdown(report)
     if args.output:
         args.output.write_text(rendered, encoding="utf-8")
-    else:
+    elif not args.quiet:
         print(rendered, end="")
+    if args.check:
+        failures = (
+            report["summary"]["unclassified_direct_players"]
+            + report["summary"]["unknown_literal_semantic_cues"]
+        )
+        if failures:
+            print(f"AUDIO EMITTER AUDIT: FAIL ({failures})")
+            return 1
+        print(
+            "AUDIO EMITTER AUDIT: PASS "
+            f"({report['summary']['direct_player_constructions']} direct players; "
+            f"{report['summary']['literal_semantic_requests']} literal semantic requests)"
+        )
     return 0
 
 
