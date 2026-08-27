@@ -60,7 +60,7 @@ Every row traces to a file in this repository or to a primary source in §11.
 | 7 | **Audio — Freesound CC BY 4.0** | 8 source recordings, processed into shipped `.ogg` | same manifest, §"Creative Commons Attribution 4.0" | **attribution required in the distributed work** | **NEEDS NOTICE** |
 | 8 | **Audio — Freesound NonCommercial** | **nothing** | manifest: files marked excluded *"are not referenced by the game because their noncommercial license is incompatible with a potentially commercial release"* | n/a if truly absent | **GREEN, pending one check — §9 U1** |
 | 9 | **Audio — music** | **75 files** under `assets/audio/music` (tracks + `.webp` covers) | `art/audio/*.MANIFEST.md` — Gemini/Lyria generations from **public-domain scores**, with the standing rule to *"never upload, link, hum or otherwise reference any historical recording, ever"* | **the manifests themselves carry unresolved `OWNER:` fields**, including `legal status`, `prompt used`, `model displayed`, `synthid / ai disclosure` | **UNKNOWN — §6 O3** |
-| 10 | **Audio — voice** | **34 `mina_c01_*.ogg`** takes | the files; **no README, manifest or provenance note beside them**, and no design document names a performer, a method or a rights basis | unknown until the source is named | **UNKNOWN — §6 O4** |
+| 10 | **Audio — voice** | no voice takes ship | the 34 temporary TTS samples audited here were removed by owner ruling on 2026-08-26; the dialogue intentionally falls back to silence | no current third-party voice asset | **GREEN until production casting** |
 | 11 | **Audio — `viral_seed.ogg`** | 1 file, preloaded by `audio/virus_sound_director.gd:9` | the file; **no provenance note found** | unknown | **UNKNOWN** |
 | 12 | **Textures / materials** | the shipped texture corpus | `design/MATERIAL_PROMPT_SHEET.md` documents a **Gemini** image-generation pipeline with per-slot prompts | governed by the generating service's terms at time of generation, which are not recorded in-tree | **UNKNOWN — §6 O5** |
 | 13 | **Reference-derived work** | period signage, notices, fixtures | `design/PROP_REFERENCE_NOTES.md`, patent/history research documents | research **about** sources, not copies of them — but not verified image-by-image | **UNKNOWN, low risk — §9 U3** |
@@ -201,9 +201,12 @@ private audition or a distribution?** It is handed to third parties, so I would
 treat it as the latter — owner's call.
 
 ### O4 — voice takes
-34 `mina_c01_*.ogg` files ship with **no provenance record of any kind**. Who
-performed them, how, and under what agreement is unrecorded. Until answered,
-this is the least-documented shipped family in the build.
+**OWNER CORRECTION, 2026-08-26:** the 34 `mina_c01_*.ogg` files were temporary
+text-to-voice samples, not human performances, and were removed from production.
+No voice files now ship. The original audit question—who
+performed them, how, and under what agreement—was based on a false premise and
+is retracted. Production casting will create a new provenance obligation when
+real takes exist.
 
 ### O5 — generated textures
 Terms of the generating service **at the time of generation** are not recorded

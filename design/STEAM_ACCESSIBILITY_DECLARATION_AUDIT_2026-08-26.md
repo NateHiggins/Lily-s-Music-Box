@@ -143,9 +143,11 @@ off-screen events. This system names 20 authored gameplay cues and hazard tells.
 | Case conversation (`ui/case_dialogue_panel.gd:36–42`) | ✔ speaker + line | ✔ (`_speaker`, coloured) | **17 / 16, fixed** | ✘ |
 | Telephone/call (`call/call_interface.gd:150–154`) | ✔ `_subtitle`, autowrap | ✘ not by that label | **13, fixed** | ✘ |
 
-**Voice exists:** 34 `mina_c01_*.ogg` takes under `game/assets/audio/voice`,
-matching the 34 nodes in `game/data/case01_dialogue.json`. So Mina's
-conversation is voiced **and** subtitled.
+**Voice does not currently ship:** 34 temporary `mina_c01_*.ogg` TTS samples
+were removed by owner ruling on 2026-08-26. Before removal, they existed under
+`game/assets/audio/voice`, matching the 34 nodes in
+`game/data/case01_dialogue.json`. Mina's conversation is currently text-only;
+it is not evidence of subtitle coverage for spoken content.
 
 **Timing:** dialogue is **not** timed. Silence is a first-class authored option
 via `silence_goto` (`case_dialogue_panel.gd:118`), not a timeout. Nothing forces

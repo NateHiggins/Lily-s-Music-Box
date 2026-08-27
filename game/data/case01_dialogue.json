@@ -3,7 +3,8 @@
     "case_id": "mina_caption_crisis",
     "speaker_default": "MINA VALE",
     "voice_prefix": "mina_c01_",
-    "notes": "Node ids are voice take ids: mina_c01_<node>.ogg. Silence is a first-class option on every node that defines silence_goto. Trust-only costs use bookkeeping flags (agreed_with_record, defended_the_record, annotated_the_blank, comfort_offered, refilled_the_record) that are never resolution flags."
+    "voice_status": "unvoiced_pending_casting",
+    "notes": "Node ids reserve future production voice take ids: mina_c01_<node>.ogg. No placeholder speech ships; missing takes are intentionally silent. Silence is a first-class option on every node that defines silence_goto. Trust-only costs use bookkeeping flags (agreed_with_record, defended_the_record, annotated_the_blank, comfort_offered, refilled_the_record) that are never resolution flags."
   },
   "entries": {
     "first_stable": "fs_open",

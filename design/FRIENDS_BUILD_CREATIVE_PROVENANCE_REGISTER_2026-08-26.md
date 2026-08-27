@@ -9,6 +9,19 @@ unresolved creator questions into records an owner can actually answer.
 **Godot was not run.** No existing asset, code, manifest, licence or design file
 was edited.
 
+> **OWNER CORRECTION — 2026-08-26, after listening to the files:** “these are
+> text to voice samples.” The 34 then-shipped Ogg files are therefore classified as
+> **temporary text-to-voice samples, not human recordings**. The TTS product and
+> terms remain unrecorded. The original git
+> commit's phrase “The recording session came back” is not evidence of a
+> performer and must not be used to reconstruct one. Sections 1, 3, 5, 6 and 8
+> below incorporate this correction.
+>
+> **OWNER DISPOSITION — 2026-08-26:** “these not useful and should be
+> discarded.” All 34 tracked TTS samples were removed. They no longer ship.
+> Their filenames remain below as historical audit evidence and as reserved ids
+> for future production takes; they are not a current asset family.
+
 > **This document gives no legal advice and reaches no legal conclusion.** It
 > separates four things that are routinely collapsed into one: what the owner
 > *states*, what the repository *shows*, what a provider's terms *would need to
@@ -27,12 +40,13 @@ was edited.
 thinner than the work deserves, and one field in the repository is actively
 misleading.**
 
-1. **The 34 Mina voice takes** are the most exposed. Git records a real
-   recording session — *"The recording session came back"* (`62ca805`,
-   2026-08-02) — and a technical delivery contract, but **no performer is named
-   anywhere in the repository, and no agreement of any kind is recorded.** The
-   raw takes exist off-repo at a gitignored path, so the evidence is
-   recoverable by the person who has them. §5 is a five-minute questionnaire.
+1. **The 34 former Mina voice files were temporary text-to-voice samples.** The owner
+   identified them after listening. Git's *“The recording session came back”*
+   wording (`62ca805`, 2026-08-02) described a technical delivery as though it
+   were a human performance; it did not establish one. Their TTS product/terms
+   are **UNKNOWN**, but there is no human performer or performer agreement to
+   chase. The owner rejected and removed them; they no longer ship. §5 records
+   the correction and disposition.
 2. **The music** — 36 library tracks, 3 title tracks, 36 cover images, all
    shipping — now has an owner ruling, recorded verbatim in §4. **What it does
    not have is date/version evidence of the provider terms it depends on.**
@@ -87,7 +101,7 @@ creative family in §3 ships except where the table says otherwise.
 
 | # | Family | Path / pattern | Ships | Count | Creator / performer | Method / tool | Date evidence | Agreement evidence | Commercial authority | Attribution | Modification | Source files | Confidence | Disposition |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | **Mina voice** | `assets/audio/voice/mina_c01_*.ogg` | **yes** | **34** | **UNRECORDED** | a recording session; script `design/case01_recording_script.md`; importer `art/tools/import_voice_takes.py` | commit `62ca805`, **2026-08-02** | **NONE FOUND** | **UNKNOWN** | UNKNOWN | UNKNOWN | `assets/audio/voice/source/` — **gitignored** (`.gitignore:73`) | **LOW** | **P0 — §5** |
+| 1 | **Former Mina TTS samples** | `assets/audio/voice/mina_c01_*.ogg` | **no — removed** | **0 current / 34 historical** | no human performer; owner-corrected | text-to-voice, product unknown | commit `62ca805`, **2026-08-02**; removed 2026-08-26 | immaterial to current payload | n/a — not shipped | n/a | n/a | deleted; recoverable from git history | **HIGH** (status/disposition) | **GREEN — absent** |
 | 2 | **Music, library** | `assets/audio/music/library/*.ogg` | **yes** | **36** | owner (stated §4) | **Gemini** (stated §4) | catalogue `year` fields are **fiction** | owner statement only | **owner-stated** | none stated | n/a | none in repo | **MEDIUM** (owner statement, no provider evidence) | **P1 — §4** |
 | 3 | **Music, title** | `assets/audio/music/title/*.ogg` | **yes** | **3** | as above | as above; **one has a manifest** | `The_Clockwork_Waltz.MANIFEST.md` — 2026-08-14 | manifest with **unfilled `OWNER:` fields** | owner-stated | none stated | n/a | none in repo | **MEDIUM** | **P1 — §4** |
 | 4 | **Music, covers** | `assets/audio/music/covers/*.webp` | **yes** | **36** | **UNRECORDED** | **UNRECORDED** — no prompt sheet, manifest or note found | first appeared in a merge commit `653316e` | **NONE FOUND** | **UNKNOWN** | UNKNOWN | UNKNOWN | none in repo | **LOW** | **P1** |
@@ -102,18 +116,17 @@ creative family in §3 ships except where the table says otherwise.
 | 13 | **Voice takes, raw** | `assets/audio/voice/source/` | **no** | ? | — | — | — | — | — | — | — | gitignored | — | not shipped |
 | 14 | **Songbook candidates** | `art/audio/*.MANIFEST.md` × 3 | **no** | 3 | owner | Gemini/Lyria | manifests dated 2026-08-14 | unfilled `OWNER:` fields | — | — | — | — | — | **not shipped — do not conflate with rows 2–3** |
 
-### 3.1 One-row-per-file: the 34 Mina takes
+### 3.1 One-row-per-file: the 34 Mina TTS samples
 
-**No mechanically proven identical agreement covers all 34** — there is no
-agreement in the repository at all. What *is* mechanically proven is that **all
-34 entered the repository in a single commit**, `62ca805`, whose message
-describes one session: *"The recording session came back… 34 for 34, no
-orphans."*
+**No performer agreement is expected because the owner states these are not
+voice recordings.** What is mechanically proven is that **all 34 entered the
+repository in a single commit**, `62ca805`, whose message describes one
+“session.” That noun meant a batch/delivery here, not a human performance.
 
-**Therefore they are listed as one provenance family with 34 members**, and §5
-asks whether one agreement covers them. If the answer is no, this table expands
-to 34 rows. Every file shares: creator **UNRECORDED**, agreement **NONE FOUND**,
-authority **UNKNOWN**, disposition **P0**.
+**They remain one historical placeholder family with 34 former members, now
+removed.** Identifying the obsolete TTS product is optional archaeology, not a
+release dependency. Replacement production performances will require their own
+new provenance record and must not inherit this placeholder classification.
 
 ```
 mina_c01_fb_open      mina_c01_fb_sil       mina_c01_fs_flatter
@@ -173,46 +186,26 @@ images** (row 4), which have no recorded method, or the **texture corpus**
 
 ---
 
-## 5. The Mina voice questionnaire
+## 5. The Mina TTS-sample correction
 
-**Answerable in under five minutes by the person who was there.** No legal
-knowledge needed — these are facts, not judgements.
+Owner statements, recorded in sequence: **“there is no voice recordings yet,
+those are placeholders i think”**, followed after audition by **“these are text
+to voice samples.”** The second statement resolves the generation family.
 
-```
-MINA VOICE — CASE 01, 34 TAKES, RECORDED ON OR BEFORE 2026-08-02
+This settles the important negative: do not invent a performer, session, or
+agreement from the existence of playable speech files. It leaves three small
+technical facts open:
 
-Q1  Who performed them?
-    [ ] the owner        [ ] a named person: ______________________
-    [ ] more than one person (who did what): ____________________
-    [ ] text-to-speech / AI voice — which product: ______________
+1. Which TTS/text-to-voice product and tier produced them?
+2. Do the gitignored source files still exist, and do they preserve product,
+   settings, generation dates or terms evidence?
+3. ~~Should friends builds retain TTS sample speech?~~ **Resolved: no. The owner
+   found the samples not useful and ordered them discarded. Mina ships unvoiced
+   until production casting.**
 
-Q2  If a person: was there any agreement, in any form?
-    [ ] nothing written        [ ] messages/email — where: ________
-    [ ] a signed document — where: _______________________________
-    [ ] paid / unpaid / favour / collaborator (circle)
-
-Q3  Does whatever agreement exists cover ALL 34 takes, or only some?
-    [ ] all 34        [ ] some — which: ________________________
-
-Q4  Was it understood the recordings would be in a game that might
-    be sold?
-    [ ] yes   [ ] no   [ ] never discussed
-
-Q5  Would that person want credit, and under what name?
-    [ ] yes, as: ____________________   [ ] no   [ ] ask them
-
-Q6  Where are the raw source takes now?
-    (game/assets/audio/voice/source/ is gitignored — is it still on
-     the machine that recorded them?)
-    ____________________________________________________________
-
-Q7  Is the performer reachable today?          [ ] yes   [ ] no
-
-Q8  Approximate recording date, if not 2026-08-02: ______________
-```
-
-**Q1 and Q4 are the two that matter most.** Everything else is bookkeeping that
-can follow.
+The third is a quality/disclosure ruling, not a rights inference. When real
+voice production begins, create a fresh performer/terms/credit/source record;
+do not edit this placeholder history into a fictional recording session.
 
 ---
 
@@ -222,7 +215,7 @@ Every unknown, with what happens to it for a **private friends build**.
 
 | Family | Unknown | Friends-build disposition |
 | --- | --- | --- |
-| Mina voice | performer, agreement | **SHIP, and answer §5 before any wider distribution.** A private cohort of named friends is the lowest-exposure use this material will ever have, and delaying costs the recall that makes §5 answerable. |
+| Former Mina TTS samples | none for current payload | **DO NOT SHIP — resolved and removed by owner.** Production casting creates a new record. |
 | Music | provider terms evidence | **SHIP under the owner's recorded ruling (§4.1).** Collect E1–E4 while reconstructible. |
 | Covers | method entirely unrecorded | **SHIP, record method.** Same workflow question as the tracks; ask once, answer both. |
 | Textures | provider terms at generation | **SHIP, record.** Largest family, lowest per-item risk. |
@@ -264,8 +257,7 @@ Four small records. **None is created by this document.**
 
 | | |
 | --- | --- |
-| **P0-1** | **The Mina voice performer and agreement.** 34 shipped files, zero recorded authority. The one question whose answer decays with time. §5. |
-| **P0-2** | **The `provenance` field is fiction and is named as though it is not.** Cheap to annotate; expensive if a future audit or automated check trusts it. §7.3. |
+| **P0-1** | **The `provenance` field is fiction and is named as though it is not.** Cheap to annotate; expensive if a future audit or automated check trusts it. §7.3. |
 
 **P1 — collect while reconstructible**
 

@@ -162,14 +162,19 @@ def main() -> int:
     voice_summary = "not checked"
     if args.voice_dir:
         prefix = str(meta.get("voice_prefix", ""))
+        voice_status = str(meta.get("voice_status", "unspecified"))
         expected = {f"{prefix}{node_id}.ogg" for node_id in nodes}
         actual = {path.name for path in args.voice_dir.glob(f"{prefix}*.ogg")}
         missing = sorted(expected - actual)
         extra = sorted(actual - expected)
-        voice_summary = f"{len(actual)} takes / {len(expected)} expected"
+        voice_summary = (f"{len(actual)} takes / {len(expected)} reserved; "
+                         f"status={voice_status}")
         if missing:
             message = f"missing takes: {', '.join(missing)}"
-            (failures if args.strict_takes else notices).append(message)
+            if args.strict_takes:
+                failures.append(message)
+            elif voice_status not in {"unvoiced_pending_casting", "text_only"}:
+                notices.append(message)
         if extra:
             message = f"orphan takes: {', '.join(extra)}"
             (failures if args.strict_takes else notices).append(message)

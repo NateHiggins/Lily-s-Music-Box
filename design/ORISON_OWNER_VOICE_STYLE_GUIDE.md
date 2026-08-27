@@ -462,11 +462,13 @@ Run the canonical Mina baseline from the repository root:
 
 ```powershell
 python tools/audit_authored_voice.py game/data/case01_dialogue.json `
-  --voice-dir game/assets/audio/voice --strict-takes
+  --voice-dir game/assets/audio/voice
 ```
 
-At introduction, the baseline is 34/34 reachable nodes, 34/34 expected takes,
-and authored silence on 28 nodes. `CALLER DECLINES TO STATE` is the only
+At introduction, the baseline is 34/34 reachable nodes, no shipped voice takes,
+and authored silence on 28 nodes. The absent takes are intentional until
+production casting; use `--strict-takes` only when validating a declared complete
+recording delivery. `CALLER DECLINES TO STATE` is the only
 four-word phrase appearing in at least three nodes, and it is an intentional
 mutating callback.
 
