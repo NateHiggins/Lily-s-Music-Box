@@ -32,6 +32,16 @@ PURPOSE_BUSES = {
     "telephone": {"Telephone"},
     "world": {"Architecture", "Weather"},
 }
+# Temporary ceilings, not targets.  These five keys currently teach unrelated
+# mechanisms the same sound.  Migration may lower these numbers; new work may
+# not raise them while pretending pitch variation creates a new vocabulary.
+LEGACY_HELPER_BUDGETS = {
+    "tick": 29,
+    "knock": 14,
+    "hum_loop": 9,
+    "pop": 7,
+    "creak": 5,
+}
 
 
 def audit(repo: Path) -> dict:
@@ -81,6 +91,11 @@ def audit(repo: Path) -> dict:
     catalog_cues = catalog.get("cues", {})
     catalog_ids = set(catalog_cues)
     unknown_semantic = sorted(set(semantic) - catalog_ids)
+    helper_budget_excess = {
+        key: {"actual": keys[key], "budget": budget}
+        for key, budget in LEGACY_HELPER_BUDGETS.items()
+        if keys[key] > budget
+    }
     catalog_failures = []
     for cue_id, cue in catalog_cues.items():
         missing = sorted(REQUIRED_CUE_FIELDS - set(cue))
@@ -115,10 +130,12 @@ def audit(repo: Path) -> dict:
             "unclassified_direct_players": len(unclassified),
             "unknown_literal_semantic_cues": len(unknown_semantic),
             "invalid_catalog_cues": len(catalog_failures),
+            "legacy_helper_budget_excess": len(helper_budget_excess),
         },
         "unclassified_direct_sites": unclassified,
         "unknown_literal_semantic_cues": unknown_semantic,
         "catalog_failures": catalog_failures,
+        "legacy_helper_budget_excess": helper_budget_excess,
     }
 
 
@@ -138,6 +155,8 @@ def markdown(report: dict) -> str:
         f'- Literal semantic cue ids absent from the catalogue: '
         f'{summary["unknown_literal_semantic_cues"]}',
         f'- Catalogue contract failures: {summary["invalid_catalog_cues"]}',
+        f'- Overloaded helper keys above their non-regression ceiling: '
+        f'{summary["legacy_helper_budget_excess"]}',
         "",
         "## Reused helper keys",
         "",
@@ -181,6 +200,7 @@ def main() -> int:
             report["summary"]["unclassified_direct_players"]
             + report["summary"]["unknown_literal_semantic_cues"]
             + report["summary"]["invalid_catalog_cues"]
+            + report["summary"]["legacy_helper_budget_excess"]
         )
         if failures:
             print(f"AUDIO EMITTER AUDIT: FAIL ({failures})")

@@ -108,6 +108,9 @@ Literal `make_emitter()` reuse is concentrated heavily in a tiny vocabulary:
 
 This is efficient placeholder reuse, but it prevents a reliable learned audio
 language. Pitch randomization does not create semantic identity.
+The release audit now treats the measured counts above as ceilings rather than
+targets: migrations may reduce them, but a new prop cannot add another generic
+`tick`, `knock`, `hum_loop`, `pop` or `creak` and still package unnoticed.
 
 ### Ownership fractures
 
