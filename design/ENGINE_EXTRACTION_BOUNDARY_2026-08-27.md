@@ -65,7 +65,7 @@ design.
 | **Semantic audio policy** | `audio/audio_policy.gd` (410 ln) | **Autoload singleton**; `GameBoot`; 1 `res://data` path | `stop_source()`, cue requests | Ledger §9; `audit_audio_emitters.py` | **reusable-with-work** | L | High (K0-AUDIO) | **High** | Ledger already warns: productize contracts, **not the singleton** |
 | **Acoustic graph** | `audio/acoustic_graph.gd` (250 ln) | **Autoload**; `GameBoot`; Orison's 550-node graph is content | data-driven | `AcousticGraph` suites | reusable-with-work | M | High | Medium | — |
 | **Conductor clock** | `audio/conductor_clock.gd` (102 ln) | Autoload; `AcousticGraphData` | tick source | — | reusable-with-work | S | Medium | Medium | — |
-| **Interaction verbs** | **No owner.** 66 files define `interact_prompt`; `player_controller.gd:328` finds them by `has_method()` | Every implementor is a prop | **none — there is no contract** | 164 prompts; no interface test | **game-only** | **L** | High | Medium | **Nothing to license: the API does not exist** |
+| **Interaction verbs** | **No owner.** 65 files currently define `interact_prompt`; `player_controller.gd:328` finds them by `has_method()` | Every implementor is a prop | **documented convention only** — see `INTERACTION_CONVENTION_RECORD_2026-08-27.md` | 164 prompts; no interface test | **game-only** | **L** | High | Medium | **Nothing to license: the API does not exist** |
 | **WorkOrders** | `game/work_orders.gd` (320 ln) | `RealityState` autoload; system-clock stamps | issue/close | `WalkTest` (one standing failure, G26) | reusable-with-work | M | High | High | — |
 | **Cases / rules** | `game/reality_case_manager.gd`, `reality_rule_director.gd` | **2 autoloads each**; `res://data` schema; case ids | data-driven | Case suites | game-only | L | High | Low | — |
 | **RealityState persistence** | `game/reality_game_state.gd` (280 ln) | `RealityCases` autoload; `SAVE_VERSION := 4`; `user://reality_maintenance_save.json`; Orison-shaped payload | save/load | `RealitySaveCompatTest` 14/14 | reusable-with-work | M | High (G15/K3) | Medium | Migration commitments if leased |
@@ -317,7 +317,7 @@ advice.**
 | --- | --- | --- | --- | --- |
 | 1 | Qualify existing "engine"/"portable" language in the ledger to §G levels | **No** | EA-safe | Pure documentation |
 | 2 | Add a ledger entry per §B census row at its true level | **No** | EA-safe | |
-| 3 | Write down the interaction contract that does not exist — **as a document, not code** | **No** | EA-safe | The highest-value thing on this list |
+| 3 | **Complete 2026-08-27:** write down the interaction contract that does not exist — **as a document, not code** | **No** | EA-safe | `INTERACTION_CONVENTION_RECORD_2026-08-27.md`; records a convention and explicit non-contracts, with no runtime refactor |
 | 4 | Answer §H 1–3 against the existing notice generator | **No** | EA-safe | Fact-finding only |
 | 5 | Build the reference project (§D) | **Yes** | **Post first friends build** | Phase 2 entry |
 | 6 | Produce its dependency list and rewrite-cost list | Yes | Post-EA | Evidence 6 |

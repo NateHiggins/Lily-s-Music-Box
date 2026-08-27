@@ -15,6 +15,11 @@ Every durable entry should name:
 - extraction and migration cautions;
 - failed approaches worth not repeating.
 
+The production interaction seam is inventoried separately in
+`design/INTERACTION_CONVENTION_RECORD_2026-08-27.md`. Its shared method names
+are a documented convention, not a reusable contract: `has_method` proves
+neither paired capabilities nor signatures, results, reachability or effects.
+
 ## 1. Authority before machinery
 
 ### Learned
