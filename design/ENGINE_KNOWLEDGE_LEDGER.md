@@ -449,7 +449,7 @@ still be L2, while an L3 contract may sit in an implementation classified
 
 | Census capability | Ledger disposition | Level | Boundary and missing evidence |
 | --- | --- | --- | --- |
-| Serial test runner | Process safety (§10) | **L3** | PowerShell parameters in; serialized process, filtered verdict and bounded timeout/mutex failures out. No second consumer, packaging or support. |
+| Serial test runner | Process safety (§10) | **L3** | PowerShell parameters in; serialized process, filtered verdict and bounded timeout/mutex failures out. Fixed Orison mutex/default vocabulary requires extraction work; no second consumer, packaging or support. |
 | Capture evidence harness | Process safety (§10) and visual proof (§7) | **L3** | `setup`, `capture` and `finish` plus frame receipts/no-overwrite failures form a held contract. Only Orison suites have consumed it. |
 | Shot measurement | Process safety (§10) and visual proof (§7) | **L3** | CLI/manifest inputs and metrics/contact-sheet outputs are explicit. Python dependency packaging and a second consumer are absent. |
 | Celestial ephemeris | Pure calculation candidate | **L2** | Tests repeatedly hold explicit UTC/coordinate calculations, but the ledger has not recorded a complete named output/error/precision contract. Attribution is unresolved. |
@@ -567,7 +567,31 @@ rather than treating deterministic vectors as a general astronomy promise.
 8. What automated compatibility, migration, security and support commitments
    would leasing require?
 
-## 14. Next ledger work
+## 14. Proof tooling boundary: mechanism, adapter and evidence content
+
+**Evidence level:** the runner/harness/measurement contracts are L3 inside this
+repository; portability remains separately qualified. No item has L4
+second-consumer proof.
+
+| Layer | Current owner | Classification | Coupling / extraction boundary |
+| --- | --- | --- | --- |
+| Serialized process core | `tools/run_godot_serial.ps1` | **L3 contract; reusable-with-work** | Parameters cover scene/project/output/window/timeout/args, and failures are bounded. `Global\OrisonGodotSingleInstance`, default `<repo>/game` and Orison diagnostics remain fixed; namespace/default must become inputs before an uncoupled claim. |
+| Scene capture core | `game/tests/shot_harness.gd` | **L3 contract; reusable-now by traced coupling** | Owns no scene state or camera; takes owner/tag/frame count/budget and absolute `SHOT_DIR`; emits PNGs plus receipt or explicit budget/path/frame failure. Location under `game/tests` is packaging debt, not state coupling. |
+| Image measurement core | `tools/measure_shot_sheet.py` | **L3 contract; reusable-now by traced coupling** | Directory + optional manifest in; hashes/luma/linear-RGB RMSE/threshold verdict/contact sheet out. “Orison” appears only in prose. Requires Python, NumPy and Pillow. |
+| Capture orchestration adapter | `tools/run_godot_capture.ps1` | **Orison adapter; reusable-with-work** | General parameters wrap the runner, but default game path, `orison_capture_*` log name and fixed Orison render-gate census are product conventions. Receipt schema is useful; gate discovery must be injected. |
+| Screenshot migration inventory | `tools/audit_shot_suites.py` | **Repository-specific audit; reusable-with-work** | Hardcodes `game/tests`, `*_shot.gd`, Orison production-root spelling and source heuristics. It reports migration risk, not runtime truth. |
+| Capture evidence protocol | `game/docs/CAPTURE_EVIDENCE_PROTOCOL.md` | **Reusable practice; local evidence** | Receipts, no-overwrite, control floors and serialized execution generalize. Current 54/60-second budgets and suite examples are Orison measurements, not universal defaults. |
+| Performance probe | `game/tests/perf_probe.gd` | **Game-only evidence content** | Loads Orison waking/dream scenes, stations, light policy and environment gates. `PERF_STATION` is a useful adapter idea, not a generic harness hidden inside 985 product-shaped lines. |
+| Individual `*_test.gd` / `*_shot.gd` scenes | `game/tests` | **Game-only evidence content** | State fixtures, cameras, crops, thresholds and acceptance claims encode Orison. They consume proof tools; they are not part of the tools' portability claim. |
+| Render sheets and receipts | `art/renders/**` | **Historical evidence artifacts** | Immutable evidence for the commit/build/camera that produced them. Never package as a toolkit runtime dependency or rewrite old protocol facts to match a new harness. |
+
+The extraction unit is therefore not “the tests folder.” It is the smallest
+mechanism whose inputs, outputs and failures do not name Orison state, plus a
+new consumer's own adapters and evidence scenes. A reference project must use
+the harness and measurement contract without importing Orison scenes, gates,
+autoloads or thresholds before L4 can be claimed.
+
+## 15. Next ledger work
 
 - Backfill the save/reload transaction model and eleven-boundary K3 findings.
 - Generator/runtime interfaces and their current dependency graph are mapped in
@@ -580,7 +604,9 @@ rather than treating deterministic vectors as a general astronomy promise.
   toolkit bill of materials exists.
 - Weather/celestial ownership, opt-out/default-location policy, refresh and
   offline/no-disk-cache behavior are recorded in §12.
-- Separate reusable proof tooling from test scenes that encode Orison content.
+- Proof tooling, Orison orchestration adapters, performance/test scenes and
+  historical evidence artifacts are separated in §14; the reference project
+  still gates any L4 claim.
 - `design/ENGINE_DECISION_RECORD_TEMPLATE.md` now governs new systemic
   authority/contract/schema/save/proof decisions and requires an evidence-level
   ceiling, falsification condition and explicit ledger update on acceptance.

@@ -56,7 +56,7 @@ design.
 
 | Capability | Owner / path | Orison assumptions coupled in | External API | Tests / evidence | Portability | Cost | EA relevance | Next-project relevance | Licence blockers |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Serial test runner** | `tools/run_godot_serial.ps1` | **None traced.** Fully parameterised | PowerShell params | Used by every suite; `test_release_pipeline_contract.ps1` | **reusable-now** | S | High — all evidence | **High** | Godot licence notice; support burden if leased |
+| **Serial test runner** | `tools/run_godot_serial.ps1` | Project path is parameterised, but the global mutex name, default `game` path and diagnostics retain Orison vocabulary | PowerShell params | Used by every suite; `test_release_pipeline_contract.ps1` | **reusable-with-work** | S | High — all evidence | **High** | Godot licence notice; support burden if leased |
 | **Capture evidence harness** | `game/tests/shot_harness.gd` (159 ln) | **None traced.** Header states it owns no scene state; `SHOT_DIR` from env | `setup(owner, suite_tag, expected, …)`, `capture`, `finish` | `audit_shot_suites.py`; `CAPTURE_EVIDENCE_PROTOCOL.md` | **reusable-now** | S | High | **High** | Same |
 | **Shot measurement** | `tools/measure_shot_sheet.py` | Manifest-driven crops | CLI + manifest | Used across `art/renders/` | **reusable-now** | S | High | High | Python deps |
 | **Celestial ephemeris** | `building/celestial_ephemeris.gd` (112 ln) | **None.** 0 autoloads, 0 `res://`, explicit UTC + lat/long | static funcs | `CelestialEphemerisTest`; `CELESTIAL_SKY_CONTRACT.md` | **reusable-now** | S | Low | Medium | NASA/USNO source attribution |
@@ -82,9 +82,10 @@ design.
 
 ### The five highest-leverage reusable seams
 
-1. **The serial runner + shot harness + measurement trio.** Already
-   parameterised, already the thing that makes every other claim in this
-   repository checkable. **This is the actual asset.**
+1. **The serial runner + shot harness + measurement trio.** The latter two are
+   uncoupled; the runner needs its fixed Orison mutex/default namespace made an
+   input. Together they are already the thing that makes every other claim in
+   this repository checkable. **This is the actual asset.**
 2. **The evidence protocol itself** (`CAPTURE_EVIDENCE_PROTOCOL.md`) — the
    discipline of receipts, frame-count assertions, control floors and RESULT
    lines. Portable as a *practice* before any code moves.
@@ -227,8 +228,10 @@ critical-path actions is out of scope, however small.
 ### Phase AFTER FIRST FRIENDS BUILD
 
 **Entry:** a friends build has been issued and a human has walked the route.
-**Work:** the reference project (§D), consuming **only** the runner and shot
-harness — the two rows the census calls reusable-now.
+**Work:** the reference project (§D), consuming **only** the runner through its
+existing `ProjectPath` parameter and the shot harness. The harness is
+`reusable-now`; the runner deliberately remains `reusable-with-work` until its
+fixed mutex/default namespace is made consumer-owned.
 **Exit:** evidence items 1–4 and 6 exist.
 **HARD STOP: if the reference project needs any change to the Orison
 repository, stop and write down what.** That change request *is* the finding.
@@ -358,11 +361,17 @@ Only one requires new code, and it is gated behind a human playing the game.**
 | An interaction interface exists that I failed to find — a base class, registry or resource contract behind the 66 `interact_prompt` definitions | False friend #1 collapses; interaction becomes a real seam |
 | The `GameBoot` reference count is inflated by static helpers like `b2g()` rather than genuine settings/InputMap dependency | Coupling is weaker than stated; several rows move toward reusable-with-work |
 | `MaintenanceActivityTest` has a recorded green verdict I could not find | The activity core's evidence rises a level |
-| Any `tools/` script hardcodes an Orison path I did not trace | The evidence toolchain is **not** reusable-now, and the ruling weakens toward (a) |
+| `ShotHarness` or `measure_shot_sheet.py` imports Orison state, paths or vocabulary beyond prose | The two remaining `reusable-now` proof cores fall to `reusable-with-work`, weakening the ruling toward (a) |
 
 **INFERENCE:** the third row is the likeliest of the five to be partly true, and
 I have not separated `GameBoot`'s static coordinate helper from its settings
 singleton in the 54-file count. **That number should be read as an upper bound.**
+
+**Correction 2026-08-27:** the original runner census missed its fixed
+`Global\OrisonGodotSingleInstance` mutex, default `<repo>/game` path and Orison
+diagnostics. Its `ProjectPath` parameter still permits an unmodified reference
+run, but the implementation is `reusable-with-work`, not `reusable-now`.
+`ENGINE_KNOWLEDGE_LEDGER.md` §14 records the exact proof-tool/adapter boundary.
 
 ---
 
