@@ -591,9 +591,36 @@ new consumer's own adapters and evidence scenes. A reference project must use
 the harness and measurement contract without importing Orison scenes, gates,
 autoloads or thresholds before L4 can be claimed.
 
-## 15. Next ledger work
+## 15. Save/reload is fact reconstruction, not scene restoration
 
-- Backfill the save/reload transaction model and eleven-boundary K3 findings.
+**Evidence level: L2 — local pattern with focused repository evidence.** The
+full transaction trace is in
+`design/SAVE_RELOAD_TRANSACTION_MODEL_2026-08-27.md`.
+
+`RealityState` owns one versioned JSON fact store. Domain owners commit job,
+item, case, coordinator, dream, onset and residue facts; presentation owners
+rebuild text, settled mechanisms, route cues and generated world state after
+load. Future-version saves are neither merged nor overwritten. A write failure
+leaves the in-memory mutation intact and reports that progress may be lost, so
+this is not an atomic database transaction.
+
+The focused core-loop proof round-trips eight semantic campaign states. K3 is a
+different claim: eleven player-route checkpoints, each requiring a correct
+resume location, immediate practical intention, durable job/case owner and
+physical world answer. Automated coverage cannot close that human matrix, and
+K3 remains open until the route is walked against a named build and save
+version.
+
+Extraction caution: the reusable idea is a single fact authority plus
+idempotent reconstruction. The current untyped dictionary, fixed Orison path,
+direct file replacement and local migration policy remain L2 product code, not
+a packaged persistence layer.
+
+## 16. Next ledger work
+
+- Add the eleven-boundary K3 observations after the unaided route is actually
+  run; do not translate the eight automated semantic boundaries into human
+  results.
 - Generator/runtime interfaces and their current dependency graph are mapped in
   `design/GENERATOR_RUNTIME_INTERFACE_MAP_2026-08-27.md`; the main five-file
   mirror, Blender geometry branch, runtime consumers, satellite pipelines and
