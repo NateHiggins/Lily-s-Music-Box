@@ -316,7 +316,7 @@ advice.**
 | # | Task | Godot needed? | EA or post-EA | Notes |
 | --- | --- | --- | --- | --- |
 | 1 | **Complete 2026-08-27:** qualify existing "engine"/"portable" language in the ledger to §G levels | **No** | EA-safe | Ledger audit marks §§1–8 L2 and §§9–10 L3; none is L4/L5 |
-| 2 | Add a ledger entry per §B census row at its true level | **No** | EA-safe | |
+| 2 | **Complete 2026-08-27:** add a ledger entry per §B census row at its true level | **No** | EA-safe | Ledger §11 maps all 19 rows: one L1, fourteen L2, four L3, zero L4/L5 |
 | 3 | **Complete 2026-08-27:** write down the interaction contract that does not exist — **as a document, not code** | **No** | EA-safe | `INTERACTION_CONVENTION_RECORD_2026-08-27.md`; records a convention and explicit non-contracts, with no runtime refactor |
 | 4 | Answer §H 1–3 against the existing notice generator | **No** | EA-safe | Fact-finding only |
 | 5 | Build the reference project (§D) | **Yes** | **Post first friends build** | Phase 2 entry |

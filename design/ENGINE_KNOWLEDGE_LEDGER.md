@@ -431,7 +431,42 @@ extraction, stable temp-log locations, exact artifact manifests, dirty-tree
 guards and ownership-aware worktree support. Packaging, versioning and external
 support remain L5 questions; they are not present product features.
 
-## 11. Productization questions to answer before extraction
+## 11. Extraction-census disposition — 2026-08-27
+
+This closes the per-row ledger backfill requested by
+`design/ENGINE_EXTRACTION_BOUNDARY_2026-08-27.md` §I. The portability words in
+that audit measure traced coupling; the evidence level here measures what has
+actually been specified and proved. Consequently, a `reusable-now` row may
+still be L2, while an L3 contract may sit in an implementation classified
+`reusable-with-work`.
+
+| Census capability | Ledger disposition | Level | Boundary and missing evidence |
+| --- | --- | --- | --- |
+| Serial test runner | Process safety (§10) | **L3** | PowerShell parameters in; serialized process, filtered verdict and bounded timeout/mutex failures out. No second consumer, packaging or support. |
+| Capture evidence harness | Process safety (§10) and visual proof (§7) | **L3** | `setup`, `capture` and `finish` plus frame receipts/no-overwrite failures form a held contract. Only Orison suites have consumed it. |
+| Shot measurement | Process safety (§10) and visual proof (§7) | **L3** | CLI/manifest inputs and metrics/contact-sheet outputs are explicit. Python dependency packaging and a second consumer are absent. |
+| Celestial ephemeris | Pure calculation candidate | **L2** | Tests repeatedly hold explicit UTC/coordinate calculations, but the ledger has not recorded a complete named output/error/precision contract. Attribution is unresolved. |
+| Maintenance activity framework | Authority (§1) and reconstructible presentation (§8) | **L2** | Data-driven local boundary with `submit(verb, value, held)`; extraction audit records its focused/live evidence as UNRUN/UNKNOWN at the checkpoint. |
+| Activity panel UI | Reconstructible presentation (§8) | **L2** | Input/presenter behavior is locally tested. Hardcoded hints, player-private input-family discovery and Orison styling prevent a reusable contract claim. |
+| Semantic audio policy | Source-owned sound (§9) | **L3** | The semantic source/cue/arbitration/diagnostic/lifecycle contract is explicit. `AudioPolicy` itself remains an Orison-coupled autoload and is not the reusable claim. |
+| Acoustic graph | Source-owned sound (§9) | **L2** | Production graph and suites prove local behavior. `GameBoot`, autoload lifetime and Orison's 550-node content remain coupled; no independent graph contract is recorded. |
+| Conductor clock | Source-owned sound (§9) | **L1** | A tick-source candidate was observed. The census records no dedicated evidence, and its autoload/data coupling is unqualified by a test here. |
+| Interaction verbs | Interaction convention record | **L2** | A 65-prompt/71-action census and production dispatch trace establish a local convention. There is deliberately no interface, signature contract or registry. |
+| WorkOrders | Authority (§1) | **L2** | Issue/close and job-stage behavior are repeatedly tested in Orison. `RealityState`, system-clock stamps and product job schemas remain part of the boundary. |
+| Cases / rules | Authority (§1) | **L2** | Case suites hold local ownership invariants. Autoloads, case ids, residents and data schema are the design, not adapter inputs. |
+| RealityState persistence | Authority (§1) and visible snapshots (§8) | **L2** | Save compatibility is locally tested. Version 4, fixed user path and Orison-shaped payload have no generic migration/error contract. |
+| Procedural building / detail passes | Data builds the world (§2) | **L2** | Generator/live invariants are strong local evidence. Floors, room taxonomy, coordinates, autoloads and the Orison plan are total coupling. |
+| Day/night + weather | Data/runtime split (§2) | **L2** | Local weather service behavior and opt-in policy are tested. Queens defaults, `GameBoot`, provider/privacy terms and offline consumer behavior prevent L3. |
+| Input abstraction | Reconstructible presentation (§8) | **L2** | Controller mappings are tested here. The whole InputMap and Orison verbs live in `GameBoot`; no registration, conflict or migration contract exists. |
+| Performance station harness | Benchmark cameras (§5) and render-pass census (§6) | **L2** | Production stations and measurements hold local invariants. The 985-line probe names Orison scenes/stations and exposes no generic station schema. |
+| Localization / House English | Data/runtime split (§2) | **L2 prototype** | `term`/`render_line` have focused evidence, but there are zero production callers and one fixed data path. This is not production proof or a localization API. |
+| Dream / living architecture | Data builds the world (§2) | **L2 game-only** | Extensive suites establish many local invariants. Profiles, cases, residents, generated media and Orison topology are inseparable product content. |
+
+This table creates no new L4 or L5 entry. It also does not lower strong local
+game evidence merely because the code should never be extracted: evidence
+level and portability answer different questions.
+
+## 12. Productization questions to answer before extraction
 
 1. Which modules can run without Orison’s autoloads and data schemas?
 2. What are the stable extension points for compilers, props, cases, saves,
@@ -448,7 +483,7 @@ support remain L5 questions; they are not present product features.
 8. What automated compatibility, migration, security and support commitments
    would leasing require?
 
-## 12. Next ledger work
+## 13. Next ledger work
 
 - Backfill the save/reload transaction model and eleven-boundary K3 findings.
 - Map the generator/runtime interfaces and their current dependency graph.
