@@ -105,6 +105,13 @@ def audit(repo: Path) -> tuple[list[str], list[str]]:
     for path in sorted(set(found) & set(EXPECTED_CONSUMERS)):
         notes.append(f"year consumer: {path}:{found[path]} [{EXPECTED_CONSUMERS[path]}]")
 
+    phone_source = (repo / "game/scripts/phoneos/phone_os.gd").read_text(encoding="utf-8")
+    if 'FICTIONAL_PRESENT_YEAR := "1928"' not in phone_source:
+        failures.append("PhoneOS does not pin its displayed date to fictional 1928")
+    if '_fictional_datetime(Time.get_datetime_string_from_system())' not in phone_source:
+        failures.append("PhoneOS date command can bypass the fictional-year guard")
+    notes.append("PhoneOS date: host month/day/time permitted; host year barred")
+
     library = load_object(repo / "game/data/library.json")
     books = library.get("books", [])
     if not isinstance(books, list) or not books:
