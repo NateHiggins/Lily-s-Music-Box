@@ -20,6 +20,29 @@ The production interaction seam is inventoried separately in
 are a documented convention, not a reusable contract: `has_method` proves
 neither paired capabilities nor signatures, results, reachability or effects.
 
+## Evidence-level audit — 2026-08-27
+
+This ledger uses the five levels defined in
+`design/ENGINE_EXTRACTION_BOUNDARY_2026-08-27.md` §G: observation (L1), local
+invariant (L2), reusable contract (L3), second-consumer proof (L4), and product
+claim (L5). A candidate seam is not automatically a contract. **No entry is L4
+or L5 because no second project consumes any of these systems.** “Future”,
+“candidate” and “should” below describe requirements learned from Orison, not
+shipped interfaces.
+
+| Section | Strongest honest level | Qualification |
+| --- | --- | --- |
+| 1. Authority | **L2 — local invariant** | Repeated ownership split; no named external interface, input/output schema or failure contract. |
+| 2. World compiler | **L2 — local invariant** | Deterministic production pipeline evidence; current compiler and data remain Orison-shaped. |
+| 3. Simulation acceleration | **L2 — local invariant** | Repeated timing/collision result; proposed duration injection is not an API. |
+| 4. Claim sharding | **L2 — local invariant** | Proven in Orison's runner; aggregate manifest and generic shard API do not exist. |
+| 5. Benchmark cameras | **L2 — local invariant** | Camera classes are stated requirements, not a packaged consumer contract. |
+| 6. Render-pass census | **L2 — local invariant** | Measurements support this production policy; no generic station-census interface exists. |
+| 7. Visual proof | **L2 — local invariant** | The protocol operates here; the manifest remains a proposed generic boundary. |
+| 8. Reconstructible presentation | **L2 — local invariant** | Several repeated rules and candidate utilities; no single reusable API or failure schema. |
+| 9. Semantic audio | **L3 — reusable contract** | Named ownership boundary plus cue/source inputs, arbitration outcomes, diagnostics and `stop_source()` failure/lifecycle behavior. Still no L4 consumer. |
+| 10. Process safety | **L3 — reusable contract** | `run_godot_serial.ps1` and the capture protocol expose named inputs, receipts, mutex/timeout failures and bounded outputs. Still no L4 consumer. |
+
 ## 1. Authority before machinery
 
 ### Learned
@@ -38,7 +61,7 @@ watch station or clock must not quietly become a second ledger.
   either presentation object about ritual, work-order or case mutation.
 - `game/docs/core_loop.md` documents the current product spine.
 
-### Reusable engine seam
+### Candidate seam — L2, not yet a reusable contract
 
 A future tool should expose explicit fact-owner interfaces and neutral event
 contracts. Presentation modules should be able to subscribe, render and refuse
@@ -79,7 +102,7 @@ fix.
 - WalkTest and presentation audits distinguish authored-layout truth from
   runtime collision/render truth.
 
-### Reusable engine seam
+### Candidate seam — L2, not yet a reusable contract
 
 Package a compiler pipeline with: canonical source data, deterministic
 generation, mirrored-output verification, spatial invariants, and a runtime
@@ -109,7 +132,7 @@ scene and run slower. Accelerate the smallest owner that contains the wait.
   uses a test-only elevator travel multiplier while preserving physical door,
   interlock and rider assertions.
 
-### Reusable engine seam
+### Candidate seam — L2, not yet a reusable contract
 
 Provide scoped simulation clocks or injectable duration policies per subsystem
 instead of one global overclock. A physics test must record time scale, tick
@@ -139,9 +162,9 @@ each. Coverage ownership must be explicit so nothing silently disappears.
   same two established failures.
 - Permanent phase markers show where wall time is actually spent.
 
-### Reusable engine seam
+### Candidate seam — L2, not yet a reusable contract
 
-An engine test runner should support named claim shards, per-shard watchdogs,
+A future generic test runner would need named claim shards, per-shard watchdogs,
 machine-readable phase timings and an aggregate manifest proving complete
 coverage.
 
@@ -169,7 +192,7 @@ over an open void is also not a gameplay station and must be labeled as such.
   player-height north-pavement station (16.67 ms), while retaining aerial
   atrium/street cameras as explicitly playerless composition views.
 
-### Reusable engine seam
+### Candidate seam — L2, not yet a reusable contract
 
 Performance stations need a declared camera class:
 
@@ -204,7 +227,7 @@ not explain frame time.
   props or reducing shadow work moves the frame, stopping prop scripts barely
   does.
 
-### Reusable engine seam
+### Candidate seam — L2, not yet a reusable contract
 
 Ship a station census that reconciles renderer counters with frustum surfaces,
 attributes owners/zones/materials, and reports caster overlap per light. A
@@ -223,9 +246,9 @@ At the playable F03 landing, retaining 64 lit fixtures while reducing ranked
 shadow casters measures 23.70 ms at 16 shadows, 18.02 at 8, 16.67 at 6 and
 15.28 at 5, repeated at the same 15.28 ms. The same-camera architecture crop
 prices the five-shadow image at 0.01761 RMSE against a 0.01098 temporal floor,
-with no inspected loss of architectural or light-pool legibility. That licenses
+with no inspected loss of architectural or light-pool legibility. That supports
 an atrium candidate, not a building-wide default: a policy is only as broad as
-the views its A/B evidence covers. Performance evidence licenses a visual
+the views its A/B evidence covers. Performance evidence supports a visual
 decision; it does not make the decision by itself.
 
 ## 7. Visual proof requires its own control floor
@@ -245,7 +268,7 @@ State identity and photograph identity are different claims.
 - Several SR7 sheets discarded visually identical refusal poses before tests
   made the intended mechanical distinction observable.
 
-### Reusable engine seam
+### Candidate seam — L2, not yet a reusable contract
 
 Provide a render-proof manifest containing camera, crop, state fixture, random
 seed, temporal controls, hashes and difference metric. The tool should flag
@@ -276,8 +299,8 @@ The PHONE-C arrival-wall audit therefore treats absence as a compiled
 invariant: remove the canonical generator record, regenerate mirrored data and
 baked geometry, forbid both authored id and runtime node, narrow dependent
 tests deliberately, and retain a same-camera empty-wall control. This pattern
-belongs in a reusable world compiler as an `absence assertion`, not as an
-informal cleanup note.
+is a candidate requirement for a future world compiler—an `absence
+assertion`—not an interface the current compiler exposes.
 
 The failed alternative is asset substitution: replacing obsolete wall art
 with a newer bitmap preserves the unearned footprint and often hides why the
@@ -311,13 +334,13 @@ real owner, and a frozen test can drive and hold the transient pose directly.
   141 playing emitters at the report desk and rejected making one intermittent
   upstairs chirp louder as a navigation fix.
 
-### Reusable engine seam
+### Candidate seams — L2, not yet reusable contracts
 
 A small `PoseCountdown` utility could standardize arm/advance/normalized-value
 and remaining-time behavior. A stronger render harness should freeze one
 instant, toggle exactly one fact, derive candidate crops from the measured
 difference bounds, and reject suites whose interesting section was skipped.
-A reusable frame-legibility probe should take a player pose, facing, FOV and a
+A future frame-legibility probe should take a player pose, facing, FOV and a
 target set and report distance, yaw, pitch, occlusion and in-frustum status;
 K2-A through K2-C have each rebuilt this same diagnostic by hand.
 
@@ -326,7 +349,7 @@ K2-A through K2-C have each rebuilt this same diagnostic by hand.
 The A11 fortune-head static audit caught a common split-brain bug before its
 engine run: `coin_loaded` and sequence were snapshotted, but the last nod/shake
 pose was not. A gameplay snapshot that restores variables while leaving a
-different visible answer is not a restoration. Reusable snapshot tooling should
+different visible answer is not a restoration. Future snapshot tooling should
 require each animated part to declare the state field or deterministic derive
 function that owns its settled transform. Abort tests must compare both the
 state dictionary and every declared visible pose; refusal poses need the same
@@ -337,7 +360,7 @@ coverage because “nothing happened” is not an acknowledged interaction.
 K2-D (`3b9fa4b`) found that a directional sign can be present, readable and
 still lie. Its complete contract has four independently measured facts: where
 the sign hangs, which way its readable face points, which way that makes the
-reader face, and where traversable geometry actually opens. The reusable
+reader face, and where traversable geometry actually opens. The local
 invariant is `glyph_direction == traversable_opening_direction`, proved by
 collision queries rather than by authored coordinates alone.
 
@@ -377,9 +400,9 @@ helper requests carrying unrelated meanings. The reusable boundary is:
 despawn must silence the exact source without reaching into unrelated voices.
 A source id plus cue id makes that boundary testable.
 
-### Reusable engine seam
+### Reusable contract — L3, no second-consumer proof
 
-Extract the semantic cue schema, stable bus builder, fixed voice pools,
+The reusable contract is the semantic cue schema, stable bus builder, fixed voice pools,
 source-scoped lifecycle, composable mix-state requests and audit tooling. Keep
 Orison's cue vocabulary, 550-node building graph and historical recordings as
 content. Do not productize a singleton that owns game state; productize the
@@ -401,11 +424,12 @@ or stages generated debris makes evidence unreliable and collaboration unsafe.
 - Exact-name staging has preserved large dirty/untracked art and import trees
   across parallel workstreams.
 
-### Reusable engine seam
+### Reusable contract — L3, no second-consumer proof
 
-Bundle serialized execution, structured result extraction, stable temp-log
-locations, exact artifact manifests, dirty-tree guards and ownership-aware
-worktree support. These are product features if the tool will be leased.
+The current contract comprises serialized execution, structured result
+extraction, stable temp-log locations, exact artifact manifests, dirty-tree
+guards and ownership-aware worktree support. Packaging, versioning and external
+support remain L5 questions; they are not present product features.
 
 ## 11. Productization questions to answer before extraction
 
