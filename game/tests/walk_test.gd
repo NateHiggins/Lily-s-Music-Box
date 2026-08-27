@@ -3423,7 +3423,14 @@ func _shop_sign_checks() -> void:
 	for sign in signs:
 		names[sign.shop_name] = true
 		var area := sign.get_node_or_null("ShopSignInspection") as Area3D
+		var audio_before := AudioPolicy.event_history().size()
 		var card: Dictionary = sign.interact(root.player)
+		var audio_after := AudioPolicy.event_history()
+		var heard := audio_after.size() == audio_before + 1 \
+				and str(audio_after[-1].cue_id) == "interaction.inspection_read" \
+				and str(audio_after[-1].source_id) == String(sign.name)
+		AudioPolicy.stop_source(StringName(sign.name),
+				&"interaction.inspection_read")
 		var condition := str(card.get("condition", ""))
 		if area != null and area.get_child_count() >= 1 \
 				and area.get_children().all(func(child):
@@ -3431,7 +3438,7 @@ func _shop_sign_checks() -> void:
 				and card.get("card_id", "") == "shop_sign" \
 				and card.get("source_ids", []) == ["R028"] \
 				and condition.contains(sign.shop_name) \
-				and sign._sign_tap.playing and sign._glint_tween.is_running():
+				and heard and sign._glint_tween.is_running():
 			complete += 1
 		if sign.trade == "hardware" and condition.contains(
 				"LIGHT LIT / HOURS NIGHT SERVICE"):
