@@ -31,9 +31,16 @@ function Get-SourceChanges {
         Sort-Object -Unique)
 }
 
-$dirty = @(Get-SourceChanges)
+$startedMarker = Join-Path $project ".godot\.orison_import_started"
+$resumeStartedImport = (Test-Path -LiteralPath $startedMarker -PathType Leaf) -and
+    ((Get-Content -LiteralPath $startedMarker -Raw).Trim() -eq $commit)
+$dirty = @(Get-SourceChanges -AllowGeneratedUids:$resumeStartedImport)
 if ($dirty.Count -ne 0) {
     throw "Release import requires a clean checkout; found $($dirty.Count) source changes."
+}
+if (-not $resumeStartedImport) {
+    New-Item -ItemType Directory -Force -Path (Split-Path $startedMarker -Parent) | Out-Null
+    Set-Content -LiteralPath $startedMarker -Value $commit -Encoding ascii
 }
 $log = Join-Path ([IO.Path]::GetTempPath()) "orison_import_$($commit.Substring(0, 8)).log"
 $serial = Join-Path $PSScriptRoot "run_godot_serial.ps1"
