@@ -616,7 +616,22 @@ idempotent reconstruction. The current untyped dictionary, fixed Orison path,
 direct file replacement and local migration policy remain L2 product code, not
 a packaged persistence layer.
 
-## 16. Next ledger work
+## 16. Lexical autoload references are not dependency counts
+
+**Evidence level: L2 — measured local coupling census.**
+`design/GAME_BOOT_COUPLING_CENSUS_2026-08-27.md` resolves the extraction
+boundary's likeliest falsifier. Fifty-four scripts contain `GameBoot`, but 35
+use only the pure static `b2g()` helper, four use only the static developer
+overlay query, one is the owner and one is a comment. **Thirteen scripts consume
+actual singleton state or behavior.**
+
+The correction matters to estimates: coordinate conversion living on an
+autoload is an ownership smell, not runtime singleton coupling. The remaining
+13 consumers still span settings, launch mode, scene transition, audio policy
+and settings persistence, so the correct extraction lesson is to name those
+inputs separately—not package `GameBoot` as a service.
+
+## 17. Next ledger work
 
 - Add the eleven-boundary K3 observations after the unaided route is actually
   run; do not translate the eight automated semantic boundaries into human

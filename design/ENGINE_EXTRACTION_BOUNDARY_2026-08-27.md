@@ -359,13 +359,15 @@ Only one requires new code, and it is gated behind a human playing the game.**
 | --- | --- |
 | A second project already consumes any seam without Orison state | **(c) extractable toolkit** — the two-game rule would be satisfied |
 | An interaction interface exists that I failed to find — a base class, registry or resource contract behind the 66 `interact_prompt` definitions | False friend #1 collapses; interaction becomes a real seam |
-| The `GameBoot` reference count is inflated by static helpers like `b2g()` rather than genuine settings/InputMap dependency | Coupling is weaker than stated; several rows move toward reusable-with-work |
+| **Confirmed 2026-08-27:** the `GameBoot` reference count is inflated by static helpers like `b2g()` rather than genuine settings/InputMap dependency | `GAME_BOOT_COUPLING_CENSUS_2026-08-27.md` measures 13 genuine singleton consumers, not the 54-file lexical upper bound; coupling is weaker quantitatively, but the autoload still combines several product contracts |
 | `MaintenanceActivityTest` has a recorded green verdict I could not find | The activity core's evidence rises a level |
 | `ShotHarness` or `measure_shot_sheet.py` imports Orison state, paths or vocabulary beyond prose | The two remaining `reusable-now` proof cores fall to `reusable-with-work`, weakening the ruling toward (a) |
 
-**INFERENCE:** the third row is the likeliest of the five to be partly true, and
-I have not separated `GameBoot`'s static coordinate helper from its settings
-singleton in the 54-file count. **That number should be read as an upper bound.**
+The former third-row inference is now measured. Of 54 lexical hits, one is the
+owner, one is comment-only, 35 are `b2g()`-only and four are
+`developer_overlays_enabled()`-only. **Thirteen files genuinely consume
+singleton state or behavior.** This corrects the coupling breadth without
+promoting any extraction level.
 
 **Correction 2026-08-27:** the original runner census missed its fixed
 `Global\OrisonGodotSingleInstance` mutex, default `<repo>/game` path and Orison
