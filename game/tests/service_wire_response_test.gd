@@ -214,13 +214,18 @@ func _ready() -> void:
 	# Their children remain visual details: no letter, lamp, screw or kanji stroke
 	# can consume E independently.
 	var bodega_sign := BodegaSignageProp.new()
+	bodega_sign.name = "TestBodegaSign"
 	add_child(bodega_sign)
+	AudioPolicy.clear_diagnostics()
 	var bodega_card: Dictionary = bodega_sign.interact(hand)
+	var bodega_audio := AudioPolicy.event_history()
 	var bodega_area := bodega_sign.get_node_or_null(
 			"BodegaSignInspection") as Area3D
 	_check("the complete bodega fascia owns one sourced inspection",
 			bodega_area != null and bodega_area.get_child_count() == 1
-			and bodega_sign._inspection_tap.playing
+			and bodega_audio.size() == 1
+			and str(bodega_audio[0].cue_id) == "interaction.inspection_read"
+			and str(bodega_audio[0].source_id) == "TestBodegaSign"
 			and bodega_card.get("card_id", "") == "shop_sign"
 			and bodega_card.get("source_ids", []) == ["R028"]
 			and str(bodega_card.get("condition", "")).contains("HALF BAKED")

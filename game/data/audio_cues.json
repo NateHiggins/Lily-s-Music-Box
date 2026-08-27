@@ -40,6 +40,20 @@
       "caption": "mechanism stops short",
       "graph_transmitted": false
     },
+    "interaction.inspection_read": {
+      "stream_key": "tick",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 36,
+      "volume_db": -20.0,
+      "pitch_scale": 1.12,
+      "unit_size": 1.0,
+      "max_distance": 6.0,
+      "cooldown": 0.08,
+      "max_instances": 3,
+      "caption": "inspection plate answers",
+      "graph_transmitted": false
+    },
     "interaction.switch_on": {
       "stream_key": "tick",
       "purpose": "interaction",

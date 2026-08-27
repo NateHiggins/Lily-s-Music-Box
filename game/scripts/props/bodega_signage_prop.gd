@@ -22,7 +22,6 @@ const ACRYLIC := Color(0.93, 0.91, 0.84)
 var _cabinet_mats: Array[StandardMaterial3D] = []
 var _time := 0.0
 var _cabinet_dropped := false
-var _inspection_tap: AudioStreamPlayer3D
 
 
 func _build_visual() -> void:
@@ -92,8 +91,6 @@ func _build_visual() -> void:
 	glow.omni_range = 2.2
 	glow.shadow_enabled = false
 	add_child(glow)
-	_inspection_tap = make_emitter("tick", -20.0)
-	_inspection_tap.pitch_scale = 1.12
 
 
 ## One complete fascia, one owner.  The broad valance is the readable thing
@@ -122,8 +119,8 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> Dictionary:
-	if _inspection_tap:
-		_inspection_tap.play()
+	AudioPolicy.present_3d(&"interaction.inspection_read", global_position, 1.0,
+			StringName(name))
 	return service_wire_card()
 
 

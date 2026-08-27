@@ -9,7 +9,7 @@ masking claims still remain hypotheses until measured in a production walk.
 - `AudioPolicy` builds the canonical 18-bus hierarchy, a bounded 16-voice
   semantic pool, priority/cooldown/instance rules, a composable volume mix
   stack and ordered diagnostics.
-- `audio_cues.json` owns 25 semantic cues. The release route now distinguishes
+- `audio_cues.json` owns 26 semantic cues. The release route now distinguishes
   the Vantry fault, switch on/off, ordinary door motion/latch/refusal, clock
   proof/refusal, register index/paper/key/refusal, and all four house-line
   states.
@@ -27,6 +27,9 @@ masking claims still remain hypotheses until measured in a production walk.
 - The impossible utility door now shares the ordinary locked-door grammar: its
   knob still performs its unique physical refusal, but the ear learns the same
   `locked` meaning instead of another private generic tick.
+- Object inspection now has a deliberately low-priority acknowledgement cue.
+  The bodega fascia is the first migrated owner: reading its sourced card no
+  longer requires a private player, and its cue cannot outrank mechanism state.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.
@@ -38,7 +41,7 @@ masking claims still remain hypotheses until measured in a production walk.
 - the full production scene-tree census currently finds 771 players and zero
   Master fallbacks. The two processed extension buses rejoin the canonical
   tree as `Ambience -> World` and `GhostRadio -> Diegetic`.
-- focused policy proof passes 44/44; production policy proof passes 21/21;
+- focused policy proof passes 45/45; production policy proof passes 21/21;
   house telephone passes 41/41 focused and 16/16 live.
 - persistent Master, Gameplay, Voice/Telephone, World/Weather, Music and UI
   controls are reachable from Building Services; mix states add their offsets
