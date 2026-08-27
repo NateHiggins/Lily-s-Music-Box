@@ -466,7 +466,84 @@ This table creates no new L4 or L5 entry. It also does not lower strong local
 game evidence merely because the code should never be extracted: evidence
 level and portability answer different questions.
 
-## 12. Productization questions to answer before extraction
+## 12. Weather and celestial services: facts flow inward, authority does not
+
+**Evidence level: L2 — local invariant.** `LiveWeatherServiceTest`,
+`CelestialEphemerisTest`, `WeatherSkyTest`, `LIVE_WEATHER_CONTRACT.md` and
+`CELESTIAL_SKY_CONTRACT.md` prove these boundaries inside Orison. Neither
+service has a second consumer; the live service is coupled to `GameBoot`, and
+the pure ephemeris lacks a complete error/precision compatibility contract.
+
+### Ownership chain
+
+```text
+GameBoot settings (network off by default; optional authored place text)
+  └─ LiveWeatherService
+       ├─ Open-Meteo geocode/forecast, or deterministic QA simulation
+       └─ normalized data-only snapshot
+            └─ BuildingRoot adapter
+                 ├─ DayNightDirector: sole Environment/sky/key writer
+                 ├─ WeatherFX: precipitation, mist, wind and flash scheduler
+                 └─ PeriodRealityLayer: bounded ambience consumer
+
+UTC + snapshot latitude/longitude (Queens defaults when absent)
+  └─ CelestialEphemeris pure static calculations
+       └─ DayNightDirector applies Sun, Moon, phase, stars and sky basis
+```
+
+Network weather and astronomical geometry are deliberately different seams.
+`CelestialEphemeris` performs no I/O and discovers no location: its public
+functions take UTC and coordinates explicitly and return numbers/vectors. The
+live service owns location policy but no renderer. `BuildingRoot` translates a
+normalized snapshot into presentation facts; existing visual owners remain
+the only writers of nodes and shader state.
+
+### Privacy, opt-out and fallback
+
+- `weather_network_enabled` defaults to `false`; in that state `refresh()`
+  issues no request and the authored Queens storm remains untouched.
+- When network weather is enabled without local matching, the service sends the
+  fixed Queens coordinates `40.75, -73.92` to Open-Meteo.
+- Local matching is a second opt-in. Only player-authored city/postal text is
+  sent to the geocoder; blank text falls back to the fixed Queens request. The
+  code performs no IP, locale or device-location discovery.
+- Request start, HTTP, geocode and incomplete-weather failures emit
+  `weather_failed` without publishing a replacement snapshot. Existing
+  presentation therefore remains authored, or retains the most recent
+  successful in-memory snapshot if one was already applied.
+- `_awaiting` is cleared before failure is emitted, so the next scheduled
+  refresh can retry rather than deadlocking the service.
+
+### Refresh and cache truth
+
+The service attempts one refresh on `_ready()` and then at most once every 900
+seconds while no request is in flight. Each HTTP request has an eight-second
+timeout. A local-location refresh performs one geocode request followed by one
+forecast request; the handler returns between them so geocoder JSON is never
+parsed as weather.
+
+There is **no disk cache, TTL record, ETag handling, replay file or persisted
+last-known observation**. `_snapshot` and `_location` are memory only. “Cache”
+must not be claimed for this subsystem. On a new offline process the game uses
+authored weather; after a successful observation, a later failure leaves that
+already-applied presentation in place for the life of the scene.
+
+### Reusable candidate and extraction caution
+
+The reusable pattern is the authority split: optional I/O publishes bounded
+facts; failure publishes no false replacement; established production owners
+apply those facts; pure astronomy accepts explicit observer inputs. The current
+implementation is not an extractable service contract. It imports `GameBoot`
+settings, hardcodes Queens and Open-Meteo endpoints, emits unversioned
+dictionaries, and has no injected transport, clock, cache policy, provider
+terms adapter or structured failure type.
+
+`CelestialEphemeris` is the cleaner candidate, but its documented lunar model
+is visual rather than navigational and explicitly omits refraction, libration,
+topography and eclipses. Any future API must state those accuracy/failure bounds
+rather than treating deterministic vectors as a general astronomy promise.
+
+## 13. Productization questions to answer before extraction
 
 1. Which modules can run without Orison’s autoloads and data schemas?
 2. What are the stable extension points for compilers, props, cases, saves,
@@ -483,7 +560,7 @@ level and portability answer different questions.
 8. What automated compatibility, migration, security and support commitments
    would leasing require?
 
-## 13. Next ledger work
+## 14. Next ledger work
 
 - Backfill the save/reload transaction model and eleven-boundary K3 findings.
 - Generator/runtime interfaces and their current dependency graph are mapped in
@@ -494,8 +571,8 @@ level and portability answer different questions.
   `design/ENGINE_NOTICE_GENERATOR_SCOPE_2026-08-27.md` only when an actual
   toolkit payload exists; current external dependencies are recorded, but no
   toolkit bill of materials exists.
-- Record the weather/celestial service architecture, opt-out/default-location
-  policy and offline behavior.
+- Weather/celestial ownership, opt-out/default-location policy, refresh and
+  offline/no-disk-cache behavior are recorded in §12.
 - Separate reusable proof tooling from test scenes that encode Orison content.
 - Add a decision record template and require new systemic tasks to append one
   evidence-linked ledger entry when they close.
