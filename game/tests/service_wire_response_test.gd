@@ -184,7 +184,9 @@ func _ready() -> void:
 		sign.bind_hours_director(sign_hours)
 		add_child(sign)
 		sign_names[sign.shop_name] = true
+		var audio_before := AudioPolicy.event_history().size()
 		var sign_card: Dictionary = sign.interact(hand)
+		var sign_audio := AudioPolicy.event_history()
 		var sign_area := sign.get_node_or_null("ShopSignInspection") as Area3D
 		var expected_shapes := 2 if not sign.blade_text.is_empty() else 1
 		if sign_area != null \
@@ -195,8 +197,12 @@ func _ready() -> void:
 				and sign_card.get("source_ids", []) == ["R028"] \
 				and str(sign_card.get("condition", "")).contains(sign.shop_name):
 			complete_signs += 1
-		if sign._sign_tap.playing and sign._glint_tween.is_running():
+		if sign_audio.size() == audio_before + 1 \
+				and str(sign_audio[-1].cue_id) == "interaction.inspection_read" \
+				and str(sign_audio[-1].get("source_id", "")) == str(sign.name) \
+				and sign._glint_tween.is_running():
 			reactive_signs += 1
+		AudioPolicy.stop_source(StringName(sign.name), &"interaction.inspection_read")
 		var condition := str(sign_card.get("condition", ""))
 		if sign.trade == "hardware" and condition.contains(
 				"LIGHT LIT / HOURS NIGHT SERVICE"):

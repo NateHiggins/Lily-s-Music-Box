@@ -30,6 +30,8 @@ masking claims still remain hypotheses until measured in a production walk.
 - Object inspection now has a deliberately low-priority acknowledgement cue.
   The bodega fascia is the first migrated owner: reading its sourced card no
   longer requires a private player, and its cue cannot outrank mechanism state.
+  All eleven projecting shop signs now use the same learned acknowledgement
+  while retaining their individual glint and sourced condition card.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.

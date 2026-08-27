@@ -40,7 +40,6 @@ var compact := false
 var _hours_director: PassageHoursDirector
 var _lettering: Array[Label3D] = []
 var _lettering_colours: Array[Color] = []
-var _sign_tap: AudioStreamPlayer3D
 var _glint_tween: Tween
 
 const BAND_Z := 0.03          # proud of the board, or it z-fights it
@@ -116,7 +115,6 @@ func _build_visual() -> void:
 			blade.rotation_degrees = Vector3(0, side * 90.0, 0)
 			add_child(blade)
 			_register_lettering(blade)
-	_sign_tap = make_emitter("tick", -22.0)
 
 
 ## Label3D has no MeshInstance bounds, while the imported fascia board is
@@ -165,9 +163,8 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> Dictionary:
-	if _sign_tap:
-		_sign_tap.pitch_scale = 1.08
-		_sign_tap.play()
+	AudioPolicy.present_3d(&"interaction.inspection_read", global_position, 1.0,
+			StringName(name))
 	_glint()
 	return service_wire_card()
 
