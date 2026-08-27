@@ -101,9 +101,9 @@ These are islands of good ownership, not yet one mix architecture.
 
 ## Static findings
 
-The current scripts contain 53 direct `AudioStreamPlayer`/
-`AudioStreamPlayer3D` constructions plus 80 literal calls through
-`make_emitter()`. All 53 direct constructions now declare a bus in the same
+The current scripts contain 50 direct `AudioStreamPlayer`/
+`AudioStreamPlayer3D` constructions plus 76 literal calls through
+`make_emitter()`. All 50 direct constructions now declare a bus in the same
 function. The helper also routes its remaining legacy emitters and marks them
 for runtime census. This replaces the original finding that most fell through
 to `Master`.
@@ -117,7 +117,7 @@ Literal `make_emitter()` reuse is concentrated heavily in a tiny vocabulary:
 
 | Asset key | Literal uses | Collision risk |
 | --- | ---: | --- |
-| `tick` | 29 | clocks, switches, paper, darts, controls and inspections teach one sound as many verbs |
+| `tick` | 25 | clocks, switches, paper, darts and controls still teach one sound as many verbs |
 | `knock` | 14 | pipes, refusals, keys, registers and service mechanisms compete with the hero radiator clue |
 | `hum_loop` | 9 | unrelated motors, draft, appliances and terminals lose source identity |
 | `pop` | 7 | releases, paper and mechanical confirmations share one transient |

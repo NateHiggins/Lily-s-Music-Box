@@ -36,7 +36,7 @@ PURPOSE_BUSES = {
 # mechanisms the same sound.  Migration may lower these numbers; new work may
 # not raise them while pretending pitch variation creates a new vocabulary.
 LEGACY_HELPER_BUDGETS = {
-    "tick": 29,
+    "tick": 25,
     "knock": 14,
     "hum_loop": 9,
     "pop": 7,
