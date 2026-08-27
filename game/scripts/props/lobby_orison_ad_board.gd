@@ -9,7 +9,6 @@ var _loose_corner: MeshInstance3D
 var _chain: MeshInstance3D
 var _inspection_boss: MeshInstance3D
 var _inspection_boss_rest_z := 0.0
-var _inspection_tap: AudioStreamPlayer3D
 var _inspection_tween: Tween
 var _elapsed := 0.0
 
@@ -115,12 +114,6 @@ func _build_inspection_owner() -> void:
 	shape_node.shape = shape
 	area.add_child(shape_node)
 	add_child(area)
-	_inspection_tap = AudioStreamPlayer3D.new()
-	_inspection_tap.bus = "Interaction"
-	_inspection_tap.stream = PropAudio.get_stream("tick")
-	_inspection_tap.volume_db = -18.0
-	_inspection_tap.max_distance = 3.5
-	add_child(_inspection_tap)
 
 
 func interact_prompt() -> String:
@@ -128,8 +121,8 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node = null) -> Dictionary:
-	_inspection_tap.pitch_scale = 0.84
-	_inspection_tap.play()
+	AudioPolicy.present_3d(&"interaction.inspection_read", global_position, 1.0,
+			StringName(name))
 	if _inspection_tween and _inspection_tween.is_valid():
 		_inspection_tween.kill()
 	if _inspection_boss:

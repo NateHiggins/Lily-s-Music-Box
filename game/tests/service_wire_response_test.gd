@@ -241,6 +241,7 @@ func _ready() -> void:
 	_check("the bodega card reports its real cabinet dropout",
 			str(bodega_sign.service_wire_card().get(
 					"condition", "")).contains("CABINET DROPOUT"))
+	AudioPolicy.stop_source(&"TestBodegaSign", &"interaction.inspection_read")
 
 	var bar_sign := HarukiyaSignageProp.new()
 	add_child(bar_sign)
@@ -285,6 +286,7 @@ func _ready() -> void:
 			and str(entry_card.get("condition", "")).contains("THE ORISON")
 			and str(entry_card.get("condition", "")).contains(
 					"FOUR BRONZE SCREWS SEATED"))
+	AudioPolicy.stop_source(&"FrontDoorExteriorSign", &"interaction.inspection_read")
 
 	var marquee := EntranceMarqueeDress.new()
 	add_child(marquee)
@@ -303,6 +305,7 @@ func _ready() -> void:
 					"PRISMATIC GLASS TRAY")
 			and str(marquee_card.get("condition", "")).contains(
 					"TIE RODS SEATED"))
+	AudioPolicy.stop_source(&"EntranceMarqueeDress", &"interaction.inspection_read")
 
 	var washer := WasherProp.new()
 	washer.name = "TestWasher"
@@ -594,11 +597,17 @@ func _ready() -> void:
 					"SIX PINNED / TWO OVERFLOW"))
 
 	var sales_board := LobbyOrisonAdBoard.new()
+	sales_board.name = "TestSalesBoard"
 	add_child(sales_board)
+	AudioPolicy.clear_diagnostics()
 	var sales_card: Dictionary = sales_board.interact(hand)
+	var sales_audio := AudioPolicy.event_history()
 	_check("original sales broadside answers at its real frame",
 			sales_board.get_node_or_null("SalesBoardInspection") is Area3D
-			and sales_board._inspection_tap.playing
+			and sales_audio.size() == 1
+			and str(sales_audio[0].cue_id) == "interaction.inspection_read"
+			and str(sales_audio[0].get("source_id", ""))
+			== "OrisonOriginalSalesBoard"
 			and sales_board._inspection_tween.is_running()
 			and sales_card.get("card_id", "") == "notice_board"
 			and str(sales_card.get("condition", "")).contains(

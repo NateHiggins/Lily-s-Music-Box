@@ -36,6 +36,8 @@ masking claims still remain hypotheses until measured in a production walk.
   direct player; its 1928 inscription remains the thing being acknowledged.
   The marquee bracket follows it: the prismatic tray keeps its own physical
   card and standing look-point, while inspection spends no permanent player.
+  The original lobby sales broadside now follows the same rule. Its frame boss
+  still moves under the hand; only the redundant resident audio node is gone.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.
