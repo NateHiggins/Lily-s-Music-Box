@@ -58,6 +58,29 @@ func _ready() -> void:
 	_check(PlayerController.format_interaction_prompt(
 			"   ", &"controller").is_empty(),
 			"an empty authored prompt stays hidden")
+	var routing := PlayerController.new()
+	var pad_event := InputEventJoypadButton.new()
+	pad_event.button_index = JOY_BUTTON_A
+	pad_event.pressed = true
+	routing._input(pad_event)
+	_check(routing._current_prompt_family() == &"controller",
+			"a real pad press changes the prompt carrier family")
+	var key_event := InputEventKey.new()
+	key_event.keycode = KEY_E
+	key_event.pressed = true
+	routing._input(key_event)
+	_check(routing._current_prompt_family() == &"keyboard",
+			"a later physical key press restores the keyboard carrier")
+	var quiet_axis := InputEventJoypadMotion.new()
+	quiet_axis.axis = JOY_AXIS_LEFT_X
+	quiet_axis.axis_value = 0.1
+	routing._input(quiet_axis)
+	_check(routing._current_prompt_family() == &"keyboard",
+			"stick drift below the dead zone does not steal the prompt carrier")
+	routing.touch_input = true
+	_check(routing._current_prompt_family() == &"touch",
+			"the live touch HUD remains authoritative over synthetic actions")
+	routing.free()
 	print("CONTROLLER INPUT TEST: %s" % (
 			"PASS" if failures == 0 else "FAIL (%d)" % failures))
 	get_tree().quit(failures)
