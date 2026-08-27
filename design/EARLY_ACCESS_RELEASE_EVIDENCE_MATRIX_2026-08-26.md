@@ -138,7 +138,7 @@ hardware).
 | G14 | Title and in-game focus | **CODE GREEN / MANUAL OPEN** | Early Access |
 | G15 | Save, persistence, abort restore | **PARTIAL** | internal |
 | G16 | Boot and capture budget | **PROVED** | does not block |
-| G17 | 1440p route performance | **PARTIAL — 3 stations over** | public demo |
+| G17 | 1440p route performance | **PARTIAL — measured fix ready to integrate** | public demo |
 | G18 | No debug affordance in build or media | **CODE GREEN / MANUAL OPEN** | public demo |
 | G19 | Capture protocol conformance | **PROVED** | does not block |
 | G20 | System requirements, two machines | **ABSENT** | Early Access |
@@ -358,12 +358,18 @@ margin (`art/renders/first_minute_k2f/`, `.../k2g/` receipts).
 ### G17 — 1440p route performance
 **Owner:** `game/tests/perf_probe.gd`, `PERF_STATION`, one process per camera.
 **Recorded (corrected harness, `AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md`):**
-lobby **18.06 ms**, atrium F03 landing **23.70 ms**, carriageway **16.67 ms** —
-all **playable** stations **over** the 16.6 ms budget. Corridor F04 12.96,
-apartment 4B 10.61, roof 6.45 **pass**.
+at production 64/16, lobby **18.06 ms**, atrium F03 landing **23.70 ms** and
+carriageway **16.67 ms** are the three playable stations over the 16.6 ms
+budget. The completed thirteen-station 64/5 candidate sweep clears **every
+playable station**: lobby 14.01, landing 15.25, carriageway 16.40; the other
+eight playable views range from 7.18 to 12.42 ms wall average.
 **Not evidence:** the superseded detached-camera table, and the composition
-cameras (atrium 33.33, street 27.08) which must never be quoted as gameplay.
-**Manual:** re-run after any fix; **plus** a second machine (G20).
+cameras (64/5 atrium 22.93, street 26.28) which remain over but must never be
+quoted as gameplay.
+**Integration gate:** production still requests 64/16 in a dirty shared file.
+Land the measured one-number 64/5 policy without absorbing that owner's edit,
+then re-run all thirteen stations and frozen visual pairs. **Manual:** a second
+machine remains required by G20.
 **Consequence:** blocks public demo.
 **Forbidden while open:** any fps or "runs great" claim.
 

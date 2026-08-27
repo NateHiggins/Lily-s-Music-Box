@@ -140,7 +140,10 @@ Carriageway, like corridor F04 in the superseded sweep, misses the strict gate
 by 0.07 ms and is treated as a boundary measurement rather than as equivalent
 to the clear long-view hotspots. Correct feet-based streaming moves corridor
 F04 from 16.67 to a clear 12.96 ms pass and lobby from 23.81 to 18.06 ms. The
-remaining three corrected stations are owed.
+three final-map stations now complete the census: Passage throat reveal
+**8.29 ms**, hall southbound **9.20 ms**, and hall northbound **10.81 ms** wall
+averages. All pass, so the corrected instrument has current evidence for all
+thirteen stations.
 
 The corrected landing census explains the shape: roughly 1,314 visible calls
 and 19,299 shadow calls. The frame is dominated by repeated caster submission,
@@ -154,9 +157,31 @@ ranked fixtures cast. Fresh-process landing results: 64/16 = 23.70 ms; 64/8 =
 The 64/5 result repeated at 15.28 ms. Its frozen same-camera visual pair prices
 at 0.01761 RMSE on the architecture crop against a 0.01098 temporal floor
 (1.60x); inspection finds no lost railing, landing, relief or practical-light
-legibility. That clears the playable atrium candidate, but not a global cap:
-representative interiors and the exterior still require paired review before
-production lighting changes.
+legibility. That clears the playable atrium candidate. A fresh-process 64/5
+cross-section then measured every other station rather than extrapolating:
+
+| station | class | 64/5 wall ms | status |
+|---|---|---:|---|
+| lobby | playable | 14.01 | PASS |
+| atrium eye (7 storeys) | composition | 22.93 | OVER |
+| atrium F03 landing | playable | 15.25 | PASS |
+| corridor F04 | playable | 11.24 | PASS |
+| apartment 4B | playable | 10.17 | PASS |
+| street elevation | composition | 26.28 | OVER |
+| carriageway north pavement | playable | 16.40 | PASS |
+| roof | playable | 12.42 | PASS |
+| Harukiya (16 fixtures) | playable | 8.36 | PASS |
+| arcade cluster (5 live) | playable | 9.50 | PASS |
+| Passage throat reveal | playable | 7.18 | PASS |
+| Passage hall southbound | playable | 9.52 | PASS |
+| Passage hall northbound | playable | 8.66 | PASS |
+
+Every playable station clears the strict 16.6 ms gate at 64/5. The detached
+atrium-eye and street-elevation composition cameras remain over; shadow
+rationing is not their fix. The candidate is not yet production:
+`BuildingRoot` still requests 64/16, and that shared file currently carries an
+unrelated uncommitted owner edit. Integrate the one-number policy only after
+that edit lands, then rerun all thirteen stations and frozen visual pairs.
 
 Both FULL shards now print final verdicts below the wall-clock ceiling.
 GoldenLoop prices its complete route at 53.7 s. Performance evidence is being
@@ -165,7 +190,8 @@ is interleaved with Claude's K2 proof runs without contention.
 
 ## Next executable order
 
-1. Finish the remaining three corrected performance stations, then measure the
-   shadow-budget policy against the playable atrium landing with a visual A/B.
+1. Integrate the measured 64/5 production shadow policy after the shared
+   `BuildingRoot` edit lands; rerun all thirteen stations and representative
+   frozen visual pairs. Do not call the two composition cameras fixed.
 2. Continue K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.
