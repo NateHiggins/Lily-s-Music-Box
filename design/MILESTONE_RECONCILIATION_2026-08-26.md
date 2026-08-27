@@ -26,7 +26,7 @@ through the gate.
 
 | Milestone | Status | Evidence already in production | Gate still owed |
 |---|---|---|---|
-| M0 — current truth | **Baseline captured; FULL remains red** | `AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and lighting green, FAST at its two known failures, and GoldenLoop 87/87 in 53.7 s with permanent phase timings. FULL timed out after a roof-route failure. | Isolate monitor-door roof reach, then rerun FULL and the eight performance stations. |
+| M0 — current truth | **Complete** | `AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` now records all eleven playable performance stations under the 16.6 ms gate at the production 64/5 light policy. FAST, FULL-PHYSICAL and FULL-CASES all print PASS beneath the 60-second ceiling; GoldenLoop remains 87/87. | No construction gate. Recheck the boundary-sensitive carriageway on the second target machine without reopening the two detached composition cameras. |
 | M0.5 — map substrate | **Accepted with measured blocker** | `FINAL_MAP_REDESIGN_BRIEF.md` closes the three-zone substrate and records its performance constraint. | Reconfirm the accepted constraint in the refreshed M0 record; do not reopen the map by default. |
 | M1 — loop spine | **Structurally complete** | `game/docs/core_loop.md`; `WorkOrders`; job data; inventory/shop service; `CoreLoopDirector`; persistence and boundary harnesses. | No separate construction tranche. Defects found by the M2 playthrough return here only if they violate the shared contract. |
 | M2 — graybox golden shift | **Active gate** | Mina's authored job, first-shift arrival/clock-in/report flow, procurement/repair/conversation/dream/wake seams and continuous automated proof exist. | Prove all eleven beats from a fresh save without debug knowledge, including save/load after every beat. Record any missing player-facing transition as a bounded K task. |
@@ -41,15 +41,12 @@ through the gate.
 
 ### Now — reconcile reality and walk the product
 
-1. **K1: current-tree baseline.** On a fresh checkout at the pushed checkpoint,
-   record import, focused gameplay suites, FULL WalkTest, lighting/performance
-   stations, warning/parse counts and every known baseline failure.
-2. **K2: fresh-save golden-shift playthrough.** Walk the player path from curb
+1. **K2: fresh-save golden-shift playthrough.** Walk the player path from curb
    through arrival, clock-in, first paper, diagnosis, Passage procurement,
    repair, Mina return, recurrence, sleep onset, dark scramble and 4B wake.
-3. **K3: boundary save matrix.** Save/load at each of those eleven boundaries;
+2. **K3: boundary save matrix.** Save/load at each of those eleven boundaries;
    distinguish a missing transition from unclear presentation.
-4. Convert only observed failures into small task lines with an owner, milestone
+3. Convert only observed failures into small task lines with an owner, milestone
    and acceptance test. Do not pre-author a replacement backlog from source
    speculation.
 

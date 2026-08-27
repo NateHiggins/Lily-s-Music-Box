@@ -1349,7 +1349,9 @@ func _door_checks() -> void:
 		# been re-aimed for a full frame before the label means anything.
 		for _i in 3:
 			await get_tree().process_frame
-		_check(pl3._prompt.text.contains("[E]"),
+		# Touch mode deliberately changes only the carrier. This physical reach
+		# proof cares that the door owns the crosshair, not which device spoke.
+		_check(pl3._prompt.text.contains("Open door"),
 				"the door is under the crosshair (prompt: '%s')"
 				% pl3._prompt.text)
 		pl3.touch_input = false

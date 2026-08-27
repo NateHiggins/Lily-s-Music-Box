@@ -1,5 +1,14 @@
 # Current-tree baseline — 2026-08-26
 
+> **K1 CLOSURE — 2026-08-27:** the two inherited failures recorded below are
+> closed. `40a1ec7` reduced the boiler from 23 to 19 meshes without merging a
+> tended assembly; `56f0921` replaced the obsolete one-job assertion with the
+> closed two-job roster already sanctioned by SR4. A device-neutral prompt
+> assertion then removed the last FULL-only test leak. Fresh serialized runs
+> at x4/240 now report `PASS [FAST]`, `PASS [FULL-PHYSICAL]` and
+> `PASS [FULL-CASES]`, each beneath the 60-second process ceiling. The original
+> matrix remains below as evidence of what the 2026-08-26 checkpoint measured.
+
 Checkpoint under test: pushed `f7db405` plus the K1 release-gate corrections
 committed with this report. Platform: Windows,
 Godot 4.7.1 Forward+, one serialized instance through
