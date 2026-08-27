@@ -28,7 +28,12 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(
     "..", "..", ".."))
 DATA = os.path.join(ROOT, "art", "data")
 GLB_OUT = os.path.join(ROOT, "game", "assets", "building")
-BLEND_OUT = os.path.join(ROOT, "art", "blender", "orison_master.blend")
+# Isolated rebuilds must be able to prove generated geometry without replacing
+# the shared authoring file. Ordinary production keeps the canonical default;
+# an explicit absolute ORISON_BLEND_OUT redirects only the .blend artifact.
+BLEND_OUT = os.path.abspath(os.environ.get(
+    "ORISON_BLEND_OUT",
+    os.path.join(ROOT, "art", "blender", "orison_master.blend")))
 
 
 def load(name):
