@@ -487,7 +487,10 @@ level and portability answer different questions.
 
 - Backfill the save/reload transaction model and eleven-boundary K3 findings.
 - Map the generator/runtime interfaces and their current dependency graph.
-- Inventory external tools, formats, licenses and reproducibility risks.
+- Extend the bounded notice-generator census in
+  `design/ENGINE_NOTICE_GENERATOR_SCOPE_2026-08-27.md` only when an actual
+  toolkit payload exists; current external dependencies are recorded, but no
+  toolkit bill of materials exists.
 - Record the weather/celestial service architecture, opt-out/default-location
   policy and offline behavior.
 - Separate reusable proof tooling from test scenes that encode Orison content.

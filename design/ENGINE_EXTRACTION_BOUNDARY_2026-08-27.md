@@ -286,12 +286,23 @@ advice.**
 1. **Godot / MIT notices.** Which notices must ship with a distributed artifact,
    and does that differ between a game and a tool? `tools/build_third_party_notices.ps1`
    exists and generates notices for friends packages — **what it covers has not
-   been checked against a toolkit distribution.**
+   been checked against a toolkit distribution.** **FACT-FINDING COMPLETE
+   2026-08-27:** `ENGINE_NOTICE_GENERATOR_SCOPE_2026-08-27.md` proves the
+   current generator emits a static Godot notice/official link but neither
+   inspects the engine nor inventories a toolkit payload. Toolkit coverage
+   remains UNKNOWN.
 2. **Bundled third-party code.** Is any non-Orison code vendored in `tools/` or
    `game/`? The friends-build licence audit covered the game; **a toolkit is a
-   different bill of materials.**
+   different bill of materials.** **FACT-FINDING COMPLETE 2026-08-27:** no
+   conventionally marked vendored code, addon, GDExtension or binary library
+   was detected under those roots; external tool dependencies are not bundled
+   there and are not scanned by the generator. This bounded negative is not a
+   future toolkit bill of materials.
 3. **Fonts and editor/tool licences.** Fonts shipped in a game and fonts shipped
-   in a tool that others redistribute are different questions.
+   in a tool that others redistribute are different questions. **FACT-FINDING
+   COMPLETE 2026-08-27:** the two tracked Courier Prime binaries are the only
+   tracked fonts and their OFL source is embedded verbatim. Discovery is
+   hardcoded; any future font or editor/tool dependency would be invisible.
 4. **Generated media provenance.** The owner's ruling that the music was made
    with Gemini is recorded in the provenance register. **It is recorded, not
    interpreted, and it must not be turned into a licence position here.**
@@ -318,7 +329,7 @@ advice.**
 | 1 | **Complete 2026-08-27:** qualify existing "engine"/"portable" language in the ledger to §G levels | **No** | EA-safe | Ledger audit marks §§1–8 L2 and §§9–10 L3; none is L4/L5 |
 | 2 | **Complete 2026-08-27:** add a ledger entry per §B census row at its true level | **No** | EA-safe | Ledger §11 maps all 19 rows: one L1, fourteen L2, four L3, zero L4/L5 |
 | 3 | **Complete 2026-08-27:** write down the interaction contract that does not exist — **as a document, not code** | **No** | EA-safe | `INTERACTION_CONVENTION_RECORD_2026-08-27.md`; records a convention and explicit non-contracts, with no runtime refactor |
-| 4 | Answer §H 1–3 against the existing notice generator | **No** | EA-safe | Fact-finding only |
+| 4 | **Complete 2026-08-27:** answer §H 1–3 against the existing notice generator | **No** | EA-safe | `ENGINE_NOTICE_GENERATOR_SCOPE_2026-08-27.md`; game path bounded, toolkit coverage remains UNKNOWN |
 | 5 | Build the reference project (§D) | **Yes** | **Post first friends build** | Phase 2 entry |
 | 6 | Produce its dependency list and rewrite-cost list | Yes | Post-EA | Evidence 6 |
 | 7 | Replace §B's `S/M/L` guesses with measured costs | Yes | Post-EA | |
