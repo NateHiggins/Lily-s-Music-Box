@@ -158,7 +158,6 @@ var _hand: MeshInstance3D
 var _night_marks: Array[MeshInstance3D] = []
 var _proof_a: MeshInstance3D
 var _proof_b: MeshInstance3D
-var _tick: AudioStreamPlayer3D
 var _beat: AudioStreamPlayer3D
 var _beat_left := 0.0
 var _shift_mark: MeshInstance3D
@@ -391,7 +390,6 @@ func _build_visual() -> void:
 	make_cyl(0.017, 0.017, 0.010, Vector3(0.0, 0.314, PUNCH_REST_Z + 0.026),
 			Color(0.52, 0.40, 0.18), 0.36, 0.70).rotation.x = PI * 0.5
 
-	_tick = make_emitter("tick", -22.0)
 	_beat = make_emitter("tick", BEAT_DB)
 	_beat.unit_size = BEAT_UNIT_SIZE
 	_beat_left = BEAT_SECONDS
@@ -544,8 +542,9 @@ func preview_maintenance_step(step: Dictionary, value: float) -> void:
 		"stop_the_movement":
 			var was := movement_running
 			movement_running = worked >= 0.5
-			if movement_running != was and _tick != null:
-				_tick.play()
+			if movement_running != was:
+				_present_mechanism(&"state.watch_clock_started"
+						if movement_running else &"state.watch_clock_stopped")
 		"seat_the_dial":
 			if movement_running:
 				# You cannot seat a dial against a turning spindle, and trying

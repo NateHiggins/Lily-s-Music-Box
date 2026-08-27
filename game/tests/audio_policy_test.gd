@@ -11,7 +11,7 @@ func _ready() -> void:
 	var master_before := AudioServer.get_bus_volume_db(
 			AudioServer.get_bus_index("Master"))
 	_check("catalog and bus tree build", policy.setup())
-	_check("catalog owns twenty-three semantic cues", int(policy.census().catalog_size) == 23)
+	_check("catalog owns twenty-five semantic cues", int(policy.census().catalog_size) == 25)
 	_check("voice allocation is bounded at sixteen",
 			int(policy.census().voices) == PolicyScript.VOICE_CAP
 			and policy.find_children("*", "AudioStreamPlayer3D", true, false).size()
@@ -60,6 +60,12 @@ func _ready() -> void:
 			str(policy.cue(&"navigation.watch_clock_beat").bus) == "Navigation"
 			and str(policy.cue(&"navigation.watch_clock_beat").stream_key) == "tick"
 			and float(policy.cue(&"navigation.watch_clock_beat").unit_size) == 6.0)
+	_check("the watch movement reports opposite state transitions",
+			str(policy.cue(&"state.watch_clock_started").bus) == "State"
+			and float(policy.cue(&"state.watch_clock_started").pitch_scale) > 1.0
+			and float(policy.cue(&"state.watch_clock_stopped").pitch_scale) < 1.0
+			and str(policy.cue(&"state.watch_clock_started").caption)
+			!= str(policy.cue(&"state.watch_clock_stopped").caption))
 	var listener := Node3D.new()
 	add_child(listener)
 	_check("caption sectors disclose direction but no distance or room",
@@ -132,7 +138,7 @@ func _ready() -> void:
 	policy.clear_diagnostics()
 	_check("diagnostic reset changes no catalog or mix truth",
 			int(policy.census().history) == 0
-			and int(policy.census().catalog_size) == 23
+			and int(policy.census().catalog_size) == 25
 			and int(policy.census().mix_requests) == 0)
 	_finish(policy)
 

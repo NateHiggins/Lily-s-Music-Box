@@ -216,10 +216,16 @@ func _dial() -> void:
 			and str(refusal_audio[0].source_id) == "TestDetector")
 
 	# REFUSAL 2: a loose dial has no datum to set.
+	AudioPolicy.clear_diagnostics()
 	det.restore_maintenance_snapshot(before)
 	det.preview_maintenance_step({"id": "stop_the_movement"}, 0.0)
 	_check("throwing the stop lever stills the movement",
 			not det.movement_running)
+	var stopped_audio := AudioPolicy.event_history()
+	_check("the stop lever reports stopped rather than a generic click",
+			stopped_audio.size() == 1
+			and str(stopped_audio[0].cue_id) == "state.watch_clock_stopped"
+			and str(stopped_audio[0].source_id) == "TestDetector")
 	det.preview_maintenance_step({"id": "set_the_datum"}, 0.71)
 	_check("REFUSAL: a dial that is not seated has no datum",
 			not det.datum_set and det.balking())
@@ -266,10 +272,11 @@ func _dial() -> void:
 			and not is_equal_approx(det.proof_first, det.proof_second))
 	_check("and only then is the record honest", det.record_is_honest())
 	var accept_audio := AudioPolicy.event_history()
-	_check("the proof punch answers differently from a balk",
-			accept_audio.size() == 1
-			and str(accept_audio[0].cue_id) == "interaction.metal_accept"
-			and str(accept_audio[0].source_id) == "TestDetector")
+	_check("the stop and proof punch report their different meanings in order",
+			accept_audio.size() == 2
+			and str(accept_audio[0].cue_id) == "state.watch_clock_stopped"
+			and str(accept_audio[1].cue_id) == "interaction.metal_accept"
+			and str(accept_audio[1].source_id) == "TestDetector")
 
 	# PREVIEW PUBLISHES NOTHING.
 	_check("working the visible detector publishes nothing before the commit",

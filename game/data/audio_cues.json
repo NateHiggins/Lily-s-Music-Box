@@ -162,6 +162,34 @@
       "caption": "clockwork ticking",
       "graph_transmitted": false
     },
+    "state.watch_clock_started": {
+      "stream_key": "tick",
+      "purpose": "state",
+      "bus": "State",
+      "priority": 50,
+      "volume_db": -17.0,
+      "pitch_scale": 1.10,
+      "unit_size": 1.1,
+      "max_distance": 7.0,
+      "cooldown": 0.05,
+      "max_instances": 2,
+      "caption": "watch clock movement starts",
+      "graph_transmitted": false
+    },
+    "state.watch_clock_stopped": {
+      "stream_key": "tick",
+      "purpose": "state",
+      "bus": "State",
+      "priority": 52,
+      "volume_db": -16.0,
+      "pitch_scale": 0.82,
+      "unit_size": 1.1,
+      "max_distance": 7.0,
+      "cooldown": 0.05,
+      "max_instances": 2,
+      "caption": "watch clock movement stops",
+      "graph_transmitted": false
+    },
     "interaction.register_index": {
       "stream_key": "tick",
       "purpose": "interaction",
