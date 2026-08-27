@@ -63,8 +63,9 @@ func _ready() -> void:
 	var bank: MailBankProp = root.find_child("LobbyMailBank", true, false) \
 			as MailBankProp
 	var tray: Node3D = root.find_child("LobbyPostTray", true, false) as Node3D
-	_check(bank != null and tray != null,
-			"the measured bank and tray are both still present")
+	var board: Node3D = root.find_child("LobbyPorterBoard", true, false) as Node3D
+	_check(bank != null and tray != null and board != null,
+			"the measured bank, tray and porter board are all still present")
 	if bank != null:
 		_check(absf(bank.global_position.z - 7.88) < 0.01,
 				"the Couch bank still occupies its measured east-wall centre")
@@ -79,9 +80,16 @@ func _ready() -> void:
 		# not be inside it.
 		_check(chute.get_parent() != bank,
 				"the chute is a sibling of the bank, not inside its budget")
+		# The bank is authored facing local -Z, unlike the +Z-fronted chute
+		# and porter board beside it.
+		_check(bank.global_transform.basis.z.normalized().x > 0.9,
+				"the bank presents its labelled -Z working face to the lobby")
 	if tray != null:
 		_check(absf(tray.global_position.z - 7.40) < 0.01,
 				"the post tray still derives from the bank centre")
+	if board != null:
+		_check(board.global_transform.basis.z.normalized().x < -0.9,
+				"the porter board presents its controls to the lobby")
 
 	# --- reach and the authored activity ------------------------------------
 	_check(chute.get_node_or_null("ChuteReach") is PropControlArea

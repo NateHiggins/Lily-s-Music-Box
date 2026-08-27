@@ -274,6 +274,10 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		# now lives opposite, so the bank gets the wall it was always meant
 		# to have and can be walked up to square on instead of edged around.
 		bank.position = GameBoot.b2g([5.24, MAIL_BANK_Y, 0.0])
+		# MailBankProp is the exception on this run: its labelled doors and
+		# interaction face are authored toward local -Z. A positive half-turn
+		# therefore presents that face west into the lobby. Do not infer this
+		# orientation from the neighboring +Z-fronted service apparatus.
 		bank.rotation.y = PI * 0.5
 		floor_nodes["F01"].add_child(bank)
 		# The tray of unsorted post, on the ledge under the bank. The
@@ -310,7 +314,10 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		board.name = "LobbyPorterBoard"
 		board.prop_type = "otis"
 		board.position = GameBoot.b2g([5.20, -6.20, 1.42])
-		board.rotation.y = PI * 0.5
+		# OtisProp also presents its working face on local +Z. Match the chute,
+		# dumbwaiter and watch instruments instead of burying the face in the
+		# partition and showing a blank back to the player's route.
+		board.rotation.y = -PI * 0.5
 		floor_nodes["F01"].add_child(board)
 		# SR7-A: the service dumbwaiter, further up the same wall toward the
 		# lift, where a back-of-house hatch belongs. It is on the porter's
@@ -328,11 +335,9 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		# NEGATIVE half-turn. Props on this run are authored with their working
 		# face on local +Z, and a rotation of +PI/2 sends +Z to world +X --
 		# straight into the partition at x 5.33. The corridor is on the WEST
-		# side, so the face has to swing the other way. (The porter's board and
-		# the mail bank above still use +PI/2 and therefore present their backs
-		# to the corridor; that is a landed SR2/mail-pass issue, visible in
-		# art/renders/dumbwaiter_brake_sr7a/06_wall_run.png, and is reported
-		# rather than changed here.)
+		# side, so the face has to swing the other way. Every neighboring
+		# apparatus now presents its working face west, although the mail bank's
+		# model uses the opposite local-front convention.
 		dumbwaiter.rotation.y = -PI * 0.5
 		floor_nodes["F01"].add_child(dumbwaiter)
 		# SR7-B: the landing-door interlock, in the reveal of the F01 elevator

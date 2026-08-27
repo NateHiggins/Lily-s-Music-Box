@@ -1,0 +1,51 @@
+{
+	"actual_frames": 5,
+	"budget_seconds": 54.0,
+	"captures": [
+		{
+			"elapsed_seconds": 31.773,
+			"file": "00_exterior_to_threshold.png",
+			"height": 720,
+			"label": "00_exterior_to_threshold",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 32.123,
+			"file": "01_threshold_to_lobby.png",
+			"height": 720,
+			"label": "01_threshold_to_lobby",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 32.385,
+			"file": "02_mail_corner_working_face.png",
+			"height": 720,
+			"label": "02_mail_corner_working_face",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 32.655,
+			"file": "03_service_wall_working_faces.png",
+			"height": 720,
+			"label": "03_service_wall_working_faces",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 32.944,
+			"file": "04_first_service_spine_turn.png",
+			"height": 720,
+			"label": "04_first_service_spine_turn",
+			"provenance": "rendered",
+			"width": 1280
+		}
+	],
+	"elapsed_seconds": 32.946,
+	"expected_frames": 5,
+	"schema_version": 1,
+	"status": "PASS",
+	"tag": "ORISON-RR-F01-ARRIVAL"
+}
