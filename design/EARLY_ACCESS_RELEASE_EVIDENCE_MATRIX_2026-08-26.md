@@ -1,5 +1,11 @@
 # Early Access release evidence matrix — 2026-08-26
 
+> **G05 SCOPE CORRECTION — 2026-08-27:** the former manual criterion asked one
+> player to trigger both gradual and sudden onset even though the only enabled
+> case is gradual-only. G05 is now split below. Current gradual mechanics and
+> depiction remain open for their respective human evidence; sudden onset is a
+> deferred shipping blocker that cannot be signed off until it is playable.
+
 > **G23 MECHANICAL PACKAGE PROOF — 2026-08-27:** an isolated detached checkout
 > cold-imported under the 60-second serial ceiling in three restart-safe passes,
 > sealing 190 generated script/shader UID sidecars. Windows export then passed
@@ -120,7 +126,7 @@ hardware).
 | G02 | Sound-led Vantry fault reachable | **CODE GREEN / MANUAL OPEN** | public demo |
 | G03 | Maintenance hero mechanism | **PARTIAL** | Early Access |
 | G04 | Calls and dismissal | **PARTIAL** | public demo |
-| G05 | Sleep onset and warning | **CODE GREEN / MANUAL OPEN** | Early Access |
+| G05 | Sleep onset and warning | **PARTIAL — GRADUAL OPEN / SUDDEN DEFERRED** | Early Access; any future sudden-onset build |
 | G06 | One pocket, one pursuer, one truth | **PARTIAL** | Early Access |
 | G07 | Controller-only waking route | **CODE GREEN / MANUAL OPEN** | Early Access |
 | G08 | Controller-only dream | **CODE GREEN / MANUAL OPEN** | Early Access |
@@ -215,14 +221,36 @@ mid-call (`pause_services.gd:32–35`).
 **Consequence:** blocks public demo.
 
 ### G05 — Sleep onset and warning accessibility
-**Promise:** *Execution plan M5.6* gradual-only onset.
+**Current reachable promise:** *Execution plan M5.6* gradual-only onset.
 **Owner:** `dream/sleep_pressure_director.gd`; setting
 `always_warn_before_sleep`.
 **Automated:** `SleepPressureTest` exists — **UNRUN/UNKNOWN**.
 `PauseServicesTest` asserts the in-game control exists (`d36e591`).
-**Manual:** trigger both gradual and sudden onset with the option on and off.
-**Consequence:** blocks Early Access.
-**Forbidden while open:** "gradual-only mode", "onset accessibility".
+
+**G05-a — reachable gradual mechanics, MANUAL OPEN:** in Mina's enabled case,
+trigger the gradual onset once with `always_warn_before_sleep` off and once on.
+Record build, setting, onset duration, warning sequence, input device and
+whether the player understood what was happening. This can prove the current
+setting changes the reachable presentation; it cannot prove sudden onset.
+
+**G05-b — reachable gradual depiction, BLOCKED ON PAID REVIEW BUDGET:** the
+current gradual sequence enters the lived-experience review lane defined by
+`NARCOLEPSY_LIVED_EXPERIENCE_REVIEW_OPERATIONS_2026-08-27.md` and
+`FIRST_HUMAN_PLAY_COHORT_OPERATIONS_2026-08-27.md`. Usability observations do
+not close depiction review.
+
+**G05-c — sudden onset, DEFERRED / NO PLAYABLE EVIDENCE:** five authored
+profiles specify 0.64–0.72-second onset, but their cases are disabled. No human
+can trigger them in the shipping slice. Enabling or shipping any sudden profile
+is blocked until that exact implementation receives its own mechanical,
+accessibility and paid lived-experience review. Reviewing prose or a plan must
+be labelled as such and does not close this gate.
+
+**Consequence:** G05-a and G05-b block the current Early Access slice. G05-c
+blocks sudden onset from entering any build; it does not require pretending the
+current gradual-only route contains unreachable material.
+**Forbidden while open:** "onset accessibility proved", "both onset forms
+tested", or any sudden-onset claim.
 
 ### G06 — One pocket, one pursuer, one truth
 **Owner:** dream boundary, pursuer, hazard field, `DreamIncarnationProfile`.

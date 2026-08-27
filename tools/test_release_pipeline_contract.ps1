@@ -69,6 +69,14 @@ $readme = Get-Content -LiteralPath (Join-Path $repoRoot `
 foreach ($token in @("{{BUILD_NUMBER}}", "{{SHORT_SHA}}", "{{VERSION}}")) {
     Assert-Contract ($readme.Contains($token)) "tester readme carries $token"
 }
+foreach ($contentNote in @(
+    "CONTENT NOTE — READ BEFORE PLAY",
+    "gradual involuntary sleep",
+    "Sudden-onset profiles are not enabled"
+)) {
+    Assert-Contract ($readme.Contains($contentNote)) `
+        "tester readme discloses $contentNote"
+}
 
 $packageSource = Get-Content -LiteralPath (Join-Path $PSScriptRoot `
     "package_friends_build.ps1") -Raw

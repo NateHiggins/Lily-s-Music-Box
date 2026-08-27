@@ -18,6 +18,14 @@ the exact controller model and the last action that worked if you get stuck.
 Escape/Menu opens Building Services. B cancels. Controller look sensitivity,
 invert-Y, dead zone and response curve are available there and on the title.
 
+CONTENT NOTE — READ BEFORE PLAY
+This build depicts excessive daytime sleepiness, gradual involuntary sleep
+onset, sleep/wake hallucination, darkness, pursuit, and distorted familiar
+spaces. The diagnosis is not named by in-game text; project materials identify
+the depiction as narcolepsy. The current first route contains gradual onset
+only. Sudden-onset profiles are not enabled and have not received playable
+human review.
+
 MICROPHONE — READ BEFORE PLAY
 The optional Songbook recording activity can open your microphone and save a
 vocal recording locally. Nothing in production uploads that recording. Before
