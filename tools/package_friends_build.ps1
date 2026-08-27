@@ -50,7 +50,7 @@ if ($manifest.exe_sha256 -ne $sourceExeHash -or $manifest.pck_sha256 -ne $source
 }
 $shortSha = $commit.Substring(0, 8)
 $projectText = Get-Content -LiteralPath (Join-Path $repoRoot "game\project.godot") -Raw
-$versionMatch = [regex]::Match($projectText, '(?m)^config/version="([^"]+)"$')
+$versionMatch = [regex]::Match($projectText, '(?m)^config/version="([^"]+)"\r?$')
 if (-not $versionMatch.Success) {
     throw "application/config/version is absent from game/project.godot."
 }
