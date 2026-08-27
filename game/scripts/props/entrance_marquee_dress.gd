@@ -20,9 +20,6 @@ const PROJ := 1.80          # canopy projection, must match the assembly
 const GLASS_Z := 3.395      # top of the glazed deck
 const FASCIA_Y := 1.93      # bronze name panel, outboard of the front rail
 
-var _inspection_tap: AudioStreamPlayer3D
-
-
 func _ready() -> void:
 	name = "EntranceMarqueeDress"
 	_glaze_lamps()
@@ -30,15 +27,6 @@ func _ready() -> void:
 	_fascia_wash()
 	_nameplate()
 	_build_interaction()
-	_inspection_tap = AudioStreamPlayer3D.new()
-	_inspection_tap.bus = "Interaction"
-	_inspection_tap.name = "MarqueeBracketTap"
-	_inspection_tap.stream = PropAudio.get_stream("tick")
-	_inspection_tap.volume_db = -19.0
-	_inspection_tap.pitch_scale = 0.72
-	_inspection_tap.unit_size = 3.2
-	_inspection_tap.max_distance = 20.0
-	add_child(_inspection_tap)
 
 
 ## The imported canopy and this runtime light dress are one set hero.  A
@@ -69,8 +57,8 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> Dictionary:
-	if _inspection_tap:
-		_inspection_tap.play()
+	AudioPolicy.present_3d(&"interaction.inspection_read", global_position, 1.0,
+			StringName(name))
 	return service_wire_card()
 
 

@@ -288,11 +288,15 @@ func _ready() -> void:
 
 	var marquee := EntranceMarqueeDress.new()
 	add_child(marquee)
+	AudioPolicy.clear_diagnostics()
 	var marquee_card: Dictionary = marquee.interact(hand)
+	var marquee_audio := AudioPolicy.event_history()
 	var marquee_area := marquee.get_node_or_null("MarqueeInspection") as Area3D
 	_check("the complete entrance marquee owns one sourced look-point",
 			marquee_area != null and marquee_area.get_child_count() == 1
-			and marquee._inspection_tap.playing
+			and marquee_audio.size() == 1
+			and str(marquee_audio[0].cue_id) == "interaction.inspection_read"
+			and str(marquee_audio[0].source_id) == "EntranceMarqueeDress"
 			and marquee_card.get("card_id", "") == "marquee"
 			and marquee_card.get("source_ids", []) == ["R028"]
 			and str(marquee_card.get("condition", "")).contains(

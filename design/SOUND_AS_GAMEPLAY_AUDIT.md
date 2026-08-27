@@ -34,6 +34,8 @@ masking claims still remain hypotheses until measured in a production walk.
   while retaining their individual glint and sourced condition card.
   The exterior Orison identity plaque joins that grammar and sheds one bespoke
   direct player; its 1928 inscription remains the thing being acknowledged.
+  The marquee bracket follows it: the prismatic tray keeps its own physical
+  card and standing look-point, while inspection spends no permanent player.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.
