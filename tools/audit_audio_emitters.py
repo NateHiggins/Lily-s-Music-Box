@@ -20,6 +20,18 @@ BUS = re.compile(r'\.bus\s*=\s*"([^"]+)"')
 CUE = re.compile(
     r'(?:present_3d|observe_existing_3d)\(\s*&?"([^"]+)"'
 )
+REQUIRED_CUE_FIELDS = {
+    "stream_key", "purpose", "bus", "priority", "volume_db", "unit_size",
+    "max_distance", "cooldown", "max_instances", "caption", "graph_transmitted",
+}
+PURPOSE_BUSES = {
+    "hazard": {"Hazard"},
+    "interaction": {"Interaction"},
+    "navigation": {"Navigation"},
+    "state": {"State", "Machinery"},
+    "telephone": {"Telephone"},
+    "world": {"Architecture", "Weather"},
+}
 
 
 def audit(repo: Path) -> dict:
@@ -66,8 +78,27 @@ def audit(repo: Path) -> dict:
             })
     catalog_path = repo / "game" / "data" / "audio_cues.json"
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
-    catalog_ids = set(catalog.get("cues", {}))
+    catalog_cues = catalog.get("cues", {})
+    catalog_ids = set(catalog_cues)
     unknown_semantic = sorted(set(semantic) - catalog_ids)
+    catalog_failures = []
+    for cue_id, cue in catalog_cues.items():
+        missing = sorted(REQUIRED_CUE_FIELDS - set(cue))
+        if missing:
+            catalog_failures.append(f"{cue_id}: missing {', '.join(missing)}")
+            continue
+        purpose = str(cue["purpose"])
+        bus = str(cue["bus"])
+        if purpose not in PURPOSE_BUSES or bus not in PURPOSE_BUSES[purpose]:
+            catalog_failures.append(f"{cue_id}: purpose {purpose!r} cannot route to {bus!r}")
+        if not str(cue["stream_key"]).strip() or not str(cue["caption"]).strip():
+            catalog_failures.append(f"{cue_id}: stream_key and caption must be non-empty")
+        if not 0 <= int(cue["priority"]) <= 100:
+            catalog_failures.append(f"{cue_id}: priority is outside 0..100")
+        if float(cue["unit_size"]) <= 0.0 or float(cue["max_distance"]) <= 0.0:
+            catalog_failures.append(f"{cue_id}: distance profile must be positive")
+        if float(cue["cooldown"]) < 0.0 or not 1 <= int(cue["max_instances"]) <= 16:
+            catalog_failures.append(f"{cue_id}: cooldown or concurrency is invalid")
     return {
         "schema_version": 1,
         "files": rows,
@@ -83,9 +114,11 @@ def audit(repo: Path) -> dict:
             "semantic_cue_counts": dict(semantic.most_common()),
             "unclassified_direct_players": len(unclassified),
             "unknown_literal_semantic_cues": len(unknown_semantic),
+            "invalid_catalog_cues": len(catalog_failures),
         },
         "unclassified_direct_sites": unclassified,
         "unknown_literal_semantic_cues": unknown_semantic,
+        "catalog_failures": catalog_failures,
     }
 
 
@@ -104,6 +137,7 @@ def markdown(report: dict) -> str:
         f'{summary["unclassified_direct_players"]}',
         f'- Literal semantic cue ids absent from the catalogue: '
         f'{summary["unknown_literal_semantic_cues"]}',
+        f'- Catalogue contract failures: {summary["invalid_catalog_cues"]}',
         "",
         "## Reused helper keys",
         "",
@@ -146,6 +180,7 @@ def main() -> int:
         failures = (
             report["summary"]["unclassified_direct_players"]
             + report["summary"]["unknown_literal_semantic_cues"]
+            + report["summary"]["invalid_catalog_cues"]
         )
         if failures:
             print(f"AUDIO EMITTER AUDIT: FAIL ({failures})")

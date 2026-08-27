@@ -27,6 +27,8 @@ masking claims still remain hypotheses until measured in a production walk.
   `audit_audio_emitters.py --check` makes that a release-blocking static check;
   it also rejects literal semantic cue ids absent from the canonical catalogue
   and sees both allocated cues and observations of bespoke physical players.
+  Catalogue entries must carry the complete audibility/concurrency contract,
+  keep numeric bounds sane, and route each purpose only to its allowed buses.
 - the full production scene-tree census currently finds 771 players and zero
   Master fallbacks. The two processed extension buses rejoin the canonical
   tree as `Ambience -> World` and `GhostRadio -> Diegetic`.
