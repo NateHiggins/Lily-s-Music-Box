@@ -292,6 +292,10 @@ cue, instance-limit and priority-budget refusals in source order.
 
 ### AU-0 — Golden-shift listening baseline (launch blocker)
 
+**Status 2026-08-27: OPEN / HUMAN EVIDENCE.** Static routing and diagnostics
+are ready, but no uninterrupted fresh-save listening run or three-pass mute
+comparison has been admitted. Do not infer masking from the green policy tests.
+
 Record one uninterrupted fresh-save golden shift plus fixed listening stations.
 Log active voices, buses, peaks, integrated loudness, source distance, room,
 cue id and concurrency. Conduct three passes: normal mix, world muted, gameplay
@@ -302,6 +306,13 @@ position; no recommendation is based only on reading decibel literals.
 
 ### AU-1 — Canonical bus tree and mix-state owner (launch blocker)
 
+**Status 2026-08-27: ARCHITECTURE LANDED; LISTENING ACCEPTANCE OPEN.**
+`AudioPolicyTest` proves the canonical 18-bus parentage and composable mix stack
+in every tested acquisition/release order (45/45). `AudioPolicyLiveTest` finds
+771 production players, zero Master fallbacks and the processed extension buses
+under their canonical parents (21/21). AU-0 still owes audible-output and
+masking comparison before this slice can be called tuned.
+
 Check in the bus layout; route new and critical-route emitters; add parent-level
 volume controls; replace direct Master-effect mutation with a composable state
 stack. Preserve audible output before tuning.
@@ -311,6 +322,14 @@ embrace, dialogue and telephone states compose and unwind in every order.
 
 ### AU-2 — Cue catalog and emitter contract (launch blocker)
 
+**Status 2026-08-27: GOLDEN-ROUTE MIGRATION IN PROGRESS.** The catalog owns 26
+validated semantic contracts, bounded allocation, source-scoped stop,
+diagnostics and caption sectors. `audit_audio_emitters.py --check` passes with
+zero unassigned direct players, unknown literal cue ids, catalog failures or
+helper-key ceiling regressions. The remaining 76 literal helper calls are
+explicit migration debt; the acceptance rule still forbids calling AU-2
+complete while a critical-route owner depends on raw generic keys.
+
 Add the data schema, request API, distance profiles, concurrency and diagnostics.
 Migrate only the golden-shift cues first. Keep `PropAudio` as the resource bank
 behind the catalog until migration proves a different loader is needed.
@@ -319,6 +338,14 @@ Acceptance: no critical-route owner requests raw `tick`, `knock`, `pop` or
 `hum_loop`; missing cue ids fail loudly in tests and silently in play.
 
 ### AU-3 — Vantry audibility vertical slice (K2-G dependency)
+
+**Status 2026-08-27: AUTOMATED CONTRACT GREEN; BLINDED PLAYER OPEN.**
+`ChirpReachableTest` passes 31/31 and production-root
+`ChirpReachableLiveTest` passes 25/25: one source, bounded schedule, sufficient
+range and contrast at the authored route, no sibling decoy, source-scoped
+silence after repair, and no extra persistence owner. These measurements prove
+the mechanism and route budget. Only an unaided listener can prove the final
+identification-and-direction acceptance criterion.
 
 Treat the Vantry as the first end-to-end navigation cue: unique signature,
 repeat schedule, source truth, door/portal behavior, route audibility and
