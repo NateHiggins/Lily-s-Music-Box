@@ -54,6 +54,34 @@
       "caption": "inspection plate answers",
       "graph_transmitted": false
     },
+    "interaction.counter_issue": {
+      "stream_key": "pop",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 60,
+      "volume_db": -15.0,
+      "pitch_scale": 0.92,
+      "unit_size": 1.4,
+      "max_distance": 8.0,
+      "cooldown": 0.08,
+      "max_instances": 2,
+      "caption": "wrapped service part crosses the counter",
+      "graph_transmitted": false
+    },
+    "interaction.counter_empty": {
+      "stream_key": "knock",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 40,
+      "volume_db": -21.0,
+      "pitch_scale": 0.78,
+      "unit_size": 1.0,
+      "max_distance": 6.0,
+      "cooldown": 0.08,
+      "max_instances": 2,
+      "caption": "hardware counter answers empty",
+      "graph_transmitted": false
+    },
     "interaction.switch_on": {
       "stream_key": "tick",
       "purpose": "interaction",

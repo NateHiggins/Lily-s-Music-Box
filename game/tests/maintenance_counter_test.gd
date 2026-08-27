@@ -110,15 +110,27 @@ func _ready() -> void:
 	var eye := player.camera.global_position
 	var at := counter.global_position
 	player.camera.look_at(Vector3(at.x, minf(at.y, eye.y - 0.1), 57.2))
+	AudioPolicy.clear_diagnostics()
 	player._try_interact()
 	_check("the production buy acquires the capsule",
 			inventory.has_item(ITEM))
+	var counter_audio := AudioPolicy.event_history()
+	_check("the issued part has one source-owned counter answer",
+			counter_audio.size() == 1
+			and counter_audio[0].cue_id == &"interaction.counter_issue"
+			and counter_audio[0].source_id == &"counter:hardware_paint")
 	_check("acquisition advances awaiting_part to repairable",
 			orders.job_stage(JOB) == "repairable")
+	AudioPolicy.clear_diagnostics()
 	player._try_interact()
 	_check("a second buy cannot duplicate the capsule",
 			RealityState.data.maintenance_items.size() == 1
 			and not inventory.is_consumed(ITEM))
+	counter_audio = AudioPolicy.event_history()
+	_check("the empty counter cannot counterfeit a second issue",
+			counter_audio.size() == 1
+			and counter_audio[0].cue_id == &"interaction.counter_empty"
+			and counter_audio[0].source_id == &"counter:hardware_paint")
 
 	# Return to the point and perform the repair.
 	_check("the point offers the replacement",
