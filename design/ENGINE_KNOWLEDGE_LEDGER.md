@@ -15,6 +15,13 @@ Every durable entry should name:
 - extraction and migration cautions;
 - failed approaches worth not repeating.
 
+Systemic decisions use `design/ENGINE_DECISION_RECORD_TEMPLATE.md` when they
+change fact ownership, a cross-subsystem contract, generated schema/pipeline,
+save/migration behavior, release-proof protocol, or a claimed reusable seam.
+The accepted record must link evidence and state its §G level and falsification
+condition. Local content, tuning and contract-preserving bug fixes do not need
+an EDR.
+
 The production interaction seam is inventoried separately in
 `design/INTERACTION_CONVENTION_RECORD_2026-08-27.md`. Its shared method names
 are a documented convention, not a reusable contract: `has_method` proves
@@ -574,5 +581,6 @@ rather than treating deterministic vectors as a general astronomy promise.
 - Weather/celestial ownership, opt-out/default-location policy, refresh and
   offline/no-disk-cache behavior are recorded in §12.
 - Separate reusable proof tooling from test scenes that encode Orison content.
-- Add a decision record template and require new systemic tasks to append one
-  evidence-linked ledger entry when they close.
+- `design/ENGINE_DECISION_RECORD_TEMPLATE.md` now governs new systemic
+  authority/contract/schema/save/proof decisions and requires an evidence-level
+  ceiling, falsification condition and explicit ledger update on acceptance.
