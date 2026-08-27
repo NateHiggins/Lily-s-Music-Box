@@ -139,6 +139,7 @@ const DREAM_YAW_SAMPLES := 8
 var root: Node3D
 var cam: Camera3D
 var over_budget := 0
+var composition_over_budget := 0
 var _dream: DreamMazeRoot
 
 
@@ -273,9 +274,10 @@ func _ready() -> void:
 			(["station", "objs", "calls", "prims", "ms", "fps"] + ["p05-p95"]))
 	for s in stations:
 		await _measure(s)
-	print("PERF RESULT: %s (%d/%d stations over %.1f ms)" %
+	print(("PERF RESULT: %s (%d blocking overruns above %.1f ms; "
+			+ "%d composition diagnostics over)") %
 			["PASS" if over_budget == 0 else "FAIL", over_budget,
-			stations.size(), FRAME_BUDGET_MS])
+			FRAME_BUDGET_MS, composition_over_budget])
 	get_tree().quit(over_budget)
 
 
@@ -638,13 +640,18 @@ func _measure(station: Dictionary) -> void:
 	# that fails to load reports six stations at thousands of fps and the
 	# suite says PASS.
 	var broken: bool = objs < MIN_OBJECTS
-	if wall > FRAME_BUDGET_MS or broken:
+	var playable: bool = bool(station.get("player_at_lens", true))
+	if broken or (wall > FRAME_BUDGET_MS and playable):
 		over_budget += 1
+	elif wall > FRAME_BUDGET_MS:
+		composition_over_budget += 1
 	print("%-24s %7d %7d %9d %8.2f %7.1f  %5.1f-%5.1f  wall %6.2f%s" %
 			[station["name"], objs, calls, prims, avg, 1000.0 / maxf(0.001, avg),
 			p05, p95, wall,
 			"  NOTHING RENDERED" if broken
-			else ("  OVER" if wall > FRAME_BUDGET_MS else "")])
+			else ("  OVER" if wall > FRAME_BUDGET_MS and playable
+			else ("  OVER COMPOSITION (NON-BLOCKING)"
+					if wall > FRAME_BUDGET_MS else ""))])
 
 
 ## Stop the arcade streaming for the duration of a diagnostic. A machine that
