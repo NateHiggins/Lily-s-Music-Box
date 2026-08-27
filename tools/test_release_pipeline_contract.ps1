@@ -78,6 +78,19 @@ foreach ($contentNote in @(
     Assert-Contract ($readme.Contains($contentNote)) `
         "tester readme discloses $contentNote"
 }
+$runbook = Get-Content -LiteralPath (Join-Path $repoRoot `
+    "design\FRIENDS_BUILD_DISTRIBUTION_RUNBOOK_2026-08-26.md") -Raw
+Assert-Contract ($runbook.Contains("distribution/README_TESTER.txt") -and
+    $runbook.Contains("only tester-facing authority")) `
+    "distribution runbook points to the canonical tester readme"
+foreach ($retiredClaim in @(
+    "CONTROLLERS ARE NOT SUPPORTED",
+    "note: controller unsupported",
+    "there is no guard preventing an older build"
+)) {
+    Assert-Contract (-not $runbook.Contains($retiredClaim)) `
+        "distribution runbook retires stale claim: $retiredClaim"
+}
 
 $packageSource = Get-Content -LiteralPath (Join-Path $PSScriptRoot `
     "package_friends_build.ps1") -Raw

@@ -188,10 +188,11 @@ Valve's own documentation disqualifies it for this cohort:
   game's store page**, which does not exist.
 - It requires **Valve review** (capsules and icons) **[SOURCED S5]**.
 
-The current build renders debug nameplates and seven interactive debug lights
-inside 2A (matrix G18), cannot be played with a controller (G07), and has a
-route no human has walked unaided (G01). **A channel with no expectation of
-secrecy is exactly the wrong place for that build**, regardless of where the
+The current build still has no unaided human golden-shift evidence (G01/K2),
+no eleven-boundary human save matrix (G15/K3), and no second-machine release
+measurement (G20). Controller and debug-overlay code gates are now green, but
+their required human route checks remain open. **A channel with no expectation
+of secrecy is exactly the wrong place for that build**, regardless of where the
 game eventually ships.
 
 ### Refused: **direct cloud links** (Drive/Dropbox/WeTransfer)
@@ -309,66 +310,20 @@ but a hand-assembled zip is exactly how it would get there.
 
 ---
 
-## 5. Tester instructions (`README_TESTER.txt`, verbatim template)
+## 5. Tester instructions (`README_TESTER.txt`, canonical source)
 
-```
-PLEASE REMAIN ON THE LINE — friends build <NNN>
-Commit <shortsha>.  Not for redistribution.
+The only tester-facing authority is
+`distribution/README_TESTER.txt`. `package_friends_build.ps1` substitutes its
+build number, version and commit tokens and places that rendered copy in the
+six-file payload. Do not paste a second template into this runbook: the old
+duplicate outlived controller support, the production performance fix, the
+microphone consent path and the default-off weather network gate.
 
-INSTALL
-  Unzip the whole folder somewhere you can find again.
-  Run PleaseRemainOnTheLine.exe from inside that folder.
-  Do not move the .exe out on its own.
-
-FIRST LAUNCH — WINDOWS WILL WARN YOU
-  This build is NOT code-signed. Windows SmartScreen will likely show
-  "Windows protected your PC" because the file has no established
-  reputation. That warning is expected for a build like this one.
-  Only continue because you trust where you got it from.
-  If you are not comfortable, tell us and we will not think less of you.
-
-WHAT WORKS
-  Keyboard and mouse.  WASD move, mouse look, E interact, L lamp,
-  R radio, Shift run, C crouch, Esc opens Building Services.
-
-WHAT DOES NOT WORK
-  CONTROLLERS ARE NOT SUPPORTED. Only two shoulder buttons are bound;
-  you cannot move or look with a gamepad. Please do not report this.
-  Touch is untested.
-
-KNOWN AND ALREADY REPORTED — please do not file these
-  - floating labels and small light handles inside apartment 2A
-  - performance dips in the lobby and on the second-floor landing
-  - no subtitle size or controller options
-
-MICROPHONE
-  One optional feature can record from your microphone. Recordings stay
-  on your machine. If you would rather not, decline the OS prompt or
-  avoid that activity, and it will not be used.
-
-WEATHER AND THE INTERNET
-  Live local weather is OFF by default. If you turn it on, the location
-  text YOU type is sent to a weather service. Nothing else leaves your
-  machine. No IP geolocation, no device sensors, no analytics.
-
-WHERE YOUR FILES LIVE
-  Settings, save, screenshots and any recordings are stored in this
-  build's own app-data folder. The exact path is printed in
-  BUILD_ID.txt.
-
-REPORTING A PROBLEM
-  Use the form in the message we sent you. The build number and your
-  hardware are the two fields we most need.
-
-REMOVING IT
-  Delete the folder you unzipped. That removes the game.
-  It does NOT remove your settings, save, screenshots or recordings —
-  those live in the app-data folder above and must be deleted
-  separately if you want them gone.
-```
-
-*(The tester-facing readme must state the resolved app-data path literally.
-Read it off a real machine first — see §1 UNKNOWN.)*
+Before every issue, the operator reads the rendered payload copy and confirms
+it still covers installation, SmartScreen, current input status, the content
+note, microphone consent, weather/network behavior, local files and reporting.
+The release contract pins the three identity tokens and the content-note core;
+human review owns the rest.
 
 ---
 
@@ -383,11 +338,11 @@ Read it off a real machine first — see §1 UNKNOWN.)*
 4. **Rollback = tell people to re-download the previous number.** There is no
    automatic downgrade and none should be implied.
 5. **Save compatibility is the rollback hazard**, not the binary.
-   `SAVE_VERSION` is 4 with a `_migrate()` hook, and **there is no guard
-   preventing an older build from loading a newer save**
-   (matrix G15). **Therefore: if `SAVE_VERSION` changes between two friends
-   builds, the older one must be withdrawn, not offered as a rollback**, and
-   testers told to keep a copy of their save before updating.
+   `SAVE_VERSION` is 4 with a `_migrate()` hook. A rolled-back build now refuses
+   a newer save, preserves it byte-for-byte and presents a read-only warning;
+   it does not silently overwrite it. If `SAVE_VERSION` changes, the older
+   build must still be withdrawn rather than advertised as a usable rollback:
+   refusal prevents data loss but does not make the old binary playable.
 6. **Never ship two builds with the same number and different hashes.**
 
 ---
@@ -401,7 +356,7 @@ build_id            (from BUILD_ID.txt — REQUIRED)
 os                  Windows version/build
 cpu / gpu / ram
 display             resolution + refresh + windowed/fullscreen
-input_device        keyboard+mouse / other (note: controller unsupported)
+input_device        keyboard+mouse / controller model / touch
 route_boundary      where in the shift: curb, lobby, clock-in, first report,
                     stair, 2A door, fault, repair, call, onset, dream, wake
 expected            what you thought would happen
@@ -501,8 +456,8 @@ misread as a launch-platform decision. It is not.
 
 **Ready now, no account, no secret, no spend:**
 
-- write `README_TESTER.txt` from §5 (the copy is drafted; only the resolved
-  app-data path is missing)
+- render and inspect the canonical `distribution/README_TESTER.txt` through the
+  packager; do not author a second copy here
 - write the feedback form from §7
 - write the packaging exclusion list from §4 as a checked script
 - decide the build-number scheme and start the build log
