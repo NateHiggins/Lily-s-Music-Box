@@ -24,7 +24,9 @@ function Get-SourceChanges {
     $untracked = @(& git -c core.safecrlf=false -C $repoRoot ls-files --others --exclude-standard)
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect untracked source paths." }
     if ($AllowGeneratedUids) {
-        $untracked = @($untracked | Where-Object { $_ -notmatch '^game/.+\.gd\.uid$' })
+        $untracked = @($untracked | Where-Object {
+            $_ -notmatch '^game/.+\.(gd|gdshader|gdshaderinc)\.uid$'
+        })
     }
     $changes += $untracked
     return @($changes | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } |
@@ -58,7 +60,9 @@ $marker = Join-Path $project ".godot\.orison_import_ready"
 Set-Content -LiteralPath $marker -Value $commit -Encoding ascii
 $uidManifest = Join-Path $project ".godot\.orison_import_uids.json"
 $uidRecords = @(& git -c core.safecrlf=false -C $repoRoot `
-        ls-files --others --exclude-standard | Where-Object { $_ -match '^game/.+\.gd\.uid$' } |
+        ls-files --others --exclude-standard | Where-Object {
+            $_ -match '^game/.+\.(gd|gdshader|gdshaderinc)\.uid$'
+        } |
     Sort-Object | ForEach-Object {
         [ordered]@{
             path = $_
