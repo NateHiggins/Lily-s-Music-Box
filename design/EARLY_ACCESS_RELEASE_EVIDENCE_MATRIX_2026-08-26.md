@@ -140,12 +140,12 @@ hardware).
 | G22 | Weather fallback and location privacy | **PARTIAL** | Early Access |
 | G23 | Build channels and rollback rehearsal | **CODE GREEN / MANUAL OPEN** | friends build |
 | G24 | Store assets and demo AppID | **ABSENT** | public demo |
-| G25 | Narcolepsy statement and review | **ABSENT** | any outreach |
+| G25 | Narcolepsy statement and review | **PARTIAL** | any outreach |
 | G26 | Lena work order ruling | **BLOCKED ON OWNER RULING** | Early Access |
 | G27 | Desktop export preset | **PROVED** | friends build |
 | G28 | Claims wider than their tests | **PARTIAL** | Early Access |
 
-**28 gates. 5 PROVED. 10 CODE GREEN / MANUAL OPEN. 8 PARTIAL. 3 ABSENT.
+**28 gates. 5 PROVED. 10 CODE GREEN / MANUAL OPEN. 9 PARTIAL. 2 ABSENT.
 1 BLOCKED ON OWNER RULING. 1 UNKNOWN.**
 
 ---
@@ -398,7 +398,11 @@ Demo needs its own AppID.
 **Consequence:** blocks public demo.
 
 ### G25 — Narcolepsy statement and external review
-**ABSENT.** Plan §9 and W4 require a reviewed statement **before any outreach**.
+**PARTIAL.** `NARCOLEPSY_DEPICTION_STATEMENT_AND_REVIEW_PACKET_2026-08-27.md`
+now supplies a plain short statement, exact portrayal boundary, medical and
+advocacy sources, prohibited language, reviewer materials/questions and a blank
+approval record. It is conspicuously marked draft. External lived-experience
+review and any required production change remain undone.
 **Consequence:** blocks **all** press, creator and festival contact.
 
 ### G26 — Lena work order owner ruling
