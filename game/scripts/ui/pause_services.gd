@@ -11,6 +11,7 @@ const LEVELS := [
 	["MUSIC", "music_volume"],
 	["INTERFACE", "ui_volume"],
 ]
+const AccessibilityCopyText := preload("res://scripts/ui/accessibility_copy.gd")
 
 var player: Node
 var panel: PanelContainer
@@ -137,14 +138,13 @@ func _build() -> void:
 		sliders[key] = slider
 	captions = CheckBox.new()
 	captions.name = "GameplaySoundCaptions"
-	captions.text = "CAPTION GAMEPLAY AND DREAM SOUND CUES"
-	captions.tooltip_text = "Names semantic cues and direction without revealing distance or hidden ownership."
+	captions.text = AccessibilityCopyText.SOUND_CAPTIONS_LABEL
+	captions.tooltip_text = AccessibilityCopyText.SOUND_CAPTIONS_HELP
 	box.add_child(captions)
 	onset_warning = CheckBox.new()
 	onset_warning.name = "AlwaysWarnBeforeSleep"
-	onset_warning.text = "ALWAYS GIVE THE GRADUAL SLEEP WARNING"
-	onset_warning.tooltip_text = \
-			"Uses the legible gradual warning for every sleep onset."
+	onset_warning.text = AccessibilityCopyText.SLEEP_WARNING_LABEL
+	onset_warning.tooltip_text = AccessibilityCopyText.SLEEP_WARNING_HELP
 	box.add_child(onset_warning)
 	reduce_roll = CheckBox.new()
 	reduce_roll.name = "ReduceCameraRoll"

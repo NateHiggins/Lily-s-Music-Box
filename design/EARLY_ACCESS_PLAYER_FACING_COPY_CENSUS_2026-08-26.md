@@ -39,6 +39,13 @@ document, localization resource or test was modified.
 > because they are the authored substance of Mina's caption manifestation, not
 > developer scaffolding. `ReleasePresentationTest` now pins all three boundaries:
 > generic titles off, resident stage plates off, authored anomaly intact.
+>
+> ### X2 OWNERSHIP UPDATE — 2026-08-27
+>
+> The shared caption and gradual-sleep-warning settings now take their labels
+> and tooltips from `AccessibilityCopy`. Title and pause retain separate widget
+> ownership but cannot silently rename the same persisted behavior. TitleScreen
+> PASS and PauseServices PASS 17/17 pin both surfaces.
 
 > ### Mina is text-only and unvoiced
 >
@@ -344,7 +351,7 @@ until its call sites are listed.**
 | # | Finding | Assessment |
 | --- | --- | --- |
 | **X1** | `tools/audit_authored_voice.py` notices `'caller declines to state'` used by **3+ nodes** in the Mina tree | **Advisory, and almost certainly deliberate.** It is a bureaucratic refrain and the tool explicitly does not score style. **Recorded, not actioned.** The auditor's own words: stylistic observations "never change the exit code". |
-| **X2** | `"CAPTION GAMEPLAY AND DREAM SOUND CUES"` is authored **identically in two files** — `title_screen.gd:258` and `pause_services.gd:140` | **Real collision.** Two systems own one player-facing sentence; editing one silently desynchronises the pair. Same pattern for the sleep-warning label, worded **differently**: `"ALWAYS WARN BEFORE SLEEP"` vs `"ALWAYS GIVE THE GRADUAL SLEEP WARNING"` — **the same setting, two names.** |
+| **X2 — RESOLVED** | Caption and gradual-sleep-warning labels/tooltips appear on title and pause surfaces | `AccessibilityCopy` now owns the shared plain meaning. The widgets remain local, while tests require identical copy for identical persisted behavior. |
 | **X3** | `"ESC to step away from the machine."` / `"ESC to step away."` / `"ESC to go back."` / `"ESC stops the take."` — four exits, four phrasings, one panel | **INFERENCE:** variety is deliberate and the register carries it, but `ESC stops the take` and `ESC to give up on it` (C1) describe the **same control** in the same flow. |
 | **X4** | `[E]` prompt verbs across 164 prompts | Not audited for consistency; a shared verb vocabulary is likely worth having. **Out of scope; flagged.** |
 
@@ -507,9 +514,8 @@ fragments at display time.**
 **P0 — RESOLVED** — 1. Save/rollback now has persistent player copy (§4).
 2. Microphone status lines C1–C3 are now plain (§6).
 
-**P1** — 3. X2's divided settings labels. 4. Debug overlay reachability
-(D2/D3, already ruled elsewhere). 5. Enumerate the 38 format prompts (§8).
-6. Carry `81c0856`'s
+**P1** — 3. Debug overlay reachability (D2/D3, already ruled elsewhere).
+4. Enumerate the 38 format prompts (§8). 5. Carry `81c0856`'s
 `field_semantics` guard to `light_provenance.json` (§10b).
 
 **P2** — 8. Mina mouth pass (case owner's, not a defect list). 9. `[E]` verb

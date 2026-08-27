@@ -1,5 +1,7 @@
 class_name OrisonTitleScreen
 extends Control
+
+const AccessibilityCopyText := preload("res://scripts/ui/accessibility_copy.gd")
 ## The waking world is allowed grandeur; the dream remains the reveal. One
 ## rain-soaked hero joins the Orison, STREET and Vantry Arcade through mundane
 ## work. The untouched waltz opens; its returned reconstruction is the second
@@ -247,17 +249,15 @@ func _build_settings() -> void:
 	box.add_child(_fullscreen)
 	_always_warn = CheckBox.new()
 	_always_warn.name = "AlwaysWarnBeforeSleep"
-	_always_warn.text = "ALWAYS WARN BEFORE SLEEP"
-	_always_warn.tooltip_text = \
-			"Use the gradual warning for every sleep onset."
+	_always_warn.text = AccessibilityCopyText.SLEEP_WARNING_LABEL
+	_always_warn.tooltip_text = AccessibilityCopyText.SLEEP_WARNING_HELP
 	_always_warn.button_pressed = bool(GameBoot.settings.get(
 			"always_warn_before_sleep", false))
 	box.add_child(_always_warn)
 	_sound_captions = CheckBox.new()
 	_sound_captions.name = "GameplaySoundCaptions"
-	_sound_captions.text = "CAPTION GAMEPLAY AND DREAM SOUND CUES"
-	_sound_captions.tooltip_text = \
-			"Names semantic cues and their direction without revealing distance or hidden ownership."
+	_sound_captions.text = AccessibilityCopyText.SOUND_CAPTIONS_LABEL
+	_sound_captions.tooltip_text = AccessibilityCopyText.SOUND_CAPTIONS_HELP
 	_sound_captions.button_pressed = bool(GameBoot.settings.get(
 			"gameplay_sound_captions", false)) or bool(GameBoot.settings.get(
 			"dream_directional_captions", false))

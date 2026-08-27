@@ -1,6 +1,7 @@
 extends Node
 
 const SurfaceScript := preload("res://scripts/ui/pause_services.gd")
+const AccessibilityCopyText := preload("res://scripts/ui/accessibility_copy.gd")
 
 var checks := 0
 var failures := 0
@@ -31,7 +32,12 @@ func _ready() -> void:
 			surface.sliders.size() == 6)
 	_check("sleep warning accessibility is reachable during play",
 			surface.onset_warning != null
-			and surface.onset_warning.name == "AlwaysWarnBeforeSleep")
+			and surface.onset_warning.name == "AlwaysWarnBeforeSleep"
+			and surface.onset_warning.text == AccessibilityCopyText.SLEEP_WARNING_LABEL
+			and surface.onset_warning.tooltip_text == AccessibilityCopyText.SLEEP_WARNING_HELP)
+	_check("sound-caption copy is identical on both settings surfaces",
+			surface.captions.text == AccessibilityCopyText.SOUND_CAPTIONS_LABEL
+			and surface.captions.tooltip_text == AccessibilityCopyText.SOUND_CAPTIONS_HELP)
 	_check("camera comfort controls are reachable during play",
 			surface.reduce_roll != null and surface.look_sensitivity != null)
 	_check("lightning flash suppression is reachable during play",

@@ -3,6 +3,7 @@ extends Node
 ## first, and returned/original alternation without touching boot.
 
 var _fails := 0
+const AccessibilityCopyText := preload("res://scripts/ui/accessibility_copy.gd")
 
 
 func _check(label: String, ok: bool) -> void:
@@ -49,11 +50,15 @@ func _ready() -> void:
 	_check("building services exposes the first-build sleep warning option",
 			screen._always_warn != null
 			and screen._always_warn.name == "AlwaysWarnBeforeSleep"
+			and screen._always_warn.text == AccessibilityCopyText.SLEEP_WARNING_LABEL
+			and screen._always_warn.tooltip_text == AccessibilityCopyText.SLEEP_WARNING_HELP
 			and screen._always_warn.button_pressed == bool(
 					GameBoot.settings.always_warn_before_sleep))
 	_check("building services exposes opt-in semantic sound captions",
 			screen._sound_captions != null
 			and screen._sound_captions.name == "GameplaySoundCaptions"
+			and screen._sound_captions.text == AccessibilityCopyText.SOUND_CAPTIONS_LABEL
+			and screen._sound_captions.tooltip_text == AccessibilityCopyText.SOUND_CAPTIONS_HELP
 			and GameBoot.settings.has("gameplay_sound_captions"))
 	_check("building services exposes five independent mix categories",
 			screen._gameplay_volume != null and screen._voice_volume != null
