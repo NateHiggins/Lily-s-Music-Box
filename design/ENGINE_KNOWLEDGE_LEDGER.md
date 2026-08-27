@@ -486,7 +486,10 @@ level and portability answer different questions.
 ## 13. Next ledger work
 
 - Backfill the save/reload transaction model and eleven-boundary K3 findings.
-- Map the generator/runtime interfaces and their current dependency graph.
+- Generator/runtime interfaces and their current dependency graph are mapped in
+  `design/GENERATOR_RUNTIME_INTERFACE_MAP_2026-08-27.md`; the main five-file
+  mirror, Blender geometry branch, runtime consumers, satellite pipelines and
+  missing revision/schema enforcement are explicitly separated.
 - Extend the bounded notice-generator census in
   `design/ENGINE_NOTICE_GENERATOR_SCOPE_2026-08-27.md` only when an actual
   toolkit payload exists; current external dependencies are recorded, but no
