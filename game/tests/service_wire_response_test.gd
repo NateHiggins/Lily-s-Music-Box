@@ -270,12 +270,16 @@ func _ready() -> void:
 
 	var entry_sign := BuildingEntrySign.new()
 	add_child(entry_sign)
+	AudioPolicy.clear_diagnostics()
 	var entry_card: Dictionary = entry_sign.interact(hand)
+	var entry_audio := AudioPolicy.event_history()
 	var entry_area := entry_sign.get_node_or_null(
 			"BuildingPlaqueInspection") as Area3D
 	_check("the Orison identity plaque stays distinct from its door",
 			entry_area != null and entry_area.get_child_count() == 1
-			and entry_sign._inspection_tap.playing
+			and entry_audio.size() == 1
+			and str(entry_audio[0].cue_id) == "interaction.inspection_read"
+			and str(entry_audio[0].source_id) == "FrontDoorExteriorSign"
 			and entry_card.get("card_id", "") == "building_plaque"
 			and entry_card.get("source_ids", []) == ["R028"]
 			and str(entry_card.get("condition", "")).contains("THE ORISON")

@@ -32,6 +32,8 @@ masking claims still remain hypotheses until measured in a production walk.
   longer requires a private player, and its cue cannot outrank mechanism state.
   All eleven projecting shop signs now use the same learned acknowledgement
   while retaining their individual glint and sourced condition card.
+  The exterior Orison identity plaque joins that grammar and sheds one bespoke
+  direct player; its 1928 inscription remains the thing being acknowledged.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.

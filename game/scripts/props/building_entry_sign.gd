@@ -2,9 +2,6 @@ class_name BuildingEntrySign
 extends Node3D
 ## Exterior bronze-and-enamel identity plaque beside the street entrance.
 
-var _inspection_tap: AudioStreamPlayer3D
-
-
 func _ready() -> void:
 	name = "FrontDoorExteriorSign"
 	var plaque := MeshInstance3D.new()
@@ -37,15 +34,6 @@ func _ready() -> void:
 	_add_label("REALTY MAINTENANCE",
 			Vector3(0, -0.235, 0.031), 12, Color(0.68, 0.55, 0.32))
 	_build_interaction()
-	_inspection_tap = AudioStreamPlayer3D.new()
-	_inspection_tap.bus = "Interaction"
-	_inspection_tap.name = "PlaqueTap"
-	_inspection_tap.stream = PropAudio.get_stream("tick")
-	_inspection_tap.volume_db = -21.0
-	_inspection_tap.pitch_scale = 0.82
-	_inspection_tap.unit_size = 2.5
-	_inspection_tap.max_distance = 16.0
-	add_child(_inspection_tap)
 
 
 ## The plaque remains distinct from the adjacent entrance-door verb.  Its
@@ -73,8 +61,8 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> Dictionary:
-	if _inspection_tap:
-		_inspection_tap.play()
+	AudioPolicy.present_3d(&"interaction.inspection_read", global_position, 1.0,
+			StringName(name))
 	return service_wire_card()
 
 
