@@ -157,6 +157,31 @@ func present_3d(cue_id: StringName, at: Vector3, strength := 1.0,
 	return true
 
 
+## Migration seam for a source that must retain a bespoke player (a held loop,
+## physically timed machine, or procedural stream). Call only after the source
+## actually starts playback. Policy publishes diagnostics and caption parity
+## but deliberately allocates no duplicate voice and cannot veto source truth.
+func observe_existing_3d(cue_id: StringName, at: Vector3,
+		source_id := &"") -> bool:
+	if not cues.has(cue_id):
+		return _refuse(cue_id, "unknown_observed_cue")
+	if not is_instance_valid(_listener):
+		_listener = get_tree().get_first_node_in_group("player_controller") \
+				as Node3D
+	var cue_data: Dictionary = cues[cue_id]
+	_presented += 1
+	var snapshot := {"cue_id":cue_id, "source_id":source_id,
+			"purpose":str(cue_data.purpose), "bus":str(cue_data.bus), "at":at,
+			"priority":int(cue_data.priority), "caption":str(cue_data.caption),
+			"outcome":"observed_existing", "at_second":_clock,
+			"listener_distance":_listener.global_position.distance_to(at)
+					if is_instance_valid(_listener) else -1.0}
+	snapshot["sector"] = relative_sector(_listener, at)
+	_record_event(snapshot)
+	cue_presented.emit(cue_id, snapshot)
+	return true
+
+
 static func relative_sector(listener: Node3D, at: Vector3) -> String:
 	if not is_instance_valid(listener):
 		return ""

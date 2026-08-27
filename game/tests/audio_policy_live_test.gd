@@ -49,10 +49,42 @@ func _ready() -> void:
 		_check("semantic presentation writes no save key",
 				not RealityState.data.has("audio_policy")
 				and not RealityState.data.has("audio_cues"))
+	await _prove_elevator(root)
 	await _prove_standard_doors(root)
 	_prove_legacy_helper_routing(root)
 	_prove_production_bus_census(get_tree().root)
 	_finish()
+
+
+func _prove_elevator(root: Node) -> void:
+	var elevator: OrisonElevator = root.get("elevator") as OrisonElevator
+	_check("production elevator owns its physically timed sound sources",
+			elevator != null and elevator._bell != null and elevator._hum != null
+			and elevator._bell.bus == "Interaction"
+			and elevator._hum.bus == "Machinery")
+	if elevator == null:
+		return
+	elevator.test_travel_scale = 100.0
+	var target := ""
+	for level in elevator.stop_order:
+		if level != elevator.current:
+			target = str(level)
+			break
+	AudioPolicy.clear_diagnostics()
+	elevator.travel_to(target)
+	for i in 240:
+		if elevator.state == OrisonElevator.S.IDLE and elevator.current == target:
+			break
+		await get_tree().physics_frame
+	var history := AudioPolicy.event_history()
+	_check("one ride reports machinery first and arrival bell last",
+			elevator.current == target and history.size() == 2
+			and str(history[0].cue_id) == "state.elevator_travel"
+			and str(history[0].outcome) == "observed_existing"
+			and str(history[1].cue_id) == "navigation.elevator_arrival"
+			and str(history[1].outcome) == "observed_existing")
+	_check("semantic observation does not replace the elevator's own playback",
+			elevator._bell.playing and elevator._hum.playing)
 
 
 func _prove_standard_doors(root: Node) -> void:

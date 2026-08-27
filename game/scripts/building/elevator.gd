@@ -564,6 +564,8 @@ func travel_to(level: String) -> void:
 	print("[ELEVATOR] %s -> %s (%.1fs)" % [current, level,
 			absf(stops[level] - _cabin.position.y) / SPEED])
 	create_tween().tween_property(_hum, "volume_db", -16.0, 0.5)
+	AudioPolicy.observe_existing_3d(&"state.elevator_travel",
+			_cabin.global_position, StringName(name))
 
 
 ## --- landing-door interlock seam (SR7-B) -----------------------------------
@@ -667,6 +669,8 @@ func _physics_process(delta: float) -> void:
 				current = _pending
 				state = S.OPENING
 				_bell.play()
+				AudioPolicy.observe_existing_3d(&"navigation.elevator_arrival",
+						_cabin.global_position, StringName(name))
 				if _buttons.has(current):
 					_buttons[current].emission_energy_multiplier = 0.35
 				if _cabin_lamps.has(current):

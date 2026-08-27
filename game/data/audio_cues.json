@@ -110,6 +110,32 @@
       "caption": "locked handle rattles",
       "graph_transmitted": false
     },
+    "navigation.elevator_arrival": {
+      "stream_key": "bell",
+      "purpose": "navigation",
+      "bus": "Navigation",
+      "priority": 78,
+      "volume_db": -10.0,
+      "unit_size": 2.4,
+      "max_distance": 18.0,
+      "cooldown": 0.0,
+      "max_instances": 1,
+      "caption": "elevator arrives with one bell",
+      "graph_transmitted": false
+    },
+    "state.elevator_travel": {
+      "stream_key": "elevator_machine_loop",
+      "purpose": "state",
+      "bus": "Machinery",
+      "priority": 42,
+      "volume_db": -16.0,
+      "unit_size": 3.0,
+      "max_distance": 18.0,
+      "cooldown": 0.0,
+      "max_instances": 1,
+      "caption": "elevator machinery takes the load",
+      "graph_transmitted": false
+    },
     "state.clockwork_running": {
       "stream_key": "tick",
       "purpose": "state",

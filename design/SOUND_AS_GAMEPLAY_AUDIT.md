@@ -9,15 +9,18 @@ masking claims still remain hypotheses until measured in a production walk.
 - `AudioPolicy` builds the canonical 18-bus hierarchy, a bounded 16-voice
   semantic pool, priority/cooldown/instance rules, a composable volume mix
   stack and ordered diagnostics.
-- `audio_cues.json` owns 20 semantic cues. The release route now distinguishes
+- `audio_cues.json` owns 22 semantic cues. The release route now distinguishes
   the Vantry fault, switch on/off, ordinary door motion/latch/refusal, clock
   proof/refusal, register index/paper/key/refusal, and all four house-line
   states.
+- The elevator keeps its physically timed bell and held machinery player, but
+  reports travel and arrival through the semantic policy without allocating a
+  duplicate voice. Both facts now enter diagnostics and caption direction.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.
   `audit_audio_emitters.py` makes that a repeatable static check.
-- the full production scene-tree census currently finds 776 players and zero
+- the full production scene-tree census currently finds 771 players and zero
   Master fallbacks. The two processed extension buses rejoin the canonical
   tree as `Ambience -> World` and `GhostRadio -> Diegetic`.
 - focused policy proof passes 38/38; production policy proof passes 18/18;

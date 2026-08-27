@@ -11,7 +11,7 @@ func _ready() -> void:
 	var master_before := AudioServer.get_bus_volume_db(
 			AudioServer.get_bus_index("Master"))
 	_check("catalog and bus tree build", policy.setup())
-	_check("catalog owns twenty semantic cues", int(policy.census().catalog_size) == 20)
+	_check("catalog owns twenty-two semantic cues", int(policy.census().catalog_size) == 22)
 	_check("voice allocation is bounded at sixteen",
 			int(policy.census().voices) == PolicyScript.VOICE_CAP
 			and policy.find_children("*", "AudioStreamPlayer3D", true, false).size()
@@ -52,6 +52,10 @@ func _ready() -> void:
 			and str(policy.cue(&"telephone.answered").caption).contains("answers")
 			and str(policy.cue(&"telephone.connected").caption).contains("trunk")
 			and str(policy.cue(&"telephone.released").caption).contains("return"))
+	_check("elevator travel and arrival carry different learned meanings",
+			str(policy.cue(&"state.elevator_travel").bus) == "Machinery"
+			and str(policy.cue(&"navigation.elevator_arrival").bus) == "Navigation"
+			and str(policy.cue(&"navigation.elevator_arrival").stream_key) == "bell")
 	var listener := Node3D.new()
 	add_child(listener)
 	_check("caption sectors disclose direction but no distance or room",
@@ -66,6 +70,12 @@ func _ready() -> void:
 					&"F02_A_VANTRY"))
 	_check("unknown semantic cue is refused without allocating",
 			not policy.present_3d(&"not.a.cue", Vector3.ZERO))
+	var active_before_observation := int(policy.census().active)
+	_check("a bespoke machine can report real playback without a second voice",
+			policy.observe_existing_3d(&"navigation.elevator_arrival",
+					Vector3(0, 1, -2), &"Elevator")
+			and int(policy.census().active) == active_before_observation
+			and str(policy.event_history()[-1].outcome) == "observed_existing")
 	policy.advance_for_test(2.0)
 	_check("cooldown expiry permits the source again",
 			policy.present_3d(&"nav.vantry_fault", Vector3.ZERO, 0.5,
@@ -78,11 +88,12 @@ func _ready() -> void:
 			policy.cue(&"nav.vantry_fault") == nav)
 	var history: Array[Dictionary] = policy.event_history()
 	_check("diagnostics retain presented and refused outcomes in order",
-			history.size() == 5 and str(history[0].outcome) == "presented"
+			history.size() == 6 and str(history[0].outcome) == "presented"
 			and str(history[1].reason) == "cooldown"
 			and str(history[2].reason) == "unknown_cue"
-			and str(history[3].outcome) == "presented"
-			and str(history[4].outcome) == "stopped")
+			and str(history[3].outcome) == "observed_existing"
+			and str(history[4].outcome) == "presented"
+			and str(history[5].outcome) == "stopped")
 	var world_setting_before := float(GameBoot.settings.world_volume)
 	GameBoot.settings.world_volume = 0.5
 	GameBoot.apply_audio_settings(false)
@@ -110,7 +121,7 @@ func _ready() -> void:
 	policy.clear_diagnostics()
 	_check("diagnostic reset changes no catalog or mix truth",
 			int(policy.census().history) == 0
-			and int(policy.census().catalog_size) == 20
+			and int(policy.census().catalog_size) == 22
 			and int(policy.census().mix_requests) == 0)
 	_finish(policy)
 
