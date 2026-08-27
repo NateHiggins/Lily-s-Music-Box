@@ -423,12 +423,14 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		var bench := LobbyBenchZone.new()
 		bench.position = GameBoot.b2g([-2.45, -9.30, 0.0])
 		floor_nodes["F01"].add_child(bench)
-		# PHONE-B placement audit. The east service wall is full. The west run
-		# is documented in building_root as 2.72 m of unbroken plaster; its
-		# 1.42 m Orison ad board centred at y -8.29 ends at -7.58. This 0.66 m
-		# board centred at -6.62 spans -6.95..-6.29, leaving 0.63 m between
-		# objects and ending 10 mm before the wall break. Bottom z 1.42 is
-		# 65 mm above the lobby dado cap, while the key remains hand-height.
+		# PHONE-B placement audit, amended by PHONE-C's subtraction. The east
+		# service wall is full. This west run is 2.72 m of unbroken plaster;
+		# PHONE-C retired both the obsolete sales broadside south of this board
+		# and the freestanding video cabinet near the street door. The 0.66 m
+		# telephone board centred at y -6.62 spans -6.95..-6.29 and ends 10 mm
+		# before the wall break. Bottom z 1.42 is 65 mm above the lobby dado cap,
+		# while the key remains hand-height. Its placement now answers to the
+		# bare wall and circulation route, not to deprecated neighbouring art.
 		var telephone_line := HouseTelephoneNetworkScript.new()
 		telephone_line.name = "HouseTelephoneNetwork"
 		add_child(telephone_line)
@@ -440,10 +442,10 @@ func _build_infrastructure(layout: Dictionary, floor_nodes: Dictionary,
 		telephone_board.name = "F01_HOUSE_TELEPHONE_BOARD"
 		telephone_board.prop_type = "house_switchboard"
 		telephone_board.call("bind_line", telephone_line)
-		# The neighboring ad frame has a proud horizontal stay. Centre x -5.05
-		# leaves the 0.16-deep case's back 40 mm off the -5.17 plaster on
-		# mounting cleats, so the older stay passes behind rather than through
-		# the jack field.
+		# Centre x -5.05 leaves the 0.16-deep case's back 40 mm off the -5.17
+		# plaster on mounting cleats. The clearance remains intentional even
+		# after the old frame's proud stay disappeared: case, cord and wall must
+		# never z-fight in the empty-wall control.
 		telephone_board.position = GameBoot.b2g([-5.05, -6.62, 1.42])
 		# Working face is local -Z; -PI/2 turns it east into the lobby.
 		telephone_board.rotation.y = -PI * 0.5

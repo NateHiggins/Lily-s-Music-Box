@@ -513,7 +513,9 @@ func _ready() -> void:
 	add_child(found_art_pass)
 	found_art_pass.build(layout, floor_nodes)
 	_build_front_entry_details()
-	_build_original_orison_ad_board()
+	# PHONE-C arrival-wall audit retired the obsolete title-composite sales
+	# board. Keep its class and source asset as provenance until A11 decides
+	# archive policy; production no longer instantiates it.
 	maintenance_headquarters = MaintenanceHeadquarters.new()
 	floor_nodes["F01"].add_child(maintenance_headquarters)
 	mina_manifestation = MinaCaptionManifestation.new()

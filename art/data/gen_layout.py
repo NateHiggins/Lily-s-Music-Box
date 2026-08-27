@@ -2989,19 +2989,11 @@ def build_floor(floor_id):
         # (stack B starts at x -13.65), facing back into the room.
         _asm(furniture, "common_cab", "arcade_cab", -13.10, 7.85, 90,
              variant=1)
-        # And one in the lobby — where a building puts the thing it was
-        # talked into taking and now cannot get rid of. It is the first
-        # cabinet a player ever sees, thirty seconds from the desk they
-        # were hired to sit at, which states the job-creep joke before
-        # the game has said a word.
-        #
-        # WEST of the street door, not east: the east lobby wall is the
-        # brass mail bank's corner and Dead Letters is played standing in
-        # front of it. Back to the south wall (yaw 180 faces the leaf's
-        # back at -y), clear of the settle at -2.20 and the pilaster
-        # at -1.35.
-        _asm(furniture, "lobby_cab", "arcade_cab", -4.60, -9.05, 180,
-             variant=3)
+        # The former lobby signal cabinet was retired in PHONE-C's arrival-wall
+        # audit. A video-cabinet silhouette in a 1928 apartment lobby spent the
+        # player's period-trust for no opening-shift work and crowded the house
+        # telephone. A single source-grounded mechanical novelty may return only
+        # through task A11; no placeholder geometry remains here.
         for i in range(3):
             chair_box(furniture, "common_ch%d" % i, -10.4 + i * 1.0, 5.60, "s")
             chair_box(furniture, "common_chn%d" % i, -10.4 + i * 1.0, 7.35, "n")

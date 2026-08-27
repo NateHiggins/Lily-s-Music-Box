@@ -140,6 +140,14 @@ as one product line rather than as an industry.
 Adding a machine is an `arcade_cab` entry in `gen_layout.py`. It takes the next
 unused genre in the catalog and nothing here changes.
 
+**Catalogue count is not placement count.** PHONE-C retired `lobby_cab`, the
+freestanding cabinet beside the F01 arrival wall. Production now places eleven
+cabinet carcasses while the compiler catalogue and isolated `ArcadeTest` retain
+all twelve authored programmes. Do not delete or renumber a programme merely to
+make those counts equal, and do not restore the lobby carcass to consume the
+spare. A11's proposed 1927 fortune head is a separate mechanical prop, never an
+`arcade_cab` variant or programme host.
+
 ### Talking to the building
 
 Machines are bound to the nearest acoustic-graph node within 14 m — the bar pair
@@ -264,8 +272,10 @@ boards cost about what a bedroom costs.
 **Memory was not bounded at all**, and that was the real defect. `boot()` had no
 inverse, so a world outlived every reason to keep it: walking away disabled the
 render target and freed nothing. The peak was not how many cabinets were near the
-player but how many they had **ever walked past** - all twelve, at **7.7 MB each,
-92.7 MB**, growing perfectly linearly because nothing is shared between machines.
+player but how many they had **ever walked past**. The original twelve-placement
+measurement reached **7.7 MB each, 92.7 MB**, growing perfectly linearly because
+nothing is shared between machines; PHONE-C's eleven-placement production cannot
+exceed that historical bound without another cabinet being authored.
 `ArcadeMachine.unload()` gives 93% of that back, and the prop calls it once the
 camera has been past `UNLOAD_RANGE` for `UNLOAD_DELAY` seconds - deliberately far
 outside the live radius, because re-booting is 96 entities and a player pacing at

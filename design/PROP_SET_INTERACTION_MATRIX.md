@@ -50,7 +50,7 @@ counts; generator records supply provenance.
 
 | Foreground family | Live / location | Current owner and reaction | Sound | Save / dependencies | Ruling | I4/I5 consequence |
 |---|---|---|---|---|---|---|
-| Signal-parlour cabinets | 12 / B1, F01 | `ArcadeCabinetProp`; boots receiver and opens programme panel | Programme audio owns response | Runtime / arcade machine | **OPERATE** | Keep machine ownership; card names cabinet and current programme. |
+| Signal-parlour cabinets | 11 / B1, F01 | `ArcadeCabinetProp`; boots receiver and opens programme panel | Programme audio owns response | Runtime / arcade machine | **OPERATE** | PHONE-C retired the lobby cabinet only; keep ownership for the eleven remaining venue/service examples. Card names cabinet and current programme. |
 | Boiler | 1 / B1 plant | `BoilerProp`; separate fire, ash, draft and gauge areas operate | Hum, metal tick, building thud | RealityState-backed / plant systems | **OPERATE** | Preserve area-specific verbs and state lines. |
 | Resident bookshelves | 8 / F02–F06 | `BookshelfProp`; opens sorting panel; sectional door opens while used | Metal tap | Runtime / resident book data | **OPERATE** | Card may name order/condition, never infer resident facts. |
 | Box fans | 4 / F02, F04–F06 | `BoxFanProp`; cycles 0–3 unless possession owns it | Electrical hum | Runtime / possession state | **OPERATE** | Card reports selector position and whether the control is refusing. |
@@ -121,7 +121,7 @@ owner instead of placing two ray targets on one physical object.
 | Laundry ceiling airer | 1 / B1 | `LaundryAirerProp`; has lower/raise API and tick, no E | — | **OPERATE** | Add rope/cleat owner and preserve obstruction truth. |
 | Repeated light fixtures | 254 / all zones | `LightFixtureProp`; 1,925 geometry draws, some buzz; room lighting owns state | 215 wall switches | **AMBIENT ARCHITECTURE** | No per-fixture E. I5 records the 260 light sources behind 215 plate owners; no one-to-one contract exists. |
 | Lobby bulletin board | 1 / F01 | `LobbyBulletinBoard`; 23-piece authored board, no E | — | **INSPECT** | One readable board target and current-notice condition. |
-| Lobby Orison advertisement | 1 / F01 | `LobbyOrisonAdBoard`; 31-piece authored board, no E | — | **INSPECT** | One look-point; service wire must not repeat all ad copy. |
+| Lobby Orison advertisement | 0 production / provenance-only | `LobbyOrisonAdBoard`; retired obsolete title-art broadside | — | **RETIRED** | PHONE-C removed its production constructor. Class, asset and isolated service-wire test remain temporarily for exact-reference migration; do not respawn or rescale. |
 | CRT monitor props | 5 / F02, F06 | `MonitorProp`; case/conductor-driven display, no E | Case owner where authored | **OPERATE** | Add physical power/tuning control or specific protected refusal by source; preserve case control. |
 | Neon signs | 3 / F01 street and Harukiya | `NeonSignProp`; conductor/business-hours light, one low transformer or frontage target | Same `NeonSignProp`; observational only | **INSPECT** | Landed I4: the complete ORISON blade, DRUGS wall cabinet and HARUKIYA stage sign each own one reachable service point and sourced tube/transformer condition. Inspection cannot switch, surge or repair the circuit; glyphs never become targets. |
 | Possessed domestic mechanisms | 19 / apartments | `PossessedDomesticProp`; case-driven movement/tick, persistent case state | Same `PossessedDomesticProp`; one neutral inspection target per mechanism | **INSPECT** | Landed I4: all 16 kinds answer with a local material sound and complete owner-result copy; visible movement is restrained and case authority pre-empts it. No card names a case, resident, tell or cause. |
@@ -144,7 +144,7 @@ is stated explicitly.
 | Assembly source | Count / floors | Existing or intended foreground owner | Ruling | Note for I4/I5 |
 |---|---|---|---|---|
 | `amp` | 2 / F02 | — | **RESIST-REFUSE** | Resident-owned powered equipment; switch/knob attempt should explain private/live setup. |
-| `arcade_cab` | 12 / B1, F01 | 12 `ArcadeCabinetProp` overlays | **OPERATE** | Fully mapped. |
+| `arcade_cab` | 11 / B1, F01 | 11 `ArcadeCabinetProp` overlays | **OPERATE** | Fully mapped after PHONE-C retired `lobby_cab`; the catalogue may retain twelve programmes independently of placed-cabinet count. |
 | `bed` | 21 / F01–F06 | 4B dream/bed owner only | **INSPECT** | Ordinary beds acknowledge ownership/condition; only authored sleep bed operates. |
 | `bench` | 5 / B1, F01, roof | Lobby + three bar seat zones cover four seats | **OPERATE** | Prove which fifth bench is safely sittable or classify its source explicitly as blocked. |
 | `bookpile` | 10 / B1, F01, F03–F06 | — | **INSPECT** | Named piles are foreground; no book-by-book collisions. |
@@ -198,7 +198,7 @@ is stated explicitly.
 
 | Provenance class | Marker kinds | Count reconciliation | Matrix destination |
 |---|---|---:|---|
-| Live `FunctionalProp` | `boiler`, `bookshelf`, `boxfan`, `case_door`, `darts`, `door_anomaly`, `fridge`, `kettle`, `mirror`, `point_ball`, `radiator`, `shower`, `sink`, `songbook_terminal`, `stove`, `toaster`, `wall_clock` | 188 | §3; the remaining 15 functional instances are 12 arcade cabinets, Otis, the dead-letter table and Mina's Vantry point. |
+| Live `FunctionalProp` | `boiler`, `bookshelf`, `boxfan`, `case_door`, `darts`, `door_anomaly`, `fridge`, `kettle`, `mirror`, `point_ball`, `radiator`, `shower`, `sink`, `songbook_terminal`, `stove`, `toaster`, `wall_clock` | 187 | §3; the remaining 14 functional instances are 11 arcade cabinets, Otis, the dead-letter table and Mina's Vantry point. |
 | Live non-Functional owner | `desk_zone`, `door`, `room0_threshold` | 122 | §4; 120 doors split into 119 generic + one landmark. |
 | Scripted visual awaiting/mapped review | `bodega_signage`, `ceiling_light`, `exhaust_fan`, `flue_breast`, `lamp`, `laundry_airer`, `monitor`, `neon_sign`, `shop_sign`, `signal_terminal`, `speaker`, `washer` | 46 | §5. |
 | Light-system source, no per-fixture E | `cage_bulb`, `chandelier`, `electrical_junction`, `eye_pendant`, `flush_dome`, `kitchen_linear`, `pendant_shade`, `sconce_globe`, `street_lamp` | 264 | §4 switch owners or §5 ambient fixture family. |

@@ -181,9 +181,9 @@ func _ready() -> void:
 	# arcade spawner have constructed anything; before the transition sweep
 	# existed, 532 of their draws (~500 shadow casters) were still submitted
 	# from inside the hall. These checks hold the sweep to its contract.
-	var named_foreign := ["OrisonOriginalSalesBoard", "LobbyBulletinBoard",
+	var named_foreign := ["LobbyBulletinBoard",
 			"RealityMaintenanceHeadquarters", "LobbyMailBank",
-			"Arcade_lobby_cab", "StreetEndHoardingFaces"]
+			"StreetEndHoardingFaces"]
 	var found_named: Array = []
 	for wanted in named_foreign:
 		var node: Node = root.floor_nodes["F01"].find_child(wanted, true, false)

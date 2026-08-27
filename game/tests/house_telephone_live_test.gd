@@ -23,6 +23,13 @@ func _ready() -> void:
 		print("[HOUSE TELEPHONE LIVE] RESULT: FAIL (%d/%d)" % [checks - failures, checks])
 		get_tree().quit(1); return
 	_check(line.get("endpoints").size() == 4, "the authored census reaches production once")
+	_check(root.find_child("Arcade_lobby_cab", true, false) == null,
+			"the retired lobby video cabinet stays out of production")
+	_check(root.find_child("OrisonOriginalSalesBoard", true, false) == null,
+			"the deprecated original-sales broadside stays out of production")
+	var layout := FileAccess.get_file_as_string("res://data/building_layout.json")
+	_check(not layout.contains("lobby_cab"),
+			"the retired cabinet stays out of the authored layout")
 	var expected := GameBoot.b2g([-5.05, -6.62, 1.42])
 	_check(board.global_position.distance_to(expected) < 0.01,
 			"the board owns the measured west-wall gap")

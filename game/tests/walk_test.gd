@@ -3188,23 +3188,17 @@ func _mail_bank_checks() -> void:
 	var master := root.get_node_or_null("F01_LOBBY_CLOCK_01") as ClockProp
 	var bulletin := root.find_child("LobbyBulletinBoard", true, false) \
 			as LobbyBulletinBoard
-	var sales_board := root.find_child("OrisonOriginalSalesBoard", true, false) \
-			as LobbyOrisonAdBoard
 	var directory: WayfindingSignagePass = root.wayfinding_signage
 	var directory_area := directory.find_child(
 			"DirectoryDoorbellArea", true, false) as Area3D
-	_check(bulletin != null and sales_board != null
-			and bulletin.get_node_or_null("NoticeBoardInspection") is Area3D
-			and sales_board.get_node_or_null("SalesBoardInspection") is Area3D,
-			"both lobby board assemblies own one foreground inspection target")
-	if bulletin and sales_board:
+	_check(bulletin != null
+			and bulletin.get_node_or_null("NoticeBoardInspection") is Area3D,
+			"the current lobby notice board owns one foreground inspection target")
+	if bulletin:
 		var bulletin_card: Dictionary = bulletin.interact(root.player)
-		var sales_card: Dictionary = sales_board.interact(root.player)
 		_check(bulletin._inspection_tap.playing
-				and sales_board._inspection_tap.playing
-				and bulletin_card.get("card_id", "") == "notice_board"
-				and sales_card.get("card_id", "") == "notice_board",
-				"production lobby boards answer with owner condition and material touch")
+				and bulletin_card.get("card_id", "") == "notice_board",
+				"production lobby board answers with owner condition and material touch")
 	var directory_card: Dictionary = directory.interact_area(directory_area)
 	var master_card: Dictionary = master.interact(root.player) if master else {}
 	_check(directory_area != null and directory._bell.playing
