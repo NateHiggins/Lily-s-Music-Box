@@ -194,11 +194,25 @@ func _show_step(step: Dictionary) -> void:
 			_director.active_run.step_index + 1,
 			(profile.get("steps", []) as Array).size()]
 	_cue.text = str(step.get("cue", ""))
-	_feedback.text = "A/D, arrows or mouse to work it  ·  E/Space to commit  ·  ESC to leave"
+	_feedback.text = control_hint(_current_input_family())
 	_refresh_track()
 	if str(step.get("verb", "")) != "hold_release" and _mechanism \
 			and _mechanism.has_method("preview_maintenance_step"):
 		_mechanism.call("preview_maintenance_step", step, _value)
+
+
+## The player already owns input-family detection for world prompts. Read that
+## presentation state; the repair panel does not invent a second device owner.
+func _current_input_family() -> StringName:
+	if _player and _player.has_method("_current_prompt_family"):
+		return _player.call("_current_prompt_family") as StringName
+	return &"keyboard"
+
+
+static func control_hint(input_family: StringName) -> String:
+	if input_family == &"controller":
+		return "D-pad left/right to work it  ·  A to commit  ·  B to leave"
+	return "A/D, arrows or mouse to work it  ·  E/Space to commit  ·  ESC to leave"
 
 
 func _refresh_track() -> void:

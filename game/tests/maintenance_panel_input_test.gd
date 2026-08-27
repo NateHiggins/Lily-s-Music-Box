@@ -53,6 +53,12 @@ func _prove_registered_keyboard_events() -> void:
 			"the maintenance panel compares no raw keycode")
 	_check(not source.contains("is_action_pressed(&\"interact\")"),
 			"the panel consumes activity_commit, never the interact action")
+	_check(MaintenanceActivityPanel.control_hint(&"controller") ==
+			"D-pad left/right to work it  ·  A to commit  ·  B to leave",
+			"the controller is told only controls present on its pad")
+	_check(MaintenanceActivityPanel.control_hint(&"keyboard").contains(
+			"E/Space to commit"),
+			"the keyboard keeps its own repair legend")
 
 
 func _prove_semantic_panel_route() -> void:
@@ -62,9 +68,12 @@ func _prove_semantic_panel_route() -> void:
 	add_child(player)
 	add_child(mechanism)
 	add_child(panel)
+	player._prompt_input_family = &"controller"
 	_check(panel.open(player, mechanism, "radiator_vent_service"),
 			"the production activity opens")
 	_check(player.call_locked, "opening the panel owns the player's call")
+	_check(panel._feedback.text == MaintenanceActivityPanel.control_hint(
+			&"controller"), "the open panel follows the player's input family")
 	var start_value: float = panel._value
 	panel._unhandled_input(_action(&"activity_adjust_left", true))
 	_check(is_equal_approx(panel._value, start_value - panel.STEP_DELTA),
