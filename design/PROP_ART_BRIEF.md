@@ -8,7 +8,7 @@ is context, constraint and deliverable — the facts are in the code.
 
 ## 0. What you are being asked to do
 
-Take the props listed in §5, compare each against **real-world 1927 New
+Take the props listed in §5, compare each against **real-world 1928 New
 York** reference, and improve the modelling and the texturing.
 
 Three outputs per prop:
@@ -44,11 +44,11 @@ Work prop by prop. Do not restructure the prop system.
 ## 2. The world, precisely
 
 **READ `design/ORISON_BIBLE.md` §VIII — THE DIVERGENCE FIRST.** This is
-an alternate 1927 and the difference is not decorative. One rule governs
+an alternate 1928 and the difference is not decorative. One rule governs
 every object you will touch:
 
 > **Does it carry, capture, switch, store or reproduce a signal?**
-> If YES it is forty years ahead of its time. If NO it is 1927 and
+> If YES it is forty years ahead of its time. If NO it is 1928 or older and
 > probably second-hand.
 
 Signal technology diverged in 1873 and nothing else did. There is no
@@ -57,10 +57,10 @@ food in an icebox — in a building wired past the standard of a
 broadcast house, because the firm that built it was in the business.
 Apply the rule before you reference anything.
 
-- **The Orison Apartments, Queens, New York.** A 1927 walk-up: six
+- **The Orison Apartments, Queens, New York.** A 1928 walk-up: six
   storeys, basement, roof. Brick, plaster, oak, brass, cast iron.
-- **The present is late 1927.** So every object is either NEW in the
-  twenties, or older and surviving — a 1911 stove in a 1927 kitchen is
+- **The present is late 1928.** So every object is either NEW in the
+  twenties, or older and surviving — a 1911 stove in a 1928 kitchen is
   correct and characterful; a 1950s one is wrong.
 - **These are not wealthy homes.** Rented flats, some furnished, some
   not. Objects are mended, mismatched, and inherited. Where a real
@@ -246,5 +246,5 @@ bible, §VIII.5:
 
 Anything else that would change the fiction rather than the model —
 raise it. Per §VIII.6 the divergence is narrow: it does not license
-anachronism at will, and an object that carries no signal is 1927,
+anachronism at will, and an object that carries no signal is 1928 or older,
 second-hand, and probably a bit broken.
