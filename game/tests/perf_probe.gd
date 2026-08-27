@@ -26,10 +26,11 @@ const FRAME_BUDGET_MS := 16.6
 ## design/FINAL_MAP_REDESIGN_BRIEF.md — state the budget in every table.
 ## To reproduce a historical figure, sweep it back: LIGHT_BUDGET=16.
 const PINNED_LIGHT_BUDGET := 64
-## Shadows are a separate and still-scarce currency: the positional atlas
-## is a fixed 8192 that subdivides per caster, so raising this shrinks
-## every shadow in the frame. It stays at sixteen. See TASKS L13.
-const PINNED_SHADOW_BUDGET := 16
+## Shadows are a separate and expensive currency. The corrected thirteen-
+## station 1440p sweep keeps all 64 lights and clears every playable view with
+## the nearest five casters; six misses the strict F03 boundary. Detached
+## composition cameras remain draw-call diagnostics, not gameplay gates.
+const PINNED_SHADOW_BUDGET := 5
 const WARMUP := 30
 const SAMPLES := 90
 ## Every station in this building draws thousands of objects. Anything near

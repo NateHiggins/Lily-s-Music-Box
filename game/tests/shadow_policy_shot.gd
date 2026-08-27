@@ -12,7 +12,7 @@ extends Node
 ## cameras — which is exactly the class of error this whole check exists to
 ## avoid.
 ##
-## Production lighting means production lighting: the same 64/16 budget the
+## Production lighting means production lighting: the same 64/5 budget the
 ## benchmark pins, the day/night director frozen so a pair differs by the
 ## policy alone, and no debug fill of any kind.
 

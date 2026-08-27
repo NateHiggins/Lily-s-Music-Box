@@ -138,7 +138,7 @@ hardware).
 | G14 | Title and in-game focus | **CODE GREEN / MANUAL OPEN** | Early Access |
 | G15 | Save, persistence, abort restore | **PARTIAL** | internal |
 | G16 | Boot and capture budget | **PROVED** | does not block |
-| G17 | 1440p route performance | **PARTIAL — measured fix ready to integrate** | public demo |
+| G17 | 1440p route performance | **PROVED — primary machine** | public demo |
 | G18 | No debug affordance in build or media | **CODE GREEN / MANUAL OPEN** | public demo |
 | G19 | Capture protocol conformance | **PROVED** | does not block |
 | G20 | System requirements, two machines | **ABSENT** | Early Access |
@@ -366,11 +366,12 @@ eight playable views range from 7.18 to 12.42 ms wall average.
 **Not evidence:** the superseded detached-camera table, and the composition
 cameras (64/5 atrium 22.93, street 26.28) which remain over but must never be
 quoted as gameplay.
-**Integration gate:** production still requests 64/16 in a dirty shared file.
-Land the measured one-number 64/5 policy without absorbing that owner's edit,
-then re-run all thirteen stations and frozen visual pairs. **Manual:** a second
-machine remains required by G20.
-**Consequence:** blocks public demo.
+**Integrated:** production and the probe now resolve 64/5. The fresh production
+sweep passes all eleven playable stations: lobby 13.94, landing 15.18 and
+boundary-sensitive carriageway 16.51 ms wall average. Four matched 64/16→64/5
+visual pairs preserve architecture and practical-light legibility. **Manual:**
+the second machine remains G20's gate, with carriageway the first retest.
+**Consequence:** G17 no longer blocks the public demo on the primary machine.
 **Forbidden while open:** any fps or "runs great" claim.
 
 ### G18 — No debug affordance in build or media

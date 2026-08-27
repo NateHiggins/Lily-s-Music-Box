@@ -178,10 +178,19 @@ cross-section then measured every other station rather than extrapolating:
 
 Every playable station clears the strict 16.6 ms gate at 64/5. The detached
 atrium-eye and street-elevation composition cameras remain over; shadow
-rationing is not their fix. The candidate is not yet production:
-`BuildingRoot` still requests 64/16, and that shared file currently carries an
-unrelated uncommitted owner edit. Integrate the one-number policy only after
-that edit lands, then rerun all thirteen stations and frozen visual pairs.
+rationing is not their fix.
+
+The policy is now integrated in production and the probe's pin follows it.
+Fresh production runs resolve **64/5** at every camera. All eleven playable
+stations pass: lobby **13.94**, F03 landing **15.18**, carriageway **16.51**,
+corridor **11.17**, apartment **10.19**, roof **6.32**, Harukiya **8.40**,
+arcade **8.51**, and the Passage views **7.34 / 9.63 / 8.73 ms** wall average.
+Carriageway is a narrow pass and remains boundary-sensitive. The two detached
+composition cameras remain over at **23.27** and **24.58 ms**; they are not
+gameplay evidence. Matched 64/16→64/5 stills at lobby, F03, apartment and
+carriageway measure 0.02307, 0.00954, 0.01794 and 0.02087 whole-frame RMSE;
+inspection preserves railing, landing, room modelling and practical-light
+legibility.
 
 Both FULL shards now print final verdicts below the wall-clock ceiling.
 GoldenLoop prices its complete route at 53.7 s. Performance evidence is being
@@ -190,8 +199,7 @@ is interleaved with Claude's K2 proof runs without contention.
 
 ## Next executable order
 
-1. Integrate the measured 64/5 production shadow policy after the shared
-   `BuildingRoot` edit lands; rerun all thirteen stations and representative
-   frozen visual pairs. Do not call the two composition cameras fixed.
-2. Continue K2's human fresh-save playthrough and K3's eleven-boundary
+1. Continue K2's human fresh-save playthrough and K3's eleven-boundary
    save matrix.
+2. Recheck the boundary-sensitive carriageway on the second target machine;
+   do not call the two composition cameras fixed.

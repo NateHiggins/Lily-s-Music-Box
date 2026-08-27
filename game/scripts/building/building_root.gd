@@ -554,10 +554,11 @@ func _ready() -> void:
 		# has since had its lantern count halved (atrium_tree, sixteen
 		# "fruit" to eight composed brackets), which is what pays for this.
 		#
-		# Shadows stay at sixteen and are a different currency: the
-		# positional atlas is a fixed 8192 that subdivides per caster, so
-		# raising this number makes every shadow smaller. See TASKS L13.
-		light_rig.set_budgets(64, 16)
+		# Keep every authored light, but rank only five shadow casters. The
+		# corrected thirteen-station 1440p sweep clears every playable view at
+		# 64/5; six misses the strict F03 boundary and sixteen costs 23.70 ms.
+		# Detached composition cameras remain a separate draw-call problem.
+		light_rig.set_budgets(64, 5)
 	else:
 		# Known-safe development profile retained from the live debug controls.
 		light_rig.set_budgets(14, 8)
