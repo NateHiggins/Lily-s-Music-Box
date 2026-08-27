@@ -2983,12 +2983,12 @@ def build_floor(floor_id):
         # community room (B stack) and building storage (C stack)
         _asm(furniture, "common_table", "table_rect", -9.2, 6.6, 0,
              L=2.6, W=1.0)
-        # THE COMMON ROOM'S MACHINE. A residents' room with a table, a
-        # settle and three chairs is a room nobody uses; the cabinet is
-        # what makes it somewhere people are found. Against the west wall
-        # (stack B starts at x -13.65), facing back into the room.
-        _asm(furniture, "common_cab", "arcade_cab", -13.10, 7.85, 90,
-             variant=1)
+        # The former `common_cab` video-game silhouette was removed in the
+        # room reconstruction.  It spent the room's only quiet west-wall bay,
+        # contradicted the 1928 setting, and duplicated the unrelated arcade
+        # family outside the Orison.  Do not fill the vacancy with another
+        # cabinet by default: the common room's purpose is settled below
+        # before a period mechanical novelty earns this bay.
         # The former lobby signal cabinet was retired in PHONE-C's arrival-wall
         # audit. A video-cabinet silhouette in a 1928 apartment lobby spent the
         # player's period-trust for no opening-shift work and crowded the house
@@ -2997,8 +2997,10 @@ def build_floor(floor_id):
         for i in range(3):
             chair_box(furniture, "common_ch%d" % i, -10.4 + i * 1.0, 5.60, "s")
             chair_box(furniture, "common_chn%d" % i, -10.4 + i * 1.0, 7.35, "n")
-        _furn_box(furniture, "common_stack1", -13.3, 8.8, 0.55, 0.55,
-                  0.0, 1.35, "metal", False)
+        # Six serviceable chairs and the settle already meet the room's
+        # seating brief.  The former `common_stack1` was only a featureless
+        # 550 mm metal prism in this bay: it neither modelled stacked chairs
+        # nor supported an activity, and read as a second loose door slab.
         art_panel(furniture, "common_notice", -9.5, 2.745, 1.2, True,
                   z0=1.1, h=0.9, mat="paper")
         kitchen_run(furniture, "common_k", -6.15, 7.0, 2.2, False, "e")
