@@ -69,10 +69,16 @@ func _ready() -> void:
 	orders.diagnose_job(JOB)
 	orders.mark_job_awaiting_part(JOB)
 	orders.mark_job_repairable(JOB)
+	AudioPolicy.clear_diagnostics()
 	network.active_owner.interact(player)
 	_check("repair is impossible without the capsule",
 			orders.job_stage(JOB) == "repairable"
 			and not inventory.is_consumed(ITEM))
+	var point_audio := AudioPolicy.event_history()
+	_check("an empty capsule seat audibly refuses the repair",
+			point_audio.size() == 1
+			and point_audio[0].cue_id == &"interaction.vantry_repair_refuse"
+			and point_audio[0].source_id == StringName(POINT))
 	RealityState.reset_campaign_for_tests()
 
 	# Only the correct chirping point advances the fault.
@@ -136,6 +142,7 @@ func _ready() -> void:
 	_check("the point offers the replacement",
 			network.active_owner.interact_prompt()
 					== "[E]  Replace the carbon transmitter capsule")
+	AudioPolicy.clear_diagnostics()
 	network.active_owner.interact(player)
 	state = orders.job_state(JOB)
 	_check("the repair enters repaired with recorded quality",
@@ -147,6 +154,11 @@ func _ready() -> void:
 			not hunt.fault_active()
 			and network.active_owner.is_repaired()
 			and float(network.active_owner.get_service_state().grille_open) == 0.0)
+	point_audio = AudioPolicy.event_history()
+	_check("the seated capsule audibly completes under the point's own id",
+			point_audio.size() == 1
+			and point_audio[0].cue_id == &"interaction.vantry_repair_accept"
+			and point_audio[0].source_id == StringName(POINT))
 	_check("the job does not close automatically",
 			orders.job_stage(JOB) == "repaired")
 	_check("the repaired objective directs the player back to Mina",

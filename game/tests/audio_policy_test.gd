@@ -11,7 +11,7 @@ func _ready() -> void:
 	var master_before := AudioServer.get_bus_volume_db(
 			AudioServer.get_bus_index("Master"))
 	_check("catalog and bus tree build", policy.setup())
-	_check("catalog owns twenty-eight semantic cues", int(policy.census().catalog_size) == 28)
+	_check("catalog owns thirty-one semantic cues", int(policy.census().catalog_size) == 31)
 	_check("voice allocation is bounded at sixteen",
 			int(policy.census().voices) == PolicyScript.VOICE_CAP
 			and policy.find_children("*", "AudioStreamPlayer3D", true, false).size()
@@ -142,7 +142,7 @@ func _ready() -> void:
 	policy.clear_diagnostics()
 	_check("diagnostic reset changes no catalog or mix truth",
 			int(policy.census().history) == 0
-			and int(policy.census().catalog_size) == 28
+			and int(policy.census().catalog_size) == 31
 			and int(policy.census().mix_requests) == 0)
 	_finish(policy)
 

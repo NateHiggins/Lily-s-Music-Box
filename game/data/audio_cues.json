@@ -82,6 +82,48 @@
       "caption": "hardware counter answers empty",
       "graph_transmitted": false
     },
+    "interaction.vantry_grille": {
+      "stream_key": "tick",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 50,
+      "volume_db": -17.0,
+      "pitch_scale": 0.86,
+      "unit_size": 1.0,
+      "max_distance": 7.0,
+      "cooldown": 0.08,
+      "max_instances": 2,
+      "caption": "Vantry grille turns open",
+      "graph_transmitted": false
+    },
+    "interaction.vantry_repair_accept": {
+      "stream_key": "pop",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 66,
+      "volume_db": -14.0,
+      "pitch_scale": 1.04,
+      "unit_size": 1.2,
+      "max_distance": 8.0,
+      "cooldown": 0.08,
+      "max_instances": 2,
+      "caption": "carbon capsule seats and the line falls quiet",
+      "graph_transmitted": false
+    },
+    "interaction.vantry_repair_refuse": {
+      "stream_key": "knock",
+      "purpose": "interaction",
+      "bus": "Interaction",
+      "priority": 64,
+      "volume_db": -15.0,
+      "pitch_scale": 0.82,
+      "unit_size": 1.2,
+      "max_distance": 8.0,
+      "cooldown": 0.08,
+      "max_instances": 2,
+      "caption": "empty capsule seat stops the hand",
+      "graph_transmitted": false
+    },
     "interaction.switch_on": {
       "stream_key": "tick",
       "purpose": "interaction",

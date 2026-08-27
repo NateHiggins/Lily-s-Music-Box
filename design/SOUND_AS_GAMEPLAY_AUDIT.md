@@ -9,7 +9,7 @@ masking claims still remain hypotheses until measured in a production walk.
 - `AudioPolicy` builds the canonical 18-bus hierarchy, a bounded 16-voice
   semantic pool, priority/cooldown/instance rules, a composable volume mix
   stack and ordered diagnostics.
-- `audio_cues.json` owns 28 semantic cues. The release route now distinguishes
+- `audio_cues.json` owns 31 semantic cues. The release route now distinguishes
   the Vantry fault, switch on/off, ordinary door motion/latch/refusal, clock
   proof/refusal, register index/paper/key/refusal, and all four house-line
   states.
@@ -322,7 +322,7 @@ embrace, dialogue and telephone states compose and unwind in every order.
 
 ### AU-2 — Cue catalog and emitter contract (launch blocker)
 
-**Status 2026-08-27: GOLDEN-ROUTE MIGRATION IN PROGRESS.** The catalog owns 28
+**Status 2026-08-27: GOLDEN-ROUTE MIGRATION IN PROGRESS.** The catalog owns 31
 validated semantic contracts, bounded allocation, source-scoped stop,
 diagnostics and caption sectors. `audit_audio_emitters.py --check` passes with
 zero unassigned direct players, unknown literal cue ids, catalog failures or

@@ -172,8 +172,17 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> void:
+	var stage_before := work_orders.job_stage(ChirpHunt.JOB_ID) \
+			if work_orders else "missing"
+	var repaired_before := _repaired
 	set_grille_open(1.0)
 	inspected.emit(point_id)
+	var cue := &"interaction.vantry_grille"
+	if not repaired_before and _repaired:
+		cue = &"interaction.vantry_repair_accept"
+	elif stage_before == "repairable" and not _repaired:
+		cue = &"interaction.vantry_repair_refuse"
+	AudioPolicy.present_3d(cue, global_position, 1.0, StringName(point_id))
 
 
 func interact_area(_area: Area3D) -> void:
