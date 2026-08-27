@@ -392,6 +392,19 @@ func _refuse(cue_id: StringName, reason: String) -> bool:
 
 
 func _record_event(event: Dictionary) -> void:
+	if str(event.get("outcome", "")) == "observed_existing" \
+			and not _event_history.is_empty():
+		var previous: Dictionary = _event_history[-1]
+		if str(previous.get("outcome", "")) == "observed_existing" \
+				and previous.get("cue_id") == event.get("cue_id") \
+				and previous.get("source_id") == event.get("source_id"):
+			previous["occurrences"] = int(previous.get("occurrences", 1)) + 1
+			previous["last_second"] = float(event.get("at_second", _clock))
+			previous["at"] = event.get("at", previous.get("at", Vector3.ZERO))
+			previous["sector"] = event.get("sector", previous.get("sector", ""))
+			previous["listener_distance"] = event.get("listener_distance",
+					previous.get("listener_distance", -1.0))
+			return
 	_event_history.append(event.duplicate(true))
 	if _event_history.size() > EVENT_HISTORY_CAP:
 		_event_history.pop_front()

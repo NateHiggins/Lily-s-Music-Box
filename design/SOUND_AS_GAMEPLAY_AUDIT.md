@@ -18,6 +18,9 @@ masking claims still remain hypotheses until measured in a production walk.
   duplicate voice. Both facts now enter diagnostics and caption direction.
 - The opening watch clock's honest one-second beat now reports as navigation;
   repeated semantic captions sustain one row instead of flooding all three.
+  Consecutive observations from that source also coalesce in diagnostic history
+  with an occurrence count and last-heard time, so four minutes of clockwork
+  cannot erase the rest of the session's evidence.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.

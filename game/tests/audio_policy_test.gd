@@ -80,6 +80,13 @@ func _ready() -> void:
 					Vector3(0, 1, -2), &"Elevator")
 			and int(policy.census().active) == active_before_observation
 			and str(policy.event_history()[-1].outcome) == "observed_existing")
+	policy.advance_for_test(1.0)
+	policy.observe_existing_3d(&"navigation.elevator_arrival",
+			Vector3(0, 1, -2), &"Elevator")
+	_check("a repeating observed source coalesces diagnostic history",
+			policy.event_history().size() == 4
+			and int(policy.event_history()[-1].occurrences) == 2
+			and is_equal_approx(float(policy.event_history()[-1].last_second), 1.0))
 	policy.advance_for_test(2.0)
 	_check("cooldown expiry permits the source again",
 			policy.present_3d(&"nav.vantry_fault", Vector3.ZERO, 0.5,
