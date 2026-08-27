@@ -84,6 +84,18 @@ the immediate executable gates, not a second copy of its milestone status.
   first impossible connection. Ship in PHONE-A…F slices with production-live,
   accessibility, performance and quantitative render gates.
 
+- **K0-AUDIO — LAUNCH BLOCKER / PRIMARY GAMEPLAY FEEDBACK: MAKE THE HOUSE
+  ANSWER CLEARLY.** Execute `design/SOUND_AS_GAMEPLAY_AUDIT.md`. Establish the
+  golden-shift listening baseline before bulk tuning; then ship an authored bus
+  tree, composable mix-state owner, semantic cue catalog, pooled priority and
+  concurrency policy, Vantry audibility vertical slice, interaction/state
+  vocabulary, cached room/portal propagation, weather/radio arbitration and
+  caption/accessibility parity. Preserve source ownership: props decide what
+  happened, audio policy decides how competing truths remain intelligible.
+  Sound must convey source, direction, acceptance/refusal and state without
+  becoming louder, busier or an omniscient objective system. AU-0 through AU-3
+  gate the Early Access golden shift; AU-4 through AU-6 complete M3/M6 polish.
+
 - **K1 — CURRENT-TREE BASELINE — RUN 2026-08-26, RED GATES REMAIN.**
   `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
   lighting green, FAST reproducing its two known failures, and GoldenLoop now

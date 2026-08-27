@@ -352,7 +352,35 @@ bounded by two unrelated function names are also placement-fragile—scan the
 specific function contract instead. Package the countdown and proof protocol,
 not Orison's named ritual phases or apparatus geometry.
 
-## 9. Process safety is part of the engine workflow
+## 9. Source-owned sound needs centralized attention policy
+
+### Learned
+
+Spatial emitters alone do not produce an intelligible sound world. Orison had
+strong individual mechanisms but at least 142 statically visible construction
+paths competing through mostly `Master`, with 29 literal `tick` and 17 `knock`
+helper requests carrying unrelated meanings. The reusable boundary is:
+
+- the world object owns the fact and requests a semantic cue;
+- a catalog owns variants, purpose, bus, distance and limits;
+- a bounded policy owner arbitrates priority, concurrency and mix state;
+- the acoustic scene owns listener-relative transmission;
+- diagnostics record what presented, refused, stole a voice or was stopped;
+- accessibility exposes only information available in the audible event.
+
+`AudioPolicy.stop_source()` is as important as playback: repair, abort and
+despawn must silence the exact source without reaching into unrelated voices.
+A source id plus cue id makes that boundary testable.
+
+### Reusable engine seam
+
+Extract the semantic cue schema, stable bus builder, fixed voice pools,
+source-scoped lifecycle, composable mix-state requests and audit tooling. Keep
+Orison's cue vocabulary, 550-node building graph and historical recordings as
+content. Do not productize a singleton that owns game state; productize the
+competition and evidence contracts downstream of state.
+
+## 10. Process safety is part of the engine workflow
 
 ### Learned
 
@@ -374,7 +402,7 @@ Bundle serialized execution, structured result extraction, stable temp-log
 locations, exact artifact manifests, dirty-tree guards and ownership-aware
 worktree support. These are product features if the tool will be leased.
 
-## 10. Productization questions to answer before extraction
+## 11. Productization questions to answer before extraction
 
 1. Which modules can run without Orison’s autoloads and data schemas?
 2. What are the stable extension points for compilers, props, cases, saves,
@@ -391,7 +419,7 @@ worktree support. These are product features if the tool will be leased.
 8. What automated compatibility, migration, security and support commitments
    would leasing require?
 
-## 11. Next ledger work
+## 12. Next ledger work
 
 - Backfill the save/reload transaction model and eleven-boundary K3 findings.
 - Map the generator/runtime interfaces and their current dependency graph.
