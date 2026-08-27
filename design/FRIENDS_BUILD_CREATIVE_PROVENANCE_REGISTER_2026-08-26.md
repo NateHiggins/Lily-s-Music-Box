@@ -21,6 +21,12 @@ was edited.
 > discarded.” All 34 tracked TTS samples were removed. They no longer ship.
 > Their filenames remain below as historical audit evidence and as reserved ids
 > for future production takes; they are not a current asset family.
+>
+> **IMPLEMENTATION UPDATE — 2026-08-26:** `music_catalog.json` now declares
+> `tracks.*.provenance` as `in_world_fiction` in a root-level
+> `field_semantics` record. Its `rights_record` is explicitly null and the
+> warning bars creator, licence, attribution and distribution-authority
+> inference. `tools/audit_music_catalog.py` fails closed if that boundary moves.
 
 > **This document gives no legal advice and reaches no legal conclusion.** It
 > separates four things that are routinely collapsed into one: what the owner
@@ -54,8 +60,8 @@ misleading.**
    contains in-world fiction** — invented bands, invented years, invented
    pressing histories. It is excellent writing and it is **not a rights
    record**. A future audit or script reading that field by name would draw a
-   confident wrong conclusion. **This is the single most dangerous artefact in
-   the register.**
+   confident wrong conclusion. **This was the single most dangerous artefact in
+   the register and is now explicitly classified.**
 4. **Manifest coverage is far narrower than it looks.** Four
    `art/audio/*.MANIFEST.md` files exist; **only one corresponds to shipped
    audio** (`The_Clockwork_Waltz` → the two `music/title/clockwork_waltz_*.ogg`
@@ -63,8 +69,8 @@ misleading.**
    and **35 of the 39 shipped tracks have no manifest at all**.
 
 **Nothing here blocks a private friends build on its own.** Every row has a
-disposition, and most are "ship with the record filled in afterwards". Two are
-not (§8 P0).
+disposition, and most are "ship with the record filled in afterwards". The two
+original P0 findings are now resolved (§8).
 
 ---
 
@@ -110,7 +116,7 @@ the numbered records that follow.
 | 2 | Music, library | yes | 36 | P1 — provider evidence |
 | 3 | Music, title | yes | 3 | P1 — provider evidence |
 | 4 | Music covers | yes | 36 | P1 — method unrecorded |
-| 5 | Catalogue `provenance` fiction | yes | 36 fields | P0 — annotate |
+| 5 | Catalogue `provenance` fiction | yes | 36 fields | GREEN — classified |
 | 6 | Textures and materials | mostly | large | P1 — terms evidence |
 | 7 | `viral_seed.ogg` | yes | 1 | P2 — name input |
 | 8 | Freesound CC BY 4.0 | yes | 8 sources | GREEN — notice required |
@@ -160,7 +166,8 @@ the numbered records that follow.
 - **Creator/method:** authored in-world fiction.
 - **Known fact:** HIGH confidence that these are invented bands, years and
   histories—not rights evidence.
-- **Disposition:** P0; annotate rather than rename, as detailed in §7.
+- **Disposition:** RESOLVED; schema-level classification preserves the fiction
+  while barring rights inference, as detailed in §7.
 
 ### 3.0.5 Textures and materials
 
@@ -328,32 +335,40 @@ Every unknown, with what happens to it for a **private friends build**.
 | Music | provider terms evidence | **SHIP under the owner's recorded ruling (§4.1).** Collect E1–E4 while reconstructible. |
 | Covers | method entirely unrecorded | **SHIP, record method.** Same workflow question as the tracks; ask once, answer both. |
 | Textures | provider terms at generation | **SHIP, record.** Largest family, lowest per-item risk. |
-| `provenance` field | reads as a rights record | **SHIP the data — it is game content.** Annotate it (§7) so nobody mistakes it again. |
+| `provenance` field | none remaining | **RESOLVED:** ships as game content with an explicit `in_world_fiction` classification (§7). |
 | `.swcpkg` | authorship unrecorded | **SHIP, presumed owner-created.** Confirm in one line. |
 | `viral_seed.ogg` input | source WAV unidentified | **SHIP.** Name the input when convenient. |
 
-**No family is BLOCKED for a friends build.** Two are P0 for anything wider.
+**No family is BLOCKED for a friends build.** The two original P0 findings have
+been resolved: the TTS samples were removed and the lore field was classified.
 
 ---
 
-## 7. Proposed repository records — described, not created
+## 7. Repository records — one implemented, three proposed
 
-Four small records. **None is created by this document.**
+Four small records were identified. The audit created none; the later catalogue
+classification in item 3 is now implemented.
 
 1. **`design/VOICE_PROVENANCE.md`** — §5's answers, once. Performer, agreement
    location, scope, credit preference, source-take location. Ten lines.
 2. **`art/audio/MUSIC_PROVENANCE.md`** — E1–E6 in one table for all 39 shipped
    tracks plus the 36 covers, replacing the pattern where four manifests cover
    one shipped file.
-3. **An annotation on the misleading field.** The cleanest fix is a sibling key
-   rather than a rename, so nothing that reads the catalogue breaks:
+3. **IMPLEMENTED — schema annotation on the misleading field.** A root-level
+   semantic record avoids duplicating a warning across 36 tracks and changes no
+   existing consumer:
    ```
-   "provenance"        → unchanged; in-world fiction
-   "provenance_note"   → "IN-WORLD FICTION. Not a rights record.
-                          See art/audio/MUSIC_PROVENANCE.md."
+   "field_semantics": {
+     "tracks.*.provenance": {
+       "classification": "in_world_fiction",
+       "rights_record": null,
+       "warning": "Never use this field to infer rights facts."
+     }
+   }
    ```
-   A rename to `lore` or `in_world_history` is cleaner still but touches every
-   consumer. **Owner/Codex call.**
+   `tools/audit_music_catalog.py` guards this boundary and all 36 required track
+   records. `rights_record` remains null until a real machine-readable record
+   exists.
 4. **Extend `asset_provenance.json`** (proposed in ADMIN-LIC1 §8) with a
    `creator`, `method` and `evidence` field per family, so the machine check
    covers *who made it* and not only *what licence it carries*.
@@ -362,11 +377,11 @@ Four small records. **None is created by this document.**
 
 ## 8. Blockers, ranked
 
-**P0 — answer before any distribution wider than named friends**
+**P0 — resolved**
 
 | | |
 | --- | --- |
-| **P0-1** | **The `provenance` field is fiction and is named as though it is not.** Cheap to annotate; expensive if a future audit or automated check trusts it. §7.3. |
+| **P0-1** | **RESOLVED:** `field_semantics` classifies the field as in-world fiction and `audit_music_catalog.py` prevents rights inference. §7.3. |
 
 **P1 — collect while reconstructible**
 
@@ -447,8 +462,9 @@ can prove.**
   visibly separate.
 - **It does not adopt, extend or narrow the owner's ruling.** The sentence in
   §4.1 is reproduced exactly and nothing is inferred from it.
-- **It creates no record, template, manifest or annotation** — §7 describes
-  four and creates none.
-- **It edits no asset, code, manifest, licence or design file.**
-- **It blocks nothing for a private friends build.** Two items are P0 for wider
-  distribution, and both are answerable in minutes by the person who knows.
+- **The original audit created no record, template, manifest or annotation.** A
+  later implementation added only the catalogue semantic boundary and its
+  validator; the broader provenance records in §7 remain proposed.
+- **The original audit edited no asset, code, manifest, licence or design file.**
+- **It blocks nothing for a private friends build.** Both original P0 findings
+  are resolved; remaining unknowns retain explicit dispositions.

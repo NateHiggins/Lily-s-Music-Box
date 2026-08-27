@@ -1,5 +1,12 @@
 {
   "version": 1,
+  "field_semantics": {
+    "tracks.*.provenance": {
+      "classification": "in_world_fiction",
+      "rights_record": null,
+      "warning": "Authored diegetic history only. Never use this field to infer creator, licence, attribution, or distribution authority."
+    }
+  },
   "station": {
     "name": "WORS 1610 — Orison Community Service Frequency",
     "legend": "A carrier-current station supposedly operated from the Orison laundry room between 1962 and 1999. No transmitter has ever been found. Its signal now travels through radiator risers, disconnected intercom wire, and whichever room is trying hardest not to remember something.",
