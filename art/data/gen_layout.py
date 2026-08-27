@@ -3001,8 +3001,11 @@ def build_floor(floor_id):
         # seating brief.  The former `common_stack1` was only a featureless
         # 550 mm metal prism in this bay: it neither modelled stacked chairs
         # nor supported an activity, and read as a second loose door slab.
-        art_panel(furniture, "common_notice", -9.5, 2.745, 1.2, True,
-                  z0=1.1, h=0.9, mat="paper")
+        # The former `common_notice` frame was not in the common room at all:
+        # it hung on the package room's south wall directly behind `f01_pkg0`.
+        # The shelf made its blank paper face unreadable and unreachable, so
+        # it cannot serve as either art or a parcel board. Keep this service
+        # room spare instead of inventing a replacement notice to fill a wall.
         kitchen_run(furniture, "common_k", -6.15, 7.0, 2.2, False, "e")
         # The common room has the nineteenth kitchen basin but intentionally
         # no domestic range/fridge pair. Add only the cutout-owned sink; passing
