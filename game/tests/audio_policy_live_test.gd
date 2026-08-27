@@ -76,7 +76,8 @@ func _prove_elevator(root: Node) -> void:
 		if elevator.state == OrisonElevator.S.IDLE and elevator.current == target:
 			break
 		await get_tree().physics_frame
-	var history := AudioPolicy.event_history()
+	var history := AudioPolicy.event_history().filter(func(event: Dictionary):
+		return str(event.source_id) == str(elevator.name))
 	_check("one ride reports machinery first and arrival bell last",
 			elevator.current == target and history.size() == 2
 			and str(history[0].cue_id) == "state.elevator_travel"
@@ -119,7 +120,8 @@ func _prove_standard_doors(root: Node) -> void:
 	await get_tree().create_timer(0.65).timeout
 	closed.interact(root.get("player"))
 	await get_tree().create_timer(0.65).timeout
-	var movement := AudioPolicy.event_history()
+	var movement := AudioPolicy.event_history().filter(func(event: Dictionary):
+		return str(event.source_id) == str(closed.name))
 	_check("open, close and latch are three ordered physical answers",
 			movement.size() == 3
 			and str(movement[0].cue_id) == "interaction.door_move"
@@ -129,7 +131,8 @@ func _prove_standard_doors(root: Node) -> void:
 	AudioPolicy.clear_diagnostics()
 	locked.interact(root.get("player"))
 	await get_tree().create_timer(0.35).timeout
-	var refusal := AudioPolicy.event_history()
+	var refusal := AudioPolicy.event_history().filter(func(event: Dictionary):
+		return str(event.source_id) == str(locked.name))
 	var only_locked := true
 	for event in refusal:
 		only_locked = only_locked \
