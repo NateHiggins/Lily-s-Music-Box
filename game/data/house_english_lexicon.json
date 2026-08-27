@@ -32,6 +32,11 @@
     "order": {"house":"order", "plain":"requested destination", "kind":"telephone", "origin":"documented_bell_usage"},
     "carrying": {"house":"carrying", "plain":"physically connected through a cord or trunk", "kind":"telephone", "origin":"trade_semantic_extension"},
     "busy": {"house":"busy", "plain":"occupied by another connection", "kind":"telephone", "origin":"documented_trade_usage"},
-    "unanswered": {"house":"unanswered", "plain":"rung but not taken", "kind":"telephone", "origin":"documented_trade_usage"}
+    "unanswered": {"house":"unanswered", "plain":"rung but not taken", "kind":"telephone", "origin":"documented_trade_usage"},
+    "coin_selected": {"house":"coin-says", "plain":"the coin selected", "kind":"fortune_evidence", "origin":"orison_invention"},
+    "hand_requested": {"house":"hand-asks", "plain":"the hand plunger requested the indication", "kind":"fortune_evidence", "origin":"orison_invention"},
+    "building_correlated": {"house":"house-heard", "plain":"several building systems responded afterward", "kind":"fortune_evidence", "origin":"orison_invention"},
+    "overcommitted": {"house":"heard big", "plain":"addressed by more responsibilities than one person can answer at once", "kind":"fortune_state", "origin":"orison_invention"},
+    "focused_attention": {"house":"hear one", "plain":"choose one report to answer clearly", "kind":"fortune_state", "origin":"orison_invention"}
   }
 }

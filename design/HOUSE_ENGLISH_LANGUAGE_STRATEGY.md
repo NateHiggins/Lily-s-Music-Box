@@ -105,6 +105,30 @@ correctly act on one unseen instruction assembled from familiar terms and can
 explain its evidential status. Measure comprehension, time-to-action, mistaken
 actions, interpretation-option use and qualitative delight—not just completion.
 
+### A11 vignette teaching sequence
+
+“The House Heard Big” uses invented House English, not attributed immigrant
+slang. Its four phrases must be learned from visible causality in this order:
+
+1. **coin-says YES / coin-says NO** — the player watches which weighted trough
+   closes its switch and which axis the head takes. Plain presentation: “The
+   coin selected YES; the head nodded.”
+2. **hand-asks** — the separate plunger makes clear that a hand requests the
+   selected answer; neither coin nor current completes it alone. Plain:
+   “Working the plunger asked the machine to show its selection.”
+3. **house-heard** — several independent instruments present ordinary facts
+   after the answer. The phrase claims correlation, not supernatural causation.
+   Plain: “Several building systems began asking for the player.”
+4. **heard big** — too many owners address one responsible hand across the
+   house. “Big” means scope of accountability, never body size, age, ethnicity
+   or intelligence. Plain: “The player accepted more responsibility than one
+   person can answer at once.”
+
+The reversal is **hear one**: return shared custody, release the live line and
+select one resident’s report. It must not be rendered as **make square**, because
+the point is attention rather than completion. Safety text retains literal
+CURRENT, YES, NO, LINE OPEN and physical units.
+
 ## Character rule
 
 The shared cant has individual idiolects. Mina favors line and circuit

@@ -44,6 +44,26 @@ static func render_line(fact: Dictionary, mode := "house") -> String:
 		_: return "%s line rests." % endpoint
 
 
+static func render_fortune_answer(fact: Dictionary, mode := "house") -> String:
+	## A pure account of the visible mechanism. Question text and causality are
+	## intentionally absent: the record can prove path, current and head axis.
+	var answer := str(fact.get("answer", "")).to_upper()
+	var powered := bool(fact.get("powered", false))
+	var motion := "nodded" if answer == "YES" else (
+			"shook" if answer == "NO" else "did not answer")
+	if mode == "plain":
+		if not powered:
+			return "No current reached the selector magnets; the head did not answer."
+		return "%s %s; %s; the head %s." % [
+				term("coin_selected", mode), answer,
+				term("hand_requested", mode), motion]
+	if not powered:
+		return "Line blind. Coin waits. Hand asks; head rests."
+	return "%s %s. %s. Head %s." % [
+			term("coin_selected", mode), answer,
+			term("hand_requested", mode), motion]
+
+
 static func _load() -> void:
 	if not _terms.is_empty(): return
 	var parsed: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(PATH))

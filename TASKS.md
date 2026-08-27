@@ -176,6 +176,20 @@ Ruled in `ORISON_BIBLE.md` VIII.5.g. Docs: `game/docs/arcade_cabinets.md`.
   feed, or accept it as atmosphere? Worth deciding rather than defaulting.
 - **A10** Every spawned enemy is named `Enemy`, so Godot's rename-on-collision
   makes their degrade thresholds differ slightly. Cosmetic.
+- **A11 — BUILD “THE HOUSE HEARD BIG,” ONE 1927 MECHANICAL FORTUNE
+  NOVELTY.** Owner-approved; execute `design/ORISON_FORTUNE_TELLER_BRIEF.md`
+  and the audited owner contract in `design/HOUSE_HEARD_BIG_ORCHESTRATION.md`.
+  Do not restore a video-cabinet cluster. Mechanism: John J. Scharli Jr., US
+  1,621,756 (filed 1925,
+  granted 1927), a coin-controlled fortune-teller whose mechanical head nods
+  yes or shakes no according to the coin's path. Alternate: the 1926 Mills
+  legend-wheel fortune/vending machine, US 1,586,455. Compare against a compact
+  bagatelle/trade stimulator and mutoscope only with pre-1929 primary evidence;
+  familiar coin-op pinball silhouettes are presumptively too late. One object,
+  one cheap mechanical loop, bounded sound, no viewport, and no story authority.
+  Audit the obsolete `orison_original_advert_lobby_v1.png` source at the same
+  gate: default recommendation is archive as concept provenance and remove its
+  unused runtime prop after reference migration, not rescale it into production.
 
 ## G — The phonautograph
 

@@ -2121,3 +2121,56 @@ can still be recognized without shipping it on an installed fixture.
 
 Final non-4B render, 2A under its own light and a grazing torch:
 `C:/PleaseRemainOnTheLine/art/renders/porcelain_fixture_pilot/family_promotion/stand_-6.85_4.65_-4.89_-90_-8.png`
+
+## 1927 answering head — the coin selects; the plunger speaks
+
+### Primary mechanism
+
+John J. Scharli Jr., US 1,621,756, “Coin-controlled machine,” filed 20 June
+1925 and granted 22 March 1927:
+<https://patents.google.com/patent/US1621756A/en>.
+
+This is an electrical-mechanical fortune teller, not a gravity-only toy. Its
+front panel carries a rotatable pointer aimed at printed questions. A coin
+falls from one chute onto a central deflector and into either of two hinged
+troughs. The added weight closes the leaf switch beneath that trough, energizing
+one of two electromagnets around a common armature. The armature moves a common
+striker toward one of two pendulums; the customer then pushes a separate hand
+plunger. One pendulum rocks the head about a horizontal hinge for YES, while the
+other rotates its bearing about the vertical axis for NO. Side cams return the
+striker to neutral after actuation.
+
+The distinction is useful game language:
+
+- the coin path selects an answer but does not move the head by itself;
+- current positions the striker but does not answer without the hand plunger;
+- the plunger can travel against an unselected neutral striker and accomplish
+  nothing;
+- the two answers are different axes of the same head, not two lamps or cards;
+- the mechanism returns neutral, so a resting head cannot reveal its last
+  answer;
+- the coin passes through the base plate into a locked money drawer;
+- the rear panel's hasp is reachable only after the drawer is withdrawn, making
+  revenue access and mechanism access one interlock.
+
+### Orison adaptation
+
+A11 preserves the two weighted troughs, leaf switches, twin magnets, common
+striker, two pendulums, separate plunger, external power socket and neutral
+return. It exposes more of the race and linkage than Scharli's closed front so
+the player can reconstruct the ordinary answer. The printed question selector
+may survive as a small closed vocabulary, but no selected words enter runtime
+state: the iron cannot understand them.
+
+An unplugged machine must refuse ordinary operation. The storyline may later
+show its plug loose after a valid powered answer, but that is ambiguous evidence
+about when it lost current—not license for the prop to perform an unpowered
+nod. The fortune prop publishes answer, selected path and sequence only; story
+causality belongs elsewhere.
+
+### Extraction lesson
+
+A familiar silhouette is not enough historical grounding. The patent's most
+valuable detail is the division of labor among coin, current and hand. Model
+each causal term separately, give each a refusal, and snapshot every visible
+settled pose. This turns provenance into gameplay rather than decorative copy.
