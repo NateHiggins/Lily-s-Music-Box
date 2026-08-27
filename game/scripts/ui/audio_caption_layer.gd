@@ -48,6 +48,14 @@ func _on_cue(_cue_id: StringName, record: Dictionary) -> void:
 
 
 func speak(text: String) -> void:
+	# A repeating physical source sustains one fact. Reset its hold instead of
+	# printing the same clock beat or machinery state into every available row.
+	for row in _live:
+		var existing: Label = row.label
+		if is_instance_valid(existing) and existing.text == text:
+			row.age = 0.0
+			existing.modulate.a = 1.0
+			return
 	var label := Label.new()
 	label.text = text
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

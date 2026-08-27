@@ -687,6 +687,8 @@ func _advance_beat(delta: float) -> void:
 	# does this.
 	_beat_left += BEAT_SECONDS
 	_beat.play()
+	AudioPolicy.observe_existing_3d(&"navigation.watch_clock_beat",
+			global_position, StringName(name))
 
 
 ## Seconds until the next beat, and whether there will be one. Public so a

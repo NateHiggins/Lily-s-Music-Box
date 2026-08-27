@@ -9,13 +9,15 @@ masking claims still remain hypotheses until measured in a production walk.
 - `AudioPolicy` builds the canonical 18-bus hierarchy, a bounded 16-voice
   semantic pool, priority/cooldown/instance rules, a composable volume mix
   stack and ordered diagnostics.
-- `audio_cues.json` owns 22 semantic cues. The release route now distinguishes
+- `audio_cues.json` owns 23 semantic cues. The release route now distinguishes
   the Vantry fault, switch on/off, ordinary door motion/latch/refusal, clock
   proof/refusal, register index/paper/key/refusal, and all four house-line
   states.
 - The elevator keeps its physically timed bell and held machinery player, but
   reports travel and arrival through the semantic policy without allocating a
   duplicate voice. Both facts now enter diagnostics and caption direction.
+- The opening watch clock's honest one-second beat now reports as navigation;
+  repeated semantic captions sustain one row instead of flooding all three.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.
@@ -92,9 +94,9 @@ Literal `make_emitter()` reuse is concentrated heavily in a tiny vocabulary:
 | Asset key | Literal uses | Collision risk |
 | --- | ---: | --- |
 | `tick` | 29 | clocks, switches, paper, darts, controls and inspections teach one sound as many verbs |
-| `knock` | 17 | pipes, refusals, keys, registers and service mechanisms compete with the hero radiator clue |
+| `knock` | 14 | pipes, refusals, keys, registers and service mechanisms compete with the hero radiator clue |
 | `hum_loop` | 9 | unrelated motors, draft, appliances and terminals lose source identity |
-| `pop` | 9 | releases, paper and mechanical confirmations share one transient |
+| `pop` | 7 | releases, paper and mechanical confirmations share one transient |
 | `creak` | 5 | architecture, furniture and mechanisms blur |
 
 This is efficient placeholder reuse, but it prevents a reliable learned audio

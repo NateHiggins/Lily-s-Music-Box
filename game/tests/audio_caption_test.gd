@@ -26,6 +26,10 @@ func _ready() -> void:
 			rows.get_child_count() == 1
 			and rows.get_child(0).text
 			== "house line asks at the switchboard — RIGHT")
+	layer.speak("house line asks at the switchboard — RIGHT")
+	_check("a repeating source sustains one caption instead of stacking copies",
+			rows.get_child_count() == 1 and layer._live.size() == 1
+			and is_zero_approx(float(layer._live[0].age)))
 	layer.speak("second")
 	layer.speak("third")
 	layer.speak("fourth")

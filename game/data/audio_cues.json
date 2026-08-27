@@ -123,6 +123,19 @@
       "caption": "elevator arrives with one bell",
       "graph_transmitted": false
     },
+    "navigation.watch_clock_beat": {
+      "stream_key": "tick",
+      "purpose": "navigation",
+      "bus": "Navigation",
+      "priority": 64,
+      "volume_db": -24.0,
+      "unit_size": 6.0,
+      "max_distance": 16.0,
+      "cooldown": 0.0,
+      "max_instances": 1,
+      "caption": "watch clock beats in the service corridor",
+      "graph_transmitted": false
+    },
     "state.elevator_travel": {
       "stream_key": "elevator_machine_loop",
       "purpose": "state",
