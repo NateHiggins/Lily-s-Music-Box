@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "name": "Mini Fixture House",
+    "footprint": [7.0, 3.0],
+    "levels": {"T1": 0.0},
+    "floor_to_floor": 3.2,
+    "wall_height": 3.02,
+    "slab_t": 0.18,
+    "player": {"height": 1.524, "eye": 1.41, "radius": 0.33},
+    "residents": {"9Z": "Test Resident"}
+  },
+  "floors": [
+    {
+      "id": "T1",
+      "z": 0.0,
+      "slabs": [{"rect": [0.0, 0.0, 7.0, 3.0], "z_top": 0.0, "t": 0.18, "holes": []}],
+      "walls": [
+        {"a": [0.0, 0.0], "b": [7.0, 0.0], "t": 0.18, "h": 3.02, "z": 0.0,
+         "openings": [{"type": "door", "at": 1.4, "w": 0.8, "h": 2.03, "sill": 0.0, "leaf": "closed", "swing": "out"}]},
+        {"a": [0.0, 3.0], "b": [1.9, 3.0], "t": 0.18, "h": 3.02, "z": 0.0, "openings": []},
+        {"a": [2.1, 3.0], "b": [7.0, 3.0], "t": 0.18, "h": 3.02, "z": 0.0,
+         "openings": [{"type": "window", "at": 2.4, "w": 1.2, "h": 1.15, "sill": 1.05}]},
+        {"a": [0.0, 0.0], "b": [0.0, 3.0], "t": 0.18, "h": 3.02, "z": 0.0, "openings": []},
+        {"a": [7.0, 0.0], "b": [7.0, 3.0], "t": 0.18, "h": 3.02, "z": 0.0, "openings": []},
+        {"a": [4.0, 0.0], "b": [4.0, 3.0], "t": 0.12, "h": 3.02, "z": 0.0,
+         "openings": [{"type": "door", "at": 1.5, "w": 0.9, "h": 2.1, "sill": 0.0, "leaf": "closed"}]}
+      ],
+      "rooms": [
+        {"id": "T1_A", "rect": [0.0, 0.0, 4.0, 3.0], "kind": "office"},
+        {"id": "T1_B", "rect": [4.0, 0.0, 7.0, 3.0], "kind": "storage"},
+        {"id": "T1_AMB", "rect": [3.5, 0.0, 7.0, 3.0], "kind": "hall"},
+        {"id": "T1_ENV", "rect": [0.0, 0.0, 7.0, 3.0], "kind": "living", "unit": "9Z"}
+      ],
+      "markers": [
+        {"kind": "door", "id": "T1_DOOR_01", "pos": [4.0, 1.05, 0.0], "yaw_deg": -90,
+         "w": 0.9, "h": 2.1, "leaf": "closed", "subtype": "service", "finish_variant": 0},
+        {"kind": "door", "id": "T1_DOOR_02", "pos": [1.0, 0.0, 0.0], "yaw_deg": 0,
+         "w": 0.8, "h": 2.03, "leaf": "closed", "swing": "out",
+         "subtype": "service", "finish_variant": 0},
+        {"kind": "radiator", "id": "T1_A_RADIATOR_01", "pos": [0.25, 1.5, 0.0],
+         "yaw_deg": 90, "network": "heating", "riser": "H-T", "sections": 5}
+      ],
+      "furniture": [
+        {"id": "a_counter", "rect": [0.3, 2.2, 2.2, 2.75], "h": 0.9, "z0": 0.0, "mat": "wood_dark"},
+        {"id": "a_counter_clutter", "rect": [0.4, 2.3, 1.0, 2.7], "h": 0.2, "z0": 0.95, "mat": "paper"},
+        {"id": "a_rug", "rect": [1.2, 0.9, 3.1, 2.0], "h": 0.02, "z0": 0.0, "mat": "linen"},
+        {"id": "a_beam", "rect": [0.0, 1.4, 4.0, 1.6], "h": 0.3, "z0": 2.6, "mat": "timber"},
+        {"id": "a_chair_90", "asm": "chair", "at": [3.2, 1.0], "yaw": 90},
+        {"id": "a_chair_45", "asm": "chair", "at": [3.2, 2.2], "yaw": 45},
+        {"id": "a_gizmo", "asm": "gizmometer", "at": [1.5, 0.6], "yaw": 0},
+        {"id": "a_box1", "rect": [2.4, 2.3, 2.9, 2.8], "h": 0.8, "z0": 0.0, "mat": "crate"},
+        {"id": "a_box2", "rect": [2.7, 2.4, 3.3, 2.9], "h": 0.8, "z0": 0.0, "mat": "crate"},
+        {"id": "b_cross", "rect": [3.7, 0.4, 4.4, 0.9], "h": 1.0, "z0": 0.0, "mat": "metal"},
+        {"id": "b_art", "rect": [6.9, 1.2, 6.98, 1.9], "h": 0.6, "z0": 1.2, "mat": "art"},
+        {"id": "b_artf", "rect": [6.88, 1.15, 6.99, 1.95], "h": 0.7, "z0": 1.15, "mat": "trim"},
+        {"id": "pipe_riser", "asm": "pipe", "at": [0, 0], "yaw": 0, "mat": "metal",
+         "r": 0.03, "p0": [6.6, 0.4, 0.0], "p1": [6.6, 0.4, 3.0]}
+      ],
+      "ceilings": [],
+      "vent_registers": [],
+      "sockets": [
+        {"id": "9Z_COUNTER_SIDE", "unit": "9Z", "socket": "COUNTER_SIDE", "at": [1.1, 2.0], "z": 0.0},
+        {"id": "lost_socket", "unit": "9Z", "socket": "NOWHERE"}
+      ]
+    }
+  ],
+  "vantry_points": [],
+  "ventilation_registers": [],
+  "bookshelves": [],
+  "stairs": [],
+  "elevator": {}
+}
