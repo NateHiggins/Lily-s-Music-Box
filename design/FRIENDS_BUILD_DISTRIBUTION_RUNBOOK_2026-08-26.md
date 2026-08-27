@@ -49,6 +49,15 @@
 > and Freesound attribution records plus Godot's official licence link. The
 > owner-supplied `LICENSE.txt` remains separate; this update chooses no licence
 > for the game's original work.
+>
+> **END-TO-END DRY RUN — 2026-08-27:** cold import resumed safely across two
+> 60-second terminations and completed on the third bounded pass, sealing 190
+> generated UID sidecars. Windows export passed in 21.0 s. Mechanical build 999
+> then produced the exact six-file payload and a 1,201,980,406-byte ZIP with
+> SHA-256 `18c78a0cb0ad53ed4dd2bc6ff9b39db8a60cb14da5d05696dd07b486a364335d`.
+> Its licence conspicuously said `DRY RUN — NOT FOR DISTRIBUTION`; packageability
+> is proved, but owner authorization, upload, second-machine launch, rollback
+> and key revocation remain open.
 
 **Purpose:** the smallest honest distribution path for a private friends build,
 beginning the moment Codex supplies a working Windows export preset. This
@@ -79,11 +88,11 @@ Everything below is read from tracked files and git metadata at this commit.
 
 | Question | Finding |
 | --- | --- |
-| Build/packaging infrastructure | **NONE.** `build/` is gitignored (`.gitignore:35`) and does not exist. No packaging script, no `Makefile`, no `justfile`. |
+| Build/packaging infrastructure | **PRESENT.** Four checked PowerShell tools own warm import, export, packaging and third-party notices. Generated output remains ignored under `build/`. |
 | CI | **NONE.** There is no `.github/` directory at all — no workflows, no Releases automation, no issue templates. |
 | Git remote | `https://github.com/NateHiggins/Lily-s-Music-Box.git`. **The repository name does not match the game.** Whether it is private is **UNKNOWN** from tracked files. |
-| Versioning | **ABSENT.** `game/project.godot` sets `config/name="Orison Apartments — Building"` and **no `config/version`**. A tester today has no string to quote back. |
-| Naming | `config/name` is neither "Please Remain on the Line" nor "Orison". Whatever the window title is, it will not match what you asked people to test. |
+| Versioning | **PRESENT.** `application/config/version="0.1.0"`; the packager copies it into `BUILD_ID.txt`. |
+| Naming | `application/config/name="Please Remain on the Line"`; the stable user directory is `PleaseRemainOnTheLine`. |
 | Signing | **NONE, deliberately.** `.gitignore:95–99` excludes `*.keystore`, `*.jks`, `key.properties` and states *"None exist in the tree today and none ever should."* That covers **Android**; **no Windows code-signing certificate exists or is referenced anywhere.** |
 | Crash reporting | **NONE.** No Sentry/Crashpad/Breakpad. `attention_ledger.gd` is playtest telemetry that writes nothing to disk and sends nothing. |
 | LICENSE | **ABSENT.** No `LICENSE`, no `LICENSE.md`, no `COPYING`. |
@@ -104,9 +113,8 @@ exclude filter. Three consequences for this runbook:
    `.pck`**. §4's "either/or" is now decided for us: they ship together, in the
    same zip, always. A stale `.pck` beside a fresh `.exe` is the failure mode to
    guard against.
-3. **The export name is already `PleaseRemainOnTheLine.exe`**, which settles the
-   executable half of §4 and makes O1 narrower — the *window title* still comes
-   from `config/name`, which is still `"Orison Apartments — Building"`.
+3. **The export name is `PleaseRemainOnTheLine.exe`**, the window title is
+   `Please Remain on the Line`, and version `0.1.0` is explicit.
 
 **The engine-side exclude filter does part of §4's job**, covering `tests/*`,
 `docs/*`, source audio and source sky textures. It does **not** replace the
@@ -114,8 +122,9 @@ operator check: the filter governs what enters the `.pck`, while §4 step 5
 governs what a human puts in the **zip**, which is where `Godot_v*.exe`, a log
 or a personal path would arrive.
 
-**Still absent:** `config/version`. **The identity problem is unchanged and it
-remains the lowest rung of §10.**
+**Still absent:** an owner-approved licence grant. Identity and mechanical
+packaging are no longer the lowest rung; authorization and second-machine
+rehearsal are.
 
 ### What a tester leaves on their machine
 
@@ -129,10 +138,9 @@ user://photos/ + manifest.json          screenshots the PLAYER takes
 user://songbook/ + songbook/vocals      MICROPHONE RECORDINGS
 ```
 
-`use_custom_user_dir` is **not** set, so `user://` resolves to Godot's default
-per-project location under the user's app data. **UNKNOWN:** the exact resolved
-folder name on Windows — it derives from `config/name`, which contains an em
-dash, and I did not verify how Godot sanitises that. **An operator must read the
+`use_custom_user_dir` is set and the stable folder name is
+`PleaseRemainOnTheLine`. **UNKNOWN:** the complete Windows-resolved path has not
+been read from a second-machine exported run. **An operator must read the
 real path off a real machine before writing it into tester instructions.**
 
 ---
@@ -196,29 +204,29 @@ context a store page provides.
 
 ## 3. Operator checklist — clean checkout to uploaded artifact
 
-**Every engine/export command below is UNRUN.** I may not launch Godot, so
-each is written to be executed and verified by the operator, not quoted as done.
+The import/export/package commands have completed in an isolated proof checkout.
+Only second-machine and distribution operations remain unrun.
 
 **Precondition: SATISFIED** as of `2165c3c`/`d7530f1`. A `Windows Desktop`
-preset exists. What remains unproven is that it *exports cleanly on a clean
-checkout with templates installed* — step 2 and step 3 below, both **UNRUN**.
+preset exists; the 2026-08-27 detached-checkout run proves warm import, clean
+export and mechanical packaging. Steps 2–7 remain the required operator route,
+not unrun hypotheses.
 
 ```
- 0. PRECONDITION   Windows preset: DONE (a7d6114)
-                   config/version: STILL ABSENT                  [OWNER/CODEX]
+ 0. PRECONDITION   Windows preset + version + identity: DONE
 
  1. CLEAN CHECKOUT git clone <remote> --branch main <tmp>
                    verify: git rev-parse HEAD  == the SHA you intend to ship
                    verify: git status --porcelain is EMPTY
-                   (do NOT build from the shared worktree; 251 dirty files
-                   live there and none of them belong in an artifact)
+                   (do NOT build from the shared worktree; its dirty/untracked
+                   development files do not belong in an artifact)
 
- 2. TEMPLATES      confirm Godot 4.7.1 export templates are installed   UNRUN
-                   (an export silently fails or produces a broken binary
-                   without them)
+ 2. IMPORT         tools/warm_release_checkout.ps1
+                   repeat manually after a bounded timeout; only a complete
+                   pass writes the commit-bound readiness/UID seal
 
- 3. EXPORT         godot --headless --path game --export-release \
-                     "Windows Desktop" ../build/windows/<artifact>/<exe>  UNRUN
+ 3. EXPORT         tools/export_friends_build.ps1
+                   writes EXE/PCK + commit/hash manifest                 PROVED
 
  4. VERIFY EXE     the output directory contains exactly the executable and
                    its .pck (or a single embedded-PCK executable), and
@@ -228,12 +236,11 @@ checkout with templates installed* — step 2 and step 3 below, both **UNRUN**.
                    art/renders/, design/, audio_virus_prototype/,
                    Godot_v*.exe, logs, .git, personal paths in any string
 
- 6. ADD            README_TESTER.txt (§4), LICENSE-or-EULA (§8 owner action),
-                   BUILD_ID.txt containing: version, git SHA, UTC build time,
-                   preset name, Godot version
+ 6. PACKAGE        tools/package_friends_build.ps1 -BuildNumber <NNN> \
+                     -LicensePath <owner-approved-file>
+                   adds README, BUILD_ID, licence and third-party notices
 
- 7. PACKAGE        zip the directory (§4 naming). Do not ship a bare .exe:
-                   a zip preserves the folder and makes the readme unavoidable
+ 7. VERIFY         exact six-file allowlist and component hashes          PROVED
 
  8. HASH           record SHA-256 of the zip; it goes in the release note and
                    in the feedback form
@@ -264,6 +271,7 @@ PleaseRemainOnTheLine_friends-<NNN>_win64_<shortsha>.zip
              README_TESTER.txt
              BUILD_ID.txt
              LICENSE.txt                       (owner action, §8)
+             THIRD_PARTY_NOTICES.txt
 ```
 
 `<NNN>` is a monotonic friends-build number starting at `001`. It never resets
@@ -275,19 +283,22 @@ a stale `.pck` beside a new `.exe` is a bug report you will not be able to
 reproduce. If separate, they ship in the same zip and are never distributed
 apart.
 
-**Identity visible to the tester — currently impossible.** `config/version` is
-absent, so there is **no version string in the build today**. Until Codex sets
-one, `BUILD_ID.txt` is the only identity, and it must contain:
+**Identity visible to the tester — mechanically proved.** Version `0.1.0` and
+the exact source/export identity enter `BUILD_ID.txt`:
 
 ```
 build      friends-001
-version    <config/version once it exists>
+version    0.1.0
 commit     <full 40-char SHA>
 built      <UTC ISO-8601>
 preset     Windows Desktop
 engine     Godot 4.7.1
-sha256     <of the zip>
+exe_sha256 <of the executable>
+pck_sha256 <of the PCK>
 ```
+
+The final ZIP hash lives in the sibling `.zip.sha256` sidecar; placing it
+inside the archive would be self-referential.
 
 **Excluded, without exception:** repository source, `.gd`, `.import`,
 `.godot/`, `game/tests/`, `tools/`, `art/renders/`, `design/`,
@@ -453,16 +464,17 @@ Six rungs. **Each is a different claim and they are commonly conflated.**
 
 | Rung | Means | Proved by | Today |
 | --- | --- | --- | --- |
-| **Exportable** | a Windows preset exists and templates are installed | export exits 0 | **PRESET YES** (`a7d6114`); templates and a clean export **UNRUN** |
-| **Packageable** | the output contains only what §4 permits | operator checklist 4–7 | NO |
+| **Exportable** | a Windows preset exists and templates are installed | export exits 0 | **YES** — isolated Windows export passed |
+| **Packageable** | the output contains only what §4 permits | operator checklist 4–7 | **YES, MECHANICAL** — dry-run six-file artifact passed; shipping licence unresolved |
 | **Distributable** | a channel exists with per-person access and revocation | a key issued and revoked in a test | NO |
 | **Installable** | a *second* machine unzips and launches to the title screen | operator step 9 | NO |
 | **Playable** | a tester reaches the first report unaided | one tester report | NO |
-| **Diagnosable** | a report can be tied to an exact build and reproduced | `BUILD_ID.txt` + form + a reproduced defect | **NO — no version string exists** |
+| **Diagnosable** | a report can be tied to an exact build and reproduced | `BUILD_ID.txt` + form + a reproduced defect | **CODE GREEN** — identity is present; real tester report/reproduction unrun |
 
 **A build that is installable but not diagnosable wastes the cohort**, because
-every report becomes unattributable. `BUILD_ID.txt` is the cheapest rung on this
-ladder and it is currently the missing one.
+every report becomes unattributable. `BUILD_ID.txt` is now generated and
+hash-bound. The next rung is an authorized licence plus a second-machine
+install/launch rehearsal.
 
 ---
 
@@ -496,15 +508,16 @@ misread as a launch-platform decision. It is not.
 - decide the build-number scheme and start the build log
 - draft the LICENSE/EULA text for owner approval
 
-**Blocked on Codex:** `config/version` (the Windows preset landed mid-audit),
-and — before any *second* build — the save-version guard from matrix G15.
+**Blocked on Codex:** no remaining mechanical identity/export/package item.
+The save-version guard from matrix G15 is implemented; its broader manual save
+matrix remains separate release evidence.
 
 **Blocked on the owner:** everything in §9.
 
-**The honest sequence, updated:** ~~export preset~~ **done** → `config/version`
-and `BUILD_ID.txt` → one operator dry run to the *installable* rung on a second
-machine → then, and only then, an owner creating an itch project and issuing six
-keys.
+**The honest sequence, updated:** ~~export preset → version → build identity →
+mechanical package~~ **done** → owner-approved licence → one operator dry run
+to the *installable* rung on a second machine → then, and only then, an owner
+creating an itch project and issuing six keys.
 
 ---
 
