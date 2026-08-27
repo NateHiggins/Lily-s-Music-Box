@@ -153,6 +153,14 @@ notice *and* the licence, and the licence is ~4.5 KB. That is the whole reason
 
 ## 5. Proposed `THIRD_PARTY_NOTICES.txt` structure
 
+> **IMPLEMENTED 2026-08-26:** the separated-notice option below is now the
+> package contract. `tools/build_third_party_notices.ps1` deterministically
+> assembles Godot's official licence link, the complete in-tree Courier Prime
+> OFL text, and the complete Freesound attribution record. The packager emits
+> and requires `THIRD_PARTY_NOTICES.txt` as its sixth file. The owner-supplied
+> `LICENSE.txt` remains separate and no licence for the original game was
+> invented.
+
 **Separation is cleaner and I would recommend it — but it costs a payload slot
 (§7).** If the owner prefers it:
 
@@ -217,7 +225,7 @@ Same question as the distribution runbook's signing entity.
 
 ---
 
-## 7. Consequence for the five-file payload contract
+## 7. Consequence for the six-file payload contract
 
 `tools/package_friends_build.ps1:108–111` enforces exactly:
 
@@ -226,7 +234,7 @@ BUILD_ID.txt · LICENSE.txt · PleaseRemainOnTheLine.exe
 PleaseRemainOnTheLine.pck · README_TESTER.txt
 ```
 
-and throws *"Staging directory violates the five-file artifact contract."*
+and now throws *"Staging directory violates the six-file artifact contract."*
 otherwise.
 
 **Two ways to satisfy the obligations, and they are not equivalent:**
@@ -234,7 +242,7 @@ otherwise.
 | | Payload | Consequence |
 | --- | --- | --- |
 | **A — combined** | five files, unchanged | `LICENSE.txt` becomes ~7–8 KB: game terms, engine notice, full OFL text, sixteen sound credits. **The packager needs no change at all.** |
-| **B — separated** | **six files** | Cleaner to read. **`$expected` must gain `THIRD_PARTY_NOTICES.txt`**, and the contract becomes a six-file contract. |
+| **B — separated** | **six files — IMPLEMENTED** | Cleaner to read. `$expected` includes `THIRD_PARTY_NOTICES.txt`; its contents are generated from authoritative in-tree sources. |
 
 **I did not edit the packager.** If the owner picks B, that array is the single
 line that changes, and the check should stay strict — its value is that it fails
@@ -300,7 +308,7 @@ A data file mapping shipped path families to provenance and obligation, so that
 
 ### Smallest packaging validation
 
-A pre-package check, **before** the five-file assertion:
+A pre-package check, **before** the six-file assertion:
 
 ```
 1. enumerate the paths the export filter would include
@@ -363,7 +371,7 @@ audit. None of those three overlaps another.
 | S5 | House Five songbook book | **in-tree primary** | `design/ORISON_SONGBOOK_GEMINI_LYRIA_HOUSE_FIVE.md` | in repo | *"All five are rights-GREEN"*; consultation notices *"gate the shipping master, not the private instrumental audition"*; never reference a historical recording |
 | S6 | Material prompt sheet | **in-tree primary** | `design/MATERIAL_PROMPT_SHEET.md` | in repo | the Gemini texture-generation pipeline |
 | S7 | Export preset | **in-tree primary** | `game/export_presets.cfg` | in repo | the `exclude_filter`; `include_filter="*.swcpkg"` |
-| S8 | Packager | **in-tree primary** | `tools/package_friends_build.ps1:9–10,80–111` | in repo | mandatory `-LicensePath`; the five-file `$expected` array and its throw |
+| S8 | Packager | **in-tree primary** | `tools/package_friends_build.ps1` | in repo | mandatory `-LicensePath`; deterministic third-party notice builder; six-file `$expected` array and its throw |
 
 **No licence was inferred from a filename, a folder name or a reputation.**
 Every GREEN row above cites either an upstream licence text in the repository or

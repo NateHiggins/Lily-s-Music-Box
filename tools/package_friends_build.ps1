@@ -80,6 +80,11 @@ New-Item -ItemType Directory -Path $stage | Out-Null
 Copy-Item -LiteralPath $exe -Destination (Join-Path $stage "PleaseRemainOnTheLine.exe")
 Copy-Item -LiteralPath $pck -Destination (Join-Path $stage "PleaseRemainOnTheLine.pck")
 Copy-Item -LiteralPath $license -Destination (Join-Path $stage "LICENSE.txt")
+$noticeBuilder = Join-Path $PSScriptRoot "build_third_party_notices.ps1"
+& $noticeBuilder -OutputPath (Join-Path $stage "THIRD_PARTY_NOTICES.txt")
+if ($LASTEXITCODE -ne 0) {
+    throw "Third-party notice generation failed."
+}
 
 $readmeText = Get-Content -LiteralPath $readme -Raw
 $readmeText = $readmeText.Replace('{{BUILD_NUMBER}}', $number)
@@ -106,9 +111,10 @@ Set-Content -LiteralPath (Join-Path $stage "BUILD_ID.txt") `
 
 $actual = @(Get-ChildItem -LiteralPath $stage -File | Select-Object -ExpandProperty Name | Sort-Object)
 $expected = @("BUILD_ID.txt", "LICENSE.txt", "PleaseRemainOnTheLine.exe",
-    "PleaseRemainOnTheLine.pck", "README_TESTER.txt") | Sort-Object
+    "PleaseRemainOnTheLine.pck", "README_TESTER.txt",
+    "THIRD_PARTY_NOTICES.txt") | Sort-Object
 if ((Compare-Object $actual $expected).Count -ne 0) {
-    throw "Staging directory violates the five-file artifact contract."
+    throw "Staging directory violates the six-file artifact contract."
 }
 
 Compress-Archive -LiteralPath $stage -DestinationPath $zip -CompressionLevel Optimal

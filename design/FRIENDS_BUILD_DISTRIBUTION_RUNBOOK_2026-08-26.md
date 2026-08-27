@@ -40,8 +40,15 @@
 > hash changes the ZIP and therefore changes its hash. The canonical contract
 > is now EXE and PCK hashes inside `BUILD_ID.txt`, plus the final ZIP hash in a
 > sibling `<archive>.zip.sha256` file. `tools/package_friends_build.ps1`
-> enforces the exact five-file payload, refuses overwrite/reused build numbers,
+> enforces the exact six-file payload, refuses overwrite/reused build numbers,
 > requires an owner-supplied license path, and writes the external sidecar.
+>
+> **THIRD-PARTY NOTICE UPDATE — 2026-08-26:** the payload contract is six files,
+> not five. `tools/build_third_party_notices.ps1` assembles
+> `THIRD_PARTY_NOTICES.txt` deterministically from the in-tree Courier Prime OFL
+> and Freesound attribution records plus Godot's official licence link. The
+> owner-supplied `LICENSE.txt` remains separate; this update chooses no licence
+> for the game's original work.
 
 **Purpose:** the smallest honest distribution path for a private friends build,
 beginning the moment Codex supplies a working Windows export preset. This
