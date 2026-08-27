@@ -9,14 +9,40 @@ $project = Join-Path $repoRoot "game"
 
 function Get-SourceChanges {
     $changes = @()
-    $changes += @(& git -C $repoRoot diff --name-only --ignore-cr-at-eol)
+    # Keep Git's Windows line-ending advisory out of captured filename output.
+    # This changes no comparison: unstaged content is still checked with
+    # --ignore-cr-at-eol, and staged/untracked source remains fatal.
+    $changes += @(& git -c core.safecrlf=false -C $repoRoot diff --name-only --ignore-cr-at-eol)
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect unstaged source changes." }
-    $changes += @(& git -C $repoRoot diff --cached --name-only)
+    $changes += @(& git -c core.safecrlf=false -C $repoRoot diff --cached --name-only)
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect staged source changes." }
-    $changes += @(& git -C $repoRoot ls-files --others --exclude-standard)
+    $untracked = @(& git -c core.safecrlf=false -C $repoRoot ls-files --others --exclude-standard)
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect untracked source paths." }
+    $changes += @($untracked | Where-Object { $_ -notmatch '^game/.+\.gd\.uid$' })
     return @($changes | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } |
         Sort-Object -Unique)
+}
+
+function Assert-GeneratedUidSeal {
+    $manifestPath = Join-Path $project ".godot\.orison_import_uids.json"
+    if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) {
+        throw "Generated UID seal is absent; warm this release checkout again."
+    }
+    $expected = @(Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json)
+    $actualPaths = @(& git -c core.safecrlf=false -C $repoRoot `
+            ls-files --others --exclude-standard |
+        Where-Object { $_ -match '^game/.+\.gd\.uid$' } | Sort-Object)
+    $expectedPaths = @($expected | ForEach-Object { $_.path } | Sort-Object)
+    if ((Compare-Object $actualPaths $expectedPaths).Count -ne 0) {
+        throw "Generated UID set differs from the sealed cold import."
+    }
+    foreach ($record in $expected) {
+        $actualHash = (Get-FileHash -Algorithm SHA256 `
+            -LiteralPath (Join-Path $repoRoot $record.path)).Hash.ToLowerInvariant()
+        if ($actualHash -ne $record.sha256) {
+            throw "Generated UID changed after cold import: $($record.path)"
+        }
+    }
 }
 if ([string]::IsNullOrWhiteSpace($OutputDir)) {
     $OutputDir = Join-Path $repoRoot "build\windows"
@@ -33,6 +59,7 @@ $dirty = @(Get-SourceChanges)
 if ($dirty.Count -ne 0) {
     throw "Friends exports require a clean checkout; found $($dirty.Count) dirty or untracked paths."
 }
+Assert-GeneratedUidSeal
 $commit = (& git -C $repoRoot rev-parse HEAD).Trim()
 if ($LASTEXITCODE -ne 0 -or $commit -notmatch '^[0-9a-f]{40}$') {
     throw "Cannot resolve the exact source commit."
@@ -71,6 +98,7 @@ $postExportDirty = @(Get-SourceChanges)
 if ($postExportDirty.Count -ne 0) {
     throw "Godot changed $($postExportDirty.Count) tracked or untracked paths during export; no source manifest will be written."
 }
+Assert-GeneratedUidSeal
 foreach ($required in @($exe, $pck)) {
     if (-not (Test-Path -LiteralPath $required -PathType Leaf)) {
         throw "Windows export did not produce $required"

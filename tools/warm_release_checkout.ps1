@@ -10,13 +10,23 @@ if ($LASTEXITCODE -ne 0 -or $commit -notmatch '^[0-9a-f]{40}$') {
 }
 
 function Get-SourceChanges {
+    param([switch]$AllowGeneratedUids)
     $changes = @()
-    $changes += @(& git -C $repoRoot diff --name-only --ignore-cr-at-eol)
+    # Native stderr can enter PowerShell's captured success stream. Git's
+    # "LF will be replaced by CRLF" advisory was consequently counted as a
+    # dirty filename after a cold Windows import even when the comparison
+    # below proved every sidecar byte-equivalent modulo CRLF. Disable only
+    # that advisory; the diff/index/untracked checks remain fail-closed.
+    $changes += @(& git -c core.safecrlf=false -C $repoRoot diff --name-only --ignore-cr-at-eol)
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect unstaged source changes." }
-    $changes += @(& git -C $repoRoot diff --cached --name-only)
+    $changes += @(& git -c core.safecrlf=false -C $repoRoot diff --cached --name-only)
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect staged source changes." }
-    $changes += @(& git -C $repoRoot ls-files --others --exclude-standard)
+    $untracked = @(& git -c core.safecrlf=false -C $repoRoot ls-files --others --exclude-standard)
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect untracked source paths." }
+    if ($AllowGeneratedUids) {
+        $untracked = @($untracked | Where-Object { $_ -notmatch '^game/.+\.gd\.uid$' })
+    }
+    $changes += $untracked
     return @($changes | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } |
         Sort-Object -Unique)
 }
@@ -33,11 +43,23 @@ $engineExit = $LASTEXITCODE
 if ($engineExit -ne 0) {
     throw "Import did not finish inside this lane (exit $engineExit). Run this command again manually; it never retries itself."
 }
-$after = @(Get-SourceChanges)
+$after = @(Get-SourceChanges -AllowGeneratedUids)
 if ($after.Count -ne 0) {
     throw "Import changed $($after.Count) source paths; readiness marker withheld."
 }
 $marker = Join-Path $project ".godot\.orison_import_ready"
 Set-Content -LiteralPath $marker -Value $commit -Encoding ascii
+$uidManifest = Join-Path $project ".godot\.orison_import_uids.json"
+$uidRecords = @(& git -c core.safecrlf=false -C $repoRoot `
+        ls-files --others --exclude-standard | Where-Object { $_ -match '^game/.+\.gd\.uid$' } |
+    Sort-Object | ForEach-Object {
+        [ordered]@{
+            path = $_
+            sha256 = (Get-FileHash -Algorithm SHA256 `
+                -LiteralPath (Join-Path $repoRoot $_)).Hash.ToLowerInvariant()
+        }
+    })
+@($uidRecords) | ConvertTo-Json | Set-Content -LiteralPath $uidManifest -Encoding utf8NoBOM
 Write-Output "IMPORT PASS commit=$commit"
 Write-Output "marker=$marker"
+Write-Output "generated_uids=$($uidRecords.Count)"
