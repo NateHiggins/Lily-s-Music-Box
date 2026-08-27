@@ -308,6 +308,15 @@ read is intended effect or is confined to the radio conceit.
 
 ## 8. Runtime-composed strings that cannot take a mouth pass
 
+> **IMPLEMENTATION UPDATE — 2026-08-27 (`PlayerController`):** the HUD now
+> owns the input carrier independently of the object copy. Legacy `[E]`, `[A]`
+> or `[TAP]` prefixes are stripped at presentation and replaced with the last
+> active input family's `[E]`, `[A]` or `[TAP]` legend. This closes the false
+> keyboard instruction for controller and touch without rewriting 164 props.
+> It does **not** close this section's authorship/localization finding: the 38
+> runtime-composed action strings remain composed at runtime and still require
+> the substitution census recommended below.
+
 **164 distinct `[E]` prompts exist; 38 contain a `%` format placeholder.**
 Representative shapes:
 

@@ -43,6 +43,21 @@ func _ready() -> void:
 	_check(diagonal.length() <= 1.0 and is_equal_approx(
 			diagonal.normalized().x, diagonal.normalized().y),
 			"response shaping preserves direction and clamps magnitude")
+	_check(PlayerController.format_interaction_prompt(
+			"[E]  Inspect the grille", &"keyboard") == "[E]  Inspect the grille",
+			"keyboard keeps the authored action behind its E carrier")
+	_check(PlayerController.format_interaction_prompt(
+			"[E]  Inspect the grille", &"controller") == "[A]  Inspect the grille",
+			"controller replaces the legacy keyboard carrier with A")
+	_check(PlayerController.format_interaction_prompt(
+			"[A]  Inspect the grille", &"touch") == "[TAP]  Inspect the grille",
+			"touch replaces an existing carrier instead of stacking legends")
+	_check(PlayerController.format_interaction_prompt(
+			"Call elevator", &"controller") == "[A]  Call elevator",
+			"carrier-free actions use the same presentation owner")
+	_check(PlayerController.format_interaction_prompt(
+			"   ", &"controller").is_empty(),
+			"an empty authored prompt stays hidden")
 	print("CONTROLLER INPUT TEST: %s" % (
 			"PASS" if failures == 0 else "FAIL (%d)" % failures))
 	get_tree().quit(failures)

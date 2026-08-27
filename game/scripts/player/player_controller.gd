@@ -55,6 +55,11 @@ var _stride_last := Vector3.INF
 ## capture, so anything gated on MOUSE_MODE_CAPTURED has to consult this
 ## instead or it simply never runs there.
 var touch_input := false
+## Last physical input family seen by the HUD. World props still author the
+## action in their own words; this controller owns the button legend that
+## introduces those words. Touch remains authoritative while its HUD is live
+## because Input.action_press() deliberately manufactures no InputEvent.
+var _prompt_input_family: StringName = &"keyboard"
 
 var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
@@ -292,7 +297,8 @@ func _update_prompt() -> void:
 	_prompt_panel.visible = false
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact_prompt"):
-			_prompt.text = seated_interaction.interact_prompt()
+			_prompt.text = format_interaction_prompt(
+					seated_interaction.interact_prompt(), _current_prompt_family())
 			_prompt_panel.visible = _prompt.text != ""
 		return
 	if call_locked or (not touch_input
@@ -308,20 +314,48 @@ func _update_prompt() -> void:
 		return
 	if hit.collider is Area3D:
 		if hit.collider.has_meta("call_level"):
-			_prompt.text = "[E]  Call elevator"
+			_prompt.text = format_interaction_prompt(
+					"Call elevator", _current_prompt_family())
 			_prompt_panel.visible = true
 			return
 		if hit.collider.has_meta("cabin_panel"):
-			_prompt.text = "[E]  Select next floor"
+			_prompt.text = format_interaction_prompt(
+					"Select next floor", _current_prompt_family())
 			_prompt_panel.visible = true
 			return
 	var node: Node = hit.collider
 	while node:
 		if node.has_method("interact_prompt"):
-			_prompt.text = node.interact_prompt()
+			_prompt.text = format_interaction_prompt(
+					node.interact_prompt(), _current_prompt_family())
 			_prompt_panel.visible = _prompt.text != ""
 			return
 		node = node.get_parent()
+
+
+## Replace only a legacy carrier at the beginning of a prompt. The semantic
+## action remains exactly what the prop authored, including punctuation and
+## runtime substitutions. This also makes migration incremental: old `[E]`
+## strings and new carrier-free strings render identically on keyboard.
+static func format_interaction_prompt(raw_prompt: String,
+		input_family: StringName) -> String:
+	var action := raw_prompt.strip_edges()
+	for legacy in ["[E]", "[A]", "[TAP]"]:
+		if action.begins_with(legacy):
+			action = action.substr(legacy.length()).strip_edges()
+			break
+	if action.is_empty():
+		return ""
+	var carrier := "[E]"
+	if input_family == &"controller":
+		carrier = "[A]"
+	elif input_family == &"touch":
+		carrier = "[TAP]"
+	return "%s  %s" % [carrier, action]
+
+
+func _current_prompt_family() -> StringName:
+	return &"touch" if touch_input else _prompt_input_family
 
 
 func _process(_delta: float) -> void:
@@ -379,6 +413,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		_prompt_input_family = &"touch"
+	elif event is InputEventJoypadButton and event.pressed:
+		_prompt_input_family = &"controller"
+	elif event is InputEventJoypadMotion and absf(event.axis_value) >= 0.20:
+		_prompt_input_family = &"controller"
+	elif event is InputEventKey and event.pressed:
+		_prompt_input_family = &"keyboard"
+	elif event is InputEventMouseButton and event.pressed:
+		_prompt_input_family = &"keyboard"
 
 
 ## The service set chases the eye instead of being bolted to it. Every frame
