@@ -1,5 +1,17 @@
 # Early Access release evidence matrix — 2026-08-26
 
+> **G23 MECHANICAL PACKAGE PROOF — 2026-08-27:** an isolated detached checkout
+> cold-imported under the 60-second serial ceiling in three restart-safe passes,
+> sealing 190 generated script/shader UID sidecars. Windows export then passed
+> in 21.0 s and wrote commit-bound EXE/PCK hashes. A deliberately non-shipping
+> build 999 package passed in 51 s with exactly six files; its 1,201,980,406-byte
+> ZIP SHA-256 is `18c78a0cb0ad53ed4dd2bc6ff9b39db8a60cb14da5d05696dd07b486a364335d`.
+> The embedded licence says `DRY RUN — NOT FOR DISTRIBUTION`, so this proves the
+> machinery without inventing the unresolved owner/legal-name/licence grant.
+> Upload, second-machine install/launch, rollback and key revocation remain
+> manual. The run found and fixed cold-import UID sealing/resume and CRLF version
+> parsing (`0bf8dc0`, `8687978`, `4e03408`, `6100eae`).
+
 > **G22 PRIVACY GATES — 2026-08-26:** network weather is now a separate
 > default-off setting; with it off, `LiveWeatherService` issues no request and
 > retains the authored Queens fallback. Enabling it explicitly names
@@ -373,8 +385,11 @@ Windows-facing consent presentation.
 **CODE GREEN / MANUAL OPEN.** `FRIENDS_BUILD_DISTRIBUTION_RUNBOOK_2026-08-26.md`
 selects private itch keys for the first cohort; `package_friends_build.ps1`
 produces a deterministic six-file artifact with build identity, licence,
-tester notice and third-party notices. No operator has rehearsed upload,
-installation, rollback or revocation on a second machine.
+tester notice and third-party notices. The isolated build-999 proof above
+exercised cold import, export, manifest verification, notice generation,
+packaging and final archive hashing. No operator has rehearsed upload,
+installation, rollback or revocation on a second machine, and no shipping
+licence has been approved.
 **Consequence:** blocks the friends build.
 
 ### G24 — Store assets and demo AppID
