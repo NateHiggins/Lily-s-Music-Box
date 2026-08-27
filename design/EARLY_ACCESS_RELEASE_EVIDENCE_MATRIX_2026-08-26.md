@@ -396,7 +396,21 @@ pricing, and metrics **PASS with 0 failures**.
 correctly calls maintenance debt rather than launch blockers.
 
 ### G20 — System requirements on two machines
-**ABSENT.** No measurement exists on any second machine.
+**INSTRUMENT READY / SECOND MACHINE ABSENT.**
+`tools/run_release_performance_matrix.ps1` discovers the canonical station list
+from `PerfProbe`, runs one serialized process per camera, and writes a versioned
+JSON receipt containing the exact SHA, hardware, OS, resolution, classification
+and verdict. It refuses a dirty checkout by default; `-AllowDirty` exists only
+for development smoke runs and marks their receipts inadmissible. Run on each
+target machine from a clean checkout:
+
+```powershell
+tools/run_release_performance_matrix.ps1 `
+  -ReceiptPath evidence/performance-<machine>.json
+```
+
+No qualifying second-machine receipt exists yet. Retest the boundary-sensitive
+carriageway first when reading the matrix.
 **Consequence:** blocks Early Access.
 **Forbidden while open:** publishing a system-requirements block at all.
 

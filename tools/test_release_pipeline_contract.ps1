@@ -20,6 +20,7 @@ function Assert-Contract {
 
 $scripts = @(
     "run_godot_serial.ps1",
+    "run_release_performance_matrix.ps1",
     "warm_release_checkout.ps1",
     "export_friends_build.ps1",
     "package_friends_build.ps1",
@@ -106,6 +107,22 @@ Assert-Contract ($packageSource.Contains('.orison_export.json') -and
     $packageSource.Contains('manifest.exe_sha256') -and
     $packageSource.Contains('manifest.pck_sha256')) `
     "package refuses stale or changed export components"
+
+$perfMatrix = Get-Content -LiteralPath (Join-Path $PSScriptRoot `
+    "run_release_performance_matrix.ps1") -Raw
+foreach ($contract in @(
+    "run_godot_serial.ps1",
+    "PERF_STATION",
+    "orison.release-performance-matrix.v1",
+    "dirty_worktree",
+    "evidence_admissible",
+    "AllowDirty",
+    "Win32_VideoController",
+    "composition"
+)) {
+    Assert-Contract ($perfMatrix.Contains($contract)) `
+        "second-machine performance receipt carries $contract"
+}
 
 Write-Output "RELEASE CONTRACT RESULT $(if ($failures -eq 0) { 'PASS' } else { 'FAIL' }) $($checks - $failures)/$checks"
 exit $(if ($failures -eq 0) { 0 } else { 1 })
