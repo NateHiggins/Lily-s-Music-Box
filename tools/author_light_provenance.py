@@ -10,6 +10,24 @@ LIGHT_MAP = json.loads((ROOT / "game/data/fixture_light_map.json").read_text())
 OUTS = (ROOT / "game/data/light_provenance.json",
         ROOT / "art/data/light_provenance.json")
 
+# Installation years are deterministic flavour, not authored Orison history.
+# Keep this classification in the generator payload: adding it to only the
+# runtime mirror lets the next legitimate regeneration silently erase the
+# release audit's authority boundary.
+FIELD_SEMANTICS = {
+    "fixtures.*.provenance": {
+        "classification": "generated_flavor",
+        "authored": False,
+        "generator": "tools/author_light_provenance.py",
+        "canonical_authority": None,
+        "temporal_status": (
+            "UNRULED: installation years are generated across 1928-1989 "
+            "and are not building history"
+        ),
+        "player_surface": "debug_overlay_only",
+    }
+}
+
 RESIDENT = {
     "1A": ("Evelyn Marsh", "carefully maintained teacher's-room warmth"),
     "1D": ("Teresa Vale", "low, sleep-protecting pools with hospital-green memory"),
@@ -152,7 +170,11 @@ def main():
                 "flicker_rate": round(rate, 3),
             }
         }
-    payload = {"fixture_count": len(result), "fixtures": result}
+    payload = {
+        "fixture_count": len(result),
+        "field_semantics": FIELD_SEMANTICS,
+        "fixtures": result,
+    }
     for path in OUTS:
         path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(f"authored {len(result)} unique light provenance cards")

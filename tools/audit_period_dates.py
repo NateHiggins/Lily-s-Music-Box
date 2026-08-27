@@ -56,7 +56,17 @@ def audit(repo: Path) -> tuple[list[str], list[str]]:
     except (KeyError, TypeError, ValueError) as exc:
         return [f"period_cutoff is absent or invalid: {exc}"], notes
 
-    provenance = load_object(repo / "game/data/light_provenance.json")
+    runtime_provenance_path = repo / "game/data/light_provenance.json"
+    authored_provenance_path = repo / "art/data/light_provenance.json"
+    provenance = load_object(runtime_provenance_path)
+    authored_provenance = load_object(authored_provenance_path)
+    if authored_provenance != provenance:
+        failures.append(
+            "light_provenance.json authoring/runtime mirrors differ; "
+            "regenerate both from tools/author_light_provenance.py"
+        )
+    else:
+        notes.append("light provenance: authoring/runtime mirrors agree")
     semantics = provenance.get("field_semantics", {}).get(FIXTURE_FIELD, {})
     required = {
         "classification": "generated_flavor",

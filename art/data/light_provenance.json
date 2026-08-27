@@ -1,5 +1,15 @@
 {
   "fixture_count": 191,
+  "field_semantics": {
+    "fixtures.*.provenance": {
+      "classification": "generated_flavor",
+      "authored": false,
+      "generator": "tools/author_light_provenance.py",
+      "canonical_authority": null,
+      "temporal_status": "UNRULED: installation years are generated across 1928-1989 and are not building history",
+      "player_surface": "debug_overlay_only"
+    }
+  },
   "fixtures": {
     "B1_CORRIDOR_DOME_01": {
       "display": "B1 Navigation \u2014 opal schoolhouse dome",
