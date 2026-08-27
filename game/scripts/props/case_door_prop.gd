@@ -22,7 +22,6 @@ var revealed := false
 
 var _leaf: Node3D
 var _knob: MeshInstance3D
-var _rattle: AudioStreamPlayer3D
 var _rattle_tween: Tween
 
 
@@ -51,7 +50,6 @@ func _build_visual() -> void:
 			Vector3(W / 2 - 0.09, 1.02, T / 2 + 0.03), Color.WHITE)
 	_knob.material_override = smat("brass", Color(0.68, 0.55, 0.24))
 	_knob.reparent(_leaf)
-	_rattle = make_emitter("tick", -9.0)
 	_leaf.visible = false
 
 
@@ -78,9 +76,8 @@ func interact(_player: Node) -> Dictionary:
 		return {}
 	# The refusal is physical: the knob gives, the mortised latch does not.
 	# Opening remains owned by a later case; this response adds no key quest.
-	if _rattle:
-		_rattle.pitch_scale = 0.82
-		_rattle.play()
+	AudioPolicy.present_3d(&"interaction.door_locked", global_position, 1.0,
+			StringName(name))
 	if _rattle_tween:
 		_rattle_tween.kill()
 	_knob.rotation.z = 0.0

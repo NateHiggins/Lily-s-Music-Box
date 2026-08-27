@@ -94,10 +94,14 @@ func _ready() -> void:
 	case_door.name = "TestCaseDoor"
 	add_child(case_door)
 	case_door.reveal()
+	AudioPolicy.clear_diagnostics()
 	var door_card: Dictionary = case_door.interact(hand)
+	var door_audio := AudioPolicy.event_history()
 	_check("revealed case door offers a physical latch attempt",
 			case_door.interact_prompt().contains("Try")
-			and case_door._rattle.playing
+			and door_audio.size() == 1
+			and str(door_audio[0].cue_id) == "interaction.door_locked"
+			and str(door_audio[0].source_id) == "TestCaseDoor"
 			and case_door._rattle_tween.is_running()
 			and door_card.get("card_id", "") == "service_door"
 			and str(door_card.get("condition", "")).contains("NO WORK ORDER"))

@@ -24,6 +24,9 @@ masking claims still remain hypotheses until measured in a production walk.
 - Its service lever no longer owns another anonymous click player. Starting and
   stopping the movement are opposite state cues, while the physical one-second
   beat remains the navigation fact the player follows.
+- The impossible utility door now shares the ordinary locked-door grammar: its
+  knob still performs its unique physical refusal, but the ear learns the same
+  `locked` meaning instead of another private generic tick.
 - ordinary switches and doors no longer carry hundreds of private one-shot
   players; the opening clock and night register have shed five more.
 - every direct constructor has a bus assignment in its creating function.
