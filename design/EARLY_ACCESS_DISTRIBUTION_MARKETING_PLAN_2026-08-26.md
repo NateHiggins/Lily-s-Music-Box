@@ -50,17 +50,17 @@ contacted, no money spent, no name reserved and no agreement accepted.**
 
 ### One-line hook
 
-> **Fix the building. Earn the truth. Survive the dark when your body takes
-> you.**
+> **Fix the building. Earn the truth. Keep the shift while sleep keeps its
+> own hours.**
 
 ### 50-word pitch
 
 > The Orison, 1928. You are the night superintendent of a New York apartment
-> house that breaks in ordinary ways and answers in ways that are not ordinary.
-> Find the fault by ear. Repair it with your hands. Learn what the tenant is
-> really protecting — before your narcolepsy drags you into the dark.
+> house that breaks in ordinary ways and answers in ways not ordinary. Find
+> the fault by ear. Repair it with your hands. Work around narcolepsy. When
+> sleep closes the shift, something else is waiting in the dark.
 
-*(49 words.)*
+*(50 words.)*
 
 ### Store short description
 
@@ -68,8 +68,8 @@ Steam's short description is the blurb under the header capsule.
 
 > Night superintendent, New York, 1928. Trace a fault through a living
 > apartment house by sound and lamplight, repair it with your hands, and earn
-> the truth from the tenant it belongs to. Then your narcolepsy takes you, and
-> the house is not the house any more.
+> the truth from the tenant it belongs to. Work around narcolepsy as sleep
+> closes the shift. When you wake, the house has changed for reasons of its own.
 
 ### Three differentiators
 
@@ -84,6 +84,22 @@ Steam's short description is the blurb under the header capsule.
 3. **The horror arrives through a real medical condition, treated seriously.**
    Narcolepsy creates the vulnerable interval — it is not the monster, and the
    game does not say it is.
+
+### Representation copy gate
+
+Every store, press, trailer and tester-facing line must survive this question
+from `ORISON_MAZE_BRIEF.md:1029`: **could a reasonable player come away calling
+the threat “the narcolepsy monster”?** If yes, the copy fails even when its
+individual medical statements are literally true.
+
+- The condition may name the vulnerable interval; it may not be the grammatical
+  agent of the transformed house, pursuit, creature or menace.
+- Symptom management and horror causation must remain separate clauses and
+  separate ideas. Proximity in one sentence can undo that separation.
+- Audience sentiment, conversion and engagement measure marketing performance.
+  They are never evidence that the depiction is accurate or harmless.
+- Passing this internal gate permits paid review to begin. It is not review,
+  endorsement, medical authority or community consensus.
 
 ### "This is not" — boundaries we publish
 
@@ -112,7 +128,7 @@ this task. What follows are **hypotheses with a test attached**.
 | A1 | Players who like *immersive-sim-adjacent, job-simulator-shaped* first-person games will finish the shift | FP-3 players describe it as "walking sim" or "too slow" | fresh-player tests (ADMIN-EA1 §9) |
 | A2 | The **sound-led hunt** is the thing people repeat back to others | nobody mentions the chirp unprompted in a post-play interview | post-play interview, one open question first |
 | A3 | Period-accuracy readers (1920s New York, telephony, building trades) are a real second audience | devlog posts about the house telephone/Vantry apparatus get no engagement relative to gameplay posts | devlog A/B over 6 posts |
-| A4 | The narcolepsy framing attracts rather than repels | negative sentiment in comments on the first public devlog naming it | manual read, R6 trigger |
+| A4 | The narcolepsy framing attracts rather than repels | negative sentiment in comments on the first public devlog naming it | manual read, R6 trigger; marketing signal only, never G25 evidence |
 | A5 | Streamers can carry it — the discovery moment is watchable | a creator build produces no clippable moment in 20 minutes | creator kit round 1 |
 
 **Proof plan, in order:** devlog engagement (A3) → demo completion (A1) →
