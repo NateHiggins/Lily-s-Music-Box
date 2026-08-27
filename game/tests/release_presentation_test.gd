@@ -20,6 +20,15 @@ func _ready() -> void:
 	_check(case_source.contains('"noun": "SOFA"')
 			and case_source.contains('"noun": "DESK"'),
 			"Mina's authored caption anomaly remains production gameplay")
+	var placeholder_source := FileAccess.get_file_as_string(
+			"res://scripts/characters/npc_placeholder.gd")
+	var animated_source := FileAccess.get_file_as_string(
+			"res://scripts/characters/animated_resident.gd")
+	_check(placeholder_source.contains(
+			"if GameBoot.developer_overlays_enabled():\n\t\t_nameplate = Label3D.new()")
+			and animated_source.contains(
+			"func _build_nameplate() -> void:\n\tif not GameBoot.developer_overlays_enabled():\n\t\treturn"),
+			"resident names and case-stage nameplates stay developer-only")
 	var rig_source := FileAccess.get_file_as_string(
 			"res://scripts/building/light_rig.gd")
 	_check(not rig_source.contains('call_deferred("_build_debug_handles")'),

@@ -28,6 +28,17 @@ document, localization resource or test was modified.
 > latch. The three microphone status lines now describe cancellation, latency
 > compensation, local saving and zero upload without a wit move. Focused proofs:
 > `RealitySaveCompatTest` PASS 14/14 and `SongbookMicConsentTest` PASS 8/8.
+>
+> ### D1 REACHABILITY CORRECTION — 2026-08-27
+>
+> The census combined three different sources into one release-visible family.
+> Generic case-object titles (`CAPTION CALIBRATOR`, `Personal Style Guide`) and
+> resident name/case-state plates (`Mina Vale · 2A [ACTIVE]`) were already
+> guarded by `GameBoot.developer_overlays_enabled()` in production. They are not
+> reachable in a friends build. `SOFA`, `DESK`, `WINDOW` and `MINA` are reachable
+> because they are the authored substance of Mina's caption manifestation, not
+> developer scaffolding. `ReleasePresentationTest` now pins all three boundaries:
+> generic titles off, resident stage plates off, authored anomaly intact.
 
 > ### Mina is text-only and unvoiced
 >
@@ -178,7 +189,7 @@ Every string a new player meets before the 2A fault, in order.
 | 10 | Stair signage | `FLOOR 1 — STREET` · `↑ 2 — 6` · `ALL FLOORS` | 15 | K2-D/E |
 | 11 | Landing plate | `FLOOR 2` · `← 2A 2B` · `2C →` · `↓ STREET` | 15 | K2-F |
 | 12 | 2A door | `[E]  Open door` / `[E]  Locked` | 13 | |
-| 13 | Inside 2A | **case-object `Label3D`s** — `MINA`, `SOFA`, `DESK`, `CAPTION CALIBRATOR`, `Personal Style Guide` | **21** | **the register break, §9** |
+| 13 | Inside 2A | **authored manifestation `Label3D`s** — `MINA`, `SOFA`, `DESK`, `WINDOW`; generic object titles are developer-only | **21** | Mina's case mechanic; D1 correction |
 | 14 | The Vantry point | `[E]  Inspect the chirping Vantry point` | 14 | |
 
 **INFERENCE:** items 3–5 and 9 are the load-bearing comprehension strings.
@@ -321,7 +332,7 @@ until its call sites are listed.**
 
 | # | Surface | Reachable | Finding |
 | --- | --- | --- | --- |
-| **D1** | Case-object `Label3D`s in 2A — `MINA`, `Mina Vale · 2A [ACTIVE]`, `SOFA`, `DESK`, `CAPTION CALIBRATOR`, `Personal Style Guide` | **YES — on the route, first ten minutes** | Built by `cases/case_interactable.gd:44–52` from each object's `title`. **They are not debug code**, but `[ACTIVE]` is a state marker in a player's field of view, and floating nouns over furniture read as developer scaffolding. **This is a register break, not a bug.** Already recorded as G18 in the release matrix and as a capture blocker. |
+| **D1 — CORRECTED** | Authored manifestation: `MINA`, `SOFA`, `DESK`, `WINDOW`. Developer-only and not release-reachable: `Mina Vale · 2A [ACTIVE]`, `CAPTION CALIBRATOR`, `Personal Style Guide` | **Only the authored anomaly is on the route.** | The original row conflated source existence with production reachability. `CaseInteractable`, `NPCPlaceholder` and `AnimatedResident` already guard generic plates behind developer overlays. The remaining floating nouns are Mina's actual case mechanic. No rewrite recommended. |
 | **D2** | `ui/building_debug.gd`, 23 string sites, opened by **F1** | **YES in an unguarded build** | Developer overlay. The controller contract already rules it must be disabled for friends builds. |
 | **D3** | `dream/entity/dream_tentacle_debug.gd`, 5 sites | conditional | Same class. |
 | **D4** | Internal ids in prompts — `%s` substitutions drawn from node names | **possible** | **UNKNOWN:** whether any `"[E]  %s"` call site passes a node name rather than an authored noun. §8's enumeration would answer it. **Flagged, not asserted.** |
@@ -402,7 +413,7 @@ each needs its owner's approval.**
 | 7 | `pause_services.gd:145` | `ALWAYS GIVE THE GRADUAL SLEEP WARNING` | X2 — must match #8 exactly | accessibility |
 | 8 | `title_screen.gd:250` | `ALWAYS WARN BEFORE SLEEP` | X2 — same setting, different name | accessibility |
 | 9 | `title_screen.gd:258` + `pause_services.gd:140` | duplicated caption label | X2 — single-source it | accessibility |
-| 10–15 | `cases/case_interactable.gd` label pipeline | `MINA`, `SOFA`, `DESK`, `CAPTION CALIBRATOR`, `Personal Style Guide`, `Mina Vale · 2A [ACTIVE]` | D1 — register break on the route; **`[ACTIVE]` first** | Mina case |
+| 10–15 | `cases/case_interactable.gd` and resident nameplates | **REMOVED FROM BATCH:** generic labels are already developer-only; `MINA`, `SOFA`, `DESK`, `WINDOW` are authored anomaly text | D1 correction — preserve the case mechanic | Mina case |
 | 16 | `chirp_hunt.gd:92` | `[E]  Inspect the chirping Vantry point` | **INFERENCE:** "chirping" tells the player the answer they were asked to find by ear | ChirpHunt |
 | 17–20 | four `"[E]  %s"` call sites | fully-variable prompts | §8 — unauthored copy | each prop |
 
@@ -496,9 +507,9 @@ fragments at display time.**
 **P0 — RESOLVED** — 1. Save/rollback now has persistent player copy (§4).
 2. Microphone status lines C1–C3 are now plain (§6).
 
-**P1** — 3. Case-object labels on the route, `[ACTIVE]` first (D1). 4. X2's
-divided settings labels. 5. Debug overlay reachability (D2/D3, already ruled
-elsewhere). 6. Enumerate the 38 format prompts (§8). 7. Carry `81c0856`'s
+**P1** — 3. X2's divided settings labels. 4. Debug overlay reachability
+(D2/D3, already ruled elsewhere). 5. Enumerate the 38 format prompts (§8).
+6. Carry `81c0856`'s
 `field_semantics` guard to `light_provenance.json` (§10b).
 
 **P2** — 8. Mina mouth pass (case owner's, not a defect list). 9. `[E]` verb
