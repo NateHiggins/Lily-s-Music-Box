@@ -164,8 +164,10 @@ func _build_doors() -> void:
 	for y in [-0.15, 0.15]:
 		_cyl(_fire_door, 0.027, 0.027, 0.12,
 				Vector3(0, y, 0), IRON_EDGE)
+	# Furnace-door furniture is black iron, not decorative brass. Keeping the
+	# latch in the door's iron finish also leaves this moving assembly one draw.
 	var fire_latch := _cyl(_fire_door, 0.015, 0.015, 0.22,
-			Vector3(0.57, 0, -0.040), BRASS)
+			Vector3(0.57, 0, -0.040), IRON)
 	fire_latch.rotation_degrees.z = 90.0
 	# Peep slide: the ordinary orange line becomes frightening only when it
 	# appears to blink. It remains a real combustion inspection opening first.
@@ -182,7 +184,7 @@ func _build_doors() -> void:
 		_cyl(_ash_door, 0.023, 0.023, 0.10,
 				Vector3(0, y, 0), IRON_EDGE)
 	var ash_latch := _cyl(_ash_door, 0.013, 0.013, 0.18,
-			Vector3(0.50, 0, -0.035), BRASS)
+			Vector3(0.50, 0, -0.035), IRON)
 	ash_latch.rotation_degrees.z = 90.0
 	# Ash on the apron follows the lower opening rather than washing the whole
 	# machine in generic dirt.
@@ -249,7 +251,9 @@ func _build_pressure_gauge() -> void:
 	var needle := _box(_gauge_needle, Vector3(0.008, 0.068, 0.006),
 			Vector3(0, 0.030, 0), IRON)
 	needle.position.y = 0.030
-	_cyl(_gauge_needle, 0.012, 0.012, 0.008, Vector3.ZERO, BRASS)
+	# The pointer and its hub turn as one blackened-steel movement. A brass hub
+	# too small to read at service distance cost a whole additional mesh batch.
+	_cyl(_gauge_needle, 0.012, 0.012, 0.008, Vector3.ZERO, IRON)
 
 
 func _build_header_and_return() -> void:
@@ -293,10 +297,10 @@ func _build_smoke_hood() -> void:
 	var disc := _cyl(_draft_damper, 0.13, 0.13, 0.025, Vector3.ZERO, STEEL)
 	disc.rotation_degrees.x = 90.0
 	var weight_arm := _cyl(_draft_damper, 0.009, 0.009, 0.22,
-			Vector3(-0.11, -0.03, 0), BRASS)
+			Vector3(-0.11, -0.03, 0), STEEL)
 	weight_arm.rotation_degrees.z = 90.0
 	_cyl(_draft_damper, 0.025, 0.025, 0.035,
-			Vector3(-0.22, -0.03, 0), BRASS)
+			Vector3(-0.22, -0.03, 0), STEEL)
 
 
 func _build_service_plate() -> void:
