@@ -96,24 +96,6 @@ the immediate executable gates, not a second copy of its milestone status.
   becoming louder, busier or an omniscient objective system. AU-0 through AU-3
   gate the Early Access golden shift; AU-4 through AU-6 complete M3/M6 polish.
 
-- **K1 — CURRENT-TREE BASELINE — RUN 2026-08-26, RED GATES REMAIN.**
-  `design/AUDIT_CURRENT_TREE_BASELINE_2026-08-26.md` records opening and
-  lighting green, FAST reproducing its two known failures, and GoldenLoop now
-  passing 87/87 in 53.7 s with permanent phase timings. FULL is now honestly
-  split into physical and all-cases production shards; both print final
-  verdicts beneath 60 s and reproduce only the same two failures. The roof
-  route reaches z=4.5 and the lift proof carries its rider on one real trip.
-  The first eleven-station table is superseded: its detached camera left the
-  player, carried shadow light and streaming origin elsewhere. The corrected
-  harness declares playable versus composition cameras and adds a real F03
-  landing plus player-height carriageway. Corrected evidence so far: composition
-  atrium 33.33 ms, playable landing 23.70 ms, lobby 18.06 ms, carriageway
-  16.67 ms, while corrected corridor F04 passes at 12.96 ms and apartment 4B
-  at 10.61 ms; the playerless street-elevation composition camera costs 27.08
-  ms, while the corrected roof passes at 6.45 ms and dense Harukiya at 11.31
-  ms and the five-live-machine arcade cluster at 10.61 ms. Finish the remaining
-  three rows and price a visually proved shadow policy before closing K1; FULL
-  verdict recovery itself is complete.
 - **K2 — FRESH-SAVE GOLDEN SHIFT.** Play the eleven M2 beats from curb to 4B
   wake without console, debug panel, noclip or source knowledge. Record the
   exact first missing or unclear player-facing transition; do not infer it from
