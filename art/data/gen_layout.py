@@ -3021,8 +3021,16 @@ def build_floor(floor_id):
         for i in range(3):
             shelf_unit(furniture, "f01_store%d" % i, 6.2, 1.4 + i * 2.6,
                        1.6, True, d=0.45, books=False, face="n")
-            _furn_box(furniture, "f01_stcrate%d" % i, 8.4, 1.5 + i * 2.6,
-                      0.8, 0.8, 0.0, 0.6, "trim", False)
+            # These were 0.8 m featureless `trim` cubes: larger than a tea
+            # chest, without boards, battens or any readable storage purpose.
+            # Use the building's finished period crate assembly and keep the
+            # same three bays, with a modest second case in alternating stacks.
+            cy = 1.90 + i * 2.6
+            _asm(furniture, "f01_stcrate%d_a" % i, "crate", 8.80, cy,
+                 (-6, 5, -3)[i], W=0.58, D=0.50, H=0.35)
+            _asm(furniture, "f01_stcrate%d_b" % i, "crate",
+                 8.80 + (0.03 if i == 1 else -0.02), cy,
+                 (4, -4, 7)[i], z0=0.35, W=0.53, D=0.46, H=0.32)
         porch(floor_id, z, furniture)
         for stack in ("A", "D"):
             apartment(floor_id, stack, z, walls, rooms, markers, furniture)
