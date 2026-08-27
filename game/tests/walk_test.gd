@@ -1144,15 +1144,20 @@ func _radiator_checks() -> void:
 
 
 func _maintenance_job_checks() -> void:
-	# Amended K2/K3: the one authored job IS the chirp hunt. The transition
-	# matrix is MaintenanceJobTest's job and the full production loop is
-	# MaintenanceCounterTest's; this proves the real building wires the
-	# library, authors exactly one job, and carries no live legacy order.
+	# The golden shift owns the chirp hunt; SR4's sanctioned waking service
+	# round follows it. Their focused suites own the transition matrices. This
+	# production check holds the closed roster so a third job cannot arrive by
+	# quietly landing another record in maintenance_jobs.json.
 	var orders: WorkOrders = root.work_orders
+	var expected_jobs: Array[String] = [
+		ChirpHunt.JOB_ID,
+		ServiceRoundDirector.JOB_ID,
+	]
+	expected_jobs.sort()
 	_check(orders.job_library != null and orders.job_library.is_valid()
 			and orders.job_library.job_ids()
-					== ([ChirpHunt.JOB_ID] as Array[String]),
-			"production spine loads the one authored job, the chirp hunt")
+					== expected_jobs,
+			"production spine loads exactly the two sanctioned waking jobs")
 	_check(not orders.job_library.has_job("steam_hammer_2a"),
 			"steam_hammer_2a is retired as the graybox job")
 	_check(orders.status(ChirpHunt.LEGACY_ORDER_ID) == "missing",
