@@ -110,8 +110,8 @@ hardware).
 | G04 | Calls and dismissal | **PARTIAL** | public demo |
 | G05 | Sleep onset and warning | **CODE GREEN / MANUAL OPEN** | Early Access |
 | G06 | One pocket, one pursuer, one truth | **PARTIAL** | Early Access |
-| G07 | Controller-only waking route | **ABSENT** | Early Access |
-| G08 | Controller-only dream | **ABSENT** | Early Access |
+| G07 | Controller-only waking route | **CODE GREEN / MANUAL OPEN** | Early Access |
+| G08 | Controller-only dream | **CODE GREEN / MANUAL OPEN** | Early Access |
 | G09 | Keyboard/mouse route | **CODE GREEN / MANUAL OPEN** | internal |
 | G10 | Touch route | **UNKNOWN** | does not block |
 | G11 | Custom volume controls | **PROVED (code) / MANUAL OPEN** | Early Access |
@@ -121,20 +121,20 @@ hardware).
 | G15 | Save, persistence, abort restore | **PARTIAL** | internal |
 | G16 | Boot and capture budget | **PROVED** | does not block |
 | G17 | 1440p route performance | **PARTIAL — 3 stations over** | public demo |
-| G18 | No debug affordance in build or media | **ABSENT** | public demo |
+| G18 | No debug affordance in build or media | **CODE GREEN / MANUAL OPEN** | public demo |
 | G19 | Capture protocol conformance | **PROVED** | does not block |
 | G20 | System requirements, two machines | **ABSENT** | Early Access |
 | G21 | Accessibility declaration verified | **PARTIAL** | Early Access |
 | G22 | Weather fallback and location privacy | **PARTIAL** | Early Access |
-| G23 | Build channels and rollback rehearsal | **ABSENT** | friends build |
+| G23 | Build channels and rollback rehearsal | **CODE GREEN / MANUAL OPEN** | friends build |
 | G24 | Store assets and demo AppID | **ABSENT** | public demo |
 | G25 | Narcolepsy statement and review | **ABSENT** | any outreach |
 | G26 | Lena work order ruling | **BLOCKED ON OWNER RULING** | Early Access |
-| G27 | Desktop export preset | **ABSENT** | friends build |
+| G27 | Desktop export preset | **PROVED** | friends build |
 | G28 | Claims wider than their tests | **PARTIAL** | Early Access |
 
-**28 gates. 3 PROVED. 8 CODE GREEN / MANUAL OPEN. 7 PARTIAL. 7 ABSENT.
-1 BLOCKED ON OWNER RULING. 2 UNKNOWN.**
+**28 gates. 5 PROVED. 10 CODE GREEN / MANUAL OPEN. 8 PARTIAL. 3 ABSENT.
+1 BLOCKED ON OWNER RULING. 1 UNKNOWN.**
 
 ---
 
@@ -225,10 +225,11 @@ the passage ended **within half a second**, wake in 4B without lost progress.
 
 ### G07 — Controller-only waking route
 **Owner:** `game_boot.gd` `JOYPAD_ACTIONS`, `player_controller.gd`.
-**Automated: none. ABSENT.**
-**Status: ABSENT — "controller supported" is currently FALSE**
-(`CONTROLLER_INPUT_CONTRACT_AUDIT_2026-08-26.md` §1). Two shoulder buttons; no
-stick binding for movement or look.
+**Automated:** `ControllerInputTest`, `MaintenancePanelInputTest` and
+`OtisPanelInputTest` prove registered movement, rate-shaped look, world/UI
+actions, distinct pause/cancel ownership and semantic maintenance controls.
+`PlayerController` now also replaces legacy `[E]` prompt carriers with `[A]`
+after real pad input (`d1f0fe6`). **CODE GREEN / MANUAL OPEN.**
 **Manual:** the ten-step pad-only smoke test, §8.1 of that document, keyboard
 and mouse **physically unplugged**.
 **Consequence:** blocks Early Access.
@@ -236,8 +237,10 @@ and mouse **physically unplugged**.
 "Steam Deck compatible", "remappable controls", any capsule showing a pad glyph.
 
 ### G08 — Controller-only dream
-As G07, §8.2 of the controller contract. **ABSENT.** Separate gate because it is
-the fairness test: fine aim under pursuit and the lamp decision on a stick.
+As G07, §8.2 of the controller contract. The required movement, look, lamp and
+interaction actions are code-green, but the Dream remains a separate manual
+gate because it is the fairness test: fine aim under pursuit and the lamp
+decision on a stick. **CODE GREEN / MANUAL OPEN.**
 **Consequence:** blocks Early Access.
 
 ### G09 — Keyboard/mouse route
@@ -325,13 +328,14 @@ cameras (atrium 33.33, street 27.08) which must never be quoted as gameplay.
 **Forbidden while open:** any fps or "runs great" claim.
 
 ### G18 — No debug affordance in build or media
-**Two distinct problems, both ABSENT of a fix.**
-1. **World-space case labels in 2A** — `MINA`, `Mina Vale · 2A [ACTIVE]`, `SOFA`,
-   `DESK`, `CAPTION CALIBRATOR` from `cases/case_interactable.gd`; visible in
-   `art/renders/first_minute_k2g/production_04/02_a_plausible_wrong_station.png`.
-2. **Seven interactive `DebugLightHandle` nodes inside 2A** within 5 m of the
-   target; plus `noclip` (V) and `debug_panel` (F1) bound in the production input
-   map (`game_boot.gd:12`).
+**CODE GREEN / MANUAL OPEN.** Generic case titles, resident/status nameplates,
+light-tuning handles, noclip and clipboard tuning are gated behind explicit
+`ORISON_DEVELOPER_OVERLAYS=1`. `ReleasePresentationTest` pins those boundaries,
+and `release_presentation_g18` provides a clean production capture. The
+remaining `SOFA`, `DESK`, `WINDOW` and `MINA` nouns are the authored caption
+anomaly—the case mechanic—not generic debug labels (`022d123`).
+**Manual:** sweep each candidate public screenshot/trailer frame; older media
+can still contain affordances baked before the gate existed.
 **Consequence:** blocks public demo **and** every screenshot. Valve requires
 store screenshots to show gameplay exclusively.
 **Forbidden while open:** publishing any screenshot or trailer frame.
@@ -356,18 +360,21 @@ verification row of the declaration-evidence template
 **Consequence:** blocks Early Access.
 
 ### G22 — Weather offline fallback and opt-in location privacy
-**Owner:** `live_local_weather` (default **false**), `weather_location_query`;
-`LiveWeatherServiceTest`, `WeatherSkyTest` exist — **verdicts UNRUN/UNKNOWN.**
-**Privacy contract, already written** (`game_boot.gd:40–44`): off means only
-fixed Queens coordinates; on means the player-authored text is geocoded; **no IP
-geolocation, no device sensor.**
-**Manual:** run with the network unplugged and confirm graceful fallback; confirm
-nothing is sent while the toggle is off.
+**Owner:** default-off network weather consent, `live_local_weather`,
+`weather_location_query`. `LiveWeatherServiceTest` and `WeatherSkyTest` pass:
+with network weather off, no request is issued and the authored Queens fallback
+remains; enabling it names Open-Meteo and IP exposure, while authored location
+text is a second opt-in. **PARTIAL.**
+**Manual:** run with the network unplugged and confirm graceful fallback and the
+Windows-facing consent presentation.
 **Consequence:** blocks Early Access — it is a privacy claim.
 
 ### G23 — Build channels and rollback rehearsal
-**ABSENT.** No Steamworks app, no branches, no rehearsal. Design exists at
-`EARLY_ACCESS_DISTRIBUTION_MARKETING_PLAN_2026-08-26.md` §5, §15.
+**CODE GREEN / MANUAL OPEN.** `FRIENDS_BUILD_DISTRIBUTION_RUNBOOK_2026-08-26.md`
+selects private itch keys for the first cohort; `package_friends_build.ps1`
+produces a deterministic six-file artifact with build identity, licence,
+tester notice and third-party notices. No operator has rehearsed upload,
+installation, rollback or revocation on a second machine.
 **Consequence:** blocks the friends build.
 
 ### G24 — Store assets and demo AppID
@@ -390,12 +397,10 @@ It is the direct cause of the standing `WalkTest` failure at
 **Consequence:** blocks Early Access.
 
 ### G27 — Desktop export preset
-**ABSENT — new finding.** `game/export_presets.cfg` is tracked and contains
-**only an Android preset** (`platform="Android"`,
-`export_path="../build/android/orison.apk"`). **There is no Windows, Linux or
-macOS export preset in the repository**, although mobile is deprioritised by
-owner ruling and desktop is the launch platform.
-**Consequence:** blocks the friends build — nothing can be exported for a tester.
+**PROVED.** The tracked `Windows Desktop` x86-64 preset exported through the
+serial lane with exit 0: 109,071,360-byte EXE plus 1,250,936,396-byte PCK
+(`2165c3c`; full receipt in the status notice above). Packaging, installation
+and launch on a second machine belong to G23 and G20, not this preset gate.
 
 ### G28 — Claims wider than their tests
 **PARTIAL.** Green results whose scope is narrower than the claim they are
