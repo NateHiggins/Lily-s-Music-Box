@@ -106,9 +106,13 @@ dictionary is presentation data, not a success envelope: there is no common
 
 ## 5. Census and counterexamples
 
-Static census at `bc6f167` plus the documentation working tree on 2026-08-27:
+Static census at `bc6f167` plus the documentation working tree on 2026-08-27.
+The first two rows exclude `props/prop_control_area.gd`, the whole-object to
+named-control adapter; literal repository counts including that adapter are 66
+and 72. The companion [interaction contract](INTERACTION_CONTRACT_2026-08-27.md)
+records the full traced census and classification.
 
-| Definition | Files under `game/scripts` |
+| Definition | Production/debug implementors, excluding the adapter |
 | --- | ---: |
 | `interact_prompt` | 65 |
 | `interact` | 71 |
@@ -117,13 +121,15 @@ Static census at `bc6f167` plus the documentation working tree on 2026-08-27:
 | `control_prompt` | 18 |
 | `interact_control` | 18 |
 
-The counts themselves disprove an interface claim. Two files define a prompt
-without a same-file `interact`: `wayfinding_signage_pass.gd` dispatches through
-`interact_area`, while `projector_prop.gd` advertises a prompt without either
-player action name in that file. Eight files define `interact` without a prompt:
-the two `arcade/swc_*` objects and six maintenance mechanisms reached through
-control adapters. These may be intentional compositions or defects; method
-discovery cannot distinguish them.
+The counts themselves disprove an engine-enforced interface claim. A same-file
+census initially finds two prompts without a same-file `interact`, but tracing
+resolves both: `wayfinding_signage_pass.gd` dispatches through `interact_area`,
+and `projector_prop.gd` inherits `TVProp.interact`. The resolved production
+prompt-without-action set is empty. Eight files define `interact` without a
+prompt: the two non-player-driven `arcade/swc_*` objects and six maintenance
+mechanisms reached through control adapters. This is a stable implicit protocol,
+but `has_method` still enforces only spelling; inheritance and composition must
+be traced before classifying a candidate defect.
 
 Representative valid variations also prevent a fictional single return type:
 `case_interactable.gd` returns `Dictionary`, `switch_plate.gd` returns `void`,
