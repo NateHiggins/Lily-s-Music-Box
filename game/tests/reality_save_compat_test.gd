@@ -21,6 +21,21 @@ func _ready() -> void:
 	RealityState.load_game()
 	_check(RealityState.save_write_blocked, "future save blocks writes")
 	_check(RealityState.incompatible_save_version == 99, "future version is named")
+	var notice := RealityState.player_notice()
+	_check(str(notice.get("code", "")) == "future_save_read_only",
+			"future save publishes a player notice")
+	_check(str(notice.get("title", "")) == "SAVE CREATED BY A NEWER VERSION"
+			and str(notice.get("message", "")).contains("Progress will not be saved")
+			and str(notice.get("message", "")).contains("start a new campaign"),
+			"notice names consequence and both remedies plainly")
+	await get_tree().process_frame
+	_check(SaveStatusNotice.panel.visible
+			and SaveStatusNotice.title_label.text == str(notice.title)
+			and SaveStatusNotice.message_label.text == str(notice.message),
+			"autoload presents the persistence owner's exact notice")
+	SaveStatusNotice._dismiss()
+	_check(not SaveStatusNotice.panel.visible and RealityState.save_write_blocked,
+			"dismissal hides copy without releasing the safety latch")
 	_check(not bool(RealityState.data.intro_complete), "future data is not merged")
 	_check(not RealityState.data.has("future_fact"), "unknown future facts stay out of runtime")
 	var before := FileAccess.get_file_as_string(TEST_PATH)
@@ -30,10 +45,22 @@ func _ready() -> void:
 			"commit preserves future save byte for byte")
 
 	RealityState.start_new_campaign()
+	await get_tree().process_frame
 	var replacement: Variant = JSON.parse_string(FileAccess.get_file_as_string(TEST_PATH))
 	_check(not RealityState.save_write_blocked, "explicit new campaign releases latch")
+	_check(RealityState.player_notice().is_empty()
+			and not SaveStatusNotice.panel.visible,
+			"new campaign clears the obsolete notice")
 	_check(replacement is Dictionary and int(replacement.get("version", 0)) ==
 			RealityState.SAVE_VERSION, "explicit new campaign writes current version")
+
+	RealityState.save_path = "user://tests"
+	_check(not RealityState.save_game(), "unwritable save target refuses the write")
+	var write_notice := RealityState.player_notice()
+	_check(str(write_notice.get("code", "")) == "save_write_failed"
+			and str(write_notice.get("message", "")).contains(
+					"Progress since the last successful save may be lost"),
+			"write failure publishes its player consequence")
 
 	RealityState.save_path = old_path
 	RealityState.persistence_enabled = old_persistence

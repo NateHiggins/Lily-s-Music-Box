@@ -35,8 +35,14 @@ func _ready() -> void:
 			"cancel and panel close synchronously stop microphone capture")
 	_check(source.count("_show_mic_consent()") == 3,
 			"both recording routes pass through the one notice owner")
+	_check(source.contains("ESC cancels microphone setup")
+			and source.contains("Microphone latency measured:")
+			and source.contains("Nothing is uploaded")
+			and not source.contains("give up on it")
+			and not source.contains("nothing leaves this machine unless"),
+			"recording controls and privacy status stay plain")
 	print("[SONGBOOK MIC CONSENT] %s" % (
-			"PASS 7/7" if failed == 0 else "FAIL %d/7" % failed))
+			"PASS 8/8" if failed == 0 else "FAIL %d/8" % failed))
 	get_tree().quit(0 if failed == 0 else 1)
 
 

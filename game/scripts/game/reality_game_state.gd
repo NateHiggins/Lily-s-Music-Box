@@ -5,6 +5,7 @@ extends Node
 
 signal state_changed
 signal waking_residue_applied(residue_id: String, facts: Dictionary)
+signal player_notice_changed(notice: Dictionary)
 
 const SAVE_VERSION := 4
 const SAVE_PATH := "user://reality_maintenance_save.json"
@@ -16,6 +17,7 @@ var persistence_enabled := true
 ## read-only until the player explicitly starts a new campaign.
 var save_write_blocked := false
 var incompatible_save_version := 0
+var _player_notice: Dictionary = {}
 ## Injectable so a harness can exercise the real save/load path against its
 ## own file under user://tests/ without touching the player's save.
 ## Production never changes it.
@@ -107,10 +109,15 @@ func save_game() -> bool:
 	if save_write_blocked:
 		push_warning("refusing to overwrite newer Reality Maintenance save version %d"
 				% incompatible_save_version)
+		_set_future_save_notice()
 		return false
 	var file := FileAccess.open(save_path, FileAccess.WRITE)
 	if file == null:
 		push_warning("could not write Reality Maintenance save")
+		_set_player_notice("save_write_failed", "PROGRESS COULD NOT BE SAVED",
+				"The save file could not be written. Progress since the last " +
+				"successful save may be lost. Check storage access and available " +
+				"disk space.")
 		return false
 	file.store_string(JSON.stringify(data, "\t"))
 	return true
@@ -120,11 +127,15 @@ func load_game() -> void:
 	data = _fresh_data()
 	save_write_blocked = false
 	incompatible_save_version = 0
+	_player_notice = {}
 	if not FileAccess.file_exists(save_path):
 		_announce_loaded()
 		return
 	var file := FileAccess.open(save_path, FileAccess.READ)
 	if file == null:
+		_set_player_notice("save_read_failed", "SAVE COULD NOT BE READ",
+				"The existing save file could not be opened. A new session has " +
+				"started without changing that file.", false)
 		_announce_loaded()
 		return
 	var parsed: Variant = JSON.parse_string(file.get_as_text())
@@ -135,6 +146,7 @@ func load_game() -> void:
 			incompatible_save_version = loaded_version
 			push_warning("save version %d is newer than supported version %d; running read-only"
 					% [loaded_version, SAVE_VERSION])
+			_set_future_save_notice(false)
 			_announce_loaded()
 			return
 		data.merge(parsed, true)
@@ -178,14 +190,37 @@ func load_game() -> void:
 ## the boot-time load fires before anything connects and is inert.
 func _announce_loaded() -> void:
 	state_changed.emit()
+	player_notice_changed.emit(player_notice())
+
+
+func player_notice() -> Dictionary:
+	return _player_notice.duplicate(true)
+
+
+func _set_future_save_notice(emit_now := true) -> void:
+	_set_player_notice("future_save_read_only",
+			"SAVE CREATED BY A NEWER VERSION",
+			"This build cannot safely read save version %d. Progress will not " %
+					incompatible_save_version +
+			"be saved. Update the game, or start a new campaign to replace " +
+			"that save.", emit_now)
+
+
+func _set_player_notice(code: String, title: String, message: String,
+		emit_now := true) -> void:
+	_player_notice = {"code":code, "title":title, "message":message}
+	if emit_now:
+		player_notice_changed.emit(player_notice())
 
 
 func start_new_campaign() -> void:
 	save_write_blocked = false
 	incompatible_save_version = 0
+	_player_notice = {}
 	data = _fresh_data()
 	save_game()
 	state_changed.emit()
+	player_notice_changed.emit(player_notice())
 
 
 func _migrate() -> void:
@@ -196,8 +231,10 @@ func _migrate() -> void:
 func reset_campaign_for_tests() -> void:
 	save_write_blocked = false
 	incompatible_save_version = 0
+	_player_notice = {}
 	data = _fresh_data()
 	state_changed.emit()
+	player_notice_changed.emit(player_notice())
 
 
 ## One exact 64-bit seed per campaign, stored as sixteen hexadecimal digits.

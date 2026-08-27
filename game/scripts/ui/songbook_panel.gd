@@ -292,7 +292,7 @@ func _show_clap() -> void:
 	_line("", GREEN, 10)
 	_line("the machine needs to hear how late it is hearing you.",
 			GREEN_DIM, 15)
-	_status.text = "listening...   ·   ESC to give up on it"
+	_status.text = "Listening for one clap. ESC cancels microphone setup."
 	_mic = MicRecorder.new()
 	add_child(_mic)
 	_mic.calibrated.connect(_on_calibrated)
@@ -309,7 +309,7 @@ func _show_clap() -> void:
 func _on_calibrated(offset_ms: float) -> void:
 	if mode != Mode.CLAP:
 		return
-	_status.text = "heard you %d ms late. holding that." % int(offset_ms)
+	_status.text = "Microphone latency measured: %d ms. Timing compensation is active." % int(offset_ms)
 	await get_tree().create_timer(0.9).timeout
 	_start_perform()
 
@@ -415,7 +415,7 @@ func _show_review() -> void:
 	_line("3    THROW IT AWAY", GREEN_DIM)
 	if _take != null:
 		_line("4    READ IT BACK", GREEN_DIM)
-	_status.text = "nothing leaves this machine unless you keep it."
+	_status.text = "Nothing is saved unless you choose KEEP IT. Nothing is uploaded."
 
 
 func _keep() -> void:

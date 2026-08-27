@@ -18,6 +18,17 @@ player-facing data file and is carried below (family 24, §10b).
 **Godot was not run.** No production text, JSON, scene, script, existing design
 document, localization resource or test was modified.
 
+> ### P0 IMPLEMENTATION UPDATE — 2026-08-27
+>
+> Both P0 families identified here are now resolved in production. RealityState
+> publishes structured, plain-language read/write incompatibility notices and
+> an autoloaded UI presents them even when boot ordering would otherwise miss
+> the signal. The notice names the consequence, preserves the newer file, and
+> offers update/new-campaign remedies; dismissal does not release the write
+> latch. The three microphone status lines now describe cancellation, latency
+> compensation, local saving and zero upload without a wit move. Focused proofs:
+> `RealitySaveCompatTest` PASS 14/14 and `SongbookMicConsentTest` PASS 8/8.
+
 > ### Mina is text-only and unvoiced
 >
 > The 34 former `mina_c01_*.ogg` files were **temporary text-to-voice samples**,
@@ -43,10 +54,9 @@ document, localization resource or test was modified.
 consent surfaces landed recently and are plain, accurate and unclever — that
 work is done well. The problems are at three seams:
 
-1. **Two safety-adjacent strings carry a wit move where plain language is
-   required**, both in the Songbook's microphone flow, and one of them makes a
-   privacy claim conditional in a way that reads as a threat it does not intend.
-2. **The most irreversible path in the game has no player-facing copy at all.**
+1. **RESOLVED:** two safety-adjacent strings carried a wit move where plain
+   language was required. All three microphone status lines are now plain.
+2. **RESOLVED:** the most irreversible path in the game had no player-facing copy.
    A save written by a newer build, loaded after a rollback, is refused via
    `push_warning()` — which goes to the engine log. **The player is told
    nothing.** (§4)
@@ -483,8 +493,8 @@ fragments at display time.**
 
 ## 14. Priorities
 
-**P0** — 1. Save/rollback has no player copy (§4). 2. Microphone status lines
-C1–C3 (§6).
+**P0 — RESOLVED** — 1. Save/rollback now has persistent player copy (§4).
+2. Microphone status lines C1–C3 are now plain (§6).
 
 **P1** — 3. Case-object labels on the route, `[ACTIVE]` first (D1). 4. X2's
 divided settings labels. 5. Debug overlay reachability (D2/D3, already ruled
@@ -497,8 +507,8 @@ formally shelve — the 191 fixture cards and House English (§7, §7b).
 
 **Owner rulings outstanding, none of which I am making** — the House English
 plain stratum (§7); whether fixture cards get a player verb (§7b); whether
-post-1928 dating is intended on readable records (§7c); tone for the three
-save-failure strings (§4).
+post-1928 dating is intended on readable records (§7c). The save-failure tone
+is now implemented as deliberately plain safety copy.
 
 ---
 
