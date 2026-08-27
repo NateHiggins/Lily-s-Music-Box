@@ -101,7 +101,7 @@ Two layers, one player-facing switch.
 sector. Source: `game/data/audio_cues.json`.
 
 > **The number that decides the honesty of any caption claim: the catalog holds
-> 20 cues. All 20 carry a caption. The production soundscape carries far more —
+> 23 cues. All 23 carry a caption. The production soundscape carries far more —
 > my own K2-G audit measured 143 `AudioStreamPlayer3D` instances playing
 > simultaneously in a live boot.** Twenty captioned semantic cues is a bounded
 > gameplay-cue catalog, not coverage of what the building sounds like.
@@ -367,7 +367,7 @@ FEATURE: category volume controls
 `game/scripts/game/reality_game_state.gd`;
 `game/scripts/game/maintenance_activity_run.gd`;
 `game/scripts/dream/dream_hazard.gd`; `game/scripts/building/building_root.gd`;
-`game/data/audio_cues.json` (20 cues); `game/data/case01_dialogue.json`
+`game/data/audio_cues.json` (23 cues); `game/data/case01_dialogue.json`
 (34 nodes); `game/assets/audio/voice` (34 takes).
 
 **Tests present and read, not executed:** `game/tests/pause_services_test.gd`,

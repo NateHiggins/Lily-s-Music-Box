@@ -281,7 +281,7 @@ persistence across a restart. Then sign the declaration-evidence row.
 
 ### G12 — Captions are not subtitles
 **Status: PROVED**, and the proof is a limitation.
-`audio_cues.json` holds **20 cues, all captioned**; the live soundscape carries
+`audio_cues.json` holds **23 cues, all captioned**; the live soundscape carries
 far more (**143 concurrent emitters** measured in
 `art/renders/first_minute_k2g/README.md`). `audio_caption_layer.gd:4` states
 *"music and dialogue are not pretended to be captioned by this layer."*
