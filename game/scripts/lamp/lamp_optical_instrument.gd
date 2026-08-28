@@ -5,7 +5,7 @@ extends Node3D
 signal optical_observation(observation: Dictionary)
 
 @export var seed := 0x28A11CE
-@export_range(0, 2) var quality_tier := 2
+@export_range(0, 2) var quality_tier := 1
 @export var base_energy := 4.2
 @export var range_m := 9.0
 
@@ -16,6 +16,14 @@ var filament: MeshInstance3D
 var particles: GPUParticles3D
 var _filament_material: StandardMaterial3D
 var _fog_material: ShaderMaterial
+var _output_cache := {}
+var _last_energy := -1.0
+var _last_color := Color.TRANSPARENT
+var _last_cone := -1.0
+var _fog_update_clock := 0.0
+
+const USEFUL_INTENSITY := 0.035
+const FOG_UPDATE_INTERVAL := 1.0 / 15.0
 
 
 func _ready() -> void:
@@ -29,7 +37,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	state.advance(delta)
-	_apply_output()
+	_apply_output(delta)
 	if Engine.get_physics_frames() % 6 == 0:
 		optical_observation.emit(state.observation(global_position,
 				-global_transform.basis.z, 1.0))
@@ -50,7 +58,7 @@ func save_optical_state() -> Dictionary:
 func restore_optical_state(data: Dictionary) -> bool:
 	var ok := state.restore_state(data)
 	if ok:
-		_apply_output()
+		_apply_output(FOG_UPDATE_INTERVAL)
 	return ok
 
 
@@ -125,10 +133,14 @@ func _build_volume() -> void:
 	fog_volume = FogVolume.new()
 	fog_volume.name = "OccludedBeamVolume"
 	fog_volume.shape = RenderingServer.FOG_VOLUME_SHAPE_CONE
-	fog_volume.size = Vector3(range_m * 0.72, range_m * 0.72, range_m)
-	fog_volume.position.z = -range_m * 0.5
+	var useful_range := minf(range_m, 6.5) if quality_tier == 1 else range_m
+	var useful_width := useful_range * (0.60 if quality_tier == 1 else 0.72)
+	fog_volume.size = Vector3(useful_width, useful_width, useful_range)
+	fog_volume.position.z = -useful_range * 0.5
 	_fog_material = ShaderMaterial.new()
 	_fog_material.shader = load("res://shaders/lamp_beam_fog.gdshader")
+	_fog_material.set_shader_parameter("density_gain", 0.034 if quality_tier == 1 else 0.055)
+	_fog_material.set_shader_parameter("detail_octaves", 1.0 if quality_tier == 1 else 2.0)
 	fog_volume.material = _fog_material
 	add_child(fog_volume)
 
@@ -138,13 +150,15 @@ func _build_particles() -> void:
 		return
 	particles = GPUParticles3D.new()
 	particles.name = "BoundedAirborneMatter"
-	particles.amount = 80 if quality_tier == 1 else 144
+	particles.amount = 48 if quality_tier == 1 else 120
 	particles.lifetime = 7.0
-	particles.visibility_aabb = AABB(Vector3(-3.5, -3.5, -range_m),
-			Vector3(7.0, 7.0, range_m))
+	var particle_range := minf(range_m, 6.5) if quality_tier == 1 else range_m
+	var particle_width := 2.4 if quality_tier == 1 else 3.2
+	particles.visibility_aabb = AABB(Vector3(-particle_width, -particle_width, -particle_range),
+			Vector3(particle_width * 2.0, particle_width * 2.0, particle_range))
 	var process := ParticleProcessMaterial.new()
 	process.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
-	process.emission_box_extents = Vector3(2.6, 2.6, range_m * 0.48)
+	process.emission_box_extents = Vector3(particle_width, particle_width, particle_range * 0.48)
 	process.direction = Vector3(0.05, 1.0, -0.08)
 	process.spread = 18.0
 	process.initial_velocity_min = 0.015
@@ -164,27 +178,39 @@ func _build_particles() -> void:
 	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
 	quad.material = mat
 	particles.draw_pass_1 = quad
-	particles.position.z = -range_m * 0.5
+	particles.position.z = -particle_range * 0.5
 	add_child(particles)
 
 
-func _apply_output() -> void:
+func _apply_output(delta := FOG_UPDATE_INTERVAL) -> void:
 	if light == null:
 		return
-	var o := state.output()
-	var energy := float(o.intensity)
-	light.visible = energy > 0.001
-	light.light_energy = base_energy * energy
-	light.light_color = o.color
-	light.spot_angle = o.cone_angle_deg
+	state.write_output(_output_cache)
+	var energy := float(_output_cache.intensity)
+	var useful := energy >= USEFUL_INTENSITY
+	if absf(energy - _last_energy) > 0.001:
+		light.visible = energy > 0.001
+		light.light_energy = base_energy * energy
+		_last_energy = energy
+	if _output_cache.color != _last_color:
+		light.light_color = _output_cache.color
+		_filament_material.emission = _output_cache.color
+		_last_color = _output_cache.color
+	if absf(float(_output_cache.cone_angle_deg) - _last_cone) > 0.01:
+		light.spot_angle = _output_cache.cone_angle_deg
+		_last_cone = _output_cache.cone_angle_deg
 	# Damp short electrical events in the reprojection history.
-	light.light_volumetric_fog_energy = (0.0 if state.instability > 0.42
-			else 9.0 * float(o.volumetric_multiplier))
-	_filament_material.emission = o.color
-	_filament_material.emission_energy_multiplier = float(o.filament_emission)
+	light.light_volumetric_fog_energy = (0.0 if not useful or state.instability > 0.42
+			else (3.0 if quality_tier == 1 else 7.0) * float(_output_cache.volumetric_multiplier))
+	_filament_material.emission_energy_multiplier = float(_output_cache.filament_emission)
 	if _fog_material:
-		_fog_material.set_shader_parameter("optical_time", state.simulation_time_s)
-		_fog_material.set_shader_parameter("lamp_output",
-				minf(1.0, float(o.volumetric_multiplier)))
+		fog_volume.visible = useful
+		_fog_update_clock += delta
+		if _fog_update_clock >= FOG_UPDATE_INTERVAL or not useful:
+			_fog_update_clock = 0.0
+			_fog_material.set_shader_parameter("optical_time", state.simulation_time_s)
+			_fog_material.set_shader_parameter("lamp_output",
+					minf(1.0, float(_output_cache.volumetric_multiplier)) if useful else 0.0)
 	if particles:
-		particles.emitting = energy > 0.035
+		particles.visible = useful
+		particles.emitting = useful

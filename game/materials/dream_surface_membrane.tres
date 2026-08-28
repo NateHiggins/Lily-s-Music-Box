@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://shaders/dream_surface_hero.gdshader" id="1"]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/tissue_color = Color(0.42,0.12,0.18,1)
+shader_parameter/absorption_color = Color(0.16,0.02,0.045,1)
+shader_parameter/absorption_density = 0.9
+shader_parameter/transmission_strength = 0.42
+shader_parameter/subsurface_strength = 0.27
+shader_parameter/surface_roughness = 0.74
+shader_parameter/surface_specular = 0.12
+shader_parameter/thickness_hint = 0.20
+shader_parameter/gold_response = 0.0
+shader_parameter/internal_role = 0.0
