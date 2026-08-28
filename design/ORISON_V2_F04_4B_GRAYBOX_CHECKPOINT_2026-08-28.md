@@ -1,6 +1,6 @@
 # Orison v2 F04/4B gray-box checkpoint — 2026-08-28
 
-Status: **SOURCE COMPLETE; SERIALIZED GODOT AND VISUAL PROOF BLOCKED BY OCCUPIED LANE**
+Status: **AUTOMATED ROUTE, CONTROLLER AND VISUAL EVIDENCE COMPLETE**
 
 Milestone: `ORISON-V2-M07`
 
@@ -58,6 +58,9 @@ one kitchen west, one bath east, and sleeping-alcove west/north openings.
    derives every adjacent F04 room pair and requires exactly one wall owner.
 5. The continuous wet chase remains on the bath east service wall established by
    the preceding F02 collision correction; it does not enter the F04 distributor.
+6. Runtime traversal found the F04 public-core west wall duplicated behind the
+   corridor wall and sealing its valid opening. F02/F04 public cores now omit that
+   side; each corridor wall solely owns and cuts its landing opening.
 
 ## Migration and interaction contracts
 
@@ -109,23 +112,30 @@ Completed source-level checks:
 - required monitor, monitor stance, bed and bedside-return ids: PASS;
 - `git diff --check`: PASS for milestone source paths.
 
-Blocked serialized checks:
+Completed serialized checks after the occupied lane cleared naturally:
 
-- Focused `OrisonV2BlockoutTest`: NOT RUN on this source revision.
-- F04 controller review headless startup: NOT RUN.
-- Continuous controller traversal: AUTHORED, NOT RUN.
-- Production-layout before/after byte-stability assertion: AUTHORED, NOT RUN.
-- Seven-view capture and receipt: AUTHORED, NOT RUN; no images are claimed.
+- Focused `OrisonV2BlockoutTest`: PASS, including all F01/F02 regressions.
+- F04 generated schema/node validation: PASS.
+- Eleven declared 0.66 m F04 capsule stations: PASS.
+- Collision-bearing continuous controller traversal from landing through the
+  threshold, main room, distributor and alcove to bedside return: PASS.
+- F04 controller review headless startup: PASS, exit 0.
+- Production-layout before/after byte-stability assertion: PASS.
+- Windowed Vulkan evidence capture: PASS — seven of seven frames in 1.050 s,
+  receipt status PASS at
+  `art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json`.
+- Visual inspection: PASS for gray-box evidence utility. The top-down view retains
+  semantic envelopes; six player-height views suppress overlays and show the
+  landing, threshold, main/work depth, galley boundary and bedside return.
 
-The lane was occupied throughout validation by an existing responsive, CPU-active
-headless `OrisonV2BlockoutTest` process pair started at 05:34:57. Per coordination
-rules it was not terminated or disturbed. No Blender process was started.
+The Godot lane was initially occupied by an existing responsive, CPU-active
+headless test pair and was not terminated or disturbed. Validation began only
+after it exited naturally. No Blender process was started.
 
 ## Remaining risks and integrated-slice readiness
 
-- The milestone is **not yet accepted for integrated-slice work**. Its Godot parse,
-  generated collision, continuous walk, review startup and visual evidence must
-  run cleanly after the serialized lane becomes available.
+- The milestone is **ready for a separately bounded integrated-slice checkpoint**.
+  This is technical readiness, not production-cutover approval.
 - Door-swing envelopes are schema proofs; closed-leaf dynamic interaction remains
   outside this gray-box.
 - Fixed-use records prove space allocation, not furniture fit after actual props.
@@ -141,9 +151,9 @@ title scene and `orison_root.tscn`; no save, case, audio or wake owner needs rep
 
 ## Recommended next milestone
 
-First close the blocked M07 serialized validation and capture packet without source
-expansion. If every authored check passes, begin the separately bounded M08
-integrated street → F01 → F02/2A → F04/4B route proof. Do not combine that work
-with this checkpoint.
+Begin the separately bounded M08 integrated street → F01 → F02/2A → F04/4B
+route proof, including vertical transitions, ordered compatibility checks,
+performance measurement and human route review. Do not switch production by
+default during that milestone.
 
 Commit SHA: recorded by the publishing commit and final handoff.

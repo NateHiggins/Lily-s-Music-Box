@@ -20,6 +20,7 @@ func _ready() -> void:
 		return
 	_top_down()
 	await shots.capture("00_f04_4b_top_down")
+	_hide_semantic_overlays(blockout)
 	_look(Vector3(-1.5, 11.01, 0.0), Vector3(-5.6, 10.65, 0.0), 72.0)
 	await shots.capture("01_landing_to_4b")
 	_look(Vector3(-4.6, 11.01, 0.0), Vector3(-7.4, 10.75, 0.0), 72.0)
@@ -64,6 +65,16 @@ func _top_down() -> void:
 	camera.size = 20.0
 	camera.global_position = Vector3(-8.0, 24.0, 3.8)
 	camera.look_at(Vector3(-8.0, 9.6, 3.8), Vector3.FORWARD)
+
+func _hide_semantic_overlays(blockout: Node3D) -> void:
+	for envelope: Dictionary in blockout.layout.get("envelopes", []):
+		var node := blockout.get_node_or_null(str(envelope.id)) as Node3D
+		if node != null:
+			node.visible = false
+	for anchor: Dictionary in blockout.layout.get("anchors", []):
+		var envelope := blockout.get_node_or_null("%s/Envelope" % str(anchor.id)) as Node3D
+		if envelope != null:
+			envelope.visible = false
 
 func _finish(ok: bool) -> void:
 	var passed := shots.finish() if ok else false

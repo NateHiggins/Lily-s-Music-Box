@@ -435,6 +435,7 @@ func _controller_traverse(player: CharacterBody3D, waypoints: Array) -> bool:
 			await get_tree().physics_frame
 			frames += 1
 			if frames > 240:
+				print("  WALK BLOCKED position=%s target=%s" % [player.position, target])
 				return false
 	return true
 
