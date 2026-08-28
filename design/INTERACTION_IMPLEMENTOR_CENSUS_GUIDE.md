@@ -103,10 +103,11 @@ content (T2's job).
 
 ## Current production census (2026-08-28)
 
-84 implementors: 66 `interact_prompt` + 18 `control_prompt`; roles 81
-production + 2 debug-only + 1 adapter; protocols 65 whole-object + 18
-named-control + 1 composed; actions 81 same-file (one inner-class, one
-parent-delegate), 1 inherited (`projector_prop.gd` ← `tv_prop.gd`),
+85 implementors: 67 `interact_prompt` + 18 `control_prompt`; roles 82
+production + 2 debug-only + 1 adapter; protocols 66 whole-object + 18
+named-control + 1 composed; actions 82 same-file (one inner-class, one
+parent-delegate, and the `f572896` radiator interaction surface - the
+census's first live drift catch, classified the day it landed), 1 inherited (`projector_prop.gd` ← `tv_prop.gd`),
 1 composed (`wayfinding_signage_pass.gd`), 1 adapter target
 (`prop_control_area.gd`), 0 unresolved required relationships.  The audit
 and manifest agree: exit 0.

@@ -1028,6 +1028,22 @@
   {
    "action_method": "interact",
    "action_owner": "same node",
+   "action_source": "props/radiator_interaction_surface.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/radiator_interaction_surface.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/radiator_interaction_surface.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "named physical surface on RadiatorProp (f572896): same-file prompt/action pair that delegates to its owning radiator via a member reference; a bespoke surface delegate, not the PropControlArea adapter",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
    "action_source": "props/radiator_prop.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
