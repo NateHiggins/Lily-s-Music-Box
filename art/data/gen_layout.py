@@ -2826,15 +2826,38 @@ def build_floor(floor_id):
                   "fabric_cool", False)
         _furn_box(furniture, "b1_bench", -8.2, 8.9, 1.8, 0.4, 0.0, 0.45,
                   "wood_dark", False)
-        # storage cages along the west wall of the cage room
+        # Storage cages along the west wall of the cage room.  These used to
+        # be four full-height opaque metal slabs behind one 8.6 m opaque
+        # front, so the supposed cages rendered as a black barricade.  Build
+        # the actual open bar-and-rail construction and let the stored crates
+        # remain visible through it.
         for i in range(4):
             cy0 = -9.0 + i * 2.15
-            _furn_box(furniture, "b1_cagediv%d" % i, -13.65, cy0, 2.0,
-                      0.05, 0.0, 2.0, "metal", False)
-            _furn_box(furniture, "b1_crate%d" % i, -13.2, cy0 + 0.5,
-                      0.9, 0.9, 0.0, 0.7 + 0.35 * (i % 2), "trim", False)
-        _furn_box(furniture, "b1_cagefront", -11.65, -9.0, 0.05, 8.6, 0.0,
-                  2.0, "metal", False)
+            for edge, z0 in (("bottom", 0.0), ("top", 1.94)):
+                _furn_box(furniture, "b1_cage_div%d_%s" % (i, edge),
+                          -13.65, cy0, 2.0, 0.035, z0, 0.06,
+                          "metal", False)
+            for j in range(10):
+                xj = -13.61 + j * 0.21
+                _furn_box(furniture, "b1_cage_div%d_bar%02d" % (i, j),
+                          xj, cy0, 0.025, 0.035, 0.0, 2.0,
+                          "metal", False)
+            _asm(furniture, "b1_crate%d" % i, "crate",
+                 -12.75, cy0 + 0.95, -8 + i * 5,
+                 W=0.72, D=0.62, H=0.48)
+            if i % 2:
+                _asm(furniture, "b1_crate%d_top" % i, "crate",
+                     -12.75, cy0 + 0.95, 6 - i * 4,
+                     z0=0.48, W=0.62, D=0.54, H=0.42)
+        for edge, z0 in (("bottom", 0.0), ("top", 1.94)):
+            _furn_box(furniture, "b1_cage_front_%s" % edge,
+                      -11.65, -9.0, 0.05, 8.6, z0, 0.06,
+                      "metal", False)
+        for j in range(40):
+            yj = -8.96 + j * 0.215
+            _furn_box(furniture, "b1_cage_front_bar%02d" % j,
+                      -11.65, yj, 0.05, 0.025, 0.0, 2.0,
+                      "metal", False)
         # electrical room: panel bank + wall conduit
         for i in range(3):
             _furn_box(furniture, "b1_panel%d" % i, 13.30, -7.2 + i * 1.1,

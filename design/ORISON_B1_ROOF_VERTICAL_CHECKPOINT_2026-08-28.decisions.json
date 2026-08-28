@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "base_commit": "9551c5a",
+  "source": "design/ORISON_B1_ROOF_VERTICAL_CHECKPOINT_2026-08-28.md",
+  "decisions": [
+    {"room": "B1_STORAGE_CAGES", "object": "b1_cagefront", "verdict": "REMOVE", "rationale": "Retire the opaque front slab after open bars replace it."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_cagediv0", "verdict": "REMOVE", "rationale": "Retire the opaque divider after open bars replace it."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_cagediv1", "verdict": "REMOVE", "rationale": "Retire the opaque divider after open bars replace it."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_cagediv2", "verdict": "REMOVE", "rationale": "Retire the opaque divider after open bars replace it."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_cagediv3", "verdict": "REMOVE", "rationale": "Retire the opaque divider after open bars replace it."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_crate0", "verdict": "REPAIR", "expected": {"room": "B1_STORAGE_CAGES", "assembly": "crate"}, "rationale": "Convert the featureless trim box to a crate assembly."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_crate1", "verdict": "REPAIR", "expected": {"room": "B1_STORAGE_CAGES", "assembly": "crate"}, "rationale": "Convert the featureless trim box to a crate assembly."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_crate2", "verdict": "REPAIR", "expected": {"room": "B1_STORAGE_CAGES", "assembly": "crate"}, "rationale": "Convert the featureless trim box to a crate assembly."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_crate3", "verdict": "REPAIR", "expected": {"room": "B1_STORAGE_CAGES", "assembly": "crate"}, "rationale": "Convert the featureless trim box to a crate assembly."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_crate1_top", "verdict": "REPAIR", "expected": {"room": "B1_STORAGE_CAGES", "assembly": "crate"}, "rationale": "Keep the added upper stack as an explicit crate assembly."},
+    {"room": "B1_STORAGE_CAGES", "object": "b1_crate3_top", "verdict": "REPAIR", "expected": {"room": "B1_STORAGE_CAGES", "assembly": "crate"}, "rationale": "Keep the added upper stack as an explicit crate assembly."}
+  ]
+}

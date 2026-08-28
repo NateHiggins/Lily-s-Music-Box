@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "claim_id": "VERTICAL_ENDS_SHOT",
+      "rooms": ["B1_STORAGE_CAGES", "B1_LAUNDRY", "B1_BOILER", "B1_COAL", "B1_ELECTRICAL", "B1_HALL", "B1_ATRIUM", "B1_UTILITY", "ROOF_OPEN"],
+      "artifact": "art/renders/orison_room_reconstruction/b1_roof_vertical_checkpoint_05/scene_capture_receipt.json",
+      "artifact_kind": "path",
+      "expected_schema": "scene_capture_receipt.json",
+      "expected_scene": "ORISON-RR-VERTICAL-ENDS",
+      "expected_output_count": 11,
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "VERTICAL_ENDS_LIGHTING",
+      "rooms": ["B1_STORAGE_CAGES", "B1_LAUNDRY", "B1_BOILER", "B1_COAL", "B1_ELECTRICAL", "B1_HALL", "B1_ATRIUM", "B1_UTILITY", "ROOF_OPEN"],
+      "artifact": "art/renders/orison_room_reconstruction/b1_roof_vertical_checkpoint_05/lighting_audit.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "VERTICAL_ENDS_WALK",
+      "rooms": ["B1_STORAGE_CAGES", "B1_LAUNDRY", "B1_BOILER", "B1_COAL", "B1_ELECTRICAL", "B1_HALL", "B1_ATRIUM", "B1_UTILITY", "ROOF_OPEN"],
+      "artifact": "art/renders/orison_room_reconstruction/b1_roof_vertical_checkpoint_05/walk_fast.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "ROOF_ROUTE_FULL_WALK",
+      "rooms": ["ROOF_OPEN"],
+      "artifact_kind": "manual",
+      "manual_visual_proof_required": true
+    }
+  ]
+}
