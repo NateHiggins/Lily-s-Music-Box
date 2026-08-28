@@ -78,7 +78,11 @@ PLAN_SEQUENCE = {"F01": 1, "F04": 2, "F02": 3, "B1": 4, "ROOF": 4,
 
 STATES = ("UNPROFILED", "PROFILED", "AUDIT_PENDING", "CHECKPOINT_PROSE_ONLY",
           "CHECKPOINT_STRUCTURED", "DRIFT_GREEN", "DRIFT_RED",
-          "MANUAL_EVIDENCE_REQUIRED", "MALFORMED")
+          "MANUAL_EVIDENCE_REQUIRED", "MALFORMED",
+          # Optional evidence-verifier integration (--evidence-report):
+          "EVIDENCE_PRESENT", "RECORDED_VALIDATION_PASS",
+          "RECORDED_VALIDATION_FAIL", "EVIDENCE_MISSING",
+          "SYMBOLIC_VALIDATION_ONLY", "EVIDENCE_MISMATCH")
 
 EVIDENCE_HEADING = re.compile(r"^##+\s.*(validation|evidence)", re.IGNORECASE)
 
@@ -488,7 +492,38 @@ def next_actions(records, docs, sources):
 # Report emission
 # ---------------------------------------------------------------------------
 
-def build_report(sources, floor_filter=None, room_filter=None):
+def apply_evidence(records, evidence_report):
+    """Optional integration with room_evidence_verifier output.
+
+    Adds an `evidence` block and evidence states to rooms the verifier maps
+    explicitly.  Artifact verification never advances a room toward any
+    COMPLETE state - it only converts 'cited' into 'recorded'.
+    """
+    by_room = evidence_report.get("by_room", {})
+    for r in records:
+        counts = by_room.get(r["room"])
+        if not counts:
+            continue
+        r["evidence"] = counts
+        states = []
+        if counts.get("RECORDED_PASS"):
+            states.append("RECORDED_VALIDATION_PASS")
+        if counts.get("RECORDED_FAIL"):
+            states.append("RECORDED_VALIDATION_FAIL")
+        if counts.get("MISSING"):
+            states.append("EVIDENCE_MISSING")
+        if counts.get("METADATA_MISMATCH"):
+            states.append("EVIDENCE_MISMATCH")
+        if counts.get("VERIFIED_PRESENT") or counts.get("RECORDED_PASS"):
+            states.append("EVIDENCE_PRESENT")
+        if counts.get("SYMBOLIC_ONLY") and not (
+                counts.get("RECORDED_PASS") or counts.get("RECORDED_FAIL")):
+            states.append("SYMBOLIC_VALIDATION_ONLY")
+        r["states"].extend(s for s in states if s not in r["states"])
+
+
+def build_report(sources, floor_filter=None, room_filter=None,
+                 evidence_report=None):
     layout = sources["layout"]
     docs = doc_index(sources)
     per_room_census, floor_census = census_by_room(sources)
@@ -502,6 +537,8 @@ def build_report(sources, floor_filter=None, room_filter=None):
             records.append(build_room_record(sources, room, floor["id"],
                                              docs, per_room_census))
     records.sort(key=lambda r: (r["floor"], r["room"]))
+    if evidence_report is not None:
+        apply_evidence(records, evidence_report)
     floors = []
     for floor in layout["floors"]:
         if floor_filter and floor["id"] != floor_filter:
@@ -627,6 +664,11 @@ def main(argv=None):
     parser.add_argument("--no-git", action="store_true",
                         help="skip git provenance (fully repository-state "
                              "independent output)")
+    parser.add_argument("--evidence-report", type=Path,
+                        help="optional room_evidence_status.json from "
+                             "tools/room_evidence_verifier.py; adds evidence "
+                             "counts/states per room (output is unchanged "
+                             "without it)")
     args = parser.parse_args(argv)
 
     args.output.mkdir(parents=True, exist_ok=True)
@@ -642,11 +684,16 @@ def main(argv=None):
         return 3
 
     try:
+        evidence = None
+        if args.evidence_report:
+            evidence = json.loads(
+                args.evidence_report.read_text(encoding="utf-8"))
         sources = gather(args.layout, args.checkpoints,
                          use_git=not args.no_git)
         sources["layout_path"] = args.layout
         report = build_report(sources, floor_filter=args.floor,
-                              room_filter=args.room)
+                              room_filter=args.room,
+                              evidence_report=evidence)
     except Exception as exc:                # noqa: BLE001 - stable exit code
         print(f"internal failure: {type(exc).__name__}: {exc}",
               file=sys.stderr)
