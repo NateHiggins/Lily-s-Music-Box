@@ -1,0 +1,48 @@
+{
+  "assignment": "DREAM-ECOLOGY-E1",
+  "checkpoint": "lifecycle_authority",
+  "date": "2026-08-28",
+  "scene": "res://tests/DreamMossEcologyTest.tscn",
+  "phase_order": ["searching", "seeded", "tending", "exploring", "networked", "complex", "disturbed", "recalling", "withering", "stained", "cleared"],
+  "focused_test": {"assertions": 26, "passed": 26, "failed": 0},
+  "regression": {
+    "living_field": {"assertions": 24, "passed": 24, "tick_ms": 2.95, "tick_budget_ms": 6.0},
+    "organelle_lifecycle": {"assertions": 16, "passed": 16}
+  },
+  "caps": {
+    "remembered_targets_per_colony": 48,
+    "routes_per_colony": 64,
+    "organisms_per_colony": 24,
+    "cilia_per_colony": 8,
+    "specialized_tentacles_per_colony": 6,
+    "complex_organelles_per_colony": 4,
+    "signals_per_encroachment": 32,
+    "cellular_audio_voices": 4
+  },
+  "coverage": {
+    "pioneer_site_selection": true,
+    "moss_before_organelles": true,
+    "cilia_first": true,
+    "typed_cilia_reports": true,
+    "ether_distance_and_obstruction": true,
+    "support_path_spawn_gate": true,
+    "return_and_report": true,
+    "route_reinforcement_and_pruning": true,
+    "novelty_renewal": true,
+    "complex_unlock": true,
+    "coordinated_collapse": true,
+    "stranded_residue": true,
+    "density_stain": true,
+    "authorized_cleanup": true,
+    "deterministic_receipt": true,
+    "long_run_caps": true,
+    "teardown": true
+  },
+  "production_visual_capture_complete": false,
+  "remaining_visual_sequence": [
+    "searching pioneer patch", "moss seed", "cilia tending", "returned pulse",
+    "branching network", "specialized tentacles", "return to breathe",
+    "complex atmosphere", "disturbance recall", "withering",
+    "stranded residue", "final stain", "cleaned control"
+  ]
+}

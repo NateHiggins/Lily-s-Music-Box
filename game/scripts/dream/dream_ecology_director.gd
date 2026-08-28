@@ -47,6 +47,7 @@ const FUNCTION_NAMES := ["probe", "recognize", "pulse", "secrete", "repair",
 const SIGNAL_CAP := 32
 const CellularAudioScript := preload(
 		"res://scripts/dream/dream_cellular_audio_pool.gd")
+const MossColonyScript := preload("res://scripts/dream/dream_moss_colony.gd")
 
 const STATE_NAMES := ["dormant", "curious", "foraging", "social", "watching",
 		"startled", "withdrawing", "high_attention", "incarnating"]
@@ -83,6 +84,10 @@ var _signals_by_function: Dictionary = {}
 ## One presentation pool belongs to this encroachment, not to any organelle.
 ## It only consumes already-published cellular facts and cannot feed the ring.
 var cellular_audio: DreamCellularAudioPool = null
+## DREAM-ECOLOGY-E1: one transient colony record per existing LivingField
+## source. This director owns coordination/signals; LivingField still owns the
+## physical body and stain, and no colony data enters RealityState/save data.
+var moss_colonies: Dictionary = {}
 
 
 func setup(seed_v: int) -> void:
@@ -108,6 +113,47 @@ func setup(seed_v: int) -> void:
 	_signals_emitted = 0
 	_signals_evicted = 0
 	_signals_by_function.clear()
+	moss_colonies.clear()
+
+
+func register_moss_colony(source_id: int, seed_value: int, at := Vector3.INF):
+	if moss_colonies.has(source_id):
+		return moss_colonies[source_id]
+	var colony = MossColonyScript.new()
+	colony.configure(source_id, seed_value)
+	if at != Vector3.INF:
+		colony.seed_at(at)
+	moss_colonies[source_id] = colony
+	return colony
+
+
+func moss_colony(source_id: int):
+	return moss_colonies.get(source_id)
+
+
+## A cilium's completed physical sample becomes the existing typed signal and
+## the same observation is deposited in moss memory. It cannot touch case/save
+## authority through this narrow vocabulary.
+func receive_cilium_sample(source_id: int, cilium_id: int, target_id: String,
+		at: Vector3, observation: Dictionary) -> float:
+	var colony = moss_colony(source_id)
+	if colony == null:
+		return 0.0
+	var value: float = colony.remember_target(target_id, observation)
+	emit_signal_packet(cilium_id, SrcClass.CILIA, Fn.PROBE, at, 0.65,
+			clampf(value, 0.05, 1.0), Chem.VASCULAR, 1.0, 1.6, source_id)
+	return value
+
+
+func disturb_colony(source_id: int, amount: float, reason: String, at: Vector3) -> bool:
+	var colony = moss_colony(source_id)
+	if colony == null:
+		return false
+	colony.disturb(amount, reason)
+	emit_signal_packet(source_id, SrcClass.HAZARD, Fn.INHIBIT, at, 4.0,
+			amount, Chem.ALARM, -1.0, 3.0, source_id)
+	seize_attention(at)
+	return true
 
 
 func attention_active() -> bool:
@@ -435,10 +481,15 @@ func census() -> Dictionary:
 		for c in critters.critters:
 			if c.get("attend_override", Vector3.INF) != Vector3.INF:
 				held += 1
+	var colony_rows := {}
+	var colony_ids := moss_colonies.keys()
+	colony_ids.sort()
+	for source_id in colony_ids:
+		colony_rows[str(source_id)] = moss_colonies[source_id].census()
 	return {"state": state_name(), "attending": attending != Vector3.INF,
 			"ready_to_seize": _since_last >= RESEIZE_GAP_S,
 			"still_held": held, "released": _released,
 			"attention_clock": snappedf(attention_clock, 0.01),
-			"signals": signal_census(),
+			"signals": signal_census(), "moss_colonies": colony_rows,
 			"cellular_audio": cellular_audio.census() \
 					if cellular_audio != null else {}}

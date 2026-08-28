@@ -128,6 +128,10 @@ var props_reached := 0
 ## surface on the storey. LIVING=0 disables. case_id -> source index.
 var fields: Dictionary = {}
 var field_source: Dictionary = {}
+## case_id -> DreamEcologyDirector colony id. Field source indices are local to
+## a storey, so they are not globally unique enough for the ecology owner.
+var ecology_source: Dictionary = {}
+var _cilia_sample_clock: Dictionary = {}
 ## floor_id -> Array of OmniLight3D: the lights the organism throws (§5c).
 var field_lights: Dictionary = {}
 ## Every surface material on a storey the field was bound to (for refresh).
@@ -222,6 +226,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			if beachhead != null and beachhead is Node3D:
 				source = (beachhead as Node3D).global_position
 			field_source[case_id] = field.add_source(source, int(PALETTE_INDEX.get(case_id, 0)))
+			ecology_source[case_id] = case_id.hash()
 			for row in rows:
 				_bind_living(row.material as ShaderMaterial, floor_id)
 	# DF-1 (design/DREAM_FIELD_DIRECTION.md): one field controller for the
@@ -340,6 +345,13 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		ecology.critters = critters
 		ecology.hero = hero
 		ecology.field = dream_field
+		for case_id in field_source:
+			var floor_id := _floor_of(case_id)
+			var field = fields.get(floor_id)
+			var source_index := int(field_source[case_id])
+			if field != null and source_index >= 0 and source_index < field.sources.size():
+				ecology.register_moss_colony(int(ecology_source[case_id]),
+						case_id.hash(), field.sources[source_index].position)
 		# §13 — the player changing the world is what the ecology notices.
 		# The director connects itself once the player exists; doing it here
 		# ran before the player was built and quietly connected nothing.
@@ -494,6 +506,7 @@ func _physics_process(delta: float) -> void:
 		if not tick_all and not active.is_empty() and str(floor_id) != active:
 			continue
 		if field.tick(delta):
+			_tend_moss_colonies(floor_id, field, delta)
 			var phase: float = field.pulse_phase()
 			for m in storey_materials.get(floor_id, []):
 				if is_instance_valid(m):
@@ -518,6 +531,67 @@ func _physics_process(delta: float) -> void:
 					contact = maxf(contact, float(t.grip))
 					instab = maxf(instab, 1.0 if t._slice_left > 0.0 else 0.0)
 		dream_field.couple(pulse, breath, attn, contact, instab)
+
+
+## Feed existing LivingField facts into the existing ecology director. The
+## colony gains capacity from stable occupied surface, never from this clock
+## alone, and its first bounded worker is always a cilium record.
+func _tend_moss_colonies(floor_id: String, field, delta: float) -> void:
+	if ecology == null:
+		return
+	var field_facts: Dictionary = field.census()
+	var surface_access := clampf(float(field_facts.get("live_voxels", 0)) / 220.0, 0.0, 1.0)
+	for case_id in field_source:
+		if _floor_of(case_id) != floor_id:
+			continue
+		var colony = ecology.moss_colony(int(ecology_source.get(case_id, case_id.hash())))
+		if colony == null:
+			continue
+		if colony.phase >= colony.Phase.DISTURBED and colony.phase < colony.Phase.STAINED:
+			colony.advance_collapse(delta)
+			continue
+		colony.add_surface_access(surface_access)
+		if colony.organisms.is_empty() and surface_access > 0.03:
+			colony.spawn(colony.OrganismClass.CILIUM, colony.origin)
+		var colony_id := int(ecology_source.get(case_id, case_id.hash()))
+		var sample_clock := float(_cilia_sample_clock.get(colony_id, 0.0)) - delta
+		_cilia_sample_clock[colony_id] = sample_clock
+		if sample_clock <= 0.0 and not colony.organisms.is_empty() and _props_ready:
+			_cilia_sample_near_moss(floor_id, colony_id, colony)
+
+
+func _cilia_sample_near_moss(floor_id: String, colony_id: int, colony) -> void:
+	var candidates := _candidates_for(floor_id, colony.origin)
+	var best: Dictionary = {}
+	var best_distance := INF
+	for row in candidates:
+		var bounds: AABB = row.aabb
+		var distance: float = bounds.get_center().distance_to(colony.origin)
+		if distance <= 1.25 and distance < best_distance and row.node != null \
+				and row.node.has_method("dream_target_profile"):
+			best = row
+			best_distance = distance
+	if best.is_empty():
+		_cilia_sample_clock[colony_id] = 2.0
+		return
+	var profile = best.node.dream_target_profile()
+	var material := String(profile.material_word)
+	var is_radiator := String(best.name).to_lower().contains("radiator")
+	var observation := {"state_signature": "%s:%.2f" % [material, float(profile.response_strength)],
+			"material_complexity": clampf(float(profile.response_strength) * 0.65, 0.0, 1.0),
+			"openings": 0.35 if float(profile.trace_half_length) > 0.0 else 0.0,
+			"moving_parts": 0.45 if is_radiator else 0.0,
+			"heat": 0.75 if is_radiator else 0.0,
+			"vibration": 0.65 if is_radiator else 0.0,
+			"modalities": ["touch", "material"]}
+	var cilium_id := int(colony.organisms[0].id)
+	ecology.receive_cilium_sample(colony_id, cilium_id, String(best.name),
+			(best.aabb as AABB).get_center(), observation)
+	var route_id := "local:%s" % String(best.name)
+	if not colony.routes.has(route_id):
+		colony.register_route(route_id, String(best.name),
+				[colony.origin, (best.aabb as AABB).get_center()])
+	_cilia_sample_clock[colony_id] = 4.0
 
 
 ## DO-3 — LIVING ARCHITECTURE INTERPRETS THE CILIA'S VASCULAR ANSWER.
@@ -1030,6 +1104,11 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 			src = int(front.source)
 	if src < 0:
 		return
+	var colony = _colony_for_field_source(floor_id, src)
+	if OS.get_environment("TENTACLE_FORCE") != "1" and (colony == null \
+			or not colony.can_spawn(colony.OrganismClass.PALPATOR, at)):
+		_tentacle_cooldown[floor_id] = TENTACLE_COOLDOWN_S * 0.5
+		return
 	var hit := _nearest_surface(at)
 	var forced_anchor := OS.get_environment("TENTACLE_ANCHOR").split(",", false)
 	if forced_anchor.size() == 6:
@@ -1047,6 +1126,8 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 	add_child(tentacle)
 	tentacle.setup(field, src, hit.position, hit.normal, who,
 			_candidates_for(floor_id, hit.position), tentacles_spawned * 7919 + floor_id.hash())
+	if colony != null:
+		colony.spawn(colony.OrganismClass.PALPATOR, at)
 	live.append(tentacle)
 	tentacles[floor_id] = live
 	tentacles_spawned += 1
@@ -1061,6 +1142,15 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 				float(front.strength), int(front.outside_neighbours)]
 		print("[TENTACLE] %s: %s, out of %s at %s (target %s)" % [floor_id, seam,
 				str(hit.collider_name), hit.position, tentacle.target_name])
+
+
+func _colony_for_field_source(floor_id: String, source_index: int):
+	if ecology == null:
+		return null
+	for case_id in field_source:
+		if _floor_of(case_id) == floor_id and int(field_source[case_id]) == source_index:
+			return ecology.moss_colony(int(ecology_source.get(case_id, case_id.hash())))
+	return null
 
 
 ## The nearest surface to a field point: six short rays. The organism lives

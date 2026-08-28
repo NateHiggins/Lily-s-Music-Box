@@ -375,6 +375,17 @@ func fix(unit: String, prop: Node) -> bool:
 	var field = encroachment.fields.get(flat.floor_id)
 	var cleared := 0
 	if field != null:
+		# Maintenance remains the disturbance authority. The ecology director
+		# receives a transient alarm/recall fact before LivingField performs its
+		# existing physical repel and stain operation.
+		if encroachment.ecology != null:
+			var at := Vector3((flat.rect.x + flat.rect.z) * 0.5,
+					float(flat.floor_y) + 0.15, (flat.rect.y + flat.rect.w) * 0.5)
+			for case_id in encroachment.field_source:
+				if encroachment._floor_of(case_id) == str(flat.floor_id):
+					var colony_id := int(encroachment.ecology_source.get(case_id, case_id.hash()))
+					encroachment.ecology.disturb_colony(colony_id, 1.0,
+							"authorized maintenance repulsion", at)
 		cleared = field.repel(flat.rect, STAIN_ON_FIX)
 	conditions_fixed += 1
 	var label := "service"
