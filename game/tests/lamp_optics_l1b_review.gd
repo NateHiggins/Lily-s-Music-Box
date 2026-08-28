@@ -1,7 +1,7 @@
 extends Node3D
 ## L1B six-frame calibration gate. This is test-only and never enters Orison.
 
-const OUT := "res://../art/renders/lamp_optics_l1b/review_01"
+var output_dir := "res://../art/renders/lamp_optics_l1b/review_01"
 const FAUNA_SHADER := preload("res://shaders/dream_fauna.gdshader")
 
 var camera: Camera3D
@@ -22,8 +22,8 @@ var organism_material: ShaderMaterial
 
 
 func _ready() -> void:
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT + "/diagnostic"))
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output_dir))
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output_dir + "/diagnostic"))
 	vram_before = RenderingServer.get_rendering_info(
 			RenderingServer.RENDERING_INFO_VIDEO_MEM_USED)
 	_build_calibration_room()
@@ -367,7 +367,7 @@ func _write_diagnostics() -> void:
 		"ecology_visual_layer": organism.layers if organism else 1,
 		"targets": target_positions,
 	}
-	var file := FileAccess.open(OUT + "/diagnostic/diagnostics.json", FileAccess.WRITE)
+	var file := FileAccess.open(output_dir + "/diagnostic/diagnostics.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(data, "  "))
 
 
@@ -411,7 +411,7 @@ func _save_view(name: String) -> void:
 	var image := await _grab()
 	if image.get_width() != 1600 or image.get_height() != 900:
 		image.resize(1600, 900, Image.INTERPOLATE_LANCZOS)
-	image.save_png(OUT + "/" + name)
+	image.save_png(output_dir + "/" + name)
 	capture_overhead_ms += float(Time.get_ticks_usec() - t0) / 1000.0
 
 
@@ -426,7 +426,7 @@ func _save_contact_sheet(images: Array[Image], columns_count: int, rows: int,
 		src.convert(Image.FORMAT_RGBA8)
 		sheet.blit_rect(src, Rect2i(Vector2i.ZERO, cell),
 				Vector2i((i % columns_count) * cell.x, (i / columns_count) * cell.y))
-	sheet.save_png(OUT + "/" + name)
+	sheet.save_png(output_dir + "/" + name)
 
 
 func _write_receipt() -> void:
@@ -458,7 +458,7 @@ func _write_receipt() -> void:
 		"active_lights": 1, "shadowed_lights": 1,
 		"acceptance_images": 6,
 	}
-	var file := FileAccess.open(OUT + "/receipt.json", FileAccess.WRITE)
+	var file := FileAccess.open(output_dir + "/receipt.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(receipt, "  "))
 
 

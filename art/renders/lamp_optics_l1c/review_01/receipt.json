@@ -1,0 +1,434 @@
+{
+  "acceptance_artifacts": 5,
+  "calibration_and_cellular_teardown": {
+    "render_objects_after_release": 0,
+    "resource_count_after_release": 38.0,
+    "result": "clean",
+    "retained_cellular_presenter": false,
+    "retained_optical_rig": false
+  },
+  "capture_overhead": {
+    "frame_sync_ms": 7.185,
+    "resize_png_ms": 466.449,
+    "save_error": 0.0,
+    "texture_readback_ms": 6.188
+  },
+  "cellular_asset": {
+    "authority": "presentation-only consumer",
+    "emissive_gold": false,
+    "materials_shared": 4,
+    "painted_internal_anatomy": false,
+    "source": "approved S2H cellular_interior LOD0/1/2"
+  },
+  "configurations": {
+    "01_lamp_off": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.175999999046326,
+        "median": 0.149000003933907,
+        "p95": 0.165999993681908
+      },
+      "main_process_ms": {
+        "max": 39.148,
+        "median": 39.148,
+        "p95": 39.148
+      },
+      "objects": 7.0,
+      "physics_ms": {
+        "max": 0.021,
+        "median": 0.021,
+        "p95": 0.021
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1332602192.0,
+      "wall_frame_ms": {
+        "max": 2.623,
+        "median": 0.416,
+        "p95": 0.781
+      }
+    },
+    "02_spot_no_shadows": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.230000004172325,
+        "median": 0.153999999165535,
+        "p95": 0.158999994397163
+      },
+      "main_process_ms": {
+        "max": 39.148,
+        "median": 39.148,
+        "p95": 39.148
+      },
+      "objects": 7.0,
+      "physics_ms": {
+        "max": 0.021,
+        "median": 0.021,
+        "p95": 0.021
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1332602192.0,
+      "wall_frame_ms": {
+        "max": 2.513,
+        "median": 0.402,
+        "p95": 0.733
+      }
+    },
+    "03_spot_with_shadows": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.177000001072884,
+        "median": 0.164000004529953,
+        "p95": 0.165999993681908
+      },
+      "main_process_ms": {
+        "max": 39.148,
+        "median": 39.148,
+        "p95": 39.148
+      },
+      "objects": 7.0,
+      "physics_ms": {
+        "max": 0.021,
+        "median": 0.021,
+        "p95": 0.021
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1332602192.0,
+      "wall_frame_ms": {
+        "max": 2.498,
+        "median": 0.412,
+        "p95": 0.764
+      }
+    },
+    "04_fog_only": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.162000000476837,
+        "median": 0.149000003933907,
+        "p95": 0.150999993085861
+      },
+      "main_process_ms": {
+        "max": 39.148,
+        "median": 39.148,
+        "p95": 39.148
+      },
+      "objects": 7.0,
+      "physics_ms": {
+        "max": 0.021,
+        "median": 0.021,
+        "p95": 0.021
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1332602192.0,
+      "wall_frame_ms": {
+        "max": 2.369,
+        "median": 0.395,
+        "p95": 0.749
+      }
+    },
+    "05_spot_plus_fog": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.252999991178513,
+        "median": 0.178000003099442,
+        "p95": 0.181999996304512
+      },
+      "main_process_ms": {
+        "max": 39.148,
+        "median": 39.148,
+        "p95": 39.148
+      },
+      "objects": 7.0,
+      "physics_ms": {
+        "max": 0.021,
+        "median": 0.021,
+        "p95": 0.021
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1332602192.0,
+      "wall_frame_ms": {
+        "max": 2.675,
+        "median": 0.426,
+        "p95": 0.746
+      }
+    },
+    "06_particles_added": {
+      "draw_calls": {
+        "max": 12.0,
+        "median": 12.0,
+        "p95": 12.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.379999995231628,
+        "median": 0.372000008821487,
+        "p95": 0.377000004053116
+      },
+      "main_process_ms": {
+        "max": 39.148,
+        "median": 39.148,
+        "p95": 39.148
+      },
+      "objects": 12.0,
+      "physics_ms": {
+        "max": 0.021,
+        "median": 0.021,
+        "p95": 0.021
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1332602192.0,
+      "wall_frame_ms": {
+        "max": 1.896,
+        "median": 0.624,
+        "p95": 1.609
+      }
+    },
+    "07_ecology_materials_added": {
+      "draw_calls": {
+        "max": 14.0,
+        "median": 14.0,
+        "p95": 14.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.564000010490417,
+        "median": 0.453999996185303,
+        "p95": 0.458000004291534
+      },
+      "main_process_ms": {
+        "max": 39.148,
+        "median": 39.148,
+        "p95": 39.148
+      },
+      "objects": 14.0,
+      "physics_ms": {
+        "max": 0.021,
+        "median": 0.021,
+        "p95": 0.021
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1354015056.0,
+      "wall_frame_ms": {
+        "max": 1.849,
+        "median": 0.706,
+        "p95": 1.687
+      }
+    },
+    "08_furnished_production_room": {
+      "draw_calls": {
+        "max": 2327.0,
+        "median": 2326.0,
+        "p95": 2327.0
+      },
+      "gpu_frame_ms": {
+        "max": 4.12400007247925,
+        "median": 3.65199995040894,
+        "p95": 3.97499990463257
+      },
+      "main_process_ms": {
+        "max": 18.967,
+        "median": 18.967,
+        "p95": 18.967
+      },
+      "objects": 2326.0,
+      "physics_ms": {
+        "max": 2.107,
+        "median": 2.107,
+        "p95": 2.107
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 5396338624.0,
+      "wall_frame_ms": {
+        "max": 13.058,
+        "median": 6.445,
+        "p95": 8.421
+      }
+    },
+    "teardown": {
+      "render_objects_after_release": 0.0,
+      "render_objects_stage_baseline": 12.0,
+      "renderer_sync_completed": true,
+      "resource_delta_from_stage_baseline": 1460.0,
+      "resources_after_release": 1487.0,
+      "resources_before_release": 5939.0,
+      "vram_after_release_bytes": 2538163360.0
+    }
+  },
+  "controller_cpu_ms_per_update": 0.003733,
+  "controller_gate_ms": 0.2,
+  "device": "NVIDIA GeForce RTX 4080",
+  "froxel_ab": {
+    "decision": "keep project default unchanged; production optical tier uses tighter local bounds, lower density, one noise octave, and 48 particles",
+    "default_64": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.252999991178513,
+        "median": 0.178000003099442,
+        "p95": 0.181999996304512
+      },
+      "main_process_ms": {
+        "max": 39.148,
+        "median": 39.148,
+        "p95": 39.148
+      },
+      "objects": 7.0,
+      "physics_ms": {
+        "max": 0.021,
+        "median": 0.021,
+        "p95": 0.021
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1332602192.0,
+      "wall_frame_ms": {
+        "max": 2.675,
+        "median": 0.426,
+        "p95": 0.746
+      }
+    },
+    "lower_cost_48": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.158999994397163,
+        "median": 0.156000003218651,
+        "p95": 0.157000005245209
+      },
+      "main_process_ms": {
+        "max": 39.336,
+        "median": 39.336,
+        "p95": 39.336
+      },
+      "objects": 7.0,
+      "physics_ms": {
+        "max": 0.018,
+        "median": 0.018,
+        "p95": 0.018
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1325327696.0,
+      "wall_frame_ms": {
+        "max": 2.611,
+        "median": 0.402,
+        "p95": 0.682
+      }
+    }
+  },
+  "froxel_volume_depth": 64.0,
+  "froxel_volume_size": 64.0,
+  "full_orison_teardown": {
+    "clean_main_pairing_error_count": 1264,
+    "error": "BUG, indexing did not unpair geometries from light.",
+    "l1c_pairing_error_count_before_isolation": 1246,
+    "owner_class": "Orison internal Light3D RIDs paired to batched GeometryInstance3D RIDs",
+    "result": "blocked_by_clean_main_godot_4_7_1_renderer_bug",
+    "retained_render_objects_after_error": 0
+  },
+  "gpu_instrumentation": "RenderingServer.viewport_get_measured_render_time_gpu",
+  "optical_breakdown": {
+    "capture_overhead_ms": {
+      "frame_sync_ms": 7.185,
+      "resize_png_ms": 466.449,
+      "save_error": 0.0,
+      "texture_readback_ms": 6.188
+    },
+    "main_thread_scope": "allocation-free LampOpticalState advance/output only; Godot TIME_PROCESS was stale under uncapped frame_post_draw sampling and is not misreported as script time",
+    "main_thread_script_ms": 0.003733,
+    "ordinary_frame_has_sync_readback": false,
+    "particles_gpu_delta_ms": 0.194000005722045,
+    "physics_ms": {
+      "controller_measured_separately": true,
+      "status": "engine monitor stale in uncapped harness"
+    },
+    "render_preparation_and_sync_cpu_delta_ms": 0.29,
+    "shadow_gpu_delta_ms": 0.010000005364418,
+    "transparent_sss_gpu_delta_ms": 0.081999987363816,
+    "volumetric_fog_gpu_delta_ms": 0.013999998569489
+  },
+  "packet": "LAMP-OPTICS-L1C/review_01",
+  "production_tier": {
+    "fog_density_gain": 0.034,
+    "fog_noise_octaves": 1,
+    "fog_volume_size_m": [
+      3.9,
+      3.9,
+      6.5
+    ],
+    "hero_tier_particle_count": 120,
+    "meshes_and_materials_shared": true,
+    "off_threshold": 0.035,
+    "particle_count": 48,
+    "per_frame_image_readbacks": 0,
+    "per_frame_resource_loads": 0
+  },
+  "renderer": "forward_plus",
+  "resolution": "1600x900",
+  "sample_frames": 120.0,
+  "timing_note": "Wall time awaits frame_post_draw; GPU time is engine-measured and is never inferred from CPU time.",
+  "vram_delta_optical_bytes": 21412864,
+  "vram_stage_baseline_bytes": 1332602192.0,
+  "warmup_frames": 90.0
+}

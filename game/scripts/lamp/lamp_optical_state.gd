@@ -107,21 +107,27 @@ func _contact_envelope() -> float:
 
 
 func output() -> Dictionary:
+	var result := {}
+	write_output(result)
+	return result
+
+
+## Allocation-free presentation path. The legacy `output()` contract remains
+## unchanged for saves/tests and callers that need an owned Dictionary.
+func write_output(result: Dictionary) -> void:
 	var hot := thermal_inertia
 	var electrical := clampf(supplied_voltage / NOMINAL_VOLTAGE, 0.0, 1.12)
 	var kelvin := lerpf(1250.0, 2850.0, pow(hot, 0.58))
-	return {
-		"intensity": clampf(limited_intensity, 0.0, 1.12),
-		"color": _blackbody_approx(kelvin),
-		"color_temperature_k": kelvin,
-		"cone_angle_deg": lerpf(41.0, 35.0,
-				reflector_alignment * lens_alignment),
-		"volumetric_multiplier": lerpf(limited_intensity,
-				sqrt(maxf(0.0, limited_intensity)), 0.72),
-		"filament_emission": 7.5 * hot * hot,
-		"temporal_stability": 1.0 - instability,
-		"heat": hot,
-	}
+	result.intensity = clampf(limited_intensity, 0.0, 1.12)
+	result.color = _blackbody_approx(kelvin)
+	result.color_temperature_k = kelvin
+	result.cone_angle_deg = lerpf(41.0, 35.0,
+			reflector_alignment * lens_alignment)
+	result.volumetric_multiplier = lerpf(limited_intensity,
+			sqrt(maxf(0.0, limited_intensity)), 0.72)
+	result.filament_emission = 7.5 * hot * hot
+	result.temporal_stability = 1.0 - instability
+	result.heat = hot
 
 
 func observation(origin: Vector3, direction: Vector3,

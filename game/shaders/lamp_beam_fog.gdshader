@@ -5,6 +5,7 @@ uniform float grime : hint_range(0.0, 1.0) = 0.28;
 uniform float smoke : hint_range(0.0, 1.0) = 0.08;
 uniform float optical_time = 0.0;
 uniform float lamp_output : hint_range(0.0, 1.2) = 1.0;
+uniform float detail_octaves : hint_range(1.0, 2.0) = 2.0;
 
 float hash31(vec3 p) {
 	p = fract(p * 0.1031);
@@ -30,8 +31,10 @@ void fog() {
 	float edge = 1.0 - smoothstep(-0.18, 0.0, SDF);
 	vec3 convected = p * vec3(1.4, 2.2, 1.1)
 		+ vec3(0.0, optical_time * 0.075, optical_time * 0.025);
-	float dust = value_noise(convected) * 0.58
-		+ value_noise(convected * 2.07 + 9.0) * 0.22;
+	float dust = value_noise(convected) * 0.58;
+	if (detail_octaves > 1.5) {
+		dust += value_noise(convected * 2.07 + 9.0) * 0.22;
+	}
 	float lens_grime = value_noise(vec3(UVW.xy * 8.0, 2.4)) * grime;
 	float convection = smoothstep(0.25, 0.9,
 		value_noise(convected * vec3(0.7, 1.8, 0.7)));

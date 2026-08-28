@@ -24,6 +24,9 @@ const SHADER_PATHS := [
 	"res://shaders/dream_crystal.gdshader",
 	"res://shaders/dream_cilia.gdshader",
 	"res://shaders/dream_eyelid.gdshader",
+	"res://shaders/lamp_beam_fog.gdshader",
+	"res://shaders/lamp_ecology_optics.gdshader",
+	"res://shaders/dream_surface_hero.gdshader",
 ]
 
 
