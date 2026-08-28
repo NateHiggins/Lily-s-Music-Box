@@ -1,0 +1,504 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+[RENDER] forward_plus
+[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 527 left flat
+[SURFACE] 1003 surfaces layered (677 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] AFTER_HOURS; 10 grilles drawn
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 943 foreign draws, 37 foreign lights registered
+[STREET] 1630 enclosed F01 draws indexed
+[SURFACE] 3900 prop draws layered in triplanar mode (939 materials)
+[ENCROACH] 926 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 564 materials
+[ENCROACH] living field on F04 binds 411 materials
+[ENCROACH] living field on F06 binds 376 materials
+[ENCROACH] living field on F05 binds 389 materials
+[ENCROACH] living field on F03 binds 405 materials
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[HARUKIYA] AFTER_HOURS, 18 fixtures
+  [light ok] fixture light map covers all 248 catalog fixtures
+  [light ok] all omni lights use Compatibility-safe cubemap shadows
+  [light ok] all omni lights use visible contact-shadow settings
+  [light ok] every navigation fixture has an authored standby contribution
+  [light ok] ad-hoc shadow casters stay within the ruled budget (4/8)
+  [light ok] STREET finds authored Orison-core fixtures to gate
+  [light ok] STREET suppresses only Orison-core fixture shadow maps
+  [light ok] STREET retains a local exterior fixture shadow caster
+  [light ok] entering ORISON restores ranked core fixture shadows
+  [light ok] B1/B1_STORAGE_CAGES selects its active floor
+  [light ok] B1/B1_STORAGE_CAGES has a placed fixture
+  [light ok] B1/B1_STORAGE_CAGES receives a local shadow caster
+  [light ok] B1/B1_LAUNDRY selects its active floor
+  [light ok] B1/B1_LAUNDRY has a placed fixture
+  [light ok] B1/B1_LAUNDRY receives a local shadow caster
+  [light ok] B1/B1_BOILER selects its active floor
+  [light ok] B1/B1_BOILER has a placed fixture
+  [light ok] B1/B1_BOILER receives a local shadow caster
+  [light ok] B1/B1_ELECTRICAL selects its active floor
+  [light ok] B1/B1_ELECTRICAL has a placed fixture
+  [light ok] B1/B1_ELECTRICAL receives a local shadow caster
+  [light ok] B1/B1_HALL selects its active floor
+  [light ok] B1/B1_HALL has a placed fixture
+  [light ok] B1/B1_HALL receives a local shadow caster
+  [light ok] B1/B1_ATRIUM selects its active floor
+  [light ok] B1/B1_ATRIUM has a placed fixture
+  [light ok] B1/B1_ATRIUM receives a local shadow caster
+  [light ok] B1/B1_UTILITY selects its active floor
+  [light ok] B1/B1_UTILITY has a placed fixture
+  [light ok] B1/B1_UTILITY receives a local shadow caster
+  [light ok] B1/B1_COAL selects its active floor
+  [light ok] B1/B1_COAL has a placed fixture
+  [light ok] B1/B1_COAL receives a local shadow caster
+  [light ok] F01/F01_LOBBY selects its active floor
+  [light ok] F01/F01_LOBBY has a placed fixture
+  [light ok] F01/F01_LOBBY receives a local shadow caster
+  [light ok] F01/F01_COMMON_B selects its active floor
+  [light ok] F01/F01_COMMON_B has a placed fixture
+  [light ok] F01/F01_COMMON_B receives a local shadow caster
+  [light ok] F01/F01_STORAGE_C selects its active floor
+  [light ok] F01/F01_STORAGE_C has a placed fixture
+  [light ok] F01/F01_STORAGE_C receives a local shadow caster
+  [light ok] F01/F01_HALL selects its active floor
+  [light ok] F01/F01_HALL has a placed fixture
+  [light ok] F01/F01_HALL receives a local shadow caster
+  [light ok] F01/F01_ATRIUM selects its active floor
+  [light ok] F01/F01_ATRIUM has a placed fixture
+  [light ok] F01/F01_ATRIUM receives a local shadow caster
+  [light ok] F01/F01_UTILITY selects its active floor
+  [light ok] F01/F01_UTILITY has a placed fixture
+  [light ok] F01/F01_UTILITY receives a local shadow caster
+  [light ok] F01/F01_OFFICE selects its active floor
+  [light ok] F01/F01_OFFICE has a placed fixture
+  [light ok] F01/F01_OFFICE receives a local shadow caster
+  [light ok] F01/F01_PACKAGE selects its active floor
+  [light ok] F01/F01_PACKAGE has a placed fixture
+  [light ok] F01/F01_PACKAGE receives a local shadow caster
+  [light ok] F01/F01_RESTROOM selects its active floor
+  [light ok] F01/F01_RESTROOM has a placed fixture
+  [light ok] F01/F01_RESTROOM receives a local shadow caster
+  [light ok] F01/F01_A_BED selects its active floor
+  [light ok] F01/F01_A_BED has a placed fixture
+  [light ok] F01/F01_A_BED receives a local shadow caster
+  [light ok] F01/F01_A_BATH selects its active floor
+  [light ok] F01/F01_A_BATH has a placed fixture
+  [light ok] F01/F01_A_BATH receives a local shadow caster
+  [light ok] F01/F01_A_MAIN selects its active floor
+  [light ok] F01/F01_A_MAIN has a placed fixture
+  [light ok] F01/F01_A_MAIN receives a local shadow caster
+  [light ok] F01/F01_D_BED selects its active floor
+  [light ok] F01/F01_D_BED has a placed fixture
+  [light ok] F01/F01_D_BED receives a local shadow caster
+  [light ok] F01/F01_D_BATH selects its active floor
+  [light ok] F01/F01_D_BATH has a placed fixture
+  [light ok] F01/F01_D_BATH receives a local shadow caster
+  [light ok] F01/F01_D_MAIN selects its active floor
+  [light ok] F01/F01_D_MAIN has a placed fixture
+  [light ok] F01/F01_D_MAIN receives a local shadow caster
+  [light ok] F01/F01_D_OFFICE selects its active floor
+  [light ok] F01/F01_D_OFFICE has a placed fixture
+  [light ok] F01/F01_D_OFFICE receives a local shadow caster
+  [light ok] F02/F02_A_BED selects its active floor
+  [light ok] F02/F02_A_BED has a placed fixture
+  [light ok] F02/F02_A_BED receives a local shadow caster
+  [light ok] F02/F02_A_BATH selects its active floor
+  [light ok] F02/F02_A_BATH has a placed fixture
+  [light ok] F02/F02_A_BATH receives a local shadow caster
+  [light ok] F02/F02_A_MAIN selects its active floor
+  [light ok] F02/F02_A_MAIN has a placed fixture
+  [light ok] F02/F02_A_MAIN receives a local shadow caster
+  [light ok] F02/F02_B_ALCOVE selects its active floor
+  [light ok] F02/F02_B_ALCOVE has a placed fixture
+  [light ok] F02/F02_B_ALCOVE receives a local shadow caster
+  [light ok] F02/F02_B_BATH selects its active floor
+  [light ok] F02/F02_B_BATH has a placed fixture
+  [light ok] F02/F02_B_BATH receives a local shadow caster
+  [light ok] F02/F02_B_KITCHEN selects its active floor
+  [light ok] F02/F02_B_KITCHEN has a placed fixture
+  [light ok] F02/F02_B_KITCHEN receives a local shadow caster
+  [light ok] F02/F02_B_MAIN selects its active floor
+  [light ok] F02/F02_B_MAIN has a placed fixture
+  [light ok] F02/F02_B_MAIN receives a local shadow caster
+  [light ok] F02/F02_C_BED1 selects its active floor
+  [light ok] F02/F02_C_BED1 has a placed fixture
+  [light ok] F02/F02_C_BED1 receives a local shadow caster
+  [light ok] F02/F02_C_BED2 selects its active floor
+  [light ok] F02/F02_C_BED2 has a placed fixture
+  [light ok] F02/F02_C_BED2 receives a local shadow caster
+  [light ok] F02/F02_C_BATH selects its active floor
+  [light ok] F02/F02_C_BATH has a placed fixture
+  [light ok] F02/F02_C_BATH receives a local shadow caster
+  [light ok] F02/F02_C_MAIN selects its active floor
+  [light ok] F02/F02_C_MAIN has a placed fixture
+  [light ok] F02/F02_C_MAIN receives a local shadow caster
+  [light ok] F02/F02_D_BED selects its active floor
+  [light ok] F02/F02_D_BATH selects its active floor
+  [light ok] F02/F02_D_MAIN selects its active floor
+  [light ok] F02/F02_D_OFFICE selects its active floor
+  [light ok] F02/F02_WSTOR selects its active floor
+  [light ok] F02/F02_WSTOR has a placed fixture
+  [light ok] F02/F02_WSTOR receives a local shadow caster
+  [light ok] F02/F02_CORRIDOR selects its active floor
+  [light ok] F02/F02_CORRIDOR has a placed fixture
+  [light ok] F02/F02_CORRIDOR receives a local shadow caster
+  [light ok] F02/F02_HALL selects its active floor
+  [light ok] F02/F02_HALL has a placed fixture
+  [light ok] F02/F02_HALL receives a local shadow caster
+  [light ok] F02/F02_ATRIUM selects its active floor
+  [light ok] F02/F02_ATRIUM has a placed fixture
+  [light ok] F02/F02_ATRIUM receives a local shadow caster
+  [light ok] F02/F02_UTILITY selects its active floor
+  [light ok] F02/F02_UTILITY has a placed fixture
+  [light ok] F02/F02_UTILITY receives a local shadow caster
+  [light ok] F03/F03_A_BED selects its active floor
+  [light ok] F03/F03_A_BED has a placed fixture
+  [light ok] F03/F03_A_BED receives a local shadow caster
+  [light ok] F03/F03_A_BATH selects its active floor
+  [light ok] F03/F03_A_BATH has a placed fixture
+  [light ok] F03/F03_A_BATH receives a local shadow caster
+  [light ok] F03/F03_A_MAIN selects its active floor
+  [light ok] F03/F03_A_MAIN has a placed fixture
+  [light ok] F03/F03_A_MAIN receives a local shadow caster
+  [light ok] F03/F03_B_ALCOVE selects its active floor
+  [light ok] F03/F03_B_ALCOVE has a placed fixture
+  [light ok] F03/F03_B_ALCOVE receives a local shadow caster
+  [light ok] F03/F03_B_BATH selects its active floor
+  [light ok] F03/F03_B_BATH has a placed fixture
+  [light ok] F03/F03_B_BATH receives a local shadow caster
+  [light ok] F03/F03_B_KITCHEN selects its active floor
+  [light ok] F03/F03_B_KITCHEN has a placed fixture
+  [light ok] F03/F03_B_KITCHEN receives a local shadow caster
+  [light ok] F03/F03_B_MAIN selects its active floor
+  [light ok] F03/F03_B_MAIN has a placed fixture
+  [light ok] F03/F03_B_MAIN receives a local shadow caster
+  [light ok] F03/F03_C_BED1 selects its active floor
+  [light ok] F03/F03_C_BED1 has a placed fixture
+  [light ok] F03/F03_C_BED1 receives a local shadow caster
+  [light ok] F03/F03_C_BED2 selects its active floor
+  [light ok] F03/F03_C_BED2 has a placed fixture
+  [light ok] F03/F03_C_BED2 receives a local shadow caster
+  [light ok] F03/F03_C_BATH selects its active floor
+  [light ok] F03/F03_C_BATH has a placed fixture
+  [light ok] F03/F03_C_BATH receives a local shadow caster
+  [light ok] F03/F03_C_MAIN selects its active floor
+  [light ok] F03/F03_C_MAIN has a placed fixture
+  [light ok] F03/F03_C_MAIN receives a local shadow caster
+  [light ok] F03/F03_D_BED selects its active floor
+  [light ok] F03/F03_D_BED has a placed fixture
+  [light ok] F03/F03_D_BED receives a local shadow caster
+  [light ok] F03/F03_D_BATH selects its active floor
+  [light ok] F03/F03_D_BATH has a placed fixture
+  [light ok] F03/F03_D_BATH receives a local shadow caster
+  [light ok] F03/F03_D_MAIN selects its active floor
+  [light ok] F03/F03_D_MAIN has a placed fixture
+  [light ok] F03/F03_D_MAIN receives a local shadow caster
+  [light ok] F03/F03_D_OFFICE selects its active floor
+  [light ok] F03/F03_D_OFFICE has a placed fixture
+  [light ok] F03/F03_D_OFFICE receives a local shadow caster
+  [light ok] F03/F03_WSTOR selects its active floor
+  [light ok] F03/F03_WSTOR has a placed fixture
+  [light ok] F03/F03_WSTOR receives a local shadow caster
+  [light ok] F03/F03_CORRIDOR selects its active floor
+  [light ok] F03/F03_CORRIDOR has a placed fixture
+  [light ok] F03/F03_CORRIDOR receives a local shadow caster
+  [light ok] F03/F03_HALL selects its active floor
+  [light ok] F03/F03_HALL has a placed fixture
+  [light ok] F03/F03_HALL receives a local shadow caster
+  [light ok] F03/F03_ATRIUM selects its active floor
+  [light ok] F03/F03_ATRIUM has a placed fixture
+  [light ok] F03/F03_ATRIUM receives a local shadow caster
+  [light ok] F03/F03_UTILITY selects its active floor
+  [light ok] F03/F03_UTILITY has a placed fixture
+  [light ok] F03/F03_UTILITY receives a local shadow caster
+  [light ok] F04/F04_A_BED selects its active floor
+  [light ok] F04/F04_A_BED has a placed fixture
+  [light ok] F04/F04_A_BED receives a local shadow caster
+  [light ok] F04/F04_A_BATH selects its active floor
+  [light ok] F04/F04_A_BATH has a placed fixture
+  [light ok] F04/F04_A_BATH receives a local shadow caster
+  [light ok] F04/F04_A_MAIN selects its active floor
+  [light ok] F04/F04_A_MAIN has a placed fixture
+  [light ok] F04/F04_A_MAIN receives a local shadow caster
+  [light ok] F04/F04_B_VESTIBULE selects its active floor
+  [light ok] F04/F04_B_BATH selects its active floor
+  [light ok] F04/F04_B_BATH has a placed fixture
+  [light ok] F04/F04_B_BATH receives a local shadow caster
+  [light ok] F04/F04_B_CLOSET selects its active floor
+  [light ok] F04/F04_B_KITCHEN selects its active floor
+  [light ok] F04/F04_B_KITCHEN has a placed fixture
+  [light ok] F04/F04_B_KITCHEN receives a local shadow caster
+  [light ok] F04/F04_B_MAIN selects its active floor
+  [light ok] F04/F04_B_MAIN has a placed fixture
+  [light ok] F04/F04_B_MAIN receives a local shadow caster
+  [light ok] F04/F04_B_ALCOVE selects its active floor
+  [light ok] F04/F04_B_ALCOVE has a placed fixture
+  [light ok] F04/F04_B_ALCOVE receives a local shadow caster
+  [light ok] F04/F04_C_BED1 selects its active floor
+  [light ok] F04/F04_C_BED1 has a placed fixture
+  [light ok] F04/F04_C_BED1 receives a local shadow caster
+  [light ok] F04/F04_C_BED2 selects its active floor
+  [light ok] F04/F04_C_BED2 has a placed fixture
+  [light ok] F04/F04_C_BED2 receives a local shadow caster
+  [light ok] F04/F04_C_BATH selects its active floor
+  [light ok] F04/F04_C_BATH has a placed fixture
+  [light ok] F04/F04_C_BATH receives a local shadow caster
+  [light ok] F04/F04_C_MAIN selects its active floor
+  [light ok] F04/F04_C_MAIN has a placed fixture
+  [light ok] F04/F04_C_MAIN receives a local shadow caster
+  [light ok] F04/F04_D_BED selects its active floor
+  [light ok] F04/F04_D_BED has a placed fixture
+  [light ok] F04/F04_D_BED receives a local shadow caster
+  [light ok] F04/F04_D_BATH selects its active floor
+  [light ok] F04/F04_D_BATH has a placed fixture
+  [light ok] F04/F04_D_BATH receives a local shadow caster
+  [light ok] F04/F04_D_MAIN selects its active floor
+  [light ok] F04/F04_D_MAIN has a placed fixture
+  [light ok] F04/F04_D_MAIN receives a local shadow caster
+  [light ok] F04/F04_D_OFFICE selects its active floor
+  [light ok] F04/F04_D_OFFICE has a placed fixture
+  [light ok] F04/F04_D_OFFICE receives a local shadow caster
+  [light ok] F04/F04_WSTOR selects its active floor
+  [light ok] F04/F04_WSTOR has a placed fixture
+  [light ok] F04/F04_WSTOR receives a local shadow caster
+  [light ok] F04/F04_CORRIDOR selects its active floor
+  [light ok] F04/F04_CORRIDOR has a placed fixture
+  [light ok] F04/F04_CORRIDOR receives a local shadow caster
+  [light ok] F04/F04_HALL selects its active floor
+  [light ok] F04/F04_HALL has a placed fixture
+  [light ok] F04/F04_HALL receives a local shadow caster
+  [light ok] F04/F04_ATRIUM selects its active floor
+  [light ok] F04/F04_ATRIUM has a placed fixture
+  [light ok] F04/F04_ATRIUM receives a local shadow caster
+  [light ok] F04/F04_UTILITY selects its active floor
+  [light ok] F04/F04_UTILITY has a placed fixture
+  [light ok] F04/F04_UTILITY receives a local shadow caster
+  [light ok] F05/F05_A_BED selects its active floor
+  [light ok] F05/F05_A_BED has a placed fixture
+  [light ok] F05/F05_A_BED receives a local shadow caster
+  [light ok] F05/F05_A_BATH selects its active floor
+  [light ok] F05/F05_A_BATH has a placed fixture
+  [light ok] F05/F05_A_BATH receives a local shadow caster
+  [light ok] F05/F05_A_MAIN selects its active floor
+  [light ok] F05/F05_A_MAIN has a placed fixture
+  [light ok] F05/F05_A_MAIN receives a local shadow caster
+  [light ok] F05/F05_B_ALCOVE selects its active floor
+  [light ok] F05/F05_B_ALCOVE has a placed fixture
+  [light ok] F05/F05_B_ALCOVE receives a local shadow caster
+  [light ok] F05/F05_B_BATH selects its active floor
+  [light ok] F05/F05_B_BATH has a placed fixture
+  [light ok] F05/F05_B_BATH receives a local shadow caster
+  [light ok] F05/F05_B_KITCHEN selects its active floor
+  [light ok] F05/F05_B_KITCHEN has a placed fixture
+  [light ok] F05/F05_B_KITCHEN receives a local shadow caster
+  [light ok] F05/F05_B_MAIN selects its active floor
+  [light ok] F05/F05_B_MAIN has a placed fixture
+  [light ok] F05/F05_B_MAIN receives a local shadow caster
+  [light ok] F05/F05_C_BED1 selects its active floor
+  [light ok] F05/F05_C_BED1 has a placed fixture
+  [light ok] F05/F05_C_BED1 receives a local shadow caster
+  [light ok] F05/F05_C_BED2 selects its active floor
+  [light ok] F05/F05_C_BED2 has a placed fixture
+  [light ok] F05/F05_C_BED2 receives a local shadow caster
+  [light ok] F05/F05_C_BATH selects its active floor
+  [light ok] F05/F05_C_BATH has a placed fixture
+  [light ok] F05/F05_C_BATH receives a local shadow caster
+  [light ok] F05/F05_C_MAIN selects its active floor
+  [light ok] F05/F05_C_MAIN has a placed fixture
+  [light ok] F05/F05_C_MAIN receives a local shadow caster
+  [light ok] F05/F05_D_BED selects its active floor
+  [light ok] F05/F05_D_BATH selects its active floor
+  [light ok] F05/F05_D_MAIN selects its active floor
+  [light ok] F05/F05_D_OFFICE selects its active floor
+  [light ok] F05/F05_WSTOR selects its active floor
+  [light ok] F05/F05_WSTOR has a placed fixture
+  [light ok] F05/F05_WSTOR receives a local shadow caster
+  [light ok] F05/F05_CORRIDOR selects its active floor
+  [light ok] F05/F05_CORRIDOR has a placed fixture
+  [light ok] F05/F05_CORRIDOR receives a local shadow caster
+  [light ok] F05/F05_HALL selects its active floor
+  [light ok] F05/F05_HALL has a placed fixture
+  [light ok] F05/F05_HALL receives a local shadow caster
+  [light ok] F05/F05_ATRIUM selects its active floor
+  [light ok] F05/F05_ATRIUM has a placed fixture
+  [light ok] F05/F05_ATRIUM receives a local shadow caster
+  [light ok] F05/F05_UTILITY selects its active floor
+  [light ok] F05/F05_UTILITY has a placed fixture
+  [light ok] F05/F05_UTILITY receives a local shadow caster
+  [light ok] F06/F06_A_BED selects its active floor
+  [light ok] F06/F06_A_BED has a placed fixture
+  [light ok] F06/F06_A_BED receives a local shadow caster
+  [light ok] F06/F06_A_BATH selects its active floor
+  [light ok] F06/F06_A_BATH has a placed fixture
+  [light ok] F06/F06_A_BATH receives a local shadow caster
+  [light ok] F06/F06_A_MAIN selects its active floor
+  [light ok] F06/F06_A_MAIN has a placed fixture
+  [light ok] F06/F06_A_MAIN receives a local shadow caster
+  [light ok] F06/F06_B_ALCOVE selects its active floor
+  [light ok] F06/F06_B_ALCOVE has a placed fixture
+  [light ok] F06/F06_B_ALCOVE receives a local shadow caster
+  [light ok] F06/F06_B_BATH selects its active floor
+  [light ok] F06/F06_B_BATH has a placed fixture
+  [light ok] F06/F06_B_BATH receives a local shadow caster
+  [light ok] F06/F06_B_KITCHEN selects its active floor
+  [light ok] F06/F06_B_KITCHEN has a placed fixture
+  [light ok] F06/F06_B_KITCHEN receives a local shadow caster
+  [light ok] F06/F06_B_MAIN selects its active floor
+  [light ok] F06/F06_B_MAIN has a placed fixture
+  [light ok] F06/F06_B_MAIN receives a local shadow caster
+  [light ok] F06/F06_C_BED1 selects its active floor
+  [light ok] F06/F06_C_BED1 has a placed fixture
+  [light ok] F06/F06_C_BED1 receives a local shadow caster
+  [light ok] F06/F06_C_BED2 selects its active floor
+  [light ok] F06/F06_C_BED2 has a placed fixture
+  [light ok] F06/F06_C_BED2 receives a local shadow caster
+  [light ok] F06/F06_C_BATH selects its active floor
+  [light ok] F06/F06_C_BATH has a placed fixture
+  [light ok] F06/F06_C_BATH receives a local shadow caster
+  [light ok] F06/F06_C_MAIN selects its active floor
+  [light ok] F06/F06_C_MAIN has a placed fixture
+  [light ok] F06/F06_C_MAIN receives a local shadow caster
+  [light ok] F06/F06_D_BED selects its active floor
+  [light ok] F06/F06_D_BED has a placed fixture
+  [light ok] F06/F06_D_BED receives a local shadow caster
+  [light ok] F06/F06_D_BATH selects its active floor
+  [light ok] F06/F06_D_BATH has a placed fixture
+  [light ok] F06/F06_D_BATH receives a local shadow caster
+  [light ok] F06/F06_D_MAIN selects its active floor
+  [light ok] F06/F06_D_MAIN has a placed fixture
+  [light ok] F06/F06_D_MAIN receives a local shadow caster
+  [light ok] F06/F06_D_OFFICE selects its active floor
+  [light ok] F06/F06_D_OFFICE has a placed fixture
+  [light ok] F06/F06_D_OFFICE receives a local shadow caster
+  [light ok] F06/F06_WSTOR selects its active floor
+  [light ok] F06/F06_WSTOR has a placed fixture
+  [light ok] F06/F06_WSTOR receives a local shadow caster
+  [light ok] F06/F06_CORRIDOR selects its active floor
+  [light ok] F06/F06_CORRIDOR has a placed fixture
+  [light ok] F06/F06_CORRIDOR receives a local shadow caster
+  [light ok] F06/F06_HALL selects its active floor
+  [light ok] F06/F06_HALL has a placed fixture
+  [light ok] F06/F06_HALL receives a local shadow caster
+  [light ok] F06/F06_ATRIUM selects its active floor
+  [light ok] F06/F06_ATRIUM has a placed fixture
+  [light ok] F06/F06_ATRIUM receives a local shadow caster
+  [light ok] F06/F06_UTILITY selects its active floor
+  [light ok] F06/F06_UTILITY has a placed fixture
+  [light ok] F06/F06_UTILITY receives a local shadow caster
+  [light ok] ROOF/ROOF_OPEN selects its active floor
+  [light ok] roof/exterior directional shadow caster enabled
+LIGHTING AUDIT: 127 spaces, 11 intentionally ambient/dark, PASS

@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "claim_id": "F02_2D_SHOT",
+      "rooms": ["F02_D_MAIN", "F02_D_BED", "F02_D_OFFICE", "F02_D_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_sealed_apartment_checkpoint_02/scene_capture_receipt.json",
+      "artifact_kind": "path",
+      "expected_schema": "scene_capture_receipt.json",
+      "expected_scene": "ORISON-RR-F02-2D",
+      "expected_output_count": 6,
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_2D_IMPORT",
+      "rooms": ["F02_D_MAIN", "F02_D_BED", "F02_D_OFFICE", "F02_D_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_sealed_apartment_checkpoint_01/import.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_2D_LIGHTING",
+      "rooms": ["F02_D_MAIN", "F02_D_BED", "F02_D_OFFICE", "F02_D_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_sealed_apartment_checkpoint_02/lighting_audit.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_2D_WALK",
+      "rooms": ["F02_D_MAIN", "F02_D_BED", "F02_D_OFFICE", "F02_D_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_sealed_apartment_checkpoint_02/walk_fast.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_2D_SOLID_LANDING_SEAL",
+      "rooms": ["F02_D_MAIN"],
+      "artifact_kind": "manual",
+      "manual_visual_proof_required": true
+    }
+  ]
+}
