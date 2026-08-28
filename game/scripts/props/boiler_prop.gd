@@ -55,6 +55,24 @@ var _draft_bed: AudioStreamPlayer3D
 var _shake := 0.0
 
 
+func _exit_tree() -> void:
+	# The draft bed is the boiler's one continuous decoder. It must stop before
+	# the scene relinquishes the plant during selector reconstruction.
+	if _draft_bed:
+		var stream := _draft_bed.stream
+		_draft_bed.stop()
+		_draft_bed.stream = null
+		if stream != null:
+			PropAudio.release_stream("hum_loop", stream)
+	if _fire_tween and _fire_tween.is_valid():
+		_fire_tween.kill()
+	if _ash_tween and _ash_tween.is_valid():
+		_ash_tween.kill()
+	_fire_tween = null
+	_ash_tween = null
+	super()
+
+
 func _build_visual() -> void:
 	add_to_group("boilers")
 	_carcass = Node3D.new()

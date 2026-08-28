@@ -1,0 +1,97 @@
+{
+	"production_runtime": true,
+	"records": [
+		{
+			"capture": "PASS",
+			"frame": "01_2b_radiator_real_prompt",
+			"prompt": "Service radiator fittings",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "02_radiator_inspection_transition",
+			"prompt": "RADIATOR EVIDENCE RECORDED",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "03_return_to_f01_station",
+			"prompt": "RETURN TO PORTER / RITUAL STATION",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "04_watchman_detector",
+			"prompt": "WATCHMAN DETECTOR · PRODUCTION AUTHORITY",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "05_night_register",
+			"prompt": "NIGHT REGISTER · PRODUCTION AUTHORITY",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "06_signal_register",
+			"prompt": "SIGNAL REGISTER · PRODUCTION AUTHORITY",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "07_tour_key_custody",
+			"prompt": "TOUR KEY · TAKE / HOLD / RETURN",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "08_b1_descent",
+			"prompt": "B1 DESCENT · COLLISION-BEARING ROUTE",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "09_boiler_real_prompt",
+			"prompt": "Prove the boiler water column",
+			"save_phase": "acknowledged"
+		},
+		{
+			"capture": "PASS",
+			"frame": "10_boiler_state_transition",
+			"prompt": "BOILER COMPARISON RECORDED · DIAGNOSIS REPAIRABLE",
+			"save_phase": "repairable"
+		},
+		{
+			"capture": "PASS",
+			"frame": "11_return_to_2b",
+			"prompt": "RETURN TO 2B · REPAIR AUTHORIZED",
+			"save_phase": "repairable"
+		},
+		{
+			"capture": "PASS",
+			"frame": "12_completed_service_round",
+			"prompt": "SERVICE ROUND CLOSED · VISIBLE PATCH RECORDED",
+			"save_phase": "closed"
+		},
+		{
+			"capture": "PASS",
+			"frame": "13_save_reconstruction_contract",
+			"prompt": "SAVE → DESTROY → CAMPAIGN RECONSTRUCT · SEMANTIC FACTS PRESERVED",
+			"save_phase": "closed"
+		},
+		{
+			"capture": "PASS",
+			"frame": "14_premature_action_denied",
+			"prompt": "DENIAL PROOF · PREMATURE ACTION CANNOT ADVANCE",
+			"save_phase": "closed"
+		},
+		{
+			"capture": "PASS",
+			"frame": "15_final_teardown_receipt",
+			"prompt": "TEARDOWN OWNER · ADAPTER + PROP AUDIO · 0 RETAINED",
+			"save_phase": "closed"
+		}
+	],
+	"schema_version": 1,
+	"selector": "v2"
+}

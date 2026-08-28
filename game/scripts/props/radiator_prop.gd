@@ -66,6 +66,17 @@ var _balance
 var _service_panel: MaintenanceActivityPanel
 
 
+func _exit_tree() -> void:
+	# A service completion can leave the handwheel's presentation tween active
+	# while CampaignShell replaces the building. Kill and release that transient
+	# owner here; the durable supply position is already held by the prop/save
+	# authority and must not keep the retired scene (or its mesh resources) live.
+	if _wheel_tween and _wheel_tween.is_valid():
+		_wheel_tween.kill()
+	_wheel_tween = null
+	super()
+
+
 func warehouse_variants() -> Array[Dictionary]:
 	return [
 		{"label": "radiator / 7-section dark",

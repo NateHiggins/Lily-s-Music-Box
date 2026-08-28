@@ -97,12 +97,15 @@ func unmount_consumer(identity: String) -> Node3D:
 	_mounted.erase(identity)
 	return consumer
 
-func restore_all() -> void:
+func restore_all(immediate := false) -> void:
 	restore_acoustic_overrides()
 	for identity: String in _mounted.keys().duplicate():
 		var consumer := unmount_consumer(identity)
 		if consumer != null:
-			consumer.queue_free()
+			if immediate:
+				consumer.free()
+			else:
+				consumer.queue_free()
 
 func is_restored() -> bool:
 	return _acoustic_originals.is_empty() and _mounted.is_empty()
