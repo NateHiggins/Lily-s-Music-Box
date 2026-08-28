@@ -1,0 +1,16 @@
+{
+  "manifest_version": 1,
+  "records": [
+    {"key": "fixture1", "kind": "id_reference", "token": "bed",
+     "file": "game/scripts/campaign/core_loop_director.gd",
+     "tier": "production", "authority": ["RUNTIME_LOOKUP", "SAVE_CONTRACT"],
+     "spatial": ["SEMANTIC_ANCHOR"], "disposition": "PRESERVE_OR_ALIAS",
+     "confidence": "HIGH",
+     "rationale": "V1-ONLY anonymous-bed fallback behind the explicit v2 anchor resolver."},
+    {"key": "fixture2", "kind": "runtime_id", "token": "F04_B_BED",
+     "file": "game/scripts/campaign/core_loop_director.gd",
+     "tier": "production", "authority": ["GENERATED_IDENTITY", "SAVE_CONTRACT"],
+     "spatial": ["SEMANTIC_ANCHOR"], "disposition": "MUST_PRESERVE_ID",
+     "confidence": "HIGH", "rationale": "Serialized safe return anchor."}
+  ]
+}

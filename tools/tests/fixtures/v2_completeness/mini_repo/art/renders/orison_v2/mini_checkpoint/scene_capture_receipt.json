@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "tag": "ORISON-V2-MINI",
+  "status": "PASS",
+  "expected_frames": 2,
+  "actual_frames": 2,
+  "captures": [
+    {"file": "00_street.png", "label": "street", "provenance": "rendered"},
+    {"file": "01_bedside.png", "label": "bedside", "provenance": "rendered"}
+  ]
+}
