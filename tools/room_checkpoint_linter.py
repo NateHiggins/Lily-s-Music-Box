@@ -543,7 +543,7 @@ def lint_checkpoint(path, ctx):
         decisions, malformed, doc_report = rc.parse_manifest(path)
     else:
         decisions, malformed, doc_report = rc.parse_checkpoint_markdown(
-            path, set(ctx["rooms_by_id"]))
+            path, ctx["rooms_by_id"])
     rows = [lint_row(r, ctx) for r in rows_from_decisions(decisions)]
     doc = {
         "path": rel_path(path), "kind": doc_report["kind"],

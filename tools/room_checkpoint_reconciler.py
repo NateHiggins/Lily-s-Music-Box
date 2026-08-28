@@ -268,9 +268,16 @@ def split_table_row(line):
     return [cell.strip() for cell in body.split("|")]
 
 
-def resolve_room_cell(cell, doc_rooms):
-    """Map a table's Room cell (e.g. 'Office') onto a known room id that the
-    same document names.  0 or >1 candidates -> unresolved."""
+def resolve_room_cell(cell, doc_rooms, rooms_meta=None):
+    """Map a table's Room cell onto a known room id, conservatively.
+
+    Single-word labels ('Office') resolve only against room ids the same
+    document names.  Multi-word abbreviated labels ('1A main', '1A bath')
+    resolve word-by-word against layout evidence: every word must match the
+    room's unit, an id component, or its kind — and exactly one candidate
+    must survive (document-named rooms first, then all declared rooms).
+    Anything else is unresolved; nothing is guessed from weak prose.
+    """
     token = re.sub(r"[^A-Za-z0-9]", "", cell).upper()
     if not token:
         return None
@@ -282,15 +289,37 @@ def resolve_room_cell(cell, doc_rooms):
     if len(candidates) == 1:
         return candidates[0]
     candidates = [r for r in doc_rooms if token in r.upper()]
-    return candidates[0] if len(candidates) == 1 else None
+    if len(candidates) == 1:
+        return candidates[0]
+    if rooms_meta:
+        words = [w for w in re.split(r"[^a-z0-9]+", cell.lower()) if w]
+
+        def matches(room_id):
+            meta = rooms_meta.get(room_id) or {}
+            components = {c.lower() for c in room_id.split("_")}
+            unit = str(meta.get("unit") or "").lower()
+            kind = str(meta.get("kind") or "").lower()
+            return bool(words) and all(
+                w in components or w == unit or w == kind for w in words)
+
+        for scope in (doc_rooms, sorted(rooms_meta)):
+            hits = [r for r in scope if matches(r)]
+            if len(hits) == 1:
+                return hits[0]
+    return None
 
 
 def parse_checkpoint_markdown(path, known_rooms, root=ROOT):
     """Parse one checkpoint document.
 
+    `known_rooms` may be a set of room ids, or a dict of id -> room record
+    (with `unit`/`kind`), which additionally lets abbreviated Room cells like
+    '1A main' resolve against layout evidence.
+
     Returns (decisions, malformed, doc_report).  Decisions carry the exact
     source line and quoted row text for auditability.
     """
+    rooms_meta = known_rooms if isinstance(known_rooms, dict) else None
     rel = path.resolve()
     try:
         rel = rel.relative_to(root)
@@ -348,7 +377,8 @@ def parse_checkpoint_markdown(path, known_rooms, root=ROOT):
                 j += 1
                 continue
             if room_col is not None:
-                room = resolve_room_cell(cells[room_col], doc_rooms)
+                room = resolve_room_cell(cells[room_col], doc_rooms,
+                                         rooms_meta)
                 resolution = ("table-cell" if room else "unresolved")
             elif len(doc_rooms) == 1:
                 room, resolution = doc_rooms[0], "document"
@@ -965,7 +995,7 @@ def reconcile(layout_path, checkpoints_dir, tables=None, use_git=True,
 
     decisions, malformed, doc_reports = [], [], []
     for path in docs:
-        d, m, rep = parse_checkpoint_markdown(path, set(rooms_by_id))
+        d, m, rep = parse_checkpoint_markdown(path, rooms_by_id)
         rep["decisions"] = len(d)
         decisions += d
         malformed += m

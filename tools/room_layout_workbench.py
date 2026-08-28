@@ -398,7 +398,11 @@ def find_room_profiles(room_id, design_dir=DESIGN_DIR):
             continue
         if room_id not in text:
             continue
-        entry = {"path": str(path.relative_to(ROOT)).replace("\\", "/"),
+        try:
+            shown = str(path.relative_to(ROOT))
+        except ValueError:
+            shown = str(path)          # profile dir outside the repository
+        entry = {"path": shown.replace("\\", "/"),
                  "profile_excerpt": None}
         lines = text.splitlines()
         for i, line in enumerate(lines):
