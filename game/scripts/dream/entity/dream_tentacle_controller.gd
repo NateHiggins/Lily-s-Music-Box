@@ -28,6 +28,8 @@ const TransformerScript := preload("res://scripts/dream/entity/dream_surface_tra
 const BehaviorProfileScript := preload("res://scripts/dream/entity/dream_behavior_profile.gd")
 const MaterialProfileScript := preload("res://scripts/dream/entity/dream_material_profile.gd")
 const ContactProfileScript := preload("res://scripts/dream/entity/dream_contact_profile.gd")
+const CellularStateScript := preload("res://scripts/dream/dream_cellular_state.gd")
+const PhenotypeScript := preload("res://scripts/dream/dream_cellular_phenotype.gd")
 const RINGS := 96
 const SEGS := 28
 const COLLARS := 11
@@ -656,6 +658,32 @@ func _push_uniforms() -> void:
 	_material.set_shader_parameter("mask_view", _mask_view)
 	MaterialProfileScript.push_state(_material, behavior.interest, pulse_phase,
 			breath_phase, startle, 1.0 if _slice_left > 0.0 else 0.0)
+	var returning := exploration_state == ExplorationState.INFORMATION_RETURN \
+			or exploration_state == ExplorationState.BREATHING_REPORT
+	var packet = CellularStateScript.new({
+		"ether": 0.0 if ecology_colony == null else ecology_colony.ether_reserve,
+		"information": clampf(float(ecology_record.get("information", 0.0)), 0.0, 1.0),
+		"novelty": exploration_novelty,
+		"contact": maxf(grip, exchange_flash),
+		"reporting": 1.0 if returning else 0.0,
+		"breathing": 1.0 if exploration_state == ExplorationState.BREATHING_REPORT else breath_phase,
+		"disturbance": startle,
+		"recall": 1.0 if exploration_state == ExplorationState.DEFENSIVE_RECALL else 0.0,
+		"senescence": 1.0 if exploration_state == ExplorationState.WITHERING else 0.0,
+	})
+	var kind := PhenotypeScript.Kind.TACTILE
+	match ecology_purpose_name:
+		"vibration_listener": kind = PhenotypeScript.Kind.VIBRATIONAL
+		"ocular_examiner": kind = PhenotypeScript.Kind.OPTICAL
+		"sucker_sampler": kind = PhenotypeScript.Kind.CHEMICAL
+		"relay_tendril": kind = PhenotypeScript.Kind.ELECTRICAL
+	var phenotype := PhenotypeScript.profile(kind, int(seed_phase * 100000.0))
+	_material.set_shader_parameter("cellular_state_a", packet.to_vector_a())
+	_material.set_shader_parameter("cellular_state_b", packet.to_vector_b())
+	_material.set_shader_parameter("cellular_state_c", packet.to_vector_c())
+	_material.set_shader_parameter("cellular_phenotype", Vector4(
+			phenotype.organization, phenotype.windows, phenotype.proteins, phenotype.refractive))
+	_material.set_shader_parameter("cellular_time", clock)
 
 
 ## The light it throws (§19): from the eye, from the gold mid-length, and

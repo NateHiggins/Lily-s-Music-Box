@@ -12,6 +12,7 @@ render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, 
 // Dream material stack (`dream_entity_surface.gdshaderinc`).
 #include "res://shaders/dream_corruption_layers.gdshaderinc"
 #include "res://shaders/dream_entity_surface.gdshaderinc"
+#include "res://shaders/dream_cellular_surface.gdshaderinc"
 
 group_uniforms rig;
 uniform vec3 spine[16];
@@ -58,6 +59,11 @@ uniform int root_n = 0;
 uniform int mask_view = 0;
 uniform float lod_near_m = 1.2;
 uniform float lod_far_m = 4.0;
+uniform vec4 cellular_state_a = vec4(.5,0.,1.,0.);
+uniform vec4 cellular_state_b = vec4(0.,.5,0.,0.);
+uniform vec4 cellular_state_c = vec4(0.);
+uniform vec4 cellular_phenotype = vec4(.55,.60,.46,.52);
+uniform float cellular_time = 0.0;
 group_uniforms;
 
 varying vec2 v_uv;
@@ -266,11 +272,20 @@ void fragment() {
 	m.gold *= 1.0 - v_seg * 0.9;
 	m.wet = max(m.wet, v_seg * 0.85 * wetness);
 	DeOut o = de_shade(m, pw, v_uv, n, view_dir, TIME, seed, ctx);
+	vec4 cellular = cell_membrane(pw * 6.0, n, view_dir, seed,
+			cellular_phenotype, cellular_state_a, cellular_state_b,
+			cellular_state_c, cellular_time);
+	vec3 cargo = cell_transport(vec3(v_uv.y * 2.0, v_uv.x, v_relief), seed,
+			cellular_state_a, cellular_state_b, cellular_state_c, cellular_time);
 	ALBEDO = o.albedo;
+	ALBEDO = mix(ALBEDO, ALBEDO * vec3(.66,.36,.78), cellular.x * .28);
+	ALBEDO += vec3(.16,.035,.22) * cellular.w;
 	METALLIC = o.metallic;
 	ROUGHNESS = o.roughness;
 	SPECULAR = o.specular;
 	EMISSION = o.emission;
+	EMISSION += vec3(.36,.08,.52) * cargo.x + vec3(.62,.31,.08) * cargo.y
+			+ vec3(.12,.04,.22) * cellular.z;
 	BACKLIGHT = o.backlight;
 	AO = o.ao;
 	AO_LIGHT_AFFECT = 0.35;
