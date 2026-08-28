@@ -26,9 +26,11 @@ exterior storm effect, remains correctly outside room ownership.
 Player-height evidence is in
 `art/renders/orison_room_reconstruction/f01_1d_bedroom_checkpoint_01/`:
 `00_bedroom_from_door.png` and `01_bedside_clearance.png`.
-The proof suite uses the room circuit alone. Its former redundant player lamp
-could stamp an asynchronously baked rug-like cookie across the wall; the clean
-fixture-only recapture replaces both affected committed frames.
+The proof suite now deliberately keeps the player lamp on. The production lamp
+no longer creates a SubViewport or assigns `light_projector`: its former GPU
+readback could resurrect a deleted Dream/Klimt plate from reused render-target
+memory and stamp it across waking walls. The replacement frames prove the
+authored spotlight remains useful without any projected image.
 
 ## Validation
 
@@ -37,4 +39,6 @@ fixture-only recapture replaces both affected committed frames.
 - Scoped workbench comparison: exactly two dependent F01 records moved.
 - Godot asset import: exit 0.
 - `F011DBedroomShot`: PASS, 2/2 captures.
+- `LampCookieRenderTest`: PASS, 5/5; no projector and no cookie viewport across
+  off/on toggles.
 - `WalkTest` FAST: PASS.

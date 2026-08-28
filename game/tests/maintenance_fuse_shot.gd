@@ -62,19 +62,10 @@ func _ready() -> void:
 	# THE SERVICE LAMP IS DELIBERATELY OFF, and that is a finding rather than a
 	# preference.
 	#
-	# `_bake_cookie` (player_controller.gd) assigns `flashlight.light_projector`
-	# from `_mask_view.get_texture().get_image()`. The three mask plates it is
-	# supposed to bake are correct, but the baked RESULT is not: the render
-	# target is sampled before that SubViewport has drawn, so the cookie
-	# captures whatever frame was last resident in it -- currently a Dream
-	# plate -- and the torch then projects a Klimt mural onto the waking
-	# building. It is visible in the SR7-B, SR7-D and SR7-E sheets, it survives
-	# the retirement of `klimt_reflected_world_v1`, and a paired capture with
-	# the lamp off removes it entirely.
-	#
-	# The room's own cage bulb lights this apparatus perfectly well without it,
-	# so the sheet is shot on production fixtures alone and the defect is
-	# reported instead of worked around silently. See the README.
+	# The room's own cage bulb lights this apparatus, so the evidence stays on
+	# production fixtures alone. LampCookieRenderTest now guards the former
+	# defect: the production lamp owns neither a SubViewport nor a projected
+	# image, so deleted Dream plates cannot survive through GPU backing memory.
 	player.set_lamp_enabled(false)
 	await get_tree().create_timer(0.5).timeout
 	player.set_physics_process(false)

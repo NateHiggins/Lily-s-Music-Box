@@ -3,7 +3,7 @@ Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
 
 [ACOUSTIC] 550 nodes loaded
 [ORISON-RR-F01-1D-BED TIMING] stage=setup elapsed=0.001 remaining=53.999
-[ORISON-RR-F01-1D-BED BUDGET] stage=setup outstanding=2 reserve=2.700 slack=51.297
+[ORISON-RR-F01-1D-BED BUDGET] stage=setup outstanding=2 reserve=2.700 slack=51.296
 [RENDER] forward_plus
 [PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
 [VANTRY] 119 points, 7 floor batches, 3 static draws/floor
@@ -134,14 +134,14 @@ Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
 [ENCROACH] living field on F03 binds 405 materials
 [LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
 [NAV] collision audit: 369 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
-[ORISON-RR-F01-1D-BED TIMING] stage=production_ready elapsed=27.295 remaining=26.705
-[ORISON-RR-F01-1D-BED BUDGET] stage=production_ready outstanding=2 reserve=2.700 slack=24.004
+[ORISON-RR-F01-1D-BED TIMING] stage=production_ready elapsed=26.869 remaining=27.131
+[ORISON-RR-F01-1D-BED BUDGET] stage=production_ready outstanding=2 reserve=2.700 slack=24.430
 [SWITCHES] F01_D_BED -> off (1 fixtures)
 [SWITCHES] F01_D_BED -> on (1 fixtures)
-[ORISON-RR-F01-1D-BED TIMING] stage=bedroom_lit elapsed=31.636 remaining=22.364
-[ORISON-RR-F01-1D-BED BUDGET] stage=bedroom_lit outstanding=2 reserve=2.700 slack=19.663
-[ORISON-RR-F01-1D-BED CAPTURE] 1/2 label=00_bedroom_from_door elapsed=31.991 path=C:\PleaseRemainOnTheLine\art\renders\orison_room_reconstruction\f01_1d_bedroom_checkpoint_02_clean/00_bedroom_from_door.png
-[ORISON-RR-F01-1D-BED CAPTURE] 2/2 label=01_bedside_clearance elapsed=32.307 path=C:\PleaseRemainOnTheLine\art\renders\orison_room_reconstruction\f01_1d_bedroom_checkpoint_02_clean/01_bedside_clearance.png
-[ORISON-RR-F01-1D-BED TIMING] stage=finish elapsed=32.312 remaining=21.688
-[ORISON-RR-F01-1D-BED BUDGET] stage=finish outstanding=0 reserve=2.000 slack=19.687
-[ORISON-RR-F01-1D-BED] RESULT: PASS captures=2 expected=2 elapsed=32.314
+[ORISON-RR-F01-1D-BED TIMING] stage=bedroom_lit elapsed=31.228 remaining=22.772
+[ORISON-RR-F01-1D-BED BUDGET] stage=bedroom_lit outstanding=2 reserve=2.700 slack=20.067
+[ORISON-RR-F01-1D-BED CAPTURE] 1/2 label=00_bedroom_from_door elapsed=31.582 path=C:\PleaseRemainOnTheLine\art\renders\lamp_cookie_retirement_2026-08-27\f01_1d_lamp_on/00_bedroom_from_door.png
+[ORISON-RR-F01-1D-BED CAPTURE] 2/2 label=01_bedside_clearance elapsed=31.894 path=C:\PleaseRemainOnTheLine\art\renders\lamp_cookie_retirement_2026-08-27\f01_1d_lamp_on/01_bedside_clearance.png
+[ORISON-RR-F01-1D-BED TIMING] stage=finish elapsed=31.895 remaining=22.105
+[ORISON-RR-F01-1D-BED BUDGET] stage=finish outstanding=0 reserve=2.000 slack=20.104
+[ORISON-RR-F01-1D-BED] RESULT: PASS captures=2 expected=2 elapsed=31.897
