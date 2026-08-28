@@ -52,6 +52,10 @@ func _run() -> void:
 			and t.get_node_or_null("Membrane") != null)
 	_check("it anchors on the wall with its normal into the room",
 			(t.anchor_normal as Vector3).dot(Vector3.RIGHT) > 0.99)
+	_check("its broad root is seated below the flat support plane and exits along the surface normal",
+			(t.rig.anchor as Vector3).distance_to(t.embedded_root as Vector3) < 0.001
+			and (t.anchor as Vector3).distance_to(t.embedded_root as Vector3) > 0.08
+			and ((t.anchor as Vector3) - (t.embedded_root as Vector3)).normalized().dot(t.anchor_normal as Vector3) > 0.999)
 	_check("it finds the radiator interesting: " + str(t.target_name),
 			t.sensor.target_profile != null and str(t.target_name).to_lower().contains("radiator"))
 	# The silhouette profile is not a tube: radius, flatten and twist vary.
@@ -290,6 +294,14 @@ func _run() -> void:
 func _finish() -> void:
 	print("DREAM TENTACLE TEST: %s (%d/%d)" % ["PASS" if failures == 0 else "FAIL",
 			checks - failures, checks])
+	# The production root owns asynchronous audio/resource work. Give its normal
+	# tree teardown three frames to retire queued tentacle children and loaders
+	# before asking the engine to exit; otherwise a fast headless shutdown can
+	# report transient ObjectDB/resource retention after every assertion passed.
+	if root != null and is_instance_valid(root):
+		root.queue_free()
+	for _frame in 3:
+		await get_tree().process_frame
 	get_tree().quit(failures)
 
 

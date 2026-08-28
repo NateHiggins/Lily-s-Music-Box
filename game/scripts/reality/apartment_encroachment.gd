@@ -35,6 +35,7 @@ const DreamMarginScript := preload("res://scripts/dream/margin/dream_margin_cont
 const DreamResidueScript := preload("res://scripts/dream/dream_residue.gd")
 const DreamCritterScript := preload("res://scripts/dream/critters/dream_critter_controller.gd")
 const DreamDirectorScript := preload("res://scripts/dream/dream_ecology_director.gd")
+const DreamMossRendererScript := preload("res://scripts/dream/dream_moss_colony_renderer.gd")
 ## §31 — what keeps three independent systems from producing incoherent noise.
 var ecology: DreamEcologyDirector = null
 ## DO-3: the architecture reads its own addressed packets. The shared director
@@ -132,6 +133,7 @@ var field_source: Dictionary = {}
 ## a storey, so they are not globally unique enough for the ecology owner.
 var ecology_source: Dictionary = {}
 var _cilia_sample_clock: Dictionary = {}
+var moss_presentations: Dictionary = {}
 ## floor_id -> Array of OmniLight3D: the lights the organism throws (§5c).
 var field_lights: Dictionary = {}
 ## Every surface material on a storey the field was bound to (for refresh).
@@ -350,8 +352,13 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			var field = fields.get(floor_id)
 			var source_index := int(field_source[case_id])
 			if field != null and source_index >= 0 and source_index < field.sources.size():
-				ecology.register_moss_colony(int(ecology_source[case_id]),
+				var colony_id := int(ecology_source[case_id])
+				var colony = ecology.register_moss_colony(colony_id,
 						case_id.hash(), field.sources[source_index].position)
+				var renderer = DreamMossRendererScript.new()
+				add_child(renderer)
+				renderer.setup(colony)
+				moss_presentations[colony_id] = renderer
 		# §13 — the player changing the world is what the ecology notices.
 		# The director connects itself once the player exists; doing it here
 		# ran before the player was built and quietly connected nothing.
@@ -359,6 +366,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			margin.director = ecology
 		if critters != null:
 			critters.director = ecology
+			critters.ecology_director = ecology
 	if RealityState.has_signal("state_changed") and not RealityState.state_changed.is_connected(refresh):
 		RealityState.state_changed.connect(refresh)
 	refresh()
@@ -583,10 +591,14 @@ func _cilia_sample_near_moss(floor_id: String, colony_id: int, colony) -> void:
 			"moving_parts": 0.45 if is_radiator else 0.0,
 			"heat": 0.75 if is_radiator else 0.0,
 			"vibration": 0.65 if is_radiator else 0.0,
-			"modalities": ["touch", "material"]}
+			"modalities": ["touch", "material", "vibration", "heat"] if is_radiator \
+					else ["touch", "material"]}
 	var cilium_id := int(colony.organisms[0].id)
-	ecology.receive_cilium_sample(colony_id, cilium_id, String(best.name),
+	var value: float = ecology.receive_cilium_sample(colony_id, cilium_id, String(best.name),
 			(best.aabb as AABB).get_center(), observation)
+	var renderer = moss_presentations.get(colony_id)
+	if renderer != null and is_instance_valid(renderer):
+		renderer.present_report((best.aabb as AABB).get_center(), value)
 	var route_id := "local:%s" % String(best.name)
 	if not colony.routes.has(route_id):
 		colony.register_route(route_id, String(best.name),
@@ -1105,8 +1117,9 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 	if src < 0:
 		return
 	var colony = _colony_for_field_source(floor_id, src)
+	var purpose: int = colony.OrganismClass.PALPATOR if colony != null else 1
 	if OS.get_environment("TENTACLE_FORCE") != "1" and (colony == null \
-			or not colony.can_spawn(colony.OrganismClass.PALPATOR, at)):
+			or not colony.can_spawn(purpose, at)):
 		_tentacle_cooldown[floor_id] = TENTACLE_COOLDOWN_S * 0.5
 		return
 	var hit := _nearest_surface(at)
@@ -1127,7 +1140,12 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 	tentacle.setup(field, src, hit.position, hit.normal, who,
 			_candidates_for(floor_id, hit.position), tentacles_spawned * 7919 + floor_id.hash())
 	if colony != null:
-		colony.spawn(colony.OrganismClass.PALPATOR, at)
+		var ecology_record: Dictionary = colony.spawn(purpose, at)
+		if not ecology_record.is_empty():
+			tentacle.bind_ecology(colony, ecology_record, purpose)
+			var renderer = moss_presentations.get(int(colony.source_id))
+			if renderer != null and is_instance_valid(renderer):
+				tentacle.ecology_report_arrived.connect(renderer.present_report)
 	live.append(tentacle)
 	tentacles[floor_id] = live
 	tentacles_spawned += 1

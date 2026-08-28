@@ -42,6 +42,10 @@ var residue = null
 var hero = null
 ## §32 — the area's weather, read as a scale on how much anything happens.
 var director = null
+## When installed by ApartmentEncroachment, complex births consult the E1 moss
+## authority. Standalone morphology harnesses leave this null and retain their
+## local test contract.
+var ecology_director = null
 var enabled := true
 var critters: Array = []
 
@@ -172,6 +176,7 @@ func _physics_process(delta: float) -> void:
 		if critters.size() < MAX_LIVE:
 			_try_spawn()
 	_walk(delta)
+	_apply_ecology_support(delta)
 	_push()
 
 
@@ -210,10 +215,20 @@ func _try_spawn() -> void:
 		var kind: int = kinds[_rng.randi() % kinds.size()]
 		var m: Dictionary = GeneratorScript.generate(kind, _next_id * 6151 + 17)
 		var nrm: Vector3 = (hit.normal as Vector3).normalized()
+		var birth_at: Vector3 = (hit.position as Vector3) + nrm * float(m.tall) * 0.5
+		var colony = _supporting_colony(birth_at)
+		var ecology_record: Dictionary = {}
+		if ecology_director != null:
+			if colony == null:
+				continue
+			ecology_record = colony.spawn(colony.OrganismClass.COMPLEX_ORGANELLE,
+					birth_at)
+			if ecology_record.is_empty():
+				continue
 		var any := Vector3.UP if absf(nrm.y) < 0.9 else Vector3.RIGHT
 		critters.append({
 			"id": _next_id, "morph": m,
-			"pos": (hit.position as Vector3) + nrm * float(m.tall) * 0.5,
+			"pos": birth_at,
 			"up": nrm,
 			"fwd": any.cross(nrm).normalized(),
 			"age": 0.0, "life": _rng.randf_range(18.0, 40.0),
@@ -262,6 +277,10 @@ func _try_spawn() -> void:
 			# it answers by unfolding, which is the whole of the beat.
 			"unfold": 0.0,
 			"attend_override": Vector3.INF,
+			"ecology_colony": colony,
+			"ecology_record": ecology_record,
+			"ecology_returning": false,
+			"ecology_ether_min": 1.0,
 			"signal_seen_born": -1.0,
 			"signal_seen_src": -2147483648,
 			"signal_presented_at": -1.0,
@@ -273,6 +292,36 @@ func _try_spawn() -> void:
 		critter_born.emit(_next_id, String(m.species))
 		_next_id += 1
 		return
+
+
+func _supporting_colony(at: Vector3):
+	if ecology_director == null:
+		return null
+	var ids: Array = ecology_director.moss_colonies.keys()
+	ids.sort()
+	for colony_id in ids:
+		var colony = ecology_director.moss_colonies[colony_id]
+		if colony.complex_unlocked() and colony.ether_at(at) >= 0.12:
+			return colony
+	return null
+
+
+func _apply_ecology_support(delta: float) -> void:
+	if ecology_director == null:
+		return
+	for critter in critters:
+		var colony = critter.get("ecology_colony")
+		var record: Dictionary = critter.get("ecology_record", {})
+		if colony == null or record.is_empty():
+			continue
+		var status: String = colony.update_excursion(record, critter.pos, delta)
+		critter.ecology_ether_min = minf(float(critter.ecology_ether_min),
+				float(record.ether))
+		critter.ecology_returning = status == "returning"
+		if status == "returning":
+			critter.pause = maxf(float(critter.pause), 0.25)
+		elif status == "senescent":
+			critter.alive = maxf(0.0, float(critter.alive) - delta * 0.35)
 
 
 ## Move a critter and keep it on the architecture. Every displacement goes

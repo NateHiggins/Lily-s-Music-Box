@@ -1,0 +1,888 @@
+{
+  "assignment": "DREAM-ECOLOGY-E2",
+  "seed": 6021,
+  "frames": [
+    {
+      "frame": "01_searching_pioneer_patch.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "searching",
+      "colony": {
+        "source_id": 0,
+        "phase": "searching",
+        "phase_reason": "pioneer created",
+        "moss_maturity": 0.0,
+        "ether_reserve": 0.08,
+        "connected_ether_volume": 0.0,
+        "stored_information": 0.0,
+        "information_diversity": 0,
+        "known_targets": 0,
+        "organisms": {
+          "cilium": 0,
+          "palpator": 0,
+          "vibration_listener": 0,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 0
+        },
+        "live_routes": 0,
+        "reinforced_routes": 0,
+        "pruned_routes": 0,
+        "disturbance": 0.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 0,
+          "organism_cap": 24,
+          "targets": 0,
+          "target_cap": 48,
+          "routes": 0,
+          "route_cap": 64,
+          "max_organisms": 0
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 0,
+        "ether_motes": 0,
+        "report_presentations": 0,
+        "report_visible": false,
+        "peak_visible_elements": 2,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "02_committed_moss_seed.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "seeded",
+      "colony": {
+        "source_id": 0,
+        "phase": "seeded",
+        "phase_reason": "viable site committed score=0.897",
+        "moss_maturity": 0.0,
+        "ether_reserve": 0.08,
+        "connected_ether_volume": 0.0,
+        "stored_information": 0.0,
+        "information_diversity": 0,
+        "known_targets": 0,
+        "organisms": {
+          "cilium": 0,
+          "palpator": 0,
+          "vibration_listener": 0,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 0
+        },
+        "live_routes": 0,
+        "reinforced_routes": 0,
+        "pruned_routes": 0,
+        "disturbance": 0.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 0,
+          "organism_cap": 24,
+          "targets": 0,
+          "target_cap": 48,
+          "routes": 0,
+          "route_cap": 64,
+          "max_organisms": 0
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 0,
+        "ether_motes": 0,
+        "report_presentations": 0,
+        "report_visible": false,
+        "peak_visible_elements": 2,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "03_cilia_tending.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "tending",
+      "colony": {
+        "source_id": 0,
+        "phase": "tending",
+        "phase_reason": "cilia sampling beside moss",
+        "moss_maturity": 0.66,
+        "ether_reserve": 0.8192,
+        "connected_ether_volume": 2.2537000000000003,
+        "stored_information": 0.0,
+        "information_diversity": 0,
+        "known_targets": 0,
+        "organisms": {
+          "cilium": 1,
+          "palpator": 0,
+          "vibration_listener": 0,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 0
+        },
+        "live_routes": 0,
+        "reinforced_routes": 0,
+        "pruned_routes": 0,
+        "disturbance": 0.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 1,
+          "organism_cap": 24,
+          "targets": 0,
+          "target_cap": 48,
+          "routes": 0,
+          "route_cap": 64,
+          "max_organisms": 1
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 1,
+        "ether_motes": 11,
+        "report_presentations": 0,
+        "report_visible": false,
+        "peak_visible_elements": 14,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "04_returned_information_pulse.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "tending",
+      "colony": {
+        "source_id": 0,
+        "phase": "tending",
+        "phase_reason": "cilia sampling beside moss",
+        "moss_maturity": 0.66,
+        "ether_reserve": 0.8192,
+        "connected_ether_volume": 2.2537000000000003,
+        "stored_information": 0.8250000000000001,
+        "information_diversity": 3,
+        "known_targets": 1,
+        "organisms": {
+          "cilium": 1,
+          "palpator": 0,
+          "vibration_listener": 0,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 0
+        },
+        "live_routes": 0,
+        "reinforced_routes": 0,
+        "pruned_routes": 0,
+        "disturbance": 0.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 1,
+          "organism_cap": 24,
+          "targets": 1,
+          "target_cap": 48,
+          "routes": 0,
+          "route_cap": 64,
+          "max_organisms": 1
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 1,
+        "ether_motes": 11,
+        "report_presentations": 1,
+        "report_visible": true,
+        "peak_visible_elements": 14,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "05_branching_reinforced_network.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "complex",
+      "colony": {
+        "source_id": 0,
+        "phase": "complex",
+        "phase_reason": "maturity, ether, diversity and routes support complex life",
+        "moss_maturity": 1.0,
+        "ether_reserve": 1.0,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.175,
+        "information_diversity": 5,
+        "known_targets": 2,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 0,
+          "vibration_listener": 0,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 0
+        },
+        "live_routes": 3,
+        "reinforced_routes": 6,
+        "pruned_routes": 0,
+        "disturbance": 0.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 7,
+          "organism_cap": 24,
+          "targets": 2,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 7
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 7,
+        "ether_motes": 24,
+        "report_presentations": 1,
+        "report_visible": true,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "06_specialized_tentacles.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "complex",
+      "colony": {
+        "source_id": 0,
+        "phase": "complex",
+        "phase_reason": "maturity, ether, diversity and routes support complex life",
+        "moss_maturity": 1.0,
+        "ether_reserve": 1.0,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.175,
+        "information_diversity": 5,
+        "known_targets": 2,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 2,
+          "vibration_listener": 1,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 0
+        },
+        "live_routes": 3,
+        "reinforced_routes": 6,
+        "pruned_routes": 0,
+        "disturbance": 0.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 10,
+          "organism_cap": 24,
+          "targets": 2,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 10
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 7,
+        "ether_motes": 24,
+        "report_presentations": 1,
+        "report_visible": false,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "07_tentacle_returning_to_breathe.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "complex",
+      "colony": {
+        "source_id": 0,
+        "phase": "complex",
+        "phase_reason": "maturity, ether, diversity and routes support complex life",
+        "moss_maturity": 1.0,
+        "ether_reserve": 1.0,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.175,
+        "information_diversity": 5,
+        "known_targets": 2,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 2,
+          "vibration_listener": 1,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 0
+        },
+        "live_routes": 3,
+        "reinforced_routes": 6,
+        "pruned_routes": 0,
+        "disturbance": 0.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 10,
+          "organism_cap": 24,
+          "targets": 2,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 10
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 7,
+        "ether_motes": 24,
+        "report_presentations": 1,
+        "report_visible": false,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "08_mature_ether_complex_gate.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "complex",
+      "colony": {
+        "source_id": 0,
+        "phase": "complex",
+        "phase_reason": "maturity, ether, diversity and routes support complex life",
+        "moss_maturity": 1.0,
+        "ether_reserve": 1.0,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.425,
+        "information_diversity": 6,
+        "known_targets": 3,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 2,
+          "vibration_listener": 1,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 1
+        },
+        "live_routes": 3,
+        "reinforced_routes": 6,
+        "pruned_routes": 0,
+        "disturbance": 0.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 11,
+          "organism_cap": 24,
+          "targets": 3,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 11
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 7,
+        "ether_motes": 24,
+        "report_presentations": 1,
+        "report_visible": false,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "09_disturbance_alert_recall.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "disturbed",
+      "colony": {
+        "source_id": 0,
+        "phase": "disturbed",
+        "phase_reason": "evidence maintenance shock",
+        "moss_maturity": 1.0,
+        "ether_reserve": 1.0,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.425,
+        "information_diversity": 6,
+        "known_targets": 3,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 2,
+          "vibration_listener": 1,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 1
+        },
+        "live_routes": 2,
+        "reinforced_routes": 6,
+        "pruned_routes": 1,
+        "disturbance": 1.0,
+        "collapse_progress": 0.0,
+        "stain_coverage": 0.65,
+        "budget": {
+          "organisms": 11,
+          "organism_cap": 24,
+          "targets": 3,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 11
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 7,
+        "ether_motes": 24,
+        "report_presentations": 1,
+        "report_visible": false,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "10_dramatic_withering.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "withering",
+      "colony": {
+        "source_id": 0,
+        "phase": "withering",
+        "phase_reason": "ether production failed",
+        "moss_maturity": 0.786,
+        "ether_reserve": 0.7387,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.425,
+        "information_diversity": 6,
+        "known_targets": 3,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 2,
+          "vibration_listener": 1,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 1
+        },
+        "live_routes": 2,
+        "reinforced_routes": 6,
+        "pruned_routes": 1,
+        "disturbance": 1.0,
+        "collapse_progress": 0.42,
+        "stain_coverage": 0.65,
+        "budget": {
+          "organisms": 11,
+          "organism_cap": 24,
+          "targets": 3,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 11
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 7,
+        "ether_motes": 24,
+        "report_presentations": 1,
+        "report_visible": false,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "11_stranded_senescence_residue.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "withering",
+      "colony": {
+        "source_id": 0,
+        "phase": "withering",
+        "phase_reason": "ether production failed",
+        "moss_maturity": 0.786,
+        "ether_reserve": 0.7387,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.575,
+        "information_diversity": 7,
+        "known_targets": 3,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 2,
+          "vibration_listener": 1,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 1
+        },
+        "live_routes": 2,
+        "reinforced_routes": 7,
+        "pruned_routes": 1,
+        "disturbance": 1.0,
+        "collapse_progress": 0.42,
+        "stain_coverage": 0.65,
+        "budget": {
+          "organisms": 11,
+          "organism_cap": 24,
+          "targets": 3,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 11
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 7,
+        "ether_motes": 13,
+        "report_presentations": 2,
+        "report_visible": false,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "12_density_correlated_stain.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "stained",
+      "colony": {
+        "source_id": 0,
+        "phase": "stained",
+        "phase_reason": "living network settled into persistent stain",
+        "moss_maturity": 0.09000000000000001,
+        "ether_reserve": 0.048400000000000006,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.575,
+        "information_diversity": 7,
+        "known_targets": 3,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 2,
+          "vibration_listener": 1,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 1
+        },
+        "live_routes": 2,
+        "reinforced_routes": 7,
+        "pruned_routes": 1,
+        "disturbance": 1.0,
+        "collapse_progress": 0.96,
+        "stain_coverage": 5.32,
+        "budget": {
+          "organisms": 11,
+          "organism_cap": 24,
+          "targets": 3,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 11
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": true,
+        "cilia_visible": 0,
+        "ether_motes": 0,
+        "report_presentations": 2,
+        "report_visible": false,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    },
+    {
+      "frame": "13_authorized_cleaned_control.png",
+      "width": 1280,
+      "height": 720,
+      "phase": "cleared",
+      "colony": {
+        "source_id": 0,
+        "phase": "cleared",
+        "phase_reason": "authorized maintenance removed residue",
+        "moss_maturity": 0.09000000000000001,
+        "ether_reserve": 0.048400000000000006,
+        "connected_ether_volume": 7.4259,
+        "stored_information": 5.575,
+        "information_diversity": 7,
+        "known_targets": 3,
+        "organisms": {
+          "cilium": 7,
+          "palpator": 2,
+          "vibration_listener": 1,
+          "ocular_examiner": 0,
+          "sucker_sampler": 0,
+          "manipulator": 0,
+          "relay_tendril": 0,
+          "complex_organelle": 1
+        },
+        "live_routes": 2,
+        "reinforced_routes": 7,
+        "pruned_routes": 1,
+        "disturbance": 1.0,
+        "collapse_progress": 0.96,
+        "stain_coverage": 0.0,
+        "budget": {
+          "organisms": 11,
+          "organism_cap": 24,
+          "targets": 3,
+          "target_cap": 48,
+          "routes": 3,
+          "route_cap": 64,
+          "max_organisms": 11
+        }
+      },
+      "presentation": {
+        "colony_source": 0,
+        "owns_simulation": false,
+        "nodes": 6,
+        "heart_visible": false,
+        "cilia_visible": 0,
+        "ether_motes": 0,
+        "report_presentations": 2,
+        "report_visible": false,
+        "peak_visible_elements": 33,
+        "caps": {
+          "branch_segments": 64,
+          "cilia": 8,
+          "ether_motes": 24
+        }
+      },
+      "provenance": "DreamMossColonyRenderer + DreamTentacleController"
+    }
+  ],
+  "transitions": [
+    {
+      "at": 0.0,
+      "phase": "searching",
+      "reason": "pioneer created"
+    },
+    {
+      "at": 0.0,
+      "phase": "seeded",
+      "reason": "viable site committed score=0.897"
+    },
+    {
+      "at": 0.0,
+      "phase": "tending",
+      "reason": "cilia sampling beside moss"
+    },
+    {
+      "at": 0.0,
+      "phase": "networked",
+      "reason": "useful path stabilized"
+    },
+    {
+      "at": 0.0,
+      "phase": "complex",
+      "reason": "maturity, ether, diversity and routes support complex life"
+    },
+    {
+      "at": 0.0,
+      "phase": "disturbed",
+      "reason": "evidence maintenance shock"
+    },
+    {
+      "at": 0.4,
+      "phase": "recalling",
+      "reason": "alert reached moss; organisms recalled"
+    },
+    {
+      "at": 1.4000000000000001,
+      "phase": "withering",
+      "reason": "ether production failed"
+    },
+    {
+      "at": 3.2,
+      "phase": "stained",
+      "reason": "living network settled into persistent stain"
+    },
+    {
+      "at": 3.2,
+      "phase": "cleared",
+      "reason": "authorized maintenance removed residue"
+    }
+  ],
+  "metrics": {
+    "ether_minimum": 0.9944530331227907,
+    "recalled": 2,
+    "stranded": 1,
+    "disturbance_to_stain_s": 3.2,
+    "stain_before_cleanup": 5.32,
+    "stain_after_cleanup": 0.0,
+    "presentation_cpu_ms": 0.0021033333333333334,
+    "peak_presentation_nodes": 6,
+    "peak_visible_elements": 33
+  },
+  "final_census": {
+    "source_id": 0,
+    "phase": "cleared",
+    "phase_reason": "authorized maintenance removed residue",
+    "moss_maturity": 0.09000000000000001,
+    "ether_reserve": 0.048400000000000006,
+    "connected_ether_volume": 7.4259,
+    "stored_information": 5.575,
+    "information_diversity": 7,
+    "known_targets": 3,
+    "organisms": {
+      "cilium": 7,
+      "palpator": 2,
+      "vibration_listener": 1,
+      "ocular_examiner": 0,
+      "sucker_sampler": 0,
+      "manipulator": 0,
+      "relay_tendril": 0,
+      "complex_organelle": 1
+    },
+    "live_routes": 2,
+    "reinforced_routes": 7,
+    "pruned_routes": 1,
+    "disturbance": 1.0,
+    "collapse_progress": 0.96,
+    "stain_coverage": 0.0,
+    "budget": {
+      "organisms": 11,
+      "organism_cap": 24,
+      "targets": 3,
+      "target_cap": 48,
+      "routes": 3,
+      "route_cap": 64,
+      "max_organisms": 11
+    }
+  },
+  "renderer": {
+    "colony_source": 0,
+    "owns_simulation": false,
+    "nodes": 6,
+    "heart_visible": false,
+    "cilia_visible": 0,
+    "ether_motes": 0,
+    "report_presentations": 2,
+    "report_visible": false,
+    "peak_visible_elements": 33,
+    "caps": {
+      "branch_segments": 64,
+      "cilia": 8,
+      "ether_motes": 24
+    }
+  }
+}

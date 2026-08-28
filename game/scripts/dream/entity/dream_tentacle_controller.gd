@@ -31,11 +31,16 @@ const ContactProfileScript := preload("res://scripts/dream/entity/dream_contact_
 const RINGS := 96
 const SEGS := 28
 const COLLARS := 11
+## The spline centre begins below the measured support plane. The membrane
+## stays on that plane, so the broad root passes through a flush socket
+## instead of reading as a prop balanced on the floor or wall.
+const ROOT_EMBED_M := 0.092
 
 var field = null
 var source_index := 0
 var anchor := Vector3.ZERO
 var anchor_normal := Vector3.UP
+var embedded_root := Vector3.ZERO
 var player: Node3D = null
 var behavior_profile: DreamBehaviorProfile
 var material_profile: DreamMaterialProfile
@@ -65,6 +70,19 @@ var curl := 0.0
 var seed_phase := 0.0
 var target_name := ""
 var deposits := 0
+## E2 ecological binding. The controller still owns pose/anatomy; the colony
+## decides whether this limb is supported, returning, reporting or senescent.
+var ecology_colony = null
+var ecology_record: Dictionary = {}
+var ecology_purpose := -1
+var ecology_purpose_name := "unbound"
+var ecology_status := "unbound"
+var ecology_ether_min := 1.0
+var ecology_reports := 0
+var _ecology_reported := false
+var _ecology_failure_clock := 0.0
+
+signal ecology_report_arrived(at: Vector3, value: float)
 ## DT-5: how hard the nth-dimensional body is leaning into the local field.
 ## This is not contact conversion and leaves no stain or agents.
 var emergence_pressure := 0.0
@@ -112,6 +130,7 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 	source_index = src
 	anchor = at
 	anchor_normal = normal.normalized()
+	embedded_root = anchor - anchor_normal * ROOT_EMBED_M
 	player = who
 	_candidates = candidates
 	_rng.seed = seed_v
@@ -132,7 +151,7 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 	if not mv.is_empty():
 		_mask_view = mv.to_int()
 	rig = RigScript.new()
-	rig.configure(anchor, anchor_normal, behavior_profile.length_m, seed_phase)
+	rig.configure(embedded_root, anchor_normal, behavior_profile.length_m, seed_phase)
 	rig.tremor_hz = behavior_profile.tremor_hz
 	rig.tremor_m = behavior_profile.tremor_m
 	behavior = BehaviorScript.new()
@@ -169,6 +188,28 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 	if player != null:
 		_player_prev = player.global_position
 	_apply_toggles()
+
+
+func bind_ecology(owner_colony, record: Dictionary, purpose: int) -> void:
+	ecology_colony = owner_colony
+	ecology_record = record
+	ecology_purpose = purpose
+	ecology_purpose_name = owner_colony.CLASS_NAMES[purpose]
+	ecology_status = "exploring"
+	# Honest distinctions using the established anatomy: no duplicate rigs.
+	match purpose:
+		owner_colony.OrganismClass.VIBRATION_LISTENER:
+			behavior_profile.caress_s *= 1.25
+			behavior_profile.rest_s *= 0.75
+		owner_colony.OrganismClass.OCULAR_EXAMINER:
+			behavior_profile.hover_s *= 1.45
+		owner_colony.OrganismClass.SUCKER_SAMPLER:
+			behavior_profile.caress_s *= 1.35
+		owner_colony.OrganismClass.MANIPULATOR:
+			behavior_profile.reach_m *= 0.88
+		owner_colony.OrganismClass.RELAY_TENDRIL:
+			behavior_profile.rest_s *= 1.8
+			behavior_profile.reach_m *= 1.08
 	_tick(0.0)
 
 
@@ -331,6 +372,7 @@ func _tick(delta: float) -> void:
 	startle = maxf(0.0, startle - delta * 0.7)
 	exchange_flash = maxf(0.0, exchange_flash - delta * 1.35)
 	if behavior.state == DreamTentacleBehavior.S.DONE:
+		_finish_ecology_return()
 		queue_free()
 		return
 	# The player: position and speed for the zones.
@@ -358,6 +400,7 @@ func _tick(delta: float) -> void:
 	behavior.contact_tangent = sensor.tangent_a
 	behavior.tip = rig.tip()
 	behavior.update(delta)
+	_update_ecology(delta)
 	_pressurize_emergence(delta)
 	# The rig carries it out.
 	grow = behavior.grow
@@ -451,6 +494,39 @@ func _tick(delta: float) -> void:
 	_push_uniforms()
 	skeleton.update(rig, grow, pulse_phase, breath_phase, behavior.interest, startle, delta)
 	_place_lights()
+
+
+func _update_ecology(delta: float) -> void:
+	if ecology_colony == null or ecology_record.is_empty() or _ecology_reported:
+		return
+	var information_gain := grip * delta * 0.055
+	ecology_status = ecology_colony.update_excursion(ecology_record, rig.tip(),
+			delta, information_gain)
+	ecology_ether_min = minf(ecology_ether_min, float(ecology_record.ether))
+	if ecology_status == "returning" and behavior.state not in [
+			DreamTentacleBehavior.S.WITHDRAW, DreamTentacleBehavior.S.DONE]:
+		behavior.withdraw()
+	elif ecology_status == "senescent":
+		_ecology_failure_clock += delta
+		behavior.hold = true
+		behavior.tip_goal = rig.tip()
+		grow = maxf(0.05, grow - delta * 0.18)
+		_material.set_shader_parameter("emission_strength", maxf(0.0,
+				1.0 - _ecology_failure_clock * 0.35))
+
+
+func _finish_ecology_return() -> void:
+	if ecology_colony == null or ecology_record.is_empty() or _ecology_reported:
+		return
+	_ecology_reported = true
+	if bool(ecology_record.senescent):
+		return
+	var observation := {"state_signature": target_name,
+			"material_complexity": clampf(float(contact_profile.deposit), 0.0, 1.0),
+			"modalities": [ecology_purpose_name]}
+	var value: float = ecology_colony.report(ecology_record, target_name, observation)
+	ecology_reports += 1
+	ecology_report_arrived.emit(anchor, value)
 	_relay_events()
 	if toggles.show_bones:
 		_draw_bones()
@@ -651,6 +727,8 @@ func census() -> Dictionary:
 	return {"state": state_name(), "grow": grow, "grip": grip, "curl": curl,
 			"target": target_name, "deposits": deposits, "tip": rig.tip(),
 			"contact": sensor.contact, "anchor": anchor, "eye_open": ocular.openness,
+			"embedded_root": embedded_root, "root_embed_m": ROOT_EMBED_M,
+			"root_plane_error_m": absf((rig.anchor - anchor).dot(anchor_normal) + ROOT_EMBED_M),
 			"suckers_engaged": suckers.engaged_count, "interest": behavior.interest,
 			"synaptic_probe_index": behavior.synaptic_probe_index,
 			"synaptic_probe_phase": behavior.synaptic_probe_phase,
@@ -660,4 +738,7 @@ func census() -> Dictionary:
 			"exchange_flash": exchange_flash,
 			"emergence_pressure": emergence_pressure,
 			"emergence_pressure_peak": emergence_pressure_peak,
-			"field_pressure_writes": field_pressure_writes}
+			"field_pressure_writes": field_pressure_writes,
+			"ecology_purpose": ecology_purpose_name, "ecology_status": ecology_status,
+			"ecology_ether": float(ecology_record.get("ether", 0.0)),
+			"ecology_ether_min": ecology_ether_min, "ecology_reports": ecology_reports}
