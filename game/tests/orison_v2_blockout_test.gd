@@ -3,6 +3,7 @@ extends Node
 const LAYOUT_PATH := "res://data/orison_v2_blockout.json"
 const SCENE_PATH := "res://scenes/building/orison_v2_blockout.tscn"
 const F01_REVIEW_PATH := "res://scenes/building/orison_v2_f01_review.tscn"
+const F02_REVIEW_PATH := "res://scenes/building/orison_v2_f02_review.tscn"
 
 var failures := 0
 
@@ -19,14 +20,14 @@ func _ready() -> void:
 			"accepted H-plan identity is stable")
 	_check(layout.levels.size() == 4, "first slice declares F01 through F04 transfer levels")
 	_check(layout.spaces.size() == 36, "36 programmed blockout spaces")
-	_check(layout.doors.size() == 10, "ten complete route/service leaves")
-	_check(layout.openings.size() == 3, "three leafless circulation openings")
-	_check(layout.windows.size() == 4, "four F01 daylight openings")
-	_check(layout.envelopes.size() == 10, "ten fixed-use and clearance reservations")
+	_check(layout.doors.size() == 13, "thirteen complete route/service/privacy leaves")
+	_check(layout.openings.size() == 6, "six leafless circulation openings")
+	_check(layout.windows.size() == 9, "nine F01/F02 daylight openings")
+	_check(layout.envelopes.size() == 24, "twenty-four fixed-use and clearance reservations")
 	_check(layout.platforms.size() == 20, "twenty explicit core landing platforms")
 	_check(layout.lift_landings.size() == 8, "eight passenger/service lift landings")
 	_check(layout.stairs.size() == 6, "public and service U-stairs span three storeys")
-	_check(layout.anchors.size() == 16, "sixteen named gameplay/review anchors")
+	_check(layout.anchors.size() == 22, "twenty-two named gameplay/review anchors")
 	for stair: Dictionary in layout.stairs:
 		_check(str(stair.kind) == "u", "U-stair record: " + str(stair.id))
 		_check(int(stair.risers_per_flight) == 10 and is_equal_approx(float(stair.rise), 0.16),
@@ -43,6 +44,12 @@ func _ready() -> void:
 			"rear service route connects to public core without private rooms")
 	_check(_route_avoids_private(layout, "F01_REAR_APRON", "F01_SERVICE_CORE"),
 			"rear service route reaches its core without private space")
+	_check(_route_exists(layout, "F02_LANDING", "F02_A_MAIN"),
+			"F02 landing reaches Mina's main/work room")
+	_check(_route_exists(layout, "F02_LANDING", "F02_A_BATH"),
+			"F02 landing reaches 2A bath through the private distributor")
+	_check(_route_exists(layout, "F02_LANDING", "F02_A_BED"),
+			"F02 landing reaches 2A bedroom through the private distributor")
 	var packed := load(SCENE_PATH) as PackedScene
 	_check(packed != null, "v2 scene loads independently")
 	if packed != null:
@@ -54,20 +61,28 @@ func _ready() -> void:
 		for ident in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 				"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED",
 				"LobbyMailBank", "LobbyPorterBoard", "F01_HOUSE_TELEPHONE_BOARD",
+				"F02_A_MONITOR_01",
 				"LobbyServiceDumbwaiter"]:
 			_check(root.get_node_or_null(ident) != null, "anchor/door resolves: " + ident)
 		for ident in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 				"F01_WATCH_MAIL_DOOR", "F01_MAIL_PACKAGE_DOOR",
 				"F01_WATCH_CORE_DOOR", "F01_PACKAGE_COMMON_DOOR",
-				"F01_REAR_SERVICE_DOOR", "F01_SERVICE_CORE_DOOR"]:
+				"F01_REAR_SERVICE_DOOR", "F01_SERVICE_CORE_DOOR",
+				"F02_A_HALL_DOOR", "F02_A_BATH_DOOR", "F02_A_BED_DOOR"]:
 			var hinge := root.get_node("%s/Hinge" % ident) as Node3D
 			_check(hinge != null and absf(hinge.rotation.y) > 1.5,
 					"route leaf has a complete open hinge: " + ident)
 		for ident in ["F01_LOBBY_WINDOW_W", "F01_LOBBY_WINDOW_E",
-				"F01_COMMON_WINDOW_S", "F01_COMMON_WINDOW_N"]:
+				"F01_COMMON_WINDOW_S", "F01_COMMON_WINDOW_N",
+				"F02_A_MAIN_WINDOW_W_S", "F02_A_MAIN_WINDOW_W_N",
+				"F02_A_KITCHEN_WINDOW_W", "F02_A_BED_WINDOW_W",
+				"F02_A_BED_WINDOW_N"]:
 			_check(root.get_node_or_null(ident) != null, "window resolves: " + ident)
 		for ident in ["F01_PRIMARY_ROUTE_ENVELOPE", "F01_CORE_DECISION_ENVELOPE",
-				"F01_SERVICE_ROUTE_ENVELOPE", "F01_PASSENGER_LIFT_RESERVATION"]:
+				"F01_SERVICE_ROUTE_ENVELOPE", "F01_PASSENGER_LIFT_RESERVATION",
+				"F02_LANDING_DECISION_ENVELOPE", "F02_WEST_HALL_ROUTE",
+				"F02_A_ENTRY_CLEARANCE", "F02_A_CAPTION_WORK_ZONE",
+				"F02_A_PRIVATE_HALL_ROUTE", "F02_A_BED_ROUTE"]:
 			_check(root.get_node_or_null(ident) != null, "use envelope resolves: " + ident)
 		_check((root.get_node("F02_A_MAIN_VANTRY_POINT") as Node3D).global_position
 				.is_equal_approx(Vector3(-10.1, 4.45, 1.4)), "2A Vantry transform derives from schema")
@@ -98,6 +113,12 @@ func _ready() -> void:
 				Vector3(6.85, 0.85, 0.0), Vector3(8.3, 0.85, 0.0),
 				Vector3(8.9, 0.85, 5.0), Vector3(8.9, 0.85, 10.0)]:
 			_check(_capsule_clear(root, sample), "0.66 m body clear at " + str(sample))
+		for sample: Vector3 in [Vector3(-1.5, 4.05, 0.0),
+				Vector3(-4.6, 4.05, 0.0), Vector3(-6.2, 4.05, 0.0),
+				Vector3(-8.2, 4.05, 0.0), Vector3(-9.2, 4.05, 1.4),
+				Vector3(-9.6, 4.05, 4.0), Vector3(-8.4, 4.05, 4.6),
+				Vector3(-10.7, 4.05, 7.1)]:
+			_check(_capsule_clear(root, sample), "F02 0.66 m body clear at " + str(sample))
 		root.queue_free()
 	var review := load(F01_REVIEW_PATH) as PackedScene
 	_check(review != null, "F01 controller review scene loads explicitly")
@@ -108,6 +129,16 @@ func _ready() -> void:
 		_check(review_root.get_node_or_null("Player/Head/Camera3D") is Camera3D,
 				"review camera uses the 1.41 m player head")
 		review_root.queue_free()
+	var f02_review := load(F02_REVIEW_PATH) as PackedScene
+	_check(f02_review != null, "F02 controller review scene loads explicitly")
+	if f02_review != null:
+		var f02_review_root := f02_review.instantiate()
+		var f02_player := f02_review_root.get_node_or_null("Player") as CharacterBody3D
+		_check(f02_player != null and f02_player.position.is_equal_approx(
+				Vector3(-1.5, 4.05, 0.0)), "F02 review starts at the landing decision point")
+		_check(f02_review_root.get_node_or_null("Player/Head/Camera3D") is Camera3D,
+				"F02 review retains the 1.41 m player head")
+		f02_review_root.queue_free()
 	_check(FileAccess.get_sha256("res://data/building_layout.json") == production_hash_before,
 			"production layout remains byte-stable")
 	_finish()
