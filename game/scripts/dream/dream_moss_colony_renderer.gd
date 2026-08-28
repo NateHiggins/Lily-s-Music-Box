@@ -37,6 +37,7 @@ var _report_value := 0.0
 var _last_route_signature := ""
 var _peak_visible := 0
 var _report_presentations := 0
+var _cilia_lod := "near"
 
 
 func setup(owner_colony) -> void:
@@ -244,7 +245,16 @@ func _animate_heart() -> void:
 
 
 func _animate_cilia() -> void:
-	var count: int = _cilia.multimesh.visible_instance_count
+	var ecological_count := mini(MAX_CILIA_VISIBLE, _count_class(colony.OrganismClass.CILIUM))
+	var camera := get_viewport().get_camera_3d() if is_inside_tree() else null
+	var distance := global_position.distance_to(camera.global_position) if camera != null else 0.0
+	var count := ecological_count
+	_cilia_lod = "near"
+	if distance > 8.0:
+		count = int(ceil(float(ecological_count) * 0.25)); _cilia_lod = "far"
+	elif distance > 3.5:
+		count = int(ceil(float(ecological_count) * 0.55)); _cilia_lod = "mid"
+	_cilia.multimesh.visible_instance_count = count
 	for i in count:
 		var angle := float(i) * 2.399963 + sin(float(colony.seed % 31)) * 0.2
 		var radius := 0.16 + 0.035 * float(i % 3)
@@ -402,6 +412,7 @@ func census() -> Dictionary:
 			"cilia_visible": _cilia.multimesh.visible_instance_count if presented and _cilia != null else 0,
 			"ether_motes": _ether.multimesh.visible_instance_count if presented and _ether != null else 0,
 			"proteins_visible": _proteins.multimesh.visible_instance_count if presented and _proteins != null else 0,
+			"cilia_lod": _cilia_lod,
 			"report_presentations": _report_presentations,
 			"report_visible": presented and _pulse != null and _pulse.visible,
 			"peak_visible_elements": _peak_visible,
