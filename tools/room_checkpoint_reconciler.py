@@ -120,7 +120,7 @@ def build_object_index(layout, tables):
                 rid = record.get("id")
                 if not rid:
                     continue
-                if category == "markers" and record.get("kind") == "door":
+                if category == "markers" and wb.is_room_door(record):
                     view = wb.door_view(record, rooms)
                     point = view["centre"]
                     door_rooms = sorted(set(
