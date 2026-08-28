@@ -65,6 +65,9 @@ var events: Array[String] = []
 ## Inputs.
 var anchor := Vector3.ZERO
 var anchor_normal := Vector3.UP
+## A stable direction in the support plane. World-up is valid for walls but
+## not floors or ceilings; all emergence gestures use this local frame.
+var support_tangent := Vector3.FORWARD
 var tip := Vector3.ZERO
 var contact := Vector3.ZERO
 var contact_normal := Vector3.UP
@@ -272,13 +275,13 @@ func _drive(_delta: float) -> void:
 				membrane_probe_depth = 1.0 - smoothstep(0.15, 0.85, q)
 				membrane_tension = 1.0 - 0.5 * q
 				tip_goal = anchor + anchor_normal * (0.15 + 0.45 * q) \
-						+ Vector3.UP * 0.08 * q
+						+ support_tangent * 0.08 * q
 				speed = 1.4
 				curl_target = 0.45 * (1.0 - q)
 		S.ORIENTING:
 			grow = 1.0
 			membrane_tension = 0.5
-			tip_goal = out + Vector3.UP * 0.12
+			tip_goal = out + support_tangent * 0.12
 			speed = 0.8
 			curl_target = 0.15
 		S.SEEKING:
@@ -364,7 +367,7 @@ func _drive(_delta: float) -> void:
 			var away := anchor_normal
 			if has_player:
 				away = (tip - player_pos).normalized()
-			tip_goal = anchor + anchor_normal * 0.42 + away * 0.3 + Vector3.UP * 0.1
+			tip_goal = anchor + anchor_normal * 0.42 + away * 0.3 + support_tangent * 0.1
 			speed = 3.2
 			curl_target = 0.95
 			grip_target = 0.0

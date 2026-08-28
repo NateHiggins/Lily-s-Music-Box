@@ -1138,7 +1138,8 @@ func _tend_tentacles(floor_id: String, field, delta: float) -> void:
 	var tentacle := DreamTentacleScript.new()
 	add_child(tentacle)
 	tentacle.setup(field, src, hit.position, hit.normal, who,
-			_candidates_for(floor_id, hit.position), tentacles_spawned * 7919 + floor_id.hash())
+			_candidates_for(floor_id, hit.position), tentacles_spawned * 7919 + floor_id.hash(),
+			String(hit.get("support_kind", "surface")))
 	if colony != null:
 		var ecology_record: Dictionary = colony.spawn(purpose, at)
 		if not ecology_record.is_empty():
@@ -1187,6 +1188,9 @@ func _nearest_surface(p: Vector3) -> Dictionary:
 		var hit: Dictionary = space.intersect_ray(query)
 		if hit.is_empty():
 			continue
+		var support: Dictionary = _emergence_support(hit)
+		if not bool(support.valid):
+			continue
 		var d: float = (hit.position as Vector3).distance_to(p)
 		# It comes out of walls by preference: a floor or a table top only when
 		# no wall is near (the pool on the floor is the exception that earns it).
@@ -1195,8 +1199,27 @@ func _nearest_surface(p: Vector3) -> Dictionary:
 		if d < best_d:
 			best_d = d
 			best = {"position": hit.position, "normal": hit.normal,
-					"collider_name": hit.collider.name if hit.collider else ""}
+					"collider_name": hit.collider.name if hit.collider else "",
+					"support_kind": support.kind}
 	return best
+
+
+func _emergence_support(hit: Dictionary) -> Dictionary:
+	var normal: Vector3 = (hit.normal as Vector3).normalized()
+	var kind := "floor" if normal.y > 0.70 else ("ceiling" if normal.y < -0.70 else "wall")
+	var node: Node = hit.get("collider")
+	var prop: Node = node
+	while prop != null and not (prop is FunctionalProp):
+		prop = prop.get_parent()
+	if prop == null:
+		return {"valid": true, "kind": kind}
+	# A small appliance control, handle or loose object cannot conceal the
+	# hyperdimensional body's broad socket. Only substantial prop surfaces can.
+	var bounds: AABB = prop._visual_bounds() if prop.has_method("_visual_bounds") else AABB()
+	var spans := [bounds.size.x, bounds.size.y, bounds.size.z]
+	spans.sort()
+	return {"valid": bounds.size != Vector3.ZERO and float(spans[1]) >= 0.34,
+			"kind": "prop_%s" % kind}
 
 
 ## What a tentacle may touch on this storey: every mesh with bounds, read

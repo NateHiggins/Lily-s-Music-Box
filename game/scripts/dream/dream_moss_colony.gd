@@ -19,6 +19,7 @@ const MAX_ORGANISMS := 24
 const MAX_CILIA := 8
 const MAX_TENTACLES := 6
 const MAX_COMPLEX := 4
+const MAX_TARGET_RESERVATIONS := 8
 const SUPPORT_RADIUS := [0.9, 2.2, 3.0, 2.8, 2.0, 2.4, 3.6, 2.8]
 const ETHER_DRAIN := [0.015, 0.045, 0.035, 0.040, 0.055, 0.050, 0.025, 0.065]
 const EXCURSION_S := [5.0, 14.0, 20.0, 16.0, 12.0, 14.0, 24.0, 18.0]
@@ -37,6 +38,7 @@ var connected_ether_volume := 0.0
 var stored_information := 0.0
 var information_modalities: Dictionary = {}
 var known_targets: Dictionary = {}
+var target_reservations: Dictionary = {}
 var routes: Dictionary = {}
 var organisms: Array[Dictionary] = []
 var disturbance := 0.0
@@ -158,6 +160,35 @@ func remember_target(target_id: String, observation: Dictionary) -> float:
 	reports += 1
 	_update_growth_phase()
 	return value
+
+
+func reserve_target(target_id: String, purpose: int, organism_id: int,
+		duration_s := 8.0) -> bool:
+	if target_id.is_empty():
+		return false
+	var expired: Array[String] = []
+	for key in target_reservations:
+		if float(target_reservations[key].until) <= clock:
+			expired.append(String(key))
+	for key in expired: target_reservations.erase(key)
+	var reservation_key := "%s:%d" % [target_id, purpose]
+	var existing: Dictionary = target_reservations.get(reservation_key, {})
+	if not existing.is_empty() and int(existing.organism_id) != organism_id:
+		return false
+	if target_reservations.size() >= MAX_TARGET_RESERVATIONS \
+			and not target_reservations.has(reservation_key):
+		return false
+	target_reservations[reservation_key] = {"target_id": target_id,
+			"purpose": purpose, "organism_id": organism_id,
+			"until": clock + clampf(duration_s, 0.5, 20.0)}
+	return true
+
+
+func release_target(target_id: String, purpose: int, organism_id: int) -> void:
+	var reservation_key := "%s:%d" % [target_id, purpose]
+	var existing: Dictionary = target_reservations.get(reservation_key, {})
+	if not existing.is_empty() and int(existing.organism_id) == organism_id:
+		target_reservations.erase(reservation_key)
 
 
 static func observable_value(observation: Dictionary) -> float:
@@ -361,6 +392,7 @@ func census() -> Dictionary:
 			"stored_information": snappedf(stored_information, 0.0001),
 			"information_diversity": information_modalities.size(),
 			"known_targets": known_targets.size(), "organisms": counts,
+			"target_reservations": target_reservations.size(),
 			"live_routes": live_routes, "reinforced_routes": reinforced_routes,
 			"pruned_routes": pruned_routes, "disturbance": snappedf(disturbance, 0.001),
 			"collapse_progress": snappedf(collapse_progress, 0.001),

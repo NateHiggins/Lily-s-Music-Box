@@ -151,8 +151,10 @@ func lay_targets() -> void:
 
 
 func _lay_cubic(slack: float) -> void:
+	# Bow only in the socket's local frame. A world-up term made ceiling limbs
+	# curl back into the ceiling and floor limbs lean in a privileged direction.
 	var bow := _side_ref * (0.5 * slack * sin(clock * 0.31 + phase_seed)) \
-			+ Vector3.UP * (0.32 * slack) + anchor_normal * (0.28 * slack)
+			+ _bin_ref * (0.32 * slack) + anchor_normal * (0.28 * slack)
 	var p0 := anchor
 	var p1 := anchor + anchor_normal * (0.28 + 0.22 * grow + 0.45 * slack) + bow * 0.55
 	var p3 := goal_now

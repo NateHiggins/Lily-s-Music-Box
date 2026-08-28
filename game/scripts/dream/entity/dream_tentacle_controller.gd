@@ -42,6 +42,8 @@ var source_index := 0
 var anchor := Vector3.ZERO
 var anchor_normal := Vector3.UP
 var embedded_root := Vector3.ZERO
+var support_tangent := Vector3.FORWARD
+var support_kind := "surface"
 var player: Node3D = null
 var behavior_profile: DreamBehaviorProfile
 var material_profile: DreamMaterialProfile
@@ -89,6 +91,20 @@ var _ecology_reported := false
 var _ecology_failure_clock := 0.0
 
 signal ecology_report_arrived(at: Vector3, value: float)
+enum ExplorationState { RESTING_AT_MOSS, ORIENTING, LOCAL_SWEEP,
+	TENTATIVE_REACH, SURFACE_CONTACT, PALPATING, EDGE_TRACING,
+	REORIENTING, COMMITTED_REACH, INFORMATION_RETURN, BREATHING_REPORT,
+	DEFENSIVE_RECALL, WITHERING }
+const EXPLORATION_NAMES := ["resting_at_moss", "orienting", "local_sweep",
+	"tentative_reach", "surface_contact", "palpating", "edge_tracing",
+	"reorienting", "committed_reach", "information_return", "breathing_report",
+	"defensive_recall", "withering"]
+var exploration_state := ExplorationState.ORIENTING
+var exploration_probe_directions: Array[Vector3] = []
+var exploration_contact_s := 0.0
+var exploration_reversals := 0
+var exploration_target_reserved := false
+var exploration_novelty := 1.0
 ## DT-5: how hard the nth-dimensional body is leaning into the local field.
 ## This is not contact conversion and leaves no stain or agents.
 var emergence_pressure := 0.0
@@ -131,12 +147,22 @@ var _face_chosen := false
 
 
 func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
-		candidates: Array, seed_v: int) -> void:
+		candidates: Array, seed_v: int, emergence_support_kind := "") -> void:
 	field = living_field
 	source_index = src
 	anchor = at
 	anchor_normal = normal.normalized()
 	embedded_root = anchor - anchor_normal * ROOT_EMBED_M
+	support_tangent = Vector3.UP - anchor_normal * Vector3.UP.dot(anchor_normal)
+	if support_tangent.length_squared() < 0.01:
+		support_tangent = Vector3.FORWARD - anchor_normal * Vector3.FORWARD.dot(anchor_normal)
+	if support_tangent.length_squared() < 0.01:
+		support_tangent = Vector3.RIGHT
+	support_tangent = support_tangent.normalized()
+	support_kind = String(emergence_support_kind)
+	if support_kind.is_empty():
+		support_kind = "floor" if anchor_normal.y > 0.70 else (
+				"ceiling" if anchor_normal.y < -0.70 else "wall")
 	player = who
 	_candidates = candidates
 	_rng.seed = seed_v
@@ -163,6 +189,7 @@ func setup(living_field, src: int, at: Vector3, normal: Vector3, who: Node3D,
 	behavior = BehaviorScript.new()
 	behavior.anchor = anchor
 	behavior.anchor_normal = anchor_normal
+	behavior.support_tangent = support_tangent
 	behavior.configure(behavior_profile, hold)
 	sensor = SensorScript.new()
 	var world: World3D = get_viewport().find_world_3d() if get_viewport() != null else null
@@ -202,6 +229,14 @@ func bind_ecology(owner_colony, record: Dictionary, purpose: int) -> void:
 	ecology_purpose = purpose
 	ecology_purpose_name = owner_colony.CLASS_NAMES[purpose]
 	ecology_status = "exploring"
+	var organism_id := int(record.get("id", -1))
+	if organism_id >= 0 and not target_name.is_empty():
+		exploration_target_reserved = owner_colony.reserve_target(target_name,
+				purpose, organism_id)
+	var prior: Dictionary = owner_colony.known_targets.get(target_name, {})
+	if not prior.is_empty():
+		exploration_novelty = clampf(float(prior.get("value", 0.0)) /
+				float(1 + int(prior.get("repeats", 0))), 0.05, 1.0)
 	# Honest distinctions using the established anatomy: no duplicate rigs.
 	match purpose:
 		owner_colony.OrganismClass.VIBRATION_LISTENER:
@@ -534,6 +569,8 @@ func _finish_ecology_return() -> void:
 			"material_complexity": clampf(float(contact_profile.deposit), 0.0, 1.0),
 			"modalities": [ecology_purpose_name]}
 	var value: float = ecology_colony.report(ecology_record, target_name, observation)
+	ecology_colony.release_target(target_name, ecology_purpose,
+			int(ecology_record.get("id", -1)))
 	ecology_reports += 1
 	ecology_report_arrived.emit(anchor, value)
 	_relay_events()
@@ -693,6 +730,7 @@ func _ecology_route_goal(target_goal: Vector3, delta: float) -> Vector3:
 		ecology_tended_moss = true
 	if ecology_tended_moss and behavior.state != DreamTentacleBehavior.S.WITHDRAW:
 		ecology_moss_dwell_s += maxf(delta, 0.0)
+	_update_exploration_state(delta)
 	var goal := target_goal
 	var investigating := behavior.state >= DreamTentacleBehavior.S.ORIENTING \
 			and behavior.state <= DreamTentacleBehavior.S.RESTING
@@ -716,7 +754,21 @@ func _ecology_route_goal(target_goal: Vector3, delta: float) -> Vector3:
 		var shoulder := moss + anchor_normal * 0.34 + lateral * sin(seed_phase) * 0.09
 		goal = moss * ((1.0 - s) * (1.0 - s)) \
 				+ shoulder * (2.0 * (1.0 - s) * s) + target_goal * (s * s)
-		goal += lateral * sin(clock * 1.17 + seed_phase) * 0.018 * sin(s * PI)
+		# The distal club leads an irregular bounded search before commitment:
+		# two incommensurate phases produce reversals and hesitant corrections,
+		# while amplitude dies as contact/novel information commits the animal.
+		var search_weight := 1.0 - smoothstep(0.38, 0.82, s)
+		var support_side := anchor_normal.cross(support_tangent).normalized()
+		var sweep := support_tangent * sin(clock * 0.83 + seed_phase) * 0.105 \
+				+ support_side * sin(clock * 1.37 + seed_phase * 0.61) * 0.072 \
+				+ anchor_normal * sin(clock * 0.47 + seed_phase * 1.31) * 0.045
+		goal += sweep * search_weight * sin(s * PI) \
+				+ lateral * sin(clock * 1.17 + seed_phase) * 0.018 * sin(s * PI)
+		if search_weight > 0.2 and delta > 0.0 and exploration_probe_directions.size() < 12:
+			var direction := (goal - rig.tip()).normalized()
+			if exploration_probe_directions.is_empty() \
+					or direction.dot(exploration_probe_directions[-1]) < 0.92:
+				exploration_probe_directions.append(direction)
 	elif behavior.state == DreamTentacleBehavior.S.WITHDRAW:
 		var withdraw_t := clampf(behavior.state_clock /
 				maxf(0.1, behavior_profile.withdraw_s), 0.0, 1.0)
@@ -727,6 +779,37 @@ func _ecology_route_goal(target_goal: Vector3, delta: float) -> Vector3:
 					smoothstep(0.55, 1.0, withdraw_t))
 	ecology_supported_goal = goal
 	return goal
+
+
+func _update_exploration_state(delta: float) -> void:
+	var previous := exploration_state
+	var contact_distance := rig.tip().distance_to(sensor.contact)
+	if ecology_colony.phase >= ecology_colony.Phase.WITHERING:
+		exploration_state = ExplorationState.WITHERING
+	elif behavior.state == DreamTentacleBehavior.S.WITHDRAW:
+		exploration_state = ExplorationState.DEFENSIVE_RECALL \
+				if ecology_colony.disturbance > 0.0 else ExplorationState.INFORMATION_RETURN
+	elif not ecology_tended_moss or ecology_moss_dwell_s < 0.72:
+		exploration_state = ExplorationState.RESTING_AT_MOSS
+	elif contact_distance < 0.035 and behavior.state == DreamTentacleBehavior.S.TASTING:
+		exploration_state = ExplorationState.EDGE_TRACING
+	elif contact_distance < 0.035 and behavior.state in [DreamTentacleBehavior.S.TOUCHING,
+			DreamTentacleBehavior.S.CARESSING]:
+		exploration_state = ExplorationState.PALPATING
+	elif contact_distance < 0.12:
+		exploration_state = ExplorationState.SURFACE_CONTACT
+	elif ecology_route_extension < 0.30:
+		exploration_state = ExplorationState.LOCAL_SWEEP
+	elif ecology_route_extension < 0.68:
+		exploration_state = ExplorationState.TENTATIVE_REACH
+	else:
+		exploration_state = ExplorationState.COMMITTED_REACH
+	if exploration_state in [ExplorationState.SURFACE_CONTACT,
+			ExplorationState.PALPATING, ExplorationState.EDGE_TRACING]:
+		exploration_contact_s += maxf(delta, 0.0)
+	if previous != exploration_state and exploration_state in [ExplorationState.LOCAL_SWEEP,
+			ExplorationState.REORIENTING, ExplorationState.TENTATIVE_REACH]:
+		exploration_reversals += 1
 
 
 func _apply_toggles() -> void:
@@ -785,6 +868,7 @@ func census() -> Dictionary:
 			"target": target_name, "deposits": deposits, "tip": rig.tip(),
 			"contact": sensor.contact, "anchor": anchor, "eye_open": ocular.openness,
 			"embedded_root": embedded_root, "root_embed_m": ROOT_EMBED_M,
+			"support_kind": support_kind, "support_normal": anchor_normal,
 			"root_plane_error_m": absf((rig.anchor - anchor).dot(anchor_normal) + ROOT_EMBED_M),
 			"suckers_engaged": suckers.engaged_count, "interest": behavior.interest,
 			"synaptic_probe_index": behavior.synaptic_probe_index,
@@ -803,4 +887,10 @@ func census() -> Dictionary:
 			"ecology_moss_distance_min": ecology_moss_distance_min,
 			"ecology_moss_dwell_s": ecology_moss_dwell_s,
 			"ecology_route_extension": ecology_route_extension,
-			"ecology_supported_goal": ecology_supported_goal}
+			"ecology_supported_goal": ecology_supported_goal,
+			"exploration_state": EXPLORATION_NAMES[exploration_state],
+			"exploration_probe_directions": exploration_probe_directions.size(),
+			"exploration_contact_s": exploration_contact_s,
+			"exploration_reversals": exploration_reversals,
+			"exploration_target_reserved": exploration_target_reserved,
+			"exploration_novelty": exploration_novelty}

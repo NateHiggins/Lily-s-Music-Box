@@ -41,6 +41,11 @@ uniform vec4 critter_look[12];
 uniform vec4 critter_photo[12];
 // MBIO-3: x response, y carrier/3, z seconds since reception, w direction.
 uniform vec4 critter_mechanical[12];
+// E3: CPU-planted fold-crab anatomy in the critter's local support frame.
+// w on foot is stance. Eight rows per critter keep the draw bounded.
+uniform vec4 crab_socket[96];
+uniform vec4 crab_knee[96];
+uniform vec4 crab_foot[96];
 uniform int critter_count = 0;
 
 varying vec2 v_uv;
@@ -98,9 +103,15 @@ void vertex() {
 		// masses, taken from the individual's own proportions.
 		vec3 s = vec3(size.y * 0.5, size.z * 0.5, size.x * 0.5);
 		if (pos.w > 1.5) {
-			// Walker: shorter and deeper, with a raised carapace.
-			s.y *= 1.15;
-			local.y += 0.18 * (1.0 - local.z * local.z);
+			// Fold crab: low cephalothorax with a flat load-bearing underside,
+			// tapered rear and overlapping dorsal plate lobes. It must read as
+			// an animal before gold or dimensional effects are visible.
+			s = vec3(size.y * 0.58, size.z * 0.34, size.x * 0.54);
+			local.y = max(local.y, -0.58);
+			local.x *= mix(0.78, 1.12, smoothstep(-0.8, 0.35, local.z));
+			local.y += 0.10 * cos(local.z * 6.0 + seed)
+					+ 0.07 * sign(local.x) * sin(local.z * 4.0 + seed);
+			local.z -= 0.10;
 		} else if (pos.w > 0.5) {
 			// Radial: a dome, widest at its base.
 			s.z = s.x;
@@ -120,44 +131,38 @@ void vertex() {
 			local = vec3(0.0);   // this individual has fewer limbs
 			alive = 0.0;
 		}
-		float t = (index + 0.5) / n;
-		// Down each flank, front to back.
-		float row = t < 0.5 ? -1.0 : 1.0;
-		float u = fract(t * 2.0) * 2.0 - 1.0;
-		float len = size.x * 0.55;
-		float lift = size.z;
-		// §20 — the gait: which limb leads and the stagger between them are
-		// per-individual, so two crabs of the same species walk differently.
-		float phase = matter.w + t * 6.2831853 * 1.7;
-		float step = sin(phase);
-		vec3 root = fwd * (u * size.x * 0.42) + side * (row * size.y * 0.45);
-		vec3 foot = root + side * row * size.y * 0.55
-				+ fwd * step * size.x * 0.22 - up * lift;
-		vec3 knee = mix(root, foot, 0.5) + up * (size.z * 0.9 + max(0.0, step) * size.z * 0.5);
-		// Two-segment leg: root to knee to foot.
-		// §24 — THIS LEG IS SHORTER THAN THE GAP IT SPANS.
-		//
-		// Its root is on the body and its foot is planted; neither moves. The
-		// limb between them simply stops covering the distance, and for a
-		// moment the foot is connected to nothing. In three dimensions a limb
-		// cannot be shorter than the straight line between its own ends,
-		// which is the entire point.
+		int joint_i = c * 8 + int(index + 0.5);
+		vec3 root = crab_socket[joint_i].xyz;
+		vec3 knee = crab_knee[joint_i].xyz;
+		vec3 foot = crab_foot[joint_i].xyz;
+		float flank = sign(root.x);
+		// The hyperdimensional fold changes the bend plane while both ends stay
+		// anatomically connected; geometry never disappears or opens a gap.
 		float folded = (abs(law.y - index) < 0.5) ? law.z : 0.0;
-		float reach = 1.0 - folded * 0.55;
-		float span = clamp(along / max(0.001, reach), 0.0, 1.0);
-		vec3 p = span < 0.5
-				? mix(root, knee, span * 2.0)
-				: mix(knee, foot, (span - 0.5) * 2.0);
-		// Past its reach the limb is simply absent -- not stretched to cover
-		// the gap, which would make it possible again.
-		if (along > reach) {
-			alive = 0.0;
+		vec3 coxa = root + vec3(flank * size.y * 0.18, size.z * 0.08, 0.0);
+		knee += vec3(-flank * folded * size.y * 0.22,
+				folded * size.z * 0.20, folded * size.x * 0.12);
+		vec3 ankle = mix(knee, foot, 0.70) + vec3(0.0, size.z * 0.08, 0.0);
+		vec3 a; vec3 b; float section;
+		if (along < 0.18) {
+			section = along / 0.18; a = root; b = coxa;
+		} else if (along < 0.52) {
+			section = (along - 0.18) / 0.34; a = coxa; b = knee;
+		} else if (along < 0.84) {
+			section = (along - 0.52) / 0.32; a = knee; b = ankle;
+		} else {
+			section = (along - 0.84) / 0.16; a = ankle; b = foot;
 		}
-		vec3 seg = span < 0.5 ? (knee - root) : (foot - knee);
-		float thick = size.y * 0.055 * (1.0 - 0.45 * along);
+		vec3 p = mix(a, b, section);
+		vec3 seg = b - a;
+		float collar = 1.0 + 1.7 * (1.0 - smoothstep(0.0, 0.16, along));
+		float joint = 1.0 + 0.55 * (1.0 - smoothstep(0.0, 0.07,
+				min(abs(along - 0.18), min(abs(along - 0.52), abs(along - 0.84)))));
+		float pad = 1.0 + 1.2 * smoothstep(0.88, 1.0, along);
+		float thick = size.y * 0.050 * (1.0 - 0.34 * along) * collar * joint * pad;
 		local = p + ring_offset(seg, nrm, thick);
 		v_thickness = 0.5;
-	} else {
+	} else if (part < 2.5) {
 		// ---- FEELER -----------------------------------------------------
 		float n = max(1.0, counts.y);
 		if (index >= n) {
@@ -198,6 +203,36 @@ void vertex() {
 		float thick = size.y * 0.014 * (1.0 - 0.7 * along);
 		local = p + ring_offset(dir, nrm, thick);
 		v_thickness = 0.12;
+	} else {
+		// ---- FOLD-CRAB ASSEMBLY -----------------------------------------
+		if (pos.w < 1.5) {
+			local = vec3(0.0); alive = 0.0;
+		} else if (part < 5.5) {
+			float plate = part - 3.0;
+			float flank = plate < 0.5 ? -1.0 : (plate < 1.5 ? 1.0 : 0.0);
+			float rear = plate > 1.5 ? -0.23 : 0.17;
+			vec3 plate_scale = plate > 1.5
+					? vec3(size.y * 0.42, size.z * 0.105, size.x * 0.28)
+					: vec3(size.y * 0.31, size.z * 0.12, size.x * 0.34);
+			local *= plate_scale;
+			local += vec3(flank * size.y * 0.19, size.z * 0.22,
+					rear * size.x);
+			// Attention separates paired plates just enough to expose a deeper
+			// parallax seam without losing their anatomical overlap.
+			local.x += flank * law.w * size.y * 0.035;
+			v_thickness = 0.34;
+		} else if (part < 6.5) {
+			// Ventral breathing body: protected, soft, and visibly distinct from
+			// the dorsal armor.
+			local *= vec3(size.y * 0.38, size.z * 0.16, size.x * 0.34);
+			local += vec3(0.0, -size.z * 0.24, -size.x * 0.02);
+			v_thickness = 0.92;
+		} else {
+			// Front sensory core nested between the plate pair.
+			local *= vec3(size.y * 0.15, size.z * 0.16, size.x * 0.11);
+			local += vec3(0.0, size.z * 0.10, size.x * 0.43);
+			v_thickness = 0.18;
+		}
 	}
 
 	// counts.w is 1 plus this individual's walking bob, so a moving animal
@@ -227,9 +262,10 @@ void fragment() {
 	// §25 — the same three tissues, rebalanced per species. A fold crab is
 	// mostly mineral at its joints; a listener is mostly crystal; a grazer is
 	// nearly all flesh.
-	ctx.gold_root = v_matter.x * (v_part > 0.5 && v_part < 1.5 ? 1.35 : 0.7);
-	ctx.socket = v_matter.y * (v_part > 1.5 ? 1.2 : 0.5);
-	ctx.contact = v_part > 1.5 ? 0.8 : 0.2;
+	ctx.gold_root = v_matter.x * (v_part > 0.5 && v_part < 1.5 ? 1.35
+			: (v_part >= 3.0 && v_part < 5.5 ? 0.72 : 0.24));
+	ctx.socket = v_matter.y * ((v_part > 1.5 && v_part < 2.5) || v_part >= 6.5 ? 1.2 : 0.5);
+	ctx.contact = (v_part > 1.5 && v_part < 2.5) || v_part >= 6.5 ? 0.8 : 0.2;
 	// §26 — the individual's own balance, applied to the shared stack.
 	ctx.stretch = 0.2 + 0.5 * v_look.w;
 	ctx.vein = 0.2 + 0.7 * v_look.y;

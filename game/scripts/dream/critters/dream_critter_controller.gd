@@ -32,6 +32,8 @@ const LIMB_RINGS := 5
 const LIMB_SEGS := 8
 const FEELER_RINGS := 5
 const FEELER_SEGS := 6
+const DETAIL_RINGS := 7
+const DETAIL_SEGS := 10
 
 signal critter_born(id: int, species: String)
 signal critter_died(id: int)
@@ -70,6 +72,11 @@ var _law := PackedVector4Array()
 var _photo := PackedVector4Array()
 ## MBIO-3: the same local mechanical response in the existing fauna draw.
 var _mechanical := PackedVector4Array()
+## E3 fold-crab gait. Eight cached socket/knee/foot rows per draw slot keep
+## the one-draw presentation while allowing planted world-space feet.
+var _crab_socket := PackedVector4Array()
+var _crab_knee := PackedVector4Array()
+var _crab_foot := PackedVector4Array()
 ## §26 — per-individual material balance: x hue bias, y perfusion,
 ## z wetness, w iridescence.
 var _look := PackedVector4Array()
@@ -84,6 +91,8 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _look, _photo,
 			_mechanical]:
 		arr.resize(MAX_CRITTERS)
+	for arr in [_crab_socket, _crab_knee, _crab_foot]:
+		arr.resize(MAX_CRITTERS * MAX_LIMBS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
 	mesh_instance = MeshInstance3D.new()
@@ -125,6 +134,11 @@ func _build_mesh() -> ArrayMesh:
 				var a0 := base + r * BODY_SEGS + sgm
 				indices.append(a0); indices.append(a0 + BODY_SEGS); indices.append(a0 + 1)
 				indices.append(a0 + 1); indices.append(a0 + BODY_SEGS); indices.append(a0 + BODY_SEGS + 1)
+		# E3 fold-crab anatomy: three overlapping dorsal plates, one ventral
+		# breathing body and a protected sensory core. Non-crab slots collapse
+		# these bounded vertices in the shared shader.
+		for detail in 5:
+			_append_detail_sphere(verts, normals, uvs, uv2, indices, c, 3.0 + detail)
 		_append_tubes(verts, normals, uvs, uv2, indices, c, 1.0,
 				MAX_LIMBS, LIMB_RINGS, LIMB_SEGS)
 		_append_tubes(verts, normals, uvs, uv2, indices, c, 2.0,
@@ -140,6 +154,27 @@ func _build_mesh() -> ArrayMesh:
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	mesh.custom_aabb = AABB(Vector3(-60, -60, -60), Vector3(120, 120, 120))
 	return mesh
+
+
+func _append_detail_sphere(verts: PackedVector3Array, normals: PackedVector3Array,
+		uvs: PackedVector2Array, uv2: PackedVector2Array,
+		indices: PackedInt32Array, critter_index: int, part: float) -> void:
+	var base := verts.size()
+	for ring in DETAIL_RINGS:
+		var v := float(ring) / float(DETAIL_RINGS - 1)
+		var polar := v * PI
+		for segment in DETAIL_SEGS:
+			var u := float(segment) / float(DETAIL_SEGS - 1)
+			var angle := u * TAU
+			var p := Vector3(sin(polar) * cos(angle), cos(polar),
+					sin(polar) * sin(angle))
+			verts.append(p); normals.append(p.normalized())
+			uvs.append(Vector2(u, v)); uv2.append(Vector2(float(critter_index), part))
+	for ring in DETAIL_RINGS - 1:
+		for segment in DETAIL_SEGS - 1:
+			var a := base + ring * DETAIL_SEGS + segment
+			indices.append(a); indices.append(a + DETAIL_SEGS); indices.append(a + 1)
+			indices.append(a + 1); indices.append(a + DETAIL_SEGS); indices.append(a + DETAIL_SEGS + 1)
 
 
 func _append_tubes(verts: PackedVector3Array, normals: PackedVector3Array,
@@ -269,6 +304,9 @@ func _try_spawn() -> void:
 			"fold_leg": -1,
 			"fold": 0.0,
 			"fold_clock": 0.0,
+			"leg_state": [],
+			"support_legs": 0,
+			"leg_root_gap_max": 0.0,
 			# §21 — what the margin is currently doing to it.
 			"following": -1,
 			"nudged": 0.0,
@@ -298,6 +336,10 @@ func _try_spawn() -> void:
 			"ecology_record": ecology_record,
 			"ecology_returning": false,
 			"ecology_ether_min": 1.0,
+			"ecology_target_id": "",
+			"ecology_target": Vector3.INF,
+			"ecology_examination_s": 0.0,
+			"ecology_reports": 0,
 			"signal_seen_born": -1.0,
 			"signal_seen_src": -2147483648,
 			"signal_presented_at": -1.0,
@@ -336,9 +378,49 @@ func _apply_ecology_support(delta: float) -> void:
 				float(record.ether))
 		critter.ecology_returning = status == "returning"
 		if status == "returning":
-			critter.pause = maxf(float(critter.pause), 0.25)
+			var home: Vector3 = colony.origin
+			_turn_toward(critter, home - (critter.pos as Vector3), delta * 2.4)
+			critter.moving = true
+			if (critter.pos as Vector3).distance_to(home) <= 0.24:
+				var observation := {"state_signature": "complex:%s" % critter.ecology_target_id,
+						"material_complexity": 0.8, "controls": 0.55,
+						"modalities": ["touch", "material", "controls"]}
+				colony.report(record, String(critter.ecology_target_id), observation)
+				critter.ecology_reports = int(critter.ecology_reports) + 1
+				critter.ecology_examination_s = 0.0
+				_select_ecology_target(critter, colony)
 		elif status == "senescent":
 			critter.alive = maxf(0.0, float(critter.alive) - delta * 0.35)
+		elif int(critter.morph.kind) == SpeciesScript.Kind.FOLD_CRAB:
+			if critter.ecology_target == Vector3.INF:
+				_select_ecology_target(critter, colony)
+			var target: Vector3 = critter.ecology_target
+			if target != Vector3.INF:
+				var distance := (critter.pos as Vector3).distance_to(target)
+				_turn_toward(critter, target - (critter.pos as Vector3), delta * 1.6)
+				critter.moving = distance > 0.18
+				if distance <= 0.22:
+					critter.ecology_examination_s = float(critter.ecology_examination_s) + delta
+					critter.unfold = maxf(float(critter.unfold),
+							clampf(float(critter.ecology_examination_s) / 1.2, 0.0, 1.0))
+					if float(critter.ecology_examination_s) >= 1.2:
+						colony.update_excursion(record, critter.pos, 0.0, 1.0)
+
+
+func _select_ecology_target(critter: Dictionary, colony) -> void:
+	var route_ids: Array = colony.routes.keys(); route_ids.sort()
+	var best_strength := -1.0
+	var best_id := ""
+	var best_at := Vector3.INF
+	for route_id in route_ids:
+		var route: Dictionary = colony.routes[route_id]
+		if not bool(route.live) or (route.points as PackedVector3Array).is_empty(): continue
+		if float(route.strength) > best_strength:
+			best_strength = float(route.strength)
+			best_id = String(route.target_id)
+			best_at = (route.points as PackedVector3Array)[(route.points as PackedVector3Array).size() - 1]
+	critter.ecology_target_id = best_id
+	critter.ecology_target = best_at
 
 
 ## Move a critter and keep it on the architecture. Every displacement goes
@@ -548,6 +630,7 @@ func _walk(delta: float) -> void:
 				c.up = (hit.normal as Vector3).normalized()
 				c.fwd = (fwd - (c.up as Vector3) * fwd.dot(c.up)).normalized()
 		_apply_law(c, delta)
+		_advance_crab_gait(c, delta)
 		if not riding:
 			# An animal being carried along an organ is not using the margin
 			# as terrain: it IS on the margin. Letting the habitat pass run as
@@ -556,6 +639,72 @@ func _walk(delta: float) -> void:
 			_use_the_margin(c, delta)
 		_consider_the_hero(c, delta)
 		i -= 1
+
+
+func _advance_crab_gait(c: Dictionary, delta: float) -> void:
+	var m: Dictionary = c.morph
+	if int(m.kind) != SpeciesScript.Kind.FOLD_CRAB:
+		return
+	var count := mini(MAX_LIMBS, int(m.limbs))
+	var legs: Array = c.get("leg_state", [])
+	var up: Vector3 = c.up
+	var fwd: Vector3 = c.fwd
+	var side := up.cross(fwd).normalized()
+	var per_side := int(ceil(float(count) * 0.5))
+	while legs.size() < count:
+		legs.append({"foot": Vector3.INF, "swing_from": Vector3.ZERO,
+				"swing_to": Vector3.ZERO, "was_stance": true, "phase": 0.0})
+	var supports := 0
+	var gap_max := 0.0
+	for leg_i in count:
+		var flank := -1.0 if leg_i < per_side else 1.0
+		var row_i := leg_i if leg_i < per_side else leg_i - per_side
+		var row_count := per_side if leg_i < per_side else count - per_side
+		var row_t := float(row_i) / float(maxi(1, row_count - 1))
+		var fore := lerpf(0.40, -0.40, row_t)
+		var inner_stride := 1.0 - flank * float(m.turn_bias) * 0.22
+		var desired: Vector3 = (c.pos as Vector3) + fwd * (fore * float(m.length)
+				+ sin(float(c.gait) * 0.37 + leg_i * 1.71) * float(m.length) * 0.04) \
+				+ side * flank * float(m.wide) * 1.02 * inner_stride \
+				- up * float(m.tall) * 0.52
+		if _space != null:
+			var query := PhysicsRayQueryParameters3D.create(desired + up * 0.14,
+					desired - up * 0.28)
+			var hit: Dictionary = _space.intersect_ray(query)
+			if not hit.is_empty() and (hit.normal as Vector3).dot(up) > 0.45:
+				desired = hit.position
+		var phase := fposmod(float(c.gait) / TAU + float(leg_i % 2) * 0.50
+				+ row_t * 0.12 + float(m.limb_stagger) * leg_i, 1.0)
+		var stance := phase < 0.68 or not bool(c.get("moving", false))
+		var leg: Dictionary = legs[leg_i]
+		if leg.foot == Vector3.INF:
+			leg.foot = desired
+			leg.swing_from = desired
+			leg.swing_to = desired
+		if not stance:
+			if bool(leg.was_stance):
+				leg.swing_from = leg.foot
+				leg.swing_to = desired
+			var swing_t := clampf((phase - 0.68) / 0.32, 0.0, 1.0)
+			var eased := smoothstep(0.0, 1.0, swing_t)
+			leg.foot = (leg.swing_from as Vector3).lerp(leg.swing_to as Vector3, eased) \
+					+ up * sin(swing_t * PI) * (float(m.tall) * 0.62 + 0.025)
+		else:
+			supports += 1
+			if not bool(leg.was_stance):
+				leg.foot = leg.swing_to
+			# Reach recovery is gradual and remains on the substrate.
+			if (leg.foot as Vector3).distance_to(desired) > float(m.wide) * 1.25:
+				leg.foot = (leg.foot as Vector3).move_toward(desired, delta * float(m.speed) * 0.35)
+		leg.was_stance = stance
+		leg.phase = phase
+		legs[leg_i] = leg
+		var socket: Vector3 = (c.pos as Vector3) + fwd * fore * float(m.length) * 0.78 \
+				+ side * flank * float(m.wide) * 0.36
+		gap_max = maxf(gap_max, socket.distance_to(socket))
+	c.leg_state = legs
+	c.support_legs = supports
+	c.leg_root_gap_max = gap_max
 
 
 ## §22 — THE HERO, RARELY AND MEANINGFULLY.
@@ -934,6 +1083,9 @@ func _push() -> void:
 	material.set_shader_parameter("critter_look", _look)
 	material.set_shader_parameter("critter_photo", _photo)
 	material.set_shader_parameter("critter_mechanical", _mechanical)
+	material.set_shader_parameter("crab_socket", _crab_socket)
+	material.set_shader_parameter("crab_knee", _crab_knee)
+	material.set_shader_parameter("crab_foot", _crab_foot)
 	material.set_shader_parameter("critter_count", n)
 	if field != null:
 		field.apply_to(material)
@@ -981,6 +1133,41 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 		var bobbing: float = float(m.get("body_bob", 0.0)) 				* (1.0 if bool(c.get("moving", false)) else 0.0)
 		_counts[i] = Vector4(float(m.limbs), float(m.feelers),
 				float(m.asymmetry), 1.0 + bobbing * sin(float(c.gait) * 2.0) * 0.06)
+		var draw_side := u.cross(f).normalized()
+		var legs: Array = c.get("leg_state", [])
+		var per_side := int(ceil(float(maxi(1, int(m.limbs))) * 0.5))
+		for leg_i in MAX_LIMBS:
+			var packed_i := i * MAX_LIMBS + leg_i
+			if plan < 1.5 or leg_i >= int(m.limbs):
+				_crab_socket[packed_i] = Vector4.ZERO
+				_crab_knee[packed_i] = Vector4.ZERO
+				_crab_foot[packed_i] = Vector4.ZERO
+				continue
+			var flank := -1.0 if leg_i < per_side else 1.0
+			var row_i := leg_i if leg_i < per_side else leg_i - per_side
+			var row_count := per_side if leg_i < per_side else int(m.limbs) - per_side
+			var row_t := float(row_i) / float(maxi(1, row_count - 1))
+			var fore := lerpf(0.40, -0.40, row_t)
+			var socket_world := p + f * fore * float(m.length) * 0.78 \
+					+ draw_side * flank * float(m.wide) * 0.36
+			var foot_world := p + f * fore * float(m.length) \
+					+ draw_side * flank * float(m.wide) * 1.05 - u * float(m.tall) * 0.52
+			var stance := true
+			if leg_i < legs.size() and not as_twin:
+				foot_world = legs[leg_i].foot
+				stance = bool(legs[leg_i].was_stance)
+			var knee_world := socket_world.lerp(foot_world, 0.48) \
+					+ u * float(m.tall) * (0.72 + 0.18 * sin(leg_i * 2.17)) \
+					+ draw_side * flank * float(m.wide) * 0.24
+			_crab_socket[packed_i] = _pack_local(socket_world - p, draw_side, u, f, 1.0)
+			_crab_knee[packed_i] = _pack_local(knee_world - p, draw_side, u, f, 0.0)
+			_crab_foot[packed_i] = _pack_local(foot_world - p, draw_side, u, f,
+					1.0 if stance else 0.0)
+
+
+func _pack_local(v: Vector3, side: Vector3, up: Vector3, fwd: Vector3,
+		w: float) -> Vector4:
+	return Vector4(v.dot(side), v.dot(up), v.dot(fwd), w)
 
 
 ## Only the crystal listener is the MBIO-1 fauna receptor. Other families
