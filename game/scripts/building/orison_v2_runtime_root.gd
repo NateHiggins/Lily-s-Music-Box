@@ -162,6 +162,10 @@ func _compose_service_round_props() -> void:
 	radiator.prop_type = "radiator"
 	radiator.unit = "2B"
 	radiator.riser = "H-B"
+	radiator.section_count = 10
+	radiator.installation_drop = 0.75
+	_retire_blockout_fixture("F02_B_RADIATOR_MASS")
+	_retire_blockout_fixture("F02_B_RADIATOR_USE")
 	_mount("F02_B_RADIATOR_01", radiator)
 	var boiler := BoilerProp.new()
 	boiler.prop_type = "boiler"
@@ -210,6 +214,20 @@ func _mount(identity: String, consumer: Node3D) -> void:
 	if not adapter.mount_consumer(identity, consumer):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: failed to mount " + identity)
+
+
+func _retire_blockout_fixture(identity: String) -> void:
+	# Gray-box fixture masses reserve space until the real production consumer
+	# is composed. Once mounted they must neither obscure nor collide with that
+	# authority; semantic anchors and clearance envelopes remain untouched.
+	var fixture := _blockout.find_child(identity, true, false) as Node3D
+	if fixture == null:
+		push_error("ORISON V2 RUNTIME: missing blockout fixture " + identity)
+		startup_failed = true
+		return
+	fixture.visible = false
+	for node: Node in fixture.find_children("*", "CollisionShape3D", true, false):
+		(node as CollisionShape3D).disabled = true
 
 func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
