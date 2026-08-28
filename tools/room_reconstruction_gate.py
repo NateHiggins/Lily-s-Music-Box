@@ -561,9 +561,10 @@ def run_gate(args, argv_echo):
         if not selected_paths and not deleted:
             selected_paths = []
     elif args.checkpoint:
-        selected_paths = [rel(args.checkpoint, root)]
-        if not Path(args.checkpoint).exists():
-            raise GateUsageError(f"checkpoint not found: {args.checkpoint}")
+        for p in args.checkpoint:
+            if not Path(p).exists():
+                raise GateUsageError(f"checkpoint not found: {p}")
+        selected_paths = sorted({rel(p, root) for p in args.checkpoint})
     else:
         selected_paths = sorted(
             rel(p, root) for p in corpus_dir.rglob(rc.CHECKPOINT_GLOB)
@@ -581,7 +582,7 @@ def run_gate(args, argv_echo):
 
         # 1. lint (selected documents only)
         lint_out = comp_dir / "lint"
-        lint_targets = ([args.checkpoint] if args.checkpoint
+        lint_targets = (list(args.checkpoint) if args.checkpoint
                         else [root / p for p in selected_paths]
                         if args.changed_since else [corpus_dir])
         lint_codes = []
@@ -754,8 +755,9 @@ def main(argv=None):
     parser = GateParser(
         description="One command to decide whether a room checkpoint is "
                     "landable (read-only; runs no Godot/Blender/tests)")
-    parser.add_argument("--checkpoint", type=Path,
-                        help="gate one checkpoint document (strict policy)")
+    parser.add_argument("--checkpoint", type=Path, action="append",
+                        help="gate this checkpoint document (strict policy; "
+                             "repeatable to gate a set together)")
     parser.add_argument("--changed-since", metavar="GIT_REF",
                         help="gate checkpoint/manifest documents changed "
                              "since this ref (strict policy)")
