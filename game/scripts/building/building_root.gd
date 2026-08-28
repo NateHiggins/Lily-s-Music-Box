@@ -263,7 +263,7 @@ var maintenance_inventory: MaintenanceInventory
 var shop_service: MaintenanceShopService
 var core_loop: CoreLoopDirector
 var service_round: ServiceRoundDirector
-var open_shift_ecosystem: OpenShiftRadiatorEcosystem
+var open_shift_ecosystem: Node
 var vantry_points: VantryPointNetwork
 var chirp_hunt: ChirpHunt
 var first_shift_director: FirstShiftDirector
@@ -335,6 +335,7 @@ func _ready() -> void:
 	# state, but the state exists before the first customer is constructed.
 	objective_tracker = ObjectiveTracker.new()
 	objective_tracker.name = "ObjectiveTracker"
+	objective_tracker.presentation_enabled = false
 	add_child(objective_tracker)
 	work_orders = WorkOrders.new()
 	work_orders.name = "WorkOrders"
@@ -693,7 +694,7 @@ func _ready() -> void:
 	service_round.name = "ServiceRoundDirector"
 	add_child(service_round)
 	service_round.setup(work_orders, self, player, service_set_carrier)
-	open_shift_ecosystem = OpenShiftRadiatorEcosystem.new()
+	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()
 	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
 	add_child(open_shift_ecosystem)
 	open_shift_ecosystem.setup(work_orders,

@@ -73,7 +73,7 @@ func advance_autonomy() -> void:
 	if bucket >= 3 and str(situation.state().resolution_kind).is_empty():
 		if radiator:
 			radiator.apply_open_shift_condition("porter_temporary_shutoff")
-		var residue := situation.state().residue.duplicate(true)
+		var residue: Dictionary = situation.state().residue.duplicate(true)
 		residue.merge({
 			"heat": "off_in_2b", "fault": "unrepaired",
 			"evidence": "porter_tag_on_valve",
@@ -97,7 +97,7 @@ func abandon_after(boundary: String) -> bool:
 		return false
 	situation.accept("help_implied")
 	situation.record_fact("abandonment_boundary", boundary)
-	var residue := situation.state().residue.duplicate(true)
+	var residue: Dictionary = situation.state().residue.duplicate(true)
 	match boundary:
 		"inspected":
 			situation.attend("inspected_then_left")

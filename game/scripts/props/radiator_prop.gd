@@ -386,29 +386,36 @@ func apply_open_shift_condition(condition: String) -> bool:
 		"worsening_hammer":
 			open_shift_condition = condition
 			set_pitch(-0.35)
-			play_ambient_cycle("knock", 1.0)
+			_play_open_shift_cycle("knock")
 		"porter_temporary_shutoff":
 			open_shift_condition = condition
 			set_supply_open(false)
 		"wrong_valve_partial":
 			open_shift_condition = condition
 			set_supply_position(0.42)
-			play_ambient_cycle("knock", 1.0)
+			_play_open_shift_cycle("knock")
 		"vent_removed":
 			open_shift_condition = condition
 			set_vent_grade(0)
-			play_ambient_cycle("whistle", 1.0)
+			_play_open_shift_cycle("whistle")
 		"opened_uncommitted":
 			open_shift_condition = condition
 			set_vent_grade(1)
 			set_supply_position(0.18)
-			play_ambient_cycle("hiss", 1.0)
+			_play_open_shift_cycle("hiss")
 		"sounding":
 			open_shift_condition = condition
 			set_supply_open(true)
 		_:
 			return false
 	return true
+
+
+func _play_open_shift_cycle(kind: String) -> void:
+	# Headless acceptance runs prove state and teardown, not an audio device.
+	# Gameplay still publishes the authored sound through the real prop owner.
+	if DisplayServer.get_name() != "headless":
+		play_ambient_cycle(kind, 1.0)
 
 
 func _update_balance() -> void:

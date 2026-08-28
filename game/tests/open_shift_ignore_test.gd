@@ -1,5 +1,7 @@
 extends Node
 
+const Ecosystem := preload("res://scripts/game/open_shift_radiator_ecosystem.gd")
+
 var failures := 0
 var minute := 300.0
 
@@ -10,13 +12,12 @@ func _ready() -> void:
 	var orders := WorkOrders.new()
 	orders.bind_job_library(MaintenanceJobLibrary.load_default())
 	add_child(orders)
-	_check(orders.adopt_job(ServiceRoundDirector.PREVIOUS_JOB_ID,
-			"found", "closed", []), "prior route fact opens the situation")
+	_check(_close_previous(orders), "prior route fact opens the situation")
 	var radiator := RadiatorProp.new()
 	radiator.prop_type = "radiator"
 	radiator.unit = "2B"
 	add_child(radiator)
-	var ecosystem := OpenShiftRadiatorEcosystem.new()
+	var ecosystem := Ecosystem.new()
 	add_child(ecosystem)
 	ecosystem.setup(orders, radiator, null, func(): return minute)
 	ecosystem._process(0.0)
@@ -42,7 +43,7 @@ func _ready() -> void:
 	reconstructed_radiator.prop_type = "radiator"
 	reconstructed_radiator.unit = "2B"
 	add_child(reconstructed_radiator)
-	var reconstructed := OpenShiftRadiatorEcosystem.new()
+	var reconstructed := Ecosystem.new()
 	add_child(reconstructed)
 	reconstructed.setup(orders, reconstructed_radiator, null,
 			func(): return minute)
@@ -51,6 +52,13 @@ func _ready() -> void:
 			"saved consequence reconstructs as a world fact")
 	_check(not RealityState.data.has("building_selector"),
 			"the situation remains root-agnostic")
+	reconstructed.queue_free()
+	reconstructed_radiator.queue_free()
+	ecosystem.queue_free()
+	radiator.queue_free()
+	orders.queue_free()
+	await get_tree().process_frame
+	await get_tree().process_frame
 	print("OPEN SHIFT IGNORE TEST: %s" % ("PASS" if failures == 0 else "FAIL"))
 	get_tree().quit(failures)
 
@@ -61,3 +69,15 @@ func _check(ok: bool, label: String) -> void:
 	else:
 		failures += 1
 		push_error("  FAIL  " + label)
+
+
+func _close_previous(orders: WorkOrders) -> bool:
+	var job := ServiceRoundDirector.PREVIOUS_JOB_ID
+	return orders.issue_job(job, "reported") \
+			and orders.acknowledge_job(job) \
+			and orders.diagnose_job(job) \
+			and orders.mark_job_awaiting_part(job) \
+			and orders.mark_job_repairable(job) \
+			and orders.record_job_repair(job, {
+				"quality": "good", "note": "closed fixture",
+			}) and orders.close_job(job)

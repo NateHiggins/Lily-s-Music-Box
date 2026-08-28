@@ -23,7 +23,7 @@ var safety_net: SafetyNet
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
-var open_shift_ecosystem: OpenShiftRadiatorEcosystem
+var open_shift_ecosystem: Node
 var watch_station_network: WatchStationNetwork
 var street_traffic: Node = null
 var elevator: Node = null
@@ -61,6 +61,7 @@ func _ready() -> void:
 func _compose_authorities() -> void:
 	objective_tracker = ObjectiveTracker.new()
 	objective_tracker.name = "ObjectiveTracker"
+	objective_tracker.presentation_enabled = false
 	add_child(objective_tracker)
 	work_orders = WorkOrders.new()
 	work_orders.name = "WorkOrders"
@@ -133,7 +134,7 @@ func _compose_authorities() -> void:
 	service_round.name = "ServiceRoundDirector"
 	add_child(service_round)
 	service_round.setup(work_orders, _blockout, player, service_set_carrier)
-	open_shift_ecosystem = OpenShiftRadiatorEcosystem.new()
+	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()
 	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
 	add_child(open_shift_ecosystem)
 	open_shift_ecosystem.setup(work_orders,
