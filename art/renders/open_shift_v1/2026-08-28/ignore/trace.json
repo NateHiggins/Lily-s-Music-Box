@@ -1,0 +1,12 @@
+{
+  "disposition": "IGNORE",
+  "timeline": ["radiator sounding", "neighbor notices after delay", "porter dispatched after delay", "porter shuts supply and tags valve"],
+  "intentionally_not_done": ["paper not taken", "radiator not inspected", "repair not claimed"],
+  "autonomous_events": ["riser hammer worsened", "neighbor complaint", "porter response"],
+  "physical_changes": ["2B heat shut off", "original fault unrepaired", "porter tag present"],
+  "npc_knowledge": ["neighbor heard hammer", "porter found unresolved fault", "resident knows porter came instead"],
+  "compensator_actions": ["temporary shutoff, not ideal repair"],
+  "save_reload_boundaries": ["v1-v1", "v2-v2", "v1-v2", "v2-v1"],
+  "ending_world_state": "cold but quieter apartment with social residue",
+  "future_intentions": ["reopen and diagnose", "explain", "leave shut", "help elsewhere"]
+}

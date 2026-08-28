@@ -1,0 +1,12 @@
+{
+  "disposition": "ABANDON",
+  "timeline": ["offer noticed", "one of five work boundaries reached", "player leaves", "evidence remains"],
+  "intentionally_not_done": ["repair not committed", "job not counterfeited closed"],
+  "autonomous_events": ["fault continues toward compensator thresholds"],
+  "physical_changes": ["inspection marks, missing service material, or opened-union hiss depending on boundary"],
+  "npc_knowledge": ["resident believes help began"],
+  "compensator_actions": ["may later find player evidence"],
+  "save_reload_boundaries": ["v1-v1", "v2-v2", "v1-v2", "v2-v1"],
+  "ending_world_state": "unfinished promise with boundary-specific residue",
+  "future_intentions": ["finish", "return material", "explain", "conceal", "allow compensation"]
+}

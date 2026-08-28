@@ -5,6 +5,7 @@ extends CanvasLayer
 var _panel: PanelContainer
 var _title: Label
 var _objective: Label
+var presentation_enabled := true
 
 
 func _ready() -> void:
@@ -32,6 +33,9 @@ func _ready() -> void:
 ## "WORK ORDER /" prefix here both stuttered and mis-titled non-work-order
 ## headings. Casing stays a presentation choice, as in TelegramHud.
 func show_objective(title_text: String, objective_text: String) -> void:
+	if not presentation_enabled:
+		clear()
+		return
 	_title.text = title_text.to_upper()
 	_objective.text = objective_text
 	_panel.visible = true

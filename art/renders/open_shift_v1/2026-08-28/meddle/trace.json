@@ -1,0 +1,12 @@
+{
+  "disposition": "MEDDLE",
+  "timeline": ["player turns plausible wrong valve", "sound and heat change", "neighbor notices"],
+  "intentionally_not_done": ["no diagnosis", "no valid repair completion"],
+  "autonomous_events": ["new riser hammer communicates interference"],
+  "physical_changes": ["supply left at 42 percent", "uneven heat", "fresh valve marks"],
+  "npc_knowledge": ["neighbor heard change", "resident knows heat changed but fault remains"],
+  "compensator_actions": ["porter remains available after escalation delay"],
+  "save_reload_boundaries": ["v1-v1", "v2-v2", "v1-v2", "v2-v1"],
+  "ending_world_state": "worsened but recoverable balance fault",
+  "future_intentions": ["restore valve", "diagnose", "admit interference", "walk away"]
+}

@@ -138,7 +138,7 @@ func _compose_authorities() -> void:
 	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
 	add_child(open_shift_ecosystem)
 	open_shift_ecosystem.setup(work_orders,
-			_blockout.get_node_or_null("F02_B_RADIATOR_01") as RadiatorProp,
+			_blockout.get_node_or_null(ServiceRoundDirector.RADIATOR_ID) as RadiatorProp,
 			service_round, Callable())
 	safety_net = SafetyNet.new()
 	safety_net.name = "SafetyNet"

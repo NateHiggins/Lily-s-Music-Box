@@ -1,0 +1,12 @@
+{
+  "disposition": "WORK",
+  "timeline": ["resident call", "heard radiator", "inspected evidence", "compared lobby and boiler", "repaired", "returned to resident"],
+  "intentionally_not_done": ["no forced route", "no mission banner"],
+  "autonomous_events": ["radiator continued sounding until physical repair"],
+  "physical_changes": ["vent seated", "supply fully open", "heat restoring"],
+  "npc_knowledge": ["resident saw visible patch"],
+  "compensator_actions": [],
+  "save_reload_boundaries": ["v1-v1", "v2-v2", "v1-v2", "v2-v1"],
+  "ending_world_state": "player repair; recurrence remains available",
+  "future_intentions": ["follow recurrence", "sleep", "socialize", "leave"]
+}

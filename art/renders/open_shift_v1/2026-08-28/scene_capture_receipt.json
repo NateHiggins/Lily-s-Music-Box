@@ -1,0 +1,43 @@
+{
+	"actual_frames": 4,
+	"budget_seconds": 54.0,
+	"captures": [
+		{
+			"elapsed_seconds": 1.045,
+			"file": "work/01_visible_committed_repair.png",
+			"height": 720,
+			"label": "work/01_visible_committed_repair",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 1.185,
+			"file": "ignore/01_porter_temporary_shutoff.png",
+			"height": 720,
+			"label": "ignore/01_porter_temporary_shutoff",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 1.305,
+			"file": "abandon/01_opened_uncommitted.png",
+			"height": 720,
+			"label": "abandon/01_opened_uncommitted",
+			"provenance": "rendered",
+			"width": 1280
+		},
+		{
+			"elapsed_seconds": 1.425,
+			"file": "meddle/01_wrong_valve_partial.png",
+			"height": 720,
+			"label": "meddle/01_wrong_valve_partial",
+			"provenance": "rendered",
+			"width": 1280
+		}
+	],
+	"elapsed_seconds": 1.44,
+	"expected_frames": 4,
+	"schema_version": 1,
+	"status": "PASS",
+	"tag": "ETHOS-OPEN-SHIFT-1"
+}
