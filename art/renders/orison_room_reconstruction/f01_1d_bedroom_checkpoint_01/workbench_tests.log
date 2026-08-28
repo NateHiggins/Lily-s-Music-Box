@@ -1,0 +1,34 @@
+test_occupancy_ratio_sane (__main__.AnalysisTests.test_occupancy_ratio_sane) ... ok
+test_routes_reach_anchor (__main__.AnalysisTests.test_routes_reach_anchor) ... ok
+test_free_rotation_uses_safe_square (__main__.AsmFootprintTests.test_free_rotation_uses_safe_square) ... ok
+test_table_rect_uses_declared_dims (__main__.AsmFootprintTests.test_table_rect_uses_declared_dims) ... ok
+test_unknown_assembly_reports_no_geometry (__main__.AsmFootprintTests.test_unknown_assembly_reports_no_geometry) ... ok
+test_yaw_90_swaps_half_extents (__main__.AsmFootprintTests.test_yaw_90_swaps_half_extents) ... ok
+test_identical_layouts_report_no_differences (__main__.CompareTests.test_identical_layouts_report_no_differences) ... ok
+test_moved_and_added_objects_reported (__main__.CompareTests.test_moved_and_added_objects_reported) ... ok
+test_emitted_files_are_byte_identical_across_runs (__main__.DeterminismTests.test_emitted_files_are_byte_identical_across_runs) ... ok
+test_packet_json_sorted_and_loadable (__main__.DeterminismTests.test_packet_json_sorted_and_loadable) ... ok
+test_unresolved_facts_include_unknown_footprints (__main__.DeterminismTests.test_unresolved_facts_include_unknown_footprints) ... ok
+test_each_zone_states_eligibility_and_protection (__main__.DetritusTests.test_each_zone_states_eligibility_and_protection) ... ok
+test_office_gets_swept_clean_not_resident_accumulation (__main__.DetritusTests.test_office_gets_swept_clean_not_resident_accumulation) ... ok
+test_zones_avoid_door_sweeps (__main__.DetritusTests.test_zones_avoid_door_sweeps) ... ok
+test_adjacent_room_probe (__main__.DoorGeometryTests.test_adjacent_room_probe) ... ok
+test_default_swing_sweeps_counterclockwise_in_plan (__main__.DoorGeometryTests.test_default_swing_sweeps_counterclockwise_in_plan) ... ok
+test_swing_out_reverses_the_arc (__main__.DoorGeometryTests.test_swing_out_reverses_the_arc) ... ok
+test_vertical_door_latch_direction (__main__.DoorGeometryTests.test_vertical_door_latch_direction) ... ok
+test_missing_generator_degrades_gracefully (__main__.ProductionTableMirrorTests.test_missing_generator_degrades_gracefully) ... ok
+test_tables_load_from_generator_source (__main__.ProductionTableMirrorTests.test_tables_load_from_generator_source) ... ok
+test_art_frame_pairing (__main__.RoomViewTests.test_art_frame_pairing) ... ok
+test_boundary_crossing_and_ambiguity (__main__.RoomViewTests.test_boundary_crossing_and_ambiguity) ... ok
+test_envelope_room_is_not_ambiguous (__main__.RoomViewTests.test_envelope_room_is_not_ambiguous) ... ok
+test_no_position_record_reported (__main__.RoomViewTests.test_no_position_record_reported) ... ok
+test_overlap_detection (__main__.RoomViewTests.test_overlap_detection) ... ok
+test_pipe_projected_as_segment (__main__.RoomViewTests.test_pipe_projected_as_segment) ... ok
+test_rug_and_overhead_are_not_blocking (__main__.RoomViewTests.test_rug_and_overhead_are_not_blocking) ... ok
+test_unknown_footprint_is_reported_not_drawn (__main__.RoomViewTests.test_unknown_footprint_is_reported_not_drawn) ... ok
+test_wall_near_miss_detected (__main__.RoomViewTests.test_wall_near_miss_detected) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.400s
+
+OK

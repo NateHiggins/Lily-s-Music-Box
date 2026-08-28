@@ -554,7 +554,7 @@ def rug_box(f, uid, x, y, w, d, mat):
 
 
 def bed_set(f, uid, x, y, along_x=True, w=1.50, l=2.05,
-            mat_blanket="fabric_warm"):
+            mat_blanket="fabric_warm", nightstand_far=True):
     """Spool bed; (x, y) is the min corner, head at -x (along_x) or +y."""
     if along_x:
         _asm(f, uid, "bed", x + l / 2, y + w / 2, -90, W=w, L=l,
@@ -563,7 +563,8 @@ def bed_set(f, uid, x, y, along_x=True, w=1.50, l=2.05,
     else:
         _asm(f, uid, "bed", x + w / 2, y + l / 2, 180, W=w, L=l,
              blanket=mat_blanket)
-        _asm(f, uid + "_ns", "nightstand", x + w + 0.31, y + l - 0.33, -90)
+        ns_x = x + w + 0.31 if nightstand_far else x - 0.31
+        _asm(f, uid + "_ns", "nightstand", ns_x, y + l - 0.33, -90)
 
 
 def sofa_set(f, uid, x, y, L=1.95, along_x=True, back_far=True,
@@ -1582,7 +1583,8 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
                       0.7, True)
         else:             # D: bed heads against the bedroom partition
             bed_set(f, "%s_bed%d" % (unit, i), bx1 - 2.0, by1 - 2.15,
-                    False, mat_blanket=pal["sofa"])
+                    False, mat_blanket=pal["sofa"],
+                    nightstand_far=(floor_id != "F01"))
             # 6.30, not 4.50. At 4.50 the carcass sat x[9.15,10.45] against
             # a window spanning x[8.90,10.26] and covered 1.105 m of its
             # 1.35 m -- 82% of the only daylight in 1D, 3D and 4D, on a wall
