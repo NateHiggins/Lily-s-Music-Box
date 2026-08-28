@@ -1,0 +1,1351 @@
+{
+ "contract": "design/INTERACTION_CONTRACT_2026-08-27.md (T10)",
+ "entries": [
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "building/light_debug_handle.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/light_debug_handle.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/light_debug_handle.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "debug-only"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "building/maintenance_headquarters.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/maintenance_headquarters.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/maintenance_headquarters.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "building/room0.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/room0.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/room0.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "building/switch_plate.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/switch_plate.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/switch_plate.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_area",
+   "action_owner": "same node",
+   "action_source": "building/wayfinding_signage_pass.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/wayfinding_signage_pass.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/wayfinding_signage_pass.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "composed/interact-area",
+   "rationale": "composed dispatch through interact_area",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "call/desk_zone.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "call/desk_zone.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "call/desk_zone.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "cases/case_interactable.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "cases/case_interactable.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "cases/case_interactable.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "characters/animated_resident.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "characters/animated_resident.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "characters/animated_resident.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "characters/npc_placeholder.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "characters/npc_placeholder.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "characters/npc_placeholder.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "debug-only"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "game/maintenance_shop_counter.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "game/maintenance_shop_counter.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "game/maintenance_shop_counter.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/arcade_cabinet_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/arcade_cabinet_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/arcade_cabinet_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/baked_furniture_interaction.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/baked_furniture_interaction.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/baked_furniture_interaction.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/baked_furniture_interaction.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/baked_furniture_interaction.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/baked_furniture_interaction.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/bar_seat_zone.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/bar_seat_zone.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/bar_seat_zone.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/bench_zone.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/bench_zone.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/bench_zone.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/bodega_signage_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/bodega_signage_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/bodega_signage_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/boiler_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/boiler_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/boiler_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/boiler_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/boiler_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/boiler_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/bookshelf_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/bookshelf_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/bookshelf_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/boxfan_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/boxfan_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/boxfan_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/building_entry_sign.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/building_entry_sign.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/building_entry_sign.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/case_door_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/case_door_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/case_door_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/clock_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/clock_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/clock_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/darts_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/darts_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/darts_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/dead_letters_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/dead_letters_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/dead_letters_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/domestic_radio_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/domestic_radio_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/domestic_radio_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/domestic_witness_clock.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/domestic_witness_clock.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/domestic_witness_clock.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/door_anomaly_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/door_anomaly_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/door_anomaly_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/door_check_closer_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/door_check_closer_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/door_check_closer_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/door_check_closer_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/door_check_closer_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/door_check_closer_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/door_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/door_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/door_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/dumbwaiter_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/dumbwaiter_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/dumbwaiter_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/elevator_interlock_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/elevator_interlock_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/elevator_interlock_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/entrance_marquee_dress.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/entrance_marquee_dress.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/entrance_marquee_dress.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/exhaust_fan_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/exhaust_fan_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/exhaust_fan_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/fire_line_cabinet_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/fire_line_cabinet_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/fire_line_cabinet_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/fire_line_cabinet_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/fire_line_cabinet_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/fire_line_cabinet_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/flue_breast_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/flue_breast_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/flue_breast_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/fortune_answer_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/fortune_answer_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/fortune_answer_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/fridge_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/fridge_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/fridge_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/fuse_panel_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/fuse_panel_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/fuse_panel_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/harukiya_signage_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/harukiya_signage_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/harukiya_signage_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/house_switchboard_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/house_switchboard_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/house_switchboard_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/inspectable_zone.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/inspectable_zone.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/inspectable_zone.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/kettle_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/kettle_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/kettle_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/lamp_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/lamp_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/lamp_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/laundry_airer_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/laundry_airer_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/laundry_airer_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/lobby_bulletin_board.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/lobby_bulletin_board.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/lobby_bulletin_board.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/lobby_orison_ad_board.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/lobby_orison_ad_board.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/lobby_orison_ad_board.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/mail_bank_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/mail_bank_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/mail_bank_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "parent/delegate",
+   "action_source": "props/mail_box_zone.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/mail_box_zone.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/mail_box_zone.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "parent/delegate action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/mail_chute_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/mail_chute_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/mail_chute_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/medicine_cabinet_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/medicine_cabinet_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/medicine_cabinet_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/monitor_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/monitor_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/monitor_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/neon_sign_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/neon_sign_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/neon_sign_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/night_register_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/night_register_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/night_register_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/night_register_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/night_register_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/night_register_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/otis_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/otis_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/otis_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/otis_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/otis_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/otis_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/passage_pushcart.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/passage_pushcart.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/passage_pushcart.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/point_ball_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/point_ball_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/point_ball_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/possessed_domestic_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/possessed_domestic_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/possessed_domestic_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "inherited base",
+   "action_source": "props/tv_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/projector_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/projector_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "inherited from props/tv_prop.gd via extends chain",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "adapter target",
+   "action_source": "parent mechanism (runtime parent)",
+   "extraction": "infrastructure/adapter",
+   "family": "interact_prompt",
+   "file": "props/prop_control_area.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/prop_control_area.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "delegates prompt and action to the parent mechanism's named-control protocol",
+   "role": "adapter"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/radiator_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/radiator_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/radiator_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/roof_tank_ballcock_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/roof_tank_ballcock_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/roof_tank_ballcock_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/shop_sign_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/shop_sign_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/shop_sign_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/soda_acid_extinguisher_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/soda_acid_extinguisher_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/soda_acid_extinguisher_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/soda_acid_extinguisher_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/songbook_terminal_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/songbook_terminal_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/songbook_terminal_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/stove_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/stove_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/stove_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/tap_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/tap_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/tap_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/toaster_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/toaster_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/toaster_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/tour_key_guard_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/tour_key_guard_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/tour_key_guard_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/tour_key_guard_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/tour_key_guard_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/tour_key_guard_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/tv_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/tv_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/tv_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/vantry_point_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/vantry_point_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/vantry_point_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/washer_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/washer_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/washer_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/watch_register_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/watch_register_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/watch_register_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/watch_register_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/watch_register_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/watch_register_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/watch_station_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/watch_station_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/watch_station_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/watch_station_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/watch_station_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/watch_station_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "same node action (interact) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/watchman_clock_prop.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/watchman_clock_prop.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/watchman_clock_prop.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "reality/organism_incidents.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "reality/organism_incidents.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "reality/organism_incidents.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "inner-class implementor; same-file pairing assumed (source tracing does not resolve inner-class scopes)",
+   "role": "production"
+  }
+ ],
+ "policy": "drift detector, not an interface; classifications authorize nothing.  Extraction dispositions are defaults for the post-EA boundary review.",
+ "version": 1
+}
