@@ -22,6 +22,9 @@ void vertex() {
 	cell_pos = VERTEX;
 	cell_nrm = NORMAL;
 	float breath = cellular_state_b.y * sin(cellular_time * 1.35 + VERTEX.x * 3.0) * .018;
+	float pioneer = 1.0 - step(.5, membrane_role);
+	float front = smoothstep(.12,.88,UV.y) * cellular_state_a.z;
+	VERTEX.xz += NORMAL.xz * pioneer * front * sin(UV.x * 12.0 + cellular_time * .35) * .028;
 	VERTEX += NORMAL * breath * (1.0 - cellular_state_c.y);
 }
 
@@ -35,6 +38,9 @@ void fragment() {
 	float domain = membrane.x;
 	float thickness = clamp(membrane.y,0.,1.);
 	vec3 color = mix(membrane_dark, membrane_lit, .24 + domain * .52 + thickness * .18);
+	float pioneer = 1.0 - step(.5, membrane_role);
+	float adhesion = smoothstep(.90,.98,cell_value(cell_pos * 19.0 + cellular_seed)) * pioneer;
+	color += signal_color * adhesion * cellular_state_a.z * .18;
 	color = mix(color, cytoplasm_color, membrane.w * (.38 + cellular_state_a.y * .34));
 	color += signal_color * (membrane.z * .22 + transport.x * .65 + transport.y * .18 + transport.z * .45);
 	color = mix(color, vec3(.12,.055,.075), cellular_state_c.x * .64 + cellular_state_c.y * .32);
