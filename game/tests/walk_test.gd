@@ -815,9 +815,12 @@ func _plumbing_checks() -> void:
 			"baked_furniture_interactions").filter(func(owner):
 		return owner is BakedFurnitureInteraction \
 				and owner.furniture_kind == "wardrobe")
-	_check(wardrobe_owners.size() == 21,
-			"all 21 wardrobe records own one paired-leaf mechanism")
-	if wardrobe_owners.size() == 21:
+	# Juno's declared 2C recording-room conversion removes the spare room's
+	# generic wardrobe together with its second bed.  Twenty private wardrobes
+	# remain, and every one still needs its paired-leaf mechanism.
+	_check(wardrobe_owners.size() == 20,
+			"all 20 wardrobe records own one paired-leaf mechanism")
+	if wardrobe_owners.size() == 20:
 		var sample_wardrobe := wardrobe_owners[0] as BakedFurnitureInteraction
 		var wardrobe_card: Dictionary = sample_wardrobe.interact(root.player)
 		_check(sample_wardrobe._wardrobe_rattle.playing

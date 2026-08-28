@@ -1571,6 +1571,12 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         bx0, by0, bx1, by1 = br
         bcy = (by0 + by1) / 2.0
         bcx = (bx0 + bx1) / 2.0
+        # Juno lives alone.  Her profile explicitly converts 2C's second
+        # generic bedroom into a fixed, improvised recording room; emitting
+        # the standard bed/wardrobe/art set here made the declared conversion
+        # impossible before her studio layer even ran.
+        if unit == "2C" and i == 1:
+            continue
         if stack == "C":  # C beds head against the rear (north) wall
             bed_set(f, "%s_bed%d" % (unit, i), bcx - 0.75, by1 - 2.15,
                     False, mat_blanket=pal["sofa"])
@@ -1741,6 +1747,46 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         mk("speaker", 2, x1 - 0.6, cy - 2.2, 0.0, -90)
         chair_box(f, "2C_benchstool", cx - 0.35, cy - 1.35, "s")
         mk("monitor", 1, cx - 0.4, cy - 0.3, 0.76, 180)
+
+        # The east spare bedroom is the recording room declared by Juno's
+        # life profile.  These are rigid wall-fixed absorbers and ordinary
+        # props, never simulated drapery: a clear central mic position, one
+        # instrument stand, routed floor cable and a crate/shelf archive of
+        # the session whose credit was taken.
+        rbx0, rby0, rbx1, rby1 = rooms["bedrooms"][1]
+        _furn_box(f, "2C_recording_blanket_w", rbx0 + 0.055, rby0 + 1.40,
+                  0.04, 1.55, 0.28, 1.72, "fabric_cool", False)
+        _furn_box(f, "2C_recording_blanket_n", rbx0 + 0.92,
+                  rby1 - 0.095, 1.02, 0.04, 0.28, 1.72,
+                  "fabric_cool", False)
+        _furn_box(f, "2C_recording_blanket_n_batten_l", rbx0 + 0.89,
+                  rby1 - 0.105, 0.04, 0.06, 0.25, 1.78,
+                  "wood_dark", False)
+        _furn_box(f, "2C_recording_blanket_n_batten_r", rbx0 + 1.93,
+                  rby1 - 0.105, 0.04, 0.06, 0.25, 1.78,
+                  "wood_dark", False)
+        _furn_box(f, "2C_recording_blanket_e", rbx1 - 0.095,
+                  rby0 + 0.82, 0.04, 1.38, 0.28, 1.72,
+                  "fabric_cool", False)
+        _furn_box(f, "2C_recording_blanket_e_batten_s", rbx1 - 0.105,
+                  rby0 + 0.79, 0.06, 0.04, 0.25, 1.78,
+                  "wood_dark", False)
+        _furn_box(f, "2C_recording_blanket_e_batten_n", rbx1 - 0.105,
+                  rby0 + 2.19, 0.06, 0.04, 0.25, 1.78,
+                  "wood_dark", False)
+        shelf_unit(f, "2C_recording_archive_shelf", rbx0 + 0.14,
+                   rby0 + 0.22, 1.05, False, d=0.28, books=False,
+                   face="e")
+        _asm(f, "2C_recording_stolen_session", "crate", rbx0 + 1.27,
+             rby1 - 0.48, -6, records=True)
+        _asm(f, "2C_recording_mic", "micstand", rbx0 + 2.10,
+             rby0 + 1.75, 8)
+        _asm(f, "2C_recording_guitar", "guitar", rbx1 - 0.55,
+             rby1 - 0.58, 172)
+        _asm(f, "2C_recording_cable_coil", "cablecoil", rbx0 + 1.30,
+             rby0 + 1.05, 24, r=0.13)
+        _furn_box(f, "2C_recording_cable_run", rbx0 + 1.18, rby0 + 1.02,
+                  1.15, 0.035, 0.012, 0.018, "bakelite", False)
     elif unit == "3B":  # Omar: repair shop by category
         # bench cluster sits south of the alcove privacy stub at y1-3.15
         # It used to sit directly over both radiator fittings. The whole

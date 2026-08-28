@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "decisions": [
+    {"room": "F02_C_BED2", "object": "2C_bed1", "verdict": "REMOVE", "rationale": "Remove the spare bed during Juno's recording-room conversion."},
+    {"room": "F02_C_BED2", "object": "2C_bed1_ns", "verdict": "REMOVE", "rationale": "Remove the spare bedroom nightstand."},
+    {"room": "F02_C_BED2", "object": "2C_w1_wardrobe", "verdict": "REMOVE", "rationale": "Remove the spare bedroom wardrobe; Juno retains clothes storage in BED1."},
+    {"room": "F02_C_BED2", "object": "2C_bart1_art", "verdict": "REMOVE", "rationale": "Remove the generic bedroom picture face."},
+    {"room": "F02_C_BED2", "object": "2C_bart1_artf", "verdict": "REMOVE", "rationale": "Remove the generic bedroom picture frame rail."},
+    {"room": "F02_C_BED2", "object": "2C_bart1_artf2", "verdict": "REMOVE", "rationale": "Remove the generic bedroom picture frame rail."},
+    {"room": "F02_C_BED2", "object": "2C_bart1_artfl", "verdict": "REMOVE", "rationale": "Remove the generic bedroom picture frame stile."},
+    {"room": "F02_C_BED2", "object": "2C_bart1_artfr", "verdict": "REMOVE", "rationale": "Remove the generic bedroom picture frame stile."}
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "claim_id": "F02_JUNO_SHOT",
+      "rooms": ["F02_C_MAIN", "F02_C_BED1", "F02_C_BED2", "F02_C_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_juno_checkpoint_02/scene_capture_receipt.json",
+      "artifact_kind": "path",
+      "expected_schema": "scene_capture_receipt.json",
+      "expected_scene": "ORISON-RR-F02-JUNO",
+      "expected_output_count": 8,
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_JUNO_LIGHTING",
+      "rooms": ["F02_C_MAIN", "F02_C_BED1", "F02_C_BED2", "F02_C_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_juno_checkpoint_02/lighting_audit.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_JUNO_WALK",
+      "rooms": ["F02_C_MAIN", "F02_C_BED1", "F02_C_BED2", "F02_C_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_juno_checkpoint_02/walk_fast.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_JUNO_MAIN_ROUTE",
+      "rooms": ["F02_C_MAIN"],
+      "artifact_kind": "manual",
+      "manual_visual_proof_required": true
+    }
+  ]
+}
