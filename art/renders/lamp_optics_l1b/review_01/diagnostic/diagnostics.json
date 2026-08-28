@@ -1,0 +1,58 @@
+{
+  "camera": {
+    "fov": 58.0,
+    "position": "(9.2, 4.8, 0.8)"
+  },
+  "ecology_visual_layer": 1,
+  "environment": {
+    "density": 0.0000999999974737875,
+    "exposure": 1.17999994754791,
+    "length": 16.0,
+    "reprojection": 0.579999983310699,
+    "tonemapper": 3
+  },
+  "fog_volume": {
+    "density_gain": null,
+    "shape": 1,
+    "size": "(10.08, 10.08, 14.0)",
+    "transform": "[X: (0.934488, 0.0, 0.355995), Y: (0.042467, 0.992859, -0.111476), Z: (-0.353453, 0.119291, 0.927815), O: (-1.275827, 1.314967, -2.094705)]"
+  },
+  "particle_visibility_aabb": "[P: (-3.5, -3.5, -14.0), S: (7.0, 7.0, 14.0)]",
+  "spotlight": {
+    "attenuation": 1.35000002384186,
+    "color": "(1.0, 0.6749, 0.3887, 1.0)",
+    "cone_half_angle_deg": 35.2097015380859,
+    "cull_mask": 4294967295,
+    "direction": "(0.353453, -0.119291, -0.927815)",
+    "energy": 7.97414016723633,
+    "position": "(-3.75, 2.15, 4.4)",
+    "range_m": 14.0,
+    "shadow_enabled": true
+  },
+  "targets": {
+    "Brass": {
+      "axis_angle_deg": 9.01968383523545,
+      "distance_m": 11.1053771972656,
+      "inside_cone": true,
+      "position": "(1.75, 0.78, -5.15)"
+    },
+    "GlossyDark": {
+      "axis_angle_deg": 1.12813212393891,
+      "distance_m": 10.3520479202271,
+      "inside_cone": true,
+      "position": "(-0.15, 0.72, -5.2)"
+    },
+    "MatteWhite": {
+      "axis_angle_deg": 10.8384858282373,
+      "distance_m": 9.55287456512451,
+      "inside_cone": true,
+      "position": "(-2.1, 0.72, -4.9)"
+    },
+    "TranslucentWax": {
+      "axis_angle_deg": 16.1054964161147,
+      "distance_m": 11.8549098968506,
+      "inside_cone": true,
+      "position": "(3.35, 0.82, -5.0)"
+    }
+  }
+}

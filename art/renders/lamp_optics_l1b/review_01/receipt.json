@@ -1,0 +1,31 @@
+{
+  "acceptance_images": 6,
+  "active_lights": 1,
+  "capture_readback_and_png_ms_total": 634.986,
+  "controller_gate_ms": 0.2,
+  "device": "NVIDIA GeForce RTX 4080",
+  "draw_calls_median": 25.0,
+  "exposure": 1.18,
+  "fog_settings": {
+    "global_density": 0.0001,
+    "length_m": 16.0,
+    "local_density_gain": 0.055,
+    "reprojection_amount": 0.58,
+    "volume_depth": "project default",
+    "volume_size": "project default"
+  },
+  "fog_volume_count": 1,
+  "gpu_timing_attempt": "Godot Performance exposes draw/CPU monitors but no stable per-viewport GPU timestamp in this build; RenderingDevice timestamps require an invasive renderer capture and were not fabricated.",
+  "gpu_timing_ms": null,
+  "optical_controller_cpu_ms_per_update": 0.00354215,
+  "packet": "LAMP-OPTICS-L1B/review_01",
+  "particles_high_tier": 144,
+  "renderer": "forward_plus",
+  "resolution": "1600x900",
+  "shadowed_lights": 1,
+  "tonemapper": "ACES",
+  "vram_after_bytes": 5397219248,
+  "vram_before_bytes": 0,
+  "vram_delta_bytes": 5397219248,
+  "warm_total_cpu_ms_median": 39.929
+}

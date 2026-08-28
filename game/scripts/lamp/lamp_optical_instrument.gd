@@ -21,6 +21,7 @@ var _fog_material: ShaderMaterial
 func _ready() -> void:
 	state.configure(seed, true)
 	_build_filament()
+	_build_housing()
 	_build_primary_light()
 	_build_volume()
 	_build_particles()
@@ -79,10 +80,43 @@ func _build_primary_light() -> void:
 	light.spot_attenuation = 1.35
 	light.spot_angle_attenuation = 1.55
 	light.light_energy = base_energy
-	light.light_volumetric_fog_energy = 2.2
+	light.light_volumetric_fog_energy = 9.0
 	light.shadow_blur = 1.5
 	light.light_projector = null
 	add_child(light)
+
+
+func _build_housing() -> void:
+	var shell := MeshInstance3D.new()
+	shell.name = "PeriodReflectorHousing"
+	var cone := CylinderMesh.new()
+	cone.top_radius = 0.16
+	cone.bottom_radius = 0.34
+	cone.height = 0.32
+	shell.mesh = cone
+	shell.position.z = 0.10
+	shell.rotation_degrees.x = 90.0
+	var metal := StandardMaterial3D.new()
+	metal.albedo_color = Color("4a3521")
+	metal.metallic = 0.72
+	metal.roughness = 0.24
+	shell.material_override = metal
+	add_child(shell)
+	var lens := MeshInstance3D.new()
+	lens.name = "ScratchedLens"
+	var disc := CylinderMesh.new()
+	disc.top_radius = 0.155
+	disc.bottom_radius = 0.155
+	disc.height = 0.012
+	lens.mesh = disc
+	lens.position.z = -0.075
+	lens.rotation_degrees.x = 90.0
+	var glass := StandardMaterial3D.new()
+	glass.albedo_color = Color(0.52, 0.34, 0.18, 0.42)
+	glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	glass.roughness = 0.19
+	lens.material_override = glass
+	add_child(lens)
 
 
 func _build_volume() -> void:
@@ -104,7 +138,7 @@ func _build_particles() -> void:
 		return
 	particles = GPUParticles3D.new()
 	particles.name = "BoundedAirborneMatter"
-	particles.amount = 56 if quality_tier == 1 else 96
+	particles.amount = 80 if quality_tier == 1 else 144
 	particles.lifetime = 7.0
 	particles.visibility_aabb = AABB(Vector3(-3.5, -3.5, -range_m),
 			Vector3(7.0, 7.0, range_m))
@@ -116,14 +150,14 @@ func _build_particles() -> void:
 	process.initial_velocity_min = 0.015
 	process.initial_velocity_max = 0.055
 	process.gravity = Vector3(0.0, 0.012, 0.0)
-	process.scale_min = 0.006
-	process.scale_max = 0.022
+	process.scale_min = 0.55
+	process.scale_max = 1.65
 	particles.process_material = process
 	var quad := QuadMesh.new()
-	quad.size = Vector2(0.018, 0.018)
+	quad.size = Vector2(0.026, 0.026)
 	var mat := StandardMaterial3D.new()
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
-	mat.albedo_color = Color(0.86, 0.72, 0.46, 0.72)
+	mat.albedo_color = Color(0.92, 0.82, 0.64, 0.58)
 	mat.metallic = 0.18
 	mat.roughness = 0.30
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -145,7 +179,7 @@ func _apply_output() -> void:
 	light.spot_angle = o.cone_angle_deg
 	# Damp short electrical events in the reprojection history.
 	light.light_volumetric_fog_energy = (0.0 if state.instability > 0.42
-			else 2.2 * float(o.volumetric_multiplier))
+			else 9.0 * float(o.volumetric_multiplier))
 	_filament_material.emission = o.color
 	_filament_material.emission_energy_multiplier = float(o.filament_emission)
 	if _fog_material:

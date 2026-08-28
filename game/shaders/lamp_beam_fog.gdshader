@@ -23,19 +23,20 @@ float value_noise(vec3 p) {
 }
 
 void fog() {
-	vec3 p = OBJECT_POSITION;
-	float radial = length(p.xy);
-	float edge = smoothstep(0.98, 0.42, radial);
-	float along = clamp(-p.z, 0.0, 1.0);
-	vec3 convected = p * vec3(4.0, 5.0, 2.2)
+	vec3 p = WORLD_POSITION;
+	float along = clamp(UVW.z, 0.0, 1.0);
+	// SDF is negative inside the real cone. Fade its outer 18 cm rather than
+	// drawing a second transparent cone mesh.
+	float edge = 1.0 - smoothstep(-0.18, 0.0, SDF);
+	vec3 convected = p * vec3(1.4, 2.2, 1.1)
 		+ vec3(0.0, optical_time * 0.075, optical_time * 0.025);
 	float dust = value_noise(convected) * 0.58
 		+ value_noise(convected * 2.07 + 9.0) * 0.22;
-	float lens_grime = value_noise(vec3(p.xy * 8.0, 2.4)) * grime;
+	float lens_grime = value_noise(vec3(UVW.xy * 8.0, 2.4)) * grime;
 	float convection = smoothstep(0.25, 0.9,
 		value_noise(convected * vec3(0.7, 1.8, 0.7)));
-	float bounded = edge * smoothstep(0.02, 0.12, along)
-		* smoothstep(1.0, 0.82, along);
+	float bounded = edge * smoothstep(0.01, 0.10, along)
+		* (1.0 - smoothstep(0.84, 1.0, along));
 	DENSITY = density_gain * lamp_output * bounded
 		* (0.34 + dust + lens_grime * (1.0 - along) + smoke * convection);
 	ALBEDO = vec3(0.96, 0.78, 0.54);
