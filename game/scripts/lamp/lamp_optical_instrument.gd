@@ -2,14 +2,17 @@ class_name LampOpticalInstrument
 extends Node3D
 ## Opt-in L1 review instrument. It owns presentation, never switch/game rules.
 
+const LampState = preload("res://scripts/lamp/lamp_optical_state.gd")
+
 signal optical_observation(observation: Dictionary)
 
 @export var seed := 0x28A11CE
 @export_range(0, 2) var quality_tier := 1
 @export var base_energy := 4.2
 @export var range_m := 9.0
+@export_range(0.0, 1.0) var ether_spectral_component := 0.0
 
-var state := LampOpticalState.new()
+var state = LampState.new()
 var light: SpotLight3D
 var fog_volume: FogVolume
 var filament: MeshInstance3D
@@ -39,8 +42,23 @@ func _physics_process(delta: float) -> void:
 	state.advance(delta)
 	_apply_output(delta)
 	if Engine.get_physics_frames() % 6 == 0:
-		optical_observation.emit(state.observation(global_position,
-				-global_transform.basis.z, 1.0))
+		optical_observation.emit(observation_payload())
+
+
+## Read-only stimulus packet. Consumers remain responsible for interpretation;
+## this node never writes ecology state or selects organism behavior.
+func observation_payload(occlusion_confidence := 1.0) -> Dictionary:
+	var result:Dictionary = state.observation(global_position,
+			-global_transform.basis.z, occlusion_confidence)
+	var output:Dictionary = state.output()
+	result["spectral_balance"] = result.spectral_bands
+	result["color_temperature_k"] = output.color_temperature_k
+	result["flicker_phase"] = fposmod(state.simulation_time_s * 9.0, 1.0)
+	result["flicker_amplitude"] = state.instability
+	result["beam_direction"] = result.direction
+	result["local_thermal_contribution"] = result.heat_contribution
+	result["ether_spectral_component"] = ether_spectral_component
+	return result
 
 
 func set_powered(on: bool) -> void:
@@ -56,7 +74,7 @@ func save_optical_state() -> Dictionary:
 
 
 func restore_optical_state(data: Dictionary) -> bool:
-	var ok := state.restore_state(data)
+	var ok:bool = state.restore_state(data)
 	if ok:
 		_apply_output(FOG_UPDATE_INTERVAL)
 	return ok
