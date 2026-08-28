@@ -22,7 +22,10 @@ func _ready() -> void:
 	player = root.get("player") as PlayerController
 	player.set_physics_process(false)
 	player.set_process_unhandled_input(false)
-	player.set_lamp_enabled(true)
+	# The room circuit is the evidence light. A player-lamp projector here can
+	# stamp its asynchronously baked cookie onto the wall during capture and
+	# turn unrelated surface imagery into apparent room dressing.
+	player.set_lamp_enabled(false)
 	_hide_overlays(root)
 	if "sanity" in root and root.sanity:
 		root.sanity.stand_down()

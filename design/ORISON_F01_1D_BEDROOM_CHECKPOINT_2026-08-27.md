@@ -26,6 +26,9 @@ exterior storm effect, remains correctly outside room ownership.
 Player-height evidence is in
 `art/renders/orison_room_reconstruction/f01_1d_bedroom_checkpoint_01/`:
 `00_bedroom_from_door.png` and `01_bedside_clearance.png`.
+The proof suite uses the room circuit alone. Its former redundant player lamp
+could stamp an asynchronously baked rug-like cookie across the wall; the clean
+fixture-only recapture replaces both affected committed frames.
 
 ## Validation
 
