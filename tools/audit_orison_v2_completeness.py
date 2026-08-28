@@ -348,17 +348,59 @@ M08D_PROVEN_PARITY_IDS = [
     "LobbyPorterBoard", "F01_HOUSE_TELEPHONE_BOARD",
     "LobbyServiceDumbwaiter"]
 
-# A checkpoint naming an identifier as MISSING is a mention, not a proof.
-# The M08C/M08D documents backtick the ritual/2B/B1 dependencies while
-# stating none is present; those mentions must never grant a proof tier,
-# even after the ids later come into existence (M08E built them
-# spatially; only an M08F-class runtime checkpoint proves them at
-# runtime).
+# --- Chronological evidence policy -----------------------------------
+# Milestone documents carry an epoch derived from their name (longest
+# marker wins).  A checkpoint stating an identifier is ABSENT is negative
+# evidence AS OF ITS EPOCH: it suppresses backtick mentions from the same
+# or earlier epochs (reported as conflicts, never silently resolved) and
+# is superseded by genuinely later evidence.  A historical mention alone
+# never becomes positive proof: backtick mentions in ANY checkpoint cap
+# at SPATIALLY_PROVEN.  RUNTIME_PROVEN comes only from (a) the curated
+# M08D twelve-anchor census, or (b) a runtime-composition checkpoint's
+# structured claims (identifier + production authority + save/durable
+# owner + teardown owner in its composition table) validated by that
+# packet's passing runtime_authority_receipt.json.
+DOC_EPOCH_MARKERS = [
+    ("SCHEMA_GENERATOR", 0), ("VERTICAL_CORE", 1), ("GRAYBOX", 2),
+    ("M08E_A", 8), ("M08F", 9), ("M08E", 7), ("M08D", 6), ("M08C", 5),
+    ("M08A", 4), ("M09", 10), ("M08", 3),
+]
+
+
+def doc_epoch(name: str) -> int:
+    for marker, epoch in DOC_EPOCH_MARKERS:
+        if marker in name:
+            return epoch
+    return 2
+
+
 NEGATIVE_EVIDENCE = {
     "M08C": set(RITUAL_IDENTITIES) | {"B1_BOILER_01",
                                       "F02_B_RADIATOR_01"},
     "M08D": set(RITUAL_IDENTITIES) | {"B1_BOILER_01",
                                       "F02_B_RADIATOR_01"},
+}
+
+ACCEPTANCE_DOC_RE = re.compile(r"HUMAN_ACCEPTANCE|ACCEPTANCE_RECEIPT")
+RUNTIME_COMPOSITION_DOC_RE = re.compile(r"RUNTIME_COMPOSITION")
+AT_ID_RE = re.compile(r"at `([A-Za-z0-9_]+)`")
+PACKET_DIR_RE = re.compile(r"art/renders/orison_v2/([A-Za-z0-9_]+)/")
+
+# Human-acceptance receipts state their accepted subjects in prose the
+# tool cannot parse; this curated mapping is the reviewed machine
+# encoding of each receipt's scope (rule: later human acceptance may
+# satisfy the relevant SPATIAL-acceptance requirement — it can raise an
+# existing PROGRAMMED requirement to SPATIALLY_PROVEN, and never
+# conjures absent geometry or runtime proof).
+ACCEPTANCE_GRANTS = {
+    "M08E_A_HUMAN_ACCEPTANCE_RECEIPT": {
+        "requirements": ["floor.B1", "unit.2B", "b1.boiler_room"],
+        "grants": "SPATIALLY_PROVEN",
+        "rationale": "Owner accepted the F01 ritual station, apartment "
+                     "2B radiator service stance and B1 boiler route as "
+                     "a gray-box spatial contract (authorizes M08F "
+                     "only; not M09/cutover/retirement).",
+    },
 }
 CUTOVER_UNITS = {"2B"}
 CUTOVER_FLOORS = {"B1"}
@@ -478,6 +520,10 @@ class Inputs:
         self.checkpoints = []
         if design_dir.is_dir():
             for doc in sorted(design_dir.glob("ORISON_V2_*.md")):
+                if "COMPLETENESS" in doc.name:
+                    # The ledger's own guide/report are outputs of this
+                    # tool, never evidence inputs.
+                    continue
                 text = doc.read_text(encoding="utf-8", errors="replace")
                 rel = doc.relative_to(root).as_posix() \
                     if doc.is_relative_to(root) else str(doc)
@@ -506,6 +552,7 @@ class Inputs:
                 self.adapter_required = GD_STRING_RE.findall(m.group(1))
 
         self.receipts = []
+        self.runtime_receipts = []
         receipts_dir = root / RECEIPT_GLOB
         if receipts_dir.is_dir():
             for receipt in sorted(
@@ -513,6 +560,20 @@ class Inputs:
                 data = load_json(receipt, "capture receipt")
                 data["_file"] = receipt.relative_to(root).as_posix()
                 self.receipts.append(data)
+                self._record(receipt)
+            for receipt in sorted(receipts_dir.glob(
+                    "*/runtime_authority_receipt.json")):
+                data = load_json(receipt, "runtime authority receipt")
+                records = data.get("records", [])
+                valid = (data.get("production_runtime") is True and
+                         str(data.get("selector")) == "v2" and
+                         bool(records) and
+                         all(str(r.get("capture", "")).upper() == "PASS"
+                             for r in records))
+                if valid:
+                    data["_file"] = receipt.relative_to(root).as_posix()
+                    data["_dir"] = receipt.parent.name
+                    self.runtime_receipts.append(data)
                 self._record(receipt)
 
     def _record(self, path: Path) -> None:
@@ -592,13 +653,38 @@ class V2Model:
 # Evidence index (checkpoints, receipts, acceptance, manifest)
 # ---------------------------------------------------------------------------
 
-# Spatial-construction checkpoints grant at most SPATIALLY_PROVEN even
-# when their milestone number sits in the M08 family (M08E is spatial
-# owners, not runtime composition).
-SPATIAL_DOC_RE = re.compile(
-    r"GRAYBOX|VERTICAL_CORE|SCHEMA_GENERATOR|SPATIAL|DIMENSIONED|"
-    r"SCHEDULE")
-RUNTIME_DOC_RE = re.compile(r"M08")
+def parse_composition_claims(text: str) -> list[dict]:
+    """Structured claims from a runtime-composition checkpoint table.
+
+    A claim requires, in one table row: the composed identifier
+    (``at `ID```), a backticked production authority class, a non-empty
+    durable/save-owner cell and a non-empty teardown-owner cell.  A bare
+    mention of an id anywhere else in the document is NOT a claim.
+    """
+    claims = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if len(cells) < 5:
+            continue
+        row_text = " ".join(cells)
+        id_match = AT_ID_RE.search(row_text)
+        if not id_match:
+            continue
+        identifier = id_match.group(1)
+        classes = [t for t in BACKTICK_RE.findall(row_text)
+                   if t != identifier]
+        owner_cell = cells[3]
+        teardown_cell = cells[4]
+        if classes and owner_cell and teardown_cell and \
+                owner_cell != "---":
+            claims.append({"id": identifier,
+                           "authority": classes[0],
+                           "owner": owner_cell[:80],
+                           "teardown": teardown_cell[:80]})
+    return claims
 
 
 class Evidence:
@@ -606,61 +692,120 @@ class Evidence:
         self.by_token: dict[str, list[dict]] = {}
         self.stale: list[dict] = []
         self.docs: list[dict] = []
+        self.conflicts: list[dict] = []
+        self.acceptance_docs: list[dict] = []
+        neg_epoch: dict[str, int] = {}
+        for pattern, negatives in NEGATIVE_EVIDENCE.items():
+            for token in negatives:
+                for rel, _text in inputs.checkpoints:
+                    if pattern in Path(rel).name:
+                        neg_epoch[token] = max(
+                            neg_epoch.get(token, -1),
+                            doc_epoch(Path(rel).name))
+
         for rel, text in inputs.checkpoints:
             name = Path(rel).name
-            if SPATIAL_DOC_RE.search(name):
-                tier = "SPATIALLY_PROVEN"
-            elif RUNTIME_DOC_RE.search(name):
-                tier = "RUNTIME_PROVEN"
-            else:
-                tier = None
+            epoch = doc_epoch(name)
+            acceptance = bool(ACCEPTANCE_DOC_RE.search(name))
+            composition = bool(RUNTIME_COMPOSITION_DOC_RE.search(name))
             status_line = next(
                 (ln.strip() for ln in text.splitlines()
                  if ln.strip().lower().startswith("status:")), "")
             tokens = sorted({t for t in BACKTICK_RE.findall(text)
                              if re.fullmatch(r"[A-Z0-9][A-Za-z0-9_]+", t)})
-            self.docs.append({"file": rel, "tier": tier,
+            self.docs.append({"file": rel, "epoch": epoch,
+                              "kind": "acceptance" if acceptance else
+                              "runtime_composition" if composition else
+                              "checkpoint",
                               "status_line": status_line,
                               "tokens": len(tokens)})
-            if tier is None:
+            if acceptance:
+                # Human-acceptance documents accept, they do not
+                # enumerate proof; verdict handled via ACCEPTANCE_GRANTS.
+                self.acceptance_docs.append({
+                    "file": rel, "name": name, "epoch": epoch,
+                    "verdict_pass": bool(re.search(
+                        r"Verdict:.*PASS", text, re.IGNORECASE))})
                 continue
             for token in tokens:
-                if any(pattern in name and token in negatives
-                       for pattern, negatives in
-                       NEGATIVE_EVIDENCE.items()):
+                if token not in model.all_ids and \
+                        token not in RITUAL_IDENTITIES:
+                    if re.match(r"^(B1|F0\d|ROOF)_", token) or \
+                            token.startswith("Lobby"):
+                        self.stale.append(
+                            {"token": token, "source": rel,
+                             "note": "checkpointed identifier absent "
+                                     "from current v2 layout"})
                     continue
-                if token in model.all_ids or token in RITUAL_IDENTITIES:
+                suppressed_until = neg_epoch.get(token, -1)
+                if epoch <= suppressed_until:
+                    # Same-era or earlier mention alongside a statement
+                    # of absence: visible conflict, never proof.
+                    self.conflicts.append({
+                        "token": token, "source": rel, "epoch": epoch,
+                        "negative_epoch": suppressed_until,
+                        "note": "mention suppressed by same-era or "
+                                "later statement of absence"})
+                    continue
+                # A backtick mention - in ANY checkpoint, of any era -
+                # caps at spatial proof.  Runtime proof needs the census
+                # or a structured composition claim below.
+                self.by_token.setdefault(token, []).append(
+                    {"tier": "SPATIALLY_PROVEN", "source": rel,
+                     "epoch": epoch, "channel": "mention"})
+
+            if composition:
+                packet_names = set(PACKET_DIR_RE.findall(text))
+                receipt_ok = any(
+                    r["_dir"] in packet_names
+                    for r in inputs.runtime_receipts)
+                for claim in parse_composition_claims(text):
+                    token = claim["id"]
+                    if token not in model.all_ids:
+                        continue
+                    if not receipt_ok:
+                        self.conflicts.append({
+                            "token": token, "source": rel,
+                            "epoch": epoch, "negative_epoch": -1,
+                            "note": "composition claim without a "
+                                    "passing runtime authority "
+                                    "receipt"})
+                        continue
                     self.by_token.setdefault(token, []).append(
-                        {"tier": tier, "source": rel})
-                elif re.match(r"^(B1|F0\d|ROOF)_", token) or \
-                        token.startswith("Lobby"):
-                    self.stale.append({"token": token, "source": rel,
-                                       "note": "checkpointed identifier "
-                                       "absent from current v2 layout"})
-        # Deduplicate stale rows.
-        seen = set()
-        unique = []
-        for row in self.stale:
-            key = (row["token"], row["source"])
-            if key not in seen:
-                seen.add(key)
-                unique.append(row)
-        self.stale = sorted(unique, key=lambda r: (r["token"], r["source"]))
+                        {"tier": "RUNTIME_PROVEN", "source": rel,
+                         "epoch": epoch, "channel": "claim",
+                         "authority": claim["authority"],
+                         "owner": claim["owner"]})
+
+        # Deduplicate stale/conflict rows.
+        def dedupe(rows, keys):
+            seen, unique = set(), []
+            for row in rows:
+                key = tuple(row[k] for k in keys)
+                if key not in seen:
+                    seen.add(key)
+                    unique.append(row)
+            return sorted(unique, key=lambda r: tuple(
+                str(r[k]) for k in keys))
+        self.stale = dedupe(self.stale, ("token", "source"))
+        self.conflicts = dedupe(self.conflicts, ("token", "source"))
 
         # M08A/M08D proved exactly twelve parity identities resolving
         # uniquely under the selected root; that census is exact runtime
         # evidence for THOSE ids when they exist in the current layout.
-        # Ids added to the adapter REQUIRED list later (M08E spatial
-        # owners) earn runtime proof only from their own future runtime
-        # checkpoint - a longer REQUIRED list is not retroactive proof.
-        if any(d["tier"] == "RUNTIME_PROVEN" for d in self.docs):
+        # Ids added to the adapter REQUIRED list later earn runtime
+        # proof only from their own runtime-composition claims - a
+        # longer REQUIRED list is not retroactive proof.
+        if any(d["kind"] != "acceptance" and d["epoch"] >= 3
+               for d in self.docs):
             for token in M08D_PROVEN_PARITY_IDS:
                 if token in inputs.adapter_required and \
                         token in model.all_ids:
                     self.by_token.setdefault(token, []).append(
                         {"tier": "RUNTIME_PROVEN",
                          "source": "M08D twelve-anchor census + adapter "
-                                   "REQUIRED"})
+                                   "REQUIRED",
+                         "epoch": 6, "channel": "census"})
 
         self.receipts = inputs.receipts
         self.acceptances = inputs.acceptance_records
@@ -783,8 +928,34 @@ class Ledger:
         self._dim_furnishing()
         self._dim_golden_and_retirement()
         self._find_anchor_only()
+        self._apply_acceptance_grants()
         for record in self.requirements:
             assign_scopes(record)
+
+    def _apply_acceptance_grants(self):
+        """Rule 3: later human acceptance satisfies the relevant
+        SPATIAL-acceptance requirement.  It raises an existing
+        PROGRAMMED requirement to the granted spatial tier - it never
+        conjures absent geometry, and never grants runtime proof."""
+        by_id = {r["id"]: r for r in self.requirements}
+        for name_pattern, grant in ACCEPTANCE_GRANTS.items():
+            docs = [d for d in self.evidence.acceptance_docs
+                    if name_pattern in d["name"] and d["verdict_pass"]]
+            if not docs:
+                continue
+            target = grant["grants"]
+            for rid in grant["requirements"]:
+                record = by_id.get(rid)
+                if record is None:
+                    continue
+                current = RANK.get(record["status"], -1)
+                if current < RANK["PROGRAMMED"] or \
+                        current >= RANK[target]:
+                    continue
+                record["status"] = target
+                record["provenance"] = record["provenance"] + [
+                    f"acceptance:{d['file']} ({grant['rationale']})"
+                    for d in docs]
 
     def _dim_golden_and_retirement(self):
         golden = [a for a in self.evidence.acceptances
@@ -940,7 +1111,7 @@ class Ledger:
                 self.add("06 canonical units", f"unit.{unit}",
                          {"unit": unit, "floor": floor},
                          "ABSENT",
-                         "PROGRAMMED" if sealed else "RUNTIME_PROVEN",
+                         "PROGRAMMED" if sealed else "SPATIALLY_PROVEN",
                          [f"v1:meta.residents ({unit})",
                           f"map:{source}"],
                          heuristic=heuristic, blocked_by=blocked,
@@ -957,7 +1128,7 @@ class Ledger:
                      {"unit": unit, "floor": floor,
                       "spaces": [s["id"] for s in spaces]},
                      worst,
-                     "PROGRAMMED" if sealed else "RUNTIME_PROVEN",
+                     "PROGRAMMED" if sealed else "SPATIALLY_PROVEN",
                      [f"map:{source}",
                       f"v2:{len(spaces)} spaces (weakest {worst}, "
                       f"best {best})"],
@@ -1936,6 +2107,7 @@ def run(args) -> int:
         "anchor_only": ledger.anchor_only,
         "v1_room_coverage": ledger.v1_room_coverage(),
         "stale_checkpoint_ids": ledger.evidence.stale,
+        "evidence_conflicts": ledger.evidence.conflicts,
         "unresolved": [r for r in scoped
                        if r["heuristic"] and r["blocking_scopes"]],
         "queue": queue,

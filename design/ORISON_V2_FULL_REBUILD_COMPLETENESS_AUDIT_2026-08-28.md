@@ -4,25 +4,37 @@
 deterministic read-only ledger (`tools/audit_orison_v2_completeness.py`)
 over the canonical program, the v1 inventory, the committed v2 schema, the
 migration contract, the spatial dependency manifest and the M03–M08E
-evidence (M08E "spatial owners" landed at `0cebd4e`..`22df9f6` during
-this audit and is included). **Verdict of the live run at `22df9f6`:
-exit 2 (BLOCKED) — 144 requirements, 7 v1 fallbacks.** Statuses:
-47 ABSENT, 3 SHELL_ONLY, 43 PROGRAMMED, 22 SPATIALLY_PROVEN,
-28 RUNTIME_PROVEN, 1 HUMAN_ACCEPTED. No percentage is computed,
-deliberately. M08E sub-commits are still landing; regenerate the exact
-figures with `python tools/audit_orison_v2_completeness.py` rather than
-quoting this snapshot.
+evidence through M08F ("runtime composition", `2d1cb1d`, TECHNICAL
+PASS), reconciled by ADMIN-ARCH3's chronological evidence rules.
+**Verdict of the live run at `2d1cb1d`: exit 2 (BLOCKED) —
+144 requirements, 7 v1 fallbacks — while `--blockers-for first-slice`
+now exits 0:**
 
-**Blockers by readiness scope (live at `22df9f6`):**
+```
+FIRST SLICE READY - PRODUCTION CUTOVER NOT IMPLIED.
+```
+
+Statuses: 47 ABSENT, 3 SHELL_ONLY, 38 PROGRAMMED, 21 SPATIALLY_PROVEN,
+34 RUNTIME_PROVEN, 1 HUMAN_ACCEPTED. No percentage is computed,
+deliberately. Regenerate exact figures with
+`python tools/audit_orison_v2_completeness.py` rather than quoting this
+snapshot.
+
+**Blockers by readiness scope (live at `2d1cb1d`):**
 
 | Readiness scope | Blockers |
 | --- | ---: |
-| FIRST_SLICE_TECHNICAL | 10 |
-| GOLDEN_SHIFT_V2 | 11 |
-| FULL_BUILDING_STRUCTURAL | 82 |
-| FULL_BUILDING_RUNTIME | 53 |
-| **PRODUCTION_CUTOVER** | **105** |
-| V1_RETIREMENT | 107 |
+| FIRST_SLICE_TECHNICAL | **0** — M08E built, M08E-A accepted, M08F composed and proved |
+| GOLDEN_SHIFT_V2 | 1 (the eleven authored beats) |
+| FULL_BUILDING_STRUCTURAL | 79 |
+| FULL_BUILDING_RUNTIME | 45 |
+| **PRODUCTION_CUTOVER** | **95** |
+| V1_RETIREMENT | 97 |
+
+First-slice readiness is a mechanical recognition of M08F. It supports
+explicit v2 development/test selection only; it is not permission to
+flip the selector, and `BuildingRootSelector.DEFAULT_ID` remains `"v1"`
+and untouched.
 
 The first slice is real and proven. The building is not rebuilt. This
 document states exactly the distance between those two facts — and the
@@ -110,18 +122,18 @@ remains v1-default by design (`BuildingRootSelector.DEFAULT_ID = "v1"`)
 
 ## 5. First-slice blockers versus production-cutover blockers
 
-**First-slice blockers (10)** — the M08D set, also called golden-shift
-spatial blockers: `ritual.F01_WATCHMAN_DETECTOR`,
-`ritual.F01_NIGHT_REGISTER`, `ritual.F01_SIGNAL_REGISTER`,
-`ritual.F01_TOUR_KEY_GUARD`, `floor.B1`, `unit.2B`, `b1.boiler_room`,
-`contract.B1_BOILER_01`, `contract.F02_B_RADIATOR_01`,
-`job.lena_radiator_round_2b`. Since M08E landed, these are no longer
-ABSENT — the rituals sit at SPATIALLY_PROVEN and B1/2B/boiler at
-PROGRAMMED — but all ten still block the first slice because their
-required proof is runtime composition (M08F). A checkpoint that
-*mentions* an id as missing is treated as negative evidence, never
-proof; M08E's spatial checkpoint grants spatial tier only. Closing the
-ten makes `--blockers-for first-slice` print
+**First-slice blockers: 0.** The M08D ten (rituals, 2B, B1 route,
+boiler/radiator contracts, the lena service round) are closed by the
+chronological evidence chain: M08E built the spatial owners
+(SPATIALLY_PROVEN via its checkpoint), M08E-A's owner receipt accepted
+the B1 floor / 2B unit / boiler-room spatial contract (curated
+acceptance grant, spatial tier only), and M08F's composition table plus
+its passing `runtime_authority_receipt.json` (15/15 PASS,
+`production_runtime: true`, `selector: "v2"`) prove the six authorities
+at RUNTIME_PROVEN. The M08C/M08D mentions of those ids as missing
+remain visible in `evidence_conflicts` — a mention never became proof;
+the proof came from the later checkpoints that actually built and
+exercised the authorities. `--blockers-for first-slice` prints
 "FIRST SLICE READY - PRODUCTION CUTOVER NOT IMPLIED." — and nothing
 more.
 
@@ -144,12 +156,12 @@ decoration) — not missing geometry.
 
 | Readiness scope | Condition | Today (blockers) |
 | --- | --- | --- |
-| **FIRST_SLICE_TECHNICAL** | the ten first-slice blockers close (M08E + M08F runtime composition), gates green under both roots. Supports an EXPLICIT v2 development/test selector only — never a default flip. | BLOCKED (10) |
-| **GOLDEN_SHIFT_V2** | all eleven golden-shift beats run under explicit v2 selection with the four-row K3 evidence schema; first-shift and service-round runtime proof. Still not a production-default authorization. | BLOCKED (11) |
-| **FULL_BUILDING_STRUCTURAL** | all 8 floors, circulation, all 22 units (sealed = thresholds), service rooms and vertical systems represented and spatially proven; electrical + fire vocabulary; no undeclared-entrance shells | BLOCKED (82) |
-| **FULL_BUILDING_RUNTIME** | every required job, case, interaction, save, wake, resident, acoustic and service system resolves against v2; acoustic graph re-derived from v2 topology | BLOCKED (53) |
-| **PRODUCTION_CUTOVER** | both full-building scopes pass; whole-building navigation/performance/human acceptance passes; one reversible selector flip is owner-authorized; v1 remains a tagged fallback | **BLOCKED (105)** |
-| **V1_RETIREMENT** | no temporary v1 fallbacks anywhere; rollback window completed; explicit owner retirement authorization | BLOCKED (107) |
+| **FIRST_SLICE_TECHNICAL** | the M08D ten close (M08E spatial + M08E-A acceptance + M08F runtime composition), gates green under both roots. Supports an EXPLICIT v2 development/test selector only — never a default flip. | **READY (0)** |
+| **GOLDEN_SHIFT_V2** | all eleven golden-shift beats run under explicit v2 selection with the four-row K3 evidence schema; first-shift and service-round runtime proof. Still not a production-default authorization. | BLOCKED (1) |
+| **FULL_BUILDING_STRUCTURAL** | all 8 floors, circulation, all 22 units (sealed = thresholds), service rooms and vertical systems represented and spatially proven; electrical + fire vocabulary; no undeclared-entrance shells | BLOCKED (79) |
+| **FULL_BUILDING_RUNTIME** | every required job, case, interaction, save, wake, resident, acoustic and service system resolves against v2; acoustic graph re-derived from v2 topology | BLOCKED (45) |
+| **PRODUCTION_CUTOVER** | both full-building scopes pass; whole-building navigation/performance/human acceptance passes; one reversible selector flip is owner-authorized; v1 remains a tagged fallback | **BLOCKED (95)** |
+| **V1_RETIREMENT** | no temporary v1 fallbacks anywhere; rollback window completed; explicit owner retirement authorization | BLOCKED (97) |
 
 Final decoration/furnishing remains tracked (dimension 22) but is never a
 structural gate.
@@ -178,14 +190,10 @@ and must never be reported as "cutover ready".**
 The ledger derives this queue from prerequisite structure; each item's
 full scope/prereq/proof/forbidden-files contract is in the tool output.
 
-1. **M08E** — F01 ritual desk spaces/identities + apartment 2B + B1
-   service route in the v2 schema (in flight elsewhere; 7 outstanding
-   requirements).
-2. **M08F** — runtime composition of those spaces (first shift, service
-   round, night register under explicit v2 selection; authority census
-   1:1). Exit: FIRST_SLICE_TECHNICAL clean — production cutover NOT
-   implied.
-3. **M10** — golden shift authored and human-run under EXPLICIT v2
+1. **M08E — DONE** (spatial owners built and M08E-A owner-accepted).
+2. **M08F — DONE** (runtime composition, TECHNICAL PASS;
+   FIRST_SLICE_TECHNICAL clean — production cutover NOT implied).
+3. **M10 (queue head)** — golden shift authored and human-run under EXPLICIT v2
    selection; v1 stays the production default throughout.
 4. **M11** — structural floors: F03 full program, F05, F06, B1 complete,
    ROOF; electrical + fire risers; declared service-hall openings.

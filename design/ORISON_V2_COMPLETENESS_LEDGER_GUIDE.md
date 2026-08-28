@@ -94,8 +94,24 @@ RUNTIME_PROVEN → HUMAN_ACCEPTED`, with orthogonal flags
 - Checkpoint documents promote a space only if they backtick its exact
   id AND the id still exists in the current v2 layout; a checkpointed id
   that has since vanished is reported as stale evidence.
-- Gray-box/vertical-core/schema checkpoints grant at most
-  SPATIALLY_PROVEN; M08-family checkpoints grant RUNTIME_PROVEN.
+- **Chronological evidence rules (ADMIN-ARCH3):** every checkpoint
+  carries an epoch derived from its milestone name. A checkpoint that
+  states an identifier is absent is negative evidence *as of that
+  epoch*: it suppresses same-or-earlier-epoch mentions (reported in
+  `evidence_conflicts`, never silently resolved) and is superseded by
+  genuinely later evidence. A backtick mention — in any checkpoint, of
+  any era — caps at SPATIALLY_PROVEN; a historical or later mention
+  alone never becomes runtime proof. RUNTIME_PROVEN comes only from
+  (a) the curated M08D twelve-anchor census, or (b) a
+  runtime-composition checkpoint's structured claims — a composition
+  table row carrying the identifier (``at `ID```), its production
+  authority class, a durable/save owner and a teardown owner —
+  validated by that packet's passing `runtime_authority_receipt.json`
+  (`production_runtime: true`, `selector: "v2"`, every record PASS).
+  Later human acceptance may raise an existing PROGRAMMED requirement
+  to SPATIALLY_PROVEN via the curated `ACCEPTANCE_GRANTS` table (it
+  never conjures absent geometry or runtime proof). Test files, scene
+  files and review cues are never evidence.
 - HUMAN_ACCEPTED comes only from a durable owner-verdict JSON
   (`ORISON_V2_*HUMAN_ACCEPTANCE*.json`, verdict PASS) and applies only to
   its recorded scope. M08A is route-readability only; it never accepts a

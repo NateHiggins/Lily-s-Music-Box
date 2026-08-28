@@ -110,17 +110,78 @@ def make_slice_complete(root: Path) -> None:
              "position": [-7.0, 0.0, 7.0], "kind": "clearance"},
         ]
     edit_v2(root, mutate)
+    write_spatial_checkpoint(root)
+    write_composition_proof(root)
+    write_spatial_acceptance(root)
+
+
+def write_spatial_checkpoint(root: Path) -> None:
+    """Later spatial construction: an M08E-class SPATIAL checkpoint."""
     (root / "design" /
-     "ORISON_V2_MINI_M08E_CHECKPOINT_2026-08-28.md").write_text(
-        "# Mini M08E checkpoint (synthetic fixture)\n\n"
-        "Status: RUNTIME PROVEN (fixture).\n\n"
-        "Composed and exercised `F01_WATCHMAN_DETECTOR`, "
-        "`F01_NIGHT_REGISTER`, `F01_SIGNAL_REGISTER`, "
-        "`F01_TOUR_KEY_GUARD`, `F02_B_MAIN`, `F02_B_DOOR`, "
-        "`F02_B_RADIATOR_01`, `B1_SERVICE_HALL`, `B1_BOILER`, "
-        "`B1_SERVICE_DOOR`, `B1_BOILER_01`, `F01_DOOR_06`, "
+     "ORISON_V2_MINI_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md"
+     ).write_text(
+        "# Mini M08E spatial owners checkpoint (synthetic fixture)\n\n"
+        "Status: AUTOMATED SPATIAL PROOF COMPLETE (fixture).\n\n"
+        "Built `F01_WATCHMAN_DETECTOR`, `F01_NIGHT_REGISTER`, "
+        "`F01_SIGNAL_REGISTER`, `F01_TOUR_KEY_GUARD`, `F02_B_MAIN`, "
+        "`F02_B_DOOR`, `F02_B_RADIATOR_01`, `B1_SERVICE_HALL`, "
+        "`B1_BOILER`, `B1_SERVICE_DOOR`, `B1_BOILER_01`, "
         "`F04_B_ALCOVE`, `F04_B_BED` and `F04_B_BEDSIDE_RETURN`.\n",
         encoding="utf-8")
+
+
+def write_composition_proof(root: Path) -> None:
+    """Later runtime composition: structured claims + passing receipt."""
+    packet = root / "art/renders/orison_v2/mini_m08f_composition"
+    packet.mkdir(parents=True, exist_ok=True)
+    (packet / "runtime_authority_receipt.json").write_text(json.dumps({
+        "schema_version": 1,
+        "production_runtime": True,
+        "selector": "v2",
+        "records": [
+            {"frame": "01_watchman", "prompt": "WATCHMAN AUTHORITY",
+             "save_phase": "acknowledged", "capture": "PASS"},
+            {"frame": "02_round", "prompt": "SERVICE ROUND CLOSED",
+             "save_phase": "closed", "capture": "PASS"},
+        ]}), encoding="utf-8")
+    rows = [
+        ("Watchman detector", "WatchmanClockProp",
+         "F01_WATCHMAN_DETECTOR", "FirstShiftDirector observes"),
+        ("Night register", "NightRegisterProp", "F01_NIGHT_REGISTER",
+         "Register receipt in RealityState"),
+        ("Signal register", "WatchRegisterProp", "F01_SIGNAL_REGISTER",
+         "Session signal facts only"),
+        ("Tour key", "TourKeyGuardProp", "F01_TOUR_KEY_GUARD",
+         "Transient guard custody"),
+        ("2B radiator", "RadiatorProp", "F02_B_RADIATOR_01",
+         "WorkOrders job facts"),
+        ("B1 boiler", "BoilerProp", "B1_BOILER_01",
+         "WorkOrders comparison facts"),
+    ]
+    table = "\n".join(
+        f"| {name} | `{cls}` | Same class at `{ident}` | {owner} | "
+        f"Mounted prop |" for name, cls, ident, owner in rows)
+    (root / "design" /
+     "ORISON_V2_MINI_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
+     ).write_text(
+        "# Mini M08F runtime-composition checkpoint (synthetic)\n\n"
+        "Status: TECHNICAL PASS (fixture).\n\n"
+        "| Contract | v1 composition | v2 composition | Durable/save "
+        "owner | Teardown owner |\n|---|---|---|---|---|\n" + table +
+        "\n\nEvidence packet: "
+        "art/renders/orison_v2/mini_m08f_composition/\n",
+        encoding="utf-8")
+
+
+def write_spatial_acceptance(root: Path) -> None:
+    """Later human acceptance matching the curated grant pattern."""
+    (root / "design" /
+     "ORISON_V2_MINI_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md"
+     ).write_text(
+        "# Mini M08E-A human acceptance receipt (synthetic fixture)\n\n"
+        "- Verdict: **PASS for the gray-box spatial contract**\n"
+        "- Owner statement: fixture acceptance of the ritual station, "
+        "2B stance and B1 route.\n", encoding="utf-8")
 
 
 def add_golden_acceptance(root: Path) -> None:
@@ -327,9 +388,10 @@ class ScopeAndModeTests(unittest.TestCase):
                                        "first-slice")
         self.assertEqual(code, 2)
         ids = {r["id"] for r in payload["requirements"]}
-        self.assertLessEqual(len(ids), 10)
+        self.assertLessEqual(len(ids), 12)
         self.assertIn("unit.2B", ids)
         self.assertNotIn("floor.F05", ids)
+        self.assertNotIn("unit.2C", ids)
 
     def test_complete_first_slice_is_not_production_ready(self):
         with TempRepo() as root:
@@ -537,6 +599,129 @@ class FailureModeTests(unittest.TestCase):
         self.assertIn("INTERNAL", err)
 
 
+class ChronologyTests(unittest.TestCase):
+    """Both sides of the evidence-precedence rule, on fixtures."""
+
+    def ritual_status(self, root):
+        _code, payload, _ = run_payload(root)
+        return req(payload, "ritual.F01_NIGHT_REGISTER")
+
+    def add_ritual_anchors(self, root):
+        def mutate(data):
+            data["anchors"] += [
+                {"id": "F01_WATCHMAN_DETECTOR", "level": "F01",
+                 "position": [-8.0, 1.1, -2.0], "kind": "interaction"},
+                {"id": "F01_NIGHT_REGISTER", "level": "F01",
+                 "position": [-7.5, 1.1, -2.0], "kind": "interaction"},
+                {"id": "F01_SIGNAL_REGISTER", "level": "F01",
+                 "position": [-7.0, 1.1, -2.0], "kind": "interaction"},
+                {"id": "F01_TOUR_KEY_GUARD", "level": "F01",
+                 "position": [-6.5, 1.1, -2.0], "kind": "interaction"},
+            ]
+        edit_v2(root, mutate)
+
+    def write_absence_mention(self, root):
+        # An M08D-class doc that backticks the id while it is a known
+        # negative-evidence subject: a mention of absence.
+        (root / "design" /
+         "ORISON_V2_MINI_M08D_PARITY_NOTE_2026-08-28.md").write_text(
+            "# Mini M08D parity note (synthetic fixture)\n\n"
+            "Status: PARITY (fixture).\n\n"
+            "`F01_NIGHT_REGISTER` and `B1_BOILER_01` are not present in "
+            "the accepted v2 schema.\n", encoding="utf-8")
+
+    def test_absence_mention_alone_grants_nothing(self):
+        with TempRepo() as root:
+            self.write_absence_mention(root)
+            record = self.ritual_status(root)
+            self.assertEqual(record["status"], "ABSENT")
+
+    def test_absence_plus_later_spatial_grants_spatial_only(self):
+        with TempRepo() as root:
+            self.write_absence_mention(root)
+            self.add_ritual_anchors(root)
+            write_spatial_checkpoint(root)
+            record = self.ritual_status(root)
+            self.assertEqual(record["status"], "SPATIALLY_PROVEN")
+            self.assertIn("FIRST_SLICE_TECHNICAL",
+                          record["blocking_scopes"])
+
+    def test_absence_plus_later_runtime_claims_grant_runtime(self):
+        with TempRepo() as root:
+            self.write_absence_mention(root)
+            self.add_ritual_anchors(root)
+            write_spatial_checkpoint(root)
+            write_composition_proof(root)
+            record = self.ritual_status(root)
+            self.assertEqual(record["status"], "RUNTIME_PROVEN")
+            self.assertNotIn("FIRST_SLICE_TECHNICAL",
+                             record["blocking_scopes"])
+
+    def test_later_generic_backtick_mention_is_insufficient(self):
+        with TempRepo() as root:
+            self.add_ritual_anchors(root)
+            (root / "design" /
+             "ORISON_V2_MINI_M08F_SUMMARY_2026-08-28.md").write_text(
+                "# Mini M08F summary (synthetic fixture)\n\n"
+                "Status: NOTES (fixture).\n\n"
+                "This later document merely mentions "
+                "`F01_NIGHT_REGISTER` with no composition table and no "
+                "receipt.\n", encoding="utf-8")
+            record = self.ritual_status(root)
+            self.assertEqual(record["status"], "SPATIALLY_PROVEN")
+
+    def test_composition_claims_need_a_passing_receipt(self):
+        with TempRepo() as root:
+            self.add_ritual_anchors(root)
+            write_composition_proof(root)
+            receipt = (root / "art/renders/orison_v2/"
+                       "mini_m08f_composition/"
+                       "runtime_authority_receipt.json")
+            data = json.loads(receipt.read_text(encoding="utf-8"))
+            data["records"][0]["capture"] = "FAIL"
+            receipt.write_text(json.dumps(data), encoding="utf-8")
+            _c, payload, _ = run_payload(root)
+            record = req(payload, "ritual.F01_NIGHT_REGISTER")
+            self.assertNotEqual(record["status"], "RUNTIME_PROVEN")
+            notes = {c["note"] for c in payload["evidence_conflicts"]}
+            self.assertTrue(any("without a passing" in n for n in notes))
+
+    def test_test_or_scene_mentions_are_never_evidence(self):
+        with TempRepo() as root:
+            self.add_ritual_anchors(root)
+            tests_dir = root / "game/tests"
+            tests_dir.mkdir(parents=True, exist_ok=True)
+            (tests_dir / "mini_ritual_test.gd").write_text(
+                'extends Node\nvar x := "F01_NIGHT_REGISTER"\n',
+                encoding="utf-8")
+            scenes_dir = root / "game/scenes/building"
+            scenes_dir.mkdir(parents=True, exist_ok=True)
+            (scenes_dir / "review.tscn").write_text(
+                '[node name="F01_NIGHT_REGISTER" type="Node3D"]\n',
+                encoding="utf-8")
+            record = self.ritual_status(root)
+            self.assertEqual(record["status"], "PROGRAMMED")
+
+    def test_same_epoch_contradiction_is_reported_not_resolved(self):
+        with TempRepo() as root:
+            self.add_ritual_anchors(root)
+            self.write_absence_mention(root)
+            _c, payload, _ = run_payload(root)
+            conflicts = [c for c in payload["evidence_conflicts"]
+                         if c["token"] == "F01_NIGHT_REGISTER"]
+            self.assertTrue(conflicts)
+            self.assertIn("MINI_M08D_PARITY_NOTE",
+                          conflicts[0]["source"])
+
+    def test_acceptance_grant_needs_existing_geometry(self):
+        with TempRepo() as root:
+            # Acceptance alone, with no B1 level built, conjures nothing.
+            write_spatial_acceptance(root)
+            _c, payload, _ = run_payload(root)
+            self.assertEqual(req(payload, "floor.B1")["status"],
+                             "ABSENT")
+
+
 class LiveRepoSmokeTests(unittest.TestCase):
     """Read-only assertions against the real repository."""
 
@@ -551,25 +736,46 @@ class LiveRepoSmokeTests(unittest.TestCase):
         "contract.B1_BOILER_01", "contract.F02_B_RADIATOR_01",
         "job.lena_radiator_round_2b"}
 
-    def test_live_first_slice_blockers_stay_within_m08d_ten(self):
-        # M08E landed the spatial owners; anything still blocking the
-        # first slice must come from the M08D-named set (runtime
-        # composition pending), never from whole-building gaps.
-        self.assertEqual(self.code, 2)
+    def test_live_first_slice_is_ready_after_m08f(self):
+        # M08E built the spatial owners, M08E-A accepted them, M08F
+        # composed and proved the authorities: the first-slice gate is
+        # mechanically clean - and only that gate.
         first_slice = set(
             self.payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
-        self.assertTrue(first_slice <= self.M08D_TEN, first_slice)
+        self.assertEqual(first_slice, set())
+        self.assertEqual(self.code, 2)  # the building is still blocked
 
-    def test_live_mentions_of_missing_ids_never_prove_runtime(self):
-        # M08C/M08D backtick the ritual/2B/B1 ids while stating they are
-        # missing; after M08E built them spatially, they must not read
-        # as RUNTIME_PROVEN until an M08F-class runtime checkpoint.
+    def test_live_first_slice_banner_exact(self):
+        code, out, _ = run_main("--root", str(REPO_ROOT),
+                                "--blockers-for", "first-slice")
+        self.assertEqual(code, 0)
+        self.assertIn(
+            "FIRST SLICE READY - PRODUCTION CUTOVER NOT IMPLIED.", out)
+
+    def test_live_runtime_proof_comes_from_m08f_claims(self):
+        # Rituals reach RUNTIME_PROVEN via the M08F composition table +
+        # passing runtime authority receipt - not via any historical
+        # mention.  The M08D mentions remain visible as conflicts.
         for rid in ("ritual.F01_NIGHT_REGISTER",
+                    "ritual.F01_WATCHMAN_DETECTOR",
                     "contract.B1_BOILER_01",
                     "contract.F02_B_RADIATOR_01"):
             record = req(self.payload, rid)
-            self.assertIsNotNone(record, rid)
-            self.assertNotEqual(record["status"], "RUNTIME_PROVEN", rid)
+            self.assertEqual(record["status"], "RUNTIME_PROVEN", rid)
+            self.assertTrue(
+                any("M08F_RUNTIME_COMPOSITION" in p
+                    for p in record["provenance"]), record["provenance"])
+        conflict_tokens = {c["token"]
+                           for c in self.payload["evidence_conflicts"]}
+        self.assertIn("F01_NIGHT_REGISTER", conflict_tokens)
+
+    def test_live_acceptance_grants_spatial_only(self):
+        for rid in ("floor.B1", "unit.2B", "b1.boiler_room"):
+            record = req(self.payload, rid)
+            self.assertEqual(record["status"], "SPATIALLY_PROVEN", rid)
+            self.assertTrue(
+                any("M08E_A_HUMAN_ACCEPTANCE" in p
+                    for p in record["provenance"]), rid)
 
     def test_live_production_blockers_are_whole_building(self):
         production = set(
@@ -603,9 +809,11 @@ class LiveRepoSmokeTests(unittest.TestCase):
         whole = req(self.payload, "human.whole_building_navigation")
         self.assertEqual(whole["status"], "ABSENT")
 
-    def test_live_queue_order(self):
+    def test_live_queue_head_is_m10_never_m09(self):
         ids = [item["id"] for item in self.payload["queue"]]
-        self.assertEqual(ids[0], "M08E-f01-rituals-2b-b1")
+        self.assertEqual(ids[0], "M10-golden-shift-v2")
+        self.assertNotIn("M08E-f01-rituals-2b-b1", ids)
+        self.assertNotIn("M08F-runtime-composition-of-m08e", ids)
         m09 = ids.index("M09-production-cutover-proposal")
         self.assertGreater(m09, ids.index("M11-structural-floors"))
         self.assertGreater(m09, ids.index(
