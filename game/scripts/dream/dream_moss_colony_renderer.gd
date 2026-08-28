@@ -8,6 +8,7 @@ const MAX_BRANCH_SEGMENTS := 64
 const MAX_CILIA_VISIBLE := 32
 const MAX_ETHER_MOTES := 24
 const MAX_PROTEINS_VISIBLE := 64
+const MAX_CILIA_CARPET := 256
 const BRANCH_SIDES := 5
 const CELL_SHADER := preload("res://shaders/dream_moss_cellular.gdshader")
 const CILIA_SHADER := preload("res://shaders/dream_rooted_cilium.gdshader")
@@ -16,8 +17,10 @@ const PhenotypeScript := preload("res://scripts/dream/dream_cellular_phenotype.g
 
 var colony = null
 var _heart: MeshInstance3D
+var _sheet: MeshInstance3D
 var _network: MeshInstance3D
 var _cilia: MultiMeshInstance3D
+var _cilia_carpet: MultiMeshInstance3D
 var _ether: MultiMeshInstance3D
 var _pulse: MeshInstance3D
 var _proteins: MultiMeshInstance3D
@@ -45,8 +48,10 @@ func setup(owner_colony) -> void:
 	name = "MossColony_%s" % str(colony.source_id)
 	_build_materials()
 	_build_heart()
+	_build_sheet()
 	_build_network()
 	_build_cilia()
+	_build_cilia_carpet()
 	_build_ether()
 	_build_pulse()
 	_build_proteins()
@@ -127,6 +132,14 @@ func _build_heart() -> void:
 	add_child(_heart)
 
 
+func _build_sheet() -> void:
+	_sheet = MeshInstance3D.new()
+	_sheet.name = "PlasmodialFans"
+	_sheet.material_override = _network_material
+	add_child(_sheet)
+	_rebuild_sheet()
+
+
 func _build_network() -> void:
 	_network = MeshInstance3D.new()
 	_network.name = "VascularNetwork"
@@ -152,6 +165,27 @@ func _build_cilia() -> void:
 	multimesh.mesh = mesh
 	_cilia.multimesh = multimesh
 	add_child(_cilia)
+
+
+func _build_cilia_carpet() -> void:
+	_cilia_carpet = MultiMeshInstance3D.new()
+	_cilia_carpet.name = "CiliaryCarpet"
+	var ribbon := CylinderMesh.new()
+	ribbon.top_radius = 0.001
+	ribbon.bottom_radius = 0.0045
+	ribbon.height = 0.085
+	ribbon.radial_segments = 3
+	ribbon.rings = 1
+	ribbon.material = _cilia_material
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_custom_data = true
+	multimesh.instance_count = MAX_CILIA_CARPET
+	multimesh.visible_instance_count = 0
+	multimesh.mesh = ribbon
+	_cilia_carpet.multimesh = multimesh
+	_cilia_carpet.custom_aabb = AABB(Vector3(-1.8, -0.1, -1.8), Vector3(3.6, 0.6, 3.6))
+	add_child(_cilia_carpet)
 
 
 func _build_ether() -> void:
@@ -189,11 +223,11 @@ func _build_pulse() -> void:
 func _build_proteins() -> void:
 	_proteins = MultiMeshInstance3D.new()
 	_proteins.name = "MembraneProteinFamilies"
-	var mesh := SphereMesh.new()
-	mesh.radius = 0.010
-	mesh.height = 0.020
-	mesh.radial_segments = 5
-	mesh.rings = 3
+	var mesh := TorusMesh.new()
+	mesh.inner_radius = 0.010
+	mesh.outer_radius = 0.030
+	mesh.rings = 8
+	mesh.ring_segments = 6
 	mesh.material = _protein_material
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
@@ -213,6 +247,7 @@ func _refresh(force: bool) -> void:
 	var signature := _route_signature()
 	if force or signature != _last_route_signature:
 		_rebuild_network()
+		_rebuild_sheet()
 		_last_route_signature = signature
 	var cilia_count := 0 if colony.phase >= colony.Phase.STAINED else \
 			mini(MAX_CILIA_VISIBLE, _count_class(colony.OrganismClass.CILIUM))
@@ -222,7 +257,7 @@ func _refresh(force: bool) -> void:
 		ether_count = int(float(ether_count) * (1.0 - colony.collapse_progress))
 	_ether.multimesh.visible_instance_count = ether_count
 	var information := clampf(colony.stored_information / 8.0, 0.0, 1.0)
-	var protein_count := clampi(8 + int(colony.maturity * 40.0 + information * 16.0), 0, MAX_PROTEINS_VISIBLE)
+	var protein_count := clampi(6 + int(colony.maturity * 14.0 + information * 8.0), 0, 28)
 	if colony.phase >= colony.Phase.STAINED:
 		protein_count = int(float(protein_count) * (0.32 if colony.phase == colony.Phase.STAINED else 0.0))
 	_proteins.multimesh.visible_instance_count = protein_count
@@ -239,9 +274,10 @@ func _animate_heart() -> void:
 		breath *= 0.86 + 0.12 * sin(_clock * 13.0)
 	elif colony.phase >= colony.Phase.WITHERING:
 		scale_value *= maxf(0.04, 1.0 - colony.collapse_progress)
-	_heart.scale = Vector3(scale_value, scale_value * 0.38, scale_value) * breath
+	_heart.scale = Vector3(scale_value * 1.12, scale_value * 0.62, scale_value * 0.82) * breath
 	var dead := clampf(colony.collapse_progress, 0.0, 1.0)
 	_network.scale = Vector3(1.0, maxf(0.08, 1.0 - dead), 1.0)
+	_sheet.scale = Vector3(1.0, maxf(0.04, 1.0 - dead * 0.88), 1.0)
 
 
 func _animate_cilia() -> void:
@@ -255,6 +291,10 @@ func _animate_cilia() -> void:
 	elif distance > 3.5:
 		count = int(ceil(float(ecological_count) * 0.55)); _cilia_lod = "mid"
 	_cilia.multimesh.visible_instance_count = count
+	var carpet_count := 0
+	if ecological_count > 0 and colony.phase < colony.Phase.WITHERING:
+		carpet_count = MAX_CILIA_CARPET if _cilia_lod == "near" else (96 if _cilia_lod == "mid" else 0)
+	_cilia_carpet.multimesh.visible_instance_count = carpet_count
 	for i in count:
 		var angle := float(i) * 2.399963 + sin(float(colony.seed % 31)) * 0.2
 		var radius := 0.16 + 0.035 * float(i % 3)
@@ -269,6 +309,19 @@ func _animate_cilia() -> void:
 		_cilia.multimesh.set_instance_transform(i, Transform3D(basis, at))
 		_cilia.multimesh.set_instance_custom_data(i, Color(
 				_hash01(i * 43 + colony.seed), 0.0, float(i % 2), 1.0))
+	for i in carpet_count:
+		var u := _hash01(i * 73 + colony.seed)
+		var v := _hash01(i * 181 + colony.seed * 3)
+		var angle := u * TAU
+		var radius: float = 0.10 + sqrt(v) * (0.18 + float(colony.maturity) * 0.42)
+		var wave := sin(_clock * 3.1 + radius * 18.0 + angle * 2.0) * 0.30
+		var disturbed: float = float(colony.disturbance) * sin(float(i) * 2.31) * 0.55
+		var basis := Basis(Vector3.UP, angle + floor(angle / (PI * 0.5)) * 0.17 + wave + disturbed)
+		basis = basis.rotated(Vector3.RIGHT, 0.18 + wave * 0.22)
+		basis = basis.scaled(Vector3(0.72, 0.70 + 0.46 * _hash01(i * 43 + colony.seed), 0.72))
+		var at: Vector3 = Vector3(cos(angle), 0.0, sin(angle)) * radius + Vector3.UP * 0.043
+		_cilia_carpet.multimesh.set_instance_transform(i, Transform3D(basis, at))
+		_cilia_carpet.multimesh.set_instance_custom_data(i, Color(u, v, float(i % 7) / 6.0, 1.0))
 
 
 func _animate_proteins() -> void:
@@ -284,8 +337,15 @@ func _animate_proteins() -> void:
 		var radius := 0.12 + 0.05 * float(i % 5)
 		var cluster := clampf(colony.stored_information / 8.0 + _report_value, 0.0, 1.0)
 		radius = lerpf(radius, 0.09 + 0.015 * float(i % 3), cluster)
-		var at := Vector3(cos(angle) * radius, 0.045 + 0.012 * float(i % 4), sin(angle) * radius)
-		_proteins.multimesh.set_instance_transform(i, Transform3D(Basis.IDENTITY, at))
+		var at := Vector3(cos(angle) * radius, 0.043 + 0.004 * float(i % 3), sin(angle) * radius)
+		var family := i % 5
+		var basis := Basis(Vector3.UP, angle)
+		if family == 1: basis = basis.scaled(Vector3(1.7, 0.72, 0.72))
+		elif family == 2: basis = basis.scaled(Vector3(0.78, 1.0, 1.45))
+		elif family == 3: basis = basis.scaled(Vector3(1.25, 0.65, 1.25))
+		elif family == 4: basis = basis.scaled(Vector3(0.70, 1.35, 0.70))
+		basis = basis.rotated(Vector3.RIGHT, 0.10 * sin(_clock + float(i)))
+		_proteins.multimesh.set_instance_transform(i, Transform3D(basis, at))
 		_proteins.multimesh.set_instance_custom_data(i, Color(float(i % 7) / 6.0, cluster, hop, 1.0))
 
 
@@ -374,6 +434,42 @@ func _rebuild_network() -> void:
 	_network.mesh = mesh
 
 
+func _rebuild_sheet() -> void:
+	if _sheet == null or colony == null or colony.origin == Vector3.INF:
+		return
+	var mesh := ImmediateMesh.new()
+	mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES, _network_material)
+	var lobes := 48
+	var phase_scale: float = [0.20, 0.28, 0.36, 0.45, 0.54, 0.64,
+		0.58, 0.50, 0.40, 0.30, 0.0][clampi(colony.phase, 0, 10)]
+	for i in lobes:
+		var a0 := TAU * float(i) / float(lobes)
+		var a1 := TAU * float(i + 1) / float(lobes)
+		var branch0 := 0.68 + 0.24 * _hash01(i * 97 + colony.seed)
+		var branch1 := 0.68 + 0.24 * _hash01((i + 1) * 97 + colony.seed)
+		if i % 11 == 0: branch0 *= 1.18
+		if (i + 1) % 11 == 0: branch1 *= 1.18
+		var r0 := phase_scale * branch0
+		var r1 := phase_scale * branch1
+		var inner0 := Vector3(cos(a0) * minf(0.20, r0 * 0.55), 0.048 + 0.009 * sin(a0 * 3.0), sin(a0) * minf(0.20, r0 * 0.55))
+		var inner1 := Vector3(cos(a1) * minf(0.20, r1 * 0.55), 0.048 + 0.009 * sin(a1 * 3.0), sin(a1) * minf(0.20, r1 * 0.55))
+		var outer0 := Vector3(cos(a0) * r0, 0.012 + 0.040 * branch0, sin(a0) * r0)
+		var outer1 := Vector3(cos(a1) * r1, 0.012 + 0.040 * branch1, sin(a1) * r1)
+		_add_sheet_tri(mesh, Vector3(0, 0.075, 0), inner0, inner1)
+		_add_sheet_tri(mesh, inner0, outer0, outer1)
+		_add_sheet_tri(mesh, inner0, outer1, inner1)
+	mesh.surface_end()
+	_sheet.mesh = mesh
+
+
+func _add_sheet_tri(mesh: ImmediateMesh, a: Vector3, b: Vector3, c: Vector3) -> void:
+	var normal := (b - a).cross(c - a).normalized()
+	for point in [a, b, c]:
+		mesh.surface_set_normal(normal)
+		mesh.surface_set_uv(Vector2(point.x, point.z))
+		mesh.surface_add_vertex(point)
+
+
 func _append_branch(mesh: ImmediateMesh, a: Vector3, b: Vector3,
 		strength: float, segment_seed: int) -> void:
 	var direction := b - a
@@ -410,6 +506,7 @@ func census() -> Dictionary:
 			"owns_simulation": false, "nodes": get_child_count() + 1,
 			"heart_visible": presented and _heart != null and _heart.visible,
 			"cilia_visible": _cilia.multimesh.visible_instance_count if presented and _cilia != null else 0,
+			"cilia_carpet_visible": _cilia_carpet.multimesh.visible_instance_count if presented and _cilia_carpet != null else 0,
 			"ether_motes": _ether.multimesh.visible_instance_count if presented and _ether != null else 0,
 			"proteins_visible": _proteins.multimesh.visible_instance_count if presented and _proteins != null else 0,
 			"cilia_lod": _cilia_lod,
@@ -417,7 +514,8 @@ func census() -> Dictionary:
 			"report_visible": presented and _pulse != null and _pulse.visible,
 			"peak_visible_elements": _peak_visible,
 			"caps": {"branch_segments": MAX_BRANCH_SEGMENTS,
-				"cilia": MAX_CILIA_VISIBLE, "ether_motes": MAX_ETHER_MOTES,
+				"cilia": MAX_CILIA_VISIBLE, "cilia_carpet": MAX_CILIA_CARPET,
+				"ether_motes": MAX_ETHER_MOTES,
 				"membrane_proteins": MAX_PROTEINS_VISIBLE}}
 
 

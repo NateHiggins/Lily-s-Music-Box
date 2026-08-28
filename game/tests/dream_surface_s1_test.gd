@@ -32,7 +32,8 @@ func _ready() -> void:
 	for _i in Colony.MAX_CILIA + 5: colony.spawn(Colony.OrganismClass.CILIUM, Vector3.ZERO)
 	renderer._process(0.25)
 	var census: Dictionary = renderer.census()
-	_check(int(census.caps.cilia) == 32 and int(census.caps.membrane_proteins) == 64,
+	_check(int(census.caps.cilia) == 32 and int(census.caps.cilia_carpet) == 256
+			and int(census.caps.membrane_proteins) == 64,
 			"cilia and protein families have hard capacities")
 	_check(int(census.cilia_visible) <= Colony.MAX_CILIA
 			and int(census.proteins_visible) <= int(census.caps.membrane_proteins),
@@ -44,7 +45,7 @@ func _ready() -> void:
 	for _i in 30: renderer._process(1.0 / 60.0)
 	_check(is_equal_approx(renderer._cilia.multimesh.get_instance_transform(0).origin.y, root_y),
 			"cilia roots remain attached through metachronal motion")
-	_check(int(census.nodes) <= 7, "cellular surface adds no node forest")
+	_check(int(census.nodes) <= 9, "cellular surface adds no node forest")
 	var profiles := []
 	for kind in Phenotype.Kind.size(): profiles.append(Phenotype.profile(kind, 9041))
 	_check(profiles.size() == 13 and profiles[Phenotype.Kind.PIONEER].organization
