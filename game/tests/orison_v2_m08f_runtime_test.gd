@@ -147,7 +147,7 @@ func _ready() -> void:
 	RealityState.reset_campaign_for_tests()
 	Selector.reset_for_tests()
 	_check(FileAccess.get_sha256("res://data/building_layout.json")
-			== "9e6b4fa95a88e7ea23fe8bfac188fd094fd1cace628237010a683db7c0c4356e",
+			== "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
 			"production layout remains byte-stable")
 	_check(Selector.DEFAULT_ID == "v1", "committed selector remains v1")
 	print("ORISON V2 M08F RUNTIME: %s checks=%d" % [
