@@ -26,6 +26,8 @@ func _ready() -> void:
 	_build_doors()
 	_build_windows()
 	_build_envelopes()
+	_build_platforms()
+	_build_lift_landings()
 	_build_stairs()
 	_build_risers()
 	_build_anchors()
@@ -54,7 +56,8 @@ func _validate_layout() -> void:
 		if ident.is_empty() or level_y.has(ident):
 			failures.append("invalid or duplicate level id: " + ident)
 		level_y[ident] = float(level.get("y", 0.0))
-	for table in ["spaces", "doors", "openings", "windows", "envelopes",
+	for table in ["spaces", "doors", "openings", "windows", "envelopes", "platforms",
+			"lift_landings",
 			"anchors", "stairs", "risers"]:
 		for record: Dictionary in layout.get(table, []):
 			var ident := str(record.get("id", ""))
@@ -72,6 +75,9 @@ func _validate_layout() -> void:
 	for envelope: Dictionary in layout.get("envelopes", []):
 		if not _valid_rect(envelope.get("rect", [])):
 			failures.append("invalid envelope rect: " + str(envelope.get("id", "?")))
+	for platform: Dictionary in layout.get("platforms", []):
+		if not _valid_rect(platform.get("rect", [])):
+			failures.append("invalid platform rect: " + str(platform.get("id", "?")))
 	for required in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 			"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED"]:
 		if not ids.has(required):
@@ -104,25 +110,31 @@ func _build_spaces() -> void:
 		parent.set_meta("purpose", str(space.get("purpose", "")))
 		parent.set_meta("room_id", str(space.id))
 		add_child(parent)
-		_box(parent, "Floor", _rect_center(rect, y - slab_t * 0.5),
-				Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, true)
-		if show_ceilings:
+		if not bool(space.get("no_floor", false)):
+			_box(parent, "Floor", _rect_center(rect, y - slab_t * 0.5),
+					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, true)
+		if show_ceilings and not bool(space.get("no_ceiling", false)):
 			_box(parent, "Ceiling", _rect_center(rect, y + clear_h + slab_t * 0.5),
 					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, false)
 		if not bool(space.get("open_shell", false)):
-			_build_space_outline(parent, str(space.id), rect, y, clear_h, cls)
+			_build_space_outline(parent, str(space.id), rect, y, clear_h, cls,
+					space.get("wall_sides", ["south", "north", "west", "east"]))
 
 func _build_space_outline(parent: Node3D, space_id: String, rect: Array, y: float,
-		height: float, cls: String) -> void:
+		height: float, cls: String, sides: Array) -> void:
 	var t := float(layout.dimensions.partition_wall)
-	_wall_with_openings(parent, space_id, "South", "x", float(rect[1]),
-			float(rect[0]), float(rect[2]), y, height, t, cls)
-	_wall_with_openings(parent, space_id, "North", "x", float(rect[3]),
-			float(rect[0]), float(rect[2]), y, height, t, cls)
-	_wall_with_openings(parent, space_id, "West", "z", float(rect[0]),
-			float(rect[1]), float(rect[3]), y, height, t, cls)
-	_wall_with_openings(parent, space_id, "East", "z", float(rect[2]),
-			float(rect[1]), float(rect[3]), y, height, t, cls)
+	if "south" in sides:
+		_wall_with_openings(parent, space_id, "South", "x", float(rect[1]),
+				float(rect[0]), float(rect[2]), y, height, t, cls)
+	if "north" in sides:
+		_wall_with_openings(parent, space_id, "North", "x", float(rect[3]),
+				float(rect[0]), float(rect[2]), y, height, t, cls)
+	if "west" in sides:
+		_wall_with_openings(parent, space_id, "West", "z", float(rect[0]),
+				float(rect[1]), float(rect[3]), y, height, t, cls)
+	if "east" in sides:
+		_wall_with_openings(parent, space_id, "East", "z", float(rect[2]),
+				float(rect[1]), float(rect[3]), y, height, t, cls)
 
 func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 		axis: String, fixed: float, start: float, finish: float, y: float,
@@ -252,20 +264,86 @@ func _build_envelopes() -> void:
 				str(envelope.get("class", "unresolved")), false)
 		node.set_meta("purpose", str(envelope.get("purpose", "")))
 
+func _build_platforms() -> void:
+	var slab_t := float(layout.dimensions.slab_thickness)
+	for platform: Dictionary in layout.get("platforms", []):
+		var rect: Array = platform.rect
+		var y := float(level_y[platform.level])
+		_box(self, str(platform.id), _rect_center(rect, y - slab_t * 0.5),
+				Vector3(_rect_w(rect), slab_t, _rect_d(rect)),
+				str(platform.get("class", "core")), true)
+
+func _build_lift_landings() -> void:
+	for landing: Dictionary in layout.get("lift_landings", []):
+		var parent := Node3D.new()
+		parent.name = str(landing.id)
+		parent.position = Vector3(float(landing.center[0]), float(level_y[landing.level]),
+				float(landing.center[1]))
+		parent.rotation.y = float(landing.yaw)
+		parent.set_meta("shaft", str(landing.shaft))
+		add_child(parent)
+		var width := float(landing.width)
+		var height := float(landing.height)
+		_box(parent, "JambL", Vector3(-width * 0.5 - 0.045, height * 0.5, 0.0),
+				Vector3(0.09, height, 0.10), "core", false)
+		_box(parent, "JambR", Vector3(width * 0.5 + 0.045, height * 0.5, 0.0),
+				Vector3(0.09, height, 0.10), "core", false)
+		_box(parent, "Head", Vector3(0.0, height + 0.045, 0.0),
+				Vector3(width + 0.18, 0.09, 0.10), "core", false)
+		_box(parent, "Clearance", Vector3(0.0, 0.01, float(landing.clear_depth) * 0.5),
+				Vector3(maxf(width, 1.5), 0.02, float(landing.clear_depth)),
+				"clearance", false)
+
 func _build_stairs() -> void:
 	for stair: Dictionary in layout.stairs:
 		var parent := Node3D.new()
 		parent.name = str(stair.id)
 		add_child(parent)
-		var base_y := float(level_y[stair.from])
-		var sign_z := 1.0 if str(stair.direction) == "north" else -1.0
-		for i in int(stair.steps):
-			var rise := float(stair.rise)
-			var tread := float(stair.tread)
-			var position := Vector3(float(stair.origin[0]), base_y + rise * (i + 1) * 0.5,
-					float(stair.origin[1]) + sign_z * tread * (i + 0.5))
-			_box(parent, "Step%02d" % i, position,
-					Vector3(float(stair.width), rise * (i + 1), tread), "core", true)
+		if str(stair.get("kind", "")) == "u":
+			_build_u_stair(parent, stair)
+
+func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
+	var base_y := float(level_y[stair.from])
+	var rise := float(stair.rise)
+	var tread := float(stair.tread)
+	var count := int(stair.risers_per_flight)
+	var width := float(stair.width)
+	var gap := float(stair.gap)
+	var x0 := float(stair.origin[0])
+	var z0 := float(stair.origin[1])
+	var run := tread * count
+	var half_rise := rise * count
+	var guard_h := float(stair.guard_height)
+	for i in count:
+		var step_h := rise * (i + 1)
+		var z := z0 + tread * (i + 0.5)
+		_box(parent, "FlightA_Step%02d" % i,
+				Vector3(x0 + width * 0.5, base_y + step_h * 0.5, z),
+				Vector3(width, step_h, tread), "core", true)
+		_box(parent, "FlightA_Guard%02d" % i,
+				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
+				Vector3(0.05, guard_h, tread), "core", false)
+	var landing_depth := float(stair.landing_depth)
+	_box(parent, "HalfLanding",
+			Vector3(x0 + width + gap * 0.5, base_y + half_rise - 0.1,
+					z0 + run + landing_depth * 0.5),
+			Vector3(width * 2.0 + gap, 0.2, landing_depth), "core", true)
+	_box(parent, "HalfLandingGuard",
+			Vector3(x0 + width + gap * 0.5, base_y + half_rise + guard_h * 0.5,
+					z0 + run + landing_depth - 0.025),
+			Vector3(width * 2.0 + gap, guard_h, 0.05), "core", false)
+	var x_b := x0 + width + gap
+	var north_start := z0 + run + landing_depth
+	for i in count:
+		var step_h := rise * (i + 1)
+		var z := north_start - tread * (i + 0.5)
+		_box(parent, "FlightB_Step%02d" % i,
+				Vector3(x_b + width * 0.5, base_y + half_rise + step_h * 0.5, z),
+				Vector3(width, step_h, tread), "core", true)
+		_box(parent, "FlightB_Guard%02d" % i,
+				Vector3(x_b + width - 0.025,
+						base_y + half_rise + step_h + guard_h * 0.5, z),
+				Vector3(0.05, guard_h, tread), "core", false)
 
 func _build_risers() -> void:
 	for riser: Dictionary in layout.risers:
@@ -274,7 +352,7 @@ func _build_risers() -> void:
 		var y1 := float(riser.to_y)
 		_box(self, str(riser.id), _rect_center(rect, (y0 + y1) * 0.5),
 				Vector3(_rect_w(rect), y1 - y0, _rect_d(rect)),
-				str(riser.get("class", "service")), true)
+				str(riser.get("class", "service")), bool(riser.get("solid", true)))
 
 func _build_anchors() -> void:
 	for anchor: Dictionary in layout.anchors:

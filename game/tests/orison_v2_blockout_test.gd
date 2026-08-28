@@ -17,13 +17,26 @@ func _ready() -> void:
 	_check(not bool(layout.get("production_default", true)), "v2 is development-only")
 	_check(layout.get("layout_id", "") == "orison_v2_h_plan_blockout_01",
 			"accepted H-plan identity is stable")
-	_check(layout.levels.size() == 3, "first slice declares F01, F02 and F04")
-	_check(layout.spaces.size() == 34, "34 programmed blockout spaces")
+	_check(layout.levels.size() == 4, "first slice declares F01 through F04 transfer levels")
+	_check(layout.spaces.size() == 36, "36 programmed blockout spaces")
 	_check(layout.doors.size() == 10, "ten complete route/service leaves")
 	_check(layout.openings.size() == 3, "three leafless circulation openings")
 	_check(layout.windows.size() == 4, "four F01 daylight openings")
 	_check(layout.envelopes.size() == 10, "ten fixed-use and clearance reservations")
+	_check(layout.platforms.size() == 20, "twenty explicit core landing platforms")
+	_check(layout.lift_landings.size() == 8, "eight passenger/service lift landings")
+	_check(layout.stairs.size() == 6, "public and service U-stairs span three storeys")
 	_check(layout.anchors.size() == 16, "sixteen named gameplay/review anchors")
+	for stair: Dictionary in layout.stairs:
+		_check(str(stair.kind) == "u", "U-stair record: " + str(stair.id))
+		_check(int(stair.risers_per_flight) == 10 and is_equal_approx(float(stair.rise), 0.16),
+				"twenty uniform 160 mm risers: " + str(stair.id))
+		_check(float(stair.tread) >= 0.275, "tread is at least 275 mm: " + str(stair.id))
+		_check(float(stair.width) >= 1.05, "stair clear width is at least 1.05 m: " + str(stair.id))
+		_check(float(stair.guard_height) >= 0.91, "guard is at least 0.91 m: " + str(stair.id))
+		_check(float(layout.dimensions.floor_to_floor)
+				- float(stair.rise) * 6.0 >= 2.2,
+				"conservative 2.20 m headroom at crossover: " + str(stair.id))
 	_check(_route_exists(layout, "F01_STREET_APRON", "F01_PUBLIC_CORE"),
 			"street connects through vestibule/lobby to public core")
 	_check(_route_exists(layout, "F01_REAR_APRON", "F01_PUBLIC_CORE"),
@@ -64,6 +77,20 @@ func _ready() -> void:
 				"wet stack is continuous geometry")
 		_check(root.get_node_or_null("SERVICE_LIFT_SHAFT") != null,
 				"service lift is continuous geometry")
+		_check(root.get_node_or_null("PASSENGER_LIFT_SHAFT") != null,
+				"passenger lift is continuous reserved geometry")
+		for ident in ["PRIMARY_F01_F02", "PRIMARY_F02_F03", "PRIMARY_F03_F04",
+				"SERVICE_F01_F02", "SERVICE_F02_F03", "SERVICE_F03_F04"]:
+			_check(root.get_node_or_null("%s/HalfLanding" % ident) != null,
+					"half landing resolves: " + ident)
+			_check(root.get_node_or_null("%s/HalfLandingGuard" % ident) != null,
+					"landing guard resolves: " + ident)
+		for ident in ["F01_PASSENGER_LIFT_LANDING", "F02_PASSENGER_LIFT_LANDING",
+				"F03_PASSENGER_LIFT_LANDING", "F04_PASSENGER_LIFT_LANDING",
+				"F01_SERVICE_LIFT_LANDING", "F02_SERVICE_LIFT_LANDING",
+				"F03_SERVICE_LIFT_LANDING", "F04_SERVICE_LIFT_LANDING"]:
+			_check(root.get_node_or_null("%s/Clearance" % ident) != null,
+					"lift landing clearance resolves: " + ident)
 		await get_tree().physics_frame
 		for sample: Vector3 in [Vector3(0.0, 0.85, -14.25),
 				Vector3(0.0, 0.85, -10.45), Vector3(0.0, 0.85, -7.0),
