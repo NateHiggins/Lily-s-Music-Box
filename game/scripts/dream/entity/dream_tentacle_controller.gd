@@ -672,18 +672,20 @@ func _push_uniforms() -> void:
 		"senescence": 1.0 if exploration_state == ExplorationState.WITHERING else 0.0,
 	})
 	var kind := PhenotypeScript.Kind.TACTILE
+	var modality := 0
 	match ecology_purpose_name:
-		"vibration_listener": kind = PhenotypeScript.Kind.VIBRATIONAL
-		"ocular_examiner": kind = PhenotypeScript.Kind.OPTICAL
-		"sucker_sampler": kind = PhenotypeScript.Kind.CHEMICAL
-		"manipulator": kind = PhenotypeScript.Kind.THERMAL
-		"relay_tendril": kind = PhenotypeScript.Kind.ELECTRICAL
+		"sucker_sampler": kind = PhenotypeScript.Kind.CHEMICAL; modality = 1
+		"manipulator": kind = PhenotypeScript.Kind.THERMAL; modality = 2
+		"vibration_listener": kind = PhenotypeScript.Kind.VIBRATIONAL; modality = 3
+		"ocular_examiner": kind = PhenotypeScript.Kind.OPTICAL; modality = 4
+		"relay_tendril": kind = PhenotypeScript.Kind.ELECTRICAL; modality = 5
 	var phenotype := PhenotypeScript.profile(kind, int(seed_phase * 100000.0))
 	_material.set_shader_parameter("cellular_state_a", packet.to_vector_a())
 	_material.set_shader_parameter("cellular_state_b", packet.to_vector_b())
 	_material.set_shader_parameter("cellular_state_c", packet.to_vector_c())
 	_material.set_shader_parameter("cellular_phenotype", Vector4(
 			phenotype.organization, phenotype.windows, phenotype.proteins, phenotype.refractive))
+	_material.set_shader_parameter("cellular_modality", modality)
 	_material.set_shader_parameter("cellular_time", clock)
 
 
