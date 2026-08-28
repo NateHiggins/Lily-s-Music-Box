@@ -2045,11 +2045,10 @@ def apartment_4b(z, walls, rooms, markers, furniture):
     coffee_table(furniture, "4B_coffee", -12.58, 3.35)
     tv_set(furniture, "4B_tv", -11.20, y0 + 0.06, True, face="n")
     chair_box(furniture, "4B_desk_chair", -9.05, 5.35, "w")
-    # Clear of 4B's main rug, which runs to x -8.70. The desk mat used to
-    # start at -9.35 and lie half on top of it - two rugs occupying the
-    # same 0.65 x 1.15 m of floor, which reads as one rug with a colour
-    # fault rather than as two.
-    rug_box(furniture, "4B_deskrug", -8.55, 4.85, 1.15, 1.5, "rug_cool")
+    # No separate desk mat.  The 1.15 m mat cannot fit between the main rug's
+    # east edge and the bathroom partition: its former compromise placement
+    # passed through that wall and 310 mm into the shower footprint.  The desk
+    # and chair remain the complete work station on the continuous oak floor.
     shelf_unit(furniture, "4B_shelf", -9.25, y0 + 0.08, 1.1, True,
                books=True, face="n")
     _furn_box(furniture, "4B_mattress", -13.33, 6.97, 1.21, 2.46, 0.32,
