@@ -195,6 +195,9 @@ func _teardown() -> void:
 	# otherwise survive a same-frame queue_free at capture exit.
 	for tentacle in tentacles:
 		if is_instance_valid(tentacle):
+			if is_instance_valid(tentacle._probe):
+				tentacle._probe.free()
+				tentacle._probe = null
 			tentacle.free()
 	tentacles.clear()
 	for node in [critters, dream_field, renderer, director]:
