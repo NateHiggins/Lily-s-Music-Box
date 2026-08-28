@@ -554,17 +554,20 @@ def rug_box(f, uid, x, y, w, d, mat):
 
 
 def bed_set(f, uid, x, y, along_x=True, w=1.50, l=2.05,
-            mat_blanket="fabric_warm", nightstand_far=True):
+            mat_blanket="fabric_warm", nightstand_far=True,
+            with_nightstand=True):
     """Spool bed; (x, y) is the min corner, head at -x (along_x) or +y."""
     if along_x:
         _asm(f, uid, "bed", x + l / 2, y + w / 2, -90, W=w, L=l,
              blanket=mat_blanket)
-        _asm(f, uid + "_ns", "nightstand", x + 0.33, y + w + 0.31, 180)
+        if with_nightstand:
+            _asm(f, uid + "_ns", "nightstand", x + 0.33, y + w + 0.31, 180)
     else:
         _asm(f, uid, "bed", x + w / 2, y + l / 2, 180, W=w, L=l,
              blanket=mat_blanket)
-        ns_x = x + w + 0.31 if nightstand_far else x - 0.31
-        _asm(f, uid + "_ns", "nightstand", ns_x, y + l - 0.33, -90)
+        if with_nightstand:
+            ns_x = x + w + 0.31 if nightstand_far else x - 0.31
+            _asm(f, uid + "_ns", "nightstand", ns_x, y + l - 0.33, -90)
 
 
 def sofa_set(f, uid, x, y, L=1.95, along_x=True, back_far=True,
@@ -1602,8 +1605,15 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
                       0.7, True)
     if "alcove" in rooms and "alcove" not in skip:
         ax0, ay0, ax1, ay1 = rooms["alcove"]
+        # Lena Ortiz's 2B alcove is only 2.75 x 3.15 m.  The standardized
+        # bedside cube occupied the same floor as her clothes wardrobe and
+        # could never function as a separate surface.  Her dining table is
+        # already the resident-specific sewing/work station, so retain the
+        # two essentials here—sleep and closed storage—without inventing a
+        # second cramped station.
         bed_set(f, unit + "_abed", ax0 + 0.35, ay1 - 2.45, False,
-                w=1.40, mat_blanket=pal["sofa"])
+                w=1.40, mat_blanket=pal["sofa"],
+                with_nightstand=(unit != "2B"))
         wardrobe(f, unit + "_aw", ax1 - 0.80, ay1 - 1.55, False, face="w")
     if "office" in rooms:
         ox0, oy0, ox1, oy1 = rooms["office"]

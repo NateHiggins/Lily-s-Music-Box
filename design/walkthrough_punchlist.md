@@ -289,7 +289,7 @@ coordinate before fixing.
 | F02_A_MAIN | TV wedged between sofa back and window, overlapping sill/blinds, no stand | ugly |
 | F02_A_BATH | Gold sconce/decal at ceiling height | wish |
 | F02_B_BATH | Wooden shelf above toilet broken apart — board and dowels hanging diagonally over the mirror | ugly |
-| F02_B_KITCHEN | Door trim outlines bare brick (door panel missing) beside a live light switch | ugly |
+| F02_B_KITCHEN | ~~Door trim outlines bare brick (door panel missing) beside a live light switch~~ ANSWERED: the final 2B checkpoint proves `F02_DOOR_06` present and open beside the kitchen run. | resolved |
 | F02_C_MAIN | TV overlaps window blinds; blank tan canvas hangs tilted off the brick wall | ugly |
 | F02_C_BED1 | Picture frame wedged between wardrobe top and ceiling | ugly |
 | F02_D_MAIN | ~~Unit 2D entirely unfurnished~~ ANSWERED: the unit status table rules 2D "sealed", so the emptiness is canon. Duplicate of the row answered under the 08-15 walk | resolved |

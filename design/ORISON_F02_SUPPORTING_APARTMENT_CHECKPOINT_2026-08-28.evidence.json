@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "claim_id": "F02_2B_SHOT",
+      "rooms": ["F02_B_MAIN", "F02_B_KITCHEN", "F02_B_ALCOVE", "F02_B_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_supporting_apartment_checkpoint_02/scene_capture_receipt.json",
+      "artifact_kind": "path",
+      "expected_schema": "scene_capture_receipt.json",
+      "expected_scene": "ORISON-RR-F02-2B",
+      "expected_output_count": 6,
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_2B_LIGHTING",
+      "rooms": ["F02_B_MAIN", "F02_B_KITCHEN", "F02_B_ALCOVE", "F02_B_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_supporting_apartment_checkpoint_02/lighting_audit.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_2B_WALK",
+      "rooms": ["F02_B_MAIN", "F02_B_KITCHEN", "F02_B_ALCOVE", "F02_B_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_supporting_apartment_checkpoint_02/walk_fast.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_2B_BATH_LEAF",
+      "rooms": ["F02_B_BATH"],
+      "artifact_kind": "manual",
+      "manual_visual_proof_required": true
+    }
+  ]
+}
