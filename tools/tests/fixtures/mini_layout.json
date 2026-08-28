@@ -37,6 +37,8 @@
         {"kind": "door", "id": "T1_DOOR_02", "pos": [1.0, 0.0, 0.0], "yaw_deg": 0,
          "w": 0.8, "h": 2.03, "leaf": "closed", "swing": "out",
          "subtype": "service", "finish_variant": 0},
+        {"kind": "door", "id": "T1_CAB_UPPER_1", "pos": [2.0, 2.7, 1.5],
+         "yaw_deg": 0, "w": 0.48, "h": 0.70, "leaf": "closed", "cabinet": true},
         {"kind": "radiator", "id": "T1_A_RADIATOR_01", "pos": [0.25, 1.5, 0.0],
          "yaw_deg": 90, "network": "heating", "riser": "H-T", "sections": 5}
       ],

@@ -107,6 +107,16 @@ class DoorGeometryTests(unittest.TestCase):
         view = wb.collect_room_view(layout, "T1_A", TABLES)
         self.assertIn("T1_DOOR_01", [dd["id"] for dd in view["doors"]])
 
+    def test_cabinet_door_is_content_not_room_entrance(self):
+        layout = load_fixture()
+        view = wb.collect_room_view(layout, "T1_A", TABLES)
+        self.assertNotIn("T1_CAB_UPPER_1", [dd["id"] for dd in view["doors"]])
+        cabinet = next(o for o in view["objects"]
+                       if o["id"] == "T1_CAB_UPPER_1")
+        self.assertEqual(cabinet["category"], "markers")
+        self.assertEqual(cabinet["tier"], wb.EXACT)
+        self.assertFalse(cabinet["blocking"])
+
 
 class RoomViewTests(unittest.TestCase):
     @classmethod

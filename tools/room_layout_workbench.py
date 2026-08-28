@@ -313,6 +313,17 @@ def interpret_record(category, record, tables):
 # Doors
 # ---------------------------------------------------------------------------
 
+def is_room_door(marker):
+    """True for architectural leaves, not DoorProp-powered cabinet fronts.
+
+    The production layout deliberately serializes opening cabinet leaves with
+    ``kind: door`` so Godot can build both through DoorProp.  ``cabinet: true``
+    is the authoritative distinction; cabinet leaves are room contents and
+    must never become entrances, circulation starts or room-to-room links.
+    """
+    return marker.get("kind") == "door" and not marker.get("cabinet", False)
+
+
 def door_view(marker, rooms):
     """Full plan geometry for one door marker.
 
@@ -496,7 +507,7 @@ def collect_room_view(layout, room_id, tables):
 
     doors = []
     for m in floor.get("markers", []):
-        if m.get("kind") != "door":
+        if not is_room_door(m):
             continue
         d = door_view(m, rooms)
         if door_touches_room(d, room):
@@ -506,7 +517,7 @@ def collect_room_view(layout, room_id, tables):
     objects = []
     per_floor = [("furniture", floor.get("furniture", [])),
                  ("markers", [m for m in floor.get("markers", [])
-                              if m.get("kind") != "door"]),
+                              if not is_room_door(m)]),
                  ("sockets", floor.get("sockets", [])),
                  ("vent_registers", floor.get("vent_registers", []))]
     top_level = [("vantry_points", layout.get("vantry_points", [])),
