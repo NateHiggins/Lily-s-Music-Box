@@ -227,11 +227,50 @@ void vertex() {
 			local *= vec3(size.y * 0.38, size.z * 0.16, size.x * 0.34);
 			local += vec3(0.0, -size.z * 0.24, -size.x * 0.02);
 			v_thickness = 0.92;
-		} else {
+		} else if (part < 7.5) {
 			// Front sensory core nested between the plate pair.
 			local *= vec3(size.y * 0.15, size.z * 0.16, size.x * 0.11);
 			local += vec3(0.0, size.z * 0.10, size.x * 0.43);
 			v_thickness = 0.18;
+		} else if (part < 8.5) {
+			// Rear information-transfer rosette meets the moss on return.
+			local *= vec3(size.y * 0.24, size.z * 0.13, size.x * 0.13);
+			local += vec3(0.0, -size.z * 0.08, -size.x * 0.49);
+			local.x *= 1.0 + 0.16 * sin(v_uv.x * 31.0 + TIME * 1.4);
+			v_thickness = 0.78;
+		} else if (part < 9.5) {
+			// A continuous muscular girdle bridges the embedded leg sockets.
+			local *= vec3(size.y * 0.58, size.z * 0.10, size.x * 0.38);
+			local += vec3(0.0, -size.z * 0.13, -size.x * 0.02);
+			v_thickness = 0.55;
+		} else if (part < 10.5) {
+			// Two short mouth-adjacent manipulators fold beneath the crown while
+			// travelling and deploy only during an existing examination state.
+			float flank = index < 0.5 ? -1.0 : 1.0;
+			float deploy = photo.x;
+			vec3 root = vec3(flank * size.y * 0.13, -size.z * 0.10, size.x * 0.39);
+			vec3 elbow = root + vec3(flank * size.y * 0.10,
+					-size.z * (0.07 + 0.08 * deploy), size.x * 0.12 * deploy);
+			vec3 tip = elbow + vec3(-flank * size.y * 0.04,
+					-size.z * 0.03, size.x * (0.05 + 0.30 * deploy));
+			vec3 a = along < 0.52 ? root : elbow;
+			vec3 b = along < 0.52 ? elbow : tip;
+			float section = along < 0.52 ? along / 0.52 : (along - 0.52) / 0.48;
+			vec3 p = mix(a, b, section);
+			p.x += sin(TIME * 3.1 + flank * 1.7) * deploy * size.y * 0.018 * along;
+			float thick = size.y * mix(0.045, 0.018, along);
+			local = p + ring_offset(b - a, nrm, thick);
+			v_thickness = 0.64;
+		} else {
+			// Paired tactile bulbs make the manipulators legible without adding
+			// per-organ draw calls. They retract under the sensory crown.
+			float flank = part < 11.5 ? -1.0 : 1.0;
+			float deploy = photo.x;
+			local *= vec3(size.y * 0.075, size.z * 0.065, size.y * 0.085);
+			local += vec3(flank * size.y * (0.19 + 0.06 * deploy),
+					-size.z * (0.18 - 0.04 * deploy),
+					size.x * (0.44 + 0.52 * deploy));
+			v_thickness = 0.86;
 		}
 	}
 
@@ -269,6 +308,11 @@ void fragment() {
 	// §26 — the individual's own balance, applied to the shared stack.
 	ctx.stretch = 0.2 + 0.5 * v_look.w;
 	ctx.vein = 0.2 + 0.7 * v_look.y;
+	// Information is acquired at the crown and visibly travels toward the rear
+	// transfer rosette; fatigue desaturates soft tissue without hiding anatomy.
+	float info_path = (1.0 - smoothstep(0.06, 0.22,
+			abs(fract(v_uv.y + TIME * 0.34) - v_photo.y))) * v_photo.y;
+	ctx.vein = clamp(ctx.vein + info_path * 0.8, 0.0, 1.0);
 	float relay_front = v_mechanical.z * 0.72;
 	float relay = (1.0 - smoothstep(0.03, 0.20,
 			abs(v_uv.y - relay_front))) * v_mechanical.x;
@@ -298,9 +342,22 @@ void fragment() {
 	vec3 tint = mix(vec3(0.82, 0.95, 1.12), vec3(1.18, 0.92, 0.95), v_look.x);
 	ALBEDO = o.albedo * tint;
 	METALLIC = o.metallic;
+	if (v_part < 0.5 || (v_part >= 3.0 && v_part < 5.5)) {
+		// Structural shell is dark aubergine; gold remains on load paths/joints.
+		ALBEDO *= vec3(0.42, 0.34, 0.52);
+		METALLIC = o.metallic * 0.38;
+	} else if (v_part >= 5.5 && v_part < 6.5) {
+		ALBEDO *= vec3(0.72, 0.34, 0.62);
+	} else if (v_part >= 8.5 && v_part < 9.5) {
+		ALBEDO *= vec3(0.82, 0.68, 0.86);
+	} else if (v_part >= 10.5) {
+		ALBEDO = mix(ALBEDO, vec3(0.58, 0.18, 0.72), 0.72);
+	}
+	ALBEDO *= mix(vec3(1.0), vec3(0.54, 0.48, 0.62), v_photo.z * 0.65);
 	ROUGHNESS = clamp(o.roughness - 0.22 * v_look.z, 0.04, 1.0);
 	SPECULAR = o.specular;
 	EMISSION = o.emission * (0.5 + 1.1 * v_matter.x);
+	if (v_part >= 10.5) EMISSION += vec3(0.10, 0.015, 0.16) * v_photo.x;
 	// Not a flash: photoshock bruises/perfuses the same tissue stack while
 	// the legible event remains the resonator reversal and feeler arrest.
 	ALBEDO *= mix(vec3(1.0), vec3(0.78, 0.72, 1.06), v_photo.y * 0.34);

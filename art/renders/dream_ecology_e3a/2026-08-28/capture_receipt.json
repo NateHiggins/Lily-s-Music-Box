@@ -1,0 +1,32 @@
+{
+  "assignment": "DREAM-ECOLOGY-E3A",
+  "date": "2026-08-28",
+  "seed": 4401,
+  "renderer": "DreamCritterController + dream_critter.gdshader",
+  "packets": {
+    "anatomy": {"frames": 10, "result": "PASS"},
+    "gait": {"frames": 7, "result": "PASS"},
+    "examination": {"frames": 7, "result": "PASS"},
+    "fold": {"frames": 2, "result": "PASS"}
+  },
+  "objective_metrics": {
+    "minimum_support_legs": 3,
+    "stance_slide_mm": 0.0,
+    "manipulators": 2,
+    "draw_calls": 1,
+    "mesh_surfaces": 1,
+    "materials": 1,
+    "cached_joint_rows": 96,
+    "gait_cpu_ms_1": 0.0100,
+    "gait_cpu_ms_4": 0.0330,
+    "gait_cpu_ms_8": 0.0675,
+    "tentacle_cpu_ms": 0.642
+  },
+  "tests": {
+    "DreamEcologyE3": "PASS 19/19",
+    "DreamTentacle": "PASS 28/28",
+    "DreamEcology": "PASS 63/63",
+    "DreamFaunaLifecycle": "PASS 34/34"
+  },
+  "resource_retention": "no E3A shutdown leak reported"
+}

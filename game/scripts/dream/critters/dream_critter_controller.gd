@@ -26,7 +26,7 @@ const MAX_FEELERS := 12
 # is the one place a low-poly count always tells.
 const BODY_RINGS := 13
 const BODY_SEGS := 18
-const LIMB_RINGS := 5
+const LIMB_RINGS := 9
 # Five segments is a pentagonal prism and four is a square one, which is why
 # the legs and cilia photographed as bars and slabs rather than as limbs.
 const LIMB_SEGS := 8
@@ -134,15 +134,19 @@ func _build_mesh() -> ArrayMesh:
 				var a0 := base + r * BODY_SEGS + sgm
 				indices.append(a0); indices.append(a0 + BODY_SEGS); indices.append(a0 + 1)
 				indices.append(a0 + 1); indices.append(a0 + BODY_SEGS); indices.append(a0 + BODY_SEGS + 1)
-		# E3 fold-crab anatomy: three overlapping dorsal plates, one ventral
-		# breathing body and a protected sensory core. Non-crab slots collapse
-		# these bounded vertices in the shared shader.
-		for detail in 5:
+		# E3A fold-crab anatomy: dorsal plates, ventral mantle, sensory core,
+		# transfer rosette, girdle and paired tactile bulbs. Non-crab slots
+		# collapse these bounded vertices in the shared shader.
+		for detail in 7:
 			_append_detail_sphere(verts, normals, uvs, uv2, indices, c, 3.0 + detail)
+		_append_detail_sphere(verts, normals, uvs, uv2, indices, c, 11.0)
+		_append_detail_sphere(verts, normals, uvs, uv2, indices, c, 12.0)
 		_append_tubes(verts, normals, uvs, uv2, indices, c, 1.0,
 				MAX_LIMBS, LIMB_RINGS, LIMB_SEGS)
 		_append_tubes(verts, normals, uvs, uv2, indices, c, 2.0,
 				MAX_FEELERS, FEELER_RINGS, FEELER_SEGS)
+		_append_tubes(verts, normals, uvs, uv2, indices, c, 10.0,
+				2, 7, LIMB_SEGS)
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = verts
@@ -340,6 +344,10 @@ func _try_spawn() -> void:
 			"ecology_target": Vector3.INF,
 			"ecology_examination_s": 0.0,
 			"ecology_reports": 0,
+			"ecology_last_target_id": "",
+			"ecology_repeat_count": 0,
+			"manipulator_deploy": 0.0,
+			"information_pulse": 0.0,
 			"signal_seen_born": -1.0,
 			"signal_seen_src": -2147483648,
 			"signal_presented_at": -1.0,
@@ -369,6 +377,10 @@ func _apply_ecology_support(delta: float) -> void:
 	if ecology_director == null:
 		return
 	for critter in critters:
+		critter.information_pulse = maxf(0.0,
+				float(critter.get("information_pulse", 0.0)) - delta * 0.42)
+		critter.manipulator_deploy = move_toward(
+				float(critter.get("manipulator_deploy", 0.0)), 0.0, delta * 0.9)
 		var colony = critter.get("ecology_colony")
 		var record: Dictionary = critter.get("ecology_record", {})
 		if colony == null or record.is_empty():
@@ -378,6 +390,7 @@ func _apply_ecology_support(delta: float) -> void:
 				float(record.ether))
 		critter.ecology_returning = status == "returning"
 		if status == "returning":
+			critter.information_pulse = maxf(float(critter.information_pulse), 0.35)
 			var home: Vector3 = colony.origin
 			_turn_toward(critter, home - (critter.pos as Vector3), delta * 2.4)
 			critter.moving = true
@@ -387,6 +400,7 @@ func _apply_ecology_support(delta: float) -> void:
 						"modalities": ["touch", "material", "controls"]}
 				colony.report(record, String(critter.ecology_target_id), observation)
 				critter.ecology_reports = int(critter.ecology_reports) + 1
+				critter.information_pulse = 1.0
 				critter.ecology_examination_s = 0.0
 				_select_ecology_target(critter, colony)
 		elif status == "senescent":
@@ -401,9 +415,16 @@ func _apply_ecology_support(delta: float) -> void:
 				critter.moving = distance > 0.18
 				if distance <= 0.22:
 					critter.ecology_examination_s = float(critter.ecology_examination_s) + delta
+					var repeat_count := int(critter.get("ecology_repeat_count", 0))
+					var examination_need := maxf(0.58, 1.2 - repeat_count * 0.22)
+					var novelty := 1.0 / float(1 + repeat_count)
 					critter.unfold = maxf(float(critter.unfold),
-							clampf(float(critter.ecology_examination_s) / 1.2, 0.0, 1.0))
-					if float(critter.ecology_examination_s) >= 1.2:
+							clampf(float(critter.ecology_examination_s) / examination_need, 0.0, 1.0))
+					critter.manipulator_deploy = clampf(
+							float(critter.ecology_examination_s) / examination_need, 0.0, 1.0) \
+							* lerpf(0.48, 1.0, novelty)
+					if float(critter.ecology_examination_s) >= examination_need:
+						critter.information_pulse = 1.0
 						colony.update_excursion(record, critter.pos, 0.0, 1.0)
 
 
@@ -421,6 +442,12 @@ func _select_ecology_target(critter: Dictionary, colony) -> void:
 			best_at = (route.points as PackedVector3Array)[(route.points as PackedVector3Array).size() - 1]
 	critter.ecology_target_id = best_id
 	critter.ecology_target = best_at
+	if best_id == String(critter.get("ecology_last_target_id", "")):
+		critter.ecology_repeat_count = mini(4,
+				int(critter.get("ecology_repeat_count", 0)) + 1)
+	else:
+		critter.ecology_repeat_count = 0
+		critter.ecology_last_target_id = best_id
 
 
 ## Move a critter and keep it on the architecture. Every displacement goes
@@ -1118,6 +1145,12 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 				float(photo.get("shock", 0.0)),
 				float(photo.get("scan", 0.0)) / TAU,
 				float(c.get("photo_side", 0.0)))
+		if plan > 1.5:
+			var repeat_count := int(c.get("ecology_repeat_count", 0))
+			_photo[i] = Vector4(float(c.get("manipulator_deploy", 0.0)),
+					float(c.get("information_pulse", 0.0)),
+					1.0 - clampf(float(c.get("alive", 1.0)), 0.0, 1.0),
+					1.0 / float(1 + repeat_count))
 		var mechanical: Dictionary = c.get("mechanical", {})
 		var mech_dir: Vector3 = mechanical.get("direction", Vector3.ZERO)
 		_mechanical[i] = Vector4(float(mechanical.get("response", 0.0)),
@@ -1273,6 +1306,10 @@ func census() -> Dictionary:
 		mechanical_received += int(mechanical.get("received", 0))
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
+			"draw_calls": 1 if mesh_instance != null and mesh_instance.visible else 0,
+			"mesh_surfaces": 1, "materials": 1,
+			"crab_manipulators_per_animal": 2,
+			"cached_crab_joint_rows": MAX_CRITTERS * MAX_LIMBS,
 			"nudged_by_a_palp": nudged, "unfolding_at_the_hero": unfolded,
 			"grooming_a_palp": grooming, "hiding_under_a_palp": hiding,
 			"riding_a_palp": riding, "used_one_as_a_bridge": bridged,

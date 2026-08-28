@@ -79,11 +79,35 @@ func _run() -> void:
 			max_stance_slide < 0.001)
 	_check("fold crab body plan is low and non-orbital", float(morph.length) > float(morph.tall)
 			and float(morph.wide) > float(morph.tall) * 0.9)
+	_check("E3A manipulators are a bounded attached pair",
+			controller.MAX_LIMBS == 8 and controller.MAX_CRITTERS == 12)
+	var habituation := {"ecology_last_target_id": "motor", "ecology_repeat_count": 0,
+			"ecology_target_id": "", "ecology_target": Vector3.INF}
+	var target_colony = Colony.new(); target_colony.configure(992, 7711)
+	target_colony.register_route("motor", "motor", [Vector3.ZERO, Vector3.RIGHT])
+	controller._select_ecology_target(habituation, target_colony)
+	controller._select_ecology_target(habituation, target_colony)
+	_check("repeated observable target produces bounded habituation",
+			int(habituation.ecology_repeat_count) == 2)
 	var coordination = Colony.new(); coordination.configure(991, 7711)
 	_check("duplicate purpose reservations are refused while another modality may share",
 			coordination.reserve_target("motor", Colony.OrganismClass.PALPATOR, 1)
 			and not coordination.reserve_target("motor", Colony.OrganismClass.PALPATOR, 2)
 			and coordination.reserve_target("motor", Colony.OrganismClass.VIBRATION_LISTENER, 3))
+	for animal_count in [1, 4, 8]:
+		var perf_crabs: Array[Dictionary] = []
+		for animal_i in animal_count:
+			perf_crabs.append({"morph": Generator.generate(Species.Kind.FOLD_CRAB, 5000 + animal_i),
+					"pos": Vector3(animal_i * 0.3, 0.08, 0), "up": Vector3.UP,
+					"fwd": Vector3.FORWARD, "gait": 0.0, "moving": true,
+					"leg_state": [], "support_legs": 0, "leg_root_gap_max": 0.0})
+		var perf_start := Time.get_ticks_usec()
+		for perf_frame in 300:
+			for perf_crab in perf_crabs:
+				perf_crab.gait = float(perf_crab.gait) + 0.03
+				controller._advance_crab_gait(perf_crab, 1.0 / 60.0)
+		var perf_ms := float(Time.get_ticks_usec() - perf_start) / 300.0 / 1000.0
+		print("[e3 perf] fold-crab gait %d animal(s): %.4f ms/frame" % [animal_count, perf_ms])
 
 	controller.free(); controller = null; crab.clear(); morph.clear()
 	for _frame in 5: await get_tree().process_frame
