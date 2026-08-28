@@ -24,6 +24,8 @@
     {"id": "F04", "y": 9.6}
   ],
   "spaces": [
+    {"id":"F01_STREET_APRON","level":"F01","class":"public","rect":[-3.0,-15.0,3.0,-11.65],"purpose":"street threshold review approach","open_shell":true},
+    {"id":"F01_REAR_APRON","level":"F01","class":"service","rect":[7.8,9.25,10.0,12.0],"purpose":"rear service receiving approach","open_shell":true},
     {"id":"F01_VESTIBULE","level":"F01","class":"public","rect":[-2.4,-11.65,2.4,-9.25],"purpose":"weather lock and address"},
     {"id":"F01_LOBBY","level":"F01","class":"public","rect":[-5.4,-9.25,5.4,-3.85],"purpose":"arrival, waiting and orientation"},
     {"id":"F01_WATCH","level":"F01","class":"service","rect":[-5.4,-3.85,-1.2,0.55],"purpose":"watch, keys and annunciator"},
@@ -31,6 +33,7 @@
     {"id":"F01_PACKAGE","level":"F01","class":"service","rect":[-9.2,0.55,-5.4,4.25],"purpose":"secure parcel handling"},
     {"id":"F01_COMMON_B","level":"F01","class":"public","rect":[-15.65,-3.85,-9.2,5.65],"purpose":"resident meeting and reading"},
     {"id":"F01_PUBLIC_CORE","level":"F01","class":"core","rect":[-1.2,-3.85,5.4,3.85],"purpose":"passenger lift and primary stair approach"},
+    {"id":"F01_CORE_TO_SERVICE","level":"F01","class":"service","rect":[5.4,-1.0,8.3,1.0],"purpose":"controlled public-to-service transfer"},
     {"id":"F01_SERVICE_HALL","level":"F01","class":"service","rect":[8.3,-9.25,9.5,9.25],"purpose":"staff, delivery and maintenance route"},
     {"id":"F01_SERVICE_CORE","level":"F01","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair"},
 
@@ -59,10 +62,39 @@
     {"id":"F04_SERVICE_CORE","level":"F04","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair"}
   ],
   "doors": [
-    {"id":"F01_DOOR_06","level":"F01","center":[0.0,-11.65],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"left","swing":"out","connects":["STREET","F01_VESTIBULE"]},
+    {"id":"F01_DOOR_06","level":"F01","center":[0.0,-11.65],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"left","swing":"out","connects":["F01_STREET_APRON","F01_VESTIBULE"]},
     {"id":"F01_INNER_DOOR","level":"F01","center":[0.0,-9.25],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"right","swing":"north","connects":["F01_VESTIBULE","F01_LOBBY"]},
     {"id":"F02_DOOR_02","level":"F02","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"west","connects":["F02_WEST_HALL","F02_A_VESTIBULE"]},
-    {"id":"F04_DOOR_03","level":"F04","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"west","connects":["F04_WEST_HALL","F04_B_VESTIBULE"]}
+    {"id":"F04_DOOR_03","level":"F04","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"west","connects":["F04_WEST_HALL","F04_B_VESTIBULE"]},
+    {"id":"F01_WATCH_MAIL_DOOR","level":"F01","center":[-5.4,-2.4],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"watch","connects":["F01_WATCH","F01_MAIL_TELEPHONE"]},
+    {"id":"F01_MAIL_PACKAGE_DOOR","level":"F01","center":[-7.3,0.55],"width":0.91,"height":2.13,"yaw":0.0,"hinge":"right","swing":"mail","connects":["F01_MAIL_TELEPHONE","F01_PACKAGE"]},
+    {"id":"F01_WATCH_CORE_DOOR","level":"F01","center":[-1.2,-1.5],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"watch","connects":["F01_WATCH","F01_PUBLIC_CORE"]},
+    {"id":"F01_PACKAGE_COMMON_DOOR","level":"F01","center":[-9.2,2.4],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"package","connects":["F01_PACKAGE","F01_COMMON_B"]},
+    {"id":"F01_REAR_SERVICE_DOOR","level":"F01","center":[8.9,9.25],"width":0.91,"height":2.13,"yaw":0.0,"hinge":"left","swing":"out","connects":["F01_SERVICE_HALL","F01_REAR_APRON"]},
+    {"id":"F01_SERVICE_CORE_DOOR","level":"F01","center":[9.5,5.5],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"core","connects":["F01_SERVICE_HALL","F01_SERVICE_CORE"]}
+  ],
+  "openings": [
+    {"id":"F01_LOBBY_CORE_OPENING","level":"F01","center":[2.1,-3.85],"width":3.2,"height":2.65,"axis":"x","connects":["F01_LOBBY","F01_PUBLIC_CORE"]},
+    {"id":"F01_CORE_SERVICE_OPENING","level":"F01","center":[5.4,0.0],"width":1.2,"height":2.4,"axis":"z","connects":["F01_PUBLIC_CORE","F01_CORE_TO_SERVICE"]},
+    {"id":"F01_SERVICE_HALL_OPENING","level":"F01","center":[8.3,0.0],"width":1.2,"height":2.4,"axis":"z","connects":["F01_CORE_TO_SERVICE","F01_SERVICE_HALL"]}
+  ],
+  "windows": [
+    {"id":"F01_LOBBY_WINDOW_W","level":"F01","center":[-3.7,-9.25],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F01_LOBBY"},
+    {"id":"F01_LOBBY_WINDOW_E","level":"F01","center":[3.7,-9.25],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F01_LOBBY"},
+    {"id":"F01_COMMON_WINDOW_S","level":"F01","center":[-15.65,-1.2],"width":1.5,"height":1.7,"sill":0.75,"axis":"z","space":"F01_COMMON_B"},
+    {"id":"F01_COMMON_WINDOW_N","level":"F01","center":[-15.65,3.2],"width":1.5,"height":1.7,"sill":0.75,"axis":"z","space":"F01_COMMON_B"}
+  ],
+  "envelopes": [
+    {"id":"F01_PRIMARY_ROUTE_ENVELOPE","level":"F01","rect":[-0.75,-11.65,0.75,-3.85],"height":0.02,"class":"clearance","purpose":"1.5 m street-to-lobby route"},
+    {"id":"F01_LOBBY_TURN_ENVELOPE","level":"F01","rect":[-0.75,-7.3,0.75,-5.8],"height":0.025,"class":"clearance","purpose":"1.5 m lobby turn"},
+    {"id":"F01_CORE_DECISION_ENVELOPE","level":"F01","rect":[-0.75,-3.85,0.75,-2.05],"height":0.03,"class":"clearance","purpose":"lift and stair decision"},
+    {"id":"F01_WATCH_WORK_ENVELOPE","level":"F01","rect":[-4.8,-3.2,-2.0,-1.8],"height":0.8,"class":"unresolved","purpose":"watch apparatus work front"},
+    {"id":"F01_MAIL_WORK_ENVELOPE","level":"F01","rect":[-8.8,-3.2,-6.0,-1.7],"height":0.8,"class":"unresolved","purpose":"mail and telephone work front"},
+    {"id":"F01_PACKAGE_AISLE","level":"F01","rect":[-8.35,1.1,-7.3,3.7],"height":0.02,"class":"clearance","purpose":"1.05 m parcel aisle"},
+    {"id":"F01_SERVICE_ROUTE_ENVELOPE","level":"F01","rect":[8.3,-8.5,9.5,8.5],"height":0.02,"class":"clearance","purpose":"1.2 m service route"},
+    {"id":"F01_PASSENGER_LIFT_RESERVATION","level":"F01","rect":[-1.2,-2.8,1.2,-0.3],"height":3.0,"class":"unresolved","purpose":"passenger lift shaft and landing"},
+    {"id":"F01_LOBBY_RADIATOR_W","level":"F01","rect":[-4.45,-9.0,-2.95,-8.55],"height":0.75,"class":"service","purpose":"radiator and service front"},
+    {"id":"F01_LOBBY_RADIATOR_E","level":"F01","rect":[2.95,-9.0,4.45,-8.55],"height":0.75,"class":"service","purpose":"radiator and service front"}
   ],
   "anchors": [
     {"id":"STREET_APPROACH","level":"F01","position":[0.0,0.0,-14.5],"yaw":0.0,"kind":"review"},

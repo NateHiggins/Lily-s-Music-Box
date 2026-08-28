@@ -24,6 +24,8 @@ func _ready() -> void:
 	_build_palette()
 	_build_spaces()
 	_build_doors()
+	_build_windows()
+	_build_envelopes()
 	_build_stairs()
 	_build_risers()
 	_build_anchors()
@@ -52,7 +54,8 @@ func _validate_layout() -> void:
 		if ident.is_empty() or level_y.has(ident):
 			failures.append("invalid or duplicate level id: " + ident)
 		level_y[ident] = float(level.get("y", 0.0))
-	for table in ["spaces", "doors", "anchors", "stairs", "risers"]:
+	for table in ["spaces", "doors", "openings", "windows", "envelopes",
+			"anchors", "stairs", "risers"]:
 		for record: Dictionary in layout.get(table, []):
 			var ident := str(record.get("id", ""))
 			if ident.is_empty() or ids.has(ident):
@@ -66,6 +69,9 @@ func _validate_layout() -> void:
 	for riser: Dictionary in layout.get("risers", []):
 		if not _valid_rect(riser.get("rect", [])):
 			failures.append("invalid riser rect: " + str(riser.get("id", "?")))
+	for envelope: Dictionary in layout.get("envelopes", []):
+		if not _valid_rect(envelope.get("rect", [])):
+			failures.append("invalid envelope rect: " + str(envelope.get("id", "?")))
 	for required in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 			"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED"]:
 		if not ids.has(required):
@@ -80,6 +86,9 @@ func _build_palette() -> void:
 		var mat := StandardMaterial3D.new()
 		mat.albedo_color = Color.html(str(layout.palette[key]))
 		mat.roughness = 0.9
+		if key in ["clearance", "interaction", "unresolved"]:
+			mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			mat.albedo_color.a = 0.32
 		materials[key] = mat
 
 func _build_spaces() -> void:
@@ -100,7 +109,8 @@ func _build_spaces() -> void:
 		if show_ceilings:
 			_box(parent, "Ceiling", _rect_center(rect, y + clear_h + slab_t * 0.5),
 					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, false)
-		_build_space_outline(parent, str(space.id), rect, y, clear_h, cls)
+		if not bool(space.get("open_shell", false)):
+			_build_space_outline(parent, str(space.id), rect, y, clear_h, cls)
 
 func _build_space_outline(parent: Node3D, space_id: String, rect: Array, y: float,
 		height: float, cls: String) -> void:
@@ -125,7 +135,22 @@ func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 				else is_equal_approx(float(door.center[0]), fixed))
 		if on_wall:
 			openings.append({"center": float(door.center[0] if axis == "x" else door.center[1]),
-					"width": float(door.width), "height": float(door.height)})
+					"width": float(door.width), "height": float(door.height), "sill": 0.0})
+	for opening: Dictionary in layout.get("openings", []):
+		if not space_id in opening.connects or str(opening.axis) != axis:
+			continue
+		var fixed_value := float(opening.center[1] if axis == "x" else opening.center[0])
+		if is_equal_approx(fixed_value, fixed):
+			openings.append({"center": float(opening.center[0] if axis == "x" else opening.center[1]),
+					"width": float(opening.width), "height": float(opening.height), "sill": 0.0})
+	for window: Dictionary in layout.get("windows", []):
+		if str(window.space) != space_id or str(window.axis) != axis:
+			continue
+		var fixed_value := float(window.center[1] if axis == "x" else window.center[0])
+		if is_equal_approx(fixed_value, fixed):
+			openings.append({"center": float(window.center[0] if axis == "x" else window.center[1]),
+					"width": float(window.width), "height": float(window.height),
+					"sill": float(window.sill)})
 	openings.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		return float(a.center) < float(b.center))
 	var cursor := start
@@ -137,10 +162,16 @@ func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 			_wall_segment(parent, "Wall%s_%02d" % [label, part], axis, fixed,
 					cursor, lo, y, height, thickness, cls)
 			part += 1
-		var head_h := height - float(opening.height)
+		var sill := float(opening.get("sill", 0.0))
+		if sill > 0.001:
+			_wall_segment(parent, "Wall%s_Sill%02d" % [label, part], axis, fixed,
+					lo, hi, y, sill, thickness, cls)
+			part += 1
+		var head_base := sill + float(opening.height)
+		var head_h := height - head_base
 		if head_h > 0.001:
 			_wall_segment(parent, "Wall%s_Head%02d" % [label, part], axis, fixed,
-					lo, hi, y + float(opening.height), head_h, thickness, cls)
+					lo, hi, y + head_base, head_h, thickness, cls)
 			part += 1
 		cursor = maxf(cursor, hi)
 	if cursor < finish - 0.001:
@@ -186,6 +217,40 @@ func _build_doors() -> void:
 				Vector3(0.09, height, 0.10), "core", false)
 		_box(parent, "FrameHead", Vector3(0.0, height + 0.045, 0.0),
 				Vector3(width + 0.18, 0.09, 0.10), "core", false)
+
+func _build_windows() -> void:
+	for window: Dictionary in layout.get("windows", []):
+		var parent := Node3D.new()
+		parent.name = str(window.id)
+		var y := float(level_y[window.level])
+		parent.position = Vector3(float(window.center[0]), y, float(window.center[1]))
+		add_child(parent)
+		var width := float(window.width)
+		var height := float(window.height)
+		var sill := float(window.sill)
+		var size := (Vector3(width, height, 0.025) if str(window.axis) == "x"
+				else Vector3(0.025, height, width))
+		_box(parent, "Glazing", Vector3(0.0, sill + height * 0.5, 0.0),
+				size, "opening", false)
+		var jamb_size := (Vector3(0.07, height, 0.10) if str(window.axis) == "x"
+				else Vector3(0.10, height, 0.07))
+		var offset_a := (Vector3(-width * 0.5, sill + height * 0.5, 0.0)
+				if str(window.axis) == "x" else Vector3(0.0, sill + height * 0.5, -width * 0.5))
+		var offset_b := -offset_a + Vector3(0.0, (sill + height * 0.5) * 2.0, 0.0)
+		# The second expression above preserves the same Y while mirroring only plan offset.
+		offset_b.y = offset_a.y
+		_box(parent, "JambA", offset_a, jamb_size, "core", false)
+		_box(parent, "JambB", offset_b, jamb_size, "core", false)
+
+func _build_envelopes() -> void:
+	for envelope: Dictionary in layout.get("envelopes", []):
+		var rect: Array = envelope.rect
+		var height := float(envelope.get("height", 0.02))
+		var y := float(level_y[envelope.level])
+		var node := _box(self, str(envelope.id), _rect_center(rect, y + height * 0.5),
+				Vector3(_rect_w(rect), height, _rect_d(rect)),
+				str(envelope.get("class", "unresolved")), false)
+		node.set_meta("purpose", str(envelope.get("purpose", "")))
 
 func _build_stairs() -> void:
 	for stair: Dictionary in layout.stairs:
