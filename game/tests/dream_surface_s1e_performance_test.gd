@@ -26,7 +26,12 @@ func _ready() -> void:
 	var rows := []
 	for item in [["near", 2.2], ["mid", 5.0], ["far", 10.0]]:
 		camera.position.z = float(item[1]); renderer._process(0.25)
-		rows.append({"lod": item[0], "visible": renderer.census().cilia_visible})
+		var lod_start := Time.get_ticks_usec()
+		for _sample in 240: renderer._process(1.0 / 60.0)
+		var lod_census: Dictionary = renderer.census()
+		rows.append({"lod": item[0], "visible": lod_census.cilia_visible,
+				"carpet": lod_census.get("cilia_carpet_visible", 0),
+				"cpu_ms": float(Time.get_ticks_usec() - lod_start) / 240000.0})
 	var organism_costs := await _complex_costs()
 	print("[S1E PERF] cpu_ms=%.4f draws=%d materials=6 video_bytes=%d video_delta=%d lod=%s normal_visible=%d dense_visible=%d organisms=%s census=%s" % [
 			cpu_ms, baseline_draws, video_bytes, video_delta, rows,

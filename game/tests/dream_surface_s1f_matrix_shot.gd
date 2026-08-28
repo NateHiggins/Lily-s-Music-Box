@@ -57,12 +57,87 @@ func _build_stage() -> void:
 
 func _run() -> void:
 	match OS.get_environment("S1F_MATRIX_MODE"):
+		"s2_review": await _s2_review()
 		"tentacles": await _tentacle_matrix()
 		"crystal": await _crystal_matrix()
 		_: await _cellular_matrix()
 	print("[S1F MATRIX] PASS %d -> %s" % [frames, out_dir])
 	await _teardown()
 	get_tree().quit(failures)
+
+
+func _s2_review() -> void:
+	# Exactly six canonical images. This deliberately stops before the full
+	# closure matrix so silhouette and physiology can be judged first.
+	for _i in 12: colony.spawn(Colony.OrganismClass.CILIUM, Vector3.ZERO)
+	colony.register_route("artery_e", "review", [Vector3.ZERO, Vector3(.32,.01,.04), Vector3(.76,.0,.12)])
+	colony.register_route("artery_w", "review", [Vector3.ZERO, Vector3(-.30,.01,.14), Vector3(-.72,.0,.31)])
+	colony.register_route("artery_n", "review", [Vector3.ZERO, Vector3(.06,.01,-.34), Vector3(.20,.0,-.70)])
+	colony.reports = 7
+	await _stage_mature()
+	camera.position = Vector3(.92,.58,1.00); camera.look_at(Vector3(0,.05,0))
+	await _capture("01_mature_moss_macro", 20)
+	camera.position = Vector3(.48,.23,.55); camera.look_at(Vector3(0,.07,0))
+	await _capture("02_dense_rooted_cilia", 16)
+	# The membrane is viewed almost edge-on here: half-submerged rings and
+	# slits must read as gates through tissue, never beads laid on top.
+	renderer._cilia.visible = false; renderer._cilia_carpet.visible = false
+	renderer._heart.visible = false
+	camera.position = Vector3(.30,.25,.31); camera.look_at(Vector3(0,.045,0))
+	await _capture("03_embedded_protein_gate", 18)
+	renderer._heart.visible = true
+	renderer.visible = false
+	await _stage_modality_row()
+	camera.position = Vector3(0,1.65,2.45); camera.look_at(Vector3(0,.20,0))
+	await _capture("04_six_modalities_grayscale", 24)
+	for tentacle in tentacles: tentacle.visible = false
+	renderer.visible = true; renderer._cilia.visible = true; renderer._cilia_carpet.visible = true
+	_set_moss_optics(3)
+	camera.position = Vector3(-.06,.36,.88); camera.look_at(Vector3(0,.045,0))
+	await _capture("05_backlit_internal_physiology", 20)
+	_set_moss_optics(0)
+	camera.position = Vector3(3.15,1.72,3.35); camera.look_at(Vector3(0,.05,0))
+	await _capture("06_gameplay_distance_colony", 12)
+
+
+func _stage_mature() -> void:
+	colony.phase = Colony.Phase.COMPLEX; colony.maturity = 1.0; colony.extent = 1.45
+	colony.ether_reserve = .94; colony.ether_production = .36; colony.connected_ether_volume = 2.3
+	colony.stored_information = 7.2; colony.disturbance = 0.0; colony.collapse_progress = 0.0
+	renderer._refresh(true)
+	for _i in 60: renderer._process(1.0 / 60.0)
+
+
+func _set_moss_optics(mode: int) -> void:
+	for material in [renderer._heart_material, renderer._network_material, renderer._protein_material]:
+		material.set_shader_parameter("optics_mode", mode)
+
+
+func _stage_modality_row() -> void:
+	var purposes := [Colony.OrganismClass.PALPATOR, Colony.OrganismClass.SUCKER_SAMPLER,
+		Colony.OrganismClass.MANIPULATOR, Colony.OrganismClass.VIBRATION_LISTENER,
+		Colony.OrganismClass.OCULAR_EXAMINER, Colony.OrganismClass.RELAY_TENDRIL]
+	for i in purposes.size():
+		var x := -1.25 + float(i) * .50
+		var anchor := Vector3(x,0,0)
+		var record: Dictionary = colony.spawn(purposes[i], anchor)
+		var target := anchor + Vector3(0,.58,.14)
+		var candidate := {"aabb":AABB(target-Vector3.ONE*.08,Vector3.ONE*.16),"name":"review_target_%d"%i,"node":null}
+		var tentacle = Tentacle.new(); add_child(tentacle)
+		tentacle.setup(field, colony.source_id, anchor, Vector3.UP, null, [candidate], 8800+i)
+		for _step in 240: tentacle._tick(1.0/60.0)
+		tentacle.bind_ecology(colony, record, purposes[i])
+		# Pose the existing production spine into a neutral comparison stance;
+		# only the production shader is responsible for modality anatomy.
+		for joint in 16:
+			var t := float(joint) / 15.0
+			tentacle.rig.pos[joint] = anchor + Vector3(.035*sin(t*PI*1.4+i), t*.62, .05*sin(t*PI))
+			tentacle.rig.side[joint] = Vector3.RIGHT
+			tentacle._spine_prev[joint] = tentacle.rig.pos[joint]
+		tentacle.grow = 1.0
+		tentacle.set_process(false); tentacle._push_uniforms()
+		tentacle._material.set_shader_parameter("cellular_grayscale", true)
+		tentacles.append(tentacle)
 
 
 func _cellular_matrix() -> void:
