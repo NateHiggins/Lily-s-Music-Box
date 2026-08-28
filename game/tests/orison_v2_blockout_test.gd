@@ -19,16 +19,17 @@ func _ready() -> void:
 	_check(not bool(layout.get("production_default", true)), "v2 is development-only")
 	_check(layout.get("layout_id", "") == "orison_v2_h_plan_blockout_01",
 			"accepted H-plan identity is stable")
-	_check(layout.levels.size() == 4, "first slice declares F01 through F04 transfer levels")
-	_check(layout.spaces.size() == 38, "38 programmed blockout spaces")
-	_check(layout.doors.size() == 16, "sixteen complete route/service/privacy leaves")
-	_check(layout.openings.size() == 11, "eleven leafless circulation openings")
-	_check(layout.windows.size() == 15, "fifteen exterior-valid daylight openings")
-	_check(layout.envelopes.size() == 45, "forty-five fixed-use and clearance reservations")
-	_check(layout.platforms.size() == 20, "twenty explicit core landing platforms")
+	_check(layout.levels.size() == 5, "M08E slice declares B1 through F04 transfer levels")
+	_check(layout.spaces.size() == 50, "fifty programmed blockout spaces")
+	_check(layout.doors.size() == 21, "twenty-one complete route/service/privacy leaves")
+	_check(layout.openings.size() == 19, "nineteen leafless circulation openings")
+	_check(layout.windows.size() == 19, "nineteen exterior-valid daylight openings")
+	_check(layout.envelopes.size() == 70, "seventy fixed-use and clearance reservations")
+	_check(layout.fixtures.size() == 15, "fifteen gray-box fixed-use masses")
+	_check(layout.platforms.size() == 24, "twenty-four explicit core landing platforms")
 	_check(layout.lift_landings.size() == 8, "eight passenger/service lift landings")
-	_check(layout.stairs.size() == 6, "public and service U-stairs span three storeys")
-	_check(layout.anchors.size() == 31, "thirty-one named gameplay/review anchors")
+	_check(layout.stairs.size() == 7, "public/service U-stairs include B1-to-F01")
+	_check(layout.anchors.size() == 48, "forty-eight named gameplay/review anchors")
 	_check(layout.capsule_stations.size() == 11, "eleven declared F04 capsule stations")
 	_check(_f04_rooms_do_not_overlap(layout), "F04 apartment rooms do not overlap")
 	_check(_f04_shared_partitions_owned_once(layout),
@@ -67,6 +68,14 @@ func _ready() -> void:
 			"F04 landing reaches the 4B closet")
 	_check(_route_avoids_space(layout, "F04_LANDING", "F04_B_ALCOVE", "F04_B_BATH"),
 			"sleeping route does not pass through the bathroom")
+	_check(_route_exists_with_vertical(layout, "B1_BOILER_ROOM", "F02_B_MAIN"),
+			"boiler and 2B radiator rooms share a complete vertical route")
+	_check(_all_rooms_non_overlapping(layout, ["B1", "F02"]),
+			"new B1 and F02 rooms have no positive-area overlaps")
+	_check(_shared_partitions_owned_once(layout, "F02_B_"),
+			"2B shared partitions have one explicit wall owner")
+	_check(_new_doors_valid(layout), "M08E doors have boundary, hinge, latch, hand and swing")
+	_check(_service_connections_complete(layout), "heat, wet, flue, power and exhaust continuity is explicit")
 	var packed := load(SCENE_PATH) as PackedScene
 	_check(packed != null, "v2 scene loads independently")
 	if packed != null:
@@ -79,7 +88,9 @@ func _ready() -> void:
 				"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED",
 				"LobbyMailBank", "LobbyPorterBoard", "F01_HOUSE_TELEPHONE_BOARD",
 				"F02_A_MONITOR_01",
-				"LobbyServiceDumbwaiter"]:
+				"LobbyServiceDumbwaiter", "F01_WATCHMAN_DETECTOR",
+				"F01_NIGHT_REGISTER", "F01_SIGNAL_REGISTER", "F01_TOUR_KEY_GUARD",
+				"F02_B_RADIATOR_01", "B1_BOILER_01"]:
 			_check(root.get_node_or_null(ident) != null, "anchor/door resolves: " + ident)
 		for ident in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 				"F01_WATCH_MAIL_DOOR", "F01_MAIL_PACKAGE_DOOR",
@@ -411,6 +422,91 @@ func _route_graph(layout: Dictionary) -> Dictionary:
 			graph[a].append(b)
 			graph[b].append(a)
 	return graph
+
+func _route_exists_with_vertical(layout: Dictionary, start: String, goal: String) -> bool:
+	var graph := _route_graph(layout)
+	for stair: Dictionary in layout.get("stairs", []):
+		if str(stair.id).begins_with("PRIMARY_"):
+			var a := "%s_PUBLIC_CORE" % str(stair.from)
+			var b := "%s_PUBLIC_CORE" % str(stair.to)
+			if not graph.has(a): graph[a] = []
+			if not graph.has(b): graph[b] = []
+			graph[a].append(b)
+			graph[b].append(a)
+	for edge: Dictionary in layout.get("route_edges", []):
+		var a := str(edge.get("from", ""))
+		var b := str(edge.get("to", ""))
+		if not graph.has(a): graph[a] = []
+		if not graph.has(b): graph[b] = []
+		graph[a].append(b)
+		graph[b].append(a)
+	var queue: Array[String] = [start]
+	var seen := {start: true}
+	while not queue.is_empty():
+		var here: String = queue.pop_front()
+		if here == goal: return true
+		for next: String in graph.get(here, []):
+			if not seen.has(next):
+				seen[next] = true
+				queue.append(next)
+	return false
+
+func _all_rooms_non_overlapping(layout: Dictionary, _levels: Array) -> bool:
+	var selected: Array[Dictionary] = []
+	for space: Dictionary in layout.spaces:
+		var ident := str(space.id)
+		if ident.begins_with("B1_") or ident.begins_with("F02_B_") \
+				or ident in ["F02_EAST_HALL", "F02_SERVICE_CROSSING",
+				"F02_SERVICE_HALL", "F02_SERVICE_HALL_SOUTH"]:
+			selected.append(space)
+	for i in selected.size():
+		for j in range(i + 1, selected.size()):
+			if str(selected[i].level) == str(selected[j].level) \
+					and _rect_overlap_area(selected[i].rect, selected[j].rect) > 0.0001:
+				return false
+	return true
+
+func _shared_partitions_owned_once(layout: Dictionary, prefix: String) -> bool:
+	var rooms: Array[Dictionary] = []
+	for space: Dictionary in layout.spaces:
+		if str(space.id).begins_with(prefix): rooms.append(space)
+	var shared_count := 0
+	for i in rooms.size():
+		for j in range(i + 1, rooms.size()):
+			var shared := _shared_boundary(rooms[i].rect, rooms[j].rect)
+			if shared.is_empty(): continue
+			shared_count += 1
+			if int(_side_enabled(rooms[i], str(shared.a))) \
+					+ int(_side_enabled(rooms[j], str(shared.b))) != 1:
+				return false
+	return shared_count >= 6
+
+func _new_doors_valid(layout: Dictionary) -> bool:
+	var spaces := {}
+	for space: Dictionary in layout.spaces: spaces[str(space.id)] = space
+	for door: Dictionary in layout.doors:
+		if str(door.id) not in ["B1_BOILER_FIRE_DOOR", "F02_B_ENTRY_DOOR",
+				"F02_B_BED_DOOR", "F02_B_BATH_DOOR", "F02_B_KITCHEN_DOOR"]:
+			continue
+		if str(door.get("hinge", "")) not in ["left", "right"] \
+				or str(door.get("latch", "")).is_empty() \
+				or str(door.get("handedness", "")) not in ["left", "right"] \
+				or str(door.get("swing", "")).is_empty(): return false
+		for room_id: Variant in door.connects:
+			if not spaces.has(str(room_id)): return false
+			var rect: Array = spaces[str(room_id)].rect
+			if not (is_equal_approx(float(door.center[0]), float(rect[0])) \
+					or is_equal_approx(float(door.center[0]), float(rect[2])) \
+					or is_equal_approx(float(door.center[1]), float(rect[1])) \
+					or is_equal_approx(float(door.center[1]), float(rect[3]))): return false
+	return true
+
+func _service_connections_complete(layout: Dictionary) -> bool:
+	var systems := {}
+	for connection: Dictionary in layout.get("service_connections", []):
+		systems[str(connection.get("system", ""))] = true
+	return systems.has("heat") and systems.has("wet") and systems.has("flue") \
+			and systems.has("electrical_service") and systems.has("exhaust")
 
 func _capsule_clear(root: Node3D, at: Vector3) -> bool:
 	var shape := CapsuleShape3D.new()

@@ -27,6 +27,7 @@ func _ready() -> void:
 	_build_doors()
 	_build_windows()
 	_build_envelopes()
+	_build_fixtures()
 	_build_platforms()
 	_build_lift_landings()
 	_build_stairs()
@@ -57,9 +58,10 @@ func _validate_layout() -> void:
 		if ident.is_empty() or level_y.has(ident):
 			failures.append("invalid or duplicate level id: " + ident)
 		level_y[ident] = float(level.get("y", 0.0))
-	for table in ["spaces", "doors", "openings", "windows", "envelopes", "platforms",
+	for table in ["spaces", "doors", "openings", "windows", "envelopes", "fixtures", "platforms",
 			"lift_landings",
-			"anchors", "capsule_stations", "stairs", "risers"]:
+			"anchors", "capsule_stations", "stairs", "risers", "route_edges",
+			"service_connections"]:
 		for record: Dictionary in layout.get(table, []):
 			var ident := str(record.get("id", ""))
 			if ident.is_empty() or ids.has(ident):
@@ -80,7 +82,10 @@ func _validate_layout() -> void:
 		if not _valid_rect(platform.get("rect", [])):
 			failures.append("invalid platform rect: " + str(platform.get("id", "?")))
 	for required in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
-			"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED"]:
+			"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED",
+			"F01_WATCHMAN_DETECTOR", "F01_NIGHT_REGISTER",
+			"F01_SIGNAL_REGISTER", "F01_TOUR_KEY_GUARD",
+			"F02_B_RADIATOR_01", "B1_BOILER_01"]:
 		if not ids.has(required):
 			failures.append("required compatibility id missing: " + required)
 
@@ -227,7 +232,7 @@ func _build_doors() -> void:
 		latch.position = Vector3(-hinge_sign * width * 0.5, height * 0.5, 0.0)
 		parent.add_child(latch)
 		_box(hinge, "Leaf", Vector3(-hinge_sign * width * 0.5, height * 0.5, 0.0),
-				Vector3(width, height, 0.045), "opening", true)
+				Vector3(width, height, 0.045), "opening", not hold_route_doors_open)
 		_box(parent, "FrameLeft", Vector3(-width * 0.5 - 0.045, height * 0.5, 0.0),
 				Vector3(0.09, height, 0.10), "core", false)
 		_box(parent, "FrameRight", Vector3(width * 0.5 + 0.045, height * 0.5, 0.0),
@@ -268,6 +273,17 @@ func _build_envelopes() -> void:
 				Vector3(_rect_w(rect), height, _rect_d(rect)),
 				str(envelope.get("class", "unresolved")), false)
 		node.set_meta("purpose", str(envelope.get("purpose", "")))
+
+func _build_fixtures() -> void:
+	for fixture: Dictionary in layout.get("fixtures", []):
+		var p: Array = fixture.position
+		var s: Array = fixture.size
+		var node := _box(self, str(fixture.id), Vector3(float(p[0]),
+				float(level_y[fixture.level]) + float(p[1]), float(p[2])),
+				Vector3(float(s[0]), float(s[1]), float(s[2])),
+				str(fixture.get("class", "unresolved")),
+				bool(fixture.get("collision", true)))
+		node.set_meta("purpose", str(fixture.get("purpose", "")))
 
 func _build_platforms() -> void:
 	var slab_t := float(layout.dimensions.slab_thickness)
