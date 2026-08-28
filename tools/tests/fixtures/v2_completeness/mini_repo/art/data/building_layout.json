@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "levels": {"F01": 0.0, "F02": 3.2},
+    "residents": {"2A": "Mina Vale", "2B": "Lena", "2C": "Juno", "2D": "Sealed"}
+  },
+  "floors": [
+    {"id": "F01", "z": 0.0, "rooms": [
+      {"id": "F01_LOBBY", "rect": [-5, -9, 5, -3], "kind": "lobby"},
+      {"id": "F01_OFFICE", "rect": [-9, -3, -5, 1], "kind": "office"},
+      {"id": "F01_HALL", "rect": [5, -3, 9, 1], "kind": "hall"}
+    ]},
+    {"id": "F02", "z": 3.2, "rooms": [
+      {"id": "F02_A_MAIN", "rect": [-10, 0, -5, 5], "kind": "living", "unit": "2A"},
+      {"id": "F02_A_BED", "rect": [-10, 5, -5, 9], "kind": "bedroom", "unit": "2A"},
+      {"id": "F02_A_BATH", "rect": [-5, 5, -2, 9], "kind": "bathroom", "unit": "2A"},
+      {"id": "F02_B_MAIN", "rect": [5, 0, 10, 5], "kind": "living", "unit": "2B"},
+      {"id": "F02_GONE_ROOM", "rect": [2, 0, 4, 2], "kind": "storage"}
+    ]}
+  ]
+}

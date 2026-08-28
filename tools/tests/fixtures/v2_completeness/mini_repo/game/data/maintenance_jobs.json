@@ -1,0 +1,16 @@
+{
+  "jobs": {
+    "vantry_chirp_2a": {
+      "id": "vantry_chirp_2a",
+      "unit": "2A",
+      "repair_target_id": "F02_A_MAIN_VANTRY_POINT",
+      "anchor_ids": ["F02_A_MAIN_VANTRY_POINT"]
+    },
+    "lena_radiator_round_2b": {
+      "id": "lena_radiator_round_2b",
+      "unit": "2B",
+      "repair_target_id": "F02_B_RADIATOR_01",
+      "anchor_ids": ["F02_B_RADIATOR_01", "LobbyPorterBoard", "B1_BOILER_01"]
+    }
+  }
+}
