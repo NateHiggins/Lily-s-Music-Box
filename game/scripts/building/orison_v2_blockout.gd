@@ -11,6 +11,7 @@ var layout: Dictionary = {}
 var level_y: Dictionary = {}
 var materials: Dictionary = {}
 var failures: Array[String] = []
+const SemanticAnchor := preload("res://scripts/building/orison_v2_semantic_anchor.gd")
 
 func _ready() -> void:
 	layout = _load_layout(layout_path)
@@ -328,13 +329,16 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
 	var landing_depth := float(stair.landing_depth)
+	# A body needs clear standing room beyond the return flight's first nosing in
+	# order to execute the U-turn; the semantic depth describes the clear landing.
+	var turn_clearance := 0.7
 	_box(parent, "HalfLanding",
 			Vector3(x0 + width + gap * 0.5, base_y + half_rise - 0.1,
-					z0 + run + landing_depth * 0.5),
-			Vector3(width * 2.0 + gap, 0.2, landing_depth), "core", true)
+					z0 + run + (landing_depth + turn_clearance) * 0.5),
+			Vector3(width * 2.0 + gap, 0.2, landing_depth + turn_clearance), "core", true)
 	_box(parent, "HalfLandingGuard",
 			Vector3(x0 + width + gap * 0.5, base_y + half_rise + guard_h * 0.5,
-					z0 + run + landing_depth - 0.025),
+					z0 + run + landing_depth + turn_clearance - 0.025),
 			Vector3(width * 2.0 + gap, guard_h, 0.05), "core", false)
 	var x_b := x0 + width + gap
 	var north_start := z0 + run + landing_depth
@@ -360,7 +364,7 @@ func _build_risers() -> void:
 
 func _build_anchors() -> void:
 	for anchor: Dictionary in layout.anchors:
-		var node := Marker3D.new()
+		var node := SemanticAnchor.new()
 		node.name = str(anchor.id)
 		var p: Array = anchor.position
 		node.position = Vector3(float(p[0]), float(level_y[anchor.level]) + float(p[1]),
