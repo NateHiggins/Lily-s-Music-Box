@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/building/orison_v2_blockout.tscn" id="1_blockout"]
+[ext_resource type="Script" path="res://scripts/building/orison_v2_review_controller.gd" id="2_controller"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_player"]
+radius = 0.33
+height = 1.524
+
+[sub_resource type="Environment" id="Environment_review"]
+background_mode = 1
+background_color = Color(0.055, 0.064, 0.075, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.72, 0.77, 0.82, 1)
+ambient_light_energy = 0.65
+
+[node name="OrisonV2F04Review" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_review")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-55, -25, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Blockout" parent="." instance=ExtResource("1_blockout")]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+position = Vector3(-1.5, 10.45, 0)
+rotation_degrees = Vector3(0, 90, 0)
+script = ExtResource("2_controller")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+position = Vector3(0, 0.762, 0)
+shape = SubResource("Capsule_player")
+
+[node name="Head" type="Node3D" parent="Player"]
+position = Vector3(0, 1.41, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+current = true
+fov = 72.0

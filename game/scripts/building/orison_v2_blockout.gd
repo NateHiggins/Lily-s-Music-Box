@@ -58,7 +58,7 @@ func _validate_layout() -> void:
 		level_y[ident] = float(level.get("y", 0.0))
 	for table in ["spaces", "doors", "openings", "windows", "envelopes", "platforms",
 			"lift_landings",
-			"anchors", "stairs", "risers"]:
+			"anchors", "capsule_stations", "stairs", "risers"]:
 		for record: Dictionary in layout.get(table, []):
 			var ident := str(record.get("id", ""))
 			if ident.is_empty() or ids.has(ident):
@@ -221,6 +221,10 @@ func _build_doors() -> void:
 		if hold_route_doors_open:
 			hinge.rotation.y = hinge_sign * PI * 0.5
 		parent.add_child(hinge)
+		var latch := Marker3D.new()
+		latch.name = "Latch"
+		latch.position = Vector3(-hinge_sign * width * 0.5, height * 0.5, 0.0)
+		parent.add_child(latch)
 		_box(hinge, "Leaf", Vector3(-hinge_sign * width * 0.5, height * 0.5, 0.0),
 				Vector3(width, height, 0.045), "opening", true)
 		_box(parent, "FrameLeft", Vector3(-width * 0.5 - 0.045, height * 0.5, 0.0),

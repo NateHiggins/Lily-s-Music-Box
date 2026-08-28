@@ -28,11 +28,11 @@
     {"id":"F01_STREET_APRON","level":"F01","class":"public","rect":[-3.0,-15.0,3.0,-11.65],"purpose":"street threshold review approach","open_shell":true},
     {"id":"F01_REAR_APRON","level":"F01","class":"service","rect":[7.8,9.25,10.0,12.0],"purpose":"rear service receiving approach","open_shell":true},
     {"id":"F01_VESTIBULE","level":"F01","class":"public","rect":[-2.4,-11.65,2.4,-9.25],"purpose":"weather lock and address"},
-    {"id":"F01_LOBBY","level":"F01","class":"public","rect":[-5.4,-9.25,5.4,-3.85],"purpose":"arrival, waiting and orientation"},
+    {"id":"F01_LOBBY","level":"F01","class":"public","rect":[-5.4,-9.25,5.4,-3.85],"purpose":"arrival, waiting and orientation","exterior_sides":["south"]},
     {"id":"F01_WATCH","level":"F01","class":"service","rect":[-5.4,-3.85,-1.2,0.55],"purpose":"watch, keys and annunciator"},
     {"id":"F01_MAIL_TELEPHONE","level":"F01","class":"service","rect":[-9.2,-3.85,-5.4,0.55],"purpose":"mail and house-line custody"},
     {"id":"F01_PACKAGE","level":"F01","class":"service","rect":[-9.2,0.55,-5.4,4.25],"purpose":"secure parcel handling"},
-    {"id":"F01_COMMON_B","level":"F01","class":"public","rect":[-15.65,-3.85,-9.2,5.65],"purpose":"resident meeting and reading"},
+    {"id":"F01_COMMON_B","level":"F01","class":"public","rect":[-15.65,-3.85,-9.2,5.65],"purpose":"resident meeting and reading","exterior_sides":["west"]},
     {"id":"F01_PUBLIC_CORE","level":"F01","class":"core","rect":[-1.2,-3.85,5.4,3.85],"purpose":"passenger lift and primary stair approach","no_floor":true,"no_ceiling":true},
     {"id":"F01_CORE_TO_SERVICE","level":"F01","class":"service","rect":[5.4,-1.0,8.3,1.0],"purpose":"controlled public-to-service transfer","wall_sides":["south","north"]},
     {"id":"F01_SERVICE_HALL","level":"F01","class":"service","rect":[8.3,-9.25,9.5,9.25],"purpose":"staff, delivery and maintenance route"},
@@ -41,11 +41,11 @@
     {"id":"F02_LANDING","level":"F02","class":"public","rect":[-2.2,-3.35,1.45,0.6],"purpose":"floor and unit decision","open_shell":true,"no_floor":true,"no_ceiling":true},
     {"id":"F02_WEST_HALL","level":"F02","class":"public","rect":[-5.6,-0.6,-2.2,0.6],"purpose":"2A public approach"},
     {"id":"F02_A_VESTIBULE","level":"F02","class":"private","rect":[-7.55,-1.35,-5.6,1.35],"purpose":"2A privacy and distribution","wall_sides":["south","north","west"]},
-    {"id":"F02_A_MAIN","level":"F02","class":"private","rect":[-15.65,-3.85,-7.55,3.1],"purpose":"Mina living, caption work and conversation","wall_sides":["south","north","west"]},
-    {"id":"F02_A_KITCHEN","level":"F02","class":"private","rect":[-15.65,3.1,-10.25,6.2],"purpose":"cooking and washing","wall_sides":["north","west"]},
+    {"id":"F02_A_MAIN","level":"F02","class":"private","rect":[-15.65,-3.85,-7.55,3.1],"purpose":"Mina living, caption work and conversation","wall_sides":["south","north","west"],"exterior_sides":["west"]},
+    {"id":"F02_A_KITCHEN","level":"F02","class":"private","rect":[-15.65,3.1,-10.25,6.2],"purpose":"cooking and washing","wall_sides":["north","west"],"exterior_sides":["west"]},
     {"id":"F02_A_PRIVATE_HALL","level":"F02","class":"private","rect":[-10.25,3.1,-8.95,7.85],"purpose":"bed and bath distribution","wall_sides":["north","west","east"]},
     {"id":"F02_A_BATH","level":"F02","class":"wet","rect":[-8.95,3.1,-5.95,5.65],"purpose":"private sanitary room","wall_sides":["north","east"]},
-    {"id":"F02_A_BED","level":"F02","class":"private","rect":[-15.65,6.2,-10.25,11.65],"purpose":"sleep and clothes storage","wall_sides":["north","west"]},
+    {"id":"F02_A_BED","level":"F02","class":"private","rect":[-15.65,6.2,-10.25,11.65],"purpose":"sleep and clothes storage","wall_sides":["north","west"],"exterior_sides":["north","west"]},
     {"id":"F02_PUBLIC_CORE","level":"F02","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"passenger lift and primary stair","no_floor":true,"no_ceiling":true},
     {"id":"F02_SERVICE_HALL","level":"F02","class":"service","rect":[8.3,-9.25,9.5,9.25],"purpose":"maintenance continuity"},
     {"id":"F02_SERVICE_CORE","level":"F02","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair","no_floor":true,"no_ceiling":true},
@@ -53,14 +53,16 @@
     {"id":"F03_PUBLIC_CORE","level":"F03","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"intermediate passenger lift and primary stair transfer","no_floor":true,"no_ceiling":true},
     {"id":"F03_SERVICE_CORE","level":"F03","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"intermediate service lift and stair transfer","no_floor":true,"no_ceiling":true},
 
-    {"id":"F04_LANDING","level":"F04","class":"public","rect":[-2.2,-3.35,1.45,0.6],"purpose":"floor and unit decision"},
+    {"id":"F04_LANDING","level":"F04","class":"public","rect":[-2.2,-3.35,1.45,0.6],"purpose":"floor and unit decision","open_shell":true,"no_floor":true,"no_ceiling":true},
     {"id":"F04_WEST_HALL","level":"F04","class":"public","rect":[-5.6,-0.6,-2.2,0.6],"purpose":"4B public approach"},
-    {"id":"F04_B_VESTIBULE","level":"F04","class":"private","rect":[-7.55,-1.35,-5.6,1.65],"purpose":"4B privacy and distribution"},
-    {"id":"F04_B_MAIN","level":"F04","class":"private","rect":[-15.65,-3.85,-7.55,3.45],"purpose":"player rest, work and calls"},
-    {"id":"F04_B_KITCHEN","level":"F04","class":"private","rect":[-15.65,3.45,-11.1,6.35],"purpose":"cooking and washing"},
-    {"id":"F04_B_BATH","level":"F04","class":"wet","rect":[-9.05,3.45,-5.95,6.05],"purpose":"private sanitary room"},
-    {"id":"F04_B_CLOSET","level":"F04","class":"private","rect":[-7.55,6.05,-5.95,8.25],"purpose":"clothes and equipment storage"},
-    {"id":"F04_B_ALCOVE","level":"F04","class":"private","rect":[-15.65,6.35,-10.55,11.65],"purpose":"player sleeping context"},
+    {"id":"F04_B_VESTIBULE","level":"F04","class":"private","rect":[-7.55,-1.35,-5.6,1.65],"purpose":"4B privacy and distribution","wall_sides":["south","north","west"]},
+    {"id":"F04_B_MAIN","level":"F04","class":"private","rect":[-15.65,-3.85,-7.55,3.45],"purpose":"player rest, work and calls","wall_sides":["south","north","west"],"exterior_sides":["west"]},
+    {"id":"F04_B_KITCHEN","level":"F04","class":"private","rect":[-15.65,3.45,-11.1,6.35],"purpose":"cooking and washing","wall_sides":["north","west"],"exterior_sides":["west"]},
+    {"id":"F04_B_PRIVATE_HALL","level":"F04","class":"private","rect":[-11.1,3.45,-9.05,6.35],"purpose":"bath and sleeping-zone distribution","wall_sides":["north","west","east"]},
+    {"id":"F04_B_ALCOVE_APPROACH","level":"F04","class":"private","rect":[-10.55,6.35,-7.55,8.25],"purpose":"closet and sleeping-alcove distribution","wall_sides":["north","west","east"]},
+    {"id":"F04_B_BATH","level":"F04","class":"wet","rect":[-9.05,3.45,-5.95,6.05],"purpose":"private sanitary room","wall_sides":["north","east"],"exterior_sides":["east"]},
+    {"id":"F04_B_CLOSET","level":"F04","class":"private","rect":[-7.55,6.05,-5.95,8.25],"purpose":"clothes and equipment storage","wall_sides":["north","east"]},
+    {"id":"F04_B_ALCOVE","level":"F04","class":"private","rect":[-15.65,6.35,-10.55,11.65],"purpose":"player sleeping context","wall_sides":["north","west"],"exterior_sides":["north","west"]},
     {"id":"F04_PUBLIC_CORE","level":"F04","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"passenger lift and primary stair","no_floor":true,"no_ceiling":true},
     {"id":"F04_SERVICE_HALL","level":"F04","class":"service","rect":[8.3,-9.25,9.5,9.25],"purpose":"maintenance continuity"},
     {"id":"F04_SERVICE_CORE","level":"F04","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair","no_floor":true,"no_ceiling":true}
@@ -69,7 +71,7 @@
     {"id":"F01_DOOR_06","level":"F01","center":[0.0,-11.65],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"left","swing":"out","connects":["F01_STREET_APRON","F01_VESTIBULE"]},
     {"id":"F01_INNER_DOOR","level":"F01","center":[0.0,-9.25],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"right","swing":"north","connects":["F01_VESTIBULE","F01_LOBBY"]},
     {"id":"F02_DOOR_02","level":"F02","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"west","connects":["F02_WEST_HALL","F02_A_VESTIBULE"]},
-    {"id":"F04_DOOR_03","level":"F04","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"west","connects":["F04_WEST_HALL","F04_B_VESTIBULE"]},
+    {"id":"F04_DOOR_03","level":"F04","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"north_wall","connects":["F04_WEST_HALL","F04_B_VESTIBULE"]},
     {"id":"F01_WATCH_MAIL_DOOR","level":"F01","center":[-5.4,-2.4],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"watch","connects":["F01_WATCH","F01_MAIL_TELEPHONE"]},
     {"id":"F01_MAIL_PACKAGE_DOOR","level":"F01","center":[-7.3,0.55],"width":0.91,"height":2.13,"yaw":0.0,"hinge":"right","swing":"mail","connects":["F01_MAIL_TELEPHONE","F01_PACKAGE"]},
     {"id":"F01_WATCH_CORE_DOOR","level":"F01","center":[-1.2,-1.5],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"watch","connects":["F01_WATCH","F01_PUBLIC_CORE"]},
@@ -79,6 +81,9 @@
     ,{"id":"F02_A_HALL_DOOR","level":"F02","center":[-9.6,3.1],"width":0.81,"height":2.13,"yaw":0.0,"hinge":"right","swing":"south","connects":["F02_A_MAIN","F02_A_PRIVATE_HALL"]}
     ,{"id":"F02_A_BATH_DOOR","level":"F02","center":[-8.95,4.6],"width":0.81,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"hall","connects":["F02_A_PRIVATE_HALL","F02_A_BATH"]}
     ,{"id":"F02_A_BED_DOOR","level":"F02","center":[-10.25,7.1],"width":0.81,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"bed","connects":["F02_A_PRIVATE_HALL","F02_A_BED"]}
+    ,{"id":"F04_B_HALL_DOOR","level":"F04","center":[-10.05,3.45],"width":0.81,"height":2.13,"yaw":0.0,"hinge":"right","swing":"south","connects":["F04_B_MAIN","F04_B_PRIVATE_HALL"]}
+    ,{"id":"F04_B_BATH_DOOR","level":"F04","center":[-9.05,4.75],"width":0.81,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"hall","connects":["F04_B_PRIVATE_HALL","F04_B_BATH"]}
+    ,{"id":"F04_B_CLOSET_DOOR","level":"F04","center":[-7.55,7.25],"width":0.76,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"hall","connects":["F04_B_ALCOVE_APPROACH","F04_B_CLOSET"]}
   ],
   "openings": [
     {"id":"F01_LOBBY_CORE_OPENING","level":"F01","center":[2.1,-3.85],"width":3.2,"height":2.65,"axis":"x","connects":["F01_LOBBY","F01_PUBLIC_CORE"]},
@@ -86,7 +91,12 @@
     {"id":"F01_SERVICE_HALL_OPENING","level":"F01","center":[8.3,0.0],"width":1.2,"height":2.4,"axis":"z","connects":["F01_CORE_TO_SERVICE","F01_SERVICE_HALL"]},
     {"id":"F02_LANDING_HALL_OPENING","level":"F02","center":[-2.2,0.0],"width":1.2,"height":2.4,"axis":"z","connects":["F02_LANDING","F02_WEST_HALL"]},
     {"id":"F02_A_MAIN_OPENING","level":"F02","center":[-7.55,0.0],"width":1.2,"height":2.4,"axis":"z","connects":["F02_A_VESTIBULE","F02_A_MAIN"]},
-    {"id":"F02_A_KITCHEN_OPENING","level":"F02","center":[-12.0,3.1],"width":0.81,"height":2.13,"axis":"x","connects":["F02_A_MAIN","F02_A_KITCHEN"]}
+    {"id":"F02_A_KITCHEN_OPENING","level":"F02","center":[-12.0,3.1],"width":0.81,"height":2.13,"axis":"x","connects":["F02_A_MAIN","F02_A_KITCHEN"]},
+    {"id":"F04_LANDING_HALL_OPENING","level":"F04","center":[-2.2,0.0],"width":1.2,"height":2.4,"axis":"z","connects":["F04_LANDING","F04_WEST_HALL"]},
+    {"id":"F04_B_MAIN_OPENING","level":"F04","center":[-7.55,0.0],"width":1.2,"height":2.4,"axis":"z","connects":["F04_B_VESTIBULE","F04_B_MAIN"]},
+    {"id":"F04_B_KITCHEN_OPENING","level":"F04","center":[-13.0,3.45],"width":0.81,"height":2.13,"axis":"x","connects":["F04_B_MAIN","F04_B_KITCHEN"]},
+    {"id":"F04_B_HALL_TURN_OPENING","level":"F04","center":[-9.8,6.35],"width":1.2,"height":2.4,"axis":"x","connects":["F04_B_PRIVATE_HALL","F04_B_ALCOVE_APPROACH"]},
+    {"id":"F04_B_ALCOVE_OPENING","level":"F04","center":[-10.55,7.25],"width":2.4,"height":2.4,"axis":"z","connects":["F04_B_ALCOVE_APPROACH","F04_B_ALCOVE"]}
   ],
   "windows": [
     {"id":"F01_LOBBY_WINDOW_W","level":"F01","center":[-3.7,-9.25],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F01_LOBBY"},
@@ -97,7 +107,13 @@
     {"id":"F02_A_MAIN_WINDOW_W_N","level":"F02","center":[-15.65,1.35],"width":1.5,"height":1.7,"sill":0.75,"axis":"z","space":"F02_A_MAIN"},
     {"id":"F02_A_KITCHEN_WINDOW_W","level":"F02","center":[-15.65,4.65],"width":1.2,"height":1.45,"sill":0.95,"axis":"z","space":"F02_A_KITCHEN"},
     {"id":"F02_A_BED_WINDOW_W","level":"F02","center":[-15.65,8.8],"width":1.5,"height":1.7,"sill":0.75,"axis":"z","space":"F02_A_BED"},
-    {"id":"F02_A_BED_WINDOW_N","level":"F02","center":[-12.3,11.65],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F02_A_BED"}
+    {"id":"F02_A_BED_WINDOW_N","level":"F02","center":[-12.3,11.65],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F02_A_BED"},
+    {"id":"F04_B_MAIN_WINDOW_W_S","level":"F04","center":[-15.65,-2.1],"width":1.5,"height":1.7,"sill":0.75,"axis":"z","space":"F04_B_MAIN"},
+    {"id":"F04_B_MAIN_WINDOW_W_N","level":"F04","center":[-15.65,1.45],"width":1.5,"height":1.7,"sill":0.75,"axis":"z","space":"F04_B_MAIN"},
+    {"id":"F04_B_KITCHEN_WINDOW_W","level":"F04","center":[-15.65,4.9],"width":1.2,"height":1.45,"sill":0.95,"axis":"z","space":"F04_B_KITCHEN"},
+    {"id":"F04_B_BATH_WINDOW_E","level":"F04","center":[-5.95,4.75],"width":0.9,"height":1.0,"sill":1.25,"axis":"z","space":"F04_B_BATH"},
+    {"id":"F04_B_ALCOVE_WINDOW_W","level":"F04","center":[-15.65,8.9],"width":1.5,"height":1.7,"sill":0.75,"axis":"z","space":"F04_B_ALCOVE"},
+    {"id":"F04_B_ALCOVE_WINDOW_N","level":"F04","center":[-13.1,11.65],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F04_B_ALCOVE"}
   ],
   "envelopes": [
     {"id":"F01_PRIMARY_ROUTE_ENVELOPE","level":"F01","rect":[-0.75,-11.65,0.75,-3.85],"height":0.02,"class":"clearance","purpose":"1.5 m street-to-lobby route"},
@@ -123,7 +139,28 @@
     {"id":"F02_A_BATH_FIXTURE_ZONE","level":"F02","rect":[-8.45,3.55,-6.35,5.2],"height":0.8,"class":"unresolved","purpose":"sanitary fixture and standing reservation"},
     {"id":"F02_A_BED_ROUTE","level":"F02","rect":[-11.15,6.65,-10.25,10.9],"height":0.02,"class":"clearance","purpose":"0.9 m bedroom circulation route"},
     {"id":"F02_A_BED_USE_ZONE","level":"F02","rect":[-14.9,7.0,-11.2,10.8],"height":0.65,"class":"unresolved","purpose":"bed and bedside use reservation"},
-    {"id":"F02_A_WARDROBE_ZONE","level":"F02","rect":[-11.0,8.1,-10.4,10.8],"height":2.0,"class":"unresolved","purpose":"clothes storage and access front"}
+    {"id":"F02_A_WARDROBE_ZONE","level":"F02","rect":[-11.0,8.1,-10.4,10.8],"height":2.0,"class":"unresolved","purpose":"clothes storage and access front"},
+    {"id":"F04_LANDING_DECISION_ENVELOPE","level":"F04","rect":[-1.7,-1.5,-0.2,0.0],"height":0.02,"class":"clearance","purpose":"1.5 m floor and unit decision square"},
+    {"id":"F04_WEST_HALL_ROUTE","level":"F04","rect":[-5.6,-0.6,-2.2,0.6],"height":0.02,"class":"clearance","purpose":"1.2 m clear public approach"},
+    {"id":"F04_DOOR_03_SWING","level":"F04","rect":[-6.51,0.74,-5.6,1.65],"height":0.02,"class":"clearance","purpose":"entry leaf swing against vestibule north wall","door":"F04_DOOR_03"},
+    {"id":"F04_B_VESTIBULE_TURN","level":"F04","rect":[-7.25,-1.05,-5.75,0.45],"height":0.025,"class":"clearance","purpose":"1.5 m vestibule turning zone"},
+    {"id":"F04_B_MAIN_CLEAR_FLOOR","level":"F04","rect":[-15.3,-3.2,-11.3,-0.2],"height":0.02,"class":"clearance","purpose":"12 square metres genuinely unclaimed main-room floor"},
+    {"id":"F04_B_WORK_ZONE","level":"F04","rect":[-11.3,-1.1,-8.1,2.3],"height":0.8,"class":"unresolved","purpose":"terminal, telephone and working-home zone"},
+    {"id":"F04_B_TERMINAL_USE","level":"F04","rect":[-9.45,0.85,-8.65,1.65],"height":0.8,"class":"unresolved","purpose":"terminal fixed-use reservation"},
+    {"id":"F04_B_TERMINAL_STANCE","level":"F04","rect":[-10.35,0.65,-9.45,1.85],"height":0.02,"class":"clearance","purpose":"0.9 by 1.2 m terminal interaction stance"},
+    {"id":"F04_B_MESSAGE_PROVISION","level":"F04","rect":[-8.05,-0.45,-7.65,0.95],"height":1.4,"class":"service","purpose":"telephone and message conduit on service wall"},
+    {"id":"F04_B_KITCHEN_WORK_RUN","level":"F04","rect":[-15.0,5.7,-11.1,6.35],"height":0.9,"class":"service","purpose":"0.65 m galley work run"},
+    {"id":"F04_B_KITCHEN_AISLE","level":"F04","rect":[-15.0,4.65,-11.1,5.7],"height":0.02,"class":"clearance","purpose":"1.05 m galley working aisle"},
+    {"id":"F04_B_PRIVATE_ROUTE","level":"F04","rect":[-10.8,3.45,-9.35,7.95],"height":0.02,"class":"clearance","purpose":"bath, closet and alcove distribution route"},
+    {"id":"F04_B_HALL_DOOR_SWING","level":"F04","rect":[-10.86,2.64,-10.05,3.45],"height":0.02,"class":"clearance","purpose":"private-hall door swing clear of work zone","door":"F04_B_HALL_DOOR"},
+    {"id":"F04_B_BATH_DOOR_SWING","level":"F04","rect":[-9.86,4.75,-9.05,5.56],"height":0.02,"class":"clearance","purpose":"bath leaf swings into hall outside fixture zone","door":"F04_B_BATH_DOOR"},
+    {"id":"F04_B_BATH_FIXTURE_ZONE","level":"F04","rect":[-8.45,3.75,-6.35,5.65],"height":0.8,"class":"unresolved","purpose":"sanitary fixture and standing reservation"},
+    {"id":"F04_B_CLOSET_DOOR_SWING","level":"F04","rect":[-8.31,6.49,-7.55,7.25],"height":0.02,"class":"clearance","purpose":"closet leaf swings out of storage envelope","door":"F04_B_CLOSET_DOOR"},
+    {"id":"F04_B_CLOSET_STORAGE","level":"F04","rect":[-7.0,6.2,-6.35,8.1],"height":2.0,"class":"unresolved","purpose":"0.65 m shelf and clothes-storage depth"},
+    {"id":"F04_B_ALCOVE_ROUTE","level":"F04","rect":[-12.4,7.25,-10.55,8.45],"height":0.02,"class":"clearance","purpose":"2.4 m open alcove approach and bedside route"},
+    {"id":"F04_B_BED_USE_ZONE","level":"F04","rect":[-14.6,7.9,-12.4,9.9],"height":0.65,"class":"unresolved","purpose":"bed and wake-context reservation"},
+    {"id":"F04_B_BEDSIDE_RETURN_CLEARANCE","level":"F04","rect":[-12.4,8.3,-11.5,9.5],"height":0.02,"class":"clearance","purpose":"0.9 by 1.2 m bedside return stance"},
+    {"id":"F04_B_ALCOVE_RADIATOR","level":"F04","rect":[-15.3,10.8,-13.8,11.25],"height":0.75,"class":"service","purpose":"radiator clear of bed and return route"}
   ],
   "anchors": [
     {"id":"STREET_APPROACH","level":"F01","position":[0.0,0.0,-14.5],"yaw":0.0,"kind":"review"},
@@ -148,6 +185,28 @@
     {"id":"F04_B_MONITOR_STANCE","level":"F04","position":[-9.9,0.0,1.25],"yaw":1.5707963,"kind":"clearance"},
     {"id":"F04_B_BED","level":"F04","position":[-13.1,0.55,8.9],"yaw":-1.5707963,"kind":"semantic"},
     {"id":"F04_B_BEDSIDE_RETURN","level":"F04","position":[-11.95,0.0,8.9],"yaw":-1.5707963,"kind":"clearance"}
+    ,{"id":"F04_B_MESSAGE_POINT","level":"F04","position":[-7.75,1.2,0.25],"yaw":1.5707963,"kind":"semantic"}
+    ,{"id":"F04_STAIR_EXIT_REVIEW","level":"F04","position":[0.0,1.41,-2.8],"yaw":0.0,"kind":"review"}
+    ,{"id":"F04_CORRIDOR_APPROACH","level":"F04","position":[-4.6,1.41,0.0],"yaw":-1.5707963,"kind":"review"}
+    ,{"id":"F04_B_THRESHOLD_REVIEW","level":"F04","position":[-5.25,1.41,0.0],"yaw":-1.5707963,"kind":"review"}
+    ,{"id":"F04_B_VESTIBULE_REVIEW","level":"F04","position":[-6.45,1.41,-0.55],"yaw":-1.5707963,"kind":"review"}
+    ,{"id":"F04_B_MAIN_REVIEW","level":"F04","position":[-8.4,1.41,-0.4],"yaw":-1.5707963,"kind":"review"}
+    ,{"id":"F04_B_WORK_REVIEW","level":"F04","position":[-9.9,1.41,1.25],"yaw":1.5707963,"kind":"review"}
+    ,{"id":"F04_B_KITCHEN_REVIEW","level":"F04","position":[-12.6,1.41,5.15],"yaw":3.1415927,"kind":"review"}
+    ,{"id":"F04_B_BEDSIDE_REVIEW","level":"F04","position":[-11.95,1.41,8.9],"yaw":-1.5707963,"kind":"review"}
+  ],
+  "capsule_stations": [
+    {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},
+    {"id":"F04_CAPSULE_CORRIDOR","level":"F04","position":[-4.6,0.85,0.0]},
+    {"id":"F04_CAPSULE_THRESHOLD","level":"F04","position":[-5.25,0.85,0.0]},
+    {"id":"F04_CAPSULE_VESTIBULE","level":"F04","position":[-6.45,0.85,-0.55]},
+    {"id":"F04_CAPSULE_MAIN","level":"F04","position":[-8.4,0.85,-0.4]},
+    {"id":"F04_CAPSULE_WORK","level":"F04","position":[-9.9,0.85,1.25]},
+    {"id":"F04_CAPSULE_KITCHEN","level":"F04","position":[-12.6,0.85,5.15]},
+    {"id":"F04_CAPSULE_PRIVATE_HALL","level":"F04","position":[-9.85,0.85,4.3]},
+    {"id":"F04_CAPSULE_HALL_TURN","level":"F04","position":[-9.8,0.85,6.75]},
+    {"id":"F04_CAPSULE_ALCOVE","level":"F04","position":[-11.1,0.85,7.25]},
+    {"id":"F04_CAPSULE_BEDSIDE_RETURN","level":"F04","position":[-11.95,0.85,8.9]}
   ],
   "platforms": [
     {"id":"F01_PUBLIC_LANDING_W","level":"F01","rect":[-1.2,-3.85,1.7,3.85],"class":"core"},
