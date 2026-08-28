@@ -62,6 +62,27 @@ func begin_compensation(actor: String) -> bool:
 	return _stamp_once("compensation_started_at", {"compensator": actor})
 
 
+func record_fact(fact: String, value: Variant) -> bool:
+	if fact not in ["abandonment_boundary", "part_custody",
+			"npc_knowledge", "relationship_consequence",
+			"recoverable_next_state", "elapsed_simulation_minutes"]:
+		return false
+	var record := _store()
+	record[fact] = value.duplicate(true) if value is Dictionary or value is Array \
+			else value
+	_commit(fact)
+	return true
+
+
+func advance_simulation_minutes(amount: float) -> void:
+	if amount <= 0.0:
+		return
+	var record := _store()
+	record.elapsed_simulation_minutes = maxf(0.0,
+			float(record.elapsed_simulation_minutes) + amount)
+	_commit("elapsed_simulation_minutes")
+
+
 func resolve(kind: String, residue_facts: Dictionary) -> bool:
 	var record := _store()
 	if not str(record.resolution_kind).is_empty():
@@ -111,6 +132,10 @@ func _store() -> Dictionary:
 			"observed_interference": [], "compensator": "",
 			"compensation_started_at": -1.0, "resolution_kind": "",
 			"residue": {}, "closed_at": -1.0,
+			"elapsed_simulation_minutes": 0.0,
+			"abandonment_boundary": "", "part_custody": "unchanged",
+			"npc_knowledge": {}, "relationship_consequence": "",
+			"recoverable_next_state": "inspect_and_repair",
 		}
 	return all[situation_id]
 

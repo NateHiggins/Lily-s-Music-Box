@@ -23,6 +23,7 @@ var safety_net: SafetyNet
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
+var open_shift_ecosystem: OpenShiftRadiatorEcosystem
 var watch_station_network: WatchStationNetwork
 var street_traffic: Node = null
 var elevator: Node = null
@@ -132,6 +133,12 @@ func _compose_authorities() -> void:
 	service_round.name = "ServiceRoundDirector"
 	add_child(service_round)
 	service_round.setup(work_orders, _blockout, player, service_set_carrier)
+	open_shift_ecosystem = OpenShiftRadiatorEcosystem.new()
+	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
+	add_child(open_shift_ecosystem)
+	open_shift_ecosystem.setup(work_orders,
+			_blockout.get_node_or_null("F02_B_RADIATOR_01") as RadiatorProp,
+			service_round, Callable())
 	safety_net = SafetyNet.new()
 	safety_net.name = "SafetyNet"
 	safety_net.setup(player)

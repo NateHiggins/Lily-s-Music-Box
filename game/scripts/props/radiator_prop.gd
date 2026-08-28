@@ -64,6 +64,7 @@ var _shake := 0.0
 var _wheel_tween: Tween
 var _balance
 var _service_panel: MaintenanceActivityPanel
+var open_shift_condition := "sounding"
 
 
 func _exit_tree() -> void:
@@ -370,10 +371,44 @@ func get_heat_state() -> Dictionary:
 		"vent_grade": vent_grade,
 		"pitch": pitch_toward_supply,
 		"riser": riser,
+		"open_shift_condition": open_shift_condition,
 	}
 	if _balance and graph_node_id != "":
 		local.merge(_balance.result_for(graph_node_id), true)
 	return local
+
+
+## Domain-owned physical consequences for the open-shift slice. The situation
+## observer requests one of these authored conditions; this mechanism remains
+## the only writer of valve/vent state and sound response.
+func apply_open_shift_condition(condition: String) -> bool:
+	match condition:
+		"worsening_hammer":
+			open_shift_condition = condition
+			set_pitch(-0.35)
+			play_ambient_cycle("knock", 1.0)
+		"porter_temporary_shutoff":
+			open_shift_condition = condition
+			set_supply_open(false)
+		"wrong_valve_partial":
+			open_shift_condition = condition
+			set_supply_position(0.42)
+			play_ambient_cycle("knock", 1.0)
+		"vent_removed":
+			open_shift_condition = condition
+			set_vent_grade(0)
+			play_ambient_cycle("whistle", 1.0)
+		"opened_uncommitted":
+			open_shift_condition = condition
+			set_vent_grade(1)
+			set_supply_position(0.18)
+			play_ambient_cycle("hiss", 1.0)
+		"sounding":
+			open_shift_condition = condition
+			set_supply_open(true)
+		_:
+			return false
+	return true
 
 
 func _update_balance() -> void:

@@ -263,6 +263,7 @@ var maintenance_inventory: MaintenanceInventory
 var shop_service: MaintenanceShopService
 var core_loop: CoreLoopDirector
 var service_round: ServiceRoundDirector
+var open_shift_ecosystem: OpenShiftRadiatorEcosystem
 var vantry_points: VantryPointNetwork
 var chirp_hunt: ChirpHunt
 var first_shift_director: FirstShiftDirector
@@ -692,6 +693,12 @@ func _ready() -> void:
 	service_round.name = "ServiceRoundDirector"
 	add_child(service_round)
 	service_round.setup(work_orders, self, player, service_set_carrier)
+	open_shift_ecosystem = OpenShiftRadiatorEcosystem.new()
+	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
+	add_child(open_shift_ecosystem)
+	open_shift_ecosystem.setup(work_orders,
+			get_node_or_null(ServiceRoundDirector.RADIATOR_ID) as RadiatorProp,
+			service_round, Callable())
 	apartment_encroachment.bind_service_round(service_round)
 	var room0 := Room0.new()
 	add_child(room0)
