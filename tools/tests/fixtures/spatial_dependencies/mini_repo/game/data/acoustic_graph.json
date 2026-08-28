@@ -1,0 +1,6 @@
+{
+  "nodes": [
+    {"id": "MINI_HUB", "pos": [0.0, 0.0, 0.0], "room": "F01_LOBBY", "network": "electrical", "connections": ["MINI_SPUR"]},
+    {"id": "MINI_SPUR", "pos": [2.0, 0.0, 0.0], "room": "F01_A_MAIN", "network": "electrical", "connections": ["MINI_HUB"]}
+  ]
+}
