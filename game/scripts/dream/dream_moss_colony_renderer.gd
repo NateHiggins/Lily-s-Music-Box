@@ -5,9 +5,14 @@ extends Node3D
 ## the colony record owned by DreamEcologyDirector.
 
 const MAX_BRANCH_SEGMENTS := 64
-const MAX_CILIA_VISIBLE := 8
+const MAX_CILIA_VISIBLE := 32
 const MAX_ETHER_MOTES := 24
+const MAX_PROTEINS_VISIBLE := 64
 const BRANCH_SIDES := 5
+const CELL_SHADER := preload("res://shaders/dream_moss_cellular.gdshader")
+const CILIA_SHADER := preload("res://shaders/dream_rooted_cilium.gdshader")
+const CellularStateScript := preload("res://scripts/dream/dream_cellular_state.gd")
+const PhenotypeScript := preload("res://scripts/dream/dream_cellular_phenotype.gd")
 
 var colony = null
 var _heart: MeshInstance3D
@@ -15,11 +20,15 @@ var _network: MeshInstance3D
 var _cilia: MultiMeshInstance3D
 var _ether: MultiMeshInstance3D
 var _pulse: MeshInstance3D
-var _heart_material: StandardMaterial3D
-var _network_material: StandardMaterial3D
-var _cilia_material: StandardMaterial3D
+var _proteins: MultiMeshInstance3D
+var _heart_material: ShaderMaterial
+var _network_material: ShaderMaterial
+var _cilia_material: ShaderMaterial
 var _ether_material: StandardMaterial3D
-var _pulse_material: StandardMaterial3D
+var _pulse_material: ShaderMaterial
+var _protein_material: ShaderMaterial
+var _state_packet
+var _phenotype: Dictionary
 var _clock := 0.0
 var _refresh_clock := 0.0
 var _report_clock := 0.0
@@ -39,6 +48,7 @@ func setup(owner_colony) -> void:
 	_build_cilia()
 	_build_ether()
 	_build_pulse()
+	_build_proteins()
 	_refresh(true)
 
 
@@ -65,14 +75,29 @@ func _process(delta: float) -> void:
 	_animate_cilia()
 	_animate_ether()
 	_animate_report(delta)
+	_animate_proteins()
 
 
 func _build_materials() -> void:
-	_heart_material = _material(Color(0.26, 0.035, 0.38, 0.90), Color(0.18, 0.015, 0.30), 0.34, 0.46)
-	_network_material = _material(Color(0.31, 0.045, 0.43, 0.82), Color(0.12, 0.008, 0.20), 0.42, 0.52)
-	_cilia_material = _material(Color(0.44, 0.10, 0.58, 0.92), Color(0.22, 0.03, 0.34), 0.30, 0.38)
+	_phenotype = PhenotypeScript.profile(PhenotypeScript.Kind.MOSS, int(colony.seed))
+	_heart_material = _cell_material(1.0)
+	_network_material = _cell_material(0.0)
+	_cilia_material = ShaderMaterial.new()
+	_cilia_material.shader = CILIA_SHADER
 	_ether_material = _material(Color(0.46, 0.18, 0.68, 0.16), Color(0.20, 0.05, 0.36), 0.20, 0.16)
-	_pulse_material = _material(Color(0.78, 0.34, 0.96, 0.92), Color(0.75, 0.18, 1.0), 0.12, 1.0)
+	_pulse_material = _cell_material(2.0)
+	_protein_material = _cell_material(2.0)
+
+
+func _cell_material(role: float) -> ShaderMaterial:
+	var material := ShaderMaterial.new()
+	material.shader = CELL_SHADER
+	material.set_shader_parameter("cellular_seed", float(colony.seed % 8191) * 0.013)
+	material.set_shader_parameter("cellular_phenotype", Vector4(
+			float(_phenotype.organization), float(_phenotype.windows),
+			float(_phenotype.proteins), float(_phenotype.refractive)))
+	material.set_shader_parameter("membrane_role", role)
+	return material
 
 
 func _material(color: Color, emission: Color, roughness: float, energy: float) -> StandardMaterial3D:
@@ -120,6 +145,7 @@ func _build_cilia() -> void:
 	mesh.material = _cilia_material
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_custom_data = true
 	multimesh.instance_count = MAX_CILIA_VISIBLE
 	multimesh.visible_instance_count = 0
 	multimesh.mesh = mesh
@@ -159,6 +185,25 @@ func _build_pulse() -> void:
 	add_child(_pulse)
 
 
+func _build_proteins() -> void:
+	_proteins = MultiMeshInstance3D.new()
+	_proteins.name = "MembraneProteinFamilies"
+	var mesh := SphereMesh.new()
+	mesh.radius = 0.010
+	mesh.height = 0.020
+	mesh.radial_segments = 5
+	mesh.rings = 3
+	mesh.material = _protein_material
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_custom_data = true
+	multimesh.instance_count = MAX_PROTEINS_VISIBLE
+	multimesh.visible_instance_count = 0
+	multimesh.mesh = mesh
+	_proteins.multimesh = multimesh
+	add_child(_proteins)
+
+
 func _refresh(force: bool) -> void:
 	visible = colony != null and colony.phase != colony.Phase.CLEARED
 	if not visible:
@@ -175,7 +220,13 @@ func _refresh(force: bool) -> void:
 	if colony.phase >= colony.Phase.WITHERING:
 		ether_count = int(float(ether_count) * (1.0 - colony.collapse_progress))
 	_ether.multimesh.visible_instance_count = ether_count
-	_peak_visible = maxi(_peak_visible, 2 + cilia_count + ether_count)
+	var information := clampf(colony.stored_information / 8.0, 0.0, 1.0)
+	var protein_count := clampi(8 + int(colony.maturity * 40.0 + information * 16.0), 0, MAX_PROTEINS_VISIBLE)
+	if colony.phase >= colony.Phase.STAINED:
+		protein_count = int(float(protein_count) * (0.32 if colony.phase == colony.Phase.STAINED else 0.0))
+	_proteins.multimesh.visible_instance_count = protein_count
+	_update_state_packet()
+	_peak_visible = maxi(_peak_visible, 2 + cilia_count + ether_count + protein_count)
 
 
 func _animate_heart() -> void:
@@ -189,13 +240,6 @@ func _animate_heart() -> void:
 		scale_value *= maxf(0.04, 1.0 - colony.collapse_progress)
 	_heart.scale = Vector3(scale_value, scale_value * 0.38, scale_value) * breath
 	var dead := clampf(colony.collapse_progress, 0.0, 1.0)
-	_heart_material.albedo_color = Color(0.26, 0.035, 0.38, 0.90).lerp(Color(0.12, 0.075, 0.10, 0.74), dead)
-	_heart_material.emission_energy_multiplier = maxf(0.0, 0.46 * (1.0 - dead))
-	_network_material.albedo_color = Color(0.31, 0.045, 0.43, 0.82).lerp(
-			Color(0.24, 0.065, 0.12, 0.88), dead)
-	_network_material.emission = Color(0.16, 0.018, 0.06)
-	_network_material.emission_energy_multiplier = maxf(0.08 * dead,
-			0.52 * (1.0 - dead))
 	_network.scale = Vector3(1.0, maxf(0.08, 1.0 - dead), 1.0)
 
 
@@ -213,6 +257,53 @@ func _animate_cilia() -> void:
 		basis = basis.rotated(Vector3.RIGHT, 0.45 + (1.0 - fold) * 1.0)
 		basis = basis.scaled(Vector3(1.0, fold, 1.0))
 		_cilia.multimesh.set_instance_transform(i, Transform3D(basis, at))
+		_cilia.multimesh.set_instance_custom_data(i, Color(
+				_hash01(i * 43 + colony.seed), 0.0, float(i % 2), 1.0))
+
+
+func _animate_proteins() -> void:
+	var count: int = _proteins.multimesh.visible_instance_count
+	var hop_open: bool = colony.phase < colony.Phase.WITHERING
+	for i in count:
+		var compartment := i % 7
+		var u := _hash01(i * 97 + colony.seed)
+		var base_angle := float(compartment) / 7.0 * TAU
+		var confined := sin(_clock * (0.11 + 0.03 * float(i % 3)) + u * TAU) * 0.07
+		var hop: float = floor(_clock * 0.20 + u * 5.0) if hop_open else 0.0
+		var angle: float = base_angle + confined + hop * 0.19
+		var radius := 0.12 + 0.05 * float(i % 5)
+		var cluster := clampf(colony.stored_information / 8.0 + _report_value, 0.0, 1.0)
+		radius = lerpf(radius, 0.09 + 0.015 * float(i % 3), cluster)
+		var at := Vector3(cos(angle) * radius, 0.045 + 0.012 * float(i % 4), sin(angle) * radius)
+		_proteins.multimesh.set_instance_transform(i, Transform3D(Basis.IDENTITY, at))
+		_proteins.multimesh.set_instance_custom_data(i, Color(float(i % 7) / 6.0, cluster, hop, 1.0))
+
+
+func _update_state_packet() -> void:
+	var withering: float = clampf(colony.collapse_progress, 0.0, 1.0)
+	_state_packet = CellularStateScript.new({
+		"ether": colony.ether_reserve,
+		"information": colony.stored_information / 8.0,
+		"novelty": 1.0 / float(1 + colony.known_targets.size()),
+		"contact": colony.disturbance,
+		"reporting": clampf(_report_clock, 0.0, 1.0),
+		"breathing": clampf(colony.ether_production + float(colony.reports) * 0.04, 0.0, 1.0),
+		"disturbance": colony.disturbance,
+		"recall": 1.0 if colony.phase == colony.Phase.DISTURBED else 0.0,
+		"senescence": withering,
+		"death": 1.0 if colony.phase >= colony.Phase.STAINED else 0.0,
+		"cleanup": 1.0 if colony.phase == colony.Phase.CLEARED else 0.0,
+	})
+	for material in [_heart_material, _network_material, _pulse_material, _protein_material]:
+		material.set_shader_parameter("cellular_state_a", _state_packet.to_vector_a())
+		material.set_shader_parameter("cellular_state_b", _state_packet.to_vector_b())
+		material.set_shader_parameter("cellular_state_c", _state_packet.to_vector_c())
+		material.set_shader_parameter("cellular_time", _clock)
+	for material in [_cilia_material]:
+		material.set_shader_parameter("cellular_state_a", _state_packet.to_vector_a())
+		material.set_shader_parameter("cellular_state_b", _state_packet.to_vector_b())
+		material.set_shader_parameter("cellular_state_c", _state_packet.to_vector_c())
+		material.set_shader_parameter("cellular_time", _clock)
 
 
 func _animate_ether() -> void:
@@ -310,11 +401,13 @@ func census() -> Dictionary:
 			"heart_visible": presented and _heart != null and _heart.visible,
 			"cilia_visible": _cilia.multimesh.visible_instance_count if presented and _cilia != null else 0,
 			"ether_motes": _ether.multimesh.visible_instance_count if presented and _ether != null else 0,
+			"proteins_visible": _proteins.multimesh.visible_instance_count if presented and _proteins != null else 0,
 			"report_presentations": _report_presentations,
 			"report_visible": presented and _pulse != null and _pulse.visible,
 			"peak_visible_elements": _peak_visible,
 			"caps": {"branch_segments": MAX_BRANCH_SEGMENTS,
-				"cilia": MAX_CILIA_VISIBLE, "ether_motes": MAX_ETHER_MOTES}}
+				"cilia": MAX_CILIA_VISIBLE, "ether_motes": MAX_ETHER_MOTES,
+				"membrane_proteins": MAX_PROTEINS_VISIBLE}}
 
 
 func _route_signature() -> String:
