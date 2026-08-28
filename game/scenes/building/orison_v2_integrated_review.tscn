@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/building/orison_v2_blockout.tscn" id="1_blockout"]
 [ext_resource type="Script" path="res://scripts/building/orison_v2_review_controller.gd" id="2_controller"]
+[ext_resource type="Script" path="res://scripts/building/orison_v2_readability_cues.gd" id="3_cues"]
 
 [sub_resource type="CapsuleShape3D" id="Capsule_player"]
 radius = 0.33
@@ -25,6 +26,10 @@ light_energy = 1.2
 shadow_enabled = true
 
 [node name="Blockout" parent="." instance=ExtResource("1_blockout")]
+show_clearance_anchors = false
+
+[node name="ReadabilityCues" type="Node3D" parent="."]
+script = ExtResource("3_cues")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 position = Vector3(0, 0.85, -14.25)

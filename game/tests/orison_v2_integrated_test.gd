@@ -6,6 +6,9 @@ const PROD_LAYOUT := "res://data/building_layout.json"
 var failures := 0
 var route_ms := 0.0
 
+class ProbePlayer extends Node:
+	var call_locked := false
+
 func _ready() -> void:
 	var production_hash := FileAccess.get_sha256(PROD_LAYOUT)
 	var started := Time.get_ticks_usec()
@@ -19,15 +22,21 @@ func _ready() -> void:
 	_gate(root.layout.get("layout_id", "") == "orison_v2_h_plan_blockout_01"
 			and not bool(root.layout.get("production_default", true)),
 			"01 deterministic v2 schema and generation selection")
-	_gate(root.is_in_group("orison_v2_blockout") and root.get_child_count() > 0,
+	_gate(root.is_in_group("orison_v2_blockout") and root.get_child_count() > 0 \
+			and world.get_node_or_null("ReadabilityCues/PUBLIC_ENTRANCE") != null \
+			and world.get_node_or_null("ReadabilityCues/2A") != null \
+			and world.get_node_or_null("ReadabilityCues/4B") != null \
+			and world.get_node_or_null("ReadabilityCues/TerminalHomeContext") != null \
+			and world.get_node_or_null("ReadabilityCues/BedHomeContext") != null,
 			"02 generated construction and scene startup")
 	var adapter = Adapter.new(root)
 	_gate(adapter.resolves_required_uniquely(), "03 unique compatibility anchors")
-	var consumer: Dictionary = _consumer_checks(root, adapter)
+	var consumer: Dictionary = await _consumer_checks(root, adapter)
 	_gate(bool(consumer.f01), "05 F01 arrival and lobby interaction compatibility")
 	_gate(bool(consumer.f02), "06 F02 Mina/chirp/job/case and acoustic compatibility")
 	_gate(bool(consumer.f04), "07 F04 terminal/call/audio compatibility")
-	_gate(bool(consumer.bed), "08 explicit/fallback bed and root-neutral save boundary")
+	_gate(bool(consumer.bed) and await _save_reconstruct_check(),
+			"08 real save/reload reconstruction and separate v1 bed fallback")
 	var route_started := Time.get_ticks_usec()
 	player.position = Vector3(0.0, 0.0, -14.25)
 	_gate(await _walk(player, _integrated_waypoints()),
@@ -48,35 +57,172 @@ func _ready() -> void:
 			"10 proportional startup/node/collision budget")
 	_gate(FileAccess.get_sha256(PROD_LAYOUT) == production_hash,
 			"production layout remains byte-stable")
+	adapter.restore_all()
+	_gate(adapter.is_restored(), "adapter/acoustic teardown restores global state")
+	world.queue_free()
+	await get_tree().process_frame
+	await get_tree().process_frame
 	print("ORISON V2 M08 INTEGRATION: %s" % ("PASS" if failures == 0 else "FAIL (%d)" % failures))
 	get_tree().quit(failures)
 
 func _consumer_checks(root: Node3D, adapter) -> Dictionary:
-	var terminal: Node = adapter.resolve("F04_B_MONITOR_01")
+	var original_acoustic := AcousticGraphData.nodes.duplicate(true)
+	var acoustic_ok: bool = adapter.with_acoustic_overrides([
+		"F02_A_MONITOR_01", "F04_B_MONITOR_01"], func() -> bool:
+		return AcousticGraphData.node_pos("F04_B_MONITOR_01").is_equal_approx(
+				(adapter.resolve("F04_B_MONITOR_01") as Node3D).global_position))
+	acoustic_ok = acoustic_ok and AcousticGraphData.nodes == original_acoustic
+
+	# F01: production implementations mounted at v2 anchors, using public verbs.
+	var porter := OtisProp.new()
+	var porter_ok: bool = adapter.mount_consumer("LobbyPorterBoard", porter)
+	await get_tree().process_frame
+	porter_ok = porter_ok and porter.interact_prompt() == "[E]  Work the lift" \
+			and porter.control_prompt("service").contains("annunciator") \
+			and porter.global_position.is_equal_approx(
+					(root.get_node("LobbyPorterBoard_Semantic") as Node3D).global_position)
+	var porter_removed: Node3D = adapter.unmount_consumer("LobbyPorterBoard")
+	if porter_removed: porter_removed.queue_free()
+	var board := HouseSwitchboardProp.new()
+	var board_ok: bool = adapter.mount_consumer("F01_HOUSE_TELEPHONE_BOARD", board)
+	await get_tree().process_frame
+	var board_action: Dictionary = board.interact(null)
+	board_ok = board_ok and board.interact_prompt().contains("dead house board") \
+			and str(board_action.get("action", "")) == "board_read" \
+			and not bool(board_action.get("accepted", true))
+	var board_removed: Node3D = adapter.unmount_consumer("F01_HOUSE_TELEPHONE_BOARD")
+	if board_removed: board_removed.queue_free()
+	var dumbwaiter := DumbwaiterProp.new()
+	var dumb_ok: bool = adapter.mount_consumer("LobbyServiceDumbwaiter", dumbwaiter)
+	await get_tree().process_frame
+	dumb_ok = dumb_ok and dumbwaiter.control_prompt("brake").contains("holding brake") \
+			and (dumbwaiter.maintenance_snapshot() as Dictionary).has("band_seated")
+	var dumb_removed: Node3D = adapter.unmount_consumer("LobbyServiceDumbwaiter")
+	if dumb_removed: dumb_removed.queue_free()
+
+	# F02: real WorkOrders + ChirpHunt + VantryPointProp public inspection path.
+	var saved_state := var_to_bytes(RealityState.data)
+	var saved_persistence := RealityState.persistence_enabled
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	var orders := WorkOrders.new()
+	var inventory := MaintenanceInventory.new()
+	var network := VantryPointNetwork.new()
+	var hunt := ChirpHunt.new()
+	root.add_child(orders); root.add_child(inventory); root.add_child(network); root.add_child(hunt)
+	orders.setup(null)
+	var library := MaintenanceJobLibrary.load_default()
+	orders.bind_job_library(library)
+	inventory.setup()
+	var point_anchor := adapter.resolve("F02_A_MAIN_VANTRY_POINT") as Node3D
+	network.floor_nodes = {"F02": root}
+	network.points = {ChirpHunt.JOB_ID: {}}
+	network.points = {"F02_A_MAIN_VANTRY_POINT": {
+		"pos": [point_anchor.global_position.x, -point_anchor.global_position.z,
+				point_anchor.global_position.y], "floor": "F02", "room": "2A"}}
+	network.point_order = ["F02_A_MAIN_VANTRY_POINT"]
+	network.work_orders = orders
+	var point := VantryPointProp.new()
+	point.prop_type = "vantry_point"
+	point.bind_order_spine(orders)
+	network.active_owner = point
+	network.add_child(point)
+	await get_tree().process_frame
+	hunt.setup(network, orders, inventory)
+	var f02_ok: bool = library.is_valid() \
+			and str(library.job(ChirpHunt.JOB_ID).get("case_id", "")) == "mina_caption_crisis" \
+			and hunt.active_point_id == "F02_A_MAIN_VANTRY_POINT" \
+			and hunt.report() and orders.acknowledge_job(ChirpHunt.JOB_ID)
+	var before_stage := orders.job_stage(ChirpHunt.JOB_ID)
+	point.interact(null)
+	var after_stage := orders.job_stage(ChirpHunt.JOB_ID)
+	f02_ok = f02_ok and before_stage == "acknowledged" \
+			and after_stage == "awaiting_part" \
+			and point.global_position.distance_to(point_anchor.global_position) < 0.02 \
+			and point.interact_prompt().contains("carbon capsule") and acoustic_ok
+	RealityState.data = bytes_to_var(saved_state)
+	RealityState.persistence_enabled = saved_persistence
+	for owner: Node in [hunt, point, network, inventory, orders]:
+		if owner.get_parent() != null:
+			owner.get_parent().remove_child(owner)
+		owner.queue_free()
+	await get_tree().process_frame
+
+	# F04: real terminal body and the public call-console sequence.
+	var terminal := SignalTerminalProp.new()
+	terminal.prop_type = "signal_terminal"
+	var old_origin: String = str(Conductor.origin_node)
+	var old_mode: String = str(Conductor.propagation_mode)
+	var old_infection: float = Conductor.infection
+	var terminal_ok: bool = adapter.mount_consumer("F04_B_MONITOR_01", terminal)
+	await get_tree().process_frame
 	var calls := CallInterface.new()
 	calls.world = root
+	calls.fast = true
+	calls.fast_factor = 0.001
 	add_child(calls)
-	calls.call("_set_console_stage", "integration_probe")
-	var call_ok: bool = terminal != null and str(terminal.get("console_stage")) == "integration_probe"
-	var acoustic_ok: bool = adapter.install_acoustic_overrides([
-		"F02_A_MONITOR_01", "F04_B_MONITOR_01"])
-	if acoustic_ok:
-		acoustic_ok = AcousticGraphData.node_pos("F04_B_MONITOR_01").is_equal_approx(
-				(adapter.resolve("F04_B_MONITOR_01") as Node3D).global_position)
+	await get_tree().process_frame
+	calls.enter(null, terminal)
+	calls.press_isolate(true)
+	calls.press_capture()
+	calls.press_route()
+	await get_tree().create_timer(0.15).timeout
+	var terminal_acoustic: bool = adapter.install_acoustic_overrides(["F04_B_MONITOR_01"])
+	terminal_ok = terminal_ok and calls.stage >= CallInterface.Stage.TRANSMISSION \
+			and str(terminal.get("_stage")) in ["route", "response", "outcome"] \
+			and str(Conductor.origin_node) == "F04_B_MONITOR_01" \
+			and terminal_acoustic and terminal.global_position.distance_to(
+					AcousticGraphData.node_pos("F04_B_MONITOR_01")) < 0.02
 	adapter.restore_acoustic_overrides()
+	Conductor.origin_node = old_origin
+	Conductor.propagation_mode = old_mode
+	Conductor.infection = old_infection
+	calls.leave()
+	calls.queue_free()
+	var terminal_removed: Node3D = adapter.unmount_consumer("F04_B_MONITOR_01")
+	if terminal_removed: terminal_removed.queue_free()
+
 	var explicit: Node3D = adapter.explicit_bed()
 	var production: Variant = JSON.parse_string(FileAccess.get_file_as_string(PROD_LAYOUT))
 	var fallback: Dictionary = adapter.anonymous_bed_fallback(production as Dictionary)
-	var f01_ok: bool = adapter.resolve("LobbyMailBank") != null \
-			and adapter.resolve("LobbyPorterBoard") != null \
-			and adapter.resolve("F01_HOUSE_TELEPHONE_BOARD") != null \
-			and adapter.resolve("LobbyServiceDumbwaiter") != null
-	var f02_ok: bool = str(ChirpHunt.JOB_ID) == "vantry_chirp_2a" \
-			and adapter.resolve("F02_A_MAIN_VANTRY_POINT") != null and acoustic_ok
-	var f04_ok: bool = call_ok and adapter.resolve("F04_B_MONITOR_01") != null
+	var f01_ok: bool = porter_ok and board_ok and dumb_ok \
+			and adapter.resolve("LobbyMailBank") != null
+	var f04_ok: bool = terminal_ok
 	var bed_ok: bool = str(CoreLoopDirector.RETURN_ANCHOR_ID) == "F04_B_BED" \
 			and explicit != null and not fallback.is_empty()
 	return {"f01": f01_ok, "f02": f02_ok, "f04": f04_ok, "bed": bed_ok}
+
+func _save_reconstruct_check() -> bool:
+	var old_path := RealityState.save_path
+	var old_persistence := RealityState.persistence_enabled
+	var old_data := var_to_bytes(RealityState.data)
+	var path := "user://tests/orison_v2_m08a_transaction.json"
+	RealityState.save_path = path
+	RealityState.persistence_enabled = true
+	RealityState.data = {"version": RealityState.SAVE_VERSION,
+			"core_loop": {"safe_return_anchor": "F04_B_BED",
+			"boundary": "wake_complete"}}
+	var saved := RealityState.save_game()
+	RealityState.data = {}
+	RealityState.load_game()
+	var rebuilt := REVIEW.instantiate()
+	add_child(rebuilt)
+	await get_tree().process_frame
+	var selected := Adapter.new(rebuilt.get_node("Blockout"))
+	var bed := selected.explicit_bed()
+	var v2_ok := saved and bed != null \
+			and str(RealityState.data.get("core_loop", {}).get(
+					"safe_return_anchor", "")) == "F04_B_BED"
+	rebuilt.queue_free()
+	await get_tree().process_frame
+	var production: Variant = JSON.parse_string(FileAccess.get_file_as_string(PROD_LAYOUT))
+	var v1_ok := not Adapter.new(null).anonymous_bed_fallback(
+			production as Dictionary).is_empty()
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	RealityState.save_path = old_path
+	RealityState.persistence_enabled = old_persistence
+	RealityState.data = bytes_to_var(old_data)
+	return v2_ok and v1_ok
 
 func _integrated_waypoints() -> Array[Vector3]:
 	var points: Array[Vector3] = [

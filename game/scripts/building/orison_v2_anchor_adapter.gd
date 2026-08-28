@@ -9,6 +9,7 @@ const REQUIRED: Array[String] = [
 
 var root: Node
 var _acoustic_originals := {}
+var _mounted := {}
 
 func _init(selected_root: Node) -> void:
 	root = selected_root
@@ -55,3 +56,46 @@ func restore_acoustic_overrides() -> void:
 	for identity: String in _acoustic_originals:
 		AcousticGraphData.nodes[identity] = _acoustic_originals[identity]
 	_acoustic_originals.clear()
+
+func with_acoustic_overrides(ids: Array, check: Callable) -> bool:
+	if not install_acoustic_overrides(ids):
+		return false
+	var result := bool(check.call())
+	restore_acoustic_overrides()
+	return result
+
+func mount_consumer(identity: String, consumer: Node3D) -> bool:
+	var anchor := resolve(identity) as Node3D
+	if anchor == null or consumer == null or _mounted.has(identity):
+		return false
+	var original_name := anchor.name
+	anchor.name = "%s_Semantic" % identity
+	consumer.name = identity
+	root.add_child(consumer)
+	consumer.global_transform = anchor.global_transform
+	_mounted[identity] = {"anchor": anchor, "consumer": consumer,
+			"name": original_name}
+	return true
+
+func unmount_consumer(identity: String) -> Node3D:
+	var record: Dictionary = _mounted.get(identity, {})
+	if record.is_empty():
+		return null
+	var consumer := record.consumer as Node3D
+	if consumer != null and consumer.get_parent() != null:
+		consumer.get_parent().remove_child(consumer)
+	var anchor := record.anchor as Node3D
+	if anchor != null:
+		anchor.name = str(record.name)
+	_mounted.erase(identity)
+	return consumer
+
+func restore_all() -> void:
+	restore_acoustic_overrides()
+	for identity: String in _mounted.keys().duplicate():
+		var consumer := unmount_consumer(identity)
+		if consumer != null:
+			consumer.queue_free()
+
+func is_restored() -> bool:
+	return _acoustic_originals.is_empty() and _mounted.is_empty()
