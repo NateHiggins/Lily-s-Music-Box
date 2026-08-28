@@ -45,6 +45,11 @@ func _ready() -> void:
 	_check(is_equal_approx(renderer._cilia.multimesh.get_instance_transform(0).origin.y, root_y),
 			"cilia roots remain attached through metachronal motion")
 	_check(int(census.nodes) <= 7, "cellular surface adds no node forest")
+	var profiles := []
+	for kind in Phenotype.Kind.size(): profiles.append(Phenotype.profile(kind, 9041))
+	_check(profiles.size() == 13 and profiles[Phenotype.Kind.PIONEER].organization
+			!= profiles[Phenotype.Kind.CRYSTAL_LISTENER].organization,
+			"all thirteen cellular phenotype profiles remain reachable")
 	renderer.queue_free()
 	await get_tree().process_frame
 	await get_tree().process_frame
