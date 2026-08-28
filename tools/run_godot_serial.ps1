@@ -73,6 +73,10 @@ try {
         $start.RedirectStandardError = "$LogPath.stderr"
     }
     $process = Start-Process @start
+    # Windows PowerShell 5.1 never populates ExitCode on a -PassThru process
+    # unless its handle was touched before the wait; `exit $null` then reports
+    # success for every failing suite. Cache the handle first.
+    $null = $process.Handle
     $env:SHOT_DIR = $previousShotDir
 
     if (-not $process.WaitForExit($TimeoutSeconds * 1000)) {
@@ -80,6 +84,9 @@ try {
         throw "Godot exceeded the $TimeoutSeconds-second ceiling and was terminated."
     }
     $exitCode = $process.ExitCode
+    if ($null -eq $exitCode) {
+        throw "Godot's exit code was unavailable; refusing to report success."
+    }
 }
 catch {
     Write-Error $_
