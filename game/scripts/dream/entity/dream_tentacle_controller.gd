@@ -676,6 +676,7 @@ func _push_uniforms() -> void:
 		"vibration_listener": kind = PhenotypeScript.Kind.VIBRATIONAL
 		"ocular_examiner": kind = PhenotypeScript.Kind.OPTICAL
 		"sucker_sampler": kind = PhenotypeScript.Kind.CHEMICAL
+		"manipulator": kind = PhenotypeScript.Kind.THERMAL
 		"relay_tendril": kind = PhenotypeScript.Kind.ELECTRICAL
 	var phenotype := PhenotypeScript.profile(kind, int(seed_phase * 100000.0))
 	_material.set_shader_parameter("cellular_state_a", packet.to_vector_a())

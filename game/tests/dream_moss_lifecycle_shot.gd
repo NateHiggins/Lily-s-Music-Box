@@ -29,6 +29,7 @@ var stain_after_cleanup := 0.0
 var presentation_cpu_ms := 0.0
 var evidence_ether_minimum := 1.0
 var evidence_recalled := 0
+var capture_texture: ViewportTexture
 
 
 func _ready() -> void:
@@ -37,6 +38,7 @@ func _ready() -> void:
 	if out_dir.is_empty(): out_dir = OS.get_user_data_dir().path_join("dream_ecology_e2")
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	_build_stage()
+	capture_texture = get_viewport().get_texture()
 	call_deferred("_run")
 
 
@@ -183,9 +185,39 @@ func _run() -> void:
 	await _capture("13_authorized_cleaned_control")
 	_write_timeline()
 	print("[DREAM ECOLOGY E2 CAPTURE] PASS %d/13 -> %s" % [frames, out_dir])
-	renderer.queue_free(); director.queue_free()
-	await get_tree().process_frame; await get_tree().process_frame
+	await _teardown()
 	get_tree().quit(failures)
+
+
+func _teardown() -> void:
+	# Release every runtime presentation owner before the viewport shuts down.
+	# In particular, tentacle rigs contain generated meshes/materials whose RIDs
+	# otherwise survive a same-frame queue_free at capture exit.
+	for tentacle in tentacles:
+		if is_instance_valid(tentacle):
+			tentacle.free()
+	tentacles.clear()
+	for node in [critters, dream_field, renderer, director]:
+		if is_instance_valid(node):
+			node.free()
+	critters = null
+	dream_field = null
+	renderer = null
+	director = null
+	colony = null
+	field = null
+	stranded_record.clear()
+	timeline.clear()
+	capture_texture = null
+	# The stage camera, environment, shadowed lights, floor and props also own
+	# renderer resources.  Destroy them while the RenderingServer is still able
+	# to retire their RIDs instead of relying on process-exit cleanup.
+	for child in get_children():
+		if is_instance_valid(child):
+			child.free()
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	await get_tree().process_frame
 
 
 func _reinforce(route_id: String, target_id: String, observation: Dictionary, times: int) -> void:
@@ -214,7 +246,7 @@ func _spawn_tentacle(purpose: int, root_at: Vector3, normal: Vector3,
 func _capture(label: String) -> void:
 	for _frame in 8: await get_tree().process_frame
 	await RenderingServer.frame_post_draw
-	var image := get_viewport().get_texture().get_image()
+	var image := capture_texture.get_image()
 	var path := out_dir.path_join(label + ".png")
 	if image.save_png(path) != OK:
 		failures += 1
