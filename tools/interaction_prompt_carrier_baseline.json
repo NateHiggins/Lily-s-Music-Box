@@ -1,0 +1,1308 @@
+{
+ "entries": [
+  {
+   "file": "building/maintenance_headquarters.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Review case wall \u2014 %d/%d resolved, %d/%d tools issued",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "building/room0.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Leave",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "building/switch_plate.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Bathroom light",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "building/switch_plate.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Light switch",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "building/wayfinding_signage_pass.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Ring directory buzzer",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "call/desk_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "call/desk_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sit at the support desk",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "call/desk_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Someone is already taking a call in your voice",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "call/desk_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Stand up from the support desk",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "call/desk_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The line is quiet",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "characters/animated_resident.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Speak with %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "game/maintenance_shop_counter.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect hardware counter",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/arcade_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Press jukebox selection",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Press next jukebox selection",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Pull jukebox coin return",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Test empty jukebox coin return",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Close private wardrobe",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Flush water closet",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Inspect pin board",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Inspect working papers",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Open private wardrobe",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Switch valve radio off",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Switch valve radio on",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/baked_furniture_interaction.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Test refilling cistern handle",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/bar_seat_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sit down",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/bar_seat_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Stand up",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/bench_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sit on the bench",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/bench_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Stand up",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/bodega_signage_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect HALF BAKED shop sign",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/boiler_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Prove the boiler water column",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/boiler_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s firing door",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/bookshelf_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s's books  \u2014  in order",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/bookshelf_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s's books  \u2014  wants tidying",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/boxfan_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Fan speed %d \u2014 turn to %d",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/building_entry_sign.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect Orison entrance plaque",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/case_door_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Try the utility latch",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/clock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Try sealed Vantry setting cover",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/darts_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The Rainbow Round",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/dead_letters_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sort the post",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/domestic_radio_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Switch %s's wireless %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/domestic_witness_clock.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect familiar clock",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_anomaly_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The seam is warm",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Let it go and watch",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Look at the arm",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Regulating screw  (%s)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Ship the arm back on its spindle",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Take the arm off its spindle",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Take the catch off",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The catch is holding it",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The leaf is already shut",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The leaf is locked",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_check_closer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Throw the hold-open catch",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Close door",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Locked",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/door_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Open door",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/dumbwaiter_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Check the holding brake",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/dumbwaiter_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Prove the holding brake",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/elevator_interlock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Check the landing interlock",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/elevator_interlock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Examine the landing interlock",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/entrance_marquee_dress.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect Orison entrance marquee",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/exhaust_fan_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Try guarded roof ventilator",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s -- fifty feet behind the glass",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s, behind wired glass",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s, coupled",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Break the joint again",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Couple the play-pipe to the hose",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Fit the gasket into the coupling",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Made up -- break it and look inside",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Make the hose up to the outlet",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Re-racked on a fresh fold",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Shut the cabinet",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Shut the play-pipe's control valve",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sign the tag (%d of 4 joints)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sign the tag (the joint has not been opened)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sign the tag -- line made up",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The control valve is shut",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The gasket is in the pocket",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The gasket tin is inside",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The glass shows the hose, not the joint",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The inspection tag, behind the glass",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The play-pipe is inside",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The play-pipe is inside",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The tag reads  %s",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Unrack and re-rack it on a different fold",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fire_line_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  You cannot reach the pocket through a made-up joint",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/flue_breast_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect sealed chimney thimble",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fridge_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s the %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fuse_panel_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Check the house panel",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/fuse_panel_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Read the house panel",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/harukiya_signage_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect Harukiya frontage sign",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/house_switchboard_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Answer the asking line",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/house_switchboard_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Carry the line to the house trunk",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/house_switchboard_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Read the dead house board",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/house_switchboard_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Read the quiet house board",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/house_switchboard_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Release the carried line",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/inspectable_zone.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Look at %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/kettle_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Put the kettle on",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/kettle_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Take it off the boil",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/lamp_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Turn task lamp off",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/lamp_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Turn task lamp on",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/laundry_airer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Inspect rinse stand",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/laundry_airer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Lower ceiling airer",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/laundry_airer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Raise ceiling airer",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/lobby_bulletin_board.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect lobby notices",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/lobby_orison_ad_board.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect original Orison broadside",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/mail_chute_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Check the mail chute",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/mail_chute_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The mail chute is choked",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/medicine_cabinet_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s the cabinet",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/monitor_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Narrow receiver tuning",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/monitor_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Widen receiver tuning",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/neon_sign_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect %s neon",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s  ->  move the index to  %s",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  File the report back on the spindle",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  File the report before you sign for it",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Hang the %s key back (check %d is on the hook)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sign the register:  %s",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Take the %s key (%d door%s, %d locked)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Take the report off the spindle",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The index is standing on the blank",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The keys are still out",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The register is up to date",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/night_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The spindle is empty",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/otis_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Service annunciator contacts",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/otis_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Work the lift",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/otis_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Work the lift",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/passage_pushcart.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Rattle chained handcart",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/passage_pushcart.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Shove handcart",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/point_ball_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Point Ball  \u2014  they took the 8",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/possessed_domestic_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/projector_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  ",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/projector_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  No reel threaded",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/radiator_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Service radiator fittings",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/roof_tank_ballcock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Check the tank ball cock",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/roof_tank_ballcock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The tank is overflowing",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/shop_sign_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect %s sign",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Cut the lead-and-wire seal",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Draw the acid bottle out of the cage",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Lift at the bottle's cap",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Put the bottle back in the clips",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Screw the cap back down",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Sign the tag",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Take its weight  (%.0f lb)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The bottle is in the cage",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The bottle is under the cap, in its cage",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The cap is off",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The cap lifts off the neck",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The seal wires the cap to the neck",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The tag reads  %s",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Turn it over",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Unscrew the cap (the cage comes up with it)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Wire a fresh seal through the lugs",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/soda_acid_extinguisher_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Work the cap loose",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/songbook_terminal_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s  \u2014  the songbook",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/songbook_terminal_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Out of order",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/stove_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s the oven",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/tap_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  %s the shower curtain",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/tap_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Turn off the %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/tap_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Turn on the %s",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/toaster_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Press the carriage lever",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/toaster_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Test the latched carriage",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/tour_key_guard_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Hang the tour key back  (check %d on the hook)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/tour_key_guard_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Take the tour key  (opens no door)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/tv_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Turn the television ",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/vantry_point_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Inspect Vantry point",
+   "method": "interact_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Close washer drain",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Close washer fill cocks",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Close washer lid",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Open washer drain",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Open washer fill cocks",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Open washer lid",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Press wringer safety release",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Start wringer rolls",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/washer_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E] Stop wringer rolls",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watch_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Restore the shutters  (%s down)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watch_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  The board is clear  (%d signals)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watch_register_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Throw the test key  (%s)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watch_station_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Close the box  (marked, %02d:%02d)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watch_station_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Open the signal box  (%s)",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watch_station_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Turn the crank",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watchman_clock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Check the watchman's dial",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watchman_clock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Clock in \u2014 seat tonight's paper dial",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watchman_clock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Clock out \u2014 remove tonight's paper",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "props/watchman_clock_prop.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Read the watchman's dial",
+   "method": "control_prompt",
+   "token": "[E]"
+  },
+  {
+   "file": "reality/organism_incidents.gd",
+   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
+   "literal": "[E]  Clear the growth from the %s \u2014 restore service",
+   "method": "interact_prompt",
+   "token": "[E]"
+  }
+ ],
+ "policy": "locks legacy [E] against multiplication; never covers [A], [TAP], glyphs or named keyboard/mouse instructions",
+ "version": 1
+}
