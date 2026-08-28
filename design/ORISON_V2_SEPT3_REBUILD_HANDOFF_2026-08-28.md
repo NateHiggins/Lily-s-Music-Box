@@ -86,6 +86,14 @@ python tools/tests/test_orison_spatial_dependencies.py
 python tools/tests/test_systemic_situation_authority.py
 ```
 
+**Runner truth notice:** before 2026-08-28, `tools/run_godot_serial.ps1`
+never propagated a real exit code (a PowerShell 5.1 `Start-Process`
+quirk returned null → 0 for every suite, always). It is fixed and now
+throws on a null exit — but treat any HISTORICAL "exit 0" claim made
+through the runner as vacuous; printed PASS/FAIL lines were the real
+signal. Trust exit codes only from the fixed runner or direct Godot
+invocations.
+
 Spatial deltas update `tools/orison_spatial_dependency_manifest.json`
 deliberately in the same commit (never to silence drift); the ethos
 baseline accepts no new suppressions without written justification.
