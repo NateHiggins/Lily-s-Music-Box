@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "receipt_type": "orison_v2_route_readability_acceptance",
+  "date": "2026-08-28",
+  "reviewed_commit": "aa62f9e",
+  "accepted_packet": "art/renders/orison_v2/m08a_readability_checkpoint_04/",
+  "verdict": "PASS",
+  "owner_statement": "I can understand the layout",
+  "owner_confirmation": "All seven checklist questions can be answered without ambiguity.",
+  "checklist": [
+    "Where do you enter the public building?",
+    "From the lobby, where do you go up?",
+    "Which threshold is apartment 2A?",
+    "From inside 2A, how do you return to the primary stair?",
+    "Which threshold is apartment 4B?",
+    "Where is the signal terminal within the work/home space?",
+    "From bedside, which route leads back toward the apartment exit?"
+  ],
+  "scope": "Route-readability acceptance only.",
+  "authorization": {
+    "m09": false,
+    "production_cutover": false,
+    "default_selector_change": false,
+    "v1_retirement": false
+  }
+}

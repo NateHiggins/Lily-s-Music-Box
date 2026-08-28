@@ -6,7 +6,9 @@ Base: `47da37a788554afc8e868d6c56d9bc587569a173`
 
 Selector: explicit development scene `res://scenes/building/orison_v2_integrated_review.tscn`; production v1 remains default.
 
-Status: automated hardening passes; **HUMAN ACCEPTANCE PENDING**.
+Status: automated hardening passes; **HUMAN ACCEPTANCE PASS**. Owner verdict
+recorded 2026-08-28 in
+`design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json`.
 
 ## Readability findings and corrections
 
@@ -89,4 +91,7 @@ Human checklist—without coordinates, identify:
 
 The precise acceptance question is: **“Using only the ten M08A frames and no coordinate knowledge, can you correctly answer all seven checklist questions without ambiguity?”**
 
-M08A is technically ready for that review. Human acceptance is not self-declared. M09, production selection, v1 retirement, and cutover remain blocked until the owner returns an explicit verdict.
+Owner verdict: **PASS** — “I can understand the layout.” The owner confirmed
+that all seven checklist questions can be answered without ambiguity from the
+ten-frame packet. This closes route-readability review only. M09, production
+selection, v1 retirement, and cutover remain separately unauthorized.
