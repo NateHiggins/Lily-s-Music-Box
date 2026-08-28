@@ -4,6 +4,7 @@ render_mode unshaded, cull_disabled;
 #include "res://shaders/dream_fauna_style.gdshaderinc"
 #include "res://shaders/dream_irradiance.gdshaderinc"
 #include "res://shaders/dream_incarnation.gdshaderinc"
+#include "res://shaders/dream_cellular_surface.gdshaderinc"
 
 // These are already authored linear tokens. `source_color` would convert them
 // a second time and crush the bounded dark-live wine below display black.
@@ -177,6 +178,8 @@ void vertex() {
 
 void fragment() {
 	float nutrient = fauna_unit(fauna_high_byte(fauna_data.g));
+	float cellular_activity = fauna_unit(fauna_low_byte(fauna_data.b));
+	float cellular_flags = fauna_high_byte(fauna_data.b);
 	// LC-5: every living family receives the room's one conserved ether value
 	// in the old presentation-only emergence byte. The high byte remains
 	// family-specific matter: ethermoss for Buttons, death stain for Wine
@@ -340,6 +343,22 @@ void fragment() {
 			* (0.35 + retained * 0.30);
 	ALBEDO = dark_body + mix(lit_wine, full_body,
 			max(irradiance.y * 0.58, irradiance.z));
+	vec4 cell_a = vec4(ether_amount, nutrient, pattern_jitter, cellular_activity);
+	vec4 cell_b = vec4(fauna_flag(cellular_flags, 2.0), retained,
+			fauna_flag(cellular_flags, 1.0), fauna_flag(cellular_flags, 32.0));
+	vec4 cell_c = vec4(is_senescent, is_stain, 0.0, 0.0);
+	vec4 phenotype = family_motif < .5 ? vec4(.78,.48,.88,.42)
+			: (family_motif < 1.5 ? vec4(.74,.18,.64,.70)
+			: (family_motif < 2.5 ? vec4(.42,.88,.66,.62)
+			: (family_motif < 3.5 ? vec4(.84,.22,.52,.48)
+			: vec4(.58,.36,.86,.56))));
+	vec4 cellular = cell_membrane(fauna_world * 5.0, fauna_normal, view_dir,
+			pattern_jitter * 31.0, phenotype, cell_a, cell_b, cell_c, TIME);
+	vec3 cell_cargo = cell_transport(fauna_local * 4.0, pattern_jitter * 31.0,
+			cell_a, cell_b, cell_c, TIME);
+	ALBEDO = mix(ALBEDO, ALBEDO * vec3(.64,.42,.78), cellular.x * .28);
+	ALBEDO += jewel_color * (cellular.w * .16 + cellular.z * .06
+			+ cell_cargo.x * .12 + cell_cargo.z * .09);
 	// The seeking band has to read through the live architecture noise floor.
 	// It is still reflected lamp colour in ALBEDO, never emission.
 	ALBEDO += jewel_color * is_exchange * awake * (0.18 + band * 0.34);

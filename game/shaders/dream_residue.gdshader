@@ -1,5 +1,7 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_never, cull_disabled, diffuse_burley, specular_schlick_ggx, unshaded;
+
+#include "res://shaders/dream_cellular_surface.gdshaderinc"
 // DREAM SALIVA (design/DREAM_SALIVA_DIRECTION.md).
 //
 //   "iridescent holographic reflective saliva goo ... that crystalizes like
@@ -292,6 +294,13 @@ void fragment() {
 	sheath += vec3(0.62, 0.34, 0.065) * suture * (0.55 + facet * 0.45);
 	sheath += vec3(0.62, 0.55, 0.40) * vesicles * 0.34;
 	body = mix(body, sheath, memory);
+	vec4 failed_state = vec4(1.0, 1.0, 0.0, 0.0);
+	vec4 residue_cell = cell_membrane(v_world * 5.0, v_normal, view_dir, v_seed,
+			vec4(.90,.08,.18,.24), vec4(0.0, v_intensity, 0.0, 0.0),
+			vec4(0.0), failed_state, age);
+	float coagulated = smoothstep(.42,.68, residue_cell.x + capillary * .22);
+	body = mix(body, body * vec3(.42,.28,.38), memory * coagulated * .48);
+	body += vec3(.28,.07,.18) * residue_cell.w * memory * .12;
 	float sheath_substance = covered * smoothstep(1.0, 0.76,
 			r + warp * 0.42 - 0.19) * (0.92 + suture * 0.08);
 	substance = mix(substance, sheath_substance, memory);

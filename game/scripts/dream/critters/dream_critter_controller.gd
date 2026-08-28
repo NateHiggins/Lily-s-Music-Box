@@ -147,6 +147,9 @@ func _build_mesh() -> ArrayMesh:
 				MAX_FEELERS, FEELER_RINGS, FEELER_SEGS)
 		_append_tubes(verts, normals, uvs, uv2, indices, c, 10.0,
 				2, 7, LIMB_SEGS)
+		# Fixed proximal webs join coxae to the body in the existing batch.
+		_append_tubes(verts, normals, uvs, uv2, indices, c, 13.0,
+				MAX_LIMBS, 6, LIMB_SEGS)
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = verts
@@ -1157,6 +1160,11 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 				float(mechanical.get("carrier", 0)) / 3.0,
 				float(mechanical.get("age", 99.0)),
 				clampf(mech_dir.dot(f), -1.0, 1.0))
+		if plan > 1.5:
+			_mechanical[i] = Vector4(float(c.get("information_pulse", 0.0)),
+					1.0 if bool(c.get("ecology_returning", false)) else 0.0,
+					clampf(float(c.get("hero_near", 0.0)), 0.0, 1.0),
+					1.0 if bool(c.get("ecology_returning", false)) else 0.0)
 		_size[i] = Vector4(float(m.length), float(m.wide), float(m.tall),
 				float(int(m.seed) % 97) * 0.041)
 		_matter[i] = Vector4(float(m.gold), float(m.crystal), float(m.cilia),

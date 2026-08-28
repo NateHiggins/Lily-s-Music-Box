@@ -16,6 +16,7 @@ render_mode cull_disabled, depth_draw_opaque, diffuse_burley, specular_schlick_g
 // because they are the same biology at a third resolution.
 #include "res://shaders/dream_corruption_layers.gdshaderinc"
 #include "res://shaders/dream_entity_surface.gdshaderinc"
+#include "res://shaders/dream_cellular_surface.gdshaderinc"
 
 const int MAX_CRITTERS = 12;
 
@@ -58,6 +59,7 @@ varying vec4 v_law;
 varying vec4 v_look;
 varying vec4 v_photo;
 varying vec4 v_mechanical;
+varying float v_axial;
 
 // A tube's cross-section must be perpendicular to the tube. Offsetting along
 // a fixed-plane normal -- which is what the ring normal is, before it is
@@ -220,6 +222,8 @@ void vertex() {
 			// Attention separates paired plates just enough to expose a deeper
 			// parallax seam without losing their anatomical overlap.
 			local.x += flank * law.w * size.y * 0.035;
+			local.y += law.w * size.z * (plate < 1.5 ? 0.10 : -0.08);
+			local.z += flank * law.w * size.x * 0.055;
 			v_thickness = 0.34;
 		} else if (part < 6.5) {
 			// Ventral breathing body: protected, soft, and visibly distinct from
@@ -229,12 +233,12 @@ void vertex() {
 			v_thickness = 0.92;
 		} else if (part < 7.5) {
 			// Front sensory core nested between the plate pair.
-			local *= vec3(size.y * 0.15, size.z * 0.16, size.x * 0.11);
-			local += vec3(0.0, size.z * 0.10, size.x * 0.43);
+			local *= vec3(size.y * 0.22, size.z * 0.19, size.x * 0.16);
+			local += vec3(0.0, size.z * 0.11, size.x * 0.47);
 			v_thickness = 0.18;
 		} else if (part < 8.5) {
 			// Rear information-transfer rosette meets the moss on return.
-			local *= vec3(size.y * 0.24, size.z * 0.13, size.x * 0.13);
+			local *= vec3(size.y * 0.30, size.z * 0.16, size.x * 0.16);
 			local += vec3(0.0, -size.z * 0.08, -size.x * 0.49);
 			local.x *= 1.0 + 0.16 * sin(v_uv.x * 31.0 + TIME * 1.4);
 			v_thickness = 0.78;
@@ -261,7 +265,7 @@ void vertex() {
 			float thick = size.y * mix(0.045, 0.018, along);
 			local = p + ring_offset(b - a, nrm, thick);
 			v_thickness = 0.64;
-		} else {
+		} else if (part < 12.5) {
 			// Paired tactile bulbs make the manipulators legible without adding
 			// per-organ draw calls. They retract under the sensory crown.
 			float flank = part < 11.5 ? -1.0 : 1.0;
@@ -271,6 +275,19 @@ void vertex() {
 					-size.z * (0.18 - 0.04 * deploy),
 					size.x * (0.44 + 0.52 * deploy));
 			v_thickness = 0.86;
+		} else {
+			float n = max(1.0, counts.x);
+			if (index >= n) { local = vec3(0.0); alive = 0.0; }
+			int joint_i = c * 8 + int(index + 0.5);
+			vec3 socket = crab_socket[joint_i].xyz;
+			float flank = sign(socket.x);
+			vec3 inner = vec3(socket.x * .34, -size.z * .15, socket.z * .78);
+			vec3 outer = socket + vec3(flank * size.y * .19, size.z * .03, 0.0);
+			vec3 p = mix(inner, outer, along);
+			float web = sin(along * 3.14159265);
+			p.y -= web * size.z * .09;
+			local = p + ring_offset(outer - inner, nrm, size.y * (.024 + web * .135));
+			v_thickness = .96;
 		}
 	}
 
@@ -290,6 +307,7 @@ void vertex() {
 	v_look = look;
 	v_photo = photo;
 	v_mechanical = mechanical;
+	v_axial = local.z / max(size.x, .001);
 }
 
 void fragment() {
@@ -336,6 +354,13 @@ void fragment() {
 	}
 	DeMasks m = de_masks(shading_pos, v_uv, n, view_dir, TIME, v_seed, ctx);
 	DeOut o = de_shade(m, shading_pos, v_uv, n, view_dir, TIME, v_seed, ctx);
+	vec4 cell_a = vec4(1.0 - v_photo.z, v_photo.y, v_photo.w, v_photo.x);
+	vec4 cell_b = v_mechanical;
+	vec4 cell_c = vec4(v_photo.z, step(.98, v_photo.z), 0.0, 0.0);
+	vec4 phenotype = mix(vec4(.82,.42,.58,.32), vec4(.74,.18,.64,.70), step(.5,v_matter.y));
+	vec4 cellular = cell_membrane(v_world * 7.0, n, view_dir, v_seed,
+			phenotype, cell_a, cell_b, cell_c, TIME);
+	vec3 cargo = cell_transport(v_world * 5.0, v_seed, cell_a, cell_b, cell_c, TIME);
 	// Aubergine toward magenta: a rebalance within the palette, never a hue
 	// spun off it. At 0 the red channel is held back and the blue kept; at 1
 	// the red is let through.
@@ -354,10 +379,15 @@ void fragment() {
 		ALBEDO = mix(ALBEDO, vec3(0.58, 0.18, 0.72), 0.72);
 	}
 	ALBEDO *= mix(vec3(1.0), vec3(0.54, 0.48, 0.62), v_photo.z * 0.65);
+	ALBEDO = mix(ALBEDO, ALBEDO * vec3(.58,.34,.74), cellular.x * .34);
+	ALBEDO += vec3(.18,.10,.22) * cellular.w;
 	ROUGHNESS = clamp(o.roughness - 0.22 * v_look.z, 0.04, 1.0);
 	SPECULAR = o.specular;
 	EMISSION = o.emission * (0.5 + 1.1 * v_matter.x);
 	if (v_part >= 10.5) EMISSION += vec3(0.10, 0.015, 0.16) * v_photo.x;
+	EMISSION += vec3(.08,.018,.12) * cellular.z + vec3(.42,.10,.54) * cargo.x
+			+ vec3(.56,.34,.08) * cargo.y;
+	EMISSION += vec3(.62,.12,.74) * exp(-pow((v_axial - mix(-.48,.46,v_photo.y)) / .075, 2.0)) * v_photo.y;
 	// Not a flash: photoshock bruises/perfuses the same tissue stack while
 	// the legible event remains the resonator reversal and feeler arrest.
 	ALBEDO *= mix(vec3(1.0), vec3(0.78, 0.72, 1.06), v_photo.y * 0.34);
