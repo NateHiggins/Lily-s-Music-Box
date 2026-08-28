@@ -1,6 +1,6 @@
 # consequence_02 · 2B radiator-specific sheet
 
-Status: **HUMAN ACCEPTANCE PENDING**
+Status: **RADIATOR-SPECIFIC HUMAN ACCEPTANCE PASS · 2026-08-28**
 
 All fresh frames are 1600×900 production-v2 runtime captures. The player lamp,
 device overlay, clearance overlays, and old radiator reservation boxes are
@@ -23,5 +23,10 @@ result.
 14. `14_in_room_gameplay_distance.png` — apartment context and window clearance
 15. `15_player_service_stance.png` — accepted capsule/service approach
 
-The automated packet result proves capture completion only. It does not grant
-the Open Shift human gate.
+Owner verdict: the radiator reads as a credible, aged cast-iron radiator with
+understandable plumbing, valve access, sectional construction, and a strong
+gameplay-distance silhouette. The remaining leakage-effect, valve-scale, and
+penetration-collar refinements are non-blocking art debt.
+
+This acceptance applies only to the radiator-specific gate. Open Shift as a
+whole remains pending, and M09/M10 and selector cutover remain unauthorized.

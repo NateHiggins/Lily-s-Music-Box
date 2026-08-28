@@ -1,6 +1,6 @@
 # Open Shift Radiator Correction · consequence_02 · 2026-08-28
 
-Status: **TECHNICAL PASS · HUMAN ACCEPTANCE PENDING**
+Status: **TECHNICAL PASS · RADIATOR-SPECIFIC HUMAN ACCEPTANCE PASS**
 
 The earlier Open Shift radiator images are retained as the required control,
 but are superseded as acceptance evidence. They showed the prop at semantic
@@ -85,5 +85,21 @@ No radiator stream is named in the retained chain, and the successful
 windowed evidence run exits without that warning. This correction does not
 claim that pre-existing headless teardown debt is repaired.
 
-Human acceptance remains pending. This correction does not authorize M09,
-M10, selector cutover, or v1 retirement.
+## Owner verdict
+
+The owner reviewed the committed radiator-specific packet at commit
+`f57289648ba671c3e6a1f25f8fe7fc7989c72731` and supplied this verdict on
+2026-08-28: **HUMAN ACCEPTED**.
+
+The owner found that the radiator reads as a credible, aged cast-iron radiator
+with understandable plumbing, valve access, sectional construction, and a
+strong gameplay-distance silhouette. Three minor items remain open as
+non-blocking art debt:
+
+- leakage bubbles resemble white eggs more than water or steam;
+- the valve assembly is slightly oversized;
+- pipe joints and wall/floor penetrations could use subtler collars.
+
+This verdict closes only the radiator-specific visual gate. Open Shift as a
+whole remains pending. It does not authorize M09, M10, selector cutover, v1
+retirement, or any production-default change.
