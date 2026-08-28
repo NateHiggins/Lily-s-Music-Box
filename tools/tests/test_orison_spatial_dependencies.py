@@ -294,6 +294,43 @@ class DriftTests(unittest.TestCase):
                                     MINI_LAYOUT, "--manifest", str(manifest))
             self.assertEqual(code, 1, out)
 
+    def test_coordinate_contract_flip_fails(self):
+        with TempRepo() as root:
+            manifest = write_manifest(root)
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            for record in data["records"]:
+                if record["kind"] == "vector3_coordinate" and \
+                        record["file"].endswith("mini_root.gd"):
+                    record["gameplay_binding"] = False
+            manifest.write_text(json.dumps(data), encoding="utf-8")
+            code, out, _ = run_main("--root", str(root), "--layout",
+                                    MINI_LAYOUT, "--manifest", str(manifest))
+            self.assertEqual(code, 1, out)
+
+    def test_identifier_domain_change_fails(self):
+        with TempRepo() as root:
+            manifest = write_manifest(root)
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            for record in data["records"]:
+                if record["token"] == "F01_LOBBY" and \
+                        record["file"].endswith("mini_root.gd"):
+                    record["resolved_target"] = "F02/marker"
+            manifest.write_text(json.dumps(data), encoding="utf-8")
+            code, out, _ = run_main("--root", str(root), "--layout",
+                                    MINI_LAYOUT, "--manifest", str(manifest))
+            self.assertEqual(code, 1, out)
+
+    def test_manifest_refuses_production_paths(self):
+        with TempRepo() as root:
+            for target in ("game/data/evil.json", "art/data/evil.json",
+                           "design/evil.json"):
+                code, _, err = run_main(
+                    "--root", str(root), "--layout", MINI_LAYOUT,
+                    "--manifest", str(root / target), "--update-manifest")
+                self.assertEqual(code, 3, err)
+                self.assertIn("refusing to write manifest", err)
+                self.assertFalse((root / target).exists())
+
     def test_line_number_movement_is_not_drift(self):
         with TempRepo() as root:
             manifest = write_manifest(root)
@@ -430,6 +467,42 @@ class ProductionSmokeTests(unittest.TestCase):
         self.assertEqual(record["disposition"],
                          "REPLACE_WITH_NAMED_ANCHOR")
         self.assertEqual(record["confidence"], "HIGH")
+
+    def test_building_root_selector_paths(self):
+        for token in ("res://scenes/building/orison_root.tscn",
+                      "res://scenes/building/orison_v2_runtime.tscn"):
+            record = self._one(
+                kind="asset_path", token=token,
+                file="game/scripts/building/building_root_selector.gd")
+            self.assertEqual(record["disposition"], "PRESERVE_OR_ALIAS")
+            self.assertEqual(record["confidence"], "HIGH")
+
+    def test_v2_parity_anchor_contract(self):
+        adapter = "game/scripts/building/orison_v2_anchor_adapter.gd"
+        for token in ("F04_B_BEDSIDE_RETURN", "F02_A_MAIN_VANTRY_POINT",
+                      "F01_DOOR_06", "LobbyPorterBoard"):
+            hits = rec(self.records, file=adapter, token=token)
+            self.assertEqual(len(hits), 1, token)
+            self.assertEqual(hits[0]["disposition"], "MUST_PRESERVE_ID")
+            self.assertTrue(hits[0]["target_exists"], token)
+
+    def test_v1_anonymous_bed_fallback_not_migrated(self):
+        for file in ("game/scripts/building/orison_v2_anchor_adapter.gd",
+                     "game/scripts/campaign/core_loop_director.gd"):
+            record = self._one(kind="id_reference", token="bed", file=file)
+            self.assertEqual(record["disposition"], "PRESERVE_OR_ALIAS")
+            self.assertIn("V1-ONLY", record["rationale"])
+
+    def test_v2_blockout_is_an_authority_not_noise(self):
+        blockout = [r for r in self.records
+                    if r["file"] == "game/data/orison_v2_blockout.json"]
+        tokens = {r["token"] for r in blockout}
+        # Parity ids surface; v2-only vocabulary (envelopes, capsule
+        # stations) stays out of the inventory.
+        self.assertIn("F01_DOOR_06", tokens)
+        self.assertIn("F02_A_MAIN_VANTRY_POINT", tokens)
+        self.assertNotIn("F01_PRIMARY_ROUTE_ENVELOPE", tokens)
+        self.assertNotIn("F04_CAPSULE_BEDSIDE_RETURN", tokens)
 
     def test_live_check_is_clean(self):
         code, out, _ = run_main("--root", str(REPO_ROOT))

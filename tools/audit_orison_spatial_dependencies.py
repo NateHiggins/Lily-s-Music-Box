@@ -164,10 +164,16 @@ SECONDARY_AUTHORITIES = (
     # (relative path, universe domain, id field)
     ("game/data/acoustic_graph.json", "acoustic_node", "id"),
     ("game/data/fixture_light_map.json", "fixture", "id"),
+    # The Orison v2 blockout (two-root rebuild): a deliberate second layout
+    # authority.  Ids it defines that ALSO exist in the v1 universe are the
+    # parity surface; v2-only ids (envelopes, capsule stations, thresholds)
+    # are its own vocabulary and do not spam the inventory.
+    ("game/data/orison_v2_blockout.json", "v2_blockout", "id"),
 )
 DOMAIN_AUTHORITY_FILE = {
     "acoustic_node": "acoustic_graph.json",
     "fixture": "fixture_light_map.json",
+    "v2_blockout": "orison_v2_blockout.json",
 }
 
 # Stable identifiers CREATED AT RUNTIME by production code (not present in
@@ -187,6 +193,8 @@ RUNTIME_CREATED_IDS = {
     "LobbyServiceDumbwaiter", "F01LandingInterlock",
     "StreetEndHoardingFaces", "AtriumShaft", "AtriumSkylightPool",
     "F04_B_DOOR_ANOMALY",
+    # Registered live by OrisonV2RuntimeRoot on the house telephone line.
+    "F02_A_TELEPHONE",
 }
 
 AUTHORITY_CLASSES = {
@@ -215,6 +223,75 @@ class AuditError(Exception):
 # the heuristic classification for contracts confirmed by hand.
 # --------------------------------------------------------------------------
 KNOWN_CONTRACTS: dict[str, dict] = {
+    # -- Two-root rebuild composition (v2 parity surface). ------------------
+    "asset_path:game/scripts/building/building_root_selector.gd:*": {
+        "authority": ["RUNTIME_LOOKUP"],
+        "spatial": ["ASSET_PATH"],
+        "disposition": "PRESERVE_OR_ALIAS",
+        "confidence": "HIGH",
+        "rationale": "BuildingRootSelector is the single non-persistent "
+                     "authority for waking-scene selection (v1 default, "
+                     "ORISON_BUILDING_ROOT override); both scene paths are "
+                     "composition contracts and cutover/rollback changes "
+                     "DEFAULT_ID only.",
+    },
+    "id_reference:game/scripts/building/orison_v2_anchor_adapter.gd:bed": {
+        "authority": ["RUNTIME_LOOKUP"],
+        "spatial": ["SEMANTIC_ANCHOR"],
+        "disposition": "PRESERVE_OR_ALIAS",
+        "confidence": "HIGH",
+        "rationale": "V1-ONLY anonymous-bed fallback: scans production "
+                     "layout F04 furniture for id=='bed'.  Must stay until "
+                     "cutover retires the v1 root; its removal is a "
+                     "deliberate migration act, never incidental.",
+    },
+    "id_reference:game/scripts/campaign/core_loop_director.gd:bed": {
+        "authority": ["RUNTIME_LOOKUP", "SAVE_CONTRACT"],
+        "spatial": ["SEMANTIC_ANCHOR"],
+        "disposition": "PRESERVE_OR_ALIAS",
+        "confidence": "HIGH",
+        "rationale": "V1-ONLY anonymous-bed fallback behind the explicit "
+                     "v2 anchor resolver: wake placement re-derives the "
+                     "bedside from the unique F04 'bed' furniture record "
+                     "when no resolver is bound.  Not migrated - the "
+                     "fallback is the v1 root's contract.",
+    },
+    "id_reference:game/scripts/building/orison_v2_anchor_adapter.gd:*": {
+        "authority": ["RUNTIME_LOOKUP"],
+        "spatial": ["SEMANTIC_ANCHOR"],
+        "disposition": "MUST_PRESERVE_ID",
+        "confidence": "HIGH",
+        "rationale": "OrisonV2AnchorAdapter.REQUIRED is the two-root "
+                     "parity contract: each identity must resolve to "
+                     "exactly one node in the selected root (doors, vantry "
+                     "point, monitors, bed, bedside return stance, lobby "
+                     "service anchors).",
+    },
+    "runtime_id:game/scripts/building/orison_v2_anchor_adapter.gd:*": {
+        "authority": ["RUNTIME_LOOKUP", "GENERATED_IDENTITY"],
+        "spatial": ["SEMANTIC_ANCHOR"],
+        "disposition": "MUST_PRESERVE_ID",
+        "confidence": "HIGH",
+        "rationale": "Runtime-created identity on the v2 parity surface "
+                     "(OrisonV2AnchorAdapter.REQUIRED).",
+    },
+    "id_reference:game/scripts/building/orison_v2_runtime_root.gd:*": {
+        "authority": ["RUNTIME_LOOKUP"],
+        "spatial": ["SEMANTIC_ANCHOR"],
+        "disposition": "MUST_PRESERVE_ID",
+        "confidence": "HIGH",
+        "rationale": "OrisonV2RuntimeRoot mounts production props onto "
+                     "blockout anchors by these identities; each must stay "
+                     "unique in the v2 scene.",
+    },
+    "runtime_id:game/scripts/building/orison_v2_runtime_root.gd:*": {
+        "authority": ["RUNTIME_LOOKUP", "GENERATED_IDENTITY"],
+        "spatial": ["SEMANTIC_ANCHOR"],
+        "disposition": "MUST_PRESERVE_ID",
+        "confidence": "HIGH",
+        "rationale": "Runtime-created identity mounted by "
+                     "OrisonV2RuntimeRoot.",
+    },
     # -- Save boundary (P0). RealityState owns user://reality_maintenance_
     # save.json (version 4); the entries below are the spatial identities
     # that actually reach that document.
@@ -794,7 +871,11 @@ def kind_for_domains(domains) -> str:
         return "floor_reference"
     if "unit" in domains:
         return "unit_reference"
-    if "runtime_created" in domains and len(domains) == 1:
+    # An id the running game creates stays a runtime identity even when the
+    # v2 blockout also declares it as an anchor (the parity surface); only
+    # a v1 layout definition makes it a plain layout reference.
+    if "runtime_created" in domains and not \
+            (set(domains) - {"runtime_created", "v2_blockout"}):
         return "runtime_id"
     return "id_reference"
 
@@ -1159,6 +1240,17 @@ def diff_against_manifest(manifest: dict, live: list[dict],
             continue
         if sorted(record.get("authority", [])) != live_record["authority"]:
             class_changes.append({"manifest": record, "live": live_record})
+        elif record.get("gameplay_binding") != \
+                live_record["gameplay_binding"]:
+            # A coordinate group flipping between contract and
+            # non-contract is a classification event, never silent.
+            class_changes.append({"manifest": record, "live": live_record})
+        elif record.get("kind") in ID_KINDS and \
+                record.get("resolved_target") != \
+                live_record["resolved_target"]:
+            # Same identifier, different domain/floor resolution: the id
+            # changed meaning under the consumer.
+            class_changes.append({"manifest": record, "live": live_record})
         if record.get("target_exists") is True and \
                 live_record["target_exists"] is False:
             target_vanished.append(live_record)
@@ -1247,6 +1339,16 @@ def run(args) -> int:
             scanned_tiers.add("test")
 
     if args.update_manifest:
+        # The manifest is the tool's ONLY write path; never let it land on
+        # a production surface by mistyped --manifest.
+        resolved_manifest = manifest_path.resolve()
+        for guarded in ("game", "art", "design"):
+            guarded_dir = (root / guarded).resolve()
+            if resolved_manifest.is_relative_to(guarded_dir):
+                raise AuditError(
+                    f"refusing to write manifest inside {guarded_dir}; "
+                    "the manifest belongs under tools/ or outside the "
+                    "repository")
         manifest = {
             "manifest_version": MANIFEST_VERSION,
             "tool_version": TOOL_VERSION,

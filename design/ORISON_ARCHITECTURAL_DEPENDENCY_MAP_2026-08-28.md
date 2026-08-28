@@ -1,10 +1,12 @@
 # Orison architectural dependency map — 2026-08-28
 
 **Task:** ADMIN-ARCH1. **Evidence level:** source-only audit (no Godot, no
-Blender, no Git metadata). **Companion machine artifact:**
-`tools/orison_spatial_dependency_manifest.json` (3,281 records), regenerated
+Blender, no Git metadata). **Baseline:** origin/main after `d248c6c`
+("Complete Orison two-root parity audit") and `9969bee` — the v2 reversible
+composition foundation is in scope (§12). **Companion machine artifact:**
+`tools/orison_spatial_dependency_manifest.json` (3,500 records), regenerated
 and drift-checked by `tools/audit_orison_spatial_dependencies.py`, tested by
-`tools/tests/test_orison_spatial_dependencies.py`.
+`tools/tests/test_orison_spatial_dependencies.py` (48 self-tests).
 
 This document maps every repository dependency on the *current* Orison
 building's spatial identity so the architectural rebuild owner knows what may
@@ -52,26 +54,26 @@ contracts by props, saves and tests): `F01_NIGHT_REGISTER`,
 `F01LandingInterlock`, `StreetEndHoardingFaces`, `AtriumShaft`,
 `AtriumSkylightPool`, `F04_B_DOOR_ANOMALY`.
 
-## 2. Live totals (manifest snapshot)
+## 2. Live totals (manifest snapshot at the two-root baseline)
 
-3,281 records: production 525, data 1,696, test 1,060.
+3,500 records: production 564, data 1,724, scene 4, test 1,208.
 
 | Authority | n | | Spatial binding | n | | Disposition | n |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| DATA_FOREIGN_KEY | 1,696 | | SEMANTIC_ANCHOR | 2,108 | | PRESERVE_OR_ALIAS | 2,045 |
-| TEST_CONTRACT | 1,060 | | ROOM_MEMBERSHIP | 477 | | UPDATE_TEST_FIXTURE | 1,034 |
-| RUNTIME_LOOKUP | 420 | | FLOOR_MEMBERSHIP | 261 | | REGENERATE_CONSUMER | 73 |
-| GENERATED_IDENTITY | 230 | | ASSET_PATH | 219 | | REPLACE_WITH_NAMED_ANCHOR | 50 |
-| SCENE_NODE_PATH | 186 | | CAMERA_STATION | 126 | | MUST_PRESERVE_ID | 45 |
-| SAVE_CONTRACT | 15 | | RAW_GODOT_COORDINATE | 103 | | UNRESOLVED | 33 |
+| DATA_FOREIGN_KEY | 1,724 | | SEMANTIC_ANCHOR | 2,199 | | PRESERVE_OR_ALIAS | 2,086 |
+| TEST_CONTRACT | 1,208 | | ROOM_MEMBERSHIP | 495 | | UPDATE_TEST_FIXTURE | 1,178 |
+| RUNTIME_LOOKUP | 461 | | FLOOR_MEMBERSHIP | 271 | | REGENERATE_CONSUMER | 77 |
+| GENERATED_IDENTITY | 262 | | ASSET_PATH | 231 | | MUST_PRESERVE_ID | 71 |
+| SCENE_NODE_PATH | 206 | | CAMERA_STATION | 133 | | REPLACE_WITH_NAMED_ANCHOR | 53 |
+| SAVE_CONTRACT | 16 | | RAW_GODOT_COORDINATE | 113 | | UNRESOLVED | 34 |
 | DEBUG_ONLY | 12 | | RAW_PLAN_COORDINATE | 70 | | OWNER_DECISION | 1 |
-| | | | UNKNOWN_DYNAMIC | 34 | | | |
+| | | | UNKNOWN_DYNAMIC | 35 | | | |
 | | | | CONTAINMENT_ASSUMPTION | 10 | | | |
-| | | | DERIVED_LAYOUT_LOOKUP | 15 | | | |
+| | | | DERIVED_LAYOUT_LOOKUP | 18 | | | |
 | | | | DISTANCE_THRESHOLD | 4 | | | |
 
-Vector3 literals: 2,948 sighted, 2,793 deliberately excluded as
-local/presentation (mesh building, prop-internal offsets). 155 recorded as
+Vector3 literals: 3,115 sighted, 2,914 deliberately excluded as
+local/presentation (mesh building, prop-internal offsets). ~200 recorded as
 gameplay-binding. Derived `b2g(<layout data>)` conversions are counted, not
 recorded — they follow the layout wherever it goes.
 
@@ -213,8 +215,12 @@ HISTORICAL_EVIDENCE_ONLY the moment the rebuild lands and must not be
   (`walk_test.gd`) — stale or misspelled test expectations.
 - **Dynamic prefixes** (correctly unresolvable): `F01_BAR_LT_`,
   `SITE_SHOP_HOURS_`/`SITE_SHOP_LT_`/`SITE_SHOP_IN0..2_`,
-  `F01_STREETLAMP_`, `F06_A_MONITOR_`, `F02_DOOR` — assembled at runtime;
-  each is a prefix-family contract with gen_layout naming.
+  `F01_STREETLAMP_`, `F06_A_MONITOR_`, `F02_DOOR`, and `F04_B_` (v2
+  blockout test id assembly) — assembled at runtime; each is a
+  prefix-family contract with the generator/blockout naming.
+- Resolved since the first pass: `F02_A_TELEPHONE` is a telephone endpoint
+  registered live by `OrisonV2RuntimeRoot` — now classified as a
+  runtime-created identity, not a stale reference.
 
 ## 9. Risk table
 
@@ -279,13 +285,69 @@ constants — they ride on derived positions and need no anchors.
   `exterior_detail_pass` car details/rideshare, `window_glow` own-window
   path — cleanup opportunities, not contracts.
 
-## 12. Handoff summary for the rebuild owner
+## 12. Two-root rebuild status (v2 composition, landed `5f1bd8e`..`d248c6c`)
+
+The rebuild is no longer hypothetical: a reversible two-root composition now
+exists in production and the audit classifies it as follows.
+
+- **Selector (composition dependency):** `BuildingRootSelector` is the one
+  non-persistent authority for waking-scene choice —
+  `res://scenes/building/orison_root.tscn` (v1, committed default) vs
+  `res://scenes/building/orison_v2_runtime.tscn`, override via
+  `ORISON_BUILDING_ROOT`. Both scene paths are PRESERVE_OR_ALIAS/HIGH;
+  cutover and rollback change `DEFAULT_ID` only. `GameBoot.BUILDING_SCENE`
+  and `CampaignShell.waking_scene_path` both route through it.
+- **Parity anchor contract (preserved semantic identity):**
+  `OrisonV2AnchorAdapter.REQUIRED` — `F01_DOOR_06`, `F02_DOOR_02`,
+  `F04_DOOR_03`, `F02_A_MAIN_VANTRY_POINT`, `F02_A_MONITOR_01`,
+  `F04_B_MONITOR_01`, `F04_B_BED`, `F04_B_BEDSIDE_RETURN`, `LobbyMailBank`,
+  `LobbyPorterBoard`, `F01_HOUSE_TELEPHONE_BOARD`, `LobbyServiceDumbwaiter`
+  — each must resolve to exactly one node in the selected root. All are
+  MUST_PRESERVE_ID/HIGH in the manifest, in the adapter, in
+  `OrisonV2RuntimeRoot`'s mounts and in `orison_v2_blockout.json`.
+- **Save/wake dependency:** `CoreLoopDirector.resolve_return_anchor()` now
+  prefers an injected resolver — v2 answers `F04_B_BED` with the explicit
+  `F04_B_BEDSIDE_RETURN` stance — and falls back to the **v1-only
+  anonymous-bed scan** (`furniture id == "bed"` on F04). Both records are
+  curated: the fallback is PRESERVE_OR_ALIAS with a V1-ONLY rationale, so
+  its removal is exit-4 drift until the manifest is deliberately updated at
+  cutover. `core_loop.safe_return_anchor` stays `"F04_B_BED"` in the save
+  in both roots.
+- **Acoustic dependency:** the adapter installs scoped acoustic-position
+  overrides for parity ids and must restore originals; the encroachment
+  service beats still pin `F02_B_RADIATOR_01` and `B1_BOILER_01`
+  (`radiator_evidence`/`basement_comparison` in
+  `apartment_encroachment.gd`) — PRESERVE_OR_ALIAS acoustic node ids that
+  the v2 world must answer.
+- **Second layout authority:** `game/data/orison_v2_blockout.json`
+  (`development_only`, `production_default: false`) defines the v2
+  vocabulary — 38 spaces, 16 doors, 31 anchors, 45 envelopes, 11 capsule
+  stations, service/passenger circulation. The scanner treats it as an
+  authority: ids it shares with the v1 universe surface as the parity
+  records above; v2-only vocabulary (envelopes, capsule stations,
+  thresholds) stays out of the inventory by design.
+- **Interaction/job/case dependency:** `OrisonV2RuntimeRoot` mounts real
+  props (mail bank, porter board, telephone board + runtime endpoint
+  `F02_A_TELEPHONE`, dumbwaiter, monitors) and rebuilds a one-point vantry
+  network on `F02_A_MAIN_VANTRY_POINT`; job/case data files are unchanged
+  and keep their v1 foreign keys.
+- **Test/evidence-only:** the two-root matrix and v2 blockout/review suites
+  are TEST_CONTRACT; the four `orison_v2_*_review.tscn` scenes are
+  scene-tier asset-path records.
+- **Debug-only:** selection is environment-driven and session-pinned;
+  nothing v2 persists a root choice (verified: no selector state reaches
+  `RealityState`).
+
+## 13. Handoff summary for the rebuild owner
 
 **IDs that must survive verbatim (or ship a save migration):**
-unit ids `1A..6D`; floor ids `B1, F01..F06, ROOF`; the 26 runtime-created
-ids (§1); `F04_B_BED` + a unique F04 `bed` furniture record;
-`F02_2A_FRIDGE_01`, `2A_FRIDGE_FACE`; job-id strings (`vantry_chirp_2a`,
-`lena_radiator_round_2b`); the `DreamAtlas.spawn_path` mix.
+unit ids `1A..6D`; floor ids `B1, F01..F06, ROOF`; the 27 runtime-created
+ids (§1, plus `F02_A_TELEPHONE`); the twelve
+`OrisonV2AnchorAdapter.REQUIRED` parity anchors (§12) including
+`F04_B_BEDSIDE_RETURN`; `F04_B_BED` + a unique F04 `bed` furniture record
+while the v1 root remains selectable; `F02_2A_FRIDGE_01`, `2A_FRIDGE_FACE`;
+job-id strings (`vantry_chirp_2a`, `lena_radiator_round_2b`); the
+`DreamAtlas.spawn_path` mix.
 
 **Preserve-or-alias (rename allowed only with an alias layer):** all room
 ids referenced by data files (fixture map, provenance, found art, hallway
@@ -314,22 +376,50 @@ scalar policy (derive vs preserve, §5); whether id grammars (§6) are kept
 as law in the new naming scheme or replaced by explicit fields;
 stale test ids `B1_DRYER_01` / `F04_B_EXHFAN_01`.
 
-## 13. Tool
+## 14. Tool and v2 reconstruction workflow
 
 ```
 python tools/audit_orison_spatial_dependencies.py            # drift check vs manifest
 python tools/audit_orison_spatial_dependencies.py --json     # machine output
 python tools/audit_orison_spatial_dependencies.py --production-only
 python tools/audit_orison_spatial_dependencies.py --update-manifest  # explicit only
-python tools/tests/test_orison_spatial_dependencies.py       # self-tests (41)
+python tools/tests/test_orison_spatial_dependencies.py       # self-tests (48)
 ```
 
 Exit codes: 0 clean; 1 new unclassified production dependency, vanished
-target, authority-class change or unresolved save contract; 4 stale
-preserved records; 5 both; 3 malformed manifest/usage; 70 internal.
-Record identity is line-independent (kind, file, token/symbol, tier).
+target, authority/domain/coordinate-contract change, or unresolved save
+contract; 4 stale preserved records (a MUST_PRESERVE / PRESERVE_OR_ALIAS /
+SAVE_CONTRACT record left source — including the v1 anonymous-bed
+fallback); 5 both; 3 malformed manifest, duplicate identity, or a manifest
+path aimed at `game/`, `art/` or `design/` (the tool refuses to write
+there); 70 internal. Record identity is line-independent
+(kind, file, token/symbol, tier), so pure code movement never drifts.
 
-## 14. Limitations
+**Workflow for every v2 spatial milestone:**
+
+1. **Before** touching geometry/anchors, run the drift check — it must be
+   clean; if it is not, the previous milestone left undocumented contracts.
+2. Make the change (blockout, anchors, mounts, cutover step).
+3. Run the drift check again. Read every non-zero bucket:
+   - *NEW unclassified* — a spatial dependency you just created; classify
+     it (extend `KNOWN_CONTRACTS`/`RUNTIME_CREATED_IDS`/
+     `MANUAL_CONTRACTS` if heuristics get it wrong).
+   - *stale preserved* — you removed a contract; deliberate only.
+   - *targets vanished / class changes* — an id changed meaning; either
+     restore it, alias it, or accept it explicitly.
+4. Only after the deltas are understood, `--update-manifest`, and commit
+   the manifest with the change that caused it (same commit).
+5. `python tools/tests/test_orison_spatial_dependencies.py` — smoke tests
+   pin the parity contract (selector paths, adapter REQUIRED ids, bedside
+   return, v1 bed fallback) and fail if a milestone silently rewrites one.
+
+The recommended single command before and after every spatial milestone:
+
+```
+python tools/audit_orison_spatial_dependencies.py && python tools/tests/test_orison_spatial_dependencies.py
+```
+
+## 15. Limitations
 
 - Heuristic textual scan, not GDScript semantics: dynamically assembled ids
   are enumerable only as prefix families; scalar-float contracts are carried
