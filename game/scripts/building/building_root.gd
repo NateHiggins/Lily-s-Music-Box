@@ -697,8 +697,11 @@ func _ready() -> void:
 	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()
 	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
 	add_child(open_shift_ecosystem)
-	open_shift_ecosystem.setup(work_orders,
-			get_node_or_null(ServiceRoundDirector.RADIATOR_ID) as RadiatorProp,
+	var open_shift_radiator := get_node_or_null(
+			ServiceRoundDirector.RADIATOR_ID) as RadiatorProp
+	if open_shift_radiator:
+		open_shift_radiator.bind_inventory(maintenance_inventory)
+	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
 			service_round, Callable())
 	apartment_encroachment.bind_service_round(service_round)
 	var room0 := Room0.new()

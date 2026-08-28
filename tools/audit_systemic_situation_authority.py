@@ -132,7 +132,8 @@ class MalformedError(Exception):
 COORDINATOR_RE = re.compile(
     r"_director\.gd$|_ecosystem\.gd$|_situation\.gd$|coordinator|"
     r"core_loop|first_shift|service_round|campaign_shell")
-PERCEPTION_RE = re.compile(r"acoustic|audio_policy|ambient_soundscape")
+PERCEPTION_RE = re.compile(
+    r"acoustic|audio_policy|ambient_soundscape|observation_ledger")
 CONVERSATION_RE = re.compile(r"dialogue|call_interface|conversation")
 
 
@@ -182,6 +183,9 @@ DATA_SUBTREE_OWNERS = {
     "night_register": "game/scripts/props/night_register_prop.gd",
     "open_shift_situations":
         "game/scripts/game/open_shift_situation.gd",
+    "npc_observations":
+        "game/scripts/reality/npc_observation_ledger.gd",
+    "porter_actor": "game/scripts/characters/porter_actor.gd",
 }
 
 INVENTORY_AUTHORITY_RE = re.compile(
@@ -505,6 +509,12 @@ def _scan_custody(ctx, findings, line, scope, line_no):
 
 
 def _scan_timer_scope(ctx, findings, scope):
+    if ctx.writer in ("npc_authority", "mechanism_authority",
+                      "inventory_authority", "perception_authority"):
+        # Elapsed time making an ACTOR eligible, and the actor then
+        # performing its own action, is the intended shape - the timer
+        # only impersonates when a coordinator applies the consequence.
+        return
     body = ctx.function_body(scope)
     if not body or not ELAPSED_RE.search(body):
         return

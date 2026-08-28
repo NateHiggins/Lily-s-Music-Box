@@ -81,6 +81,15 @@ var _section_heat: Array[float] = []
 var _balance
 var _service_panel: MaintenanceActivityPanel
 var open_shift_condition := "sounding"
+## Custody authority for the union packing; when bound, packing existence
+## and holder derive from it alone (see packing_location()).
+var inventory: MaintenanceInventory
+
+## The 2B union packing's stable item identity.
+const PACKING_ITEM := "radiator_packing_2b"
+## An unrepaired air-bound fault worsens into riser hammer after this
+## many neglected simulation minutes (mechanism-owned degradation).
+const NEGLECT_WORSEN_MINUTES := 5.0
 
 
 func _exit_tree() -> void:
@@ -469,8 +478,20 @@ func perform_physical_action(action_id: String) -> Dictionary:
 		"inspect_vent":
 			result.observation = "vent_grade_%d" % vent_grade
 		"inspect_union":
-			result.observation = "open_and_damp" if open_shift_condition \
-					== "opened_uncommitted" else "tool_marked_union"
+			if open_shift_condition == "opened_uncommitted" and \
+					packing_location() == "radiator" and inventory != null:
+				# The open union exposes the packing; inspecting it with
+				# the union backed off removes it. Custody transfers
+				# through the inventory authority - the world's packing
+				# and the player's packing are one record.
+				inventory.grant(PACKING_ITEM, "radiator_2b_union")
+				result.observation = "packing_removed_from_union"
+			elif open_shift_condition == "opened_uncommitted":
+				result.observation = "open_and_damp" \
+						if packing_location() == "radiator" \
+						else "union_open_missing_packing"
+			else:
+				result.observation = "tool_marked_union"
 		"turn_valve":
 			set_supply_position(0.42 if supply_position >= 0.98 else 1.0)
 			open_shift_condition = "wrong_valve_partial" \
@@ -496,15 +517,52 @@ func perform_physical_action(action_id: String) -> Dictionary:
 func prompt_for_action(action_id: String, authored_prompt: String) -> String:
 	if action_id == "commit_repair" and not _repair_prerequisites_satisfied():
 		return ""
+	if action_id == "inspect_union" and \
+			open_shift_condition == "opened_uncommitted" and \
+			packing_location() == "radiator" and inventory != null:
+		return "Remove radiator packing"
 	return authored_prompt
 
 
 func _repair_prerequisites_satisfied() -> bool:
+	# A radiator whose packing is gone for good cannot be seated and
+	# tested; packing at the union or in the player's custody can.
+	if packing_location() == "consumed" and \
+			open_shift_condition != "repaired":
+		return false
 	if not is_inside_tree():
 		return true
 	var orders := get_tree().root.find_child("WorkOrders", true, false) as WorkOrders
 	return orders == null or orders.job_stage(ServiceRoundDirector.JOB_ID) \
 			== "repairable"
+
+
+func bind_inventory(custody_authority: MaintenanceInventory) -> void:
+	inventory = custody_authority
+
+
+## Exactly one custodian, derived from the inventory authority alone:
+## "radiator" (never taken), "player" (granted, unconsumed), or
+## "consumed" (used up in a repair).
+func packing_location() -> String:
+	if inventory == null:
+		return "radiator"
+	if inventory.has_item(PACKING_ITEM):
+		return "player"
+	if inventory.is_consumed(PACKING_ITEM):
+		return "consumed"
+	return "radiator"
+
+
+## The mechanism owns its own degradation: an unrepaired air-bound fault
+## worsens into riser hammer after enough neglected minutes. Returns true
+## the moment the condition actually changes.
+func apply_neglect(elapsed_minutes: float) -> bool:
+	if open_shift_condition != "sounding":
+		return false
+	if elapsed_minutes < NEGLECT_WORSEN_MINUTES:
+		return false
+	return apply_open_shift_condition("worsening_hammer")
 
 
 func _temperature_observation() -> String:
@@ -557,6 +615,10 @@ func restore_maintenance_snapshot(snapshot: Dictionary) -> void:
 
 func apply_maintenance_result(result: Dictionary) -> void:
 	var patch: Dictionary = result.get("mechanism_patch", {})
+	if inventory != null and inventory.has_item(PACKING_ITEM):
+		# Packing carried back by the player is seated during the repair:
+		# custody transfers from player into the mechanism, once.
+		inventory.consume(PACKING_ITEM)
 	if _vent:
 		_vent.position.y = 0.0
 	set_vent_grade(int(patch.get("vent_grade", vent_grade)))

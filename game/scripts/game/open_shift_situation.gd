@@ -62,9 +62,12 @@ func begin_compensation(actor: String) -> bool:
 	return _stamp_once("compensation_started_at", {"compensator": actor})
 
 
+## NPC knowledge, relationships and item custody are deliberately NOT
+## recordable here: beliefs belong to NpcObservationLedger (earned through
+## evidence routes), custody belongs to MaintenanceInventory. This store
+## keeps observation/coordination facts about the situation itself.
 func record_fact(fact: String, value: Variant) -> bool:
-	if fact not in ["abandonment_boundary", "part_custody",
-			"npc_knowledge", "relationship_consequence",
+	if fact not in ["abandonment_boundary",
 			"recoverable_next_state", "elapsed_simulation_minutes"]:
 		return false
 	var record := _store()
@@ -72,6 +75,17 @@ func record_fact(fact: String, value: Variant) -> bool:
 			else value
 	_commit(fact)
 	return true
+
+
+## Domain owners report concrete physical outcomes into the residue through
+## this API; nothing reaches into the raw record from outside.
+func merge_residue(facts: Dictionary) -> void:
+	if facts.is_empty():
+		return
+	var record := _store()
+	var residue: Dictionary = record.residue
+	residue.merge(facts.duplicate(true), true)
+	_commit("residue")
 
 
 func advance_simulation_minutes(amount: float) -> void:
@@ -115,7 +129,11 @@ func _stamp_once(fact: String, extra: Dictionary) -> bool:
 func _minute_now() -> float:
 	if _minute_provider.is_valid():
 		return fposmod(float(_minute_provider.call()), 1440.0)
-	return 180.0
+	# Without an injected clock, the situation's own durable simulation
+	# minutes are the clock, so timestamps stay meaningful in production
+	# and reconstruct deterministically after save/load.
+	return fposmod(180.0 + float(_store().elapsed_simulation_minutes),
+			1440.0)
 
 
 func _store() -> Dictionary:
@@ -133,8 +151,7 @@ func _store() -> Dictionary:
 			"compensation_started_at": -1.0, "resolution_kind": "",
 			"residue": {}, "closed_at": -1.0,
 			"elapsed_simulation_minutes": 0.0,
-			"abandonment_boundary": "", "part_custody": "unchanged",
-			"npc_knowledge": {}, "relationship_consequence": "",
+			"abandonment_boundary": "",
 			"recoverable_next_state": "inspect_and_repair",
 		}
 	return all[situation_id]

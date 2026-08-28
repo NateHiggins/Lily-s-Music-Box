@@ -137,8 +137,11 @@ func _compose_authorities() -> void:
 	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()
 	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
 	add_child(open_shift_ecosystem)
-	open_shift_ecosystem.setup(work_orders,
-			_blockout.get_node_or_null(ServiceRoundDirector.RADIATOR_ID) as RadiatorProp,
+	var open_shift_radiator := _blockout.get_node_or_null(
+			ServiceRoundDirector.RADIATOR_ID) as RadiatorProp
+	if open_shift_radiator:
+		open_shift_radiator.bind_inventory(maintenance_inventory)
+	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
 			service_round, Callable())
 	safety_net = SafetyNet.new()
 	safety_net.name = "SafetyNet"

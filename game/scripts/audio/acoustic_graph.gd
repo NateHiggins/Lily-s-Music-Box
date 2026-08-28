@@ -185,6 +185,22 @@ func _mirror_letters(letter: String) -> Array:
 	return ["A", "D"]
 
 
+## Synchronous audibility query: where does a sound from `origin`
+## physically carry, and how strongly? Pure read over the cached
+## propagation plan - no events, no timers. Observation authorities use
+## this to decide who could honestly have heard something.
+func audibility(origin: String) -> Array:
+	if not nodes.has(origin):
+		return []
+	var out: Array = []
+	for entry in _plan_for(origin):
+		var node: Dictionary = nodes.get(entry.id, {})
+		out.append({"id": entry.id,
+				"room": str(node.get("room", "")),
+				"strength": entry.strength})
+	return out
+
+
 ## Test/debug inspection without emitting events or starting timers.
 func debug_reality_plan(origin: String, case_id: String) -> Array:
 	if not nodes.has(origin):

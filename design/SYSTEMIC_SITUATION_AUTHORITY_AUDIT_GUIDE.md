@@ -65,6 +65,10 @@ listed so a landing review can weigh them).
 - A coordinator **calling the owning domain's API**
   (`radiator.apply_condition(...)`) — delegation is the intended shape.
 - A timer that **schedules** (emits/dispatches) an actor event.
+- An NPC/mechanism/inventory/perception authority acting on its own
+  schedule — elapsed time may make an ACTOR eligible, and the actor
+  then performing its own action (a porter arriving and shutting a
+  valve) is the intended shape, not impersonation.
 - Profiling/perf/debug timing and cosmetic clocks.
 - Objective vocabulary in dialogue, docs, tests, or the arcade's
   game-within-a-game; diegetic work papers.
