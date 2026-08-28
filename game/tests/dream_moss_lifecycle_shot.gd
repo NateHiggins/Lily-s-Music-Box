@@ -7,11 +7,16 @@ const Renderer = preload("res://scripts/dream/dream_moss_colony_renderer.gd")
 const Director = preload("res://scripts/dream/dream_ecology_director.gd")
 const Tentacle = preload("res://scripts/dream/entity/dream_tentacle_controller.gd")
 const LivingField = preload("res://scripts/reality/living_field.gd")
+const FieldController = preload("res://scripts/dream/field/dream_field_controller.gd")
+const CritterController = preload("res://scripts/dream/critters/dream_critter_controller.gd")
 
 var colony
 var renderer
 var director
 var field
+var dream_field
+var critters
+var camera: Camera3D
 var source := 0
 var out_dir := ""
 var frames := 0
@@ -36,7 +41,7 @@ func _ready() -> void:
 
 
 func _build_stage() -> void:
-	var camera := Camera3D.new()
+	camera = Camera3D.new()
 	camera.fov = 37.0
 	camera.position = Vector3(3.3, 2.65, 4.2)
 	add_child(camera); camera.look_at(Vector3(0.2, 0.25, 0.0)); camera.make_current()
@@ -57,6 +62,10 @@ func _build_stage() -> void:
 	var plane := PlaneMesh.new(); plane.size = Vector2(5.5, 4.0); floor_mesh.mesh = plane
 	var floor_mat := StandardMaterial3D.new(); floor_mat.albedo_color = Color(0.12, 0.095, 0.13); floor_mat.roughness = 0.72
 	floor_mesh.material_override = floor_mat; add_child(floor_mesh)
+	var floor_body := StaticBody3D.new(); floor_body.name = "SupportedSurfaceCollision"
+	var floor_shape := CollisionShape3D.new(); var box := BoxShape3D.new()
+	box.size = Vector3(5.5, 0.08, 4.0); floor_shape.shape = box
+	floor_shape.position.y = -0.05; floor_body.add_child(floor_shape); add_child(floor_body)
 	_prop("WarmMotor", Vector3(1.05, 0.24, 0.10), Color(0.28, 0.18, 0.13), Vector3(0.45, 0.48, 0.50))
 	_prop("ControlBox", Vector3(0.18, 0.20, -1.05), Color(0.16, 0.18, 0.24), Vector3(0.55, 0.40, 0.42))
 	_prop("BarrenBlock", Vector3(-2.45, 0.18, 0.30), Color(0.12, 0.11, 0.13), Vector3(0.38, 0.36, 0.38))
@@ -66,6 +75,10 @@ func _build_stage() -> void:
 	director = Director.new(); add_child(director); director.setup(6021)
 	director.moss_colonies[source] = colony
 	renderer = Renderer.new(); add_child(renderer); renderer.setup(colony)
+	dream_field = FieldController.new(); add_child(dream_field)
+	dream_field.setup(6021, Vector4(-2.5, -2.0, 2.5, 2.0), 0.0, Vector3(0.0, 0.35, 0.0))
+	critters = CritterController.new(); add_child(critters); critters.setup(dream_field, 6021)
+	critters.ecology_director = director
 
 
 func _prop(label: String, at: Vector3, color: Color, size: Vector3) -> void:
@@ -107,7 +120,15 @@ func _run() -> void:
 	var stranded: Node = _spawn_tentacle(Colony.OrganismClass.PALPATOR,
 			Vector3(-1.25, 0.03, 0.18), Vector3.LEFT, "barren", Vector3(-2.45, 0.2, 0.3), "BarrenBlock")
 	if stranded != null: stranded_record = stranded.ecology_record
-	await get_tree().create_timer(4.2).timeout
+	await get_tree().create_timer(11.5).timeout
+	var tending_proven := true
+	var target_contact_proven := false
+	for tentacle in tentacles:
+		if not is_instance_valid(tentacle): continue
+		tending_proven = tending_proven and bool(tentacle.ecology_tended_moss)
+		target_contact_proven = target_contact_proven \
+				or tentacle.tip().distance_to(tentacle.sensor.contact) < 0.30
+	if not tending_proven or not target_contact_proven: failures += 1
 	await _capture("06_specialized_tentacles")
 	if palp != null:
 		colony.update_excursion(palp.ecology_record, palp.tip(), 35.0, 0.5)
@@ -116,8 +137,21 @@ func _run() -> void:
 	await _capture("07_tentacle_returning_to_breathe")
 	for _i in 100: colony.add_surface_access(1.0)
 	colony.remember_target("optic", {"state_signature": "moving", "moving_parts": 1.0, "modalities": ["vision"]})
-	if colony.complex_unlocked(): colony.spawn(Colony.OrganismClass.COMPLEX_ORGANELLE, Vector3.ZERO, "motor")
+	for _attempt in 48:
+		if not critters.critters.is_empty(): break
+		critters._try_spawn()
+	critters._push()
+	if critters.critters.is_empty(): failures += 1
+	for tentacle in tentacles:
+		if is_instance_valid(tentacle): tentacle.visible = false
+	var fauna_focus: Vector3 = critters.critters[0].pos
+	camera.position = fauna_focus + Vector3(0.72, 0.48, 0.86)
+	camera.fov = 29.0; camera.look_at(fauna_focus)
 	await _capture("08_mature_ether_complex_gate")
+	for tentacle in tentacles:
+		if is_instance_valid(tentacle): tentacle.visible = true
+	camera.position = Vector3(3.3, 2.65, 4.2)
+	camera.fov = 37.0; camera.look_at(Vector3(0.2, 0.25, 0.0))
 	if not stranded_record.is_empty():
 		for _i in 3: colony.report(stranded_record)
 	colony.disturb(1.0, "evidence maintenance shock")
@@ -186,10 +220,15 @@ func _capture(label: String) -> void:
 		failures += 1
 		return
 	frames += 1
+	var tentacle_presentations: Array[Dictionary] = []
+	for tentacle in tentacles:
+		if is_instance_valid(tentacle): tentacle_presentations.append(tentacle.census())
 	timeline.append({"frame": label + ".png", "width": image.get_width(),
 			"height": image.get_height(), "phase": colony.census().phase,
 			"colony": colony.census(), "presentation": renderer.census(),
-			"provenance": "DreamMossColonyRenderer + DreamTentacleController"})
+			"tentacle_presentations": tentacle_presentations,
+			"complex_presentation": critters.census(),
+			"provenance": "DreamMossColonyRenderer + DreamTentacleController + DreamCritterController"})
 
 
 func _write_timeline() -> void:

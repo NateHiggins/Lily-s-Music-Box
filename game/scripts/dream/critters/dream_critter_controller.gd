@@ -194,6 +194,21 @@ func _try_spawn() -> void:
 		return
 	var l: Dictionary = st.lobes[live[_rng.randi() % live.size()]]
 	var centre: Vector3 = l.centre
+	var birth_colony = null
+	if ecology_director != null:
+		var eligible: Array = []
+		var colony_ids: Array = ecology_director.moss_colonies.keys()
+		colony_ids.sort()
+		for colony_id in colony_ids:
+			var candidate_colony = ecology_director.moss_colonies[colony_id]
+			if candidate_colony.complex_unlocked() and candidate_colony.ether_at(candidate_colony.origin) >= 0.12:
+				eligible.append(candidate_colony)
+		if eligible.is_empty():
+			return
+		birth_colony = eligible[_rng.randi() % eligible.size()]
+		# Complex organisms hatch from the dense atmosphere that authorized
+		# them, rather than hoping a random field lobe happens to overlap it.
+		centre = birth_colony.origin + birth_colony.origin.direction_to(l.centre) * 0.08
 	# THE HERO IS WHERE THE DREAM IS STRONGEST HERE, so some of them are born
 	# around it rather than anywhere the field happens to reach. Left purely to
 	# chance, critters and the hero met only occasionally -- the §22 beat where
@@ -206,7 +221,8 @@ func _try_spawn() -> void:
 	for attempt in 8:
 		var dir := Vector3(_rng.randf_range(-1.0, 1.0), _rng.randf_range(-1.0, 0.2),
 				_rng.randf_range(-1.0, 1.0)).normalized()
-		var q := PhysicsRayQueryParameters3D.create(centre, centre + dir * 3.0)
+		var ray_length := 1.6 if birth_colony != null else 3.0
+		var q := PhysicsRayQueryParameters3D.create(centre, centre + dir * ray_length)
 		var hit: Dictionary = _space.intersect_ray(q)
 		if hit.is_empty():
 			continue
@@ -216,7 +232,8 @@ func _try_spawn() -> void:
 		var m: Dictionary = GeneratorScript.generate(kind, _next_id * 6151 + 17)
 		var nrm: Vector3 = (hit.normal as Vector3).normalized()
 		var birth_at: Vector3 = (hit.position as Vector3) + nrm * float(m.tall) * 0.5
-		var colony = _supporting_colony(birth_at)
+		var colony = birth_colony if birth_colony != null and birth_colony.ether_at(birth_at) >= 0.12 \
+				else _supporting_colony(birth_at)
 		var ecology_record: Dictionary = {}
 		if ecology_director != null:
 			if colony == null:

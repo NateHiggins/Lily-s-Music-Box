@@ -22,7 +22,10 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	await get_tree().create_timer(14.0).timeout
+	# Root construction is synchronous; ten seconds leaves the authored margin
+	# population settled. Complex fauna are now created deterministically below,
+	# so the old extra four-second probabilistic spawn allowance is obsolete.
+	await get_tree().create_timer(10.0).timeout
 	var enc: Node = root.get("apartment_encroachment")
 	var dir: DreamEcologyDirector = enc.get("ecology")
 	var margin = enc.get("margin")
@@ -33,6 +36,14 @@ func _run() -> void:
 		return _finish()
 	_check("it can see all three levels",
 			dir.margin != null and dir.critters != null and dir.hero != null)
+	_check("complex fauna remain absent while production colonies are immature",
+			critters.critters.is_empty())
+	_mature_production_colonies(dir)
+	for _attempt in 32:
+		if critters.critters.size() >= 2: break
+		critters._try_spawn()
+	_check("complex fauna appear only after public moss eligibility facts pass",
+			critters.critters.size() >= 2)
 
 	# --- §32/§33: STATES BIAS, THEY DO NOT COMMAND -----------------------
 	var seen_states := {}
@@ -573,6 +584,35 @@ func _hero_touches_an_animal(margin, critters, hero) -> void:
 		_check("§22 a local look expires instead of staring forever (%d of %d still looking)"
 				% [stuck, watched_ids.size()], stuck == 0)
 	print("[ecology] hero %s" % [hero.census()])
+
+
+func _mature_production_colonies(dir: DreamEcologyDirector) -> void:
+	# E2 changed the production contract: complex bodies are consumers of a
+	# mature moss atmosphere, never ambient fixtures. Build that eligibility
+	# through the same public facts used by play instead of bypassing the gate.
+	for colony in dir.moss_colonies.values():
+		for _growth in 90:
+			colony.add_surface_access(1.0)
+		var observations := [
+			{"state_signature": "fixture:heat", "heat": 1.0,
+				"moving_parts": 1.0, "modalities": ["heat", "touch"]},
+			{"state_signature": "fixture:vibration", "vibration": 1.0,
+				"material_complexity": 1.0, "modalities": ["vibration", "material"]},
+		]
+		for route_index in 2:
+			var route_id := "ecology_fixture_%d" % route_index
+			colony.register_route(route_id, route_id,
+					[colony.origin, colony.origin + Vector3(0.35 + route_index * 0.1, 0.0, 0.0)])
+			var worker: Dictionary = colony.spawn(colony.OrganismClass.CILIUM,
+					colony.origin, route_id)
+			if worker.is_empty(): continue
+			for report_index in 4:
+				colony.update_excursion(worker, colony.origin, 0.1, 1.0)
+				var observation: Dictionary = observations[route_index].duplicate(true)
+				observation.state_signature += ":%d" % report_index
+				colony.report(worker, route_id, observation)
+		for _growth in 20:
+			colony.add_surface_access(1.0)
 
 
 func _finish() -> void:

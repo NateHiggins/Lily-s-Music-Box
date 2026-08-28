@@ -35,6 +35,7 @@ const COLLARS := 11
 ## stays on that plane, so the broad root passes through a flush socket
 ## instead of reading as a prop balanced on the floor or wall.
 const ROOT_EMBED_M := 0.092
+const MOSS_CONTACT_RADIUS_M := 0.18
 
 var field = null
 var source_index := 0
@@ -79,6 +80,11 @@ var ecology_purpose_name := "unbound"
 var ecology_status := "unbound"
 var ecology_ether_min := 1.0
 var ecology_reports := 0
+var ecology_tended_moss := false
+var ecology_moss_distance_min := INF
+var ecology_supported_goal := Vector3.INF
+var ecology_moss_dwell_s := 0.0
+var ecology_route_extension := 0.0
 var _ecology_reported := false
 var _ecology_failure_clock := 0.0
 
@@ -405,7 +411,10 @@ func _tick(delta: float) -> void:
 	# The rig carries it out.
 	grow = behavior.grow
 	rig.grow = grow
-	rig.tip_goal = behavior.tip_goal
+	var supported_goal: Vector3 = behavior.tip_goal
+	if ecology_colony != null:
+		supported_goal = _ecology_route_goal(supported_goal, delta)
+	rig.tip_goal = supported_goal
 	rig.speed = behavior.speed
 	rig.contact_normal = sensor.contact_normal
 	rig.contact_tangent = sensor.tangent_a
@@ -669,7 +678,55 @@ func _emit(event_name: String, at: Vector3) -> void:
 func set_toggle(key: String, on: bool) -> void:
 	if toggles.has(key):
 		toggles[key] = on
-		_apply_toggles()
+	_apply_toggles()
+
+
+func _ecology_route_goal(target_goal: Vector3, delta: float) -> Vector3:
+	# A supported limb has a visible two-contact grammar: emerge normally from
+	# its floor/wall socket, flex inward to tend the moss, then release toward
+	# the profiled object. Withdrawal reverses that bend through the moss.
+	var moss: Vector3 = ecology_colony.origin + anchor_normal * 0.025
+	var moss_distance := rig.tip().distance_to(moss)
+	ecology_moss_distance_min = minf(ecology_moss_distance_min, moss_distance)
+	# Contact is with the broad living heart, not its mathematical origin.
+	if moss_distance <= MOSS_CONTACT_RADIUS_M:
+		ecology_tended_moss = true
+	if ecology_tended_moss and behavior.state != DreamTentacleBehavior.S.WITHDRAW:
+		ecology_moss_dwell_s += maxf(delta, 0.0)
+	var goal := target_goal
+	var investigating := behavior.state >= DreamTentacleBehavior.S.ORIENTING \
+			and behavior.state <= DreamTentacleBehavior.S.RESTING
+	if investigating and not ecology_tended_moss:
+		goal = moss
+	elif investigating and ecology_moss_dwell_s < 0.72:
+		# A real tending contact bears weight for a moment; it is not a waypoint
+		# crossed at full speed.
+		goal = moss + anchor_normal * (0.008 * sin(clock * 2.1 + seed_phase))
+	elif investigating:
+		# Extend asymmetrically through a quadratic load-bearing arc. The rig's
+		# damped joints follow this slowly moving distal demand, giving the limb
+		# inertia and distributed flex rather than a swivel at the socket.
+		ecology_route_extension = move_toward(ecology_route_extension, 1.0,
+				maxf(delta, 0.0) * 0.34)
+		var s := smoothstep(0.0, 1.0, ecology_route_extension)
+		var lateral := anchor_normal.cross(target_goal - moss)
+		if lateral.length_squared() < 0.001:
+			lateral = anchor_normal.cross(Vector3.RIGHT)
+		lateral = lateral.normalized()
+		var shoulder := moss + anchor_normal * 0.34 + lateral * sin(seed_phase) * 0.09
+		goal = moss * ((1.0 - s) * (1.0 - s)) \
+				+ shoulder * (2.0 * (1.0 - s) * s) + target_goal * (s * s)
+		goal += lateral * sin(clock * 1.17 + seed_phase) * 0.018 * sin(s * PI)
+	elif behavior.state == DreamTentacleBehavior.S.WITHDRAW:
+		var withdraw_t := clampf(behavior.state_clock /
+				maxf(0.1, behavior_profile.withdraw_s), 0.0, 1.0)
+		if withdraw_t < 0.55:
+			goal = target_goal.lerp(moss, smoothstep(0.0, 0.55, withdraw_t))
+		else:
+			goal = moss.lerp(anchor + anchor_normal * 0.05,
+					smoothstep(0.55, 1.0, withdraw_t))
+	ecology_supported_goal = goal
+	return goal
 
 
 func _apply_toggles() -> void:
@@ -741,4 +798,9 @@ func census() -> Dictionary:
 			"field_pressure_writes": field_pressure_writes,
 			"ecology_purpose": ecology_purpose_name, "ecology_status": ecology_status,
 			"ecology_ether": float(ecology_record.get("ether", 0.0)),
-			"ecology_ether_min": ecology_ether_min, "ecology_reports": ecology_reports}
+			"ecology_ether_min": ecology_ether_min, "ecology_reports": ecology_reports,
+			"ecology_tended_moss": ecology_tended_moss,
+			"ecology_moss_distance_min": ecology_moss_distance_min,
+			"ecology_moss_dwell_s": ecology_moss_dwell_s,
+			"ecology_route_extension": ecology_route_extension,
+			"ecology_supported_goal": ecology_supported_goal}
