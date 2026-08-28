@@ -1,6 +1,6 @@
 # Orison architectural rebuild — checkpoint 01 — 2026-08-28
 
-Status: **DESIGN COMPLETE; OWNER DECISION REQUIRED BEFORE GEOMETRY**  
+Status: **OWNER-ACCEPTED 2026-08-28; PARALLEL GRAY-BOX AUTHORIZED**
 Scope: program, contracts, failure synthesis, topology alternatives, recommended
 topology, dimensioned first-slice proposal and staged migration.  
 Production building changed: **no**.
@@ -285,8 +285,8 @@ enter checkpoints 03–08.
 
 | ID | Decision | Owner | Recommendation/status | Consequence if deferred |
 |---|---|---|---|---|
-| AR-01 | Overall footprint/massing | User | **Choose Option A compact H-plan** | Blocks authoritative v2 geometry |
-| AR-02 | Vertical-core arrangement | User | **Accept public central core plus north-east service stair/lift** | Blocks stair/service gray-box |
+| AR-01 | Overall footprint/massing | User | **ACCEPTED 2026-08-28 — Option A compact H-plan** | Clears authoritative v2 geometry |
+| AR-02 | Vertical-core arrangement | User | **ACCEPTED 2026-08-28 — public central core plus north-east service stair/lift** | Clears stair/service gray-box |
 | AR-03 | Four lettered unit stacks and six floors | User | **Preserve** | Changing it remaps residents, signs and save-visible identity |
 | AR-04 | Service lift scope | User | **Continuous light-service dumbwaiter, not player lift** | Shaft may be reserved but apparatus route stays provisional |
 | AR-05 | Fire-egress fiction | User with later specialist review | **Two protected stairs; service stair also secondary egress** | Blockout can reserve it; compliance claim remains withheld |
@@ -296,9 +296,10 @@ enter checkpoints 03–08.
 | TD-02 | 3.20 m floor-to-floor, 3.00 m clear height | Technical | Retain existing content allowance pending blockout | Revisit only if stair/window proportions fail |
 | TD-03 | Production v1 remains default through integrated proof | Technical/safety | Decided | None |
 
-AR-01 and AR-02 are major unresolved owner choices under the assignment's decision
-discipline. Therefore parallel gray-box implementation **must not begin** from this
-checkpoint alone.
+AR-01 and AR-02 were accepted by the owner on 2026-08-28. Parallel gray-box
+implementation may proceed under TD-01 through TD-03. AR-03 through AR-07 remain
+explicit decisions; the current recommendations govern reversible blockout work and
+none may silently change save-visible identity or established fiction.
 
 ## Validation performed and unproved items
 

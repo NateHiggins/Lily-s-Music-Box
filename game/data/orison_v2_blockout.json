@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "layout_id": "orison_v2_h_plan_blockout_01",
+  "status": "development_only",
+  "production_default": false,
+  "orientation": {"street": "south", "east_axis": "+x", "north_axis": "+z"},
+  "dimensions": {
+    "outer_bounds": [-16.0, -12.0, 16.0, 12.0],
+    "floor_to_floor": 3.2,
+    "clear_height": 3.0,
+    "slab_thickness": 0.2,
+    "outer_wall": 0.35,
+    "core_wall": 0.25,
+    "partition_wall": 0.14
+  },
+  "palette": {
+    "public": "8f918e", "private": "a58d68", "service": "667c86",
+    "wet": "4e9ca0", "core": "3e4347", "opening": "e9ece8",
+    "clearance": "5da66b", "interaction": "b04491", "unresolved": "c49b3c"
+  },
+  "levels": [
+    {"id": "F01", "y": 0.0},
+    {"id": "F02", "y": 3.2},
+    {"id": "F04", "y": 9.6}
+  ],
+  "spaces": [
+    {"id":"F01_VESTIBULE","level":"F01","class":"public","rect":[-2.4,-11.65,2.4,-9.25],"purpose":"weather lock and address"},
+    {"id":"F01_LOBBY","level":"F01","class":"public","rect":[-5.4,-9.25,5.4,-3.85],"purpose":"arrival, waiting and orientation"},
+    {"id":"F01_WATCH","level":"F01","class":"service","rect":[-5.4,-3.85,-1.2,0.55],"purpose":"watch, keys and annunciator"},
+    {"id":"F01_MAIL_TELEPHONE","level":"F01","class":"service","rect":[-9.2,-3.85,-5.4,0.55],"purpose":"mail and house-line custody"},
+    {"id":"F01_PACKAGE","level":"F01","class":"service","rect":[-9.2,0.55,-5.4,4.25],"purpose":"secure parcel handling"},
+    {"id":"F01_COMMON_B","level":"F01","class":"public","rect":[-15.65,-3.85,-9.2,5.65],"purpose":"resident meeting and reading"},
+    {"id":"F01_PUBLIC_CORE","level":"F01","class":"core","rect":[-1.2,-3.85,5.4,3.85],"purpose":"passenger lift and primary stair approach"},
+    {"id":"F01_SERVICE_HALL","level":"F01","class":"service","rect":[8.3,-9.25,9.5,9.25],"purpose":"staff, delivery and maintenance route"},
+    {"id":"F01_SERVICE_CORE","level":"F01","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair"},
+
+    {"id":"F02_LANDING","level":"F02","class":"public","rect":[-2.2,-3.35,1.45,0.6],"purpose":"floor and unit decision"},
+    {"id":"F02_WEST_HALL","level":"F02","class":"public","rect":[-5.6,-0.6,-2.2,0.6],"purpose":"2A public approach"},
+    {"id":"F02_A_VESTIBULE","level":"F02","class":"private","rect":[-7.55,-1.35,-5.6,1.35],"purpose":"2A privacy and distribution"},
+    {"id":"F02_A_MAIN","level":"F02","class":"private","rect":[-15.65,-3.85,-7.55,3.1],"purpose":"Mina living, caption work and conversation"},
+    {"id":"F02_A_KITCHEN","level":"F02","class":"private","rect":[-15.65,3.1,-10.25,6.2],"purpose":"cooking and washing"},
+    {"id":"F02_A_PRIVATE_HALL","level":"F02","class":"private","rect":[-10.25,3.1,-8.95,7.85],"purpose":"bed and bath distribution"},
+    {"id":"F02_A_BATH","level":"F02","class":"wet","rect":[-8.95,3.1,-5.95,5.65],"purpose":"private sanitary room"},
+    {"id":"F02_A_BED","level":"F02","class":"private","rect":[-15.65,6.2,-8.95,11.65],"purpose":"sleep and clothes storage"},
+    {"id":"F02_PUBLIC_CORE","level":"F02","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"passenger lift and primary stair"},
+    {"id":"F02_SERVICE_HALL","level":"F02","class":"service","rect":[8.3,-9.25,9.5,9.25],"purpose":"maintenance continuity"},
+    {"id":"F02_SERVICE_CORE","level":"F02","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair"},
+
+    {"id":"F04_LANDING","level":"F04","class":"public","rect":[-2.2,-3.35,1.45,0.6],"purpose":"floor and unit decision"},
+    {"id":"F04_WEST_HALL","level":"F04","class":"public","rect":[-5.6,-0.6,-2.2,0.6],"purpose":"4B public approach"},
+    {"id":"F04_B_VESTIBULE","level":"F04","class":"private","rect":[-7.55,-1.35,-5.6,1.65],"purpose":"4B privacy and distribution"},
+    {"id":"F04_B_MAIN","level":"F04","class":"private","rect":[-15.65,-3.85,-7.55,3.45],"purpose":"player rest, work and calls"},
+    {"id":"F04_B_KITCHEN","level":"F04","class":"private","rect":[-15.65,3.45,-11.1,6.35],"purpose":"cooking and washing"},
+    {"id":"F04_B_BATH","level":"F04","class":"wet","rect":[-9.05,3.45,-5.95,6.05],"purpose":"private sanitary room"},
+    {"id":"F04_B_CLOSET","level":"F04","class":"private","rect":[-7.55,6.05,-5.95,8.25],"purpose":"clothes and equipment storage"},
+    {"id":"F04_B_ALCOVE","level":"F04","class":"private","rect":[-15.65,6.35,-10.55,11.65],"purpose":"player sleeping context"},
+    {"id":"F04_PUBLIC_CORE","level":"F04","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"passenger lift and primary stair"},
+    {"id":"F04_SERVICE_HALL","level":"F04","class":"service","rect":[8.3,-9.25,9.5,9.25],"purpose":"maintenance continuity"},
+    {"id":"F04_SERVICE_CORE","level":"F04","class":"core","rect":[9.5,0.3,13.2,10.2],"purpose":"service lift and stair"}
+  ],
+  "doors": [
+    {"id":"F01_DOOR_06","level":"F01","center":[0.0,-11.65],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"left","swing":"out","connects":["STREET","F01_VESTIBULE"]},
+    {"id":"F01_INNER_DOOR","level":"F01","center":[0.0,-9.25],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"right","swing":"north","connects":["F01_VESTIBULE","F01_LOBBY"]},
+    {"id":"F02_DOOR_02","level":"F02","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"west","connects":["F02_WEST_HALL","F02_A_VESTIBULE"]},
+    {"id":"F04_DOOR_03","level":"F04","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"west","connects":["F04_WEST_HALL","F04_B_VESTIBULE"]}
+  ],
+  "anchors": [
+    {"id":"STREET_APPROACH","level":"F01","position":[0.0,0.0,-14.5],"yaw":0.0,"kind":"review"},
+    {"id":"F01_LOBBY_THRESHOLD","level":"F01","position":[0.0,0.0,-8.8],"yaw":0.0,"kind":"review"},
+    {"id":"LobbyMailBank","level":"F01","position":[-6.2,0.0,-1.8],"yaw":1.5707963,"kind":"interaction"},
+    {"id":"LobbyPorterBoard","level":"F01","position":[-3.2,0.0,-2.8],"yaw":0.0,"kind":"interaction"},
+    {"id":"F01_HOUSE_TELEPHONE_BOARD","level":"F01","position":[-6.2,0.0,-0.4],"yaw":1.5707963,"kind":"interaction"},
+    {"id":"LobbyServiceDumbwaiter","level":"F01","position":[9.7,0.0,1.0],"yaw":1.5707963,"kind":"interaction"},
+    {"id":"F02_LANDING_REVIEW","level":"F02","position":[-1.5,0.0,0.0],"yaw":-1.5707963,"kind":"review"},
+    {"id":"F02_A_THRESHOLD","level":"F02","position":[-6.2,0.0,0.0],"yaw":-1.5707963,"kind":"review"},
+    {"id":"F02_A_MAIN_VANTRY_POINT","level":"F02","position":[-10.1,1.25,1.4],"yaw":1.5707963,"kind":"interaction"},
+    {"id":"F02_A_MAIN_VANTRY_STANCE","level":"F02","position":[-9.2,0.0,1.4],"yaw":-1.5707963,"kind":"clearance"},
+    {"id":"F04_LANDING_REVIEW","level":"F04","position":[-1.5,0.0,0.0],"yaw":-1.5707963,"kind":"review"},
+    {"id":"F04_B_THRESHOLD","level":"F04","position":[-6.2,0.0,0.0],"yaw":-1.5707963,"kind":"review"},
+    {"id":"F04_B_MONITOR_01","level":"F04","position":[-9.05,0.75,1.25],"yaw":-1.5707963,"kind":"interaction"},
+    {"id":"F04_B_MONITOR_STANCE","level":"F04","position":[-9.9,0.0,1.25],"yaw":1.5707963,"kind":"clearance"},
+    {"id":"F04_B_BED","level":"F04","position":[-13.1,0.55,8.9],"yaw":-1.5707963,"kind":"semantic"},
+    {"id":"F04_B_BEDSIDE_RETURN","level":"F04","position":[-11.95,0.0,8.9],"yaw":-1.5707963,"kind":"clearance"}
+  ],
+  "stairs": [
+    {"id":"PRIMARY_F01_F02","from":"F01","to":"F02","origin":[1.7,-3.1],"width":1.2,"rise":0.16,"tread":0.285,"steps":20,"direction":"north"},
+    {"id":"PRIMARY_F02_F04_PROOF","from":"F02","to":"F04","origin":[3.9,3.1],"width":1.2,"rise":0.16,"tread":0.285,"steps":40,"direction":"south"},
+    {"id":"SERVICE_F01_F02","from":"F01","to":"F02","origin":[10.0,4.5],"width":1.05,"rise":0.1684211,"tread":0.275,"steps":19,"direction":"north"},
+    {"id":"SERVICE_F02_F04_PROOF","from":"F02","to":"F04","origin":[12.0,9.8],"width":1.05,"rise":0.1684211,"tread":0.275,"steps":38,"direction":"south"}
+  ],
+  "risers": [
+    {"id":"WEST_WET_STACK","rect":[-9.3,3.1,-8.85,6.35],"from_y":-3.2,"to_y":19.2,"class":"wet"},
+    {"id":"HEAT_STACK","rect":[8.45,-1.0,8.9,-0.55],"from_y":-3.2,"to_y":19.2,"class":"service"},
+    {"id":"TELEPHONE_MESSAGE_RISER","rect":[9.0,-1.0,9.3,-0.55],"from_y":-3.2,"to_y":19.2,"class":"service"},
+    {"id":"SERVICE_LIFT_SHAFT","rect":[9.7,0.3,11.0,1.6],"from_y":-3.2,"to_y":19.2,"class":"core"}
+  ]
+}
