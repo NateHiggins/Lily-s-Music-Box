@@ -104,3 +104,11 @@ static func get_stream(key: String) -> AudioStream:
 
 static func clear_cache() -> void:
 	_cache.clear()
+
+
+static func release_stream(key: String, stream: AudioStream) -> void:
+	# Scene-owned autoplay players may create decoder objects. Release only the
+	# matching cache entry when that owner is torn down; other live players keep
+	# their own resource reference and unrelated cached sounds remain warm.
+	if _cache.get(key) == stream:
+		_cache.erase(key)

@@ -166,7 +166,8 @@ func _ready() -> void:
 	_field_banner.modulate = Color(0.95, 0.65, 0.35)
 	add_child(_field_banner)
 
-	_murmur = _mk_audio("murmur_loop", -40.0, true)
+	# The line decoder belongs to an occupied terminal session, not scene boot.
+	_murmur = _mk_audio("murmur_loop", -40.0, false)
 	_breath = _mk_audio("breath", -12.0)
 	_vocal = _mk_audio("vocal", -8.0)
 	Conductor.motif_tick.connect(_on_motif_tick)
@@ -294,6 +295,8 @@ func enter(player: Node, seat_owner: Node = null) -> void:
 		_player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_panel.visible = true
+	if _murmur and not _murmur.playing:
+		_murmur.play()
 	_set_console_stage("call")
 	_field_banner.visible = false
 	if not _started and not _case.is_empty():
@@ -304,6 +307,8 @@ func enter(player: Node, seat_owner: Node = null) -> void:
 
 func leave() -> void:
 	_panel.visible = false
+	if _murmur:
+		_murmur.stop()
 	if _player:
 		var leaving_player: Node = _player
 		leaving_player.call_locked = false
@@ -562,6 +567,29 @@ func _process(delta: float) -> void:
 		if _silence_left <= 0.0:
 			# Saying nothing is an answer, and every case scores it as one.
 			press_respond(_case.timeout)
+
+
+func _exit_tree() -> void:
+	# Audio decoder playbacks outlive their CanvasLayer owner unless the stream
+	# is detached explicitly. This matters during CampaignShell root swaps and
+	# keeps the global Conductor from retaining a callable to a dead interface.
+	if Conductor.motif_tick.is_connected(_on_motif_tick):
+		Conductor.motif_tick.disconnect(_on_motif_tick)
+	var owned_streams := {
+		"murmur_loop": _murmur.stream if _murmur else null,
+		"breath": _breath.stream if _breath else null,
+		"vocal": _vocal.stream if _vocal else null,
+	}
+	for owned: AudioStreamPlayer in [_murmur, _breath, _vocal]:
+		if owned != null:
+			owned.stop()
+			owned.stream = null
+	for key: String in owned_streams:
+		PropAudio.release_stream(key, owned_streams[key] as AudioStream)
+	_murmur = null
+	_breath = null
+	_vocal = null
+	world = null
 
 
 ## Standing where the route ends is an answer, and it is not the same answer
