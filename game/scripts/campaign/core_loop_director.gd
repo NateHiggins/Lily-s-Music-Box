@@ -39,19 +39,21 @@ const BOUNDARIES: Array[String] = ["idle", "job_open", "conversation_pending",
 var work_orders: WorkOrders
 var player: Node3D
 var layout: Dictionary = {}
+var return_anchor_resolver: Callable
 ## Transient session guard so one arming emits one dream request; a restore
 ## resets it, which is exactly the resume-once contract.
 var _dream_request_sent := false
 
 
 func setup(spine: WorkOrders, the_player: Node3D,
-		building_layout: Dictionary) -> void:
+		building_layout: Dictionary, anchor_resolver := Callable()) -> void:
 	if work_orders != null and is_instance_valid(work_orders) \
 			and work_orders.job_stage_changed.is_connected(_on_job_stage_changed):
 		work_orders.job_stage_changed.disconnect(_on_job_stage_changed)
 	work_orders = spine
 	player = the_player
 	layout = building_layout
+	return_anchor_resolver = anchor_resolver
 	if not work_orders.job_stage_changed.is_connected(_on_job_stage_changed):
 		work_orders.job_stage_changed.connect(_on_job_stage_changed)
 	if not RealityCases.resident_interaction_requested.is_connected(
@@ -120,6 +122,7 @@ func detach_world() -> void:
 	work_orders = null
 	player = null
 	layout = {}
+	return_anchor_resolver = Callable()
 	set_process(false)
 
 
@@ -294,6 +297,10 @@ func return_player_to_safe_anchor() -> bool:
 ## furniture record plus its floor's authored elevation. Runtime selects
 ## the bedside standing spot from that record; nothing is invented.
 func resolve_return_anchor() -> Dictionary:
+	if return_anchor_resolver.is_valid():
+		var explicit: Variant = return_anchor_resolver.call(RETURN_ANCHOR_ID)
+		if explicit is Dictionary and not explicit.is_empty():
+			return explicit
 	for floor in layout.get("floors", []):
 		if str(floor.get("id", "")) != "F04":
 			continue

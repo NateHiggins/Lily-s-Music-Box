@@ -5,8 +5,9 @@ extends Node
 
 signal world_changed(kind: String, world: Node)
 
-@export_file("*.tscn") var waking_scene_path := \
-		"res://scenes/building/orison_root.tscn"
+const BuildingSelector := preload("res://scripts/building/building_root_selector.gd")
+## Empty means the session selector. Focused tests may still inject a stub.
+@export_file("*.tscn") var waking_scene_path := ""
 @export_file("*.tscn") var dream_scene_path := \
 		"res://scenes/dream/DreamMazeRoot.tscn"
 ## Deterministic proof only; production advances from the engine clock.
@@ -53,8 +54,8 @@ func _ready() -> void:
 ## exist. Direct test instantiation still creates a local coordinator instead.
 func bind_waking_services(work_orders: WorkOrders, player: Node3D,
 		layout: Dictionary, elevator: Node = null,
-		traffic: Node = null) -> CoreLoopDirector:
-	core_loop.setup(work_orders, player, layout)
+		traffic: Node = null, return_anchor_resolver := Callable()) -> CoreLoopDirector:
+	core_loop.setup(work_orders, player, layout, return_anchor_resolver)
 	sleep_pressure.bind_waking_services(player, elevator, traffic)
 	return core_loop
 
@@ -122,7 +123,7 @@ func _replace_world(kind: String) -> void:
 		active_world.free()
 	active_world = null
 	active_kind = ""
-	var path := dream_scene_path if kind == "dream" else waking_scene_path
+	var path := dream_scene_path if kind == "dream" else _selected_waking_path()
 	var packed := load(path) as PackedScene
 	if packed == null:
 		push_error("campaign world scene missing: %s" % path)
@@ -135,3 +136,7 @@ func _replace_world(kind: String) -> void:
 	active_kind = kind
 	assert(world_slot.get_child_count() == 1)
 	world_changed.emit(kind, next)
+
+func _selected_waking_path() -> String:
+	return waking_scene_path if not waking_scene_path.is_empty() \
+			else BuildingSelector.scene_path()

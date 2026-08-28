@@ -56,7 +56,8 @@ const ACTIVITY_KEY_ACTIONS := {
 }
 
 const SETTINGS_PATH := "user://orison_settings.cfg"
-const BUILDING_SCENE := "res://scenes/building/orison_root.tscn"
+const BuildingSelector := preload("res://scripts/building/building_root_selector.gd")
+var BUILDING_SCENE: String = BuildingSelector.scene_path()
 const GAME_SCENE := "res://scenes/campaign/CampaignShell.tscn"
 
 enum LaunchMode { CINEMATIC, DEBUG }

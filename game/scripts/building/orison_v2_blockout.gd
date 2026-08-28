@@ -328,6 +328,9 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 		_box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
+	_ramp_collision(parent, "FlightATraversalRamp",
+			Vector3(x0 + width * 0.5, base_y + half_rise * 0.5,
+					z0 + run * 0.5), width, run, half_rise, -1.0)
 	var landing_depth := float(stair.landing_depth)
 	# A body needs clear standing room beyond the return flight's first nosing in
 	# order to execute the U-turn; the semantic depth describes the clear landing.
@@ -352,6 +355,22 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 				Vector3(x_b + width - 0.025,
 						base_y + half_rise + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
+	_ramp_collision(parent, "FlightBTraversalRamp",
+			Vector3(x_b + width * 0.5, base_y + half_rise + half_rise * 0.5,
+					north_start - run * 0.5), width, run, half_rise, 1.0)
+
+func _ramp_collision(parent: Node3D, node_name: String, at: Vector3,
+		width: float, run: float, rise: float, direction: float) -> void:
+	var body := StaticBody3D.new()
+	body.name = node_name
+	body.position = at
+	body.rotation.x = direction * atan2(rise, run)
+	var shape_node := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(width - 0.04, 0.05, sqrt(run * run + rise * rise))
+	shape_node.shape = shape
+	body.add_child(shape_node)
+	parent.add_child(body)
 
 func _build_risers() -> void:
 	for riser: Dictionary in layout.risers:

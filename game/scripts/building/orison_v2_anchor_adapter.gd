@@ -29,6 +29,11 @@ func resolves_required_uniquely() -> bool:
 func explicit_bed() -> Node3D:
 	return resolve("F04_B_BED") as Node3D
 
+func resolve_return_anchor(identity: String) -> Dictionary:
+	if identity != "F04_B_BED": return {}
+	var stance := resolve("F04_B_BEDSIDE_RETURN") as Node3D
+	return {"id": identity, "position": stance.global_position} if stance else {}
+
 func anonymous_bed_fallback(production_layout: Dictionary) -> Dictionary:
 	for floor: Dictionary in production_layout.get("floors", []):
 		if str(floor.get("id", "")) != "F04":
@@ -46,7 +51,9 @@ func install_acoustic_overrides(ids: Array) -> bool:
 			restore_acoustic_overrides()
 			return false
 		var record: Dictionary = AcousticGraphData.nodes[identity]
-		_acoustic_originals[identity] = record.duplicate(true)
+		# A second scoped install must not replace the true pre-mount value.
+		if not _acoustic_originals.has(identity):
+			_acoustic_originals[identity] = record.duplicate(true)
 		record.pos = [anchor.global_position.x, -anchor.global_position.z,
 				anchor.global_position.y]
 		AcousticGraphData.nodes[identity] = record
