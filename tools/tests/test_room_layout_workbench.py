@@ -258,6 +258,64 @@ class DeterminismTests(unittest.TestCase):
         self.assertIn("radiator", joined)
 
 
+class OverwriteSafetyTests(unittest.TestCase):
+    def test_refuses_to_overwrite_without_force(self):
+        layout = load_fixture()
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            wb.emit_room(layout, "T1_A", out, TABLES)
+            before = {p.name: p.read_bytes() for p in out.iterdir()}
+            with self.assertRaises(FileExistsError):
+                wb.emit_room(layout, "T1_A", out, TABLES)
+            after = {p.name: p.read_bytes() for p in out.iterdir()}
+            self.assertEqual(before, after)   # nothing touched
+
+    def test_preflight_is_atomic_one_existing_file_blocks_all(self):
+        layout = load_fixture()
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            (out / "T1_A.plan.html").write_text("stale", encoding="utf-8")
+            with self.assertRaises(FileExistsError):
+                wb.emit_room(layout, "T1_A", out, TABLES)
+            # The packet files were NOT partially written around the block.
+            self.assertFalse((out / "T1_A.packet.json").exists())
+            self.assertFalse((out / "T1_A.packet.md").exists())
+            self.assertEqual((out / "T1_A.plan.html").read_text("utf-8"),
+                             "stale")
+
+    def test_force_overwrites_stale_files(self):
+        layout = load_fixture()
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            (out / "T1_A.packet.json").write_text("stale", encoding="utf-8")
+            wb.emit_room(layout, "T1_A", out, TABLES, force=True)
+            packet = json.loads((out / "T1_A.packet.json").read_text("utf-8"))
+            self.assertEqual(packet["room"]["id"], "T1_A")
+
+    def test_json_only_mode_ignores_unrelated_existing_html(self):
+        layout = load_fixture()
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            (out / "T1_A.plan.html").write_text("stale", encoding="utf-8")
+            wb.emit_room(layout, "T1_A", out, TABLES, json_only=True)
+            self.assertTrue((out / "T1_A.packet.json").exists())
+            self.assertEqual((out / "T1_A.plan.html").read_text("utf-8"),
+                             "stale")
+
+    def test_cli_refusal_returns_exit_code_3(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            (out / "T1_A.packet.md").write_text("stale", encoding="utf-8")
+            code = wb.main(["--layout", str(FIXTURE), "--room", "T1_A",
+                            "--output", str(out)])
+            self.assertEqual(code, 3)
+            self.assertFalse((out / "T1_A.packet.json").exists())
+            code = wb.main(["--layout", str(FIXTURE), "--room", "T1_A",
+                            "--output", str(out), "--force"])
+            self.assertEqual(code, 0)
+            self.assertTrue((out / "T1_A.packet.json").exists())
+
+
 class CompareTests(unittest.TestCase):
     def test_moved_and_added_objects_reported(self):
         a = load_fixture()

@@ -24,6 +24,13 @@ python tools/room_layout_workbench.py --compare game/data/building_layout.json -
 default into tracked directories.  Use a temporary directory or a personal
 scratch location.
 
+**Overwrite safety:** the tool never overwrites an existing generated file
+unless `--force` is passed.  The check runs before anything is written and is
+atomic per invocation: if any target file of a room packet (or any room of a
+`--floor` run, or `layout_comparison.md` for `--compare`) already exists, the
+run refuses with exit code 3 and writes nothing — a packet is never partially
+refreshed over older files.  `--force` overwrites everything the run targets.
+
 Per room it writes `<ROOM>.plan.html` (self-contained SVG plan, opens in any
 browser), `<ROOM>.packet.json` (machine-readable) and `<ROOM>.packet.md`
 (human-readable).  Output is deterministic: same layout in, same bytes out.
@@ -150,9 +157,10 @@ guessing.  No resident biography is invented.
 python tools/tests/test_room_layout_workbench.py
 ```
 
-29 focused tests over a synthetic fixture (`tools/tests/fixtures/
+34 focused tests over a synthetic fixture (`tools/tests/fixtures/
 mini_layout.json`): rotation handling, swing direction and reversal, overlap
 and near-intersection detection, boundary/ambiguity classification, unknown
 footprints, no-position records, detritus exclusion safety, byte-identical
-determinism, compare mode, and graceful degradation when the generator tables
-are unavailable.  The suite touches no production files.
+determinism, compare mode, no-overwrite refusal / atomic preflight /
+`--force`, and graceful degradation when the generator tables are
+unavailable.  The suite touches no production files.

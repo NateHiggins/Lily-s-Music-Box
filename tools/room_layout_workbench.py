@@ -1718,8 +1718,35 @@ def list_rooms(layout):
     return "\n".join(out)
 
 
+def room_targets(room_id, out_dir, json_only=False, visual_only=False):
+    """The exact files one room report would write, in emission order."""
+    targets = []
+    if not visual_only:
+        targets += [out_dir / f"{room_id}.packet.json",
+                    out_dir / f"{room_id}.packet.md"]
+    if not json_only:
+        targets.append(out_dir / f"{room_id}.plan.html")
+    return targets
+
+
+def preflight_overwrite(targets, force=False):
+    """Refuse to touch existing generated files unless forced.
+
+    Raises FileExistsError BEFORE anything is written, so a packet is never
+    partially emitted over older files.
+    """
+    existing = [p for p in targets if p.exists()]
+    if existing and not force:
+        raise FileExistsError(
+            "refusing to overwrite existing generated file(s): "
+            + ", ".join(str(p) for p in existing)
+            + " (pass --force to overwrite)")
+
+
 def emit_room(layout, room_id, out_dir, tables, json_only=False,
-              visual_only=False, detritus_on=False):
+              visual_only=False, detritus_on=False, force=False):
+    preflight_overwrite(room_targets(room_id, out_dir, json_only, visual_only),
+                        force)
     view = collect_room_view(layout, room_id, tables)
     analysis = analyze_room(view)
     det = detritus_zones(view, analysis) if detritus_on else None
@@ -1756,6 +1783,9 @@ def main(argv=None):
     parser.add_argument("--visual-only", action="store_true")
     parser.add_argument("--detritus", action="store_true",
                         help="add the advisory detritus overlay/packet section")
+    parser.add_argument("--force", action="store_true",
+                        help="overwrite existing generated files (otherwise "
+                             "the run refuses before writing anything)")
     parser.add_argument("--compare", type=Path, metavar="OTHER_LAYOUT",
                         help="compare --layout against another layout file")
     args = parser.parse_args(argv)
@@ -1793,6 +1823,11 @@ def main(argv=None):
         if args.output:
             args.output.mkdir(parents=True, exist_ok=True)
             path = args.output / "layout_comparison.md"
+            try:
+                preflight_overwrite([path], args.force)
+            except FileExistsError as exc:
+                print(f"error: {exc}", file=sys.stderr)
+                return 3
             path.write_text(text + "\n", encoding="utf-8")
             print(path)
         else:
@@ -1803,12 +1838,22 @@ def main(argv=None):
         parser.error("--output is required for report generation; refuse to "
                      "write into tracked directories by default")
     args.output.mkdir(parents=True, exist_ok=True)
-    for rid in room_ids:
-        for path in emit_room(layout, rid, args.output, tables,
-                              json_only=args.json_only,
-                              visual_only=args.visual_only,
-                              detritus_on=args.detritus):
-            print(path)
+    # Batch preflight: a --floor run either writes every room or nothing.
+    all_targets = [t for rid in room_ids
+                   for t in room_targets(rid, args.output,
+                                         args.json_only, args.visual_only)]
+    try:
+        preflight_overwrite(all_targets, args.force)
+        for rid in room_ids:
+            for path in emit_room(layout, rid, args.output, tables,
+                                  json_only=args.json_only,
+                                  visual_only=args.visual_only,
+                                  detritus_on=args.detritus,
+                                  force=args.force):
+                print(path)
+    except FileExistsError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 3
     return 0
 
 
