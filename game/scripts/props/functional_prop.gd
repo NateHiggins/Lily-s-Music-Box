@@ -221,6 +221,20 @@ func make_emitter(stream_key: String, volume_db := -8.0,
 	return p
 
 
+func _exit_tree() -> void:
+	# Recorded streams are cached globally, while decoder playback belongs to
+	# the prop that requested it. Scene replacement must sever both sides so a
+	# retired building cannot retain Ogg playback/resources until process exit.
+	for node: Node in find_children("*", "AudioStreamPlayer3D", true, false):
+		var emitter := node as AudioStreamPlayer3D
+		var stream := emitter.stream
+		emitter.stop()
+		emitter.stream = null
+		var key := str(emitter.get_meta("audio_stream_key", ""))
+		if not key.is_empty() and stream != null:
+			PropAudio.release_stream(key, stream)
+
+
 func make_box(size: Vector3, offset: Vector3, color: Color) -> MeshInstance3D:
 	var mi := MeshInstance3D.new()
 	var box := BoxMesh.new()

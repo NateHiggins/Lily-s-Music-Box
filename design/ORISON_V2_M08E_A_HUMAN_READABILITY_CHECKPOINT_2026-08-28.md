@@ -1,6 +1,6 @@
 # ORISON-V2-M08E-A human-readability checkpoint — 2026-08-28
 
-Status: **TECHNICAL PASS; HUMAN ACCEPTANCE PENDING**
+Status: **TECHNICAL PASS; HUMAN SPATIAL-READABILITY ACCEPTANCE PASS**
 
 This checkpoint corrects review presentation only, except for one genuine spatial defect exposed by the recapture. It does not compose runtime directors, change the selector, or authorize M08F/M09/cutover.
 
@@ -45,8 +45,8 @@ The six accepted owners, collision-bearing route, doors/openings/stairs/platform
 
 ## Verdict
 
-The packet is ready for owner review. Human acceptance remains pending until the owner answers:
+The owner answered PASS on 2026-08-28:
 
 **Does this packet make the F01 ritual station, complete 2B home/radiator service stance, and B1 boiler route readable, credible, safely approachable, and memorable as one service round?**
 
-M08F, M09, selector change, and production cutover remain unauthorized.
+This closes the gray-box spatial-readability gate only. It does not accept final furnishing, materials, lighting, labels, boiler art, or apartment characterization. M08F was separately authorized; M09, selector change, production cutover, and v1 retirement remain unauthorized.

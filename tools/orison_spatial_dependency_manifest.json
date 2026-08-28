@@ -10,7 +10,7 @@
   "marker": 631,
   "acoustic_node": 550,
   "fixture": 248,
-  "furniture": 7327,
+  "furniture": 7345,
   "socket": 222,
   "vent": 23,
   "bookshelf": 8,
@@ -57824,8 +57824,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    129,
-    132
+    188,
+    191
    ],
    "count": 2,
    "context": [
@@ -57846,6 +57846,36 @@
    "target_exists": true
   },
   {
+   "key": "751328a46abd1272",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    160
+   ],
+   "count": 1,
+   "context": [
+    "_mount(\"B1_BOILER_01\", boiler)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "3657605e50203e7d",
    "kind": "id_reference",
    "token": "F02_A_MAIN_VANTRY_POINT",
@@ -57857,10 +57887,10 @@
     "_compose_vantry"
    ],
    "lines": [
-    48,
-    126,
-    130,
-    133
+    51,
+    185,
+    189,
+    192
    ],
    "count": 4,
    "context": [
@@ -57893,11 +57923,41 @@
     "_ready"
    ],
    "lines": [
-    48
+    51
    ],
    "count": 1,
    "context": [
     "\"F02_A_MAIN_VANTRY_POINT\", \"F02_A_MONITOR_01\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3496a67524f99a43",
+   "kind": "id_reference",
+   "token": "F02_B_RADIATOR_01",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    157
+   ],
+   "count": 1,
+   "context": [
+    "_mount(\"F02_B_RADIATOR_01\", radiator)"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -57924,8 +57984,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    49,
-    83
+    52,
+    87
    ],
    "count": 2,
    "context": [
@@ -57946,6 +58006,126 @@
    "target_exists": true
   },
   {
+   "key": "f9dbd2015ceeee85",
+   "kind": "node_path",
+   "token": "F01_NIGHT_REGISTER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    169
+   ],
+   "count": 1,
+   "context": [
+    "var register := find_child(\"F01_NIGHT_REGISTER\", true, false) as NightRegisterProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "8c8833ecd3294594",
+   "kind": "node_path",
+   "token": "F01_SIGNAL_REGISTER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    170
+   ],
+   "count": 1,
+   "context": [
+    "var signal_register := find_child(\"F01_SIGNAL_REGISTER\", true, false) as WatchRegisterProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "8468fef5b9c2c71d",
+   "kind": "node_path",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    171
+   ],
+   "count": 1,
+   "context": [
+    "var tour_guard := find_child(\"F01_TOUR_KEY_GUARD\", true, false) as TourKeyGuardProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "9950e260d654065d",
+   "kind": "node_path",
+   "token": "F01_WATCHMAN_DETECTOR",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    168
+   ],
+   "count": 1,
+   "context": [
+    "var detector := find_child(\"F01_WATCHMAN_DETECTOR\", true, false) as WatchmanClockProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
    "key": "6deb0bad46a7c10a",
    "kind": "runtime_id",
    "token": "F01_HOUSE_TELEPHONE_BOARD",
@@ -57956,11 +58136,147 @@
     "_compose_authorities"
    ],
    "lines": [
-    79
+    83
    ],
    "count": 1,
    "context": [
     "_mount(\"F01_HOUSE_TELEPHONE_BOARD\", telephone)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "eac0532c0782d08f",
+   "kind": "runtime_id",
+   "token": "F01_NIGHT_REGISTER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props",
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    146,
+    169
+   ],
+   "count": 2,
+   "context": [
+    "_mount(\"F01_NIGHT_REGISTER\", register)",
+    "var register := find_child(\"F01_NIGHT_REGISTER\", true, false) as NightRegisterProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "d7fd50a61bd5b7f5",
+   "kind": "runtime_id",
+   "token": "F01_SIGNAL_REGISTER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props",
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    149,
+    170
+   ],
+   "count": 2,
+   "context": [
+    "_mount(\"F01_SIGNAL_REGISTER\", signal_register)",
+    "var signal_register := find_child(\"F01_SIGNAL_REGISTER\", true, false) as WatchRegisterProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "314c12e08e09626d",
+   "kind": "runtime_id",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props",
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    152,
+    171
+   ],
+   "count": 2,
+   "context": [
+    "_mount(\"F01_TOUR_KEY_GUARD\", tour_guard)",
+    "var tour_guard := find_child(\"F01_TOUR_KEY_GUARD\", true, false) as TourKeyGuardProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "2f23e220b620b26a",
+   "kind": "runtime_id",
+   "token": "F01_WATCHMAN_DETECTOR",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props",
+    "_bind_first_shift_station"
+   ],
+   "lines": [
+    143,
+    168
+   ],
+   "count": 2,
+   "context": [
+    "_mount(\"F01_WATCHMAN_DETECTOR\", detector)",
+    "var detector := find_child(\"F01_WATCHMAN_DETECTOR\", true, false) as WatchmanClockProp"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -57987,7 +58303,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    77
+    81
    ],
    "count": 1,
    "context": [
@@ -58018,7 +58334,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    71
+    74
    ],
    "count": 1,
    "context": [
@@ -58049,7 +58365,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    72
+    75
    ],
    "count": 1,
    "context": [
@@ -58080,7 +58396,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    80
+    84
    ],
    "count": 1,
    "context": [
@@ -58112,13 +58428,43 @@
     "_compose_vantry"
    ],
    "lines": [
-    77,
-    132
+    81,
+    191
    ],
    "count": 2,
    "context": [
     "line.register_endpoint({\"id\": \"F02_A_TELEPHONE\", \"extension\": \"2A\"})",
     "anchor.global_position.y], \"floor\": \"F02\", \"room\": \"2A\"}}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "e1dcd402c9db0601",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_service_round_props"
+   ],
+   "lines": [
+    155
+   ],
+   "count": 1,
+   "context": [
+    "radiator.unit = \"2B\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -58144,7 +58490,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    86
+    90
    ],
    "count": 1,
    "context": [
@@ -58929,7 +59275,7 @@
    "count": 2,
    "context": [
     "const LEVELS := {\"B1\":-2.8, \"F01\":0.0, \"F02\":3.2, \"F03\":6.4,",
-    "var street := \"STREET LEVEL \u2193\" if fid != \"F01\" else \"STREET LEVEL \u2014 THIS FLOOR\""
+    "var street := \"STREET LEVEL ↓\" if fid != \"F01\" else \"STREET LEVEL — THIS FLOOR\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -64342,7 +64688,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -64415,7 +64761,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -66489,7 +66835,7 @@
     "warehouse_variants"
    ],
    "lines": [
-    72
+    83
    ],
    "count": 1,
    "context": [
@@ -74898,8 +75244,8 @@
     "_build_stage"
    ],
    "lines": [
-    41,
-    42
+    46,
+    47
    ],
    "count": 2,
    "context": [
@@ -74931,21 +75277,25 @@
     "_run"
    ],
    "lines": [
-    94,
-    94,
-    94,
-    95,
-    95,
-    95,
-    96,
-    96,
-    96
+    107,
+    107,
+    107,
+    108,
+    108,
+    108,
+    109,
+    109,
+    109,
+    148,
+    153,
+    154
    ],
-   "count": 9,
+   "count": 12,
    "context": [
     "colony.register_route(\"motor\", \"WarmMotor\", [Vector3.ZERO, Vector3(0.38, 0, 0.02), Vector3(0.72, 0, 0.08), Vector3(1.0, 0, 0.1)])",
     "colony.register_route(\"controls\", \"ControlBox\", [Vector3.ZERO, Vector3(0.05, 0, -0.35), Vector3(0.12, 0, -0.72), Vector3(0.18, 0, -1.0)])",
-    "colony.register_route(\"barren\", \"BarrenBlock\", [Vector3.ZERO, Vector3(-0.70, 0, 0.12), Vector3(-1.45, 0, 0.20), Vector3(-2.40, 0, 0.28)])"
+    "colony.register_route(\"barren\", \"BarrenBlock\", [Vector3.ZERO, Vector3(-0.70, 0, 0.12), Vector3(-1.45, 0, 0.20), Vector3(-2.40, 0, 0.28)])",
+    "camera.position = fauna_focus + Vector3(0.72, 0.48, 0.86)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -86395,7 +86745,7 @@
     "_build_mechanisms"
    ],
    "lines": [
-    102
+    108
    ],
    "count": 1,
    "context": [
@@ -92053,23 +92403,23 @@
     "_ready"
    ],
    "lines": [
-    25,
-    25,
-    27,
-    27,
     28,
     28,
+    30,
+    30,
     31,
     31,
-    32,
-    32
+    36,
+    36,
+    38,
+    38
    ],
    "count": 10,
    "context": [
-    "await _shot(\"01_f01_station_from_lobby\", Vector3(-0.2, 1.41, -7.0), Vector3(-3.3, 1.0, -2.5))",
-    "await _shot(\"03_f01_station_toward_primary_core\", Vector3(-4.2, 1.41, -1.45), Vector3(1.5, 1.1, -2.4), 76.0)",
-    "await _shot(\"04_b1_arrival\", Vector3(2.5, -1.79, -2.8), Vector3(5.2, -2.0, -0.45))",
-    "await _shot(\"07_boiler_retreat_route\", Vector3(11.1, -1.79, 1.45), Vector3(7.0, -2.0, -0.4), 78.0)"
+    "await _shot(\"01_f01_station_from_lobby\", Vector3(-3.3, 1.41, -6.2), Vector3(-3.3, 1.0, -2.0), 76.0)",
+    "await _shot(\"03_f01_station_toward_primary_core\", Vector3(-3.8, 1.41, -0.85), Vector3(1.2, 1.1, -1.8), 76.0)",
+    "await _shot(\"04_b1_arrival\", Vector3(2.2, -1.79, -2.9), Vector3(5.0, -1.9, -0.75), 78.0)",
+    "await _shot(\"07_boiler_retreat_route\", Vector3(10.9, -1.79, -0.4), Vector3(6.7, -1.95, -0.4), 78.0)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -99499,8 +99849,8 @@
    "count": 3,
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2190\").contains(\"2A\"),",
-    "and not _side_label(plate, \"\u2192\").contains(\"2A\"),"
+    "_check(_side_label(plate, \"←\").contains(\"2A\"),",
+    "and not _side_label(plate, \"→\").contains(\"2A\"),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -99562,7 +99912,7 @@
    "count": 2,
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2192\").contains(\"2C\")"
+    "_check(_side_label(plate, \"→\").contains(\"2C\")"
    ],
    "gameplay_binding": false,
    "authority": [

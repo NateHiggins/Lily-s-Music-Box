@@ -93,6 +93,12 @@ func _ready() -> void:
 
 	print("MAINTENANCE SERVICE ROUND TEST: %s" %
 			("PASS" if failures == 0 else "FAIL (%d)" % failures))
+	for child: Node in get_children():
+		child.queue_free()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	PropAudio.clear_cache()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().quit(failures)
 
 

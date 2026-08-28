@@ -21,6 +21,9 @@ var mina_gameplay: MinaCaseGameplay
 var core_loop: CoreLoopDirector
 var safety_net: SafetyNet
 var service_set_carrier: ServiceSetCarrier
+var first_shift_director: FirstShiftDirector
+var service_round: ServiceRoundDirector
+var watch_station_network: WatchStationNetwork
 var street_traffic: Node = null
 var elevator: Node = null
 var startup_failed := false
@@ -70,6 +73,7 @@ func _compose_authorities() -> void:
 	_compose_vantry()
 	_mount("LobbyMailBank", MailBankProp.new())
 	_mount("LobbyPorterBoard", OtisProp.new())
+	_compose_service_round_props()
 	var telephone := HouseSwitchboardProp.new()
 	var line := HouseTelephoneNetwork.new()
 	line.name = "HouseTelephoneNetwork"
@@ -99,6 +103,11 @@ func _compose_authorities() -> void:
 	virus_director.name = "VirusSoundDirector"
 	virus_director.setup(self)
 	add_child(virus_director)
+	first_shift_director = FirstShiftDirector.new()
+	first_shift_director.name = "FirstShiftDirector"
+	first_shift_director.setup(self, objective_tracker, virus_director, work_orders)
+	add_child(first_shift_director)
+	_bind_first_shift_station()
 	mina_gameplay = MinaCaseGameplay.new()
 	mina_gameplay.name = "MinaCaseGameplay"
 	mina_gameplay.setup(objective_tracker, work_orders)
@@ -117,10 +126,60 @@ func _compose_authorities() -> void:
 		core_loop.name = "CoreLoopDirector"
 		add_child(core_loop)
 		core_loop.setup(work_orders, player, layout, resolver)
+	first_shift_director.bind_opening_report_offer(
+			Callable(core_loop, "offer_opening_report"))
+	service_round = ServiceRoundDirector.new()
+	service_round.name = "ServiceRoundDirector"
+	add_child(service_round)
+	service_round.setup(work_orders, _blockout, player, service_set_carrier)
 	safety_net = SafetyNet.new()
 	safety_net.name = "SafetyNet"
 	safety_net.setup(player)
 	add_child(safety_net)
+
+func _compose_service_round_props() -> void:
+	var detector := WatchmanClockProp.new()
+	detector.prop_type = "watchman_detector"
+	_mount("F01_WATCHMAN_DETECTOR", detector)
+	var register := NightRegisterProp.new()
+	register.prop_type = "night_register"
+	_mount("F01_NIGHT_REGISTER", register)
+	var signal_register := WatchRegisterProp.new()
+	signal_register.prop_type = "signal_register"
+	_mount("F01_SIGNAL_REGISTER", signal_register)
+	var tour_guard := TourKeyGuardProp.new()
+	tour_guard.prop_type = "tour_key_guard"
+	_mount("F01_TOUR_KEY_GUARD", tour_guard)
+	var radiator := RadiatorProp.new()
+	radiator.prop_type = "radiator"
+	radiator.unit = "2B"
+	radiator.riser = "H-B"
+	_mount("F02_B_RADIATOR_01", radiator)
+	var boiler := BoilerProp.new()
+	boiler.prop_type = "boiler"
+	_mount("B1_BOILER_01", boiler)
+	watch_station_network = WatchStationNetwork.new()
+	watch_station_network.name = "WatchStationNetwork"
+	add_child(watch_station_network)
+	watch_station_network.attach_receiver(signal_register)
+	watch_station_network.attach_key_guard(tour_guard)
+
+func _bind_first_shift_station() -> void:
+	var detector := find_child("F01_WATCHMAN_DETECTOR", true, false) as WatchmanClockProp
+	var register := find_child("F01_NIGHT_REGISTER", true, false) as NightRegisterProp
+	var signal_register := find_child("F01_SIGNAL_REGISTER", true, false) as WatchRegisterProp
+	var tour_guard := find_child("F01_TOUR_KEY_GUARD", true, false) as TourKeyGuardProp
+	if detector:
+		detector.bind_first_shift(first_shift_director)
+	if register:
+		register.report_taken.connect(first_shift_director.accept_report)
+		register.register_signed.connect(first_shift_director.accept_signed_register)
+	if signal_register:
+		signal_register.signal_displayed.connect(
+				first_shift_director.observe_central_signal)
+	if tour_guard:
+		tour_guard.tour_key_taken.connect(first_shift_director.observe_tour_key_taken)
+		tour_guard.tour_key_returned.connect(first_shift_director.observe_tour_key_returned)
 
 func _compose_vantry() -> void:
 	var anchor := adapter.resolve("F02_A_MAIN_VANTRY_POINT") as Node3D
@@ -149,7 +208,9 @@ func authority_count(type_name: String) -> int:
 
 func shutdown_for_tests() -> void:
 	if adapter != null:
-		adapter.restore_all()
+		# Consumers are already detached before synchronous free, so tests and
+		# selector reconstruction do not leave deferred audio decoders behind.
+		adapter.restore_all(true)
 
 func _exit_tree() -> void:
 	if adapter != null:
