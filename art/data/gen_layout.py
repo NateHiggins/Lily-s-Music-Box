@@ -1207,8 +1207,10 @@ def west_storage(floor_id, z, f):
               0.95, 0.92, 0.0, 0.86, "linen", False)
     _furn_box(f, "%s_wstor_sheet_b" % floor_id, x0 + 4.95, y0 + 1.35,
               1.35, 0.80, 0.0, 0.74, "linen", False)
-    # a rolled rug on its end in the corner
-    _furn_box(f, "%s_wstor_roll" % floor_id, x1 - 0.55, y1 - 0.62,
+    # A rolled rug on its end beside the north wall.  Keep it a full metre
+    # west of the corridor face so the locked service leaf can still open
+    # through its complete swing when the plant key is used.
+    _furn_box(f, "%s_wstor_roll" % floor_id, x1 - 1.50, y1 - 0.62,
               0.28, 0.28, 0.0, 1.55, "rug_warm", False)
     # the landlord's own stack of spare radiator sections, never fitted
     _furn_box(f, "%s_wstor_sections" % floor_id, x1 - 1.45, y0 + 0.35,

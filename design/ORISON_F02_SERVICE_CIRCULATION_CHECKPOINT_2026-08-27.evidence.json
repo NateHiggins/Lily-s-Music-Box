@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "claim_id": "F02_SERVICE_SHOT",
+      "rooms": ["F02_CORRIDOR", "F02_HALL", "F02_ATRIUM", "F02_UTILITY", "F02_WSTOR"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_service_circulation_checkpoint_01/scene_capture_receipt.json",
+      "artifact_kind": "path",
+      "expected_schema": "scene_capture_receipt.json",
+      "expected_scene": "ORISON-RR-F02-SERVICE",
+      "expected_output_count": 7,
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_SERVICE_LIGHTING",
+      "rooms": ["F02_CORRIDOR", "F02_HALL", "F02_ATRIUM", "F02_UTILITY", "F02_WSTOR"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_service_circulation_checkpoint_01/lighting_audit.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F02_SERVICE_WALK",
+      "rooms": ["F02_CORRIDOR", "F02_HALL", "F02_ATRIUM", "F02_UTILITY", "F02_WSTOR"],
+      "artifact": "art/renders/orison_room_reconstruction/f02_service_circulation_checkpoint_01/walk_fast.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "SIBLING_WSTOR_VISUAL",
+      "rooms": ["F03_WSTOR", "F04_WSTOR", "F05_WSTOR", "F06_WSTOR"],
+      "artifact_kind": "manual",
+      "manual_visual_proof_required": true
+    }
+  ]
+}

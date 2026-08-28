@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "base_commit": "6044a81",
+  "source": "design/ORISON_F02_SERVICE_CIRCULATION_CHECKPOINT_2026-08-27.md",
+  "decisions": [
+    {
+      "room": "F02_WSTOR",
+      "object": "F02_wstor_roll",
+      "verdict": "MOVE",
+      "expected": {"room": "F02_WSTOR", "position": [-6.87, 2.07], "tolerance_m": 0.01},
+      "rationale": "Clear the locked service leaf while retaining the rolled rug."
+    },
+    {
+      "room": "F03_WSTOR",
+      "object": "F03_wstor_roll",
+      "verdict": "MOVE",
+      "expected": {"room": "F03_WSTOR", "position": [-6.87, 2.07], "tolerance_m": 0.01},
+      "rationale": "Apply the shared west-storage door-clearance invariant."
+    },
+    {
+      "room": "F04_WSTOR",
+      "object": "F04_wstor_roll",
+      "verdict": "MOVE",
+      "expected": {"room": "F04_WSTOR", "position": [-6.87, 2.07], "tolerance_m": 0.01},
+      "rationale": "Apply the shared west-storage door-clearance invariant."
+    },
+    {
+      "room": "F05_WSTOR",
+      "object": "F05_wstor_roll",
+      "verdict": "MOVE",
+      "expected": {"room": "F05_WSTOR", "position": [-6.87, 2.07], "tolerance_m": 0.01},
+      "rationale": "Apply the shared west-storage door-clearance invariant."
+    },
+    {
+      "room": "F06_WSTOR",
+      "object": "F06_wstor_roll",
+      "verdict": "MOVE",
+      "expected": {"room": "F06_WSTOR", "position": [-6.87, 2.07], "tolerance_m": 0.01},
+      "rationale": "Apply the shared west-storage door-clearance invariant."
+    }
+  ]
+}
