@@ -704,6 +704,14 @@ def classify(decision, index, rooms_by_id, runtime_scan, pos_tol, yaw_tol,
 
     if verdict == "ADD":
         if not occs:
+            if kind_census and decision["object"] in kind_census:
+                finish(UNVERIFIABLE, f"'{decision['object']}' names an "
+                       "assembly/marker KIND "
+                       f"({kind_census[decision['object']]} record(s) of "
+                       "that kind exist), not a record id; not treated as a "
+                       "decision target")
+                flags.append("token is an assembly/marker kind, not an id")
+                return decision
             finish(OPEN, "named addition not present in the layout yet")
             return decision
         problems = []
