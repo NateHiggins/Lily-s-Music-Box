@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "base_commit": "8a3d2e9",
+  "source": "design/ORISON_F02_CASE_ONE_ROOMS_CHECKPOINT_2026-08-27.md",
+  "decisions": [
+    {
+      "room": "F02_A_MAIN",
+      "object": "2A_shelf0",
+      "verdict": "MOVE",
+      "expected": {
+        "room": "F02_A_MAIN",
+        "position": [-12.375, -5.95],
+        "yaw_deg": 0.0,
+        "tolerance_m": 0.01,
+        "yaw_tolerance_deg": 0.1
+      },
+      "rationale": "Move the complete filing bank 0.30 m west while preserving spacing."
+    },
+    {
+      "room": "F02_A_MAIN",
+      "object": "2A_shelf1",
+      "verdict": "MOVE",
+      "expected": {
+        "room": "F02_A_MAIN",
+        "position": [-11.225, -5.95],
+        "yaw_deg": 0.0,
+        "tolerance_m": 0.01,
+        "yaw_tolerance_deg": 0.1
+      },
+      "rationale": "Move the complete filing bank 0.30 m west while preserving spacing."
+    },
+    {
+      "room": "F02_A_MAIN",
+      "object": "2A_shelf2",
+      "verdict": "MOVE",
+      "expected": {
+        "room": "F02_A_MAIN",
+        "position": [-10.075, -5.95],
+        "yaw_deg": 0.0,
+        "tolerance_m": 0.01,
+        "yaw_tolerance_deg": 0.1
+      },
+      "rationale": "Clear the final 100-degree swing band of F02_DOOR_07 without deleting Mina's filing capacity."
+    }
+  ]
+}

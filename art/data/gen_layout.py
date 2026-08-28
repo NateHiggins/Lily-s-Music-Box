@@ -1665,9 +1665,13 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         # a fitting rather than scenery behind furniture.
         service_dx = 0.70
         desk_set(f, "2A_desk", x0 + 0.5 + service_dx, cy - 0.7, 1.5, True, 1)
+        # Keep the filing bank 300 mm west of the desk's service offset.  At
+        # the shared offset its east shelf entered F02_DOOR_07's final swing;
+        # moving the complete bank preserves Mina's squared spacing and gives
+        # the 810 mm bedroom leaf a clear radial path.
         for i in range(3):
             shelf_unit(f, "2A_shelf%d" % i,
-                       x0 + 0.4 + service_dx + i * 1.15, y0 + 3.55,
+                       x0 + 0.4 + service_dx - 0.30 + i * 1.15, y0 + 3.55,
                        0.95, True, h=1.6, books=False, face="n")
         _furn_box(f, "2A_filing", x0 + 2.1 + service_dx, cy - 0.65,
                   0.45, 0.6, 0.0,
