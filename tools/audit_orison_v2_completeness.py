@@ -271,18 +271,30 @@ SEALED_UNITS = {"2D", "3C", "5D", "6D"}
 # Unit functional minimums (program: apartment program table).  Each
 # function is satisfied by a v2 space whose OWN purpose/class matches the
 # predicate - never by id token alone.
+#
+# `word_groups` is a list of alternatives; a space satisfies the function
+# when EVERY word of ANY ONE group appears in its purpose (see
+# match_purpose_words).  This replaced contiguous-phrase containment,
+# which made the entry minimum depend on English word order and
+# punctuation: F02_B_VESTIBULE's real purpose, "2B privacy, coat storage
+# and distribution", failed the phrase "privacy and distribution" over a
+# comma, so unit.2B.entry was reported ABSENT on a built, traversed and
+# owner-accepted vestibule.  The apartment program asks for a vestibule
+# that gives privacy AND distributes; it does not prescribe a sentence.
 UNIT_FUNCTIONS = {
-    "entry": {"purpose_any": ["privacy and distribution", "weather lock"],
+    "entry": {"word_groups": [["privacy", "distribution"],
+                              ["weather", "lock"]],
               "basis": f"{PROGRAM_DOC} - apartment vestibule row"},
-    "living": {"purpose_any": ["living", "rest", "meeting", "conversation"],
+    "living": {"word_groups": [["living"], ["rest"], ["meeting"],
+                               ["conversation"]],
                "basis": f"{PROGRAM_DOC} - living/dining row"},
-    "cooking": {"purpose_any": ["cooking"],
+    "cooking": {"word_groups": [["cooking"]],
                 "basis": f"{PROGRAM_DOC} - kitchen row"},
-    "sanitary": {"class_any": ["wet"], "purpose_any": ["sanitary"],
+    "sanitary": {"class_any": ["wet"], "word_groups": [["sanitary"]],
                  "basis": f"{PROGRAM_DOC} - bathroom row"},
-    "sleep": {"purpose_any": ["sleep"],
+    "sleep": {"word_groups": [["sleep"]],
               "basis": f"{PROGRAM_DOC} - bedroom/alcove rows"},
-    "storage": {"purpose_any": ["storage"],
+    "storage": {"word_groups": [["storage"]],
                 "basis": f"{PROGRAM_DOC} - closet row (bedroom-integrated "
                          "clothes storage also satisfies it)"},
 }
@@ -923,10 +935,50 @@ class Evidence:
 
 def match_purpose(space: dict, keywords: list[str],
                   classes: list[str] | None = None) -> bool:
+    """Contiguous-phrase containment, for the floor/service program tables.
+
+    The domestic minimums deliberately do NOT use this - see
+    match_purpose_words.  These tables keep phrase containment because
+    their keywords are single words or fixed compound names ("passenger
+    lift", "primary stair") where word order carries the meaning, and
+    because changing them is a separate enumeration.
+    """
     purpose = str(space.get("purpose", "")).lower()
     if classes and str(space.get("class", "")).lower() in classes:
         return True
     return any(k in purpose for k in keywords)
+
+
+PURPOSE_WORD_RE = re.compile(r"[a-z0-9]+")
+
+
+def purpose_words(space: dict) -> list[str]:
+    return PURPOSE_WORD_RE.findall(str(space.get("purpose", "")).lower())
+
+
+def match_purpose_words(space: dict, groups: list[list[str]],
+                        classes: list[str] | None = None) -> bool:
+    """Word-set predicate for the apartment domestic minimums.
+
+    A space satisfies the function when every word of at least one group
+    appears in its purpose, in any order, regardless of the punctuation
+    and connectives between them.  Each word matches a purpose word that
+    STARTS with it, so authored English inflections still count:
+    "player sleeping context" satisfies sleep, exactly as it did under
+    phrase containment.
+
+    Prefix rather than whole-word equality is deliberate and was measured
+    - requiring equality would have regressed F04_B_ALCOVE,
+    F04_B_ALCOVE_APPROACH and F04_B_PRIVATE_HALL, all of which say
+    "sleeping".  Matching is still on the space's own purpose/class only,
+    never on its id.
+    """
+    if classes and str(space.get("class", "")).lower() in classes:
+        return True
+    words = purpose_words(space)
+    return any(
+        all(any(word.startswith(term) for word in words) for term in group)
+        for group in groups)
 
 
 class Ledger:
@@ -1216,8 +1268,8 @@ class Ledger:
                 continue
             # Function minimums, matched on purpose/class only.
             for func, spec in sorted(UNIT_FUNCTIONS.items()):
-                hits = [s for s in spaces if match_purpose(
-                    s, spec.get("purpose_any", []),
+                hits = [s for s in spaces if match_purpose_words(
+                    s, spec.get("word_groups", []),
                     spec.get("class_any"))]
                 if hits:
                     hit = max(hits, key=lambda s: RANK[

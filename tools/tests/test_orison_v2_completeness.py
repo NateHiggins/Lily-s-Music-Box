@@ -341,6 +341,114 @@ class UntouchedFixtureTests(unittest.TestCase):
         self.assertFalse((MINI_REPO / ".git").exists())
 
 
+class DomesticMinimumWordSetTests(unittest.TestCase):
+    """DEV-GUARD-1 Part B: the domestic minimums are a word-set predicate.
+
+    Phrase containment made the entry minimum depend on English word
+    order and punctuation, so a comma inside "privacy, coat storage and
+    distribution" reported a built and accepted vestibule as ABSENT.
+    """
+
+    ENTRY = audit.UNIT_FUNCTIONS["entry"]["word_groups"]
+    SLEEP = audit.UNIT_FUNCTIONS["sleep"]["word_groups"]
+    STORAGE = audit.UNIT_FUNCTIONS["storage"]["word_groups"]
+
+    def entry_matches(self, purpose, space_id="X"):
+        return audit.match_purpose_words(
+            {"id": space_id, "purpose": purpose}, self.ENTRY)
+
+    def test_the_real_2b_vestibule_string(self):
+        self.assertTrue(self.entry_matches(
+            "2B privacy, coat storage and distribution"))
+
+    def test_decorated_phrasing(self):
+        for purpose in (
+                "privacy and distribution",           # the plain phrase
+                "privacy, coat storage and distribution",   # comma
+                "privacy and parcel distribution",    # inserted word
+                "distribution and privacy",           # reordered
+                "Privacy And Distribution",           # case
+                "distribution of post; privacy for 5A",     # punctuation
+                "weather lock",                       # the alternative
+                "lock against the weather",           # reordered alt
+        ):
+            self.assertTrue(self.entry_matches(purpose), purpose)
+
+    def test_one_keyword_alone_does_not_satisfy_a_two_word_group(self):
+        for purpose in (
+                "coat storage and distribution",      # no privacy
+                "privacy screen and coat rail",       # no distribution
+                "weather-facing apron",               # no lock
+                "lock-up store",                      # no weather
+                "cooking and washing",                # neither
+        ):
+            self.assertFalse(self.entry_matches(purpose), purpose)
+
+    def test_authored_inflections_still_count(self):
+        # Requiring whole-word equality would have regressed the three
+        # 4B spaces that say "sleeping"; prefix matching is deliberate.
+        for purpose in ("player sleeping context",
+                        "closet and sleeping-alcove distribution",
+                        "bath and sleeping-zone distribution",
+                        "sleep and clothes storage"):
+            self.assertTrue(audit.match_purpose_words(
+                {"id": "X", "purpose": purpose}, self.SLEEP), purpose)
+
+    def test_matching_reads_purpose_never_the_id(self):
+        loud_id = {"id": "F09_A_PRIVACY_DISTRIBUTION_VESTIBULE",
+                   "purpose": "coal delivery"}
+        self.assertFalse(audit.match_purpose_words(loud_id, self.ENTRY))
+        self.assertFalse(audit.match_purpose_words(loud_id, self.STORAGE))
+        # ...and a bare id with no purpose at all satisfies nothing.
+        self.assertFalse(audit.match_purpose_words(
+            {"id": "F09_A_SLEEP"}, self.SLEEP))
+
+    def test_class_fallback_survives_for_sanitary(self):
+        spec = audit.UNIT_FUNCTIONS["sanitary"]
+        wet = {"id": "X", "class": "wet", "purpose": "tiled room"}
+        self.assertTrue(audit.match_purpose_words(
+            wet, spec["word_groups"], spec["class_any"]))
+        dry = {"id": "X", "class": "private", "purpose": "tiled room"}
+        self.assertFalse(audit.match_purpose_words(
+            dry, spec["word_groups"], spec["class_any"]))
+
+    def test_decorated_vestibule_satisfies_the_unit_entry_minimum(self):
+        """End to end: the ledger, not just the predicate."""
+        with TempRepo() as root:
+            def mutate(data):
+                for space in data["spaces"]:
+                    if space["id"] == "F02_A_VESTIBULE":
+                        space["purpose"] = ("2A privacy, coat storage "
+                                            "and distribution")
+            edit_v2(root, mutate)
+            _, payload, _ = run_payload(root)
+            record = req(payload, "unit.2A.entry")
+            self.assertNotEqual(record["status"], "ABSENT")
+            self.assertIn("F02_A_VESTIBULE", " ".join(record["provenance"]))
+
+    def test_a_decoy_room_inside_the_unit_does_not_satisfy_entry(self):
+        """One keyword in an unrelated room is not a vestibule."""
+        with TempRepo() as root:
+            def mutate(data):
+                for space in data["spaces"]:
+                    if space["id"] == "F02_A_VESTIBULE":
+                        # No longer an entry: only one of the two words.
+                        space["purpose"] = "2A coat and parcel storage"
+                data["spaces"].append(
+                    {"id": "F02_A_DECOY", "level": "F02", "class": "private",
+                     "rect": [20, 20, 24, 24],
+                     "purpose": "privacy screen for the bath door"})
+                data["doors"].append(
+                    {"id": "F02_A_DECOY_DOOR", "level": "F02",
+                     "center": [20, 22], "width": 0.8,
+                     "connects": ["F02_A_MAIN", "F02_A_DECOY"]})
+            edit_v2(root, mutate)
+            _, payload, _ = run_payload(root)
+            record = req(payload, "unit.2A.entry")
+            self.assertEqual(record["status"], "ABSENT")
+            self.assertIn("No entry purpose", record["notes"])
+
+
 class ScopeAndModeTests(unittest.TestCase):
     def test_clean_scope_unit_2a(self):
         code, payload, _ = run_payload(MINI_REPO, "--unit", "2A")
@@ -754,6 +862,22 @@ class LiveRepoSmokeTests(unittest.TestCase):
             self.payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
         self.assertEqual(first_slice, set())
         self.assertEqual(self.code, 2)  # the building is still blocked
+
+    def test_live_2b_entry_is_no_longer_a_false_absence(self):
+        """The vestibule is built, traversed and owner-accepted.
+
+        Under phrase containment its real purpose - "2B privacy, coat
+        storage and distribution" - failed the entry test over a comma
+        and the ledger claimed the unit had no entry at all.  It is a
+        genuine PROGRAMMED space; it still blocks FULL_BUILDING_STRUCTURAL
+        only because no admitted checkpoint backticks F02_B_VESTIBULE
+        yet, which is an evidence gap, not a missing room.
+        """
+        record = req(self.payload, "unit.2B.entry")
+        self.assertIsNotNone(record)
+        self.assertNotEqual(record["status"], "ABSENT")
+        self.assertEqual(record["notes"], "")
+        self.assertIn("F02_B_VESTIBULE", " ".join(record["provenance"]))
 
     def test_live_first_slice_banner_exact(self):
         code, out, _ = run_main("--root", str(REPO_ROOT),

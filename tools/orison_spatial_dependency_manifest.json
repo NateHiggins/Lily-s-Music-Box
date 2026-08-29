@@ -57196,7 +57196,7 @@
     "_validate_layout"
    ],
    "lines": [
-    88
+    95
    ],
    "count": 1,
    "context": [
@@ -57226,7 +57226,7 @@
     "_validate_layout"
    ],
    "lines": [
-    84
+    91
    ],
    "count": 1,
    "context": [
@@ -57256,7 +57256,7 @@
     "_validate_layout"
    ],
    "lines": [
-    85
+    92
    ],
    "count": 1,
    "context": [
@@ -57286,7 +57286,7 @@
     "_validate_layout"
    ],
    "lines": [
-    88
+    95
    ],
    "count": 1,
    "context": [
@@ -57316,7 +57316,7 @@
     "_validate_layout"
    ],
    "lines": [
-    84
+    91
    ],
    "count": 1,
    "context": [
@@ -57346,7 +57346,7 @@
     "_validate_layout"
    ],
    "lines": [
-    85
+    92
    ],
    "count": 1,
    "context": [
@@ -57376,7 +57376,7 @@
     "_validate_layout"
    ],
    "lines": [
-    84
+    91
    ],
    "count": 1,
    "context": [
@@ -57406,7 +57406,7 @@
     "_validate_layout"
    ],
    "lines": [
-    86
+    93
    ],
    "count": 1,
    "context": [
@@ -57436,7 +57436,7 @@
     "_validate_layout"
    ],
    "lines": [
-    87
+    94
    ],
    "count": 1,
    "context": [
@@ -57466,7 +57466,7 @@
     "_validate_layout"
    ],
    "lines": [
-    87
+    94
    ],
    "count": 1,
    "context": [
@@ -57496,7 +57496,7 @@
     "_validate_layout"
    ],
    "lines": [
-    86
+    93
    ],
    "count": 1,
    "context": [
@@ -57526,7 +57526,7 @@
     "_validate_layout"
    ],
    "lines": [
-    85
+    92
    ],
    "count": 1,
    "context": [
@@ -88188,6 +88188,280 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "0cb8cf2f9499080b",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_overlap_off_f04_is_refused"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "and failure.contains(\"F02\"),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7e333ffd131e1fc1",
+   "kind": "id_candidate",
+   "token": "F01_GHOST",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_more_referential_faults_are_refused"
+   ],
+   "lines": [
+    96
+   ],
+   "count": 1,
+   "context": [
+    "(window.windows[0] as Dictionary)[\"space\"] = \"F01_GHOST\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5d45a3120ed680de",
+   "kind": "id_candidate",
+   "token": "F02_A_LOBBY",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_door_to_missing_space_is_refused"
+   ],
+   "lines": [
+    81,
+    83
+   ],
+   "count": 2,
+   "context": [
+    "(layout.doors[1] as Dictionary)[\"connects\"] = [\"F02_HALL\", \"F02_A_LOBBY\"]",
+    "_check(failure.contains(\"F02_DOOR_02\") and failure.contains(\"F02_A_LOBBY\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "cc93456c81c8a6f4",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_more_referential_faults_are_refused"
+   ],
+   "lines": [
+    91
+   ],
+   "count": 1,
+   "context": [
+    "(opening.openings[0] as Dictionary)[\"connects\"] = [\"F01_VESTIBULE\", \"NOWHERE\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0dfd3469a1100064",
+   "kind": "id_reference",
+   "token": "F02_A_MAIN",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_overlap_off_f04_is_refused"
+   ],
+   "lines": [
+    72,
+    75
+   ],
+   "count": 2,
+   "context": [
+    "if str(space.id) == \"F02_A_MAIN\":",
+    "_check(failure.contains(\"F02_A_MAIN\") and failure.contains(\"F02_HALL\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2a2248f3ec436fa4",
+   "kind": "id_reference",
+   "token": "F02_DOOR_02",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_door_to_missing_space_is_refused"
+   ],
+   "lines": [
+    83
+   ],
+   "count": 1,
+   "context": [
+    "_check(failure.contains(\"F02_DOOR_02\") and failure.contains(\"F02_A_LOBBY\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "be04c2a2e072ce9d",
+   "kind": "id_reference",
+   "token": "F02_HALL",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_overlap_off_f04_is_refused",
+    "_door_to_missing_space_is_refused",
+    "_more_referential_faults_are_refused"
+   ],
+   "lines": [
+    75,
+    81,
+    119
+   ],
+   "count": 3,
+   "context": [
+    "_check(failure.contains(\"F02_A_MAIN\") and failure.contains(\"F02_HALL\")",
+    "(layout.doors[1] as Dictionary)[\"connects\"] = [\"F02_HALL\", \"F02_A_LOBBY\"]",
+    "(wrong.doors[1] as Dictionary)[\"connects\"] = [\"F02_HALL\", \"HEAT_STACK\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room",
+   "target_exists": true
+  },
+  {
+   "key": "6b970838eb39011f",
+   "kind": "id_reference",
+   "token": "HEAT_STACK",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_more_referential_faults_are_refused"
+   ],
+   "lines": [
+    119
+   ],
+   "count": 1,
+   "context": [
+    "(wrong.doors[1] as Dictionary)[\"connects\"] = [\"F02_HALL\", \"HEAT_STACK\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a4142ba2293c1e1b",
+   "kind": "id_reference",
+   "token": "PRIMARY_B1_F01",
+   "file": "game/tests/orison_v2_blockout_guard_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_dangling_stair_level_is_refused"
+   ],
+   "lines": [
+    62
+   ],
+   "count": 1,
+   "context": [
+    "_check(failure.contains(\"PRIMARY_B1_F01\") and failure.contains(\"F07\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {

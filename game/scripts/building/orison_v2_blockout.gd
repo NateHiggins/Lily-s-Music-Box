@@ -12,6 +12,8 @@ var level_y: Dictionary = {}
 var materials: Dictionary = {}
 var failures: Array[String] = []
 const SemanticAnchor := preload("res://scripts/building/orison_v2_semantic_anchor.gd")
+## Matches the tolerance the committed suite already used for overlaps.
+const OVERLAP_TOLERANCE_M2 := 0.0001
 
 func _ready() -> void:
 	layout = _load_layout(layout_path)
@@ -21,6 +23,9 @@ func _ready() -> void:
 	if not failures.is_empty():
 		for failure in failures:
 			push_error("ORISON V2: " + failure)
+		push_error("ORISON V2 BLOCKOUT REFUSED: %d validation failure(s) in %s;"
+				% [failures.size(), layout_path]
+				+ " no geometry was built and the selector group was not joined.")
 		return
 	_build_palette()
 	_build_spaces()
@@ -81,6 +86,8 @@ func _validate_layout() -> void:
 	for platform: Dictionary in layout.get("platforms", []):
 		if not _valid_rect(platform.get("rect", [])):
 			failures.append("invalid platform rect: " + str(platform.get("id", "?")))
+	_validate_references(ids)
+	_validate_room_overlaps()
 	for required in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 			"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED",
 			"F01_WATCHMAN_DETECTOR", "F01_NIGHT_REGISTER",
@@ -88,6 +95,93 @@ func _validate_layout() -> void:
 			"F02_B_RADIATOR_01", "B1_BOILER_01"]:
 		if not ids.has(required):
 			failures.append("required compatibility id missing: " + required)
+
+## Every cross-record reference must name a record the layout declares.
+## Nothing checked them before, and both failure modes were silent: a leaf
+## whose `connects` named a missing space built as a frame against the solid
+## wall it should have pierced, and a stair whose `from` named a missing
+## level threw inside _build_u_stair - which aborts only that one call, so
+## the build continued, printed its success census, joined the selector
+## group and exited 0 with the stair simply absent.
+func _validate_references(ids: Dictionary) -> void:
+	for door: Dictionary in layout.get("doors", []):
+		for target: Variant in door.get("connects", []):
+			_require_record(ids, str(door.get("id", "?")), str(target),
+					"spaces", "door connects")
+	for opening: Dictionary in layout.get("openings", []):
+		for target: Variant in opening.get("connects", []):
+			_require_record(ids, str(opening.get("id", "?")), str(target),
+					"spaces", "opening connects")
+	for window: Dictionary in layout.get("windows", []):
+		_require_record(ids, str(window.get("id", "?")),
+				str(window.get("space", "")), "spaces", "window space")
+	for landing: Dictionary in layout.get("lift_landings", []):
+		_require_record(ids, str(landing.get("id", "?")),
+				str(landing.get("shaft", "")), "risers", "lift landing shaft")
+	for stair: Dictionary in layout.get("stairs", []):
+		for key: String in ["from", "to"]:
+			_require_level(str(stair.get("id", "?")), str(stair.get(key, "")),
+					"stair " + key)
+	for edge: Dictionary in layout.get("route_edges", []):
+		for key: String in ["from", "to", "via"]:
+			_require_record(ids, str(edge.get("id", "?")), str(edge.get(key, "")),
+					"", "route edge " + key)
+	for connection: Dictionary in layout.get("service_connections", []):
+		for key: String in ["from", "to"]:
+			_require_record(ids, str(connection.get("id", "?")),
+					str(connection.get(key, "")), "", "service connection " + key)
+
+## `table` empty means "any declared record"; otherwise the reference must
+## also come from that table, so a door cannot connect to a riser.
+func _require_record(ids: Dictionary, owner: String, value: String,
+		table: String, what: String) -> void:
+	if value.is_empty():
+		failures.append("%s has an empty %s reference" % [owner, what])
+	elif not ids.has(value):
+		failures.append("%s %s references undeclared record %s"
+				% [owner, what, value])
+	elif not table.is_empty() and str(ids[value]) != table:
+		failures.append("%s %s must name a %s record, but %s is declared in %s"
+				% [owner, what, table, value, ids[value]])
+
+func _require_level(owner: String, value: String, what: String) -> void:
+	if value.is_empty():
+		failures.append("%s has an empty %s reference" % [owner, what])
+	elif not level_y.has(value):
+		failures.append("%s %s references missing level %s" % [owner, what, value])
+
+## Two rooms on one level may not interpenetrate. Overlap used to be checked
+## only in the test suite and only for hardcoded id prefixes (F04_B_*, and
+## B1_*/F02_B_*), so a newly built floor got no check at all.
+##
+## Spaces conflict only when BOTH of them build walls. An `open_shell` space
+## builds no enclosure (see _build_spaces): it is a declared zone, and the
+## street/rear aprons and the F02/F04 landing decision zones deliberately lie
+## inside a core. Marking a room open_shell to dodge this check is not a free
+## pass - the completeness ledger reports an open_shell space as SHELL_ONLY,
+## which blocks structural readiness for its floor and its unit.
+func _validate_room_overlaps() -> void:
+	var walled: Array[Dictionary] = []
+	for space: Dictionary in layout.get("spaces", []):
+		if bool(space.get("open_shell", false)):
+			continue
+		if _valid_rect(space.get("rect", [])):
+			walled.append(space)
+	for i in walled.size():
+		for j in range(i + 1, walled.size()):
+			var a: Dictionary = walled[i]
+			var b: Dictionary = walled[j]
+			if str(a.get("level", "")) != str(b.get("level", "")):
+				continue
+			var overlap := _rect_overlap_area(a.rect, b.rect)
+			if overlap > OVERLAP_TOLERANCE_M2:
+				failures.append("%s overlaps %s on level %s by %.3f m2"
+						% [str(a.id), str(b.id), str(a.get("level", "?")), overlap])
+
+func _rect_overlap_area(a: Array, b: Array) -> float:
+	var across := minf(float(a[2]), float(b[2])) - maxf(float(a[0]), float(b[0]))
+	var deep := minf(float(a[3]), float(b[3])) - maxf(float(a[1]), float(b[1]))
+	return maxf(0.0, across) * maxf(0.0, deep)
 
 func _valid_rect(value: Variant) -> bool:
 	return value is Array and value.size() == 4 \

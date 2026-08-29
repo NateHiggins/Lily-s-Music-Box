@@ -171,6 +171,37 @@ RUNTIME_PROVEN → HUMAN_ACCEPTED`, with orthogonal flags
   room, and a scene-capture receipt is never acceptance.
 - Unit functions (entry/living/cooking/sanitary/sleep/storage) match the
   v2 record's own `purpose`/`class` fields, never the id token.
+- **The domestic minimums are a word-set test, not a phrase test.** Each
+  function carries `word_groups`: a list of alternatives, where a space
+  satisfies the function when **every** word of **any one** group appears
+  in its purpose — in any order, whatever the punctuation and connectives
+  between them. Each word matches a purpose word that *starts with* it, so
+  authored inflections count ("player sleeping context" satisfies sleep).
+  The groups are:
+
+  | function | satisfied by |
+  | --- | --- |
+  | entry | *privacy* **and** *distribution* — or *weather* **and** *lock* |
+  | living | *living*, or *rest*, or *meeting*, or *conversation* |
+  | cooking | *cooking* |
+  | sanitary | *sanitary* — or `class: "wet"` |
+  | sleep | *sleep* |
+  | storage | *storage* |
+
+  Write the purpose as prose; you no longer have to reproduce a phrase
+  verbatim. What you must do is use **both** words of a two-word group:
+  "coat storage and distribution" is not an entry, because nothing in it
+  says privacy. This replaced contiguous-phrase containment, under which
+  `F02_B_VESTIBULE`'s real purpose, "2B privacy, coat storage and
+  distribution", failed the phrase "privacy and distribution" over a comma
+  and `unit.2B.entry` was reported ABSENT on a built, traversed and
+  owner-accepted vestibule.
+- The floor/service program tables (`F01_PROGRAM`, `B1_PROGRAM`,
+  `ROOF_PROGRAM`, `FLOOR_CIRCULATION`, via `match_purpose`) deliberately
+  still use phrase containment: their keywords are single words or fixed
+  compound names — "passenger lift", "primary stair", "service lift" —
+  where word order carries the meaning. Changing those is a separate
+  enumeration and has not been done.
 - Heuristic conclusions (unit membership by id grammar for units no
   checkpoint has named) are flagged `heuristic`. **The flag qualifies the
   mapping, not the status.** It records that the tool guessed *which* v2

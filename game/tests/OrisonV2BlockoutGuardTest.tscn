@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/orison_v2_blockout_guard_test.gd" id="1_guard"]
+
+[node name="OrisonV2BlockoutGuardTest" type="Node"]
+script = ExtResource("1_guard")
