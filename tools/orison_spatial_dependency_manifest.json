@@ -57824,8 +57824,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    203,
-    206
+    265,
+    268
    ],
    "count": 2,
    "context": [
@@ -57856,7 +57856,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    175
+    237
    ],
    "count": 1,
    "context": [
@@ -57887,10 +57887,10 @@
     "_compose_vantry"
    ],
    "lines": [
-    52,
-    200,
-    204,
-    207
+    54,
+    262,
+    266,
+    269
    ],
    "count": 4,
    "context": [
@@ -57923,7 +57923,7 @@
     "_ready"
    ],
    "lines": [
-    52
+    54
    ],
    "count": 1,
    "context": [
@@ -57953,7 +57953,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    172
+    234
    ],
    "count": 1,
    "context": [
@@ -57983,7 +57983,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    170
+    232
    ],
    "count": 1,
    "context": [
@@ -58013,7 +58013,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    171
+    233
    ],
    "count": 1,
    "context": [
@@ -58044,8 +58044,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    53,
-    89
+    55,
+    91
    ],
    "count": 2,
    "context": [
@@ -58076,7 +58076,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    184
+    246
    ],
    "count": 1,
    "context": [
@@ -58106,7 +58106,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    185
+    247
    ],
    "count": 1,
    "context": [
@@ -58136,7 +58136,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    186
+    248
    ],
    "count": 1,
    "context": [
@@ -58166,7 +58166,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    183
+    245
    ],
    "count": 1,
    "context": [
@@ -58196,7 +58196,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    85
+    87
    ],
    "count": 1,
    "context": [
@@ -58228,8 +58228,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    157,
-    184
+    219,
+    246
    ],
    "count": 2,
    "context": [
@@ -58262,8 +58262,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    160,
-    185
+    222,
+    247
    ],
    "count": 2,
    "context": [
@@ -58296,8 +58296,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    163,
-    186
+    225,
+    248
    ],
    "count": 2,
    "context": [
@@ -58330,8 +58330,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    154,
-    183
+    216,
+    245
    ],
    "count": 2,
    "context": [
@@ -58363,7 +58363,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    83
+    85
    ],
    "count": 1,
    "context": [
@@ -58394,7 +58394,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    76
+    78
    ],
    "count": 1,
    "context": [
@@ -58425,7 +58425,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    77
+    79
    ],
    "count": 1,
    "context": [
@@ -58456,7 +58456,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    86
+    88
    ],
    "count": 1,
    "context": [
@@ -58488,8 +58488,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    83,
-    206
+    85,
+    268
    ],
    "count": 2,
    "context": [
@@ -58517,14 +58517,47 @@
    "tier": "production",
    "subsystem": "building",
    "symbols": [
+    "_compose_observation_ledger",
     "_compose_service_round_props"
    ],
    "lines": [
-    166
+    187,
+    228
+   ],
+   "count": 2,
+   "context": [
+    "{\"npc\": ServiceRoundDirector.RESIDENT_ID, \"unit\": \"2B\"},",
+    "radiator.unit = \"2B\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "55bf1978aa887283",
+   "kind": "unit_reference",
+   "token": "3B",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_observation_ledger"
+   ],
+   "lines": [
+    188
    ],
    "count": 1,
    "context": [
-    "radiator.unit = \"2B\""
+    "{\"npc\": \"omar_bell\", \"unit\": \"3B\"},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -58550,7 +58583,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    92
+    94
    ],
    "count": 1,
    "context": [
@@ -74072,8 +74105,8 @@
     "_production_shell_smoke"
    ],
    "lines": [
-    265,
-    267
+    280,
+    282
    ],
    "count": 2,
    "context": [
@@ -74136,13 +74169,13 @@
     "_production_shell_smoke"
    ],
    "lines": [
-    271,
-    273
+    286,
+    288
    ],
    "count": 2,
    "context": [
-    "root.elevator.global_position + Vector3(0.0, 0.2, 0.0))",
-    "root.elevator.global_position + Vector3(2.0, 0.2, 0.0)))"
+    "lift.global_position + Vector3(0.0, 0.2, 0.0))",
+    "lift.global_position + Vector3(2.0, 0.2, 0.0)))"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -94040,6 +94073,74 @@
    "confidence": "HIGH",
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "34f90e531492f280",
+   "kind": "id_reference",
+   "token": "F02_B_RADIATOR_01",
+   "file": "game/tests/orison_v2_presence_ledger_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [
+    "const RADIATOR_NODE := \"F02_B_RADIATOR_01\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fdc995d92f7a96a5",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/tests/orison_v2_presence_ledger_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    71,
+    72,
+    85,
+    86,
+    95,
+    105
+   ],
+   "count": 6,
+   "context": [
+    "var seen_home := world.observation_ledger.witness_visible_state(\"2B\",",
+    "\"saw_open_union\", {\"source_unit\": \"2B\"})",
+    "var seen_out := world.observation_ledger.witness_visible_state(\"2B\",",
+    "\"saw_tool_marks\", {\"source_unit\": \"2B\"})"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
    "target_exists": true
   },
   {

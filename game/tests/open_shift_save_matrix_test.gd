@@ -24,7 +24,13 @@ func _ready() -> void:
 	RealityState.save_path = original_path
 	RealityState.persistence_enabled = false
 	Selector.reset_for_tests()
-	_check(Selector.selected_id() == "v1", "committed selector default remains v1")
+	# The COMMITTED default is the constant, not the resolved session id:
+	# after reset_for_tests() selected_id() re-reads ORISON_BUILDING_ROOT,
+	# so this check reported a false failure for the whole suite whenever
+	# it ran under an explicit v2 environment — the very selection the
+	# matrix above exercises. DEFAULT_ID is what the label claims, and is
+	# what orison_v2_m08f_runtime_test.gd asserts for the same contract.
+	_check(Selector.DEFAULT_ID == "v1", "committed selector default remains v1")
 	print("OPEN SHIFT SAVE MATRIX: %d/%d PASS" % [passes,
 			DISPOSITIONS.size() * DIRECTIONS.size() + 1])
 	get_tree().quit(failures)

@@ -24,6 +24,8 @@ var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
 var open_shift_ecosystem: Node
+var observation_ledger: NpcObservationLedger
+var resident_presence: ScheduleDirector
 var watch_station_network: WatchStationNetwork
 var street_traffic: Node = null
 var elevator: Node = null
@@ -141,12 +143,72 @@ func _compose_authorities() -> void:
 			ServiceRoundDirector.RADIATOR_ID) as RadiatorProp
 	if open_shift_radiator:
 		open_shift_radiator.bind_inventory(maintenance_inventory)
+	_compose_observation_ledger()
 	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
-			service_round, Callable())
+			service_round, Callable(), observation_ledger)
 	safety_net = SafetyNet.new()
 	safety_net.name = "SafetyNet"
 	safety_net.setup(player)
 	add_child(safety_net)
+
+## WHO IS ACTUALLY HOME TO SEE IT.
+##
+## The observation ledger gates in-flat sight on presence, and an unbound
+## provider means "assume home" (npc_observation_ledger.gd:107-110): every
+## resident is treated as standing in their own flat at the instant of
+## every visible event. Lena could therefore earn a durable
+## `in_home_sight` belief — committed with provenance, deduped forever —
+## while her own timetable had her out on a corridor round. The ledger's
+## contract is that nothing else may author NPC knowledge; assume-home
+## quietly authored it.
+##
+## The timetable is the authority that already owns this fact, and it
+## owns it as DATA: `ScheduleDirector.resolve()` is pure over
+## res://data/resident_schedules.json and needs no resident body, no floor
+## node and no layout geometry. v2 has neither bodies nor routines, so the
+## director's DISPATCH half stays inert here — its target is null and
+## `_process` returns immediately (schedule_director.gd:99-101). Only the
+## resolution half is used, which is the half that answers the question.
+func _compose_observation_ledger() -> void:
+	resident_presence = ScheduleDirector.new()
+	resident_presence.name = "ResidentPresenceTimetable"
+	add_child(resident_presence)
+	resident_presence.setup(null, layout)
+	observation_ledger = NpcObservationLedger.new()
+	observation_ledger.name = "ObservationLedger"
+	add_child(observation_ledger)
+	# ONE clock for both halves. The situation's own durable simulation
+	# minutes stamp the belief and place the resident at that same minute,
+	# so a belief can never be dated to a time at which its witness was
+	# somewhere else. Lazy by Callable: the situation exists before any
+	# observation is recorded.
+	var clock := Callable(open_shift_ecosystem, "now_minutes")
+	observation_ledger.setup([
+		{"npc": ServiceRoundDirector.RESIDENT_ID, "unit": "2B"},
+		{"npc": "omar_bell", "unit": "3B"},
+	], clock, get_tree().root.get_node_or_null("AcousticGraphData"),
+			Callable(self, "resident_is_home"))
+
+
+## True only while the resident's own authored timetable puts them inside
+## their flat. Reads the `place` token rather than ScheduleDirector's
+## mapped directive deliberately: the mapped form resolves world POINTS
+## through v1 layout coordinates, which do not exist in this building,
+## while the place token is the authored fact itself and needs no
+## geometry. Degrades to the ledger's own assume-home if the timetable
+## data is unavailable, rather than inventing an absence.
+func resident_is_home(npc: String) -> bool:
+	if resident_presence == null or resident_presence.data.is_empty():
+		return true
+	if open_shift_ecosystem == null:
+		return true
+	var info := resident_presence.day_info()
+	var block := resident_presence.resolve(npc, str(info.day),
+			float(open_shift_ecosystem.now_minutes()), int(info.doy),
+			bool(info.first_sat))
+	var place := str(block.get("place", "unit"))
+	return place.is_empty() or place.begins_with("unit")
+
 
 func _compose_service_round_props() -> void:
 	var detector := WatchmanClockProp.new()
