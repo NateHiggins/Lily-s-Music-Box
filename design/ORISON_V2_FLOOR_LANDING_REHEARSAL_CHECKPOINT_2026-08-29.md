@@ -73,6 +73,23 @@ The label is corrected in T2.
 
 ## Defects and caveats
 
+> **Management reconciliation, 2026-08-29.** D1 and D2 are **CLOSED** by
+> DEV-GUARD-1 (`568a6c2`), which installed the refusals in
+> `orison_v2_blockout.gd` itself rather than in the test lane. The
+> ownership lines below ("the spatial-construction owner … Not fixed
+> here") were correct when written and are now historical: management
+> ruled that guardrails are not geometry authoring, so the person who
+> would trip the wire should not also have to install it. Overlap now
+> runs on every level, discriminating on `open_shell` (spaces that
+> build no enclosure cannot physically conflict; the four such spaces
+> are the two aprons and the two landing voids, and every real overlap
+> involves one). Referential integrity now covers `connects`, `space`,
+> `shaft`, `from`/`to`, route edges and service connections, including
+> wrong-table references, and any failure aborts the build with no
+> success census and no selector-group membership. The caveats below
+> (C1, the purpose predicate) stand as written; the predicate itself
+> was hardened in the same commit — see the note under C-purpose.
+
 **D1 — Overlapping rooms build silently. BROKEN.**
 `_validate_layout` checks rect *validity* (four numbers, x0&lt;x2, y0&lt;y2)
 but never rect *disjointness*. A floor whose rooms overlap validates, builds

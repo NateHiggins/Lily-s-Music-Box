@@ -61,6 +61,13 @@ full-building-structural` enumerates your exact spatial list.
    Sealed units 2D/3C/5D/6D need only public thresholds.
 5. F01 staff restroom is absent from the v2 program — schedule it or
    mark it deliberately deferred.
+6. **Cheapest blocker on the board:** unit.2B.entry blocks STRUCTURAL
+   only because no admitted checkpoint ever names **F02_B_VESTIBULE**.
+   The vestibule is built, walked and owner-accepted; the ledger just
+   has no proof naming it. Backtick that id in a checkpoint and the
+   blocker clears. Sweep your other accepted-but-unnamed spaces the
+   same way — **F01_WATCH** is the other known one. Neither needs a
+   single line of geometry.
 
 ## The blocker count goes UP when you build correctly — expect it
 
