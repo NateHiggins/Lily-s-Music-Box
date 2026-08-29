@@ -624,7 +624,12 @@ class ChronologyTests(unittest.TestCase):
         # An M08D-class doc that backticks the id while it is a known
         # negative-evidence subject: a mention of absence.
         (root / "design" /
-         "ORISON_V2_MINI_M08D_PARITY_NOTE_2026-08-28.md").write_text(
+         # Checkpoint-shaped on purpose: this fixture is the vehicle for
+         # the chronology rule below, so it has to be a document the
+         # evidence allowlist actually admits.  Its epoch still comes
+         # from the M08D marker.
+         "ORISON_V2_MINI_M08D_PARITY_NOTE_CHECKPOINT_2026-08-28.md"
+         ).write_text(
             "# Mini M08D parity note (synthetic fixture)\n\n"
             "Status: PARITY (fixture).\n\n"
             "`F01_NIGHT_REGISTER` and `B1_BOILER_01` are not present in "
@@ -661,7 +666,12 @@ class ChronologyTests(unittest.TestCase):
         with TempRepo() as root:
             self.add_ritual_anchors(root)
             (root / "design" /
-             "ORISON_V2_MINI_M08F_SUMMARY_2026-08-28.md").write_text(
+             # Checkpoint-shaped on purpose: the rule under test is the
+             # epoch CAP (a late generic mention reaches SPATIALLY_PROVEN
+             # and no further), which needs a document that is admitted
+             # as evidence in the first place.
+             "ORISON_V2_MINI_M08F_SUMMARY_CHECKPOINT_2026-08-28.md"
+             ).write_text(
                 "# Mini M08F summary (synthetic fixture)\n\n"
                 "Status: NOTES (fixture).\n\n"
                 "This later document merely mentions "
@@ -824,6 +834,173 @@ class LiveRepoSmokeTests(unittest.TestCase):
         coverage = self.payload["v1_room_coverage"]
         self.assertGreater(len(coverage["unrepresented"]), 90)
         self.assertIn("B1_BOILER", coverage["unrepresented"])
+
+
+class EvidenceIntakeTests(unittest.TestCase):
+    """Prose must not be able to satisfy the requirements it describes.
+
+    The subject is `circ.F01.public_core`, which the mini repo leaves at
+    PROGRAMMED: its space exists in the v2 layout but no fixture
+    checkpoint backticks it.  Each test below writes ONE document that
+    backticks it and differs only in what the filename claims the
+    document is.
+    """
+
+    SUBJECT = "circ.F01.public_core"
+    BODY = ("# Synthetic document\n\nThis prose mentions `F01_PUBLIC_CORE` "
+            "while proving nothing about it.\n")
+
+    def _write(self, root, name):
+        (root / "design" / name).write_text(self.BODY, encoding="utf-8")
+
+    def test_report_shaped_document_cannot_promote(self):
+        with TempRepo() as root:
+            self._write(root, "ORISON_V2_MINI_RUNWAY_REPORT_2026-08-28.md")
+            code, payload, _ = run_payload(root)
+            self.assertEqual(code, 2)
+            self.assertEqual(req(payload, self.SUBJECT)["status"],
+                             "PROGRAMMED")
+
+    def test_checkpoint_shaped_document_still_promotes(self):
+        with TempRepo() as root:
+            self._write(root, "ORISON_V2_MINI_CORE_CHECKPOINT_2026-08-28.md")
+            code, payload, _ = run_payload(root)
+            self.assertEqual(code, 2)
+            self.assertEqual(req(payload, self.SUBJECT)["status"],
+                             "SPATIALLY_PROVEN")
+
+    def test_same_bytes_promote_or_not_by_document_class_alone(self):
+        """The two cases above differ only in the filename."""
+        with TempRepo() as root:
+            self._write(root, "ORISON_V2_MINI_HANDOFF_2026-08-28.md")
+            _, refused, _ = run_payload(root)
+        with TempRepo() as root:
+            self._write(root, "ORISON_V2_MINI_CORE_CHECKPOINT_2026-08-28.md")
+            _, admitted, _ = run_payload(root)
+        self.assertNotEqual(req(refused, self.SUBJECT)["status"],
+                            req(admitted, self.SUBJECT)["status"])
+
+    def test_refusal_is_listed_never_silent(self):
+        with TempRepo() as root:
+            self._write(root, "ORISON_V2_MINI_CONSUMER_CENSUS_2026-08-28.md")
+            code, payload, _ = run_payload(root)
+            refused = {e["file"]: e["reason"]
+                       for e in payload["evidence_intake"]["not_evidence"]}
+            key = "design/ORISON_V2_MINI_CONSUMER_CENSUS_2026-08-28.md"
+            self.assertIn(key, refused)
+            self.assertIn("census", refused[key])
+            admitted = [e["file"]
+                        for e in payload["evidence_intake"]["admitted"]]
+            self.assertNotIn(key, admitted)
+            for entry in payload["evidence_intake"]["admitted"]:
+                self.assertIn("marker", entry)
+
+    def test_verbose_prints_the_intake_decision(self):
+        with TempRepo() as root:
+            self._write(root, "ORISON_V2_MINI_READINESS_AUDIT_2026-08-28.md")
+            code, out, _ = run_main("--root", str(root), "--verbose")
+            self.assertIn("not evidence", out)
+            self.assertIn("ORISON_V2_MINI_READINESS_AUDIT_2026-08-28.md",
+                          out)
+            self.assertIn("evidence admitted", out)
+            self.assertIn("ORISON_V2_MINI_GRAYBOX_CHECKPOINT_2026-08-28.md",
+                          out)
+
+    def test_refused_document_is_not_an_input_of_record(self):
+        """A document that cannot influence a conclusion is not hashed
+        into provenance as though it had."""
+        with TempRepo() as root:
+            self._write(root, "ORISON_V2_MINI_RUNWAY_REPORT_2026-08-28.md")
+            _, payload, _ = run_payload(root)
+            self.assertNotIn(
+                "design/ORISON_V2_MINI_RUNWAY_REPORT_2026-08-28.md",
+                payload["provenance"])
+            self.assertIn(
+                "design/ORISON_V2_MINI_GRAYBOX_CHECKPOINT_2026-08-28.md",
+                payload["provenance"])
+
+    def test_intake_is_deterministic(self):
+        with TempRepo() as root:
+            self._write(root, "ORISON_V2_MINI_RUNWAY_REPORT_2026-08-28.md")
+            first = run_main("--root", str(root), "--verbose")[1]
+            second = run_main("--root", str(root), "--verbose")[1]
+            self.assertEqual(first, second)
+            _, p1, _ = run_payload(root)
+            _, p2, _ = run_payload(root)
+            self.assertEqual(json.dumps(p1["evidence_intake"]),
+                             json.dumps(p2["evidence_intake"]))
+
+    def test_marker_helpers(self):
+        self.assertEqual(audit.evidence_marker(
+            "ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md"), "CHECKPOINT")
+        self.assertEqual(audit.evidence_marker(
+            "ORISON_V2_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md"),
+            "ACCEPTANCE")
+        self.assertIsNone(audit.evidence_marker(
+            "ORISON_V2_SEPT3_REBUILD_HANDOFF_2026-08-28.md"))
+        self.assertIsNone(audit.evidence_marker(
+            "ORISON_V2_COMPOSITION_CENSUS_2026-08-28.md"))
+        self.assertIn("work order", audit.non_evidence_reason(
+            "ORISON_V2_SEPT3_REBUILD_HANDOFF_2026-08-28.md"))
+
+
+class EvidenceImpactTests(unittest.TestCase):
+    """--evidence-impact answers the question by hand-diffing before."""
+
+    SUBJECT = "circ.F01.public_core"
+    BODY = ("# Synthetic document\n\nMentions `F01_PUBLIC_CORE`.\n")
+
+    def test_candidate_report_is_inert_and_exits_zero(self):
+        with TempRepo() as root:
+            candidate = root / "ORISON_V2_MINI_RUNWAY_REPORT_2026-08-28.md"
+            candidate.write_text(self.BODY, encoding="utf-8")
+            code, out, _ = run_main("--root", str(root),
+                                    "--evidence-impact", str(candidate))
+            self.assertEqual(code, 0)
+            self.assertIn("NOT evidence", out)
+            self.assertIn("changes no requirement status", out)
+
+    def test_candidate_checkpoint_reports_what_it_would_promote(self):
+        with TempRepo() as root:
+            candidate = root / "ORISON_V2_MINI_CORE_CHECKPOINT_2026-08-28.md"
+            candidate.write_text(self.BODY, encoding="utf-8")
+            code, out, _ = run_main("--root", str(root),
+                                    "--evidence-impact", str(candidate))
+            self.assertEqual(code, 1)
+            self.assertIn("admitted as evidence", out)
+            self.assertIn(self.SUBJECT, out)
+            self.assertIn("SPATIALLY_PROVEN", out)
+
+    def test_impact_works_on_a_document_already_in_the_design_dir(self):
+        with TempRepo() as root:
+            doc = root / "design" / \
+                "ORISON_V2_MINI_CORE_CHECKPOINT_2026-08-28.md"
+            doc.write_text(self.BODY, encoding="utf-8")
+            code, payload, _ = run_main("--root", str(root), "--json",
+                                        "--evidence-impact", str(doc))
+            data = json.loads(payload)
+            self.assertEqual(code, 1)
+            self.assertTrue(data["admitted_as_evidence"])
+            ids = [c["id"] for c in data["requirements_changed"]]
+            self.assertIn(self.SUBJECT, ids)
+
+    def test_impact_leaves_the_design_directory_as_it_found_it(self):
+        with TempRepo() as root:
+            before = sorted(p.name for p in (root / "design").iterdir())
+            candidate = root / "ORISON_V2_MINI_CORE_CHECKPOINT_2026-08-28.md"
+            candidate.write_text(self.BODY, encoding="utf-8")
+            run_main("--root", str(root), "--evidence-impact",
+                     str(candidate))
+            after = sorted(p.name for p in (root / "design").iterdir())
+            self.assertEqual(before, after)
+
+    def test_impact_refuses_a_missing_file(self):
+        with TempRepo() as root:
+            code, _, err = run_main("--root", str(root),
+                                    "--evidence-impact",
+                                    str(root / "nope.md"))
+            self.assertEqual(code, 3)
+            self.assertIn("not a file", err)
 
 
 if __name__ == "__main__":
