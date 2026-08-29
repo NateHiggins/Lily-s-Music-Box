@@ -86,16 +86,30 @@ python tools/tests/test_orison_spatial_dependencies.py
 python tools/tests/test_systemic_situation_authority.py
 ```
 
-**Prose-promotion hazard — read before writing any design doc.** The
-completeness tool globs `design/ORISON_V2_*.md` as checkpoint evidence
-and promotes any space whose id appears in backticks. A report that
-merely *describes* a space can therefore silently satisfy the
-requirement it was describing. This document did exactly that: it
-promoted circ.F02.service_route while complaining that the service
-hall has no declared opening, under-reporting main by one structural /
-cutover / retirement blocker until corrected. Write identifiers in
-**bold**, not backticks, in any non-checkpoint document, and diff the
-ledger with and without your new file before committing it.
+**Document naming decides what can prove anything — read this before
+writing any design doc.** The completeness tool once read every
+`design/ORISON_V2_*.md` as evidence and promoted any space whose id it
+found backticked, so reports satisfied the requirements they merely
+described (this pack did it to circ.F02.service_route; the M08E
+dimensioned schedule did it to f01.watch_station and
+service.heat_stack). Intake is now an explicit allowlist on the
+**filename**: CHECKPOINT, GRAYBOX, ACCEPTANCE, RECEIPT, VERTICAL_CORE,
+SCHEMA_GENERATOR. Consequences for you, both directions:
+
+- A report, census, schedule, audit or handoff is inert. Backtick
+  freely; it proves nothing.
+- **A checkpoint that does not carry a marker in its name proves
+  nothing either.** If you name your M11 floor proof
+  `..._M11_FLOORS_REPORT.md`, the ledger will not credit the work.
+  Name proofs `..._CHECKPOINT.md` / `..._ACCEPTANCE.md`.
+- **Backtick the exact space and anchor ids you actually proved** in
+  those checkpoints — that is the only thing that promotes them.
+  f01.watch_station currently blocks STRUCTURAL precisely because the
+  real M08E spatial-owners checkpoint never names F01_WATCH, even
+  though the station was built and accepted.
+- Before committing any new design file, check what it would do:
+  `python tools/audit_orison_v2_completeness.py --evidence-impact <path>`
+  (exit 0 inert, 1 promoting).
 
 **Runner truth notice:** before 2026-08-28, `tools/run_godot_serial.ps1`
 never propagated a real exit code (a PowerShell 5.1 `Start-Process`
