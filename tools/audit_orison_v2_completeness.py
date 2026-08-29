@@ -366,6 +366,66 @@ DOC_EPOCH_MARKERS = [
     ("M08A", 4), ("M09", 10), ("M08", 3),
 ]
 
+# --- Evidence intake policy -------------------------------------------
+# WHAT IS ALLOWED TO PROVE SOMETHING.
+#
+# This used to be `design/ORISON_V2_*.md` minus an ad-hoc "COMPLETENESS"
+# exclusion, which meant a document satisfied the requirements it merely
+# DESCRIBED: a report, a census, a handoff or an audit that backticked a
+# space id promoted that space.  Two documents did exactly that, one of
+# them shipped.  Prose about the building is not the building.
+#
+# Intake is therefore an explicit allowlist of what a document CLAIMS TO
+# BE, read from its name: a checkpoint (a milestone's own record of what
+# was built and proved) or an acceptance receipt (a human verdict).
+# Everything else that matches the family glob is reported as
+# `not evidence` rather than dropped silently — see --verbose and the
+# `evidence_intake` block of --json.  Adding a marker here grants real
+# promoting power, so add one only for a document class that is itself
+# proof.
+EVIDENCE_NAME_MARKERS = (
+    "CHECKPOINT",        # every milestone/gray-box/vertical-core record
+    "GRAYBOX",           # a gray-box record not named ...CHECKPOINT...
+    "ACCEPTANCE",        # acceptance hardening and human acceptance
+    "RECEIPT",           # human acceptance receipts carried as prose
+    "VERTICAL_CORE",     # the vertical-core milestone record
+    "SCHEMA_GENERATOR",  # the generator milestone record
+)
+# Reported as the reason in `not evidence` lines, longest match first so
+# the most specific description of a document wins.
+NON_EVIDENCE_KINDS = [
+    ("COMPLETENESS_LEDGER_GUIDE", "this tool's own usage guide"),
+    ("COMPLETENESS_AUDIT", "this tool's own companion report"),
+    ("READINESS_AUDIT", "audit prose, not a milestone record"),
+    ("CONSUMER_CENSUS", "census prose, not a milestone record"),
+    ("COMPOSITION_CENSUS", "census prose, not a milestone record"),
+    ("CENSUS", "census prose, not a milestone record"),
+    ("HANDOFF", "work order for a future milestone"),
+    ("DIMENSIONED_SCHEDULE", "construction basis authored ahead of the "
+                             "schema; a plan, not a proof"),
+    ("RUNWAY_REPORT", "report prose, not a milestone record"),
+    ("REPORT", "report prose, not a milestone record"),
+    ("AUDIT", "audit prose, not a milestone record"),
+    ("GUIDE", "documentation, not a milestone record"),
+]
+
+
+def evidence_marker(name: str) -> str | None:
+    """The allowlist marker that admits this document as evidence, or
+    None.  Name-only: an excluded document is never even read, so it
+    cannot influence a conclusion by accident."""
+    for marker in EVIDENCE_NAME_MARKERS:
+        if marker in name:
+            return marker
+    return None
+
+
+def non_evidence_reason(name: str) -> str:
+    for marker, reason in NON_EVIDENCE_KINDS:
+        if marker in name:
+            return reason
+    return "not a checkpoint or acceptance receipt"
+
 
 def doc_epoch(name: str) -> int:
     for marker, epoch in DOC_EPOCH_MARKERS:
@@ -458,6 +518,7 @@ class Inputs:
     def __init__(self, root: Path, args):
         self.root = root
         self.provenance: dict[str, str] = {}
+        self.admitted_evidence: list[dict] = []
 
         v1_path = Path(args.v1_layout) if args.v1_layout else None
         if v1_path is None:
@@ -518,16 +579,27 @@ class Inputs:
             self._record(acc)
 
         self.checkpoints = []
+        self.non_evidence: list[dict] = []
+        exclude = getattr(args, "_exclude_doc", None)
         if design_dir.is_dir():
             for doc in sorted(design_dir.glob("ORISON_V2_*.md")):
-                if "COMPLETENESS" in doc.name:
-                    # The ledger's own guide/report are outputs of this
-                    # tool, never evidence inputs.
-                    continue
-                text = doc.read_text(encoding="utf-8", errors="replace")
                 rel = doc.relative_to(root).as_posix() \
                     if doc.is_relative_to(root) else str(doc)
+                if exclude is not None and doc.resolve() == exclude:
+                    continue
+                marker = evidence_marker(doc.name)
+                if marker is None:
+                    # Named, never read: an excluded document cannot
+                    # influence a conclusion even by accident.
+                    self.non_evidence.append(
+                        {"file": rel,
+                         "reason": non_evidence_reason(doc.name)})
+                    continue
+                text = doc.read_text(encoding="utf-8", errors="replace")
                 self.checkpoints.append((rel, text))
+                self.admitted_evidence.append(
+                    {"file": rel, "marker": marker,
+                     "epoch": doc_epoch(doc.name)})
                 self._record(doc)
 
         contract = design_dir / Path(CONTRACT_DOC).name
@@ -2024,6 +2096,17 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--baseline",
                         help="prior ledger JSON, or a prior v2 layout "
                              "JSON, to diff against")
+    parser.add_argument("--verbose", action="store_true",
+                        help="also list every design/ORISON_V2_*.md that "
+                             "was admitted as evidence and every one "
+                             "refused, with the reason")
+    parser.add_argument("--evidence-impact", metavar="PATH",
+                        help="report whether this design document changes "
+                             "any requirement's status. Works for a "
+                             "candidate file that is not committed yet "
+                             "and for one already in the design "
+                             "directory; exits 0 when it changes nothing, "
+                             "1 when it does.")
     parser.add_argument("--json", action="store_true", dest="as_json")
     parser.add_argument("--markdown", action="store_true")
     parser.add_argument("--out", help="directory for ledger reports "
@@ -2064,6 +2147,103 @@ def query_scopes(args) -> list[str]:
     return []
 
 
+def _status_map(requirements: list[dict]) -> dict[str, tuple]:
+    return {r["id"]: (r["status"], tuple(r["blocking_scopes"]))
+            for r in requirements}
+
+
+def evidence_impact(args) -> int:
+    """Answer, for one design document: does the ledger say anything
+    different because this file exists?
+
+    The check both ways round.  For a candidate that is not committed
+    yet it is 'would adding this change a status'; for a file already in
+    the design directory it is 'is this file changing a status right
+    now'.  Both are the same comparison — the ledger without the
+    document against the ledger with it — so one flag answers the
+    question a reviewer actually has.
+    """
+    root = Path(args.root).resolve()
+    if not root.is_dir():
+        raise AuditError(f"root {root} is not a directory")
+    target = Path(args.evidence_impact)
+    if not target.is_absolute():
+        target = root / target
+    if not target.is_file():
+        raise AuditError(f"evidence-impact target {target} is not a file")
+    resolved = target.resolve()
+
+    marker = evidence_marker(target.name)
+    admissible = marker is not None and target.name.startswith("ORISON_V2_") \
+        and target.suffix == ".md"
+
+    without = argparse.Namespace(**vars(args))
+    without._exclude_doc = resolved
+    base_ledger = Ledger(Inputs(root, without))
+
+    design_dir = Inputs(root, without).design_dir
+    in_design_dir = resolved.parent == design_dir.resolve()
+    staged: Path | None = None
+    try:
+        if not in_design_dir:
+            # Evaluate a candidate in place: copy it beside the real
+            # evidence under its own name, measure, then remove it.
+            staged = design_dir / target.name
+            if staged.exists():
+                raise AuditError(
+                    f"cannot stage {target.name}: a file of that name "
+                    f"already exists in {design_dir}")
+            staged.write_bytes(target.read_bytes())
+        with_args = argparse.Namespace(**vars(args))
+        with_args._exclude_doc = None
+        with_ledger = Ledger(Inputs(root, with_args))
+    finally:
+        if staged is not None and staged.exists():
+            staged.unlink()
+
+    before = _status_map(base_ledger.requirements)
+    after = _status_map(with_ledger.requirements)
+    changed = []
+    for rid in sorted(set(before) | set(after)):
+        if before.get(rid) != after.get(rid):
+            b = before.get(rid, ("<absent>", ()))
+            a = after.get(rid, ("<absent>", ()))
+            changed.append({
+                "id": rid,
+                "status_before": b[0], "status_after": a[0],
+                "blocking_before": list(b[1]), "blocking_after": list(a[1]),
+            })
+
+    rel = resolved.relative_to(root).as_posix() \
+        if resolved.is_relative_to(root) else str(resolved)
+    payload = {
+        "tool_version": TOOL_VERSION,
+        "document": rel,
+        "admitted_as_evidence": admissible,
+        "evidence_marker": marker,
+        "reason": None if admissible else non_evidence_reason(target.name),
+        "requirements_changed": changed,
+    }
+    if args.as_json:
+        print(json.dumps(payload, indent=1, sort_keys=False))
+    else:
+        print(f"evidence impact: {rel}")
+        if admissible:
+            print(f"  admitted as evidence (marker {marker}, "
+                  f"epoch {doc_epoch(target.name)})")
+        else:
+            print(f"  NOT evidence ({payload['reason']})")
+        if not changed:
+            print("  changes no requirement status. Prose is inert.")
+        else:
+            print(f"  CHANGES {len(changed)} requirement(s):")
+            for entry in changed:
+                print("    %s: %s -> %s" % (entry["id"],
+                                            entry["status_before"],
+                                            entry["status_after"]))
+    return 1 if changed else 0
+
+
 def main(argv=None) -> int:
     try:
         args = build_parser().parse_args(argv)
@@ -2080,6 +2260,8 @@ def main(argv=None) -> int:
 
 
 def run(args) -> int:
+    if getattr(args, "evidence_impact", None):
+        return evidence_impact(args)
     root = Path(args.root).resolve()
     if not root.is_dir():
         raise AuditError(f"root {root} is not a directory")
@@ -2111,6 +2293,10 @@ def run(args) -> int:
         "unresolved": [r for r in scoped
                        if r["heuristic"] and r["blocking_scopes"]],
         "queue": queue,
+        "evidence_intake": {
+            "admitted": inputs.admitted_evidence,
+            "not_evidence": inputs.non_evidence,
+        },
         "provenance": inputs.provenance,
     }
 
@@ -2186,6 +2372,15 @@ def run(args) -> int:
                 print(f"  {mark} {record['id']} [{record['status']}]")
         if banner:
             print(banner)
+        if args.verbose:
+            print("evidence admitted (%d):"
+                  % len(inputs.admitted_evidence))
+            for entry in inputs.admitted_evidence:
+                print("  + %s [%s, epoch %d]"
+                      % (entry["file"], entry["marker"], entry["epoch"]))
+            print("not evidence (%d):" % len(inputs.non_evidence))
+            for entry in inputs.non_evidence:
+                print("  - %s (%s)" % (entry["file"], entry["reason"]))
         print("queue:")
         for item in queue:
             print(f"  {item['id']}: {len(item['outstanding'])} "

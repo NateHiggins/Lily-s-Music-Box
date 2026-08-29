@@ -33,7 +33,48 @@ python tools/audit_orison_v2_completeness.py --blockers-for production-cutover
 python tools/audit_orison_v2_completeness.py --blockers-for retirement
 python tools/audit_orison_v2_completeness.py --baseline prior_ledger_or_v2_layout.json
 python tools/audit_orison_v2_completeness.py --out <dir>     # write JSON+MD reports
+python tools/audit_orison_v2_completeness.py --verbose       # show the evidence-intake decision
+python tools/audit_orison_v2_completeness.py --evidence-impact design/MY_NEW_DOC.md
 ```
+
+## What is allowed to be evidence
+
+**Prose about the building is not the building.** Intake was once
+`design/ORISON_V2_*.md` minus an ad-hoc `COMPLETENESS` exclusion, so a
+report, census, handoff or audit satisfied the requirements it merely
+*described* — backtick a space id anywhere in the file and that space
+was promoted. Two shipped documents did exactly that.
+
+A document is admitted only if its **name** says it is a checkpoint or
+an acceptance receipt: markers `CHECKPOINT`, `GRAYBOX`, `ACCEPTANCE`,
+`RECEIPT`, `VERTICAL_CORE`, `SCHEMA_GENERATOR` (`EVIDENCE_NAME_MARKERS`
+at the top of the tool). The decision is name-only, so a refused
+document is never even read and cannot influence a conclusion by
+accident. Everything else matching the family glob is reported as
+`not evidence` with a reason — `--verbose` prints both lists, and
+`--json` carries them in `evidence_intake`. Refused documents are not
+hashed into `provenance` either, because they are not inputs.
+
+**Naming a document therefore decides whether it can prove anything.**
+If you are writing a report, a census, a runway/readiness audit or a
+handoff, its name will keep it inert and you may use backticks freely.
+If you must give a non-checkpoint document a checkpoint-shaped name,
+check what it would do first:
+
+```bash
+python tools/audit_orison_v2_completeness.py --evidence-impact design/MY_NEW_DOC.md
+```
+
+That compares the ledger without the document against the ledger with
+it and prints every requirement whose status would move — **exit 0 when
+it changes nothing, 1 when it does**. It works both for a candidate file
+that is not committed yet and for one already in `design/`, so it also
+answers "is this shipped document quietly promoting something?". A
+candidate outside `design/` is staged there for the measurement and
+removed again; the directory is left exactly as found.
+
+Adding a marker to `EVIDENCE_NAME_MARKERS` grants real promoting power.
+Add one only for a document class that is itself proof.
 
 Input overrides: `--root`, `--v1-layout`, `--v2-layout`, `--design-dir`,
 `--dependency-manifest`, `--acceptance`. `--blockers-only` survives as a
@@ -69,7 +110,9 @@ PRODUCTION_CUTOVER and V1_RETIREMENT, the operational definition of
 "the Orison rebuild is complete" · `1` only V1_RETIREMENT-scope work
 remains in scope · `2` a production-cutover-or-earlier blocker is in
 scope (with `--blockers-for`, a blocker for that scope) · `3` malformed
-input / refused output / usage · `70` internal failure. The unfiltered
+input / refused output / usage · `70` internal failure.
+`--evidence-impact` replaces these with its own two-value answer: `0`
+the document moves no requirement, `1` it moves at least one. The unfiltered
 run stays nonzero until the whole rebuild is complete; today it exits
 `2`, and that is correct, not a tool failure.
 
@@ -93,7 +136,10 @@ RUNTIME_PROVEN → HUMAN_ACCEPTED`, with orthogonal flags
   SHELL_ONLY. An anchor outside every programmed space is ANCHOR_ONLY.
 - Checkpoint documents promote a space only if they backtick its exact
   id AND the id still exists in the current v2 layout; a checkpointed id
-  that has since vanished is reported as stale evidence.
+  that has since vanished is reported as stale evidence. "Checkpoint
+  document" means one the evidence allowlist admits — see *What is
+  allowed to be evidence* above; a report that backticks the same id
+  promotes nothing.
 - **Chronological evidence rules (ADMIN-ARCH3):** every checkpoint
   carries an epoch derived from its milestone name. A checkpoint that
   states an identifier is absent is negative evidence *as of that
