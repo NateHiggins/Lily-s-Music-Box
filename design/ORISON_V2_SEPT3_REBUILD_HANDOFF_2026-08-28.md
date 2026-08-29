@@ -62,6 +62,33 @@ full-building-structural` enumerates your exact spatial list.
 5. F01 staff restroom is absent from the v2 program — schedule it or
    mark it deliberately deferred.
 
+## The blocker count goes UP when you build correctly — expect it
+
+A floor-landing rehearsal (see ORISON_V2_FLOOR_LANDING_REHEARSAL_
+CHECKPOINT_2026-08-29.md) measured the real economics on a synthetic
+F05 with two apartments: STRUCTURAL went **80 → 92** on building the
+floor, then **92 → 74** once a properly-named checkpoint backticked
+the ids. The rise is not a regression — apartments cannot owe domestic
+minimums until they exist, so twelve new obligations appear the moment
+the units do. Build, then checkpoint, then read the number. Judging a
+floor by the count before its checkpoint lands will always look like
+going backwards.
+
+## Purpose strings are matched by words, not ids — use the vocabulary
+
+Domestic minimums are satisfied by each space's own `purpose` text.
+The matcher looks for meaning-words, never id tokens, so name the
+activity plainly: **privacy/distribution** (entry), **living / rest /
+meeting / conversation**, **cooking**, **sanitary** (or class `wet`),
+**sleep**, **storage**. Decorated phrasing is fine — the live 2B
+vestibule reads "2B privacy, coat storage and distribution" — but be
+aware that predicate is being hardened right now precisely because
+that comma once produced a false blocker on a built, accepted room.
+If a room you built reports its function ABSENT, check the purpose
+wording before assuming the geometry is wrong, and tell management: a
+false blocker is a tooling defect, never something to work around by
+renaming a room.
+
 ## Identities you must preserve
 
 `OrisonV2AnchorAdapter.REQUIRED` (game/scripts/building/
