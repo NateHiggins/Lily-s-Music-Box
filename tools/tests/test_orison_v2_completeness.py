@@ -994,6 +994,64 @@ class EvidenceImpactTests(unittest.TestCase):
             after = sorted(p.name for p in (root / "design").iterdir())
             self.assertEqual(before, after)
 
+    def test_orphan_anchor_is_named_not_just_counted(self):
+        """DEV-REHEARSE-1: an unnamed finding is an unactionable one.
+
+        ANCHOR_ONLY and stale-checkpoint findings were counted in the
+        summary and carried in --json, but never named in the default or
+        markdown output, so the gate said `anchor_only_findings: 1` and
+        gave no way to learn which anchor.
+        """
+        with TempRepo() as root:
+            edit_v2(root, lambda d: d["anchors"].append(
+                {"id": "F01_ORPHAN_BENCH_01", "level": "F01",
+                 "position": [400.0, 0.9, 400.0], "kind": "interaction"}))
+            _, out, _ = run_main("--root", str(root))
+            self.assertIn("anchors with no containing programmed space",
+                          out)
+            self.assertIn("F01_ORPHAN_BENCH_01", out)
+            _, md, _ = run_main("--root", str(root), "--markdown")
+            self.assertIn("## Findings", md)
+            self.assertIn("F01_ORPHAN_BENCH_01", md)
+
+    def test_stale_checkpoint_identifier_is_named(self):
+        with TempRepo() as root:
+            (root / "design" /
+             "ORISON_V2_MINI_STALE_CHECKPOINT_2026-08-28.md").write_text(
+                "# Mini stale checkpoint\n\nBuilt `F06_GHOST_ROOM`.\n",
+                encoding="utf-8")
+            _, out, _ = run_main("--root", str(root))
+            self.assertIn("stale checkpoint identifiers", out)
+            self.assertIn("F06_GHOST_ROOM", out)
+
+    def test_a_clean_layout_prints_no_findings_section(self):
+        with TempRepo() as root:
+            _, md, _ = run_main("--root", str(root), "--markdown")
+            payload_code, payload, _ = run_payload(root)
+            if not payload["anchor_only"] and \
+                    not payload["stale_checkpoint_ids"]:
+                self.assertNotIn("## Findings", md)
+
+    def test_heuristic_mapping_does_not_cap_the_status(self):
+        """The `heuristic` flag qualifies the unit->space MAPPING.
+
+        The docstring and the guide used to claim a heuristic conclusion
+        could never pass PROGRAMMED; the code has no such cap and the
+        shipped ledger relies on that (unit.2B reaches SPATIALLY_PROVEN
+        on a grammar-derived mapping).  Pin the real rule so the prose
+        cannot drift back.
+        """
+        with TempRepo() as root:
+            make_slice_complete(root)
+            _, payload, _ = run_payload(root)
+            record = req(payload, "unit.2B")
+            self.assertIsNotNone(record)
+            self.assertTrue(record["heuristic"])
+            self.assertGreaterEqual(
+                audit.RANK[record["status"]],
+                audit.RANK["SPATIALLY_PROVEN"],
+                "a heuristic unit mapping still climbs on real evidence")
+
     def test_impact_refuses_a_missing_file(self):
         with TempRepo() as root:
             code, _, err = run_main("--root", str(root),

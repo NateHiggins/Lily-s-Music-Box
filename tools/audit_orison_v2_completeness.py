@@ -79,8 +79,14 @@ Matching rules (honest by construction):
   - Function matching inside a unit uses the v2 record's own `purpose` and
     `class` fields, never the id token alone.
   - Heuristic conclusions (id-grammar unit membership, v1->v2 alias
-    guesses) are labeled `heuristic` and can never promote a requirement
-    past PROGRAMMED.
+    guesses) are labeled `heuristic`.  The label qualifies the MAPPING -
+    which v2 spaces were taken to belong to the unit - not the status:
+    once a space is mapped, it climbs the ladder on the same evidence as
+    any other, so a heuristic unit reaches SPATIALLY_PROVEN when a
+    checkpoint backticks its spaces (unit.2B does today).  The label is
+    surfaced in `heuristic_conclusions` and in the `unresolved` list so a
+    reviewer can see which conclusions rest on a guessed mapping; only
+    UNIT_PREFIX_EXACT removes the guess.
   - A checkpoint id that no longer exists in the current v2 layout is
     reported as stale evidence, not silently trusted.
   - Human acceptance applies only to its recorded scope (M08A is
@@ -1958,6 +1964,37 @@ def summarize(ledger: Ledger, scope_reqs: list[dict]) -> dict:
     }
 
 
+FINDING_LIST_LIMIT = 20
+
+
+def render_findings(payload: dict, emit) -> None:
+    """Name the two side-channel findings a builder has to act on.
+
+    Both were counted in the summary and carried in --json but never
+    named in the human-readable or markdown output, so a floor owner
+    reading the default gate saw `anchor_only_findings: 1` with no way
+    to learn WHICH anchor without switching to --json.  An unnamed
+    finding is an unactionable one.
+    """
+    orphans = payload.get("anchor_only") or []
+    if orphans:
+        emit(f"anchors with no containing programmed space "
+             f"({len(orphans)}):")
+        for entry in orphans[:FINDING_LIST_LIMIT]:
+            emit(f"  ! {entry['anchor']} [{entry.get('level')}] "
+                 f"- {entry['note']}")
+        if len(orphans) > FINDING_LIST_LIMIT:
+            emit(f"  ... {len(orphans) - FINDING_LIST_LIMIT} more (--json)")
+    stale = payload.get("stale_checkpoint_ids") or []
+    if stale:
+        emit(f"stale checkpoint identifiers ({len(stale)}):")
+        for entry in stale[:FINDING_LIST_LIMIT]:
+            emit(f"  ! {entry['token']} - {entry['note']} "
+                 f"({entry['source']})")
+        if len(stale) > FINDING_LIST_LIMIT:
+            emit(f"  ... {len(stale) - FINDING_LIST_LIMIT} more (--json)")
+
+
 def render_markdown(payload: dict) -> str:
     out = ["# Orison v2 completeness ledger", ""]
     summary = payload["summary"]
@@ -1981,6 +2018,13 @@ def render_markdown(payload: dict) -> str:
     for record in payload["v1_fallbacks"]:
         out.append(f"- {record['id']} [{record['status']}] "
                    f"({record.get('fallback_kind')})")
+    findings: list[str] = []
+    render_findings(payload, findings.append)
+    if findings:
+        out += ["", "## Findings", ""]
+        for line in findings:
+            out.append(f"- {line.strip()}" if line.startswith("  ")
+                       else f"\n**{line}**\n")
     out += ["", "## Requirements", ""]
     out.append("| id | dimension | status | required | blocking scopes | "
                "fallback | heuristic |")
@@ -2372,6 +2416,7 @@ def run(args) -> int:
                 print(f"  {mark} {record['id']} [{record['status']}]")
         if banner:
             print(banner)
+        render_findings(payload, print)
         if args.verbose:
             print("evidence admitted (%d):"
                   % len(inputs.admitted_evidence))

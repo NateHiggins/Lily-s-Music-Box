@@ -57,8 +57,11 @@ Drift policy (stable, tested):
   FAIL (exit 1)  a new production record appears that the manifest does not
                  cover (unclassified spatial dependency, including a new raw
                  gameplay coordinate group); a manifest record's referenced
-                 target no longer exists in the layout universe; a record
-                 changes authority class; a SAVE_CONTRACT record goes stale.
+                 target no longer exists in the layout universe; a record's
+                 classification changes (its authority class, its
+                 gameplay-binding verdict, or the target its identifier
+                 resolves to - each row names which); a SAVE_CONTRACT record
+                 goes stale.
   STALE (exit 4) a MUST_PRESERVE_ID / PRESERVE_OR_ALIAS / SAVE_CONTRACT
                  record disappears from source (never silently); other
                  disappeared records are reported as cleanup opportunities
@@ -1198,6 +1201,27 @@ ID_KINDS = ("id_reference", "floor_reference", "unit_reference",
             "runtime_id")
 
 
+def class_change_cause(entry: dict) -> str:
+    """Which of the three classification events fired on this record.
+
+    `class_changes` carries three distinct causes and used to print
+    under one "authority-class changes" label, so a run whose records
+    only RE-RESOLVED (e.g. a new v2 floor makes the blockout a second
+    authority for ids the v1 layout already owned) read as an authority
+    regression on files nobody touched.  Name the cause instead.
+    """
+    manifest, live = entry["manifest"], entry["live"]
+    if sorted(manifest.get("authority", [])) != live["authority"]:
+        return "authority %s -> %s" % (
+            ",".join(sorted(manifest.get("authority", []))) or "-",
+            ",".join(live["authority"]) or "-")
+    if manifest.get("gameplay_binding") != live["gameplay_binding"]:
+        return "gameplay_binding %s -> %s" % (
+            manifest.get("gameplay_binding"), live["gameplay_binding"])
+    return "resolved_target %s -> %s" % (
+        manifest.get("resolved_target"), live["resolved_target"])
+
+
 def diff_against_manifest(manifest: dict, live: list[dict],
                           scanned_tiers: set[str],
                           universe_ids=None) -> dict:
@@ -1422,7 +1446,7 @@ def emit(payload: dict, args, records=None) -> None:
         drift = payload["drift"]
         for label, entries in (
                 ("NEW unclassified (FAIL)", drift["new_failing"]),
-                ("authority-class changes (FAIL)", drift["class_changes"]),
+                ("classification changes (FAIL)", drift["class_changes"]),
                 ("targets vanished (FAIL)", drift["target_vanished"]),
                 ("save-contract unresolved (FAIL)",
                  drift["save_unresolved"]),
@@ -1435,10 +1459,12 @@ def emit(payload: dict, args, records=None) -> None:
             for entry in entries[:limit]:
                 record = entry.get("live", entry) if "live" in entry \
                     else entry
+                cause = f" ({class_change_cause(entry)})" \
+                    if "manifest" in entry and "live" in entry else ""
                 out.write(f"  - {record.get('kind')}:"
                           f"{record.get('file')}:"
                           f"{record.get('token')}"
-                          f" [{record.get('tier')}]\n")
+                          f" [{record.get('tier')}]{cause}\n")
             if limit is not None and len(entries) > limit:
                 out.write(f"  ... {len(entries) - limit} more "
                           f"(--verbose)\n")

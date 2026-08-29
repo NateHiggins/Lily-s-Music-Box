@@ -294,6 +294,61 @@ class DriftTests(unittest.TestCase):
                                     MINI_LAYOUT, "--manifest", str(manifest))
             self.assertEqual(code, 1, out)
 
+    def test_classification_change_rows_name_their_cause(self):
+        """DEV-REHEARSE-1: the three causes print distinguishably.
+
+        Landing a v2 floor re-resolves ids in files nobody touched (the
+        blockout becomes a second authority for them).  Under the old
+        single "authority-class changes" label those rows read as an
+        authority regression, so the cause is now named per row.
+        """
+        with TempRepo() as root:
+            manifest = write_manifest(root)
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            for record in data["records"]:
+                if record["token"] == "F01_LOBBY" and \
+                        record["file"].endswith("mini_root.gd"):
+                    record["resolved_target"] = "F02/marker"
+            manifest.write_text(json.dumps(data), encoding="utf-8")
+            code, out, _ = run_main("--root", str(root), "--layout",
+                                    MINI_LAYOUT, "--manifest", str(manifest))
+            self.assertEqual(code, 1, out)
+            self.assertIn("classification changes (FAIL)", out)
+            self.assertIn("resolved_target F02/marker ->", out)
+            self.assertNotIn("authority-class changes", out)
+
+    def test_authority_change_row_says_authority(self):
+        with TempRepo() as root:
+            manifest = write_manifest(root)
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            for record in data["records"]:
+                if record["token"] == "F01_LOBBY" and \
+                        record["file"].endswith("mini_root.gd"):
+                    record["authority"] = ["SAVE_CONTRACT"]
+            manifest.write_text(json.dumps(data), encoding="utf-8")
+            code, out, _ = run_main("--root", str(root), "--layout",
+                                    MINI_LAYOUT, "--manifest", str(manifest))
+            self.assertEqual(code, 1, out)
+            self.assertIn("authority SAVE_CONTRACT ->", out)
+
+    def test_class_change_cause_helper_prefers_the_strongest_cause(self):
+        entry = {
+            "manifest": {"authority": ["DATA_FOREIGN_KEY"],
+                         "gameplay_binding": False,
+                         "resolved_target": "F01/room"},
+            "live": {"authority": ["RUNTIME_LOOKUP"],
+                     "gameplay_binding": True,
+                     "resolved_target": "F02/marker"},
+        }
+        self.assertTrue(
+            audit.class_change_cause(entry).startswith("authority "))
+        entry["live"]["authority"] = ["DATA_FOREIGN_KEY"]
+        self.assertTrue(audit.class_change_cause(entry)
+                        .startswith("gameplay_binding "))
+        entry["live"]["gameplay_binding"] = False
+        self.assertEqual(audit.class_change_cause(entry),
+                         "resolved_target F01/room -> F02/marker")
+
     def test_coordinate_contract_flip_fails(self):
         with TempRepo() as root:
             manifest = write_manifest(root)

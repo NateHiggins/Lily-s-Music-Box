@@ -37,6 +37,13 @@ python tools/audit_orison_v2_completeness.py --verbose       # show the evidence
 python tools/audit_orison_v2_completeness.py --evidence-impact design/MY_NEW_DOC.md
 ```
 
+Two findings live beside the requirement list rather than inside it, and
+both are **named** in the default output and in a `## Findings` section of
+`--markdown`, not just counted: anchors with no containing programmed space
+(ANCHOR_ONLY — advisory, they block no scope) and checkpointed identifiers
+that no longer exist in the current layout (stale evidence). Long lists are
+capped at twenty; `--json` carries them all.
+
 ## What is allowed to be evidence
 
 **Prose about the building is not the building.** Intake was once
@@ -165,8 +172,16 @@ RUNTIME_PROVEN → HUMAN_ACCEPTED`, with orthogonal flags
 - Unit functions (entry/living/cooking/sanitary/sleep/storage) match the
   v2 record's own `purpose`/`class` fields, never the id token.
 - Heuristic conclusions (unit membership by id grammar for units no
-  checkpoint has named) are flagged `heuristic` and never promote past
-  PROGRAMMED-level trust.
+  checkpoint has named) are flagged `heuristic`. **The flag qualifies the
+  mapping, not the status.** It records that the tool guessed *which* v2
+  spaces belong to the unit from the id grammar; those spaces then climb
+  the ladder on exactly the same evidence as any other, so a heuristic
+  unit does reach SPATIALLY_PROVEN once a checkpoint backticks its spaces
+  — `unit.2B.storage` is SPATIALLY_PROVEN today on a heuristic mapping.
+  Read the flag as "check that this unit's spaces really are its spaces",
+  and add the unit to `UNIT_PREFIX_EXACT` (citing the checkpoint that
+  names them) to retire the guess. `heuristic_conclusions` in the summary
+  and the `unresolved` list in `--json` are where they surface.
 - Unit-level status is worst-of across the unit's spaces: an unnamed
   support hall keeps the unit below checkpoint tier deliberately.
 
