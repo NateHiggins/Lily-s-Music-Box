@@ -46,8 +46,8 @@ full-building-structural` enumerates your exact spatial list.
    entered, programmed space with a counter anchor lets runtime
    composition (our lane) mount the existing shop service. Until it
    exists, every human golden-shift run stops at beat 4.
-2. **Declared service-hall openings** — `F02_SERVICE_HALL` and
-   `F04_SERVICE_HALL` have no door/opening records (traversal proved,
+2. **Declared service-hall openings** — **F02_SERVICE_HALL** and
+   **F04_SERVICE_HALL** have no door/opening records (traversal proved,
    schema silent). The completeness ledger holds floors F02/F04 at
    SHELL_ONLY grain over this.
 3. **Structural floors**: F03 full program, F05, F06, B1 full program
@@ -68,7 +68,7 @@ full-building-structural` enumerates your exact spatial list.
 orison_v2_anchor_adapter.gd) and the full table in
 `design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md` remain
 binding, plus the M08E ritual/2B/B1 identities and — new —
-`F02_B_RADIATOR_01`'s acoustic node (the observation ledger derives
+**F02_B_RADIATOR_01**'s acoustic node (the observation ledger derives
 who hears the riser from `AcousticGraphData.audibility`; the heating
 riser reaches **3B**, and `omar_bell` is now the canonical hearing
 neighbor). `BuildingRootSelector.DEFAULT_ID` stays `"v1"`; M09 remains
@@ -85,6 +85,17 @@ python tools/tests/test_orison_v2_completeness.py
 python tools/tests/test_orison_spatial_dependencies.py
 python tools/tests/test_systemic_situation_authority.py
 ```
+
+**Prose-promotion hazard — read before writing any design doc.** The
+completeness tool globs `design/ORISON_V2_*.md` as checkpoint evidence
+and promotes any space whose id appears in backticks. A report that
+merely *describes* a space can therefore silently satisfy the
+requirement it was describing. This document did exactly that: it
+promoted circ.F02.service_route while complaining that the service
+hall has no declared opening, under-reporting main by one structural /
+cutover / retirement blocker until corrected. Write identifiers in
+**bold**, not backticks, in any non-checkpoint document, and diff the
+ledger with and without your new file before committing it.
 
 **Runner truth notice:** before 2026-08-28, `tools/run_godot_serial.ps1`
 never propagated a real exit code (a PowerShell 5.1 `Start-Process`
