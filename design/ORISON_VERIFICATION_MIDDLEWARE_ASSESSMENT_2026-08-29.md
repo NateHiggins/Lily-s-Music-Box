@@ -16,8 +16,13 @@ entirely in the evidence toolchain."* That ruling **survives** everything below.
 
 ## Verdict
 
-**Do not build a product. Build one tool, in a week, against somebody else's
-repository — and let that decide it.**
+**Do not build a product. Spend one week measuring recall on somebody else's
+repository — and let that number decide it.**
+
+*(Amended 2026-08-30 after MGMT reproduced and extended the two-game test. The
+verdict is unchanged; the experiment is not. Portability turned out to be the
+easy half and is now demonstrated. Recall is the open question, it is measured
+at 17% on unfamiliar phrasing, and §6 is rewritten around it.)*
 
 The thesis you asked me to test — *almost everything built here is machinery for
 keeping an AI-assisted process honest, and AI-heavy development needs a
@@ -187,19 +192,71 @@ string literals at **31 `self.add()` call sites**. `queue_templates` alone is
 `M18-v1-retirement`. Swapping all twelve named canon tables buys you 79 lines
 (3.2%) and produces nothing.
 
-`audit_systemic_situation_authority.py --root <same kind of project>` **passes
-the same test.** Given ~15 lines of fantasy-RPG GDScript — a coordinator setting
-`npc.knows_about_theft = true` and `valve.is_open = true`, and a
-`state.quality = "good" if misses == 0` — it returns **exit 1 with two STRONG
-findings**, correctly classified `DIRECT_NPC_KNOWLEDGE_WRITE` and
-`FOREIGN_PHYSICAL_MUTATION`, correctly dispositioned `DELEGATE_TO_OWNER`. No
-Orison identifier anywhere in the input.
+`audit_systemic_situation_authority.py --root <same kind of project>` **runs, and
+emits correct findings**: exit 1, two STRONG, correctly classified
+`DIRECT_NPC_KNOWLEDGE_WRITE` and `FOREIGN_PHYSICAL_MUTATION`, correctly
+dispositioned `DELEGATE_TO_OWNER`, with no Orison identifier in the input.
 
-**That is the second-consumer proof, and as far as I can tell it is the first
-one this project has ever produced.** It also demolishes the desk measurement:
-two tools with near-identical "domain vocabulary" scores behave completely
-differently the moment they leave home. §5.2's two-game rule is not pedantry.
-It is the only measurement that discriminates.
+Two tools with near-identical "domain vocabulary" scores behave completely
+differently the moment they leave home. §5.2's two-game rule is not pedantry;
+it is the only measurement that discriminates.
+
+### 2.1a But portability is the easy half, and the first result was luck
+
+**Correction, one day later, from MGMT — reproduced and extended here.** The
+run above took three attempts, and my write-up reported only the third. The two
+failures matter more than the success, and my synthetic file was **accidentally
+rescued twice**: I happened to write `npc.believes =` alongside
+`npc.knows_about_theft`, and I happened to put the file in `game/scripts/`.
+Either accident alone was doing the work.
+
+**There are three independent layers of Orison-specific gating, and each one
+alone produces a silent `exit 0` on a repository the tool never read.**
+
+1. **The scan root.** `scan_repository` hardcodes `bases = ["game/scripts"]`
+   (`:759`) and skips a base that is not a directory. A project laid out as
+   `src/` returns `findings: 0`, `EXIT=0` — measured.
+2. **The vocabulary.** `KNOWLEDGE_WRITE_RE` requires
+   `\.(knows|believes|suspects)\s*=` — the attribute must be *exactly* one of
+   three words. A file whose only content is `knows_about_theft`,
+   `has_seen_player`, `remembers_theft` and `is_aware_of_murder` returns
+   `findings: 0`, `EXIT=0` — measured.
+3. **The writer classification.** `_scan_objective` (`:620-632`) returns early
+   unless `ctx.writer == "presentation"`, and `writer_class()` assigns that role
+   by **hardcoded Orison filename pattern**. A `Control` node containing the
+   literal string `"CURRENT OBJECTIVE: recover the brass key"` is invisible
+   because its filename is `objective_hud.gd` — measured.
+
+**The recall measurement.** I wrote a fantasy-RPG quest coordinator with
+**eighteen hand-labelled violations**: eight concepts each phrased twice, once
+in Orison's idiom and once the way an RPG would actually write it, plus two
+objective-UI leaks.
+
+| | labelled | caught | recall |
+| --- | ---: | ---: | ---: |
+| Orison phrasing | 8 | 3 | **38%** |
+| Natural RPG phrasing | 8 | **0** | **0%** |
+| Objective-UI leaks | 2 | 0 | 0% |
+| **Total** | **18** | **3** | **17%** |
+
+The three that fired are `$Villager.knows = true`, `$Sluice.valve_open = true`
+and `$Guild.trust += 0.1` — **every one of them an Orison phrasing.** Invisible:
+`knows_about_theft`, `is_raised`, `player_carrying`, `finished_forging`,
+`is_near_the_mill`, `founded_on`, `karma_standing`, `reputation`.
+
+**The conclusion, which I tested rather than adopted and which holds: the tool
+detects idioms, not concepts.** It ports — that is real and it is more than the
+completeness ledger can say. But its recall on unfamiliar code is **17%**, and
+on code that does not happen to share this project's naming it is **zero**.
+
+**This relocates the entire extraction risk.** It is not the coupling percentage
+— not the 7.4% of tables nor the 30.8% of dimension methods. It is **detector
+generality**, and no desk measurement can see it. A detector tuned to one
+repository's naming is the classic thing that demos beautifully and returns a
+clean bill of health on a customer's repository. And note what the failure mode
+*is*: not a crash, not a false positive — **`exit 0` on a repository it never
+understood.** That is §2.1 and §2.6 of the genetic memory document firing inside
+the tool this assessment recommended extracting.
 
 The three flagships are barely Godot-coupled by comparison: `.gd` appears 18, 43
 and 9 times; `res://` appears 0, 4 and 0. The systemic audit is a text scan over
@@ -521,24 +578,57 @@ whole question from argument to evidence.
 
 ## Part 6 — The smallest useful extraction
 
-**One week. One tool. One repository that is not Orison.**
+**One week. One tool. One repository that is not Orison — and the deliverable is
+a RECALL NUMBER, not a demo.**
 
-**And the candidate is now known, because a fragment of this experiment has
-already run.** §2.1 pointed `audit_systemic_situation_authority.py` at a
-synthetic project and it produced two correct STRONG findings with a non-zero
-exit and no Orison identifier in the input. That is not the claim checker
-described below — it is an ownership lint — but it is the one tool in the tree
-with a demonstrated second consumer, and its extraction cost is now measurable
-rather than estimated: move `writer_class` (25 lines), `DATA_SUBTREE_OWNERS`
-(21), `REALITY_DATA_WRITE_RE` (4) and roughly thirty vocabulary regexes (~120)
-into a per-project config file. **About 170 lines become configuration; ~870
-lines move unchanged.** It is the only tool of the eighteen where extraction is
-a configuration exercise rather than a rewrite.
+§2.1 already settled portability: `audit_systemic_situation_authority.py` runs
+on a foreign project and emits correct findings. **Portability is no longer the
+open question.** §2.1a settled that it is also the easy half — recall on
+unfamiliar code measured **17%**, and **0%** on code that does not share this
+project's naming.
 
-If the week has to be spent on one thing, spend it there rather than on the
-greenfield claim checker — the claim checker is the better *product* thesis, but
-the ownership lint is the only thing here that has already cleared the bar the
-project itself set.
+So the week must answer the question that is actually load-bearing, and it is
+the one no desk measurement can reach:
+
+> **On code nobody here has ever seen, what fraction of the real violations does
+> this tool find, and what fraction of what it reports is invented?**
+
+**The experiment.** Take a real open-source Godot game — one nobody on this
+project has touched, with a coordinator or director layer and its own naming
+conventions. Hand-label a sample of its coordinator-shaped code against the
+eleven finding classes, *before* running the tool. Then run it and report two
+numbers: **recall** (labelled violations caught) and **precision** (reported
+findings that survive inspection).
+
+**What it costs.** Substantially less than a rewrite. Point 1 of the three
+gating layers is a `--scan-root` argument. Point 2 is moving ~170 lines of
+vocabulary into a config file — already costed in §2.1a's parent finding. Point
+3 is making `writer_class()` configurable. None of that is the week's work; the
+week's work is **the hand-labelling**, which is the only part that produces
+evidence.
+
+**What counts as failure — and this is the deliverable, not a caveat.**
+
+1. **Recall below ~50% after the three gating layers are made configurable.**
+   Below that, the product is a tool that tells customers their code is clean
+   when it is not, which is worse than no tool.
+2. **Precision below ~70%.** A finding stream a customer learns to ignore is
+   indistinguishable from silence.
+3. **Recall that only reaches target after the vocabulary is hand-tuned to the
+   target repository.** That is the fatal outcome: it means the product is a
+   consulting engagement wearing a CLI, and the value was the tuning.
+4. **More than a week.** The estimate is the hypothesis.
+
+**A recall number on unfamiliar code is the only evidence that would justify the
+build, and its absence is the strongest single argument against it.** Everything
+else in this document — the taxonomies, the refusal semantics, the coupling
+percentages — is argument. This would be measurement.
+
+**If the week is spent instead on the claim checker** described above, it
+inherits exactly the same risk one level up: a Markdown claim parser tuned to
+this project's document conventions will resolve this project's documents and
+nobody else's. Whichever tool is chosen, **the deliverable is the recall
+number.**
 
 **What to build.** A single CLI, ~800 lines plus tests, no Godot, no game
 assumptions, standard library only:

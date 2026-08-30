@@ -1118,6 +1118,35 @@ The same file shows the technique done right elsewhere:
 `HOST_CLOCK_MUTATES_WORLD` are all shape-defined, and together account for 27 of
 the 49 baseline entries.
 
+**Measured, 2026-08-30 — and the number is worse than the argument.** Pointed at
+a hand-labelled fantasy-RPG coordinator containing **eighteen** violations —
+eight concepts each written twice, once in this project's idiom and once the way
+another team would actually write it — the audit caught **three**.
+
+| phrasing | labelled | caught |
+| --- | ---: | ---: |
+| this project's idiom | 8 | 3 |
+| another team's idiom | 8 | **0** |
+| objective-UI leaks | 2 | 0 |
+
+`knows` fires; `knows_about_theft` does not. `valve_open` fires; `is_raised`
+does not. `trust +=` fires; `reputation +=` does not. And a `Control` node
+containing the literal string `"CURRENT OBJECTIVE: recover the brass key"` is
+invisible, because the finding is suppressed unless the *filename* matches a
+naming convention.
+
+**The failure mode is not a false positive and not a crash. It is `exit 0` on
+code the detector did not understand** — which is §2.1 and §2.6 arriving inside
+the gate shelf itself.
+
+**The rule, sharpened.** A vocabulary detector's recall is **unmeasured until you
+run it on code you did not write**, and a clean report from one is a statement
+about your naming habits, not about the code. Before trusting any detector:
+hand-label a sample from an unfamiliar codebase, run it, and write the recall
+number in the tool's own guide beside its exit codes. If you cannot produce that
+number, the tool is a reminder for people who already know the rule — which is
+useful, and is not a gate.
+
 ### 5.6 A prohibition about the player-facing surface does not bind the storage layer
 
 > **The moment a total exists, someone renders it.**
@@ -1505,11 +1534,21 @@ sixty candidates in total; the discriminator was usually test 2, transferability
 - **H2, "the missing piece is an owner and an `advance()`."** *Confirmed for the
   lane it was written about, refuted as a general law, and it names the wrong
   dominant class.* Four corrections, each load-bearing.
-  **(i) The 313-system catalogue is not in the repository.** Two citations
-  exist, no source. The nearest real, complete catalogue is 99 systems
+  **(i) The 313-system catalogue is not in the repository — and has since been
+  retracted.** Two citations existed, no source. **`22542ac` (2026-08-30,
+  `claude/mgmt-sept3-handoff`) retracts the figure and corrects both citing
+  documents in place**; cite the retraction, not the claim. Its own account of
+  the mechanism is worth keeping: *"The number came from an unfiled workflow run
+  and was then cited by a later ruling as settled."* The sourced figure is 99
   (`design/ORISON_V2_COMPOSITION_CENSUS_2026-08-28.md`: "Deduplicated from 110
   enumerated rows to 99 distinct authorities", re-counted mechanically as
   COMPOSABLE_NOW 36 / NEEDS_SPATIAL 58 / DELIBERATELY_V1 5).
+  **The mechanism is itself the lesson, and it is §3.9 with a receipt:** an
+  unfiled measurement became a document's assertion, and a later ruling then
+  cited that assertion as settled law. Nothing lied; each step was a reasonable
+  reading of the step before. **A number's provenance decays one citation at a
+  time, and the decay is invisible because every intermediate document is
+  honest.**
   **(ii) In that catalogue the dominant blocker is neither owner nor
   `advance()` — it is SPACE.** 58 of 99 (59%) are `NEEDS_SPATIAL`: a named
   missing anchor, room or carriageway. The slogan is true of the simulation
