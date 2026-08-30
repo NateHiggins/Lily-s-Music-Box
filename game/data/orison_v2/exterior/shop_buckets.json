@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "shops": [
+    {
+      "id": "SHOP_BODEGA",
+      "region_id": "REGION_SHOPS",
+      "lineage_id": "shopfronts",
+      "simulation_tier": "S1",
+      "rendering_tier": "facade",
+      "schedule_place": "bodega",
+      "stock_units_per_visit": 1,
+      "initial_state": {
+        "stock": 24,
+        "staffing": {
+          "mode": "attended",
+          "roles": ["night_counter", "day_counter"]
+        },
+        "hours": {
+          "open_minute": 0,
+          "close_minute": 1440
+        },
+        "condition": 100,
+        "last_advanced_minute": 0.0,
+        "transactions": 0
+      }
+    }
+  ]
+}

@@ -45,6 +45,9 @@ func _fresh_data() -> Dictionary:
 		"maintenance_jobs": {},
 		"maintenance_items": {},
 		"open_shift_situations": {},
+		# Exterior simulation owners seed their own authored defaults into this
+		# durable container. RealityState owns persistence, never shop behavior.
+		"shop_buckets": {},
 		"campaign_clock": {},
 		"organism_incidents": {},
 		"core_loop": {},
@@ -166,6 +169,8 @@ func load_game() -> void:
 			data.maintenance_items = {}
 		if not data.has("open_shift_situations"):
 			data.open_shift_situations = {}
+		if not data.has("shop_buckets"):
+			data.shop_buckets = {}
 		if not data.has("campaign_clock"):
 			data.campaign_clock = {}
 		if not data.has("core_loop"):
