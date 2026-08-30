@@ -1,0 +1,639 @@
+{
+	"camera_provenance": {
+		"audio_listener": "current production PlayerController camera",
+		"camera_child": "PlayerController.Camera3D",
+		"capture_only_geometry": false,
+		"capture_only_lights": false,
+		"carried_lamp": "production PlayerController hand light preserved",
+		"class": "playable",
+		"developer_overlay": false,
+		"later_station_teleports": 0,
+		"one_initial_semantic_placement": true,
+		"owner": "production PlayerController",
+		"player_hud": "preserved",
+		"standing_eye_m": 1.41,
+		"streaming_origin": "no capture-only streaming override"
+	},
+	"determinism": {
+		"daynight_override": "none",
+		"engine_time_scale": 1.0,
+		"random_seed": 1101,
+		"reality_state": "fresh in-memory campaign fixture",
+		"weather_override": "none"
+	},
+	"disposable_second_instance_present": false,
+	"expected_files": [
+		"01_orison_side_route_beginning.png",
+		"02_bodega_threshold_approach.png",
+		"03_bodega_interior_continuing_route.png",
+		"04_return_direction_toward_orison.png"
+	],
+	"failures": [],
+	"frames": [
+		{
+			"camera_class": "playable",
+			"camera_current": true,
+			"capture": "PASS",
+			"carried_lamp_visible": true,
+			"description": "Orison-side pavement route beginning",
+			"dimensions": [
+				1600,
+				900
+			],
+			"dimensions_ok": true,
+			"eye": [
+				4.69841909408569,
+				1.41093742847443,
+				5.34022188186646
+			],
+			"file": "01_orison_side_route_beginning.png",
+			"forward": [
+				0.842702507972717,
+				-0.0261347312480211,
+				-0.53774493932724
+			],
+			"fov_degrees": 72.0,
+			"label": "01_orison_side_route_beginning",
+			"metrics": {
+				"cpu_process_median_ms": 1.653,
+				"draw_calls_median": 173.0,
+				"gpu_median_ms": 0.42399999499321,
+				"gpu_samples_observed": 8,
+				"gpu_timing_trustworthy": true,
+				"physics_median_ms": 0.18,
+				"renderer": "forward_plus",
+				"samples": 8
+			},
+			"noclip": false,
+			"player_height": true,
+			"player_origin": [
+				4.69841909408569,
+				0.000937499105930328,
+				5.34022188186646
+			],
+			"sha256": "53b1a6c3817ef599f54343e447a0e03263b4ae6561d42ab0a780045f51edee20",
+			"standing_eye_m": 1.41,
+			"station": "STREET_ORISON_01:route_overview_eye",
+			"supporting_floor": true,
+			"target": [
+				11.5,
+				1.20000004768372,
+				1.0
+			]
+		},
+		{
+			"camera_class": "playable",
+			"camera_current": true,
+			"capture": "PASS",
+			"carried_lamp_visible": true,
+			"description": "bodega threshold approach",
+			"dimensions": [
+				1600,
+				900
+			],
+			"dimensions_ok": true,
+			"eye": [
+				18.4207553863525,
+				1.41093742847443,
+				5.50631332397461
+			],
+			"file": "02_bodega_threshold_approach.png",
+			"forward": [
+				0.0682078376412392,
+				-0.0759806334972382,
+				-0.994773685932159
+			],
+			"fov_degrees": 72.0,
+			"label": "02_bodega_threshold_approach",
+			"metrics": {
+				"cpu_process_median_ms": 1.695,
+				"draw_calls_median": 171.0,
+				"gpu_median_ms": 0.763999998569489,
+				"gpu_samples_observed": 8,
+				"gpu_timing_trustworthy": true,
+				"physics_median_ms": 0.236,
+				"renderer": "forward_plus",
+				"samples": 8
+			},
+			"noclip": false,
+			"player_height": true,
+			"player_origin": [
+				18.4207553863525,
+				0.000937499105930328,
+				5.50631332397461
+			],
+			"sha256": "b5c9f036536cfda15e37049b4499db7739e8b8be9a736e89cc5742e0bd0f08c2",
+			"standing_eye_m": 1.41,
+			"station": "BODEGA_ALIGNMENT",
+			"supporting_floor": true,
+			"target": [
+				18.6549987792969,
+				1.14999997615814,
+				2.08999991416931
+			]
+		},
+		{
+			"camera_class": "playable",
+			"camera_current": true,
+			"capture": "PASS",
+			"carried_lamp_visible": true,
+			"description": "bodega interior and continuing route",
+			"dimensions": [
+				1600,
+				900
+			],
+			"dimensions_ok": true,
+			"eye": [
+				18.8789825439453,
+				1.41093742847443,
+				-1.02274882793427
+			],
+			"file": "03_bodega_interior_continuing_route.png",
+			"forward": [
+				0.100710526108742,
+				-0.0545938760042191,
+				-0.993416786193848
+			],
+			"fov_degrees": 72.0,
+			"label": "03_bodega_interior_continuing_route",
+			"metrics": {
+				"cpu_process_median_ms": 2.004,
+				"draw_calls_median": 76.0,
+				"gpu_median_ms": 0.833000004291534,
+				"gpu_samples_observed": 8,
+				"gpu_timing_trustworthy": true,
+				"physics_median_ms": 0.222,
+				"renderer": "forward_plus",
+				"samples": 8
+			},
+			"noclip": false,
+			"player_height": true,
+			"player_origin": [
+				18.8789825439453,
+				0.000937499105930328,
+				-1.02274882793427
+			],
+			"sha256": "5af6156ecb858a087aa2eea3afe9b9f13e8b4de7f6bbc3360e864dc5155a5aab",
+			"standing_eye_m": 1.41,
+			"station": "SHOP_BODEGA:inside_view",
+			"supporting_floor": true,
+			"target": [
+				19.3049983978271,
+				1.17999994754791,
+				-5.22499990463257
+			]
+		},
+		{
+			"camera_class": "playable",
+			"camera_current": true,
+			"capture": "PASS",
+			"carried_lamp_visible": true,
+			"description": "semantic return direction toward Orison",
+			"dimensions": [
+				1600,
+				900
+			],
+			"dimensions_ok": true,
+			"eye": [
+				18.6553955078125,
+				1.41093742847443,
+				5.21648263931274
+			],
+			"file": "04_return_direction_toward_orison.png",
+			"forward": [
+				-0.987867891788483,
+				-0.0101108066737652,
+				-0.154967412352562
+			],
+			"fov_degrees": 72.0,
+			"label": "04_return_direction_toward_orison",
+			"metrics": {
+				"cpu_process_median_ms": 1.947,
+				"draw_calls_median": 90.0,
+				"gpu_median_ms": 0.697000026702881,
+				"gpu_samples_observed": 8,
+				"gpu_timing_trustworthy": true,
+				"physics_median_ms": 0.218,
+				"renderer": "forward_plus",
+				"samples": 8
+			},
+			"noclip": false,
+			"player_height": true,
+			"player_origin": [
+				18.6553955078125,
+				0.000937499105930328,
+				5.21648263931274
+			],
+			"sha256": "3986e5a745ab68bbc77c9c6e5febf5b5dd896b8e720091cc2a6c97da068b3030",
+			"standing_eye_m": 1.41,
+			"station": "BODEGA_ALIGNMENT",
+			"supporting_floor": true,
+			"target": [
+				0.0,
+				1.21999990940094,
+				2.28999996185303
+			]
+		}
+	],
+	"human_acceptance": "PENDING",
+	"human_acceptance_scope": "new production M11A four-frame packet",
+	"module_cost": {
+		"collision_objects": 6,
+		"collision_shapes": 34,
+		"counters": 1,
+		"doors": 1,
+		"instances": 2,
+		"labels": 9,
+		"lights": 10,
+		"meshes": 62,
+		"nodes": 194,
+		"shared_materials": 20,
+		"shared_meshes": 41,
+		"shared_shapes": 24
+	},
+	"production_module": "OrisonV2ExteriorCell",
+	"production_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+	"production_source_only": true,
+	"renderer": "forward_plus",
+	"resolution": [
+		1600,
+		900
+	],
+	"schema_version": 1,
+	"semantic_routes": [
+		"ROUTE_ORISON_TO_SHOP_BODEGA",
+		"ROUTE_SHOP_BODEGA_TO_ORISON"
+	],
+	"semantic_threshold": "THRESHOLD_SHOP_BODEGA_FRONT",
+	"status": "PASS",
+	"storefront_interaction": {
+		"animation_settle_wait_ms": 780.0,
+		"leaf_open": true,
+		"player_distance_m": 1.35222554206848,
+		"public_call_wall_ms": 0.967,
+		"public_entrypoint": "PlayerController.use_primary_interaction",
+		"surface": "SHOP_BODEGA_STOREFRONT_LEAF"
+	},
+	"teardown": {
+		"after_teardown": {
+			"nodes": 35,
+			"objects": 1704,
+			"orphan_nodes": 0,
+			"resources": 50
+		},
+		"before_build": {
+			"nodes": 35,
+			"objects": 1651,
+			"orphan_nodes": 0,
+			"resources": 44
+		},
+		"cell_released": true,
+		"object_delta_from_before": 53,
+		"orphan_delta_from_before": 0,
+		"player_released": true,
+		"public_api": "OrisonV2ExteriorCell.shutdown_for_tests",
+		"public_receipt": {
+			"already_torn_down": false,
+			"detached_owned_nodes": 6,
+			"freed_instances": 2,
+			"ok": true,
+			"released_audio_sources": 3,
+			"released_audio_voices": 1,
+			"removed_counters": 1,
+			"retained_strong_references": 0,
+			"unmounted_counters": 1
+		},
+		"resource_delta_from_before": 6,
+		"while_built": {
+			"nodes": 234,
+			"objects": 2208,
+			"orphan_nodes": 0,
+			"resources": 53
+		}
+	},
+	"traversal": [
+		{
+			"kind": "initial_placement",
+			"position": [
+				0.0,
+				0.0399999991059303,
+				0.579999923706055
+			],
+			"route_id": "ROUTE_ORISON_TO_SHOP_BODEGA",
+			"teleport_count": 1,
+			"waypoint_id": "ORISON_EXIT"
+		},
+		{
+			"distance_m": 3.42000007629395,
+			"elapsed_ms": 998.358,
+			"end": [
+				0.0,
+				0.000937499105930328,
+				3.62999749183655
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "outbound:PAVEMENT_TURN",
+			"noclip": false,
+			"remaining_m": 0.370002508163452,
+			"start": [
+				0.0,
+				0.0399999991059303,
+				0.579999923706055
+			],
+			"status": "PASS",
+			"target": [
+				0.0,
+				0.0399999991059303,
+				4.0
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 5.32094049453735,
+			"elapsed_ms": 1663.653,
+			"end": [
+				4.69841909408569,
+				0.000937499105930328,
+				5.34022188186646
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "outbound:ROUTE_OVERVIEW_EYE",
+			"noclip": false,
+			"remaining_m": 0.320939600467682,
+			"start": [
+				0.0,
+				0.000937499105930328,
+				3.62999749183655
+			],
+			"status": "PASS",
+			"target": [
+				5.0,
+				1.4099999666214,
+				5.44999980926514
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 4.88582992553711,
+			"elapsed_ms": 1463.041,
+			"end": [
+				0.178704828023911,
+				0.000937499105930328,
+				4.05097675323486
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "outbound:OVERVIEW_RETURN_TO_PAVEMENT_TURN",
+			"noclip": false,
+			"remaining_m": 0.185833379626274,
+			"start": [
+				4.69841909408569,
+				0.000937499105930328,
+				5.34022188186646
+			],
+			"status": "PASS",
+			"target": [
+				0.0,
+				0.0399999991059303,
+				4.0
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 18.5349979400635,
+			"elapsed_ms": 6112.488,
+			"end": [
+				18.4207553863525,
+				0.000937499105930328,
+				5.50631332397461
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "outbound:BODEGA_ALIGNMENT",
+			"noclip": false,
+			"remaining_m": 0.234987571835518,
+			"start": [
+				0.178704828023911,
+				0.000937499105930328,
+				4.05097675323486
+			],
+			"status": "PASS",
+			"target": [
+				18.6549987792969,
+				0.0399999991059303,
+				5.52500009536743
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 2.44257140159607,
+			"elapsed_ms": 604.012,
+			"end": [
+				18.6269435882568,
+				0.000937499105930328,
+				3.36622595787048
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "outbound:BODEGA_EXTERIOR",
+			"noclip": false,
+			"remaining_m": 0.292574137449265,
+			"start": [
+				18.4207553863525,
+				0.000937499105930328,
+				5.50631332397461
+			],
+			"status": "PASS",
+			"target": [
+				18.6549987792969,
+				0.0399999991059303,
+				3.07500004768372
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 2.36139249801636,
+			"elapsed_ms": 658.402,
+			"end": [
+				18.650707244873,
+				0.000937499105930328,
+				1.36636936664581
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "outbound:BODEGA_INTERIOR",
+			"noclip": false,
+			"remaining_m": 0.361394733190537,
+			"start": [
+				18.6269435882568,
+				0.000937499105930328,
+				3.36622595787048
+			],
+			"status": "PASS",
+			"target": [
+				18.6549987792969,
+				0.0399999991059303,
+				1.00500011444092
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 2.67349052429199,
+			"elapsed_ms": 807.456,
+			"end": [
+				18.8789825439453,
+				0.000937499105930328,
+				-1.02274882793427
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "interior:INSIDE_VIEW",
+			"noclip": false,
+			"remaining_m": 0.273491352796555,
+			"start": [
+				18.650707244873,
+				0.000937499105930328,
+				1.36636936664581
+			],
+			"status": "PASS",
+			"target": [
+				18.9049987792969,
+				0.0399999991059303,
+				-1.29499995708466
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 2.04008197784424,
+			"elapsed_ms": 455.083,
+			"end": [
+				18.6868495941162,
+				0.000937499105930328,
+				0.716671288013458
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "return:BODEGA_INTERIOR",
+			"noclip": false,
+			"remaining_m": 0.290082722902298,
+			"start": [
+				18.8789825439453,
+				0.000937499105930328,
+				-1.02274882793427
+			],
+			"status": "PASS",
+			"target": [
+				18.6549987792969,
+				0.0399999991059303,
+				1.00500011444092
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 2.35854387283325,
+			"elapsed_ms": 709.091,
+			"end": [
+				18.6584911346436,
+				0.000937499105930328,
+				2.81647920608521
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "return:BODEGA_EXTERIOR",
+			"noclip": false,
+			"remaining_m": 0.258544445037842,
+			"start": [
+				18.6868495941162,
+				0.000937499105930328,
+				0.716671288013458
+			],
+			"status": "PASS",
+			"target": [
+				18.6549987792969,
+				0.0399999991059303,
+				3.07500004768372
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 2.70852327346802,
+			"elapsed_ms": 802.83,
+			"end": [
+				18.6553955078125,
+				0.000937499105930328,
+				5.21648263931274
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "return:BODEGA_ALIGNMENT",
+			"noclip": false,
+			"remaining_m": 0.308517724275589,
+			"start": [
+				18.6584911346436,
+				0.000937499105930328,
+				2.81647920608521
+			],
+			"status": "PASS",
+			"target": [
+				18.6549987792969,
+				0.0399999991059303,
+				5.52500009536743
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 18.6950149536133,
+			"elapsed_ms": 6050.629,
+			"end": [
+				0.294340312480927,
+				0.000937499105930328,
+				4.01919460296631
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "return:PAVEMENT_TURN",
+			"noclip": false,
+			"remaining_m": 0.294965505599976,
+			"start": [
+				18.6553955078125,
+				0.000937499105930328,
+				5.21648263931274
+			],
+			"status": "PASS",
+			"target": [
+				0.0,
+				0.0399999991059303,
+				4.0
+			],
+			"teleport_count": 0
+		},
+		{
+			"distance_m": 3.45176720619202,
+			"elapsed_ms": 1058.098,
+			"end": [
+				0.0257326290011406,
+				0.000937499105930328,
+				0.880670607089996
+			],
+			"grounded_fraction": 1.0,
+			"kind": "collision_bearing_walk",
+			"leg": "return:ORISON_EXIT",
+			"noclip": false,
+			"remaining_m": 0.301769822835922,
+			"start": [
+				0.294340312480927,
+				0.000937499105930328,
+				4.01919460296631
+			],
+			"status": "PASS",
+			"target": [
+				0.0,
+				0.0399999991059303,
+				0.579999923706055
+			],
+			"teleport_count": 0
+		}
+	]
+}

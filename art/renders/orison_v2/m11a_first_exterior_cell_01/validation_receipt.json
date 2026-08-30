@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task": "ORISON-V2-M11A",
+  "date": "2026-08-30",
+  "authorization_commit": "3855fa5e55d7d39f5bc146741cae7223540a9e53",
+  "branch": "codex/orison-v2-m11a-first-exterior-cell",
+  "human_acceptance": "PENDING",
+  "ledger": {
+    "before": {
+      "requirements": 150,
+      "status": {"ABSENT": 52, "HUMAN_ACCEPTED": 1, "PROGRAMMED": 42, "RUNTIME_PROVEN": 34, "SHELL_ONLY": 3, "SPATIALLY_PROVEN": 18},
+      "blockers": {"FIRST_SLICE_TECHNICAL": 0, "GOLDEN_SHIFT_V2": 1, "FULL_BUILDING_STRUCTURAL": 86, "FULL_BUILDING_RUNTIME": 45, "PRODUCTION_CUTOVER": 101, "V1_RETIREMENT": 103}
+    },
+    "after": {
+      "requirements": 150,
+      "status": {"ABSENT": 50, "HUMAN_ACCEPTED": 1, "PROGRAMMED": 44, "RUNTIME_PROVEN": 34, "SHELL_ONLY": 3, "SPATIALLY_PROVEN": 18},
+      "blockers": {"FIRST_SLICE_TECHNICAL": 0, "GOLDEN_SHIFT_V2": 1, "FULL_BUILDING_STRUCTURAL": 86, "FULL_BUILDING_RUNTIME": 45, "PRODUCTION_CUTOVER": 101, "V1_RETIREMENT": 103}
+    },
+    "expected_only_movement": [
+      {"id": "region.street", "before": "ABSENT", "after": "PROGRAMMED"},
+      {"id": "region.shops", "before": "ABSENT", "after": "PROGRAMMED"}
+    ]
+  },
+  "audits": {
+    "completeness": {"command": "python tools/audit_orison_v2_completeness.py", "exit": 2},
+    "spatial": {"command": "python tools/audit_orison_spatial_dependencies.py", "exit": 0, "records_before": 3634, "records_after": 3652, "new_failing": 0, "class_changes": 0, "target_vanished": 0, "save_unresolved": 0},
+    "systemic": {"command": "python tools/audit_systemic_situation_authority.py", "exit": 0, "production_findings_before": 35, "production_findings_after": 35, "new_actionable": 0, "policy_violations": 0},
+    "data_consumption": {"command": "python tools/audit_data_consumption.py", "exit": 1, "historical_findings_before": 1304, "historical_findings_after": 1303, "new_m11a_findings": 0, "disappeared_static_record": ["game/data/audio_cues.json:released"], "semantic_consumption_proven": false}
+  },
+  "scope_exits": {
+    "first-slice": 0,
+    "golden-shift": 2,
+    "full-building-structural": 2,
+    "full-building-runtime": 2,
+    "production-cutover": 2,
+    "retirement": 2
+  },
+  "static_tests": [
+    {"command": "python tools/tests/test_orison_v2_completeness.py", "exit": 0, "passes": 91},
+    {"command": "python tools/tests/test_orison_spatial_dependencies.py", "exit": 0, "passes": 51},
+    {"command": "python tools/tests/test_systemic_situation_authority.py", "exit": 0, "passes": 34},
+    {"command": "python tools/tests/test_data_consumption.py", "exit": 0, "passes": 14}
+  ],
+  "runtime": {
+    "objective_scene_exit": 0,
+    "objective_checks": 35,
+    "objective_failures": 0,
+    "objective_stderr_bytes": 0,
+    "capture_scene_exit": 0,
+    "capture_frames": 4,
+    "capture_stderr_bytes": 0,
+    "renderer": "forward_plus",
+    "resolution": [1600, 900]
+  },
+  "protected_controls": {
+    "comparison_count": 17,
+    "mismatches": 0,
+    "selector_default": "v1",
+    "details": "objective_test_receipt.json"
+  },
+  "notes": [
+    "The data-consumption exit is reviewed repository-wide historical debt; M11A adds no unread file, unread field, or monotonic-only durable value.",
+    "The final capture records a process-level +53 object/+6 resource initialization delta whose exact retained classes and owners were not traced; public teardown releases the cell, player, counters, audio sources and strong references with zero orphan nodes. The warmed objective receipt is the zero-retained ObjectDB/resource proof.",
+    "The production packet is darker than the accepted disposable synthetic packet and requires an owner verdict; its technical capture status does not imply human acceptance."
+  ]
+}
