@@ -24,7 +24,7 @@ func setup(loop: CoreLoopDirector) -> void:
 	core_loop = loop
 	if not core_loop.dream_requested.is_connected(_on_dream_requested):
 		core_loop.dream_requested.connect(_on_dream_requested)
-	_state()
+	_reconcile_saved_revision()
 
 
 func phase() -> String:
@@ -198,6 +198,37 @@ func _catalog_revision() -> int:
 	if parsed is not Dictionary:
 		return 0
 	return int((parsed as Dictionary).get("meta", {}).get("version", 0))
+
+
+func _catalog_meta() -> Dictionary:
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(CATALOG_PATH))
+	return (parsed as Dictionary).get("meta", {}) if parsed is Dictionary else {}
+
+
+## Saved dream transactions are reconstruction identities, not suggestions.
+## A catalog may explicitly declare an old revision compatible; otherwise an
+## in-flight transaction is cancelled before any world swap can occur.
+func _reconcile_saved_revision() -> bool:
+	var state := _state()
+	if str(state.phase) == "awake":
+		return true
+	var meta := _catalog_meta()
+	var current := int(meta.get("version", 0))
+	var saved := int(state.maze_revision)
+	var compatible: Array = meta.get("compatible_saved_revisions", [])
+	if current > 0 and (saved == current or compatible.has(saved)):
+		state.maze_revision = current
+		RealityState.commit()
+		return true
+	var seed := str(state.seed_hex)
+	state.clear()
+	state.merge({"phase": "awake", "active": false, "debug_preview": false,
+			"case_id": "", "profile_id": "", "window": {},
+			"seed_hex": seed, "maze_revision": 0, "night_index": -1,
+			"spawn_anchor": -1, "outcome": ""})
+	RealityState.commit()
+	push_warning("saved dream revision %d is unavailable; transaction cancelled" % saved)
+	return false
 
 
 func _valid_seed_hex(value: String) -> bool:

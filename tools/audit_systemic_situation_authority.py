@@ -186,6 +186,7 @@ DATA_SUBTREE_OWNERS = {
     "npc_observations":
         "game/scripts/reality/npc_observation_ledger.gd",
     "porter_actor": "game/scripts/characters/porter_actor.gd",
+    "campaign_clock": "game/scripts/game/campaign_clock.gd",
 }
 
 INVENTORY_AUTHORITY_RE = re.compile(
@@ -253,6 +254,8 @@ AUTONOMY_CLAIM_RE = re.compile(
 HOST_CLOCK_RE = re.compile(
     r"Time\.get_unix_time[a-z_]*\(|Time\.get_ticks_msec\(|"
     r"Time\.get_ticks_usec\(|Time\.get_datetime[a-z_]*\(|"
+    r"Time\.get_time_dict_from_system\(|"
+    r"Time\.get_date_dict_from_system\(|"
     r"OS\.get_ticks")
 PROFILING_CONTEXT_RE = re.compile(
     r"perf|profil|budget_ms|_ms\b|elapsed_ms|print|debug|stopwatch|"
@@ -595,6 +598,9 @@ def _scan_scene_local_autonomy(ctx, findings):
 def _scan_host_clock(ctx, findings, line, scope, line_no):
     if not HOST_CLOCK_RE.search(line):
         return
+    if ctx.rel == "game/scripts/game/campaign_clock.gd" and \
+            scope == "_initialize_epoch_from_host":
+        return  # owner-authorized one-time campaign epoch capture
     body = ctx.function_body(scope)
     profiling = PROFILING_CONTEXT_RE.search(line) or \
         PROFILING_CONTEXT_RE.search(scope)

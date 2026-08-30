@@ -6,6 +6,8 @@ extends Node3D
 const BLOCKOUT := preload("res://scenes/building/orison_v2_blockout.tscn")
 const CUES := preload("res://scripts/building/orison_v2_readability_cues.gd")
 const Adapter := preload("res://scripts/building/orison_v2_anchor_adapter.gd")
+const FrameContract := preload("res://scripts/building/orison_v2_frame_contract.gd")
+const LineageRegistry := preload("res://scripts/reality/corruption_lineage_registry.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -26,6 +28,8 @@ var service_round: ServiceRoundDirector
 var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
+var campaign_clock: CampaignClock
+var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
 var street_traffic: Node = null
 var elevator: Node = null
@@ -33,9 +37,21 @@ var startup_failed := false
 var startup_ms := 0.0
 var adapter
 var _blockout: Node3D
+var frame_contract: OrisonV2FrameContract
 
 func _ready() -> void:
 	var started := Time.get_ticks_usec()
+	frame_contract = FrameContract.load_default()
+	if not frame_contract.errors.is_empty():
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: invalid shared-frame contract: %s" %
+				[frame_contract.errors])
+		return
+	corruption_lineages = LineageRegistry.new()
+	if not corruption_lineages.load_registry():
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: invalid corruption lineage registry")
+		return
 	add_to_group("building_root")
 	add_to_group("orison_v2_runtime")
 	_blockout = BLOCKOUT.instantiate()
@@ -170,6 +186,8 @@ func _compose_authorities() -> void:
 ## `_process` returns immediately (schedule_director.gd:99-101). Only the
 ## resolution half is used, which is the half that answers the question.
 func _compose_observation_ledger() -> void:
+	campaign_clock = CampaignClock.new()
+	campaign_clock.bind_state()
 	resident_presence = ScheduleDirector.new()
 	resident_presence.name = "ResidentPresenceTimetable"
 	add_child(resident_presence)
@@ -202,7 +220,10 @@ func resident_is_home(npc: String) -> bool:
 		return true
 	if open_shift_ecosystem == null:
 		return true
-	var info := resident_presence.day_info()
+	var info := campaign_clock.day_info_at(
+			float(open_shift_ecosystem.now_minutes())) if campaign_clock else {}
+	if not bool(info.get("valid", false)):
+		return true
 	var block := resident_presence.resolve(npc, str(info.day),
 			float(open_shift_ecosystem.now_minutes()), int(info.doy),
 			bool(info.first_sat))

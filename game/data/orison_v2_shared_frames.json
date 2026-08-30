@@ -1,0 +1,47 @@
+{
+  "schema": "orison.v2.shared-frames.v1",
+  "metric_authority": "res://data/building_layout.json",
+  "neighbourhood": {
+    "coordinate_space": "godot_world_m",
+    "origin": {
+      "identity": "ORISON_FRONT_DOOR_THRESHOLD",
+      "point_m": [0.0, 0.0, 0.0]
+    },
+    "outward_axis": "+z",
+    "source_plan_transform": "[x, plan_y, elevation] -> [x, elevation, -plan_y]",
+    "development_blockout_is_not_metric_authority": true
+  },
+  "shop_namespace": {
+    "canonical_pattern": "SHOP_[A-Z0-9_]+",
+    "canonical_bodega_id": "SHOP_BODEGA",
+    "foreign_key_field": "shop_id",
+    "aliases_must_be_explicit": true,
+    "legacy_prefixes": ["SITE_SHOP_DOOR_", "SITE_SHOP_HOURS_", "SITE_SHOP_LT_", "SITE_SHOP_IN0_", "SITE_SHOP_IN1_", "SITE_SHOP_IN2_", "SITE_SHOP_DARKROOM_"]
+  },
+  "simulation_clock": {
+    "epoch": "campaign_start",
+    "unit": "simulation_minute",
+    "timezone": "none",
+    "host_clock_allowed": false,
+    "start_weekday": "sample_host_once_at_campaign_creation",
+    "start_time": "sample_host_once_at_campaign_creation",
+    "subsequent_host_clock_reads_forbidden": true,
+    "day_length_minutes": 1440,
+    "calendar_year_days": 365
+  },
+  "anomaly_binding": {
+    "space_key": "space_id",
+    "influence_key": "influence_ids",
+    "authority": "corruption_lineage_registry",
+    "composition": "winner_plus_trace",
+    "propagation": "pull",
+    "combined_era_resident_accessor_forbidden": true
+  },
+  "exterior_output": {
+    "status": "CODEX_SPATIAL_OWNER_APPROVED",
+    "authoritative_data_home": "res://data/orison_v2/exterior/",
+    "generated_asset_home": "res://assets/building/orison_v2/exterior/",
+    "staging_home": "art/generated/orison_v2/exterior/",
+    "forbidden_outputs": ["res://data/building_layout.json", "art/data/building_layout.json", "res://assets/building/floor_01.gltf", "res://assets/building/floor_01.bin"]
+  }
+}

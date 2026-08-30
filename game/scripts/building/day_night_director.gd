@@ -148,6 +148,7 @@ var _texture_a: Texture2D
 var _texture_b: Texture2D
 var _last_profile: Dictionary = {}
 var _live_conditions: Dictionary = {}
+var _campaign_clock: CampaignClock
 
 
 func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,
@@ -156,6 +157,8 @@ func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,
 	_env = env
 	_sky_key = sky_key
 	_sky = sky_mat
+	_campaign_clock = CampaignClock.new()
+	_campaign_clock.bind_state()
 	_env.set_meta("absolute_writer", "DayNightDirector")
 	_sky_key.set_meta("absolute_writer", "DayNightDirector")
 	_apply(_minute_now())
@@ -215,11 +218,13 @@ func _minute_now() -> float:
 			return float(posmod(int(bits[0]) * 60 + int(bits[1]), 1440))
 	if OS.get_environment("DAYNIGHT") == "0":
 		return 180.0
-	var now := Time.get_time_dict_from_system()
-	return float(now.hour * 60 + now.minute) + float(now.second) / 60.0
+	return _campaign_clock.minute_of_day() if _campaign_clock else 180.0
 
 
 func _process(delta: float) -> void:
+	if _campaign_clock and OS.get_environment("DAYNIGHT") != "0" \
+			and OS.get_environment("DAYNIGHT_FORCE").is_empty():
+		_campaign_clock.advance_seconds(delta)
 	_accum += delta
 	if _accum < 8.0:
 		return

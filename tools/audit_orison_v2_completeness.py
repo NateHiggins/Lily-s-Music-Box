@@ -183,7 +183,15 @@ FIRST_SLICE_IDS = {
     "selector.reversible_two_root", "site.street_threshold",
 }
 STRUCTURAL_FAMILIES = {"floor", "circ", "unit", "f01", "b1", "roof",
-                       "site", "service"}
+                       "site", "service", "region"}
+REGION_PROGRAM = (
+    ("street", "street and pavements"),
+    ("construction_seam", "construction seam and world edges"),
+    ("arcade_portal", "arcade threshold portal"),
+    ("arcade_throat", "compressed arcade throat"),
+    ("arcade_hall", "Vantry Arcade hall"),
+    ("shops", "shop and bodega regions"),
+)
 RUNTIME_FAMILIES = {"job", "case", "interaction", "save", "contract",
                     "acoustic", "service", "ritual", "unit", "f01"}
 
@@ -1043,6 +1051,7 @@ class Ledger:
     # -- construction -----------------------------------------------------
     def _build(self):
         self._dim_site_street()
+        self._dim_regions()
         self._dim_f01()
         self._dim_circulation()
         self._dim_floors_and_units()
@@ -1132,6 +1141,26 @@ class Ledger:
                  notes="Street apron is an open review shell by design; "
                        "the threshold contract is the door identity.",
                  cutover_blocking=not door)
+
+    def _dim_regions(self):
+        exterior = self.inputs.root / "game/data/orison_v2/exterior/regions.json"
+        records = {}
+        if exterior.exists():
+            try:
+                value = json.loads(exterior.read_text(encoding="utf-8"))
+                records = {str(r.get("id")): r for r in value.get("regions", [])
+                           if isinstance(r, dict)}
+            except (OSError, json.JSONDecodeError):
+                records = {}
+        for key, label in REGION_PROGRAM:
+            region_id = f"REGION_{key.upper()}"
+            record = records.get(region_id)
+            status = "PROGRAMMED" if record and record.get("boundary") else "ABSENT"
+            self.add("01b exterior and region axis", f"region.{key}",
+                     {"region": region_id}, status, "SPATIALLY_PROVEN",
+                     [f"v2-exterior:{region_id}"] if record else
+                     ["derived: authoritative v2 exterior region record absent"],
+                     notes=label)
 
     def _dim_f01(self):
         for key, keywords, label in F01_PROGRAM:
@@ -2183,6 +2212,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--floor", action="append", default=[])
     parser.add_argument("--unit", action="append", default=[])
     parser.add_argument("--space")
+    parser.add_argument("--region", action="append", default=[])
     parser.add_argument("--blockers-for", choices=sorted(SCOPE_FLAGS),
                         help="show only requirements blocking the given "
                              "readiness scope; exit reflects that scope")
@@ -2230,6 +2260,11 @@ def scope_filter(args, requirements: list[dict]) -> list[dict]:
                   if r["scope"].get("space") == args.space or
                   args.space in (r["scope"].get("spaces") or []) or
                   args.space in (r["scope"].get("anchors") or [])]
+    if args.region:
+        regions = set(args.region)
+        scoped = [r for r in scoped
+                  if r["scope"].get("region") in regions or
+                  r["id"].removeprefix("region.") in regions]
     return scoped
 
 

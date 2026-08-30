@@ -959,6 +959,16 @@ class LiveRepoSmokeTests(unittest.TestCase):
         self.assertGreater(len(coverage["unrepresented"]), 90)
         self.assertIn("B1_BOILER", coverage["unrepresented"])
 
+    def test_live_region_axis_names_every_ruled_exterior_region(self):
+        ids = {row["id"] for row in self.payload["requirements"]}
+        self.assertTrue({f"region.{name}" for name, _label in audit.REGION_PROGRAM} <= ids)
+        code, output, _ = run_main("--root", str(REPO_ROOT), "--json",
+                                   "--region", "street")
+        self.assertIn(code, (0, 1, 2))
+        rows = json.loads(output)["requirements"]
+        self.assertTrue(rows)
+        self.assertTrue(all(row["id"] == "region.street" for row in rows))
+
 
 class EvidenceIntakeTests(unittest.TestCase):
     """Prose must not be able to satisfy the requirements it describes.

@@ -66,10 +66,13 @@ var _layout: Dictionary = {}
 var _levels: Dictionary = {}
 var _accum := 9.0               # resolve on the first tick
 var _dispatched: Dictionary = {}
+var campaign_clock: CampaignClock
 
 
 func setup(target: ResidentRoutines, layout: Dictionary) -> void:
 	routines = target
+	campaign_clock = CampaignClock.new()
+	campaign_clock.bind_state()
 	_layout = layout
 	_levels = layout.get("meta", {}).get("levels", {})
 	var file := FileAccess.open(SCHEDULE_PATH, FileAccess.READ)
@@ -105,6 +108,8 @@ func _process(delta: float) -> void:
 		return
 	_accum = 0.0
 	var info := day_info()
+	if not bool(info.get("valid", false)):
+		return
 	var minute := minute_now()
 	for slug in data["residents"]:
 		var block := resolve(str(slug), str(info.day), minute,
@@ -132,8 +137,8 @@ static func minute_now() -> float:
 			return float(int(bits[0]) * 60 + int(bits[1]))
 	if OS.get_environment("DAYNIGHT") == "0":
 		return 180.0
-	var t := Time.get_time_dict_from_system()
-	return float(t.hour * 60 + t.minute) + float(t.second) / 60.0
+	var clock := CampaignClock.new()
+	return clock.minute_of_day() if clock.bind_state() else 180.0
 
 
 ## Non-leap arithmetic on purpose: the design doc's date keys are ruled
@@ -146,20 +151,14 @@ static func doy_of(month: int, day: int) -> int:
 
 
 func day_info() -> Dictionary:
-	var date := Time.get_date_dict_from_system()
-	# Godot weekday: 0 = Sunday .. 6 = Saturday; the data speaks mon..sun.
-	var day: String = DAY_NAMES[(int(date.weekday) + 6) % 7]
-	var doy := doy_of(int(date.month), int(date.day))
 	var forced_day := OS.get_environment("SCHEDULE_DAY")
-	if forced_day in DAY_NAMES:
-		day = forced_day
 	var forced_doy := OS.get_environment("SCHEDULE_DOY")
-	if forced_doy.is_valid_int():
-		doy = int(forced_doy)
-	var first_sat: bool = day == "sat" and int(date.day) <= 7
-	if OS.get_environment("SCHEDULE_FIRST_SAT") == "1":
-		first_sat = day == "sat"
-	return {"day": day, "doy": doy, "first_sat": first_sat}
+	if forced_day in DAY_NAMES and forced_doy.is_valid_int():
+		return {"valid": true, "day": forced_day, "doy": int(forced_doy),
+				"first_sat": forced_day == "sat" and
+				OS.get_environment("SCHEDULE_FIRST_SAT") == "1"}
+	return campaign_clock.day_info() if campaign_clock else {
+		"valid": false, "reason": "campaign calendar provider required"}
 
 
 ## ---- resolution ------------------------------------------------------
