@@ -75,8 +75,16 @@ favourite and a memory of hearing it. 1928 people with memories of 1978
 records, rendered to the player today.
 
 The tapestry is not a new idea. It is the purgatory licence **given an
-owner and a footprint** — which is precisely what the 313-system census
-said was missing everywhere else.
+owner and a footprint**.
+
+*Corrected 2026-08-30: this sentence originally justified itself by
+citing "the 313-system census". No such census exists in the tree — the
+number came from an unfiled workflow run and I cited it as settled.
+The sourced figure is 99 (ORISON_V2_COMPOSITION_CENSUS_2026-08-28.md),
+and there the dominant blocker is space rather than authorship. The
+claim above survives on its own merits — an era entity genuinely does
+need an owner and a footprint, and that is argued in this document
+rather than borrowed — but it had no census behind it.*
 
 ## The struggle
 

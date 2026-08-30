@@ -219,11 +219,38 @@ bucket registry, and Wave 1–2 of the simulation plan (below).
 
 ## 6. The simulation programme, for context
 
-313 systems catalogued across services, commerce, people, fabric,
-institution, environment, anomaly and the player's body. The dominant
-finding: **the missing piece is almost never simulation — it is an
-owner and an `advance()`.** Wave 1 is therefore mostly renaming code
-that already runs correctly.
+**Corrected 2026-08-30.** This section previously claimed "313 systems
+catalogued across nine domains" and gave the dominant finding as *the
+missing piece is almost never simulation — it is an owner and an
+`advance()`*. Both were wrong, and the way they were wrong is worth
+more than the numbers.
+
+The 313 figure came from an unfiled workflow run. It was never a
+document, so nothing could check it, and it was then cited by a later
+ruling as though it were settled. **The only sourced census is 99
+systems** — ORISON_V2_COMPOSITION_CENSUS_2026-08-28.md, re-counted
+mechanically: 36 composable, 58 needing spatial work, 5 deliberately
+left in v1.
+
+And there the dominant blocker is **space**, not authorship: 58 of 99
+need a named anchor, room or carriageway that does not yet exist. The
+owner/`advance()` slogan is true of the simulation programme and false
+of the v2 rebuild running beside it — a finding at one member asserted
+about the family. It happens to argue *for* the current work order,
+which puts space first, but it was not evidence for it.
+
+The sharper law, which does hold across both lanes:
+
+> **A wrong owner produces a wrong output. A missing consumer produces
+> no output.**
+
+Wrong output is visible, embarrassing and gate-able. No output reads as
+"not built yet" rather than "broken", never fails a test, and is
+indistinguishable from scope. That is why two progress floats survived
+four save versions unread, and why every finding class in the authority
+audit is a wrong-owner or wrong-clock class while **no audit anywhere in
+this repo has a no-reader class.** In the only readable incompleteness
+audit, 7 of 9 findings are no-consumer and 0 are no-`advance()`.
 
 The finding you will care about most: **`with`, `route` and `outfit`
 in `resident_schedules.json` have zero readers anywhere.** Eight
