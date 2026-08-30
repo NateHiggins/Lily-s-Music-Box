@@ -1,0 +1,205 @@
+{
+  "active_voxel_count_a": 942,
+  "active_voxel_count_b": 328,
+  "add_lamp_received": {
+    "a_exact_input": {
+      "cone_angle_deg": 35.1983528137207,
+      "cos_outer": 0.81716146974863,
+      "direction": "(1.0, 0.0, 0.0)",
+      "energy": 0.980719044094994,
+      "origin": "(-4.25, 1.25, 1.25)",
+      "physical_light_energy": 4.11901998519897,
+      "range_m": 8.0
+    },
+    "b_exact_input": {
+      "cone_angle_deg": 35.1983528137207,
+      "cos_outer": 0.81716146974863,
+      "direction": "(0.0, 0.0, -1.0)",
+      "energy": 0.980719044094994,
+      "origin": "(3.25, 1.25, -3.25)",
+      "physical_light_energy": 4.11901998519897,
+      "range_m": 8.0
+    },
+    "call_count": 106,
+    "dt_s": 0.0666666666666667
+  },
+  "all_tests_pass": true,
+  "c1d_failure": "C1D asserted shader sampling without a readback comparison and used a 0.5 m accumulated room field as intracellular optical data.",
+  "classification": [
+    "Field resolution insufficient for intracellular optics",
+    "System is functioning correctly but is conceptually unsuitable for microscopic volumetric lighting"
+  ],
+  "cpu_shader_max_error": 0.00128674507141113,
+  "cpu_shader_tolerance": 0.035,
+  "deterministic_hashes": {
+    "lamp_state": 3403723918,
+    "occupied_a": "b2b303261a283228f571f3e918aa877e799a8073f91a027e7da0a053d8e0e7b0",
+    "occupied_b": "a4bbef134c361de2d4f21aa3d86d52f99e6db90e463162738aa2bd9bb2150911"
+  },
+  "field_contract": {
+    "durable_r": "accumulated ecological conversion; cleared only when room leaves pocket",
+    "instantaneous_light_solution": false,
+    "reversible_g": "bounded irradiance response with ruled rise/fall"
+  },
+  "frozen": {
+    "beauty_render_created": false,
+    "c1d_unchanged": true,
+    "l1d_unblocked": false,
+    "production_semantics_changed": false,
+    "s2j_superseded": false
+  },
+  "grid_dimensions": [
+    96,
+    8,
+    96
+  ],
+  "input_lamp_a": {
+    "cone_angle_deg": 35.1983528137207,
+    "cos_outer": 0.81716146974863,
+    "direction": "(1.0, 0.0, 0.0)",
+    "energy": 0.980719044094994,
+    "origin": "(-4.25, 1.25, 1.25)",
+    "physical_light_energy": 4.11901998519897,
+    "range_m": 8.0
+  },
+  "input_lamp_b": {
+    "cone_angle_deg": 35.1983528137207,
+    "cos_outer": 0.81716146974863,
+    "direction": "(0.0, 0.0, -1.0)",
+    "energy": 0.980719044094994,
+    "origin": "(3.25, 1.25, -3.25)",
+    "physical_light_energy": 4.11901998519897,
+    "range_m": 8.0
+  },
+  "renderer": "forward_plus",
+  "resolution": "1600x900",
+  "samples": [
+    {
+      "absolute_error": 0.000755786895751953,
+      "cpu": 0.796834230422974,
+      "name": "near_axis",
+      "shader": 0.796078443527222,
+      "world": "(-2.75, 1.25, 1.25)"
+    },
+    {
+      "absolute_error": 0.00128674507141113,
+      "cpu": 0.551654458045959,
+      "name": "mid_axis",
+      "shader": 0.552941203117371,
+      "world": "(-0.75, 1.25, 1.25)"
+    },
+    {
+      "absolute_error": 0.00102125108242035,
+      "cpu": 0.122589878737926,
+      "name": "far_axis",
+      "shader": 0.121568627655506,
+      "world": "(2.75, 1.25, 1.25)"
+    },
+    {
+      "absolute_error": 0.000130385160446167,
+      "cpu": 0.333202958106995,
+      "name": "upper_axis",
+      "shader": 0.333333343267441,
+      "world": "(-0.75, 2.25, 1.25)"
+    },
+    {
+      "absolute_error": 0.000130385160446167,
+      "cpu": 0.333202958106995,
+      "name": "lower_axis",
+      "shader": 0.333333343267441,
+      "world": "(-0.75, 0.25, 1.25)"
+    },
+    {
+      "absolute_error": 0.00123906135559082,
+      "cpu": 0.0379766263067722,
+      "name": "cone_edge",
+      "shader": 0.0392156876623631,
+      "world": "(-0.75, 1.25, 3.25)"
+    },
+    {
+      "absolute_error": 0.0,
+      "cpu": 0.0,
+      "name": "outside_cone",
+      "shader": 0.0,
+      "world": "(0.25, 1.25, 6.25)"
+    },
+    {
+      "absolute_error": 0.0,
+      "cpu": 0.0,
+      "name": "behind_lamp",
+      "shader": 0.0,
+      "world": "(-5.75, 1.25, 1.25)"
+    }
+  ],
+  "strongest_voxel_a": {
+    "index": "(88, 2, 2)",
+    "value": 0.839215695858002,
+    "world": "(-3.75, 1.25, 1.25)"
+  },
+  "strongest_voxel_b": {
+    "index": "(6, 2, 87)",
+    "value": 0.839215695858002,
+    "world": "(3.25, 1.25, -4.25)"
+  },
+  "task": "LAMP-VOXEL-DIAG1",
+  "tests": [
+    {
+      "name": "lamp_state_deterministic",
+      "pass": true
+    },
+    {
+      "name": "instrument_exposes_exact_values",
+      "pass": true
+    },
+    {
+      "name": "lamp_off_no_new_exposure",
+      "pass": true
+    },
+    {
+      "name": "lamp_on_bounded_nonzero",
+      "pass": true
+    },
+    {
+      "name": "behind_lamp_unaffected",
+      "pass": true
+    },
+    {
+      "name": "outside_cone_unaffected",
+      "pass": true
+    },
+    {
+      "name": "near_exceeds_far",
+      "pass": true
+    },
+    {
+      "name": "cpu_shader_agree",
+      "pass": true
+    },
+    {
+      "name": "rotation_moves_response",
+      "pass": true
+    },
+    {
+      "name": "world_origin_translation_sampling",
+      "pass": true
+    },
+    {
+      "name": "wrapped_live_rooms_do_not_alias_silently",
+      "pass": true
+    },
+    {
+      "name": "existing_accumulation_decay_authority",
+      "pass": true
+    },
+    {
+      "name": "save_contract_only_lamp_state",
+      "pass": true
+    },
+    {
+      "name": "teardown_retains_nothing_new",
+      "pass": true
+    }
+  ],
+  "upload_count": 60,
+  "voxel_size_m": 0.5
+}
