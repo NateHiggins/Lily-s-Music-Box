@@ -48,6 +48,9 @@ func _fresh_data() -> Dictionary:
 		# Exterior simulation owners seed their own authored defaults into this
 		# durable container. RealityState owns persistence, never shop behavior.
 		"shop_buckets": {},
+		# Exterior reconstruction stores semantic route/threshold identities only.
+		# Current world transforms remain owned by the v2 exterior resolver.
+		"exterior_semantics": {},
 		"campaign_clock": {},
 		"organism_incidents": {},
 		"core_loop": {},
@@ -171,6 +174,8 @@ func load_game() -> void:
 			data.open_shift_situations = {}
 		if not data.has("shop_buckets"):
 			data.shop_buckets = {}
+		if not data.has("exterior_semantics"):
+			data.exterior_semantics = {}
 		if not data.has("campaign_clock"):
 			data.campaign_clock = {}
 		if not data.has("core_loop"):

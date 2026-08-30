@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "frame": {
+    "origin_identity": "ORISON_FRONT_DOOR_THRESHOLD",
+    "outward_axis": "+z",
+    "unit": "m",
+    "canonical_root_instance_id": "STREET_ORISON_01"
+  },
+  "regions": [
+    {
+      "id": "REGION_STREET",
+      "kind": "street",
+      "lineage_id": "street",
+      "boundary": [[-3.0, 0.0], [22.0, 0.0], [22.0, 6.0], [-3.0, 6.0]]
+    },
+    {
+      "id": "REGION_SHOPS",
+      "kind": "shops",
+      "lineage_id": "shopfronts",
+      "boundary": [[16.455, -8.495], [20.855, -8.495], [20.855, 2.205], [16.455, 2.205]]
+    }
+  ],
+  "surface_templates": [
+    {
+      "id": "TEMPLATE_STREET_SEGMENT_V1",
+      "kind": "street",
+      "lineage_id": "street",
+      "boundary_xz_m": [-3.0, 0.0, 22.0, 6.0],
+      "surfaces": [
+        {
+          "id": "pavement",
+          "kind": "walkable",
+          "point_m": [9.5, 0.0, 3.0],
+          "u_axis": [1.0, 0.0, 0.0],
+          "v_axis": [0.0, 0.0, 1.0],
+          "normal": [0.0, 1.0, 0.0],
+          "size_m": [25.0, 6.0]
+        },
+        {
+          "id": "orison_threshold",
+          "kind": "threshold",
+          "point_m": [0.0, 0.0, 0.0],
+          "u_axis": [1.0, 0.0, 0.0],
+          "v_axis": [0.0, 1.0, 0.0],
+          "normal": [0.0, 0.0, 1.0],
+          "size_m": [1.4, 2.5]
+        }
+      ],
+      "placements": [
+        {
+          "id": "orison_exit",
+          "purpose": "player route begins outside Orison",
+          "surface_id": "pavement",
+          "offset_uvn_m": [-9.5, -2.42, 0.04],
+          "facing_local": [0.0, 0.0, 1.0]
+        },
+        {
+          "id": "pavement_out",
+          "purpose": "turn along the Orison-side pavement",
+          "surface_id": "pavement",
+          "offset_uvn_m": [-9.5, 1.0, 0.04],
+          "facing_local": [1.0, 0.0, 0.0]
+        },
+        {
+          "id": "route_overview_eye",
+          "purpose": "player-height route evidence stance",
+          "surface_id": "pavement",
+          "offset_uvn_m": [-4.5, 2.45, 1.41],
+          "facing_local": [1.0, 0.0, -0.15]
+        },
+        {
+          "id": "route_overview_target",
+          "purpose": "route evidence look target",
+          "surface_id": "pavement",
+          "offset_uvn_m": [2.0, -2.0, 1.2],
+          "facing_local": [1.0, 0.0, 0.0]
+        }
+      ]
+    },
+    {
+      "id": "TEMPLATE_BODEGA_CELL_V1",
+      "kind": "shop",
+      "lineage_id": "shopfronts",
+      "boundary_xz_m": [-2.2, -10.62, 2.2, 0.08],
+      "surfaces": [
+        {
+          "id": "floor",
+          "kind": "walkable",
+          "point_m": [0.0, 0.0, -5.27],
+          "u_axis": [1.0, 0.0, 0.0],
+          "v_axis": [0.0, 0.0, 1.0],
+          "normal": [0.0, 1.0, 0.0],
+          "size_m": [4.4, 10.54]
+        },
+        {
+          "id": "threshold",
+          "kind": "threshold",
+          "point_m": [0.0, 0.0, 0.0],
+          "u_axis": [1.0, 0.0, 0.0],
+          "v_axis": [0.0, 1.0, 0.0],
+          "normal": [0.0, 0.0, 1.0],
+          "size_m": [1.2, 2.5]
+        },
+        {
+          "id": "counter_top",
+          "kind": "service",
+          "point_m": [-1.25, 0.92, -2.0],
+          "u_axis": [1.0, 0.0, 0.0],
+          "v_axis": [0.0, 0.0, 1.0],
+          "normal": [0.0, 1.0, 0.0],
+          "size_m": [1.55, 1.15]
+        },
+        {
+          "id": "back_room_threshold",
+          "kind": "threshold",
+          "point_m": [0.65, 0.0, -7.35],
+          "u_axis": [1.0, 0.0, 0.0],
+          "v_axis": [0.0, 1.0, 0.0],
+          "normal": [0.0, 0.0, -1.0],
+          "size_m": [1.05, 2.25]
+        }
+      ],
+      "placements": [
+        {
+          "id": "street_alignment",
+          "purpose": "street route alignment outside the shop",
+          "surface_id": "threshold",
+          "offset_uvn_m": [0.0, 0.04, 3.4],
+          "facing_local": [0.0, 0.0, -1.0]
+        },
+        {
+          "id": "exterior_stance",
+          "purpose": "storefront interaction stance",
+          "surface_id": "threshold",
+          "offset_uvn_m": [0.0, 0.04, 0.95],
+          "facing_local": [0.0, 0.0, -1.0]
+        },
+        {
+          "id": "interior_arrival",
+          "purpose": "first supported position inside the shop",
+          "surface_id": "floor",
+          "offset_uvn_m": [0.0, 4.15, 0.04],
+          "facing_local": [0.0, 0.0, -1.0]
+        },
+        {
+          "id": "service_stance",
+          "purpose": "maintenance-shop counter stance",
+          "surface_id": "floor",
+          "offset_uvn_m": [0.35, 2.55, 0.04],
+          "facing_local": [-1.0, 0.0, 0.0]
+        },
+        {
+          "id": "counter_center",
+          "purpose": "maintenance-shop counter mount",
+          "surface_id": "counter_top",
+          "offset_uvn_m": [0.0, 0.0, -0.46],
+          "facing_local": [1.0, 0.0, 0.0]
+        },
+        {
+          "id": "cooler_center",
+          "purpose": "cold-case fixture mount",
+          "surface_id": "floor",
+          "offset_uvn_m": [1.55, -2.8, 0.95],
+          "facing_local": [-1.0, 0.0, 0.0]
+        },
+        {
+          "id": "aisle_a_center",
+          "purpose": "first merchandise aisle mount",
+          "surface_id": "floor",
+          "offset_uvn_m": [-0.75, -0.55, 0.56],
+          "facing_local": [0.0, 0.0, 1.0]
+        },
+        {
+          "id": "aisle_b_center",
+          "purpose": "second merchandise aisle mount",
+          "surface_id": "floor",
+          "offset_uvn_m": [0.75, -0.55, 0.56],
+          "facing_local": [0.0, 0.0, 1.0]
+        },
+        {
+          "id": "inside_view",
+          "purpose": "player-height interior evidence stance",
+          "surface_id": "floor",
+          "offset_uvn_m": [0.25, 1.85, 0.04],
+          "facing_local": [0.0, 0.0, -1.0]
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "id": "STREET_ORISON_01",
+      "template_id": "TEMPLATE_STREET_SEGMENT_V1",
+      "region_id": "REGION_STREET",
+      "lineage_id": "street",
+      "owner_instance_id": "",
+      "owner_surface_id": "",
+      "offset_uvn_m": [0.0, 0.0, 0.0],
+      "local_yaw_degrees": 0.0,
+      "root_frame_identity": "ORISON_FRONT_DOOR_THRESHOLD",
+      "semantic_identity": "ORISON_SIDE_PAVEMENT",
+      "display_name": "ORISON-SIDE PAVEMENT"
+    },
+    {
+      "id": "SHOP_BODEGA",
+      "template_id": "TEMPLATE_BODEGA_CELL_V1",
+      "region_id": "REGION_SHOPS",
+      "lineage_id": "shopfronts",
+      "owner_instance_id": "STREET_ORISON_01",
+      "owner_surface_id": "pavement",
+      "offset_uvn_m": [9.155, -0.875, 0.0],
+      "local_yaw_degrees": 0.0,
+      "root_frame_identity": "",
+      "semantic_identity": "SHOP_BODEGA",
+      "display_name": "BODEGA & NOTIONS"
+    }
+  ],
+  "thresholds": [
+    {
+      "id": "THRESHOLD_SHOP_BODEGA_FRONT",
+      "shop_id": "SHOP_BODEGA",
+      "region_id": "REGION_SHOPS",
+      "lineage_id": "shopfronts",
+      "owner_instance_id": "SHOP_BODEGA",
+      "owner_surface_id": "threshold",
+      "exterior_placement_id": "exterior_stance",
+      "interior_placement_id": "interior_arrival",
+      "interactive_leaf_id": "SHOP_BODEGA_STOREFRONT_LEAF"
+    }
+  ],
+  "routes": [
+    {
+      "id": "ROUTE_ORISON_TO_SHOP_BODEGA",
+      "direction": "toward_shop",
+      "lineage_id": "street",
+      "region_ids": ["REGION_STREET", "REGION_SHOPS"],
+      "threshold_ids": ["THRESHOLD_SHOP_BODEGA_FRONT"],
+      "nodes": [
+        {"id": "ORISON_EXIT", "owner_instance_id": "STREET_ORISON_01", "placement_id": "orison_exit"},
+        {"id": "PAVEMENT_TURN", "owner_instance_id": "STREET_ORISON_01", "placement_id": "pavement_out"},
+        {"id": "BODEGA_ALIGNMENT", "owner_instance_id": "SHOP_BODEGA", "placement_id": "street_alignment"},
+        {"id": "BODEGA_EXTERIOR", "owner_instance_id": "SHOP_BODEGA", "placement_id": "exterior_stance"},
+        {"id": "BODEGA_INTERIOR", "owner_instance_id": "SHOP_BODEGA", "placement_id": "interior_arrival"}
+      ]
+    },
+    {
+      "id": "ROUTE_SHOP_BODEGA_TO_ORISON",
+      "direction": "toward_orison",
+      "lineage_id": "street",
+      "region_ids": ["REGION_SHOPS", "REGION_STREET"],
+      "threshold_ids": ["THRESHOLD_SHOP_BODEGA_FRONT"],
+      "nodes": [
+        {"id": "BODEGA_INTERIOR", "owner_instance_id": "SHOP_BODEGA", "placement_id": "interior_arrival"},
+        {"id": "BODEGA_EXTERIOR", "owner_instance_id": "SHOP_BODEGA", "placement_id": "exterior_stance"},
+        {"id": "BODEGA_ALIGNMENT", "owner_instance_id": "SHOP_BODEGA", "placement_id": "street_alignment"},
+        {"id": "PAVEMENT_TURN", "owner_instance_id": "STREET_ORISON_01", "placement_id": "pavement_out"},
+        {"id": "ORISON_EXIT", "owner_instance_id": "STREET_ORISON_01", "placement_id": "orison_exit"}
+      ]
+    }
+  ]
+}
