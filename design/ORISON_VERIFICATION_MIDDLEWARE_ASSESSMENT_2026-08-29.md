@@ -154,29 +154,56 @@ and constant, *and* they are cheap to kill if anyone checks.
 I measured coupling three ways: constant-table share, domain vocabulary outside
 those tables, and engine/platform dependence.
 
-### 2.1 The surprise: the flagships are far less Orison-coupled than they look
+### 2.1 The only measurement that settles this is running the tool on somebody else's repository
+
+**A correction, and it is the most important paragraph in this document.**
+
+A first pass measured Orison coupling by counting module-level constant tables
+and domain vocabulary in the source:
 
 | tool | lines | constant tables | domain vocabulary **outside** tables |
 | --- | ---: | ---: | ---: |
-| `audit_orison_v2_completeness.py` | 2,499 | 186 (**7.4%**) | 45 lines (**1.8%**) |
-| `audit_systemic_situation_authority.py` | 1,040 | 126 (12.1%) | 2 lines (**0.2%**) |
-| `audit_orison_spatial_dependencies.py` | 1,478 | 424 (28.7%) | 3 lines (**0.2%**) |
+| `audit_orison_v2_completeness.py` | 2,499 | 186 (7.4%) | 45 lines (1.8%) |
+| `audit_systemic_situation_authority.py` | 1,040 | 126 (12.1%) | 2 lines (0.2%) |
+| `audit_orison_spatial_dependencies.py` | 1,478 | 424 (28.7%) | 3 lines (0.2%) |
 
-The completeness ledger's canon — `CANON_FLOORS`, `UNIT_FUNCTIONS`,
-`F01_PROGRAM`, `B1_PROGRAM`, `ROOF_PROGRAM`, `FLOOR_CIRCULATION`,
-`SERVICE_SYSTEMS`, `RITUAL_IDENTITIES`, `UNIT_PREFIX_EXACT`, `V1_TO_V2_ALIASES`,
-`ACCEPTANCE_GRANTS`, `EVIDENCE_NAME_MARKERS` — is **186 lines of 2,499**.
-Mechanism is 78%. Almost every remaining "domain" hit is a comment, a docstring
-or CLI help text.
+Every number in that table is correct. **The inference drawn from it — that the
+canon is a small replaceable table, so extraction is not a rewrite — was
+wrong**, and it took five minutes and one command to find out.
 
-**This refutes the intuitive assumption that extraction is a rewrite because the
-canon is baked in.** It is not baked in; it is a small, replaceable table. If
-the tools fail to extract, it is for a different reason (§5).
+**The experiment.** Point each tool at a synthetic project containing no Orison
+identifier and see what comes back.
 
-The three flagships are also barely Godot-coupled: `.gd` appears 18, 43 and 9
-times respectively; `res://` appears 0, 4 and 0 times. The systemic audit is a
-**text scan over GDScript source** — coupled to a language's surface syntax, not
-to this game.
+`audit_orison_v2_completeness.py --root <empty non-Orison project>` returns
+**70 requirements — all of them Orison's**: `site.street_threshold`,
+`f01.lobby`, `f01.watch_station`, `ritual.F01_WATCHMAN_DETECTOR`. It reports 69
+ABSENT and prints a cutover blocker list for a building that does not exist.
+
+The reason the constant-table measurement missed it: **the obligations are
+encoded in methods, not tables.** Fifteen `_dim_*` methods (457 lines) plus
+`build_queue` (313 lines) total **770 lines — 30.8%** — and requirement ids are
+string literals at **31 `self.add()` call sites**. `queue_templates` alone is
+275 lines encoding twelve hardcoded Orison milestones from `M08E` to
+`M18-v1-retirement`. Swapping all twelve named canon tables buys you 79 lines
+(3.2%) and produces nothing.
+
+`audit_systemic_situation_authority.py --root <same kind of project>` **passes
+the same test.** Given ~15 lines of fantasy-RPG GDScript — a coordinator setting
+`npc.knows_about_theft = true` and `valve.is_open = true`, and a
+`state.quality = "good" if misses == 0` — it returns **exit 1 with two STRONG
+findings**, correctly classified `DIRECT_NPC_KNOWLEDGE_WRITE` and
+`FOREIGN_PHYSICAL_MUTATION`, correctly dispositioned `DELEGATE_TO_OWNER`. No
+Orison identifier anywhere in the input.
+
+**That is the second-consumer proof, and as far as I can tell it is the first
+one this project has ever produced.** It also demolishes the desk measurement:
+two tools with near-identical "domain vocabulary" scores behave completely
+differently the moment they leave home. §5.2's two-game rule is not pedantry.
+It is the only measurement that discriminates.
+
+The three flagships are barely Godot-coupled by comparison: `.gd` appears 18, 43
+and 9 times; `res://` appears 0, 4 and 0. The systemic audit is a text scan over
+GDScript's surface syntax, not over this game.
 
 ### 2.2 The genuinely general ideas, ranked, with honest prior art
 
@@ -244,12 +271,19 @@ this game's design manifesto (§1.2). The general core is ArchUnit's territory.
 
 ### 2.3 What is genuinely unextractable
 
-**The completeness ledger's canon tables** — but not for the reason expected.
-They are only 186 lines. The problem is that **a customer would have to write
-their own**, and writing them *is* the work. What the tool supplies is a status
-ladder and an evidence-intake rule; what made it valuable here was somebody
-encoding an architectural program into a reviewed table. Sell the frame and the
-buyer receives an empty frame.
+**The completeness ledger.** Demonstrated in §2.1: it emits Orison's seventy
+requirements against any repository on earth. Extraction means deleting the
+770-line obligation layer and replacing it with a declarative requirement schema
+**that does not exist today**, then rewriting the 1,189-line test suite whose
+fixtures assert Orison statuses. Under 350 lines of 2,499 move as-is: the status
+ladder and scope assignment (~60), the evidence-intake allowlist (~40),
+`evidence_impact` (~90), and the atomic-write / guarded-output / compare / render
+plumbing (~110).
+
+And the deeper problem survives the rewrite: **a customer would have to author
+their own obligations, and authoring them *is* the work.** What made this tool
+valuable was somebody encoding an architectural program into a reviewed table.
+Sell the frame and the buyer receives an empty frame.
 
 **The period cutoff** (`audit_period_dates.py`, 163 lines). Pure Orison, and
 also the worst-designed gate in the tree (it fails the moment the owner makes
@@ -488,6 +522,23 @@ whole question from argument to evidence.
 ## Part 6 — The smallest useful extraction
 
 **One week. One tool. One repository that is not Orison.**
+
+**And the candidate is now known, because a fragment of this experiment has
+already run.** §2.1 pointed `audit_systemic_situation_authority.py` at a
+synthetic project and it produced two correct STRONG findings with a non-zero
+exit and no Orison identifier in the input. That is not the claim checker
+described below — it is an ownership lint — but it is the one tool in the tree
+with a demonstrated second consumer, and its extraction cost is now measurable
+rather than estimated: move `writer_class` (25 lines), `DATA_SUBTREE_OWNERS`
+(21), `REALITY_DATA_WRITE_RE` (4) and roughly thirty vocabulary regexes (~120)
+into a per-project config file. **About 170 lines become configuration; ~870
+lines move unchanged.** It is the only tool of the eighteen where extraction is
+a configuration exercise rather than a rewrite.
+
+If the week has to be spent on one thing, spend it there rather than on the
+greenfield claim checker — the claim checker is the better *product* thesis, but
+the ownership lint is the only thing here that has already cleared the bar the
+project itself set.
 
 **What to build.** A single CLI, ~800 lines plus tests, no Godot, no game
 assumptions, standard library only:
