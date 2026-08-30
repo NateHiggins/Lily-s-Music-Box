@@ -68,7 +68,10 @@ def scan(root: Path, exception_path: Path):
 
     records = []
     data_root = root / "game/data"
-    for path in sorted(data_root.glob("*.json")):
+    # Recursive: game/data/ has subdirectories (songbook/), and PATH_RE
+    # already accepts a nested res://data/<dir>/<file>.json reference, so a
+    # flat glob silently passed every file the loader could legitimately name.
+    for path in sorted(data_root.rglob("*.json")):
         rel_data = path.relative_to(data_root).as_posix()
         rel_repo = path.relative_to(root).as_posix()
         try:

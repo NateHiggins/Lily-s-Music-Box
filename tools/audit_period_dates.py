@@ -21,6 +21,12 @@ INSTALLATION_YEAR = re.compile(r"\binstalled\s+(\d{4})\b", re.IGNORECASE)
 EXPECTED_CONSUMERS = {
     "game/scripts/audio/music_director.gd": "player_readable_catalogue",
     "game/scripts/building/celestial_ephemeris.gd": "astronomy_calculation_only",
+    # Reads the host date ONCE, at campaign creation, to seed the campaign
+    # epoch; simulation time then advances from accumulated engine delta and
+    # never re-reads the wall clock. The year is never shown to a player --
+    # PhoneOS pins the displayed year to fictional 1928 -- so this is an
+    # epoch seed, not a period surface. Landed 5c1a96a (ADMIN-PREREQ-1).
+    "game/scripts/game/campaign_clock.gd": "campaign_epoch_seed_only",
     "game/scripts/minigames/shelf_sort.gd": "player_readable_period_library",
     "game/scripts/songbook/songbook_store.gd": "local_filename_only",
     "game/scripts/ui/bookshelf_panel.gd": "player_readable_period_library",
