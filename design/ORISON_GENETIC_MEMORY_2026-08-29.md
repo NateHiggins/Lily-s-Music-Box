@@ -49,6 +49,39 @@ This is the project's single most repeated defect. The seed brief called it
 "authored data with no reader." That is too narrow. It applies to **data, tools,
 documents and save fields alike**, and its cause is structural, not careless.
 
+### 1.0 Why it recurs — and it is not carelessness
+
+The asymmetry is the whole explanation, and it is worth stating before the
+specimens:
+
+> **A wrong owner produces a wrong output. A missing consumer produces no
+> output.**
+
+A wrong owner is visible, embarrassing and gate-able — the porter arrives at the
+wrong flat, the coordinator names 2C when the riser reaches 3B. A missing
+consumer produces *nothing*. It reads as *"not built yet"* rather than
+*"broken"*, it never fails a test, it never fails a gate, and **it is
+indistinguishable from scope.** That is why two floats survived four save
+versions with zero readers: there is no failing state for a number nobody asks
+for.
+
+The tooling shows the same blind spot. All nine finding classes in
+`audit_systemic_situation_authority.py` are **wrong-owner or wrong-clock**
+classes. There is no `NO_READER` class in any of the eleven audits. The one
+sweep that *did* find the class was a hand-written report run once on
+2026-08-10 and never turned into a tool — and 19 days later three of its nine
+findings are still open (§1.6).
+
+Measured across 47 data files against 8.96 MB of source: **185 of 1,405
+schema-shaped keys — 13.2% — have zero textual reader anywhere in the tree.**
+That count is conservative in one direction (any string match counts as a read)
+and inflated in another (id-keyed maps), so treat it as an order of magnitude,
+not a figure. The hand-verified cases below are exact.
+
+*Evidence:* `design/AUDIT_UNUSED_SYSTEMS_REPORT.md` (7 of 9 findings are
+no-consumer; **0** are no-advance); `tools/audit_systemic_situation_authority.py`
+class list; scratch measurement over `game/data/`.
+
 ### 1.1 A write is not a use
 
 > **A variable that only reads itself is not read.**
@@ -252,12 +285,98 @@ authority audit so the class is caught rather than the instance").
 references the file. The comment is a **false wiring claim**, which costs more
 than no documentation, because it survives grep and reads as evidence.
 
+The sharper specimen is `apartment_life_profiles.json`, whose own `comment`
+field reads: *"Dressing kits, room conversions, routines and audits all read
+THIS — never another chain of if-unit-equals."* Measured: `daily_loops`,
+`surface_sets`, `entry_set`, `bath_set`, `sleep_schedule`, `cleanliness` and
+`hero_object` each have **zero** GDScript readers. Only `unit`, `resident_ids`
+and `rooms` are consumed. **The file asserts its own consumption, in prose,
+inside the data, and the assertion is false in seven of ten fields.**
+
 **The rule.** Treat the runtime data directory as an assertion that every file
 in it has a production reader, and enforce it. Inert briefs go in `design/`.
-Never let a data file describe its own consumer in a comment.
+Never let a data file describe its own consumer in a comment — an artifact that
+asserts its own consumption is the cheapest thing in the world to produce, and
+it survives grep.
 
 *Evidence:* `game/data/move_repertoire.json`;
-`game/scripts/characters/resident_moves_library.gd:14-19`; `0e31059`.
+`game/scripts/characters/resident_moves_library.gd:14-19`; `0e31059`;
+`game/data/apartment_life_profiles.json` (`comment` field vs. measured readers).
+
+### 1.9 Deadness is per-field, not per-system
+
+`building_personality_director.gd:63-82` accumulates six durable quantities in
+one `_process`, one owner, one commit. `bond` (4 references) and `resentment`
+(8) are alive and read repeatedly. `favorite_floor` is read twice.
+`flashlight_seconds` once. **`careful_seconds` and `flight_seconds` have two
+references each — the declaration and the write. Zero reads.**
+
+Half the outputs of one tick land and half do not. Any audit that asks *"is this
+system used?"* answers yes and moves on.
+
+**The rule.** Census at **field** granularity, never at file or class
+granularity. "Is this system wired up?" is the wrong question; "which of its
+outputs has a reader?" is the right one.
+
+*Evidence:* `game/scripts/reality/building_personality_director.gd:19-20,63-82,111,138`;
+`game/scripts/reality/sanity_director.gd:458`.
+
+### 1.10 Ownership is enforced by the API surface, not by review
+
+The one place this project genuinely fixed the class, it did not write a
+convention — it made the wrong call **impossible**. Before `66355da`,
+`open_shift_radiator_ecosystem.gd` ran a `_last_bucket` tick every frame that
+wrote `record_fact("npc_knowledge", {"2c_neighbor": "heard_hammer", "porter":
+"found_unresolved_fault"})` and emitted `porter_dispatched`. **A clock decided
+what three people knew and dispatched a man who did not exist.** It had also
+been wrong on the merits for months: the acoustic graph says the riser reaches
+**3B**, not the asserted 2C.
+
+The fix is four lines at `open_shift_situation.gd:69-72`:
+
+```gdscript
+func record_fact(fact: String, value: Variant) -> bool:
+    if fact not in ["abandonment_boundary",
+            "recoverable_next_state", "elapsed_simulation_minutes"]:
+        return false
+```
+
+Beliefs now belong to `NpcObservationLedger`, custody to
+`MaintenanceInventory`, and the coordinator is **structurally incapable** of
+writing either. Not a rule an agent must remember — a return value.
+
+**The rule.** When you find a component writing facts it does not own, do not
+document the boundary and do not add a review check. Give the owner a whitelist
+and make the foreign write **return false**. A convention every author happens
+to honour is not an interface (§6 of the middleware assessment); an API that
+refuses is.
+
+*Evidence:* `66355da`; `game/scripts/game/open_shift_situation.gd:66-76`;
+`git show 66355da -- game/scripts/game/open_shift_radiator_ecosystem.gd`.
+
+### 1.11 Missing population is not missing simulation
+
+The fourth failure class, and the only one that looks like success from every
+direction:
+
+`heat_balance.gd` has an owner, an `advance()`, a consumer, and passing tests.
+It is also **provably inert on v2**: with one radiator, the zero-sum solver's
+share term cancels at `heat_balance.gd:97-103`, so vent grade and the
+partial-supply penalty *"have provably zero effect on delivered heat, which is
+the entire reason the file exists."* Composing it over v2's single radiator
+*"would run without error and mean nothing."*
+
+Nothing detects this. It is not dead code, not an orphan field, not a wrong
+owner, and not a missing tick. It is a correct system with **n = 1**.
+
+**The rule.** For any system whose output is a *share*, a *ranking*, a
+*competition* or a *balance*, state the minimum population at which its
+behaviour becomes observable, and assert it. Below that population the system is
+not "working with less data" — it is algebraically inert, and it will pass every
+test you own.
+
+*Evidence:* `design/ORISON_V2_COMPOSITION_CENSUS_2026-08-28.md` finding F4;
+`game/scripts/props/heat_balance.gd:97-103`.
 
 ---
 
@@ -1383,16 +1502,35 @@ sixty candidates in total; the discriminator was usually test 2, transferability
   wiring is not (§1.2), and that the orphan is often redundant with a derivation
   that already won (§1.3).
 
-- **H2, "the missing piece is an owner and an `advance()`."** **Not verified.**
-  The agent assigned to test this against the 313-system catalogue died on a
-  usage limit and I did not re-run it. The claim's *source* is confirmed —
-  `design/ORISON_V2_SEPT3_REBUILD_HANDOFF_2026-08-28.md:222` catalogues 313
-  systems and §6 states *"the missing piece is almost never simulation — it is an
-  owner and an `advance()`. Wave 1 is therefore mostly renaming code that already
-  runs correctly."* Corroborating evidence exists (`66355da` replaced an
-  elapsed-time bucket with `PorterActor` and the consequences became real), but I
-  have **not** classified the 313 systems myself and the hypothesis should be
-  treated as plausible and untested.
+- **H2, "the missing piece is an owner and an `advance()`."** *Confirmed for the
+  lane it was written about, refuted as a general law, and it names the wrong
+  dominant class.* Four corrections, each load-bearing.
+  **(i) The 313-system catalogue is not in the repository.** Two citations
+  exist, no source. The nearest real, complete catalogue is 99 systems
+  (`design/ORISON_V2_COMPOSITION_CENSUS_2026-08-28.md`: "Deduplicated from 110
+  enumerated rows to 99 distinct authorities", re-counted mechanically as
+  COMPOSABLE_NOW 36 / NEEDS_SPATIAL 58 / DELIBERATELY_V1 5).
+  **(ii) In that catalogue the dominant blocker is neither owner nor
+  `advance()` — it is SPACE.** 58 of 99 (59%) are `NEEDS_SPATIAL`: a named
+  missing anchor, room or carriageway. The slogan is true of the simulation
+  programme and **false of the v2 rebuild running in parallel on the same
+  date** — which is §4.2 again, a finding at one member asserted about the
+  family.
+  **(iii) It names the wrong dominant class.** In the only readable
+  incompleteness audit, **7 of 9 findings are no-consumer and 0 are
+  no-advance** — and no-consumer is roughly seven times more common. "No owner"
+  and "no `advance()`" diagnose systems that *run wrong*; "no consumer"
+  diagnoses systems that *never run at all* (§1.0).
+  **(iv) The `advance()` half is backwards.** Every flagship example is a case
+  where the tick already existed **in the wrong hands**. `PorterActor.advance_to()`
+  did not add a clock; it moved one (§1.10). The transferable statement is not
+  *"add an `advance()`"* but **"the advance must live inside the thing that
+  bears the consequence, and that thing must be able to refuse."** The audit
+  encodes exactly this in its exclusion list: *a timer that schedules an actor
+  is fine; a timer that acts for him is not.*
+  And there is a fifth class the slogan cannot express at all: a system with an
+  owner, an `advance()`, a consumer and passing tests that is inert because
+  n = 1 (§1.11).
 
 - **H3, exit 0 lies.** *Confirmed, and the runner is the least of it.* The serial
   runner lied for 334 commits (§2.1). The geometry builder claim is verbatim true
@@ -1440,3 +1578,10 @@ sixty candidates in total; the discriminator was usually test 2, transferability
 **One thing I could not check.** `f04be59` (the three-way exit-code split,
 §2.8) is on `claude/runner-exit-truth` and is **not merged**. The lesson is
 sound and the commit is real; the fix is not in `main`.
+
+**One correction made while writing this.** An early draft recorded H2 as
+untested because the agent assigned to it died mid-run. It was re-run and is now
+answered above. Noting it because the alternative — leaving a hypothesis
+described as unverified when it had in fact been refuted in three of four parts
+— is exactly the shape of §3.9: a claim that stops being true and stays in the
+prose because nobody re-checked it against the tip.
