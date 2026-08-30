@@ -16,13 +16,17 @@ entirely in the evidence toolchain."* That ruling **survives** everything below.
 
 ## Verdict
 
-**Do not build a product. Spend one week measuring recall on somebody else's
-repository — and let that number decide it.**
+**Do not build a product. Spend one week on the ablation in §6.5 — and let it
+decide whether the asset is the detector or the convention it reads.**
 
-*(Amended 2026-08-30 after MGMT reproduced and extended the two-game test. The
-verdict is unchanged; the experiment is not. Portability turned out to be the
-easy half and is now demonstrated. Recall is the open question, it is measured
-at 17% on unfamiliar phrasing, and §6 is rewritten around it.)*
+*(Amended twice on 2026-08-30. First after MGMT reproduced the two-game test:
+portability turned out to be the easy half, and recall on foreign phrasing
+measured **0/8**. Then after MGMT ran the semantic experiment: a model scores
+18/18 on a purpose-built corpus, but **all three runs quoted the corpus's own
+English ownership charters back as their reasoning** — so the result may measure
+reading a declaration rather than inferring a boundary. The verdict has not
+moved through any of it. What the week buys has moved twice, and both times
+toward the same place: **the convention, not the tool.**)*
 
 The thesis you asked me to test — *almost everything built here is machinery for
 keeping an AI-assisted process honest, and AI-heavy development needs a
@@ -238,6 +242,12 @@ objective-UI leaks.
 | Natural RPG phrasing | 8 | **0** | **0%** |
 | Objective-UI leaks | 2 | 0 | 0% |
 | **Total** | **18** | **3** | **17%** |
+
+> **Quote this number with its corpus, always.** The same regex scores **8 of
+> 18** on the different corpus built for the semantic experiment (§6.1). Neither
+> figure is "the incumbent" — the our-idiom column is what moved, and the
+> foreign-idiom **0/8** is what held across both. A bare "3 of 18" carried onto
+> another corpus is exactly the error §6.1 documents.
 
 The three that fired are `$Villager.knows = true`, `$Sluice.valve_open = true`
 and `$Guild.trust += 0.1` — **every one of them an Orison phrasing.** Invisible:
@@ -578,57 +588,156 @@ whole question from argument to evidence.
 
 ## Part 6 — The smallest useful extraction
 
-**One week. One tool. One repository that is not Orison — and the deliverable is
-a RECALL NUMBER, not a demo.**
+**The recall experiment has been run. Its result is real, narrow, and points
+somewhere other than the product it was testing.**
+*(MGMT, 2026-08-30. Numbers below are theirs unless attributed; the checks in
+"what I verified" are mine.)*
 
-§2.1 already settled portability: `audit_systemic_situation_authority.py` runs
-on a foreign project and emits correct findings. **Portability is no longer the
-open question.** §2.1a settled that it is also the easy half — recall on
-unfamiliar code measured **17%**, and **0%** on code that does not share this
-project's naming.
+### 6.1 The incumbent number is corpus-dependent, and must always be quoted with its corpus
 
-So the week must answer the question that is actually load-bearing, and it is
-the one no desk measurement can reach:
+**Correction, propagated.** §2.1a reports the regex catching **3 of 18** — that
+is correct **on the corpus in §2.1a**, which I wrote. On the different, larger
+corpus built for the semantic experiment the same regex scores **8 of 18**
+(8/8 our-idiom, 0/8 foreign-idiom, 0/2 objective-UI; precision 8/11 = 72.7%).
 
-> **On code nobody here has ever seen, what fraction of the real violations does
-> this tool find, and what fraction of what it reports is invented?**
+MGMT carried my 3 onto their corpus as though it were "the incumbent," which
+inflated the semantic margin by five findings **in their own favour**, and then
+caught and reported it themselves. **Neither number is "the incumbent."** Quote
+`3/18 (§2.1a corpus)` or `8/18 (semantic-experiment corpus)`, never a bare
+figure. A sceptic who checks one number against the other corpus discounts the
+whole document — which is §3.9 of the genetic memory, a number in prose being
+consumed as a specification.
 
-**The experiment.** Take a real open-source Godot game — one nobody on this
-project has touched, with a coordinator or director layer and its own naming
-conventions. Hand-label a sample of its coordinator-shaped code against the
-eleven finding classes, *before* running the tool. Then run it and report two
-numbers: **recall** (labelled violations caught) and **precision** (reported
-findings that survive inspection).
+The 0/8 on foreign idiom is stable across both corpora. That is the finding.
 
-**What it costs.** Substantially less than a rewrite. Point 1 of the three
-gating layers is a `--scan-root` argument. Point 2 is moving ~170 lines of
-vocabulary into a config file — already costed in §2.1a's parent finding. Point
-3 is making `writer_class()` configurable. None of that is the week's work; the
-week's work is **the hand-labelling**, which is the only part that produces
-evidence.
+### 6.2 What the semantic runs actually showed
 
-**What counts as failure — and this is the deliverable, not a caveat.**
+Three independent runs over 18 violations and 10 clean decoys: **18/18 recall
+and 18/18 precision in every run**, identical site sets (Jaccard 1.00),
+identical class labels.
 
-1. **Recall below ~50% after the three gating layers are made configurable.**
-   Below that, the product is a tool that tells customers their code is clean
-   when it is not, which is worse than no tool.
-2. **Precision below ~70%.** A finding stream a customer learns to ignore is
-   indistinguishable from silence.
-3. **Recall that only reaches target after the vocabulary is hand-tuned to the
-   target repository.** That is the fatal outcome: it means the product is a
-   consulting engagement wearing a CLI, and the value was the tuning.
-4. **More than a week.** The estimate is the hypothesis.
+**The honest delta is +10, of which only +8 is semantic.** The two objective-UI
+leaks are not a capability difference — they are the incumbent's
+`_scan_objective` file gate discarding a match `OBJECTIVE_STRING_RE` already
+makes. Counting those as AI capability would be inflating the margin a second
+time.
 
-**A recall number on unfamiliar code is the only evidence that would justify the
-build, and its absence is the strongest single argument against it.** Everything
-else in this document — the taxonomies, the refusal semantics, the coupling
-percentages — is argument. This would be measurement.
+**The one result that survives scrutiny.** The corpus contains the same token
+used both ways: `guild_hall_ledger.gd:66` writes `knows_about_theft` in
+violation, and `belief_ledger.gd:29` writes the identical token legitimately;
+`field_rotation_plan.gd:58` and `sluice_gate.gd:27` are the same trap for
+`is_raised = true`. **All three runs called all four correctly.**
 
-**If the week is spent instead on the claim checker** described above, it
-inherits exactly the same risk one level up: a Markdown claim parser tuned to
-this project's document conventions will resolve this project's documents and
-nobody else's. Whichever tool is chosen, **the deliverable is the recall
-number.**
+This is the only claim in the experiment that a regex cannot answer even in
+principle: a stem-widened pattern *necessarily* fires on the legitimate
+authority, because the authority writes the same token. **The gap is
+structural, not a tuning deficit.** It is also, notably, a narrow claim —
+disambiguating a legitimate owner from an impostor at the same token — rather
+than "understands the code."
+
+### 6.3 Refuted as a deployment
+
+**Confidence mutated on 2 of 18 across byte-identical runs.** The project's own
+`test_confidence_increase_is_policy_violation`
+(`tools/tests/test_systemic_situation_authority.py:257` — verified) exits 1 on
+exactly that condition. **A non-deterministic classifier cannot hold a gate whose
+baseline policy fails on confidence drift.** Drop-in gate authority is dead, and
+it is dead by this project's own rule rather than by preference.
+
+**The salvage is a shape, not a patch.** Judgment was stable where prose was
+not: sites 18/18, classes 18/18, but `finding_id` 0/18 — because scope and
+expression are model prose and the id hashes them. So: **have the model emit
+only `class + file + line`, derive scope and expression from the source span,
+and delete the confidence ladder entirely.** A stable id and a binary verdict
+survive; a graded confidence produced by sampling does not.
+
+### 6.4 The discount that matters most — and it inverts the product
+
+**The corpus wrote its ownership map into the files, in English, and all three
+runs quoted those charters back as their reasoning.**
+
+So the ownership-rule successes measure **reading a declaration**, not
+**inferring a boundary**. That is a large discount on the capability claim.
+
+Inverted, it is the strongest product finding this assessment has produced:
+
+> **The ownership declaration convention may be the transferable artifact, and
+> the detector merely downstream of it.**
+
+That is a better product thesis than either the claim checker or the ownership
+lint, and it is consistent with everything else in this document — §5.1's
+evidence-intake rule, §2.2's four refusal sentences, and the extraction
+boundary's own conclusion that *"the evidence protocol itself… portable as a
+practice before any code moves."* It is also cheaper to ship, harder to
+commoditise, and does not require a detector to be right.
+
+**It is not yet established.** It is a hypothesis produced by an experiment that
+could not distinguish it from the alternative, and it needs the ablation below
+before anyone builds on it.
+
+### 6.5 The ablation, pre-registered
+
+Same corpus. **Arm A** as written. **Arm B** with every ownership docstring
+stripped. **Five runs, not three.** Model id and prompt hash recorded per run.
+Plus **60 hand-labelled negatives drawn from the real 675-file tree at its ~1%
+base rate**, to get a false-positive number that means something.
+
+**Kill criteria, written before the run:**
+
+1. **Arm B collapses on rules 1, 2, 6, 9, 11** → the product is the convention,
+   not the detector. Ship regex-v2 and stop.
+2. **Real-tree false-positive rate above 10%** → the detector never earns
+   exit-code authority at any recall, and the only viable form is advisory.
+
+### 6.6 What must appear in any writeup
+
+- Precision rests on **10 negatives**; the true false-positive rate is bounded
+  at roughly **26%** and is not yet measured.
+- The corpus is **67% violation-dense** against a real base rate near **1%**.
+  Precision on a dense corpus does not transfer.
+- **There was no regex-v2 arm.** The comparison is against the shipped regex, not
+  against a regex somebody spent a day improving — which is the cheap
+  counterfactual a sceptic will ask for first.
+- **The answer key is underspecified on rule 4**: frame-delta accrual appears in
+  two files labelled CLEAN.
+
+### 6.7 What I verified, and one correction to the free win
+
+**Take the free win — it is real.** `_scan_objective` gates on
+`if ctx.writer not in ("presentation",) and not is_tracker: return`. Removing
+those two lines is the whole fix.
+
+**But it recovers less than stated, and the reason is instructive.** I applied
+the deletion to a scratch copy and ran it against the §2.1a corpus: findings go
+**3 → 4, not 3 → 5.** One of my two objective-UI leaks stays invisible after the
+gate is gone, because `OBJECTIVE_STRING_RE` (`:267-269`) lists
+`Objective|OBJECTIVE|Mission|Quest|Tutorial|…` — **it anticipated `OBJECTIVE` in
+capitals but only `Quest` in title case.** So `"CURRENT OBJECTIVE: …"` matches
+and `"QUEST: The Smith's Debt"` does not. `"TODO: talk to the smith"` misses
+entirely.
+
+A one-character oversight inside the tool's own alternation, sitting underneath
+the gate that was hiding it. **The layer beneath the free win has the same
+disease** — which is the §2.1a finding recurring one level down, and a reason to
+pair the deletion with `re.IGNORECASE` rather than shipping it alone.
+
+*(No repository file was modified: the patch was applied to a copy under the
+scratch directory, and `git status tools/` reports clean.)*
+
+### 6.8 Where this leaves the week
+
+The week's deliverable is no longer "a recall number." Recall on a purpose-built
+corpus is now measured, and the interesting result is not the 18/18 — it is
+**§6.4**. So:
+
+**Spend the week on the ablation, not on the product.** It costs one corpus that
+already exists plus a stripping pass, it has pre-registered kill criteria, and it
+answers the only question that now matters: **is the value in the detector or in
+the convention it reads?**
+
+If arm B collapses, the answer is the convention — and the product is a
+methodology with a small reference linter, which is the honest runner-up this
+document named in Part 3 and has now been walked back to twice by measurement.
 
 **What to build.** A single CLI, ~800 lines plus tests, no Godot, no game
 assumptions, standard library only:
