@@ -1,0 +1,190 @@
+{
+  "artifacts": [
+    "01_l1c_voxel_field_diagnostic.png"
+  ],
+  "authorities": {
+    "DreamExposureField": {
+      "class": "DreamExposureField",
+      "method": "add_lamp(origin, direction, reach, cos_outer, energy, dt)",
+      "owner": "0.5 m voxel conversion and reversible local irradiance, bounded retained history, RG8 GPU upload, world-space response",
+      "production_update_hz": 15.0
+    },
+    "LampOpticalInstrument": {
+      "classes": [
+        "LampOpticalState",
+        "LampOpticalInstrument"
+      ],
+      "owner": "electrical/thermal state, filament output, shadow SpotLight3D, procedural beam fog, bounded dust/gold particles"
+    }
+  },
+  "c1c_checkpoint": {
+    "preserved_honestly": true,
+    "technical_compatibility": "PASS",
+    "visual_acceptance": "FAIL"
+  },
+  "focused_cost": {
+    "cell_gpu_delta_ms": 2.34400033950806,
+    "combined_cpu_delta_ms": 1.401,
+    "combined_gpu_delta_ms": 2.43100023269653,
+    "combined_vram_delta_bytes": 22068864,
+    "shader_steps_per_covered_pixel": 64,
+    "volume_draw_calls_delta": 6.0
+  },
+  "frozen": {
+    "ecology_behavior_changed": false,
+    "l1d_unblocked": false,
+    "orison_architecture_changed": false,
+    "production_defaults_changed": false,
+    "s2j_superseded": false,
+    "selector_defaults_changed": false
+  },
+  "instantaneous_l1c_output": {
+    "color_temperature_k": 2850.0,
+    "cone_angle_deg": 35.1906280517578,
+    "cos_outer": 0.817239175217645,
+    "direction": "(-0.838982, -0.188907, 0.510317)",
+    "filament_temperature_k": 2995.81610653719,
+    "normalized_energy": 0.967807613435339,
+    "origin": "(12.01371, 1.456412, 6.532283)",
+    "physical_light_energy": 5.90362644195557,
+    "range_m": 7.0
+  },
+  "lamp": {
+    "bounded_particles": 48,
+    "ecology_commands": false,
+    "hdr_filament": true,
+    "implementation": "actual LampOpticalInstrument L1C",
+    "payload_is_read_only": true,
+    "procedural_conical_fog": true,
+    "quality_tier": 1,
+    "real_shadow_spot": true
+  },
+  "lamp_determinism": {
+    "restore_returned": true,
+    "state_exact": true,
+    "version": 1
+  },
+  "profiles": {
+    "furnished_orison_baseline": {
+      "active_lights": 101,
+      "cpu_frame_ms_median": 5.941,
+      "draw_calls_median": 2013.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 4.17999982833862,
+      "particle_systems": 2,
+      "vram_bytes": 5619841824
+    },
+    "furnished_orison_plus_cell": {
+      "active_lights": 101,
+      "cpu_frame_ms_median": 7.279,
+      "draw_calls_median": 2019.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 6.52400016784668,
+      "particle_systems": 2,
+      "vram_bytes": 5641910688
+    },
+    "furnished_orison_plus_cell_lamp": {
+      "active_lights": 102,
+      "cpu_frame_ms_median": 7.342,
+      "draw_calls_median": 2096.0,
+      "fog_volumes": 1,
+      "gpu_frame_ms_median": 6.61100006103516,
+      "particle_systems": 3,
+      "vram_bytes": 5641910688
+    },
+    "furnished_orison_plus_lamp": {
+      "active_lights": 102,
+      "cpu_frame_ms_median": 6.553,
+      "draw_calls_median": 2328.0,
+      "fog_volumes": 1,
+      "gpu_frame_ms_median": 4.93100023269653,
+      "particle_systems": 3,
+      "vram_bytes": 5641910688
+    }
+  },
+  "renderer": "forward_plus",
+  "rendering_strategy": {
+    "closed_cell_volume": true,
+    "fields": [
+      "continuous heterogeneous cytoplasm",
+      "folded refractive nucleus",
+      "fused transport network",
+      "low-density lensing vacuole",
+      "oriented birefringent fibers",
+      "volumetric granule population",
+      "cargo density wake"
+    ],
+    "final_capture_readback_only": true,
+    "gpu_readback_during_rendering": false,
+    "screen_space_room_composite_after_volume_integration": true,
+    "uniform_shell_alpha": false,
+    "visible_organelle_meshes": 0,
+    "voxel_texture_participants": [
+      "membrane boundary",
+      "cytoplasm density",
+      "nucleus and deep anatomy",
+      "vacuole lens resample",
+      "locally lit granules",
+      "durable residue"
+    ]
+  },
+  "resolution": "1600x900",
+  "task": "C1C-V / DREAM-COLOR-C1D voxel data-path gate",
+  "teardown": {
+    "baseline_equivalent": true,
+    "baseline_source": "C1C/S2J full Orison Forward+ lifecycle",
+    "cell_retained": false,
+    "comparison": "not amplified; 1156 fewer than last valid untouched-main lifecycle",
+    "dream_exposure_field_retained": false,
+    "known_pairing_diagnostics_last_valid_untouched_main": 1264,
+    "lamp_retained": false,
+    "orison_retained": false,
+    "pairing_diagnostics_this_full_room_run": 108,
+    "render_objects_after_release": 0,
+    "voxel_texture_retained": false
+  },
+  "voxel_data_path": {
+    "add_lamp_call_count": 37,
+    "chain": [
+      "LampOpticalState",
+      "LampOpticalInstrument._apply_output()",
+      "SpotLight3D global origin/direction/range/angle/light_energy",
+      "DreamExposureField.add_lamp()",
+      "DreamExposureField.upload(ImageTexture3D)",
+      "dream_c1d_volumetric_microscopy.gdshader world-space textureLod(exposure_tex)",
+      "local membrane/cytoplasm/organelle/granule/residue response"
+    ],
+    "durable_conversion": "DreamExposureField R channel only",
+    "ecology_sensing_and_decisions": "independent; not invoked or commanded",
+    "executed": true,
+    "field_snapshot": {
+      "active_durable_voxels": 210,
+      "active_irradiance_voxels": 169,
+      "active_voxels_union": 210,
+      "durable_history_retained": true,
+      "durable_peak_after_dark_tick": 0.423529411764706,
+      "durable_peak_before_dark_tick": 0.423529411764706,
+      "overflowed": false,
+      "stamped_rooms": 1,
+      "strongest_channel": "irradiance_g",
+      "strongest_grid_index": "(21, 2, 14)",
+      "strongest_value": 0.733333349227905,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    },
+    "instantaneous_physical_illumination": "separate L1C uniforms derived from the actual SpotLight3D",
+    "reversible_local_irradiance": "DreamExposureField G channel only",
+    "shader_world_space_sample": true,
+    "substitute_review_scalar_for_voxel_response": false,
+    "texture_bound_to_shader": true,
+    "update_cadence_hz": 15.0,
+    "update_dt_s": 0.0666666666666667,
+    "upload_count": 37
+  },
+  "vram_baseline_bytes": 5619841824
+}
