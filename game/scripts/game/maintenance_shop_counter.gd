@@ -9,11 +9,16 @@ extends Area3D
 
 var service: MaintenanceShopService
 var shop_id := ""
+var surface_label := "hardware counter"
 
 
-func setup(owner_service: MaintenanceShopService, id: String) -> void:
+func setup(owner_service: MaintenanceShopService, id: String,
+		physical_label := "hardware counter") -> void:
 	service = owner_service
 	shop_id = id
+	surface_label = physical_label.strip_edges()
+	if surface_label.is_empty():
+		surface_label = "counter"
 
 
 func interact_prompt() -> String:
@@ -21,7 +26,7 @@ func interact_prompt() -> String:
 		return ""
 	var transaction := service.counter_prompt(shop_id)
 	return transaction if not transaction.is_empty() \
-			else "[E]  Inspect hardware counter"
+			else "[E]  Inspect %s" % surface_label
 
 
 func interact(_player: Node) -> Dictionary:

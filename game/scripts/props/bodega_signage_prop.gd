@@ -22,6 +22,19 @@ const ACRYLIC := Color(0.93, 0.91, 0.84)
 var _cabinet_mats: Array[StandardMaterial3D] = []
 var _time := 0.0
 var _cabinet_dropped := false
+var _audio_source_id: StringName = &""
+
+
+## Bind audio identity independently of the scene node name. This lets the
+## generic exterior renderer keep authored identities in data/metadata while
+## teardown releases the exact public AudioPolicy source it mounted.
+func bind_audio_source(source_id: StringName) -> bool:
+	if String(source_id).is_empty():
+		return false
+	if _audio_source_id != &"" and _audio_source_id != source_id:
+		return false
+	_audio_source_id = source_id
+	return true
 
 
 func _build_visual() -> void:
@@ -119,8 +132,10 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> Dictionary:
+	var source_id := _audio_source_id \
+			if _audio_source_id != &"" else StringName(name)
 	AudioPolicy.present_3d(&"interaction.inspection_read", global_position, 1.0,
-			StringName(name))
+			source_id)
 	return service_wire_card()
 
 

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/building/orison_v2_exterior_cell.gd" id="1_cell"]
+
+[sub_resource type="Environment" id="Environment_exterior_cell"]
+background_mode = 1
+background_color = Color(0.03, 0.042, 0.055, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.31, 0.38, 0.48, 1)
+ambient_light_energy = 0.72
+reflected_light_source = 2
+fog_enabled = true
+fog_light_color = Color(0.095, 0.115, 0.14, 1)
+fog_light_energy = 0.35
+fog_density = 0.006
+
+[node name="OrisonV2ExteriorCell" type="Node3D"]
+script = ExtResource("1_cell")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_exterior_cell")
+
+[node name="NightFill" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-52, -34, 0)
+light_color = Color(0.46, 0.54, 0.67, 1)
+light_energy = 0.68
+shadow_enabled = true

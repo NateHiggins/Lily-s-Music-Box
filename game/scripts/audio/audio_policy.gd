@@ -221,6 +221,42 @@ func stop_source(source_id: StringName, cue_id := StringName()) -> int:
 	return stopped
 
 
+## Retire every pooled voice owned by one semantic source. Unlike
+## `stop_source`, this is an ownership/teardown operation: it also detaches
+## an already-finished stream, releases the matching PropAudio cache entry,
+## and forgets the source's cooldown keys. It deliberately walks the policy's
+## own slot table; callers never need to know pooled-node names.
+func release_source(source_id: StringName, cue_id := StringName()) -> int:
+	if source_id == &"":
+		return 0
+	var released := 0
+	for i in _voice_state.size():
+		var state: Dictionary = _voice_state[i]
+		if state.get("source_id", &"") != source_id:
+			continue
+		var owned_cue := StringName(state.get("cue_id", &""))
+		if cue_id != &"" and owned_cue != cue_id:
+			continue
+		# A duration may have elapsed while the pooled player still owns its
+		# stream. Release by semantic ownership, not only by active playback.
+		if i < _voices.size() and is_instance_valid(_voices[i]):
+			var voice := _voices[i]
+			var stream := voice.stream
+			voice.stop()
+			voice.stream = null
+			var cue_data: Dictionary = cues.get(owned_cue, {})
+			var stream_key := str(cue_data.get("stream_key", ""))
+			if stream != null and not stream_key.is_empty():
+				PropAudio.release_stream(stream_key, stream)
+		_voice_state[i] = {"cue_id":&"", "priority":-1, "until":_clock,
+				"source_id":&""}
+		released += 1
+		_record_event({"cue_id":owned_cue, "source_id":source_id,
+				"outcome":"released", "at_second":_clock})
+	_clear_source_cooldowns(source_id, cue_id)
+	return released
+
+
 func active_voice(source_id: StringName,
 		cue_id := StringName()) -> AudioStreamPlayer3D:
 	for i in _voice_state.size():
@@ -356,6 +392,17 @@ func _choose_voice(wanted_priority: int) -> int:
 	if wanted_priority <= int(_voice_state[weakest].priority):
 		return -1
 	return weakest
+
+
+func _clear_source_cooldowns(source_id: StringName,
+		cue_id: StringName) -> void:
+	var exact := "%s|%s" % [cue_id, source_id]
+	var suffix := "|%s" % source_id
+	for key: Variant in _last_presented.keys():
+		var text := str(key)
+		if (cue_id != &"" and text == exact) \
+				or (cue_id == &"" and text.ends_with(suffix)):
+			_last_presented.erase(key)
 
 
 func _apply_mix() -> void:

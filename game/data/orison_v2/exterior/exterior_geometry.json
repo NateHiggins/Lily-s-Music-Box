@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "materials": [
+    {"id": "pavement", "albedo_rgba": [0.39, 0.40, 0.38, 1.0], "roughness": 0.96, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "asphalt", "albedo_rgba": [0.065, 0.075, 0.082, 1.0], "roughness": 0.94, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "curb", "albedo_rgba": [0.48, 0.47, 0.43, 1.0], "roughness": 0.92, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "brick", "albedo_rgba": [0.27, 0.12, 0.085, 1.0], "roughness": 0.91, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "limestone", "albedo_rgba": [0.57, 0.54, 0.47, 1.0], "roughness": 0.86, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "route_wear", "albedo_rgba": [0.62, 0.48, 0.20, 1.0], "roughness": 0.97, "metallic": 0.0, "emission_rgb": [0.18, 0.10, 0.025], "emission_energy": 0.18},
+    {"id": "iron", "albedo_rgba": [0.12, 0.12, 0.115, 1.0], "roughness": 0.72, "metallic": 0.44, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "bodega_enamel", "albedo_rgba": [0.095, 0.25, 0.19, 1.0], "roughness": 0.72, "metallic": 0.08, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "oxblood", "albedo_rgba": [0.43, 0.065, 0.045, 1.0], "roughness": 0.77, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "cream_tile", "albedo_rgba": [0.72, 0.66, 0.53, 1.0], "roughness": 0.72, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "terrazzo", "albedo_rgba": [0.46, 0.42, 0.34, 1.0], "roughness": 0.89, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "oak_dark", "albedo_rgba": [0.25, 0.17, 0.105, 1.0], "roughness": 0.82, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "shelf_steel", "albedo_rgba": [0.22, 0.225, 0.21, 1.0], "roughness": 0.67, "metallic": 0.42, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "cooler_enamel", "albedo_rgba": [0.37, 0.47, 0.45, 1.0], "roughness": 0.52, "metallic": 0.36, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "glass", "albedo_rgba": [0.14, 0.23, 0.22, 0.34], "roughness": 0.18, "metallic": 0.05, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "cooler_glass", "albedo_rgba": [0.30, 0.48, 0.50, 0.42], "roughness": 0.16, "metallic": 0.08, "emission_rgb": [0.08, 0.16, 0.18], "emission_energy": 0.28},
+    {"id": "paper_goods", "albedo_rgba": [0.72, 0.54, 0.24, 1.0], "roughness": 0.91, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "tinned_goods", "albedo_rgba": [0.53, 0.20, 0.14, 1.0], "roughness": 0.65, "metallic": 0.24, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "dark_recess", "albedo_rgba": [0.025, 0.033, 0.034, 1.0], "roughness": 1.0, "metallic": 0.0, "emission_rgb": [0.0, 0.0, 0.0], "emission_energy": 0.0},
+    {"id": "warm_practical", "albedo_rgba": [0.72, 0.57, 0.27, 1.0], "roughness": 0.48, "metallic": 0.16, "emission_rgb": [1.0, 0.62, 0.25], "emission_energy": 1.4}
+  ],
+  "templates": [
+    {
+      "id": "TEMPLATE_STREET_SEGMENT_V1",
+      "boxes": [
+        {"id": "pavement_slab", "size_m": [25.0, 0.16, 6.0], "position_m": [9.5, -0.08, 3.0], "yaw_degrees": 0.0, "material_id": "pavement", "collision": true, "visible": true},
+        {"id": "street_lane", "size_m": [25.0, 0.12, 3.1], "position_m": [9.5, -0.16, 7.62], "yaw_degrees": 0.0, "material_id": "asphalt", "collision": true, "visible": true},
+        {"id": "street_curb", "size_m": [25.0, 0.28, 0.34], "position_m": [9.5, -0.02, 6.16], "yaw_degrees": 0.0, "material_id": "curb", "collision": true, "visible": true},
+        {"id": "orison_facade_left", "size_m": [2.25, 4.2, 0.42], "position_m": [-1.875, 2.1, -0.25], "yaw_degrees": 0.0, "material_id": "brick", "collision": true, "visible": true},
+        {"id": "orison_facade_right", "size_m": [3.75, 4.2, 0.42], "position_m": [2.625, 2.1, -0.25], "yaw_degrees": 0.0, "material_id": "brick", "collision": true, "visible": true},
+        {"id": "orison_facade_lintel", "size_m": [1.5, 1.75, 0.42], "position_m": [0.0, 3.325, -0.25], "yaw_degrees": 0.0, "material_id": "brick", "collision": true, "visible": true},
+        {"id": "orison_portal_left", "size_m": [0.20, 2.65, 0.20], "position_m": [-0.84, 1.325, 0.02], "yaw_degrees": 0.0, "material_id": "limestone", "collision": true, "visible": true},
+        {"id": "orison_portal_right", "size_m": [0.20, 2.65, 0.20], "position_m": [0.84, 1.325, 0.02], "yaw_degrees": 0.0, "material_id": "limestone", "collision": true, "visible": true},
+        {"id": "orison_portal_head", "size_m": [1.88, 0.24, 0.22], "position_m": [0.0, 2.62, 0.03], "yaw_degrees": 0.0, "material_id": "limestone", "collision": true, "visible": true},
+        {"id": "orison_entry_recess", "size_m": [1.48, 2.38, 0.06], "position_m": [0.0, 1.19, -0.49], "yaw_degrees": 0.0, "material_id": "dark_recess", "collision": false, "visible": true},
+        {"id": "orison_entry_mat", "size_m": [1.38, 0.025, 0.72], "position_m": [0.0, 0.018, 0.42], "yaw_degrees": 0.0, "material_id": "oxblood", "collision": false, "visible": true},
+        {"id": "route_wear_orison", "size_m": [7.2, 0.018, 0.42], "position_m": [4.35, 0.012, 3.72], "yaw_degrees": 0.0, "material_id": "route_wear", "collision": false, "visible": true},
+        {"id": "route_wear_midblock", "size_m": [8.8, 0.018, 0.42], "position_m": [12.35, 0.013, 3.72], "yaw_degrees": 0.0, "material_id": "route_wear", "collision": false, "visible": true},
+        {"id": "route_wear_turn", "size_m": [3.4, 0.019, 0.42], "position_m": [18.65, 0.014, 4.20], "yaw_degrees": 90.0, "material_id": "route_wear", "collision": false, "visible": true},
+        {"id": "street_lamp_post", "size_m": [0.12, 3.25, 0.12], "position_m": [8.1, 1.625, 5.35], "yaw_degrees": 0.0, "material_id": "iron", "collision": true, "visible": true},
+        {"id": "street_lamp_head", "size_m": [0.42, 0.20, 0.30], "position_m": [8.1, 3.17, 5.18], "yaw_degrees": 0.0, "material_id": "warm_practical", "collision": false, "visible": true}
+      ],
+      "labels": [
+        {"id": "orison_name", "text": "ORISON", "font_size": 96, "pixel_size": 0.0042, "position_m": [0.0, 3.42, -0.02], "yaw_degrees": 0.0, "color_rgba": [0.72, 0.65, 0.46, 1.0], "outline_color_rgba": [0.06, 0.045, 0.035, 1.0], "outline_size": 8, "billboard": false},
+        {"id": "orison_address", "text": "600 WEST 138TH STREET", "font_size": 42, "pixel_size": 0.0031, "position_m": [0.0, 2.93, 0.02], "yaw_degrees": 0.0, "color_rgba": [0.72, 0.70, 0.60, 1.0], "outline_color_rgba": [0.045, 0.04, 0.035, 1.0], "outline_size": 5, "billboard": false}
+      ],
+      "lights": [
+        {"id": "orison_sconce_left", "position_m": [-1.08, 2.08, 0.36], "color_rgb": [1.0, 0.67, 0.35], "energy": 1.15, "range_m": 4.6, "shadows": false},
+        {"id": "orison_sconce_right", "position_m": [1.08, 2.08, 0.36], "color_rgb": [1.0, 0.67, 0.35], "energy": 1.15, "range_m": 4.6, "shadows": false},
+        {"id": "street_lamp_pool", "position_m": [8.1, 3.04, 5.05], "color_rgb": [1.0, 0.61, 0.30], "energy": 1.85, "range_m": 7.4, "shadows": true}
+      ],
+      "doors": [],
+      "functional_props": [],
+      "service_counters": []
+    },
+    {
+      "id": "TEMPLATE_BODEGA_CELL_V1",
+      "boxes": [
+        {"id": "shop_floor", "size_m": [4.4, 0.14, 10.54], "position_m": [0.0, -0.07, -5.27], "yaw_degrees": 0.0, "material_id": "terrazzo", "collision": true, "visible": true},
+        {"id": "threshold_sill", "size_m": [1.22, 0.045, 0.36], "position_m": [0.0, 0.023, -0.02], "yaw_degrees": 0.0, "material_id": "limestone", "collision": false, "visible": true},
+        {"id": "left_party_wall", "size_m": [0.14, 3.25, 10.54], "position_m": [-2.17, 1.625, -5.27], "yaw_degrees": 0.0, "material_id": "cream_tile", "collision": true, "visible": true},
+        {"id": "right_party_wall", "size_m": [0.14, 3.25, 10.54], "position_m": [2.17, 1.625, -5.27], "yaw_degrees": 0.0, "material_id": "cream_tile", "collision": true, "visible": true},
+        {"id": "shop_ceiling", "size_m": [4.4, 0.10, 10.54], "position_m": [0.0, 3.20, -5.27], "yaw_degrees": 0.0, "material_id": "cream_tile", "collision": true, "visible": true},
+        {"id": "facade_left_pier", "size_m": [0.22, 3.55, 0.28], "position_m": [-2.09, 1.775, 0.0], "yaw_degrees": 0.0, "material_id": "bodega_enamel", "collision": true, "visible": true},
+        {"id": "facade_right_pier", "size_m": [0.22, 3.55, 0.28], "position_m": [2.09, 1.775, 0.0], "yaw_degrees": 0.0, "material_id": "bodega_enamel", "collision": true, "visible": true},
+        {"id": "facade_head", "size_m": [4.20, 0.82, 0.30], "position_m": [0.0, 3.11, 0.0], "yaw_degrees": 0.0, "material_id": "brick", "collision": true, "visible": true},
+        {"id": "left_bulkhead", "size_m": [1.46, 0.76, 0.22], "position_m": [-1.28, 0.38, 0.0], "yaw_degrees": 0.0, "material_id": "bodega_enamel", "collision": true, "visible": true},
+        {"id": "right_bulkhead", "size_m": [1.46, 0.76, 0.22], "position_m": [1.28, 0.38, 0.0], "yaw_degrees": 0.0, "material_id": "bodega_enamel", "collision": true, "visible": true},
+        {"id": "left_store_glass", "size_m": [1.42, 1.62, 0.035], "position_m": [-1.28, 1.57, 0.015], "yaw_degrees": 0.0, "material_id": "glass", "collision": true, "visible": true},
+        {"id": "right_store_glass", "size_m": [1.42, 1.62, 0.035], "position_m": [1.28, 1.57, 0.015], "yaw_degrees": 0.0, "material_id": "glass", "collision": true, "visible": true},
+        {"id": "left_window_bar", "size_m": [0.055, 1.72, 0.07], "position_m": [-0.56, 1.57, 0.045], "yaw_degrees": 0.0, "material_id": "oak_dark", "collision": false, "visible": true},
+        {"id": "right_window_bar", "size_m": [0.055, 1.72, 0.07], "position_m": [0.56, 1.57, 0.045], "yaw_degrees": 0.0, "material_id": "oak_dark", "collision": false, "visible": true},
+        {"id": "front_transom", "size_m": [1.16, 0.42, 0.035], "position_m": [0.0, 2.34, 0.015], "yaw_degrees": 0.0, "material_id": "glass", "collision": true, "visible": true},
+        {"id": "counter_case", "size_m": [1.55, 0.88, 1.15], "position_m": [-1.25, 0.44, -2.0], "yaw_degrees": 0.0, "material_id": "oak_dark", "collision": true, "visible": true},
+        {"id": "counter_top", "size_m": [1.66, 0.09, 1.25], "position_m": [-1.25, 0.925, -2.0], "yaw_degrees": 0.0, "material_id": "limestone", "collision": true, "visible": true},
+        {"id": "counter_front_panel", "size_m": [1.30, 0.48, 0.025], "position_m": [-1.25, 0.48, -1.414], "yaw_degrees": 0.0, "material_id": "bodega_enamel", "collision": false, "visible": true},
+        {"id": "aisle_a_body", "size_m": [0.52, 1.10, 2.45], "position_m": [-0.75, 0.55, -5.82], "yaw_degrees": 0.0, "material_id": "shelf_steel", "collision": true, "visible": true},
+        {"id": "aisle_b_body", "size_m": [0.52, 1.10, 2.45], "position_m": [0.75, 0.55, -5.82], "yaw_degrees": 0.0, "material_id": "shelf_steel", "collision": true, "visible": true},
+        {"id": "aisle_a_goods_low", "size_m": [0.47, 0.25, 2.20], "position_m": [-0.75, 0.31, -5.82], "yaw_degrees": 0.0, "material_id": "tinned_goods", "collision": false, "visible": true},
+        {"id": "aisle_a_goods_high", "size_m": [0.47, 0.23, 2.18], "position_m": [-0.75, 0.85, -5.82], "yaw_degrees": 0.0, "material_id": "paper_goods", "collision": false, "visible": true},
+        {"id": "aisle_b_goods_low", "size_m": [0.47, 0.24, 2.18], "position_m": [0.75, 0.30, -5.82], "yaw_degrees": 0.0, "material_id": "paper_goods", "collision": false, "visible": true},
+        {"id": "aisle_b_goods_high", "size_m": [0.47, 0.25, 2.20], "position_m": [0.75, 0.84, -5.82], "yaw_degrees": 0.0, "material_id": "tinned_goods", "collision": false, "visible": true},
+        {"id": "cooler_body", "size_m": [0.70, 1.90, 1.60], "position_m": [1.55, 0.95, -8.07], "yaw_degrees": 0.0, "material_id": "cooler_enamel", "collision": true, "visible": true},
+        {"id": "cooler_door", "size_m": [0.035, 1.57, 1.34], "position_m": [1.19, 1.04, -8.07], "yaw_degrees": 0.0, "material_id": "cooler_glass", "collision": false, "visible": true},
+        {"id": "return_wear", "size_m": [0.42, 0.018, 5.35], "position_m": [0.0, 0.012, -3.02], "yaw_degrees": 0.0, "material_id": "route_wear", "collision": false, "visible": true},
+        {"id": "back_wall_left", "size_m": [2.325, 3.20, 0.16], "position_m": [-1.0375, 1.60, -10.56], "yaw_degrees": 0.0, "material_id": "cream_tile", "collision": true, "visible": true},
+        {"id": "back_wall_right", "size_m": [1.025, 3.20, 0.16], "position_m": [1.6875, 1.60, -10.56], "yaw_degrees": 0.0, "material_id": "cream_tile", "collision": true, "visible": true},
+        {"id": "back_opening_head", "size_m": [1.05, 0.95, 0.16], "position_m": [0.65, 2.725, -10.56], "yaw_degrees": 0.0, "material_id": "bodega_enamel", "collision": true, "visible": true},
+        {"id": "back_opening_reveal", "size_m": [0.93, 2.18, 0.035], "position_m": [0.65, 1.09, -10.66], "yaw_degrees": 0.0, "material_id": "dark_recess", "collision": false, "visible": true},
+        {"id": "back_room_floor_hint", "size_m": [0.90, 0.04, 1.10], "position_m": [0.65, 0.005, -10.95], "yaw_degrees": 0.0, "material_id": "terrazzo", "collision": false, "visible": true},
+        {"id": "ceiling_practical_front", "size_m": [1.25, 0.08, 0.20], "position_m": [0.0, 2.94, -2.0], "yaw_degrees": 0.0, "material_id": "warm_practical", "collision": false, "visible": true},
+        {"id": "ceiling_practical_middle", "size_m": [1.25, 0.08, 0.20], "position_m": [0.0, 2.94, -5.35], "yaw_degrees": 0.0, "material_id": "warm_practical", "collision": false, "visible": true},
+        {"id": "ceiling_practical_back", "size_m": [1.25, 0.08, 0.20], "position_m": [0.0, 2.94, -8.70], "yaw_degrees": 0.0, "material_id": "warm_practical", "collision": false, "visible": true}
+      ],
+      "labels": [
+        {"id": "counter_lettering", "text": "NOTIONS  ·  HOUSEHOLD  ·  KEYS", "font_size": 44, "pixel_size": 0.0027, "position_m": [-1.25, 1.02, -1.38], "yaw_degrees": 0.0, "color_rgba": [0.78, 0.68, 0.43, 1.0], "outline_color_rgba": [0.08, 0.045, 0.03, 1.0], "outline_size": 4, "billboard": false},
+        {"id": "back_room_lettering", "text": "DELIVERIES", "font_size": 48, "pixel_size": 0.0030, "position_m": [0.65, 2.40, -10.45], "yaw_degrees": 0.0, "color_rgba": [0.77, 0.72, 0.55, 1.0], "outline_color_rgba": [0.04, 0.045, 0.04, 1.0], "outline_size": 5, "billboard": false},
+        {"id": "street_return_lettering", "text": "WEST 138TH STREET  /  ORISON", "font_size": 46, "pixel_size": 0.0029, "position_m": [0.0, 2.55, -0.18], "yaw_degrees": 180.0, "color_rgba": [0.88, 0.78, 0.49, 1.0], "outline_color_rgba": [0.04, 0.03, 0.025, 1.0], "outline_size": 5, "billboard": false}
+      ],
+      "lights": [
+        {"id": "front_shop_practical", "position_m": [0.0, 2.72, -1.85], "color_rgb": [1.0, 0.69, 0.38], "energy": 1.48, "range_m": 5.2, "shadows": true},
+        {"id": "middle_shop_practical", "position_m": [0.0, 2.72, -5.20], "color_rgb": [1.0, 0.72, 0.43], "energy": 1.28, "range_m": 5.0, "shadows": false},
+        {"id": "back_shop_practical", "position_m": [0.0, 2.72, -8.55], "color_rgb": [1.0, 0.68, 0.37], "energy": 1.08, "range_m": 4.6, "shadows": false}
+      ],
+      "doors": [
+        {"surface_id": "threshold", "offset_uvn_m": [-0.475, 0.0, -0.035], "local_yaw_degrees": 0.0, "width_m": 0.95, "height_m": 2.10, "leaf_state": "closed", "swing_out": false, "door_kind": "storefront", "finish_variant": 0}
+      ],
+      "functional_props": [
+        {"kind": "bodega_signage", "surface_id": "threshold", "offset_uvn_m": [0.0, 2.62, 0.08], "local_yaw_degrees": 0.0, "prop_type": "bodega_signage"}
+      ],
+      "service_counters": [
+        {"placement_id": "counter_center", "interaction_size_m": [1.35, 0.55, 1.0], "physical_label": "notions counter"}
+      ]
+    }
+  ]
+}

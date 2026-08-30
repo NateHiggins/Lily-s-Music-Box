@@ -29,6 +29,7 @@ var errors: Array[String] = []
 var inventory: MaintenanceInventory
 var work_orders: WorkOrders
 var _counters: Dictionary = {}
+var _semantic_mounts: Dictionary = {}
 
 
 func setup(items: MaintenanceInventory, orders: WorkOrders,
@@ -119,14 +120,80 @@ func build_counters(layout: Dictionary) -> int:
 	return _counters.size()
 
 
+## Mount the existing production counter adapter at a placement resolved by
+## another public spatial authority. The transform is the interaction volume's
+## world transform; this service neither knows nor reconstructs layout/world
+## coordinates. Repeating the same identity is idempotent and cannot create a
+## second transaction surface.
+func mount_counter(shop_id: String, world_transform: Transform3D,
+		interaction_size := Vector3(1.2, REACH_H, 0.8),
+		physical_label := "counter") -> Area3D:
+	if shop_id.is_empty() or shop_id != shop_id.strip_edges() \
+			or not _valid_mount(world_transform, interaction_size):
+		push_warning("shop counter semantic mount refused: %s" % shop_id)
+		return null
+	var existing := _counters.get(shop_id) as Area3D
+	if is_instance_valid(existing):
+		var prior: Dictionary = _semantic_mounts.get(shop_id, {})
+		if not prior.is_empty() \
+				and (prior.get("transform") as Transform3D).is_equal_approx(
+						world_transform) \
+				and (prior.get("size") as Vector3).is_equal_approx(
+						interaction_size) \
+				and str(prior.get("physical_label", "")) == physical_label:
+			return existing
+		push_warning("shop counter duplicate identity refused: %s" % shop_id)
+		return null
+	_counters.erase(shop_id)
+	_semantic_mounts.erase(shop_id)
+	var point := _new_semantic_counter(shop_id, physical_label)
+	add_child(point)
+	point.global_transform = world_transform
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = interaction_size
+	shape.shape = box
+	point.add_child(shape)
+	_counters[shop_id] = point
+	_semantic_mounts[shop_id] = {"transform":world_transform,
+			"size":interaction_size, "physical_label":physical_label}
+	return point
+
+
+## Remove one mounted counter without reaching into its node tree. The service
+## drops its strong reference synchronously; Godot performs safe node disposal
+## at the ordinary end-of-frame boundary.
+func unmount_counter(shop_id: String) -> bool:
+	if not _counters.has(shop_id):
+		return false
+	var point := _counters.get(shop_id) as Area3D
+	_counters.erase(shop_id)
+	_semantic_mounts.erase(shop_id)
+	if is_instance_valid(point):
+		if point.get_parent() == self:
+			remove_child(point)
+		point.queue_free()
+	return true
+
+
+func unmount_all_counters() -> int:
+	var removed := 0
+	for shop_id: Variant in _counters.keys():
+		if unmount_counter(str(shop_id)):
+			removed += 1
+	return removed
+
+
 func counter(shop_id: String) -> Area3D:
 	return _counters.get(shop_id)
 
 
 func _build_counter(shop_id: String, anchor: Dictionary) -> Area3D:
+	# Preserve the established v1 scene-name contract. Semantic mounts below
+	# expose shop identity through metadata instead of generated node names.
 	var point := MaintenanceShopCounter.new()
 	point.name = "ShopCounter_%s" % shop_id
-	point.setup(self, shop_id)
+	point.setup(self, shop_id, "hardware counter")
 	add_child(point)
 	var rect: Array = anchor.rect
 	var top := float(anchor.get("z0", 0.0)) + float(anchor.get("h", 0.0))
@@ -141,6 +208,25 @@ func _build_counter(shop_id: String, anchor: Dictionary) -> Area3D:
 	shape.shape = box
 	point.add_child(shape)
 	return point
+
+
+func _new_semantic_counter(shop_id: String, physical_label: String) \
+		-> MaintenanceShopCounter:
+	var point := MaintenanceShopCounter.new()
+	point.name = "SemanticShopCounter"
+	point.set_meta("semantic_shop_id", shop_id)
+	point.setup(self, shop_id, physical_label)
+	return point
+
+
+func _valid_mount(world_transform: Transform3D, size: Vector3) -> bool:
+	return world_transform.origin.is_finite() \
+			and world_transform.basis.x.is_finite() \
+			and world_transform.basis.y.is_finite() \
+			and world_transform.basis.z.is_finite() \
+			and absf(world_transform.basis.determinant()) > 0.000001 \
+			and size.is_finite() and size.x > 0.0 \
+			and size.y > 0.0 and size.z > 0.0
 
 
 func _find_furniture(layout: Dictionary, furniture_id: String) -> Dictionary:
