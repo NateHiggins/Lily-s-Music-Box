@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orison.m11c1.target-cell-runtime-config.v1",
+  "title": "Orison M11C1 disposable target-cell runtime configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "authority",
+    "partition_manifest",
+    "lineage_manifest",
+    "equivalence_receipt",
+    "protected_source",
+    "authoritative_sources",
+    "cell_resources",
+    "residency_sets",
+    "semantic_expectations",
+    "seams",
+    "capture_views",
+    "resident_nav_queries",
+    "save_reconstruction"
+  ],
+  "properties": {
+    "schema": {"const": "orison.m11c1.target-cell-runtime-config.v1"},
+    "authority": {"const": "disposable_harness_only"},
+    "partition_manifest": {"type": "string", "minLength": 1},
+    "lineage_manifest": {"type": "string", "minLength": 1},
+    "equivalence_receipt": {"type": "string", "minLength": 1},
+    "protected_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gltf_path", "bin_path", "gltf_sha256", "bin_sha256"],
+      "properties": {
+        "gltf_path": {"const": "res://assets/building/floor_01.gltf"},
+        "bin_path": {"const": "res://assets/building/floor_01.bin"},
+        "gltf_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bin_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "authoritative_sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layout_path", "layout_sha256", "exterior_regions_path", "exterior_regions_sha256"],
+      "properties": {
+        "layout_path": {"const": "res://data/building_layout.json"},
+        "layout_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "exterior_regions_path": {"const": "res://data/orison_v2/exterior/regions.json"},
+        "exterior_regions_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "cell_resources": {
+      "type": "object",
+      "minProperties": 17,
+      "maxProperties": 17,
+      "additionalProperties": {"type": "string", "pattern": "^res://"}
+    },
+    "residency_sets": {
+      "type": "array",
+      "minItems": 17,
+      "items": {"$ref": "#/$defs/residency"}
+    },
+    "semantic_expectations": {
+      "type": "array",
+      "minItems": 5,
+      "items": {"$ref": "#/$defs/semantic"}
+    },
+    "semantic_family_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prefix", "required_subprefixes", "coverage"],
+      "properties": {
+        "prefix": {"const": "SITE_SHOP_"},
+        "required_subprefixes": {
+          "const": ["SITE_SHOP_DOOR_", "SITE_SHOP_HOURS_", "SITE_SHOP_SIGN_", "SITE_SHOP_LT_", "SITE_SHOP_IN"]
+        },
+        "coverage": {"const": "exact_lineage_identity_set"}
+      }
+    },
+    "seams": {
+      "type": "array",
+      "minItems": 5,
+      "items": {"$ref": "#/$defs/seam"}
+    },
+    "capture_views": {
+      "type": "array",
+      "minItems": 5,
+      "items": {"$ref": "#/$defs/capture"}
+    },
+    "resident_nav_queries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "seam_id", "cell_ids", "from", "to", "expected_reachable", "terminal_tolerance_m"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "seam_id": {"type": "string", "minLength": 1},
+          "cell_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+          "from": {"$ref": "#/$defs/vector3"},
+          "to": {"$ref": "#/$defs/vector3"},
+          "expected_reachable": {"const": true},
+          "terminal_tolerance_m": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.35},
+          "shop_cell_id": {"type": "string"},
+          "passage_place": {"type": "string"}
+        }
+      }
+    },
+    "save_reconstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state_id", "route_id", "waypoint_id", "threshold_id", "required_cell_ids"],
+      "properties": {
+        "state_id": {"type": "string", "minLength": 1},
+        "route_id": {"type": "string", "minLength": 1},
+        "waypoint_id": {"type": "string", "minLength": 1},
+        "threshold_id": {"type": "string", "minLength": 1},
+        "required_cell_ids": {"type": "array", "minItems": 17, "maxItems": 17, "uniqueItems": true, "items": {"type": "string"}}
+      }
+    }
+  },
+  "$defs": {
+    "vector3": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}, {"type": "number"}],
+      "items": false
+    },
+    "residency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "cell_ids"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "cell_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "semantic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identity", "owner_cell"],
+      "properties": {
+        "identity": {"type": "string", "minLength": 1},
+        "owner_cell": {"type": "string", "minLength": 1},
+        "role": {"type": "string"}
+      }
+    },
+    "traversal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "start", "forward_waypoints", "return_waypoints", "plane", "opening_bounds", "waypoint_tolerance_m", "vertical_tolerance_m", "max_frames_per_waypoint", "minimum_grounded_fraction", "expected_collision_owner_cells", "door_action", "expectation"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "start": {"$ref": "#/$defs/vector3"},
+        "forward_waypoints": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/vector3"}},
+        "return_waypoints": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/vector3"}},
+        "plane": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["point", "normal"],
+          "properties": {
+            "point": {"$ref": "#/$defs/vector3"},
+            "normal": {"$ref": "#/$defs/vector3"}
+          }
+        },
+        "opening_bounds": {"$ref": "#/$defs/opening_bounds"},
+        "waypoint_tolerance_m": {"type": "number", "exclusiveMinimum": 0},
+        "vertical_tolerance_m": {"type": "number", "exclusiveMinimum": 0},
+        "max_frames_per_waypoint": {"type": "integer", "minimum": 1},
+        "minimum_grounded_fraction": {"type": "number", "minimum": 0.9, "maximum": 1},
+        "expected_collision_owner_cells": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "shop_cell_id": {"type": "string"}
+        ,"door_identity": {"type": "string"}
+        ,"door_action": {"enum": ["interact_open", "interact_locked_refusal", "none"]}
+        ,"expectation": {"enum": ["crossable", "locked_non_crossable"]}
+      }
+    },
+    "seam": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "cell_ids", "expected_collision_owner_cells", "traversals"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "cell_ids": {"type": "array", "minItems": 2, "items": {"type": "string"}, "uniqueItems": true},
+        "coverage_cells": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "door_identities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "expected_collision_owner_cells": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "traversals": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/traversal"}},
+        "collision_probes": {"type": "array", "items": {"$ref": "#/$defs/collision_probe"}}
+      }
+    },
+    "opening_bounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["center", "right_axis", "half_width_m", "bottom_y_m", "top_y_m", "minimum_side_clearance_m", "minimum_head_clearance_m"],
+      "properties": {
+        "center": {"$ref": "#/$defs/vector3"},
+        "right_axis": {"$ref": "#/$defs/vector3"},
+        "half_width_m": {"type": "number", "exclusiveMinimum": 0.33},
+        "bottom_y_m": {"type": "number"},
+        "top_y_m": {"type": "number"},
+        "minimum_side_clearance_m": {"type": "number", "minimum": 0.02},
+        "minimum_head_clearance_m": {"type": "number", "minimum": 0.02}
+      }
+    },
+    "collision_probe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "from", "to", "expected_owner_cell"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "from": {"$ref": "#/$defs/vector3"},
+        "to": {"$ref": "#/$defs/vector3"},
+        "expected_owner_cell": {"type": "string", "minLength": 1},
+        "forbidden_owner_cell": {"type": "string"},
+        "legacy_hit_elevation_m": {"type": "number"}
+      }
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "seam_id", "cell_ids", "eye", "target", "fov_degrees"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "seam_id": {"type": "string", "minLength": 1},
+        "cell_ids": {"type": "array", "minItems": 2, "items": {"type": "string"}, "uniqueItems": true},
+        "eye": {"$ref": "#/$defs/vector3"},
+        "target": {"$ref": "#/$defs/vector3"},
+        "fov_degrees": {"type": "number", "exclusiveMinimum": 1, "exclusiveMaximum": 179}
+      }
+    }
+  }
+}
