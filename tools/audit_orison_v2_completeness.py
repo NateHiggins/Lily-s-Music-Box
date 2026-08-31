@@ -133,6 +133,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -345,6 +346,14 @@ FLOOR_CIRCULATION = [
     ("service_route", ["maintenance", "service", "delivery"],
      "maintenance circulation"),
 ]
+
+# A residential-floor service route is not satisfied by the word "service"
+# on an arbitrary space.  It is the direct lateral transfer between a typed
+# service hall and that floor's typed service core.  In particular, public
+# threshold/crossing spaces and a vertically accessible bare core are not the
+# missing maintenance route.
+SERVICE_ROUTE_HALL_PURPOSE = ["maintenance", "delivery", "staff route"]
+SERVICE_ROUTE_CORE_PURPOSE = ["service lift", "service stair"]
 
 # Service continuity systems (program service rows + rebuild checkpoint
 # riser matrix).  `riser_classes`/`riser_ids` match v2 riser records;
@@ -717,6 +726,98 @@ class V2Model:
     def spaces_on(self, level: str) -> list[dict]:
         return [s for s in self.spaces.values()
                 if s.get("level") == level]
+
+    @staticmethod
+    def _shared_boundary(a: dict, b: dict) -> dict:
+        """Return the exact positive-length boundary shared by two rects."""
+        ar = a.get("rect", [])
+        br = b.get("rect", [])
+        if not isinstance(ar, list) or not isinstance(br, list) or \
+                len(ar) != 4 or len(br) != 4:
+            return {}
+        z_start = max(float(ar[1]), float(br[1]))
+        z_finish = min(float(ar[3]), float(br[3]))
+        if z_finish - z_start > 0.001 and \
+                abs(float(ar[2]) - float(br[0])) <= 0.001:
+            return {"axis": "z", "fixed": float(ar[2]),
+                    "start": z_start, "finish": z_finish}
+        if z_finish - z_start > 0.001 and \
+                abs(float(ar[0]) - float(br[2])) <= 0.001:
+            return {"axis": "z", "fixed": float(ar[0]),
+                    "start": z_start, "finish": z_finish}
+        x_start = max(float(ar[0]), float(br[0]))
+        x_finish = min(float(ar[2]), float(br[2]))
+        if x_finish - x_start > 0.001 and \
+                abs(float(ar[3]) - float(br[1])) <= 0.001:
+            return {"axis": "x", "fixed": float(ar[3]),
+                    "start": x_start, "finish": x_finish}
+        if x_finish - x_start > 0.001 and \
+                abs(float(ar[1]) - float(br[3])) <= 0.001:
+            return {"axis": "x", "fixed": float(ar[1]),
+                    "start": x_start, "finish": x_finish}
+        return {}
+
+    @classmethod
+    def _valid_service_edge(cls, hall: dict, core: dict,
+                            record: dict, allow_door_yaw: bool = False) -> bool:
+        """A programmed route needs a real capsule-sized boundary cut."""
+        boundary = cls._shared_boundary(hall, core)
+        center = record.get("center", [])
+        axis = str(record.get("axis", ""))
+        if not axis and allow_door_yaw and "yaw" in record:
+            yaw = float(record.get("yaw", 0.0))
+            along_x = abs(math.cos(yaw))
+            along_z = abs(math.sin(yaw))
+            if along_x >= 0.999:
+                axis = "x"
+            elif along_z >= 0.999:
+                axis = "z"
+        if not boundary or not isinstance(center, list) or len(center) != 2 \
+                or axis != boundary["axis"]:
+            return False
+        width = float(record.get("width", 0.0))
+        height = float(record.get("height", 0.0))
+        if width < 0.91 or height < 2.13:
+            return False
+        fixed = float(center[1] if axis == "x" else center[0])
+        along = float(center[0] if axis == "x" else center[1])
+        if abs(fixed - float(boundary["fixed"])) > 0.001 or \
+                along - width * 0.5 < float(boundary["start"]) - 0.001 or \
+                along + width * 0.5 > float(boundary["finish"]) + 0.001:
+            return False
+        owner = record.get("shared_wall_owner")
+        return owner is None or owner in {hall["id"], core["id"]}
+
+    def service_route_parts(self, level: str) -> tuple[list, list, list]:
+        """Typed halls, cores and direct hall/core edges on one level."""
+        spaces = self.spaces_on(level)
+        halls = [s for s in spaces
+                 if str(s.get("class", "")).lower() == "service"
+                 and match_purpose(s, SERVICE_ROUTE_HALL_PURPOSE)]
+        cores = [s for s in spaces
+                 if str(s.get("class", "")).lower() == "core"
+                 and match_purpose(s, SERVICE_ROUTE_CORE_PURPOSE)]
+        hall_ids = {s["id"] for s in halls}
+        core_ids = {s["id"] for s in cores}
+        direct = []
+        for records, allow_door_yaw in (
+                (self.doors.values(), True),
+                (self.openings.values(), False)):
+            for record in records:
+                pair = record.get("connects", [])
+                if record.get("level") != level or len(pair) != 2 or \
+                        pair[0] == pair[1]:
+                    continue
+                if pair[0] in hall_ids and pair[1] in core_ids:
+                    hall, core = self.spaces[pair[0]], self.spaces[pair[1]]
+                elif pair[1] in hall_ids and pair[0] in core_ids:
+                    hall, core = self.spaces[pair[1]], self.spaces[pair[0]]
+                else:
+                    continue
+                if self._valid_service_edge(hall, core, record,
+                                            allow_door_yaw):
+                    direct.append((hall, core, record))
+        return halls, cores, direct
 
     def space_status(self, space: dict) -> tuple[str, str]:
         """Base geometric status of one space with a reason."""
@@ -1209,6 +1310,9 @@ class Ledger:
                              [f"program:{PROGRAM_DOC} ({label})"],
                              blocked_by=[f"floor {floor} absent from v2"])
                     continue
+                if key == "service_route":
+                    self._add_service_route(floor, label)
+                    continue
                 hits = [s for s in self.model.spaces_on(floor)
                         if match_purpose(s, keywords)]
                 if not hits:
@@ -1224,6 +1328,57 @@ class Ledger:
                          {"floor": floor, "space": best["id"]}, status,
                          "SPATIALLY_PROVEN",
                          prov + [f"program:{PROGRAM_DOC} ({label})"])
+
+    def _add_service_route(self, floor: str, label: str) -> None:
+        """Require a direct typed lateral-hall <-> service-core edge."""
+        halls, cores, direct = self.model.service_route_parts(floor)
+        req_id = f"circ.{floor}.service_route"
+        program = f"program:{PROGRAM_DOC} ({label})"
+        if not halls:
+            self.add("03/04 circulation", req_id, {"floor": floor},
+                     "ABSENT", "SPATIALLY_PROVEN", [program],
+                     notes=("No class=service lateral hall with a "
+                            "maintenance, delivery or staff-route purpose "
+                            "exists on this floor."))
+            return
+
+        if not direct:
+            best = max(halls, key=lambda s: RANK[
+                self.space_attained(s["id"])[0]])
+            _status, prov, _why = self.space_attained(best["id"])
+            core_ids = ", ".join(sorted(s["id"] for s in cores)) or "none"
+            self.add(
+                "03/04 circulation", req_id,
+                {"floor": floor, "space": best["id"]},
+                "SHELL_ONLY", "SPATIALLY_PROVEN", prov + [program],
+                notes=("No direct door or cased opening connects this "
+                       "lateral service hall to a class=core service "
+                       f"lift/stair space (matching cores: {core_ids})."))
+            return
+
+        candidates = []
+        for hall, core, connection in direct:
+            hall_status, hall_prov, _ = self.space_attained(hall["id"])
+            core_status, core_prov, _ = self.space_attained(core["id"])
+            connection_tier, connection_sources = \
+                self.evidence.tier_for(connection["id"])
+            connection_status = connection_tier or "PROGRAMMED"
+            status = min((hall_status, core_status, connection_status),
+                         key=lambda s: RANK[s])
+            connection_prov = [
+                f"v2:{connection['id']} (direct hall/core edge)"]
+            connection_prov += [
+                f"checkpoint:{source}" for source in connection_sources]
+            candidates.append((status, hall, core, connection,
+                               hall_prov + core_prov + connection_prov))
+        status, hall, core, connection, prov = max(
+            candidates, key=lambda item: RANK[item[0]])
+        self.add(
+            "03/04 circulation", req_id,
+            {"floor": floor, "space": hall["id"], "core": core["id"],
+             "connection": connection["id"]},
+            status, "SPATIALLY_PROVEN",
+            prov + [program])
 
     def _dim_floors_and_units(self):
         residents = self.inputs.v1.get("meta", {}).get("residents", {})

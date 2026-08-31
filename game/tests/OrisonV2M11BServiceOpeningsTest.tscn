@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/orison_v2_m11b_service_openings_test.gd" id="1"]
+
+[node name="OrisonV2M11BServiceOpeningsTest" type="Node"]
+script = ExtResource("1")

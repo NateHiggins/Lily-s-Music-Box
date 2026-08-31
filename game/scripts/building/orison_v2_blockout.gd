@@ -29,6 +29,7 @@ func _ready() -> void:
 		return
 	_build_palette()
 	_build_spaces()
+	_build_single_owner_opening_frames()
 	_build_doors()
 	_build_windows()
 	_build_envelopes()
@@ -88,6 +89,7 @@ func _validate_layout() -> void:
 			failures.append("invalid platform rect: " + str(platform.get("id", "?")))
 	_validate_references(ids)
 	_validate_room_overlaps()
+	_validate_single_owner_openings()
 	for required in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 			"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED",
 			"F01_WATCHMAN_DETECTOR", "F01_NIGHT_REGISTER",
@@ -178,6 +180,162 @@ func _validate_room_overlaps() -> void:
 				failures.append("%s overlaps %s on level %s by %.3f m2"
 						% [str(a.id), str(b.id), str(a.get("level", "?")), overlap])
 
+## A `shared_wall_owner` opening is a single-partition contract. Adjacent room
+## shells may each describe their full perimeter, but only the named owner may
+## construct the shared overlap and subtract the aperture. The other shell
+## omits only that shared interval; its wall beyond the shared boundary remains.
+## This lets a second floor use the same data path without duplicating a wall,
+## guessing a cut, or erasing an unrelated run of enclosure.
+func _validate_single_owner_openings() -> void:
+	var spaces := {}
+	var contracts := {}
+	for space: Dictionary in layout.get("spaces", []):
+		spaces[str(space.get("id", ""))] = space
+	for opening: Dictionary in layout.get("openings", []):
+		if not opening.has("shared_wall_owner"):
+			continue
+		var ident := str(opening.get("id", "?"))
+		var connects: Array = opening.get("connects", [])
+		if connects.size() != 2:
+			failures.append("%s single-owner opening must connect exactly two spaces" % ident)
+			continue
+		var a_id := str(connects[0])
+		var b_id := str(connects[1])
+		if not spaces.has(a_id) or not spaces.has(b_id):
+			# Missing endpoints are already reported by _validate_references.
+			continue
+		var a: Dictionary = spaces[a_id]
+		var b: Dictionary = spaces[b_id]
+		var owner := str(opening.get("shared_wall_owner", ""))
+		if owner not in [a_id, b_id]:
+			failures.append("%s shared_wall_owner must name one connected space" % ident)
+			continue
+		var pair := [a_id, b_id]
+		pair.sort()
+		var contract_key := "%s:%s:%s" % [str(opening.get("level", "")),
+				str(pair[0]), str(pair[1])]
+		if contracts.has(contract_key):
+			var prior: Dictionary = contracts[contract_key]
+			if str(prior.owner) != owner:
+				failures.append("%s conflicts with %s shared-wall owner" % [
+						ident, str(prior.ident)])
+		else:
+			contracts[contract_key] = {"ident": ident, "owner": owner,
+					"endpoint_ids": pair, "intervals": []}
+		if str(a.get("level", "")) != str(opening.get("level", "")) \
+				or str(b.get("level", "")) != str(opening.get("level", "")):
+			failures.append("%s endpoints must share its declared level" % ident)
+		var boundary := _shared_boundary(a, b)
+		if boundary.is_empty():
+			failures.append("%s endpoints do not share a positive-length wall" % ident)
+			continue
+		if str(opening.get("axis", "")) != str(boundary.axis):
+			failures.append("%s axis does not match its shared wall" % ident)
+		var center: Array = opening.get("center", [])
+		if center.size() != 2:
+			failures.append("%s has no valid center" % ident)
+			continue
+		var fixed := float(center[1] if str(boundary.axis) == "x" else center[0])
+		var along := float(center[0] if str(boundary.axis) == "x" else center[1])
+		var width := float(opening.get("width", 0.0))
+		var height := float(opening.get("height", 0.0))
+		if not is_equal_approx(fixed, float(boundary.fixed)):
+			failures.append("%s is not on its endpoints' shared wall" % ident)
+		if width < 0.91 or height < 2.13:
+			failures.append("%s is smaller than the maintenance-route minimum" % ident)
+		if height > float(layout.dimensions.clear_height) + 0.001:
+			failures.append("%s exceeds the clear storey height" % ident)
+		if along - width * 0.5 < float(boundary.start) - 0.001 \
+				or along + width * 0.5 > float(boundary.finish) + 0.001:
+			failures.append("%s does not lie entirely on the shared boundary" % ident)
+		var contract: Dictionary = contracts[contract_key]
+		var interval := Vector2(along - width * 0.5, along + width * 0.5)
+		for prior_interval: Vector2 in contract.intervals:
+			if minf(interval.y, prior_interval.y) \
+					- maxf(interval.x, prior_interval.x) > 0.001:
+				failures.append("%s overlaps another single-owner aperture" % ident)
+		contract.intervals.append(interval)
+		var owner_space: Dictionary = spaces[owner]
+		var owner_side := str(boundary.a_side if owner == a_id else boundary.b_side)
+		if not _space_owns_side(owner_space, owner_side):
+			failures.append("%s named owner does not author the shared wall side" % ident)
+	_validate_single_owner_partition_apertures(contracts, spaces)
+
+func _validate_single_owner_partition_apertures(contracts: Dictionary,
+		spaces: Dictionary) -> void:
+	for key: String in contracts:
+		var contract: Dictionary = contracts[key]
+		var endpoint_ids: Array = contract.endpoint_ids
+		var boundary := _shared_boundary(spaces[str(endpoint_ids[0])],
+				spaces[str(endpoint_ids[1])])
+		if boundary.is_empty():
+			continue
+		for door: Dictionary in layout.get("doors", []):
+			if _record_cuts_contract_partition(door, endpoint_ids, boundary):
+				failures.append("%s conflicts with %s single-owner partition" % [
+						str(door.get("id", "?")), str(contract.ident)])
+		for opening: Dictionary in layout.get("openings", []):
+			if opening.has("shared_wall_owner"):
+				continue
+			if _record_cuts_contract_partition(opening, endpoint_ids, boundary):
+				failures.append("%s conflicts with %s single-owner partition" % [
+						str(opening.get("id", "?")), str(contract.ident)])
+		for window: Dictionary in layout.get("windows", []):
+			if str(window.get("space", "")) not in endpoint_ids:
+				continue
+			if _record_on_boundary(window, boundary):
+				failures.append("%s conflicts with %s single-owner partition" % [
+						str(window.get("id", "?")), str(contract.ident)])
+
+func _record_cuts_contract_partition(record: Dictionary, endpoint_ids: Array,
+		boundary: Dictionary) -> bool:
+	var connects: Array = record.get("connects", [])
+	if not connects.any(func(endpoint: Variant) -> bool:
+			return str(endpoint) in endpoint_ids):
+		return false
+	return _record_on_boundary(record, boundary)
+
+func _record_on_boundary(record: Dictionary, boundary: Dictionary) -> bool:
+	var center: Array = record.get("center", [])
+	if center.size() != 2:
+		return false
+	if record.has("axis") and str(record.get("axis", "")) != str(boundary.axis):
+		return false
+	var fixed := float(center[1] if str(boundary.axis) == "x" else center[0])
+	if not is_equal_approx(fixed, float(boundary.fixed)):
+		return false
+	var along := float(center[0] if str(boundary.axis) == "x" else center[1])
+	var half_width := float(record.get("width", 0.0)) * 0.5
+	return minf(along + half_width, float(boundary.finish)) \
+			- maxf(along - half_width, float(boundary.start)) > 0.001
+
+func _space_owns_side(space: Dictionary, side: String) -> bool:
+	return not bool(space.get("open_shell", false)) \
+			and side in space.get("wall_sides", ["south", "north", "west", "east"])
+
+func _shared_boundary(a: Dictionary, b: Dictionary) -> Dictionary:
+	var ar: Array = a.get("rect", [])
+	var br: Array = b.get("rect", [])
+	if not _valid_rect(ar) or not _valid_rect(br):
+		return {}
+	var z_start := maxf(float(ar[1]), float(br[1]))
+	var z_finish := minf(float(ar[3]), float(br[3]))
+	if z_finish - z_start > 0.001 and is_equal_approx(float(ar[2]), float(br[0])):
+		return {"a_side": "east", "b_side": "west", "axis": "z",
+				"fixed": float(ar[2]), "start": z_start, "finish": z_finish}
+	if z_finish - z_start > 0.001 and is_equal_approx(float(ar[0]), float(br[2])):
+		return {"a_side": "west", "b_side": "east", "axis": "z",
+				"fixed": float(ar[0]), "start": z_start, "finish": z_finish}
+	var x_start := maxf(float(ar[0]), float(br[0]))
+	var x_finish := minf(float(ar[2]), float(br[2]))
+	if x_finish - x_start > 0.001 and is_equal_approx(float(ar[3]), float(br[1])):
+		return {"a_side": "north", "b_side": "south", "axis": "x",
+				"fixed": float(ar[3]), "start": x_start, "finish": x_finish}
+	if x_finish - x_start > 0.001 and is_equal_approx(float(ar[1]), float(br[3])):
+		return {"a_side": "south", "b_side": "north", "axis": "x",
+				"fixed": float(ar[1]), "start": x_start, "finish": x_finish}
+	return {}
+
 func _rect_overlap_area(a: Array, b: Array) -> float:
 	var across := minf(float(a[2]), float(b[2])) - maxf(float(a[0]), float(b[0]))
 	var deep := minf(float(a[3]), float(b[3])) - maxf(float(a[1]), float(b[1]))
@@ -248,8 +406,19 @@ func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 		if on_wall:
 			openings.append({"center": float(door.center[0] if axis == "x" else door.center[1]),
 					"width": float(door.width), "height": float(door.height), "sill": 0.0})
+	var omitted_shared_walls := {}
 	for opening: Dictionary in layout.get("openings", []):
 		if not space_id in opening.connects or str(opening.axis) != axis:
+			continue
+		if opening.has("shared_wall_owner") \
+				and str(opening.shared_wall_owner) != space_id:
+			var omission := _shared_wall_omission(opening, space_id, axis, fixed)
+			if not omission.is_empty():
+				var omission_key := "%s:%.4f:%.4f" % [axis,
+						float(omission.center), float(omission.width)]
+				if not omitted_shared_walls.has(omission_key):
+					openings.append(omission)
+					omitted_shared_walls[omission_key] = true
 			continue
 		var fixed_value := float(opening.center[1] if axis == "x" else opening.center[0])
 		if is_equal_approx(fixed_value, fixed):
@@ -289,6 +458,109 @@ func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 	if cursor < finish - 0.001:
 		_wall_segment(parent, "Wall%s_%02d" % [label, part], axis, fixed,
 				cursor, finish, y, height, thickness, cls)
+
+func _shared_wall_omission(opening: Dictionary, space_id: String,
+		axis: String, fixed: float) -> Dictionary:
+	var connects: Array = opening.get("connects", [])
+	if connects.size() != 2:
+		return {}
+	var other_id := str(connects[1] if str(connects[0]) == space_id else connects[0])
+	var here := _space_by_id(space_id)
+	var other := _space_by_id(other_id)
+	if here.is_empty() or other.is_empty():
+		return {}
+	var boundary := _shared_boundary(here, other)
+	if boundary.is_empty() or str(boundary.axis) != axis \
+			or not is_equal_approx(float(boundary.fixed), fixed):
+		return {}
+	return {"center": (float(boundary.start) + float(boundary.finish)) * 0.5,
+			"width": float(boundary.finish) - float(boundary.start),
+			"height": float(layout.dimensions.clear_height), "sill": 0.0}
+
+func _space_by_id(space_id: String) -> Dictionary:
+	for space: Dictionary in layout.get("spaces", []):
+		if str(space.get("id", "")) == space_id:
+			return space
+	return {}
+
+## A leafless maintenance opening still needs to read as a deliberate cased
+## connection. These three non-colliding reveal pieces are derived from the
+## same generic record that cuts the owner wall; they add no second collision
+## authority and cannot narrow the declared clear aperture.
+func _build_single_owner_opening_frames() -> void:
+	var wall_depth := float(layout.dimensions.partition_wall) + 0.04
+	var reveal_width := 0.09
+	for opening: Dictionary in layout.get("openings", []):
+		if not opening.has("shared_wall_owner"):
+			continue
+		var parent := Node3D.new()
+		parent.name = str(opening.id)
+		parent.position = Vector3(float(opening.center[0]),
+				float(level_y[opening.level]), float(opening.center[1]))
+		parent.set_meta("connects", opening.connects)
+		parent.set_meta("shared_wall_owner", str(opening.shared_wall_owner))
+		parent.set_meta("non_colliding_reveal", true)
+		add_child(parent)
+		var width := float(opening.width)
+		var height := float(opening.height)
+		if str(opening.axis) == "x":
+			_box(parent, "RevealA", Vector3(-width * 0.5 - reveal_width * 0.5,
+					height * 0.5, 0.0), Vector3(reveal_width, height, wall_depth),
+					"opening", false)
+			_box(parent, "RevealB", Vector3(width * 0.5 + reveal_width * 0.5,
+					height * 0.5, 0.0), Vector3(reveal_width, height, wall_depth),
+					"opening", false)
+			_box(parent, "RevealHead", Vector3(0.0, height + reveal_width * 0.5,
+					0.0), Vector3(width + reveal_width * 2.0, reveal_width,
+					wall_depth), "opening", false)
+		else:
+			_box(parent, "RevealA", Vector3(0.0, height * 0.5,
+					-width * 0.5 - reveal_width * 0.5),
+					Vector3(wall_depth, height, reveal_width), "opening", false)
+			_box(parent, "RevealB", Vector3(0.0, height * 0.5,
+					width * 0.5 + reveal_width * 0.5),
+					Vector3(wall_depth, height, reveal_width), "opening", false)
+			_box(parent, "RevealHead", Vector3(0.0, height + reveal_width * 0.5,
+					0.0), Vector3(wall_depth, reveal_width,
+					width + reveal_width * 2.0), "opening", false)
+		_build_service_opening_practical(parent, opening)
+
+## A source-owned bulkhead practical makes a leafless service connection read
+## as maintained circulation in the actual blockout, not only in a capture.
+## It is derived for every single-owner opening and carries no collision.
+func _build_service_opening_practical(parent: Node3D,
+		opening: Dictionary) -> void:
+	var practical := Node3D.new()
+	practical.name = "ServicePractical"
+	practical.position.y = minf(float(opening.height) + 0.16,
+			float(layout.dimensions.clear_height) - 0.16)
+	practical.set_meta("source_owned_service_practical", true)
+	parent.add_child(practical)
+	var wall_axis := str(opening.axis)
+	var backplate_size := Vector3(0.12, 0.20, 0.46) \
+			if wall_axis == "z" else Vector3(0.46, 0.20, 0.12)
+	var lens_size := Vector3(0.18, 0.12, 0.30) \
+			if wall_axis == "z" else Vector3(0.30, 0.12, 0.18)
+	_box(practical, "Backplate", Vector3.ZERO, backplate_size,
+			"service", false)
+	var lens := _box(practical, "OpalLens", Vector3(0.0, -0.12, 0.0),
+			lens_size, "opening", false)
+	var lens_material := StandardMaterial3D.new()
+	lens_material.albedo_color = Color(0.92, 0.72, 0.46)
+	lens_material.roughness = 0.72
+	lens_material.emission_enabled = true
+	lens_material.emission = Color(1.0, 0.62, 0.30)
+	lens_material.emission_energy_multiplier = 1.5
+	(lens.mesh as BoxMesh).material = lens_material
+	var light := OmniLight3D.new()
+	light.name = "WarmServiceLight"
+	light.position = Vector3(0.0, -0.22, 0.0)
+	light.light_color = Color(1.0, 0.72, 0.45)
+	light.light_energy = 3.2
+	light.omni_range = 4.8
+	light.omni_attenuation = 1.25
+	light.shadow_enabled = true
+	practical.add_child(light)
 
 func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float,
 		start: float, finish: float, y: float, height: float, thickness: float,
