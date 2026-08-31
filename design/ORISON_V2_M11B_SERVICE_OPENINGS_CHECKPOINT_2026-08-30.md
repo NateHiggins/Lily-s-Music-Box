@@ -1,6 +1,30 @@
 # Orison v2 M11B F02/F04 service-openings checkpoint — 2026-08-30
 
-Evidence class: **TECHNICAL CHECKPOINT — FOCUSED PROOF PASS — HUMAN REVIEW PENDING**
+Evidence class: **TECHNICAL CHECKPOINT — FOCUSED PROOF PASS — HUMAN ACCEPTED**
+
+## Human acceptance — 2026-08-31
+
+The owner reviewed the immutable packet at
+**art/renders/orison_v2/m11b_service_openings_02/** from
+**0ea23bfd1296a3779773886b1fc062f10288fa23** and returned **PASS — HUMAN
+ACCEPTED**.
+
+Both openings read as intentional, safe core-to-hall connections. F04's
+identical topology, construction cost, and traversal behavior proves that the
+shared-wall opening is now data-driven rather than bespoke geometry. The
+durable owner verdict is recorded in
+**design/ORISON_V2_M11B_HUMAN_ACCEPTANCE_RECEIPT_2026-08-31.md**.
+
+Accepted non-blocking debt remains explicit: the service areas are unusually
+dark; the F04 core-side view is tightly framed; the southern riser choke
+remains unresolved; and the F03 lateral service hall remains absent. The first
+two are presentation debt. The latter two are the spatial debts already
+disclosed below and are not repaired or promoted by this acceptance.
+
+This verdict closes only M11B human readability. It does not authorize
+production asset mutation, M09, selector cutover, a production-default change,
+production-layout replacement, v1 retirement, the real floor-01 export cut,
+or a merge to main.
 
 ## Accepted predecessor and branch boundary
 
@@ -247,8 +271,9 @@ that broad counter alone as retained-owner evidence; the matched M11A
 capture-lifecycle regression and final retention sweep remain part of the
 pending regression receipt below.
 
-The images are technical evidence only. **M11B HUMAN REVIEW IS PENDING**. A
-successful capture does not answer the human readability question.
+The images were technical evidence until owner review. The owner has now
+returned **PASS — HUMAN ACCEPTED**; the successful capture alone did not make
+that decision.
 
 ## Corrected completeness result
 
@@ -403,12 +428,8 @@ promotion, or protected-byte change attributable to M11B. A nonzero audit with
 known historical findings must be reported as nonzero, not rebased or
 described as clean.
 
-## Decision still required
+## Human decision closure
 
-The focused implementation is technically proved and the four-frame packet is
-ready for owner review. The checkpoint remains **HUMAN REVIEW PENDING** until
-the owner answers this question:
-
-“Do both service openings read as deliberate, safe connections between core and
-hall—and does F04 prove that another opening of this kind is now data work
-rather than bespoke geometry code?”
+The focused implementation is technically proved and the owner has answered
+the checkpoint question **yes**. M11B is **HUMAN ACCEPTED** with the four
+non-blocking debts recorded above.
