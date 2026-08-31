@@ -32,12 +32,11 @@ class FakeRenderer:
 		"novelty": .55, "breathing": .5})
 	var _clock := 1.25
 	func _ready() -> void:
-		for node_name in PresenterScript.TARGET_NODES:
-			var mesh := MeshInstance3D.new()
-			mesh.name = node_name
-			mesh.mesh = SphereMesh.new()
-			mesh.material_override = StandardMaterial3D.new()
-			add_child(mesh)
+		var mesh := MeshInstance3D.new()
+		mesh.name = "ExistingProductionPresentation"
+		mesh.mesh = SphereMesh.new()
+		mesh.material_override = StandardMaterial3D.new()
+		add_child(mesh)
 
 var failures := 0
 var checks := 0
@@ -96,10 +95,21 @@ func _run() -> void:
 			"the production cellular material holds the shared texture")
 	var source := FileAccess.get_file_as_string(
 			"res://shaders/dream_moss_voxel_light.gdshader")
-	_check(source.contains("cell_world_pos") and source.contains(
-			"world_position.x / max(exposure_extent") and source.contains(
-			"world_position.z / max(exposure_extent"),
+	_check(source.contains("world_p=(MODEL_MATRIX*vec4(p,1.0)).xyz")
+			and source.contains("world_p.x/exposure_extent")
+			and source.contains("world_p.z/exposure_extent")
+			and source.contains(".0625,.9375"),
 			"the shader samples the field in world space with production axis ordering")
+	_check(presenter.field.texture_allocation_bytes() == 147456,
+			"the one shared 96x96x8 RG8 allocation is exactly 147456 bytes")
+	var durable_saved: PackedByteArray = presenter.field.snapshot_durable()
+	var restored := DreamExposureField.new()
+	restored.stamp_room("restore_probe", [-2.0, -4.0, 2.0, 2.0], 0.0, .5)
+	_check(restored.restore_durable(durable_saved)
+			and is_equal_approx(restored.peak(), presenter.field.peak()),
+			"save reconstruction preserves durable R")
+	_check(is_zero_approx(_irradiance_total(restored)),
+			"save reconstruction clears reversible G")
 
 	var durable_before: float = presenter.field.peak()
 	var g_before: float = _irradiance_total(presenter.field)
@@ -129,10 +139,11 @@ func _run() -> void:
 			"moving the real lamp produces spatially different occupancy")
 	_check(ecology_sentinel == {"writes": 0, "state": "independent"},
 			"the adapter never writes ecology state")
-	var a_heart := a.get_node("MossHeart") as GeometryInstance3D
-	var b_heart := b.get_node("MossHeart") as GeometryInstance3D
-	_check(a_heart.material_override == presenter.shared_material
-			and b_heart.material_override == presenter.shared_material
+	var a_proxy := presenter.proxy_for(a)
+	var b_proxy := presenter.proxy_for(b)
+	_check(a_proxy != null and b_proxy != null
+			and a_proxy.material_override == presenter.shared_material
+			and b_proxy.material_override == presenter.shared_material
 			and presenter.receipt().bound_organism_count == 2,
 			"multiple organisms share one field and one material")
 

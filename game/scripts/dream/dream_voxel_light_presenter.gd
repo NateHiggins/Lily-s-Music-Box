@@ -11,13 +11,6 @@ const VoxelShader := preload("res://shaders/dream_moss_voxel_light.gdshader")
 
 const UPDATE_HZ := 15.0
 const UPDATE_INTERVAL := 1.0 / UPDATE_HZ
-const TARGET_NODES := {
-	"MossHeart": [1.0, .92],
-	"PlasmodialFans": [0.0, .98],
-	"VascularNetwork": [0.0, .98],
-	"InformationReturnPulse": [2.0, 1.0],
-	"MembraneProteinFamilies": [2.0, 1.0],
-}
 
 var field: DreamExposureField
 var texture: ImageTexture3D
@@ -35,8 +28,10 @@ var uploads_performed := 0
 var accumulated_update_s := 0.0
 var voxel_cpu_total_us := 0
 var voxel_cpu_peak_us := 0
+var voxel_cpu_samples_ms: Array[float] = []
 var last_deposition: Dictionary = {}
 var _bindings: Array[Dictionary] = []
+var _hidden_visuals: Array[Dictionary] = []
 var _renderers: Array = []
 var _player_light_visible := false
 var _player_light_cull_mask := 0
@@ -91,6 +86,7 @@ func _process(_delta: float) -> void:
 	if not _running:
 		return
 	_sync_lamp_transform()
+	_push_lamp_state()
 	_push_instance_state()
 
 
@@ -129,6 +125,7 @@ func deposit_once(dt: float = UPDATE_INTERVAL) -> void:
 	var elapsed := Time.get_ticks_usec() - started
 	voxel_cpu_total_us += elapsed
 	voxel_cpu_peak_us = maxi(voxel_cpu_peak_us, elapsed)
+	voxel_cpu_samples_ms.append(float(elapsed) / 1000.0)
 	last_deposition = {
 		"origin": origin, "direction": direction, "range_m": reach,
 		"cone_angle_deg": physical_light.spot_angle, "cos_outer": cos_outer,
@@ -158,24 +155,58 @@ func _sync_lamp_transform() -> void:
 		# advances; keep the replaced draw path suppressed only in this profile.
 		source.visible = false
 		source.light_cull_mask = 0
+	_push_lamp_state()
+
+
+func _push_lamp_state() -> void:
+	if shared_material == null or lamp == null or lamp.light == null:
+		return
+	shared_material.set_shader_parameter("lamp_origin_world", lamp.light.global_position)
+	shared_material.set_shader_parameter("lamp_direction_world",
+			-lamp.light.global_transform.basis.z.normalized())
+	shared_material.set_shader_parameter("lamp_range_m", lamp.light.spot_range)
+	shared_material.set_shader_parameter("lamp_cos_outer",
+			cos(deg_to_rad(lamp.light.spot_angle)))
+	shared_material.set_shader_parameter("lamp_spectrum", lamp.light.light_color)
+	shared_material.set_shader_parameter("lamp_intensity", clampf(
+			lamp.light.light_energy / maxf(lamp.base_energy, .0001), 0.0, 1.2))
 
 
 func _bind_renderer(renderer) -> void:
 	if renderer == null or not is_instance_valid(renderer):
 		return
 	_renderers.append(renderer)
-	for node_name in TARGET_NODES:
-		var node := renderer.get_node_or_null(NodePath(node_name)) as GeometryInstance3D
-		if node == null:
-			continue
-		_bindings.append({"node": node, "original": node.material_override,
-			"renderer": renderer, "role": TARGET_NODES[node_name][0],
-			"alpha": TARGET_NODES[node_name][1]})
-		node.material_override = shared_material
-		node.set_instance_shader_parameter("membrane_role", TARGET_NODES[node_name][0])
-		node.set_instance_shader_parameter("tissue_alpha", TARGET_NODES[node_name][1])
-		node.set_instance_shader_parameter("voxel_response_mode", debug_mode)
+	var visuals: Array[VisualInstance3D] = []
+	_collect_visuals(renderer, visuals)
+	for visual in visuals:
+		_hidden_visuals.append({"node": visual, "visible": visual.visible})
+		visual.visible = false
+	var proxy := MeshInstance3D.new()
+	proxy.name = "IntactVoxelMicroscopySpecimen"
+	var bound := BoxMesh.new()
+	bound.size = Vector3(2.0, 2.0, 2.0)
+	proxy.mesh = bound
+	proxy.material_override = shared_material
+	proxy.position = Vector3(0.0, .72, 0.0)
+	proxy.scale = Vector3(1.08, .78, .92)
+	renderer.add_child(proxy)
+	_bindings.append({"node": proxy, "renderer": renderer})
+	proxy.set_instance_shader_parameter("voxel_response_mode", debug_mode)
 	_push_renderer_state(renderer)
+
+
+func _collect_visuals(node: Node, out: Array[VisualInstance3D]) -> void:
+	for child in node.get_children():
+		if child is VisualInstance3D:
+			out.append(child as VisualInstance3D)
+		_collect_visuals(child, out)
+
+
+func proxy_for(renderer) -> MeshInstance3D:
+	for row in _bindings:
+		if row.renderer == renderer and is_instance_valid(row.node):
+			return row.node as MeshInstance3D
+	return null
 
 
 func _push_instance_state() -> void:
@@ -217,6 +248,10 @@ func field_snapshot() -> Dictionary:
 	var strongest := 0.0
 	var strongest_channel := "none"
 	var strongest_index := Vector3i.ZERO
+	var strongest_durable := 0.0
+	var strongest_durable_index := Vector3i.ZERO
+	var strongest_irradiance := 0.0
+	var strongest_irradiance_index := Vector3i.ZERO
 	if field != null:
 		var images := field.to_images()
 		for iy in images.size():
@@ -231,10 +266,16 @@ func field_snapshot() -> Dictionary:
 						strongest = pixel.r
 						strongest_channel = "durable_r"
 						strongest_index = Vector3i(ix, iy, iz)
+					if pixel.r > strongest_durable:
+						strongest_durable = pixel.r
+						strongest_durable_index = Vector3i(ix, iy, iz)
 					if pixel.g > strongest:
 						strongest = pixel.g
 						strongest_channel = "irradiance_g"
 						strongest_index = Vector3i(ix, iy, iz)
+					if pixel.g > strongest_irradiance:
+						strongest_irradiance = pixel.g
+						strongest_irradiance_index = Vector3i(ix, iy, iz)
 	return {
 		"texture_dimensions": [ExposureScript.GRID_XZ, ExposureScript.GRID_XZ,
 			ExposureScript.GRID_Y], "texture_format": "RG8",
@@ -243,13 +284,41 @@ func field_snapshot() -> Dictionary:
 		"active_irradiance_voxels": active_irradiance,
 		"active_voxels_union": active_union, "strongest_voxel": strongest,
 		"strongest_channel": strongest_channel, "strongest_grid_index": strongest_index,
+		"strongest_durable_r": strongest_durable,
+		"strongest_durable_grid_index": strongest_durable_index,
+		"strongest_irradiance_g": strongest_irradiance,
+		"strongest_irradiance_grid_index": strongest_irradiance_index,
 		"stamped_room_count": field.stamped_rooms() if field != null else 0,
 		"overflowed": field.overflowed() if field != null else false,
 	}
 
 
+## Rebuild the one world field from save-safe R. G intentionally starts dark
+## and must be regenerated by the current physical L1C cone.
+func reconstruct_from_durable(saved: PackedByteArray) -> bool:
+	if shared_material == null:
+		return false
+	var replacement: DreamExposureField = ExposureScript.new()
+	replacement.stamp_room(room_key,
+			[target_rect.x, target_rect.y, target_rect.z, target_rect.w], 0.0,
+			float(posmod(target_case.hash(), 10007)) / 10007.0)
+	if not saved.is_empty() and not replacement.restore_durable(saved):
+		return false
+	var replacement_texture := replacement.make_texture()
+	shared_material.set_shader_parameter("exposure_tex", replacement_texture)
+	field = replacement
+	texture = replacement_texture
+	return true
+
+
 func receipt() -> Dictionary:
 	var mean_cpu := float(voxel_cpu_total_us) / maxf(1.0, float(add_lamp_calls)) / 1000.0
+	var sorted_samples := voxel_cpu_samples_ms.duplicate()
+	sorted_samples.sort()
+	var p95_cpu := 0.0
+	if not sorted_samples.is_empty():
+		p95_cpu = sorted_samples[clampi(int(ceil(float(sorted_samples.size()) * .95)) - 1,
+				0, sorted_samples.size() - 1)]
 	return {
 		"enabled": _running, "target_case": target_case,
 		"authorities": {
@@ -266,7 +335,9 @@ func receipt() -> Dictionary:
 		"update_cadence_hz": UPDATE_HZ, "last_deposition": last_deposition,
 		"add_lamp_call_count": add_lamp_calls, "upload_call_count": upload_calls,
 		"upload_count": uploads_performed, "voxel_update_cpu_ms_mean": mean_cpu,
+		"voxel_update_cpu_ms_p95": p95_cpu,
 		"voxel_update_cpu_ms_peak": float(voxel_cpu_peak_us) / 1000.0,
+		"texture_allocation_bytes": field.texture_allocation_bytes() if field != null else 0,
 		"shared_material_count": 1 if shared_material != null else 0,
 		"shared_texture_count": 1 if texture != null else 0,
 		"bound_organism_count": _renderers.size(), "bound_surface_count": _bindings.size(),
@@ -286,9 +357,14 @@ func shutdown() -> Dictionary:
 	for row in _bindings:
 		var node = row.get("node")
 		if is_instance_valid(node):
-			node.material_override = row.get("original")
-			node.set_instance_shader_parameter("voxel_response_mode", 0)
+			node.material_override = null
+			node.queue_free()
 	_bindings.clear()
+	for row in _hidden_visuals:
+		var visual = row.get("node")
+		if is_instance_valid(visual):
+			visual.visible = bool(row.get("visible", true))
+	_hidden_visuals.clear()
 	_renderers.clear()
 	if shared_material != null:
 		shared_material.set_shader_parameter("exposure_tex", null)

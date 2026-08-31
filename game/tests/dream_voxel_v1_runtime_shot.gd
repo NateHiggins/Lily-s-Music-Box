@@ -160,7 +160,7 @@ func _prepare_review_colonies(presenter, target_renderer) -> void:
 	review_renderer.set_process(false)
 	review_renderer.global_position = Vector3(-8.75, 3.86, 2.78)
 	review_renderer.rotation = Vector3.ZERO
-	review_renderer.scale = Vector3.ONE * 1.55
+	review_renderer.scale = Vector3.ONE * 1.30
 	for renderer in presenter.get("_renderers"):
 		renderer.visible = renderer == review_renderer
 	_set_visual_layer(review_renderer, REVIEW_LAYER)
@@ -169,14 +169,16 @@ func _prepare_review_colonies(presenter, target_renderer) -> void:
 
 
 func _configure_gameplay_camera(_enc, renderer) -> void:
-	var focus: Vector3 = renderer.global_position + Vector3.UP * .16
+	var specimen := renderer.get_node_or_null("IntactVoxelMicroscopySpecimen") as Node3D
+	var focus: Vector3 = specimen.global_position if specimen != null \
+			else renderer.global_position + Vector3.UP * .72
 	camera = Camera3D.new()
 	camera.name = "WhiteDisplayRoomGameplayCamera"
-	camera.fov = 46.0
+	camera.fov = 43.0
 	camera.near = .06
 	camera.cull_mask = REVIEW_LAYER
 	add_child(camera)
-	camera.global_position = focus + Vector3(2.45, 1.55, 3.30)
+	camera.global_position = focus + Vector3(2.15, .80, 3.00)
 	camera.look_at(focus, Vector3.UP)
 	camera.make_current()
 	var player = production_root.get("player")
@@ -360,8 +362,8 @@ func _build_white_display_room(focus: Vector3) -> void:
 			Vector3(7.4, .16, 5.8), plaster)
 	# A broad observation plinth makes the colony read as intentionally displayed,
 	# never as a prop floating in a void.
-	_add_display_box("ObservationPlinth", focus + Vector3(0, -.38, 0),
-			Vector3(3.15, .62, 2.15), porcelain)
+	_add_display_box("ObservationPlinth", focus + Vector3(0, -.17, 0),
+			Vector3(3.20, .20, 2.18), porcelain)
 	_add_display_box("PlinthInset", focus + Vector3(0, -.055, 0),
 			Vector3(2.72, .035, 1.74), inset)
 	# Large wall recesses and a restrained rail give the image room-scale cues.

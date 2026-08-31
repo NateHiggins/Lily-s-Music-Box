@@ -1,0 +1,364 @@
+{
+  "all_assertions_pass": true,
+  "artifacts": [
+    "01_voxel_light_macro_contact_sheet.png"
+  ],
+  "assertions": {
+    "durable_reconstruction_succeeded": true,
+    "prior_r_remains_after_lamp_moves": true,
+    "reconstruction_clears_g": true,
+    "reconstruction_preserves_r": true,
+    "removed_lamp_cools_g": true,
+    "removed_lamp_preserves_r": true,
+    "shader_uses_no_substitute_scalar": true,
+    "strongest_g_follows_current_cone": true,
+    "world_space_translation_rotation_changes_sample_position": true
+  },
+  "base_commit": "918e011",
+  "capture_resolution": "3200x1800 contact sheet from eight matched 1600x900 frames",
+  "focused_deltas": {
+    "cellular_cpu_ms": -0.999,
+    "cellular_gpu_ms": 1.81699997186661,
+    "combined_cpu_ms": 0.299,
+    "combined_draw_call_delta": 11.0,
+    "combined_gpu_ms": 2.33200007677078,
+    "combined_vram_delta_bytes": 12723200
+  },
+  "hitch_assessment": {
+    "frame_budget_60hz_ms": 16.667,
+    "optimization": "persistent RG8 Image layers update only touched owned voxels; no full-volume CPU requantization per upload",
+    "peak_can_visibly_hitch_if_above_ms": 4.0
+  },
+  "human_visual_acceptance": {
+    "accepted_on": "2026-08-31",
+    "finding": "Frames 4-6 communicate warm yellow-green current irradiance, magenta persistent history, and intact membrane anatomy with credible parallax without the debug panel.",
+    "non_blocking_debt": "Strengthen the softly diffused current-light footprint's directional falloff slightly for gameplay-distance readability.",
+    "status": "PASS"
+  },
+  "production_adapter": {
+    "add_lamp_call_count": 168,
+    "authorities": {
+      "DreamExposureField": "shared 0.5 m RG8 durable/reversible voxel history",
+      "DreamVoxelLightPresenter": "cellular optical interpretation and resource binding",
+      "LampOpticalInstrument": "electrical/thermal state and instantaneous physical presentation",
+      "ecology": "independent sensing and decisions; no reference held here"
+    },
+    "bound_organism_count": 2,
+    "bound_surface_count": 2,
+    "enabled": true,
+    "field": {
+      "active_durable_voxels": 192,
+      "active_irradiance_voxels": 0,
+      "active_voxels_union": 192,
+      "overflowed": false,
+      "stamped_room_count": 1,
+      "strongest_channel": "durable_r",
+      "strongest_durable_grid_index": "(74, 4, 0)",
+      "strongest_durable_r": 0.266666680574417,
+      "strongest_grid_index": "(74, 4, 0)",
+      "strongest_irradiance_g": 0.0,
+      "strongest_irradiance_grid_index": "(0, 0, 0)",
+      "strongest_voxel": 0.266666680574417,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    },
+    "gpu_readback_during_gameplay": false,
+    "last_deposition": {
+      "cone_angle_deg": 22.0,
+      "cos_outer": 0.927183854566787,
+      "direction": "(-0.433861, -0.42327, -0.795366)",
+      "dt_s": 0.0666666666666667,
+      "normalized_energy": 0.982150236765544,
+      "origin": "(-7.272518, 5.576417, 4.59658)",
+      "range_m": 6.0
+    },
+    "method_chain": [
+      "LampOpticalState",
+      "LampOpticalInstrument._apply_output()",
+      "LampOpticalInstrument.light SpotLight3D",
+      "DreamVoxelLightPresenter.deposit_once()",
+      "DreamExposureField.add_lamp()",
+      "DreamExposureField.upload()",
+      "dream_moss_voxel_light.gdshader exposure_at(world_position)"
+    ],
+    "per_organism_field": false,
+    "per_organism_material": false,
+    "per_organism_texture": false,
+    "shared_material_count": 1,
+    "shared_texture_count": 1,
+    "substitute_scalar_drives_voxel_response": false,
+    "target_case": "mina_caption_crisis",
+    "texture_allocation_bytes": 147456,
+    "update_cadence_hz": 15.0,
+    "upload_call_count": 168,
+    "upload_count": 117,
+    "voxel_update_cpu_ms_mean": 0.857565476190476,
+    "voxel_update_cpu_ms_p95": 0.945,
+    "voxel_update_cpu_ms_peak": 1.011
+  },
+  "profiles": {
+    "cellular_presentation_only": {
+      "active_lights": 81,
+      "cpu_frame_ms_median": 3.538,
+      "draw_calls_median": 134.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 2.43499994277954,
+      "particle_systems": 2,
+      "vram_bytes": 5654722640
+    },
+    "l1c_lamp_only": {
+      "active_lights": 82,
+      "cpu_frame_ms_median": 4.236,
+      "draw_calls_median": 143.0,
+      "fog_volumes": 1,
+      "gpu_frame_ms_median": 1.11500000953674,
+      "particle_systems": 3,
+      "vram_bytes": 5654722640
+    },
+    "lamp_cell_voxel_combined": {
+      "active_lights": 82,
+      "cpu_frame_ms_median": 4.836,
+      "draw_calls_median": 144.0,
+      "fog_volumes": 1,
+      "gpu_frame_ms_median": 2.95000004768372,
+      "particle_systems": 3,
+      "vram_bytes": 5654722640
+    },
+    "production_baseline": {
+      "active_lights": 81,
+      "cpu_frame_ms_median": 4.537,
+      "draw_calls_median": 133.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 0.617999970912933,
+      "particle_systems": 2,
+      "vram_bytes": 5654722640
+    },
+    "voxel_field_debug": {
+      "active_lights": 81,
+      "cpu_frame_ms_median": 5.025,
+      "draw_calls_median": 136.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 2.43300008773804,
+      "particle_systems": 2,
+      "vram_bytes": 5654722640
+    }
+  },
+  "renderer": "forward_plus",
+  "renderer_diagnostics": {
+    "comparison": "existing Godot renderer cleanup diagnostic is not amplified; this two-cycle V1A lifecycle emits 1156 fewer than the last valid untouched-main full lifecycle",
+    "new_adapter_shader_or_script_errors": 0,
+    "pairing_diagnostics_this_run": 108,
+    "source": "exact current count from run.log; baseline from S2I/S2J clean-main Godot 4.7.1 full Orison lifecycle",
+    "untouched_main_light_index_baseline_count": 1264
+  },
+  "resource_policy": {
+    "gpu_readback_during_gameplay": false,
+    "per_organism_fields": 0,
+    "per_organism_materials": 0,
+    "precise_rg8_texture_bytes": 147456,
+    "shared_material_count": 1,
+    "shared_texture_count": 1
+  },
+  "review_staging": {
+    "black_void": false,
+    "exterior_facade_visible": false,
+    "space": "enclosed white microscopy display room",
+    "specimen_macro": true,
+    "support": "shallow observation chamber"
+  },
+  "stop_gate": {
+    "defaults_changed": false,
+    "human_review_required": false,
+    "l1d_unblocked": false,
+    "merge_to_main": false,
+    "s2j_superseded": false
+  },
+  "task": "DREAM-VOXEL-V1A",
+  "teardown": {
+    "both_cycles_released": true,
+    "cycle_count": 2,
+    "cycles": [
+      {
+        "dream_exposure_field_retained": false,
+        "l1c_lamp_retained": false,
+        "lamp_release_requested": true,
+        "room_ownership_cleared": true,
+        "sampler_unbound": true,
+        "shared_material_retained": false,
+        "voxel_texture_retained": false,
+        "writer_stopped": true
+      },
+      {
+        "dream_exposure_field_retained": false,
+        "l1c_lamp_retained": false,
+        "lamp_release_requested": true,
+        "room_ownership_cleared": true,
+        "sampler_unbound": true,
+        "shared_material_retained": false,
+        "voxel_texture_retained": false,
+        "writer_stopped": true
+      }
+    ],
+    "orison_world_retained": false,
+    "render_objects_after_release": 26
+  },
+  "technical_data_path_acceptance": "PASS / frozen",
+  "temporal_states": {
+    "backlit": {
+      "active_durable_voxels": 256,
+      "active_irradiance_voxels": 41,
+      "active_voxels_union": 256,
+      "overflowed": false,
+      "stamped_room_count": 1,
+      "strongest_channel": "durable_r",
+      "strongest_durable_grid_index": "(74, 4, 0)",
+      "strongest_durable_r": 0.266666680574417,
+      "strongest_grid_index": "(74, 4, 0)",
+      "strongest_irradiance_g": 0.0549019612371922,
+      "strongest_irradiance_grid_index": "(81, 7, 9)",
+      "strongest_voxel": 0.266666680574417,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    },
+    "enabled_center": {
+      "active_durable_voxels": 113,
+      "active_irradiance_voxels": 83,
+      "active_voxels_union": 113,
+      "overflowed": false,
+      "stamped_room_count": 1,
+      "strongest_channel": "irradiance_g",
+      "strongest_durable_grid_index": "(75, 3, 0)",
+      "strongest_durable_r": 0.109803922474384,
+      "strongest_grid_index": "(76, 7, 2)",
+      "strongest_irradiance_g": 0.125490203499794,
+      "strongest_irradiance_grid_index": "(76, 7, 2)",
+      "strongest_voxel": 0.125490203499794,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    },
+    "lamp_left": {
+      "active_durable_voxels": 133,
+      "active_irradiance_voxels": 107,
+      "active_voxels_union": 133,
+      "overflowed": false,
+      "stamped_room_count": 1,
+      "strongest_channel": "irradiance_g",
+      "strongest_durable_grid_index": "(74, 3, 1)",
+      "strongest_durable_r": 0.0784313753247261,
+      "strongest_grid_index": "(74, 7, 4)",
+      "strongest_irradiance_g": 0.298039227724075,
+      "strongest_irradiance_grid_index": "(74, 7, 4)",
+      "strongest_voxel": 0.298039227724075,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    },
+    "lamp_removed": {
+      "active_durable_voxels": 192,
+      "active_irradiance_voxels": 0,
+      "active_voxels_union": 192,
+      "overflowed": false,
+      "stamped_room_count": 1,
+      "strongest_channel": "durable_r",
+      "strongest_durable_grid_index": "(74, 4, 0)",
+      "strongest_durable_r": 0.266666680574417,
+      "strongest_grid_index": "(74, 4, 0)",
+      "strongest_irradiance_g": 0.0,
+      "strongest_irradiance_grid_index": "(0, 0, 0)",
+      "strongest_voxel": 0.266666680574417,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    },
+    "lamp_right": {
+      "active_durable_voxels": 192,
+      "active_irradiance_voxels": 59,
+      "active_voxels_union": 192,
+      "overflowed": false,
+      "stamped_room_count": 1,
+      "strongest_channel": "irradiance_g",
+      "strongest_durable_grid_index": "(74, 4, 0)",
+      "strongest_durable_r": 0.149019613862038,
+      "strongest_grid_index": "(78, 7, 1)",
+      "strongest_irradiance_g": 0.30588236451149,
+      "strongest_irradiance_grid_index": "(78, 7, 1)",
+      "strongest_voxel": 0.30588236451149,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    },
+    "translated_rotated_probe": {
+      "after_world": "(-7.723334, 4.796, 2.99515)",
+      "before_world": "(-8.2586, 4.796, 2.78)",
+      "field": {
+        "active_durable_voxels": 131,
+        "active_irradiance_voxels": 104,
+        "active_voxels_union": 131,
+        "overflowed": false,
+        "stamped_room_count": 1,
+        "strongest_channel": "irradiance_g",
+        "strongest_durable_grid_index": "(78, 3, 0)",
+        "strongest_durable_r": 0.0392156876623631,
+        "strongest_grid_index": "(78, 7, 2)",
+        "strongest_irradiance_g": 0.278431385755539,
+        "strongest_irradiance_grid_index": "(78, 7, 2)",
+        "strongest_voxel": 0.278431385755539,
+        "texture_dimensions": [
+          96,
+          96,
+          8
+        ],
+        "texture_format": "RG8",
+        "voxel_size_m": 0.5
+      }
+    },
+    "unexposed_baseline": {
+      "active_durable_voxels": 113,
+      "active_irradiance_voxels": 0,
+      "active_voxels_union": 113,
+      "overflowed": false,
+      "stamped_room_count": 1,
+      "strongest_channel": "durable_r",
+      "strongest_durable_grid_index": "(75, 3, 0)",
+      "strongest_durable_r": 0.0392156876623631,
+      "strongest_grid_index": "(75, 3, 0)",
+      "strongest_irradiance_g": 0.0,
+      "strongest_irradiance_grid_index": "(0, 0, 0)",
+      "strongest_voxel": 0.0392156876623631,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    }
+  }
+}
