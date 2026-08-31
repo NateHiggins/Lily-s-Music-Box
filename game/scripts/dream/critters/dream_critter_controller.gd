@@ -2,7 +2,7 @@ class_name DreamCritterController
 extends Node3D
 ## Level 3 of the ecology, in the world (§14, §19, §20, §21).
 ##
-## Individuals of three species live on the surfaces the Dream has reached,
+## Individuals of sixteen authored species live on the surfaces the Dream has reached,
 ## walk them at their own pace, and use the margin as habitat. §21 is the
 ## point of putting them here at all: *"This turns the wall into a functioning
 ## biome."*
@@ -24,16 +24,16 @@ const MAX_LIMBS := 8
 const MAX_FEELERS := 12
 # Photographed at 40 cm the body showed its polygons on the silhouette, which
 # is the one place a low-poly count always tells.
-const BODY_RINGS := 13
-const BODY_SEGS := 18
-const LIMB_RINGS := 9
+const BODY_RINGS := 17
+const BODY_SEGS := 24
+const LIMB_RINGS := 10
 # Five segments is a pentagonal prism and four is a square one, which is why
 # the legs and cilia photographed as bars and slabs rather than as limbs.
-const LIMB_SEGS := 8
-const FEELER_RINGS := 5
-const FEELER_SEGS := 6
-const DETAIL_RINGS := 7
-const DETAIL_SEGS := 10
+const LIMB_SEGS := 10
+const FEELER_RINGS := 7
+const FEELER_SEGS := 8
+const DETAIL_RINGS := 9
+const DETAIL_SEGS := 12
 
 signal critter_born(id: int, species: String)
 signal critter_died(id: int)
@@ -68,6 +68,9 @@ var _size := PackedVector4Array()
 var _matter := PackedVector4Array()
 var _counts := PackedVector4Array()
 var _law := PackedVector4Array()
+## Species-bounded microstructure: ribbing, pores/sutures, internal density,
+## and optical anisotropy. One row per draw slot; no per-animal material.
+var _anatomy := PackedVector4Array()
 ## MBIO-1: the listener's local receptor state in the existing draw.
 var _photo := PackedVector4Array()
 ## MBIO-3: the same local mechanical response in the existing fauna draw.
@@ -81,6 +84,7 @@ var _crab_foot := PackedVector4Array()
 ## z wetness, w iridescence.
 var _look := PackedVector4Array()
 var _lamp_pose: Dictionary = {}
+var _voxel_texture: Texture3D = null
 
 
 func setup(controller: DreamFieldController, seed_v: int) -> void:
@@ -88,7 +92,7 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	enabled = OS.get_environment("DREAM_CRITTERS") != "0"
 	field = controller
 	_rng.seed = seed_v
-	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _look, _photo,
+	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _anatomy, _look, _photo,
 			_mechanical]:
 		arr.resize(MAX_CRITTERS)
 	for arr in [_crab_socket, _crab_knee, _crab_foot]:
@@ -107,8 +111,29 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 		_space = world.direct_space_state
 
 
+## DREAM-CRITTER-VOXEL: this is a presentation binding, not another field.
+## Every animal in this controller already shares one ShaderMaterial, so the
+## world-owned RG8 texture is bound once here and sampled by every species.
+func bind_voxel_optics(texture: Texture3D, extent_m: float, height_m: float) -> void:
+	_voxel_texture = texture
+	if material == null:
+		return
+	material.set_shader_parameter("exposure_tex", texture)
+	material.set_shader_parameter("exposure_extent", extent_m)
+	material.set_shader_parameter("exposure_height", height_m)
+	material.set_shader_parameter("voxel_optics_enabled", 1.0 if texture != null else 0.0)
+
+
+func unbind_voxel_optics() -> void:
+	_voxel_texture = null
+	if material == null:
+		return
+	material.set_shader_parameter("voxel_optics_enabled", 0.0)
+	material.set_shader_parameter("exposure_tex", null)
+
+
 ## One buffer holding eight animals: a body, eight limbs and twelve feelers
-## each. UV2.y tags the part so one vertex program can build three anatomies.
+## each. UV2.y tags the part so one vertex program can build sixteen anatomies.
 func _build_mesh() -> ArrayMesh:
 	var verts := PackedVector3Array()
 	var normals := PackedVector3Array()
@@ -150,6 +175,10 @@ func _build_mesh() -> ArrayMesh:
 		# Fixed proximal webs join coxae to the body in the existing batch.
 		_append_tubes(verts, normals, uvs, uv2, indices, c, 13.0,
 				MAX_LIMBS, 6, LIMB_SEGS)
+		# Two high-index claw branches on each of a tardigrade's eight legs.
+		# Other species collapse these bounded vertices in the shared shader.
+		_append_tubes(verts, normals, uvs, uv2, indices, c, 14.0,
+				MAX_LIMBS * 2, 6, LIMB_SEGS)
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = verts
@@ -268,8 +297,7 @@ func _try_spawn() -> void:
 		var hit: Dictionary = _space.intersect_ray(q)
 		if hit.is_empty():
 			continue
-		var kinds: Array = [SpeciesScript.Kind.SEAM_GRAZER,
-				SpeciesScript.Kind.CRYSTAL_LISTENER, SpeciesScript.Kind.FOLD_CRAB]
+		var kinds: Array = SpeciesScript.all_kinds()
 		var kind: int = kinds[_rng.randi() % kinds.size()]
 		var m: Dictionary = GeneratorScript.generate(kind, _next_id * 6151 + 17)
 		var nrm: Vector3 = (hit.normal as Vector3).normalized()
@@ -311,6 +339,16 @@ func _try_spawn() -> void:
 			"fold_leg": -1,
 			"fold": 0.0,
 			"fold_clock": 0.0,
+			# The cat-sized tardigrade's tun is a real whole-body contraction,
+			# separate from the fold crab's single impossible limb event.
+			"tun": 0.0,
+			"tun_clock": _rng.randf_range(4.0, 8.0),
+			# Source-derived microorganism mechanics share these four bounded
+			# presentation values. They do not choose goals or write ecology.
+			"micro_phase": _rng.randf_range(0.0, TAU),
+			"micro_state": 0.0,
+			"micro_aux": _rng.randf(),
+			"micro_clock": _rng.randf_range(0.8, 4.0),
 			"leg_state": [],
 			"support_legs": 0,
 			"leg_root_gap_max": 0.0,
@@ -613,7 +651,7 @@ func _walk(delta: float) -> void:
 		# A fold holds the animal still for its whole duration, so the pause
 		# timer must not re-roll `moving` underneath it. It did, and a fold
 		# that happened to span a re-roll moved the crab 73 mm.
-		if float(c.get("fold", 0.0)) > 0.05:
+		if float(c.get("fold", 0.0)) > 0.05 or float(c.get("tun", 0.0)) > 0.08:
 			c.moving = false
 			c.pause = maxf(float(c.pause), 0.35)
 		elif c.pause <= 0.0:
@@ -673,7 +711,8 @@ func _walk(delta: float) -> void:
 
 func _advance_crab_gait(c: Dictionary, delta: float) -> void:
 	var m: Dictionary = c.morph
-	if int(m.kind) != SpeciesScript.Kind.FOLD_CRAB:
+	var tardigrade := int(m.kind) == SpeciesScript.Kind.TARDIGRADE
+	if int(m.kind) != SpeciesScript.Kind.FOLD_CRAB and not tardigrade:
 		return
 	var count := mini(MAX_LIMBS, int(m.limbs))
 	var legs: Array = c.get("leg_state", [])
@@ -695,7 +734,7 @@ func _advance_crab_gait(c: Dictionary, delta: float) -> void:
 		var inner_stride := 1.0 - flank * float(m.turn_bias) * 0.22
 		var desired: Vector3 = (c.pos as Vector3) + fwd * (fore * float(m.length)
 				+ sin(float(c.gait) * 0.37 + leg_i * 1.71) * float(m.length) * 0.04) \
-				+ side * flank * float(m.wide) * 1.02 * inner_stride \
+				+ side * flank * float(m.wide) * (.70 if tardigrade else 1.02) * inner_stride \
 				- up * float(m.tall) * 0.52
 		if _space != null:
 			var query := PhysicsRayQueryParameters3D.create(desired + up * 0.14,
@@ -703,9 +742,15 @@ func _advance_crab_gait(c: Dictionary, delta: float) -> void:
 			var hit: Dictionary = _space.intersect_ray(query)
 			if not hit.is_empty() and (hit.normal as Vector3).dot(up) > 0.45:
 				desired = hit.position
+		# Tardigrade swing propagates posterior-to-anterior on each side and
+		# keeps contralateral legs offset. The fourth pair is shorter and later.
 		var phase := fposmod(float(c.gait) / TAU + float(leg_i % 2) * 0.50
-				+ row_t * 0.12 + float(m.limb_stagger) * leg_i, 1.0)
-		var stance := phase < 0.68 or not bool(c.get("moving", false))
+				+ row_t * (0.20 if tardigrade else 0.12)
+				+ float(m.limb_stagger) * leg_i, 1.0)
+		if tardigrade and row_i == row_count - 1:
+			phase = fposmod(phase + 0.10, 1.0)
+		var stance_end := 0.73 if tardigrade else 0.68
+		var stance := phase < stance_end or not bool(c.get("moving", false))
 		var leg: Dictionary = legs[leg_i]
 		if leg.foot == Vector3.INF:
 			leg.foot = desired
@@ -715,10 +760,11 @@ func _advance_crab_gait(c: Dictionary, delta: float) -> void:
 			if bool(leg.was_stance):
 				leg.swing_from = leg.foot
 				leg.swing_to = desired
-			var swing_t := clampf((phase - 0.68) / 0.32, 0.0, 1.0)
+			var swing_t := clampf((phase - stance_end) / (1.0 - stance_end), 0.0, 1.0)
 			var eased := smoothstep(0.0, 1.0, swing_t)
 			leg.foot = (leg.swing_from as Vector3).lerp(leg.swing_to as Vector3, eased) \
-					+ up * sin(swing_t * PI) * (float(m.tall) * 0.62 + 0.025)
+					+ up * sin(swing_t * PI) * (float(m.tall)
+							* (0.34 if tardigrade else 0.62) + 0.025)
 		else:
 			supports += 1
 			if not bool(leg.was_stance):
@@ -731,7 +777,7 @@ func _advance_crab_gait(c: Dictionary, delta: float) -> void:
 		legs[leg_i] = leg
 		var socket: Vector3 = (c.pos as Vector3) + fwd * fore * float(m.length) * 0.78 \
 				+ side * flank * float(m.wide) * 0.36
-		gap_max = maxf(gap_max, socket.distance_to(socket))
+		gap_max = maxf(gap_max, socket.distance_to(leg.foot))
 	c.leg_state = legs
 	c.support_legs = supports
 	c.leg_root_gap_max = gap_max
@@ -1075,6 +1121,93 @@ func _apply_law(c: Dictionary, delta: float) -> void:
 			# whole point.
 			if float(c.fold) > 0.05:
 				c.moving = false
+		SpeciesScript.Kind.TARDIGRADE:
+			# A short tun-like contraction makes the enormous water bear's
+			# hydrostatic body legible without claiming cryptobiosis. The same
+			# cortex, organs and optical depth remain present as it compacts.
+			c.tun_clock = float(c.get("tun_clock", 5.0)) - delta
+			c.tun = maxf(0.0, float(c.get("tun", 0.0)) - delta * 0.62)
+			if float(c.tun_clock) <= 0.0:
+				c.tun_clock = _rng.randf_range(5.5, 9.5)
+				c.tun = 1.0
+			if float(c.tun) > 0.08:
+				c.moving = false
+				c.pause = maxf(float(c.pause), 0.32)
+		SpeciesScript.Kind.STENTOR:
+			# Repeated drawstring contractions become less complete: a visual
+			# habituation state, not a change to what the ecology senses.
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.48
+			c.micro_clock = float(c.get("micro_clock", 2.0)) - delta
+			c.micro_state = maxf(0.0, float(c.get("micro_state", 0.0)) - delta * 2.8)
+			if float(c.micro_clock) <= 0.0:
+				c.micro_clock = _rng.randf_range(2.2, 4.8)
+				c.micro_state = 1.0 - float(c.get("micro_aux", 0.0)) * 0.48
+				c.micro_aux = minf(0.82, float(c.get("micro_aux", 0.0)) + 0.11)
+			if float(c.micro_state) > 0.06:
+				c.moving = false
+		SpeciesScript.Kind.LACRYMARIA:
+			# Coupled slow neck-length and fast dart phases produce a bounded,
+			# dense search pattern around one anchored body.
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 1.7
+			var hunt_phase: float = float(c.micro_phase)
+			c.micro_state = clampf(0.22 + 0.78 * absf(sin(hunt_phase * 0.41))
+					* (0.62 + 0.38 * sin(hunt_phase * 1.73) ** 2.0), 0.0, 1.0)
+			c.micro_aux = sin(hunt_phase * 0.73 + float(m.turn_bias) * 2.0)
+			c.moving = false
+		SpeciesScript.Kind.VORTICELLA:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.9
+			c.micro_clock = float(c.get("micro_clock", 2.0)) - delta
+			c.micro_state = maxf(0.0, float(c.get("micro_state", 0.0)) - delta * 0.72)
+			if float(c.micro_clock) <= 0.0:
+				c.micro_clock = _rng.randf_range(3.4, 6.8)
+				c.micro_state = 1.0
+			c.moving = false
+		SpeciesScript.Kind.EUPLOTES:
+			# Four discrete gait states coordinate the eight rendered bundles
+			# that stand in for fourteen biological cirri.
+			c.micro_phase = float(c.gait)
+			c.micro_state = floorf(fposmod(float(c.gait), 4.0)) / 3.0
+			c.micro_aux = fposmod(float(c.gait), 1.0)
+		SpeciesScript.Kind.SPIROSTOMUM:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.36
+			c.micro_clock = float(c.get("micro_clock", 2.0)) - delta
+			c.micro_state = maxf(0.0, float(c.get("micro_state", 0.0)) - delta * 1.65)
+			if float(c.micro_clock) <= 0.0:
+				c.micro_clock = _rng.randf_range(4.5, 8.0)
+				c.micro_state = 1.0
+		SpeciesScript.Kind.HELIOZOAN:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.42
+			c.micro_clock = float(c.get("micro_clock", 2.0)) - delta
+			c.micro_state = maxf(0.0, float(c.get("micro_state", 0.0)) - delta * 0.38)
+			if float(c.micro_clock) <= 0.0:
+				c.micro_clock = _rng.randf_range(4.0, 7.5)
+				c.micro_state = 1.0
+				c.micro_aux = float(_rng.randi_range(0, 11)) / 11.0
+		SpeciesScript.Kind.EUGLENA:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 1.25
+			c.micro_state = 0.5 + 0.5 * sin(float(c.micro_phase) * 0.67)
+			c.micro_aux = float(c.get("photo_side", 0.0))
+		SpeciesScript.Kind.VOLVOX:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.22
+			c.micro_state = smoothstep(0.18, 0.74,
+					0.5 + 0.5 * sin(float(c.micro_phase)))
+		SpeciesScript.Kind.NOCTILUCA:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.52
+			c.micro_state = maxf(0.0, float(c.get("micro_state", 0.0)) - delta * 1.9)
+			var noctiluca_mech: Dictionary = c.get("mechanical", {})
+			if float(noctiluca_mech.get("response", 0.0)) > 0.08:
+				c.micro_state = maxf(float(c.micro_state),
+						float(noctiluca_mech.get("response", 0.0)))
+		SpeciesScript.Kind.BACILLARIA:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.84
+			c.micro_state = 0.5 + 0.5 * sin(float(c.micro_phase))
+			c.micro_aux = 0.5 + 0.5 * sin(float(c.micro_phase) * 0.71 + 1.2)
+		SpeciesScript.Kind.SALPINGOECA:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.58
+			c.micro_state = 0.5 + 0.5 * sin(float(c.micro_phase) * 0.5)
+		SpeciesScript.Kind.MESODINIUM:
+			c.micro_phase = float(c.get("micro_phase", 0.0)) + delta * 0.74
+			c.micro_state = 0.5 + 0.5 * sin(float(c.micro_phase) * 0.63)
 
 
 func _push() -> void:
@@ -1101,6 +1234,7 @@ func _push() -> void:
 	var n := slot
 	for i in range(n, MAX_CRITTERS):
 		_counts[i] = Vector4.ZERO
+		_anatomy[i] = Vector4.ZERO
 		_photo[i] = Vector4.ZERO
 		_mechanical[i] = Vector4.ZERO
 	material.set_shader_parameter("critter_pos", _pos)
@@ -1110,6 +1244,7 @@ func _push() -> void:
 	material.set_shader_parameter("critter_matter", _matter)
 	material.set_shader_parameter("critter_counts", _counts)
 	material.set_shader_parameter("critter_law", _law)
+	material.set_shader_parameter("critter_anatomy", _anatomy)
 	material.set_shader_parameter("critter_look", _look)
 	material.set_shader_parameter("critter_photo", _photo)
 	material.set_shader_parameter("critter_mechanical", _mechanical)
@@ -1125,11 +1260,9 @@ func _push() -> void:
 func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 	if true:
 		var m: Dictionary = c.morph
-		var plan := 0.0
-		if int(m.kind) == SpeciesScript.Kind.CRYSTAL_LISTENER:
-			plan = 1.0
-		elif int(m.kind) == SpeciesScript.Kind.FOLD_CRAB:
-			plan = 2.0
+		# Kind ids are stable authored plan ids. The first four retain their
+		# original 0..3 values; the microscopy atlas occupies 4..15.
+		var plan := float(int(m.kind))
 		var p: Vector3 = c.twin_pos if as_twin else c.pos
 		_pos[i] = Vector4(p.x, p.y, p.z, plan)
 		var f: Vector3 = c.twin_fwd if as_twin else c.fwd
@@ -1141,14 +1274,24 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 				float(m.get("perfusion", 0.6)), float(m.get("wetness", 0.6)),
 				float(m.get("iridescence", 0.3)))
 		_law[i] = Vector4(float(c.get("spin", 0.0)),
-				float(int(c.get("fold_leg", -1))), float(c.get("fold", 0.0)),
+				float(int(c.get("fold_leg", -1))),
+				float(c.get("tun", 0.0)) if plan > 2.5 else float(c.get("fold", 0.0)),
 				float(c.get("unfold", 0.0)))
+		if plan > 3.5:
+			_law[i] = Vector4(float(c.get("micro_phase", 0.0)),
+					float(c.get("micro_aux", 0.0)),
+					float(c.get("micro_state", 0.0)),
+					float(c.get("unfold", 0.0)))
+		_anatomy[i] = Vector4(float(m.get("micro_ribbing", 0.5)),
+				float(m.get("micro_pores", 0.5)),
+				float(m.get("internal_density", 0.5)),
+				float(m.get("optical_anisotropy", 0.5)))
 		var photo: Dictionary = c.get("photo", {})
 		_photo[i] = Vector4(float(photo.get("response", 0.0)),
 				float(photo.get("shock", 0.0)),
 				float(photo.get("scan", 0.0)) / TAU,
 				float(c.get("photo_side", 0.0)))
-		if plan > 1.5:
+		if plan > 1.5 and plan < 2.5:
 			var repeat_count := int(c.get("ecology_repeat_count", 0))
 			_photo[i] = Vector4(float(c.get("manipulator_deploy", 0.0)),
 					float(c.get("information_pulse", 0.0)),
@@ -1160,7 +1303,7 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 				float(mechanical.get("carrier", 0)) / 3.0,
 				float(mechanical.get("age", 99.0)),
 				clampf(mech_dir.dot(f), -1.0, 1.0))
-		if plan > 1.5:
+		if plan > 1.5 and plan < 2.5:
 			_mechanical[i] = Vector4(float(c.get("information_pulse", 0.0)),
 					1.0 if bool(c.get("ecology_returning", false)) else 0.0,
 					clampf(float(c.get("hero_near", 0.0)), 0.0, 1.0),
@@ -1176,6 +1319,7 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 				float(m.asymmetry), 1.0 + bobbing * sin(float(c.gait) * 2.0) * 0.06)
 		var draw_side := u.cross(f).normalized()
 		var legs: Array = c.get("leg_state", [])
+		var is_tardigrade := plan > 2.5 and plan < 3.5
 		var per_side := int(ceil(float(maxi(1, int(m.limbs))) * 0.5))
 		for leg_i in MAX_LIMBS:
 			var packed_i := i * MAX_LIMBS + leg_i
@@ -1189,17 +1333,19 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 			var row_count := per_side if leg_i < per_side else int(m.limbs) - per_side
 			var row_t := float(row_i) / float(maxi(1, row_count - 1))
 			var fore := lerpf(0.40, -0.40, row_t)
-			var socket_world := p + f * fore * float(m.length) * 0.78 \
-					+ draw_side * flank * float(m.wide) * 0.36
+			var socket_world := p + f * fore * float(m.length) * (0.72 if is_tardigrade else 0.78) \
+					+ draw_side * flank * float(m.wide) * (0.42 if is_tardigrade else 0.36)
 			var foot_world := p + f * fore * float(m.length) \
-					+ draw_side * flank * float(m.wide) * 1.05 - u * float(m.tall) * 0.52
+					+ draw_side * flank * float(m.wide) * (0.72 if is_tardigrade else 1.05) \
+					- u * float(m.tall) * (0.54 if is_tardigrade else 0.52)
 			var stance := true
 			if leg_i < legs.size() and not as_twin:
 				foot_world = legs[leg_i].foot
 				stance = bool(legs[leg_i].was_stance)
 			var knee_world := socket_world.lerp(foot_world, 0.48) \
-					+ u * float(m.tall) * (0.72 + 0.18 * sin(leg_i * 2.17)) \
-					+ draw_side * flank * float(m.wide) * 0.24
+					+ u * float(m.tall) * ((0.23 + 0.08 * sin(leg_i * 2.17)) \
+							if is_tardigrade else (0.72 + 0.18 * sin(leg_i * 2.17))) \
+					+ draw_side * flank * float(m.wide) * (0.07 if is_tardigrade else 0.24)
 			_crab_socket[packed_i] = _pack_local(socket_world - p, draw_side, u, f, 1.0)
 			_crab_knee[packed_i] = _pack_local(knee_world - p, draw_side, u, f, 0.0)
 			_crab_foot[packed_i] = _pack_local(foot_world - p, draw_side, u, f,

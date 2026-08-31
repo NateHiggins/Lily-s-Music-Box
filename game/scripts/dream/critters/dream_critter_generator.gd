@@ -35,6 +35,17 @@ static func generate(kind: int, seed_v: int) -> Dictionary:
 		"crystal": rng.randf_range(float(r.crystal[0]), float(r.crystal[1])),
 		"cilia": rng.randf_range(float(r.cilia[0]), float(r.cilia[1])),
 		"speed": rng.randf_range(float(r.speed[0]), float(r.speed[1])),
+		# Four bounded object/world-space microstructure controls. Their meaning
+		# is anatomical per species in the shared shader (comb folds, resonator
+		# order, plate sutures, or tardigrade cuticle/gut), never free hue noise.
+		"micro_ribbing": rng.randf_range(float(r.micro_ribbing[0]),
+				float(r.micro_ribbing[1])),
+		"micro_pores": rng.randf_range(float(r.micro_pores[0]),
+				float(r.micro_pores[1])),
+		"internal_density": rng.randf_range(float(r.internal_density[0]),
+				float(r.internal_density[1])),
+		"optical_anisotropy": rng.randf_range(float(r.optical_anisotropy[0]),
+				float(r.optical_anisotropy[1])),
 		# §17's asymmetrical defects: a real animal is not mirrored.
 		"asymmetry": rng.randf_range(0.0, 0.22),
 		"limb_stagger": rng.randf_range(0.0, 0.35),
@@ -48,6 +59,21 @@ static func generate(kind: int, seed_v: int) -> Dictionary:
 	if roll > 0.99:
 		m.crystal = minf(1.0, float(m.crystal) * 1.9)
 		m.morph = "great_crystal"
+	if kind == SpeciesScript.Kind.TARDIGRADE:
+		# Fixed researched anatomy; seeded values change its expression without
+		# allowing a generated individual to stop being a tardigrade.
+		m["body_annuli"] = 4
+		m["mouth_lamellae"] = 6
+		m["double_claws"] = true
+		m["storage_cells"] = rng.randf_range(0.55, 0.95)
+		m["pharynx_power"] = rng.randf_range(0.68, 1.0)
+		m["claw_hook"] = rng.randf_range(0.72, 1.0)
+		m["scale_class"] = "cat_sized"
+		# The generic rare-feeler roll cannot replace the fixed six-lamella mouth
+		# identity. Rare specimens carry two lateral papillae in addition.
+		if String(m.morph) == "extra_feelers":
+			m.feelers = 8
+			m.morph = "lateral_papillae"
 	# §19 — individual temperament on top of species defaults.
 	m["confidence"] = rng.randf()
 	m["curiosity"] = rng.randf()
@@ -108,4 +134,6 @@ static func visual_distance(a: Dictionary, b: Dictionary) -> float:
 	d += absf(float(a.hue_bias) - float(b.hue_bias)) * 0.4
 	d += absf(float(a.perfusion) - float(b.perfusion)) * 0.3
 	d += absf(float(a.wetness) - float(b.wetness)) * 0.25
+	d += absf(float(a.micro_ribbing) - float(b.micro_ribbing)) * 0.2
+	d += absf(float(a.internal_density) - float(b.internal_density)) * 0.2
 	return d
