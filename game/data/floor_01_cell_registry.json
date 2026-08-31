@@ -1,0 +1,5694 @@
+{
+  "asset_manifest_path": "res://assets/building/floor_01_cells/floor01_asset_manifest.json",
+  "asset_manifest_sha256": "0f5233f40962c699b961961bc4e21a99db7af077d450f70cbbd8d4d040c486e9",
+  "cells": [
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.bin",
+      "bin_sha256": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012",
+      "compatibility_aliases": [
+        "F01_ceiling_plaster",
+        "F01_ceiling_plaster_stained",
+        "F01_ceiling_tin_ceiling",
+        "F01_floors_ceramic",
+        "F01_floors_concrete",
+        "F01_floors_floor_oak",
+        "F01_floors_terrazzo",
+        "F01_furnish_bakelite_black",
+        "F01_furnish_book_brown",
+        "F01_furnish_book_burgundy",
+        "F01_furnish_book_green",
+        "F01_furnish_book_navy",
+        "F01_furnish_book_ochre",
+        "F01_furnish_book_teal",
+        "F01_furnish_brass",
+        "F01_furnish_brass_bright",
+        "F01_furnish_brass_dull",
+        "F01_furnish_ceramic",
+        "F01_furnish_chrome",
+        "F01_furnish_countertop",
+        "F01_furnish_fabric_cool",
+        "F01_furnish_fabric_green",
+        "F01_furnish_fabric_warm",
+        "F01_furnish_floor_oak",
+        "F01_furnish_fx_shadow",
+        "F01_furnish_glassish",
+        "F01_furnish_hull-colonly",
+        "F01_furnish_linen",
+        "F01_furnish_metal",
+        "F01_furnish_nickel_plated",
+        "F01_furnish_oak_quartered",
+        "F01_furnish_paper",
+        "F01_furnish_plant",
+        "F01_furnish_porcelain",
+        "F01_furnish_soil",
+        "F01_furnish_soot",
+        "F01_furnish_terracotta",
+        "F01_furnish_timber",
+        "F01_furnish_trim",
+        "F01_furnish_wood_dark",
+        "F01_furniture_art",
+        "F01_furniture_blind_slat",
+        "F01_furniture_blind_slat-col",
+        "F01_furniture_brass-col",
+        "F01_furniture_brass_dull-col",
+        "F01_furniture_ceramic-col",
+        "F01_furniture_chrome-col",
+        "F01_furniture_indicator_enamel-col",
+        "F01_furniture_linen-col",
+        "F01_furniture_linoleum-col",
+        "F01_furniture_metal-col",
+        "F01_furniture_rug_warm-col",
+        "F01_furniture_trim-col",
+        "F01_furniture_wood_dark-col",
+        "F01_fx_ao_decal",
+        "F01_slabs-col",
+        "F01_stairs",
+        "F01_stairs_bal",
+        "F01_stairs_brass",
+        "F01_stairs_guard-colonly",
+        "F01_stairs_iron",
+        "F01_stairs_landing",
+        "F01_stairs_rail",
+        "F01_stairs_ramp-colonly",
+        "F01_stairs_soffit_failed",
+        "F01_stairs_treads",
+        "F01_trim",
+        "F01_vent_register_screws",
+        "F01_vent_register_throat",
+        "F01_vent_register_trim",
+        "F01_wainscot_marble_lobby",
+        "F01_wainscot_subway_tile",
+        "F01_wainscot_wainscot",
+        "F01_walls-col",
+        "F01_walls_conc-col",
+        "F01_wear_ceiling_fx_drip",
+        "F01_wear_fx_drip",
+        "F01_wear_fx_grease",
+        "F01_wear_fx_scuff",
+        "F01_wear_fx_traffic"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "bc6ff5536e374be8385232b65c0404014d5970c9a27f016c0a301d01748c48e4",
+      "id": "CELL_ORISON_F01_INTERIOR",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf",
+      "semantic_owners": [
+        "1A_LT_SCONCE",
+        "1D_LT_SCONCE",
+        "F01WC_LT_SCONCE",
+        "F01_1A_FRIDGE_01",
+        "F01_1A_KETTLE_01",
+        "F01_1A_KITCHEN_SINK_01",
+        "F01_1A_MIRROR_01",
+        "F01_1A_SHOWER_01",
+        "F01_1A_SINK_01",
+        "F01_1A_STOVE_01",
+        "F01_1A_TOASTER_01",
+        "F01_1D_FRIDGE_01",
+        "F01_1D_KETTLE_01",
+        "F01_1D_KITCHEN_SINK_01",
+        "F01_1D_MIRROR_01",
+        "F01_1D_SHOWER_01",
+        "F01_1D_SINK_01",
+        "F01_1D_STOVE_01",
+        "F01_1D_TOASTER_01",
+        "F01_ATRIUM_FRUIT_1",
+        "F01_A_BED_LT_FLUSH_DOME",
+        "F01_A_MAIN_LT_PENDANT_SHADE",
+        "F01_A_RADIATOR_01",
+        "F01_COMMON_B_LT_PENDANT_SHADE",
+        "F01_CORRIDOR_DOME_01",
+        "F01_CORRIDOR_DOME_02",
+        "F01_CORRIDOR_DOME_03",
+        "F01_CORRIDOR_DOME_04",
+        "F01_CORRIDOR_DOME_05",
+        "F01_CORRIDOR_DOME_06",
+        "F01_CORRIDOR_DOME_07",
+        "F01_CORRIDOR_DOME_08",
+        "F01_DOOR_01",
+        "F01_DOOR_02",
+        "F01_DOOR_03",
+        "F01_DOOR_04",
+        "F01_DOOR_05",
+        "F01_DOOR_07",
+        "F01_DOOR_08",
+        "F01_DOOR_09",
+        "F01_DOOR_10",
+        "F01_DOOR_11",
+        "F01_DOOR_12",
+        "F01_DOOR_13",
+        "F01_DOOR_14",
+        "F01_D_BED_LT_FLUSH_DOME",
+        "F01_D_MAIN_LT_PENDANT_SHADE",
+        "F01_D_OFFICE_LT_PENDANT_SHADE",
+        "F01_D_RADIATOR_01",
+        "F01_F01WC_MIRROR_01",
+        "F01_F01WC_SHOWER_01",
+        "F01_F01WC_SINK_01",
+        "F01_HALL_LT_FLUSH_DOME",
+        "F01_LOBBY_CLOCK_01",
+        "F01_LOBBY_LT_CHANDELIER",
+        "F01_LOBBY_RADIATOR_01",
+        "F01_OFFICE_LT_PENDANT_SHADE",
+        "F01_PACKAGE_LT_CAGE_BULB",
+        "F01_STORAGE_C_LT_CAGE_BULB",
+        "F01_UTILITY_LT_CAGE_BULB",
+        "F01_common_KITCHEN_SINK_01"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.bin",
+      "bin_sha256": "e5666a66f32f7e86fbe30c404b20bf1be3f7d1fbd369e314f7c7d89089be777b",
+      "compatibility_aliases": [
+        "F01_facade_rainwater",
+        "F01_finish_f01_w00",
+        "F01_finish_f01_w01",
+        "F01_finish_f01_w02",
+        "F01_finish_f01_w03",
+        "F01_finish_f01_w04",
+        "F01_finish_f01_w05",
+        "F01_finish_f01_w06",
+        "F01_finish_f01_w07",
+        "F01_finish_f01_w08",
+        "F01_finish_f01_w09",
+        "F01_furnish_brass",
+        "F01_furnish_cast_iron",
+        "F01_furnish_glassish",
+        "F01_furnish_metal",
+        "F01_furnish_plywood",
+        "F01_furnish_soot",
+        "F01_furniture_brass-col",
+        "F01_furniture_fx_damp-col",
+        "F01_furniture_fx_drip-col",
+        "F01_furniture_limestone-col",
+        "F01_furniture_metal-col",
+        "F01_fx_ao_decal",
+        "F01_glazing-col",
+        "F01_sash-col",
+        "F01_stone_trim-col",
+        "F01_trim",
+        "F01_walls_cbrick-col",
+        "F01_walls_fbrick-col",
+        "F01_wear_fx_drip",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "c47a6eeefe146ff9bebb6d09a8ae5d24f6beb6f9a69a15a4f79b2b8e9c2314c8",
+      "id": "CELL_ORISON_FACADE_SHELL",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf",
+      "semantic_owners": [
+        "F01_DOOR_06",
+        "F01_MARQUEE_LT_01",
+        "F01_MARQUEE_LT_02",
+        "F01_NEON_BLADE",
+        "F01_NEON_TENANT"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/site_street_common.bin",
+      "bin_sha256": "4b8d4a73f088df1b067f850689c2bc436517ef3e13e2e98e18a90a90b51cafa9",
+      "compatibility_aliases": [
+        "F01_furnish_brass_dull",
+        "F01_furnish_bronze",
+        "F01_furnish_cast_iron",
+        "F01_furnish_concrete",
+        "F01_furnish_fx_shadow",
+        "F01_furnish_glassish",
+        "F01_furnish_hull-colonly",
+        "F01_furnish_metal",
+        "F01_furnish_soot",
+        "F01_furnish_timber",
+        "F01_furniture_asphalt-col",
+        "F01_furniture_brass_mesh-col",
+        "F01_furniture_brick_patched-col",
+        "F01_furniture_bronze-col",
+        "F01_furniture_common_brick-col",
+        "F01_furniture_concrete-col",
+        "F01_furniture_fabric_cool-col",
+        "F01_furniture_face_brick-col",
+        "F01_furniture_glassish-col",
+        "F01_furniture_lacquer_red-col",
+        "F01_furniture_leaf_fall-col",
+        "F01_furniture_limestone-col",
+        "F01_furniture_linen-col",
+        "F01_furniture_metal-col",
+        "F01_furniture_puddle-col",
+        "F01_furniture_sidewalk_grout-col",
+        "F01_furniture_sidewalk_haunted",
+        "F01_furniture_sidewalk_kerb-col",
+        "F01_furniture_soot-col",
+        "F01_furniture_timber-col",
+        "F01_furniture_wet_asphalt-col",
+        "F01_retail_passage_proxy_common_brick-col",
+        "F01_retail_passage_proxy_gateway_cast_iron",
+        "F01_retail_passage_proxy_gateway_cast_iron-col",
+        "F01_retail_passage_proxy_gateway_common_brick-col",
+        "F01_retail_passage_proxy_gateway_face_brick-col",
+        "F01_retail_passage_proxy_gateway_glassish-col",
+        "F01_retail_passage_proxy_gateway_limestone-col",
+        "F01_retail_passage_proxy_gateway_soot-col",
+        "F01_retail_passage_proxy_gateway_subway_tile-col",
+        "F01_retail_passage_proxy_glassish-col",
+        "F01_retail_passage_proxy_limestone-col",
+        "F01_retail_passage_proxy_metal-col",
+        "F01_retail_site_metal-col",
+        "F01_retail_site_plywood-col",
+        "F01_retail_site_road_paint-col",
+        "F01_retail_site_soot-col",
+        "F01_transit_shelter_cast_iron-col",
+        "F01_transit_shelter_glassish-col",
+        "F01_transit_shelter_timber-col",
+        "F01_transit_shelter_zinc_liner-col"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "102693f5e35816da2650f81065219a19daa9a77a96b4c9b232a6fcdf4c04a6a2",
+      "id": "CELL_SITE_STREET_COMMON",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf",
+      "semantic_owners": [
+        "F01_STREETLAMP_03",
+        "F01_STREETLAMP_04",
+        "F01_STREETLAMP_06",
+        "F01_STREETLAMP_07",
+        "F01_STREETLAMP_08",
+        "PASSAGE_PORTAL_LT_E",
+        "PASSAGE_PORTAL_LT_W"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/passage.bin",
+      "bin_sha256": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36",
+      "compatibility_aliases": [
+        "F01_retail_passage_shell_bakelite_black-col",
+        "F01_retail_passage_shell_brass_dull",
+        "F01_retail_passage_shell_brass_dull-col",
+        "F01_retail_passage_shell_cast_iron",
+        "F01_retail_passage_shell_cast_iron-col",
+        "F01_retail_passage_shell_common_brick-col",
+        "F01_retail_passage_shell_concrete-col",
+        "F01_retail_passage_shell_glassish-col",
+        "F01_retail_passage_shell_limestone-col",
+        "F01_retail_passage_shell_metal",
+        "F01_retail_passage_shell_milk_glass-col",
+        "F01_retail_passage_shell_paper-col",
+        "F01_retail_passage_shell_plaster-col",
+        "F01_retail_passage_shell_plaster_stained-col",
+        "F01_retail_passage_shell_soot-col",
+        "F01_retail_passage_shell_terrazzo",
+        "F01_retail_passage_shell_terrazzo-col",
+        "F01_retail_passage_shell_terrazzo_dark",
+        "F01_retail_passage_shell_trim-col",
+        "F01_retail_passage_shell_wood_dark-col",
+        "F01_retail_shop_funeral_parlour_limestone-col",
+        "F01_retail_shop_hardware_paint_wood_dark-col",
+        "F01_retail_shop_keys_cut_common_brick-col",
+        "F01_retail_shop_luncheonette_chrome-col",
+        "F01_retail_shop_model_laundry_plaster_stained-col",
+        "F01_retail_shop_news_cigars_wood_dark-col",
+        "F01_retail_shop_otis___son_limestone-col",
+        "F01_retail_shop_pawnbroker_common_brick-col",
+        "F01_retail_shop_photo_supplies_plaster_stained-col",
+        "F01_retail_shop_radio_service_wood_dark-col",
+        "F01_retail_shop_shoe_rebuilding_wood_dark-col"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "143d159a55e1bebdf1507b0ea2e515ccd763bf2b47770cdd11bb0349cf0f9907",
+      "id": "CELL_PASSAGE",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/passage.gltf",
+      "semantic_owners": [
+        "PASSAGE_AISLE_LT_00",
+        "PASSAGE_AISLE_LT_01",
+        "PASSAGE_AISLE_LT_02",
+        "PASSAGE_AISLE_LT_03",
+        "PASSAGE_AISLE_LT_04",
+        "PASSAGE_AISLE_LT_05",
+        "PASSAGE_AISLE_LT_06",
+        "PASSAGE_AISLE_LT_07"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_bar.bin",
+      "bin_sha256": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
+      "compatibility_aliases": [
+        "F01_furnish_bakelite",
+        "F01_furnish_bakelite_black",
+        "F01_furnish_book_teal",
+        "F01_furnish_brass",
+        "F01_furnish_brass_bright",
+        "F01_furnish_brass_mesh",
+        "F01_furnish_cast_iron",
+        "F01_furnish_chrome",
+        "F01_furnish_enamel",
+        "F01_furnish_fabric_cool",
+        "F01_furnish_fabric_green",
+        "F01_furnish_fabric_warm",
+        "F01_furnish_felt_violet",
+        "F01_furnish_floor_oak",
+        "F01_furnish_fx_shadow",
+        "F01_furnish_glassish",
+        "F01_furnish_handrail_wood",
+        "F01_furnish_hull-colonly",
+        "F01_furnish_lacquer_red",
+        "F01_furnish_linen",
+        "F01_furnish_metal",
+        "F01_furnish_milk_glass",
+        "F01_furnish_oak_quartered",
+        "F01_furnish_paper",
+        "F01_furnish_plant",
+        "F01_furnish_porcelain",
+        "F01_furnish_rubber_aged",
+        "F01_furnish_rug_warm",
+        "F01_furnish_safety_orange",
+        "F01_furnish_screen",
+        "F01_furnish_soil",
+        "F01_furnish_soot",
+        "F01_furnish_stairwell_teal",
+        "F01_furnish_terracotta",
+        "F01_furnish_timber",
+        "F01_furnish_trim",
+        "F01_furnish_vinyl_oxblood",
+        "F01_furnish_wood_dark",
+        "F01_furniture_art",
+        "F01_furniture_wood_dark-col",
+        "F01_retail_bar_bakelite-col",
+        "F01_retail_bar_bakelite_black-col",
+        "F01_retail_bar_bar_wall-col",
+        "F01_retail_bar_bar_wall_red-col",
+        "F01_retail_bar_brass-col",
+        "F01_retail_bar_cast_iron-col",
+        "F01_retail_bar_chrome-col",
+        "F01_retail_bar_common_brick-col",
+        "F01_retail_bar_concrete-col",
+        "F01_retail_bar_countertop-col",
+        "F01_retail_bar_enamel-col",
+        "F01_retail_bar_fabric_green-col",
+        "F01_retail_bar_fabric_warm-col",
+        "F01_retail_bar_felt_violet-col",
+        "F01_retail_bar_glassish-col",
+        "F01_retail_bar_lacquer_red-col",
+        "F01_retail_bar_limestone-col",
+        "F01_retail_bar_linen-col",
+        "F01_retail_bar_metal-col",
+        "F01_retail_bar_mirror_aged-col",
+        "F01_retail_bar_oak_quartered-col",
+        "F01_retail_bar_paper-col",
+        "F01_retail_bar_plaster_stained-col",
+        "F01_retail_bar_quarry_tile-col",
+        "F01_retail_bar_rug_warm-col",
+        "F01_retail_bar_soot-col",
+        "F01_retail_bar_stairwell_teal-col",
+        "F01_retail_bar_terracotta-col",
+        "F01_retail_bar_timber-col",
+        "F01_retail_bar_wallpaper_old-col",
+        "F01_retail_bar_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+      "id": "CELL_SHOP_BAR",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf",
+      "semantic_owners": [
+        "F01_BAR_DARTS",
+        "F01_BAR_DOOR",
+        "F01_BAR_LT_CAN0",
+        "F01_BAR_LT_CAN1",
+        "F01_BAR_LT_DARTS",
+        "F01_BAR_LT_DECK0",
+        "F01_BAR_LT_DECK1",
+        "F01_BAR_LT_DECK2",
+        "F01_BAR_LT_LOBBY",
+        "F01_BAR_LT_POOL",
+        "F01_BAR_LT_STAGE0",
+        "F01_BAR_LT_STAGE1",
+        "F01_BAR_LT_STAIR",
+        "F01_BAR_LT_TAB0",
+        "F01_BAR_LT_TAB1",
+        "F01_BAR_LT_TAB2",
+        "F01_BAR_LT_WC",
+        "F01_BAR_LT_WELL",
+        "F01_BAR_LT_WEST0",
+        "F01_BAR_LT_WEST1",
+        "F01_BAR_POOL",
+        "F01_BAR_RED_DOOR",
+        "F01_BAR_SIGNAGE",
+        "F01_BAR_SONGBOOK",
+        "F01_BAR_STAGE_SIGN",
+        "F01_BAR_WC_DOOR",
+        "F01_BAR_WC_SINK_01",
+        "F01_KARAOKE_SPK_0",
+        "F01_KARAOKE_SPK_1"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_bodega.bin",
+      "bin_sha256": "639c74a18a499d042af8a44f6a11b70fc739e5ba81382a1769788990b4fa67aa",
+      "compatibility_aliases": [
+        "F01_furnish_fx_shadow",
+        "F01_furnish_glassish",
+        "F01_furnish_hull-colonly",
+        "F01_furnish_paper",
+        "F01_furnish_soot",
+        "F01_furnish_timber",
+        "F01_retail_bod_awning_vinyl-col",
+        "F01_retail_bod_bakelite-col",
+        "F01_retail_bod_brass-col",
+        "F01_retail_bod_chrome-col",
+        "F01_retail_bod_countertop-col",
+        "F01_retail_bod_enamel-col",
+        "F01_retail_bod_fabric_green-col",
+        "F01_retail_bod_glassish-col",
+        "F01_retail_bod_linoleum-col",
+        "F01_retail_bod_metal-col",
+        "F01_retail_bod_paper-col",
+        "F01_retail_bod_plaster-col",
+        "F01_retail_bod_plaster_stained-col",
+        "F01_retail_bod_safety_orange-col",
+        "F01_retail_bod_terracotta-col",
+        "F01_retail_bod_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "98c241f535cf369f6c5302b704d334c423d51dfe24f545d827a3ecb49c45c68f",
+      "id": "CELL_SHOP_BODEGA",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf",
+      "semantic_owners": [
+        "F01_BODEGA_DOOR",
+        "F01_BODEGA_LT_0",
+        "F01_BODEGA_LT_1",
+        "F01_BODEGA_LT_2",
+        "F01_BODEGA_RADIO",
+        "F01_BODEGA_SIGNAGE",
+        "THRESHOLD_SHOP_BODEGA_FRONT"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.bin",
+      "bin_sha256": "3147958516513b9d8ac0bed0150eff8037b0e6e0371a1c737ab61175bfc960f4",
+      "compatibility_aliases": [
+        "F01_retail_shop_model_laundry_awning_vinyl-col",
+        "F01_retail_shop_model_laundry_bakelite",
+        "F01_retail_shop_model_laundry_bakelite_black",
+        "F01_retail_shop_model_laundry_book_teal-col",
+        "F01_retail_shop_model_laundry_brass",
+        "F01_retail_shop_model_laundry_brass_bright-col",
+        "F01_retail_shop_model_laundry_brass_dull-col",
+        "F01_retail_shop_model_laundry_cast_iron-col",
+        "F01_retail_shop_model_laundry_chrome-col",
+        "F01_retail_shop_model_laundry_concrete-col",
+        "F01_retail_shop_model_laundry_countertop-col",
+        "F01_retail_shop_model_laundry_enamel",
+        "F01_retail_shop_model_laundry_fx_shadow",
+        "F01_retail_shop_model_laundry_glassish-col",
+        "F01_retail_shop_model_laundry_hull-colonly",
+        "F01_retail_shop_model_laundry_linen-col",
+        "F01_retail_shop_model_laundry_metal",
+        "F01_retail_shop_model_laundry_metal-col",
+        "F01_retail_shop_model_laundry_milk_glass",
+        "F01_retail_shop_model_laundry_paper-col",
+        "F01_retail_shop_model_laundry_plaster-col",
+        "F01_retail_shop_model_laundry_plaster_stained-col",
+        "F01_retail_shop_model_laundry_plywood-col",
+        "F01_retail_shop_model_laundry_quarry_tile-col",
+        "F01_retail_shop_model_laundry_rubber_aged-col",
+        "F01_retail_shop_model_laundry_screen",
+        "F01_retail_shop_model_laundry_terracotta",
+        "F01_retail_shop_model_laundry_timber-col",
+        "F01_retail_shop_model_laundry_trim-col",
+        "F01_retail_shop_model_laundry_wainscot-col",
+        "F01_retail_shop_model_laundry_wood_dark-col",
+        "F01_retail_shop_model_laundry_zinc_liner-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "0e8fff621511552fc51b7aa9b5d5fb9ed5ec89e976fc9bfd077dbbd986437af8",
+      "id": "CELL_SHOP_MODEL_LAUNDRY",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+        "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+        "SITE_SHOP_IN0_MODEL_LAUNDRY",
+        "SITE_SHOP_IN1_MODEL_LAUNDRY",
+        "SITE_SHOP_IN2_MODEL_LAUNDRY",
+        "SITE_SHOP_LT_MODEL_LAUNDRY",
+        "SITE_SHOP_SIGN_MODEL_LAUNDRY"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.bin",
+      "bin_sha256": "a8c0cd8fa55990d23b8658168ee39b8218d2202305ea3aea1ae30bdb52b75918",
+      "compatibility_aliases": [
+        "F01_retail_shop_shoe_rebuilding_brass_bright-col",
+        "F01_retail_shop_shoe_rebuilding_brass_dull-col",
+        "F01_retail_shop_shoe_rebuilding_cast_iron-col",
+        "F01_retail_shop_shoe_rebuilding_concrete-col",
+        "F01_retail_shop_shoe_rebuilding_countertop-col",
+        "F01_retail_shop_shoe_rebuilding_floor_oak-col",
+        "F01_retail_shop_shoe_rebuilding_glassish-col",
+        "F01_retail_shop_shoe_rebuilding_lacquer_red-col",
+        "F01_retail_shop_shoe_rebuilding_metal-col",
+        "F01_retail_shop_shoe_rebuilding_paper-col",
+        "F01_retail_shop_shoe_rebuilding_plaster-col",
+        "F01_retail_shop_shoe_rebuilding_plaster_stained-col",
+        "F01_retail_shop_shoe_rebuilding_plywood-col",
+        "F01_retail_shop_shoe_rebuilding_rubber_aged-col",
+        "F01_retail_shop_shoe_rebuilding_soot-col",
+        "F01_retail_shop_shoe_rebuilding_timber-col",
+        "F01_retail_shop_shoe_rebuilding_trim-col",
+        "F01_retail_shop_shoe_rebuilding_vinyl_oxblood-col",
+        "F01_retail_shop_shoe_rebuilding_wainscot-col",
+        "F01_retail_shop_shoe_rebuilding_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "7c5e3a4aff034e7533fed0c157ca4da7ad264d4d7632d9ff91fbd4622f7dc8d6",
+      "id": "CELL_SHOP_SHOE_REBUILDING",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_SHOE_REBUILDING",
+        "SITE_SHOP_HOURS_SHOE_REBUILDING",
+        "SITE_SHOP_IN0_SHOE_REBUILDING",
+        "SITE_SHOP_IN1_SHOE_REBUILDING",
+        "SITE_SHOP_LT_SHOE_REBUILDING",
+        "SITE_SHOP_SIGN_SHOE_REBUILDING"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.bin",
+      "bin_sha256": "115f13475d0874826a975abba23ec20abed310e27b5e2d73e26f30ceb502097f",
+      "compatibility_aliases": [
+        "F01_retail_shop_keys_cut_brass-col",
+        "F01_retail_shop_keys_cut_brass_bright-col",
+        "F01_retail_shop_keys_cut_brass_dull-col",
+        "F01_retail_shop_keys_cut_cast_iron-col",
+        "F01_retail_shop_keys_cut_chrome-col",
+        "F01_retail_shop_keys_cut_common_brick-col",
+        "F01_retail_shop_keys_cut_concrete-col",
+        "F01_retail_shop_keys_cut_countertop-col",
+        "F01_retail_shop_keys_cut_glassish-col",
+        "F01_retail_shop_keys_cut_linen-col",
+        "F01_retail_shop_keys_cut_metal-col",
+        "F01_retail_shop_keys_cut_paper-col",
+        "F01_retail_shop_keys_cut_plaster-col",
+        "F01_retail_shop_keys_cut_plaster_stained-col",
+        "F01_retail_shop_keys_cut_plywood-col",
+        "F01_retail_shop_keys_cut_timber-col",
+        "F01_retail_shop_keys_cut_trim-col",
+        "F01_retail_shop_keys_cut_vinyl_oxblood-col",
+        "F01_retail_shop_keys_cut_wainscot-col",
+        "F01_retail_shop_keys_cut_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "e9654a3ffc0f08c3c048afbecbca468857a1ab6b6a210b088e478d9f15efa2be",
+      "id": "CELL_SHOP_KEYS_CUT",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_KEYS_CUT",
+        "SITE_SHOP_HOURS_KEYS_CUT",
+        "SITE_SHOP_IN0_KEYS_CUT",
+        "SITE_SHOP_IN1_KEYS_CUT",
+        "SITE_SHOP_LT_KEYS_CUT",
+        "SITE_SHOP_SIGN_KEYS_CUT"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.bin",
+      "bin_sha256": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb",
+      "compatibility_aliases": [
+        "F01_retail_shop_hardware_paint_book_teal-col",
+        "F01_retail_shop_hardware_paint_brass_bright-col",
+        "F01_retail_shop_hardware_paint_brass_dull-col",
+        "F01_retail_shop_hardware_paint_cast_iron-col",
+        "F01_retail_shop_hardware_paint_concrete-col",
+        "F01_retail_shop_hardware_paint_countertop-col",
+        "F01_retail_shop_hardware_paint_fabric_green-col",
+        "F01_retail_shop_hardware_paint_glassish-col",
+        "F01_retail_shop_hardware_paint_lacquer_red-col",
+        "F01_retail_shop_hardware_paint_metal-col",
+        "F01_retail_shop_hardware_paint_oak_quartered-col",
+        "F01_retail_shop_hardware_paint_paper-col",
+        "F01_retail_shop_hardware_paint_plaster-col",
+        "F01_retail_shop_hardware_paint_plaster_stained-col",
+        "F01_retail_shop_hardware_paint_plywood-col",
+        "F01_retail_shop_hardware_paint_safety_orange-col",
+        "F01_retail_shop_hardware_paint_soot-col",
+        "F01_retail_shop_hardware_paint_timber-col",
+        "F01_retail_shop_hardware_paint_trim-col",
+        "F01_retail_shop_hardware_paint_wainscot-col",
+        "F01_retail_shop_hardware_paint_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "c4c7573c3dbec95bec3b1c30a3858915f21cd1e0953ca77b10705a0fefc37fec",
+      "id": "CELL_SHOP_HARDWARE_PAINT",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_HARDWARE_PAINT",
+        "SITE_SHOP_HOURS_HARDWARE_PAINT",
+        "SITE_SHOP_IN0_HARDWARE_PAINT",
+        "SITE_SHOP_IN1_HARDWARE_PAINT",
+        "SITE_SHOP_IN2_HARDWARE_PAINT",
+        "SITE_SHOP_LT_HARDWARE_PAINT",
+        "SITE_SHOP_SIGN_HARDWARE_PAINT"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.bin",
+      "bin_sha256": "2aba70fa1cf9027b4725edef8e1f598b3d274e7e839a80ea502d62c9332721f4",
+      "compatibility_aliases": [
+        "F01_retail_shop_funeral_parlour_awning_vinyl-col",
+        "F01_retail_shop_funeral_parlour_brass_bright-col",
+        "F01_retail_shop_funeral_parlour_brass_dull-col",
+        "F01_retail_shop_funeral_parlour_bronze-col",
+        "F01_retail_shop_funeral_parlour_concrete-col",
+        "F01_retail_shop_funeral_parlour_floor_oak-col",
+        "F01_retail_shop_funeral_parlour_glassish-col",
+        "F01_retail_shop_funeral_parlour_limestone-col",
+        "F01_retail_shop_funeral_parlour_linen-col",
+        "F01_retail_shop_funeral_parlour_metal-col",
+        "F01_retail_shop_funeral_parlour_milk_glass-col",
+        "F01_retail_shop_funeral_parlour_oak_quartered-col",
+        "F01_retail_shop_funeral_parlour_paper-col",
+        "F01_retail_shop_funeral_parlour_plant-col",
+        "F01_retail_shop_funeral_parlour_plaster-col",
+        "F01_retail_shop_funeral_parlour_plaster_stained-col",
+        "F01_retail_shop_funeral_parlour_plywood-col",
+        "F01_retail_shop_funeral_parlour_soot-col",
+        "F01_retail_shop_funeral_parlour_tin_ceiling-col",
+        "F01_retail_shop_funeral_parlour_trim-col",
+        "F01_retail_shop_funeral_parlour_vinyl_oxblood-col",
+        "F01_retail_shop_funeral_parlour_wainscot-col",
+        "F01_retail_shop_funeral_parlour_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "156126eccebb5136d505943080fd8ec7d25ec84880f3ab82d9e865cb0e238be8",
+      "id": "CELL_SHOP_FUNERAL_PARLOUR",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+        "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+        "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+        "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+        "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+        "SITE_SHOP_LT_FUNERAL_PARLOUR",
+        "SITE_SHOP_SIGN_FUNERAL_PARLOUR"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.bin",
+      "bin_sha256": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+      "compatibility_aliases": [
+        "F01_retail_shop_photo_supplies_awning_vinyl-col",
+        "F01_retail_shop_photo_supplies_bakelite",
+        "F01_retail_shop_photo_supplies_bakelite_black",
+        "F01_retail_shop_photo_supplies_bakelite_black-col",
+        "F01_retail_shop_photo_supplies_book_ochre-col",
+        "F01_retail_shop_photo_supplies_book_teal-col",
+        "F01_retail_shop_photo_supplies_brass",
+        "F01_retail_shop_photo_supplies_brass_bright-col",
+        "F01_retail_shop_photo_supplies_brass_dull-col",
+        "F01_retail_shop_photo_supplies_cast_iron-col",
+        "F01_retail_shop_photo_supplies_chrome",
+        "F01_retail_shop_photo_supplies_concrete-col",
+        "F01_retail_shop_photo_supplies_enamel",
+        "F01_retail_shop_photo_supplies_enamel-col",
+        "F01_retail_shop_photo_supplies_felt_violet-col",
+        "F01_retail_shop_photo_supplies_fx_shadow",
+        "F01_retail_shop_photo_supplies_glassish-col",
+        "F01_retail_shop_photo_supplies_hull-colonly",
+        "F01_retail_shop_photo_supplies_lacquer_red-col",
+        "F01_retail_shop_photo_supplies_linoleum-col",
+        "F01_retail_shop_photo_supplies_metal-col",
+        "F01_retail_shop_photo_supplies_milk_glass",
+        "F01_retail_shop_photo_supplies_nickel_plated-col",
+        "F01_retail_shop_photo_supplies_paper-col",
+        "F01_retail_shop_photo_supplies_plaster-col",
+        "F01_retail_shop_photo_supplies_plaster_stained-col",
+        "F01_retail_shop_photo_supplies_plywood-col",
+        "F01_retail_shop_photo_supplies_screen",
+        "F01_retail_shop_photo_supplies_terracotta",
+        "F01_retail_shop_photo_supplies_timber-col",
+        "F01_retail_shop_photo_supplies_tin_ceiling-col",
+        "F01_retail_shop_photo_supplies_trim-col",
+        "F01_retail_shop_photo_supplies_wainscot-col",
+        "F01_retail_shop_photo_supplies_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+      "id": "CELL_SHOP_PHOTO_SUPPLIES",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+        "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+        "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+        "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+        "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+        "SITE_SHOP_LT_PHOTO_SUPPLIES",
+        "SITE_SHOP_SIGN_PHOTO_SUPPLIES"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_radio_service.bin",
+      "bin_sha256": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+      "compatibility_aliases": [
+        "F01_retail_shop_radio_service_appliance-col",
+        "F01_retail_shop_radio_service_awning_vinyl-col",
+        "F01_retail_shop_radio_service_bakelite",
+        "F01_retail_shop_radio_service_bakelite_black",
+        "F01_retail_shop_radio_service_bakelite_black-col",
+        "F01_retail_shop_radio_service_brass",
+        "F01_retail_shop_radio_service_brass_bright-col",
+        "F01_retail_shop_radio_service_brass_dull-col",
+        "F01_retail_shop_radio_service_cast_iron-col",
+        "F01_retail_shop_radio_service_chrome",
+        "F01_retail_shop_radio_service_concrete-col",
+        "F01_retail_shop_radio_service_copper_aged-col",
+        "F01_retail_shop_radio_service_countertop-col",
+        "F01_retail_shop_radio_service_enamel",
+        "F01_retail_shop_radio_service_fabric_warm-col",
+        "F01_retail_shop_radio_service_fx_shadow",
+        "F01_retail_shop_radio_service_glassish-col",
+        "F01_retail_shop_radio_service_hull-colonly",
+        "F01_retail_shop_radio_service_linoleum-col",
+        "F01_retail_shop_radio_service_metal-col",
+        "F01_retail_shop_radio_service_milk_glass",
+        "F01_retail_shop_radio_service_milk_glass-col",
+        "F01_retail_shop_radio_service_nickel_plated-col",
+        "F01_retail_shop_radio_service_paper-col",
+        "F01_retail_shop_radio_service_plaster-col",
+        "F01_retail_shop_radio_service_plaster_stained-col",
+        "F01_retail_shop_radio_service_plywood-col",
+        "F01_retail_shop_radio_service_screen",
+        "F01_retail_shop_radio_service_screen-col",
+        "F01_retail_shop_radio_service_stairwell_teal-col",
+        "F01_retail_shop_radio_service_terracotta",
+        "F01_retail_shop_radio_service_timber-col",
+        "F01_retail_shop_radio_service_trim-col",
+        "F01_retail_shop_radio_service_wainscot-col",
+        "F01_retail_shop_radio_service_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+      "id": "CELL_SHOP_RADIO_SERVICE",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_RADIO_SERVICE",
+        "SITE_SHOP_HOURS_RADIO_SERVICE",
+        "SITE_SHOP_IN0_RADIO_SERVICE",
+        "SITE_SHOP_IN1_RADIO_SERVICE",
+        "SITE_SHOP_LT_RADIO_SERVICE",
+        "SITE_SHOP_SIGN_RADIO_SERVICE"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.bin",
+      "bin_sha256": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff",
+      "compatibility_aliases": [
+        "F01_retail_shop_pawnbroker_bakelite",
+        "F01_retail_shop_pawnbroker_bakelite_black",
+        "F01_retail_shop_pawnbroker_bakelite_black-col",
+        "F01_retail_shop_pawnbroker_brass",
+        "F01_retail_shop_pawnbroker_brass_bright-col",
+        "F01_retail_shop_pawnbroker_brass_dull-col",
+        "F01_retail_shop_pawnbroker_brass_mesh-col",
+        "F01_retail_shop_pawnbroker_bronze-col",
+        "F01_retail_shop_pawnbroker_cast_iron-col",
+        "F01_retail_shop_pawnbroker_common_brick-col",
+        "F01_retail_shop_pawnbroker_concrete-col",
+        "F01_retail_shop_pawnbroker_countertop-col",
+        "F01_retail_shop_pawnbroker_enamel",
+        "F01_retail_shop_pawnbroker_enamel-col",
+        "F01_retail_shop_pawnbroker_fabric_cool",
+        "F01_retail_shop_pawnbroker_fabric_warm-col",
+        "F01_retail_shop_pawnbroker_floor_oak-col",
+        "F01_retail_shop_pawnbroker_fx_shadow",
+        "F01_retail_shop_pawnbroker_glassish-col",
+        "F01_retail_shop_pawnbroker_hull-colonly",
+        "F01_retail_shop_pawnbroker_linen-col",
+        "F01_retail_shop_pawnbroker_metal-col",
+        "F01_retail_shop_pawnbroker_milk_glass",
+        "F01_retail_shop_pawnbroker_paper-col",
+        "F01_retail_shop_pawnbroker_plaster-col",
+        "F01_retail_shop_pawnbroker_plaster_stained-col",
+        "F01_retail_shop_pawnbroker_plywood-col",
+        "F01_retail_shop_pawnbroker_screen",
+        "F01_retail_shop_pawnbroker_terracotta",
+        "F01_retail_shop_pawnbroker_timber-col",
+        "F01_retail_shop_pawnbroker_tin_ceiling-col",
+        "F01_retail_shop_pawnbroker_trim-col",
+        "F01_retail_shop_pawnbroker_wainscot-col",
+        "F01_retail_shop_pawnbroker_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "7c8a009e1a5cefeb2767bd83b58a8b6fae400b248049f484032bd6480a84d6b2",
+      "id": "CELL_SHOP_PAWNBROKER",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_PAWNBROKER",
+        "SITE_SHOP_HOURS_PAWNBROKER",
+        "SITE_SHOP_IN0_PAWNBROKER",
+        "SITE_SHOP_IN1_PAWNBROKER",
+        "SITE_SHOP_LT_PAWNBROKER",
+        "SITE_SHOP_SIGN_PAWNBROKER"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.bin",
+      "bin_sha256": "a5f02344357a93404ff20ded11527b5c04e7a90b56d25fafbd5cb0f34338b926",
+      "compatibility_aliases": [
+        "F01_retail_shop_news_cigars_bakelite",
+        "F01_retail_shop_news_cigars_bakelite_black",
+        "F01_retail_shop_news_cigars_bakelite_black-col",
+        "F01_retail_shop_news_cigars_brass",
+        "F01_retail_shop_news_cigars_brass_bright-col",
+        "F01_retail_shop_news_cigars_brass_dull-col",
+        "F01_retail_shop_news_cigars_concrete-col",
+        "F01_retail_shop_news_cigars_countertop-col",
+        "F01_retail_shop_news_cigars_enamel",
+        "F01_retail_shop_news_cigars_fx_shadow",
+        "F01_retail_shop_news_cigars_glassish-col",
+        "F01_retail_shop_news_cigars_hull-colonly",
+        "F01_retail_shop_news_cigars_linoleum-col",
+        "F01_retail_shop_news_cigars_metal",
+        "F01_retail_shop_news_cigars_metal-col",
+        "F01_retail_shop_news_cigars_milk_glass",
+        "F01_retail_shop_news_cigars_paper-col",
+        "F01_retail_shop_news_cigars_plaster-col",
+        "F01_retail_shop_news_cigars_plaster_stained-col",
+        "F01_retail_shop_news_cigars_safety_orange-col",
+        "F01_retail_shop_news_cigars_screen",
+        "F01_retail_shop_news_cigars_soot-col",
+        "F01_retail_shop_news_cigars_terracotta",
+        "F01_retail_shop_news_cigars_timber-col",
+        "F01_retail_shop_news_cigars_trim-col",
+        "F01_retail_shop_news_cigars_wainscot-col",
+        "F01_retail_shop_news_cigars_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "2504ef7ff2283a7f32a8cae426dfdf1a70760e5d7719a32cf63daad9e50a8871",
+      "id": "CELL_SHOP_NEWS_CIGARS",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_NEWS_CIGARS",
+        "SITE_SHOP_HOURS_NEWS_CIGARS",
+        "SITE_SHOP_IN0_NEWS_CIGARS",
+        "SITE_SHOP_IN1_NEWS_CIGARS",
+        "SITE_SHOP_LT_NEWS_CIGARS",
+        "SITE_SHOP_SIGN_NEWS_CIGARS"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_otis_son.bin",
+      "bin_sha256": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
+      "compatibility_aliases": [
+        "F01_retail_shop_otis___son_awning_vinyl-col",
+        "F01_retail_shop_otis___son_bakelite_black-col",
+        "F01_retail_shop_otis___son_book_ochre-col",
+        "F01_retail_shop_otis___son_book_teal-col",
+        "F01_retail_shop_otis___son_brass_bright-col",
+        "F01_retail_shop_otis___son_brass_dull-col",
+        "F01_retail_shop_otis___son_bronze-col",
+        "F01_retail_shop_otis___son_chrome-col",
+        "F01_retail_shop_otis___son_concrete-col",
+        "F01_retail_shop_otis___son_countertop-col",
+        "F01_retail_shop_otis___son_fabric_green-col",
+        "F01_retail_shop_otis___son_glassish-col",
+        "F01_retail_shop_otis___son_lacquer_red-col",
+        "F01_retail_shop_otis___son_limestone-col",
+        "F01_retail_shop_otis___son_marble_lobby-col",
+        "F01_retail_shop_otis___son_metal-col",
+        "F01_retail_shop_otis___son_milk_glass-col",
+        "F01_retail_shop_otis___son_oak_quartered-col",
+        "F01_retail_shop_otis___son_paper-col",
+        "F01_retail_shop_otis___son_plaster-col",
+        "F01_retail_shop_otis___son_plaster_stained-col",
+        "F01_retail_shop_otis___son_plywood-col",
+        "F01_retail_shop_otis___son_porcelain-col",
+        "F01_retail_shop_otis___son_terrazzo-col",
+        "F01_retail_shop_otis___son_timber-col",
+        "F01_retail_shop_otis___son_tin_ceiling-col",
+        "F01_retail_shop_otis___son_trim-col",
+        "F01_retail_shop_otis___son_vinyl_oxblood-col",
+        "F01_retail_shop_otis___son_wainscot-col",
+        "F01_retail_shop_otis___son_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "352a40ef1a5a5196d4945349d410dc023d17e11629e11b22d36bb3a68c5e2c61",
+      "id": "CELL_SHOP_OTIS_SON",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_OTIS___SON",
+        "SITE_SHOP_HOURS_OTIS___SON",
+        "SITE_SHOP_IN0_OTIS___SON",
+        "SITE_SHOP_IN1_OTIS___SON",
+        "SITE_SHOP_IN2_OTIS___SON",
+        "SITE_SHOP_LT_OTIS___SON",
+        "SITE_SHOP_SIGN_OTIS___SON"
+      ]
+    },
+    {
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.bin",
+      "bin_sha256": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
+      "compatibility_aliases": [
+        "F01_retail_shop_luncheonette_awning_vinyl-col",
+        "F01_retail_shop_luncheonette_bakelite",
+        "F01_retail_shop_luncheonette_bakelite_black",
+        "F01_retail_shop_luncheonette_bakelite_black-col",
+        "F01_retail_shop_luncheonette_brass",
+        "F01_retail_shop_luncheonette_brass_bright-col",
+        "F01_retail_shop_luncheonette_brass_dull-col",
+        "F01_retail_shop_luncheonette_cast_iron-col",
+        "F01_retail_shop_luncheonette_chrome-col",
+        "F01_retail_shop_luncheonette_concrete-col",
+        "F01_retail_shop_luncheonette_countertop-col",
+        "F01_retail_shop_luncheonette_enamel",
+        "F01_retail_shop_luncheonette_enamel-col",
+        "F01_retail_shop_luncheonette_fabric_cool",
+        "F01_retail_shop_luncheonette_fx_shadow",
+        "F01_retail_shop_luncheonette_glassish-col",
+        "F01_retail_shop_luncheonette_hull-colonly",
+        "F01_retail_shop_luncheonette_lacquer_red-col",
+        "F01_retail_shop_luncheonette_marble_lobby-col",
+        "F01_retail_shop_luncheonette_metal-col",
+        "F01_retail_shop_luncheonette_milk_glass",
+        "F01_retail_shop_luncheonette_nickel_plated-col",
+        "F01_retail_shop_luncheonette_paper-col",
+        "F01_retail_shop_luncheonette_plaster-col",
+        "F01_retail_shop_luncheonette_plaster_stained-col",
+        "F01_retail_shop_luncheonette_screen",
+        "F01_retail_shop_luncheonette_terracotta",
+        "F01_retail_shop_luncheonette_terrazzo-col",
+        "F01_retail_shop_luncheonette_timber-col",
+        "F01_retail_shop_luncheonette_tin_ceiling-col",
+        "F01_retail_shop_luncheonette_trim-col",
+        "F01_retail_shop_luncheonette_vinyl_oxblood-col",
+        "F01_retail_shop_luncheonette_wainscot-col",
+        "F01_retail_shop_luncheonette_wood_dark-col",
+        "F01_wear_fx_scuff"
+      ],
+      "dependencies": [],
+      "gltf_sha256": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
+      "id": "CELL_SHOP_LUNCHEONETTE",
+      "independently_addressable": true,
+      "lifecycle": {
+        "allowed_transitions": [
+          "UNLOADED_TO_LOADING",
+          "LOADING_TO_RESIDENT",
+          "RESIDENT_TO_UNLOADING",
+          "UNLOADING_TO_UNLOADED"
+        ],
+        "initial_state": "UNLOADED",
+        "persistent_gameplay_authority": false,
+        "teardown_api_required": true,
+        "unload_destroys_durable_authority": false
+      },
+      "resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+      "semantic_owners": [
+        "SITE_SHOP_DOOR_LUNCHEONETTE",
+        "SITE_SHOP_HOURS_LUNCHEONETTE",
+        "SITE_SHOP_IN0_LUNCHEONETTE",
+        "SITE_SHOP_IN1_LUNCHEONETTE",
+        "SITE_SHOP_IN2_LUNCHEONETTE",
+        "SITE_SHOP_LT_LUNCHEONETTE",
+        "SITE_SHOP_SIGN_LUNCHEONETTE"
+      ]
+    }
+  ],
+  "compatibility_alias_index": {
+    "F01_ceiling_plaster": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_ceiling_plaster_stained": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_ceiling_tin_ceiling": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_facade_rainwater": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_finish_f01_w00": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_finish_f01_w01": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_finish_f01_w02": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_finish_f01_w03": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_finish_f01_w04": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_finish_f01_w05": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_finish_f01_w06": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_finish_f01_w07": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_finish_f01_w08": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_finish_f01_w09": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_floors_ceramic": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_floors_concrete": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_floors_floor_oak": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_floors_terrazzo": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_furnish_bakelite": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_furnish_bakelite_black": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 7,
+        "node_index": 7
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_furnish_book_brown": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_furnish_book_burgundy": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_furnish_book_green": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_furnish_book_navy": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_furnish_book_ochre": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_furnish_book_teal": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 13,
+        "node_index": 13
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_furnish_brass": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 14,
+        "node_index": 14
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 11,
+        "node_index": 11
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_furnish_brass_bright": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 15,
+        "node_index": 15
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_furnish_brass_dull": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 16,
+        "node_index": 16
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_furnish_brass_mesh": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_furnish_bronze": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_furnish_cast_iron": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 12,
+        "node_index": 12
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 2,
+        "node_index": 2
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_furnish_ceramic": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_furnish_chrome": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 18,
+        "node_index": 18
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_furnish_concrete": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_furnish_countertop": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_furnish_enamel": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_furnish_fabric_cool": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 20,
+        "node_index": 20
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_furnish_fabric_green": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 21,
+        "node_index": 21
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_furnish_fabric_warm": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 22,
+        "node_index": 22
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_furnish_felt_violet": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_furnish_floor_oak": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 23,
+        "node_index": 23
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_furnish_fx_shadow": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 24,
+        "node_index": 24
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 4,
+        "node_index": 4
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 14,
+        "node_index": 14
+      },
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_furnish_glassish": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 25,
+        "node_index": 25
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 13,
+        "node_index": 13
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 5,
+        "node_index": 5
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 15,
+        "node_index": 15
+      },
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_furnish_handrail_wood": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_furnish_hull-colonly": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 26,
+        "node_index": 26
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 6,
+        "node_index": 6
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 17,
+        "node_index": 17
+      },
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_furnish_lacquer_red": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_furnish_linen": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 27,
+        "node_index": 27
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_furnish_metal": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 28,
+        "node_index": 28
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 14,
+        "node_index": 14
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 7,
+        "node_index": 7
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_furnish_milk_glass": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_furnish_nickel_plated": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_furnish_oak_quartered": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 30,
+        "node_index": 30
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_furnish_paper": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 31,
+        "node_index": 31
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 23,
+        "node_index": 23
+      },
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_furnish_plant": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 32,
+        "node_index": 32
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_furnish_plywood": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_furnish_porcelain": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 33,
+        "node_index": 33
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_furnish_rubber_aged": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_furnish_rug_warm": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_furnish_safety_orange": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_furnish_screen": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_furnish_soil": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 34,
+        "node_index": 34
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 30,
+        "node_index": 30
+      }
+    ],
+    "F01_furnish_soot": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 35,
+        "node_index": 35
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 16,
+        "node_index": 16
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 8,
+        "node_index": 8
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 31,
+        "node_index": 31
+      },
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_furnish_stairwell_teal": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 32,
+        "node_index": 32
+      }
+    ],
+    "F01_furnish_terracotta": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 36,
+        "node_index": 36
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 33,
+        "node_index": 33
+      }
+    ],
+    "F01_furnish_timber": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 37,
+        "node_index": 37
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 9,
+        "node_index": 9
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 34,
+        "node_index": 34
+      },
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_furnish_trim": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 38,
+        "node_index": 38
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 35,
+        "node_index": 35
+      }
+    ],
+    "F01_furnish_vinyl_oxblood": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 36,
+        "node_index": 36
+      }
+    ],
+    "F01_furnish_wood_dark": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 39,
+        "node_index": 39
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 37,
+        "node_index": 37
+      }
+    ],
+    "F01_furniture_art": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 40,
+        "node_index": 40
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 38,
+        "node_index": 38
+      }
+    ],
+    "F01_furniture_asphalt-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_furniture_blind_slat": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 41,
+        "node_index": 41
+      }
+    ],
+    "F01_furniture_blind_slat-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 42,
+        "node_index": 42
+      }
+    ],
+    "F01_furniture_brass-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 43,
+        "node_index": 43
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_furniture_brass_dull-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 44,
+        "node_index": 44
+      }
+    ],
+    "F01_furniture_brass_mesh-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_furniture_brick_patched-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_furniture_bronze-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_furniture_ceramic-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 45,
+        "node_index": 45
+      }
+    ],
+    "F01_furniture_chrome-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 46,
+        "node_index": 46
+      }
+    ],
+    "F01_furniture_common_brick-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_furniture_concrete-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_furniture_fabric_cool-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_furniture_face_brick-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_furniture_fx_damp-col": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_furniture_fx_drip-col": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_furniture_glassish-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_furniture_indicator_enamel-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 47,
+        "node_index": 47
+      }
+    ],
+    "F01_furniture_lacquer_red-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_furniture_leaf_fall-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_furniture_limestone-col": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 20,
+        "node_index": 20
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_furniture_linen-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 48,
+        "node_index": 48
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_furniture_linoleum-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 49,
+        "node_index": 49
+      }
+    ],
+    "F01_furniture_metal-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 50,
+        "node_index": 50
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 21,
+        "node_index": 21
+      },
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_furniture_puddle-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_furniture_rug_warm-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 51,
+        "node_index": 51
+      }
+    ],
+    "F01_furniture_sidewalk_grout-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_furniture_sidewalk_haunted": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_furniture_sidewalk_kerb-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_furniture_soot-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_furniture_timber-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_furniture_trim-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 52,
+        "node_index": 52
+      }
+    ],
+    "F01_furniture_wet_asphalt-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 30,
+        "node_index": 30
+      }
+    ],
+    "F01_furniture_wood_dark-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 53,
+        "node_index": 53
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 39,
+        "node_index": 39
+      }
+    ],
+    "F01_fx_ao_decal": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 54,
+        "node_index": 54
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_glazing-col": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_retail_bar_bakelite-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 40,
+        "node_index": 40
+      }
+    ],
+    "F01_retail_bar_bakelite_black-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 41,
+        "node_index": 41
+      }
+    ],
+    "F01_retail_bar_bar_wall-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 42,
+        "node_index": 42
+      }
+    ],
+    "F01_retail_bar_bar_wall_red-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 43,
+        "node_index": 43
+      }
+    ],
+    "F01_retail_bar_brass-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 44,
+        "node_index": 44
+      }
+    ],
+    "F01_retail_bar_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 45,
+        "node_index": 45
+      }
+    ],
+    "F01_retail_bar_chrome-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 46,
+        "node_index": 46
+      }
+    ],
+    "F01_retail_bar_common_brick-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 47,
+        "node_index": 47
+      }
+    ],
+    "F01_retail_bar_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 48,
+        "node_index": 48
+      }
+    ],
+    "F01_retail_bar_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 49,
+        "node_index": 49
+      }
+    ],
+    "F01_retail_bar_enamel-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 50,
+        "node_index": 50
+      }
+    ],
+    "F01_retail_bar_fabric_green-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 51,
+        "node_index": 51
+      }
+    ],
+    "F01_retail_bar_fabric_warm-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 52,
+        "node_index": 52
+      }
+    ],
+    "F01_retail_bar_felt_violet-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 53,
+        "node_index": 53
+      }
+    ],
+    "F01_retail_bar_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 54,
+        "node_index": 54
+      }
+    ],
+    "F01_retail_bar_lacquer_red-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 55,
+        "node_index": 55
+      }
+    ],
+    "F01_retail_bar_limestone-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 56,
+        "node_index": 56
+      }
+    ],
+    "F01_retail_bar_linen-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 57,
+        "node_index": 57
+      }
+    ],
+    "F01_retail_bar_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 58,
+        "node_index": 58
+      }
+    ],
+    "F01_retail_bar_mirror_aged-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 59,
+        "node_index": 59
+      }
+    ],
+    "F01_retail_bar_oak_quartered-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 60,
+        "node_index": 60
+      }
+    ],
+    "F01_retail_bar_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 61,
+        "node_index": 61
+      }
+    ],
+    "F01_retail_bar_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 62,
+        "node_index": 62
+      }
+    ],
+    "F01_retail_bar_quarry_tile-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 63,
+        "node_index": 63
+      }
+    ],
+    "F01_retail_bar_rug_warm-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 64,
+        "node_index": 64
+      }
+    ],
+    "F01_retail_bar_soot-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 65,
+        "node_index": 65
+      }
+    ],
+    "F01_retail_bar_stairwell_teal-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 66,
+        "node_index": 66
+      }
+    ],
+    "F01_retail_bar_terracotta-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 67,
+        "node_index": 67
+      }
+    ],
+    "F01_retail_bar_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 68,
+        "node_index": 68
+      }
+    ],
+    "F01_retail_bar_wallpaper_old-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 69,
+        "node_index": 69
+      }
+    ],
+    "F01_retail_bar_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 70,
+        "node_index": 70
+      }
+    ],
+    "F01_retail_bod_awning_vinyl-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_bod_bakelite-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_bod_brass-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_bod_chrome-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_bod_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_bod_enamel-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_bod_fabric_green-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_bod_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_bod_linoleum-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_bod_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_bod_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_bod_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_bod_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_bod_safety_orange-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_bod_terracotta-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_bod_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_passage_proxy_common_brick-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 31,
+        "node_index": 31
+      }
+    ],
+    "F01_retail_passage_proxy_gateway_cast_iron": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 32,
+        "node_index": 32
+      }
+    ],
+    "F01_retail_passage_proxy_gateway_cast_iron-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 33,
+        "node_index": 33
+      }
+    ],
+    "F01_retail_passage_proxy_gateway_common_brick-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 34,
+        "node_index": 34
+      }
+    ],
+    "F01_retail_passage_proxy_gateway_face_brick-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 35,
+        "node_index": 35
+      }
+    ],
+    "F01_retail_passage_proxy_gateway_glassish-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 36,
+        "node_index": 36
+      }
+    ],
+    "F01_retail_passage_proxy_gateway_limestone-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 37,
+        "node_index": 37
+      }
+    ],
+    "F01_retail_passage_proxy_gateway_soot-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 38,
+        "node_index": 38
+      }
+    ],
+    "F01_retail_passage_proxy_gateway_subway_tile-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 39,
+        "node_index": 39
+      }
+    ],
+    "F01_retail_passage_proxy_glassish-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 40,
+        "node_index": 40
+      }
+    ],
+    "F01_retail_passage_proxy_limestone-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 41,
+        "node_index": 41
+      }
+    ],
+    "F01_retail_passage_proxy_metal-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 42,
+        "node_index": 42
+      }
+    ],
+    "F01_retail_passage_shell_bakelite_black-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_passage_shell_brass_dull": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_passage_shell_brass_dull-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_passage_shell_cast_iron": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_passage_shell_cast_iron-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_passage_shell_common_brick-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_passage_shell_concrete-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_passage_shell_glassish-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_passage_shell_limestone-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_passage_shell_metal": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_passage_shell_milk_glass-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_passage_shell_paper-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_passage_shell_plaster-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_passage_shell_plaster_stained-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_passage_shell_soot-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_passage_shell_terrazzo": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_passage_shell_terrazzo-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_passage_shell_terrazzo_dark": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_passage_shell_trim-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_passage_shell_wood_dark-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_awning_vinyl-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_bronze-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_floor_oak-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_limestone-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 20,
+        "node_index": 20
+      },
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_linen-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_milk_glass-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_oak_quartered-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_plant-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_soot-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_tin_ceiling-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_vinyl_oxblood-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_shop_funeral_parlour_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_retail_shop_hardware_paint_book_teal-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_hardware_paint_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_hardware_paint_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_hardware_paint_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_hardware_paint_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_hardware_paint_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_hardware_paint_fabric_green-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_hardware_paint_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_hardware_paint_lacquer_red-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_hardware_paint_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_hardware_paint_oak_quartered-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_hardware_paint_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_hardware_paint_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_hardware_paint_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_hardware_paint_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_hardware_paint_safety_orange-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_hardware_paint_soot-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_hardware_paint_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_hardware_paint_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_hardware_paint_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_hardware_paint_wood_dark-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 21,
+        "node_index": 21
+      },
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_keys_cut_brass-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_keys_cut_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_keys_cut_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_keys_cut_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_keys_cut_chrome-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_keys_cut_common_brick-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 22,
+        "node_index": 22
+      },
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_keys_cut_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_keys_cut_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_keys_cut_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_keys_cut_linen-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_keys_cut_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_keys_cut_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_keys_cut_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_keys_cut_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_keys_cut_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_keys_cut_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_keys_cut_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_keys_cut_vinyl_oxblood-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_keys_cut_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_keys_cut_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_luncheonette_awning_vinyl-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_luncheonette_bakelite": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_luncheonette_bakelite_black": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_luncheonette_bakelite_black-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_luncheonette_brass": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_luncheonette_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_luncheonette_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_luncheonette_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_luncheonette_chrome-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 23,
+        "node_index": 23
+      },
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_luncheonette_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_luncheonette_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_luncheonette_enamel": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_luncheonette_enamel-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_luncheonette_fabric_cool": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_luncheonette_fx_shadow": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_luncheonette_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_luncheonette_hull-colonly": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_luncheonette_lacquer_red-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_luncheonette_marble_lobby-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_luncheonette_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_luncheonette_milk_glass": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_luncheonette_nickel_plated-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_shop_luncheonette_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_retail_shop_luncheonette_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_retail_shop_luncheonette_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_retail_shop_luncheonette_screen": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_retail_shop_luncheonette_terracotta": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_retail_shop_luncheonette_terrazzo-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_retail_shop_luncheonette_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_retail_shop_luncheonette_tin_ceiling-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_retail_shop_luncheonette_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 30,
+        "node_index": 30
+      }
+    ],
+    "F01_retail_shop_luncheonette_vinyl_oxblood-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 31,
+        "node_index": 31
+      }
+    ],
+    "F01_retail_shop_luncheonette_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 32,
+        "node_index": 32
+      }
+    ],
+    "F01_retail_shop_luncheonette_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 33,
+        "node_index": 33
+      }
+    ],
+    "F01_retail_shop_model_laundry_awning_vinyl-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_model_laundry_bakelite": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_model_laundry_bakelite_black": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_model_laundry_book_teal-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_model_laundry_brass": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_model_laundry_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_model_laundry_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_model_laundry_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_model_laundry_chrome-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_model_laundry_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_model_laundry_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_model_laundry_enamel": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_model_laundry_fx_shadow": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_model_laundry_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_model_laundry_hull-colonly": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_model_laundry_linen-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_model_laundry_metal": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_model_laundry_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_model_laundry_milk_glass": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_model_laundry_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_model_laundry_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_model_laundry_plaster_stained-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 24,
+        "node_index": 24
+      },
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_shop_model_laundry_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_retail_shop_model_laundry_quarry_tile-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_retail_shop_model_laundry_rubber_aged-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_retail_shop_model_laundry_screen": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_retail_shop_model_laundry_terracotta": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_retail_shop_model_laundry_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_retail_shop_model_laundry_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_retail_shop_model_laundry_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_retail_shop_model_laundry_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 30,
+        "node_index": 30
+      }
+    ],
+    "F01_retail_shop_model_laundry_zinc_liner-col": [
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 31,
+        "node_index": 31
+      }
+    ],
+    "F01_retail_shop_news_cigars_bakelite": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_news_cigars_bakelite_black": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_news_cigars_bakelite_black-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_news_cigars_brass": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_news_cigars_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_news_cigars_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_news_cigars_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_news_cigars_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_news_cigars_enamel": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_news_cigars_fx_shadow": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_news_cigars_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_news_cigars_hull-colonly": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_news_cigars_linoleum-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_news_cigars_metal": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_news_cigars_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_news_cigars_milk_glass": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_news_cigars_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_news_cigars_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_news_cigars_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_news_cigars_safety_orange-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_news_cigars_screen": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_news_cigars_soot-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_shop_news_cigars_terracotta": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_retail_shop_news_cigars_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_retail_shop_news_cigars_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_retail_shop_news_cigars_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_retail_shop_news_cigars_wood_dark-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 25,
+        "node_index": 25
+      },
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_retail_shop_otis___son_awning_vinyl-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_otis___son_bakelite_black-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_otis___son_book_ochre-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_otis___son_book_teal-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_otis___son_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_otis___son_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_otis___son_bronze-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_otis___son_chrome-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_otis___son_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_otis___son_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_otis___son_fabric_green-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_otis___son_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_otis___son_lacquer_red-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_otis___son_limestone-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 26,
+        "node_index": 26
+      },
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_otis___son_marble_lobby-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_otis___son_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_otis___son_milk_glass-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_otis___son_oak_quartered-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_otis___son_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_otis___son_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_otis___son_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_otis___son_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_shop_otis___son_porcelain-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_retail_shop_otis___son_terrazzo-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_retail_shop_otis___son_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_retail_shop_otis___son_tin_ceiling-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_retail_shop_otis___son_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_retail_shop_otis___son_vinyl_oxblood-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_retail_shop_otis___son_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_retail_shop_otis___son_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_retail_shop_pawnbroker_bakelite": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_pawnbroker_bakelite_black": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_pawnbroker_bakelite_black-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_pawnbroker_brass": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_pawnbroker_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_pawnbroker_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_pawnbroker_brass_mesh-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_pawnbroker_bronze-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_pawnbroker_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_pawnbroker_common_brick-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 27,
+        "node_index": 27
+      },
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_pawnbroker_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_pawnbroker_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_pawnbroker_enamel": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_pawnbroker_enamel-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_pawnbroker_fabric_cool": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_pawnbroker_fabric_warm-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_pawnbroker_floor_oak-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_pawnbroker_fx_shadow": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_pawnbroker_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_pawnbroker_hull-colonly": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_pawnbroker_linen-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_pawnbroker_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_shop_pawnbroker_milk_glass": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_retail_shop_pawnbroker_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_retail_shop_pawnbroker_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_retail_shop_pawnbroker_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_retail_shop_pawnbroker_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_retail_shop_pawnbroker_screen": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_retail_shop_pawnbroker_terracotta": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_retail_shop_pawnbroker_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_retail_shop_pawnbroker_tin_ceiling-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 30,
+        "node_index": 30
+      }
+    ],
+    "F01_retail_shop_pawnbroker_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 31,
+        "node_index": 31
+      }
+    ],
+    "F01_retail_shop_pawnbroker_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 32,
+        "node_index": 32
+      }
+    ],
+    "F01_retail_shop_pawnbroker_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 33,
+        "node_index": 33
+      }
+    ],
+    "F01_retail_shop_photo_supplies_awning_vinyl-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_photo_supplies_bakelite": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_photo_supplies_bakelite_black": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_photo_supplies_bakelite_black-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_photo_supplies_book_ochre-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_photo_supplies_book_teal-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_photo_supplies_brass": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_photo_supplies_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_photo_supplies_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_photo_supplies_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_photo_supplies_chrome": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_photo_supplies_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_photo_supplies_enamel": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_photo_supplies_enamel-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_photo_supplies_felt_violet-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_photo_supplies_fx_shadow": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_photo_supplies_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_photo_supplies_hull-colonly": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_photo_supplies_lacquer_red-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_photo_supplies_linoleum-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_photo_supplies_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_photo_supplies_milk_glass": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_shop_photo_supplies_nickel_plated-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_retail_shop_photo_supplies_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_retail_shop_photo_supplies_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_retail_shop_photo_supplies_plaster_stained-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 28,
+        "node_index": 28
+      },
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_retail_shop_photo_supplies_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_retail_shop_photo_supplies_screen": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_retail_shop_photo_supplies_terracotta": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_retail_shop_photo_supplies_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_retail_shop_photo_supplies_tin_ceiling-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 30,
+        "node_index": 30
+      }
+    ],
+    "F01_retail_shop_photo_supplies_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 31,
+        "node_index": 31
+      }
+    ],
+    "F01_retail_shop_photo_supplies_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 32,
+        "node_index": 32
+      }
+    ],
+    "F01_retail_shop_photo_supplies_wood_dark-col": [
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 33,
+        "node_index": 33
+      }
+    ],
+    "F01_retail_shop_radio_service_appliance-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_radio_service_awning_vinyl-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_radio_service_bakelite": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_radio_service_bakelite_black": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_radio_service_bakelite_black-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_radio_service_brass": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_radio_service_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_radio_service_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_radio_service_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_radio_service_chrome": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_radio_service_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_radio_service_copper_aged-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_radio_service_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_radio_service_enamel": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_radio_service_fabric_warm-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_radio_service_fx_shadow": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_radio_service_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_radio_service_hull-colonly": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_radio_service_linoleum-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_radio_service_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_shop_radio_service_milk_glass": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 20,
+        "node_index": 20
+      }
+    ],
+    "F01_retail_shop_radio_service_milk_glass-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 21,
+        "node_index": 21
+      }
+    ],
+    "F01_retail_shop_radio_service_nickel_plated-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 22,
+        "node_index": 22
+      }
+    ],
+    "F01_retail_shop_radio_service_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 23,
+        "node_index": 23
+      }
+    ],
+    "F01_retail_shop_radio_service_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_retail_shop_radio_service_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_retail_shop_radio_service_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_retail_shop_radio_service_screen": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_retail_shop_radio_service_screen-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_retail_shop_radio_service_stairwell_teal-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_retail_shop_radio_service_terracotta": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 30,
+        "node_index": 30
+      }
+    ],
+    "F01_retail_shop_radio_service_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 31,
+        "node_index": 31
+      }
+    ],
+    "F01_retail_shop_radio_service_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 32,
+        "node_index": 32
+      }
+    ],
+    "F01_retail_shop_radio_service_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 33,
+        "node_index": 33
+      }
+    ],
+    "F01_retail_shop_radio_service_wood_dark-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 29,
+        "node_index": 29
+      },
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 34,
+        "node_index": 34
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_brass_bright-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 0,
+        "node_index": 0
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_brass_dull-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 1,
+        "node_index": 1
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_cast_iron-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 2,
+        "node_index": 2
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_concrete-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 3,
+        "node_index": 3
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_countertop-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 4,
+        "node_index": 4
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_floor_oak-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 5,
+        "node_index": 5
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_glassish-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 6,
+        "node_index": 6
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_lacquer_red-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 7,
+        "node_index": 7
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_metal-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 8,
+        "node_index": 8
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_paper-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 9,
+        "node_index": 9
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_plaster-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 10,
+        "node_index": 10
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_plaster_stained-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 11,
+        "node_index": 11
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_plywood-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 12,
+        "node_index": 12
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_rubber_aged-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 13,
+        "node_index": 13
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_soot-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 14,
+        "node_index": 14
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_timber-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 15,
+        "node_index": 15
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_trim-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 16,
+        "node_index": 16
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_vinyl_oxblood-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 17,
+        "node_index": 17
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_wainscot-col": [
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 18,
+        "node_index": 18
+      }
+    ],
+    "F01_retail_shop_shoe_rebuilding_wood_dark-col": [
+      {
+        "cell_id": "CELL_PASSAGE",
+        "mesh_index": 30,
+        "node_index": 30
+      },
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 19,
+        "node_index": 19
+      }
+    ],
+    "F01_retail_site_metal-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 43,
+        "node_index": 43
+      }
+    ],
+    "F01_retail_site_plywood-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 44,
+        "node_index": 44
+      }
+    ],
+    "F01_retail_site_road_paint-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 45,
+        "node_index": 45
+      }
+    ],
+    "F01_retail_site_soot-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 46,
+        "node_index": 46
+      }
+    ],
+    "F01_sash-col": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 24,
+        "node_index": 24
+      }
+    ],
+    "F01_slabs-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 55,
+        "node_index": 55
+      }
+    ],
+    "F01_stairs": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 56,
+        "node_index": 56
+      }
+    ],
+    "F01_stairs_bal": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 57,
+        "node_index": 57
+      }
+    ],
+    "F01_stairs_brass": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 58,
+        "node_index": 58
+      }
+    ],
+    "F01_stairs_guard-colonly": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 59,
+        "node_index": 59
+      }
+    ],
+    "F01_stairs_iron": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 60,
+        "node_index": 60
+      }
+    ],
+    "F01_stairs_landing": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 61,
+        "node_index": 61
+      }
+    ],
+    "F01_stairs_rail": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 62,
+        "node_index": 62
+      }
+    ],
+    "F01_stairs_ramp-colonly": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 63,
+        "node_index": 63
+      }
+    ],
+    "F01_stairs_soffit_failed": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 64,
+        "node_index": 64
+      }
+    ],
+    "F01_stairs_treads": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 65,
+        "node_index": 65
+      }
+    ],
+    "F01_stone_trim-col": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 25,
+        "node_index": 25
+      }
+    ],
+    "F01_transit_shelter_cast_iron-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 47,
+        "node_index": 47
+      }
+    ],
+    "F01_transit_shelter_glassish-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 48,
+        "node_index": 48
+      }
+    ],
+    "F01_transit_shelter_timber-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 49,
+        "node_index": 49
+      }
+    ],
+    "F01_transit_shelter_zinc_liner-col": [
+      {
+        "cell_id": "CELL_SITE_STREET_COMMON",
+        "mesh_index": 50,
+        "node_index": 50
+      }
+    ],
+    "F01_trim": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 66,
+        "node_index": 66
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 26,
+        "node_index": 26
+      }
+    ],
+    "F01_vent_register_screws": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 67,
+        "node_index": 67
+      }
+    ],
+    "F01_vent_register_throat": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 68,
+        "node_index": 68
+      }
+    ],
+    "F01_vent_register_trim": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 69,
+        "node_index": 69
+      }
+    ],
+    "F01_wainscot_marble_lobby": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 70,
+        "node_index": 70
+      }
+    ],
+    "F01_wainscot_subway_tile": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 71,
+        "node_index": 71
+      }
+    ],
+    "F01_wainscot_wainscot": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 72,
+        "node_index": 72
+      }
+    ],
+    "F01_walls-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 73,
+        "node_index": 73
+      }
+    ],
+    "F01_walls_cbrick-col": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 27,
+        "node_index": 27
+      }
+    ],
+    "F01_walls_conc-col": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 74,
+        "node_index": 74
+      }
+    ],
+    "F01_walls_fbrick-col": [
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 28,
+        "node_index": 28
+      }
+    ],
+    "F01_wear_ceiling_fx_drip": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 75,
+        "node_index": 75
+      }
+    ],
+    "F01_wear_fx_drip": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 76,
+        "node_index": 76
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 29,
+        "node_index": 29
+      }
+    ],
+    "F01_wear_fx_grease": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 77,
+        "node_index": 77
+      }
+    ],
+    "F01_wear_fx_scuff": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 78,
+        "node_index": 78
+      },
+      {
+        "cell_id": "CELL_ORISON_FACADE_SHELL",
+        "mesh_index": 30,
+        "node_index": 30
+      },
+      {
+        "cell_id": "CELL_SHOP_BAR",
+        "mesh_index": 71,
+        "node_index": 71
+      },
+      {
+        "cell_id": "CELL_SHOP_BODEGA",
+        "mesh_index": 22,
+        "node_index": 22
+      },
+      {
+        "cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+        "mesh_index": 32,
+        "node_index": 32
+      },
+      {
+        "cell_id": "CELL_SHOP_SHOE_REBUILDING",
+        "mesh_index": 20,
+        "node_index": 20
+      },
+      {
+        "cell_id": "CELL_SHOP_KEYS_CUT",
+        "mesh_index": 20,
+        "node_index": 20
+      },
+      {
+        "cell_id": "CELL_SHOP_HARDWARE_PAINT",
+        "mesh_index": 21,
+        "node_index": 21
+      },
+      {
+        "cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+        "mesh_index": 23,
+        "node_index": 23
+      },
+      {
+        "cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+        "mesh_index": 34,
+        "node_index": 34
+      },
+      {
+        "cell_id": "CELL_SHOP_RADIO_SERVICE",
+        "mesh_index": 35,
+        "node_index": 35
+      },
+      {
+        "cell_id": "CELL_SHOP_PAWNBROKER",
+        "mesh_index": 34,
+        "node_index": 34
+      },
+      {
+        "cell_id": "CELL_SHOP_NEWS_CIGARS",
+        "mesh_index": 27,
+        "node_index": 27
+      },
+      {
+        "cell_id": "CELL_SHOP_OTIS_SON",
+        "mesh_index": 30,
+        "node_index": 30
+      },
+      {
+        "cell_id": "CELL_SHOP_LUNCHEONETTE",
+        "mesh_index": 34,
+        "node_index": 34
+      }
+    ],
+    "F01_wear_fx_traffic": [
+      {
+        "cell_id": "CELL_ORISON_F01_INTERIOR",
+        "mesh_index": 79,
+        "node_index": 79
+      }
+    ]
+  },
+  "compatibility_alias_manifest_path": "res://assets/building/floor_01_cells/floor01_compatibility_aliases.json",
+  "default_mode": "owner_first_cells",
+  "facade_sharing": [
+    {
+      "cell_ids": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL"
+      ],
+      "id": "F01_ORISON_INTERIOR_FACADE",
+      "rule": "facade remains independently owned and co-resident for the interior envelope view"
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_ORISON_FACADE_SHELL"
+      ],
+      "id": "F01_STREET_FACADE",
+      "rule": "the same facade cell is shared by the street-side envelope without geometry duplication"
+    }
+  ],
+  "floor_id": "F01",
+  "legacy_monolith_path": "res://assets/building/floor_01.gltf",
+  "lineage_manifest_path": "res://assets/building/floor_01_cells/floor01_owner_first_lineage.json",
+  "persistent_host": {
+    "gameplay_authority_survives_cell_unload": true,
+    "geometry_free": true,
+    "id": "F01"
+  },
+  "refusals": {
+    "dependency_cycle": true,
+    "duplicate_semantic_owner": true,
+    "incompatible_alias": true,
+    "simultaneous_monolith_and_cells": true,
+    "unknown_cell": true
+  },
+  "residency_sets": [
+    {
+      "cell_ids": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_SITE_STREET_COMMON",
+        "CELL_PASSAGE",
+        "CELL_SHOP_BAR",
+        "CELL_SHOP_BODEGA",
+        "CELL_SHOP_MODEL_LAUNDRY",
+        "CELL_SHOP_SHOE_REBUILDING",
+        "CELL_SHOP_KEYS_CUT",
+        "CELL_SHOP_HARDWARE_PAINT",
+        "CELL_SHOP_FUNERAL_PARLOUR",
+        "CELL_SHOP_PHOTO_SUPPLIES",
+        "CELL_SHOP_RADIO_SERVICE",
+        "CELL_SHOP_PAWNBROKER",
+        "CELL_SHOP_NEWS_CIGARS",
+        "CELL_SHOP_OTIS_SON",
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "id": "FULL_RECOMPOSITION"
+    },
+    {
+      "cell_ids": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL"
+      ],
+      "id": "ORISON_INTERIOR_PLUS_FACADE"
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_ORISON_FACADE_SHELL"
+      ],
+      "id": "STREET_PLUS_FACADE"
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE"
+      ],
+      "id": "PASSAGE_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_BAR"
+      ],
+      "id": "SHOP_BAR_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_BODEGA"
+      ],
+      "id": "SHOP_BODEGA_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_MODEL_LAUNDRY"
+      ],
+      "id": "SHOP_MODEL_LAUNDRY_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_SHOE_REBUILDING"
+      ],
+      "id": "SHOP_SHOE_REBUILDING_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_KEYS_CUT"
+      ],
+      "id": "SHOP_KEYS_CUT_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_HARDWARE_PAINT"
+      ],
+      "id": "SHOP_HARDWARE_PAINT_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_FUNERAL_PARLOUR"
+      ],
+      "id": "SHOP_FUNERAL_PARLOUR_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_PHOTO_SUPPLIES"
+      ],
+      "id": "SHOP_PHOTO_SUPPLIES_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_RADIO_SERVICE"
+      ],
+      "id": "SHOP_RADIO_SERVICE_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_PAWNBROKER"
+      ],
+      "id": "SHOP_PAWNBROKER_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_NEWS_CIGARS"
+      ],
+      "id": "SHOP_NEWS_CIGARS_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_OTIS_SON"
+      ],
+      "id": "SHOP_OTIS_SON_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "id": "SHOP_LUNCHEONETTE_ONLY"
+    }
+  ],
+  "schema": "orison.floor01.cell-registry.v1",
+  "semantic_owner_index": {
+    "1A_LT_SCONCE": "CELL_ORISON_F01_INTERIOR",
+    "1D_LT_SCONCE": "CELL_ORISON_F01_INTERIOR",
+    "F01WC_LT_SCONCE": "CELL_ORISON_F01_INTERIOR",
+    "F01_1A_FRIDGE_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1A_KETTLE_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1A_KITCHEN_SINK_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1A_MIRROR_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1A_SHOWER_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1A_SINK_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1A_STOVE_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1A_TOASTER_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1D_FRIDGE_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1D_KETTLE_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1D_KITCHEN_SINK_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1D_MIRROR_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1D_SHOWER_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1D_SINK_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1D_STOVE_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_1D_TOASTER_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_ATRIUM_FRUIT_1": "CELL_ORISON_F01_INTERIOR",
+    "F01_A_BED_LT_FLUSH_DOME": "CELL_ORISON_F01_INTERIOR",
+    "F01_A_MAIN_LT_PENDANT_SHADE": "CELL_ORISON_F01_INTERIOR",
+    "F01_A_RADIATOR_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_BAR_DARTS": "CELL_SHOP_BAR",
+    "F01_BAR_DOOR": "CELL_SHOP_BAR",
+    "F01_BAR_LT_CAN0": "CELL_SHOP_BAR",
+    "F01_BAR_LT_CAN1": "CELL_SHOP_BAR",
+    "F01_BAR_LT_DARTS": "CELL_SHOP_BAR",
+    "F01_BAR_LT_DECK0": "CELL_SHOP_BAR",
+    "F01_BAR_LT_DECK1": "CELL_SHOP_BAR",
+    "F01_BAR_LT_DECK2": "CELL_SHOP_BAR",
+    "F01_BAR_LT_LOBBY": "CELL_SHOP_BAR",
+    "F01_BAR_LT_POOL": "CELL_SHOP_BAR",
+    "F01_BAR_LT_STAGE0": "CELL_SHOP_BAR",
+    "F01_BAR_LT_STAGE1": "CELL_SHOP_BAR",
+    "F01_BAR_LT_STAIR": "CELL_SHOP_BAR",
+    "F01_BAR_LT_TAB0": "CELL_SHOP_BAR",
+    "F01_BAR_LT_TAB1": "CELL_SHOP_BAR",
+    "F01_BAR_LT_TAB2": "CELL_SHOP_BAR",
+    "F01_BAR_LT_WC": "CELL_SHOP_BAR",
+    "F01_BAR_LT_WELL": "CELL_SHOP_BAR",
+    "F01_BAR_LT_WEST0": "CELL_SHOP_BAR",
+    "F01_BAR_LT_WEST1": "CELL_SHOP_BAR",
+    "F01_BAR_POOL": "CELL_SHOP_BAR",
+    "F01_BAR_RED_DOOR": "CELL_SHOP_BAR",
+    "F01_BAR_SIGNAGE": "CELL_SHOP_BAR",
+    "F01_BAR_SONGBOOK": "CELL_SHOP_BAR",
+    "F01_BAR_STAGE_SIGN": "CELL_SHOP_BAR",
+    "F01_BAR_WC_DOOR": "CELL_SHOP_BAR",
+    "F01_BAR_WC_SINK_01": "CELL_SHOP_BAR",
+    "F01_BODEGA_DOOR": "CELL_SHOP_BODEGA",
+    "F01_BODEGA_LT_0": "CELL_SHOP_BODEGA",
+    "F01_BODEGA_LT_1": "CELL_SHOP_BODEGA",
+    "F01_BODEGA_LT_2": "CELL_SHOP_BODEGA",
+    "F01_BODEGA_RADIO": "CELL_SHOP_BODEGA",
+    "F01_BODEGA_SIGNAGE": "CELL_SHOP_BODEGA",
+    "F01_COMMON_B_LT_PENDANT_SHADE": "CELL_ORISON_F01_INTERIOR",
+    "F01_CORRIDOR_DOME_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_CORRIDOR_DOME_02": "CELL_ORISON_F01_INTERIOR",
+    "F01_CORRIDOR_DOME_03": "CELL_ORISON_F01_INTERIOR",
+    "F01_CORRIDOR_DOME_04": "CELL_ORISON_F01_INTERIOR",
+    "F01_CORRIDOR_DOME_05": "CELL_ORISON_F01_INTERIOR",
+    "F01_CORRIDOR_DOME_06": "CELL_ORISON_F01_INTERIOR",
+    "F01_CORRIDOR_DOME_07": "CELL_ORISON_F01_INTERIOR",
+    "F01_CORRIDOR_DOME_08": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_02": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_03": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_04": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_05": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_06": "CELL_ORISON_FACADE_SHELL",
+    "F01_DOOR_07": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_08": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_09": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_10": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_11": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_12": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_13": "CELL_ORISON_F01_INTERIOR",
+    "F01_DOOR_14": "CELL_ORISON_F01_INTERIOR",
+    "F01_D_BED_LT_FLUSH_DOME": "CELL_ORISON_F01_INTERIOR",
+    "F01_D_MAIN_LT_PENDANT_SHADE": "CELL_ORISON_F01_INTERIOR",
+    "F01_D_OFFICE_LT_PENDANT_SHADE": "CELL_ORISON_F01_INTERIOR",
+    "F01_D_RADIATOR_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_F01WC_MIRROR_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_F01WC_SHOWER_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_F01WC_SINK_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_HALL_LT_FLUSH_DOME": "CELL_ORISON_F01_INTERIOR",
+    "F01_KARAOKE_SPK_0": "CELL_SHOP_BAR",
+    "F01_KARAOKE_SPK_1": "CELL_SHOP_BAR",
+    "F01_LOBBY_CLOCK_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_LOBBY_LT_CHANDELIER": "CELL_ORISON_F01_INTERIOR",
+    "F01_LOBBY_RADIATOR_01": "CELL_ORISON_F01_INTERIOR",
+    "F01_MARQUEE_LT_01": "CELL_ORISON_FACADE_SHELL",
+    "F01_MARQUEE_LT_02": "CELL_ORISON_FACADE_SHELL",
+    "F01_NEON_BLADE": "CELL_ORISON_FACADE_SHELL",
+    "F01_NEON_TENANT": "CELL_ORISON_FACADE_SHELL",
+    "F01_OFFICE_LT_PENDANT_SHADE": "CELL_ORISON_F01_INTERIOR",
+    "F01_PACKAGE_LT_CAGE_BULB": "CELL_ORISON_F01_INTERIOR",
+    "F01_STORAGE_C_LT_CAGE_BULB": "CELL_ORISON_F01_INTERIOR",
+    "F01_STREETLAMP_03": "CELL_SITE_STREET_COMMON",
+    "F01_STREETLAMP_04": "CELL_SITE_STREET_COMMON",
+    "F01_STREETLAMP_06": "CELL_SITE_STREET_COMMON",
+    "F01_STREETLAMP_07": "CELL_SITE_STREET_COMMON",
+    "F01_STREETLAMP_08": "CELL_SITE_STREET_COMMON",
+    "F01_UTILITY_LT_CAGE_BULB": "CELL_ORISON_F01_INTERIOR",
+    "F01_common_KITCHEN_SINK_01": "CELL_ORISON_F01_INTERIOR",
+    "PASSAGE_AISLE_LT_00": "CELL_PASSAGE",
+    "PASSAGE_AISLE_LT_01": "CELL_PASSAGE",
+    "PASSAGE_AISLE_LT_02": "CELL_PASSAGE",
+    "PASSAGE_AISLE_LT_03": "CELL_PASSAGE",
+    "PASSAGE_AISLE_LT_04": "CELL_PASSAGE",
+    "PASSAGE_AISLE_LT_05": "CELL_PASSAGE",
+    "PASSAGE_AISLE_LT_06": "CELL_PASSAGE",
+    "PASSAGE_AISLE_LT_07": "CELL_PASSAGE",
+    "PASSAGE_PORTAL_LT_E": "CELL_SITE_STREET_COMMON",
+    "PASSAGE_PORTAL_LT_W": "CELL_SITE_STREET_COMMON",
+    "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES": "CELL_SHOP_PHOTO_SUPPLIES",
+    "SITE_SHOP_DOOR_FUNERAL_PARLOUR": "CELL_SHOP_FUNERAL_PARLOUR",
+    "SITE_SHOP_DOOR_HARDWARE_PAINT": "CELL_SHOP_HARDWARE_PAINT",
+    "SITE_SHOP_DOOR_KEYS_CUT": "CELL_SHOP_KEYS_CUT",
+    "SITE_SHOP_DOOR_LUNCHEONETTE": "CELL_SHOP_LUNCHEONETTE",
+    "SITE_SHOP_DOOR_MODEL_LAUNDRY": "CELL_SHOP_MODEL_LAUNDRY",
+    "SITE_SHOP_DOOR_NEWS_CIGARS": "CELL_SHOP_NEWS_CIGARS",
+    "SITE_SHOP_DOOR_OTIS___SON": "CELL_SHOP_OTIS_SON",
+    "SITE_SHOP_DOOR_PAWNBROKER": "CELL_SHOP_PAWNBROKER",
+    "SITE_SHOP_DOOR_PHOTO_SUPPLIES": "CELL_SHOP_PHOTO_SUPPLIES",
+    "SITE_SHOP_DOOR_RADIO_SERVICE": "CELL_SHOP_RADIO_SERVICE",
+    "SITE_SHOP_DOOR_SHOE_REBUILDING": "CELL_SHOP_SHOE_REBUILDING",
+    "SITE_SHOP_HOURS_FUNERAL_PARLOUR": "CELL_SHOP_FUNERAL_PARLOUR",
+    "SITE_SHOP_HOURS_HARDWARE_PAINT": "CELL_SHOP_HARDWARE_PAINT",
+    "SITE_SHOP_HOURS_KEYS_CUT": "CELL_SHOP_KEYS_CUT",
+    "SITE_SHOP_HOURS_LUNCHEONETTE": "CELL_SHOP_LUNCHEONETTE",
+    "SITE_SHOP_HOURS_MODEL_LAUNDRY": "CELL_SHOP_MODEL_LAUNDRY",
+    "SITE_SHOP_HOURS_NEWS_CIGARS": "CELL_SHOP_NEWS_CIGARS",
+    "SITE_SHOP_HOURS_OTIS___SON": "CELL_SHOP_OTIS_SON",
+    "SITE_SHOP_HOURS_PAWNBROKER": "CELL_SHOP_PAWNBROKER",
+    "SITE_SHOP_HOURS_PHOTO_SUPPLIES": "CELL_SHOP_PHOTO_SUPPLIES",
+    "SITE_SHOP_HOURS_RADIO_SERVICE": "CELL_SHOP_RADIO_SERVICE",
+    "SITE_SHOP_HOURS_SHOE_REBUILDING": "CELL_SHOP_SHOE_REBUILDING",
+    "SITE_SHOP_IN0_FUNERAL_PARLOUR": "CELL_SHOP_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN0_HARDWARE_PAINT": "CELL_SHOP_HARDWARE_PAINT",
+    "SITE_SHOP_IN0_KEYS_CUT": "CELL_SHOP_KEYS_CUT",
+    "SITE_SHOP_IN0_LUNCHEONETTE": "CELL_SHOP_LUNCHEONETTE",
+    "SITE_SHOP_IN0_MODEL_LAUNDRY": "CELL_SHOP_MODEL_LAUNDRY",
+    "SITE_SHOP_IN0_NEWS_CIGARS": "CELL_SHOP_NEWS_CIGARS",
+    "SITE_SHOP_IN0_OTIS___SON": "CELL_SHOP_OTIS_SON",
+    "SITE_SHOP_IN0_PAWNBROKER": "CELL_SHOP_PAWNBROKER",
+    "SITE_SHOP_IN0_PHOTO_SUPPLIES": "CELL_SHOP_PHOTO_SUPPLIES",
+    "SITE_SHOP_IN0_RADIO_SERVICE": "CELL_SHOP_RADIO_SERVICE",
+    "SITE_SHOP_IN0_SHOE_REBUILDING": "CELL_SHOP_SHOE_REBUILDING",
+    "SITE_SHOP_IN1_FUNERAL_PARLOUR": "CELL_SHOP_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN1_HARDWARE_PAINT": "CELL_SHOP_HARDWARE_PAINT",
+    "SITE_SHOP_IN1_KEYS_CUT": "CELL_SHOP_KEYS_CUT",
+    "SITE_SHOP_IN1_LUNCHEONETTE": "CELL_SHOP_LUNCHEONETTE",
+    "SITE_SHOP_IN1_MODEL_LAUNDRY": "CELL_SHOP_MODEL_LAUNDRY",
+    "SITE_SHOP_IN1_NEWS_CIGARS": "CELL_SHOP_NEWS_CIGARS",
+    "SITE_SHOP_IN1_OTIS___SON": "CELL_SHOP_OTIS_SON",
+    "SITE_SHOP_IN1_PAWNBROKER": "CELL_SHOP_PAWNBROKER",
+    "SITE_SHOP_IN1_PHOTO_SUPPLIES": "CELL_SHOP_PHOTO_SUPPLIES",
+    "SITE_SHOP_IN1_RADIO_SERVICE": "CELL_SHOP_RADIO_SERVICE",
+    "SITE_SHOP_IN1_SHOE_REBUILDING": "CELL_SHOP_SHOE_REBUILDING",
+    "SITE_SHOP_IN2_FUNERAL_PARLOUR": "CELL_SHOP_FUNERAL_PARLOUR",
+    "SITE_SHOP_IN2_HARDWARE_PAINT": "CELL_SHOP_HARDWARE_PAINT",
+    "SITE_SHOP_IN2_LUNCHEONETTE": "CELL_SHOP_LUNCHEONETTE",
+    "SITE_SHOP_IN2_MODEL_LAUNDRY": "CELL_SHOP_MODEL_LAUNDRY",
+    "SITE_SHOP_IN2_OTIS___SON": "CELL_SHOP_OTIS_SON",
+    "SITE_SHOP_LT_FUNERAL_PARLOUR": "CELL_SHOP_FUNERAL_PARLOUR",
+    "SITE_SHOP_LT_HARDWARE_PAINT": "CELL_SHOP_HARDWARE_PAINT",
+    "SITE_SHOP_LT_KEYS_CUT": "CELL_SHOP_KEYS_CUT",
+    "SITE_SHOP_LT_LUNCHEONETTE": "CELL_SHOP_LUNCHEONETTE",
+    "SITE_SHOP_LT_MODEL_LAUNDRY": "CELL_SHOP_MODEL_LAUNDRY",
+    "SITE_SHOP_LT_NEWS_CIGARS": "CELL_SHOP_NEWS_CIGARS",
+    "SITE_SHOP_LT_OTIS___SON": "CELL_SHOP_OTIS_SON",
+    "SITE_SHOP_LT_PAWNBROKER": "CELL_SHOP_PAWNBROKER",
+    "SITE_SHOP_LT_PHOTO_SUPPLIES": "CELL_SHOP_PHOTO_SUPPLIES",
+    "SITE_SHOP_LT_RADIO_SERVICE": "CELL_SHOP_RADIO_SERVICE",
+    "SITE_SHOP_LT_SHOE_REBUILDING": "CELL_SHOP_SHOE_REBUILDING",
+    "SITE_SHOP_SIGN_FUNERAL_PARLOUR": "CELL_SHOP_FUNERAL_PARLOUR",
+    "SITE_SHOP_SIGN_HARDWARE_PAINT": "CELL_SHOP_HARDWARE_PAINT",
+    "SITE_SHOP_SIGN_KEYS_CUT": "CELL_SHOP_KEYS_CUT",
+    "SITE_SHOP_SIGN_LUNCHEONETTE": "CELL_SHOP_LUNCHEONETTE",
+    "SITE_SHOP_SIGN_MODEL_LAUNDRY": "CELL_SHOP_MODEL_LAUNDRY",
+    "SITE_SHOP_SIGN_NEWS_CIGARS": "CELL_SHOP_NEWS_CIGARS",
+    "SITE_SHOP_SIGN_OTIS___SON": "CELL_SHOP_OTIS_SON",
+    "SITE_SHOP_SIGN_PAWNBROKER": "CELL_SHOP_PAWNBROKER",
+    "SITE_SHOP_SIGN_PHOTO_SUPPLIES": "CELL_SHOP_PHOTO_SUPPLIES",
+    "SITE_SHOP_SIGN_RADIO_SERVICE": "CELL_SHOP_RADIO_SERVICE",
+    "SITE_SHOP_SIGN_SHOE_REBUILDING": "CELL_SHOP_SHOE_REBUILDING",
+    "THRESHOLD_SHOP_BODEGA_FRONT": "CELL_SHOP_BODEGA"
+  },
+  "session_mode_is_save_authority": false,
+  "simultaneous_monolith_and_cells_allowed": false,
+  "status": "PASS",
+  "supported_session_modes": [
+    "owner_first_cells",
+    "legacy_monolith"
+  ]
+}

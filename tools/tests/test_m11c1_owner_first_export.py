@@ -244,6 +244,18 @@ class TriangleBindingTests(unittest.TestCase):
 
 
 class RefusalBoundaryTests(unittest.TestCase):
+    def test_authoritative_generator_uses_restored_definitions_only_guard(self):
+        generator = (REPO_ROOT / "art/blender/scripts/build_orison.py").read_text(
+            encoding="utf-8")
+        adapter = (REPO_ROOT /
+                   "tools/m11c1_floor01_owner_first/"
+                   "generate_owner_first_candidate.py").read_text(encoding="utf-8")
+        self.assertIn('os.environ.get("ORISON_DEFINITIONS_ONLY") != "1"',
+                      generator)
+        self.assertIn('os.environ["ORISON_DEFINITIONS_ONLY"] = "1"', adapter)
+        self.assertIn('os.environ.pop("ORISON_DEFINITIONS_ONLY", None)', adapter)
+        self.assertNotIn("source.replace(sentinel", adapter)
+
     def test_transaction_refuses_unbound_json_receipt(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary).resolve()

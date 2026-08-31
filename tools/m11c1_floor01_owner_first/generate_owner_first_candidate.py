@@ -88,16 +88,26 @@ def _load_authoritative_definitions(generator_path: Path) -> dict[str, Any]:
     """Execute helper definitions without running the production build."""
 
     source = generator_path.read_text(encoding="utf-8")
-    sentinel = 'if __name__ == "__main__" or True:\n    build()'
-    if source.count(sentinel) != 1:
+    guard = ('if (__name__ == "__main__"\n'
+             '        or os.environ.get("ORISON_DEFINITIONS_ONLY") != "1"):\n'
+             '    build()')
+    if source.count(guard) != 1:
         raise OwnerFirstError(
-            "authoritative generator entry sentinel changed; refusing unsafe import")
-    source = source.replace(sentinel, "if False:\n    build()")
+            "authoritative generator definitions-only guard changed; "
+            "refusing unsafe import")
     namespace: dict[str, Any] = {
         "__file__": str(generator_path.resolve()),
         "__name__": "orison_m11c1_authoritative_definitions",
     }
-    exec(compile(source, str(generator_path), "exec"), namespace)
+    previous = os.environ.get("ORISON_DEFINITIONS_ONLY")
+    os.environ["ORISON_DEFINITIONS_ONLY"] = "1"
+    try:
+        exec(compile(source, str(generator_path), "exec"), namespace)
+    finally:
+        if previous is None:
+            os.environ.pop("ORISON_DEFINITIONS_ONLY", None)
+        else:
+            os.environ["ORISON_DEFINITIONS_ONLY"] = previous
     required = {
         "MeshBuf", "Frame", "ASM", "build_wall", "build_baked_wall_finish",
         "build_floor_overlay", "build_ceiling_overlay", "build_vent_register",
