@@ -102,6 +102,9 @@ func _run() -> void:
 			"harness_added_labels_or_arrows":false,
 			"production_player_camera":true,
 			"production_marker_door_geometry_included":true,
+			"hidden_off_floor_geometry_free_consumer_hosts_included":true,
+			"hidden_off_floor_production_detail_objects_included":true,
+			"off_floor_target_cell_geometry_included":false,
 			"noclip":false,
 			"authored_initial_capture_placement_count_per_frame":1,
 			"navigation_seam_proof_delegated_to_runtime_receipt":true,
@@ -212,14 +215,17 @@ func _capture_view(view: Dictionary, seams: Dictionary,
 	var released := instance_from_id(adapter_id) == null
 	var player_released := player_weak.get_ref() == null
 	var frame_delta := Support.object_delta(Support.object_counts(), before)
-	var frame_retained := false
-	for key: String in ["objects", "resources", "nodes", "orphan_nodes"]:
-		frame_retained = frame_retained or int(frame_delta.get(key, 0)) > 0
+	# Engine object/resource counts may drain asynchronously between different
+	# view compositions.  Gate frame-local ownership with exact WeakRefs and
+	# tree/orphan counts, then gate global object/resource retention on the
+	# matched five-view sequence's final warmed delta in _run().
+	var frame_tree_retained := int(frame_delta.get("nodes", 0)) > 0 \
+			or int(frame_delta.get("orphan_nodes", 0)) > 0
 	if not released or not player_released \
-			or (frame_retained and not allow_cache_growth):
+			or frame_tree_retained:
 		_fail("%s retained its capture composition" % seam_id)
 	var frame_ok := save_error == OK and released and player_released \
-			and (allow_cache_growth or not frame_retained) \
+			and not frame_tree_retained \
 			and bool(readability.get("passed", false)) \
 			and bool(occlusion.get("passed", false)) \
 			and str(production_composition.get("status", "FAIL")) == "PASS"
@@ -248,7 +254,14 @@ func _capture_view(view: Dictionary, seams: Dictionary,
 		"owner_released":released,
 		"player_released":player_released,
 		"delta":frame_delta,
-		"retained_count_classes":_positive_count_classes(frame_delta),
+		"positive_process_count_diagnostics":_positive_count_classes(frame_delta),
+		"frame_local_retention_gate":{
+			"owned_adapter_weakref_released":released,
+			"owned_player_weakref_released":player_released,
+			"node_or_orphan_growth":frame_tree_retained,
+			"object_resource_churn_diagnostic_only":true,
+			"object_resource_retention_gate":"matched warmed five-view final delta",
+		},
 	}
 
 
@@ -264,22 +277,47 @@ func _compose_production_presentation(adapter: Node3D,
 	var rows: Array[Dictionary] = []
 	if "CELL_ORISON_F01_INTERIOR" in cell_ids \
 			or "CELL_ORISON_FACADE_SHELL" in cell_ids:
-		var scoped_layout := Support.f01_layout(layout)
-		if scoped_layout.is_empty():
+		var floor_nodes := Support.building_wide_geometry_free_floor_hosts(layout,
+				adapter, adapter.composition_host)
+		if floor_nodes.is_empty():
 			rows.append({"production_class":"OrisonDetailPass",
 					"status":"FAIL",
-					"reason":"unchanged layout does not contain exactly one F01 record"})
+					"reason":"unchanged layout cannot provide unique geometry-free floor hosts"})
 			return {"status":"FAIL", "executions":rows}
 		var detail := OrisonDetailPass.new()
 		detail.name = "M11C1CaptureOrisonDetailPass"
 		adapter.add_child(detail)
-		var detail_result: Dictionary = detail.build(scoped_layout,
-				{"F01":adapter.composition_host})
+		var detail_result: Dictionary = detail.build(layout, floor_nodes)
+		var radio_result: Dictionary = detail_result.get("domestic_radios", {})
+		var radio_failures: Array = radio_result.get("failures", [])
+		var radio_contract_executed := not radio_result.is_empty() \
+				and int(radio_result.get("radios", 0)) > 0 \
+				and int(radio_result.get("units", 0)) > 0
 		rows.append({"production_class":"OrisonDetailPass",
 				"public_api":"build",
-				"layout_scope":"unchanged F01 authoring record only",
+				"layout_scope":"unchanged building-wide authoring record; target geometry remains F01-only",
+				"floor_nodes":floor_nodes.keys(),
+				"off_floor_hosts_hidden":true,
+				"off_floor_target_cell_geometry_mounted":false,
+				"hidden_production_detail_objects_included":true,
 				"result":detail_result,
-				"status":"PASS" if not detail_result.is_empty() else "FAIL"})
+				"domestic_radio_failures":radio_failures,
+				"domestic_radio_contract_executed":radio_contract_executed,
+				"domestic_radio_counts":{
+					"radios":int(radio_result.get("radios", 0)),
+					"units":int(radio_result.get("units", 0)),
+				},
+				"nested_failure_gate":true,
+				"deferred_dependency":{
+					"identity":"ROOF_DOOR_01",
+					"status":"EXPECTED_UNEXERCISED_OFF_SLICE",
+					"reason":"floor01 target-cell capture does not mount protected roof geometry",
+					"production_warning_expected":true,
+				},
+				"status":"PASS_WITH_OFF_SLICE_DEPENDENCY" \
+						if not detail_result.is_empty() \
+						and radio_contract_executed \
+						and radio_failures.is_empty() else "FAIL"})
 	if "CELL_SITE_STREET_COMMON" in cell_ids:
 		var street: Node = adapter.registry.instance_for_cell(
 				"CELL_SITE_STREET_COMMON")
@@ -298,7 +336,8 @@ func _compose_production_presentation(adapter: Node3D,
 	rows.append(environment_row)
 	var ok := true
 	for row: Dictionary in rows:
-		ok = ok and str(row.get("status", "FAIL")) == "PASS"
+		ok = ok and str(row.get("status", "FAIL")) in ["PASS",
+				"PASS_WITH_OFF_SLICE_DEPENDENCY"]
 	return {"status":"PASS" if ok else "FAIL", "executions":rows}
 
 

@@ -278,10 +278,10 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
         with self.assertRaisesRegex(PreparationError, "duplicated"):
             validate_runtime_config_cross_bindings(duplicate)
 
-    def test_shell_interior_uses_exact_m11c0_supported_floor_point(self) -> None:
+    def test_shell_interior_uses_exact_m11c0_facade_supported_floor_point(self) -> None:
         source = load_json(M11C0_MANIFEST, "M11C0 manifest")
         floor_probe = next(
-            row for row in source["collision_probes"] if row["id"] == "orison_north_floor"
+            row for row in source["collision_probes"] if row["id"] == "street_south_floor"
         )
         seam = next(
             row for row in self.config["seams"] if row["id"] == "SEAM_SHELL_INTERIOR"
@@ -295,6 +295,17 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
         self.assertEqual(
             seam["cell_ids"],
             ["CELL_ORISON_FACADE_SHELL", "CELL_ORISON_F01_INTERIOR"],
+        )
+        self.assertEqual(
+            traversal["expected_collision_owner_cells"],
+            ["CELL_ORISON_FACADE_SHELL", "CELL_ORISON_F01_INTERIOR"],
+        )
+        self.assertLessEqual(traversal["waypoint_tolerance_m"], 0.05)
+        self.assertGreaterEqual(
+            traversal["start"][2]
+            - traversal["plane"]["point"][2]
+            - traversal["waypoint_tolerance_m"],
+            0.15,
         )
 
     def test_crossable_passage_nav_targets_real_inside_waypoints(self) -> None:

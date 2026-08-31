@@ -167,7 +167,7 @@ func exercise_consumer_contracts(executions: Dictionary = {}) -> Dictionary:
 		if str(raw.id) == "M11A_EXTERIOR_COMPOSITION":
 			row["floor_cell_absorbed"] = false
 		all_real_pass = all_real_pass and status in ["PASS",
-				"PASS_ISOLATED_ADAPTER"]
+				"PASS_ISOLATED_ADAPTER", "PASS_WITH_OFF_SLICE_DEPENDENCY"]
 		rows.append(row)
 	return {
 		"status":"PASS" if all_real_pass else "BLOCKED",

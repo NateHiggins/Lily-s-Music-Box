@@ -1282,6 +1282,36 @@ static func f01_layout(layout: Dictionary) -> Dictionary:
 	return scoped
 
 
+static func building_wide_geometry_free_floor_hosts(layout: Dictionary,
+		owner: Node, f01_host: Node3D) -> Dictionary:
+	# OrisonDetailPass owns a building-wide domestic-radio catalog even when
+	# floor-one geometry alone is resident.  Give that unchanged public API one
+	# explicit geometry-free host per authored floor so it can resolve its real
+	# catalog without manufacturing geometry cells or reporting false missing
+	# anchors.  Non-F01 hosts are hidden and remain siblings of the F01 scanner
+	# host, so they cannot contaminate recursive floor-one scanners.
+	var result := {}
+	for raw: Variant in layout.get("floors", []):
+		if raw is not Dictionary:
+			continue
+		var floor_id := str(raw.get("id", ""))
+		if floor_id.is_empty() or result.has(floor_id):
+			return {}
+		if floor_id == "F01":
+			result[floor_id] = f01_host
+			continue
+		var host := Node3D.new()
+		host.name = "M11C1GeometryFree_%s" % floor_id
+		host.visible = false
+		host.set_meta(&"m11c1_geometry_free_host", true)
+		host.set_meta(&"m11c1_floor_id", floor_id)
+		owner.add_child(host)
+		result[floor_id] = host
+	if not result.has("F01"):
+		return {}
+	return result
+
+
 static func load_json(path: String, errors: Array[String], label: String) -> Dictionary:
 	if path.is_empty() or not file_exists(path):
 		errors.append("%s is missing: %s" % [label, path])

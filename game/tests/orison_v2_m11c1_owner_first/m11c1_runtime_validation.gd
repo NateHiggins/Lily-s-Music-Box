@@ -164,17 +164,35 @@ func _warmup(inputs: Dictionary) -> Dictionary:
 	var consumer_warmup: Dictionary = await _exercise_real_consumers(
 			"unrecorded_consumer_warmup", inputs)
 	var consumer_ok := str(consumer_warmup.get("status", "FAIL")) == "PASS"
+	# The recorded cycles also instantiate production PlayerController and the
+	# marker-door classes along five seam paths.  Warm that identical path before
+	# establishing the lifecycle baseline; otherwise their first-use script and
+	# interaction resources are misreported as retained after cycle one.
+	var seam_warmup: Array[Dictionary] = await _exercise_seams(
+			"unrecorded_seam_warmup", inputs)
+	var seam_ok := seam_warmup.size() == Support.REQUIRED_SEAM_IDS.size()
+	for row: Dictionary in seam_warmup:
+		seam_ok = seam_ok and str(row.get("status", "FAIL")) == "PASS" \
+				and bool(row.get("owner_released", false))
 	return {
 		"recorded":false,
 		"purpose":"import, renderer, physics and real-consumer cache control",
 		"status":"PASS" if bool(mounted.get("ok", false)) and scanner_ok \
-				and consumer_ok and owner_released \
+				and consumer_ok and seam_ok and owner_released \
 				else "FAIL",
 		"metrics":metrics,
 		"scanner_static_cache_warmup":scanner_warmup,
 		"real_consumer_cache_warmup":consumer_warmup,
+		"seam_player_door_cache_warmup":seam_warmup,
+		"matched_cache_paths":[
+			"17 imported target cells",
+			"all declared residency sets",
+			"real consumer/save reconstruction",
+			"five seam PlayerController/door/nav paths",
+		],
 		"public_teardown":teardown,
 		"owner_released":owner_released,
+		"seam_owner_release_required":true,
 		"owned_root_release":root_release,
 		"delta":Support.object_delta(Support.object_counts(), before),
 	}
@@ -390,28 +408,57 @@ func _exercise_scanner_adapter(adapter: Node3D,
 
 func _exercise_orison_detail(adapter: Node3D,
 		layout: Dictionary) -> Dictionary:
-	var scoped_layout := Support.f01_layout(layout)
-	if scoped_layout.is_empty():
+	var floor_nodes := Support.building_wide_geometry_free_floor_hosts(layout,
+			adapter, adapter.composition_host)
+	if floor_nodes.is_empty():
 		return {"status":"BLOCKED",
-				"reason":"unchanged layout does not contain exactly one F01 record"}
+				"reason":"unchanged layout cannot provide unique geometry-free floor hosts"}
 	var before_children: int = int(adapter.composition_host.get_child_count())
 	var detail_pass := OrisonDetailPass.new()
 	detail_pass.name = "M11C1RealOrisonDetailPass"
 	adapter.add_child(detail_pass)
 	var started := Time.get_ticks_usec()
-	var result: Dictionary = detail_pass.build(scoped_layout,
-			{"F01":adapter.composition_host})
+	var result: Dictionary = detail_pass.build(layout, floor_nodes)
 	await _settle()
 	var installed: int = int(adapter.composition_host.get_child_count()) \
 			- before_children
-	var ok: bool = not result.is_empty() and installed > 0
+	var radio_result: Dictionary = result.get("domestic_radios", {})
+	var radio_failures: Array = radio_result.get("failures", [])
+	var radio_contract_executed := not radio_result.is_empty() \
+			and int(radio_result.get("radios", 0)) > 0 \
+			and int(radio_result.get("units", 0)) > 0
+	var off_floor_hidden := true
+	for raw_id: Variant in floor_nodes:
+		var floor_id := str(raw_id)
+		var host := floor_nodes[raw_id] as Node3D
+		if floor_id != "F01":
+			off_floor_hidden = off_floor_hidden and host != null and not host.visible
+	var ok: bool = not result.is_empty() and installed > 0 \
+			and radio_contract_executed and radio_failures.is_empty() \
+			and off_floor_hidden
 	return {
-		"status":"PASS" if ok else "FAIL",
+		"status":"PASS_WITH_OFF_SLICE_DEPENDENCY" if ok else "FAIL",
 		"production_class":"OrisonDetailPass",
 		"public_api":"build(layout, floor_nodes)",
-		"layout_scope":"unchanged F01 authoring record only",
-		"floor_nodes":{"F01":"persistent geometry-free composition host"},
+		"layout_scope":"unchanged building-wide authoring record; target geometry remains F01-only",
+		"floor_nodes":floor_nodes.keys(),
+		"f01_host":"persistent visible geometry-free composition host",
+		"off_floor_hosts":"hidden geometry-free compatibility hosts; no geometry cells mounted",
+		"off_floor_hosts_hidden":off_floor_hidden,
 		"result":result,
+		"domestic_radio_failures":radio_failures,
+		"domestic_radio_contract_executed":radio_contract_executed,
+		"domestic_radio_counts":{
+			"radios":int(radio_result.get("radios", 0)),
+			"units":int(radio_result.get("units", 0)),
+		},
+		"nested_failure_gate":true,
+		"deferred_dependency":{
+			"identity":"ROOF_DOOR_01",
+			"status":"EXPECTED_UNEXERCISED_OFF_SLICE",
+			"reason":"floor01 target-cell rehearsal does not mount protected roof geometry; unchanged production BuildingRoot still owns this leaf",
+			"production_warning_expected":true,
+		},
 		"installed_host_children":installed,
 		"elapsed_ms":Support.elapsed_ms(started),
 	}

@@ -20,6 +20,26 @@ ADAPTER = (
     / "game/tests/orison_v2_m11c1_owner_first"
     / "m11c1_scanner_consumer_adapter.gd"
 )
+CONSUMER_ADAPTER = (
+    ROOT
+    / "game/tests/orison_v2_m11c1_owner_first"
+    / "m11c1_consumer_adaptation.gd"
+)
+RUNTIME = (
+    ROOT
+    / "game/tests/orison_v2_m11c1_owner_first"
+    / "m11c1_runtime_validation.gd"
+)
+CAPTURE = (
+    ROOT
+    / "game/tests/orison_v2_m11c1_owner_first"
+    / "m11c1_capture.gd"
+)
+SUPPORT = (
+    ROOT
+    / "game/tests/orison_v2_m11c1_owner_first"
+    / "m11c1_harness_support.gd"
+)
 
 EXPECTED = {
     "HeightmapPass": ("game/scripts/building/heightmap_pass.gd", "build"),
@@ -113,6 +133,40 @@ class ScannerConsumerAdapterContract(unittest.TestCase):
         self.assertIn("_restore_wall_art_reservations", self.source)
         self.assertIn("_restore_environment", self.source)
         self.assertIn('"forced_object_deletion":false', self.source)
+
+    def test_detail_adapter_refuses_nested_radio_failures(self) -> None:
+        runtime = RUNTIME.read_text(encoding="utf-8")
+        capture = CAPTURE.read_text(encoding="utf-8")
+        support = SUPPORT.read_text(encoding="utf-8")
+        self.assertIn("building_wide_geometry_free_floor_hosts", support)
+        self.assertIn("radio_failures.is_empty()", runtime)
+        self.assertIn("radio_contract_executed", runtime)
+        self.assertIn('int(radio_result.get("radios", 0)) > 0', runtime)
+        self.assertIn('"nested_failure_gate":true', runtime)
+        self.assertIn('"PASS_WITH_OFF_SLICE_DEPENDENCY"', runtime)
+        self.assertIn('"EXPECTED_UNEXERCISED_OFF_SLICE"', runtime)
+        self.assertIn("radio_failures.is_empty()", capture)
+        self.assertIn("radio_contract_executed", capture)
+        self.assertIn('int(radio_result.get("radios", 0)) > 0', capture)
+        self.assertIn('"nested_failure_gate":true', capture)
+        self.assertIn('"PASS_WITH_OFF_SLICE_DEPENDENCY"', capture)
+        self.assertIn('"EXPECTED_UNEXERCISED_OFF_SLICE"', capture)
+        consumer = CONSUMER_ADAPTER.read_text(encoding="utf-8")
+        self.assertIn('"PASS_WITH_OFF_SLICE_DEPENDENCY"', consumer)
+
+    def test_lifecycle_uses_matched_seam_and_packet_controls(self) -> None:
+        runtime = RUNTIME.read_text(encoding="utf-8")
+        capture = CAPTURE.read_text(encoding="utf-8")
+        self.assertIn('"unrecorded_seam_warmup"', runtime)
+        self.assertIn('"seam_player_door_cache_warmup"', runtime)
+        self.assertIn('row.get("owner_released", false)', runtime)
+        self.assertIn('"object_resource_churn_diagnostic_only":true', capture)
+        self.assertIn('"positive_process_count_diagnostics"', capture)
+        self.assertNotIn('"retained_count_classes"', capture)
+        self.assertIn(
+            '"object_resource_retention_gate":"matched warmed five-view final delta"',
+            capture,
+        )
 
 
 if __name__ == "__main__":

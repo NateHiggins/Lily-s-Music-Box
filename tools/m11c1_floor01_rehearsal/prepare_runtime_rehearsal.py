@@ -1012,6 +1012,7 @@ def _traversal(
     door_action: str = "none",
     expectation: str = "crossable",
     shop_cell_id: str = "",
+    waypoint_tolerance_m: float = 0.13,
 ) -> dict[str, Any]:
     row: dict[str, Any] = {
         "id": identity,
@@ -1027,7 +1028,7 @@ def _traversal(
         "door_identity": door_identity,
         "door_action": door_action,
         "expectation": expectation,
-        "waypoint_tolerance_m": 0.13,
+        "waypoint_tolerance_m": float(waypoint_tolerance_m),
         "vertical_tolerance_m": 0.16,
         "max_frames_per_waypoint": 420,
         "minimum_grounded_fraction": 0.92,
@@ -1100,18 +1101,18 @@ def _build_seams(
         for row in m11c0.get("collision_probes", [])
         if isinstance(row, dict)
     }
-    orison_floor_probe = m11c0_collision_probes.get("orison_north_floor")
+    shell_floor_probe = m11c0_collision_probes.get("street_south_floor")
     if (
-        not isinstance(orison_floor_probe, dict)
-        or orison_floor_probe.get("expect") != "hit"
-        or orison_floor_probe.get("seam_id") != "SEAM_ORISON_SOUTH_SHELL_STREET"
-        or not isinstance(orison_floor_probe.get("from"), list)
-        or len(orison_floor_probe["from"]) != 3
+        not isinstance(shell_floor_probe, dict)
+        or shell_floor_probe.get("expect") != "hit"
+        or shell_floor_probe.get("seam_id") != "SEAM_ORISON_SOUTH_SHELL_STREET"
+        or not isinstance(shell_floor_probe.get("from"), list)
+        or len(shell_floor_probe["from"]) != 3
     ):
-        raise PreparationError("M11C0 Orison interior floor probe is missing/malformed")
-    orison_floor_z = float(orison_floor_probe["from"][2])
-    if orison_floor_z - entrance_center[2] < 0.15:
-        raise PreparationError("M11C0 Orison floor point lacks a meaningful plane overshoot")
+        raise PreparationError("M11C0 facade-side floor probe is missing/malformed")
+    shell_floor_z = float(shell_floor_probe["from"][2])
+    if shell_floor_z - entrance_center[2] < 0.20:
+        raise PreparationError("M11C0 facade-side floor point lacks a safe plane overshoot")
 
     entrance_opening = _opening(
         entrance_center, [1.0, 0.0, 0.0], float(entrance["w"]), float(entrance["h"])
@@ -1219,15 +1220,18 @@ def _build_seams(
             "traversals": [
                 _traversal(
                     "FACADE_INTERIOR_BIDIRECTIONAL",
-                    [entrance_center[0], 0.08, orison_floor_z],
+                    [entrance_center[0], 0.08, shell_floor_z],
                     [[entrance_center[0], 0.08, 8.90]],
-                    [[entrance_center[0], 0.08, orison_floor_z]],
+                    [[entrance_center[0], 0.08, shell_floor_z]],
                     entrance_center,
                     [0.0, 0.0, 1.0],
                     entrance_opening,
                     ["CELL_ORISON_FACADE_SHELL", "CELL_ORISON_F01_INTERIOR"],
                     door_identity="F01_DOOR_06",
                     door_action="interact_open",
+                    # Use the exact M11C0 facade-side support probe and stop
+                    # closely enough to preserve the 0.15 m crossing margin.
+                    waypoint_tolerance_m=0.05,
                 )
             ],
         },
