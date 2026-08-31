@@ -1,0 +1,23 @@
+; Disposable M11C0 rehearsal project. The splitter copies this template into
+; an external directory beside its generated compact scenes and receipts.
+; Nothing in this project is a production runtime authority.
+config_version=5
+
+[application]
+
+config/name="Orison M11C0 Floor 01 Cut Rehearsal"
+run/main_scene="res://harness_main.tscn"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+renderer/rendering_method="forward_plus"
+renderer/rendering_method.mobile="mobile"
+textures/default_filters/use_nearest_mipmap_filter=false
