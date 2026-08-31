@@ -140,9 +140,9 @@ func _warmup(inputs: Dictionary) -> Dictionary:
 	if bool(mounted.get("ok", false)) and not warmup_layout.is_empty():
 		scanner_warmup = await _exercise_scanner_adapter(adapter, warmup_layout)
 	var metrics := Support.tree_metrics(adapter.registry)
-	var adapter_weak := weakref(adapter)
-	var registry_weak := weakref(adapter.registry)
-	var host_weak := weakref(adapter.composition_host)
+	var adapter_weak: WeakRef = weakref(adapter)
+	var registry_weak: WeakRef = weakref(adapter.registry)
+	var host_weak: WeakRef = weakref(adapter.composition_host)
 	var teardown: Dictionary = adapter.public_teardown()
 	adapter.queue_free()
 	adapter = null
