@@ -1,6 +1,6 @@
 # Orison v2 M11A-A first exterior-cell human-readability checkpoint — 2026-08-30
 
-Evidence class: **TECHNICAL CHECKPOINT — HUMAN REVIEW PENDING — NO STATUS PROMOTION**
+Evidence class: **TECHNICAL CHECKPOINT — HUMAN ACCEPTED — NO STATUS PROMOTION**
 
 ## Decision
 
@@ -11,9 +11,16 @@ The focused production objective is **PASS 40/40**, the replacement Forward+
 packet is **PASS 4/4**, and the matched capture-lifecycle control is **PASS
 3/3**.
 
-This report does not self-declare human readability. The replacement packet is
-**HUMAN REVIEW PENDING** until the owner answers the question at the end of
-this checkpoint.
+The owner reviewed the committed replacement packet and returned **HUMAN
+ACCEPTED**. Without route-guide visuals, the packet communicates Orison, the
+pavement route, bodega threshold, interior/deliveries continuation, and the
+return toward Orison. The slight frame-1 sign crop is accepted as non-blocking
+visual debt. The durable owner receipt is
+**design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md**.
+
+This is route-readability acceptance for the bounded M11A-A exterior cell. It
+does not promote unrelated completeness requirements or authorize wider
+construction.
 
 M11A's accepted architecture is unchanged. This checkpoint does not authorize
 M09, M10, a selector cutover, production-layout replacement, v1 retirement,
@@ -279,10 +286,9 @@ packet, simulation bucket, save fact, or gameplay authority changed.
 
 ## Remaining limitations
 
-- Human acceptance of this replacement packet is pending; technical capture
-  and luminance checks do not decide it.
-- The Orison word is slightly cropped at the near-left edge of frame 1, while
-  the distinctive entrance, facade, and enough lettering remain unambiguous.
+- The Orison word is slightly cropped at the near-left edge of frame 1. The
+  owner accepted this as non-blocking visual debt because the distinctive
+  entrance, facade, and enough lettering remain unambiguous.
 - The authorized cell deliberately ends in dark off-cell space. No wider
   building or street was invented to fill it.
 - The bodega still has no production-authorized maintenance part/order. Its
@@ -307,8 +313,10 @@ packet, simulation bucket, save fact, or gameplay authority changed.
 The superseded packet remains untouched. This checkpoint is inert evidence and
 must not promote unrelated requirements.
 
-## Human-review question
+## Human-review decision
 
 “Without the route stripe, can a first-time player identify Orison, follow the
 pavement to the bodega, recognize and enter the threshold, understand the shop
 interior and deliveries continuation, then turn around and find Orison again?”
+
+**Owner answer: YES — HUMAN ACCEPTED.**
