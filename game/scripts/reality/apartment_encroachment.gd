@@ -36,6 +36,7 @@ const DreamResidueScript := preload("res://scripts/dream/dream_residue.gd")
 const DreamCritterScript := preload("res://scripts/dream/critters/dream_critter_controller.gd")
 const DreamDirectorScript := preload("res://scripts/dream/dream_ecology_director.gd")
 const DreamMossRendererScript := preload("res://scripts/dream/dream_moss_colony_renderer.gd")
+const DreamVoxelLightScript := preload("res://scripts/dream/dream_voxel_light_presenter.gd")
 ## §31 — what keeps three independent systems from producing incoherent noise.
 var ecology: DreamEcologyDirector = null
 ## DO-3: the architecture reads its own addressed packets. The shared director
@@ -134,6 +135,9 @@ var field_source: Dictionary = {}
 var ecology_source: Dictionary = {}
 var _cilia_sample_clock: Dictionary = {}
 var moss_presentations: Dictionary = {}
+## DREAM-VOXEL-V1: one default-off presentation adapter for the active Orison
+## world. It owns the shared field/texture/L1C presentation, never ecology.
+var voxel_light_presenter: DreamVoxelLightPresenter = null
 ## floor_id -> Array of OmniLight3D: the lights the organism throws (§5c).
 var field_lights: Dictionary = {}
 ## Every surface material on a storey the field was bound to (for refresh).
@@ -382,6 +386,40 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 func bind_player(player_node: Node3D) -> void:
 	if dream_field != null:
 		dream_field.player = player_node
+	_enable_voxel_light_presenter(player_node)
+
+
+## Bounded rollout: the capability is absent unless explicitly selected.
+## The default target is one furnished F02 case room; colonies on that active
+## floor share its one material and texture without broad phenotype rollout.
+func _enable_voxel_light_presenter(player_node: Node3D) -> void:
+	if OS.get_environment("DREAM_VOXEL_LIGHT") != "1" \
+			or voxel_light_presenter != null or player_node == null:
+		return
+	var target_case := OS.get_environment("DREAM_VOXEL_CASE")
+	if target_case.is_empty():
+		target_case = "mina_caption_crisis"
+	if not units.has(target_case):
+		push_warning("DREAM-VOXEL-V1 target case is not active: %s" % target_case)
+		return
+	var unit: Dictionary = units[target_case]
+	var target_floor := _floor_of(target_case)
+	var renderers: Array = []
+	for case_id in ecology_source:
+		if _floor_of(case_id) != target_floor:
+			continue
+		var renderer = moss_presentations.get(int(ecology_source[case_id]))
+		if renderer != null and is_instance_valid(renderer):
+			renderers.append(renderer)
+	if renderers.is_empty():
+		push_warning("DREAM-VOXEL-V1 found no production cellular presentation on %s"
+				% target_floor)
+		return
+	voxel_light_presenter = DreamVoxelLightScript.new()
+	voxel_light_presenter.name = "DreamVoxelLightPresenter"
+	add_child(voxel_light_presenter)
+	voxel_light_presenter.configure(player_node, target_case, unit.rect,
+			float(unit.floor_y), renderers)
 
 
 ## The service round owns only its waking route and offers named beats. The

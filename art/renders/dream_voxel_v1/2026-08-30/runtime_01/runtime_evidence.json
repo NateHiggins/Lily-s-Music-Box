@@ -1,0 +1,186 @@
+{
+  "activation": {
+    "default": false,
+    "feature_flag": "DREAM_VOXEL_LIGHT",
+    "global_selector_defaults_changed": false,
+    "review_value": true,
+    "target_case": "mina_caption_crisis"
+  },
+  "artifacts": [
+    "01_production_voxel_light_contact_sheet.png"
+  ],
+  "base_commit": "cacaa0a",
+  "ecology_authority": {
+    "presentation_only": true,
+    "reference_held_by_adapter": false,
+    "state_written_by_adapter": false
+  },
+  "focused_deltas": {
+    "cell_cpu_ms": 0.477,
+    "cell_gpu_ms": 0.431999981403351,
+    "combined_cpu_ms": 0.655,
+    "combined_draw_call_delta": 24.0,
+    "combined_gpu_ms": 1.65599995851517,
+    "combined_vram_delta_bytes": 0,
+    "field_cpu_ms": 0.163,
+    "field_gpu_ms": 0.226999998092651,
+    "lamp_cpu_ms": 0.798,
+    "lamp_gpu_ms": 0.696999967098236
+  },
+  "production_adapter": {
+    "add_lamp_call_count": 95,
+    "authorities": {
+      "DreamExposureField": "shared 0.5 m RG8 durable/reversible voxel history",
+      "DreamVoxelLightPresenter": "cellular optical interpretation and resource binding",
+      "LampOpticalInstrument": "electrical/thermal state and instantaneous physical presentation",
+      "ecology": "independent sensing and decisions; no reference held here"
+    },
+    "bound_organism_count": 2,
+    "bound_surface_count": 10,
+    "enabled": true,
+    "field": {
+      "active_durable_voxels": 900,
+      "active_irradiance_voxels": 799,
+      "active_voxels_union": 900,
+      "overflowed": false,
+      "stamped_room_count": 1,
+      "strongest_channel": "irradiance_g",
+      "strongest_grid_index": "(79, 7, 6)",
+      "strongest_voxel": 0.286274522542953,
+      "texture_dimensions": [
+        96,
+        96,
+        8
+      ],
+      "texture_format": "RG8",
+      "voxel_size_m": 0.5
+    },
+    "gpu_readback_during_gameplay": false,
+    "last_deposition": {
+      "cone_angle_deg": 35.2075424194336,
+      "cos_outer": 0.817069009674685,
+      "direction": "(-0.58907, -0.326658, -0.739115)",
+      "dt_s": 0.0666666666666667,
+      "normalized_energy": 0.539489814213344,
+      "origin": "(-6.156019, 5.430719, 5.97197)",
+      "range_m": 9.0
+    },
+    "method_chain": [
+      "LampOpticalState",
+      "LampOpticalInstrument._apply_output()",
+      "LampOpticalInstrument.light SpotLight3D",
+      "DreamVoxelLightPresenter.deposit_once()",
+      "DreamExposureField.add_lamp()",
+      "DreamExposureField.upload()",
+      "dream_moss_voxel_light.gdshader exposure_at(world_position)"
+    ],
+    "per_organism_field": false,
+    "per_organism_material": false,
+    "per_organism_texture": false,
+    "shared_material_count": 1,
+    "shared_texture_count": 1,
+    "substitute_scalar_drives_voxel_response": false,
+    "target_case": "mina_caption_crisis",
+    "update_cadence_hz": 15.0,
+    "upload_call_count": 95,
+    "upload_count": 44,
+    "voxel_update_cpu_ms_mean": 3.12387368421053,
+    "voxel_update_cpu_ms_peak": 6.001
+  },
+  "profiles": {
+    "cellular_renderer_only": {
+      "active_lights": 81,
+      "cpu_frame_ms_median": 3.847,
+      "draw_calls_median": 140.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 1.0460000038147,
+      "particle_systems": 2,
+      "vram_bytes": 5632863680
+    },
+    "l1c_lamp_only": {
+      "active_lights": 82,
+      "cpu_frame_ms_median": 4.168,
+      "draw_calls_median": 148.0,
+      "fog_volumes": 1,
+      "gpu_frame_ms_median": 1.31099998950958,
+      "particle_systems": 3,
+      "vram_bytes": 5632863680
+    },
+    "lamp_cell_voxel_combined": {
+      "active_lights": 82,
+      "cpu_frame_ms_median": 4.025,
+      "draw_calls_median": 157.0,
+      "fog_volumes": 1,
+      "gpu_frame_ms_median": 2.26999998092651,
+      "particle_systems": 3,
+      "vram_bytes": 5632863680
+    },
+    "production_baseline": {
+      "active_lights": 81,
+      "cpu_frame_ms_median": 3.37,
+      "draw_calls_median": 133.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 0.614000022411346,
+      "particle_systems": 2,
+      "vram_bytes": 5632863680
+    },
+    "voxel_field_only": {
+      "active_lights": 81,
+      "cpu_frame_ms_median": 3.533,
+      "draw_calls_median": 133.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 0.841000020503998,
+      "particle_systems": 2,
+      "vram_bytes": 5632863680
+    }
+  },
+  "renderer": "forward_plus",
+  "renderer_diagnostics": {
+    "baseline_equivalent": true,
+    "baseline_source": "S2J clean-main full-Orison lifecycle receipt",
+    "comparison_note": "same known Godot light-index teardown diagnostic; 1156 fewer than the untouched-main lifecycle baseline; no adapter shader or script error observed",
+    "new_adapter_shader_or_script_errors": 0,
+    "pairing_diagnostics_this_full_room_run": 108,
+    "untouched_main_light_index_baseline_count": 1264
+  },
+  "resolution": "1600x900",
+  "resource_policy": {
+    "dirty_gated_uploads": true,
+    "gpu_readback_during_gameplay": false,
+    "per_frame_mesh_construction": false,
+    "per_frame_texture_creation": false,
+    "per_organism_voxel_grids": 0,
+    "per_organism_voxel_materials": 0,
+    "shared_cellular_material": 1,
+    "shared_image_texture_3d": 1
+  },
+  "review_composition": {
+    "camera": "review-only gameplay-scale display-room camera",
+    "ecology_origin_or_state_rewritten": false,
+    "production_orison_loaded_for_runtime_baseline": true,
+    "production_renderer_repositioned_for_review_only": true,
+    "space": "bounded white microscopy display room"
+  },
+  "shader_compilation_status": "warmed in Forward+ with disabled, heatmap and production modes",
+  "stop_gate": {
+    "broadened_phenotypes": false,
+    "human_review_required": true,
+    "l1d_unblocked": false,
+    "merge_to_main": false,
+    "s2j_superseded": false
+  },
+  "task": "DREAM-VOXEL-V1",
+  "teardown": {
+    "baseline_equivalent": true,
+    "dream_exposure_field_retained": false,
+    "l1c_lamp_retained": false,
+    "lamp_release_requested": true,
+    "orison_world_retained": false,
+    "render_objects_after_release": 25,
+    "room_ownership_cleared": true,
+    "sampler_unbound": true,
+    "shared_material_retained": false,
+    "voxel_texture_retained": false,
+    "writer_stopped": true
+  }
+}
