@@ -1,8 +1,38 @@
 # DREAM-CRITTER-VOXEL-V3 motion-acceptance receipt
 
-Status: **produced for pre-merge human review; not merged**.
+Status: **human motion acceptance PASS; ready for controlled integration by
+exact hash; not merged**.
 
 Atlas implementation commit: `7a7281f` (`Add distinct voxel microorganism repertoire`)
+
+Motion packet commit: `d441309` (`Add twelve-species motion acceptance packet`)
+
+## Human motion acceptance — 2026-08-31
+
+PASS. The packet closes the static-atlas ambiguity:
+
+- Volvox reads as a rolling reproductive colony; Noctiluca reads as a
+  vacuolate body with localized scintillation.
+- Stentor contracts its whole cortex; Vorticella collapses through its stalk.
+- Lacrymaria, Euplotes, Spirostomum and the heliozoan retain unmistakably
+  different locomotor strategies.
+- Phototroph and colony behavior remains anatomically specific rather than
+  generic pulsing.
+
+Non-blocking debt remains the shared dark membrane treatment. Noctiluca's
+scintillation and some colony motion could also be more legible at gameplay
+distance. These findings do not authorize a material, geometry or authority
+expansion during integration.
+
+Controlled integration must use the two scoped implementation hashes exactly:
+
+```text
+7a7281ff3f3ca77a6df5bac43cde3ba282bf3cf6
+d441309ead2289eec7824c1b33231bcfa9553f93
+```
+
+The acceptance-record commit is documentation only and is not a substitute
+for either scoped implementation hash. S2J and L1D status remain unchanged.
 
 ## Bounded proof
 
