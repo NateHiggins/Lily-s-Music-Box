@@ -1,0 +1,45 @@
+{
+  "schema": "orison.m11c0.floor01-runtime-process.v1",
+  "status": "PASS_WITH_UNPROVEN_SEAMS",
+  "authority": "disposable_rehearsal_only",
+  "command": "$env:M11C0_MODE='runtime'; $env:M11C0_CONFIG='res://split_receipt.json'; $env:M11C0_MANIFEST='res://partition_manifest.json'; $env:M11C0_RUNTIME_RECEIPT='C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\receipts\\runtime_validation_receipt.json'; $log='C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\receipts\\runtime_process_stdout.log'; powershell -ExecutionPolicy Bypass -File tools/run_godot_serial.ps1 -Scene res://harness_main.tscn -ProjectPath C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06 -LogPath $log -TimeoutSeconds 60",
+  "engine": "Godot Engine v4.7.1.stable.official.a13da4feb",
+  "engine_exit": 0,
+  "stdout": {
+    "path": "runtime_process_stdout.log",
+    "external_raw_bytes": 124,
+    "external_raw_sha256": "c62e8163e4481d0181f88a9f1598ed49072e9677a6fc87fc704b827b6a7440d9",
+    "committed_blob_bytes": 121,
+    "committed_blob_sha256": "ab094fe95a0eb80eec847cd0ed5d13e5cc407bf71e594b2ca781f115a05730c0",
+    "normalization": "CRLF to LF by the repository text attribute"
+  },
+  "stderr": {
+    "path": "runtime_process_stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "runtime_receipt": {
+    "path": "runtime_validation_receipt.json",
+    "bytes": 138117,
+    "sha256": "525803a366512c4b81176657ba8ee91459a3baf83782556791d4cc46ac619144"
+  },
+  "warning_scan": {
+    "objectdb_or_instance_leak_matches": 0,
+    "resource_leak_matches": 0,
+    "error_line_matches": 0,
+    "warning_line_matches": 0
+  },
+  "lifecycle": {
+    "warmed_cycle_1_object_delta": 1,
+    "warmed_cycle_2_object_delta": 0,
+    "warmed_cycle_2_resource_delta": 0,
+    "final_object_delta_from_warmed_baseline": -6,
+    "final_resource_delta_from_warmed_baseline": 0,
+    "final_node_delta_from_warmed_baseline": 0,
+    "final_orphan_node_count": 0,
+    "unreleased_composition_instance_ids": 0
+  },
+  "unproven": [
+    "SEAM_SHELL_INTERIOR has no explicit collision ray endpoints or navigation proof."
+  ]
+}

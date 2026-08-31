@@ -1,0 +1,2329 @@
+{
+  "schema": "orison.m11c0.floor01-measurements.v1",
+  "status": "PASS",
+  "context": {
+    "root": "disposable whole-node glTF cells",
+    "quality_profile": "static descriptor/BIN measurement",
+    "cell_set": "safe_current_partition",
+    "simulation_state": "not instantiated; runtime receipt is separate",
+    "analyze_only": false
+  },
+  "source": {
+    "gltf_bytes": 682906,
+    "bin_bytes": 12020428,
+    "descriptor_plus_bin_bytes": 12703334
+  },
+  "cells": [
+    {
+      "id": "CELL_LEGACY_MIXED",
+      "slug": "legacy_mixed",
+      "nodes": 134,
+      "meshes": 134,
+      "primitives": 134,
+      "accessors": 503,
+      "buffer_views": 503,
+      "materials": 93,
+      "textures": 271,
+      "images": 271,
+      "collision_tagged_nodes": 43,
+      "gltf_bytes": 278793,
+      "bin_bytes": 9377348,
+      "bounds_union": [
+        [
+          -112.0,
+          -2.869999885559082,
+          -66.0
+        ],
+        [
+          108.0,
+          53.585227966308594,
+          102.19999694824219
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SITE_STREET_DEDICATED",
+      "slug": "site_street_dedicated",
+      "nodes": 8,
+      "meshes": 8,
+      "primitives": 8,
+      "accessors": 29,
+      "buffer_views": 29,
+      "materials": 8,
+      "textures": 23,
+      "images": 23,
+      "collision_tagged_nodes": 8,
+      "gltf_bytes": 19428,
+      "bin_bytes": 22320,
+      "bounds_union": [
+        [
+          -33.20000076293945,
+          0.0,
+          -14.899999618530273
+        ],
+        [
+          32.20000076293945,
+          2.569999933242798,
+          28.299999237060547
+        ]
+      ]
+    },
+    {
+      "id": "CELL_PASSAGE_PORTAL_PROXY",
+      "slug": "passage_portal_proxy",
+      "nodes": 12,
+      "meshes": 12,
+      "primitives": 12,
+      "accessors": 46,
+      "buffer_views": 46,
+      "materials": 8,
+      "textures": 23,
+      "images": 23,
+      "collision_tagged_nodes": 11,
+      "gltf_bytes": 25898,
+      "bin_bytes": 303008,
+      "bounds_union": [
+        [
+          6.300000190734863,
+          -1.340000033378601,
+          27.055999755859375
+        ],
+        [
+          20.700000762939453,
+          10.739999771118164,
+          33.25
+        ]
+      ]
+    },
+    {
+      "id": "CELL_PASSAGE_SHELL",
+      "slug": "passage_shell",
+      "nodes": 20,
+      "meshes": 20,
+      "primitives": 20,
+      "accessors": 76,
+      "buffer_views": 76,
+      "materials": 17,
+      "textures": 50,
+      "images": 50,
+      "collision_tagged_nodes": 15,
+      "gltf_bytes": 45929,
+      "bin_bytes": 733024,
+      "bounds_union": [
+        [
+          0.5699999928474426,
+          -0.05000000074505806,
+          28.31599998474121
+        ],
+        [
+          27.43000030517578,
+          12.100000381469727,
+          64.8499984741211
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_BAR",
+      "slug": "shop_bar",
+      "nodes": 31,
+      "meshes": 31,
+      "primitives": 31,
+      "accessors": 107,
+      "buffer_views": 107,
+      "materials": 31,
+      "textures": 92,
+      "images": 92,
+      "collision_tagged_nodes": 31,
+      "gltf_bytes": 72982,
+      "bin_bytes": 155160,
+      "bounds_union": [
+        [
+          -12.0,
+          -2.9000000953674316,
+          28.299999237060547
+        ],
+        [
+          6.400000095367432,
+          3.549999952316284,
+          38.20000076293945
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_BODEGA",
+      "slug": "shop_bodega",
+      "nodes": 16,
+      "meshes": 16,
+      "primitives": 16,
+      "accessors": 57,
+      "buffer_views": 57,
+      "materials": 16,
+      "textures": 47,
+      "images": 47,
+      "collision_tagged_nodes": 16,
+      "gltf_bytes": 38082,
+      "bin_bytes": 125232,
+      "bounds_union": [
+        [
+          15.199999809265137,
+          0.0,
+          1.2999999523162842
+        ],
+        [
+          19.600000381469727,
+          3.549999952316284,
+          13.100000381469727
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_MODEL_LAUNDRY",
+      "slug": "shop_model_laundry",
+      "nodes": 32,
+      "meshes": 32,
+      "primitives": 32,
+      "accessors": 112,
+      "buffer_views": 112,
+      "materials": 31,
+      "textures": 87,
+      "images": 87,
+      "collision_tagged_nodes": 23,
+      "gltf_bytes": 73955,
+      "bin_bytes": 155996,
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          39.13999938964844
+        ],
+        [
+          12.600000381469727,
+          4.199999809265137,
+          44.86000061035156
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_SHOE_REBUILDING",
+      "slug": "shop_shoe_rebuilding",
+      "nodes": 20,
+      "meshes": 20,
+      "primitives": 20,
+      "accessors": 70,
+      "buffer_views": 70,
+      "materials": 20,
+      "textures": 59,
+      "images": 59,
+      "collision_tagged_nodes": 20,
+      "gltf_bytes": 47883,
+      "bin_bytes": 85008,
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          44.7400016784668
+        ],
+        [
+          12.600000381469727,
+          4.199999809265137,
+          50.459999084472656
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_KEYS_CUT",
+      "slug": "shop_keys_cut",
+      "nodes": 20,
+      "meshes": 20,
+      "primitives": 20,
+      "accessors": 71,
+      "buffer_views": 71,
+      "materials": 20,
+      "textures": 59,
+      "images": 59,
+      "collision_tagged_nodes": 20,
+      "gltf_bytes": 47803,
+      "bin_bytes": 151296,
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          50.34000015258789
+        ],
+        [
+          12.319999694824219,
+          4.199999809265137,
+          54.060001373291016
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_HARDWARE_PAINT",
+      "slug": "shop_hardware_paint",
+      "nodes": 21,
+      "meshes": 21,
+      "primitives": 21,
+      "accessors": 76,
+      "buffer_views": 76,
+      "materials": 21,
+      "textures": 62,
+      "images": 62,
+      "collision_tagged_nodes": 21,
+      "gltf_bytes": 50920,
+      "bin_bytes": 186360,
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          53.939998626708984
+        ],
+        [
+          12.319999694824219,
+          4.199999809265137,
+          59.459999084472656
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_FUNERAL_PARLOUR",
+      "slug": "shop_funeral_parlour",
+      "nodes": 23,
+      "meshes": 23,
+      "primitives": 23,
+      "accessors": 78,
+      "buffer_views": 78,
+      "materials": 23,
+      "textures": 68,
+      "images": 68,
+      "collision_tagged_nodes": 23,
+      "gltf_bytes": 54381,
+      "bin_bytes": 94512,
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          59.34000015258789
+        ],
+        [
+          12.600000381469727,
+          4.199999809265137,
+          64.05999755859375
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_PHOTO_SUPPLIES",
+      "slug": "shop_photo_supplies",
+      "nodes": 34,
+      "meshes": 34,
+      "primitives": 34,
+      "accessors": 117,
+      "buffer_views": 117,
+      "materials": 32,
+      "textures": 90,
+      "images": 90,
+      "collision_tagged_nodes": 25,
+      "gltf_bytes": 77481,
+      "bin_bytes": 120716,
+      "bounds_union": [
+        [
+          15.399999618530273,
+          -0.05000000074505806,
+          58.7400016784668
+        ],
+        [
+          27.059999465942383,
+          4.199999809265137,
+          64.05999755859375
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_RADIO_SERVICE",
+      "slug": "shop_radio_service",
+      "nodes": 35,
+      "meshes": 35,
+      "primitives": 35,
+      "accessors": 121,
+      "buffer_views": 121,
+      "materials": 32,
+      "textures": 90,
+      "images": 90,
+      "collision_tagged_nodes": 26,
+      "gltf_bytes": 78837,
+      "bin_bytes": 101948,
+      "bounds_union": [
+        [
+          15.420000076293945,
+          -0.05000000074505806,
+          55.540000915527344
+        ],
+        [
+          26.81999969482422,
+          4.199999809265137,
+          58.86000061035156
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_PAWNBROKER",
+      "slug": "shop_pawnbroker",
+      "nodes": 34,
+      "meshes": 34,
+      "primitives": 34,
+      "accessors": 117,
+      "buffer_views": 117,
+      "materials": 32,
+      "textures": 90,
+      "images": 90,
+      "collision_tagged_nodes": 25,
+      "gltf_bytes": 77033,
+      "bin_bytes": 121964,
+      "bounds_union": [
+        [
+          15.680000305175781,
+          -0.05000000074505806,
+          50.939998626708984
+        ],
+        [
+          27.059999465942383,
+          4.199999809265137,
+          55.65999984741211
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_NEWS_CIGARS",
+      "slug": "shop_news_cigars",
+      "nodes": 27,
+      "meshes": 27,
+      "primitives": 27,
+      "accessors": 97,
+      "buffer_views": 97,
+      "materials": 25,
+      "textures": 69,
+      "images": 69,
+      "collision_tagged_nodes": 18,
+      "gltf_bytes": 61501,
+      "bin_bytes": 89516,
+      "bounds_union": [
+        [
+          15.680000305175781,
+          -0.05000000074505806,
+          48.63999938964844
+        ],
+        [
+          26.81999969482422,
+          4.199999809265137,
+          51.060001373291016
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_OTIS_SON",
+      "slug": "shop_otis___son",
+      "nodes": 30,
+      "meshes": 30,
+      "primitives": 30,
+      "accessors": 101,
+      "buffer_views": 101,
+      "materials": 30,
+      "textures": 89,
+      "images": 89,
+      "collision_tagged_nodes": 30,
+      "gltf_bytes": 70568,
+      "bin_bytes": 150480,
+      "bounds_union": [
+        [
+          15.420000076293945,
+          -0.05000000074505806,
+          44.34000015258789
+        ],
+        [
+          27.059999465942383,
+          4.199999809265137,
+          48.7599983215332
+        ]
+      ]
+    },
+    {
+      "id": "CELL_SHOP_LUNCHEONETTE",
+      "slug": "shop_luncheonette",
+      "nodes": 34,
+      "meshes": 34,
+      "primitives": 34,
+      "accessors": 118,
+      "buffer_views": 118,
+      "materials": 32,
+      "textures": 90,
+      "images": 90,
+      "collision_tagged_nodes": 25,
+      "gltf_bytes": 77481,
+      "bin_bytes": 138064,
+      "bounds_union": [
+        [
+          15.399999618530273,
+          -0.05000000074505806,
+          39.13999938964844
+        ],
+        [
+          27.059999465942383,
+          4.199999809265137,
+          44.459999084472656
+        ]
+      ]
+    }
+  ],
+  "recomposed": {
+    "gltf_bytes": 1198955,
+    "bin_bytes": 12111952,
+    "accessor_dependency_duplication": {
+      "source_accessors": 1740,
+      "cell_accessor_copies": 1896,
+      "cross_cell_accessor_copies": 156,
+      "source_materials": 104,
+      "cell_material_copies": 471,
+      "cross_cell_material_copies": 367
+    }
+  },
+  "shared_texture_library": {
+    "files": [
+      {
+        "source_uri": "textures/T_ai_materials_appliance_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_appliance_b_albedo.png",
+        "bytes": 1879284,
+        "sha256": "dd1f4b4270f4817de20a10879da9090fcb0835227d0d724e108edb8cbe693a2c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_appliance_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_appliance_b_normal.png",
+        "bytes": 824169,
+        "sha256": "622d8620c9d706814be5de544a6697c80509faf87af24b641a1779b9cdad2a41"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_appliance_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_appliance_b_rough.png",
+        "bytes": 203103,
+        "sha256": "f0a38884d820e44675a08fb0abcdda601eb8f0a5581ee864474f1131c4a513e6"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_art_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_art_albedo.png",
+        "bytes": 1548238,
+        "sha256": "054a43a07b81356de168df6e008b8e7de5a7cd8d3a7b8c0a4f1fa51ffe0c459e"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_art_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_art_normal.png",
+        "bytes": 640261,
+        "sha256": "5830b325bfab8223bd939ab5b6ebbf7435bbbb42f54c54e33d274503a74ca89c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_art_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_art_rough.png",
+        "bytes": 153437,
+        "sha256": "4d563e45075be995660b5037ac6293be39c88450fcf5db4b531e5c40e7dd9502"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_asphalt_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_asphalt_b_albedo.png",
+        "bytes": 2429093,
+        "sha256": "984edd28e3b5023ea9cadbf29d59e88983e590cb520be34ef77ee8eb9b8e5349"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_asphalt_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_asphalt_b_normal.png",
+        "bytes": 1404331,
+        "sha256": "eb5a108218d4707b6bc7d3273c4823da7d7f490248ce26984fb4fb37a571b72c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_asphalt_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_asphalt_b_rough.png",
+        "bytes": 181812,
+        "sha256": "75d00a23a3aecc08fa29a819ea58949b12c187d0a6c388596b7c56d4a979bb0e"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_awning_vinyl_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_awning_vinyl_albedo.png",
+        "bytes": 1426405,
+        "sha256": "9c51107132cb0ad807812cd4786b666c50470e88174534b7e8f07ffbb2d602f3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_awning_vinyl_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_awning_vinyl_normal.png",
+        "bytes": 722098,
+        "sha256": "a0435f3fded31aae71fd8e512558f1205dcd75c45d2ac9f71b9f7c149fcc1ff3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_awning_vinyl_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_awning_vinyl_rough.png",
+        "bytes": 115756,
+        "sha256": "d36788bc8e296971744077f081d596f910e0fbe3e78283a954ea4ce3ed6b99ab"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bakelite_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_bakelite_b_albedo.png",
+        "bytes": 1450766,
+        "sha256": "c6b7229abf6770227aa4c0d4dd2bb92eb0897741733020be2790be5d04e24b2c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bakelite_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_bakelite_b_normal.png",
+        "bytes": 658727,
+        "sha256": "cd8ea306e798addd3c2763ba9a14d4f8a56fe486b0a2261cec5e90b3f8930942"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bakelite_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_bakelite_b_rough.png",
+        "bytes": 134552,
+        "sha256": "1354a0b2adcedae42bfb095b965f8f9a29655a769815879709bcb545bb306b2b"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bakelite_black_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_bakelite_black_albedo.png",
+        "bytes": 201322,
+        "sha256": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bakelite_black_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_bakelite_black_normal.png",
+        "bytes": 57693,
+        "sha256": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bakelite_black_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_bakelite_black_rough.png",
+        "bytes": 37868,
+        "sha256": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_baluster_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_baluster_b_albedo.png",
+        "bytes": 2016179,
+        "sha256": "3d39f0685ad2f254f1654213efaa45573fb596bb2f198489a555e0df9e253092"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_baluster_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_baluster_b_normal.png",
+        "bytes": 855447,
+        "sha256": "0ce4dd7a901d895b7c548c719ccb31347e79f68f87d95cebe435537eac5cea55"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_baluster_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_baluster_b_rough.png",
+        "bytes": 180036,
+        "sha256": "494796a7d48c38a6612414c83020564d089344f68ac48a30bbc2ccbb93722dbb"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bar_wall_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_bar_wall_b_albedo.png",
+        "bytes": 1285333,
+        "sha256": "d6a5be39a11852ebcec16ac464057afbef94453de8d9e6bfe1a89b5d0001eb1c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bar_wall_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_bar_wall_b_normal.png",
+        "bytes": 650514,
+        "sha256": "e6c225a0622cab4613ae5970f911e7a0376d98ccb6858230ddc2d1d33117ed04"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bar_wall_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_bar_wall_b_rough.png",
+        "bytes": 104210,
+        "sha256": "cdd9b827632b0e2c93619d650b7de66aa76f7201469d3371a40f3089e79baaf8"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bar_wall_red_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_bar_wall_red_b_albedo.png",
+        "bytes": 1551173,
+        "sha256": "51effa4fabf694373395a801257ad9f72a1154bca764e9a20a7e724eb138e455"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bar_wall_red_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_bar_wall_red_b_normal.png",
+        "bytes": 759971,
+        "sha256": "304f9f15cc97761a11c7de173f7646f5cc284464d7617a05004cd53917950584"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bar_wall_red_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_bar_wall_red_b_rough.png",
+        "bytes": 131547,
+        "sha256": "abc8942ebc80292da23283e873777d9211352998cdb914dbb14ef29b72438493"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_albedo.png",
+        "bytes": 2221644,
+        "sha256": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_b_albedo.png",
+        "bytes": 2254732,
+        "sha256": "7396468765c58d9c718399f17ae33a16109e8e2097ed456cdacfd62d9cb5fe79"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_b_normal.png",
+        "bytes": 871827,
+        "sha256": "f6a65f8ae4f65f5222d69378d55e218c2fc07ee7858ed7d8ab6306cd79673fac"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_b_rough.png",
+        "bytes": 228139,
+        "sha256": "d8b7865ed3c52fbf111696f73bbfc59121baaed1f509b2e7a55e97669226cf0c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_bright_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_bright_albedo.png",
+        "bytes": 261734,
+        "sha256": "d34cce25b7b06c59f06c918060974312a9fabd2d6857789180590a87581e9b71"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_bright_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_bright_normal.png",
+        "bytes": 81325,
+        "sha256": "2246f9e34c07518f94d1d8dfb4f374c86f4834b8fb22a55a0a83f308464be6f7"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_bright_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_bright_rough.png",
+        "bytes": 66931,
+        "sha256": "3b0680da5091da03b8212ecbf287c12934f4d248e82380ed45d101c6f0dd1fa1"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_mesh_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_mesh_albedo.png",
+        "bytes": 221869,
+        "sha256": "028870c51a301aae725e85a96aba0f64f8bdc85e29d64a4fca9406ba5eef089b"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_mesh_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_mesh_normal.png",
+        "bytes": 115410,
+        "sha256": "ffa3452fa9e62d83138a2c22e79cd3b811886800face31861409f7b2450d9def"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_mesh_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_mesh_rough.png",
+        "bytes": 68415,
+        "sha256": "7ed0cf343d586a266eba266d98896b7eb4e6004487f822f59995e03304b9659a"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_normal.png",
+        "bytes": 895232,
+        "sha256": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brass_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_brass_rough.png",
+        "bytes": 237594,
+        "sha256": "96160db7aae734e36f3c42abddc3795995e9d8ea8f7739a1eaa432f5d63fc54d"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brick_patched_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_brick_patched_b_albedo.png",
+        "bytes": 2142492,
+        "sha256": "f2865ea5a11896ce14087ea28682742593b5da413b6af0cd39d90adaf318b892"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brick_patched_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_brick_patched_b_normal.png",
+        "bytes": 1414822,
+        "sha256": "40da277283fb88d735bc908ca85ec5e2f4d89b17c7df5e0cb7be199129ece70f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_brick_patched_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_brick_patched_b_rough.png",
+        "bytes": 172115,
+        "sha256": "c9f0ad9695e89d4288a2ac134530267a9807062fadb63b6630679116acce6286"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bronze_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_bronze_albedo.png",
+        "bytes": 243819,
+        "sha256": "de9b91776f62e52e70e36f1733d2147b5f96a327745d2f661382e688a381602c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bronze_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_bronze_normal.png",
+        "bytes": 105821,
+        "sha256": "c235d1e0e1e10456d9b934be79e42d2293cb43a90e5aa5026b9e0ce294ff3ca3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_bronze_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_bronze_rough.png",
+        "bytes": 64923,
+        "sha256": "336b7648b51e3124c6ba8c55a6def99ce263c8ab60d0f858148dedfabebd35a8"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_cast_iron_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_cast_iron_b_albedo.png",
+        "bytes": 2517306,
+        "sha256": "e29e8af9ae49ffe16ba718373dea8c95af5f81f621cb756dcab2e37694989ebf"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_cast_iron_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_cast_iron_b_normal.png",
+        "bytes": 1304808,
+        "sha256": "ded797b5a2b7272ede7113ef85a5a51ef70777a7fe73d1e28328c94b064bcee2"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_cast_iron_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_cast_iron_b_rough.png",
+        "bytes": 251980,
+        "sha256": "1fa3ea924061c69986f76ac01058b9bc17501305ae3d6eac0bff517f52c35d39"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_ceramic_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_ceramic_b_albedo.png",
+        "bytes": 563976,
+        "sha256": "90399420e312fb509fac7c8287c8e42855e255b11226b4fe42ec67b817282b53"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_ceramic_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_ceramic_b_normal.png",
+        "bytes": 383765,
+        "sha256": "326bd38659be17a490066e867093efcd1fbbe286625b665d79dac281ed148742"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_ceramic_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_ceramic_b_rough.png",
+        "bytes": 156182,
+        "sha256": "1558197811bde36319be4db6d30920e33b771519524be01bb1a62ff84af9b081"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_chrome_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_chrome_b_albedo.png",
+        "bytes": 1931967,
+        "sha256": "52818b170ec1f66bc9b2d99fa16305a5937491999af53bbe6d723e85fe84d19b"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_chrome_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_chrome_b_normal.png",
+        "bytes": 842738,
+        "sha256": "dbf7855df40bd0986a80ba2568ccd944a6db0e9400b5c89dab4e6d78ff8d6812"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_chrome_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_chrome_b_rough.png",
+        "bytes": 163437,
+        "sha256": "075253b5fc73139d265a9ee592ff30db94db7866e157a01cba8cfda4073c948f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_common_brick_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_common_brick_b_albedo.png",
+        "bytes": 2142492,
+        "sha256": "f2865ea5a11896ce14087ea28682742593b5da413b6af0cd39d90adaf318b892"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_common_brick_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_common_brick_b_normal.png",
+        "bytes": 1414822,
+        "sha256": "40da277283fb88d735bc908ca85ec5e2f4d89b17c7df5e0cb7be199129ece70f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_common_brick_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_common_brick_b_rough.png",
+        "bytes": 172115,
+        "sha256": "c9f0ad9695e89d4288a2ac134530267a9807062fadb63b6630679116acce6286"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_concrete_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_concrete_b_albedo.png",
+        "bytes": 1853299,
+        "sha256": "cbc821955c9a24a35068b8f36eeeda3ee3c5d86e229bdb755c06006c0b576a89"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_concrete_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_concrete_b_normal.png",
+        "bytes": 929902,
+        "sha256": "9e7148661933b30a708b68e58903cc6ae809f5ef85e1c816270d67bf5def36d3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_concrete_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_concrete_b_rough.png",
+        "bytes": 138095,
+        "sha256": "9201295275e0ffd0f785a520579333194ef90368ad73b9a0fa02a86f9e58d164"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_copper_aged_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_copper_aged_albedo.png",
+        "bytes": 1923107,
+        "sha256": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_copper_aged_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_copper_aged_normal.png",
+        "bytes": 730352,
+        "sha256": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_copper_aged_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_copper_aged_rough.png",
+        "bytes": 137635,
+        "sha256": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_countertop_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_countertop_b_albedo.png",
+        "bytes": 1586598,
+        "sha256": "4eda532d4505f6142c763273391609e0c62144816d464adb1d688b272d87fe39"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_countertop_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_countertop_b_normal.png",
+        "bytes": 580301,
+        "sha256": "74e5bd880ac2771681f3dad39151283b9341b44d8d0c2421e221478652a8e540"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_countertop_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_countertop_b_rough.png",
+        "bytes": 151939,
+        "sha256": "8d3eafa9a0a0af5f7bcd6bd0f7951a05e4fbe18d50d550e32be09c0109b39035"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_enamel_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_enamel_b_albedo.png",
+        "bytes": 2035595,
+        "sha256": "e630f3697fdb8b91928e6587fdf85d969dcbeefe95985ca35243cabd5b00022f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_enamel_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_enamel_b_normal.png",
+        "bytes": 961639,
+        "sha256": "167b2236c1b175da053dc0e7445a394b95add74da2c1e1c80aa8fa0a50a74063"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_enamel_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_enamel_b_rough.png",
+        "bytes": 205771,
+        "sha256": "7ccff5f5a38ebac117104a98593f2b4925f6fdf3a3fa8c9b5d38d7c61adc96ca"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_cool_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_cool_b_albedo.png",
+        "bytes": 2364708,
+        "sha256": "9b9ec8eecf2805b104adbc69db57689fe3046ba1360a76b5851f52631d9b2b2e"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_cool_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_cool_b_normal.png",
+        "bytes": 1134953,
+        "sha256": "65a7e4658f126100db65fa05ce9dc8899ca13d271a0f0859a6641fd0e1ba791f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_cool_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_cool_b_rough.png",
+        "bytes": 159033,
+        "sha256": "6baf891f6afd1358f7c3b0fc06a965a9b03df167ea283f64e59371d690d4a20f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_green_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_green_b_albedo.png",
+        "bytes": 2044290,
+        "sha256": "210286be9c96e86bff01c87d9127883f826ca411694aa91874a0108ee51dadcd"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_green_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_green_b_normal.png",
+        "bytes": 968949,
+        "sha256": "0eefc73f6aeb5cbdad6431b2653dc8376ee53bfc3b02da9ac98a874a713d5bc4"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_green_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_green_b_rough.png",
+        "bytes": 142686,
+        "sha256": "e23a0cd2795195aede629328a74807b07bdf0e2dcb9c0f0d68c73910c2cccd74"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_warm_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_warm_b_albedo.png",
+        "bytes": 2126593,
+        "sha256": "484a90a02635618082aa1444afd2e27ff0a3853a890800163a7303c7a3c38dcf"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_warm_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_warm_b_normal.png",
+        "bytes": 911061,
+        "sha256": "7f28053f076dd6df5f55714546af9909eff321fbebef7d5a45d32d54ddbfa437"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_fabric_warm_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_fabric_warm_b_rough.png",
+        "bytes": 108922,
+        "sha256": "97740a9982409865fb64e2023ce2ef4d4f21ef5792c77ac8724537b2b5f0fd58"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_face_brick_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_face_brick_b_albedo.png",
+        "bytes": 1817688,
+        "sha256": "3f8c10e23b32d6dcab541af68a437696b6390af7fbe1322d27e14f4580aed5d6"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_face_brick_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_face_brick_b_normal.png",
+        "bytes": 1232528,
+        "sha256": "81106855b105a2baa639be9440c49c7fc228458dac89c6e27ad2bc2b73f0d685"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_face_brick_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_face_brick_b_rough.png",
+        "bytes": 139542,
+        "sha256": "b33eeefb2cb266fd361ae180f6ed660436c8ca872313d959f60830e3a00ef29f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_felt_violet_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_felt_violet_b_albedo.png",
+        "bytes": 1857297,
+        "sha256": "b06a0256dcc8b425a46a8827523c700334f2089ad7ccf34f98894fda35d69553"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_felt_violet_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_felt_violet_b_normal.png",
+        "bytes": 725381,
+        "sha256": "e8fb511d1b46a9874bf5f1901498d40f0797310914b2c46606216ab6ba5461a5"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_felt_violet_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_felt_violet_b_rough.png",
+        "bytes": 61594,
+        "sha256": "491e961f2007bd6d3702b28d0ce1bc84b0463849c9c2bf118f7196220790c4ea"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_floor_oak_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_floor_oak_b_albedo.png",
+        "bytes": 1563418,
+        "sha256": "bd2dfa9200f1d9261515006679ef401d6192e42f0a633ce4ee21d5a8ec83c68b"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_floor_oak_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_floor_oak_b_normal.png",
+        "bytes": 807005,
+        "sha256": "c2ea681ade9db651d9f7e89bf36f5664de02527b60b6017ecd102801cafcbed9"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_floor_oak_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_floor_oak_b_rough.png",
+        "bytes": 158357,
+        "sha256": "45cd63cbac4d20e499fdde57c9acca7753016a8cd0f59b3f4ff6e2a57f39bd9c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_handrail_wood_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_handrail_wood_b_albedo.png",
+        "bytes": 1592071,
+        "sha256": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_handrail_wood_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_handrail_wood_b_normal.png",
+        "bytes": 555539,
+        "sha256": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_handrail_wood_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_handrail_wood_b_rough.png",
+        "bytes": 132362,
+        "sha256": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_indicator_enamel_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_indicator_enamel_albedo.png",
+        "bytes": 160719,
+        "sha256": "64bfd4a979e1cf5ca37f116c83e4b187d25dbd56d3e18cbb82e496c0ec8cd32d"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_indicator_enamel_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_indicator_enamel_normal.png",
+        "bytes": 55487,
+        "sha256": "f3034797fc658673767625552c3c607b63b3b041cc34b95f89730365138fd850"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_indicator_enamel_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_indicator_enamel_rough.png",
+        "bytes": 26259,
+        "sha256": "5c5fd3837456c45f683d4e35cc5bf4e335749940107a361886dcd691173ada29"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_lacquer_red_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_lacquer_red_b_albedo.png",
+        "bytes": 1234591,
+        "sha256": "1d700ff53ee72a209364926b2e3562967304dacff8f786bc6fc6f23b0322ace3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_lacquer_red_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_lacquer_red_b_normal.png",
+        "bytes": 686451,
+        "sha256": "1104195b3d6694c6b1dfd6558d944e2bd127c8120f34ca766cdd126ac364b079"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_lacquer_red_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_lacquer_red_b_rough.png",
+        "bytes": 121358,
+        "sha256": "740a6524e66baf2d6ff290b7d36d9cf55fefa25defd1d1fd385a0bf3b3eed204"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_leaf_fall_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_leaf_fall_b_albedo.png",
+        "bytes": 2053265,
+        "sha256": "a359fd7f8f4399de57bad1a5bcd2d1eea1ed6cc3cf9d1c9561d7263ac2aab286"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_leaf_fall_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_leaf_fall_b_normal.png",
+        "bytes": 974887,
+        "sha256": "2ffc66718f3e460b02b570cee3742885df154413db66cda17393c782c1382f21"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_leaf_fall_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_leaf_fall_b_rough.png",
+        "bytes": 198432,
+        "sha256": "dbdb479f0165fd4db06fbab41bad1ecb12c090f8fff99ed907118d7dcd48d2c0"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_limestone_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_limestone_b_albedo.png",
+        "bytes": 1784119,
+        "sha256": "295ec390745c0b47e9bfac80099737c79a683b053b38264bad34b13c02975d76"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_limestone_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_limestone_b_normal.png",
+        "bytes": 795374,
+        "sha256": "e749716315fa6ecb160142bf47d29a7893f9f76346e402562206032af808c18f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_limestone_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_limestone_b_rough.png",
+        "bytes": 128406,
+        "sha256": "67923e23188a8aafcfebea0b1c8bd9878b7fb9f572209d5bee2bca344e86d730"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_linen_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_linen_b_albedo.png",
+        "bytes": 1788623,
+        "sha256": "1333b538c75bb8588f89d044ef154529f711eaedb752131a478bb1ab18baad96"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_linen_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_linen_b_normal.png",
+        "bytes": 744515,
+        "sha256": "691f0fe20ea29533d2ea39131694c7b07d8960f71d3a02c1457b985f42e8ef91"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_linen_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_linen_b_rough.png",
+        "bytes": 74128,
+        "sha256": "2cf793bc24e69c58841599208f653e7c0a4c51f917277b2d06618f092ba738a1"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_linoleum_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_linoleum_b_albedo.png",
+        "bytes": 1678773,
+        "sha256": "8554589b70fe70f45d3047707ef40dc81d83ac1e13c135338769217c44f67e45"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_linoleum_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_linoleum_b_normal.png",
+        "bytes": 610385,
+        "sha256": "89a79f367c5af0f31a05f60fc650f59b0fa49d93b71f3df28c83ec0613dd1bb2"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_linoleum_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_linoleum_b_rough.png",
+        "bytes": 147763,
+        "sha256": "fffc88b001a0062cac98ab26b1a8a83353f83672464bf97f5e0b23801a428e72"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_marble_lobby_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_marble_lobby_b_albedo.png",
+        "bytes": 659383,
+        "sha256": "5e133dc36851f6b2a334d6f2470240d14e3be636d651db03bef5b211e8dbf190"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_marble_lobby_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_marble_lobby_b_normal.png",
+        "bytes": 341195,
+        "sha256": "46aac270087a1a77779c7ddb06a5735f7bcecb4c21912cb9d31e66fce278b28a"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_marble_lobby_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_marble_lobby_b_rough.png",
+        "bytes": 101670,
+        "sha256": "a395d4d9d21b8d05a49aa2bb82b11c128049d9798eef03cbc1480012b2e7c299"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_metal_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_metal_b_albedo.png",
+        "bytes": 1722318,
+        "sha256": "fba2fee71543d6dfcbbce474a9dec39c5ea9f6b02f1db6752909fac875a7caeb"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_metal_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_metal_b_normal.png",
+        "bytes": 630098,
+        "sha256": "59c6323194f1146e567e786d25971bcfc68782a21ef412a8e12105278baab380"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_metal_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_metal_b_rough.png",
+        "bytes": 174599,
+        "sha256": "fcbc3ee2dd0dffe0d7016e0485aca66dcb75b18f994de0620c33830c9ee5cf1f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_milk_glass_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_milk_glass_albedo.png",
+        "bytes": 114303,
+        "sha256": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_milk_glass_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_milk_glass_normal.png",
+        "bytes": 32089,
+        "sha256": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_milk_glass_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_milk_glass_rough.png",
+        "bytes": 21352,
+        "sha256": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_mirror_aged_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_mirror_aged_albedo.png",
+        "bytes": 1822449,
+        "sha256": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_mirror_aged_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_mirror_aged_normal.png",
+        "bytes": 475130,
+        "sha256": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_mirror_aged_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_mirror_aged_rough.png",
+        "bytes": 117870,
+        "sha256": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_nickel_plated_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_nickel_plated_albedo.png",
+        "bytes": 2204256,
+        "sha256": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_nickel_plated_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_nickel_plated_normal.png",
+        "bytes": 820861,
+        "sha256": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_nickel_plated_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_nickel_plated_rough.png",
+        "bytes": 175853,
+        "sha256": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_oak_quartered_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_oak_quartered_albedo.png",
+        "bytes": 201777,
+        "sha256": "911ce83872ab46bec22456b651b3806f8b5c2ac452fdd6f0766bc747ca6f72e5"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_oak_quartered_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_oak_quartered_normal.png",
+        "bytes": 78451,
+        "sha256": "7b518ee49df1fd91af6a6803941f15abb69864f9746c50e74efc7c4c6106718d"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_oak_quartered_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_oak_quartered_rough.png",
+        "bytes": 48849,
+        "sha256": "a4b6124c52bd78cd119b2112c206d5fb876e9c95a5b262abe35a3a1116662093"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_paper_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_paper_b_albedo.png",
+        "bytes": 1459247,
+        "sha256": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_paper_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_paper_b_normal.png",
+        "bytes": 544676,
+        "sha256": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_paper_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_paper_b_rough.png",
+        "bytes": 95016,
+        "sha256": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plant_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_plant_b_albedo.png",
+        "bytes": 1512055,
+        "sha256": "97a8055069a3fef322f4cca6b9fb2189eab10c3b367efc9c9dbec16531e2108e"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plant_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_plant_b_normal.png",
+        "bytes": 820223,
+        "sha256": "eedcb1fbb83c364e6ee0d5fe4f7441d727b1b781a161076402fb36bc88bca818"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plant_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_plant_b_rough.png",
+        "bytes": 147777,
+        "sha256": "dcb25fca0f414bb39dcec0b1247d416a8a80f215436e8c55a267b0bc274aee62"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plaster_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_plaster_b_albedo.png",
+        "bytes": 1529733,
+        "sha256": "6c044b23aabf6defe33b5317a8f737e57de2a44395c7d4e1016ca3cf48acfec0"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plaster_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_plaster_b_normal.png",
+        "bytes": 582861,
+        "sha256": "2cb0ac73f37d8be32e06cf65756129e502e9cfe16e37fe46d22bc512495e8464"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plaster_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_plaster_b_rough.png",
+        "bytes": 89817,
+        "sha256": "02eed19150cffc6836c6f8103f5754368abe0767e5bf8059da932cb41dfc1f5e"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plaster_stained_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_plaster_stained_b_albedo.png",
+        "bytes": 1673228,
+        "sha256": "9d34977c45ecce8a702eb3b570d78d3fed422d62eea51765a116fa110b1cf15c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plaster_stained_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_plaster_stained_b_normal.png",
+        "bytes": 610294,
+        "sha256": "2b6b43966dcf955c87d9fa194e36e03759ddbe39039988e71fb16d9cf48d87a3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plaster_stained_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_plaster_stained_b_rough.png",
+        "bytes": 110447,
+        "sha256": "abf6150987dfd7c21c488cf9afcd0e27a30489ccdf3ac4d9890c290e622bbc4f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plywood_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_plywood_b_albedo.png",
+        "bytes": 1397372,
+        "sha256": "36882fc86ea733afa983931e35117300f415e824b9e0dcea8551fa6aa7067cd6"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plywood_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_plywood_b_normal.png",
+        "bytes": 750724,
+        "sha256": "6f1fe61fcadf8edd594c5fd42bf110a4411d50dcf8cdd94acbb656288bd90216"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_plywood_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_plywood_b_rough.png",
+        "bytes": 127759,
+        "sha256": "12becd9c689d93afdddc1975366fc5ad51df774c0dfe8b2a0d6587642cc9b499"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_porcelain_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_porcelain_b_albedo.png",
+        "bytes": 1379090,
+        "sha256": "31a14b3ce0efee7f7e2849cc27fc4e054a77891f4853985f104e484accb7092c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_porcelain_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_porcelain_b_normal.png",
+        "bytes": 664734,
+        "sha256": "a14ddcca31bfbf03e0e08142eee1bb773e33058a870bcd4d0ff91448035b8733"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_porcelain_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_porcelain_b_rough.png",
+        "bytes": 141683,
+        "sha256": "a9147417289f7d3bef9503ad4d60da6cc4d18e6f40748c70074b57faef9e347a"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_puddle_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_puddle_b_albedo.png",
+        "bytes": 1721429,
+        "sha256": "11d1dcf5755b0badb391d6efe946b343cabe85138774d655b095c55397ba9e8c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_puddle_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_puddle_b_normal.png",
+        "bytes": 419523,
+        "sha256": "a5e5adecfeda6a0dae6f5e2e1dfbec58a85ad80d9730cc1f4a8dbf38e6e6be0d"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_puddle_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_puddle_b_rough.png",
+        "bytes": 81794,
+        "sha256": "e167a982dc09aa6fb6faf214012adaa2f40eb7467e68a424ed9a367314b0ab7b"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_quarry_tile_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_quarry_tile_b_albedo.png",
+        "bytes": 1531429,
+        "sha256": "9b10b46cff73b918417e24ad1e01891f25bfc6924fc1df82e65f8ff5a57e6b0f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_quarry_tile_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_quarry_tile_b_normal.png",
+        "bytes": 916128,
+        "sha256": "d49534b6d1889909623a790f40c69ef2267dbede9888a9452e5ed926ebe4736e"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_quarry_tile_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_quarry_tile_b_rough.png",
+        "bytes": 115621,
+        "sha256": "32495063172177be6dfff7d34146e046bf719d015eb180bc400361653fd6ca86"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_rubber_aged_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_rubber_aged_albedo.png",
+        "bytes": 1916888,
+        "sha256": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_rubber_aged_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_rubber_aged_normal.png",
+        "bytes": 753707,
+        "sha256": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_rubber_aged_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_rubber_aged_rough.png",
+        "bytes": 136716,
+        "sha256": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_rug_warm_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_rug_warm_b_albedo.png",
+        "bytes": 2326618,
+        "sha256": "2f79ac5a7a6a8ca1d6b526e862239c7039833502dd7b1a41c9ec527fe05c2afc"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_rug_warm_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_rug_warm_b_normal.png",
+        "bytes": 1082507,
+        "sha256": "32774a5cf3d894c7ac5e4ca81ff6fbc2930b610b38bb6ee9d0d753ce92153583"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_rug_warm_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_rug_warm_b_rough.png",
+        "bytes": 159884,
+        "sha256": "33b0beb921caf9f62517a53f7dd52f0c71494fcf9eced56703f500a64846ac75"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_safety_orange_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_safety_orange_b_albedo.png",
+        "bytes": 1407452,
+        "sha256": "6c7399002a8eb8c1e063dcbdbf40e212f34b0fc2fd89a4be3d802b4d1ef2bcf3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_safety_orange_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_safety_orange_b_normal.png",
+        "bytes": 692942,
+        "sha256": "3f479cf659db7d2f649cea9cda40b07ff41d1b0c31e71ead813c8dd3417ab646"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_safety_orange_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_safety_orange_b_rough.png",
+        "bytes": 129452,
+        "sha256": "84d796bdc582b05a2647d8a7ee8162d2f40cb93772aa949c0766e4a9132f6c44"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_sidewalk_grout_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_sidewalk_grout_b_albedo.png",
+        "bytes": 1194045,
+        "sha256": "b994f585f53b1382685b54a6eec4e73164dd3297b602dbfc2a163be1f3eff60d"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_sidewalk_grout_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_sidewalk_grout_b_normal.png",
+        "bytes": 560827,
+        "sha256": "f0d42f1722348cd0bf5dc9eddc949fa6bd76652029f1dc007c5cf90e9ed76cb7"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_sidewalk_grout_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_sidewalk_grout_b_rough.png",
+        "bytes": 111010,
+        "sha256": "6d56169de2cc6d96dd02209bddc63eb764b85cc06153ed58c85f5183d1ea84a0"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_sidewalk_haunted_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_sidewalk_haunted_b_albedo.png",
+        "bytes": 2238009,
+        "sha256": "177e3baa88d114b15d98a6f98de5be9c2be6945f9d73e29d69aedfa970653ae8"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_sidewalk_haunted_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_sidewalk_haunted_b_normal.png",
+        "bytes": 1009186,
+        "sha256": "2287e575bf227befee6367b3baf590cc44cb91f9a255e9e2a068807bf687706c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_sidewalk_haunted_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_sidewalk_haunted_b_rough.png",
+        "bytes": 128537,
+        "sha256": "8fd1ef34751638428dc115345fa34a4afa70ce9881905ada18a3e78ca241a854"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_slab_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_slab_b_albedo.png",
+        "bytes": 1869687,
+        "sha256": "622ba09621966b9f298118402eaca83880aa1251dcb3fa7debb0c25c267946fb"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_slab_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_slab_b_normal.png",
+        "bytes": 932494,
+        "sha256": "46f698fc84ca96b73cfbdb4c0063a176f8f4fcdc7c245257f17bb38a76c420c5"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_slab_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_slab_b_rough.png",
+        "bytes": 138590,
+        "sha256": "6c1da2dc3ff6da83713cc0618e77d242c2fcf5a1189a32eef051c698a56446b0"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_soil_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_soil_b_albedo.png",
+        "bytes": 2409356,
+        "sha256": "c6eaefba26d031fc966ee7f37d6bdf85a3117f7c99e5b3b14b3f87165399e828"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_soil_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_soil_b_normal.png",
+        "bytes": 1249311,
+        "sha256": "06d088352f95de311a74b2b4f29a5a9fbf1949121c25c39a57ce4856251997f8"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_soil_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_soil_b_rough.png",
+        "bytes": 174114,
+        "sha256": "dec00fcc885156e0840b2b6e54f9d5bc2ee7b5b5a457f9b5bd712d1b4c969549"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_soot_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_soot_b_albedo.png",
+        "bytes": 1999769,
+        "sha256": "cb5bc82e203c284d2e9d759efdb3ef33e4a545dd9cd475fa9edb3ba50b50c945"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_soot_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_soot_b_normal.png",
+        "bytes": 946597,
+        "sha256": "6c588de9d7cab4120b8748dea60d22cf82ef3d00b340a02d7fab176ecba3ef50"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_soot_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_soot_b_rough.png",
+        "bytes": 120729,
+        "sha256": "88764d617de96951230fe0083d5c81404fc0b3e3286719161dd863d8a7d6c581"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stair_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_stair_b_albedo.png",
+        "bytes": 1847606,
+        "sha256": "ce3d53a2b20862653ef725276ce3692bb1485f18cfd05671bccbdea7006c7944"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stair_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_stair_b_normal.png",
+        "bytes": 945253,
+        "sha256": "11d0a8f2872ea3fcae47384974ccbfe49b771067a62266e6e9f6db3cc1bdfc38"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stair_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_stair_b_rough.png",
+        "bytes": 195504,
+        "sha256": "9d6a4b3c4568a77a4d289ed81149bc462cded9bfc0e7b50410ae679f352a4331"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stair_treads_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_stair_treads_albedo.png",
+        "bytes": 1636542,
+        "sha256": "549ca2090c426b212875d5cd0ed11d631ca451c9af1fd1e0f9044f453c4b866d"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stair_treads_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_stair_treads_normal.png",
+        "bytes": 808725,
+        "sha256": "ba275c8519571128fe2d2c8f8c04bc85932f2c3f7acadb847ed9086a016a0cf4"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stair_treads_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_stair_treads_rough.png",
+        "bytes": 170926,
+        "sha256": "5c4b65787d16f443fa3fdd8e01aa00ba3fb707ea6f5809cddd14a9e0e2a15ee0"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stairwell_teal_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_stairwell_teal_b_albedo.png",
+        "bytes": 1849183,
+        "sha256": "c15ec22bd60b53dec42a568fb9d66e3a7801f25a825bd7254a6f92be8274f92a"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stairwell_teal_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_stairwell_teal_b_normal.png",
+        "bytes": 1132007,
+        "sha256": "608e406c64c27e609835bd1be76c4bcaa71b542b8ee4acd94c37e260693cab41"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_stairwell_teal_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_stairwell_teal_b_rough.png",
+        "bytes": 190543,
+        "sha256": "b45c80c934bee39664c3dce74fdaf818dcf679df559c6ea7486309a25ece2fbf"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_subway_tile_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_subway_tile_b_albedo.png",
+        "bytes": 1791216,
+        "sha256": "74cd72a02cb79e647dd399c4f23293858902a5958dc4c2176e99795e0bb6effd"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_subway_tile_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_subway_tile_b_normal.png",
+        "bytes": 1109684,
+        "sha256": "19a9896011af52c5ec0b385e6fe1c3bade5cd2acc19c5cb37b4b5fcbbb7b65eb"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_subway_tile_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_subway_tile_b_rough.png",
+        "bytes": 188444,
+        "sha256": "3fc383260719315db37cc9d1b30bbde33fedac831fbd32987fdda7dbd0dddaf3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terracotta_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_terracotta_b_albedo.png",
+        "bytes": 1863582,
+        "sha256": "7f62991bec9ef5c45c28d8e298714efc83665f66d47ec738e9056d3ad2f57f1c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terracotta_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_terracotta_b_normal.png",
+        "bytes": 762861,
+        "sha256": "ed06025fa4a1ffe8a94b9943a9e8f6651d80705b1b4bf113fa64517318963b20"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terracotta_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_terracotta_b_rough.png",
+        "bytes": 127270,
+        "sha256": "70acf0329c7e8cd84c7e3e571c6a67411e613ae93ed257585805c27149f985bc"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_albedo.png",
+        "bytes": 2173738,
+        "sha256": "5bb7170dfea6c99706376da7c83aa43d5d7d5138dc92879a98988ac64fc48c71"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_b_albedo.png",
+        "bytes": 2030992,
+        "sha256": "5114646805f159b9591f24f34dbca42b774fc43d95e2cc5fa0936e32e4a7f4c8"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_b_normal.png",
+        "bytes": 903485,
+        "sha256": "9fa61e085c49fd9144512b0649e48daa8c0c6b3363d8fe51c64e277f8f43757a"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_b_rough.png",
+        "bytes": 218136,
+        "sha256": "e5c5c4c5361ce571ff013f4a06456edc73296ceee75cf6adcbe16a5a282eb30a"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_dark_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_dark_albedo.png",
+        "bytes": 225545,
+        "sha256": "e7d196c50c3ae325bf8aac89139b2569613009b4272e9046d87d404dd325e316"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_dark_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_dark_normal.png",
+        "bytes": 92723,
+        "sha256": "83da81d2226acb3960e346a09d726db2fccee60263ba737205d3181cf726deb5"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_dark_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_dark_rough.png",
+        "bytes": 64919,
+        "sha256": "c741cdd536217f9a97fefb7bd462612e43f7045a3c94e82bd81e4a340ff8c9f8"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_normal.png",
+        "bytes": 930025,
+        "sha256": "35bf5dc8a9f7f013bc79921e1fec3050b8e946edc5c427ae7f4c6cc2d1e0b3c3"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_terrazzo_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_terrazzo_rough.png",
+        "bytes": 223632,
+        "sha256": "c49569f7652f949dd10d870870c01d7fcf393ff4aa7d1abd3798e9b087862db5"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_timber_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_timber_b_albedo.png",
+        "bytes": 2023560,
+        "sha256": "69706e04ebe42d6742d39e61c1f3e1c7e9342cc2d8e2ea1b9f3c47e216226a28"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_timber_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_timber_b_normal.png",
+        "bytes": 1139661,
+        "sha256": "7b731a372f2ad886bb074465e951de9eee7c8012e469248e7933f7db179f588c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_timber_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_timber_b_rough.png",
+        "bytes": 169163,
+        "sha256": "1f860992bbfde1477a0051ead61abde1f360d6c867531ed0361e228b1034696c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_tin_ceiling_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_tin_ceiling_b_albedo.png",
+        "bytes": 1412662,
+        "sha256": "86af45a9b5d2c250f86907e0debcbb94cc736086c3d5d4996183c54c48a52f2d"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_tin_ceiling_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_tin_ceiling_b_normal.png",
+        "bytes": 1075479,
+        "sha256": "76ab57d06cfdf94359913f16d050eb3f0c72a18d3872bceb9806c6bb35a514d1"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_tin_ceiling_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_tin_ceiling_b_rough.png",
+        "bytes": 161506,
+        "sha256": "a852f02be7f7e122f0f3b384226b0a1671177b06c79a667828632d52b7861fb5"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_trim_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_trim_b_albedo.png",
+        "bytes": 2016179,
+        "sha256": "3d39f0685ad2f254f1654213efaa45573fb596bb2f198489a555e0df9e253092"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_trim_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_trim_b_normal.png",
+        "bytes": 855447,
+        "sha256": "0ce4dd7a901d895b7c548c719ccb31347e79f68f87d95cebe435537eac5cea55"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_trim_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_trim_b_rough.png",
+        "bytes": 180036,
+        "sha256": "494796a7d48c38a6612414c83020564d089344f68ac48a30bbc2ccbb93722dbb"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_vinyl_oxblood_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_vinyl_oxblood_b_albedo.png",
+        "bytes": 2055215,
+        "sha256": "b49268c6181b07a09a46f5aa44cb19a4b3d15eba7875beb990307be518db4fde"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_vinyl_oxblood_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_vinyl_oxblood_b_normal.png",
+        "bytes": 935728,
+        "sha256": "afb2e8fa929114445585cd517ec829591d5b1603eb7b32f43c57a00295dabe5e"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_vinyl_oxblood_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_vinyl_oxblood_b_rough.png",
+        "bytes": 183266,
+        "sha256": "1190fc5c1d5e1c8ecc7465e1ca40e1f71a4d9fb6e15c647b2b0f3d71ed100d7f"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wainscot_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_wainscot_b_albedo.png",
+        "bytes": 1724766,
+        "sha256": "cf16e286c3db480e674e8599bfd7ab285b3ed1fb4e5e0f7cfb770b101f904b01"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wainscot_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_wainscot_b_normal.png",
+        "bytes": 1006821,
+        "sha256": "53d829e0faec151d222535f19c8f84cbadcff845288d840caae7d4408b3026c9"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wainscot_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_wainscot_b_rough.png",
+        "bytes": 138434,
+        "sha256": "15f90b6f788331da77d9e0d150b48386d4fe8c953b4c2ba593f62c567a13b2e7"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wet_asphalt_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_wet_asphalt_b_albedo.png",
+        "bytes": 1758149,
+        "sha256": "540333d10c606ef02f3824743f2a0f510dab43ff4bc1f3a4d67e3f6a373ad3d7"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wet_asphalt_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_wet_asphalt_b_normal.png",
+        "bytes": 657045,
+        "sha256": "f2711a1ba78ba5b34265f7b3353070ed3107170c3bbeb92f1f2a21cc61dd6669"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wet_asphalt_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_wet_asphalt_b_rough.png",
+        "bytes": 131098,
+        "sha256": "8f850d3b4b7f3b18331012ab7af09aed0e3044f773655d7211cf17702355660c"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wood_dark_b_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_wood_dark_b_albedo.png",
+        "bytes": 1592071,
+        "sha256": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wood_dark_b_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_wood_dark_b_normal.png",
+        "bytes": 555539,
+        "sha256": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_wood_dark_b_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_wood_dark_b_rough.png",
+        "bytes": 132362,
+        "sha256": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_zinc_liner_albedo.png",
+        "output": "shared_textures/textures/T_ai_materials_zinc_liner_albedo.png",
+        "bytes": 2065298,
+        "sha256": "7660d3b67d0cc6b12d94cb176c6c1716ade45ebfaa7cbe9bf0e49da586f49a42"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_zinc_liner_normal.png",
+        "output": "shared_textures/textures/T_ai_materials_zinc_liner_normal.png",
+        "bytes": 826451,
+        "sha256": "ed2ddaf99ba6a66691221350263721a4d848688456ea94f4e8fc6dcb1b6e5864"
+      },
+      {
+        "source_uri": "textures/T_ai_materials_zinc_liner_rough.png",
+        "output": "shared_textures/textures/T_ai_materials_zinc_liner_rough.png",
+        "bytes": 143691,
+        "sha256": "dc57fdcacb5854aa29200ab92ecc107daa06d145052e61ebcea59a78e38b0e94"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_ao.png",
+        "output": "shared_textures/textures/T_fx_fx_ao.png",
+        "bytes": 296,
+        "sha256": "6a0c81a8a498b8dcee7bf012d17f49576994f749f8a7f68351681a7f77f1594f"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_ceiling_soffit_failed.png",
+        "output": "shared_textures/textures/T_fx_fx_ceiling_soffit_failed.png",
+        "bytes": 2804024,
+        "sha256": "7884ce1ad132e47c7896f5f2fa1fd8a42e86d7efb68ee1677610911fa37217af"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+        "output": "shared_textures/textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+        "bytes": 1264032,
+        "sha256": "650f09e337e2493033cabeb467494deac68b7625fdb9402040796941fc7b0a26"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+        "output": "shared_textures/textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+        "bytes": 474654,
+        "sha256": "6d87160d535e91f3050cdc9ccf1757f79ffb8f94d54dc13897450cc9bf972685"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_damp.png",
+        "output": "shared_textures/textures/T_fx_fx_damp.png",
+        "bytes": 120080,
+        "sha256": "6d3ed9ac4cb08a03f7c1d4088a514e42767389820c56b7858113e37547c36471"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_damp_normal.png",
+        "output": "shared_textures/textures/T_fx_fx_damp_normal.png",
+        "bytes": 54160,
+        "sha256": "e0aa549f565ce484a4036be30063ef2f28d6a67a598af77a01d3006bd744904e"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_damp_rough.png",
+        "output": "shared_textures/textures/T_fx_fx_damp_rough.png",
+        "bytes": 76644,
+        "sha256": "f7af96e695babe0d4c4ab0237878cd862b9f87bba3f0d849f0368076520702f5"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_drip.png",
+        "output": "shared_textures/textures/T_fx_fx_drip.png",
+        "bytes": 39797,
+        "sha256": "4f7bdf9dce3cf258f351c772075851e5538b2cbc6212c57515e9b3b083033268"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_drip_normal.png",
+        "output": "shared_textures/textures/T_fx_fx_drip_normal.png",
+        "bytes": 53828,
+        "sha256": "9968e4f1f02782fee81aa2d213af1ef309042c52be740854e75af8a8543a3541"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_drip_rough.png",
+        "output": "shared_textures/textures/T_fx_fx_drip_rough.png",
+        "bytes": 36941,
+        "sha256": "e391ccdd7592cd46f10ec0d56ac0123fefe9164f4f8bb8daf08eae462b0f667f"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_grease.png",
+        "output": "shared_textures/textures/T_fx_fx_grease.png",
+        "bytes": 109017,
+        "sha256": "3c2147c82dc9805de007d4e1246a9ba4a1868cc32cdd4b702a5fca231b79a0a3"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_grease_normal.png",
+        "output": "shared_textures/textures/T_fx_fx_grease_normal.png",
+        "bytes": 52375,
+        "sha256": "969919498d09bf03c2b7b83c0534cb169e2e3afbc4c50612cfe1a0171d795edb"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_grease_rough.png",
+        "output": "shared_textures/textures/T_fx_fx_grease_rough.png",
+        "bytes": 88926,
+        "sha256": "5f92a43a56892af8bee50ce54ef6c6040d84a16252cc1f6076b8ad03fc9a88a4"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_scuff.png",
+        "output": "shared_textures/textures/T_fx_fx_scuff.png",
+        "bytes": 63201,
+        "sha256": "9b3105bf06a3ff5c18c59c340234f8b9dae86a736bec7a1d194e694e09945829"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_scuff_normal.png",
+        "output": "shared_textures/textures/T_fx_fx_scuff_normal.png",
+        "bytes": 108238,
+        "sha256": "1dc026feafae790f9a92f3b28976be103e053a5d23cd20de8631799664150ff1"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_scuff_rough.png",
+        "output": "shared_textures/textures/T_fx_fx_scuff_rough.png",
+        "bytes": 63965,
+        "sha256": "8c7a62d2e2f2d95fb483521650af2b0ee2baf23f3044be2c84142622abca45d1"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_shadow.png",
+        "output": "shared_textures/textures/T_fx_fx_shadow.png",
+        "bytes": 29827,
+        "sha256": "4fbe140766797f7cd2ca83d69fc72f69a6d0c022af9a0515daef96d46abe80b1"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_traffic.png",
+        "output": "shared_textures/textures/T_fx_fx_traffic.png",
+        "bytes": 52212,
+        "sha256": "7d89d1a0d9e2217a1e5ed1e5c687b57705d5006056d0c75a485b5c5becbe7e42"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_traffic_normal.png",
+        "output": "shared_textures/textures/T_fx_fx_traffic_normal.png",
+        "bytes": 40015,
+        "sha256": "69cc8270370cc9f3b86806fb8af13f2f31fb4518f1fcde15f52d96d867560d6b"
+      },
+      {
+        "source_uri": "textures/T_fx_fx_traffic_rough.png",
+        "output": "shared_textures/textures/T_fx_fx_traffic_rough.png",
+        "bytes": 70017,
+        "sha256": "05eb9b280eac6826dc09f321ea641502b2a634f0e2e68a241397a52cd36e0af5"
+      },
+      {
+        "source_uri": "textures/T_generated_blind_slat_albedo.png",
+        "output": "shared_textures/textures/T_generated_blind_slat_albedo.png",
+        "bytes": 230829,
+        "sha256": "36f9f6784b24e1deb29d4948bebad774650a5be1c1338b6350dddfacdd299d1c"
+      },
+      {
+        "source_uri": "textures/T_generated_blind_slat_normal.png",
+        "output": "shared_textures/textures/T_generated_blind_slat_normal.png",
+        "bytes": 32519,
+        "sha256": "b039c3d4a5a086de4a8ea3c70bdcead4b99b832446398191c5ac110ba6061456"
+      },
+      {
+        "source_uri": "textures/T_generated_blind_slat_rough.png",
+        "output": "shared_textures/textures/T_generated_blind_slat_rough.png",
+        "bytes": 249732,
+        "sha256": "00870b0ff2d971ecd9bfc50ef39b69810b53caab5864fba1ede0ef202ad7d634"
+      },
+      {
+        "source_uri": "textures/T_generated_road_paint_albedo.png",
+        "output": "shared_textures/textures/T_generated_road_paint_albedo.png",
+        "bytes": 473408,
+        "sha256": "d50930f9861247ac1f70a3b0b37b14c6241143d6a06e5665d94c9cd962f9f6bd"
+      },
+      {
+        "source_uri": "textures/T_generated_road_paint_normal.png",
+        "output": "shared_textures/textures/T_generated_road_paint_normal.png",
+        "bytes": 697679,
+        "sha256": "95a3325485a2c592305a4d00b2d2a4b503e048722b8f736fd8589791c95a1858"
+      },
+      {
+        "source_uri": "textures/T_generated_road_paint_rough.png",
+        "output": "shared_textures/textures/T_generated_road_paint_rough.png",
+        "bytes": 314111,
+        "sha256": "013737fad11895b01a900b268ba40a0140f436c852f24399e2d86c07c6fc2481"
+      },
+      {
+        "source_uri": "textures/T_generated_sash_albedo.png",
+        "output": "shared_textures/textures/T_generated_sash_albedo.png",
+        "bytes": 303454,
+        "sha256": "9bf2da21607cd709a287095270bd3a33771377064436ab694e5a1c0a77d5d8a6"
+      },
+      {
+        "source_uri": "textures/T_generated_sash_normal.png",
+        "output": "shared_textures/textures/T_generated_sash_normal.png",
+        "bytes": 45474,
+        "sha256": "e8aa15293c8ed40a1651a4649ab42d7d84d7207b55f6a99832106a5bf439d913"
+      },
+      {
+        "source_uri": "textures/T_generated_sash_rough.png",
+        "output": "shared_textures/textures/T_generated_sash_rough.png",
+        "bytes": 250509,
+        "sha256": "00c3d19d9821c57a048b74bac23bf934411f8779b5eff32f51468b9efb7d3fb4"
+      },
+      {
+        "source_uri": "textures/T_glass_normal.png",
+        "output": "shared_textures/textures/T_glass_normal.png",
+        "bytes": 91530,
+        "sha256": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67"
+      },
+      {
+        "source_uri": "textures/T_glass_rough.png",
+        "output": "shared_textures/textures/T_glass_rough.png",
+        "bytes": 53704,
+        "sha256": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e"
+      },
+      {
+        "source_uri": "textures/T_library_architectural_haunted_wallpaper_albedo.png",
+        "output": "shared_textures/textures/T_library_architectural_haunted_wallpaper_albedo.png",
+        "bytes": 1647644,
+        "sha256": "48f67cce28079cce48bf4c6d4ca38b65c7c938a34fc0bd367fd8817778afdfa7"
+      },
+      {
+        "source_uri": "textures/T_library_architectural_haunted_wallpaper_normal.png",
+        "output": "shared_textures/textures/T_library_architectural_haunted_wallpaper_normal.png",
+        "bytes": 451,
+        "sha256": "e9c69a6f3e4245d539aad40405d45f4f0a796b5ac31dd2da67189996a46b7f10"
+      },
+      {
+        "source_uri": "textures/T_library_architectural_haunted_wallpaper_rough.png",
+        "output": "shared_textures/textures/T_library_architectural_haunted_wallpaper_rough.png",
+        "bytes": 539892,
+        "sha256": "156e909bd5021ef265e4e5034213626ff81a87ba0304ece09679a0c6a65ea4ba"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_brown_albedo.png",
+        "output": "shared_textures/textures/T_library_furniture_book_brown_albedo.png",
+        "bytes": 361143,
+        "sha256": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_brown_normal.png",
+        "output": "shared_textures/textures/T_library_furniture_book_brown_normal.png",
+        "bytes": 1878,
+        "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_brown_rough.png",
+        "output": "shared_textures/textures/T_library_furniture_book_brown_rough.png",
+        "bytes": 4589,
+        "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_burgundy_albedo.png",
+        "output": "shared_textures/textures/T_library_furniture_book_burgundy_albedo.png",
+        "bytes": 341735,
+        "sha256": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_burgundy_normal.png",
+        "output": "shared_textures/textures/T_library_furniture_book_burgundy_normal.png",
+        "bytes": 1878,
+        "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_burgundy_rough.png",
+        "output": "shared_textures/textures/T_library_furniture_book_burgundy_rough.png",
+        "bytes": 4589,
+        "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_green_albedo.png",
+        "output": "shared_textures/textures/T_library_furniture_book_green_albedo.png",
+        "bytes": 338482,
+        "sha256": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_green_normal.png",
+        "output": "shared_textures/textures/T_library_furniture_book_green_normal.png",
+        "bytes": 1878,
+        "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_green_rough.png",
+        "output": "shared_textures/textures/T_library_furniture_book_green_rough.png",
+        "bytes": 4589,
+        "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_navy_albedo.png",
+        "output": "shared_textures/textures/T_library_furniture_book_navy_albedo.png",
+        "bytes": 332849,
+        "sha256": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_navy_normal.png",
+        "output": "shared_textures/textures/T_library_furniture_book_navy_normal.png",
+        "bytes": 1878,
+        "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_navy_rough.png",
+        "output": "shared_textures/textures/T_library_furniture_book_navy_rough.png",
+        "bytes": 4589,
+        "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_ochre_albedo.png",
+        "output": "shared_textures/textures/T_library_furniture_book_ochre_albedo.png",
+        "bytes": 352992,
+        "sha256": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_ochre_normal.png",
+        "output": "shared_textures/textures/T_library_furniture_book_ochre_normal.png",
+        "bytes": 1878,
+        "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_ochre_rough.png",
+        "output": "shared_textures/textures/T_library_furniture_book_ochre_rough.png",
+        "bytes": 4589,
+        "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_teal_albedo.png",
+        "output": "shared_textures/textures/T_library_furniture_book_teal_albedo.png",
+        "bytes": 366126,
+        "sha256": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_teal_normal.png",
+        "output": "shared_textures/textures/T_library_furniture_book_teal_normal.png",
+        "bytes": 1878,
+        "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+      },
+      {
+        "source_uri": "textures/T_library_furniture_book_teal_rough.png",
+        "output": "shared_textures/textures/T_library_furniture_book_teal_rough.png",
+        "bytes": 4589,
+        "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w00_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w00_albedo.png",
+        "bytes": 440797,
+        "sha256": "55435102f9205324a0156a7c3725df7ed93cd481f425a8651317076f2981f026"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w00_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w00_normal.png",
+        "bytes": 316366,
+        "sha256": "cea754ffc1d41b8aee1bdf27de8f0ab6e569664740ca357b8899a57923de4143"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w00_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w00_roughness.png",
+        "bytes": 120664,
+        "sha256": "0c40b71469f6e3de756f172140146edd8b8a3a187091950138facb1cec3841fd"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w01_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w01_albedo.png",
+        "bytes": 351351,
+        "sha256": "784450e29f9fdc502521afd002e7a534f515fcb93430c46d71cefb2e9678080f"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w01_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w01_normal.png",
+        "bytes": 291122,
+        "sha256": "3a02f8ecbef06478e493833f49b30363250cc153889d3411dd102086696246f0"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w01_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w01_roughness.png",
+        "bytes": 96133,
+        "sha256": "9c6b3a20d36ac7920fc903154f0a8a8dc483aa6588dab744cd6a394fbd4314e3"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w02_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w02_albedo.png",
+        "bytes": 305970,
+        "sha256": "9814f1088f954304041391fd89ce4f9932e221685cc185a22b7e8cdb0dce2756"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w02_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w02_normal.png",
+        "bytes": 234942,
+        "sha256": "c382bae01f879d8509ea709329f47ff06a8a6ede414c671196dda825ba1e8db5"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w02_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w02_roughness.png",
+        "bytes": 80255,
+        "sha256": "e6bf9a12e9ed77adc46d6e01c43373d1aa776dd24b688eee2d551c5aed0b7141"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w03_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w03_albedo.png",
+        "bytes": 403208,
+        "sha256": "cad07bcb5c46e6be7d023b114b3d2fdb3f819118dd1078e1b2b776e012479853"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w03_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w03_normal.png",
+        "bytes": 310224,
+        "sha256": "2e8769501b8ff8820ad1d92fb2bb6ef7cf45aaa07e3540625fcd38f8bbb9e1c4"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w03_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w03_roughness.png",
+        "bytes": 107337,
+        "sha256": "a71a19b56c7673563798b54f17fa46aa3e44ab5a9e719da5429d443e06a61b8a"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w04_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w04_albedo.png",
+        "bytes": 438906,
+        "sha256": "cd77afbb7b2d28d689450b12c4309082a7ed9167670f192fe178eaf8b693b1d4"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w04_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w04_normal.png",
+        "bytes": 400219,
+        "sha256": "50db766ac1e4c861130f30f53a36bca711bb4db8e5fd527a35b451083c17f1d4"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w04_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w04_roughness.png",
+        "bytes": 105925,
+        "sha256": "53e4719ca6add240d5db253fbb8fc994adb8c94704f2b1cbf526b6afb5d4c8f9"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w05_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w05_albedo.png",
+        "bytes": 385983,
+        "sha256": "5262725922f3fd87c8ce535566de31d00a248c591b4629b065e3e693f43f2707"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w05_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w05_normal.png",
+        "bytes": 269605,
+        "sha256": "2e537692108abab84f0bd10d725532783c28b7a7bcf512f9580c0daeed509178"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w05_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w05_roughness.png",
+        "bytes": 115822,
+        "sha256": "612ce8428670fb64fd1a69c42fee7997602ff82f5bac1837bd414165fa2cb5d3"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w06_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w06_albedo.png",
+        "bytes": 450414,
+        "sha256": "44b094fee9fa851b37589b797a8862293b824b76e0f9def48884a3a7482d3590"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w06_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w06_normal.png",
+        "bytes": 296066,
+        "sha256": "65784773da5308fd45b7a641d25877c277d0e9b782e69f24bdba4872f4cf2bf8"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w06_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w06_roughness.png",
+        "bytes": 113005,
+        "sha256": "613908e9c85f8c5fe5f192e8e44c481409fd853304a263b210ee247210157c5c"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w07_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w07_albedo.png",
+        "bytes": 426745,
+        "sha256": "ad533f9df53302de56d9aec13b2c6480044fae8635154b7547b8b6305c482159"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w07_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w07_normal.png",
+        "bytes": 319423,
+        "sha256": "e6505eccbdb3a3b431da872643fd0fe4d7c08579e6dcb18f58b5cf054dac6c66"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w07_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w07_roughness.png",
+        "bytes": 108479,
+        "sha256": "69ff7d3f6f913af3987e1898d4e338bf1f8170a4134869f877ad52a8d788a210"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w08_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w08_albedo.png",
+        "bytes": 611827,
+        "sha256": "c389ccea8fa71222559b8be8b80a33fb09c3e4ef702bb44d9b1c2a077eab54a8"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w08_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w08_normal.png",
+        "bytes": 451672,
+        "sha256": "b949de5864c67724b2683609802ec2432e182c41189c02380363657c830cf81f"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w08_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w08_roughness.png",
+        "bytes": 161948,
+        "sha256": "9f801a3730293fe564254b5ece2778a8b32d85ac843a752775d3177a0ade549b"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w09_albedo.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w09_albedo.png",
+        "bytes": 611562,
+        "sha256": "c900b4b9ff12fc089856d1f24beae546b19bb54ccc9fa7f9f9ae4ce846d40337"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w09_normal.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w09_normal.png",
+        "bytes": 425027,
+        "sha256": "18474afa1f9dd38d9a595c18d142d7c7ba8ff37c47b6a2fc18970cda370074a3"
+      },
+      {
+        "source_uri": "textures/T_wallfinish_f01_w09_roughness.png",
+        "output": "shared_textures/textures/T_wallfinish_f01_w09_roughness.png",
+        "bytes": 169996,
+        "sha256": "cb552087afbd0aa5b439811951637f6b9e299cae99aecb1874059751ae57f2fd"
+      }
+    ],
+    "file_count": 304,
+    "bytes": 208081567,
+    "copied": true
+  },
+  "disposable_harness": {
+    "split_receipt": "split_receipt.json",
+    "partition_manifest": "partition_manifest.json",
+    "template_files": 7,
+    "original_external_images": 304,
+    "source_gltf_path": "res://original/floor_01.gltf",
+    "cells": 17,
+    "materialized": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "orison.m11c0.floor01-partition-binding.v1",
+  "status": "PASS",
+  "authority": "disposable_rehearsal_only",
+  "source_manifest": {
+    "path": "design/ORISON_V2_M11C0_FLOOR01_PARTITION_MANIFEST_2026-08-31.json",
+    "bytes": 14227,
+    "sha256": "0d442ad81d1ce625786a2095c2fea1621323b15edfb179cb2022f65012e1b35c"
+  },
+  "materialized_manifest": {
+    "external_path": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\partition_manifest.json",
+    "bytes": 17919,
+    "sha256": "32343a26af655cf810f9addac8fb9857541b1da356a89b15a4104d1d09161330"
+  },
+  "split_receipt": {
+    "external_path": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\split_receipt.json",
+    "bytes": 88298,
+    "sha256": "72df0de7c4d3f54ad6d4f559915cd366846aa9f205ca9b2115639df1ea32639b",
+    "input_manifest_sha256": "0d442ad81d1ce625786a2095c2fea1621323b15edfb179cb2022f65012e1b35c",
+    "input_hash_matches_source_manifest": true
+  },
+  "semantic_comparison": {
+    "canonicalization": "PowerShell ConvertFrom-Json then ConvertTo-Json -Depth 100 -Compress, UTF-8 without a trailing newline",
+    "source_canonical_bytes": 12414,
+    "materialized_canonical_bytes": 12414,
+    "source_canonical_sha256": "76d53281ba5e37b19f766dec58cc28b1e27c9b51bd92df475b1821166b2a2989",
+    "materialized_canonical_sha256": "76d53281ba5e37b19f766dec58cc28b1e27c9b51bd92df475b1821166b2a2989",
+    "exact_semantic_match": true
+  },
+  "counts": {
+    "target_cells": 17,
+    "safe_current_cells": 17,
+    "shared_boundaries": 5,
+    "capture_views": 4,
+    "collision_probes": 8
+  },
+  "note": "The byte difference between the source and materialized manifests is formatting only; the disposable output is not production authority."
+}

@@ -1,0 +1,1510 @@
+{
+	"authority": "disposable_rehearsal_only",
+	"capture_boundary": {
+		"camera_only": true,
+		"final_observation_boundary": "deferred non-coroutine after _run and _ready release their await states",
+		"forced_object_deletion": false,
+		"harness_added_geometry": false,
+		"harness_added_labels_or_arrows": false,
+		"harness_added_lights": false,
+		"harness_added_world_environment": false,
+		"instrument_coroutine_state": {
+			"class": "engine-internal GDScript coroutine await-state",
+			"enumeration_boundary": "GDScript 4 requires direct await and exposes no ObjectDB iteration API",
+			"excluded_from_final_plateau": true,
+			"owner": "M11C0Capture._run awaited by _ready"
+		},
+		"node_name_reach_ins": false,
+		"public_teardown_api": "M11C0CellComposition.public_teardown"
+	},
+	"display_server": "Windows",
+	"engine": {
+		"build": "official",
+		"hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+		"hex": 263937,
+		"major": 4,
+		"minor": 7,
+		"patch": 1,
+		"status": "stable",
+		"string": "4.7.1-stable (official)",
+		"timestamp": 0
+	},
+	"failures": [],
+	"final_counts": {
+		"nodes": 4,
+		"objects": 1499,
+		"orphan_nodes": 0,
+		"resources": 4
+	},
+	"input_provenance": {
+		"cell_count": 17,
+		"original_scene_path": "res://original/floor_01.gltf",
+		"partition_manifest": "res://partition_manifest.json",
+		"partition_manifest_sha256": "32343a26af655cf810f9addac8fb9857541b1da356a89b15a4104d1d09161330",
+		"split_receipt": "res://split_receipt.json",
+		"split_receipt_sha256": "72df0de7c4d3f54ad6d4f559915cd366846aa9f205ca9b2115639df1ea32639b"
+	},
+	"lifecycle_delta": {
+		"nodes": 0,
+		"objects": -7,
+		"orphan_nodes": 0,
+		"resources": 0
+	},
+	"output_directory": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10",
+	"pairs": [
+		{
+			"matched_camera": true,
+			"original": {
+				"after_teardown": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"before": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"camera": {
+					"class": "Camera3D",
+					"eye": [
+						0.0,
+						2.04999995231628,
+						18.0
+					],
+					"far": 500.0,
+					"forward": [
+						0.0,
+						-0.072101004421711,
+						-0.997397363185883
+					],
+					"fov_degrees": 64.0,
+					"framing_status": "PROVIDED",
+					"harness_camera": true,
+					"near": 0.0500000007450581,
+					"source": "split_receipt",
+					"target": [
+						0.0,
+						1.45000004768372,
+						9.69999980926514
+					]
+				},
+				"dimensions": [
+					1600,
+					900
+				],
+				"kind": "original",
+				"load_rows": [
+					{
+						"id": "ORIGINAL_FLOOR_01",
+						"instantiate_ms": 14.698,
+						"load_ms": 3046.17,
+						"ok": true,
+						"path": "res://original/floor_01.gltf"
+					}
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10/01_orison_shell_street_original.png",
+				"png_sha256": "a09f1ab024917b7902e2ff05db03f3b98a790e77f61aa3ce8fefe5296e48764e",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						400035943099
+					],
+					"retained_strong_references": 0
+				},
+				"render_metrics": {
+					"draw_calls": 142,
+					"gpu_ms": 0.189999997615814,
+					"gpu_timing_claimed": true,
+					"render_objects": 142,
+					"visible_primitives": 141148
+				},
+				"save_error": 0,
+				"subject_light_count": 0,
+				"subject_metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1284,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"pixel_comparison": {
+				"byte_identical": true,
+				"changed_fraction": 0.0,
+				"changed_samples": 0,
+				"first_sha256": "a09f1ab024917b7902e2ff05db03f3b98a790e77f61aa3ce8fefe5296e48764e",
+				"max_channel_difference": 0.0,
+				"mean_absolute_channel_difference": 0.0,
+				"samples": 1440000,
+				"second_sha256": "a09f1ab024917b7902e2ff05db03f3b98a790e77f61aa3ce8fefe5296e48764e",
+				"status": "BYTE_IDENTICAL",
+				"stride_pixels": 0
+			},
+			"recomposed": {
+				"after_teardown": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"before": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"camera": {
+					"class": "Camera3D",
+					"eye": [
+						0.0,
+						2.04999995231628,
+						18.0
+					],
+					"far": 500.0,
+					"forward": [
+						0.0,
+						-0.072101004421711,
+						-0.997397363185883
+					],
+					"fov_degrees": 64.0,
+					"framing_status": "PROVIDED",
+					"harness_camera": true,
+					"near": 0.0500000007450581,
+					"source": "split_receipt",
+					"target": [
+						0.0,
+						1.45000004768372,
+						9.69999980926514
+					]
+				},
+				"dimensions": [
+					1600,
+					900
+				],
+				"kind": "recomposed",
+				"load_rows": [
+					{
+						"id": "CELL_LEGACY_MIXED",
+						"instantiate_ms": 5.328,
+						"load_ms": 2604.173,
+						"ok": true,
+						"path": "res://cells/legacy_mixed.gltf"
+					},
+					{
+						"id": "CELL_SITE_STREET_DEDICATED",
+						"instantiate_ms": 0.163,
+						"load_ms": 72.06,
+						"ok": true,
+						"path": "res://cells/site_street_dedicated.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_PORTAL_PROXY",
+						"instantiate_ms": 0.975,
+						"load_ms": 2.694,
+						"ok": true,
+						"path": "res://cells/passage_portal_proxy.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_SHELL",
+						"instantiate_ms": 0.933,
+						"load_ms": 8.38,
+						"ok": true,
+						"path": "res://cells/passage_shell.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BAR",
+						"instantiate_ms": 0.777,
+						"load_ms": 193.012,
+						"ok": true,
+						"path": "res://cells/shop_bar.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BODEGA",
+						"instantiate_ms": 0.566,
+						"load_ms": 40.693,
+						"ok": true,
+						"path": "res://cells/shop_bodega.gltf"
+					},
+					{
+						"id": "CELL_SHOP_MODEL_LAUNDRY",
+						"instantiate_ms": 0.592,
+						"load_ms": 3.026,
+						"ok": true,
+						"path": "res://cells/shop_model_laundry.gltf"
+					},
+					{
+						"id": "CELL_SHOP_SHOE_REBUILDING",
+						"instantiate_ms": 0.405,
+						"load_ms": 2.134,
+						"ok": true,
+						"path": "res://cells/shop_shoe_rebuilding.gltf"
+					},
+					{
+						"id": "CELL_SHOP_KEYS_CUT",
+						"instantiate_ms": 0.622,
+						"load_ms": 2.471,
+						"ok": true,
+						"path": "res://cells/shop_keys_cut.gltf"
+					},
+					{
+						"id": "CELL_SHOP_HARDWARE_PAINT",
+						"instantiate_ms": 0.752,
+						"load_ms": 2.746,
+						"ok": true,
+						"path": "res://cells/shop_hardware_paint.gltf"
+					},
+					{
+						"id": "CELL_SHOP_FUNERAL_PARLOUR",
+						"instantiate_ms": 0.472,
+						"load_ms": 2.369,
+						"ok": true,
+						"path": "res://cells/shop_funeral_parlour.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PHOTO_SUPPLIES",
+						"instantiate_ms": 0.491,
+						"load_ms": 2.974,
+						"ok": true,
+						"path": "res://cells/shop_photo_supplies.gltf"
+					},
+					{
+						"id": "CELL_SHOP_RADIO_SERVICE",
+						"instantiate_ms": 0.472,
+						"load_ms": 82.252,
+						"ok": true,
+						"path": "res://cells/shop_radio_service.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PAWNBROKER",
+						"instantiate_ms": 0.557,
+						"load_ms": 2.894,
+						"ok": true,
+						"path": "res://cells/shop_pawnbroker.gltf"
+					},
+					{
+						"id": "CELL_SHOP_NEWS_CIGARS",
+						"instantiate_ms": 0.339,
+						"load_ms": 2.352,
+						"ok": true,
+						"path": "res://cells/shop_news_cigars.gltf"
+					},
+					{
+						"id": "CELL_SHOP_OTIS_SON",
+						"instantiate_ms": 0.723,
+						"load_ms": 3.199,
+						"ok": true,
+						"path": "res://cells/shop_otis___son.gltf"
+					},
+					{
+						"id": "CELL_SHOP_LUNCHEONETTE",
+						"instantiate_ms": 0.453,
+						"load_ms": 2.882,
+						"ok": true,
+						"path": "res://cells/shop_luncheonette.gltf"
+					}
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10/01_orison_shell_street_recomposed.png",
+				"png_sha256": "a09f1ab024917b7902e2ff05db03f3b98a790e77f61aa3ce8fefe5296e48764e",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						493183046331,
+						499289953022,
+						501034782998,
+						504541219528,
+						512510398663,
+						516822143208,
+						521200994988,
+						525059756165,
+						528633302609,
+						532324289578,
+						536300488172,
+						541199435304,
+						547692218475,
+						552876379946,
+						557188122423,
+						561969629962,
+						567220897621
+					],
+					"retained_strong_references": 0
+				},
+				"render_metrics": {
+					"draw_calls": 142,
+					"gpu_ms": 0.194000005722046,
+					"gpu_timing_claimed": true,
+					"render_objects": 142,
+					"visible_primitives": 141148
+				},
+				"save_error": 0,
+				"subject_light_count": 0,
+				"subject_metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1300,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"view": {
+				"eye": [
+					0.0,
+					2.04999995231628,
+					18.0
+				],
+				"fov_degrees": 64.0,
+				"framing_status": "PROVIDED",
+				"id": "orison_shell_street",
+				"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+				"source": "split_receipt",
+				"target": [
+					0.0,
+					1.45000004768372,
+					9.69999980926514
+				]
+			}
+		},
+		{
+			"matched_camera": true,
+			"original": {
+				"after_teardown": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"before": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"camera": {
+					"class": "Camera3D",
+					"eye": [
+						9.0,
+						2.04999995231628,
+						21.0
+					],
+					"far": 500.0,
+					"forward": [
+						0.446766972541809,
+						-0.0446767099201679,
+						0.893534183502197
+					],
+					"fov_degrees": 62.0,
+					"framing_status": "PROVIDED",
+					"harness_camera": true,
+					"near": 0.0500000007450581,
+					"source": "split_receipt",
+					"target": [
+						14.0,
+						1.54999995231628,
+						31.0
+					]
+				},
+				"dimensions": [
+					1600,
+					900
+				],
+				"kind": "original",
+				"load_rows": [
+					{
+						"id": "ORIGINAL_FLOOR_01",
+						"instantiate_ms": 13.876,
+						"load_ms": 3004.602,
+						"ok": true,
+						"path": "res://original/floor_01.gltf"
+					}
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10/02_street_passage_portal_original.png",
+				"png_sha256": "998e79c0b3781afde65ef63ea2d56b7c81c4249dac0b6d981599a1db972fa2aa",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						667129221818
+					],
+					"retained_strong_references": 0
+				},
+				"render_metrics": {
+					"draw_calls": 427,
+					"gpu_ms": 0.187999993562698,
+					"gpu_timing_claimed": true,
+					"render_objects": 427,
+					"visible_primitives": 110208
+				},
+				"save_error": 0,
+				"subject_light_count": 0,
+				"subject_metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1284,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"pixel_comparison": {
+				"byte_identical": true,
+				"changed_fraction": 0.0,
+				"changed_samples": 0,
+				"first_sha256": "998e79c0b3781afde65ef63ea2d56b7c81c4249dac0b6d981599a1db972fa2aa",
+				"max_channel_difference": 0.0,
+				"mean_absolute_channel_difference": 0.0,
+				"samples": 1440000,
+				"second_sha256": "998e79c0b3781afde65ef63ea2d56b7c81c4249dac0b6d981599a1db972fa2aa",
+				"status": "BYTE_IDENTICAL",
+				"stride_pixels": 0
+			},
+			"recomposed": {
+				"after_teardown": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"before": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"camera": {
+					"class": "Camera3D",
+					"eye": [
+						9.0,
+						2.04999995231628,
+						21.0
+					],
+					"far": 500.0,
+					"forward": [
+						0.446766972541809,
+						-0.0446767099201679,
+						0.893534183502197
+					],
+					"fov_degrees": 62.0,
+					"framing_status": "PROVIDED",
+					"harness_camera": true,
+					"near": 0.0500000007450581,
+					"source": "split_receipt",
+					"target": [
+						14.0,
+						1.54999995231628,
+						31.0
+					]
+				},
+				"dimensions": [
+					1600,
+					900
+				],
+				"kind": "recomposed",
+				"load_rows": [
+					{
+						"id": "CELL_LEGACY_MIXED",
+						"instantiate_ms": 5.374,
+						"load_ms": 2601.765,
+						"ok": true,
+						"path": "res://cells/legacy_mixed.gltf"
+					},
+					{
+						"id": "CELL_SITE_STREET_DEDICATED",
+						"instantiate_ms": 0.174,
+						"load_ms": 72.214,
+						"ok": true,
+						"path": "res://cells/site_street_dedicated.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_PORTAL_PROXY",
+						"instantiate_ms": 0.98,
+						"load_ms": 2.76,
+						"ok": true,
+						"path": "res://cells/passage_portal_proxy.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_SHELL",
+						"instantiate_ms": 0.944,
+						"load_ms": 8.423,
+						"ok": true,
+						"path": "res://cells/passage_shell.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BAR",
+						"instantiate_ms": 0.724,
+						"load_ms": 193.387,
+						"ok": true,
+						"path": "res://cells/shop_bar.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BODEGA",
+						"instantiate_ms": 0.557,
+						"load_ms": 41.023,
+						"ok": true,
+						"path": "res://cells/shop_bodega.gltf"
+					},
+					{
+						"id": "CELL_SHOP_MODEL_LAUNDRY",
+						"instantiate_ms": 0.643,
+						"load_ms": 3.019,
+						"ok": true,
+						"path": "res://cells/shop_model_laundry.gltf"
+					},
+					{
+						"id": "CELL_SHOP_SHOE_REBUILDING",
+						"instantiate_ms": 0.391,
+						"load_ms": 2.242,
+						"ok": true,
+						"path": "res://cells/shop_shoe_rebuilding.gltf"
+					},
+					{
+						"id": "CELL_SHOP_KEYS_CUT",
+						"instantiate_ms": 0.668,
+						"load_ms": 2.48,
+						"ok": true,
+						"path": "res://cells/shop_keys_cut.gltf"
+					},
+					{
+						"id": "CELL_SHOP_HARDWARE_PAINT",
+						"instantiate_ms": 0.727,
+						"load_ms": 2.771,
+						"ok": true,
+						"path": "res://cells/shop_hardware_paint.gltf"
+					},
+					{
+						"id": "CELL_SHOP_FUNERAL_PARLOUR",
+						"instantiate_ms": 0.46,
+						"load_ms": 2.277,
+						"ok": true,
+						"path": "res://cells/shop_funeral_parlour.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PHOTO_SUPPLIES",
+						"instantiate_ms": 0.517,
+						"load_ms": 2.903,
+						"ok": true,
+						"path": "res://cells/shop_photo_supplies.gltf"
+					},
+					{
+						"id": "CELL_SHOP_RADIO_SERVICE",
+						"instantiate_ms": 0.508,
+						"load_ms": 82.487,
+						"ok": true,
+						"path": "res://cells/shop_radio_service.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PAWNBROKER",
+						"instantiate_ms": 0.525,
+						"load_ms": 2.972,
+						"ok": true,
+						"path": "res://cells/shop_pawnbroker.gltf"
+					},
+					{
+						"id": "CELL_SHOP_NEWS_CIGARS",
+						"instantiate_ms": 0.342,
+						"load_ms": 2.314,
+						"ok": true,
+						"path": "res://cells/shop_news_cigars.gltf"
+					},
+					{
+						"id": "CELL_SHOP_OTIS_SON",
+						"instantiate_ms": 0.677,
+						"load_ms": 3.009,
+						"ok": true,
+						"path": "res://cells/shop_otis___son.gltf"
+					},
+					{
+						"id": "CELL_SHOP_LUNCHEONETTE",
+						"instantiate_ms": 0.465,
+						"load_ms": 2.834,
+						"ok": true,
+						"path": "res://cells/shop_luncheonette.gltf"
+					}
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10/02_street_passage_portal_recomposed.png",
+				"png_sha256": "998e79c0b3781afde65ef63ea2d56b7c81c4249dac0b6d981599a1db972fa2aa",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						760276325050,
+						766383228775,
+						768128059739,
+						771634499200,
+						779603674627,
+						783915419970,
+						788294273788,
+						792153032804,
+						795726580456,
+						799417566732,
+						803393770263,
+						808292714651,
+						814785499957,
+						819969658514,
+						824281403696,
+						829062909087,
+						834314177983
+					],
+					"retained_strong_references": 0
+				},
+				"render_metrics": {
+					"draw_calls": 427,
+					"gpu_ms": 0.163000002503395,
+					"gpu_timing_claimed": true,
+					"render_objects": 427,
+					"visible_primitives": 110208
+				},
+				"save_error": 0,
+				"subject_light_count": 0,
+				"subject_metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1300,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"view": {
+				"eye": [
+					9.0,
+					2.04999995231628,
+					21.0
+				],
+				"fov_degrees": 62.0,
+				"framing_status": "PROVIDED",
+				"id": "street_passage_portal",
+				"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+				"source": "split_receipt",
+				"target": [
+					14.0,
+					1.54999995231628,
+					31.0
+				]
+			}
+		},
+		{
+			"matched_camera": true,
+			"original": {
+				"after_teardown": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"before": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"camera": {
+					"class": "Camera3D",
+					"eye": [
+						14.1999998092651,
+						2.04999995231628,
+						45.0
+					],
+					"far": 500.0,
+					"forward": [
+						-0.991600394248962,
+						-0.129339188337326,
+						0.0000000433442295388886
+					],
+					"fov_degrees": 62.0,
+					"framing_status": "PROVIDED",
+					"harness_camera": true,
+					"near": 0.0500000007450581,
+					"source": "split_receipt",
+					"target": [
+						9.60000038146973,
+						1.45000004768372,
+						45.0
+					]
+				},
+				"dimensions": [
+					1600,
+					900
+				],
+				"kind": "original",
+				"load_rows": [
+					{
+						"id": "ORIGINAL_FLOOR_01",
+						"instantiate_ms": 13.638,
+						"load_ms": 3008.767,
+						"ok": true,
+						"path": "res://original/floor_01.gltf"
+					}
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10/03_passage_west_shop_aisle_original.png",
+				"png_sha256": "9a5f82ca3d2f7694a8fa21404d28696441de3986956136f9782d863c40c42dda",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						934222497621
+					],
+					"retained_strong_references": 0
+				},
+				"render_metrics": {
+					"draw_calls": 196,
+					"gpu_ms": 0.187000006437302,
+					"gpu_timing_claimed": true,
+					"render_objects": 196,
+					"visible_primitives": 94626
+				},
+				"save_error": 0,
+				"subject_light_count": 0,
+				"subject_metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1284,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"pixel_comparison": {
+				"byte_identical": true,
+				"changed_fraction": 0.0,
+				"changed_samples": 0,
+				"first_sha256": "9a5f82ca3d2f7694a8fa21404d28696441de3986956136f9782d863c40c42dda",
+				"max_channel_difference": 0.0,
+				"mean_absolute_channel_difference": 0.0,
+				"samples": 1440000,
+				"second_sha256": "9a5f82ca3d2f7694a8fa21404d28696441de3986956136f9782d863c40c42dda",
+				"status": "BYTE_IDENTICAL",
+				"stride_pixels": 0
+			},
+			"recomposed": {
+				"after_teardown": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"before": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"camera": {
+					"class": "Camera3D",
+					"eye": [
+						14.1999998092651,
+						2.04999995231628,
+						45.0
+					],
+					"far": 500.0,
+					"forward": [
+						-0.991600394248962,
+						-0.129339188337326,
+						0.0000000433442295388886
+					],
+					"fov_degrees": 62.0,
+					"framing_status": "PROVIDED",
+					"harness_camera": true,
+					"near": 0.0500000007450581,
+					"source": "split_receipt",
+					"target": [
+						9.60000038146973,
+						1.45000004768372,
+						45.0
+					]
+				},
+				"dimensions": [
+					1600,
+					900
+				],
+				"kind": "recomposed",
+				"load_rows": [
+					{
+						"id": "CELL_LEGACY_MIXED",
+						"instantiate_ms": 5.258,
+						"load_ms": 2620.265,
+						"ok": true,
+						"path": "res://cells/legacy_mixed.gltf"
+					},
+					{
+						"id": "CELL_SITE_STREET_DEDICATED",
+						"instantiate_ms": 0.179,
+						"load_ms": 73.847,
+						"ok": true,
+						"path": "res://cells/site_street_dedicated.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_PORTAL_PROXY",
+						"instantiate_ms": 1.005,
+						"load_ms": 2.902,
+						"ok": true,
+						"path": "res://cells/passage_portal_proxy.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_SHELL",
+						"instantiate_ms": 0.953,
+						"load_ms": 8.712,
+						"ok": true,
+						"path": "res://cells/passage_shell.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BAR",
+						"instantiate_ms": 0.734,
+						"load_ms": 194.705,
+						"ok": true,
+						"path": "res://cells/shop_bar.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BODEGA",
+						"instantiate_ms": 0.576,
+						"load_ms": 41.568,
+						"ok": true,
+						"path": "res://cells/shop_bodega.gltf"
+					},
+					{
+						"id": "CELL_SHOP_MODEL_LAUNDRY",
+						"instantiate_ms": 0.625,
+						"load_ms": 3.316,
+						"ok": true,
+						"path": "res://cells/shop_model_laundry.gltf"
+					},
+					{
+						"id": "CELL_SHOP_SHOE_REBUILDING",
+						"instantiate_ms": 0.419,
+						"load_ms": 2.257,
+						"ok": true,
+						"path": "res://cells/shop_shoe_rebuilding.gltf"
+					},
+					{
+						"id": "CELL_SHOP_KEYS_CUT",
+						"instantiate_ms": 0.682,
+						"load_ms": 2.669,
+						"ok": true,
+						"path": "res://cells/shop_keys_cut.gltf"
+					},
+					{
+						"id": "CELL_SHOP_HARDWARE_PAINT",
+						"instantiate_ms": 0.74,
+						"load_ms": 2.809,
+						"ok": true,
+						"path": "res://cells/shop_hardware_paint.gltf"
+					},
+					{
+						"id": "CELL_SHOP_FUNERAL_PARLOUR",
+						"instantiate_ms": 0.473,
+						"load_ms": 2.426,
+						"ok": true,
+						"path": "res://cells/shop_funeral_parlour.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PHOTO_SUPPLIES",
+						"instantiate_ms": 0.547,
+						"load_ms": 2.896,
+						"ok": true,
+						"path": "res://cells/shop_photo_supplies.gltf"
+					},
+					{
+						"id": "CELL_SHOP_RADIO_SERVICE",
+						"instantiate_ms": 0.503,
+						"load_ms": 82.654,
+						"ok": true,
+						"path": "res://cells/shop_radio_service.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PAWNBROKER",
+						"instantiate_ms": 0.49,
+						"load_ms": 2.94,
+						"ok": true,
+						"path": "res://cells/shop_pawnbroker.gltf"
+					},
+					{
+						"id": "CELL_SHOP_NEWS_CIGARS",
+						"instantiate_ms": 0.374,
+						"load_ms": 2.297,
+						"ok": true,
+						"path": "res://cells/shop_news_cigars.gltf"
+					},
+					{
+						"id": "CELL_SHOP_OTIS_SON",
+						"instantiate_ms": 0.68,
+						"load_ms": 3.052,
+						"ok": true,
+						"path": "res://cells/shop_otis___son.gltf"
+					},
+					{
+						"id": "CELL_SHOP_LUNCHEONETTE",
+						"instantiate_ms": 0.554,
+						"load_ms": 2.968,
+						"ok": true,
+						"path": "res://cells/shop_luncheonette.gltf"
+					}
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10/03_passage_west_shop_aisle_recomposed.png",
+				"png_sha256": "9a5f82ca3d2f7694a8fa21404d28696441de3986956136f9782d863c40c42dda",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						1027369600853,
+						1033476509007,
+						1035221340819,
+						1038727776923,
+						1046696956440,
+						1051008700861,
+						1055387552930,
+						1059246313966,
+						1062819859066,
+						1066510848776,
+						1070487046607,
+						1075385996123,
+						1081878776082,
+						1087062936315,
+						1091374680949,
+						1096156186919,
+						1101407456042
+					],
+					"retained_strong_references": 0
+				},
+				"render_metrics": {
+					"draw_calls": 196,
+					"gpu_ms": 0.196999996900558,
+					"gpu_timing_claimed": true,
+					"render_objects": 196,
+					"visible_primitives": 94626
+				},
+				"save_error": 0,
+				"subject_light_count": 0,
+				"subject_metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1300,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"view": {
+				"eye": [
+					14.1999998092651,
+					2.04999995231628,
+					45.0
+				],
+				"fov_degrees": 62.0,
+				"framing_status": "PROVIDED",
+				"id": "passage_west_shop_aisle",
+				"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+				"source": "split_receipt",
+				"target": [
+					9.60000038146973,
+					1.45000004768372,
+					45.0
+				]
+			}
+		},
+		{
+			"matched_camera": true,
+			"original": {
+				"after_teardown": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"before": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"camera": {
+					"class": "Camera3D",
+					"eye": [
+						12.0,
+						2.04999995231628,
+						18.0
+					],
+					"far": 500.0,
+					"forward": [
+						0.582635819911957,
+						-0.0755268633365631,
+						-0.809216439723969
+					],
+					"fov_degrees": 62.0,
+					"framing_status": "PROVIDED",
+					"harness_camera": true,
+					"near": 0.0500000007450581,
+					"source": "split_receipt",
+					"target": [
+						17.3999996185303,
+						1.35000002384186,
+						10.5
+					]
+				},
+				"dimensions": [
+					1600,
+					900
+				],
+				"kind": "original",
+				"load_rows": [
+					{
+						"id": "ORIGINAL_FLOOR_01",
+						"instantiate_ms": 13.355,
+						"load_ms": 3018.336,
+						"ok": true,
+						"path": "res://original/floor_01.gltf"
+					}
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10/04_bodega_street_threshold_original.png",
+				"png_sha256": "5f37acffcde4eff517c657574fa23ac63ae0e81659db8963bc791a94ef182db4",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						1201315777983
+					],
+					"retained_strong_references": 0
+				},
+				"render_metrics": {
+					"draw_calls": 102,
+					"gpu_ms": 0.165000006556511,
+					"gpu_timing_claimed": true,
+					"render_objects": 102,
+					"visible_primitives": 89506
+				},
+				"save_error": 0,
+				"subject_light_count": 0,
+				"subject_metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1284,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"pixel_comparison": {
+				"byte_identical": false,
+				"changed_fraction": 0.0000138888888888889,
+				"changed_samples": 20,
+				"first_sha256": "5f37acffcde4eff517c657574fa23ac63ae0e81659db8963bc791a94ef182db4",
+				"max_channel_difference": 0.152941167354584,
+				"mean_absolute_channel_difference": 0.000000902323885303405,
+				"samples": 1440000,
+				"second_sha256": "03990145f3e02a109bd90a80e563c85b065e9098bb00b4b2c55a11ce2660f08c",
+				"status": "MEASURED_FULL_FRAME",
+				"stride_pixels": 1
+			},
+			"recomposed": {
+				"after_teardown": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"before": {
+					"nodes": 4,
+					"objects": 1506,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"camera": {
+					"class": "Camera3D",
+					"eye": [
+						12.0,
+						2.04999995231628,
+						18.0
+					],
+					"far": 500.0,
+					"forward": [
+						0.582635819911957,
+						-0.0755268633365631,
+						-0.809216439723969
+					],
+					"fov_degrees": 62.0,
+					"framing_status": "PROVIDED",
+					"harness_camera": true,
+					"near": 0.0500000007450581,
+					"source": "split_receipt",
+					"target": [
+						17.3999996185303,
+						1.35000002384186,
+						10.5
+					]
+				},
+				"dimensions": [
+					1600,
+					900
+				],
+				"kind": "recomposed",
+				"load_rows": [
+					{
+						"id": "CELL_LEGACY_MIXED",
+						"instantiate_ms": 5.316,
+						"load_ms": 2610.289,
+						"ok": true,
+						"path": "res://cells/legacy_mixed.gltf"
+					},
+					{
+						"id": "CELL_SITE_STREET_DEDICATED",
+						"instantiate_ms": 0.177,
+						"load_ms": 72.555,
+						"ok": true,
+						"path": "res://cells/site_street_dedicated.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_PORTAL_PROXY",
+						"instantiate_ms": 0.994,
+						"load_ms": 2.829,
+						"ok": true,
+						"path": "res://cells/passage_portal_proxy.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_SHELL",
+						"instantiate_ms": 0.945,
+						"load_ms": 8.801,
+						"ok": true,
+						"path": "res://cells/passage_shell.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BAR",
+						"instantiate_ms": 0.713,
+						"load_ms": 195.209,
+						"ok": true,
+						"path": "res://cells/shop_bar.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BODEGA",
+						"instantiate_ms": 0.556,
+						"load_ms": 41.047,
+						"ok": true,
+						"path": "res://cells/shop_bodega.gltf"
+					},
+					{
+						"id": "CELL_SHOP_MODEL_LAUNDRY",
+						"instantiate_ms": 0.707,
+						"load_ms": 3.1,
+						"ok": true,
+						"path": "res://cells/shop_model_laundry.gltf"
+					},
+					{
+						"id": "CELL_SHOP_SHOE_REBUILDING",
+						"instantiate_ms": 0.405,
+						"load_ms": 2.213,
+						"ok": true,
+						"path": "res://cells/shop_shoe_rebuilding.gltf"
+					},
+					{
+						"id": "CELL_SHOP_KEYS_CUT",
+						"instantiate_ms": 0.715,
+						"load_ms": 2.648,
+						"ok": true,
+						"path": "res://cells/shop_keys_cut.gltf"
+					},
+					{
+						"id": "CELL_SHOP_HARDWARE_PAINT",
+						"instantiate_ms": 0.75,
+						"load_ms": 2.728,
+						"ok": true,
+						"path": "res://cells/shop_hardware_paint.gltf"
+					},
+					{
+						"id": "CELL_SHOP_FUNERAL_PARLOUR",
+						"instantiate_ms": 0.444,
+						"load_ms": 2.389,
+						"ok": true,
+						"path": "res://cells/shop_funeral_parlour.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PHOTO_SUPPLIES",
+						"instantiate_ms": 0.481,
+						"load_ms": 2.827,
+						"ok": true,
+						"path": "res://cells/shop_photo_supplies.gltf"
+					},
+					{
+						"id": "CELL_SHOP_RADIO_SERVICE",
+						"instantiate_ms": 0.464,
+						"load_ms": 82.892,
+						"ok": true,
+						"path": "res://cells/shop_radio_service.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PAWNBROKER",
+						"instantiate_ms": 0.492,
+						"load_ms": 2.956,
+						"ok": true,
+						"path": "res://cells/shop_pawnbroker.gltf"
+					},
+					{
+						"id": "CELL_SHOP_NEWS_CIGARS",
+						"instantiate_ms": 0.338,
+						"load_ms": 2.429,
+						"ok": true,
+						"path": "res://cells/shop_news_cigars.gltf"
+					},
+					{
+						"id": "CELL_SHOP_OTIS_SON",
+						"instantiate_ms": 0.666,
+						"load_ms": 2.939,
+						"ok": true,
+						"path": "res://cells/shop_otis___son.gltf"
+					},
+					{
+						"id": "CELL_SHOP_LUNCHEONETTE",
+						"instantiate_ms": 0.446,
+						"load_ms": 2.961,
+						"ok": true,
+						"path": "res://cells/shop_luncheonette.gltf"
+					}
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10/04_bodega_street_threshold_recomposed.png",
+				"png_sha256": "03990145f3e02a109bd90a80e563c85b065e9098bb00b4b2c55a11ce2660f08c",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						1294462881215,
+						1300569787247,
+						1302314616466,
+						1305821056221,
+						1313790233004,
+						1318101977470,
+						1322480831362,
+						1326339590096,
+						1329913138357,
+						1333604124582,
+						1337580327765,
+						1342479271513,
+						1348972057120,
+						1354156215532,
+						1358467960977,
+						1363249466907,
+						1368500736114
+					],
+					"retained_strong_references": 0
+				},
+				"render_metrics": {
+					"draw_calls": 102,
+					"gpu_ms": 0.194000005722046,
+					"gpu_timing_claimed": true,
+					"render_objects": 102,
+					"visible_primitives": 89506
+				},
+				"save_error": 0,
+				"subject_light_count": 0,
+				"subject_metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1300,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"view": {
+				"eye": [
+					12.0,
+					2.04999995231628,
+					18.0
+				],
+				"fov_degrees": 62.0,
+				"framing_status": "PROVIDED",
+				"id": "bodega_street_threshold",
+				"seam_id": "SEAM_BODEGA_STREET",
+				"source": "split_receipt",
+				"target": [
+					17.3999996185303,
+					1.35000002384186,
+					10.5
+				]
+			}
+		}
+	],
+	"renderer": "forward_plus",
+	"resolution": [
+		1600,
+		900
+	],
+	"schema": "orison.m11c0.floor01-matched-capture.v1",
+	"status": "PASS",
+	"unproven": [],
+	"warmed_baseline": {
+		"nodes": 4,
+		"objects": 1506,
+		"orphan_nodes": 0,
+		"resources": 4
+	}
+}

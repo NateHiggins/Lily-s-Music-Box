@@ -1,0 +1,5941 @@
+{
+	"authority": "disposable_rehearsal_only",
+	"between_cycles": {
+		"nodes": 3,
+		"objects": 1495,
+		"orphan_nodes": 0,
+		"resources": 4
+	},
+	"cycles": [
+		{
+			"after_teardown": {
+				"nodes": 3,
+				"objects": 1495,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"before": {
+				"nodes": 3,
+				"objects": 1494,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": 1,
+				"orphan_nodes": 0,
+				"resources": 0
+			},
+			"id": "warmed_cycle_1",
+			"independent": [
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1496,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 1287,
+						"objects": 4917,
+						"orphan_nodes": 0,
+						"resources": 308
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1494,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "ORIGINAL_FLOOR_01",
+					"instantiate_ms": 14.78,
+					"load_ms": 2356.628,
+					"metrics": {
+						"aabb_max": [
+							108.0,
+							53.5852279663086,
+							102.199996948242
+						],
+						"aabb_min": [
+							-112.0,
+							-2.90000009536743,
+							-66.0
+						],
+						"aabb_valid": true,
+						"collision_objects": 380,
+						"collision_shapes": 380,
+						"lights": 0,
+						"mesh_instances": 522,
+						"mesh_primitives": 522,
+						"nodes": 1283,
+						"render_primitives_estimate": 182610,
+						"unique_mesh_resources": 522
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://original/floor_01.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							727728522927
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [
+						{
+							"manifest_record": {
+								"counterpart": "CELL_SITE_STREET_COMMON",
+								"id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+								"known_contact": "pavement reaches -9.98 and deliberately overlaps the wall by 0.02 m",
+								"owner": "CELL_ORISON_FACADE_SHELL",
+								"source_plan_y": -10.0
+							},
+							"probes": [
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										0.0,
+										2.0,
+										9.96000003814697
+									],
+									"hit_position": [
+										0.0,
+										0.0,
+										9.96000003814697
+									],
+									"id": "orison_north_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										0.0,
+										-1.0,
+										9.96000003814697
+									]
+								},
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										0.0,
+										2.0,
+										10.0200004577637
+									],
+									"hit_position": [
+										0.0,
+										0.0900000333786011,
+										10.0200004577637
+									],
+									"id": "street_south_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										0.0,
+										-1.0,
+										10.0200004577637
+									]
+								}
+							],
+							"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+							"status": "PASS"
+						},
+						{
+							"manifest_record": {
+								"dependent_cell": "CELL_PASSAGE",
+								"gltf_z": 28.316,
+								"id": "SEAM_STREET_PASSAGE_PORTAL",
+								"known_contact": "Passage floor overlaps street ground by 0.004 m; legacy proxy is canonically street-resident even though its source batch begins passage_proxy.",
+								"owner": "CELL_SITE_STREET_COMMON"
+							},
+							"probes": [
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										14.0,
+										2.0,
+										28.3139991760254
+									],
+									"hit_position": [
+										14.0,
+										0.00999999046325684,
+										28.3139991760254
+									],
+									"id": "street_portal_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										14.0,
+										-1.0,
+										28.3139991760254
+									]
+								},
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										14.0,
+										2.0,
+										28.318000793457
+									],
+									"hit_position": [
+										14.0,
+										0.00999999046325684,
+										28.318000793457
+									],
+									"id": "passage_throat_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										14.0,
+										-1.0,
+										28.318000793457
+									]
+								}
+							],
+							"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+							"status": "PASS"
+						},
+						{
+							"manifest_record": {
+								"counterpart": "CELL_SHOP_*",
+								"id": "SEAM_PASSAGE_SHOP_AISLES",
+								"known_contact": "Passage owns common aisle, openings and party-wall structure; each shop owns only its inward threshold/storefront volume.",
+								"owner": "CELL_PASSAGE",
+								"source_plan_x": [
+									11.0,
+									17.0
+								]
+							},
+							"probes": [
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										11.0200004577637,
+										2.0,
+										45.0
+									],
+									"hit_position": [
+										11.0200004577637,
+										0.549999952316284,
+										45.0
+									],
+									"id": "passage_aisle_west",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										11.0200004577637,
+										-1.0,
+										45.0
+									]
+								},
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										10.9799995422363,
+										2.0,
+										45.0
+									],
+									"hit_position": [
+										10.9799995422363,
+										0.00999999046325684,
+										45.0
+									],
+									"id": "west_shop_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										10.9799995422363,
+										-1.0,
+										45.0
+									]
+								}
+							],
+							"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+							"status": "PASS"
+						},
+						{
+							"manifest_record": {
+								"counterpart": "CELL_SHOP_BODEGA",
+								"id": "SEAM_BODEGA_STREET",
+								"known_contact": "Bodega floor and pavement vertical faces touch at elevation zero and require bidirectional collision probes.",
+								"owner": "CELL_SITE_STREET_COMMON",
+								"source_plan_y": -12.0
+							},
+							"probes": [
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										17.3999996185303,
+										2.0,
+										13.0799999237061
+									],
+									"hit_position": [
+										17.3999996185303,
+										0.00999999046325684,
+										13.0799999237061
+									],
+									"id": "bodega_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										17.3999996185303,
+										-1.0,
+										13.0799999237061
+									]
+								},
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										17.3999996185303,
+										2.0,
+										13.1199998855591
+									],
+									"hit_position": [
+										17.3999996185303,
+										0.00999999046325684,
+										13.1199998855591
+									],
+									"id": "bodega_pavement",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										17.3999996185303,
+										-1.0,
+										13.1199998855591
+									]
+								}
+							],
+							"seam_id": "SEAM_BODEGA_STREET",
+							"status": "PASS"
+						},
+						{
+							"manifest_record": {
+								"counterpart": "CELL_ORISON_F01_INTERIOR",
+								"id": "SEAM_SHELL_INTERIOR",
+								"known_contact": "glazing, sash, trim, wainscot and AO emissions currently batch internal and perimeter walls together",
+								"owner": "CELL_ORISON_FACADE_SHELL"
+							},
+							"reason": "SEAM_SHELL_INTERIOR has no explicit ray endpoints and expected contact; collision continuity is UNPROVEN",
+							"seam_id": "SEAM_SHELL_INTERIOR",
+							"status": "UNPROVEN"
+						}
+					],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 2,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 222,
+						"objects": 2657,
+						"orphan_nodes": 0,
+						"resources": 275
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1496,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_LEGACY_MIXED",
+					"instantiate_ms": 5.445,
+					"load_ms": 2043.282,
+					"metrics": {
+						"aabb_max": [
+							108.0,
+							53.5852279663086,
+							102.199996948242
+						],
+						"aabb_min": [
+							-112.0,
+							-2.86999988555908,
+							-66.0
+						],
+						"aabb_valid": true,
+						"collision_objects": 43,
+						"collision_shapes": 43,
+						"lights": 0,
+						"mesh_instances": 131,
+						"mesh_primitives": 131,
+						"nodes": 218,
+						"render_primitives_estimate": 142440,
+						"unique_mesh_resources": 131
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/legacy_mixed.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							815574027966
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 1,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 29,
+						"objects": 1602,
+						"orphan_nodes": 0,
+						"resources": 27
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SITE_STREET_DEDICATED",
+					"instantiate_ms": 0.148,
+					"load_ms": 216.857,
+					"metrics": {
+						"aabb_max": [
+							32.2000007629395,
+							2.5699999332428,
+							28.2999992370605
+						],
+						"aabb_min": [
+							-33.2000007629395,
+							0.0,
+							-14.8999996185303
+						],
+						"aabb_valid": true,
+						"collision_objects": 8,
+						"collision_shapes": 8,
+						"lights": 0,
+						"mesh_instances": 8,
+						"mesh_primitives": 8,
+						"nodes": 25,
+						"render_primitives_estimate": 324,
+						"unique_mesh_resources": 8
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/site_street_dedicated.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							825170595407
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 39,
+						"objects": 1623,
+						"orphan_nodes": 0,
+						"resources": 27
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_PASSAGE_PORTAL_PROXY",
+					"instantiate_ms": 1.021,
+					"load_ms": 231.22,
+					"metrics": {
+						"aabb_max": [
+							20.7000007629395,
+							10.7399997711182,
+							33.25
+						],
+						"aabb_min": [
+							6.30000019073486,
+							-1.3400000333786,
+							27.0559997558594
+						],
+						"aabb_valid": true,
+						"collision_objects": 11,
+						"collision_shapes": 11,
+						"lights": 0,
+						"mesh_instances": 12,
+						"mesh_primitives": 12,
+						"nodes": 35,
+						"render_primitives_estimate": 4368,
+						"unique_mesh_resources": 12
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/passage_portal_proxy.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							831713708665
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 55,
+						"objects": 1722,
+						"orphan_nodes": 0,
+						"resources": 54
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_PASSAGE_SHELL",
+					"instantiate_ms": 0.961,
+					"load_ms": 409.318,
+					"metrics": {
+						"aabb_max": [
+							27.4300003051758,
+							12.1000003814697,
+							64.8499984741211
+						],
+						"aabb_min": [
+							0.569999992847443,
+							-0.0500000007450581,
+							28.3159999847412
+						],
+						"aabb_valid": true,
+						"collision_objects": 15,
+						"collision_shapes": 15,
+						"lights": 0,
+						"mesh_instances": 20,
+						"mesh_primitives": 20,
+						"nodes": 51,
+						"render_primitives_estimate": 10788,
+						"unique_mesh_resources": 20
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/passage_shell.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							844799938242
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 98,
+						"objects": 1901,
+						"orphan_nodes": 0,
+						"resources": 96
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_BAR",
+					"instantiate_ms": 0.686,
+					"load_ms": 845.419,
+					"metrics": {
+						"aabb_max": [
+							6.39999961853027,
+							3.54999995231628,
+							38.2000007629395
+						],
+						"aabb_min": [
+							-12.0,
+							-2.90000009536743,
+							28.2999992370605
+						],
+						"aabb_valid": true,
+						"collision_objects": 31,
+						"collision_shapes": 31,
+						"lights": 0,
+						"mesh_instances": 31,
+						"mesh_primitives": 31,
+						"nodes": 94,
+						"render_primitives_estimate": 2268,
+						"unique_mesh_resources": 31
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_bar.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							868187378641
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 53,
+						"objects": 1706,
+						"orphan_nodes": 0,
+						"resources": 51
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_BODEGA",
+					"instantiate_ms": 0.54,
+					"load_ms": 438.117,
+					"metrics": {
+						"aabb_max": [
+							19.6000003814697,
+							3.54999995231628,
+							13.1000003814697
+						],
+						"aabb_min": [
+							15.1999998092651,
+							0.0,
+							1.29999995231628
+						],
+						"aabb_valid": true,
+						"collision_objects": 16,
+						"collision_shapes": 16,
+						"lights": 0,
+						"mesh_instances": 16,
+						"mesh_primitives": 16,
+						"nodes": 49,
+						"render_primitives_estimate": 1824,
+						"unique_mesh_resources": 16
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_bodega.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							881474933769
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 82,
+						"objects": 1860,
+						"orphan_nodes": 0,
+						"resources": 88
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_MODEL_LAUNDRY",
+					"instantiate_ms": 0.619,
+					"load_ms": 720.376,
+					"metrics": {
+						"aabb_max": [
+							12.6000003814697,
+							4.19999980926514,
+							44.8600006103516
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							39.1399993896484
+						],
+						"aabb_valid": true,
+						"collision_objects": 23,
+						"collision_shapes": 23,
+						"lights": 0,
+						"mesh_instances": 31,
+						"mesh_primitives": 31,
+						"nodes": 78,
+						"render_primitives_estimate": 2298,
+						"unique_mesh_resources": 31
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_model_laundry.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							902932991716
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 65,
+						"objects": 1758,
+						"orphan_nodes": 0,
+						"resources": 63
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_SHOE_REBUILDING",
+					"instantiate_ms": 0.427,
+					"load_ms": 550.303,
+					"metrics": {
+						"aabb_max": [
+							12.6000003814697,
+							4.19999980926514,
+							50.4599990844727
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							44.7400016784668
+						],
+						"aabb_valid": true,
+						"collision_objects": 20,
+						"collision_shapes": 20,
+						"lights": 0,
+						"mesh_instances": 20,
+						"mesh_primitives": 20,
+						"nodes": 61,
+						"render_primitives_estimate": 1236,
+						"unique_mesh_resources": 20
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_shoe_rebuilding.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							918837792396
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 65,
+						"objects": 1758,
+						"orphan_nodes": 0,
+						"resources": 63
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_KEYS_CUT",
+					"instantiate_ms": 0.656,
+					"load_ms": 568.039,
+					"metrics": {
+						"aabb_max": [
+							12.3199996948242,
+							4.19999980926514,
+							54.060001373291
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							50.3400001525879
+						],
+						"aabb_valid": true,
+						"collision_objects": 20,
+						"collision_shapes": 20,
+						"lights": 0,
+						"mesh_instances": 20,
+						"mesh_primitives": 20,
+						"nodes": 61,
+						"render_primitives_estimate": 2184,
+						"unique_mesh_resources": 20
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_keys_cut.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							934457381827
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 68,
+						"objects": 1771,
+						"orphan_nodes": 0,
+						"resources": 66
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_HARDWARE_PAINT",
+					"instantiate_ms": 0.752,
+					"load_ms": 528.272,
+					"metrics": {
+						"aabb_max": [
+							12.3199996948242,
+							4.19999980926514,
+							59.4599990844727
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							53.939998626709
+						],
+						"aabb_valid": true,
+						"collision_objects": 21,
+						"collision_shapes": 21,
+						"lights": 0,
+						"mesh_instances": 21,
+						"mesh_primitives": 21,
+						"nodes": 64,
+						"render_primitives_estimate": 2688,
+						"unique_mesh_resources": 21
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_hardware_paint.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							950798389001
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 74,
+						"objects": 1797,
+						"orphan_nodes": 0,
+						"resources": 72
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_FUNERAL_PARLOUR",
+					"instantiate_ms": 0.475,
+					"load_ms": 565.386,
+					"metrics": {
+						"aabb_max": [
+							12.6000003814697,
+							4.19999980926514,
+							64.0599975585938
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							59.3400001525879
+						],
+						"aabb_valid": true,
+						"collision_objects": 23,
+						"collision_shapes": 23,
+						"lights": 0,
+						"mesh_instances": 23,
+						"mesh_primitives": 23,
+						"nodes": 70,
+						"render_primitives_estimate": 1380,
+						"unique_mesh_resources": 23
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_funeral_parlour.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							968632569518
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 88,
+						"objects": 1879,
+						"orphan_nodes": 0,
+						"resources": 91
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_PHOTO_SUPPLIES",
+					"instantiate_ms": 0.482,
+					"load_ms": 721.127,
+					"metrics": {
+						"aabb_max": [
+							27.0599994659424,
+							4.19999980926514,
+							64.0599975585938
+						],
+						"aabb_min": [
+							15.3999996185303,
+							-0.0500000007450581,
+							58.7400016784668
+						],
+						"aabb_valid": true,
+						"collision_objects": 25,
+						"collision_shapes": 25,
+						"lights": 0,
+						"mesh_instances": 33,
+						"mesh_primitives": 33,
+						"nodes": 84,
+						"render_primitives_estimate": 1830,
+						"unique_mesh_resources": 33
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_photo_supplies.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							991214703222
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 91,
+						"objects": 1885,
+						"orphan_nodes": 0,
+						"resources": 91
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_RADIO_SERVICE",
+					"instantiate_ms": 0.438,
+					"load_ms": 782.736,
+					"metrics": {
+						"aabb_max": [
+							26.8199996948242,
+							4.19999980926514,
+							58.8600006103516
+						],
+						"aabb_min": [
+							15.4200000762939,
+							-0.0500000007450581,
+							55.5400009155273
+						],
+						"aabb_valid": true,
+						"collision_objects": 26,
+						"collision_shapes": 26,
+						"lights": 0,
+						"mesh_instances": 34,
+						"mesh_primitives": 34,
+						"nodes": 87,
+						"render_primitives_estimate": 1530,
+						"unique_mesh_resources": 34
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_radio_service.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1014082049181
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 88,
+						"objects": 1879,
+						"orphan_nodes": 0,
+						"resources": 91
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_PAWNBROKER",
+					"instantiate_ms": 0.501,
+					"load_ms": 720.121,
+					"metrics": {
+						"aabb_max": [
+							27.0599994659424,
+							4.19999980926514,
+							55.6599998474121
+						],
+						"aabb_min": [
+							15.6800003051758,
+							-0.0500000007450581,
+							50.939998626709
+						],
+						"aabb_valid": true,
+						"collision_objects": 25,
+						"collision_shapes": 25,
+						"lights": 0,
+						"mesh_instances": 33,
+						"mesh_primitives": 33,
+						"nodes": 84,
+						"render_primitives_estimate": 1818,
+						"unique_mesh_resources": 33
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_pawnbroker.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1036949391670
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 67,
+						"objects": 1788,
+						"orphan_nodes": 0,
+						"resources": 70
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_NEWS_CIGARS",
+					"instantiate_ms": 0.344,
+					"load_ms": 553.203,
+					"metrics": {
+						"aabb_max": [
+							26.8199996948242,
+							4.19999980926514,
+							51.060001373291
+						],
+						"aabb_min": [
+							15.6800003051758,
+							-0.0500000007450581,
+							48.6399993896484
+						],
+						"aabb_valid": true,
+						"collision_objects": 18,
+						"collision_shapes": 18,
+						"lights": 0,
+						"mesh_instances": 26,
+						"mesh_primitives": 26,
+						"nodes": 63,
+						"render_primitives_estimate": 1338,
+						"unique_mesh_resources": 26
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_news_cigars.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1054716463358
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 95,
+						"objects": 1888,
+						"orphan_nodes": 0,
+						"resources": 93
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_OTIS_SON",
+					"instantiate_ms": 0.722,
+					"load_ms": 673.593,
+					"metrics": {
+						"aabb_max": [
+							27.0599994659424,
+							4.19999980926514,
+							48.7599983215332
+						],
+						"aabb_min": [
+							15.4200000762939,
+							-0.0500000007450581,
+							44.3400001525879
+						],
+						"aabb_valid": true,
+						"collision_objects": 30,
+						"collision_shapes": 30,
+						"lights": 0,
+						"mesh_instances": 30,
+						"mesh_primitives": 30,
+						"nodes": 91,
+						"render_primitives_estimate": 2196,
+						"unique_mesh_resources": 30
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_otis___son.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1077583808440
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 88,
+						"objects": 1879,
+						"orphan_nodes": 0,
+						"resources": 91
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_LUNCHEONETTE",
+					"instantiate_ms": 0.459,
+					"load_ms": 762.382,
+					"metrics": {
+						"aabb_max": [
+							27.0599994659424,
+							4.19999980926514,
+							44.4599990844727
+						],
+						"aabb_min": [
+							15.3999996185303,
+							-0.0500000007450581,
+							39.1399993896484
+						],
+						"aabb_valid": true,
+						"collision_objects": 25,
+						"collision_shapes": 25,
+						"lights": 0,
+						"mesh_instances": 33,
+						"mesh_primitives": 33,
+						"nodes": 84,
+						"render_primitives_estimate": 2100,
+						"unique_mesh_resources": 33
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_luncheonette.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1100518265580
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				}
+			],
+			"recomposed": {
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1497,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 1303,
+					"objects": 5293,
+					"orphan_nodes": 0,
+					"resources": 308
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1497,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"cell_loads": [
+					{
+						"id": "CELL_LEGACY_MIXED",
+						"instantiate_ms": 5.392,
+						"load_ms": 2020.891,
+						"ok": true,
+						"path": "res://cells/legacy_mixed.gltf"
+					},
+					{
+						"id": "CELL_SITE_STREET_DEDICATED",
+						"instantiate_ms": 0.163,
+						"load_ms": 54.724,
+						"ok": true,
+						"path": "res://cells/site_street_dedicated.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_PORTAL_PROXY",
+						"instantiate_ms": 1.02,
+						"load_ms": 2.556,
+						"ok": true,
+						"path": "res://cells/passage_portal_proxy.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_SHELL",
+						"instantiate_ms": 0.933,
+						"load_ms": 7.716,
+						"ok": true,
+						"path": "res://cells/passage_shell.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BAR",
+						"instantiate_ms": 0.704,
+						"load_ms": 137.374,
+						"ok": true,
+						"path": "res://cells/shop_bar.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BODEGA",
+						"instantiate_ms": 0.508,
+						"load_ms": 33.65,
+						"ok": true,
+						"path": "res://cells/shop_bodega.gltf"
+					},
+					{
+						"id": "CELL_SHOP_MODEL_LAUNDRY",
+						"instantiate_ms": 0.588,
+						"load_ms": 2.465,
+						"ok": true,
+						"path": "res://cells/shop_model_laundry.gltf"
+					},
+					{
+						"id": "CELL_SHOP_SHOE_REBUILDING",
+						"instantiate_ms": 0.399,
+						"load_ms": 1.848,
+						"ok": true,
+						"path": "res://cells/shop_shoe_rebuilding.gltf"
+					},
+					{
+						"id": "CELL_SHOP_KEYS_CUT",
+						"instantiate_ms": 0.662,
+						"load_ms": 2.2,
+						"ok": true,
+						"path": "res://cells/shop_keys_cut.gltf"
+					},
+					{
+						"id": "CELL_SHOP_HARDWARE_PAINT",
+						"instantiate_ms": 0.763,
+						"load_ms": 3.124,
+						"ok": true,
+						"path": "res://cells/shop_hardware_paint.gltf"
+					},
+					{
+						"id": "CELL_SHOP_FUNERAL_PARLOUR",
+						"instantiate_ms": 0.492,
+						"load_ms": 2.016,
+						"ok": true,
+						"path": "res://cells/shop_funeral_parlour.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PHOTO_SUPPLIES",
+						"instantiate_ms": 0.487,
+						"load_ms": 2.417,
+						"ok": true,
+						"path": "res://cells/shop_photo_supplies.gltf"
+					},
+					{
+						"id": "CELL_SHOP_RADIO_SERVICE",
+						"instantiate_ms": 0.462,
+						"load_ms": 67.898,
+						"ok": true,
+						"path": "res://cells/shop_radio_service.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PAWNBROKER",
+						"instantiate_ms": 0.549,
+						"load_ms": 2.455,
+						"ok": true,
+						"path": "res://cells/shop_pawnbroker.gltf"
+					},
+					{
+						"id": "CELL_SHOP_NEWS_CIGARS",
+						"instantiate_ms": 0.385,
+						"load_ms": 2.272,
+						"ok": true,
+						"path": "res://cells/shop_news_cigars.gltf"
+					},
+					{
+						"id": "CELL_SHOP_OTIS_SON",
+						"instantiate_ms": 0.687,
+						"load_ms": 2.842,
+						"ok": true,
+						"path": "res://cells/shop_otis___son.gltf"
+					},
+					{
+						"id": "CELL_SHOP_LUNCHEONETTE",
+						"instantiate_ms": 0.523,
+						"load_ms": 2.466,
+						"ok": true,
+						"path": "res://cells/shop_luncheonette.gltf"
+					}
+				],
+				"metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1300,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"ok": true,
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						1168096890507,
+						1174103133707,
+						1175847964134,
+						1179304071148,
+						1187021589410,
+						1191283003416,
+						1195661857156,
+						1199520615196,
+						1203094163703,
+						1206785148374,
+						1210761351378,
+						1215660297379,
+						1222052415388,
+						1227236574827,
+						1231548319774,
+						1236329828328,
+						1241581094854
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SITE_STREET_COMMON",
+							"id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+							"known_contact": "pavement reaches -9.98 and deliberately overlaps the wall by 0.02 m",
+							"owner": "CELL_ORISON_FACADE_SHELL",
+							"source_plan_y": -10.0
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									0.0,
+									2.0,
+									9.96000003814697
+								],
+								"hit_position": [
+									0.0,
+									0.0,
+									9.96000003814697
+								],
+								"id": "orison_north_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									0.0,
+									-1.0,
+									9.96000003814697
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									0.0,
+									2.0,
+									10.0200004577637
+								],
+								"hit_position": [
+									0.0,
+									0.0900000333786011,
+									10.0200004577637
+								],
+								"id": "street_south_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									0.0,
+									-1.0,
+									10.0200004577637
+								]
+							}
+						],
+						"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"dependent_cell": "CELL_PASSAGE",
+							"gltf_z": 28.316,
+							"id": "SEAM_STREET_PASSAGE_PORTAL",
+							"known_contact": "Passage floor overlaps street ground by 0.004 m; legacy proxy is canonically street-resident even though its source batch begins passage_proxy.",
+							"owner": "CELL_SITE_STREET_COMMON"
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									14.0,
+									2.0,
+									28.3139991760254
+								],
+								"hit_position": [
+									14.0,
+									0.00999999046325684,
+									28.3139991760254
+								],
+								"id": "street_portal_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									14.0,
+									-1.0,
+									28.3139991760254
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									14.0,
+									2.0,
+									28.318000793457
+								],
+								"hit_position": [
+									14.0,
+									0.00999999046325684,
+									28.318000793457
+								],
+								"id": "passage_throat_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_PASSAGE_SHELL",
+								"status": "PASS",
+								"to": [
+									14.0,
+									-1.0,
+									28.318000793457
+								]
+							}
+						],
+						"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SHOP_*",
+							"id": "SEAM_PASSAGE_SHOP_AISLES",
+							"known_contact": "Passage owns common aisle, openings and party-wall structure; each shop owns only its inward threshold/storefront volume.",
+							"owner": "CELL_PASSAGE",
+							"source_plan_x": [
+								11.0,
+								17.0
+							]
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									11.0200004577637,
+									2.0,
+									45.0
+								],
+								"hit_position": [
+									11.0200004577637,
+									0.549999952316284,
+									45.0
+								],
+								"id": "passage_aisle_west",
+								"observed_hit": true,
+								"owning_cell": "CELL_SHOP_SHOE_REBUILDING",
+								"status": "PASS",
+								"to": [
+									11.0200004577637,
+									-1.0,
+									45.0
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									10.9799995422363,
+									2.0,
+									45.0
+								],
+								"hit_position": [
+									10.9799995422363,
+									0.00999999046325684,
+									45.0
+								],
+								"id": "west_shop_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_SHOP_SHOE_REBUILDING",
+								"status": "PASS",
+								"to": [
+									10.9799995422363,
+									-1.0,
+									45.0
+								]
+							}
+						],
+						"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SHOP_BODEGA",
+							"id": "SEAM_BODEGA_STREET",
+							"known_contact": "Bodega floor and pavement vertical faces touch at elevation zero and require bidirectional collision probes.",
+							"owner": "CELL_SITE_STREET_COMMON",
+							"source_plan_y": -12.0
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									17.3999996185303,
+									2.0,
+									13.0799999237061
+								],
+								"hit_position": [
+									17.3999996185303,
+									0.00999999046325684,
+									13.0799999237061
+								],
+								"id": "bodega_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									17.3999996185303,
+									-1.0,
+									13.0799999237061
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									17.3999996185303,
+									2.0,
+									13.1199998855591
+								],
+								"hit_position": [
+									17.3999996185303,
+									0.00999999046325684,
+									13.1199998855591
+								],
+								"id": "bodega_pavement",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									17.3999996185303,
+									-1.0,
+									13.1199998855591
+								]
+							}
+						],
+						"seam_id": "SEAM_BODEGA_STREET",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_ORISON_F01_INTERIOR",
+							"id": "SEAM_SHELL_INTERIOR",
+							"known_contact": "glazing, sash, trim, wainscot and AO emissions currently batch internal and perimeter walls together",
+							"owner": "CELL_ORISON_FACADE_SHELL"
+						},
+						"reason": "SEAM_SHELL_INTERIOR has no explicit ray endpoints and expected contact; collision continuity is UNPROVEN",
+						"seam_id": "SEAM_SHELL_INTERIOR",
+						"status": "UNPROVEN"
+					}
+				],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"recorded": true
+		},
+		{
+			"after_teardown": {
+				"nodes": 3,
+				"objects": 1495,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"before": {
+				"nodes": 3,
+				"objects": 1495,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": 0,
+				"orphan_nodes": 0,
+				"resources": 0
+			},
+			"id": "warmed_cycle_2",
+			"independent": [
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1496,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 1287,
+						"objects": 4917,
+						"orphan_nodes": 0,
+						"resources": 308
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1495,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "ORIGINAL_FLOOR_01",
+					"instantiate_ms": 14.287,
+					"load_ms": 2334.087,
+					"metrics": {
+						"aabb_max": [
+							108.0,
+							53.5852279663086,
+							102.199996948242
+						],
+						"aabb_min": [
+							-112.0,
+							-2.90000009536743,
+							-66.0
+						],
+						"aabb_valid": true,
+						"collision_objects": 380,
+						"collision_shapes": 380,
+						"lights": 0,
+						"mesh_instances": 522,
+						"mesh_primitives": 522,
+						"nodes": 1283,
+						"render_primitives_estimate": 182610,
+						"unique_mesh_resources": 522
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://original/floor_01.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1335516730377
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [
+						{
+							"manifest_record": {
+								"counterpart": "CELL_SITE_STREET_COMMON",
+								"id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+								"known_contact": "pavement reaches -9.98 and deliberately overlaps the wall by 0.02 m",
+								"owner": "CELL_ORISON_FACADE_SHELL",
+								"source_plan_y": -10.0
+							},
+							"probes": [
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										0.0,
+										2.0,
+										9.96000003814697
+									],
+									"hit_position": [
+										0.0,
+										0.0,
+										9.96000003814697
+									],
+									"id": "orison_north_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										0.0,
+										-1.0,
+										9.96000003814697
+									]
+								},
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										0.0,
+										2.0,
+										10.0200004577637
+									],
+									"hit_position": [
+										0.0,
+										0.0900000333786011,
+										10.0200004577637
+									],
+									"id": "street_south_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										0.0,
+										-1.0,
+										10.0200004577637
+									]
+								}
+							],
+							"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+							"status": "PASS"
+						},
+						{
+							"manifest_record": {
+								"dependent_cell": "CELL_PASSAGE",
+								"gltf_z": 28.316,
+								"id": "SEAM_STREET_PASSAGE_PORTAL",
+								"known_contact": "Passage floor overlaps street ground by 0.004 m; legacy proxy is canonically street-resident even though its source batch begins passage_proxy.",
+								"owner": "CELL_SITE_STREET_COMMON"
+							},
+							"probes": [
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										14.0,
+										2.0,
+										28.3139991760254
+									],
+									"hit_position": [
+										14.0,
+										0.00999999046325684,
+										28.3139991760254
+									],
+									"id": "street_portal_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										14.0,
+										-1.0,
+										28.3139991760254
+									]
+								},
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										14.0,
+										2.0,
+										28.318000793457
+									],
+									"hit_position": [
+										14.0,
+										0.00999999046325684,
+										28.318000793457
+									],
+									"id": "passage_throat_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										14.0,
+										-1.0,
+										28.318000793457
+									]
+								}
+							],
+							"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+							"status": "PASS"
+						},
+						{
+							"manifest_record": {
+								"counterpart": "CELL_SHOP_*",
+								"id": "SEAM_PASSAGE_SHOP_AISLES",
+								"known_contact": "Passage owns common aisle, openings and party-wall structure; each shop owns only its inward threshold/storefront volume.",
+								"owner": "CELL_PASSAGE",
+								"source_plan_x": [
+									11.0,
+									17.0
+								]
+							},
+							"probes": [
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										11.0200004577637,
+										2.0,
+										45.0
+									],
+									"hit_position": [
+										11.0200004577637,
+										0.549999952316284,
+										45.0
+									],
+									"id": "passage_aisle_west",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										11.0200004577637,
+										-1.0,
+										45.0
+									]
+								},
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										10.9799995422363,
+										2.0,
+										45.0
+									],
+									"hit_position": [
+										10.9799995422363,
+										0.00999999046325684,
+										45.0
+									],
+									"id": "west_shop_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										10.9799995422363,
+										-1.0,
+										45.0
+									]
+								}
+							],
+							"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+							"status": "PASS"
+						},
+						{
+							"manifest_record": {
+								"counterpart": "CELL_SHOP_BODEGA",
+								"id": "SEAM_BODEGA_STREET",
+								"known_contact": "Bodega floor and pavement vertical faces touch at elevation zero and require bidirectional collision probes.",
+								"owner": "CELL_SITE_STREET_COMMON",
+								"source_plan_y": -12.0
+							},
+							"probes": [
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										17.3999996185303,
+										2.0,
+										13.0799999237061
+									],
+									"hit_position": [
+										17.3999996185303,
+										0.00999999046325684,
+										13.0799999237061
+									],
+									"id": "bodega_floor",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										17.3999996185303,
+										-1.0,
+										13.0799999237061
+									]
+								},
+								{
+									"collider_class": "StaticBody3D",
+									"expected": "hit",
+									"from": [
+										17.3999996185303,
+										2.0,
+										13.1199998855591
+									],
+									"hit_position": [
+										17.3999996185303,
+										0.00999999046325684,
+										13.1199998855591
+									],
+									"id": "bodega_pavement",
+									"observed_hit": true,
+									"owning_cell": "ORIGINAL_FLOOR_01",
+									"status": "PASS",
+									"to": [
+										17.3999996185303,
+										-1.0,
+										13.1199998855591
+									]
+								}
+							],
+							"seam_id": "SEAM_BODEGA_STREET",
+							"status": "PASS"
+						},
+						{
+							"manifest_record": {
+								"counterpart": "CELL_ORISON_F01_INTERIOR",
+								"id": "SEAM_SHELL_INTERIOR",
+								"known_contact": "glazing, sash, trim, wainscot and AO emissions currently batch internal and perimeter walls together",
+								"owner": "CELL_ORISON_FACADE_SHELL"
+							},
+							"reason": "SEAM_SHELL_INTERIOR has no explicit ray endpoints and expected contact; collision continuity is UNPROVEN",
+							"seam_id": "SEAM_SHELL_INTERIOR",
+							"status": "UNPROVEN"
+						}
+					],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 1,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 222,
+						"objects": 2657,
+						"orphan_nodes": 0,
+						"resources": 275
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1496,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_LEGACY_MIXED",
+					"instantiate_ms": 5.132,
+					"load_ms": 2016.024,
+					"metrics": {
+						"aabb_max": [
+							108.0,
+							53.5852279663086,
+							102.199996948242
+						],
+						"aabb_min": [
+							-112.0,
+							-2.86999988555908,
+							-66.0
+						],
+						"aabb_valid": true,
+						"collision_objects": 43,
+						"collision_shapes": 43,
+						"lights": 0,
+						"mesh_instances": 131,
+						"mesh_primitives": 131,
+						"nodes": 218,
+						"render_primitives_estimate": 142440,
+						"unique_mesh_resources": 131
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/legacy_mixed.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1423362232416
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 1,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 29,
+						"objects": 1602,
+						"orphan_nodes": 0,
+						"resources": 27
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SITE_STREET_DEDICATED",
+					"instantiate_ms": 0.165,
+					"load_ms": 215.467,
+					"metrics": {
+						"aabb_max": [
+							32.2000007629395,
+							2.5699999332428,
+							28.2999992370605
+						],
+						"aabb_min": [
+							-33.2000007629395,
+							0.0,
+							-14.8999996185303
+						],
+						"aabb_valid": true,
+						"collision_objects": 8,
+						"collision_shapes": 8,
+						"lights": 0,
+						"mesh_instances": 8,
+						"mesh_primitives": 8,
+						"nodes": 25,
+						"render_primitives_estimate": 324,
+						"unique_mesh_resources": 8
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/site_street_dedicated.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1432958800026
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 39,
+						"objects": 1623,
+						"orphan_nodes": 0,
+						"resources": 27
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_PASSAGE_PORTAL_PROXY",
+					"instantiate_ms": 1.004,
+					"load_ms": 225.767,
+					"metrics": {
+						"aabb_max": [
+							20.7000007629395,
+							10.7399997711182,
+							33.25
+						],
+						"aabb_min": [
+							6.30000019073486,
+							-1.3400000333786,
+							27.0559997558594
+						],
+						"aabb_valid": true,
+						"collision_objects": 11,
+						"collision_shapes": 11,
+						"lights": 0,
+						"mesh_instances": 12,
+						"mesh_primitives": 12,
+						"nodes": 35,
+						"render_primitives_estimate": 4368,
+						"unique_mesh_resources": 12
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/passage_portal_proxy.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1439501913738
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 55,
+						"objects": 1722,
+						"orphan_nodes": 0,
+						"resources": 54
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_PASSAGE_SHELL",
+					"instantiate_ms": 0.913,
+					"load_ms": 405.099,
+					"metrics": {
+						"aabb_max": [
+							27.4300003051758,
+							12.1000003814697,
+							64.8499984741211
+						],
+						"aabb_min": [
+							0.569999992847443,
+							-0.0500000007450581,
+							28.3159999847412
+						],
+						"aabb_valid": true,
+						"collision_objects": 15,
+						"collision_shapes": 15,
+						"lights": 0,
+						"mesh_instances": 20,
+						"mesh_primitives": 20,
+						"nodes": 51,
+						"render_primitives_estimate": 10788,
+						"unique_mesh_resources": 20
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/passage_shell.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1452588141723
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 98,
+						"objects": 1901,
+						"orphan_nodes": 0,
+						"resources": 96
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_BAR",
+					"instantiate_ms": 0.674,
+					"load_ms": 831.448,
+					"metrics": {
+						"aabb_max": [
+							6.39999961853027,
+							3.54999995231628,
+							38.2000007629395
+						],
+						"aabb_min": [
+							-12.0,
+							-2.90000009536743,
+							28.2999992370605
+						],
+						"aabb_valid": true,
+						"collision_objects": 31,
+						"collision_shapes": 31,
+						"lights": 0,
+						"mesh_instances": 31,
+						"mesh_primitives": 31,
+						"nodes": 94,
+						"render_primitives_estimate": 2268,
+						"unique_mesh_resources": 31
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_bar.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1475975579386
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 53,
+						"objects": 1706,
+						"orphan_nodes": 0,
+						"resources": 51
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_BODEGA",
+					"instantiate_ms": 0.525,
+					"load_ms": 436.927,
+					"metrics": {
+						"aabb_max": [
+							19.6000003814697,
+							3.54999995231628,
+							13.1000003814697
+						],
+						"aabb_min": [
+							15.1999998092651,
+							0.0,
+							1.29999995231628
+						],
+						"aabb_valid": true,
+						"collision_objects": 16,
+						"collision_shapes": 16,
+						"lights": 0,
+						"mesh_instances": 16,
+						"mesh_primitives": 16,
+						"nodes": 49,
+						"render_primitives_estimate": 1824,
+						"unique_mesh_resources": 16
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_bodega.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1489263135432
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 82,
+						"objects": 1860,
+						"orphan_nodes": 0,
+						"resources": 88
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_MODEL_LAUNDRY",
+					"instantiate_ms": 0.595,
+					"load_ms": 711.375,
+					"metrics": {
+						"aabb_max": [
+							12.6000003814697,
+							4.19999980926514,
+							44.8600006103516
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							39.1399993896484
+						],
+						"aabb_valid": true,
+						"collision_objects": 23,
+						"collision_shapes": 23,
+						"lights": 0,
+						"mesh_instances": 31,
+						"mesh_primitives": 31,
+						"nodes": 78,
+						"render_primitives_estimate": 2298,
+						"unique_mesh_resources": 31
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_model_laundry.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1510721196097
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 65,
+						"objects": 1758,
+						"orphan_nodes": 0,
+						"resources": 63
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_SHOE_REBUILDING",
+					"instantiate_ms": 0.408,
+					"load_ms": 542.806,
+					"metrics": {
+						"aabb_max": [
+							12.6000003814697,
+							4.19999980926514,
+							50.4599990844727
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							44.7400016784668
+						],
+						"aabb_valid": true,
+						"collision_objects": 20,
+						"collision_shapes": 20,
+						"lights": 0,
+						"mesh_instances": 20,
+						"mesh_primitives": 20,
+						"nodes": 61,
+						"render_primitives_estimate": 1236,
+						"unique_mesh_resources": 20
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_shoe_rebuilding.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1526625995694
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 65,
+						"objects": 1758,
+						"orphan_nodes": 0,
+						"resources": 63
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_KEYS_CUT",
+					"instantiate_ms": 0.728,
+					"load_ms": 553.91,
+					"metrics": {
+						"aabb_max": [
+							12.3199996948242,
+							4.19999980926514,
+							54.060001373291
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							50.3400001525879
+						],
+						"aabb_valid": true,
+						"collision_objects": 20,
+						"collision_shapes": 20,
+						"lights": 0,
+						"mesh_instances": 20,
+						"mesh_primitives": 20,
+						"nodes": 61,
+						"render_primitives_estimate": 2184,
+						"unique_mesh_resources": 20
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_keys_cut.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1542245582942
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 68,
+						"objects": 1771,
+						"orphan_nodes": 0,
+						"resources": 66
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_HARDWARE_PAINT",
+					"instantiate_ms": 0.749,
+					"load_ms": 521.595,
+					"metrics": {
+						"aabb_max": [
+							12.3199996948242,
+							4.19999980926514,
+							59.4599990844727
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							53.939998626709
+						],
+						"aabb_valid": true,
+						"collision_objects": 21,
+						"collision_shapes": 21,
+						"lights": 0,
+						"mesh_instances": 21,
+						"mesh_primitives": 21,
+						"nodes": 64,
+						"render_primitives_estimate": 2688,
+						"unique_mesh_resources": 21
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_hardware_paint.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1558586593354
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 74,
+						"objects": 1797,
+						"orphan_nodes": 0,
+						"resources": 72
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_FUNERAL_PARLOUR",
+					"instantiate_ms": 0.47,
+					"load_ms": 556.683,
+					"metrics": {
+						"aabb_max": [
+							12.6000003814697,
+							4.19999980926514,
+							64.0599975585938
+						],
+						"aabb_min": [
+							1.17999994754791,
+							-0.0500000007450581,
+							59.3400001525879
+						],
+						"aabb_valid": true,
+						"collision_objects": 23,
+						"collision_shapes": 23,
+						"lights": 0,
+						"mesh_instances": 23,
+						"mesh_primitives": 23,
+						"nodes": 70,
+						"render_primitives_estimate": 1380,
+						"unique_mesh_resources": 23
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_funeral_parlour.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1576420774064
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 88,
+						"objects": 1879,
+						"orphan_nodes": 0,
+						"resources": 91
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_PHOTO_SUPPLIES",
+					"instantiate_ms": 0.473,
+					"load_ms": 707.276,
+					"metrics": {
+						"aabb_max": [
+							27.0599994659424,
+							4.19999980926514,
+							64.0599975585938
+						],
+						"aabb_min": [
+							15.3999996185303,
+							-0.0500000007450581,
+							58.7400016784668
+						],
+						"aabb_valid": true,
+						"collision_objects": 25,
+						"collision_shapes": 25,
+						"lights": 0,
+						"mesh_instances": 33,
+						"mesh_primitives": 33,
+						"nodes": 84,
+						"render_primitives_estimate": 1830,
+						"unique_mesh_resources": 33
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_photo_supplies.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1599002905331
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 91,
+						"objects": 1885,
+						"orphan_nodes": 0,
+						"resources": 91
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_RADIO_SERVICE",
+					"instantiate_ms": 0.421,
+					"load_ms": 779.09,
+					"metrics": {
+						"aabb_max": [
+							26.8199996948242,
+							4.19999980926514,
+							58.8600006103516
+						],
+						"aabb_min": [
+							15.4200000762939,
+							-0.0500000007450581,
+							55.5400009155273
+						],
+						"aabb_valid": true,
+						"collision_objects": 26,
+						"collision_shapes": 26,
+						"lights": 0,
+						"mesh_instances": 34,
+						"mesh_primitives": 34,
+						"nodes": 87,
+						"render_primitives_estimate": 1530,
+						"unique_mesh_resources": 34
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_radio_service.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1621870249974
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 88,
+						"objects": 1879,
+						"orphan_nodes": 0,
+						"resources": 91
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_PAWNBROKER",
+					"instantiate_ms": 0.485,
+					"load_ms": 724.333,
+					"metrics": {
+						"aabb_max": [
+							27.0599994659424,
+							4.19999980926514,
+							55.6599998474121
+						],
+						"aabb_min": [
+							15.6800003051758,
+							-0.0500000007450581,
+							50.939998626709
+						],
+						"aabb_valid": true,
+						"collision_objects": 25,
+						"collision_shapes": 25,
+						"lights": 0,
+						"mesh_instances": 33,
+						"mesh_primitives": 33,
+						"nodes": 84,
+						"render_primitives_estimate": 1818,
+						"unique_mesh_resources": 33
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_pawnbroker.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1644737598158
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 67,
+						"objects": 1788,
+						"orphan_nodes": 0,
+						"resources": 70
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_NEWS_CIGARS",
+					"instantiate_ms": 0.347,
+					"load_ms": 553.376,
+					"metrics": {
+						"aabb_max": [
+							26.8199996948242,
+							4.19999980926514,
+							51.060001373291
+						],
+						"aabb_min": [
+							15.6800003051758,
+							-0.0500000007450581,
+							48.6399993896484
+						],
+						"aabb_valid": true,
+						"collision_objects": 18,
+						"collision_shapes": 18,
+						"lights": 0,
+						"mesh_instances": 26,
+						"mesh_primitives": 26,
+						"nodes": 63,
+						"render_primitives_estimate": 1338,
+						"unique_mesh_resources": 26
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_news_cigars.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1662504669845
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 95,
+						"objects": 1888,
+						"orphan_nodes": 0,
+						"resources": 93
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_OTIS_SON",
+					"instantiate_ms": 0.659,
+					"load_ms": 669.695,
+					"metrics": {
+						"aabb_max": [
+							27.0599994659424,
+							4.19999980926514,
+							48.7599983215332
+						],
+						"aabb_min": [
+							15.4200000762939,
+							-0.0500000007450581,
+							44.3400001525879
+						],
+						"aabb_valid": true,
+						"collision_objects": 30,
+						"collision_shapes": 30,
+						"lights": 0,
+						"mesh_instances": 30,
+						"mesh_primitives": 30,
+						"nodes": 91,
+						"render_primitives_estimate": 2196,
+						"unique_mesh_resources": 30
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_otis___son.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1685372015511
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				},
+				{
+					"after_teardown": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"attached": {
+						"nodes": 88,
+						"objects": 1879,
+						"orphan_nodes": 0,
+						"resources": 91
+					},
+					"before": {
+						"nodes": 3,
+						"objects": 1497,
+						"orphan_nodes": 0,
+						"resources": 4
+					},
+					"id": "CELL_SHOP_LUNCHEONETTE",
+					"instantiate_ms": 0.45,
+					"load_ms": 765.807,
+					"metrics": {
+						"aabb_max": [
+							27.0599994659424,
+							4.19999980926514,
+							44.4599990844727
+						],
+						"aabb_min": [
+							15.3999996185303,
+							-0.0500000007450581,
+							39.1399993896484
+						],
+						"aabb_valid": true,
+						"collision_objects": 25,
+						"collision_shapes": 25,
+						"lights": 0,
+						"mesh_instances": 33,
+						"mesh_primitives": 33,
+						"nodes": 84,
+						"render_primitives_estimate": 2100,
+						"unique_mesh_resources": 33
+					},
+					"ok": true,
+					"owner_released": true,
+					"path": "res://cells/shop_luncheonette.gltf",
+					"public_teardown": {
+						"api": "M11C0CellComposition.public_teardown",
+						"forced_object_deletion": false,
+						"node_name_reach_ins": false,
+						"queued_instance_ids": [
+							1708306466793
+						],
+						"retained_strong_references": 0
+					},
+					"seam_probes": [],
+					"teardown_delta": {
+						"nodes": 0,
+						"objects": 0,
+						"orphan_nodes": 0,
+						"resources": 0
+					}
+				}
+			],
+			"recomposed": {
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1497,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 1303,
+					"objects": 5293,
+					"orphan_nodes": 0,
+					"resources": 308
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1497,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"cell_loads": [
+					{
+						"id": "CELL_LEGACY_MIXED",
+						"instantiate_ms": 5.18,
+						"load_ms": 2010.353,
+						"ok": true,
+						"path": "res://cells/legacy_mixed.gltf"
+					},
+					{
+						"id": "CELL_SITE_STREET_DEDICATED",
+						"instantiate_ms": 0.164,
+						"load_ms": 54.628,
+						"ok": true,
+						"path": "res://cells/site_street_dedicated.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_PORTAL_PROXY",
+						"instantiate_ms": 0.961,
+						"load_ms": 2.525,
+						"ok": true,
+						"path": "res://cells/passage_portal_proxy.gltf"
+					},
+					{
+						"id": "CELL_PASSAGE_SHELL",
+						"instantiate_ms": 0.93,
+						"load_ms": 8.32,
+						"ok": true,
+						"path": "res://cells/passage_shell.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BAR",
+						"instantiate_ms": 0.705,
+						"load_ms": 135.681,
+						"ok": true,
+						"path": "res://cells/shop_bar.gltf"
+					},
+					{
+						"id": "CELL_SHOP_BODEGA",
+						"instantiate_ms": 0.514,
+						"load_ms": 32.94,
+						"ok": true,
+						"path": "res://cells/shop_bodega.gltf"
+					},
+					{
+						"id": "CELL_SHOP_MODEL_LAUNDRY",
+						"instantiate_ms": 0.576,
+						"load_ms": 2.576,
+						"ok": true,
+						"path": "res://cells/shop_model_laundry.gltf"
+					},
+					{
+						"id": "CELL_SHOP_SHOE_REBUILDING",
+						"instantiate_ms": 0.589,
+						"load_ms": 2.076,
+						"ok": true,
+						"path": "res://cells/shop_shoe_rebuilding.gltf"
+					},
+					{
+						"id": "CELL_SHOP_KEYS_CUT",
+						"instantiate_ms": 0.662,
+						"load_ms": 2.625,
+						"ok": true,
+						"path": "res://cells/shop_keys_cut.gltf"
+					},
+					{
+						"id": "CELL_SHOP_HARDWARE_PAINT",
+						"instantiate_ms": 0.787,
+						"load_ms": 2.656,
+						"ok": true,
+						"path": "res://cells/shop_hardware_paint.gltf"
+					},
+					{
+						"id": "CELL_SHOP_FUNERAL_PARLOUR",
+						"instantiate_ms": 0.457,
+						"load_ms": 2.021,
+						"ok": true,
+						"path": "res://cells/shop_funeral_parlour.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PHOTO_SUPPLIES",
+						"instantiate_ms": 0.505,
+						"load_ms": 2.516,
+						"ok": true,
+						"path": "res://cells/shop_photo_supplies.gltf"
+					},
+					{
+						"id": "CELL_SHOP_RADIO_SERVICE",
+						"instantiate_ms": 0.44,
+						"load_ms": 68.683,
+						"ok": true,
+						"path": "res://cells/shop_radio_service.gltf"
+					},
+					{
+						"id": "CELL_SHOP_PAWNBROKER",
+						"instantiate_ms": 0.521,
+						"load_ms": 2.422,
+						"ok": true,
+						"path": "res://cells/shop_pawnbroker.gltf"
+					},
+					{
+						"id": "CELL_SHOP_NEWS_CIGARS",
+						"instantiate_ms": 0.36,
+						"load_ms": 2.038,
+						"ok": true,
+						"path": "res://cells/shop_news_cigars.gltf"
+					},
+					{
+						"id": "CELL_SHOP_OTIS_SON",
+						"instantiate_ms": 0.717,
+						"load_ms": 2.705,
+						"ok": true,
+						"path": "res://cells/shop_otis___son.gltf"
+					},
+					{
+						"id": "CELL_SHOP_LUNCHEONETTE",
+						"instantiate_ms": 0.434,
+						"load_ms": 2.378,
+						"ok": true,
+						"path": "res://cells/shop_luncheonette.gltf"
+					}
+				],
+				"metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1300,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"ok": true,
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						1775885095079,
+						1781891337316,
+						1783636167896,
+						1787092274153,
+						1794809795025,
+						1799071205585,
+						1803450058644,
+						1807308819942,
+						1810882365131,
+						1814573353980,
+						1818549555035,
+						1823448502637,
+						1829840622414,
+						1835024782444,
+						1839336524114,
+						1844118031253,
+						1849369302010
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SITE_STREET_COMMON",
+							"id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+							"known_contact": "pavement reaches -9.98 and deliberately overlaps the wall by 0.02 m",
+							"owner": "CELL_ORISON_FACADE_SHELL",
+							"source_plan_y": -10.0
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									0.0,
+									2.0,
+									9.96000003814697
+								],
+								"hit_position": [
+									0.0,
+									0.0,
+									9.96000003814697
+								],
+								"id": "orison_north_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									0.0,
+									-1.0,
+									9.96000003814697
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									0.0,
+									2.0,
+									10.0200004577637
+								],
+								"hit_position": [
+									0.0,
+									0.0900000333786011,
+									10.0200004577637
+								],
+								"id": "street_south_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									0.0,
+									-1.0,
+									10.0200004577637
+								]
+							}
+						],
+						"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"dependent_cell": "CELL_PASSAGE",
+							"gltf_z": 28.316,
+							"id": "SEAM_STREET_PASSAGE_PORTAL",
+							"known_contact": "Passage floor overlaps street ground by 0.004 m; legacy proxy is canonically street-resident even though its source batch begins passage_proxy.",
+							"owner": "CELL_SITE_STREET_COMMON"
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									14.0,
+									2.0,
+									28.3139991760254
+								],
+								"hit_position": [
+									14.0,
+									0.00999999046325684,
+									28.3139991760254
+								],
+								"id": "street_portal_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									14.0,
+									-1.0,
+									28.3139991760254
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									14.0,
+									2.0,
+									28.318000793457
+								],
+								"hit_position": [
+									14.0,
+									0.00999999046325684,
+									28.318000793457
+								],
+								"id": "passage_throat_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_PASSAGE_SHELL",
+								"status": "PASS",
+								"to": [
+									14.0,
+									-1.0,
+									28.318000793457
+								]
+							}
+						],
+						"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SHOP_*",
+							"id": "SEAM_PASSAGE_SHOP_AISLES",
+							"known_contact": "Passage owns common aisle, openings and party-wall structure; each shop owns only its inward threshold/storefront volume.",
+							"owner": "CELL_PASSAGE",
+							"source_plan_x": [
+								11.0,
+								17.0
+							]
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									11.0200004577637,
+									2.0,
+									45.0
+								],
+								"hit_position": [
+									11.0200004577637,
+									0.549999952316284,
+									45.0
+								],
+								"id": "passage_aisle_west",
+								"observed_hit": true,
+								"owning_cell": "CELL_SHOP_SHOE_REBUILDING",
+								"status": "PASS",
+								"to": [
+									11.0200004577637,
+									-1.0,
+									45.0
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									10.9799995422363,
+									2.0,
+									45.0
+								],
+								"hit_position": [
+									10.9799995422363,
+									0.00999999046325684,
+									45.0
+								],
+								"id": "west_shop_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_SHOP_SHOE_REBUILDING",
+								"status": "PASS",
+								"to": [
+									10.9799995422363,
+									-1.0,
+									45.0
+								]
+							}
+						],
+						"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SHOP_BODEGA",
+							"id": "SEAM_BODEGA_STREET",
+							"known_contact": "Bodega floor and pavement vertical faces touch at elevation zero and require bidirectional collision probes.",
+							"owner": "CELL_SITE_STREET_COMMON",
+							"source_plan_y": -12.0
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									17.3999996185303,
+									2.0,
+									13.0799999237061
+								],
+								"hit_position": [
+									17.3999996185303,
+									0.00999999046325684,
+									13.0799999237061
+								],
+								"id": "bodega_floor",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									17.3999996185303,
+									-1.0,
+									13.0799999237061
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									17.3999996185303,
+									2.0,
+									13.1199998855591
+								],
+								"hit_position": [
+									17.3999996185303,
+									0.00999999046325684,
+									13.1199998855591
+								],
+								"id": "bodega_pavement",
+								"observed_hit": true,
+								"owning_cell": "CELL_LEGACY_MIXED",
+								"status": "PASS",
+								"to": [
+									17.3999996185303,
+									-1.0,
+									13.1199998855591
+								]
+							}
+						],
+						"seam_id": "SEAM_BODEGA_STREET",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_ORISON_F01_INTERIOR",
+							"id": "SEAM_SHELL_INTERIOR",
+							"known_contact": "glazing, sash, trim, wainscot and AO emissions currently batch internal and perimeter walls together",
+							"owner": "CELL_ORISON_FACADE_SHELL"
+						},
+						"reason": "SEAM_SHELL_INTERIOR has no explicit ray endpoints and expected contact; collision continuity is UNPROVEN",
+						"seam_id": "SEAM_SHELL_INTERIOR",
+						"status": "UNPROVEN"
+					}
+				],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				},
+				"unreleased_instance_ids": []
+			},
+			"recorded": true
+		}
+	],
+	"display_server": "headless",
+	"engine": {
+		"build": "official",
+		"hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+		"hex": 263937,
+		"major": 4,
+		"minor": 7,
+		"patch": 1,
+		"status": "stable",
+		"string": "4.7.1-stable (official)",
+		"timestamp": 0
+	},
+	"failures": [],
+	"final_counts": {
+		"nodes": 3,
+		"objects": 1488,
+		"orphan_nodes": 0,
+		"resources": 4
+	},
+	"input_provenance": {
+		"cell_count": 17,
+		"original_scene_path": "res://original/floor_01.gltf",
+		"partition_manifest": "res://partition_manifest.json",
+		"partition_manifest_sha256": "32343a26af655cf810f9addac8fb9857541b1da356a89b15a4104d1d09161330",
+		"split_receipt": "res://split_receipt.json",
+		"split_receipt_sha256": "72df0de7c4d3f54ad6d4f559915cd366846aa9f205ca9b2115639df1ea32639b"
+	},
+	"lifecycle": {
+		"final_delta_from_warmed_baseline": {
+			"nodes": 0,
+			"objects": -6,
+			"orphan_nodes": 0,
+			"resources": 0
+		},
+		"final_observation_boundary": "deferred non-coroutine after _run and _ready release their await states",
+		"forced_object_deletion": false,
+		"instrument_coroutine_state": {
+			"class": "engine-internal GDScript coroutine await-state",
+			"enumeration_boundary": "GDScript 4 requires direct await and exposes no ObjectDB iteration API",
+			"excluded_from_final_plateau": true,
+			"owner": "M11C0RuntimeValidation._run awaited by _ready"
+		},
+		"node_name_reach_ins": false,
+		"public_api": "M11C0CellComposition.public_teardown",
+		"retained_tracked_objects_created_after_warm_control": [],
+		"second_cycle_growth_from_first": {
+			"nodes": 0,
+			"objects": 0,
+			"orphan_nodes": 0,
+			"resources": 0
+		},
+		"strong_reference_policy": "all Node and PackedScene locals cleared before matched settlement",
+		"tracked_object_classes": [
+			"M11C0CellComposition",
+			"PackedScene",
+			"scene root Node",
+			"World3D",
+			"PhysicsDirectSpaceState3D",
+			"PhysicsRayQueryParameters3D"
+		]
+	},
+	"process_start": {
+		"nodes": 3,
+		"objects": 1486,
+		"orphan_nodes": 0,
+		"resources": 4
+	},
+	"renderer": "forward_plus",
+	"runtime_recomposition_equivalence": {
+		"comparisons": {
+			"bounds": {
+				"equal_within_0_1mm": true,
+				"original_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"original_min": [
+					-112.0,
+					-2.90000009536743,
+					-66.0
+				],
+				"recomposed_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"recomposed_min": [
+					-112.0,
+					-2.90000009536743,
+					-66.0
+				]
+			},
+			"collision_objects": {
+				"equal": true,
+				"original": 380,
+				"recomposed": 380
+			},
+			"collision_probe_observations": {
+				"equal": true,
+				"original": [
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							0.0,
+							0.0,
+							9.96000003814697
+						],
+						"observed_hit": true,
+						"probe_id": "orison_north_floor",
+						"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							0.0,
+							0.0900000333786011,
+							10.0200004577637
+						],
+						"observed_hit": true,
+						"probe_id": "street_south_floor",
+						"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							14.0,
+							0.00999999046325684,
+							28.3139991760254
+						],
+						"observed_hit": true,
+						"probe_id": "street_portal_floor",
+						"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							14.0,
+							0.00999999046325684,
+							28.318000793457
+						],
+						"observed_hit": true,
+						"probe_id": "passage_throat_floor",
+						"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							11.0200004577637,
+							0.549999952316284,
+							45.0
+						],
+						"observed_hit": true,
+						"probe_id": "passage_aisle_west",
+						"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							10.9799995422363,
+							0.00999999046325684,
+							45.0
+						],
+						"observed_hit": true,
+						"probe_id": "west_shop_floor",
+						"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							17.3999996185303,
+							0.00999999046325684,
+							13.0799999237061
+						],
+						"observed_hit": true,
+						"probe_id": "bodega_floor",
+						"seam_id": "SEAM_BODEGA_STREET",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							17.3999996185303,
+							0.00999999046325684,
+							13.1199998855591
+						],
+						"observed_hit": true,
+						"probe_id": "bodega_pavement",
+						"seam_id": "SEAM_BODEGA_STREET",
+						"status": "PASS"
+					},
+					{
+						"seam_id": "SEAM_SHELL_INTERIOR",
+						"status": "UNPROVEN"
+					}
+				],
+				"recomposed": [
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							0.0,
+							0.0,
+							9.96000003814697
+						],
+						"observed_hit": true,
+						"probe_id": "orison_north_floor",
+						"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							0.0,
+							0.0900000333786011,
+							10.0200004577637
+						],
+						"observed_hit": true,
+						"probe_id": "street_south_floor",
+						"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							14.0,
+							0.00999999046325684,
+							28.3139991760254
+						],
+						"observed_hit": true,
+						"probe_id": "street_portal_floor",
+						"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							14.0,
+							0.00999999046325684,
+							28.318000793457
+						],
+						"observed_hit": true,
+						"probe_id": "passage_throat_floor",
+						"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							11.0200004577637,
+							0.549999952316284,
+							45.0
+						],
+						"observed_hit": true,
+						"probe_id": "passage_aisle_west",
+						"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							10.9799995422363,
+							0.00999999046325684,
+							45.0
+						],
+						"observed_hit": true,
+						"probe_id": "west_shop_floor",
+						"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							17.3999996185303,
+							0.00999999046325684,
+							13.0799999237061
+						],
+						"observed_hit": true,
+						"probe_id": "bodega_floor",
+						"seam_id": "SEAM_BODEGA_STREET",
+						"status": "PASS"
+					},
+					{
+						"collider_class": "StaticBody3D",
+						"expected": "hit",
+						"hit_position": [
+							17.3999996185303,
+							0.00999999046325684,
+							13.1199998855591
+						],
+						"observed_hit": true,
+						"probe_id": "bodega_pavement",
+						"seam_id": "SEAM_BODEGA_STREET",
+						"status": "PASS"
+					},
+					{
+						"seam_id": "SEAM_SHELL_INTERIOR",
+						"status": "UNPROVEN"
+					}
+				]
+			},
+			"collision_shapes": {
+				"equal": true,
+				"original": 380,
+				"recomposed": 380
+			},
+			"mesh_instances": {
+				"equal": true,
+				"original": 522,
+				"recomposed": 522
+			},
+			"mesh_primitives": {
+				"equal": true,
+				"original": 522,
+				"recomposed": 522
+			},
+			"render_primitives_estimate": {
+				"equal": true,
+				"original": 182610,
+				"recomposed": 182610
+			},
+			"unique_mesh_resources": {
+				"equal": true,
+				"original": 522,
+				"recomposed": 522
+			}
+		},
+		"node_count_excluded_reason": "cell and composition roots are harness topology, not source geometry",
+		"pass": true
+	},
+	"schema": "orison.m11c0.floor01-runtime-rehearsal.v1",
+	"status": "PASS_WITH_UNPROVEN_SEAMS",
+	"unproven": [
+		"SEAM_SHELL_INTERIOR has no explicit ray endpoints and expected contact; collision continuity is UNPROVEN"
+	],
+	"warmed_baseline": {
+		"nodes": 3,
+		"objects": 1494,
+		"orphan_nodes": 0,
+		"resources": 4
+	},
+	"warmup": {
+		"after_teardown": {
+			"nodes": 3,
+			"objects": 1494,
+			"orphan_nodes": 0,
+			"resources": 4
+		},
+		"before": {
+			"nodes": 3,
+			"objects": 1486,
+			"orphan_nodes": 0,
+			"resources": 4
+		},
+		"delta": {
+			"nodes": 0,
+			"objects": 8,
+			"orphan_nodes": 0,
+			"resources": 0
+		},
+		"id": "warmup",
+		"independent": [
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1495,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 1287,
+					"objects": 4916,
+					"orphan_nodes": 0,
+					"resources": 308
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1486,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "ORIGINAL_FLOOR_01",
+				"instantiate_ms": 15.933,
+				"load_ms": 2354.964,
+				"metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.90000009536743,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 380,
+					"collision_shapes": 380,
+					"lights": 0,
+					"mesh_instances": 522,
+					"mesh_primitives": 522,
+					"nodes": 1283,
+					"render_primitives_estimate": 182610,
+					"unique_mesh_resources": 522
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://original/floor_01.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						119873209806
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SITE_STREET_COMMON",
+							"id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+							"known_contact": "pavement reaches -9.98 and deliberately overlaps the wall by 0.02 m",
+							"owner": "CELL_ORISON_FACADE_SHELL",
+							"source_plan_y": -10.0
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									0.0,
+									2.0,
+									9.96000003814697
+								],
+								"hit_position": [
+									0.0,
+									0.0,
+									9.96000003814697
+								],
+								"id": "orison_north_floor",
+								"observed_hit": true,
+								"owning_cell": "ORIGINAL_FLOOR_01",
+								"status": "PASS",
+								"to": [
+									0.0,
+									-1.0,
+									9.96000003814697
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									0.0,
+									2.0,
+									10.0200004577637
+								],
+								"hit_position": [
+									0.0,
+									0.0900000333786011,
+									10.0200004577637
+								],
+								"id": "street_south_floor",
+								"observed_hit": true,
+								"owning_cell": "ORIGINAL_FLOOR_01",
+								"status": "PASS",
+								"to": [
+									0.0,
+									-1.0,
+									10.0200004577637
+								]
+							}
+						],
+						"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"dependent_cell": "CELL_PASSAGE",
+							"gltf_z": 28.316,
+							"id": "SEAM_STREET_PASSAGE_PORTAL",
+							"known_contact": "Passage floor overlaps street ground by 0.004 m; legacy proxy is canonically street-resident even though its source batch begins passage_proxy.",
+							"owner": "CELL_SITE_STREET_COMMON"
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									14.0,
+									2.0,
+									28.3139991760254
+								],
+								"hit_position": [
+									14.0,
+									0.00999999046325684,
+									28.3139991760254
+								],
+								"id": "street_portal_floor",
+								"observed_hit": true,
+								"owning_cell": "ORIGINAL_FLOOR_01",
+								"status": "PASS",
+								"to": [
+									14.0,
+									-1.0,
+									28.3139991760254
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									14.0,
+									2.0,
+									28.318000793457
+								],
+								"hit_position": [
+									14.0,
+									0.00999999046325684,
+									28.318000793457
+								],
+								"id": "passage_throat_floor",
+								"observed_hit": true,
+								"owning_cell": "ORIGINAL_FLOOR_01",
+								"status": "PASS",
+								"to": [
+									14.0,
+									-1.0,
+									28.318000793457
+								]
+							}
+						],
+						"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SHOP_*",
+							"id": "SEAM_PASSAGE_SHOP_AISLES",
+							"known_contact": "Passage owns common aisle, openings and party-wall structure; each shop owns only its inward threshold/storefront volume.",
+							"owner": "CELL_PASSAGE",
+							"source_plan_x": [
+								11.0,
+								17.0
+							]
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									11.0200004577637,
+									2.0,
+									45.0
+								],
+								"hit_position": [
+									11.0200004577637,
+									0.549999952316284,
+									45.0
+								],
+								"id": "passage_aisle_west",
+								"observed_hit": true,
+								"owning_cell": "ORIGINAL_FLOOR_01",
+								"status": "PASS",
+								"to": [
+									11.0200004577637,
+									-1.0,
+									45.0
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									10.9799995422363,
+									2.0,
+									45.0
+								],
+								"hit_position": [
+									10.9799995422363,
+									0.00999999046325684,
+									45.0
+								],
+								"id": "west_shop_floor",
+								"observed_hit": true,
+								"owning_cell": "ORIGINAL_FLOOR_01",
+								"status": "PASS",
+								"to": [
+									10.9799995422363,
+									-1.0,
+									45.0
+								]
+							}
+						],
+						"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_SHOP_BODEGA",
+							"id": "SEAM_BODEGA_STREET",
+							"known_contact": "Bodega floor and pavement vertical faces touch at elevation zero and require bidirectional collision probes.",
+							"owner": "CELL_SITE_STREET_COMMON",
+							"source_plan_y": -12.0
+						},
+						"probes": [
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									17.3999996185303,
+									2.0,
+									13.0799999237061
+								],
+								"hit_position": [
+									17.3999996185303,
+									0.00999999046325684,
+									13.0799999237061
+								],
+								"id": "bodega_floor",
+								"observed_hit": true,
+								"owning_cell": "ORIGINAL_FLOOR_01",
+								"status": "PASS",
+								"to": [
+									17.3999996185303,
+									-1.0,
+									13.0799999237061
+								]
+							},
+							{
+								"collider_class": "StaticBody3D",
+								"expected": "hit",
+								"from": [
+									17.3999996185303,
+									2.0,
+									13.1199998855591
+								],
+								"hit_position": [
+									17.3999996185303,
+									0.00999999046325684,
+									13.1199998855591
+								],
+								"id": "bodega_pavement",
+								"observed_hit": true,
+								"owning_cell": "ORIGINAL_FLOOR_01",
+								"status": "PASS",
+								"to": [
+									17.3999996185303,
+									-1.0,
+									13.1199998855591
+								]
+							}
+						],
+						"seam_id": "SEAM_BODEGA_STREET",
+						"status": "PASS"
+					},
+					{
+						"manifest_record": {
+							"counterpart": "CELL_ORISON_F01_INTERIOR",
+							"id": "SEAM_SHELL_INTERIOR",
+							"known_contact": "glazing, sash, trim, wainscot and AO emissions currently batch internal and perimeter walls together",
+							"owner": "CELL_ORISON_FACADE_SHELL"
+						},
+						"reason": "SEAM_SHELL_INTERIOR has no explicit ray endpoints and expected contact; collision continuity is UNPROVEN",
+						"seam_id": "SEAM_SHELL_INTERIOR",
+						"status": "UNPROVEN"
+					}
+				],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 9,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 222,
+					"objects": 2656,
+					"orphan_nodes": 0,
+					"resources": 275
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1495,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_LEGACY_MIXED",
+				"instantiate_ms": 6.151,
+				"load_ms": 2037.427,
+				"metrics": {
+					"aabb_max": [
+						108.0,
+						53.5852279663086,
+						102.199996948242
+					],
+					"aabb_min": [
+						-112.0,
+						-2.86999988555908,
+						-66.0
+					],
+					"aabb_valid": true,
+					"collision_objects": 43,
+					"collision_shapes": 43,
+					"lights": 0,
+					"mesh_instances": 131,
+					"mesh_primitives": 131,
+					"nodes": 218,
+					"render_primitives_estimate": 142440,
+					"unique_mesh_resources": 131
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/legacy_mixed.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						207785822559
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 1,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 29,
+					"objects": 1601,
+					"orphan_nodes": 0,
+					"resources": 27
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SITE_STREET_DEDICATED",
+				"instantiate_ms": 0.161,
+				"load_ms": 214.396,
+				"metrics": {
+					"aabb_max": [
+						32.2000007629395,
+						2.5699999332428,
+						28.2999992370605
+					],
+					"aabb_min": [
+						-33.2000007629395,
+						0.0,
+						-14.8999996185303
+					],
+					"aabb_valid": true,
+					"collision_objects": 8,
+					"collision_shapes": 8,
+					"lights": 0,
+					"mesh_instances": 8,
+					"mesh_primitives": 8,
+					"nodes": 25,
+					"render_primitives_estimate": 324,
+					"unique_mesh_resources": 8
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/site_street_dedicated.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						217382390378
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 39,
+					"objects": 1622,
+					"orphan_nodes": 0,
+					"resources": 27
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_PASSAGE_PORTAL_PROXY",
+				"instantiate_ms": 1.0,
+				"load_ms": 227.729,
+				"metrics": {
+					"aabb_max": [
+						20.7000007629395,
+						10.7399997711182,
+						33.25
+					],
+					"aabb_min": [
+						6.30000019073486,
+						-1.3400000333786,
+						27.0559997558594
+					],
+					"aabb_valid": true,
+					"collision_objects": 11,
+					"collision_shapes": 11,
+					"lights": 0,
+					"mesh_instances": 12,
+					"mesh_primitives": 12,
+					"nodes": 35,
+					"render_primitives_estimate": 4368,
+					"unique_mesh_resources": 12
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/passage_portal_proxy.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						223925503498
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 55,
+					"objects": 1721,
+					"orphan_nodes": 0,
+					"resources": 54
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_PASSAGE_SHELL",
+				"instantiate_ms": 0.934,
+				"load_ms": 414.748,
+				"metrics": {
+					"aabb_max": [
+						27.4300003051758,
+						12.1000003814697,
+						64.8499984741211
+					],
+					"aabb_min": [
+						0.569999992847443,
+						-0.0500000007450581,
+						28.3159999847412
+					],
+					"aabb_valid": true,
+					"collision_objects": 15,
+					"collision_shapes": 15,
+					"lights": 0,
+					"mesh_instances": 20,
+					"mesh_primitives": 20,
+					"nodes": 51,
+					"render_primitives_estimate": 10788,
+					"unique_mesh_resources": 20
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/passage_shell.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						237011732819
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 98,
+					"objects": 1900,
+					"orphan_nodes": 0,
+					"resources": 96
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_BAR",
+				"instantiate_ms": 0.711,
+				"load_ms": 846.534,
+				"metrics": {
+					"aabb_max": [
+						6.39999961853027,
+						3.54999995231628,
+						38.2000007629395
+					],
+					"aabb_min": [
+						-12.0,
+						-2.90000009536743,
+						28.2999992370605
+					],
+					"aabb_valid": true,
+					"collision_objects": 31,
+					"collision_shapes": 31,
+					"lights": 0,
+					"mesh_instances": 31,
+					"mesh_primitives": 31,
+					"nodes": 94,
+					"render_primitives_estimate": 2268,
+					"unique_mesh_resources": 31
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_bar.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						260399171637
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 53,
+					"objects": 1705,
+					"orphan_nodes": 0,
+					"resources": 51
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_BODEGA",
+				"instantiate_ms": 0.512,
+				"load_ms": 444.638,
+				"metrics": {
+					"aabb_max": [
+						19.6000003814697,
+						3.54999995231628,
+						13.1000003814697
+					],
+					"aabb_min": [
+						15.1999998092651,
+						0.0,
+						1.29999995231628
+					],
+					"aabb_valid": true,
+					"collision_objects": 16,
+					"collision_shapes": 16,
+					"lights": 0,
+					"mesh_instances": 16,
+					"mesh_primitives": 16,
+					"nodes": 49,
+					"render_primitives_estimate": 1824,
+					"unique_mesh_resources": 16
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_bodega.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						273686726319
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 82,
+					"objects": 1859,
+					"orphan_nodes": 0,
+					"resources": 88
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_MODEL_LAUNDRY",
+				"instantiate_ms": 0.598,
+				"load_ms": 723.171,
+				"metrics": {
+					"aabb_max": [
+						12.6000003814697,
+						4.19999980926514,
+						44.8600006103516
+					],
+					"aabb_min": [
+						1.17999994754791,
+						-0.0500000007450581,
+						39.1399993896484
+					],
+					"aabb_valid": true,
+					"collision_objects": 23,
+					"collision_shapes": 23,
+					"lights": 0,
+					"mesh_instances": 31,
+					"mesh_primitives": 31,
+					"nodes": 78,
+					"render_primitives_estimate": 2298,
+					"unique_mesh_resources": 31
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_model_laundry.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						295144786256
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 65,
+					"objects": 1757,
+					"orphan_nodes": 0,
+					"resources": 63
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_SHOE_REBUILDING",
+				"instantiate_ms": 0.421,
+				"load_ms": 545.089,
+				"metrics": {
+					"aabb_max": [
+						12.6000003814697,
+						4.19999980926514,
+						50.4599990844727
+					],
+					"aabb_min": [
+						1.17999994754791,
+						-0.0500000007450581,
+						44.7400016784668
+					],
+					"aabb_valid": true,
+					"collision_objects": 20,
+					"collision_shapes": 20,
+					"lights": 0,
+					"mesh_instances": 20,
+					"mesh_primitives": 20,
+					"nodes": 61,
+					"render_primitives_estimate": 1236,
+					"unique_mesh_resources": 20
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_shoe_rebuilding.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						311049587319
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 65,
+					"objects": 1757,
+					"orphan_nodes": 0,
+					"resources": 63
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_KEYS_CUT",
+				"instantiate_ms": 0.684,
+				"load_ms": 558.45,
+				"metrics": {
+					"aabb_max": [
+						12.3199996948242,
+						4.19999980926514,
+						54.060001373291
+					],
+					"aabb_min": [
+						1.17999994754791,
+						-0.0500000007450581,
+						50.3400001525879
+					],
+					"aabb_valid": true,
+					"collision_objects": 20,
+					"collision_shapes": 20,
+					"lights": 0,
+					"mesh_instances": 20,
+					"mesh_primitives": 20,
+					"nodes": 61,
+					"render_primitives_estimate": 2184,
+					"unique_mesh_resources": 20
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_keys_cut.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						326669174813
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 68,
+					"objects": 1770,
+					"orphan_nodes": 0,
+					"resources": 66
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_HARDWARE_PAINT",
+				"instantiate_ms": 0.941,
+				"load_ms": 528.979,
+				"metrics": {
+					"aabb_max": [
+						12.3199996948242,
+						4.19999980926514,
+						59.4599990844727
+					],
+					"aabb_min": [
+						1.17999994754791,
+						-0.0500000007450581,
+						53.939998626709
+					],
+					"aabb_valid": true,
+					"collision_objects": 21,
+					"collision_shapes": 21,
+					"lights": 0,
+					"mesh_instances": 21,
+					"mesh_primitives": 21,
+					"nodes": 64,
+					"render_primitives_estimate": 2688,
+					"unique_mesh_resources": 21
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_hardware_paint.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						343010183420
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 74,
+					"objects": 1796,
+					"orphan_nodes": 0,
+					"resources": 72
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_FUNERAL_PARLOUR",
+				"instantiate_ms": 0.486,
+				"load_ms": 563.623,
+				"metrics": {
+					"aabb_max": [
+						12.6000003814697,
+						4.19999980926514,
+						64.0599975585938
+					],
+					"aabb_min": [
+						1.17999994754791,
+						-0.0500000007450581,
+						59.3400001525879
+					],
+					"aabb_valid": true,
+					"collision_objects": 23,
+					"collision_shapes": 23,
+					"lights": 0,
+					"mesh_instances": 23,
+					"mesh_primitives": 23,
+					"nodes": 70,
+					"render_primitives_estimate": 1380,
+					"unique_mesh_resources": 23
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_funeral_parlour.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						360844364231
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 88,
+					"objects": 1878,
+					"orphan_nodes": 0,
+					"resources": 91
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_PHOTO_SUPPLIES",
+				"instantiate_ms": 0.492,
+				"load_ms": 716.103,
+				"metrics": {
+					"aabb_max": [
+						27.0599994659424,
+						4.19999980926514,
+						64.0599975585938
+					],
+					"aabb_min": [
+						15.3999996185303,
+						-0.0500000007450581,
+						58.7400016784668
+					],
+					"aabb_valid": true,
+					"collision_objects": 25,
+					"collision_shapes": 25,
+					"lights": 0,
+					"mesh_instances": 33,
+					"mesh_primitives": 33,
+					"nodes": 84,
+					"render_primitives_estimate": 1830,
+					"unique_mesh_resources": 33
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_photo_supplies.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						383426497121
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 91,
+					"objects": 1884,
+					"orphan_nodes": 0,
+					"resources": 91
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_RADIO_SERVICE",
+				"instantiate_ms": 0.432,
+				"load_ms": 784.633,
+				"metrics": {
+					"aabb_max": [
+						26.8199996948242,
+						4.19999980926514,
+						58.8600006103516
+					],
+					"aabb_min": [
+						15.4200000762939,
+						-0.0500000007450581,
+						55.5400009155273
+					],
+					"aabb_valid": true,
+					"collision_objects": 26,
+					"collision_shapes": 26,
+					"lights": 0,
+					"mesh_instances": 34,
+					"mesh_primitives": 34,
+					"nodes": 87,
+					"render_primitives_estimate": 1530,
+					"unique_mesh_resources": 34
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_radio_service.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						406293841663
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 88,
+					"objects": 1878,
+					"orphan_nodes": 0,
+					"resources": 91
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_PAWNBROKER",
+				"instantiate_ms": 0.486,
+				"load_ms": 728.555,
+				"metrics": {
+					"aabb_max": [
+						27.0599994659424,
+						4.19999980926514,
+						55.6599998474121
+					],
+					"aabb_min": [
+						15.6800003051758,
+						-0.0500000007450581,
+						50.939998626709
+					],
+					"aabb_valid": true,
+					"collision_objects": 25,
+					"collision_shapes": 25,
+					"lights": 0,
+					"mesh_instances": 33,
+					"mesh_primitives": 33,
+					"nodes": 84,
+					"render_primitives_estimate": 1818,
+					"unique_mesh_resources": 33
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_pawnbroker.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						429161187410
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 67,
+					"objects": 1787,
+					"orphan_nodes": 0,
+					"resources": 70
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_NEWS_CIGARS",
+				"instantiate_ms": 0.38,
+				"load_ms": 554.5,
+				"metrics": {
+					"aabb_max": [
+						26.8199996948242,
+						4.19999980926514,
+						51.060001373291
+					],
+					"aabb_min": [
+						15.6800003051758,
+						-0.0500000007450581,
+						48.6399993896484
+					],
+					"aabb_valid": true,
+					"collision_objects": 18,
+					"collision_shapes": 18,
+					"lights": 0,
+					"mesh_instances": 26,
+					"mesh_primitives": 26,
+					"nodes": 63,
+					"render_primitives_estimate": 1338,
+					"unique_mesh_resources": 26
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_news_cigars.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						446928259652
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 95,
+					"objects": 1887,
+					"orphan_nodes": 0,
+					"resources": 93
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_OTIS_SON",
+				"instantiate_ms": 1.145,
+				"load_ms": 677.105,
+				"metrics": {
+					"aabb_max": [
+						27.0599994659424,
+						4.19999980926514,
+						48.7599983215332
+					],
+					"aabb_min": [
+						15.4200000762939,
+						-0.0500000007450581,
+						44.3400001525879
+					],
+					"aabb_valid": true,
+					"collision_objects": 30,
+					"collision_shapes": 30,
+					"lights": 0,
+					"mesh_instances": 30,
+					"mesh_primitives": 30,
+					"nodes": 91,
+					"render_primitives_estimate": 2196,
+					"unique_mesh_resources": 30
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_otis___son.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						469795604852
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			},
+			{
+				"after_teardown": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"attached": {
+					"nodes": 88,
+					"objects": 1878,
+					"orphan_nodes": 0,
+					"resources": 91
+				},
+				"before": {
+					"nodes": 3,
+					"objects": 1496,
+					"orphan_nodes": 0,
+					"resources": 4
+				},
+				"id": "CELL_SHOP_LUNCHEONETTE",
+				"instantiate_ms": 0.505,
+				"load_ms": 768.83,
+				"metrics": {
+					"aabb_max": [
+						27.0599994659424,
+						4.19999980926514,
+						44.4599990844727
+					],
+					"aabb_min": [
+						15.3999996185303,
+						-0.0500000007450581,
+						39.1399993896484
+					],
+					"aabb_valid": true,
+					"collision_objects": 25,
+					"collision_shapes": 25,
+					"lights": 0,
+					"mesh_instances": 33,
+					"mesh_primitives": 33,
+					"nodes": 84,
+					"render_primitives_estimate": 2100,
+					"unique_mesh_resources": 33
+				},
+				"ok": true,
+				"owner_released": true,
+				"path": "res://cells/shop_luncheonette.gltf",
+				"public_teardown": {
+					"api": "M11C0CellComposition.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						492730059188
+					],
+					"retained_strong_references": 0
+				},
+				"seam_probes": [],
+				"teardown_delta": {
+					"nodes": 0,
+					"objects": 0,
+					"orphan_nodes": 0,
+					"resources": 0
+				}
+			}
+		],
+		"purpose": "matched cache, physics and receipt-structure control",
+		"recomposed": {
+			"after_teardown": {
+				"nodes": 3,
+				"objects": 1496,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"attached": {
+				"nodes": 1303,
+				"objects": 5292,
+				"orphan_nodes": 0,
+				"resources": 308
+			},
+			"before": {
+				"nodes": 3,
+				"objects": 1496,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"cell_loads": [
+				{
+					"id": "CELL_LEGACY_MIXED",
+					"instantiate_ms": 5.125,
+					"load_ms": 2039.909,
+					"ok": true,
+					"path": "res://cells/legacy_mixed.gltf"
+				},
+				{
+					"id": "CELL_SITE_STREET_DEDICATED",
+					"instantiate_ms": 0.169,
+					"load_ms": 55.828,
+					"ok": true,
+					"path": "res://cells/site_street_dedicated.gltf"
+				},
+				{
+					"id": "CELL_PASSAGE_PORTAL_PROXY",
+					"instantiate_ms": 1.268,
+					"load_ms": 2.522,
+					"ok": true,
+					"path": "res://cells/passage_portal_proxy.gltf"
+				},
+				{
+					"id": "CELL_PASSAGE_SHELL",
+					"instantiate_ms": 0.926,
+					"load_ms": 8.593,
+					"ok": true,
+					"path": "res://cells/passage_shell.gltf"
+				},
+				{
+					"id": "CELL_SHOP_BAR",
+					"instantiate_ms": 0.859,
+					"load_ms": 135.708,
+					"ok": true,
+					"path": "res://cells/shop_bar.gltf"
+				},
+				{
+					"id": "CELL_SHOP_BODEGA",
+					"instantiate_ms": 0.512,
+					"load_ms": 33.395,
+					"ok": true,
+					"path": "res://cells/shop_bodega.gltf"
+				},
+				{
+					"id": "CELL_SHOP_MODEL_LAUNDRY",
+					"instantiate_ms": 0.596,
+					"load_ms": 2.643,
+					"ok": true,
+					"path": "res://cells/shop_model_laundry.gltf"
+				},
+				{
+					"id": "CELL_SHOP_SHOE_REBUILDING",
+					"instantiate_ms": 0.454,
+					"load_ms": 2.141,
+					"ok": true,
+					"path": "res://cells/shop_shoe_rebuilding.gltf"
+				},
+				{
+					"id": "CELL_SHOP_KEYS_CUT",
+					"instantiate_ms": 0.787,
+					"load_ms": 2.511,
+					"ok": true,
+					"path": "res://cells/shop_keys_cut.gltf"
+				},
+				{
+					"id": "CELL_SHOP_HARDWARE_PAINT",
+					"instantiate_ms": 0.858,
+					"load_ms": 2.718,
+					"ok": true,
+					"path": "res://cells/shop_hardware_paint.gltf"
+				},
+				{
+					"id": "CELL_SHOP_FUNERAL_PARLOUR",
+					"instantiate_ms": 0.467,
+					"load_ms": 2.046,
+					"ok": true,
+					"path": "res://cells/shop_funeral_parlour.gltf"
+				},
+				{
+					"id": "CELL_SHOP_PHOTO_SUPPLIES",
+					"instantiate_ms": 0.529,
+					"load_ms": 2.572,
+					"ok": true,
+					"path": "res://cells/shop_photo_supplies.gltf"
+				},
+				{
+					"id": "CELL_SHOP_RADIO_SERVICE",
+					"instantiate_ms": 0.613,
+					"load_ms": 67.928,
+					"ok": true,
+					"path": "res://cells/shop_radio_service.gltf"
+				},
+				{
+					"id": "CELL_SHOP_PAWNBROKER",
+					"instantiate_ms": 0.489,
+					"load_ms": 2.487,
+					"ok": true,
+					"path": "res://cells/shop_pawnbroker.gltf"
+				},
+				{
+					"id": "CELL_SHOP_NEWS_CIGARS",
+					"instantiate_ms": 0.361,
+					"load_ms": 2.027,
+					"ok": true,
+					"path": "res://cells/shop_news_cigars.gltf"
+				},
+				{
+					"id": "CELL_SHOP_OTIS_SON",
+					"instantiate_ms": 0.681,
+					"load_ms": 2.68,
+					"ok": true,
+					"path": "res://cells/shop_otis___son.gltf"
+				},
+				{
+					"id": "CELL_SHOP_LUNCHEONETTE",
+					"instantiate_ms": 0.443,
+					"load_ms": 2.513,
+					"ok": true,
+					"path": "res://cells/shop_luncheonette.gltf"
+				}
+			],
+			"metrics": {
+				"aabb_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"aabb_min": [
+					-112.0,
+					-2.90000009536743,
+					-66.0
+				],
+				"aabb_valid": true,
+				"collision_objects": 380,
+				"collision_shapes": 380,
+				"lights": 0,
+				"mesh_instances": 522,
+				"mesh_primitives": 522,
+				"nodes": 1300,
+				"render_primitives_estimate": 182610,
+				"unique_mesh_resources": 522
+			},
+			"ok": true,
+			"public_teardown": {
+				"api": "M11C0CellComposition.public_teardown",
+				"forced_object_deletion": false,
+				"node_name_reach_ins": false,
+				"queued_instance_ids": [
+					560308685436,
+					566314928916,
+					568059759388,
+					571515866986,
+					579233386411,
+					583494799390,
+					587873651765,
+					591732412599,
+					595305958625,
+					598996947254,
+					602973146484,
+					607872093638,
+					614264214066,
+					619448373909,
+					623760118518,
+					628541624143,
+					633792893920
+				],
+				"retained_strong_references": 0
+			},
+			"seam_probes": [
+				{
+					"manifest_record": {
+						"counterpart": "CELL_SITE_STREET_COMMON",
+						"id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"known_contact": "pavement reaches -9.98 and deliberately overlaps the wall by 0.02 m",
+						"owner": "CELL_ORISON_FACADE_SHELL",
+						"source_plan_y": -10.0
+					},
+					"probes": [
+						{
+							"collider_class": "StaticBody3D",
+							"expected": "hit",
+							"from": [
+								0.0,
+								2.0,
+								9.96000003814697
+							],
+							"hit_position": [
+								0.0,
+								0.0,
+								9.96000003814697
+							],
+							"id": "orison_north_floor",
+							"observed_hit": true,
+							"owning_cell": "CELL_LEGACY_MIXED",
+							"status": "PASS",
+							"to": [
+								0.0,
+								-1.0,
+								9.96000003814697
+							]
+						},
+						{
+							"collider_class": "StaticBody3D",
+							"expected": "hit",
+							"from": [
+								0.0,
+								2.0,
+								10.0200004577637
+							],
+							"hit_position": [
+								0.0,
+								0.0900000333786011,
+								10.0200004577637
+							],
+							"id": "street_south_floor",
+							"observed_hit": true,
+							"owning_cell": "CELL_LEGACY_MIXED",
+							"status": "PASS",
+							"to": [
+								0.0,
+								-1.0,
+								10.0200004577637
+							]
+						}
+					],
+					"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+					"status": "PASS"
+				},
+				{
+					"manifest_record": {
+						"dependent_cell": "CELL_PASSAGE",
+						"gltf_z": 28.316,
+						"id": "SEAM_STREET_PASSAGE_PORTAL",
+						"known_contact": "Passage floor overlaps street ground by 0.004 m; legacy proxy is canonically street-resident even though its source batch begins passage_proxy.",
+						"owner": "CELL_SITE_STREET_COMMON"
+					},
+					"probes": [
+						{
+							"collider_class": "StaticBody3D",
+							"expected": "hit",
+							"from": [
+								14.0,
+								2.0,
+								28.3139991760254
+							],
+							"hit_position": [
+								14.0,
+								0.00999999046325684,
+								28.3139991760254
+							],
+							"id": "street_portal_floor",
+							"observed_hit": true,
+							"owning_cell": "CELL_LEGACY_MIXED",
+							"status": "PASS",
+							"to": [
+								14.0,
+								-1.0,
+								28.3139991760254
+							]
+						},
+						{
+							"collider_class": "StaticBody3D",
+							"expected": "hit",
+							"from": [
+								14.0,
+								2.0,
+								28.318000793457
+							],
+							"hit_position": [
+								14.0,
+								0.00999999046325684,
+								28.318000793457
+							],
+							"id": "passage_throat_floor",
+							"observed_hit": true,
+							"owning_cell": "CELL_PASSAGE_SHELL",
+							"status": "PASS",
+							"to": [
+								14.0,
+								-1.0,
+								28.318000793457
+							]
+						}
+					],
+					"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+					"status": "PASS"
+				},
+				{
+					"manifest_record": {
+						"counterpart": "CELL_SHOP_*",
+						"id": "SEAM_PASSAGE_SHOP_AISLES",
+						"known_contact": "Passage owns common aisle, openings and party-wall structure; each shop owns only its inward threshold/storefront volume.",
+						"owner": "CELL_PASSAGE",
+						"source_plan_x": [
+							11.0,
+							17.0
+						]
+					},
+					"probes": [
+						{
+							"collider_class": "StaticBody3D",
+							"expected": "hit",
+							"from": [
+								11.0200004577637,
+								2.0,
+								45.0
+							],
+							"hit_position": [
+								11.0200004577637,
+								0.549999952316284,
+								45.0
+							],
+							"id": "passage_aisle_west",
+							"observed_hit": true,
+							"owning_cell": "CELL_SHOP_SHOE_REBUILDING",
+							"status": "PASS",
+							"to": [
+								11.0200004577637,
+								-1.0,
+								45.0
+							]
+						},
+						{
+							"collider_class": "StaticBody3D",
+							"expected": "hit",
+							"from": [
+								10.9799995422363,
+								2.0,
+								45.0
+							],
+							"hit_position": [
+								10.9799995422363,
+								0.00999999046325684,
+								45.0
+							],
+							"id": "west_shop_floor",
+							"observed_hit": true,
+							"owning_cell": "CELL_SHOP_SHOE_REBUILDING",
+							"status": "PASS",
+							"to": [
+								10.9799995422363,
+								-1.0,
+								45.0
+							]
+						}
+					],
+					"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+					"status": "PASS"
+				},
+				{
+					"manifest_record": {
+						"counterpart": "CELL_SHOP_BODEGA",
+						"id": "SEAM_BODEGA_STREET",
+						"known_contact": "Bodega floor and pavement vertical faces touch at elevation zero and require bidirectional collision probes.",
+						"owner": "CELL_SITE_STREET_COMMON",
+						"source_plan_y": -12.0
+					},
+					"probes": [
+						{
+							"collider_class": "StaticBody3D",
+							"expected": "hit",
+							"from": [
+								17.3999996185303,
+								2.0,
+								13.0799999237061
+							],
+							"hit_position": [
+								17.3999996185303,
+								0.00999999046325684,
+								13.0799999237061
+							],
+							"id": "bodega_floor",
+							"observed_hit": true,
+							"owning_cell": "CELL_LEGACY_MIXED",
+							"status": "PASS",
+							"to": [
+								17.3999996185303,
+								-1.0,
+								13.0799999237061
+							]
+						},
+						{
+							"collider_class": "StaticBody3D",
+							"expected": "hit",
+							"from": [
+								17.3999996185303,
+								2.0,
+								13.1199998855591
+							],
+							"hit_position": [
+								17.3999996185303,
+								0.00999999046325684,
+								13.1199998855591
+							],
+							"id": "bodega_pavement",
+							"observed_hit": true,
+							"owning_cell": "CELL_LEGACY_MIXED",
+							"status": "PASS",
+							"to": [
+								17.3999996185303,
+								-1.0,
+								13.1199998855591
+							]
+						}
+					],
+					"seam_id": "SEAM_BODEGA_STREET",
+					"status": "PASS"
+				},
+				{
+					"manifest_record": {
+						"counterpart": "CELL_ORISON_F01_INTERIOR",
+						"id": "SEAM_SHELL_INTERIOR",
+						"known_contact": "glazing, sash, trim, wainscot and AO emissions currently batch internal and perimeter walls together",
+						"owner": "CELL_ORISON_FACADE_SHELL"
+					},
+					"reason": "SEAM_SHELL_INTERIOR has no explicit ray endpoints and expected contact; collision continuity is UNPROVEN",
+					"seam_id": "SEAM_SHELL_INTERIOR",
+					"status": "UNPROVEN"
+				}
+			],
+			"teardown_delta": {
+				"nodes": 0,
+				"objects": 0,
+				"orphan_nodes": 0,
+				"resources": 0
+			},
+			"unreleased_instance_ids": []
+		},
+		"recorded": false
+	}
+}
