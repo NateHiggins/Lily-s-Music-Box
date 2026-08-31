@@ -1,0 +1,2651 @@
+{
+  "authoritative_sources": {
+    "exterior_regions_path": "res://data/orison_v2/exterior/regions.json",
+    "exterior_regions_sha256": "1f128e4411e135acfc7e9046d5a2c3edf940d39adce54d336fbba8523f1a488a",
+    "layout_path": "res://data/building_layout.json",
+    "layout_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+  },
+  "authority": "disposable_harness_only",
+  "capture_views": [
+    {
+      "cell_ids": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_SITE_STREET_COMMON"
+      ],
+      "eye": [
+        0.0,
+        2.05,
+        18.0
+      ],
+      "fov_degrees": 64.0,
+      "id": "orison_shell_street",
+      "seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+      "target": [
+        0.0,
+        1.45,
+        9.7
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_PASSAGE"
+      ],
+      "eye": [
+        9.0,
+        2.05,
+        21.0
+      ],
+      "fov_degrees": 62.0,
+      "id": "street_passage_portal",
+      "seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+      "target": [
+        14.0,
+        1.55,
+        31.0
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_MODEL_LAUNDRY",
+        "CELL_SHOP_SHOE_REBUILDING",
+        "CELL_SHOP_KEYS_CUT",
+        "CELL_SHOP_HARDWARE_PAINT",
+        "CELL_SHOP_FUNERAL_PARLOUR",
+        "CELL_SHOP_PHOTO_SUPPLIES",
+        "CELL_SHOP_RADIO_SERVICE",
+        "CELL_SHOP_PAWNBROKER",
+        "CELL_SHOP_NEWS_CIGARS",
+        "CELL_SHOP_OTIS_SON",
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "eye": [
+        14.2,
+        2.05,
+        49.425000000000004
+      ],
+      "fov_degrees": 62.0,
+      "id": "passage_west_shop_aisle",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "target": [
+        11.34,
+        1.05,
+        49.425000000000004
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_SHOP_BODEGA"
+      ],
+      "eye": [
+        12.0,
+        2.05,
+        18.0
+      ],
+      "fov_degrees": 62.0,
+      "id": "bodega_street_threshold",
+      "seam_id": "SEAM_BODEGA_STREET",
+      "target": [
+        17.4,
+        1.35,
+        10.5
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_ORISON_F01_INTERIOR"
+      ],
+      "eye": [
+        0.0,
+        1.41,
+        8.25
+      ],
+      "fov_degrees": 64.0,
+      "id": "facade_shell_interior",
+      "seam_id": "SEAM_SHELL_INTERIOR",
+      "target": [
+        0.0,
+        1.2,
+        9.795
+      ]
+    }
+  ],
+  "cell_resources": {
+    "CELL_ORISON_F01_INTERIOR": "res://m11c1_disposable/cells/orison_f01_interior.gltf",
+    "CELL_ORISON_FACADE_SHELL": "res://m11c1_disposable/cells/orison_facade_shell.gltf",
+    "CELL_PASSAGE": "res://m11c1_disposable/cells/passage.gltf",
+    "CELL_SHOP_BAR": "res://m11c1_disposable/cells/shop_bar.gltf",
+    "CELL_SHOP_BODEGA": "res://m11c1_disposable/cells/shop_bodega.gltf",
+    "CELL_SHOP_FUNERAL_PARLOUR": "res://m11c1_disposable/cells/shop_funeral_parlour.gltf",
+    "CELL_SHOP_HARDWARE_PAINT": "res://m11c1_disposable/cells/shop_hardware_paint.gltf",
+    "CELL_SHOP_KEYS_CUT": "res://m11c1_disposable/cells/shop_keys_cut.gltf",
+    "CELL_SHOP_LUNCHEONETTE": "res://m11c1_disposable/cells/shop_luncheonette.gltf",
+    "CELL_SHOP_MODEL_LAUNDRY": "res://m11c1_disposable/cells/shop_model_laundry.gltf",
+    "CELL_SHOP_NEWS_CIGARS": "res://m11c1_disposable/cells/shop_news_cigars.gltf",
+    "CELL_SHOP_OTIS_SON": "res://m11c1_disposable/cells/shop_otis_son.gltf",
+    "CELL_SHOP_PAWNBROKER": "res://m11c1_disposable/cells/shop_pawnbroker.gltf",
+    "CELL_SHOP_PHOTO_SUPPLIES": "res://m11c1_disposable/cells/shop_photo_supplies.gltf",
+    "CELL_SHOP_RADIO_SERVICE": "res://m11c1_disposable/cells/shop_radio_service.gltf",
+    "CELL_SHOP_SHOE_REBUILDING": "res://m11c1_disposable/cells/shop_shoe_rebuilding.gltf",
+    "CELL_SITE_STREET_COMMON": "res://m11c1_disposable/cells/site_street_common.gltf"
+  },
+  "equivalence_receipt": "C:/PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt/receipts/floor01_owner_first_equivalence.json",
+  "lineage_manifest": "C:/PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt/receipts/floor01_owner_first_lineage.json",
+  "partition_manifest": "C:/PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt/owner_first_partition_manifest.json",
+  "protected_source": {
+    "bin_path": "res://assets/building/floor_01.bin",
+    "bin_sha256": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+    "gltf_path": "res://assets/building/floor_01.gltf",
+    "gltf_sha256": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1"
+  },
+  "residency_sets": [
+    {
+      "cell_ids": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL"
+      ],
+      "id": "ORISON_INTERIOR_PLUS_FACADE"
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_ORISON_FACADE_SHELL"
+      ],
+      "id": "STREET_PLUS_FACADE"
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE"
+      ],
+      "id": "PASSAGE_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_BAR"
+      ],
+      "id": "SHOP_BAR_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_BODEGA"
+      ],
+      "id": "SHOP_BODEGA_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_MODEL_LAUNDRY"
+      ],
+      "id": "SHOP_MODEL_LAUNDRY_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_SHOE_REBUILDING"
+      ],
+      "id": "SHOP_SHOE_REBUILDING_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_KEYS_CUT"
+      ],
+      "id": "SHOP_KEYS_CUT_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_HARDWARE_PAINT"
+      ],
+      "id": "SHOP_HARDWARE_PAINT_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_FUNERAL_PARLOUR"
+      ],
+      "id": "SHOP_FUNERAL_PARLOUR_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_PHOTO_SUPPLIES"
+      ],
+      "id": "SHOP_PHOTO_SUPPLIES_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_RADIO_SERVICE"
+      ],
+      "id": "SHOP_RADIO_SERVICE_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_PAWNBROKER"
+      ],
+      "id": "SHOP_PAWNBROKER_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_NEWS_CIGARS"
+      ],
+      "id": "SHOP_NEWS_CIGARS_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_OTIS_SON"
+      ],
+      "id": "SHOP_OTIS_SON_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "id": "SHOP_LUNCHEONETTE_ONLY"
+    },
+    {
+      "cell_ids": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_SITE_STREET_COMMON",
+        "CELL_PASSAGE",
+        "CELL_SHOP_BAR",
+        "CELL_SHOP_BODEGA",
+        "CELL_SHOP_MODEL_LAUNDRY",
+        "CELL_SHOP_SHOE_REBUILDING",
+        "CELL_SHOP_KEYS_CUT",
+        "CELL_SHOP_HARDWARE_PAINT",
+        "CELL_SHOP_FUNERAL_PARLOUR",
+        "CELL_SHOP_PHOTO_SUPPLIES",
+        "CELL_SHOP_RADIO_SERVICE",
+        "CELL_SHOP_PAWNBROKER",
+        "CELL_SHOP_NEWS_CIGARS",
+        "CELL_SHOP_OTIS_SON",
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "id": "FULL_RECOMPOSITION"
+    }
+  ],
+  "resident_nav_queries": [
+    {
+      "cell_ids": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_SITE_STREET_COMMON"
+      ],
+      "expected_reachable": true,
+      "from": [
+        0.0,
+        0.08,
+        11.25
+      ],
+      "id": "NAV_ORISON_SOUTH_SHELL_STREET",
+      "seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        0.0,
+        0.08,
+        8.95
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_PASSAGE"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.08,
+        27.2
+      ],
+      "id": "NAV_STREET_PASSAGE_PORTAL",
+      "seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        14.0,
+        0.08,
+        30.1
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_SHOP_BODEGA"
+      ],
+      "expected_reachable": true,
+      "from": [
+        18.65,
+        0.08,
+        13.1
+      ],
+      "id": "NAV_BODEGA_STREET",
+      "seam_id": "SEAM_BODEGA_STREET",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        18.65,
+        0.08,
+        10.65
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_ORISON_F01_INTERIOR"
+      ],
+      "expected_reachable": true,
+      "from": [
+        0.0,
+        0.08,
+        10.02
+      ],
+      "id": "NAV_SHELL_INTERIOR",
+      "seam_id": "SEAM_SHELL_INTERIOR",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        0.0,
+        0.08,
+        8.9
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_MODEL_LAUNDRY"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_MODEL_LAUNDRY",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        10.24,
+        0.08,
+        43.825
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_SHOE_REBUILDING"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_SHOE_REBUILDING",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_SHOE_REBUILDING",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        10.24,
+        0.08,
+        49.425000000000004
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_KEYS_CUT"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_KEYS_CUT",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_KEYS_CUT",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        10.24,
+        0.08,
+        53.025
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_HARDWARE_PAINT"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_HARDWARE_PAINT",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_HARDWARE_PAINT",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        10.24,
+        0.08,
+        58.425000000000004
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_FUNERAL_PARLOUR"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_FUNERAL_PARLOUR",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        10.24,
+        0.08,
+        63.025
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_PHOTO_SUPPLIES"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_PHOTO_SUPPLIES",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        17.76,
+        0.08,
+        62.974999999999994
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_RADIO_SERVICE"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_RADIO_SERVICE",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_RADIO_SERVICE",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        17.76,
+        0.08,
+        56.574999999999996
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_PAWNBROKER"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_PAWNBROKER",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_PAWNBROKER",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        17.76,
+        0.08,
+        51.974999999999994
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_NEWS_CIGARS"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_NEWS_CIGARS",
+      "passage_place": "news_cigars",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_NEWS_CIGARS",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        16.26,
+        0.06,
+        49.16
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_OTIS_SON"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_OTIS___SON",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_OTIS_SON",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        17.76,
+        0.08,
+        45.37499999999999
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "expected_reachable": true,
+      "from": [
+        14.0,
+        0.06,
+        28.7
+      ],
+      "id": "PASSAGE_NAV_LUNCHEONETTE",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "shop_cell_id": "CELL_SHOP_LUNCHEONETTE",
+      "terminal_tolerance_m": 0.2,
+      "to": [
+        17.76,
+        0.08,
+        43.37499999999999
+      ]
+    }
+  ],
+  "save_reconstruction": {
+    "required_cell_ids": [
+      "CELL_ORISON_F01_INTERIOR",
+      "CELL_ORISON_FACADE_SHELL",
+      "CELL_SITE_STREET_COMMON",
+      "CELL_PASSAGE",
+      "CELL_SHOP_BAR",
+      "CELL_SHOP_BODEGA",
+      "CELL_SHOP_MODEL_LAUNDRY",
+      "CELL_SHOP_SHOE_REBUILDING",
+      "CELL_SHOP_KEYS_CUT",
+      "CELL_SHOP_HARDWARE_PAINT",
+      "CELL_SHOP_FUNERAL_PARLOUR",
+      "CELL_SHOP_PHOTO_SUPPLIES",
+      "CELL_SHOP_RADIO_SERVICE",
+      "CELL_SHOP_PAWNBROKER",
+      "CELL_SHOP_NEWS_CIGARS",
+      "CELL_SHOP_OTIS_SON",
+      "CELL_SHOP_LUNCHEONETTE"
+    ],
+    "route_id": "ROUTE_ORISON_TO_SHOP_BODEGA",
+    "state_id": "PLAYER_EXTERIOR_ROUTE",
+    "threshold_id": "THRESHOLD_SHOP_BODEGA_FRONT",
+    "waypoint_id": "PAVEMENT_TURN"
+  },
+  "schema": "orison.m11c1.target-cell-runtime-config.v1",
+  "seams": [
+    {
+      "cell_ids": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_SITE_STREET_COMMON"
+      ],
+      "door_identities": [
+        "F01_DOOR_06"
+      ],
+      "expected_collision_owner_cells": [
+        "CELL_ORISON_F01_INTERIOR",
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_SITE_STREET_COMMON"
+      ],
+      "id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+      "traversals": [
+        {
+          "door_action": "interact_open",
+          "door_identity": "F01_DOOR_06",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_ORISON_F01_INTERIOR",
+            "CELL_ORISON_FACADE_SHELL",
+            "CELL_SITE_STREET_COMMON"
+          ],
+          "forward_waypoints": [
+            [
+              0.0,
+              0.08,
+              8.95
+            ]
+          ],
+          "id": "ORISON_STREET_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              0.0,
+              0.0,
+              9.795
+            ],
+            "half_width_m": 0.455,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "top_y_m": 2.13
+          },
+          "plane": {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "point": [
+              0.0,
+              0.0,
+              9.795
+            ]
+          },
+          "return_waypoints": [
+            [
+              0.0,
+              0.08,
+              11.25
+            ]
+          ],
+          "start": [
+            0.0,
+            0.08,
+            11.25
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        }
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_PASSAGE"
+      ],
+      "door_identities": [],
+      "expected_collision_owner_cells": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_PASSAGE"
+      ],
+      "id": "SEAM_STREET_PASSAGE_PORTAL",
+      "traversals": [
+        {
+          "door_action": "none",
+          "door_identity": "",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_SITE_STREET_COMMON",
+            "CELL_PASSAGE"
+          ],
+          "forward_waypoints": [
+            [
+              14.0,
+              0.08,
+              30.1
+            ]
+          ],
+          "id": "STREET_PASSAGE_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              14.0,
+              0.0,
+              28.316
+            ],
+            "half_width_m": 2.8,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "top_y_m": 3.0
+          },
+          "plane": {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "point": [
+              14.0,
+              0.0,
+              28.316
+            ]
+          },
+          "return_waypoints": [
+            [
+              14.0,
+              0.08,
+              27.2
+            ]
+          ],
+          "start": [
+            14.0,
+            0.08,
+            27.2
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        }
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_MODEL_LAUNDRY",
+        "CELL_SHOP_SHOE_REBUILDING",
+        "CELL_SHOP_KEYS_CUT",
+        "CELL_SHOP_HARDWARE_PAINT",
+        "CELL_SHOP_FUNERAL_PARLOUR",
+        "CELL_SHOP_PHOTO_SUPPLIES",
+        "CELL_SHOP_RADIO_SERVICE",
+        "CELL_SHOP_PAWNBROKER",
+        "CELL_SHOP_NEWS_CIGARS",
+        "CELL_SHOP_OTIS_SON",
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "collision_probes": [
+        {
+          "expected_owner_cell": "CELL_PASSAGE",
+          "forbidden_owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+          "from": [
+            11.02,
+            2.0,
+            45.0
+          ],
+          "id": "M11C0_PASSAGE_AISLE_WEST_055",
+          "legacy_hit_elevation_m": 0.55,
+          "to": [
+            11.02,
+            -1.0,
+            45.0
+          ]
+        }
+      ],
+      "coverage_cells": [
+        "CELL_SHOP_MODEL_LAUNDRY",
+        "CELL_SHOP_SHOE_REBUILDING",
+        "CELL_SHOP_KEYS_CUT",
+        "CELL_SHOP_HARDWARE_PAINT",
+        "CELL_SHOP_FUNERAL_PARLOUR",
+        "CELL_SHOP_PHOTO_SUPPLIES",
+        "CELL_SHOP_RADIO_SERVICE",
+        "CELL_SHOP_PAWNBROKER",
+        "CELL_SHOP_NEWS_CIGARS",
+        "CELL_SHOP_OTIS_SON",
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "door_identities": [
+        "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+        "SITE_SHOP_DOOR_SHOE_REBUILDING",
+        "SITE_SHOP_DOOR_KEYS_CUT",
+        "SITE_SHOP_DOOR_HARDWARE_PAINT",
+        "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+        "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+        "SITE_SHOP_DOOR_RADIO_SERVICE",
+        "SITE_SHOP_DOOR_PAWNBROKER",
+        "SITE_SHOP_DOOR_NEWS_CIGARS",
+        "SITE_SHOP_DOOR_OTIS___SON",
+        "SITE_SHOP_DOOR_LUNCHEONETTE"
+      ],
+      "expected_collision_owner_cells": [
+        "CELL_PASSAGE",
+        "CELL_SHOP_MODEL_LAUNDRY",
+        "CELL_SHOP_SHOE_REBUILDING",
+        "CELL_SHOP_KEYS_CUT",
+        "CELL_SHOP_HARDWARE_PAINT",
+        "CELL_SHOP_FUNERAL_PARLOUR",
+        "CELL_SHOP_PHOTO_SUPPLIES",
+        "CELL_SHOP_RADIO_SERVICE",
+        "CELL_SHOP_PAWNBROKER",
+        "CELL_SHOP_NEWS_CIGARS",
+        "CELL_SHOP_OTIS_SON",
+        "CELL_SHOP_LUNCHEONETTE"
+      ],
+      "id": "SEAM_PASSAGE_SHOP_AISLES",
+      "traversals": [
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_MODEL_LAUNDRY"
+          ],
+          "forward_waypoints": [
+            [
+              10.24,
+              0.08,
+              43.825
+            ]
+          ],
+          "id": "PASSAGE_MODEL_LAUNDRY_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              11.34,
+              0.0,
+              43.825
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              11.34,
+              0.0,
+              43.825
+            ]
+          },
+          "return_waypoints": [
+            [
+              12.24,
+              0.08,
+              43.825
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+          "start": [
+            12.24,
+            0.08,
+            43.825
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_SHOE_REBUILDING"
+          ],
+          "forward_waypoints": [
+            [
+              10.24,
+              0.08,
+              49.425000000000004
+            ]
+          ],
+          "id": "PASSAGE_SHOE_REBUILDING_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              11.34,
+              0.0,
+              49.425000000000004
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              11.34,
+              0.0,
+              49.425000000000004
+            ]
+          },
+          "return_waypoints": [
+            [
+              12.24,
+              0.08,
+              49.425000000000004
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_SHOE_REBUILDING",
+          "start": [
+            12.24,
+            0.08,
+            49.425000000000004
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_KEYS_CUT",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_KEYS_CUT"
+          ],
+          "forward_waypoints": [
+            [
+              10.24,
+              0.08,
+              53.025
+            ]
+          ],
+          "id": "PASSAGE_KEYS_CUT_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              11.34,
+              0.0,
+              53.025
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              11.34,
+              0.0,
+              53.025
+            ]
+          },
+          "return_waypoints": [
+            [
+              12.24,
+              0.08,
+              53.025
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_KEYS_CUT",
+          "start": [
+            12.24,
+            0.08,
+            53.025
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_HARDWARE_PAINT"
+          ],
+          "forward_waypoints": [
+            [
+              10.24,
+              0.08,
+              58.425000000000004
+            ]
+          ],
+          "id": "PASSAGE_HARDWARE_PAINT_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              11.34,
+              0.0,
+              58.425000000000004
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              11.34,
+              0.0,
+              58.425000000000004
+            ]
+          },
+          "return_waypoints": [
+            [
+              12.24,
+              0.08,
+              58.425000000000004
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_HARDWARE_PAINT",
+          "start": [
+            12.24,
+            0.08,
+            58.425000000000004
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_FUNERAL_PARLOUR"
+          ],
+          "forward_waypoints": [
+            [
+              10.24,
+              0.08,
+              63.025
+            ]
+          ],
+          "id": "PASSAGE_FUNERAL_PARLOUR_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              11.34,
+              0.0,
+              63.025
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              11.34,
+              0.0,
+              63.025
+            ]
+          },
+          "return_waypoints": [
+            [
+              12.24,
+              0.08,
+              63.025
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+          "start": [
+            12.24,
+            0.08,
+            63.025
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_PHOTO_SUPPLIES"
+          ],
+          "forward_waypoints": [
+            [
+              17.76,
+              0.08,
+              62.974999999999994
+            ]
+          ],
+          "id": "PASSAGE_PHOTO_SUPPLIES_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              16.66,
+              0.0,
+              62.974999999999994
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              16.66,
+              0.0,
+              62.974999999999994
+            ]
+          },
+          "return_waypoints": [
+            [
+              15.76,
+              0.08,
+              62.974999999999994
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+          "start": [
+            15.76,
+            0.08,
+            62.974999999999994
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_RADIO_SERVICE"
+          ],
+          "forward_waypoints": [
+            [
+              17.76,
+              0.08,
+              56.574999999999996
+            ]
+          ],
+          "id": "PASSAGE_RADIO_SERVICE_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              16.66,
+              0.0,
+              56.574999999999996
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              16.66,
+              0.0,
+              56.574999999999996
+            ]
+          },
+          "return_waypoints": [
+            [
+              15.76,
+              0.08,
+              56.574999999999996
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_RADIO_SERVICE",
+          "start": [
+            15.76,
+            0.08,
+            56.574999999999996
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_PAWNBROKER",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_PAWNBROKER"
+          ],
+          "forward_waypoints": [
+            [
+              17.76,
+              0.08,
+              51.974999999999994
+            ]
+          ],
+          "id": "PASSAGE_PAWNBROKER_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              16.66,
+              0.0,
+              51.974999999999994
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              16.66,
+              0.0,
+              51.974999999999994
+            ]
+          },
+          "return_waypoints": [
+            [
+              15.76,
+              0.08,
+              51.974999999999994
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_PAWNBROKER",
+          "start": [
+            15.76,
+            0.08,
+            51.974999999999994
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_locked_refusal",
+          "door_identity": "SITE_SHOP_DOOR_NEWS_CIGARS",
+          "expectation": "locked_non_crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_NEWS_CIGARS"
+          ],
+          "forward_waypoints": [
+            [
+              17.76,
+              0.08,
+              49.974999999999994
+            ]
+          ],
+          "id": "PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              16.66,
+              0.0,
+              49.974999999999994
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              16.66,
+              0.0,
+              49.974999999999994
+            ]
+          },
+          "return_waypoints": [
+            [
+              15.76,
+              0.08,
+              49.974999999999994
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_NEWS_CIGARS",
+          "start": [
+            15.76,
+            0.08,
+            49.974999999999994
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_OTIS___SON",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_OTIS_SON"
+          ],
+          "forward_waypoints": [
+            [
+              17.76,
+              0.08,
+              45.37499999999999
+            ]
+          ],
+          "id": "PASSAGE_OTIS___SON_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              16.66,
+              0.0,
+              45.37499999999999
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              16.66,
+              0.0,
+              45.37499999999999
+            ]
+          },
+          "return_waypoints": [
+            [
+              15.76,
+              0.08,
+              45.37499999999999
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_OTIS_SON",
+          "start": [
+            15.76,
+            0.08,
+            45.37499999999999
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        },
+        {
+          "door_action": "interact_open",
+          "door_identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_PASSAGE",
+            "CELL_SHOP_LUNCHEONETTE"
+          ],
+          "forward_waypoints": [
+            [
+              17.76,
+              0.08,
+              43.37499999999999
+            ]
+          ],
+          "id": "PASSAGE_LUNCHEONETTE_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              16.66,
+              0.0,
+              43.37499999999999
+            ],
+            "half_width_m": 0.475,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "point": [
+              16.66,
+              0.0,
+              43.37499999999999
+            ]
+          },
+          "return_waypoints": [
+            [
+              15.76,
+              0.08,
+              43.37499999999999
+            ]
+          ],
+          "shop_cell_id": "CELL_SHOP_LUNCHEONETTE",
+          "start": [
+            15.76,
+            0.08,
+            43.37499999999999
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        }
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_SHOP_BODEGA"
+      ],
+      "door_identities": [
+        "F01_BODEGA_DOOR"
+      ],
+      "expected_collision_owner_cells": [
+        "CELL_SITE_STREET_COMMON",
+        "CELL_SHOP_BODEGA"
+      ],
+      "id": "SEAM_BODEGA_STREET",
+      "traversals": [
+        {
+          "door_action": "interact_open",
+          "door_identity": "F01_BODEGA_DOOR",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_SITE_STREET_COMMON",
+            "CELL_SHOP_BODEGA"
+          ],
+          "forward_waypoints": [
+            [
+              18.65,
+              0.08,
+              10.65
+            ]
+          ],
+          "id": "BODEGA_STREET_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              18.65,
+              0.0,
+              11.92
+            ],
+            "half_width_m": 0.45,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "top_y_m": 2.1
+          },
+          "plane": {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "point": [
+              18.65,
+              0.0,
+              11.92
+            ]
+          },
+          "return_waypoints": [
+            [
+              18.65,
+              0.08,
+              13.1
+            ]
+          ],
+          "start": [
+            18.65,
+            0.08,
+            13.1
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.13
+        }
+      ]
+    },
+    {
+      "cell_ids": [
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_ORISON_F01_INTERIOR"
+      ],
+      "door_identities": [
+        "F01_DOOR_06"
+      ],
+      "expected_collision_owner_cells": [
+        "CELL_ORISON_FACADE_SHELL",
+        "CELL_ORISON_F01_INTERIOR"
+      ],
+      "id": "SEAM_SHELL_INTERIOR",
+      "traversals": [
+        {
+          "door_action": "interact_open",
+          "door_identity": "F01_DOOR_06",
+          "expectation": "crossable",
+          "expected_collision_owner_cells": [
+            "CELL_ORISON_FACADE_SHELL",
+            "CELL_ORISON_F01_INTERIOR"
+          ],
+          "forward_waypoints": [
+            [
+              0.0,
+              0.08,
+              8.9
+            ]
+          ],
+          "id": "FACADE_INTERIOR_BIDIRECTIONAL",
+          "max_frames_per_waypoint": 420,
+          "minimum_grounded_fraction": 0.92,
+          "opening_bounds": {
+            "bottom_y_m": 0.0,
+            "center": [
+              0.0,
+              0.0,
+              9.795
+            ],
+            "half_width_m": 0.455,
+            "minimum_head_clearance_m": 0.04,
+            "minimum_side_clearance_m": 0.04,
+            "right_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "top_y_m": 2.13
+          },
+          "plane": {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "point": [
+              0.0,
+              0.0,
+              9.795
+            ]
+          },
+          "return_waypoints": [
+            [
+              0.0,
+              0.08,
+              10.02
+            ]
+          ],
+          "start": [
+            0.0,
+            0.08,
+            10.02
+          ],
+          "vertical_tolerance_m": 0.16,
+          "waypoint_tolerance_m": 0.05
+        }
+      ]
+    }
+  ],
+  "semantic_expectations": [
+    {
+      "identity": "1A_LT_SCONCE",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "1D_LT_SCONCE",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01WC_LT_SCONCE",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1A_FRIDGE_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1A_KETTLE_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1A_KITCHEN_SINK_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1A_MIRROR_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1A_SHOWER_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1A_SINK_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1A_STOVE_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1A_TOASTER_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1D_FRIDGE_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1D_KETTLE_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1D_KITCHEN_SINK_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1D_MIRROR_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1D_SHOWER_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1D_SINK_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1D_STOVE_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_1D_TOASTER_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_ATRIUM_FRUIT_1",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_A_BED_LT_FLUSH_DOME",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_A_MAIN_LT_PENDANT_SHADE",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_A_RADIATOR_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_DARTS",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_DOOR",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_CAN0",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_CAN1",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_DARTS",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_DECK0",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_DECK1",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_DECK2",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_LOBBY",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_POOL",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_STAGE0",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_STAGE1",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_STAIR",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_TAB0",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_TAB1",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_TAB2",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_WC",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_WELL",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_WEST0",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_LT_WEST1",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_POOL",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_RED_DOOR",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_SIGNAGE",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_SONGBOOK",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_STAGE_SIGN",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_WC_DOOR",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BAR_WC_SINK_01",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BODEGA_DOOR",
+      "owner_cell": "CELL_SHOP_BODEGA",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BODEGA_LT_0",
+      "owner_cell": "CELL_SHOP_BODEGA",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BODEGA_LT_1",
+      "owner_cell": "CELL_SHOP_BODEGA",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BODEGA_LT_2",
+      "owner_cell": "CELL_SHOP_BODEGA",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BODEGA_RADIO",
+      "owner_cell": "CELL_SHOP_BODEGA",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_BODEGA_SIGNAGE",
+      "owner_cell": "CELL_SHOP_BODEGA",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_COMMON_B_LT_PENDANT_SHADE",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_CORRIDOR_DOME_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_CORRIDOR_DOME_02",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_CORRIDOR_DOME_03",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_CORRIDOR_DOME_04",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_CORRIDOR_DOME_05",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_CORRIDOR_DOME_06",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_CORRIDOR_DOME_07",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_CORRIDOR_DOME_08",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_02",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_03",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_04",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_05",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_06",
+      "owner_cell": "CELL_ORISON_FACADE_SHELL",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_07",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_08",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_09",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_10",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_11",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_12",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_13",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_DOOR_14",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_D_BED_LT_FLUSH_DOME",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_D_MAIN_LT_PENDANT_SHADE",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_D_OFFICE_LT_PENDANT_SHADE",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_D_RADIATOR_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_F01WC_MIRROR_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_F01WC_SHOWER_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_F01WC_SINK_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_HALL_LT_FLUSH_DOME",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_KARAOKE_SPK_0",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_KARAOKE_SPK_1",
+      "owner_cell": "CELL_SHOP_BAR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_LOBBY_CLOCK_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_LOBBY_LT_CHANDELIER",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_LOBBY_RADIATOR_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_MARQUEE_LT_01",
+      "owner_cell": "CELL_ORISON_FACADE_SHELL",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_MARQUEE_LT_02",
+      "owner_cell": "CELL_ORISON_FACADE_SHELL",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_NEON_BLADE",
+      "owner_cell": "CELL_ORISON_FACADE_SHELL",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_NEON_TENANT",
+      "owner_cell": "CELL_ORISON_FACADE_SHELL",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_OFFICE_LT_PENDANT_SHADE",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_PACKAGE_LT_CAGE_BULB",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_STORAGE_C_LT_CAGE_BULB",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_STREETLAMP_03",
+      "owner_cell": "CELL_SITE_STREET_COMMON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_STREETLAMP_04",
+      "owner_cell": "CELL_SITE_STREET_COMMON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_STREETLAMP_06",
+      "owner_cell": "CELL_SITE_STREET_COMMON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_STREETLAMP_07",
+      "owner_cell": "CELL_SITE_STREET_COMMON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_STREETLAMP_08",
+      "owner_cell": "CELL_SITE_STREET_COMMON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_UTILITY_LT_CAGE_BULB",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "F01_common_KITCHEN_SINK_01",
+      "owner_cell": "CELL_ORISON_F01_INTERIOR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_AISLE_LT_00",
+      "owner_cell": "CELL_PASSAGE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_AISLE_LT_01",
+      "owner_cell": "CELL_PASSAGE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_AISLE_LT_02",
+      "owner_cell": "CELL_PASSAGE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_AISLE_LT_03",
+      "owner_cell": "CELL_PASSAGE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_AISLE_LT_04",
+      "owner_cell": "CELL_PASSAGE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_AISLE_LT_05",
+      "owner_cell": "CELL_PASSAGE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_AISLE_LT_06",
+      "owner_cell": "CELL_PASSAGE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_AISLE_LT_07",
+      "owner_cell": "CELL_PASSAGE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_PORTAL_LT_E",
+      "owner_cell": "CELL_SITE_STREET_COMMON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "PASSAGE_PORTAL_LT_W",
+      "owner_cell": "CELL_SITE_STREET_COMMON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+      "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+      "owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+      "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_KEYS_CUT",
+      "owner_cell": "CELL_SHOP_KEYS_CUT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+      "owner_cell": "CELL_SHOP_LUNCHEONETTE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+      "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_NEWS_CIGARS",
+      "owner_cell": "CELL_SHOP_NEWS_CIGARS",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_OTIS___SON",
+      "owner_cell": "CELL_SHOP_OTIS_SON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_PAWNBROKER",
+      "owner_cell": "CELL_SHOP_PAWNBROKER",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+      "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+      "owner_cell": "CELL_SHOP_RADIO_SERVICE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+      "owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+      "owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_HARDWARE_PAINT",
+      "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_KEYS_CUT",
+      "owner_cell": "CELL_SHOP_KEYS_CUT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_LUNCHEONETTE",
+      "owner_cell": "CELL_SHOP_LUNCHEONETTE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+      "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_NEWS_CIGARS",
+      "owner_cell": "CELL_SHOP_NEWS_CIGARS",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_OTIS___SON",
+      "owner_cell": "CELL_SHOP_OTIS_SON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_PAWNBROKER",
+      "owner_cell": "CELL_SHOP_PAWNBROKER",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+      "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_RADIO_SERVICE",
+      "owner_cell": "CELL_SHOP_RADIO_SERVICE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_HOURS_SHOE_REBUILDING",
+      "owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+      "owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_HARDWARE_PAINT",
+      "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_KEYS_CUT",
+      "owner_cell": "CELL_SHOP_KEYS_CUT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_LUNCHEONETTE",
+      "owner_cell": "CELL_SHOP_LUNCHEONETTE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+      "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_NEWS_CIGARS",
+      "owner_cell": "CELL_SHOP_NEWS_CIGARS",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_OTIS___SON",
+      "owner_cell": "CELL_SHOP_OTIS_SON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_PAWNBROKER",
+      "owner_cell": "CELL_SHOP_PAWNBROKER",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+      "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_RADIO_SERVICE",
+      "owner_cell": "CELL_SHOP_RADIO_SERVICE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN0_SHOE_REBUILDING",
+      "owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+      "owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_HARDWARE_PAINT",
+      "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_KEYS_CUT",
+      "owner_cell": "CELL_SHOP_KEYS_CUT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_LUNCHEONETTE",
+      "owner_cell": "CELL_SHOP_LUNCHEONETTE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+      "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_NEWS_CIGARS",
+      "owner_cell": "CELL_SHOP_NEWS_CIGARS",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_OTIS___SON",
+      "owner_cell": "CELL_SHOP_OTIS_SON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_PAWNBROKER",
+      "owner_cell": "CELL_SHOP_PAWNBROKER",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+      "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_RADIO_SERVICE",
+      "owner_cell": "CELL_SHOP_RADIO_SERVICE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN1_SHOE_REBUILDING",
+      "owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+      "owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN2_HARDWARE_PAINT",
+      "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN2_LUNCHEONETTE",
+      "owner_cell": "CELL_SHOP_LUNCHEONETTE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+      "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_IN2_OTIS___SON",
+      "owner_cell": "CELL_SHOP_OTIS_SON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+      "owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_HARDWARE_PAINT",
+      "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_KEYS_CUT",
+      "owner_cell": "CELL_SHOP_KEYS_CUT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_LUNCHEONETTE",
+      "owner_cell": "CELL_SHOP_LUNCHEONETTE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_MODEL_LAUNDRY",
+      "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_NEWS_CIGARS",
+      "owner_cell": "CELL_SHOP_NEWS_CIGARS",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_OTIS___SON",
+      "owner_cell": "CELL_SHOP_OTIS_SON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_PAWNBROKER",
+      "owner_cell": "CELL_SHOP_PAWNBROKER",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+      "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_RADIO_SERVICE",
+      "owner_cell": "CELL_SHOP_RADIO_SERVICE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_LT_SHOE_REBUILDING",
+      "owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
+      "owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_HARDWARE_PAINT",
+      "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_KEYS_CUT",
+      "owner_cell": "CELL_SHOP_KEYS_CUT",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_LUNCHEONETTE",
+      "owner_cell": "CELL_SHOP_LUNCHEONETTE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
+      "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_NEWS_CIGARS",
+      "owner_cell": "CELL_SHOP_NEWS_CIGARS",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_OTIS___SON",
+      "owner_cell": "CELL_SHOP_OTIS_SON",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_PAWNBROKER",
+      "owner_cell": "CELL_SHOP_PAWNBROKER",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
+      "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_RADIO_SERVICE",
+      "owner_cell": "CELL_SHOP_RADIO_SERVICE",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "SITE_SHOP_SIGN_SHOE_REBUILDING",
+      "owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+      "role": "layout_marker"
+    },
+    {
+      "identity": "THRESHOLD_SHOP_BODEGA_FRONT",
+      "owner_cell": "CELL_SHOP_BODEGA",
+      "role": "m11a_exterior_threshold"
+    }
+  ],
+  "semantic_family_contract": {
+    "coverage": "exact_lineage_identity_set",
+    "prefix": "SITE_SHOP_",
+    "required_subprefixes": [
+      "SITE_SHOP_DOOR_",
+      "SITE_SHOP_HOURS_",
+      "SITE_SHOP_SIGN_",
+      "SITE_SHOP_LT_",
+      "SITE_SHOP_IN"
+    ]
+  }
+}

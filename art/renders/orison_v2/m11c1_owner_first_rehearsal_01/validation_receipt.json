@@ -1,0 +1,97 @@
+{
+  "schema": "orison.m11c1.validation.v1",
+  "milestone": "ORISON-V2-M11C1",
+  "date": "2026-08-31",
+  "status": "PASS",
+  "requested_base": "edc18ffb7d5830e05acd98cdaa33a422ea4cb038",
+  "runtime_source_commit": "c34ad283df148496fbd98e68638470835c930c5c",
+  "selector_default": "v1",
+  "production_mutation": false,
+  "focused_tests": [
+    {"command": "python tools/tests/test_m11c1_floor01_source_ownership.py", "exit": 0, "passed": 25, "total": 25},
+    {"command": "python tools/tests/test_m11c1_owner_first_export.py", "exit": 0, "passed": 10, "total": 10},
+    {"command": "python tools/tests/test_m11c1_runtime_rehearsal.py", "exit": 0, "passed": 17, "total": 17},
+    {"command": "python tools/tests/test_m11c1_scanner_consumer_adapter.py", "exit": 0, "passed": 7, "total": 7},
+    {"command": "python tools/tests/test_orison_floor01_source_ownership.py", "exit": 0, "passed": 13, "total": 13},
+    {"command": "python tools/tests/test_rehearse_orison_floor01_partition.py", "exit": 0, "passed": 5, "total": 5},
+    {"command": "python tools/tests/test_m11c0_floor01_harness_contract.py", "exit": 0, "passed": 5, "total": 5}
+  ],
+  "static_audit_suites": [
+    {"command": "python tools/tests/test_orison_v2_completeness.py", "exit": 0, "passed": 99, "total": 99},
+    {"command": "python tools/tests/test_orison_spatial_dependencies.py", "exit": 0, "passed": 51, "total": 51},
+    {"command": "python tools/tests/test_systemic_situation_authority.py", "exit": 0, "passed": 34, "total": 34},
+    {"command": "python tools/tests/test_data_consumption.py", "exit": 0, "passed": 14, "total": 14}
+  ],
+  "repository_audits": [
+    {
+      "command": "python tools/audit_orison_v2_completeness.py",
+      "exit": 2,
+      "expected_nonzero": true,
+      "requirements": 150,
+      "status_counts": {"ABSENT": 51, "HUMAN_ACCEPTED": 1, "PROGRAMMED": 44, "RUNTIME_PROVEN": 34, "SHELL_ONLY": 2, "SPATIALLY_PROVEN": 18},
+      "blocker_scopes": {"FIRST_SLICE_TECHNICAL": 0, "GOLDEN_SHIFT_V2": 1, "FULL_BUILDING_STRUCTURAL": 86, "FULL_BUILDING_RUNTIME": 45, "PRODUCTION_CUTOVER": 101, "V1_RETIREMENT": 103},
+      "movement_from_prewrite": 0
+    },
+    {
+      "command": "python tools/audit_orison_spatial_dependencies.py",
+      "exit": 0,
+      "records": 3727,
+      "new_unclassified": 0,
+      "classification_changes": 0,
+      "vanished_targets": 0,
+      "save_contract_unresolved": 0,
+      "stale_preserved": 0,
+      "new_incidental_report_only": 101
+    },
+    {
+      "command": "python tools/audit_systemic_situation_authority.py",
+      "exit": 0,
+      "findings": 59,
+      "new_actionable": 0,
+      "baseline_policy_violations": 0,
+      "new_review_only": 10
+    },
+    {
+      "command": "python tools/audit_data_consumption.py",
+      "exit": 1,
+      "expected_historical_debt": true,
+      "unread_fields": 1289,
+      "unread_files": 11,
+      "monotonic_only": 2,
+      "malformed": 1,
+      "new_m11c1_unread_fields": 0,
+      "new_m11c1_unread_files": 0,
+      "new_m11c1_monotonic_only": 0
+    }
+  ],
+  "generation_and_runtime": {
+    "source_sidecar_check": {"command": "python tools/m11c1_floor01_owner_first/author_source_ownership.py --check", "exit": 0, "records": 5286},
+    "disposable_export": {"exit": 0, "status": "PASS", "run_id": "M11C1-12b0189ee7fe5afb6190447a", "cells": 17, "unresolved_lineage": 0},
+    "determinism_control": {"exit": 0, "status": "PASS", "run_id": "M11C1-188dfcd4f2cac73a54dfafae", "gltf_bin_files_compared": 36, "mismatches": 0},
+    "fresh_materialization": {"exit": 0, "status": "PASS", "cells": 17, "textures": 304, "semantic_expectations": 189},
+    "godot_import": {"exit": 0, "status": "PASS", "hard_error_lines": 0},
+    "runtime": {"exit": 0, "status": "PASS", "cycles": 2, "independent_cells_per_cycle": 17, "residency_sets_per_cycle": 17, "seams_per_cycle": 5, "traversal_contracts_per_cycle": 15, "semantic_owners": 189, "error_lines": 0, "expected_off_slice_warnings": 3},
+    "capture": {"exit": 0, "status": "PASS", "frames": 5, "width": 1600, "height": 900, "renderer": "Forward+", "error_lines": 0, "expected_off_slice_warnings": 4}
+  },
+  "lifecycle": {
+    "runtime_final_delta_from_warmed": {"objects": -65, "resources": 0, "nodes": 0, "orphan_nodes": 0},
+    "runtime_second_cycle_growth": {"objects": -1, "resources": 0, "nodes": 0, "orphan_nodes": 0},
+    "runtime_retained_tracked_owners": 0,
+    "capture_packet_delta_from_warmed": {"objects": 0, "resources": 0, "nodes": 0, "orphan_nodes": 0}
+  },
+  "protected_boundary": {"exit": 0, "matched": 17, "expected": 17, "selector_assertion": "v1", "all_match": true},
+  "evidence_impact": {
+    "command": "python tools/audit_orison_v2_completeness.py --evidence-impact design/ORISON_V2_M11C1_OWNER_FIRST_EXPORT_CHECKPOINT_2026-08-31.md",
+    "exit": 0,
+    "admitted_marker": "CHECKPOINT",
+    "requirements_changed": []
+  },
+  "python_compile": {"exit": 0},
+  "informational_lint": {
+    "command": "ruff check tools/m11c1_floor01_owner_first tools/m11c1_floor01_rehearsal tools/tests/test_m11c1_floor01_source_ownership.py tools/tests/test_m11c1_owner_first_export.py tools/tests/test_m11c1_runtime_rehearsal.py tools/tests/test_m11c1_scanner_consumer_adapter.py",
+    "exit": 1,
+    "blocking": false,
+    "style_only_findings": 11,
+    "categories": {"unused_imports": 7, "import_placement": 3, "test_lambda_style": 1}
+  }
+}
