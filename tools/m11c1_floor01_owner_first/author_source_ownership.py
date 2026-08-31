@@ -52,6 +52,27 @@ STREET_FURNITURE_PREFIXES = ("site_", "storm_", "walk_", "retail_")
 PASSAGE_BATCHES = {"passage_shell"}
 STREET_BATCHES = {"passage_proxy", "passage_proxy_gateway"}
 
+# These eleven source-authored ``storm_sf_*_stall*`` records are the shared
+# stallboards under the Passage shopfronts.  Their shop batch describes the
+# finish family that emitted them; it is not their residency owner.  The
+# authored ID family is the durable source context that distinguishes the
+# common arcade boundary from the fixtures behind it.  This explicit rule is
+# intentionally evaluated before the broader shop-batch rule and never reads
+# coordinates, bounds, or exported geometry.
+PASSAGE_SHARED_STALLBOARD_IDS = {
+    "storm_sf_model_laundry_stall0",
+    "storm_sf_shoe_rebuilding_stall0",
+    "storm_sf_keys_cut_stall0",
+    "storm_sf_hardware_paint_stall0",
+    "storm_sf_funeral_parlour_stall0",
+    "storm_sf_photo_supplies_stall1",
+    "storm_sf_radio_service_stall0",
+    "storm_sf_pawnbroker_stall0",
+    "storm_sf_news_cigars_stall1",
+    "storm_sf_otis___son_stall0",
+    "storm_sf_luncheonette_stall1",
+}
+
 ANONYMOUS_ID_FORMAT = {
     "walls": "F01_WALL_{number:03d}",
     "site_lights": "F01_SITE_LIGHT_{number:04d}",
@@ -87,6 +108,12 @@ def authored_owner(
     if collection == "furniture":
         identity = str(record.get("id", ""))
         batch = str(record.get("batch", ""))
+        if identity in PASSAGE_SHARED_STALLBOARD_IDS:
+            if record.get("zone") != "PASSAGE" or _shop_from_batch(batch) is None:
+                raise contract.SourceOwnershipError(
+                    f"shared Passage stallboard {identity!r} lost its authored "
+                    "Passage/shopfront context")
+            return PASSAGE, "PASSAGE_SHARED_SHOPFRONT_STALLBOARD_ID_FAMILY"
         if batch:
             slug = _shop_from_batch(batch)
             if slug is not None:
@@ -260,6 +287,7 @@ def build_sidecar(
                 "source collection",
                 "authored source id",
                 "authored batch",
+                "authored shared-shopfront stallboard id family",
                 "authored unit",
                 "authored perimeter in_side flag",
             ],

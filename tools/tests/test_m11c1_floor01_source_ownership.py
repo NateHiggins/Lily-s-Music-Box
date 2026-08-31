@@ -73,20 +73,20 @@ class RealCatalogTests(unittest.TestCase):
                     "CELL_ORISON_F01_INTERIOR": 465,
                     "CELL_ORISON_FACADE_SHELL": 41,
                     "CELL_SITE_STREET_COMMON": 2192,
-                    "CELL_PASSAGE": 494,
+                    "CELL_PASSAGE": 505,
                     "CELL_SHOP_BAR": 375,
                     "CELL_SHOP_BODEGA": 161,
-                    "CELL_SHOP_MODEL_LAUNDRY": 166,
-                    "CELL_SHOP_SHOE_REBUILDING": 109,
-                    "CELL_SHOP_KEYS_CUT": 188,
-                    "CELL_SHOP_HARDWARE_PAINT": 231,
-                    "CELL_SHOP_FUNERAL_PARLOUR": 122,
-                    "CELL_SHOP_PHOTO_SUPPLIES": 127,
-                    "CELL_SHOP_RADIO_SERVICE": 101,
-                    "CELL_SHOP_PAWNBROKER": 123,
-                    "CELL_SHOP_NEWS_CIGARS": 85,
-                    "CELL_SHOP_OTIS_SON": 190,
-                    "CELL_SHOP_LUNCHEONETTE": 116,
+                    "CELL_SHOP_MODEL_LAUNDRY": 165,
+                    "CELL_SHOP_SHOE_REBUILDING": 108,
+                    "CELL_SHOP_KEYS_CUT": 187,
+                    "CELL_SHOP_HARDWARE_PAINT": 230,
+                    "CELL_SHOP_FUNERAL_PARLOUR": 121,
+                    "CELL_SHOP_PHOTO_SUPPLIES": 126,
+                    "CELL_SHOP_RADIO_SERVICE": 100,
+                    "CELL_SHOP_PAWNBROKER": 122,
+                    "CELL_SHOP_NEWS_CIGARS": 84,
+                    "CELL_SHOP_OTIS_SON": 189,
+                    "CELL_SHOP_LUNCHEONETTE": 115,
                 }
             ),
         )
@@ -185,6 +185,39 @@ class RealCatalogTests(unittest.TestCase):
         self.assertIn("bounds", forbidden)
         self.assertIn("centroid", forbidden)
         self.assertIn("connected components", forbidden)
+
+    def test_shared_shopfront_stallboards_belong_to_passage_by_authored_id(self):
+        rows = [
+            row for row in self.resolved.values()
+            if row["source_id"] in author.PASSAGE_SHARED_STALLBOARD_IDS
+        ]
+        self.assertEqual(len(rows), 11)
+        self.assertEqual(
+            {row["source_id"] for row in rows},
+            author.PASSAGE_SHARED_STALLBOARD_IDS,
+        )
+        self.assertTrue(all(
+            row["owner_cell"] == "CELL_PASSAGE"
+            and row["authoring_context"]
+                == "PASSAGE_SHARED_SHOPFRONT_STALLBOARD_ID_FAMILY"
+            for row in rows
+        ))
+        # The rule is semantic source identity, not a coordinate/extent test.
+        owner, context = author.authored_owner("furniture", {
+            "id": "storm_sf_shoe_rebuilding_stall0",
+            "batch": "shop_shoe_rebuilding",
+            "zone": "PASSAGE",
+            "rect": [999.0, 999.0, 1000.0, 1000.0],
+        })
+        self.assertEqual(owner, "CELL_PASSAGE")
+        self.assertEqual(
+            context, "PASSAGE_SHARED_SHOPFRONT_STALLBOARD_ID_FAMILY")
+        shop_owner, _ = author.authored_owner("furniture", {
+            "id": "storm_shop_shoe_rebuilding_bench",
+            "batch": "shop_shoe_rebuilding",
+            "zone": "PASSAGE",
+        })
+        self.assertEqual(shop_owner, "CELL_SHOP_SHOE_REBUILDING")
 
     def test_records_contain_no_geometry_or_position_ownership_inputs(self):
         expected_keys = {
