@@ -1,0 +1,30 @@
+{
+  "schema": "orison.m11c1.protected-final-receipt.v1",
+  "milestone": "ORISON-V2-M11C1",
+  "baseline_commit": "edc18ffb7d5830e05acd98cdaa33a422ea4cb038",
+  "runtime_source_commit": "c34ad283df148496fbd98e68638470835c930c5c",
+  "selector_default": "v1",
+  "status": "PASS",
+  "matched_paths": 17,
+  "expected_paths": 17,
+  "all_match": true,
+  "files": [
+    {"path": "art/data/building_layout.json", "bytes": 2624829, "baseline_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d", "final_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d", "match": true},
+    {"path": "game/data/building_layout.json", "bytes": 2624829, "baseline_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d", "final_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d", "match": true},
+    {"path": "game/scripts/building/building_root_selector.gd", "bytes": 1461, "baseline_sha256": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802", "final_sha256": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802", "match": true},
+    {"path": "game/assets/building/floor_01.gltf", "bytes": 682906, "baseline_sha256": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1", "final_sha256": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1", "match": true},
+    {"path": "game/assets/building/floor_01.bin", "bytes": 12020428, "baseline_sha256": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477", "final_sha256": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477", "match": true},
+    {"path": "game/assets/building/floor_02.gltf", "bytes": 166867, "baseline_sha256": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640", "final_sha256": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640", "match": true},
+    {"path": "game/assets/building/floor_02.bin", "bytes": 6144948, "baseline_sha256": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e", "final_sha256": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e", "match": true},
+    {"path": "game/assets/building/floor_03.gltf", "bytes": 189693, "baseline_sha256": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f", "final_sha256": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f", "match": true},
+    {"path": "game/assets/building/floor_03.bin", "bytes": 6245068, "baseline_sha256": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8", "final_sha256": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8", "match": true},
+    {"path": "game/assets/building/floor_04.gltf", "bytes": 178788, "baseline_sha256": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1", "final_sha256": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1", "match": true},
+    {"path": "game/assets/building/floor_04.bin", "bytes": 6417828, "baseline_sha256": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266", "final_sha256": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266", "match": true},
+    {"path": "game/assets/building/floor_05.gltf", "bytes": 184558, "baseline_sha256": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a", "final_sha256": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a", "match": true},
+    {"path": "game/assets/building/floor_05.bin", "bytes": 6335272, "baseline_sha256": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8", "final_sha256": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8", "match": true},
+    {"path": "game/assets/building/floor_06.gltf", "bytes": 175408, "baseline_sha256": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422", "final_sha256": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422", "match": true},
+    {"path": "game/assets/building/floor_06.bin", "bytes": 6391960, "baseline_sha256": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f", "final_sha256": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f", "match": true},
+    {"path": "game/assets/building/floor_b1.gltf", "bytes": 150777, "baseline_sha256": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e", "final_sha256": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e", "match": true},
+    {"path": "game/assets/building/floor_b1.bin", "bytes": 2778748, "baseline_sha256": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449", "final_sha256": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449", "match": true}
+  ]
+}
