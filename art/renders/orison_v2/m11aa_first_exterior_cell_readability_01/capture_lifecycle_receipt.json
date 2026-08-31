@@ -1,0 +1,2406 @@
+{
+	"cases": [
+		{
+			"after_capture": {
+				"nodes": 37,
+				"objects": 1692,
+				"orphan_nodes": 0,
+				"resources": 46
+			},
+			"after_teardown": {
+				"nodes": 35,
+				"objects": 1777,
+				"orphan_nodes": 0,
+				"resources": 46
+			},
+			"before_capture": {
+				"nodes": 37,
+				"objects": 1793,
+				"orphan_nodes": 0,
+				"resources": 46
+			},
+			"capture_ok": true,
+			"id": "capture_harness_without_module",
+			"matlib_cache_after_plateau": {
+				"class_counts": {},
+				"entries": {},
+				"entry_count": 0,
+				"owner": "MatLib._cache",
+				"resource_paths": [],
+				"unique_resource_count": 0
+			},
+			"matlib_cache_before": {
+				"class_counts": {},
+				"entries": {},
+				"entry_count": 0,
+				"owner": "MatLib._cache",
+				"resource_paths": [],
+				"unique_resource_count": 0
+			},
+			"owner_released": true,
+			"production_module_present": false,
+			"resource_id_snapshot_after_plateau": {
+				"class_counts": {
+					"Environment": 1,
+					"GDScript": 1,
+					"PackedScene": 1,
+					"ProceduralSkyMaterial": 1,
+					"Sky": 1
+				},
+				"count": 5,
+				"instance_ids": [
+					-9223371995918367252,
+					-9223371980265224723,
+					-9223371980131006993,
+					-9223371980114229775,
+					-9223371980097452557
+				],
+				"resource_paths": [
+					"res://scenes/building/orison_v2_exterior_cell.tscn",
+					"res://scenes/building/orison_v2_exterior_cell.tscn::Environment_exterior_cell",
+					"res://scenes/building/orison_v2_exterior_cell.tscn::ProceduralSkyMaterial_exterior_night",
+					"res://scenes/building/orison_v2_exterior_cell.tscn::Sky_exterior_night",
+					"res://scripts/building/orison_v2_exterior_cell.gd"
+				]
+			}
+		},
+		{
+			"after_capture": {
+				"nodes": 348,
+				"objects": 2281,
+				"orphan_nodes": 0,
+				"resources": 55
+			},
+			"after_teardown": {
+				"nodes": 35,
+				"objects": 1704,
+				"orphan_nodes": 0,
+				"resources": 52
+			},
+			"amplified_retained_objects": [
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/player/player_controller.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/player/player_controller.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371994056096260,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/player/player_controller.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/player/player_controller.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CharacterBody3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/ui/pause_services.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/ui/pause_services.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371989257812465,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/pause_services.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/pause_services.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/PauseServices"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/ui/telegram_hud.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/ui/telegram_hud.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371988452506090,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/telegram_hud.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/telegram_hud.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://assets/ui/telegram/telegram_paper_stock_v1.png]",
+						"class": "CompressedTexture2D",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371985399052772,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "theme_override_styles/panel.texture",
+					"resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "PanelContainer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://assets/fonts/courier_prime/CourierPrime-Bold.ttf]",
+						"class": "FontFile",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+					},
+					"attributed": true,
+					"class": "FontFile",
+					"instance_id": -9223371984828627424,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "theme_override_fonts/font",
+					"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
+					"retained_class": "FontFile",
+					"retained_resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Label",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram/@VBoxContainer@251/@Label@260"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://assets/fonts/courier_prime/CourierPrime-Regular.ttf]",
+						"class": "FontFile",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf"
+					},
+					"attributed": true,
+					"class": "FontFile",
+					"instance_id": -9223371985063508451,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "theme_override_fonts/font",
+					"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+					"retained_class": "FontFile",
+					"retained_resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Label",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram/@VBoxContainer@251/@Control@258/@Label@259"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/phoneos/phone_light_mask.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/phoneos/phone_light_mask.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371988335065577,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/phoneos/phone_light_mask.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/phoneos/phone_light_mask.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Control",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/@CanvasLayer@246/@Control@247"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/props/bodega_signage_prop.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/props/bodega_signage_prop.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371994995620366,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/props/bodega_signage_prop.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/props/bodega_signage_prop.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/ExteriorFunctionalProp"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/props/door_prop.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/props/door_prop.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993468893695,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/props/door_prop.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/props/door_prop.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|948563ff|1.00].material",
+						"class": "StandardMaterial3D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371957934749544,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|948563ff|1.00].material",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@227"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|ccb378ff|1.00].material.albedo_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371959763466117,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.albedo_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.albedo_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@227"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|ccb378ff|1.00].material.roughness_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371959360812917,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.roughness_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.roughness_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@227"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|ccb378ff|1.00].material.normal_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371958823942013,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.normal_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.normal_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@227"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|ccb378ff|1.00].material",
+						"class": "StandardMaterial3D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371959864129416,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@226"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material",
+						"class": "StandardMaterial3D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371960988202889,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@224"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.albedo_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960887539591,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.albedo_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.albedo_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@224"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.roughness_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960518440827,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.roughness_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.roughness_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@224"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.normal_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960149342074,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.normal_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.normal_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@224"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/game/maintenance_shop_service.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/game/maintenance_shop_service.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993703774721,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_shop_service.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_shop_service.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceShopService"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/game/maintenance_shop_counter.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/game/maintenance_shop_counter.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371981590624750,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_shop_counter.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_shop_counter.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Area3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceShopService/SemanticShopCounter"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/game/maintenance_inventory.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/game/maintenance_inventory.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993821215234,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_inventory.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_inventory.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceInventory"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/game/work_orders.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/game/work_orders.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993938655747,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/work_orders.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/work_orders.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorkOrders"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/ui/objective_tracker.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/ui/objective_tracker.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993586334208,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/objective_tracker.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/objective_tracker.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ObjectiveTracker"
+				}
+			],
+			"before_capture": {
+				"nodes": 348,
+				"objects": 2292,
+				"orphan_nodes": 0,
+				"resources": 55
+			},
+			"capture_ok": true,
+			"id": "module_cycle_1",
+			"matlib_cache_after_plateau": {
+				"class_counts": {
+					"CompressedTexture2D": 6,
+					"StandardMaterial3D": 3
+				},
+				"entries": {
+					"brass_dull|948563ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371957934749544,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"brass_dull|ccb378ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371959864129416,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"oak_quartered|6b4d33ff|0.80": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371960988202889,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960887539591,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960518440827,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960149342074,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png"
+						}
+					]
+				},
+				"entry_count": 3,
+				"owner": "MatLib._cache",
+				"resource_paths": [
+					"res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+				],
+				"unique_resource_count": 9
+			},
+			"matlib_cache_before": {
+				"class_counts": {},
+				"entries": {},
+				"entry_count": 0,
+				"owner": "MatLib._cache",
+				"resource_paths": [],
+				"unique_resource_count": 0
+			},
+			"player_released": true,
+			"production_module_present": true,
+			"public_teardown": {
+				"already_torn_down": false,
+				"detached_owned_nodes": 6,
+				"freed_instances": 2,
+				"ok": true,
+				"released_audio_sources": 3,
+				"released_audio_voices": 0,
+				"removed_counters": 1,
+				"retained_strong_references": 0,
+				"unmounted_counters": 1
+			},
+			"retained_source_objects": [
+				{
+					"class": "GDScript",
+					"instance_id": -9223371995918367252,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/building/orison_v2_exterior_cell.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/building/orison_v2_exterior_cell.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371994056096260,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/player/player_controller.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/player/player_controller.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CharacterBody3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371989257812465,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/pause_services.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/pause_services.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/PauseServices"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371988452506090,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/telegram_hud.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/telegram_hud.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371985399052772,
+					"kind": "Resource",
+					"property_chain": "theme_override_styles/panel.texture",
+					"resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "PanelContainer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram"
+				},
+				{
+					"class": "FontFile",
+					"instance_id": -9223371984828627424,
+					"kind": "Resource",
+					"property_chain": "theme_override_fonts/font",
+					"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
+					"retained_class": "FontFile",
+					"retained_resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Label",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram/@VBoxContainer@251/@Label@260"
+				},
+				{
+					"class": "FontFile",
+					"instance_id": -9223371985063508451,
+					"kind": "Resource",
+					"property_chain": "theme_override_fonts/font",
+					"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+					"retained_class": "FontFile",
+					"retained_resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Label",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram/@VBoxContainer@251/@Control@258/@Label@259"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371988335065577,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/phoneos/phone_light_mask.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/phoneos/phone_light_mask.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Control",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/@CanvasLayer@246/@Control@247"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371994995620366,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/props/bodega_signage_prop.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/props/bodega_signage_prop.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/ExteriorFunctionalProp"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993468893695,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/props/door_prop.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/props/door_prop.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF"
+				},
+				{
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371957934749544,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|948563ff|1.00].material",
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@227"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371959763466117,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.albedo_texture",
+					"property_chain": "material_override.albedo_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@227"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371959360812917,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.roughness_texture",
+					"property_chain": "material_override.roughness_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@227"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371958823942013,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.normal_texture",
+					"property_chain": "material_override.normal_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@227"
+				},
+				{
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371959864129416,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material",
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@226"
+				},
+				{
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371960988202889,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material",
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@224"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960887539591,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.albedo_texture",
+					"property_chain": "material_override.albedo_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@224"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960518440827,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.roughness_texture",
+					"property_chain": "material_override.roughness_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@224"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960149342074,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.normal_texture",
+					"property_chain": "material_override.normal_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@224"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993703774721,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_shop_service.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_shop_service.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceShopService"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371981590624750,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_shop_counter.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_shop_counter.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Area3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceShopService/SemanticShopCounter"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993821215234,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_inventory.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_inventory.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceInventory"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993938655747,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/work_orders.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/work_orders.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorkOrders"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993586334208,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/objective_tracker.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/objective_tracker.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ObjectiveTracker"
+				},
+				{
+					"class": "Environment",
+					"instance_id": -9223371980114229775,
+					"kind": "Resource",
+					"property_chain": "environment",
+					"resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::Environment_exterior_cell",
+					"retained_class": "Environment",
+					"retained_resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::Environment_exterior_cell",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "WorldEnvironment",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorldEnvironment"
+				},
+				{
+					"class": "Sky",
+					"instance_id": -9223371980131006993,
+					"kind": "Resource",
+					"property_chain": "environment.sky",
+					"resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::Sky_exterior_night",
+					"retained_class": "Sky",
+					"retained_resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::Sky_exterior_night",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "WorldEnvironment",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorldEnvironment"
+				},
+				{
+					"class": "ProceduralSkyMaterial",
+					"instance_id": -9223371980265224723,
+					"kind": "Resource",
+					"property_chain": "environment.sky.sky_material",
+					"resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::ProceduralSkyMaterial_exterior_night",
+					"retained_class": "ProceduralSkyMaterial",
+					"retained_resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::ProceduralSkyMaterial_exterior_night",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "WorldEnvironment",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorldEnvironment"
+				}
+			],
+			"root_released": true,
+			"source_object_census_count": 523
+		},
+		{
+			"after_capture": {
+				"nodes": 348,
+				"objects": 2281,
+				"orphan_nodes": 0,
+				"resources": 55
+			},
+			"after_teardown": {
+				"nodes": 35,
+				"objects": 1704,
+				"orphan_nodes": 0,
+				"resources": 52
+			},
+			"amplified_retained_objects": [
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/player/player_controller.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/player/player_controller.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371994056096260,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/player/player_controller.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/player/player_controller.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CharacterBody3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/ui/pause_services.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/ui/pause_services.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371989257812465,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/pause_services.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/pause_services.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/PauseServices"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/ui/telegram_hud.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/ui/telegram_hud.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371988452506090,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/telegram_hud.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/telegram_hud.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://assets/ui/telegram/telegram_paper_stock_v1.png]",
+						"class": "CompressedTexture2D",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371985399052772,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "theme_override_styles/panel.texture",
+					"resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "PanelContainer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://assets/fonts/courier_prime/CourierPrime-Bold.ttf]",
+						"class": "FontFile",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+					},
+					"attributed": true,
+					"class": "FontFile",
+					"instance_id": -9223371984828627424,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "theme_override_fonts/font",
+					"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
+					"retained_class": "FontFile",
+					"retained_resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Label",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram/@VBoxContainer@523/@Label@532"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://assets/fonts/courier_prime/CourierPrime-Regular.ttf]",
+						"class": "FontFile",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf"
+					},
+					"attributed": true,
+					"class": "FontFile",
+					"instance_id": -9223371985063508451,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "theme_override_fonts/font",
+					"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+					"retained_class": "FontFile",
+					"retained_resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Label",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram/@VBoxContainer@523/@Control@530/@Label@531"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/phoneos/phone_light_mask.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/phoneos/phone_light_mask.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371988335065577,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/phoneos/phone_light_mask.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/phoneos/phone_light_mask.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Control",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/@CanvasLayer@518/@Control@519"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/props/bodega_signage_prop.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/props/bodega_signage_prop.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371994995620366,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/props/bodega_signage_prop.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/props/bodega_signage_prop.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/ExteriorFunctionalProp"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/props/door_prop.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/props/door_prop.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993468893695,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/props/door_prop.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/props/door_prop.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|948563ff|1.00].material",
+						"class": "StandardMaterial3D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371957934749544,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|948563ff|1.00].material",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@499"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|ccb378ff|1.00].material.albedo_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371959763466117,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.albedo_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.albedo_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@499"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|ccb378ff|1.00].material.roughness_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371959360812917,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.roughness_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.roughness_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@499"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|ccb378ff|1.00].material.normal_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371958823942013,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.normal_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.normal_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@499"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[brass_dull|ccb378ff|1.00].material",
+						"class": "StandardMaterial3D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371959864129416,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@498"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material",
+						"class": "StandardMaterial3D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371960988202889,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@496"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.albedo_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960887539591,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.albedo_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.albedo_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@496"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.roughness_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960518440827,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.roughness_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.roughness_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@496"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.normal_texture",
+						"class": "CompressedTexture2D",
+						"owner": "MatLib._cache"
+					},
+					"attributed": true,
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960149342074,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.normal_texture",
+					"present_at_control_plateau": false,
+					"property_chain": "material_override.normal_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@496"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/game/maintenance_shop_service.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/game/maintenance_shop_service.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993703774721,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_shop_service.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_shop_service.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceShopService"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/game/maintenance_shop_counter.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/game/maintenance_shop_counter.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371981590624750,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_shop_counter.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_shop_counter.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Area3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceShopService/SemanticShopCounter"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/game/maintenance_inventory.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/game/maintenance_inventory.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993821215234,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_inventory.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_inventory.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceInventory"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/game/work_orders.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/game/work_orders.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993938655747,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/work_orders.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/work_orders.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorkOrders"
+				},
+				{
+					"actual_current_retainer": {
+						"chain": "ResourceLoader cache[res://scripts/ui/objective_tracker.gd]",
+						"class": "GDScript",
+						"owner": "ResourceLoader path cache",
+						"resource_path": "res://scripts/ui/objective_tracker.gd"
+					},
+					"attributed": true,
+					"class": "GDScript",
+					"instance_id": -9223371993586334208,
+					"kind": "Resource",
+					"present_at_control_plateau": false,
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/objective_tracker.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/objective_tracker.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ObjectiveTracker"
+				}
+			],
+			"before_capture": {
+				"nodes": 348,
+				"objects": 2324,
+				"orphan_nodes": 0,
+				"resources": 55
+			},
+			"capture_ok": true,
+			"id": "module_cycle_2",
+			"matlib_cache_after_plateau": {
+				"class_counts": {
+					"CompressedTexture2D": 6,
+					"StandardMaterial3D": 3
+				},
+				"entries": {
+					"brass_dull|948563ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371957934749544,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"brass_dull|ccb378ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371959864129416,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"oak_quartered|6b4d33ff|0.80": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371960988202889,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960887539591,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960518440827,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960149342074,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png"
+						}
+					]
+				},
+				"entry_count": 3,
+				"owner": "MatLib._cache",
+				"resource_paths": [
+					"res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+				],
+				"unique_resource_count": 9
+			},
+			"matlib_cache_before": {
+				"class_counts": {
+					"CompressedTexture2D": 6,
+					"StandardMaterial3D": 3
+				},
+				"entries": {
+					"brass_dull|948563ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371957934749544,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"brass_dull|ccb378ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371959864129416,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"oak_quartered|6b4d33ff|0.80": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371960988202889,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960887539591,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960518440827,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960149342074,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png"
+						}
+					]
+				},
+				"entry_count": 3,
+				"owner": "MatLib._cache",
+				"resource_paths": [
+					"res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+				],
+				"unique_resource_count": 9
+			},
+			"player_released": true,
+			"production_module_present": true,
+			"public_teardown": {
+				"already_torn_down": false,
+				"detached_owned_nodes": 6,
+				"freed_instances": 2,
+				"ok": true,
+				"released_audio_sources": 3,
+				"released_audio_voices": 0,
+				"removed_counters": 1,
+				"retained_strong_references": 0,
+				"unmounted_counters": 1
+			},
+			"retained_source_objects": [
+				{
+					"class": "GDScript",
+					"instance_id": -9223371995918367252,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/building/orison_v2_exterior_cell.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/building/orison_v2_exterior_cell.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371994056096260,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/player/player_controller.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/player/player_controller.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CharacterBody3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371989257812465,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/pause_services.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/pause_services.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/PauseServices"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371988452506090,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/telegram_hud.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/telegram_hud.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371985399052772,
+					"kind": "Resource",
+					"property_chain": "theme_override_styles/panel.texture",
+					"resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "PanelContainer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram"
+				},
+				{
+					"class": "FontFile",
+					"instance_id": -9223371984828627424,
+					"kind": "Resource",
+					"property_chain": "theme_override_fonts/font",
+					"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
+					"retained_class": "FontFile",
+					"retained_resource_path": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Label",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram/@VBoxContainer@523/@Label@532"
+				},
+				{
+					"class": "FontFile",
+					"instance_id": -9223371985063508451,
+					"kind": "Resource",
+					"property_chain": "theme_override_fonts/font",
+					"resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+					"retained_class": "FontFile",
+					"retained_resource_path": "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Label",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/TelegramHud/ServiceWireTelegram/@VBoxContainer@523/@Control@530/@Label@531"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371988335065577,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/phoneos/phone_light_mask.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/phoneos/phone_light_mask.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Control",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/Player/@CanvasLayer@518/@Control@519"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371994995620366,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/props/bodega_signage_prop.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/props/bodega_signage_prop.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/ExteriorFunctionalProp"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993468893695,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/props/door_prop.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/props/door_prop.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF"
+				},
+				{
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371957934749544,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|948563ff|1.00].material",
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@499"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371959763466117,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.albedo_texture",
+					"property_chain": "material_override.albedo_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@499"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371959360812917,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.roughness_texture",
+					"property_chain": "material_override.roughness_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@499"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371958823942013,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material.normal_texture",
+					"property_chain": "material_override.normal_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/FixedIronmongery/@MeshInstance3D@499"
+				},
+				{
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371959864129416,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[brass_dull|ccb378ff|1.00].material",
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@498"
+				},
+				{
+					"class": "StandardMaterial3D",
+					"instance_id": -9223371960988202889,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material",
+					"property_chain": "material_override",
+					"resource_path": "",
+					"retained_class": "StandardMaterial3D",
+					"retained_resource_path": "",
+					"retention_kind": "dynamic_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@496"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960887539591,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.albedo_texture",
+					"property_chain": "material_override.albedo_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@496"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960518440827,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.roughness_texture",
+					"property_chain": "material_override.roughness_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@496"
+				},
+				{
+					"class": "CompressedTexture2D",
+					"instance_id": -9223371960149342074,
+					"kind": "Resource",
+					"observed_retainer": "MatLib._cache[oak_quartered|6b4d33ff|0.80].material.normal_texture",
+					"property_chain": "material_override.normal_texture",
+					"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"retained_class": "CompressedTexture2D",
+					"retained_resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "MeshInstance3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ExteriorInstances/SHOP_BODEGA/SHOP_BODEGA_STOREFRONT_LEAF/HingedLeaf/@MeshInstance3D@496"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993703774721,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_shop_service.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_shop_service.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceShopService"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371981590624750,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_shop_counter.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_shop_counter.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Area3D",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceShopService/SemanticShopCounter"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993821215234,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/maintenance_inventory.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/maintenance_inventory.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/MaintenanceInventory"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993938655747,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/game/work_orders.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/game/work_orders.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "Node",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorkOrders"
+				},
+				{
+					"class": "GDScript",
+					"instance_id": -9223371993586334208,
+					"kind": "Resource",
+					"property_chain": "script",
+					"resource_path": "res://scripts/ui/objective_tracker.gd",
+					"retained_class": "GDScript",
+					"retained_resource_path": "res://scripts/ui/objective_tracker.gd",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "CanvasLayer",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/ObjectiveTracker"
+				},
+				{
+					"class": "Environment",
+					"instance_id": -9223371980114229775,
+					"kind": "Resource",
+					"property_chain": "environment",
+					"resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::Environment_exterior_cell",
+					"retained_class": "Environment",
+					"retained_resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::Environment_exterior_cell",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "WorldEnvironment",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorldEnvironment"
+				},
+				{
+					"class": "Sky",
+					"instance_id": -9223371980131006993,
+					"kind": "Resource",
+					"property_chain": "environment.sky",
+					"resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::Sky_exterior_night",
+					"retained_class": "Sky",
+					"retained_resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::Sky_exterior_night",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "WorldEnvironment",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorldEnvironment"
+				},
+				{
+					"class": "ProceduralSkyMaterial",
+					"instance_id": -9223371980265224723,
+					"kind": "Resource",
+					"property_chain": "environment.sky.sky_material",
+					"resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::ProceduralSkyMaterial_exterior_night",
+					"retained_class": "ProceduralSkyMaterial",
+					"retained_resource_path": "res://scenes/building/orison_v2_exterior_cell.tscn::ProceduralSkyMaterial_exterior_night",
+					"retention_kind": "source_or_cache_resource",
+					"source_owner_class": "WorldEnvironment",
+					"source_owner_path": "/root/OrisonV2M11AExteriorCaptureLifecycleTest/OrisonV2ExteriorCell/WorldEnvironment"
+				}
+			],
+			"root_released": true,
+			"source_object_census_count": 523
+		}
+	],
+	"comparison": {
+		"all_plateaus_identical": false,
+		"amplified_retained_attribution": {
+			"complete": true,
+			"control_resource_ids": 5,
+			"cycle_1_objects": 23,
+			"cycle_1_retainer_owners": {
+				"MatLib._cache": 9,
+				"ResourceLoader path cache": 14
+			},
+			"cycle_1_unattributed": 0,
+			"cycle_2_objects": 23,
+			"cycle_2_retainer_owners": {
+				"MatLib._cache": 9,
+				"ResourceLoader path cache": 14
+			},
+			"cycle_2_unattributed": 0
+		},
+		"control_plateau": {
+			"nodes": 35,
+			"objects": 1777,
+			"orphan_nodes": 0,
+			"resources": 46
+		},
+		"harness_control_delta_from_process_start": {
+			"nodes": 0,
+			"objects": 93,
+			"orphan_nodes": 0,
+			"resources": 0
+		},
+		"interpretation": "production module leaves only attributed process-global MatLib and ResourceLoader cache resources and no module-owned live node/non-resource object; the second module cycle adds no resource or cache growth",
+		"module_amplifies_control": true,
+		"module_cycle_1_delta_from_control": {
+			"nodes": 0,
+			"objects": -73,
+			"orphan_nodes": 0,
+			"resources": 6
+		},
+		"module_cycle_2_delta_from_control": {
+			"nodes": 0,
+			"objects": -73,
+			"orphan_nodes": 0,
+			"resources": 6
+		},
+		"module_cycle_2_growth_from_cycle_1": {
+			"nodes": 0,
+			"objects": 0,
+			"orphan_nodes": 0,
+			"resources": 0
+		},
+		"module_owned_live_object_survivors": {
+			"cycle_1": 0,
+			"cycle_2": 0
+		},
+		"process_global_material_cache": {
+			"cycle_1_after": {
+				"class_counts": {
+					"CompressedTexture2D": 6,
+					"StandardMaterial3D": 3
+				},
+				"entries": {
+					"brass_dull|948563ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371957934749544,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"brass_dull|ccb378ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371959864129416,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"oak_quartered|6b4d33ff|0.80": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371960988202889,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960887539591,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960518440827,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960149342074,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png"
+						}
+					]
+				},
+				"entry_count": 3,
+				"owner": "MatLib._cache",
+				"resource_paths": [
+					"res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+				],
+				"unique_resource_count": 9
+			},
+			"cycle_2_after": {
+				"class_counts": {
+					"CompressedTexture2D": 6,
+					"StandardMaterial3D": 3
+				},
+				"entries": {
+					"brass_dull|948563ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371957934749544,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"brass_dull|ccb378ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371959864129416,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"oak_quartered|6b4d33ff|0.80": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371960988202889,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960887539591,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960518440827,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960149342074,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png"
+						}
+					]
+				},
+				"entry_count": 3,
+				"owner": "MatLib._cache",
+				"resource_paths": [
+					"res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+				],
+				"unique_resource_count": 9
+			},
+			"cycle_2_before": {
+				"class_counts": {
+					"CompressedTexture2D": 6,
+					"StandardMaterial3D": 3
+				},
+				"entries": {
+					"brass_dull|948563ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371957934749544,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"brass_dull|ccb378ff|1.00": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371959864129416,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959763466117,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371959360812917,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371958823942013,
+							"resource_path": "res://assets/building/textures/T_ai_materials_brass_dull_normal.png"
+						}
+					],
+					"oak_quartered|6b4d33ff|0.80": [
+						{
+							"chain": "material",
+							"class": "StandardMaterial3D",
+							"instance_id": -9223371960988202889,
+							"resource_path": ""
+						},
+						{
+							"chain": "material.albedo_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960887539591,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+						},
+						{
+							"chain": "material.roughness_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960518440827,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+						},
+						{
+							"chain": "material.normal_texture",
+							"class": "CompressedTexture2D",
+							"instance_id": -9223371960149342074,
+							"resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png"
+						}
+					]
+				},
+				"entry_count": 3,
+				"owner": "MatLib._cache",
+				"resource_paths": [
+					"res://assets/building/textures/T_ai_materials_brass_dull_albedo.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_normal.png",
+					"res://assets/building/textures/T_ai_materials_brass_dull_rough.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+					"res://assets/building/textures/T_ai_materials_oak_quartered_rough.png"
+				],
+				"unique_resource_count": 9
+			},
+			"owner": "MatLib._cache",
+			"second_cycle_reuses_exact_resource_ids": true
+		}
+	},
+	"diagnostic_boundary": {
+		"cleanup": "public OrisonV2ExteriorCell.shutdown_for_tests plus ordinary queued owner disposal",
+		"forced_object_deletion": false,
+		"node_name_reach_ins": false,
+		"tracked_source_objects_are_held_by_instance_id_only": true
+	},
+	"failures": [],
+	"process": {
+		"display_server": "Windows",
+		"matched_viewport_operations_per_case": 1,
+		"process_start_after_harness_settle": {
+			"nodes": 35,
+			"objects": 1684,
+			"orphan_nodes": 0,
+			"resources": 46
+		},
+		"renderer": "forward_plus",
+		"single_process": true
+	},
+	"schema_version": 2,
+	"status": "PASS"
+}

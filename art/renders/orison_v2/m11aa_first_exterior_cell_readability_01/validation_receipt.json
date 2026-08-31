@@ -1,0 +1,266 @@
+{
+  "schema_version": 2,
+  "task": "ORISON-V2-M11A-A",
+  "date_local": "2026-08-30",
+  "status": "PASS",
+  "human_acceptance": "PENDING",
+  "base_commit": "c955b43be081a36765d4c4c9934c064816b4f4c6",
+  "branch": "codex/orison-v2-m11a-first-exterior-cell",
+  "architecture_disposition": {
+    "m11a_architecture_accepted": true,
+    "architecture_redesigned": false,
+    "production_selector_changed": false,
+    "production_layout_changed": false,
+    "historical_evidence_overwritten": false,
+    "geometry_source_schema": 2,
+    "schema_change": "required source-authored presentation_role on boxes and labels"
+  },
+  "objective": {
+    "exit": 0,
+    "passes": 40,
+    "failures": 0,
+    "save_sha256": "31e5f576f3e1a8a97084c576b7f373b44310352f7d13e4ded428474ea32d7379",
+    "saved_subset_sha256": "fd99640eb26ea034a81dbea270eb7da0b3be739391f48ed3a9f8a4e71487c5c4",
+    "loaded_subset_sha256": "fd99640eb26ea034a81dbea270eb7da0b3be739391f48ed3a9f8a4e71487c5c4",
+    "no_saved_world_coordinates": true,
+    "stocked_fixture_visible": true,
+    "timetable_depleted_stock": 0,
+    "depleted_fixture_hidden": true,
+    "depleted_fixture_reconstructed": true,
+    "receipt": "objective_test_receipt.json"
+  },
+  "capture": {
+    "exit": 0,
+    "renderer": "forward_plus",
+    "resolution": [1600, 900],
+    "expected_frames": 4,
+    "actual_frames": 4,
+    "guide_state": "hidden",
+    "production_module": true,
+    "production_player_controller_camera": true,
+    "capture_only_geometry": false,
+    "capture_only_lights": false,
+    "developer_overlay": false,
+    "frames": [
+      {
+        "file": "01_orison_side_route_beginning.png",
+        "sha256": "2b071621312c9d9117714acd3064b388fca73aee7d7c67580f584c14bb08999d"
+      },
+      {
+        "file": "02_bodega_threshold_approach.png",
+        "sha256": "8c36035d068ac44d71235b725a5e48fbd9a7be63d1b0ff7891e3fd3ad0cd3092"
+      },
+      {
+        "file": "03_bodega_interior_continuing_route.png",
+        "sha256": "fc40afbf157aa56a2b7170c04720fc9084cfffb50c6ded6a7015db9fa6de8777"
+      },
+      {
+        "file": "04_return_direction_toward_orison.png",
+        "sha256": "8ef7080e859fd90e903cd2d01bdab3e259ebb7fc95985ce05b9fa2a495f6ae04"
+      }
+    ],
+    "receipt": "production_cell_capture_receipt.json",
+    "scene_receipt": "scene_capture_receipt.json"
+  },
+  "guide_state_control": {
+    "enabled_affected_visuals": 5,
+    "hidden_affected_visuals": 5,
+    "collision_shapes_enabled": 34,
+    "collision_shapes_hidden": 34,
+    "collision_objects_enabled": 6,
+    "collision_objects_hidden": 6,
+    "threshold_identity_exact": true,
+    "semantic_routes_exact": true,
+    "semantic_reconstruction_exact": true,
+    "enabled_sha256": "c684952388d77ea8d25b2130d79a0dbd8366175e4dc26cdc7cda18d26b440b35",
+    "hidden_sha256": "639669927326297a164d479ec2afb1b76d1c18b7e8320a23ca2ffa5c77c9a1df",
+    "changed_samples": 735,
+    "total_samples": 22600,
+    "changed_fraction": 0.0325221238938053,
+    "invariants_pass": true
+  },
+  "luminance": {
+    "method": "Rec.709 coefficients over exact packet PNG bytes",
+    "full_frame_mean": {
+      "01": 0.084057,
+      "02": 0.100220,
+      "03": 0.128286,
+      "04": 0.066217
+    },
+    "named_regions": {
+      "pavement_mean": 0.115764,
+      "pavement_fraction_below_0_02": 0.01929,
+      "shop_interior_mean": 0.134081,
+      "shop_interior_fraction_below_0_02": 0.00896,
+      "darkest_navigable_mean": 0.145582,
+      "darkest_navigable_fraction_below_0_02": 0.00067,
+      "orison_facade_mean": 0.092306,
+      "brightest_sign_or_light_mean": 0.137915,
+      "brightest_sign_or_light_maximum": 0.597180
+    }
+  },
+  "capture_lifecycle": {
+    "exit": 0,
+    "receipt_schema": 2,
+    "captures": 3,
+    "raw_production_capture_delta": {
+      "objects": 53,
+      "resources": 6,
+      "orphan_nodes": 0
+    },
+    "matched_process_start": {
+      "objects": 1684,
+      "resources": 46,
+      "nodes": 35,
+      "orphan_nodes": 0
+    },
+    "matched_control_plateau": {
+      "objects": 1777,
+      "resources": 46,
+      "nodes": 35,
+      "orphan_nodes": 0
+    },
+    "module_cycle_1_plateau": {
+      "objects": 1704,
+      "resources": 52,
+      "nodes": 35,
+      "orphan_nodes": 0
+    },
+    "module_cycle_2_plateau": {
+      "objects": 1704,
+      "resources": 52,
+      "nodes": 35,
+      "orphan_nodes": 0
+    },
+    "module_owned_live_object_survivors": 0,
+    "second_cycle_growth": {
+      "objects": 0,
+      "resources": 0,
+      "nodes": 0,
+      "orphan_nodes": 0
+    },
+    "control_resource_ids": 5,
+    "amplified_retained_resource_ids_per_cycle": 23,
+    "retainer_owners_per_cycle": {
+      "MatLib._cache": 9,
+      "ResourceLoader path cache": 14
+    },
+    "unattributed_resources": 0,
+    "matlib_cache_entries": 3,
+    "matlib_unique_resources": 9,
+    "matlib_classes": {
+      "StandardMaterial3D": 3,
+      "CompressedTexture2D": 6
+    },
+    "second_cycle_reuses_exact_matlib_resource_ids": true,
+    "node_name_reach_ins": false,
+    "forced_object_deletion": false,
+    "attribution_gate_complete": true,
+    "receipt": "capture_lifecycle_receipt.json"
+  },
+  "audits": {
+    "completeness": {
+      "exit": 2,
+      "before_requirements": 150,
+      "after_requirements": 150,
+      "before_status_counts": {
+        "ABSENT": 50,
+        "HUMAN_ACCEPTED": 1,
+        "PROGRAMMED": 44,
+        "RUNTIME_PROVEN": 34,
+        "SHELL_ONLY": 3,
+        "SPATIALLY_PROVEN": 18
+      },
+      "after_status_counts": {
+        "ABSENT": 50,
+        "HUMAN_ACCEPTED": 1,
+        "PROGRAMMED": 44,
+        "RUNTIME_PROVEN": 34,
+        "SHELL_ONLY": 3,
+        "SPATIALLY_PROVEN": 18
+      },
+      "before_blocker_counts": [0, 1, 86, 45, 101, 103],
+      "after_blocker_counts": [0, 1, 86, 45, 101, 103],
+      "status_promotion": false
+    },
+    "spatial": {
+      "exit": 0,
+      "before_records": 3652,
+      "after_records": 3653,
+      "production_records_before": 593,
+      "production_records_after": 593,
+      "test_records_before": 1313,
+      "test_records_after": 1314,
+      "new_test_provenance_records": 1,
+      "production_spatial_drift": false,
+      "new_failures": 0,
+      "vanished_targets": 0,
+      "unresolved_save_contracts": 0
+    },
+    "systemic_authority": {
+      "exit": 0,
+      "before_findings": 59,
+      "after_findings": 59,
+      "production_before": 35,
+      "production_after": 35,
+      "test_before": 24,
+      "test_after": 24,
+      "new_actionable": 0,
+      "policy_violations": 0
+    },
+    "data_consumption": {
+      "exit": 1,
+      "before_findings": 1303,
+      "after_findings": 1303,
+      "before_and_after_classes": {
+        "FIELD_UNREAD": 1289,
+        "FILE_UNREAD": 11,
+        "MALFORMED": 1,
+        "DURABLE_NUMERIC_MONOTONIC_ONLY": 2
+      },
+      "new_exterior_findings": 0,
+      "new_unread_files": 0,
+      "new_unread_fields": 0,
+      "new_monotonic_only_values": 0
+    }
+  },
+  "python_tests": {
+    "completeness": {"exit": 0, "passes": 91},
+    "spatial": {"exit": 0, "passes": 51},
+    "systemic_authority": {"exit": 0, "passes": 34},
+    "data_consumption": {"exit": 0, "passes": 14},
+    "total_passes": 190
+  },
+  "selector": {
+    "default_id": "v1",
+    "unchanged": true,
+    "sha256": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802"
+  },
+  "protected_hashes": {
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "art/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/assets/building/floor_01.gltf": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+    "game/assets/building/floor_01.bin": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+    "game/assets/building/floor_02.gltf": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640",
+    "game/assets/building/floor_02.bin": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e",
+    "game/assets/building/floor_03.gltf": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f",
+    "game/assets/building/floor_03.bin": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8",
+    "game/assets/building/floor_04.gltf": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1",
+    "game/assets/building/floor_04.bin": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266",
+    "game/assets/building/floor_05.gltf": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a",
+    "game/assets/building/floor_05.bin": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8",
+    "game/assets/building/floor_06.gltf": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422",
+    "game/assets/building/floor_06.bin": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f",
+    "game/assets/building/floor_b1.gltf": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e",
+    "game/assets/building/floor_b1.bin": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449"
+  },
+  "protected_hashes_all_match": true,
+  "evidence_impact": {
+    "exit": 0,
+    "admitted_as_evidence": true,
+    "evidence_marker": "CHECKPOINT",
+    "requirements_changed": []
+  },
+  "human_review_question": "Without the route stripe, can a first-time player identify Orison, follow the pavement to the bodega, recognize and enter the threshold, understand the shop interior and deliveries continuation, then turn around and find Orison again?"
+}

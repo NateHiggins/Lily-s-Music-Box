@@ -1,5 +1,5 @@
 extends Node
-## M11A's four-frame human-review packet. Every frame comes from the real
+## M11A-A's four-frame human-review packet. Every frame comes from the real
 ## PlayerController camera inside the production exterior module. The player
 ## receives one legitimate semantic initial placement, then reaches every
 ## later station through ordinary collision-bearing autopilot movement.
@@ -15,6 +15,28 @@ const LEAF_ID := "SHOP_BODEGA_STOREFRONT_LEAF"
 const EXPECTED_RESOLUTION := Vector2i(1600, 900)
 const METRIC_SAMPLE_FRAMES := 8
 const WALK_TOLERANCE_M := 0.38
+const LUMINANCE_ROIS := {
+	"pavement": {
+		"file": "01_orison_side_route_beginning.png",
+		"normalized_rect": [0.02, 0.54, 0.96, 0.44],
+	},
+	"facade": {
+		"file": "04_return_direction_toward_orison.png",
+		"normalized_rect": [0.30, 0.18, 0.42, 0.64],
+	},
+	"shop_interior": {
+		"file": "03_bodega_interior_continuing_route.png",
+		"normalized_rect": [0.06, 0.16, 0.88, 0.78],
+	},
+	"darkest_navigable_area": {
+		"file": "03_bodega_interior_continuing_route.png",
+		"normalized_rect": [0.32, 0.48, 0.36, 0.46],
+	},
+	"brightest_sign_or_light_source": {
+		"file": "02_bodega_threshold_approach.png",
+		"normalized_rect": [0.08, 0.00, 0.84, 0.44],
+	},
+}
 
 var shots = ShotHarnessScript.new()
 var cell: Node3D
@@ -23,6 +45,9 @@ var camera: Camera3D
 var frame_records: Array[Dictionary] = []
 var traversal_records: Array[Dictionary] = []
 var interaction_record: Dictionary = {}
+var guide_control_record: Dictionary = {}
+var luminance_record: Dictionary = {}
+var bucket_presentation_record: Dictionary = {}
 var startup_counts: Dictionary = {}
 var built_counts: Dictionary = {}
 var teardown_record: Dictionary = {}
@@ -32,7 +57,7 @@ var _failure_reasons: Array[String] = []
 
 
 func _ready() -> void:
-	if not shots.setup(self, "ORISON-V2-M11A-EXTERIOR", 4):
+	if not shots.setup(self, "ORISON-V2-M11A-A-READABILITY", 4):
 		get_tree().quit(2)
 		return
 	seed(1101)
@@ -73,6 +98,12 @@ func _ready() -> void:
 		await _finish_run()
 		return
 	cell_cost = cell.call("cost_report") as Dictionary
+	bucket_presentation_record = cell.call("refresh_shop_presentation") \
+			as Dictionary
+	if not bool(bucket_presentation_record.get("ok", false)):
+		_fail("production bodega presentation did not resolve its durable bucket")
+		await _finish_run()
+		return
 	built_counts = _object_counts()
 	shots.checkpoint("production_owners_resolved")
 	await _capture_route()
@@ -115,6 +146,10 @@ func _capture_route() -> void:
 		return
 	if not await _walk_to(route_overview_eye,
 			"outbound:ROUTE_OVERVIEW_EYE"):
+		return
+	await _capture_guide_state_control(route_overview_target, outbound,
+			returning)
+	if _failed:
 		return
 	await _capture_frame("01_orison_side_route_beginning",
 			route_overview_target, "STREET_ORISON_01:route_overview_eye",
@@ -197,6 +232,65 @@ func _capture_route() -> void:
 	await _walk_to(orison_exit, "return:ORISON_EXIT")
 
 
+func _capture_guide_state_control(target: Vector3, outbound: Dictionary,
+		returning: Dictionary) -> void:
+	var resolver := cell.get("spatial_resolver") \
+			as OrisonV2ExteriorSpatialResolver
+	var threshold_before := resolver.resolve_threshold(THRESHOLD_ID)
+	var cursor_before := resolver.reconstruct_route(
+			RETURN_ROUTE, "PAVEMENT_TURN")
+	var cost_before: Dictionary = cell.call("cost_report")
+	var enabled: Dictionary = cell.call("set_route_guides_visible", true)
+	_aim_at(target)
+	var enabled_image := await _resolved_viewport_image()
+	var enabled_hash := _image_sha256(enabled_image)
+	var hidden: Dictionary = cell.call("set_route_guides_visible", false)
+	var hidden_image := await _resolved_viewport_image()
+	var hidden_hash := _image_sha256(hidden_image)
+	var difference: Dictionary = _sample_image_difference(enabled_image,
+			hidden_image, 8)
+	var cost_after: Dictionary = cell.call("cost_report")
+	var threshold_after := resolver.resolve_threshold(THRESHOLD_ID)
+	var cursor_after := resolver.reconstruct_route(
+			RETURN_ROUTE, "PAVEMENT_TURN")
+	var outbound_after: Dictionary = cell.call("route", OUTBOUND_ROUTE)
+	var returning_after: Dictionary = cell.call("route", RETURN_ROUTE)
+	var invariant := bool(enabled.get("ok", false)) \
+			and bool(hidden.get("ok", false)) \
+			and int(enabled.get("affected_visuals", 0)) > 0 \
+			and enabled_hash.length() == 64 and hidden_hash.length() == 64 \
+			and enabled_hash != hidden_hash \
+			and int(difference.get("changed_samples", 0)) > 0 \
+			and not bool(cell.call("route_guides_visible")) \
+			and int(cost_before.get("collision_shapes", -1)) \
+					== int(cost_after.get("collision_shapes", -2)) \
+			and int(cost_before.get("collision_objects", -1)) \
+					== int(cost_after.get("collision_objects", -2)) \
+			and threshold_after == threshold_before \
+			and cursor_after == cursor_before \
+			and outbound_after == outbound and returning_after == returning
+	guide_control_record = {
+		"capture_kind": "in-memory resolved Forward+ control; not a packet frame",
+		"enabled": enabled,
+		"enabled_sha256": enabled_hash,
+		"hidden": hidden,
+		"hidden_sha256": hidden_hash,
+		"pixel_difference": difference,
+		"collision_shapes_before": cost_before.get("collision_shapes", -1),
+		"collision_shapes_hidden": cost_after.get("collision_shapes", -1),
+		"collision_objects_before": cost_before.get("collision_objects", -1),
+		"collision_objects_hidden": cost_after.get("collision_objects", -1),
+		"threshold_id": str(threshold_after.get("id", "")),
+		"reconstruction_route_id": str(cursor_after.get("route_id", "")),
+		"reconstruction_waypoint_id": str(cursor_after.get("waypoint_id", "")),
+		"semantic_routes_equal": outbound_after == outbound \
+				and returning_after == returning,
+		"invariants_pass": invariant,
+	}
+	if not invariant:
+		_fail("guide enabled/hidden control changed collision or semantic route state")
+
+
 func _capture_frame(label: String, target: Vector3, station: String,
 		description: String) -> void:
 	_aim_at(target)
@@ -208,6 +302,7 @@ func _capture_frame(label: String, target: Vector3, station: String,
 			roundi(viewport_size.y)) == EXPECTED_RESOLUTION
 	var on_floor := player.is_on_floor()
 	var camera_current := get_viewport().get_camera_3d() == camera
+	var guides_hidden := not bool(cell.call("route_guides_visible"))
 	frame_records.append({
 		"label": label,
 		"file": label + ".png",
@@ -225,6 +320,7 @@ func _capture_frame(label: String, target: Vector3, station: String,
 		"fov_degrees": camera.fov,
 		"standing_eye_m": PlayerController.STANDING_EYE,
 		"camera_current": camera_current,
+		"explicit_route_guides_hidden": guides_hidden,
 		"carried_lamp_visible": is_instance_valid(player.flashlight)
 				and player.flashlight.visible,
 		"supporting_floor": on_floor,
@@ -232,7 +328,7 @@ func _capture_frame(label: String, target: Vector3, station: String,
 		"metrics": metrics,
 	})
 	if not capture_ok or not dimensions_ok or not on_floor or player.noclip \
-			or not camera_current:
+			or not camera_current or not guides_hidden:
 		_fail("%s violated capture/player provenance" % label)
 
 
@@ -291,6 +387,53 @@ func _walk_to(target: Vector3, leg: String) -> bool:
 	})
 	_fail("collision-bearing traversal stopped short on %s" % leg)
 	return false
+
+
+func _resolved_viewport_image() -> Image:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	return get_viewport().get_texture().get_image()
+
+
+func _image_sha256(image: Image) -> String:
+	if image == null or image.is_empty():
+		return ""
+	var context := HashingContext.new()
+	if context.start(HashingContext.HASH_SHA256) != OK:
+		return ""
+	if context.update(image.get_data()) != OK:
+		return ""
+	return context.finish().hex_encode()
+
+
+func _sample_image_difference(first: Image, second: Image,
+		stride: int) -> Dictionary:
+	if first == null or second == null or first.is_empty() or second.is_empty() \
+			or first.get_size() != second.get_size():
+		return {"ok": false, "reason": "images are missing or mismatched"}
+	var samples := 0
+	var changed := 0
+	var difference_sum := 0.0
+	for y in range(0, first.get_height(), stride):
+		for x in range(0, first.get_width(), stride):
+			var a := first.get_pixel(x, y)
+			var b := second.get_pixel(x, y)
+			var difference := absf(a.r - b.r) + absf(a.g - b.g) \
+					+ absf(a.b - b.b)
+			samples += 1
+			difference_sum += difference
+			if difference > 0.02:
+				changed += 1
+	return {
+		"ok": true,
+		"sample_stride_px": stride,
+		"samples": samples,
+		"changed_samples": changed,
+		"changed_fraction": float(changed) / maxf(1.0, float(samples)),
+		"mean_absolute_rgb_sum": difference_sum \
+				/ maxf(1.0, float(samples)),
+	}
 
 
 func _sample_metrics() -> Dictionary:
@@ -366,6 +509,7 @@ func _finish_run() -> void:
 			or int(public_receipt.get("retained_strong_references", -1)) != 0:
 		_fail("public production teardown retained scene ownership")
 	_attach_frame_hashes()
+	_attach_luminance_statistics()
 	var receipt_ok := _write_production_receipt()
 	var shots_ok := shots.finish()
 	get_tree().quit(0 if shots_ok and receipt_ok and not _failed else 2)
@@ -379,11 +523,12 @@ func _write_production_receipt() -> bool:
 		"04_return_direction_toward_orison.png",
 	]
 	var receipt := {
-		"schema_version": 1,
+		"schema_version": 2,
+		"task": "ORISON-V2-M11A-A",
 		"status": "PASS" if not _failed and frame_records.size() == 4
 				else "FAIL",
 		"human_acceptance": "PENDING",
-		"human_acceptance_scope": "new production M11A four-frame packet",
+		"human_acceptance_scope": "hidden-guide M11A-A production packet",
 		"production_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
 		"production_module": "OrisonV2ExteriorCell",
 		"production_source_only": true,
@@ -404,6 +549,7 @@ func _write_production_receipt() -> bool:
 			"capture_only_geometry": false,
 			"capture_only_lights": false,
 			"developer_overlay": false,
+			"explicit_route_guides": "hidden through public production API",
 			"player_hud": "preserved",
 		},
 		"determinism": {
@@ -415,6 +561,10 @@ func _write_production_receipt() -> bool:
 		},
 		"semantic_routes": [OUTBOUND_ROUTE, RETURN_ROUTE],
 		"semantic_threshold": THRESHOLD_ID,
+		"guide_state_control": guide_control_record,
+		"human_packet_guide_state": "hidden",
+		"bucket_presentation": bucket_presentation_record,
+		"luminance_statistics": luminance_record,
 		"frames": frame_records,
 		"traversal": traversal_records,
 		"storefront_interaction": interaction_record,
@@ -426,10 +576,97 @@ func _write_production_receipt() -> bool:
 			"production_cell_capture_receipt.json")
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	if file == null:
-		push_error("M11A capture receipt could not be written: %s" % path)
+		push_error("M11A-A capture receipt could not be written: %s" % path)
 		return false
 	file.store_string(JSON.stringify(receipt, "\t"))
 	return true
+
+
+func _attach_luminance_statistics() -> void:
+	var images := {}
+	var full_frames := {}
+	for record: Dictionary in frame_records:
+		var file_name := str(record.get("file", ""))
+		var path: String = shots.output_dir.path_join(file_name)
+		var captured := Image.load_from_file(path)
+		if captured == null or captured.is_empty():
+			_fail("luminance audit could not load exact capture: %s" % path)
+			continue
+		images[file_name] = captured
+		full_frames[file_name] = _luminance_stats(captured,
+				[0.0, 0.0, 1.0, 1.0], 4)
+	var named_regions := {}
+	for region_name: String in LUMINANCE_ROIS:
+		var specification: Dictionary = LUMINANCE_ROIS[region_name]
+		var file_name := str(specification.get("file", ""))
+		var captured := images.get(file_name) as Image
+		if captured == null:
+			_fail("luminance region lacks its captured frame: %s" % region_name)
+			continue
+		var statistics := _luminance_stats(captured,
+				specification.get("normalized_rect", []), 2)
+		statistics["file"] = file_name
+		named_regions[region_name] = statistics
+	luminance_record = {
+		"scale": "0..1",
+		"method": "Rec.709 coefficients applied to captured sRGB channels",
+		"sampling": "deterministic regular grid over exact packet PNG bytes",
+		"machine_thresholds_are_descriptive_not_human_acceptance": true,
+		"full_frames": full_frames,
+		"named_regions": named_regions,
+	}
+	if full_frames.size() != 4 or named_regions.size() != LUMINANCE_ROIS.size():
+		_fail("luminance receipt is incomplete")
+
+
+func _luminance_stats(image: Image, normalized_rect: Array,
+		stride: int) -> Dictionary:
+	if image == null or image.is_empty() or normalized_rect.size() != 4:
+		return {"ok": false}
+	var width := image.get_width()
+	var height := image.get_height()
+	var x0 := clampi(floori(float(normalized_rect[0]) * width), 0, width - 1)
+	var y0 := clampi(floori(float(normalized_rect[1]) * height), 0, height - 1)
+	var x1 := clampi(ceili((float(normalized_rect[0])
+			+ float(normalized_rect[2])) * width), x0 + 1, width)
+	var y1 := clampi(ceili((float(normalized_rect[1])
+			+ float(normalized_rect[3])) * height), y0 + 1, height)
+	var samples := 0
+	var total := 0.0
+	var minimum := 1.0
+	var maximum := 0.0
+	var below_02 := 0
+	var below_05 := 0
+	var below_10 := 0
+	for y in range(y0, y1, stride):
+		for x in range(x0, x1, stride):
+			var color := image.get_pixel(x, y)
+			var luminance := color.r * 0.2126 + color.g * 0.7152 \
+					+ color.b * 0.0722
+			samples += 1
+			total += luminance
+			minimum = minf(minimum, luminance)
+			maximum = maxf(maximum, luminance)
+			if luminance < 0.02:
+				below_02 += 1
+			if luminance < 0.05:
+				below_05 += 1
+			if luminance < 0.10:
+				below_10 += 1
+	var denominator := maxf(1.0, float(samples))
+	return {
+		"ok": samples > 0,
+		"normalized_rect": normalized_rect.duplicate(),
+		"pixel_rect": [x0, y0, x1 - x0, y1 - y0],
+		"sample_stride_px": stride,
+		"samples": samples,
+		"minimum": minimum,
+		"maximum": maximum,
+		"mean": total / denominator,
+		"fraction_below_0_02": float(below_02) / denominator,
+		"fraction_below_0_05": float(below_05) / denominator,
+		"fraction_below_0_10": float(below_10) / denominator,
+	}
 
 
 func _attach_frame_hashes() -> void:
@@ -511,5 +748,5 @@ func _vec(value: Vector3) -> Array[float]:
 func _fail(reason: String) -> void:
 	_failed = true
 	_failure_reasons.append(reason)
-	push_error("M11A EXTERIOR CAPTURE: " + reason)
-	print("[ORISON-V2-M11A-EXTERIOR FAIL] " + reason)
+	push_error("M11A-A EXTERIOR CAPTURE: " + reason)
+	print("[ORISON-V2-M11A-A-EXTERIOR FAIL] " + reason)

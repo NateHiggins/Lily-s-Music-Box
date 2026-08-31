@@ -80,10 +80,11 @@ var passes := 0
 var _cell_scene: PackedScene
 var _baseline_counts := {}
 var _receipt := {
-	"schema_version": 1,
-	"task": "ORISON-V2-M11A",
+	"schema_version": 2,
+	"task": "ORISON-V2-M11A-A",
 	"checks": [],
 	"route": {},
+	"presentation": {},
 	"save_reconstruction": {},
 	"piece_two": {},
 	"teardown": {},
@@ -310,6 +311,8 @@ func _test_primary_runtime_route_and_save() -> void:
 	_receipt["route"]["declared_records"] = declared
 	_check(_geometry_cost_is_consumed(cost, declared),
 			"generic builder consumes every declared primary geometry record")
+	_test_presentation_invariants(module, resolver, outbound, returning,
+			threshold, cost)
 
 	var modified: Array[String] = []
 	player.world_modified.connect(func(_where: Vector3, what: String):
@@ -408,6 +411,25 @@ func _test_primary_runtime_route_and_save() -> void:
 			"bodega", 0.0, 1440.0, clock)
 	var advanced: bool = bucket_registry.bind_state(PRIMARY_SHOP) \
 			and bucket_registry.advance(1440.0, facts)
+	var stocked_after_advance: Dictionary = module.call(
+			"refresh_shop_presentation")
+	var stocked_shop: Dictionary = (stocked_after_advance.get("shops", {}) \
+			as Dictionary).get(PRIMARY_SHOP, {})
+	var second_day_facts: Dictionary = schedule.place_activity_facts(
+			"bodega", 1440.0, 2880.0, clock)
+	var depleted: bool = advanced \
+			and bucket_registry.advance(2880.0, second_day_facts)
+	var depleted_presentation: Dictionary = module.call(
+			"refresh_shop_presentation")
+	var depleted_shop: Dictionary = (depleted_presentation.get("shops", {}) \
+			as Dictionary).get(PRIMARY_SHOP, {})
+	_check(advanced and bool(stocked_shop.get(
+			"stock_visuals_visible", false)) \
+			and int(stocked_shop.get("stock", -1)) > 0 \
+			and depleted and int(depleted_shop.get("stock", -1)) == 0 \
+			and not bool(depleted_shop.get("stock_visuals_visible", true)) \
+			and int(depleted_shop.get("stock_visuals", 0)) == 18,
+			"public timetable advancement hides only depleted stock-role visuals")
 	var saved_bucket: Dictionary = bucket_registry.snapshot(PRIMARY_SHOP)
 	var saved_semantics: Dictionary = semantics.snapshot(SEMANTIC_STATE_ID)
 	var saved_job: Dictionary = orders.job_state(JOB_ID)
@@ -433,7 +455,7 @@ func _test_primary_runtime_route_and_save() -> void:
 			"exterior_semantics": RealityState.data.exterior_semantics}
 	var no_coordinates: bool = not _contains_world_coordinate_key(saved_exterior)
 	RealityState.persistence_enabled = true
-	var saved_to_disk: bool = advanced and recorded and no_coordinates \
+	var saved_to_disk: bool = depleted and recorded and no_coordinates \
 			and RealityState.save_game()
 	var save_hash: String = FileAccess.get_sha256(SAVE_PATH) \
 			if saved_to_disk else ""
@@ -489,6 +511,16 @@ func _test_primary_runtime_route_and_save() -> void:
 			"reconstruction composes an externally parented production PlayerController")
 	var reconstructed_resolver: Variant = reconstructed.get("spatial_resolver")
 	var reconstructed_bucket: Variant = reconstructed.get("shop_bucket_registry")
+	var reconstructed_presentation: Dictionary = reconstructed.call(
+			"presentation_state")
+	var reconstructed_shop: Dictionary = ((reconstructed_presentation.get(
+			"bucket_presentation", {}) as Dictionary).get("shops", {}) \
+			as Dictionary).get(PRIMARY_SHOP, {})
+	_check(int(reconstructed_shop.get("stock", -1)) == 0 \
+			and int(reconstructed_shop.get("stock_visuals", 0)) == 18 \
+			and not bool(reconstructed_shop.get(
+					"stock_visuals_visible", true)),
+			"reconstruction restores the bucket-driven depleted fixture state")
 	var reconstructed_semantics: Variant = SemanticState.new()
 	var cursor: Dictionary = reconstructed_semantics.reconstruct(
 			SEMANTIC_STATE_ID, reconstructed_resolver)
@@ -541,7 +573,9 @@ func _test_primary_runtime_route_and_save() -> void:
 		"exact_comparisons": {"serialized_subset":subset_exact,
 				"bucket":bucket_exact, "semantic_cursor":semantic_exact,
 				"work_order":job_exact, "reconstructed_route":cursor_exact,
-				"public_placement_consumed":placement_consumed},
+				"public_placement_consumed":placement_consumed,
+				"depleted_presentation":not bool(reconstructed_shop.get(
+						"stock_visuals_visible", true))},
 		"first_teardown": first_teardown,
 	}
 	var reconstructed_weak: WeakRef = weakref(reconstructed)
@@ -564,6 +598,66 @@ func _test_primary_runtime_route_and_save() -> void:
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
+
+
+func _test_presentation_invariants(module: Node, resolver: Variant,
+		outbound: Dictionary, returning: Dictionary, threshold: Dictionary,
+		cost: Dictionary) -> void:
+	var cursor_before: Dictionary = resolver.reconstruct_route(
+			RETURN_ROUTE, "PAVEMENT_TURN")
+	var enabled: Dictionary = module.call("set_route_guides_visible", true)
+	var enabled_state: Dictionary = module.call("presentation_state")
+	var presentation: Dictionary = module.call("refresh_shop_presentation")
+	var bucket: Dictionary = module.call("shop_snapshot", PRIMARY_SHOP)
+	var shop_presentation: Dictionary = (presentation.get("shops", {}) \
+			as Dictionary).get(PRIMARY_SHOP, {})
+	_check(bool(enabled.get("ok", false))
+			and bool(enabled.get("guide_visuals_visible", false))
+			and int(enabled.get("affected_visuals", 0)) > 0,
+			"explicit source-authored route-guide visuals can be enabled")
+	_check(bool(presentation.get("ok", false))
+			and bool(shop_presentation.get("stock_visuals_visible", false))
+			and int(shop_presentation.get("stock_visuals", 0)) > 0
+			and int(shop_presentation.get("stock", -1))
+					== int(bucket.get("stock", -2)),
+			"stocked fixture presentation reads the existing durable bodega bucket")
+
+	var hidden: Dictionary = module.call("set_route_guides_visible", false)
+	var hidden_state: Dictionary = module.call("presentation_state")
+	var cost_after: Dictionary = module.call("cost_report")
+	var outbound_after: Dictionary = module.call("route", OUTBOUND_ROUTE)
+	var returning_after: Dictionary = module.call("route", RETURN_ROUTE)
+	var threshold_after: Dictionary = resolver.resolve_threshold(
+			PRIMARY_THRESHOLD)
+	var cursor_after: Dictionary = resolver.reconstruct_route(
+			RETURN_ROUTE, "PAVEMENT_TURN")
+	var hidden_invariants := bool(hidden.get("ok", false)) \
+			and not bool(hidden.get("guide_visuals_visible", true)) \
+			and not bool(hidden_state.get("guide_visuals_visible", true)) \
+			and int(cost_after.get("collision_shapes", -1)) \
+					== int(cost.get("collision_shapes", -2)) \
+			and int(cost_after.get("collision_objects", -1)) \
+					== int(cost.get("collision_objects", -2)) \
+			and outbound_after == outbound and returning_after == returning \
+			and threshold_after == threshold and cursor_after == cursor_before
+	_check(hidden_invariants,
+			"hidden guides preserve collision, threshold identity, routes, and semantic reconstruction")
+	_receipt["presentation"] = {
+		"source_roles": ["environment", "route_guide", "stock"],
+		"enabled": enabled,
+		"enabled_state": enabled_state,
+		"hidden": hidden,
+		"hidden_state": hidden_state,
+		"bucket_presentation": presentation,
+		"collision_shapes_before": cost.get("collision_shapes", -1),
+		"collision_shapes_hidden": cost_after.get("collision_shapes", -1),
+		"collision_objects_before": cost.get("collision_objects", -1),
+		"collision_objects_hidden": cost_after.get("collision_objects", -1),
+		"threshold_id": str(threshold_after.get("id", "")),
+		"reconstruction_route_id": str(cursor_after.get("route_id", "")),
+		"reconstruction_waypoint_id": str(cursor_after.get("waypoint_id", "")),
+		"human_packet_required_state": "hidden",
+	}
 
 
 ## Required proof 11 and piece-two contract: the same source-generic builder

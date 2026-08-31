@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2M11AFirstExteriorCellShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11aa_first_exterior_cell_readability_01",
+  "started_utc": "2026-08-31T00:16:21.1393566Z",
+  "elapsed_seconds": 22.914,
+  "timeout_seconds": 60,
+  "resolution": "1600x900",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 4,
+  "actual_frames": 4,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_m11aa_first_exterior_cell_readability_01_20260831T001621139Z.log",
+  "filtered_process_output": [
+    "[ORISON-V2-M11A-A-READABILITY CAPTURE] 1/4 label=01_orison_side_route_beginning elapsed=2.641 path=C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11aa_first_exterior_cell_readability_01/01_orison_side_route_beginning.png",
+    "[ORISON-V2-M11A-A-READABILITY CAPTURE] 2/4 label=02_bodega_threshold_approach elapsed=8.897 path=C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11aa_first_exterior_cell_readability_01/02_bodega_threshold_approach.png",
+    "[ORISON-V2-M11A-A-READABILITY CAPTURE] 3/4 label=03_bodega_interior_continuing_route elapsed=11.877 path=C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11aa_first_exterior_cell_readability_01/03_bodega_interior_continuing_route.png",
+    "[ORISON-V2-M11A-A-READABILITY CAPTURE] 4/4 label=04_return_direction_toward_orison elapsed=13.984 path=C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11aa_first_exterior_cell_readability_01/04_return_direction_toward_orison.png",
+    "[ORISON-V2-M11A-A-READABILITY] RESULT: PASS captures=4 expected=4 elapsed=21.215"
+  ],
+  "files": [
+    {
+      "name": "01_orison_side_route_beginning.png",
+      "bytes": 599662,
+      "sha256": "2b071621312c9d9117714acd3064b388fca73aee7d7c67580f584c14bb08999d"
+    },
+    {
+      "name": "02_bodega_threshold_approach.png",
+      "bytes": 624049,
+      "sha256": "8c36035d068ac44d71235b725a5e48fbd9a7be63d1b0ff7891e3fd3ad0cd3092"
+    },
+    {
+      "name": "03_bodega_interior_continuing_route.png",
+      "bytes": 487061,
+      "sha256": "fc40afbf157aa56a2b7170c04720fc9084cfffb50c6ded6a7015db9fa6de8777"
+    },
+    {
+      "name": "04_return_direction_toward_orison.png",
+      "bytes": 634983,
+      "sha256": "8ef7080e859fd90e903cd2d01bdab3e259ebb7fc95985ce05b9fa2a495f6ae04"
+    }
+  ]
+}

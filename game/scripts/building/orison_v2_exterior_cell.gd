@@ -21,10 +21,10 @@ const MATERIAL_KEYS := ["id", "albedo_rgba", "roughness", "metallic",
 const TEMPLATE_KEYS := ["id", "boxes", "labels", "lights", "doors",
 		"functional_props", "service_counters"]
 const BOX_KEYS := ["id", "size_m", "position_m", "yaw_degrees",
-		"material_id", "collision", "visible"]
+		"material_id", "collision", "visible", "presentation_role"]
 const LABEL_KEYS := ["id", "text", "font_size", "pixel_size",
 		"position_m", "yaw_degrees", "color_rgba", "outline_color_rgba",
-		"outline_size", "billboard"]
+		"outline_size", "billboard", "presentation_role"]
 const LIGHT_KEYS := ["id", "position_m", "color_rgb", "energy",
 		"range_m", "shadows"]
 const DOOR_KEYS := ["surface_id", "offset_uvn_m", "local_yaw_degrees",
@@ -61,6 +61,8 @@ var _instance_nodes: Dictionary = {}
 var _collision_bodies: Dictionary = {}
 var _doors: Dictionary = {}
 var _functional_props: Array[Node] = []
+var _route_guide_nodes: Array[GeometryInstance3D] = []
+var _stock_visual_nodes: Dictionary = {}
 var _counter_shop_ids: Array[String] = []
 var _audio_source_ids: Array[StringName] = []
 var _owned_nodes: Array[Node] = []
@@ -69,6 +71,8 @@ var _owns_shop_bucket_registry := false
 var _configured := false
 var _built := false
 var _shutdown := false
+var _route_guides_visible := true
+var _presentation_receipt: Dictionary = {}
 var _teardown_receipt: Dictionary = {}
 
 
@@ -159,6 +163,7 @@ func build() -> bool:
 	_compose_player()
 	if startup_failed:
 		return false
+	refresh_shop_presentation()
 	return true
 
 
@@ -181,6 +186,85 @@ func route(route_id: String) -> Dictionary:
 func shop_snapshot(shop_id: String) -> Dictionary:
 	return shop_bucket_registry.snapshot(shop_id) \
 			if shop_bucket_registry else {}
+
+
+## Presentation-only switch for explicit route-guide meshes. Collision and the
+## semantic route/threshold records remain owned by their existing authorities.
+## The production review packet uses false; true remains available for focused
+## debugging and municipal-wear comparison.
+func set_route_guides_visible(value: bool) -> Dictionary:
+	if not _built or _shutdown or spatial_resolver == null:
+		return {"ok": false, "reason": "exterior cell is not active"}
+	var collision_count_before := find_children(
+			"*", "CollisionShape3D", true, false).size()
+	for node: GeometryInstance3D in _route_guide_nodes:
+		if is_instance_valid(node):
+			node.visible = value
+	_route_guides_visible = value
+	var collision_count_after := find_children(
+			"*", "CollisionShape3D", true, false).size()
+	return {
+		"ok": collision_count_before == collision_count_after,
+		"guide_visuals_visible": _route_guides_visible,
+		"affected_visuals": _route_guide_nodes.size(),
+		"collision_shapes_before": collision_count_before,
+		"collision_shapes_after": collision_count_after,
+		"semantic_route_ids": spatial_resolver.route_ids(),
+		"threshold_ids": spatial_resolver.threshold_ids(),
+	}
+
+
+func route_guides_visible() -> bool:
+	return _route_guides_visible
+
+
+func presentation_state() -> Dictionary:
+	return {
+		"guide_visuals_visible": _route_guides_visible,
+		"guide_visuals": _route_guide_nodes.size(),
+		"bucket_presentation": _presentation_receipt.duplicate(true),
+	}
+
+
+## Refresh bounded fixture visibility from the existing durable bucket. This
+## does not advance simulation or create stock authority: zero stock removes
+## authored stock silhouettes, while any available stock presents them.
+func refresh_shop_presentation() -> Dictionary:
+	if not _built or _shutdown or shop_bucket_registry == null:
+		return {"ok": false, "reason": "exterior cell is not active"}
+	var receipt := {"ok": true, "shops": {}}
+	for instance_id: String in _stock_visual_nodes:
+		var instance: Dictionary = spatial_resolver.instance_record(instance_id)
+		var shop_id := str(instance.get("semantic_identity", ""))
+		var state: Dictionary = shop_bucket_registry.snapshot(shop_id)
+		if state.is_empty():
+			receipt["ok"] = false
+			(receipt["shops"] as Dictionary)[shop_id] = {
+				"ok": false, "reason": "durable bucket missing"}
+			continue
+		var has_stock := int(state.get("stock", 0)) > 0
+		var visuals: Array = _stock_visual_nodes.get(instance_id, [])
+		for raw: Variant in visuals:
+			var visual := raw as GeometryInstance3D
+			if is_instance_valid(visual):
+				visual.visible = has_stock
+		var cell := instance_node(instance_id)
+		if is_instance_valid(cell):
+			cell.set_meta("presented_stock", int(state.get("stock", 0)))
+			cell.set_meta("presented_condition", int(state.get("condition", 0)))
+			cell.set_meta("presented_staffing_mode", str(
+					(state.get("staffing", {}) as Dictionary).get("mode", "")))
+		(receipt["shops"] as Dictionary)[shop_id] = {
+			"ok": true,
+			"stock": int(state.get("stock", 0)),
+			"condition": int(state.get("condition", 0)),
+			"staffing_mode": str((state.get("staffing", {}) \
+					as Dictionary).get("mode", "")),
+			"stock_visuals": visuals.size(),
+			"stock_visuals_visible": has_stock,
+		}
+	_presentation_receipt = receipt.duplicate(true)
+	return receipt
 
 
 ## Legitimate initial-placement/reconstruction seam. Traversal proofs must not
@@ -282,8 +366,8 @@ func _configure_geometry(source: Dictionary) -> bool:
 	_geometry_templates.clear()
 	if not _has_exact_keys(source, DOCUMENT_KEYS):
 		_fail("exterior geometry document has unknown or missing fields")
-	if int(source.get("schema_version", -1)) != 1:
-		_fail("exterior geometry schema_version must be 1")
+	if int(source.get("schema_version", -1)) != 2:
+		_fail("exterior geometry schema_version must be 2")
 	var materials_value: Variant = source.get("materials")
 	var templates_value: Variant = source.get("templates")
 	if materials_value is not Array or (materials_value as Array).is_empty():
@@ -375,7 +459,9 @@ func _validate_box(template_id: String, record: Dictionary,
 			or not _finite_number(record.get("yaw_degrees")) \
 			or not _material_records.has(str(record.get("material_id", ""))) \
 			or record.get("collision") is not bool \
-			or record.get("visible") is not bool:
+			or record.get("visible") is not bool \
+			or str(record.get("presentation_role", "")) not in [
+					"environment", "route_guide", "stock"]:
 		_fail("%s/%s box is malformed" % [template_id, ident])
 
 
@@ -391,7 +477,9 @@ func _validate_label(template_id: String, record: Dictionary,
 			or not _valid_color(record.get("color_rgba"), true) \
 			or not _valid_color(record.get("outline_color_rgba"), true) \
 			or int(record.get("outline_size", -1)) < 0 \
-			or record.get("billboard") is not bool:
+			or record.get("billboard") is not bool \
+			or str(record.get("presentation_role", "")) not in [
+					"environment", "route_guide"]:
 		_fail("%s/%s label is malformed" % [template_id, ident])
 
 
@@ -547,27 +635,40 @@ func _build_instance(parent: Node3D, instance_id: String) -> void:
 	cell.add_child(body)
 	_collision_bodies[instance_id] = body
 	for value: Variant in geometry.get("boxes", []):
-		_build_box(cell, body, value as Dictionary)
+		var record: Dictionary = value as Dictionary
+		_build_box(cell, body, record, instance_id)
 	for value: Variant in geometry.get("labels", []):
-		_build_label(cell, value as Dictionary)
+		var record: Dictionary = value as Dictionary
+		_build_label(cell, record)
 	for value: Variant in geometry.get("lights", []):
 		_build_light(cell, value as Dictionary)
 
 
 func _build_box(parent: Node3D, body: StaticBody3D,
-		record: Dictionary) -> void:
+		record: Dictionary, instance_id: String) -> void:
 	var size := _vec3(record.get("size_m"))
 	var position := _vec3(record.get("position_m"))
 	var yaw := float(record.get("yaw_degrees", 0.0))
 	var mesh_node := MeshInstance3D.new()
 	mesh_node.name = "ExteriorMesh"
-	mesh_node.set_meta("authored_record_id", str(record.get("id", "")))
+	var record_id := str(record.get("id", ""))
+	var presentation_role := str(record.get("presentation_role", ""))
+	mesh_node.set_meta("authored_record_id", record_id)
+	mesh_node.set_meta("presentation_role", presentation_role)
 	mesh_node.mesh = _box_mesh(size)
 	mesh_node.material_override = _material(str(record.get("material_id", "")))
 	mesh_node.position = position
 	mesh_node.rotation_degrees.y = yaw
 	mesh_node.visible = bool(record.get("visible", true))
 	parent.add_child(mesh_node)
+	if presentation_role == "route_guide":
+		mesh_node.add_to_group("orison_v2_explicit_route_guide")
+		mesh_node.visible = mesh_node.visible and _route_guides_visible
+		_route_guide_nodes.append(mesh_node)
+	if presentation_role == "stock":
+		var stock_nodes: Array = _stock_visual_nodes.get(instance_id, [])
+		stock_nodes.append(mesh_node)
+		_stock_visual_nodes[instance_id] = stock_nodes
 	if bool(record.get("collision", false)):
 		var shape_node := CollisionShape3D.new()
 		shape_node.name = "ExteriorCollision"
@@ -582,6 +683,8 @@ func _build_label(parent: Node3D, record: Dictionary) -> void:
 	var label := Label3D.new()
 	label.name = "ExteriorLabel"
 	label.set_meta("authored_record_id", str(record.get("id", "")))
+	label.set_meta("presentation_role", str(record.get(
+			"presentation_role", "")))
 	label.text = str(record.get("text", ""))
 	label.font_size = int(record.get("font_size", 48))
 	label.pixel_size = float(record.get("pixel_size", 0.003))
@@ -594,6 +697,10 @@ func _build_label(parent: Node3D, record: Dictionary) -> void:
 			if bool(record.get("billboard", false)) \
 			else BaseMaterial3D.BILLBOARD_DISABLED
 	parent.add_child(label)
+	if str(record.get("presentation_role", "")) == "route_guide":
+		label.add_to_group("orison_v2_explicit_route_guide")
+		label.visible = _route_guides_visible
+		_route_guide_nodes.append(label)
 
 
 func _build_light(parent: Node3D, record: Dictionary) -> void:
@@ -905,6 +1012,8 @@ func _teardown(detach_children: bool) -> Dictionary:
 	_audio_source_ids.clear()
 	_counter_shop_ids.clear()
 	_functional_props.clear()
+	_route_guide_nodes.clear()
+	_stock_visual_nodes.clear()
 	_doors.clear()
 	_collision_bodies.clear()
 	_instance_nodes.clear()
@@ -915,6 +1024,7 @@ func _teardown(detach_children: bool) -> Dictionary:
 	_material_records.clear()
 	_geometry_templates.clear()
 	_geometry_source.clear()
+	_presentation_receipt.clear()
 	player = null
 	work_orders = null
 	maintenance_inventory = null

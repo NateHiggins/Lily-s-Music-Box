@@ -1,18 +1,41 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/building/orison_v2_exterior_cell.gd" id="1_cell"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_exterior_night"]
+sky_top_color = Color(0.014, 0.025, 0.052, 1)
+sky_horizon_color = Color(0.095, 0.125, 0.17, 1)
+sky_curve = 0.18
+sky_energy_multiplier = 0.55
+ground_bottom_color = Color(0.012, 0.016, 0.023, 1)
+ground_horizon_color = Color(0.075, 0.088, 0.105, 1)
+ground_curve = 0.14
+ground_energy_multiplier = 0.42
+sun_angle_max = 0.7
+sun_curve = 0.06
+sun_energy_multiplier = 0.12
+
+[sub_resource type="Sky" id="Sky_exterior_night"]
+radiance_size = 3
+sky_material = SubResource("ProceduralSkyMaterial_exterior_night")
+
 [sub_resource type="Environment" id="Environment_exterior_cell"]
-background_mode = 1
-background_color = Color(0.03, 0.042, 0.055, 1)
+background_mode = 2
+sky = SubResource("Sky_exterior_night")
+background_energy_multiplier = 0.72
 ambient_light_source = 3
-ambient_light_color = Color(0.31, 0.38, 0.48, 1)
-ambient_light_energy = 0.72
+ambient_light_color = Color(0.35, 0.42, 0.54, 1)
+ambient_light_energy = 0.92
+ambient_light_sky_contribution = 0.28
 reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 1.08
+tonemap_white = 1.35
 fog_enabled = true
-fog_light_color = Color(0.095, 0.115, 0.14, 1)
-fog_light_energy = 0.35
-fog_density = 0.006
+fog_light_color = Color(0.12, 0.145, 0.19, 1)
+fog_light_energy = 0.42
+fog_density = 0.004
+fog_sky_affect = 0.28
 
 [node name="OrisonV2ExteriorCell" type="Node3D"]
 script = ExtResource("1_cell")
@@ -23,5 +46,11 @@ environment = SubResource("Environment_exterior_cell")
 [node name="NightFill" type="DirectionalLight3D" parent="."]
 rotation_degrees = Vector3(-52, -34, 0)
 light_color = Color(0.46, 0.54, 0.67, 1)
-light_energy = 0.68
+light_energy = 0.90
 shadow_enabled = true
+
+[node name="NightBounce" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-28, 138, 0)
+light_color = Color(0.32, 0.39, 0.52, 1)
+light_energy = 0.24
+shadow_enabled = false
