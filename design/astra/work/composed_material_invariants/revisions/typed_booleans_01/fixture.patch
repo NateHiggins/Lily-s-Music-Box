@@ -1,0 +1,56 @@
+--- a/game/tests/vulkan_composed_root_test.gd
++++ b/game/tests/vulkan_composed_root_test.gd
+@@ -708,11 +708,11 @@
+ 			var path := str(world.get_path_to(draw)) if world.is_ancestor_of(draw) else "detached:" + str(draw.name)
+ 			var slot := int(row.surface)
+ 			var material_id := material.get_instance_id()
+-			var live := world.is_ancestor_of(draw) and draw.mesh != null and slot >= 0 and slot < draw.mesh.get_surface_count() \
++			var live: bool = world.is_ancestor_of(draw) and draw.mesh != null and slot >= 0 and slot < draw.mesh.get_surface_count() \
+ 				and draw.material_override == null and draw.get_surface_override_material(slot) == material
+-			var guard_ok := _material_boundary(draw).is_empty() and str(draw.name).contains("_finish_") \
++			var guard_ok: bool = _material_boundary(draw).is_empty() and str(draw.name).contains("_finish_") \
+ 				and world.floor_nodes[floor_id].is_ancestor_of(draw)
+-			var marker_ok := str(material.get_meta("living_storey", "")) == floor_id \
++			var marker_ok: bool = str(material.get_meta("living_storey", "")) == floor_id \
+ 				and material.get_shader_parameter("has_encroachment") == true
+ 			var rect = material.get_shader_parameter("unit_rect")
+ 			if not live or not guard_ok or not marker_ok or not (rect is Vector4 and rect.is_equal_approx(authored.rect)):
+@@ -733,9 +733,9 @@
+ 			var path := str(world.get_path_to(draw)) if world.is_ancestor_of(draw) else "detached:" + str(draw.name)
+ 			var material_id := material.get_instance_id()
+ 			var live: bool = world.is_ancestor_of(draw) and draw.material_override == material
+-			var marker_ok := str(material.get_meta("encroachment_case", "")) == case_id \
++			var marker_ok: bool = str(material.get_meta("encroachment_case", "")) == case_id \
+ 				and str(material.get_meta("living_storey", "")) == floor_id
+-			var linked := material.has_meta("encroachment_shared") and material.get_meta("encroachment_shared") == row.shared
++			var linked: bool = material.has_meta("encroachment_shared") and material.get_meta("encroachment_shared") == row.shared
+ 			if not live or not marker_ok or not linked or not _material_boundary(draw).is_empty():
+ 				issues.append("prop installed owner/marker/source link failure: " + path)
+ 			if not _material_field_matches(material, floor_id, enc):
+@@ -770,7 +770,7 @@
+ 		var consumer: Dictionary = material_cache_consumers[key]
+ 		var draw := consumer.draw.get_ref() as MeshInstance3D
+ 		var cached = surface._cache.get(consumer.cache_key)
+-		var live := is_instance_valid(draw) and world.is_ancestor_of(draw) and _material_boundary(draw).is_empty() \
++		var live: bool = is_instance_valid(draw) and world.is_ancestor_of(draw) and _material_boundary(draw).is_empty() \
+ 			and draw.mesh != null and consumer.slot >= 0 and consumer.slot < draw.mesh.get_surface_count() \
+ 			and draw.material_override == null and cached is ShaderMaterial \
+ 			and cached.get_instance_id() == consumer.material_id \
+@@ -794,7 +794,7 @@
+ 		for material in materials:
+ 			if material == null: continue
+ 			excluded_ids.append(material.get_instance_id())
+-			var contaminated := material.has_meta("living_storey") or material.has_meta("encroachment_case")
++			var contaminated: bool = material.has_meta("living_storey") or material.has_meta("encroachment_case")
+ 			if material is ShaderMaterial:
+ 				for floor_id in enc.fields:
+ 					contaminated = contaminated or material.get_shader_parameter("living_tex") == enc.fields[floor_id].texture()
+@@ -987,7 +987,7 @@
+ 			continue
+ 		var entry: Dictionary = enc.beachheads[case_id]
+ 		var node := entry.get("node") as Node
+-		var live := is_instance_valid(node) and world.is_ancestor_of(node) and _material_boundary(node).is_empty()
++		var live: bool = is_instance_valid(node) and world.is_ancestor_of(node) and _material_boundary(node).is_empty()
+ 		var item := {"present": true, "live": live, "original_count": (entry.originals as Dictionary).size(), "draws": {}}
+ 		if live:
+ 			item.node_id = node.get_instance_id()

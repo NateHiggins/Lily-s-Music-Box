@@ -1,0 +1,42 @@
+test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) ... 
+  test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) (new=':349)') ... FAIL
+  test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) (new='_other_function') ... FAIL
+  test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) (new='other.cpp:348') ... FAIL
+  test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) (new='') ... FAIL
+
+======================================================================
+FAIL: test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) (new=':349)')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_bookkeeping.py", line 89, in test_missing_or_wrong_function_line_or_file_rejected
+    self.assertFalse(self.omission(stderr=self.stderr.replace(old, new))['pair_bookkeeping_omission_evidence_complete'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) (new='_other_function')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_bookkeeping.py", line 89, in test_missing_or_wrong_function_line_or_file_rejected
+    self.assertFalse(self.omission(stderr=self.stderr.replace(old, new))['pair_bookkeeping_omission_evidence_complete'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) (new='other.cpp:348')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_bookkeeping.py", line 89, in test_missing_or_wrong_function_line_or_file_rejected
+    self.assertFalse(self.omission(stderr=self.stderr.replace(old, new))['pair_bookkeeping_omission_evidence_complete'])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) (new='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_bookkeeping.py", line 89, in test_missing_or_wrong_function_line_or_file_rejected
+    self.assertFalse(self.omission(stderr=self.stderr.replace(old, new))['pair_bookkeeping_omission_evidence_complete'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+FAILED (failures=4)

@@ -1,0 +1,14 @@
+{
+  "status": "INDEPENDENT_MATCHED_REVIEW_COMPLETE",
+  "actual_analysis_exit": 0,
+  "engine_run": false,
+  "live_source_edits": false,
+  "verified_artifacts": 124,
+  "verified_source_copies": 64,
+  "bindings": {
+    "design/astra/work/encroachment_sweep/matched_review_2a_1a_01/compare.py": "79859a68cc4cc833715a9cf0d6321ba543af11076fc9e0d44db53d3b6bbc2255",
+    "design/astra/reviews/one_census_matched_execution_review.json": "bfaf35b5fabac0fc659a6b8c8badf81a1f59eee23e950be52e75e33a1887faf2",
+    "design/astra/reviews/one_census_matched_execution_review.md": "22ece191c86543b9c39c54a52c31c0d943416b4bdad1a160f5a59b1e3e0d2fa2"
+  },
+  "preparation_failure": "preparation_failures/missing_refresh_01 preserves offline optional-payload KeyError and exact source; fixed by reading absent refresh as empty on non-exercised cycle observations. No raw or engine result altered."
+}

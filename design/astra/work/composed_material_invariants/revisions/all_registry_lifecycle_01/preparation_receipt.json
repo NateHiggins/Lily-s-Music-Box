@@ -1,0 +1,84 @@
+{
+  "status": "PREPARED_ONLY_NO_ENGINE_NO_LIVE_SOURCE_MUTATION",
+  "source": {
+    "status": "PREPARED_ONLY_NO_ENGINE_NO_LIVE_INSTALL",
+    "parent_fixture_sha256": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+    "fixture_sha256": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508",
+    "parent_helper_sha256": "d74ee117adb0d5fa8c06815716f8ee54bca7a6975626ee3f2bf6b6898b1eb98b",
+    "helper_sha256": "aec59c518d9c08714b30a69b5f9682dd8cc213e17d495719602d5635d815530c",
+    "only_scope": "Replace synchronous refresh observer plus one scalar/ID serializer: independent case comparisons; entire registered lifecycle write-set snapshot, evaluation and restoration; preserve all original outer assertions/captures/timers and bool annotations",
+    "expected_checks": {
+      "full_v1": 314,
+      "root_retirement_v1": 305
+    },
+    "expected_contract": "independent_rows_and_all_registry_lifecycle_v2",
+    "owner_dependency": "Pending root-reviewed admission/ancestry owner; exact final source hash required at invocation",
+    "signed_id_gate": "gate_revisions/signed_ids_01/proposed/material_gate.py",
+    "signed_id_gate_sha256": "8e347a82e36b5ad8f43019ba18b32cba6cd2adf556baf60026218d95ed523d11",
+    "old_c264_runtime": "Preserved full02 actual eight material failures; previous probes restored recorded state, not proven complete registry uniforms",
+    "live_cleanup_fixture_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  },
+  "pure_controls": {
+    "tests": 5,
+    "exit": 0
+  },
+  "independent_review": "Root and authority read d67/aec59; no definite API/type/restoration blocker, static only",
+  "artifacts": {
+    "controls.stderr.log": "5a58d2dbd1dd859416c337bf4e9a5b6b59c783397e0b067500e15ecd18a06118",
+    "controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixture.patch": "44de69c656c85032d63d87616c8bf7b7a6aefb15c2c6e350a276ba5df638bb2f",
+    "preparation.json": "ce773d517ef851ae7678b4f1005c95dbb58da6a1f7b78a0705f2df7170125e67",
+    "README.md": "dc4db454cdf3d1567143f14690737f1c5ad5eee421458be275079042efea3109",
+    "refresh.gdfragment": "1cc019fcb129fbccf2aae7d369ac8032010e9622170a6bf8ddfba6e5fde2608c",
+    "test_revision.py": "ebdef5b45e2a33bb8d82767bffebadf2234fcf05d8f17c29041d138a41feb7d9",
+    "originals/material_helpers.gdfragment": "d74ee117adb0d5fa8c06815716f8ee54bca7a6975626ee3f2bf6b6898b1eb98b",
+    "proposed/material_helpers.gdfragment": "aec59c518d9c08714b30a69b5f9682dd8cc213e17d495719602d5635d815530c",
+    "originals/game/tests/vulkan_composed_root_test.gd": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+    "proposed/game/tests/vulkan_composed_root_test.gd": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508",
+    "gate/proposed/material_gate.py": "13275061e17b9b93ed7b746ff263d90b6eb259f040729606b2005260e85e89bf",
+    "gate/proposed/observer_gate.py": "1b212c2878efb7270721d6f935be0ac68dda76bc62861a1675e045aee289b3b9",
+    "gate/proposed/classify_result.py": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6",
+    "gate/proposed/test_observer_gate.py": "825387f008e02917324357a10ebf9e8ad3c4dbd17078430fc03120d5a25368e3",
+    "gate/gate.patch": "20bb34abef5cd361a57e3a2989926854651aaa1d7739eb0b84f58d6052ce5676",
+    "gate/originals/material_gate.py": "8e347a82e36b5ad8f43019ba18b32cba6cd2adf556baf60026218d95ed523d11",
+    "gate/originals/classify_result.py": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6",
+    "gate/controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gate/controls.stderr.log": "e6fbf7f53e36a35a5377013c93fcf9f0462805afe831f5983cabe2d47e0e23d8",
+    "gate/actual_classification.stdout.log": "3816c7f66a5fd3b711122f3c33e6e4bfd7071cc3163112185762b8646005c906",
+    "gate/actual_classification.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gate/actual_classification_command.json": "263e374bba615b878e7ec817902430e842ba6f073f825d5ec34224bb650fe557"
+  },
+  "additive_gate": {
+    "files": {
+      "material_gate.py": "13275061e17b9b93ed7b746ff263d90b6eb259f040729606b2005260e85e89bf",
+      "observer_gate.py": "1b212c2878efb7270721d6f935be0ac68dda76bc62861a1675e045aee289b3b9",
+      "classify_result.py": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6"
+    },
+    "parent_signed_id_gate_sha256": "8e347a82e36b5ad8f43019ba18b32cba6cd2adf556baf60026218d95ed523d11",
+    "controls": {
+      "tests": 12,
+      "exit": 0,
+      "note": "Final exact gate sources tested after profiling completed"
+    },
+    "contract": "Require v2 exact row/evaluation counts and complete registry write-set/restoration payload"
+  },
+  "actual_classification": {
+    "file": "design/astra/evidence/composed_material_ownership/material_floor_admission_v1_full_01_additive_v2.json",
+    "exit": 0,
+    "owner_sha256": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "fixture_sha256": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508"
+  },
+  "final_gate_binding": {
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/gate/proposed/material_gate.py": "13275061e17b9b93ed7b746ff263d90b6eb259f040729606b2005260e85e89bf",
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/gate/proposed/observer_gate.py": "1b212c2878efb7270721d6f935be0ac68dda76bc62861a1675e045aee289b3b9",
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/gate/proposed/classify_result.py": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6",
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/gate/actual_classification.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/gate/actual_classification.stdout.log": "3816c7f66a5fd3b711122f3c33e6e4bfd7071cc3163112185762b8646005c906",
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/gate/controls.stderr.log": "e6fbf7f53e36a35a5377013c93fcf9f0462805afe831f5983cabe2d47e0e23d8",
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/gate/controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "design/astra/evidence/composed_material_ownership/material_floor_admission_v1_full_01_additive_v2.json": "3816c7f66a5fd3b711122f3c33e6e4bfd7071cc3163112185762b8646005c906",
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/proposed/material_helpers.gdfragment": "aec59c518d9c08714b30a69b5f9682dd8cc213e17d495719602d5635d815530c",
+    "design/astra/work/composed_material_invariants/revisions/all_registry_lifecycle_01/proposed/game/tests/vulkan_composed_root_test.gd": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508"
+  },
+  "final_gate_review": "Root reviewed independent row census, complete non-case registry restoration and signed ID predicates; no additional gate expansion requested."
+}

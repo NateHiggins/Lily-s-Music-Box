@@ -1,0 +1,862 @@
+{
+  "status": "COMPOSED_MATERIAL_RED_REVIEWED_NO_ACCEPTANCE",
+  "result_sha256": "d51ec57d10aa785875b1dfdf609d7e4c4d20eaabe21ca8036c5864002409dcdf",
+  "probe_sha256": "ca8994dc76f0b3a7c94757d2dce2fa44c438d08d404131e0c1d01bf8aae066af",
+  "owner_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "fixture_sha256": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+  "native_exit": 1,
+  "diagnostic_exit": 1,
+  "checks": 314,
+  "passed": 306,
+  "failed_checks": [
+    "material before_measured actual build and installed ownership invariants",
+    "material cycle_0 actual build and installed ownership invariants",
+    "material cycle_1 actual build and installed ownership invariants",
+    "material cycle_2 actual build and installed ownership invariants",
+    "material cycle_3 actual build and installed ownership invariants",
+    "material cycle_4 actual build and installed ownership invariants",
+    "material cycle_5 actual build and installed ownership invariants",
+    "material before_retirement actual build and installed ownership invariants"
+  ],
+  "original_renderer_checks_passed": 305,
+  "new_material_retirement_passed": true,
+  "non_inherited_error_headers": {},
+  "unpair_errors": 0,
+  "soft_shadow_underflows": 0,
+  "retention_diagnostics": [],
+  "known_warning_debt": {
+    "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+    "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1038,
+    "WARNING: no legal wall for found piece cam_noel_witches": 1
+  },
+  "source_unchanged": true,
+  "observations": [
+    {
+      "stage": "before_measured",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06",
+        "immediate actual state/lifecycle consumer or restoration failure"
+      ],
+      "governor": {
+        "budget": 1.0,
+        "governed_steps": 2,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369509803318944,
+            -9223369509769764514,
+            -9223369509736209453,
+            -9223369509702655023
+          ],
+          "missing_registered_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369509669101052,
+            -9223369509635546622,
+            -9223369509601997181,
+            -9223369509568442752
+          ],
+          "missing_registered_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369605265677006,
+            -9223369605232122576,
+            -9223369605198568146,
+            -9223369605165013716
+          ],
+          "missing_registered_ids": [
+            -9223369509400670475,
+            -9223369509367116037,
+            -9223369509333561597,
+            -9223369509300047460
+          ]
+        }
+      },
+      "refresh": {
+        "facts_unchanged": true,
+        "force_restored": true,
+        "intensities_restored": true,
+        "mutated": true,
+        "passed": false,
+        "precondition": {
+          "effective_intensities": {
+            "cal_memory_radio": 0.0,
+            "juno_feedback_tetris": 0.0,
+            "mae_contradictory_antiques": 0.0,
+            "mina_caption_crisis": 0.0,
+            "omar_unrepairable": 0.0,
+            "peter_form_corridor": 0.0
+          },
+          "environment": {
+            "ENCROACH": "1",
+            "ENCROACH_FORCE": ""
+          },
+          "issues": [],
+          "passed": true,
+          "probe_intensities": [
+            0.1,
+            0.12,
+            0.14,
+            0.16,
+            0.18,
+            0.2
+          ],
+          "threshold": 0.3
+        },
+        "same_frame_restored": true
+      }
+    },
+    {
+      "stage": "cycle_0",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "governor": {
+        "budget": 0.5,
+        "governed_steps": 4,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369349580906144,
+            -9223369349547351714,
+            -9223369349513796653,
+            -9223369349480242223
+          ],
+          "missing_registered_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369349446688252,
+            -9223369349413133822,
+            -9223369349379584381,
+            -9223369349346029952
+          ],
+          "missing_registered_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369366458784469,
+            -9223369366425230035,
+            -9223369366391675601,
+            -9223369366358121167
+          ],
+          "missing_registered_ids": [
+            -9223369349178257804,
+            -9223369349144703255,
+            -9223369349111148816,
+            -9223369349077594368
+          ]
+        }
+      },
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_1",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "governor": {
+        "budget": 0.5,
+        "governed_steps": 6,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369265711603360,
+            -9223369265678048930,
+            -9223369265644493869,
+            -9223369265610939439
+          ],
+          "missing_registered_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369265577385468,
+            -9223369265543831038,
+            -9223369265510281597,
+            -9223369265476727168
+          ],
+          "missing_registered_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369280878205646,
+            -9223369280844651216,
+            -9223369280811096786,
+            -9223369280777542356
+          ],
+          "missing_registered_ids": [
+            -9223369265308954891,
+            -9223369265275400453,
+            -9223369265241846013,
+            -9223369265208331876
+          ]
+        }
+      },
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_2",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "governor": {
+        "budget": 1.0,
+        "governed_steps": 8,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369184795090592,
+            -9223369184761536162,
+            -9223369184727981101,
+            -9223369184694426671
+          ],
+          "missing_registered_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369184660872700,
+            -9223369184627318270,
+            -9223369184593768829,
+            -9223369184560214400
+          ],
+          "missing_registered_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369199978470101,
+            -9223369199944915667,
+            -9223369199911361233,
+            -9223369199877806799
+          ],
+          "missing_registered_ids": [
+            -9223369184392442252,
+            -9223369184358887703,
+            -9223369184325333264,
+            -9223369184291778816
+          ]
+        }
+      },
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_3",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "governor": {
+        "budget": 1.0,
+        "governed_steps": 8,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369103022939808,
+            -9223369102989385378,
+            -9223369102955830317,
+            -9223369102922275887
+          ],
+          "missing_registered_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369102888721916,
+            -9223369102855167486,
+            -9223369102821618045,
+            -9223369102788063616
+          ],
+          "missing_registered_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369115974949582,
+            -9223369115941395152,
+            -9223369115907840722,
+            -9223369115874286292
+          ],
+          "missing_registered_ids": [
+            -9223369102620291339,
+            -9223369102586736901,
+            -9223369102553182461,
+            -9223369102519668324
+          ]
+        }
+      },
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_4",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "governor": {
+        "budget": 1.0,
+        "governed_steps": 8,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369016351841952,
+            -9223369016318287522,
+            -9223369016284732461,
+            -9223369016251178031
+          ],
+          "missing_registered_ids": []
+        },
+        "F03": {
+          "slots": 264,
+          "unique": 264,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369016217624060,
+            -9223369016184069630,
+            -9223369016150520189,
+            -9223369016116965760
+          ],
+          "missing_registered_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223369030595697365,
+            -9223369030562142931,
+            -9223369030528588497,
+            -9223369030495034063
+          ],
+          "missing_registered_ids": [
+            -9223369015949193612,
+            -9223369015915639063,
+            -9223369015882084624,
+            -9223369015848530176
+          ]
+        }
+      },
+      "refresh": {}
+    },
+    {
+      "stage": "cycle_5",
+      "issues": [
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "installed floor draw samples wrong/unbound field: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "registry differs from unique installed consumers: F06"
+      ],
+      "governor": {
+        "budget": 1.0,
+        "governed_steps": 10,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223368930435718816,
+            -9223368930402164386,
+            -9223368930368609325,
+            -9223368930335054895
+          ],
+          "missing_registered_ids": []
+        },
+        "F03": {
+          "slots": 268,
+          "unique": 268,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F04": {
+          "slots": 255,
+          "unique": 255,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223368930301500924,
+            -9223368930267946494,
+            -9223368930234397053,
+            -9223368930200842624
+          ],
+          "missing_registered_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223368943387728590,
+            -9223368943354174160,
+            -9223368943320619730,
+            -9223368943287065300
+          ],
+          "missing_registered_ids": [
+            -9223368930033070347,
+            -9223368929999515909,
+            -9223368929965961469,
+            -9223368929932447332
+          ]
+        }
+      },
+      "refresh": {}
+    },
+    {
+      "stage": "before_retirement",
+      "issues": [
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F03/Service_3A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F05/Service_5A_w0_wardrobe/RightLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F06/Service_6B_aw_wardrobe/LeftLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F06/Service_6B_aw_wardrobe/LeftLeaf/RaisedPanel",
+        "prop installed owner/marker/source link failure: F06/Service_6B_aw_wardrobe/RightLeaf/FramedLeaf",
+        "prop installed owner/marker/source link failure: F06/Service_6B_aw_wardrobe/RightLeaf/RaisedPanel",
+        "registry differs from unique installed consumers: F02",
+        "registry differs from unique installed consumers: F04",
+        "immediate actual state/lifecycle consumer or restoration failure"
+      ],
+      "governor": {
+        "budget": 1.0,
+        "governed_steps": 10,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223368633344777264,
+            -9223368633311222830,
+            -9223368633277669027,
+            -9223368633244114593
+          ],
+          "missing_registered_ids": []
+        },
+        "F03": {
+          "slots": 268,
+          "unique": 268,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F04": {
+          "slots": 254,
+          "unique": 254,
+          "invalid": 0,
+          "extra_registered_ids": [
+            -9223368633210559973,
+            -9223368633177010560,
+            -9223368633143456125,
+            -9223368633109896702
+          ],
+          "missing_registered_ids": []
+        },
+        "F05": {
+          "slots": 233,
+          "unique": 233,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        },
+        "F06": {
+          "slots": 235,
+          "unique": 235,
+          "invalid": 0,
+          "extra_registered_ids": [],
+          "missing_registered_ids": []
+        }
+      },
+      "refresh": {
+        "facts_unchanged": true,
+        "force_restored": true,
+        "intensities_restored": true,
+        "mutated": true,
+        "passed": false,
+        "precondition": {
+          "effective_intensities": {
+            "cal_memory_radio": 0.0,
+            "juno_feedback_tetris": 0.0,
+            "mae_contradictory_antiques": 0.0,
+            "mina_caption_crisis": 0.0,
+            "omar_unrepairable": 0.0,
+            "peter_form_corridor": 0.0
+          },
+          "environment": {
+            "ENCROACH": "1",
+            "ENCROACH_FORCE": ""
+          },
+          "issues": [],
+          "passed": true,
+          "probe_intensities": [
+            0.1,
+            0.12,
+            0.14,
+            0.16,
+            0.18,
+            0.2
+          ],
+          "threshold": 0.3
+        },
+        "same_frame_restored": true
+      }
+    }
+  ],
+  "perceptual_review": {
+    "all_18_images_directly_viewed_by_root": true,
+    "image_sha256": {
+      "actual_arcade_after_passage.png": "97c5953aba434b30876e0694f663cfe701f7691e964e6f7b51b233f1bb5be00a",
+      "actual_arcade_before_passage.png": "aefef7edbdf018be56021621575665f5eb8fdd508241e4c01d00c3da41df78ea",
+      "actual_f04_mirror.png": "cc407845463769f40f8ffd33ef91a0fc7edddec927d2d6b2ae8b75a88658ac5a",
+      "actual_f04_reflection.png": "d41a5b05a57729e81bf7496afcc2181681ef5c0cb181c6170dd47b812adcbe20",
+      "before_retirement_passage.png": "f8eb86adae42901fd65c076834bee4cf00efc47fc57954692f0d82a8bd52e349",
+      "before_retirement_passage_phone.png": "29b2cb535d1f345e563a33528ed5914d7d758f73446b05df63be19b07dcaaeff",
+      "initial_f04.png": "79cf5480372418a9c016a41735d5df23d678492dd712f2f2c826fddfae483b31",
+      "initial_harukiya.png": "89a1cf021524dadb0220431b84222131b0d2e306794e6c4012854823e7a2d17e",
+      "initial_orison.png": "52c0922511b9bda2499041ad750ab3eb369bc533cf5b532ab4da23c89046d83a",
+      "initial_orison_phone.png": "8f059fc16893fc90314ff6ff35b12a607d6da32f67422879fec635ee1028b48c",
+      "initial_passage.png": "83d3830a0160ee8195628c1eec9980c194145516211d9ad1bc553da369b0dc7d",
+      "initial_passage_phone.png": "2036f364ec8f9ef195c47ec3bc951d89d2d6ebdc496adf6716a20b7d3e2a91e1",
+      "initial_street.png": "932befe2cbeaeda18563eb7448aff93cd263ee1eab077c3d5c7d3b47bebf9a34",
+      "initial_street_phone.png": "b9b4cf978eb308bf000884c8e6f43d2763dcf66b4fb493c9f4be1295c7d02b07",
+      "return_harukiya.png": "082836e0ab87a6808469fed8a18fdd93deba8f59d041d81611657705ac96c57b",
+      "separate_world_blocked.png": "1a86c8993123f9fdfc03928989db4499837304d5e48f4bf2011ef95699206b65",
+      "separate_world_initial.png": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "separate_world_restored.png": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab"
+    },
+    "observations": [
+      "Street, Passage, lobby and F04 preserve recognizable geometry in main and secondary cameras; phone views are brighter than the main view.",
+      "The two Passage views retain shopfronts, floor pattern and cart placement before retirement.",
+      "Harukiya initial/return retain bar, stools and tables, but most of the interior is too dark for a finished readability claim.",
+      "The actual F04 mirror contains a reflection; its wall image remains visibly distorted, and the separate reflection view has pronounced striped/banded surface shading. This is appearance debt, not a renderer ownership pass.",
+      "The actual Operations cabinet retains the same room and title/text before and after Passage. INSERT COIN brightness changes while scene contents remain.",
+      "The separate-world red square is visible initially/restored and absent in the blocked view.",
+      "The visible building remains a rough presentation: blocky hand apparatus, repetitive finishes, coarse surfaces and uneven darkness. These screenshots grant no art, human-input, motion or release acceptance.",
+      "The wardrobe ownership defects were found by actual installed-material observations; these fixed camera views do not show or visually clear those specific panels."
+    ]
+  },
+  "transition_samples": {
+    "harukiya -> street": {
+      "n": 1,
+      "median_apply_ms": 34.588,
+      "min_apply_ms": 34.588,
+      "max_apply_ms": 34.588
+    },
+    "street -> passage": {
+      "n": 6,
+      "median_apply_ms": 1375.2615,
+      "min_apply_ms": 1373.578,
+      "max_apply_ms": 1381.387
+    },
+    "passage -> street": {
+      "n": 6,
+      "median_apply_ms": 1370.949,
+      "min_apply_ms": 1365.719,
+      "max_apply_ms": 1379.298
+    },
+    "street -> orison": {
+      "n": 6,
+      "median_apply_ms": 39.802,
+      "min_apply_ms": 39.311,
+      "max_apply_ms": 41.246
+    },
+    "orison -> f04": {
+      "n": 6,
+      "median_apply_ms": 3.9485,
+      "min_apply_ms": 3.816,
+      "max_apply_ms": 4.2
+    },
+    "f04 -> orison": {
+      "n": 6,
+      "median_apply_ms": 3.012,
+      "min_apply_ms": 2.955,
+      "max_apply_ms": 3.121
+    },
+    "orison -> street": {
+      "n": 5,
+      "median_apply_ms": 37.53,
+      "min_apply_ms": 37.031,
+      "max_apply_ms": 37.866
+    },
+    "orison -> harukiya": {
+      "n": 1,
+      "median_apply_ms": 2.641,
+      "min_apply_ms": 2.641,
+      "max_apply_ms": 2.641
+    },
+    "harukiya -> passage": {
+      "n": 1,
+      "median_apply_ms": 1341.25,
+      "min_apply_ms": 1341.25,
+      "max_apply_ms": 1341.25
+    }
+  },
+  "timing_scope": "Six repeated cycles from this failed instrumented full V1 run. Material observers and synchronous probes run outside apply timers but affect workload/context. No speedup attribution against older different-source runs; no release or clean-baseline performance acceptance.",
+  "external_gate_defect": "The initial additive material gate incorrectly rejects valid negative signed Godot RefCounted ObjectIDs. Preserve its red output and revise separately; this does not explain or clear the eight actual GDScript material failures.",
+  "next_decisive_action": "Repair independently verified cross-floor case/material ownership, retain this actual composed red, restore and rerun before applying the separately equivalent one-census optimization."
+}

@@ -1,0 +1,37 @@
+from pathlib import Path
+import datetime, hashlib, importlib.util, json, os, subprocess, sys
+root = Path.cwd()
+plan_path = root / 'design/astra/work/vulkan_composed/execution_plans/v2_candidate_current_01/revisions/base5ec_owner1a_01/plan.json'
+plan = json.loads(plan_path.read_text(encoding='utf-8'))
+actual_head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+if actual_head != plan['required_head']: raise SystemExit('Declared HEAD changed')
+for path, expected in plan['pinned_source_sha256'].items():
+    if hashlib.sha256((root / path).read_bytes()).hexdigest() != expected:
+        raise SystemExit('Declared small source changed: ' + path)
+module_path = root / 'design/astra/work/composed_material_invariants/runtime_execution/environment_contract.py'
+spec = importlib.util.spec_from_file_location('existing_material_environment', module_path)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+env, contract = module.prepare_environment(os.environ)
+name = plan['run_name']
+run = root / 'design/astra/evidence/vulkan_composed/runs' / name
+if run.exists(): raise SystemExit('Fresh run directory required')
+invocation = root / 'design/astra/evidence/vulkan_composed/v2_candidate_invocations' / name
+invocation.mkdir(parents=True, exist_ok=False)
+command = [sys.executable, '-B', 'design/astra/work/vulkan_composed/run_case.py', 'v2', 'candidate', name, '--scope', 'full']
+owner = 'game/scripts/reality/apartment_encroachment.gd'
+record = {'prepared_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+          'command': command, 'material_environment': contract,
+          'head': actual_head,
+          'actual_owner_sha256': hashlib.sha256((root / owner).read_bytes()).hexdigest(),
+          'projected_child_environment': {key: value for key, value in module.actual_wrapper_environment(env, run / 'APPDATA', run / 'frames', root='v2', scope='full').items()
+              if key in set(module.NORMAL) | {'APPDATA','SHOT_DIR','ORISON_BUILDING_ROOT','VULKAN_COMPOSED_VARIANT','VULKAN_COMPOSED_SCOPE','CAMPAIGN_TIME_FREEZE','WEATHER_SEED','TITLE_SCREEN_SILENT'}}}
+(invocation / 'plan.json.source').write_bytes(plan_path.read_bytes())
+(invocation / 'environment_contract.py.source').write_bytes(module_path.read_bytes())
+(invocation / 'invocation.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
+process = subprocess.run(command, cwd=root, env=env, capture_output=True)
+(invocation / 'wrapper.stdout.log').write_bytes(process.stdout)
+(invocation / 'wrapper.stderr.log').write_bytes(process.stderr)
+record['actual_wrapper_diagnostic_exit'] = process.returncode
+(invocation / 'invocation.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
+raise SystemExit(process.returncode)

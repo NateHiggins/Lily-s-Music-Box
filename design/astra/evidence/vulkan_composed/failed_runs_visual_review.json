@@ -1,0 +1,379 @@
+{
+  "utc": "2026-09-05T06:22:40.132813+00:00",
+  "runs": [
+    {
+      "run": "raw_v1_01",
+      "receipt": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/result.json",
+      "receipt_sha256": "bbdf8649e2cd67293f0f4b12f1e07bff4c35d1b5ae76ec5a9408e39e02a26a50",
+      "actual_engine_exit": 3221225477,
+      "elapsed_seconds": 75.514,
+      "gate": {
+        "diagnostic_gate_exit": 1,
+        "reasons": [
+          "actual engine/runner exit 3221225477",
+          "2225 non-inherited error headers",
+          "2 geometry-light unpair errors",
+          "2222 independent soft-shadow underflow errors",
+          "functional checks failed or missing",
+          "post-retirement phase absent"
+        ],
+        "unpair_errors": 2,
+        "soft_shadow_underflows": 2222,
+        "non_inherited_error_headers": {
+          "ERROR: geom->softshadow_count==0 - BUG!": 2222,
+          "ERROR: No wall-safe resident route on F04: (9.7428, 9.63, 3.205) -> (1.9, 9.63, 5.6)": 1,
+          "ERROR: BUG, indexing did not unpair geometries from light.": 2
+        },
+        "inherited_manifest_errors": [
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+          }
+        ],
+        "warnings": {
+          "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+          "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1018,
+          "WARNING: no legal wall for found piece cam_noel_witches": 1
+        },
+        "retention": [],
+        "functional_checks_meaningful": false,
+        "expected_unpair_red_observed": false,
+        "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+      },
+      "source_unchanged": true
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "receipt": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/result.json",
+      "receipt_sha256": "fbbd33b74213718787ee563c90c02ce7dd13454cb1ce9c29173b86e2b59b03fe",
+      "actual_engine_exit": 1,
+      "elapsed_seconds": 118.331,
+      "gate": {
+        "diagnostic_gate_exit": 1,
+        "reasons": [
+          "actual engine/runner exit 1",
+          "1 non-inherited error headers",
+          "functional checks failed or missing"
+        ],
+        "unpair_errors": 0,
+        "soft_shadow_underflows": 0,
+        "non_inherited_error_headers": {
+          "ERROR: No wall-safe resident route on F04: (9.7428, 9.63, 3.205) -> (1.9, 9.63, 5.6)": 1
+        },
+        "inherited_manifest_errors": [
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+          },
+          {
+            "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+            "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+          }
+        ],
+        "warnings": {
+          "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+          "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1038,
+          "WARNING: no legal wall for found piece cam_noel_witches": 1
+        },
+        "retention": [],
+        "functional_checks_meaningful": false,
+        "expected_unpair_red_observed": false,
+        "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+      },
+      "source_unchanged": true
+    }
+  ],
+  "images": [
+    {
+      "run": "raw_v1_01",
+      "frame": "actual_f04_mirror.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/actual_f04_mirror.png",
+      "sha256": "bb72e404d5b37330a68cc4d9d242edb7ceba9e1bbe527234aa02b2f4f1ee3d20",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Actual cabinet mirror displays a reflection in its frame. Image is distorted/blurred and the carried device obscures the right; no helper-caused distortion is inferred."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "actual_f04_reflection.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/actual_f04_reflection.png",
+      "sha256": "960dc743823421cd96b1c3c96fa7e23cf642514a7bcba4863135d48c9e40ef1e",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Borrowed reflection viewport contains door, toilet and partition geometry. This establishes visible content only; main-world borrowing is a separate runtime assertion."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "initial_f04.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/initial_f04.png",
+      "sha256": "d506f4b24e969bcc4f57e1108d1ee9b76f22f764bf8b4d2a044106c761e51ba0",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Continuous corridor walls, ceiling and lights are visible; carried device blocks the lower-right. A still does not prove actor ownership checks."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "initial_harukiya.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/initial_harukiya.png",
+      "sha256": "2c3a3aa4d0252c1ab3aeb3633058a627a764fd0b8da70f6f2dc86a7508480048",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "REFINE",
+      "observation": "Very underexposed interior; bar, tables and floor are only partly discernible. Insufficient for detailed interior quality inspection."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "initial_orison.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/initial_orison.png",
+      "sha256": "a210049379e6950ec242f954fa83673101628abb0b13b64e7f532f7b25c8760d",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Door, mail bank and lobby remain visible. Repeating/warped surface appearance is conspicuous; no causal shader attribution is made."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "initial_orison_phone.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/initial_orison_phone.png",
+      "sha256": "96a3b7033809517975950cc90160e7fd2e94d8ffbe024669e6945a2978a65b4d",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Phone viewport shows the doorway/mail bank without the carried device; repeated surface appearance remains visible."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "initial_passage.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/initial_passage.png",
+      "sha256": "5408cb3d63fab680b307540cb8b5873d438e4430e082bb23d966b260982afba1",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Continuous hall, glazed roof, shop grilles and signs are legible. Carried device obscures lower-right architecture."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "initial_passage_phone.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/initial_passage_phone.png",
+      "sha256": "2789f942626166fdb34f66580298adeca0aadfd082b2ed37310da5cff524381e",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Phone viewport shows the shop corridor and signs without the carried device. Low resolution limits detail inspection."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "initial_street.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/initial_street.png",
+      "sha256": "80e05492601b9383b3f03c69db68aa9af93821759757fa502b8dd60ceda8a348",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "REFINE",
+      "observation": "Facade and street remain visible, but the central utility structure/pole obscures much of the scene; dark image and carried device limit inspection."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "initial_street_phone.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/initial_street_phone.png",
+      "sha256": "08581f40a0a83096c6188119cc0861ac51d50d2cb0e60c3f4e0dab79b1f819e4",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "REFINE",
+      "observation": "Phone viewport renders the street without the carried device, but the central structure still obscures the architectural target."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "separate_world_blocked.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/separate_world_blocked.png",
+      "sha256": "1a86c8993123f9fdfc03928989db4499837304d5e48f4bf2011ef95699206b65",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Controlled own-world image is uniformly gray; orange geometry is absent as intended during the blocker control."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "separate_world_initial.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/separate_world_initial.png",
+      "sha256": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Controlled own-world image contains the orange square against gray, matching the intended presence control."
+    },
+    {
+      "run": "raw_v1_01",
+      "frame": "separate_world_restored.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/raw_v1_01/frames/separate_world_restored.png",
+      "sha256": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Orange square is visible again in the controlled own-world viewport. Full retirement is not established by this still."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "actual_f04_mirror.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/actual_f04_mirror.png",
+      "sha256": "d29446c07568824f93c07cafa87e0bbdeb27d23fc7cfc343c0cb01d4b5a978b3",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Actual cabinet mirror displays a reflection in its frame. Image is distorted/blurred and the carried device obscures the right; no helper-caused distortion is inferred."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "actual_f04_reflection.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/actual_f04_reflection.png",
+      "sha256": "906086d61a58fa401c821c00cea5c9562be0545092704eaca8ff52824c0e59d7",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Borrowed reflection viewport contains door, toilet and partition geometry. This establishes visible content only; main-world borrowing is a separate runtime assertion."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "before_retirement_passage.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/before_retirement_passage.png",
+      "sha256": "785b1d27fb616204eacaecf94870f8f676631190eab862c7e9cb2da19837381b",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Hall, shop grilles, signs and cart remain visible after repeated transitions. Device obscures lower-right; this precedes retirement."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "before_retirement_passage_phone.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/before_retirement_passage_phone.png",
+      "sha256": "658857c00f5297a813e84fbc977f5c47e8a9c2d18aa4a1c52b3fd503090616e8",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Phone viewport retains the hall/cart after repeated transitions. This is a shared-world content check, not physical handset operation."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "initial_f04.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/initial_f04.png",
+      "sha256": "bf78457184f6945e55648c7cc6fa15e6ca00554762d13c08d97e273fe1aa46e2",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Continuous corridor walls, ceiling and lights are visible; carried device blocks the lower-right. A still does not prove actor ownership checks."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "initial_harukiya.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/initial_harukiya.png",
+      "sha256": "5a65d6934ecb793e0bebcaa5e2451eeb363000f4bf61b8b7553725095ad8d86e",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "REFINE",
+      "observation": "Very underexposed interior; bar, tables and floor are only partly discernible. Insufficient for detailed interior quality inspection."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "initial_orison.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/initial_orison.png",
+      "sha256": "3dbdae6bb4106d4f1da2ad6c660ead1a59046e0daeb0986ca94a28f780b0e5e8",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Door, mail bank and lobby remain visible. Repeating/warped surface appearance is conspicuous; no causal shader attribution is made."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "initial_orison_phone.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/initial_orison_phone.png",
+      "sha256": "b935d41343ba3a50687669086375e8b746026303a2008cee3cd5fef11b2dff14",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Phone viewport shows the doorway/mail bank without the carried device; repeated surface appearance remains visible."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "initial_passage.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/initial_passage.png",
+      "sha256": "bfb0fc3adbff25d9f8dca798aefb969d303a82937fd3c4e22aa66a7ff235b224",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Continuous hall, glazed roof, shop grilles and signs are legible. Carried device obscures lower-right architecture."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "initial_passage_phone.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/initial_passage_phone.png",
+      "sha256": "9e76461a270d7931e76e7f8aee41336d2bef8519061477bb7d2fc9537c2b1cf7",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Phone viewport shows the shop corridor and signs without the carried device. Low resolution limits detail inspection."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "initial_street.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/initial_street.png",
+      "sha256": "6cf8d10911ee21bad54ab12631534b9d65af127f72b803e0144c27a19400dfd6",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "REFINE",
+      "observation": "Facade and street remain visible, but the central utility structure/pole obscures much of the scene; dark image and carried device limit inspection."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "initial_street_phone.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/initial_street_phone.png",
+      "sha256": "db9b0b9b66b56afede179248c9dd9f46b67ba6186b3ff45c0452ebbd984e715e",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "REFINE",
+      "observation": "Phone viewport renders the street without the carried device, but the central structure still obscures the architectural target."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "return_harukiya.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/return_harukiya.png",
+      "sha256": "c8150f8e5ebd8e3da99a36b8311cd6ed3851e61b27f91d63ceaf662c778bf313",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "REFINE",
+      "observation": "Returned bar/cafe composition is present but similarly underexposed. No arcade screen is legibly shown, so owner reactivation rests on runtime checks, not this image."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "separate_world_blocked.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/separate_world_blocked.png",
+      "sha256": "1a86c8993123f9fdfc03928989db4499837304d5e48f4bf2011ef95699206b65",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Controlled own-world image is uniformly gray; orange geometry is absent as intended during the blocker control."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "separate_world_initial.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/separate_world_initial.png",
+      "sha256": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Controlled own-world image contains the orange square against gray, matching the intended presence control."
+    },
+    {
+      "run": "candidate_v1_diag_01",
+      "frame": "separate_world_restored.png",
+      "path": "design/astra/evidence/vulkan_composed/runs/candidate_v1_diag_01/frames/separate_world_restored.png",
+      "sha256": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "directly_viewed": true,
+      "composition_inspection_verdict": "SALVAGEABLE",
+      "observation": "Orange square is visible again in the controlled own-world viewport. Full retirement is not established by this still."
+    }
+  ],
+  "scope": "All 29 retained PNGs directly inspected with view_image. Composition inspection only; no human acceptance, traversal, current-source green, causal shader or release-performance claim.",
+  "comparison": "The initial five raw/candidate compositions retain the same broad architectural arrangement. No obvious missing architectural population is visible in those stills. Different frame/actor state and failed runs prevent stronger equivalence claims."
+}

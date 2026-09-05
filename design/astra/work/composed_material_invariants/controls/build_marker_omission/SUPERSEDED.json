@@ -1,0 +1,10 @@
+{
+  "status": "UNRUN_SUPERSEDED_EXPECTED_RED_PREDICTION_WITHDRAWN",
+  "retained_original_receipt": "receipt.json",
+  "omission_sha256": "eb623645434945171f887f6e8a91aba0f0113280a392409d002a986131a98170",
+  "owner_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "source_finding": "_bind_storey seeds missing living_storey in place on active surface overrides before _storey_material, repairing the absent build seed and preserving installed row/cache identity.",
+  "scope_correction": "Do not run or classify this absence-only transform as expected identity red. The separately declared F00 build marker corruption tests a foreign owner, not absence of a redundant initial seed.",
+  "replacement_preparation": "../build_wrong_storey/receipt.json",
+  "runtime_evidence": "NONE; no engine run for either control at this correction"
+}

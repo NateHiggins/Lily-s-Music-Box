@@ -1,0 +1,13 @@
+--- candidate/apartment_encroachment.gd
++++ drop_late/apartment_encroachment.gd
+@@ -886,7 +886,9 @@
+ 	# and governor reapplication are observed again on the next normal call.
+ 	# Iterate meshes once, preserving the first matching authored case's claim
+ 	# when bounds overlap. Existing case metadata keeps its original authority.
+-	for node in root.find_children("*", "MeshInstance3D", true, false):
++	if not has_meta("equivalence_first_census"):
++		set_meta("equivalence_first_census", root.find_children("*", "MeshInstance3D", true, false))
++	for node in get_meta("equivalence_first_census"):
+ 		var mi := node as MeshInstance3D
+ 		if not _living_candidate(mi, root) or mi.mesh == null:
+ 			continue

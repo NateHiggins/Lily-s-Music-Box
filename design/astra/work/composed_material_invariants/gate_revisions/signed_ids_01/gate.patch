@@ -1,0 +1,23 @@
+--- a/material_gate.py
++++ b/material_gate.py
+@@ -4,6 +4,11 @@
+          "mae_contradictory_antiques", "cal_memory_radio", "omar_unrepairable"}
+ STAGES = ["before_measured"] + [f"cycle_{i}" for i in range(6)] + ["before_retirement"]
+ FLOORS = {"F02", "F03", "F04", "F05", "F06"}
++
++
++def valid_instance_id(value):
++    """Godot Variant int preserves signed64 ObjectIDs; zero is not an instance."""
++    return type(value) is int and -(1 << 63) <= value < (1 << 63) and value != 0
+ 
+ 
+ def safe_refresh_contract(refresh):
+@@ -72,7 +77,7 @@
+                 reasons.append(f"{stage}/{case}: nonempty actual finish and prop populations required")
+             for item in finishes + props:
+                 current_ids.add(item.get("material_id"))
+-                if not item.get("path") or not isinstance(item.get("material_id"), int) or item["material_id"] <= 0:
++                if not item.get("path") or not valid_instance_id(item.get("material_id")):
+                     reasons.append(f"{stage}/{case}: missing real draw/material identity")
+                 if item.get("live") is not True or item.get("marker_ok") is not True:
+                     reasons.append(f"{stage}/{case}: stale installed material or missing owner marker")

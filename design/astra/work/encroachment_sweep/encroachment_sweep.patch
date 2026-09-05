@@ -1,0 +1,111 @@
+--- a/game/scripts/reality/apartment_encroachment.gd
++++ b/game/scripts/reality/apartment_encroachment.gd
+@@ -874,63 +874,65 @@
+ 	if not enabled:
+ 		return 0
+ 	props_reached = 0
++	var rows_by_case := {}
+ 	for case_id in units:
+-		var unit: Dictionary = units[case_id]
+-		var rect: Vector4 = unit.rect
+-		var floor_y: float = unit.floor_y
+-		var rows: Array = []
+-		for node in root.find_children("*", "MeshInstance3D", true, false):
+-			var mi := node as MeshInstance3D
+-			if not _living_candidate(mi, root):
+-				continue
+-			if mi.mesh == null or not (mi.material_override is ShaderMaterial):
+-				continue
+-			var shader_path := ""
+-			if (mi.material_override as ShaderMaterial).shader != null:
+-				shader_path = (mi.material_override as ShaderMaterial).shader.resource_path
+-			if not shader_path.get_file().begins_with("orison_surface"):
+-				continue
+-			if (mi.material_override as ShaderMaterial).has_meta("encroachment_case"):
+-				if str(mi.material_override.get_meta("encroachment_case")) == case_id:
+-					rows.append({"mesh": mi, "material": mi.material_override,
+-							"shared": mi.material_override.get_meta("encroachment_shared")})
+-				continue
+-			var aabb := _world_aabb(mi)
+-			if aabb.size == Vector3.ZERO:
+-				continue
+-			if aabb.position.y > floor_y + 3.6 or aabb.end.y < floor_y - 0.2:
+-				continue
+-			if not _aabb_meets_rect(aabb, rect, 0.0):
+-				continue
+-			var shared: Material = mi.material_override
+-			var own := (shared as ShaderMaterial).duplicate() as ShaderMaterial
++		rows_by_case[case_id] = []
++	# This census lives for one sweep only. Late nodes, replacement materials
++	# and governor reapplication are observed again on the next normal call.
++	# Iterate meshes once, preserving the first matching authored case's claim
++	# when bounds overlap. Existing case metadata keeps its original authority.
++	for node in root.find_children("*", "MeshInstance3D", true, false):
++		var mi := node as MeshInstance3D
++		if not _living_candidate(mi, root) or mi.mesh == null:
++			continue
++		var material := mi.material_override as ShaderMaterial
++		if material == null or material.shader == null \
++				or not material.shader.resource_path.get_file().begins_with("orison_surface"):
++			continue
++		if material.has_meta("encroachment_case"):
++			var owner_id := str(material.get_meta("encroachment_case"))
++			if rows_by_case.has(owner_id):
++				(rows_by_case[owner_id] as Array).append({"mesh": mi, "material": material,
++						"shared": material.get_meta("encroachment_shared")})
++			continue
++		var aabb := _world_aabb(mi)
++		if aabb.size == Vector3.ZERO:
++			continue
++		for case_id in units:
++			var unit: Dictionary = units[case_id]
++			var rect: Vector4 = unit.rect
++			var floor_y: float = unit.floor_y
++			if aabb.position.y > floor_y + 3.6 or aabb.end.y < floor_y - 0.2 \
++					or not _aabb_meets_rect(aabb, rect, 0.0):
++				continue
++			var own := material.duplicate() as ShaderMaterial
+ 			own.set_meta("encroachment_case", case_id)
++			own.set_meta("encroachment_shared", material)
+ 			own.set_meta("living_storey", _floor_of(case_id))
+-			own.set_meta("encroachment_shared", shared)
+ 			own.set_shader_parameter("mask_proc_scale", 2.4)
+ 			own.set_shader_parameter("mask2_threshold", Vector4(0.55, 0.58, 0.46, 0.55))
+ 			own.set_shader_parameter("mask2_softness", Vector4(0.15, 0.14, 0.30, 0.15))
+ 			own.set_shader_parameter("mask_threshold", Vector4(0.72, 0.50, 0.60, 0.50))
+ 			own.set_shader_parameter("mask_softness", Vector4(0.08, 0.30, 0.22, 0.25))
+-			# A batched draw spans the storey: the states show only inside the flat.
+ 			own.set_shader_parameter("state_rect", rect)
+ 			own.set_shader_parameter("state_y", Vector2(floor_y - 0.2, floor_y + 3.6))
+ 			_bind_living(own, _floor_of(case_id))
+ 			mi.material_override = own
+-			rows.append({"mesh": mi, "material": own, "shared": shared})
++			var rows: Array = rows_by_case[case_id]
++			rows.append({"mesh": mi, "material": own, "shared": material})
+ 			if OS.get_environment("ENCROACH_DEBUG") == "1" and rows.size() <= 12:
+ 				print("[ENCROACH]   %s reaches %s (%s)" % [case_id, mi.get_path(), aabb])
++			break
++	for case_id in units:
++		var rows: Array = rows_by_case[case_id]
+ 		prop_rows[case_id] = rows
+ 		props_reached += rows.size()
+ 		if OS.get_environment("ENCROACH_DEBUG") == "1":
+ 			print("[ENCROACH]   %s: %d prop draws" % [case_id, rows.size()])
+ 		_apply_prop_states(case_id, intensities.get(case_id, intensity_for(case_id)))
+ 	print("[ENCROACH] %d prop draws reached across %d case flats" % [props_reached, prop_rows.size()])
+-	# The tentacles may come out now: the objects they explore exist.
+ 	_tentacle_candidates.clear()
+ 	_props_ready = true
+-	# §5a: the organism goes anywhere on the storey, so every layered prop on
+-	# the storey binds its field — not only those inside a flat.
+ 	for floor_id in fields:
+ 		var unit_floor: Node = null
+ 		for case_id in units:
+@@ -940,7 +942,6 @@
+ 		if unit_floor != null:
+ 			_bind_storey(unit_floor, floor_id, fields[floor_id])
+ 	return props_reached
+-
+ 
+ func _apply_prop_states(case_id: String, value: float) -> void:
+ 	if not prop_rows.has(case_id):

@@ -1,0 +1,36 @@
+{
+  "status": "COMPOSED_RUN_RETURNED",
+  "baseline_result_sha256": "a989c22dcab75312591058f50ba7d18ce2e9a073e254b0f929572f2a58ca452e",
+  "owner_sha256": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+  "temporary_test_copies": {
+    "game/tests/fixtures/encroachment_sweep/baseline.gd": {
+      "new_sha256": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+      "baseline_sha256": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+      "saved_new": "0_new.raw",
+      "saved_baseline": "0_baseline.raw"
+    },
+    "game/tests/fixtures/encroachment_sweep/candidate.gd": {
+      "new_sha256": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+      "baseline_sha256": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+      "saved_new": "1_new.raw",
+      "saved_baseline": "1_baseline.raw"
+    },
+    "game/tests/fixtures/encroachment_sweep/drop_late.gd": {
+      "new_sha256": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+      "baseline_sha256": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+      "saved_new": "2_new.raw",
+      "saved_baseline": "2_baseline.raw"
+    },
+    "game/tests/fixtures/encroachment_sweep/priority.gd": {
+      "new_sha256": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330",
+      "baseline_sha256": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5",
+      "saved_new": "3_new.raw",
+      "saved_baseline": "3_baseline.raw"
+    }
+  },
+  "restored_new_test_copies": true,
+  "meaning": "The four rebased equivalence copies are not loaded by the composed scene. Temporarily use captured baseline bytes so the two actual run source maps differ only at the production owner. Restore the new tested copies after completion.",
+  "invocation_source_sha256": "43bcf603d66a29c8384e4cd26c49174c3665b12dc90f1fb1809bf5586e25b428",
+  "outer_source_sha256": "59c6d0a87a12cdd36bffcd7d16a246e056984cba5f54fc4ee4e0d6f613b6290a",
+  "invocation_exit": 0
+}

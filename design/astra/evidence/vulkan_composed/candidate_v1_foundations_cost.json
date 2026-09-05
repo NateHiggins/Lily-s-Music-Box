@@ -1,0 +1,390 @@
+{
+  "root": "v1",
+  "variant": "candidate",
+  "execution_scope": "full",
+  "measured_phase_signature": [
+    [
+      0,
+      "street",
+      4
+    ],
+    [
+      0,
+      "passage",
+      4
+    ],
+    [
+      0,
+      "street",
+      4
+    ],
+    [
+      0,
+      "orison",
+      4
+    ],
+    [
+      0,
+      "f04",
+      4
+    ],
+    [
+      0,
+      "orison",
+      4
+    ],
+    [
+      1,
+      "street",
+      4
+    ],
+    [
+      1,
+      "passage",
+      4
+    ],
+    [
+      1,
+      "street",
+      4
+    ],
+    [
+      1,
+      "orison",
+      4
+    ],
+    [
+      1,
+      "f04",
+      4
+    ],
+    [
+      1,
+      "orison",
+      4
+    ],
+    [
+      2,
+      "street",
+      4
+    ],
+    [
+      2,
+      "passage",
+      4
+    ],
+    [
+      2,
+      "street",
+      4
+    ],
+    [
+      2,
+      "orison",
+      4
+    ],
+    [
+      2,
+      "f04",
+      4
+    ],
+    [
+      2,
+      "orison",
+      4
+    ],
+    [
+      3,
+      "street",
+      4
+    ],
+    [
+      3,
+      "passage",
+      4
+    ],
+    [
+      3,
+      "street",
+      4
+    ],
+    [
+      3,
+      "orison",
+      4
+    ],
+    [
+      3,
+      "f04",
+      4
+    ],
+    [
+      3,
+      "orison",
+      4
+    ],
+    [
+      4,
+      "street",
+      4
+    ],
+    [
+      4,
+      "passage",
+      4
+    ],
+    [
+      4,
+      "street",
+      4
+    ],
+    [
+      4,
+      "orison",
+      4
+    ],
+    [
+      4,
+      "f04",
+      4
+    ],
+    [
+      4,
+      "orison",
+      4
+    ],
+    [
+      5,
+      "street",
+      4
+    ],
+    [
+      5,
+      "passage",
+      4
+    ],
+    [
+      5,
+      "street",
+      4
+    ],
+    [
+      5,
+      "orison",
+      4
+    ],
+    [
+      5,
+      "f04",
+      4
+    ],
+    [
+      5,
+      "orison",
+      4
+    ]
+  ],
+  "stations": {
+    "street": {
+      "synchronous_apply_usec": {
+        "n": 12,
+        "median": 324911.5,
+        "p95_nearest_rank": 621532,
+        "max": 621532
+      },
+      "unchanged_scan_usec_per_call": {
+        "n": 12,
+        "median": 187.8125,
+        "p95_nearest_rank": 195.375,
+        "max": 195.375
+      },
+      "wait_usec": {
+        "n": 48,
+        "median": 28979.5,
+        "p95_nearest_rank": 78029,
+        "max": 85065
+      },
+      "viewport_gpu_ms": {
+        "n": 48,
+        "median": 9.88600015640259,
+        "p95_nearest_rank": 41.4910011291504,
+        "max": 70.6719970703125
+      },
+      "viewport_cpu_ms": {
+        "n": 48,
+        "median": 5.02150011062622,
+        "p95_nearest_rank": 9.15799999237061,
+        "max": 9.39599990844727
+      },
+      "objects": {
+        "n": 48,
+        "median": 14556.0,
+        "p95_nearest_rank": 15582,
+        "max": 15632
+      },
+      "draw_calls": {
+        "n": 48,
+        "median": 14531.0,
+        "p95_nearest_rank": 15582,
+        "max": 15582
+      },
+      "primitives": {
+        "n": 48,
+        "median": 13364587.0,
+        "p95_nearest_rank": 15517401,
+        "max": 15521393
+      }
+    },
+    "passage": {
+      "synchronous_apply_usec": {
+        "n": 6,
+        "median": 622336.0,
+        "p95_nearest_rank": 639551,
+        "max": 639551
+      },
+      "unchanged_scan_usec_per_call": {
+        "n": 6,
+        "median": 182.375,
+        "p95_nearest_rank": 189.3125,
+        "max": 189.3125
+      },
+      "wait_usec": {
+        "n": 24,
+        "median": 16682.5,
+        "p95_nearest_rank": 50334,
+        "max": 52773
+      },
+      "viewport_gpu_ms": {
+        "n": 24,
+        "median": 9.796500205993649,
+        "p95_nearest_rank": 27.8239994049072,
+        "max": 41.3289985656738
+      },
+      "viewport_cpu_ms": {
+        "n": 24,
+        "median": 3.540499925613405,
+        "p95_nearest_rank": 6.12400007247925,
+        "max": 7.25699996948242
+      },
+      "objects": {
+        "n": 24,
+        "median": 3935.0,
+        "p95_nearest_rank": 6477,
+        "max": 6512
+      },
+      "draw_calls": {
+        "n": 24,
+        "median": 3493.0,
+        "p95_nearest_rank": 6064,
+        "max": 6073
+      },
+      "primitives": {
+        "n": 24,
+        "median": 1073526.0,
+        "p95_nearest_rank": 3194734,
+        "max": 3195278
+      }
+    },
+    "orison": {
+      "synchronous_apply_usec": {
+        "n": 12,
+        "median": 21246.0,
+        "p95_nearest_rank": 40696,
+        "max": 40696
+      },
+      "unchanged_scan_usec_per_call": {
+        "n": 12,
+        "median": 189.21875,
+        "p95_nearest_rank": 403.25,
+        "max": 403.25
+      },
+      "wait_usec": {
+        "n": 48,
+        "median": 24646.0,
+        "p95_nearest_rank": 46465,
+        "max": 52809
+      },
+      "viewport_gpu_ms": {
+        "n": 48,
+        "median": 9.250500202178955,
+        "p95_nearest_rank": 21.5750007629395,
+        "max": 68.3899993896484
+      },
+      "viewport_cpu_ms": {
+        "n": 48,
+        "median": 4.900500059127805,
+        "p95_nearest_rank": 5.75899982452393,
+        "max": 6.26000022888184
+      },
+      "objects": {
+        "n": 48,
+        "median": 21147.5,
+        "p95_nearest_rank": 21223,
+        "max": 21225
+      },
+      "draw_calls": {
+        "n": 48,
+        "median": 21147.5,
+        "p95_nearest_rank": 21176,
+        "max": 21178
+      },
+      "primitives": {
+        "n": 48,
+        "median": 14861291.0,
+        "p95_nearest_rank": 15156902,
+        "max": 15157262
+      }
+    },
+    "f04": {
+      "synchronous_apply_usec": {
+        "n": 6,
+        "median": 4116.5,
+        "p95_nearest_rank": 4387,
+        "max": 4387
+      },
+      "unchanged_scan_usec_per_call": {
+        "n": 6,
+        "median": 187.84375,
+        "p95_nearest_rank": 201.375,
+        "max": 201.375
+      },
+      "wait_usec": {
+        "n": 24,
+        "median": 20914.0,
+        "p95_nearest_rank": 43005,
+        "max": 47041
+      },
+      "viewport_gpu_ms": {
+        "n": 24,
+        "median": 6.017499923706055,
+        "p95_nearest_rank": 18.4659996032715,
+        "max": 20.7940006256104
+      },
+      "viewport_cpu_ms": {
+        "n": 24,
+        "median": 4.601500034332275,
+        "p95_nearest_rank": 5.69899988174438,
+        "max": 8.50399971008301
+      },
+      "objects": {
+        "n": 24,
+        "median": 13240.5,
+        "p95_nearest_rank": 13606,
+        "max": 13606
+      },
+      "draw_calls": {
+        "n": 24,
+        "median": 13240.5,
+        "p95_nearest_rank": 13555,
+        "max": 13555
+      },
+      "primitives": {
+        "n": 24,
+        "median": 11137034.0,
+        "p95_nearest_rank": 11942039,
+        "max": 11942039
+      }
+    }
+  },
+  "limits": "Only the identical 36 completed pre-control transitions can be matched across full/root_retirement scopes; phase signatures and final retirement gates must both pass. A crashed/missing final probe is not a completed comparator. Warmup, captures, separate-world control and teardown are excluded. Frame waits include scheduling/vsync and live composition; viewport render timings are separate. Native logging and adaptive material state confound comparisons. No release-performance threshold is invented."
+}

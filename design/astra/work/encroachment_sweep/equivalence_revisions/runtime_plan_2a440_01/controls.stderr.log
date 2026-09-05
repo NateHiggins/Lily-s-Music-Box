@@ -1,0 +1,30 @@
+test_baseline_or_unrelated_failure_rejected (test_gate.GateControls.test_baseline_or_unrelated_failure_rejected) ... ok
+test_changed_or_missing_payload_rejected (test_gate.GateControls.test_changed_or_missing_payload_rejected) ... ok
+test_clean_synthetic_candidate (test_gate.GateControls.test_clean_synthetic_candidate) ... ok
+test_crash_incomplete_and_changed_source_rejected (test_gate.GateControls.test_crash_incomplete_and_changed_source_rejected) ... ok
+test_equal_count_with_repeated_or_reordered_label_rejected (test_gate.GateControls.test_equal_count_with_repeated_or_reordered_label_rejected) ... ok
+test_late_control_must_preserve_first_census (test_gate.GateControls.test_late_control_must_preserve_first_census) ... ok
+test_missing_counts_rejected_without_exception (test_gate.GateControls.test_missing_counts_rejected_without_exception) ... ok
+test_missing_one_order_failure_rejected (test_gate.GateControls.test_missing_one_order_failure_rejected) ... ok
+test_native_errors_never_expected (test_gate.GateControls.test_native_errors_never_expected) ... ok
+test_phase_or_footer_omission_rejected (test_gate.GateControls.test_phase_or_footer_omission_rejected) ... ok
+test_plausible_truncated_full_footer_is_rejected (test_gate.GateControls.test_plausible_truncated_full_footer_is_rejected) ... ok
+test_two_synthetic_selective_reds (test_gate.GateControls.test_two_synthetic_selective_reds) ... ok
+test_bridge_cmdletbinding_array_and_write_error_exit124 (test_runtime_plan.RuntimePlanControls.test_bridge_cmdletbinding_array_and_write_error_exit124) ... ok
+test_candidate_and_declared_reds_keep_native_gate_separate (test_runtime_plan.RuntimePlanControls.test_candidate_and_declared_reds_keep_native_gate_separate) ... ok
+test_changed_raw_log_rejected_before_reassessment (test_runtime_plan.RuntimePlanControls.test_changed_raw_log_rejected_before_reassessment) ... ok
+test_corrupt_backup_refuses_before_any_restore (test_runtime_plan.RuntimePlanControls.test_corrupt_backup_refuses_before_any_restore) ... ok
+test_exact_install_restore_and_foreign_edit_refusal (test_runtime_plan.RuntimePlanControls.test_exact_install_restore_and_foreign_edit_refusal) ... ok
+test_missing_and_malformed_receipt_rejected (test_runtime_plan.RuntimePlanControls.test_missing_and_malformed_receipt_rejected) ... ok
+test_missing_required_artifact_entry_rejected (test_runtime_plan.RuntimePlanControls.test_missing_required_artifact_entry_rejected) ... ok
+test_native_warning_error_retention_and_runner_refusal_rejected (test_runtime_plan.RuntimePlanControls.test_native_warning_error_retention_and_runner_refusal_rejected) ... ok
+test_raw_pass_cannot_substitute_for_named_failure (test_runtime_plan.RuntimePlanControls.test_raw_pass_cannot_substitute_for_named_failure) ... ok
+test_removed_or_reordered_raw_assertion_rejected (test_runtime_plan.RuntimePlanControls.test_removed_or_reordered_raw_assertion_rejected) ... ok
+test_retirement_and_label_count_remain_exact (test_runtime_plan.RuntimePlanControls.test_retirement_and_label_count_remain_exact) ... ok
+test_scoped_environment_reset_is_process_local (test_runtime_plan.RuntimePlanControls.test_scoped_environment_reset_is_process_local) ... ok
+test_source_pid_engine_and_selected_variant_rejected (test_runtime_plan.RuntimePlanControls.test_source_pid_engine_and_selected_variant_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.810s
+
+OK

@@ -1,0 +1,79 @@
+{
+  "schema": "astra.wardrobe-floor.run.v1",
+  "phase": "one_census_wardrobe_regression",
+  "expected": "green",
+  "source": "proposed",
+  "before": {
+    "all_game_files_sha256": "0a3da8a2fa24012b172446e833f15ac81357a468eeacf9427bbf7af702386bf8",
+    "runtime_text_sha256": "9e196aa53004b26f0b635fb528ee5686007e8f7a0da50e045a7e111b67724458",
+    "copied_sources": {
+      "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+      "game/scripts/building/furniture_interaction_pass.gd": "7879b5ab4c88dfb50ecb4813997bdca2baaeca29d988ff8110fcfd724b7d2cdf",
+      "game/scripts/building/surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+      "game/scripts/material_library.gd": "28b6b3d46264b424c15301963cb86ff24d162c121a30fe8a3531f11664f0b628",
+      "game/scripts/props/baked_furniture_interaction.gd": "79693c5623ab062e2e7e48d5b174f94f4037d08a0b39720dbad1daeab3c122ea",
+      "game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+      "game/scripts/reality/living_field.gd": "f20af296e04bb059078051435aa444d910e447d44c185afd10d6878388c06ed5",
+      "game/shaders/orison_surface.gdshader": "bff87ead0f95d9fc92dfe6e9555c08e0a08f263a650d428de9980f6a16ccd4ab",
+      "game/shaders/orison_surface.gdshaderinc": "91bcb14baa6f95d21d58eea6cbaef5d913f25acfc0eb9a6afc421dad58f48554",
+      "game/shaders/orison_surface_cutout.gdshader": "addfe08caf718384185f4cf3e0c6553d1d013e38d60e421a9cb03fb6f667e5c4",
+      "game/tests/ApartmentMaterialBindingTest.tscn": "a3188f68815a952ad1abe55b1ead4b2e07d4de1675d94b2810eb8b5cbafb891f",
+      "game/tests/WardrobeFloorAdmissionTest.tscn": "31bd226c4d6c4c4e0a7070689fad3eefd1d944656c442c64e2b8d6fbd24c2846",
+      "game/tests/apartment_material_binding_test.gd": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+      "game/tests/wardrobe_floor_admission_test.gd": "8003596b3b6e0b39ab15cded32cff21aeeaf55202d2a971a75a8ebc299b184be"
+    },
+    "head_observed": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+    "instruments": {
+      "run.py": "75c3855e7e58f6d79f796232ef42bd79daafcdcd33e4b0dba6c2e5e6f8745a83",
+      "core.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+      "assess.py": "3cfe67f70c9de6857ef559bdf26ad1ddcba13c90c7a6bd456d40164bdf058f27",
+      "support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+      "runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+      "package.json": "4e96ede5c0b1f3d366dd8a192946fcb0fc80a05fabf1915f6a609cf160b6aacb",
+      "expected_contract.json": "a3074f245614285e615c5f3cd1be86bb5e30bdac6521d22ffc8f076d02b343d5",
+      "preparation.json": "dcdf5036fa98fe0fe6f616b6ac13d8bf930f1a47c0d31e4288209b3cac0bf956",
+      "run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "integration_execute.py": "2ef8b0eb5538b09856376a37d617d3a81868e6e3ff6f82e6a0342d3bfab30fd7",
+      "integration_package.json": "c7a8f7a4471db59bf17326b7779a7e7b080ca3263ed526698999c44f47b90213"
+    },
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "started_utc": "2026-09-05T10:32:19.079317+00:00",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\apartment_floor_ownership_01\\runtime_01\\runner_bridge.ps1",
+    "-InvocationPath",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\one_census_wardrobe_01\\runs\\01_candidate\\invocation.json"
+  ],
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/WardrobeFloorAdmissionTest.tscn",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\one_census_wardrobe_01\\runs\\01_candidate\\godot.stdout.log",
+    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\one_census_wardrobe_01\\runs\\01_candidate\\shots",
+    "TimeoutSeconds": 60,
+    "ExtraArgs": [
+      "--verbose"
+    ]
+  },
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\one_census_wardrobe_01\\runs\\01_candidate\\APPDATA",
+  "profile_existed_before_run": false,
+  "cleared_environment_keys": [
+    "APPDATA"
+  ],
+  "expected_checks": 63
+}

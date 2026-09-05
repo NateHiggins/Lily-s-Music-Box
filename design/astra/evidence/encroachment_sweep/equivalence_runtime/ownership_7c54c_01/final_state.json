@@ -1,0 +1,29 @@
+{
+  "at_utc": "2026-09-05T09:32:22.951949+00:00",
+  "head_observed": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "godot_processes": [],
+  "final_installed_tests": {
+    "game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+    "game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+    "game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+    "game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5"
+  },
+  "final_production_bindings": {
+    "game/scripts/building/surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+    "game/scripts/reality/living_field.gd": "f20af296e04bb059078051435aa444d910e447d44c185afd10d6878388c06ed5",
+    "game/scripts/dream/dream_organelle_lifecycle.gd": "cd312f3d0f5430338bc8b6b6d2a0cb229b6ae5c97af3d3bc82cf0fa9ffc8cb82",
+    "game/scripts/props/functional_prop.gd": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca",
+    "game/shaders/orison_surface.gdshader": "bff87ead0f95d9fc92dfe6e9555c08e0a08f263a650d428de9980f6a16ccd4ab",
+    "game/shaders/orison_surface_cutout.gdshader": "addfe08caf718384185f4cf3e0c6553d1d013e38d60e421a9cb03fb6f667e5c4",
+    "game/shaders/orison_surface.gdshaderinc": "91bcb14baa6f95d21d58eea6cbaef5d913f25acfc0eb9a6afc421dad58f48554",
+    "game/scripts/reality/apartment_encroachment.gd": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db"
+  },
+  "last_raw_result": "design/astra/evidence/encroachment_sweep/equivalence_runtime/ownership_7c54c_01/runs/04_restored/result.json",
+  "last_raw_result_sha256": "c8020bd2c9c5d7114ca25fdba581ce949dfcff72e1751aedb60aacfdfee3293c",
+  "last_complete_game_manifest_digest": "27ff2f55d349896440fefb3170ff1874fee3da8803eee00f1cb5b240eca38a6b",
+  "current_scope": "Fourteen selected current files rechecked; complete unchanged game hash map is bound by final recorded after snapshot, not freshly rehashed at lane release.",
+  "lane": "RELEASED_TO_ROOT_NO_ENGINE_PROCESSES",
+  "tests": "Six successful exact files left installed; production owner and all other game bytes unchanged in the four recorded snapshots."
+}

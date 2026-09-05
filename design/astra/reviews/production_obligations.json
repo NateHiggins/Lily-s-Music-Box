@@ -94,7 +94,7 @@
     "authoritative_owner": "Owner registry / geometry provider",
     "automated_proof": "See exact base_audits exits; new outcome proof pending.",
     "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "C1 rehearsal; C2 dirty consumer",
+    "current_state": "C1 source/export reconstruction plan is ready with exact dependencies/protected hashes; no generator or provider was executed/adopted. C1 human acceptance remains pending and dirty C2 consumers remain quarantined.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -103,7 +103,7 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-F01-CUT",
     "implementation_strategy": "Close clean lineage and reversible provider parity, full routes/save and two-cycle teardown.",
-    "next_decisive_action": "Close clean lineage and reversible provider parity, full routes/save and two-cycle teardown.",
+    "next_decisive_action": "Reconstruct the attributable clean C1 export with the protected17 guard, then implement an explicit off-by-default provider preserving all aliases/current consumers and prove actual-root lifecycle. Preserve v1 default and human-pending C1 scope.",
     "open_defects": [
       "C1 rehearsal; C2 dirty consumer"
     ],
@@ -119,7 +119,10 @@
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
-        "DEBT_DEDUPLICATION.md"
+        "DEBT_DEDUPLICATION.md",
+        "work/f01_reconstruction_review/README.md",
+        "work/f01_reconstruction_review/source_inventory.json",
+        "work/f01_reconstruction_review/consumer_review.md"
       ]
     },
     "scope": "early complete path",
@@ -129,9 +132,9 @@
   },
   {
     "authoritative_owner": "CampaignClock",
-    "automated_proof": "Calendar 52/52 exit0 (0.881s), protected-bind old source 51/52 exit1, midnight omission 49/50 exit1. World-time focused27/27; original duration and sight-presence controls fail. Raw exact-source receipts retained.",
+    "automated_proof": "Existing calendar52/52, world-time27/27 and protected-bind controls retained. WorldTimestamp original51/76 native1; candidate/restored/final76/76 native0. Wrapped-time61/76 and late-sample75/76 omissions are intended reds with exact restoration. Final job and register153/153 regressions pass; calendar52/52 and save compatibility14/14 retained.",
     "composed_runtime_proof": "Final title_save_recovery/runtime/matrix_calendar_final:30/30 exit0,92.851s; all four root directions preserve the exact epoch/start/elapsed clock and destination civil date. Actual Continue enters CampaignShell with a real player and matching clock/facts in both roots (5 checks each). Headless reconstruction/launch evidence, not walked input or full-game performance.",
-    "current_state": "Authored Saturday November 10, 1928; one local hour/minute sample, persisted Gregorian simulation clock, both root providers and visible civil-time readers integrated.",
+    "current_state": "Authored November 10, 1928 and single creation-time hour/minute sampling are integrated. Five world timestamp owners now use qualified campaign elapsed minutes; apartment hearing now respects home presence. These source-bound timestamp and apartment-hearing repairs are committed at 9c12f19cf468d81c76369aca8a4f545a2129240b.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -140,14 +143,13 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-CLOCK",
     "implementation_strategy": "Prove host-date independence and correct elapsed-clock consumers with deterministic reload.",
-    "next_decisive_action": "Replace remaining host Unix world timestamps with explicit campaign provenance; retain legacy ambiguity. Then prove resident perception and schedule delivery in the composed world.",
+    "next_decisive_action": "Prove remaining embodied listening/reading and one coherent ordinary resident day across interruption/reload, preserving ambiguous legacy duration facts and the current authored time policy.",
     "open_defects": [
-      "WorkOrders, inventory, incident and NightRegister timestamp fields still use host Unix time",
-      "Fixed EST only; authored daylight-offset transitions absent",
-      "Legacy ambiguous duration facts require authored recoverability; an old porter intent may hold indefinitely",
-      "Absent-resident sight is gated; audible-event observation still ignores presence",
-      "No human schedule/calendar perceptual acceptance or complete game performance proof",
-      "Complete dramatic-boundary, human schedule and physical perception coverage remains open"
+      "Fixed EST is the current authored policy; historical seasonal offset transitions are not modeled (scope limit, no host-DST fallback)",
+      "Legacy ambiguous duration facts still require authored recoverability; an old porter intent may hold indefinitely",
+      "Corridor/visited-flat/outdoor perception and actual historical-event learning remain unproven",
+      "No human schedule/calendar perceptual acceptance or complete-game performance proof",
+      "Complete dramatic-boundary and physical perception coverage remains open"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -170,8 +172,13 @@
         "evidence/world_time_coherence/receipt.json",
         "evidence/title_save_recovery/runtime/matrix_calendar_final/receipt.json",
         "evidence/title_save_recovery/runtime/actual_continue_v1_final/receipt.json",
-        "evidence/title_save_recovery/runtime/actual_continue_v2_final/receipt.json"
-      ]
+        "evidence/title_save_recovery/runtime/actual_continue_v2_final/receipt.json",
+        "evidence/world_timestamps/validation.json",
+        "reviews/world_timestamp_review.md",
+        "evidence/hearing_presence/validation.json",
+        "reviews/hearing_presence_review.md"
+      ],
+      "timestamp_provenance_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b"
     },
     "scope": "early complete path",
     "severity": "RELEASE_CRITICAL",
@@ -231,9 +238,9 @@
   },
   {
     "authoritative_owner": "OpenShiftSituation / NpcObservationLedger",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "Corrected owners in main; default v1 presence assumes home",
+    "automated_proof": "Hearing original8/13 native5 versus mistakenly configured expected6 remains red/mismatched. Corrected focused13/13 native0. Existing Open Shift authority passes21 raw checks and save matrix17/17; native/gates0.",
+    "composed_runtime_proof": "Revised composed fixture actually reloads state and constructs V2 and V1 roots, then reads the root-owned ledger: old ledger4 failures among23 checks, corrected23 passes, native/gate0. Situation remains unoffered at boundaries; supplied neutral events prove no retroactive hearing and later properly dated observation. Same-process scope; retained found-art warning.",
+    "current_state": "Both roots share campaign time and home presence. Sight and apartment hearing now refuse absent listeners; real-root belief reconstruction is tested. Four player dispositions still require complete lived-route proof.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -242,9 +249,10 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-OPENSHIFT",
     "implementation_strategy": "Bind real presence; play four dispositions through reconstruction.",
-    "next_decisive_action": "Bind real presence; play four dispositions through reconstruction.",
+    "next_decisive_action": "Play the four work/ignore/abandon/meddle dispositions through real movement, observation, owned consequences and interruption; retain the bounded apartment-hearing proof.",
     "open_defects": [
-      "Corrected owners in main; default v1 presence assumes home"
+      "Actual corridor/venue perception and complete work/ignore/abandon/meddle routes remain unproven",
+      "No human listening/input-only route or complete dramatic-boundary acceptance"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -255,11 +263,18 @@
     "provenance": {
       "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
       "branch": "codex/astra-canonical-20260904",
+      "repair_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
-        "DEBT_DEDUPLICATION.md"
-      ]
+        "DEBT_DEDUPLICATION.md",
+        "reviews/world_time_coherence.md",
+        "evidence/world_time_coherence/receipt.json",
+        "evidence/hearing_presence/validation.json",
+        "reviews/hearing_presence_review.md"
+      ],
+      "timestamp_provenance_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "apartment_hearing_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b"
     },
     "scope": "early complete path",
     "severity": "RELEASE_CRITICAL",
@@ -296,7 +311,8 @@
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
         "DEBT_DEDUPLICATION.md"
-      ]
+      ],
+      "apartment_hearing_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b"
     },
     "scope": "early complete path",
     "severity": "RELEASE_CRITICAL",
@@ -305,9 +321,9 @@
   },
   {
     "authoritative_owner": "Shared agent stack",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "Profiles/routes lack complete day-in-life proof",
+    "automated_proof": "Direct-route original25/33/native8 and corrected33/33/native0; exact nav-call omission20/21/native1 and old-coordinate omission15/21/native1. Both restore to complete31/31 journeys. Existing waiting40/40 and Passage26/26 pass with assertions unchanged. Earlier fixture errors/timeouts and audit-capsule limits are retained.",
+    "composed_runtime_proof": "Three full31-check actual-V1 runs cover untouched4D home departure, real lift readiness, actual Body-clear public F01 route, reached destination, normal44.274-second dwell draw, expiry, real return readiness and same-home return, then root retirement. One _step per real physics frame; other resident choices/player held and campaign clock frozen. This retains the production layer-zero walk-through actor and hidden lift-rider abstraction. Wrapper/process duration is not a performance or physical player-traversal result. Known host-loader/RGB8/found-art diagnostics remain separately classified.",
+    "current_state": "Applied portal-centre and wall-normal approaches, public lift waiting, a public F01 destination and guarded short direct routes. One actual Transient Guests owner completes arrival/dwell/return in three source-bound V1 runs. The shared persistent ordinary-day agent outcome remains incomplete.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -316,9 +332,12 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-AGENT-AMBIENT",
     "implementation_strategy": "Prove second character from data with venue, social encounter, props, disturbance and reload.",
-    "next_decisive_action": "Prove second character from data with venue, social encounter, props, disturbance and reload.",
+    "next_decisive_action": "Extend one resident to a persistent ordinary day with located perception, venue and prop use, social encounter, interruption and reload; prove the shared framework with a second character from data.",
     "open_defects": [
-      "Profiles/routes lack complete day-in-life proof"
+      "No complete ordinary-day, venue/social, interruption, persistence or human embodiment acceptance",
+      "The existing graph fallback is not generally capsule-safe; the new short-leg admission adds no crowd avoidance and physical support is sampled",
+      "Production Body remains layer/mask0 and scripted walk-through movement; lift riders are hidden during the real readiness-controlled ride",
+      "Earlier waiting/approach audit capsule0.33/1.524/+0.80 is not actual Body0.28/1.55/+0.775 or uniformly conservative; the new direct envelope0.33/1.65/+0.825 has a separate containment proof"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -332,8 +351,18 @@
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
-        "DEBT_DEDUPLICATION.md"
-      ]
+        "DEBT_DEDUPLICATION.md",
+        "evidence/resident_lift_waiting/validation.json",
+        "evidence/resident_lift_waiting/final_source_binding.json",
+        "reviews/resident_lift_waiting_review.md",
+        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json",
+        "evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/01_original_focused/result.json",
+        "evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/02_candidate_focused/result.json",
+        "evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/03_candidate_lifecycle/result.json",
+        "evidence/resident_f01_haunt/nav_validation/nav_direct_03/aggregate.json"
+      ],
+      "apartment_hearing_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "navigation_commit": "da68962aaeaabf56851abb7190dda14d7ff5675f"
     },
     "scope": "full world",
     "severity": "RELEASE_CRITICAL",
@@ -530,7 +559,7 @@
     "authoritative_owner": "PlayerController / prop authorities",
     "automated_proof": "See exact base_audits exits; new outcome proof pending.",
     "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "85 implementors;2 forbidden prompts;185 legacy carriers",
+    "current_state": "The selected navigation_commit_audits_01 reports 86 implementors, 0 forbidden prompts, 0 uncovered legacy carriers, 184 covered legacy carriers and 2 ambiguous dynamic prompts. Live carrier violations were repaired with preserved source red/green proof.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -538,10 +567,10 @@
     "experiential_outcome": "Tools answer contact, resistance, sound and interruption on both inputs",
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-INTERACTION",
-    "implementation_strategy": "Remove live carrier violations with red proof; shared player/NPC stance/contact semantics.",
-    "next_decisive_action": "Remove live carrier violations with red proof; shared player/NPC stance/contact semantics.",
+    "implementation_strategy": "Complete remaining legacy/dynamic prompt migration and prove actual input routes; shared player/NPC stance/contact semantics.",
+    "next_decisive_action": "Complete remaining legacy/dynamic prompt migration and prove actual input routes; shared player/NPC stance/contact semantics.",
     "open_defects": [
-      "85 implementors;2 forbidden prompts;185 legacy carriers"
+      "184 covered legacy carriers and 2 ambiguous dynamic prompts remain for migration/review; actual input routes and shared player/NPC stance/contact semantics remain unproven."
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -604,7 +633,7 @@
     "authoritative_owner": "Domain data owners",
     "automated_proof": "See exact base_audits exits; new outcome proof pending.",
     "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "1304 findings including build-time false positives",
+    "current_state": "The selected navigation_commit_audits_01 reports 1311 findings: 1297 FIELD_UNREAD, 11 FILE_UNREAD, 2 DURABLE_NUMERIC_MONOTONIC_ONLY and 1 MALFORMED; build-time false positives still require consumer-family triage.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -615,7 +644,7 @@
     "implementation_strategy": "Classify real consumers; never blanket-baseline or delete authored data.",
     "next_decisive_action": "Classify real consumers; never blanket-baseline or delete authored data.",
     "open_defects": [
-      "1304 findings including build-time false positives"
+      "The selected navigation_commit_audits_01 reports 1311 findings: 1297 FIELD_UNREAD, 11 FILE_UNREAD, 2 DURABLE_NUMERIC_MONOTONIC_ONLY and 1 MALFORMED; build-time false positives still require consumer-family triage."
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -639,9 +668,9 @@
   },
   {
     "authoritative_owner": "Residency / domain simulation budgets",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "Partial-root historical timings incomparable",
+    "automated_proof": "Historical operation omission emits1174 unpair and2316 underflow diagnostics; exact restoration296/296 removes both. Guard-only viewport omission266/305 has39 intended arcade reds; restored305/305. Material36, wardrobe63 and rebased equivalence171 regressions pass with retained selective reds and source-bound restoration. Failed parse/ownership attempts remain preserved.",
+    "composed_runtime_proof": "Final current owner1a/cde44/base5ec:305/305,18 PNGs directly reviewed,36 main-loop transitions, actual shell/world retirement, native/gate0. Separate d67 instrumented run314/314 restores every recorded registry lifecycle target and retires case resources. V2 base14/14 releases both roots, with2 directly reviewed but unreadable terminal views. Retained loader/RGB8/found-art warnings; no human or release acceptance.",
+    "current_state": "Owner1a1b067f retains correct authored-floor admission and exact installed registries in all eight actual V1 observations; 314/314 and native/base/additive gates0. Rebasing one-census passes171/171 with14/16 selective reds and exact restoration; actual wardrobe regression63/63. Final base V1 passes305/305 with actual retirement and no pairing/retention errors. The private-viewport omission fails39 arcade checks and exact restoration passes305. V2 structural/render/retirement14 passes, but its bedside camera sees a wall instead of a readable terminal. The current production candidates await their named checkpoint.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -650,13 +679,20 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-PERF",
     "implementation_strategy": "Profile content-equivalent roots and two cycles; full target-machine p95 and leak proof.",
-    "next_decisive_action": "Profile content-equivalent roots and two cycles; full target-machine p95 and leak proof.",
+    "next_decisive_action": "Land the reviewed foundation sources and evidence. Correct the V2 viewing fixture using the existing authored operator stance, then reconstruct attributable clean C1 ownership exports/provider for the actual V2 world. Continue content-equivalent residency/frame-budget work; do not treat sparse V2 or adaptive-quality deltas as release performance.",
     "open_defects": [
-      "Partial-root historical timings incomparable"
+      "Final base V1 Street-to-Passage1195.793ms and reverse1182.595ms medians (n6 each) remain visible stalls; main-loop quality budget varies from1.0 to0.0.",
+      "Sole-source-change two-run medians fall1385.249 to1188.5935ms and1377.8 to1179.5735ms, but adaptive governor and some population rows differ; no isolated fixed-workload speedup claim.",
+      "No ordinary production carry path for case-tagged household props was found; future/debug Vantry relocation and transported-residue policy remain separately unspecified, not an established ordinary-play defect.",
+      "V2 bedside-to-terminal capture is occluded by the private hall; its14 structural checks do not establish terminal readability or player interaction.",
+      "Current renderer/material source checkpoint is pending; no-op native-call count remains explicitly unproved.",
+      "Harukiya >250 remains red despite247/247 measured indexing and36 source-eligible groups; historical264 discrepancy unresolved.",
+      "Full-game steady frame pacing, equal-quality workloads, target-machine performance and long-running ownership growth remain unproved.",
+      "Inherited loader diagnostics, RGB8 conversions and found-art placement warnings remain; dark venues, reflection bands and coarse apparatus need production art and human/listening review."
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
-      "measured_result": null
+      "measured_result": "Full V1 candidate Street-to-Passage median 622.336 ms and reverse 615.593 ms (six each). Matched root-retirement omission/restoration Street-to-Passage 755.713/617.063 ms; reverse 617.259/610.729 ms. Native logging confounds omission deltas. These synchronous transition measurements establish a current stall, not isolated helper overhead or shipping p95. Diagnostic phase probe: Street-to-Passage 618.869 ms total, encroachment callback 523.691 ms, surface plus callbacks 549.169 ms, late index 22.967 ms, Street index 29.589 ms. The callback timing includes nested work; it does not isolate duplicate-registration cost. Per-mask instrumentation adds overhead and supplies no shipping helper-overhead claim. Later failed ownership7c54c/full02 with typed material observerc2642de6: Street-to-Passage median1375.2615ms and reverse1370.949ms, n6 each. Material probes sit outside apply timers but change run context; this is neither an isolated dedup delta nor performance acceptance. Floor-admission2a4405 with complete d67 observer: Street-to-Passage1385.249ms and reverse1377.8ms (n6 each), native/base/additive gates0. This is the passing baseline for a matched one-census comparison; observer work remains outside apply timers. Final matched one-census1a/d67:1188.5935/1179.5735ms(n6), observed -14.20/-14.39 percent. Only owner source differs, but baseline budgets1.0x124/0.75x20 versus candidate1.0x113/0.75x25/0.5x6 and25/43 equal population rows prevent isolated speedup acceptance. Final base1a/5ec:1195.793/1182.595ms(n6), with adaptive budgets1.0 through0.0; these are visibility-call durations, not frame p95. V2 startup report1008.039ms/whole fixture6.209s is sparse-root context only."
     },
     "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
     "production_consumer": "Composed CPU/GPU/physics/audio/agents",
@@ -666,7 +702,43 @@
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
-        "DEBT_DEDUPLICATION.md"
+        "DEBT_DEDUPLICATION.md",
+        "reviews/vulkan_composed_smoke_review.md",
+        "reviews/vulkan_composed_diagnostic_review.md",
+        "reviews/harukiya_threshold_review.md",
+        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json",
+        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/frames/probe.json",
+        "evidence/vulkan_composed/pair_bookkeeping_sequences/foundations_pair_01/receipt.json",
+        "reviews/vulkan_composed_foundations_candidate_review.md",
+        "work/visibility_transition_profile/README.md",
+        "evidence/vulkan_composed/renderer_foundations_checkpoint.json",
+        "evidence/vulkan_composed/visibility_phase_census_summary.json",
+        "evidence/vulkan_composed/visibility_phase_census_material_identity.json",
+        "reviews/visibility_transition_profile_review.md",
+        "evidence/apartment_material_binding/validation.json",
+        "reviews/apartment_material_binding_review.md",
+        "evidence/composed_material_ownership/typed_baseline_review_02.json",
+        "evidence/composed_material_ownership/typed_baseline_additive_signed_ids_02.json",
+        "evidence/encroachment_sweep/equivalence_runtime/ownership_7c54c_01/aggregate.json",
+        "reviews/material_full02_binding_review.json",
+        "evidence/apartment_floor_ownership/admission_01/aggregate.json",
+        "evidence/apartment_floor_ownership/admission_01/postrun_validation.json",
+        "evidence/composed_material_ownership/floor_admission_inspection_01.json",
+        "evidence/composed_material_ownership/material_floor_admission_v1_full_01_additive_v2.json",
+        "reviews/material_floor_admission_composed_review.md",
+        "evidence/vulkan_composed/runs/material_one_census_v1_full_01/result.json",
+        "evidence/composed_material_ownership/material_one_census_v1_full_01_additive_v2.json",
+        "reviews/one_census_matched_execution_review.json",
+        "evidence/vulkan_composed/runs/candidate_v1_material_final_01/result.json",
+        "reviews/final_v1_material_execution_review.json",
+        "evidence/encroachment_sweep/equivalence_runtime/ownership_2a440_01/aggregate.json",
+        "evidence/vulkan_composed/viewport_guard_sequences/viewport_guard_final_01/validation.json",
+        "reviews/one_census_matched_execution_review.md",
+        "reviews/final_v1_material_execution_review.md",
+        "reviews/material_one_census_visual_review.md",
+        "reviews/carry_reparent_policy_review.md",
+        "reviews/viewport_guard_final_01_review.md",
+        "evidence/vulkan_composed/v2_candidate_reviews/candidate_v2_foundations_01/validation.json"
       ]
     },
     "scope": "release",
@@ -1271,10 +1343,10 @@
     "next_decisive_action": "Provide the notice in the authored V2 world and prove one resident learns a sourced event through actual embodied reading or audible radio perception.",
     "open_defects": [
       "V2 physical notice consumer absent",
-      "Resident observation/learning delivery absent",
+      "Resident observation/learning delivery of the historical event absent",
       "Authentic radio programming and audible broadcast delivery absent",
       "Human historical and perceptual acceptance pending",
-      "V1 Forward+ capture has unresolved shadow-count/light-unpair teardown BUG diagnostics"
+      "Historical notice capture retains pairing BUG diagnostics; current uncommitted matched-lobby/full-V1 candidate removes that signature within scoped controls, with final integration/broader renderer acceptance still open"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -1293,7 +1365,8 @@
         "reviews/historical_notice_review.md",
         "reviews/campaign_calendar_integration.md",
         "evidence/historical_radio_notice/runtime_visual_validation.json",
-        "evidence/historical_radio_notice/canonical_runtime_bindings.json"
+        "evidence/historical_radio_notice/canonical_runtime_bindings.json",
+        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json"
       ]
     },
     "scope": "full world",

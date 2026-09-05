@@ -1,0 +1,83 @@
+{
+  "status": "WRAPPER_RETURNED",
+  "expected_head": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "recorded_at_utc": "2026-09-05T10:07:56.479298+00:00",
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-B",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\vulkan_composed\\run_case.py",
+    "v1",
+    "candidate",
+    "material_floor_admission_v1_full_01",
+    "--scope",
+    "full"
+  ],
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\material_floor_admission_v1_full_01",
+  "expected_preinstall_sources": {
+    "design/astra/work/vulkan_composed/run_case.py": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "design/astra/work/vulkan_composed/gate.py": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/scripts/reality/apartment_encroachment.gd": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  },
+  "installed_observer_sha256": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508",
+  "environment": {
+    "inherited_material_environment": {
+      "ENCROACH": null,
+      "ENCROACH_FORCE": null,
+      "ENCROACH_DEBUG_VIEW": null,
+      "ENCROACH_DEBUG": null,
+      "LIVING": null,
+      "LIVING_ALL": null
+    },
+    "explicit_wrapper_material_environment": {
+      "ENCROACH": "1",
+      "ENCROACH_FORCE": "",
+      "ENCROACH_DEBUG_VIEW": "0",
+      "ENCROACH_DEBUG": "0",
+      "LIVING": "1",
+      "LIVING_ALL": "0"
+    },
+    "policy": "Reject nondefault inherited material/field controls before launch; never change runtime case facts or bypass fixture preconditions"
+  },
+  "projected_child_environment": {
+    "ENCROACH": "1",
+    "ENCROACH_FORCE": "",
+    "ENCROACH_DEBUG_VIEW": "0",
+    "ENCROACH_DEBUG": "0",
+    "LIVING": "1",
+    "LIVING_ALL": "0",
+    "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\material_floor_admission_v1_full_01\\APPDATA",
+    "SHOT_DIR": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\material_floor_admission_v1_full_01\\frames",
+    "ORISON_BUILDING_ROOT": "v1",
+    "VULKAN_COMPOSED_VARIANT": "candidate",
+    "VULKAN_COMPOSED_SCOPE": "full",
+    "CAMPAIGN_TIME_FREEZE": "1",
+    "WEATHER_SEED": "19281110",
+    "TITLE_SCREEN_SILENT": "1"
+  },
+  "invocation_sources": {
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\foundation_status_review\\run_floor_admission_composed_01.py": "7d750c1fa0ff906cb7ad1899eb2a7f9715759456dc0678189257ea86c80feb85",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\composed_material_invariants\\runtime_execution\\environment_contract.py": "1cef5f798ae56210d72489884c76524f9bda7c7f2cde9298bde942128f4b01fe",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\composed_material_invariants\\runtime_execution\\invoke_wrapper.py": "04f1deae3e1817f90f6445a456153394db19d01c8eee2bf8ca4d6e7d4f6f2771",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\composed_material_invariants\\originals\\game\\tests\\vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\composed_material_invariants\\revisions\\all_registry_lifecycle_01\\proposed\\game\\tests\\vulkan_composed_root_test.gd": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508"
+  },
+  "source_preflight": {
+    "design/astra/work/vulkan_composed/run_case.py": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "design/astra/work/vulkan_composed/gate.py": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/scripts/reality/apartment_encroachment.gd": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  },
+  "fixture_restored": true,
+  "wrapper_exit": 0,
+  "runtime_result_sha256": "a989c22dcab75312591058f50ba7d18ce2e9a073e254b0f929572f2a58ca452e",
+  "final_fixture_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+  "owner_unchanged": true,
+  "invocation_sources_unchanged": true
+}

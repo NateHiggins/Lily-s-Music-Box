@@ -1,0 +1,18 @@
+[
+  "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+  "-NoProfile",
+  "-ExecutionPolicy",
+  "Bypass",
+  "-File",
+  "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+  "-ProjectPath",
+  "C:\\PleaseRemainOnTheLine-astra\\game",
+  "-Scene",
+  "res://tests/ApartmentMaterialBindingTest.tscn",
+  "-LogPath",
+  "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\apartment_material_binding\\original_03\\godot.stdout.log",
+  "-TimeoutSeconds",
+  "45",
+  "-ExtraArgs",
+  "--verbose"
+]

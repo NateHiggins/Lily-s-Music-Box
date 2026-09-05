@@ -1,0 +1,222 @@
+--- a/game/tests/vulkan_composed_root_test.gd
++++ b/game/tests/vulkan_composed_root_test.gd
+@@ -863,8 +863,7 @@
+ 	var before_beachheads := _material_beachhead_snapshot(enc)
+ 	var before_intensities: Dictionary = enc.intensities.duplicate(true)
+ 	var precondition := _material_refresh_precondition(enc, before_beachheads)
+-	# A high-side inherited force or active beachhead can replace/retire an
+-	# override during refresh. Refuse before assigning or refreshing anything.
++	# Refuse unsafe inherited state before any mutation, as in the parent probe.
+ 	if precondition.passed != true:
+ 		return {"passed": false, "mutated": false, "precondition": precondition,
+ 			"facts_unchanged": RealityState.data == facts, "before_state": before_state,
+@@ -872,79 +871,190 @@
+ 			"after_beachheads": _material_beachhead_snapshot(enc), "before_forced": forced_values,
+ 			"after_forced": enc._forced.duplicate(true), "before_intensities": before_intensities,
+ 			"after_intensities": enc.intensities.duplicate(true), "tested_current_materials": 0,
++			"comparison_contract": "independent_rows_and_all_registry_lifecycle_v2",
++			"case_comparisons": [], "case_rows_evaluated": 0, "case_materials_touched": 0,
+ 			"scope": "unsafe initial threshold side refused; no force assignment, refresh or gameplay write"}
+ 	var poisoned := {}
++	var comparisons: Array = []
++	var case_lifecycle: Array = []
++	var registry_lifecycle: Array = []
+ 	var okay := true
+-	# Under the beachhead threshold; synchronous probe and restoration occur
+-	# before another physics/render frame. No alternate finish/prop is made.
+ 	enc._forced = forced.duplicate(true)
+ 	for index in MATERIAL_CASE_UNITS.size():
+ 		var case_id: String = MATERIAL_CASE_UNITS.keys()[index]
+ 		enc._forced[case_id] = MATERIAL_PROBE_INTENSITIES[index]
+ 	enc.refresh()
+ 	var during_beachheads := _material_beachhead_snapshot(enc)
+-	okay = okay and before_beachheads == during_beachheads
++	var beachheads_stable_during: bool = before_beachheads == during_beachheads
++	okay = beachheads_stable_during and okay
+ 	for case_id in MATERIAL_CASE_UNITS:
+ 		var value: float = enc._forced[case_id]
+ 		var floor_id := str(_material_authored_unit(MATERIAL_CASE_UNITS[case_id]).get("floor", ""))
+ 		for row in enc.surfaces.get(case_id, []):
++			var comparison := {"case_id": case_id, "kind": "finish", "evaluated": false, "passed": false}
+ 			var draw := row.mesh as MeshInstance3D
+ 			if not is_instance_valid(draw) or draw.mesh == null or not world.is_ancestor_of(draw):
++				comparison.reason = "finish draw is not a current mesh beneath the actual root"
++				comparisons.append(comparison)
+ 				okay = false
+ 				continue
+ 			var slot := int(row.surface)
+ 			if slot < 0 or slot >= draw.mesh.get_surface_count():
++				comparison.reason = "finish surface slot is no longer valid"
++				comparisons.append(comparison)
+ 				okay = false
+ 				continue
+ 			var material := draw.get_surface_override_material(slot) as ShaderMaterial
+ 			if material == null:
++				comparison.reason = "current finish slot has no shader material"
++				comparisons.append(comparison)
+ 				okay = false
+ 				continue
+-			okay = okay and material == row.material and _material_number_equals(material.get_shader_parameter("intensity"), value)
++			var actual_value = material.get_shader_parameter("intensity")
++			# Evaluate both facts before combining with the accumulated result.
++			var identity_matches: bool = material == row.material
++			var state_matches: bool = _material_number_equals(actual_value, value)
++			var comparison_passed: bool = identity_matches and state_matches
++			comparison.merge({"evaluated": true, "passed": comparison_passed, "path": str(world.get_path_to(draw)),
++				"slot": slot, "material_id": material.get_instance_id(), "identity_matches": identity_matches,
++				"state_matches": state_matches, "actual_state": actual_value, "expected_state": value}, true)
++			comparisons.append(comparison)
++			okay = comparison_passed and okay
+ 			if not poisoned.has(material.get_instance_id()):
+ 				poisoned[material.get_instance_id()] = {"material": material, "value": material.get_shader_parameter("living_lifecycle_stage"), "floor": floor_id}
+ 			material.set_shader_parameter("living_lifecycle_stage", -17.0)
+ 		for row in enc.prop_rows.get(case_id, []):
++			var comparison := {"case_id": case_id, "kind": "prop", "evaluated": false, "passed": false}
+ 			var draw := row.mesh as MeshInstance3D
+ 			if not is_instance_valid(draw) or not world.is_ancestor_of(draw):
++				comparison.reason = "prop draw is no longer beneath the actual root"
++				comparisons.append(comparison)
+ 				okay = false
+ 				continue
+ 			var material := draw.material_override as ShaderMaterial
+ 			if material == null:
++				comparison.reason = "current prop override has no shader material"
++				comparisons.append(comparison)
+ 				okay = false
+ 				continue
+ 			var amount = material.get_shader_parameter("mask_amount")
+-			okay = okay and material == row.material and amount is Vector4 \
+-				and amount.is_equal_approx(Vector4(0, 0.35 * value, 0.25 * value, 0))
++			var identity_matches: bool = material == row.material
++			var state_matches: bool = amount is Vector4 and amount.is_equal_approx(Vector4(0, 0.35 * value, 0.25 * value, 0))
++			var comparison_passed: bool = identity_matches and state_matches
++			comparison.merge({"evaluated": true, "passed": comparison_passed, "path": str(world.get_path_to(draw)),
++				"material_id": material.get_instance_id(), "identity_matches": identity_matches, "state_matches": state_matches,
++				"actual_state": [amount.x, amount.y, amount.z, amount.w] if amount is Vector4 else null,
++				"expected_state": [0.0, 0.35 * value, 0.25 * value, 0.0]}, true)
++			comparisons.append(comparison)
++			okay = comparison_passed and okay
+ 			if not poisoned.has(material.get_instance_id()):
+ 				poisoned[material.get_instance_id()] = {"material": material, "value": material.get_shader_parameter("living_lifecycle_stage"), "floor": floor_id}
+ 			material.set_shader_parameter("living_lifecycle_stage", -17.0)
++	# Snapshot the exact complete write set immediately before the production
++	# push. Case materials already poisoned use their saved pre-poison value.
++	# All other registered materials retain their current original value.
++	var registry_targets := {}
++	var registry_slots := 0
++	var registry_types_valid := true
+ 	for floor_id in enc.fields:
+-		enc._push_living_lifecycle(floor_id, enc.fields[floor_id])
+-	for item in poisoned.values():
+-		if not enc.fields.has(item.floor):
++		for registered in enc.storey_materials.get(floor_id, []):
++			if not is_instance_valid(registered): continue
++			registry_slots += 1
++			var material := registered as ShaderMaterial
++			if material == null:
++				registry_types_valid = false
++				okay = false
++				continue
++			var material_id := material.get_instance_id()
++			if not registry_targets.has(material_id):
++				var original_value = material.get_shader_parameter("living_lifecycle_stage")
++				if poisoned.has(material_id): original_value = poisoned[material_id].value
++				registry_targets[material_id] = {"material": material, "value": original_value, "floors": []}
++			registry_targets[material_id].floors.append(str(floor_id))
++	var registry_before := _material_lifecycle_target_snapshot(registry_targets, true)
++	if registry_types_valid:
++		for floor_id in enc.fields:
++			enc._push_living_lifecycle(floor_id, enc.fields[floor_id])
++	# Every case lifecycle comparison is evaluated, even after another row fails.
++	for material_id in poisoned:
++		var item: Dictionary = poisoned[material_id]
++		var comparison := {"material_id": material_id, "floor": item.floor, "evaluated": false, "passed": false}
++		if enc.fields.has(item.floor):
++			var expected: float = float(enc.fields[item.floor].lifecycle_stage())
++			var actual = item.material.get_shader_parameter("living_lifecycle_stage")
++			var comparison_passed: bool = _material_number_equals(actual, expected)
++			comparison.merge({"evaluated": true, "passed": comparison_passed, "actual": actual, "expected": expected}, true)
++			okay = comparison_passed and okay
++		else:
++			comparison.reason = "case material's expected field is absent"
+ 			okay = false
+-			continue
+-		okay = okay and _material_number_equals(item.material.get_shader_parameter("living_lifecycle_stage"), float(enc.fields[item.floor].lifecycle_stage()))
+-	# Always restore even when a control fails; poisoning must not contaminate
+-	# subsequent captures or masquerade as a production visual difference.
+-	for item in poisoned.values(): item.material.set_shader_parameter("living_lifecycle_stage", item.value)
++		case_lifecycle.append(comparison)
++	for material_id in registry_targets:
++		var item: Dictionary = registry_targets[material_id]
++		var final_floor: String = item.floors.back()
++		var expected: float = float(enc.fields[final_floor].lifecycle_stage())
++		var actual = item.material.get_shader_parameter("living_lifecycle_stage")
++		var comparison_passed: bool = registry_types_valid and _material_number_equals(actual, expected)
++		registry_lifecycle.append({"material_id": material_id, "write_floors": item.floors,
++			"evaluated": registry_types_valid, "passed": comparison_passed, "actual": actual, "expected": expected})
++		okay = comparison_passed and okay
++	# Restore the union, including non-case registered materials and any case
++	# material absent from the registry. No strong reference leaves this call.
++	var restore_targets: Dictionary = poisoned.duplicate()
++	for material_id in registry_targets:
++		if not restore_targets.has(material_id): restore_targets[material_id] = registry_targets[material_id]
++	for item in restore_targets.values():
++		item.material.set_shader_parameter("living_lifecycle_stage", item.value)
+ 	enc._forced = forced
+ 	enc.refresh()
++	var registry_after := _material_lifecycle_target_snapshot(registry_targets, false)
+ 	var after_state := _actual_material_state_snapshot(enc)
+ 	var after_beachheads := _material_beachhead_snapshot(enc)
+ 	var force_restored: bool = enc._forced == forced_values and forced == forced_values
+ 	var intensities_restored: bool = enc.intensities == before_intensities
+-	okay = okay and RealityState.data == facts and before_state == after_state \
+-		and before_beachheads == after_beachheads and force_restored and intensities_restored
++	var facts_unchanged: bool = RealityState.data == facts
++	var case_state_restored: bool = before_state == after_state
++	var beachheads_restored: bool = before_beachheads == after_beachheads
++	var registry_restored: bool = registry_before == registry_after
++	var rows_evaluated := 0
++	for comparison in comparisons:
++		if comparison.evaluated == true: rows_evaluated += 1
++	var case_lifecycle_evaluated := 0
++	for comparison in case_lifecycle:
++		if comparison.evaluated == true: case_lifecycle_evaluated += 1
++	var registry_restore_failures: Array = []
++	for material_id in registry_before:
++		if registry_before[material_id] != registry_after.get(material_id): registry_restore_failures.append(material_id)
++	okay = facts_unchanged and case_state_restored and beachheads_restored and registry_restored and force_restored and intensities_restored and okay
+ 	return {"passed": okay, "mutated": true, "precondition": precondition,
+-		"tested_current_materials": poisoned.size(), "facts_unchanged": RealityState.data == facts,
+-		"same_frame_restored": before_state == after_state, "before_state": before_state, "after_state": after_state,
++		"comparison_contract": "independent_rows_and_all_registry_lifecycle_v2",
++		"case_comparisons": comparisons, "case_rows_planned": comparisons.size(), "case_rows_evaluated": rows_evaluated,
++		"case_comparisons_evaluated": rows_evaluated * 2,
++		"case_materials_touched": poisoned.size(), "case_lifecycle_comparisons": case_lifecycle,
++		"case_lifecycle_materials_evaluated": case_lifecycle_evaluated,
++		"registry_live_slots": registry_slots, "registry_unique_materials": registry_targets.size(),
++		"registry_types_valid": registry_types_valid, "registry_lifecycle_comparisons": registry_lifecycle,
++		"registry_lifecycle_materials_evaluated": registry_targets.size() if registry_types_valid else 0,
++		"registry_lifecycle_before": registry_before, "registry_lifecycle_after": registry_after,
++		"registry_lifecycle_restored": registry_restored, "lifecycle_restore_union_size": restore_targets.size(),
++		"registry_restore_failures": registry_restore_failures,
++		"tested_current_materials": poisoned.size(), "tested_current_materials_meaning": "unique actual case materials touched; independent comparison arrays carry evaluated/passed status",
++		"facts_unchanged": facts_unchanged, "same_frame_restored": case_state_restored,
++		"before_state": before_state, "after_state": after_state,
+ 		"before_beachheads": before_beachheads, "during_beachheads": during_beachheads, "after_beachheads": after_beachheads,
+ 		"before_forced": forced_values, "after_forced": enc._forced.duplicate(true), "force_restored": force_restored,
+ 		"before_intensities": before_intensities, "after_intensities": enc.intensities.duplicate(true),
+ 		"intensities_restored": intensities_restored,
+-		"scope": "actual installed build/prop rows; explicit production force hook and lifecycle push; no field tick or replacement geometry"}
++		"scope": "actual independent installed case comparisons and complete live registry lifecycle write-set restoration; no field tick or replacement geometry"}
++
++
++func _material_lifecycle_target_snapshot(targets: Dictionary, saved_originals: bool) -> Dictionary:
++	var snapshot := {}
++	for material_id in targets:
++		var item: Dictionary = targets[material_id]
++		var value = item.value if saved_originals else item.material.get_shader_parameter("living_lifecycle_stage")
++		snapshot[str(material_id)] = {"material_id": material_id, "write_floors": item.floors.duplicate(), "value": value}
++	return snapshot
+ 
+ 
+ func _material_refresh_precondition(enc, beachhead_state: Dictionary) -> Dictionary:

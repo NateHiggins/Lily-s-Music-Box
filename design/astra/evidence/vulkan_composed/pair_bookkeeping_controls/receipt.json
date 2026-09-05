@@ -1,0 +1,45 @@
+{
+  "utc": "2026-09-05T07:02:18.340575+00:00",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_gate",
+    "test_variant_case",
+    "test_pair_bookkeeping",
+    "-v"
+  ],
+  "actual_exit": 0,
+  "elapsed_seconds": 0.20499650000056135,
+  "source_hashes": {
+    "gate.py": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "test_gate.py": "4cb7e0634c6b04a8e8091a970f7fed23c55e2b7fecc9d88d021e7cad42fbf312",
+    "variant_case.py": "2a0860954c1ee24762a095e53a2ff8a48763ce653b7b9086c185ccdbfc8a5e24",
+    "test_variant_case.py": "7b351494f8225a5bc07c6849536ce21ced8477a434dd6c4ef5d7fa1e826c2eaa",
+    "run_case.py": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "pair_bookkeeping.py": "5c95377b8581808014d42988053d4995c00264e4e8e175182b7f8d91f7f5af88",
+    "pair_bookkeeping_case.py": "a6b2b73c6fd8d08ed4d7b0763d37010d8ac91dd3745fc55e90f0c48d87866d01",
+    "test_pair_bookkeeping.py": "61ae6e32ac7829639537bd5ee308c2c5221f11291245952a2e3483daebe8abed",
+    "queued_scope_plan.md": "bea83520bd677bf35f0ff226e2131cdbc6ffff20c6988d3cf7940b8fd751a204"
+  },
+  "unchanged": {
+    "gate.py": true,
+    "test_gate.py": true,
+    "variant_case.py": true,
+    "test_variant_case.py": true,
+    "run_case.py": true,
+    "pair_bookkeeping.py": true,
+    "pair_bookkeeping_case.py": true,
+    "test_pair_bookkeeping.py": true,
+    "queued_scope_plan.md": true
+  },
+  "existing_contract_binding": {
+    "strict_gate_byte_identical_to_prior_receipt": true,
+    "run_case_byte_identical": true,
+    "variant_driver_byte_identical": true
+  },
+  "scope": "50 pure parser/source-transform/receipt controls; no Godot, GDScript compilation, or paired runtime claim",
+  "runtime_status": "PENDING_EXPLICIT_EXECUTION",
+  "live_building_root_sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+  "live_fixture_sha256": "7651dce03e1acdf66822801b25bd102ebf082b2b1cfbcc8cc5ce74ffc8ccf2f9"
+}

@@ -1,0 +1,14 @@
+test_missing_or_false_restoration_transaction_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_false_restoration_transaction_rejected) ... FAIL
+
+======================================================================
+FAIL: test_missing_or_false_restoration_transaction_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_false_restoration_transaction_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_bookkeeping.py", line 158, in test_missing_or_false_restoration_transaction_rejected
+    self.assertFalse(self.pair(restored_transaction=tx)['expected_pair_bookkeeping_red_observed'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+FAILED (failures=1)

@@ -1878,6 +1878,9 @@ func _late_owner_is_dynamic(geometry: Node, floor: Node,
 		registered: Dictionary) -> bool:
 	var cursor: Node = geometry
 	while cursor != null and cursor != floor:
+		# A cabinet viewport owns its world; building zones must not index it.
+		if cursor is SubViewport:
+			return true
 		if registered.has(cursor.get_instance_id()):
 			return true
 		if String(cursor.name).begins_with("NPC_"):
@@ -2860,11 +2863,26 @@ func _zone_toggle(node: Node3D, eligible: bool,
 	if blocks.is_empty():
 		_zone_layer_blocks.erase(id)
 		if passage_late_saved.has(id):
-			vi.layers = passage_late_saved[id]
+			_set_zone_layer_mask(vi, int(passage_late_saved[id]))
 			passage_late_saved.erase(id)
 	else:
 		_zone_layer_blocks[id] = blocks
-		vi.layers = 0
+		_set_zone_layer_mask(vi, 0)
+
+
+## Godot 4.7.1 Forward+ omits ordinary geometry unpairing before layer changes
+## (godotengine/godot#121989, fixed upstream by #122064). Rebind to the SAME
+## scenario while the old mask is intact; then apply the new mask. This never
+## writes Node3D.visible, so the owner/floor/zone visibility contract is retained.
+## The unchanged-mask guard avoids scenario work during repeated region scans.
+func _set_zone_layer_mask(vi: VisualInstance3D, target_layers: int) -> void:
+	if vi.layers == target_layers:
+		return
+	if vi is GeometryInstance3D and vi.is_inside_tree():
+		var world: World3D = vi.get_world_3d()
+		if world != null:
+			RenderingServer.instance_set_scenario(vi.get_instance(), world.scenario)
+	vi.layers = target_layers
 
 
 ## RENDERER (owner ruling 2026-08-22: Forward+ is canonical; Compatibility

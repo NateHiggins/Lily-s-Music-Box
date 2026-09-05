@@ -1,0 +1,309 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/WardrobeFloorAdmissionTest.tscn remapped: res://tests/WardrobeFloorAdmissionTest.tscn
+Loading resource: res://tests/wardrobe_floor_admission_test.gd remapped: res://tests/wardrobe_floor_admission_test.gd
+Loading resource: res://shaders/orison_surface.gdshader remapped: res://shaders/orison_surface.gdshader
+Loading resource: res://shaders/orison_surface.gdshaderinc remapped: res://shaders/orison_surface.gdshaderinc
+Loading resource: res://shaders/dream_corruption_layers.gdshaderinc remapped: res://shaders/dream_corruption_layers.gdshaderinc
+Completed load for: 'res://shaders/dream_corruption_layers.gdshaderinc' remapped 'res://shaders/dream_corruption_layers.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/orison_surface.gdshaderinc' remapped 'res://shaders/orison_surface.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/orison_surface.gdshader' remapped 'res://shaders/orison_surface.gdshader' at thread -1
+Loading resource: res://shaders/orison_surface_cutout.gdshader remapped: res://shaders/orison_surface_cutout.gdshader
+Completed load for: 'res://shaders/orison_surface_cutout.gdshader' remapped 'res://shaders/orison_surface_cutout.gdshader' at thread -1
+Loading resource: res://shaders/dream_tentacle.gdshader remapped: res://shaders/dream_tentacle.gdshader
+Loading resource: res://shaders/dream_entity_surface.gdshaderinc remapped: res://shaders/dream_entity_surface.gdshaderinc
+Completed load for: 'res://shaders/dream_entity_surface.gdshaderinc' remapped 'res://shaders/dream_entity_surface.gdshaderinc' at thread -1
+Completed load for: 'res://shaders/dream_tentacle.gdshader' remapped 'res://shaders/dream_tentacle.gdshader' at thread -1
+Loading resource: res://shaders/dream_eye.gdshader remapped: res://shaders/dream_eye.gdshader
+Completed load for: 'res://shaders/dream_eye.gdshader' remapped 'res://shaders/dream_eye.gdshader' at thread -1
+Loading resource: res://shaders/dream_eyelid.gdshader remapped: res://shaders/dream_eyelid.gdshader
+Completed load for: 'res://shaders/dream_eyelid.gdshader' remapped 'res://shaders/dream_eyelid.gdshader' at thread -1
+Loading resource: res://shaders/dream_cilia.gdshader remapped: res://shaders/dream_cilia.gdshader
+Completed load for: 'res://shaders/dream_cilia.gdshader' remapped 'res://shaders/dream_cilia.gdshader' at thread -1
+Loading resource: res://shaders/dream_crystal.gdshader remapped: res://shaders/dream_crystal.gdshader
+Completed load for: 'res://shaders/dream_crystal.gdshader' remapped 'res://shaders/dream_crystal.gdshader' at thread -1
+Loading resource: res://shaders/dream_gold.gdshader remapped: res://shaders/dream_gold.gdshader
+Completed load for: 'res://shaders/dream_gold.gdshader' remapped 'res://shaders/dream_gold.gdshader' at thread -1
+Loading resource: res://shaders/dream_sucker.gdshader remapped: res://shaders/dream_sucker.gdshader
+Completed load for: 'res://shaders/dream_sucker.gdshader' remapped 'res://shaders/dream_sucker.gdshader' at thread -1
+Loading resource: res://shaders/dream_membrane.gdshader remapped: res://shaders/dream_membrane.gdshader
+Completed load for: 'res://shaders/dream_membrane.gdshader' remapped 'res://shaders/dream_membrane.gdshader' at thread -1
+Loading resource: res://shaders/dream_tendrils.gdshader remapped: res://shaders/dream_tendrils.gdshader
+Completed load for: 'res://shaders/dream_tendrils.gdshader' remapped 'res://shaders/dream_tendrils.gdshader' at thread -1
+Loading resource: res://assets/dream/tentacle/dream_tentacle.glb remapped: res://assets/dream/tentacle/dream_tentacle.glb
+Loading resource: res://.godot/imported/dream_tentacle.glb-163cd22d73288c3d2a827fb5c0d691fa.scn remapped: res://.godot/imported/dream_tentacle.glb-163cd22d73288c3d2a827fb5c0d691fa.scn
+Completed load for: 'res://assets/dream/tentacle/dream_tentacle.glb' remapped 'res://assets/dream/tentacle/dream_tentacle.glb' at thread -1
+Loading resource: res://shaders/dream_hero_skin.gdshader remapped: res://shaders/dream_hero_skin.gdshader
+Completed load for: 'res://shaders/dream_hero_skin.gdshader' remapped 'res://shaders/dream_hero_skin.gdshader' at thread -1
+Loading resource: res://assets/dream/tentacle/T_dream_hero_anatomy.png remapped: res://assets/dream/tentacle/T_dream_hero_anatomy.png
+Loading resource: res://.godot/imported/T_dream_hero_anatomy.png-e735c6abb05508b4e4c43633a35d83f1.ctex remapped: res://.godot/imported/T_dream_hero_anatomy.png-e735c6abb05508b4e4c43633a35d83f1.ctex
+Completed load for: 'res://assets/dream/tentacle/T_dream_hero_anatomy.png' remapped 'res://assets/dream/tentacle/T_dream_hero_anatomy.png' at thread -1
+Loading resource: res://shaders/dream_residue.gdshader remapped: res://shaders/dream_residue.gdshader
+Completed load for: 'res://shaders/dream_residue.gdshader' remapped 'res://shaders/dream_residue.gdshader' at thread -1
+Loading resource: res://shaders/dream_critter.gdshader remapped: res://shaders/dream_critter.gdshader
+Completed load for: 'res://shaders/dream_critter.gdshader' remapped 'res://shaders/dream_critter.gdshader' at thread -1
+Loading resource: res://shaders/dream_palp.gdshader remapped: res://shaders/dream_palp.gdshader
+Completed load for: 'res://shaders/dream_palp.gdshader' remapped 'res://shaders/dream_palp.gdshader' at thread -1
+Completed load for: 'res://tests/wardrobe_floor_admission_test.gd' remapped 'res://tests/wardrobe_floor_admission_test.gd' at thread -1
+Completed load for: 'res://tests/WardrobeFloorAdmissionTest.tscn' remapped 'res://tests/WardrobeFloorAdmissionTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+[WARDROBE FLOOR] PASS all nine selected records exist in the authored layout
+Loading resource: res://assets/building/textures/T_library_furniture_walnut_albedo.png remapped: res://assets/building/textures/T_library_furniture_walnut_albedo.png
+Loading resource: res://.godot/imported/T_library_furniture_walnut_albedo.png-9d83e6768b0b08d28ab2f9a5e8fa017b.ctex remapped: res://.godot/imported/T_library_furniture_walnut_albedo.png-9d83e6768b0b08d28ab2f9a5e8fa017b.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_walnut_albedo.png' remapped 'res://assets/building/textures/T_library_furniture_walnut_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_walnut_rough.png remapped: res://assets/building/textures/T_library_furniture_walnut_rough.png
+Loading resource: res://.godot/imported/T_library_furniture_walnut_rough.png-9759cde251b5cc10585a4adbb6b9e116.ctex remapped: res://.godot/imported/T_library_furniture_walnut_rough.png-9759cde251b5cc10585a4adbb6b9e116.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_walnut_rough.png' remapped 'res://assets/building/textures/T_library_furniture_walnut_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_walnut_normal.png remapped: res://assets/building/textures/T_library_furniture_walnut_normal.png
+Loading resource: res://.godot/imported/T_library_furniture_walnut_normal.png-8dcc8541e83592102708038ba88600d5.ctex remapped: res://.godot/imported/T_library_furniture_walnut_normal.png-8dcc8541e83592102708038ba88600d5.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_walnut_normal.png' remapped 'res://assets/building/textures/T_library_furniture_walnut_normal.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_brass_dull_albedo.png remapped: res://assets/building/textures/T_ai_materials_brass_dull_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_dull_albedo.png-e8b0b415c8630a055006aeb0757adc6f.ctex remapped: res://.godot/imported/T_ai_materials_brass_dull_albedo.png-e8b0b415c8630a055006aeb0757adc6f.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_dull_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_brass_dull_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_brass_dull_rough.png remapped: res://assets/building/textures/T_ai_materials_brass_dull_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_dull_rough.png-1660078479110e73cfb16b45fb078227.ctex remapped: res://.godot/imported/T_ai_materials_brass_dull_rough.png-1660078479110e73cfb16b45fb078227.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_dull_rough.png' remapped 'res://assets/building/textures/T_ai_materials_brass_dull_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_brass_dull_normal.png remapped: res://assets/building/textures/T_ai_materials_brass_dull_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_dull_normal.png-3cb54c21bda657c056106237601c5117.ctex remapped: res://.godot/imported/T_ai_materials_brass_dull_normal.png-3cb54c21bda657c056106237601c5117.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_dull_normal.png' remapped 'res://assets/building/textures/T_ai_materials_brass_dull_normal.png' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/timber_creak.ogg remapped: res://assets/audio/freesound/processed/mechanical/timber_creak.ogg
+Loading resource: res://.godot/imported/timber_creak.ogg-681095ada9a99fb7d42195d25947d161.oggvorbisstr remapped: res://.godot/imported/timber_creak.ogg-681095ada9a99fb7d42195d25947d161.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/timber_creak.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/timber_creak.ogg' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png remapped: res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_oak_quartered_albedo.png-297f64cf3d25514e7608b662f7373c0f.ctex remapped: res://.godot/imported/T_ai_materials_oak_quartered_albedo.png-297f64cf3d25514e7608b662f7373c0f.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_oak_quartered_rough.png remapped: res://assets/building/textures/T_ai_materials_oak_quartered_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_oak_quartered_rough.png-03449fb60a448bed3ca97f0d4cb8fa03.ctex remapped: res://.godot/imported/T_ai_materials_oak_quartered_rough.png-03449fb60a448bed3ca97f0d4cb8fa03.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_oak_quartered_rough.png' remapped 'res://assets/building/textures/T_ai_materials_oak_quartered_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_oak_quartered_normal.png remapped: res://assets/building/textures/T_ai_materials_oak_quartered_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_oak_quartered_normal.png-d8815249fe9a46b0a952acc2fb08483d.ctex remapped: res://.godot/imported/T_ai_materials_oak_quartered_normal.png-d8815249fe9a46b0a952acc2fb08483d.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_oak_quartered_normal.png' remapped 'res://assets/building/textures/T_ai_materials_oak_quartered_normal.png' at thread -1
+[FURNITURE INTERACTION] 9 baked mechanisms restored
+[WARDROBE FLOOR] PASS real FurnitureInteractionPass builds exactly nine wardrobe mechanisms
+Loading resource: res://assets/dream/incarnations/mina/T_ai_dream_mina_ink_fiber/albedo.png remapped: res://assets/dream/incarnations/mina/T_ai_dream_mina_ink_fiber/albedo.png
+Loading resource: res://.godot/imported/albedo.png-d496fe03983783f0f8d03cae574328a0.ctex remapped: res://.godot/imported/albedo.png-d496fe03983783f0f8d03cae574328a0.ctex
+Completed load for: 'res://assets/dream/incarnations/mina/T_ai_dream_mina_ink_fiber/albedo.png' remapped 'res://assets/dream/incarnations/mina/T_ai_dream_mina_ink_fiber/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mina/T_ai_dream_mina_ink_fiber/normal.png remapped: res://assets/dream/incarnations/mina/T_ai_dream_mina_ink_fiber/normal.png
+Loading resource: res://.godot/imported/normal.png-e72ad26b76e16b1059552caee0b94c22.ctex remapped: res://.godot/imported/normal.png-e72ad26b76e16b1059552caee0b94c22.ctex
+Completed load for: 'res://assets/dream/incarnations/mina/T_ai_dream_mina_ink_fiber/normal.png' remapped 'res://assets/dream/incarnations/mina/T_ai_dream_mina_ink_fiber/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mina/T_ai_dream_mina_erased_stock/albedo.png remapped: res://assets/dream/incarnations/mina/T_ai_dream_mina_erased_stock/albedo.png
+Loading resource: res://.godot/imported/albedo.png-2151c7cd382b069dbc51d9d92749b85e.ctex remapped: res://.godot/imported/albedo.png-2151c7cd382b069dbc51d9d92749b85e.ctex
+Completed load for: 'res://assets/dream/incarnations/mina/T_ai_dream_mina_erased_stock/albedo.png' remapped 'res://assets/dream/incarnations/mina/T_ai_dream_mina_erased_stock/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mina/T_ai_dream_mina_erased_stock/normal.png remapped: res://assets/dream/incarnations/mina/T_ai_dream_mina_erased_stock/normal.png
+Loading resource: res://.godot/imported/normal.png-aa76f9886fc71496d8bb397b3fa0af89.ctex remapped: res://.godot/imported/normal.png-aa76f9886fc71496d8bb397b3fa0af89.ctex
+Completed load for: 'res://assets/dream/incarnations/mina/T_ai_dream_mina_erased_stock/normal.png' remapped 'res://assets/dream/incarnations/mina/T_ai_dream_mina_erased_stock/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mina/T_ai_dream_mina_gilt_edge/albedo.png remapped: res://assets/dream/incarnations/mina/T_ai_dream_mina_gilt_edge/albedo.png
+Loading resource: res://.godot/imported/albedo.png-6725dd91273ea1462a3813bdee46232f.ctex remapped: res://.godot/imported/albedo.png-6725dd91273ea1462a3813bdee46232f.ctex
+Completed load for: 'res://assets/dream/incarnations/mina/T_ai_dream_mina_gilt_edge/albedo.png' remapped 'res://assets/dream/incarnations/mina/T_ai_dream_mina_gilt_edge/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mina/T_ai_dream_mina_gilt_edge/normal.png remapped: res://assets/dream/incarnations/mina/T_ai_dream_mina_gilt_edge/normal.png
+Loading resource: res://.godot/imported/normal.png-bb0e358bbdc544a8c7ee936096fe395a.ctex remapped: res://.godot/imported/normal.png-bb0e358bbdc544a8c7ee936096fe395a.ctex
+Completed load for: 'res://assets/dream/incarnations/mina/T_ai_dream_mina_gilt_edge/normal.png' remapped 'res://assets/dream/incarnations/mina/T_ai_dream_mina_gilt_edge/normal.png' at thread -1
+[ENCROACH] living field on F02 binds 0 materials
+Loading resource: res://assets/dream/incarnations/peter/T_ai_dream_peter_ledger_stock/albedo.png remapped: res://assets/dream/incarnations/peter/T_ai_dream_peter_ledger_stock/albedo.png
+Loading resource: res://.godot/imported/albedo.png-bfc067116df5cc53b171c7cfc383da98.ctex remapped: res://.godot/imported/albedo.png-bfc067116df5cc53b171c7cfc383da98.ctex
+Completed load for: 'res://assets/dream/incarnations/peter/T_ai_dream_peter_ledger_stock/albedo.png' remapped 'res://assets/dream/incarnations/peter/T_ai_dream_peter_ledger_stock/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/peter/T_ai_dream_peter_ledger_stock/normal.png remapped: res://assets/dream/incarnations/peter/T_ai_dream_peter_ledger_stock/normal.png
+Loading resource: res://.godot/imported/normal.png-462c255fe81cd2e2cd1e83d0f95f5585.ctex remapped: res://.godot/imported/normal.png-462c255fe81cd2e2cd1e83d0f95f5585.ctex
+Completed load for: 'res://assets/dream/incarnations/peter/T_ai_dream_peter_ledger_stock/normal.png' remapped 'res://assets/dream/incarnations/peter/T_ai_dream_peter_ledger_stock/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/peter/T_ai_dream_peter_stamp_pad/albedo.png remapped: res://assets/dream/incarnations/peter/T_ai_dream_peter_stamp_pad/albedo.png
+Loading resource: res://.godot/imported/albedo.png-15eb3820543424111c1ae4531e2717ed.ctex remapped: res://.godot/imported/albedo.png-15eb3820543424111c1ae4531e2717ed.ctex
+Completed load for: 'res://assets/dream/incarnations/peter/T_ai_dream_peter_stamp_pad/albedo.png' remapped 'res://assets/dream/incarnations/peter/T_ai_dream_peter_stamp_pad/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/peter/T_ai_dream_peter_stamp_pad/normal.png remapped: res://assets/dream/incarnations/peter/T_ai_dream_peter_stamp_pad/normal.png
+Loading resource: res://.godot/imported/normal.png-cfcaa7a39b1e4c6ec672ae1ed4d99979.ctex remapped: res://.godot/imported/normal.png-cfcaa7a39b1e4c6ec672ae1ed4d99979.ctex
+Completed load for: 'res://assets/dream/incarnations/peter/T_ai_dream_peter_stamp_pad/normal.png' remapped 'res://assets/dream/incarnations/peter/T_ai_dream_peter_stamp_pad/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/peter/T_ai_dream_peter_carbon_copy/albedo.png remapped: res://assets/dream/incarnations/peter/T_ai_dream_peter_carbon_copy/albedo.png
+Loading resource: res://.godot/imported/albedo.png-8e9a7a2a9132473578f2bd2ce4fc4f16.ctex remapped: res://.godot/imported/albedo.png-8e9a7a2a9132473578f2bd2ce4fc4f16.ctex
+Completed load for: 'res://assets/dream/incarnations/peter/T_ai_dream_peter_carbon_copy/albedo.png' remapped 'res://assets/dream/incarnations/peter/T_ai_dream_peter_carbon_copy/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/peter/T_ai_dream_peter_carbon_copy/normal.png remapped: res://assets/dream/incarnations/peter/T_ai_dream_peter_carbon_copy/normal.png
+Loading resource: res://.godot/imported/normal.png-f22b430563ca28f31c322d6e2ff3bc28.ctex remapped: res://.godot/imported/normal.png-f22b430563ca28f31c322d6e2ff3bc28.ctex
+Completed load for: 'res://assets/dream/incarnations/peter/T_ai_dream_peter_carbon_copy/normal.png' remapped 'res://assets/dream/incarnations/peter/T_ai_dream_peter_carbon_copy/normal.png' at thread -1
+[ENCROACH] living field on F04 binds 0 materials
+Loading resource: res://assets/dream/incarnations/juno/T_ai_dream_juno_speaker_cloth/albedo.png remapped: res://assets/dream/incarnations/juno/T_ai_dream_juno_speaker_cloth/albedo.png
+Loading resource: res://.godot/imported/albedo.png-f75e7398de556b393fe68231057996ac.ctex remapped: res://.godot/imported/albedo.png-f75e7398de556b393fe68231057996ac.ctex
+Completed load for: 'res://assets/dream/incarnations/juno/T_ai_dream_juno_speaker_cloth/albedo.png' remapped 'res://assets/dream/incarnations/juno/T_ai_dream_juno_speaker_cloth/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/juno/T_ai_dream_juno_speaker_cloth/normal.png remapped: res://assets/dream/incarnations/juno/T_ai_dream_juno_speaker_cloth/normal.png
+Loading resource: res://.godot/imported/normal.png-3dee8024b072a314ce20e52f19a56b65.ctex remapped: res://.godot/imported/normal.png-3dee8024b072a314ce20e52f19a56b65.ctex
+Completed load for: 'res://assets/dream/incarnations/juno/T_ai_dream_juno_speaker_cloth/normal.png' remapped 'res://assets/dream/incarnations/juno/T_ai_dream_juno_speaker_cloth/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/juno/T_ai_dream_juno_oxidized_brass/albedo.png remapped: res://assets/dream/incarnations/juno/T_ai_dream_juno_oxidized_brass/albedo.png
+Loading resource: res://.godot/imported/albedo.png-0a185faa5550c7663fd60e0e059c6c77.ctex remapped: res://.godot/imported/albedo.png-0a185faa5550c7663fd60e0e059c6c77.ctex
+Completed load for: 'res://assets/dream/incarnations/juno/T_ai_dream_juno_oxidized_brass/albedo.png' remapped 'res://assets/dream/incarnations/juno/T_ai_dream_juno_oxidized_brass/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/juno/T_ai_dream_juno_oxidized_brass/normal.png remapped: res://assets/dream/incarnations/juno/T_ai_dream_juno_oxidized_brass/normal.png
+Loading resource: res://.godot/imported/normal.png-3b0026d713de5fe00b57786fa46388a6.ctex remapped: res://.godot/imported/normal.png-3b0026d713de5fe00b57786fa46388a6.ctex
+Completed load for: 'res://assets/dream/incarnations/juno/T_ai_dream_juno_oxidized_brass/normal.png' remapped 'res://assets/dream/incarnations/juno/T_ai_dream_juno_oxidized_brass/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/juno/T_ai_dream_juno_diaphragm/albedo.png remapped: res://assets/dream/incarnations/juno/T_ai_dream_juno_diaphragm/albedo.png
+Loading resource: res://.godot/imported/albedo.png-22793b094f37c8e7a02c7115135a0ee3.ctex remapped: res://.godot/imported/albedo.png-22793b094f37c8e7a02c7115135a0ee3.ctex
+Completed load for: 'res://assets/dream/incarnations/juno/T_ai_dream_juno_diaphragm/albedo.png' remapped 'res://assets/dream/incarnations/juno/T_ai_dream_juno_diaphragm/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/juno/T_ai_dream_juno_diaphragm/normal.png remapped: res://assets/dream/incarnations/juno/T_ai_dream_juno_diaphragm/normal.png
+Loading resource: res://.godot/imported/normal.png-24fd82fb4f0b788b1e8b0772a8e0f59a.ctex remapped: res://.godot/imported/normal.png-24fd82fb4f0b788b1e8b0772a8e0f59a.ctex
+Completed load for: 'res://assets/dream/incarnations/juno/T_ai_dream_juno_diaphragm/normal.png' remapped 'res://assets/dream/incarnations/juno/T_ai_dream_juno_diaphragm/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mae/T_ai_dream_mae_lacquer_craquelure/albedo.png remapped: res://assets/dream/incarnations/mae/T_ai_dream_mae_lacquer_craquelure/albedo.png
+Loading resource: res://.godot/imported/albedo.png-ce0642a40d5ac3ffe6a89f65f26c54fc.ctex remapped: res://.godot/imported/albedo.png-ce0642a40d5ac3ffe6a89f65f26c54fc.ctex
+Completed load for: 'res://assets/dream/incarnations/mae/T_ai_dream_mae_lacquer_craquelure/albedo.png' remapped 'res://assets/dream/incarnations/mae/T_ai_dream_mae_lacquer_craquelure/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mae/T_ai_dream_mae_lacquer_craquelure/normal.png remapped: res://assets/dream/incarnations/mae/T_ai_dream_mae_lacquer_craquelure/normal.png
+Loading resource: res://.godot/imported/normal.png-3412e033c4fd38173c956a58412ba526.ctex remapped: res://.godot/imported/normal.png-3412e033c4fd38173c956a58412ba526.ctex
+Completed load for: 'res://assets/dream/incarnations/mae/T_ai_dream_mae_lacquer_craquelure/normal.png' remapped 'res://assets/dream/incarnations/mae/T_ai_dream_mae_lacquer_craquelure/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mae/T_ai_dream_mae_marquetry_grain/albedo.png remapped: res://assets/dream/incarnations/mae/T_ai_dream_mae_marquetry_grain/albedo.png
+Loading resource: res://.godot/imported/albedo.png-9ff1d63f2f9b3b1a7cabc34a01cd2371.ctex remapped: res://.godot/imported/albedo.png-9ff1d63f2f9b3b1a7cabc34a01cd2371.ctex
+Completed load for: 'res://assets/dream/incarnations/mae/T_ai_dream_mae_marquetry_grain/albedo.png' remapped 'res://assets/dream/incarnations/mae/T_ai_dream_mae_marquetry_grain/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mae/T_ai_dream_mae_marquetry_grain/normal.png remapped: res://assets/dream/incarnations/mae/T_ai_dream_mae_marquetry_grain/normal.png
+Loading resource: res://.godot/imported/normal.png-efce5432a49b47fc9c9323817a628461.ctex remapped: res://.godot/imported/normal.png-efce5432a49b47fc9c9323817a628461.ctex
+Completed load for: 'res://assets/dream/incarnations/mae/T_ai_dream_mae_marquetry_grain/normal.png' remapped 'res://assets/dream/incarnations/mae/T_ai_dream_mae_marquetry_grain/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mae/T_ai_dream_mae_foxed_label_stock/albedo.png remapped: res://assets/dream/incarnations/mae/T_ai_dream_mae_foxed_label_stock/albedo.png
+Loading resource: res://.godot/imported/albedo.png-d76007f1244417e135d0d965cd21f629.ctex remapped: res://.godot/imported/albedo.png-d76007f1244417e135d0d965cd21f629.ctex
+Completed load for: 'res://assets/dream/incarnations/mae/T_ai_dream_mae_foxed_label_stock/albedo.png' remapped 'res://assets/dream/incarnations/mae/T_ai_dream_mae_foxed_label_stock/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/mae/T_ai_dream_mae_foxed_label_stock/normal.png remapped: res://assets/dream/incarnations/mae/T_ai_dream_mae_foxed_label_stock/normal.png
+Loading resource: res://.godot/imported/normal.png-983084ac3c3d25743faf301b3ae103db.ctex remapped: res://.godot/imported/normal.png-983084ac3c3d25743faf301b3ae103db.ctex
+Completed load for: 'res://assets/dream/incarnations/mae/T_ai_dream_mae_foxed_label_stock/normal.png' remapped 'res://assets/dream/incarnations/mae/T_ai_dream_mae_foxed_label_stock/normal.png' at thread -1
+[ENCROACH] living field on F06 binds 0 materials
+Loading resource: res://assets/dream/incarnations/cal/T_ai_dream_cal_dial_glass/albedo.png remapped: res://assets/dream/incarnations/cal/T_ai_dream_cal_dial_glass/albedo.png
+Loading resource: res://.godot/imported/albedo.png-2a7ed5f3c8d7fc02bcd1361398d88080.ctex remapped: res://.godot/imported/albedo.png-2a7ed5f3c8d7fc02bcd1361398d88080.ctex
+Completed load for: 'res://assets/dream/incarnations/cal/T_ai_dream_cal_dial_glass/albedo.png' remapped 'res://assets/dream/incarnations/cal/T_ai_dream_cal_dial_glass/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/cal/T_ai_dream_cal_dial_glass/normal.png remapped: res://assets/dream/incarnations/cal/T_ai_dream_cal_dial_glass/normal.png
+Loading resource: res://.godot/imported/normal.png-f3df709a19cf530826b7d57ae7551032.ctex remapped: res://.godot/imported/normal.png-f3df709a19cf530826b7d57ae7551032.ctex
+Completed load for: 'res://assets/dream/incarnations/cal/T_ai_dream_cal_dial_glass/normal.png' remapped 'res://assets/dream/incarnations/cal/T_ai_dream_cal_dial_glass/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/cal/T_ai_dream_cal_bakelite/albedo.png remapped: res://assets/dream/incarnations/cal/T_ai_dream_cal_bakelite/albedo.png
+Loading resource: res://.godot/imported/albedo.png-4dd9c6e30428d2f18a3b53fe818b2d8e.ctex remapped: res://.godot/imported/albedo.png-4dd9c6e30428d2f18a3b53fe818b2d8e.ctex
+Completed load for: 'res://assets/dream/incarnations/cal/T_ai_dream_cal_bakelite/albedo.png' remapped 'res://assets/dream/incarnations/cal/T_ai_dream_cal_bakelite/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/cal/T_ai_dream_cal_bakelite/normal.png remapped: res://assets/dream/incarnations/cal/T_ai_dream_cal_bakelite/normal.png
+Loading resource: res://.godot/imported/normal.png-b930001f6e0f82180aad0555cc32bce9.ctex remapped: res://.godot/imported/normal.png-b930001f6e0f82180aad0555cc32bce9.ctex
+Completed load for: 'res://assets/dream/incarnations/cal/T_ai_dream_cal_bakelite/normal.png' remapped 'res://assets/dream/incarnations/cal/T_ai_dream_cal_bakelite/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/cal/T_ai_dream_cal_wax_groove/albedo.png remapped: res://assets/dream/incarnations/cal/T_ai_dream_cal_wax_groove/albedo.png
+Loading resource: res://.godot/imported/albedo.png-9799a4ac72f1672c12d6918b5b1865ae.ctex remapped: res://.godot/imported/albedo.png-9799a4ac72f1672c12d6918b5b1865ae.ctex
+Completed load for: 'res://assets/dream/incarnations/cal/T_ai_dream_cal_wax_groove/albedo.png' remapped 'res://assets/dream/incarnations/cal/T_ai_dream_cal_wax_groove/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/cal/T_ai_dream_cal_wax_groove/normal.png remapped: res://assets/dream/incarnations/cal/T_ai_dream_cal_wax_groove/normal.png
+Loading resource: res://.godot/imported/normal.png-9d112f1a763904aac28e287c7956cfa6.ctex remapped: res://.godot/imported/normal.png-9d112f1a763904aac28e287c7956cfa6.ctex
+Completed load for: 'res://assets/dream/incarnations/cal/T_ai_dream_cal_wax_groove/normal.png' remapped 'res://assets/dream/incarnations/cal/T_ai_dream_cal_wax_groove/normal.png' at thread -1
+[ENCROACH] living field on F05 binds 0 materials
+Loading resource: res://assets/dream/incarnations/omar/T_ai_dream_omar_tool_steel/albedo.png remapped: res://assets/dream/incarnations/omar/T_ai_dream_omar_tool_steel/albedo.png
+Loading resource: res://.godot/imported/albedo.png-9dbedc3f2cf94724f7f137bbe47f0147.ctex remapped: res://.godot/imported/albedo.png-9dbedc3f2cf94724f7f137bbe47f0147.ctex
+Completed load for: 'res://assets/dream/incarnations/omar/T_ai_dream_omar_tool_steel/albedo.png' remapped 'res://assets/dream/incarnations/omar/T_ai_dream_omar_tool_steel/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/omar/T_ai_dream_omar_tool_steel/normal.png remapped: res://assets/dream/incarnations/omar/T_ai_dream_omar_tool_steel/normal.png
+Loading resource: res://.godot/imported/normal.png-866fd3459cae477b5e88748e0f291eea.ctex remapped: res://.godot/imported/normal.png-866fd3459cae477b5e88748e0f291eea.ctex
+Completed load for: 'res://assets/dream/incarnations/omar/T_ai_dream_omar_tool_steel/normal.png' remapped 'res://assets/dream/incarnations/omar/T_ai_dream_omar_tool_steel/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/omar/T_ai_dream_omar_fatigue_fracture/albedo.png remapped: res://assets/dream/incarnations/omar/T_ai_dream_omar_fatigue_fracture/albedo.png
+Loading resource: res://.godot/imported/albedo.png-aaf8e8445a7e782ab07cdd87ba46cab8.ctex remapped: res://.godot/imported/albedo.png-aaf8e8445a7e782ab07cdd87ba46cab8.ctex
+Completed load for: 'res://assets/dream/incarnations/omar/T_ai_dream_omar_fatigue_fracture/albedo.png' remapped 'res://assets/dream/incarnations/omar/T_ai_dream_omar_fatigue_fracture/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/omar/T_ai_dream_omar_fatigue_fracture/normal.png remapped: res://assets/dream/incarnations/omar/T_ai_dream_omar_fatigue_fracture/normal.png
+Loading resource: res://.godot/imported/normal.png-37fec50e6dd1d26ec4b60635addf5e1f.ctex remapped: res://.godot/imported/normal.png-37fec50e6dd1d26ec4b60635addf5e1f.ctex
+Completed load for: 'res://assets/dream/incarnations/omar/T_ai_dream_omar_fatigue_fracture/normal.png' remapped 'res://assets/dream/incarnations/omar/T_ai_dream_omar_fatigue_fracture/normal.png' at thread -1
+Loading resource: res://assets/dream/incarnations/omar/T_ai_dream_omar_solder_alloy/albedo.png remapped: res://assets/dream/incarnations/omar/T_ai_dream_omar_solder_alloy/albedo.png
+Loading resource: res://.godot/imported/albedo.png-c9c7da46c288c0957209ac1745dcd495.ctex remapped: res://.godot/imported/albedo.png-c9c7da46c288c0957209ac1745dcd495.ctex
+Completed load for: 'res://assets/dream/incarnations/omar/T_ai_dream_omar_solder_alloy/albedo.png' remapped 'res://assets/dream/incarnations/omar/T_ai_dream_omar_solder_alloy/albedo.png' at thread -1
+Loading resource: res://assets/dream/incarnations/omar/T_ai_dream_omar_solder_alloy/normal.png remapped: res://assets/dream/incarnations/omar/T_ai_dream_omar_solder_alloy/normal.png
+Loading resource: res://.godot/imported/normal.png-3cbee4d54baf72a6ee6578b633cd8f03.ctex remapped: res://.godot/imported/normal.png-3cbee4d54baf72a6ee6578b633cd8f03.ctex
+Completed load for: 'res://assets/dream/incarnations/omar/T_ai_dream_omar_solder_alloy/normal.png' remapped 'res://assets/dream/incarnations/omar/T_ai_dream_omar_solder_alloy/normal.png' at thread -1
+[ENCROACH] living field on F03 binds 0 materials
+[ENCROACH] 0 finish surfaces across 6 case flats, 0 beachheads
+[WARDROBE FLOOR] PASS actual owner build supplies six cases and five storey fields
+[WARDROBE FLOOR] PASS four low leaves independently overlap the previous authored slab
+[SURFACE] 59 prop draws layered in triplanar mode (5 materials)
+[ENCROACH] 52 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 20 materials
+[ENCROACH] living field on F04 binds 10 materials
+[ENCROACH] living field on F06 binds 11 materials
+[ENCROACH] living field on F05 binds 11 materials
+[ENCROACH] living field on F03 binds 11 materials
+[WARDROBE FLOOR] PASS normal real prop sweep invokes one ownership callback
+[WARDROBE FLOOR] FAIL normal: no prior-floor case rows for 3A_w0_wardrobe
+[WARDROBE FLOOR] FAIL normal: no prior-floor case rows for 5A_w0_wardrobe
+[WARDROBE FLOOR] FAIL normal: no prior-floor case rows for 6B_aw_wardrobe
+[WARDROBE FLOOR] PASS normal: six actual same-floor case draws remain live for 2A_w0_wardrobe
+[WARDROBE FLOOR] PASS normal: six actual same-floor case draws remain live for 2C_w0_wardrobe
+[WARDROBE FLOOR] PASS normal: six actual same-floor case draws remain live for 3B_aw_wardrobe
+[WARDROBE FLOOR] PASS normal: six actual same-floor case draws remain live for 4A_w0_wardrobe
+[WARDROBE FLOOR] PASS normal: six actual same-floor case draws remain live for 5B_aw_wardrobe
+[WARDROBE FLOOR] PASS normal: six actual same-floor case draws remain live for 6C_w0_wardrobe
+[WARDROBE FLOOR] FAIL normal: every retained case row is the actual installed material
+[WARDROBE FLOOR] FAIL normal: unique registry exactly matches installed consumers on F02
+[WARDROBE FLOOR] PASS normal: all physical floor draws sample their own field on F02
+[WARDROBE FLOOR] FAIL normal: unique registry exactly matches installed consumers on F04
+[WARDROBE FLOOR] PASS normal: all physical floor draws sample their own field on F04
+[WARDROBE FLOOR] PASS normal: unique registry exactly matches installed consumers on F06
+[WARDROBE FLOOR] PASS normal: all physical floor draws sample their own field on F06
+[WARDROBE FLOOR] PASS normal: unique registry exactly matches installed consumers on F05
+[WARDROBE FLOOR] PASS normal: all physical floor draws sample their own field on F05
+[WARDROBE FLOOR] PASS normal: unique registry exactly matches installed consumers on F03
+[WARDROBE FLOOR] PASS normal: all physical floor draws sample their own field on F03
+[WARDROBE FLOOR] PASS normal: root-level inside draw keeps bounded spatial admission
+[WARDROBE FLOOR] PASS normal: root-level outside draw fails the unchanged vertical bound
+[WARDROBE FLOOR] FAIL normal: declared no-case floor rejects overlapping geometry on B1
+[WARDROBE FLOOR] FAIL normal: declared no-case floor rejects overlapping geometry on F01
+[WARDROBE FLOOR] FAIL normal: declared no-case floor rejects overlapping geometry on ROOF
+[ENCROACH] 52 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 20 materials
+[ENCROACH] living field on F04 binds 10 materials
+[ENCROACH] living field on F06 binds 11 materials
+[ENCROACH] living field on F05 binds 15 materials
+[ENCROACH] living field on F03 binds 11 materials
+[WARDROBE FLOOR] FAIL normal: repeat sweep preserves all installed identities
+[ENCROACH] 52 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 20 materials
+[ENCROACH] living field on F04 binds 10 materials
+[ENCROACH] living field on F06 binds 11 materials
+[ENCROACH] living field on F05 binds 11 materials
+[ENCROACH] living field on F03 binds 11 materials
+[WARDROBE FLOOR] PASS real queued tier reapplies all draws and invokes one callback
+[WARDROBE FLOOR] FAIL queued: no prior-floor case rows for 3A_w0_wardrobe
+[WARDROBE FLOOR] FAIL queued: no prior-floor case rows for 5A_w0_wardrobe
+[WARDROBE FLOOR] FAIL queued: no prior-floor case rows for 6B_aw_wardrobe
+[WARDROBE FLOOR] PASS queued: six actual same-floor case draws remain live for 2A_w0_wardrobe
+[WARDROBE FLOOR] PASS queued: six actual same-floor case draws remain live for 2C_w0_wardrobe
+[WARDROBE FLOOR] PASS queued: six actual same-floor case draws remain live for 3B_aw_wardrobe
+[WARDROBE FLOOR] PASS queued: six actual same-floor case draws remain live for 4A_w0_wardrobe
+[WARDROBE FLOOR] PASS queued: six actual same-floor case draws remain live for 5B_aw_wardrobe
+[WARDROBE FLOOR] PASS queued: six actual same-floor case draws remain live for 6C_w0_wardrobe
+[WARDROBE FLOOR] FAIL queued: every retained case row is the actual installed material
+[WARDROBE FLOOR] FAIL queued: unique registry exactly matches installed consumers on F02
+[WARDROBE FLOOR] PASS queued: all physical floor draws sample their own field on F02
+[WARDROBE FLOOR] FAIL queued: unique registry exactly matches installed consumers on F04
+[WARDROBE FLOOR] PASS queued: all physical floor draws sample their own field on F04
+[WARDROBE FLOOR] PASS queued: unique registry exactly matches installed consumers on F06
+[WARDROBE FLOOR] PASS queued: all physical floor draws sample their own field on F06
+[WARDROBE FLOOR] PASS queued: unique registry exactly matches installed consumers on F05
+[WARDROBE FLOOR] PASS queued: all physical floor draws sample their own field on F05
+[WARDROBE FLOOR] PASS queued: unique registry exactly matches installed consumers on F03
+[WARDROBE FLOOR] PASS queued: all physical floor draws sample their own field on F03
+[WARDROBE FLOOR] PASS queued: root-level inside draw keeps bounded spatial admission
+[WARDROBE FLOOR] PASS queued: root-level outside draw fails the unchanged vertical bound
+[WARDROBE FLOOR] FAIL queued: declared no-case floor rejects overlapping geometry on B1
+[WARDROBE FLOOR] FAIL queued: declared no-case floor rejects overlapping geometry on F01
+[WARDROBE FLOOR] FAIL queued: declared no-case floor rejects overlapping geometry on ROOF
+[ENCROACH] 52 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 20 materials
+[ENCROACH] living field on F04 binds 10 materials
+[ENCROACH] living field on F06 binds 11 materials
+[ENCROACH] living field on F05 binds 15 materials
+[ENCROACH] living field on F03 binds 11 materials
+[WARDROBE FLOOR] FAIL queued: repeat sweep preserves all installed identities
+[WARDROBE FLOOR] PASS producer and ownership work leave persisted facts unchanged
+[WARDROBE FLOOR] PASS actual producer root and owners retired
+[WARDROBE FLOOR] PASS explicit fresh receipt directory supplied
+[WARDROBE FLOOR] PASS receipt directory available
+[WARDROBE FLOOR] PASS readable receipt file can be written
+WARDROBE FLOOR ADMISSION: FAIL (43/63)
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

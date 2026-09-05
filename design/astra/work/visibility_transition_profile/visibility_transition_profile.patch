@@ -1,0 +1,136 @@
+--- a/game/scripts/building/building_root.gd
++++ b/game/scripts/building/building_root.gd
+@@ -839,10 +839,16 @@
+ 	# and idempotent: once after the builders settle, and again on every
+ 	# passage crossing with the late-geometry sweep.
+ 	surface_pass.on_props_applied = func() -> void:
++		var profile_phase := Time.get_ticks_usec()
+ 		if apartment_encroachment != null:
+ 			apartment_encroachment.reach_props(self)
++		if _astra_visibility_profile_active:
++			_astra_visibility_profile["encroachment_callback_us"] = Time.get_ticks_usec() - profile_phase
++		profile_phase = Time.get_ticks_usec()
+ 		if organism_incidents != null:
+ 			organism_incidents.attach_props()
++		if _astra_visibility_profile_active:
++			_astra_visibility_profile["incidents_callback_us"] = Time.get_ticks_usec() - profile_phase
+ 	get_tree().create_timer(1.5).timeout.connect(func() -> void:
+ 		surface_pass.apply_props(self))
+ 
+@@ -2634,7 +2640,17 @@
+ 	return key
+ 
+ 
++# Diagnostic-only phase instrumentation; all original work still executes.
++var _astra_visibility_profile: Dictionary = {}
++var _astra_visibility_profile_active := false
++
++
+ func _apply_visibility(p: Vector3) -> void:
++	var profile_started := Time.get_ticks_usec()
++	_astra_visibility_profile_active = true
++	_astra_visibility_profile = {"from_passage": passage_visible,
++		"to_passage": _point_is_in_passage(p), "mask_changes": 0,
++		"rebind_us": 0, "layer_assign_us": 0}
+ 	# Explicit callers always apply, even when the derived region is unchanged.
+ 	# Record the answer afterward so the next ordinary physics tick can skip.
+ 	_visibility_key = _visibility_signature(p)
+@@ -2643,8 +2659,13 @@
+ 	# Restore STREET's blocker before Passage decides its own eligibility. The
+ 	# shared layer-block table keeps direct portal transitions correct in either
+ 	# direction even where both gates own the same F01 node.
++	var profile_phase := Time.get_ticks_usec()
+ 	_set_street_core_visibility(not _point_is_low_street(p))
++	_astra_visibility_profile["street_gate_us"] = Time.get_ticks_usec() - profile_phase
++	profile_phase = Time.get_ticks_usec()
+ 	_set_passage_visibility(in_passage)
++	_astra_visibility_profile["passage_gate_us"] = Time.get_ticks_usec() - profile_phase
++	profile_phase = Time.get_ticks_usec()
+ 	if commensals:
+ 		commensals.set_visibility_context(p)
+ 	var in_eye := absf(p.x) < 3.7 and p.z > -3.7 and p.z < 6.9
+@@ -2710,6 +2731,9 @@
+ 			var should_show_door := show_props and zone_visible
+ 			if door.visible != should_show_door:
+ 				door.visible = should_show_door
++	_astra_visibility_profile["remaining_owners_us"] = Time.get_ticks_usec() - profile_phase
++	_astra_visibility_profile["total_us"] = Time.get_ticks_usec() - profile_started
++	_astra_visibility_profile_active = false
+ 
+ 
+ ## Godot z is the negation of the ruled Blender y controls.  The portal plane
+@@ -2779,8 +2803,13 @@
+ 	# Sweep before toggling, on the transition and only on the transition:
+ 	# whatever was built asynchronously since the last crossing gets its
+ 	# ownership decided now, before either zone renders a frame of it.
++	var profile_phase := Time.get_ticks_usec()
+ 	_index_late_f01_geometry()
++	_astra_visibility_profile["passage_index_us"] = Time.get_ticks_usec() - profile_phase
++	profile_phase = Time.get_ticks_usec()
+ 	surface_pass.apply_props(self)
++	_astra_visibility_profile["surface_and_callbacks_us"] = Time.get_ticks_usec() - profile_phase
++	profile_phase = Time.get_ticks_usec()
+ 	passage_visible = should_show
+ 	for geometry in passage_interior_nodes:
+ 		geometry.visible = should_show
+@@ -2822,6 +2851,7 @@
+ 			actor.set_passage_active(should_show)
+ 		else:
+ 			actor.visible = should_show
++	_astra_visibility_profile["passage_owner_changes_us"] = Time.get_ticks_usec() - profile_phase
+ 
+ 
+ func _set_street_core_visibility(should_show: bool) -> void:
+@@ -2830,11 +2860,15 @@
+ 	# A transition is the deterministic late-build sweep. Gameplay takes several
+ 	# seconds to reach the pavement, but async arcade screens are still handled
+ 	# rather than being assumed complete after `_ready`.
++	var profile_phase := Time.get_ticks_usec()
+ 	_index_street_core_geometry()
++	_astra_visibility_profile["street_index_us"] = Time.get_ticks_usec() - profile_phase
++	profile_phase = Time.get_ticks_usec()
+ 	street_core_visible = should_show
+ 	for geometry in street_core_nodes:
+ 		if is_instance_valid(geometry):
+ 			_zone_toggle(geometry, should_show, "street_core")
++	_astra_visibility_profile["street_owner_changes_us"] = Time.get_ticks_usec() - profile_phase
+ 
+ 
+ ## LAYERS, not `visible`. Visibility has co-writers — the root-parented
+@@ -2878,11 +2912,17 @@
+ func _set_zone_layer_mask(vi: VisualInstance3D, target_layers: int) -> void:
+ 	if vi.layers == target_layers:
+ 		return
++	var profile_rebind := Time.get_ticks_usec()
+ 	if vi is GeometryInstance3D and vi.is_inside_tree():
+ 		var world: World3D = vi.get_world_3d()
+ 		if world != null:
+ 			RenderingServer.instance_set_scenario(vi.get_instance(), world.scenario)
++	var profile_assign := Time.get_ticks_usec()
+ 	vi.layers = target_layers
++	if _astra_visibility_profile_active:
++		_astra_visibility_profile["mask_changes"] += 1
++		_astra_visibility_profile["rebind_us"] += profile_assign - profile_rebind
++		_astra_visibility_profile["layer_assign_us"] += Time.get_ticks_usec() - profile_assign
+ 
+ 
+ ## RENDERER (owner ruling 2026-08-22: Forward+ is canonical; Compatibility
+--- a/game/tests/vulkan_composed_root_test.gd
++++ b/game/tests/vulkan_composed_root_test.gd
+@@ -176,6 +176,7 @@
+ 	var started := Time.get_ticks_usec()
+ 	world._apply_visibility(station.zone)
+ 	var apply_usec := Time.get_ticks_usec() - started
++	var phase_profile: Dictionary = world._astra_visibility_profile.duplicate(true)
+ 	var after_apply: int = world._visibility_apply_count
+ 	world._update_floor_visibility()
+ 	_check("%s unchanged-region physics request is cached" % station.key, world._visibility_apply_count == after_apply)
+@@ -201,7 +202,7 @@
+ 	var repeated_usec := Time.get_ticks_usec() - started
+ 	_check("%s repeated explicit no-op scans preserve tables and masks" % station.key, stable == _zone_state())
+ 	transitions.append({"station": station.key, "cycle": cycle, "warmup": cycle < 0,
+-		"apply_usec": apply_usec, "repeated_scan_count": 16, "repeated_scan_usec": repeated_usec, "frames": frames})
++		"phase_profile": phase_profile, "apply_usec": apply_usec, "repeated_scan_count": 16, "repeated_scan_usec": repeated_usec, "frames": frames})
+ 	populations.append({"station": station.key, "cycle": cycle, "population": _population(world), "zone": _zone_state()})
+ 	_check("arcade lifecycle/isolation after " + str(station.key), _arcade_masks_match(str(station.key)))
+ 	if take_capture:

@@ -8,6 +8,13 @@ var _failed := 0
 func _ready() -> void:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
+	# The geometry population contract was authored at the canonical 03:00.
+	# Pin the shared clock explicitly; rendering/dispatch flags do not set it.
+	CampaignTime.set_frozen_for_tests(true)
+	var fixture_clock := CampaignClock.new()
+	var clock_pinned: bool = fixture_clock.configure_date(1928, 11, 10, 180.0)
+	_check("fixture owns an explicit frozen 03:00 campaign clock",
+			clock_pinned and is_equal_approx(fixture_clock.minute_of_day(), 180.0))
 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
 	await get_tree().create_timer(1.5).timeout
@@ -16,6 +23,16 @@ func _ready() -> void:
 	_check("both enclosed F01 masses produce a material index", core.size() > 1300)
 	var harukiya_core: Array = core.filter(func(geometry):
 		return root._fully_in_harukiya_core(geometry))
+	print("[STREET CORE POPULATION] total=%d harukiya=%d clock=%s" % [
+			core.size(), harukiya_core.size(), fixture_clock.datetime_string()])
+	var harukiya_census: Array[Dictionary] = []
+	for geometry in root.find_children("*", "GeometryInstance3D", true, false):
+		if root._fully_in_harukiya_core(geometry):
+			harukiya_census.append({"path": str(geometry.get_path()),
+					"indexed": core.has(geometry), "class": geometry.get_class(),
+					"visible": geometry.visible, "layers": geometry.layers,
+					"world_aabb": str(root._measured_world_aabb(geometry))})
+	print("[HARUKIYA SOURCE CENSUS] ", JSON.stringify(harukiya_census))
 	_check("the ruled Harukiya prism contributes its own population",
 			harukiya_core.size() > 250)
 

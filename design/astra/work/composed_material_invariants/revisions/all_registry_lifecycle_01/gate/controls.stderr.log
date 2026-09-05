@@ -1,0 +1,17 @@
+test_actual_state_mismatch_or_wrong_census_path_rejected (test_observer_gate.ObserverGateControls.test_actual_state_mismatch_or_wrong_census_path_rejected) ... ok
+test_bool_zero_or_out_of_range_comparison_ids_rejected (test_observer_gate.ObserverGateControls.test_bool_zero_or_out_of_range_comparison_ids_rejected) ... ok
+test_complete_signed_id_payload_including_noncase_registry_targets (test_observer_gate.ObserverGateControls.test_complete_signed_id_payload_including_noncase_registry_targets) ... ok
+test_duplicate_or_unexecuted_lifecycle_comparison_rejected (test_observer_gate.ObserverGateControls.test_duplicate_or_unexecuted_lifecycle_comparison_rejected) ... ok
+test_missing_contract_or_arrays_rejected (test_observer_gate.ObserverGateControls.test_missing_contract_or_arrays_rejected) ... ok
+test_missing_evaluation_reasons_are_separate (test_observer_gate.ObserverGateControls.test_missing_evaluation_reasons_are_separate) ... ok
+test_missing_noncase_target_rejected_even_with_plausible_reduced_counts (test_observer_gate.ObserverGateControls.test_missing_noncase_target_rejected_even_with_plausible_reduced_counts) ... ok
+test_missing_value_or_wrong_floor_membership_rejected (test_observer_gate.ObserverGateControls.test_missing_value_or_wrong_floor_membership_rejected) ... ok
+test_noncase_restoration_failure_cannot_hide_behind_case_snapshots (test_observer_gate.ObserverGateControls.test_noncase_restoration_failure_cannot_hide_behind_case_snapshots) ... ok
+test_plausible_truncation_does_not_reduce_expected_case_population (test_observer_gate.ObserverGateControls.test_plausible_truncation_does_not_reduce_expected_case_population) ... ok
+test_touched_and_evaluated_count_mismatches_rejected (test_observer_gate.ObserverGateControls.test_touched_and_evaluated_count_mismatches_rejected) ... ok
+test_unexecuted_or_failed_row_cannot_hide_under_passed_aggregate (test_observer_gate.ObserverGateControls.test_unexecuted_or_failed_row_cannot_hide_under_passed_aggregate) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.024s
+
+OK

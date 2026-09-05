@@ -1,0 +1,15 @@
+{
+  "status": "PREPARED_UNRUN",
+  "parent_preparation_preserved": true,
+  "bindings": {
+    "game/scripts/building/building_root.gd": {
+      "original_sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+      "diagnostic_sha256": "0adce2e360bb8bd73294b7c0b1e4111c8b5a41cba5230483f9d3def7a7be0e32"
+    },
+    "game/tests/vulkan_composed_root_test.gd": {
+      "original_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+      "diagnostic_sha256": "92ec5234ad745379794bdcd326b7cb5d0c17bef647d97785f862c20aa0053ba2"
+    }
+  },
+  "census_scope": "Outside synchronous apply/frame-wait/no-op measurement windows; no material mutation; slots vs unique instance IDs and invalid slots per floor"
+}

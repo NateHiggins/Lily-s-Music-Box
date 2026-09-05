@@ -1,0 +1,26 @@
+{
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-B",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\composed_material_invariants\\revisions\\all_registry_lifecycle_01\\gate\\proposed\\classify_result.py",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\material_one_census_v1_full_01\\result.json",
+    "--owner-sha256",
+    "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "--fixture-sha256",
+    "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508",
+    "--out",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\composed_material_ownership\\material_one_census_v1_full_01_additive_v2.json"
+  ],
+  "actual_classifier_exit": 0,
+  "source_result_sha256": "ad119d32fa1c0b48de3dd567921356d2af821dd79ca64a6d137ac5adca0d8496",
+  "source_result_unchanged": true,
+  "sealed_gate_hashes": {
+    "material_gate.py": "13275061e17b9b93ed7b746ff263d90b6eb259f040729606b2005260e85e89bf",
+    "observer_gate.py": "1b212c2878efb7270721d6f935be0ac68dda76bc62861a1675e045aee289b3b9",
+    "classify_result.py": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6"
+  },
+  "classification_sha256": "1a20117f82c9e1dc55fd3bd9158d66e3fd134e6faede9c1fc69233ec19663802",
+  "stdout_sha256": "1a20117f82c9e1dc55fd3bd9158d66e3fd134e6faede9c1fc69233ec19663802",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "Read-only additive classification; immutable raw run untouched; no engine or live source edit."
+}

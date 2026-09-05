@@ -1,0 +1,115 @@
+{
+  "schema": "astra.encroachment-equivalence.runtime-plan.v1",
+  "status": "PREPARED_ENGINE_UNRUN_NO_LIVE_INSTALL",
+  "head_observed_at_preparation": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "install": {
+    "game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+    "game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+    "game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+    "game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5"
+  },
+  "production_bindings": {
+    "game/scripts/building/surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+    "game/scripts/reality/living_field.gd": "f20af296e04bb059078051435aa444d910e447d44c185afd10d6878388c06ed5",
+    "game/scripts/dream/dream_organelle_lifecycle.gd": "cd312f3d0f5430338bc8b6b6d2a0cb229b6ae5c97af3d3bc82cf0fa9ffc8cb82",
+    "game/scripts/props/functional_prop.gd": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca",
+    "game/shaders/orison_surface.gdshader": "bff87ead0f95d9fc92dfe6e9555c08e0a08f263a650d428de9980f6a16ccd4ab",
+    "game/shaders/orison_surface_cutout.gdshader": "addfe08caf718384185f4cf3e0c6553d1d013e38d60e421a9cb03fb6f667e5c4",
+    "game/shaders/orison_surface.gdshaderinc": "91bcb14baa6f95d21d58eea6cbaef5d913f25acfc0eb9a6afc421dad58f48554",
+    "game/scripts/reality/apartment_encroachment.gd": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db"
+  },
+  "serial_runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "engine_sha256": [
+    "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef",
+    "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+  ],
+  "commands": [
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_01/execute.py",
+      "install",
+      "ownership_7c54c_01"
+    ],
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_01/execute.py",
+      "candidate",
+      "ownership_7c54c_01"
+    ],
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_01/execute.py",
+      "priority",
+      "ownership_7c54c_01"
+    ],
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_01/execute.py",
+      "drop_late",
+      "ownership_7c54c_01"
+    ],
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_01/execute.py",
+      "restored",
+      "ownership_7c54c_01"
+    ]
+  ],
+  "sealed_files": {
+    "controls.stderr.log": "4c86df874cb3a0219d5d525ad23c7bcd2c252ab53e2d9bc0c52194bcfdfca4e0",
+    "controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "drop_late.patch": "94e4c600fd38b2b5f2f02739c08a86654aacca21ad91b1fa836aa9546baf897d",
+    "expected_check_contract.json": "2b89ea17c21be70493719bfe894447288a704c2c415d76b1440583767596e6b9",
+    "gate.py": "5dbd5edd9849c708bde8e3cc940fda39950ab3a98e68ab97773d89e125cedbfa",
+    "gate_contract_revision/originals/controls.stderr.log": "deeac54bf3f113f840026197aae5ee327584599b4f6f8a8e014a2ee894e4abdd",
+    "gate_contract_revision/originals/controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gate_contract_revision/originals/drop_late.patch": "94e4c600fd38b2b5f2f02739c08a86654aacca21ad91b1fa836aa9546baf897d",
+    "gate_contract_revision/originals/gate.py": "54f4f642e58e4c38f1a757fd52595ca62e7698c058548cd5c7ef315b98439218",
+    "gate_contract_revision/originals/preparation.json": "603eac49b707932f20ab80698901b24e0383fb0349c677c7526578e4321007f8",
+    "gate_contract_revision/originals/preparation_receipt.json": "4c482d68f73b49edde56e584f5d710f3b34976ae2b3423da4f7225a2dc818224",
+    "gate_contract_revision/originals/prepare.py": "4c429a5cee991d68f1d7671760f143860cc95775019cdc46d131a2abad0b9de3",
+    "gate_contract_revision/originals/priority.patch": "386cc539d7f7b71ff7150cc2d752ffe663eb2ba98df8cd642e09ba83a0b94e91",
+    "gate_contract_revision/originals/proposed/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "gate_contract_revision/originals/proposed/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "gate_contract_revision/originals/proposed/game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+    "gate_contract_revision/originals/proposed/game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+    "gate_contract_revision/originals/proposed/game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+    "gate_contract_revision/originals/proposed/game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5",
+    "gate_contract_revision/originals/README.md": "68a15a1469f0bd3d2ae3ef5f5d974f21c4dc574e782120be2cd5a8f7b296df8d",
+    "gate_contract_revision/originals/seal_preparation.py": "041721f21b3564067586f5bda03be896d5cecf3feb342a6af6bae2abafa119c2",
+    "gate_contract_revision/originals/test_gate.py": "d053a193458fc370eaf52b3a37bfd44b3d770ba742a585eedd7a6d73073bc76e",
+    "gate_contract_revision/originals/test_prepare.py": "6f8366cda3a0ffea8904e8d0dbbf284f2e34c7e88db359bbe4c86853b1e1d84e",
+    "preparation.json": "603eac49b707932f20ab80698901b24e0383fb0349c677c7526578e4321007f8",
+    "preparation_receipt.json": "d171eb83a99b4c312314dc9ca7768997a1c8ac799bb6711110b9b7c81d0452e1",
+    "prepare.py": "4c429a5cee991d68f1d7671760f143860cc95775019cdc46d131a2abad0b9de3",
+    "priority.patch": "386cc539d7f7b71ff7150cc2d752ffe663eb2ba98df8cd642e09ba83a0b94e91",
+    "proposed/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "proposed/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "proposed/game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+    "proposed/game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+    "proposed/game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+    "proposed/game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5",
+    "README.md": "0865d9c1815ef6bfcca542f21f071a54c4da6f526bc120d4d3ee55cc69c31941",
+    "seal_preparation.py": "4c6c264e8aeea3bd19b125e154a7ce00b25791a2b9cdd717a9f144aeb3302ef8",
+    "test_gate.py": "a95aa6223ee1f75ce1a1d0210cb9cb8e123203abb234ccf776e4fbb2714c5aca",
+    "test_prepare.py": "6f8366cda3a0ffea8904e8d0dbbf284f2e34c7e88db359bbe4c86853b1e1d84e"
+  },
+  "files": {
+    "assess.py": "d8787bedd1b80e78500b0e7d3029e85fb86d1133c799191aefa2cd9652ca6388",
+    "execute.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+    "expected_check_contract.json": "2b89ea17c21be70493719bfe894447288a704c2c415d76b1440583767596e6b9",
+    "gate.py": "5dbd5edd9849c708bde8e3cc940fda39950ab3a98e68ab97773d89e125cedbfa",
+    "README.md": "71d4789611b3849e25c0f180f08619fc4b18985203b14da87f2aaa956961db2c",
+    "runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+    "support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+    "test_gate.py": "a95aa6223ee1f75ce1a1d0210cb9cb8e123203abb234ccf776e4fbb2714c5aca",
+    "test_runtime_plan.py": "1a7d622024acbfe840d65b2078f20151880663264652f50bdec3807928440f20"
+  }
+}

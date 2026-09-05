@@ -1,0 +1,13 @@
+--- candidate/apartment_encroachment.gd
++++ priority/apartment_encroachment.gd
+@@ -901,7 +901,9 @@
+ 		var aabb := _world_aabb(mi)
+ 		if aabb.size == Vector3.ZERO:
+ 			continue
+-		for case_id in units:
++		var reversed_cases: Array = units.keys()
++		reversed_cases.reverse()
++		for case_id in reversed_cases:
+ 			var unit: Dictionary = units[case_id]
+ 			var rect: Vector4 = unit.rect
+ 			var floor_y: float = unit.floor_y

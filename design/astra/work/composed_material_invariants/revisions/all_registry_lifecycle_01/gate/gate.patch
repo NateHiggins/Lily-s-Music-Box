@@ -1,0 +1,17 @@
+--- a/material_gate.py
++++ b/material_gate.py
+@@ -1,5 +1,6 @@
+ """Additive gate; the existing Vulkan diagnostic contract is never weakened."""
+ import math
++from observer_gate import validate_v2_refresh
+ CASES = {"mina_caption_crisis", "peter_form_corridor", "juno_feedback_tetris",
+          "mae_contradictory_antiques", "cal_memory_radio", "omar_unrepairable"}
+ STAGES = ["before_measured"] + [f"cycle_{i}" for i in range(6)] + ["before_retirement"]
+@@ -107,6 +108,7 @@
+             reasons.append(f"{stage}: wrong explicit refresh scope")
+         if should_refresh:
+             refresh = row.get("refresh", {})
++            reasons.extend(f"{stage}: {reason}" for reason in validate_v2_refresh(refresh, cases, registries))
+             if not safe_refresh_contract(refresh):
+                 reasons.append(f"{stage}: unsafe, unrecorded or changed beachhead/force threshold boundary")
+             if refresh.get("passed") is not True or refresh.get("facts_unchanged") is not True \

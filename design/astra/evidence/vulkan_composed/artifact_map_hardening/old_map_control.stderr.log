@@ -1,0 +1,96 @@
+test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) ... 
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='frames/probe.json') ... FAIL
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='stdout.log') ... FAIL
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='gate.py.source') ... FAIL
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='run_godot_serial.ps1.source') ... FAIL
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='stdout.log.stderr') ... FAIL
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='command.ps1') ... FAIL
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='run_case.py.source') ... FAIL
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='before.diff') ... FAIL
+  test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='after.diff') ... FAIL
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='frames/probe.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='stdout.log')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='gate.py.source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='run_godot_serial.ps1.source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='stdout.log.stderr')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='command.ps1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='run_case.py.source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='before.diff')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_each_consumed_artifact_must_be_named_even_if_file_exists (test_pair_artifacts.PairArtifactControls.test_each_consumed_artifact_must_be_named_even_if_file_exists) (name='after.diff')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_composed\test_pair_artifacts.py", line 38, in test_each_consumed_artifact_must_be_named_even_if_file_exists
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.019s
+
+FAILED (failures=9)

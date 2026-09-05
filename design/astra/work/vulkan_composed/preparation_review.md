@@ -1,0 +1,5 @@
+# Static preparation review
+
+The authority_debt agent reviewed the prepared GDScript, README and Python wrapper/gate read-only. It identified two concrete blockers: stopping root physics also stopped production SurfacePass.govern, and the initial arcade geometry census preceded production distance-triggered lazy boot. Both were corrected outside the live game. Root physics now remains active with governor state sampled per frame, and the arcade census follows actual Harukiya warmup. The reviewer then reported no further definite API/type or claim blocker in the inspected draft, while explicitly withholding Godot compile/runtime clearance.
+
+The independent review also confirmed that the measurement APIs match existing project consumers and that PhoneCamera, the real mirror, and the separate-world synthetic control have distinct declared scopes. A later Python-only refinement tightened expected omission-red recognition so source drift or unrelated errors cannot satisfy it; the added14th synthetic parser control passed. No production source, engine process, staging or commit was changed by this preparation.

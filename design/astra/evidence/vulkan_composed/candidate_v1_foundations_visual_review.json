@@ -1,0 +1,115 @@
+{
+  "scope": "Direct view_image inspection of all18 PNGs; composition/visible-content only, no human acceptance, actual traversal, general camera correctness or performance claim",
+  "run": "candidate_v1_foundations_01",
+  "source_result_sha256": "1dd7f238faaaf3a84e03a3d1f9113804ec32124b2ff549ce9648ca84041f0c9e",
+  "images": [
+    {
+      "name": "initial_street",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/initial_street.png",
+      "sha256": "7fa0512ff1b82da0e048ecd4051d8a3dd0a707bce859db3a6be8a69c092bb2bc",
+      "assessment": "REFINE: facade/signage and street remain visible, but a tall central panel blocks the forward sidewalk and the held device covers the lower right; dark inspection exposure."
+    },
+    {
+      "name": "initial_street_phone",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/initial_street_phone.png",
+      "sha256": "5a066be5e3e80d0da89a9137d6c26fccd8b0a4f7ec00d072b23783787dd4641f",
+      "assessment": "SALVAGEABLE: same real street scene readable in the lower-resolution phone view; central obstruction remains."
+    },
+    {
+      "name": "initial_passage",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/initial_passage.png",
+      "sha256": "9fd014ac806fc9c9e6e52f5c8e8863b87df8ff63568bb58a3e911a0554055bf8",
+      "assessment": "SALVAGEABLE: intact circulation, shop signs and grilles; held device obscures right foreground."
+    },
+    {
+      "name": "initial_passage_phone",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/initial_passage_phone.png",
+      "sha256": "3f2435f5d7aff5a4c093432d03f895f2e51620e60d6cd18abdbc361ab4a89768",
+      "assessment": "SALVAGEABLE: corridor/signage survives phone rendering with unobstructed center at lower resolution."
+    },
+    {
+      "name": "initial_orison",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/initial_orison.png",
+      "sha256": "09d437651d243456f0fabcbad85edea91a28819178f09f71d43f389f670166cd",
+      "assessment": "SALVAGEABLE: door, mail bank and desk remain visible; carried device blocks right foreground."
+    },
+    {
+      "name": "initial_orison_phone",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/initial_orison_phone.png",
+      "sha256": "b15de0110a131a6a7fd9fb9c0cd91b7e542ebe1e721c41cc57623e9facc89676",
+      "assessment": "SALVAGEABLE: same lobby structure and props visible with lower-resolution aliasing."
+    },
+    {
+      "name": "initial_f04",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/initial_f04.png",
+      "sha256": "b76528a3c4182eb07cb8a83595085cb630f39c99e897ab8f6843b46d0a5c5c46",
+      "assessment": "SALVAGEABLE: hallway geometry and repeated light fixtures intact; held device obstructs right foreground."
+    },
+    {
+      "name": "initial_harukiya",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/initial_harukiya.png",
+      "sha256": "292fa4baf2dcf0cd3cbc555ab3c1c20b435308f211906f4e9aca7d7d4ca6bd06",
+      "assessment": "REFINE: room population is present but too dark to inspect arcade screens or most details; this image alone is not arcade rendering proof."
+    },
+    {
+      "name": "actual_arcade_before_passage",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/actual_arcade_before_passage.png",
+      "sha256": "495281bc927584312b9c2e410788778b7fc24a0a579d22360efd5df81a3e4bed",
+      "assessment": "RENDERED_CONTENT_CONFIRMED within narrow raw-viewport inspection scope: actual booted cabinet renders a legible Operations attract scene, stock/grain/weather heading, crates and clipboard."
+    },
+    {
+      "name": "return_harukiya",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/return_harukiya.png",
+      "sha256": "de6a743a529291f5cbe31cc88bf0feb17b1b7e2d5d549034cb4796c08a516b39",
+      "assessment": "REFINE: room structure visually agrees with initial view, dark details remain; production song notice now visible."
+    },
+    {
+      "name": "actual_arcade_after_passage",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/actual_arcade_after_passage.png",
+      "sha256": "1b6b42d0a24431f6208fccfaec8259d5d660b9391d7c286e1f55b14a91dd23c8",
+      "assessment": "RENDERED_CONTENT_CONFIRMED within narrow raw-viewport inspection scope: same cabinet scene and geometry render after transitions/return; Insert Coin is dimmer at this captured animation state. Not a synthetic replacement."
+    },
+    {
+      "name": "actual_f04_mirror",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/actual_f04_mirror.png",
+      "sha256": "eb241b5a5ee5f70e3603ed1e585752922e799b8b3f0b399aef6674e2d850629e",
+      "assessment": "SALVAGEABLE: bathroom mirror contains rendered content; glare/blur and device constrain detail inspection."
+    },
+    {
+      "name": "actual_f04_reflection",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/actual_f04_reflection.png",
+      "sha256": "ca0f332bf54a4e1ba32a5ccaa08a69ba0f3b4b1aa173070c6da1b51d7fa97370",
+      "assessment": "SALVAGEABLE: raw actual reflection contains door, toilet and wall detail at lower resolution; no disappearance."
+    },
+    {
+      "name": "separate_world_initial",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/separate_world_initial.png",
+      "sha256": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "assessment": "CONTROL_STATE_CONFIRMED within owned-control scope: colored target visible against gray world."
+    },
+    {
+      "name": "separate_world_restored",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/separate_world_restored.png",
+      "sha256": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "assessment": "CONTROL_STATE_CONFIRMED within owned-control scope: same colored target visibly restored."
+    },
+    {
+      "name": "separate_world_blocked",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/separate_world_blocked.png",
+      "sha256": "1a86c8993123f9fdfc03928989db4499837304d5e48f4bf2011ef95699206b65",
+      "assessment": "CONTROL_STATE_CONFIRMED within owned-control scope: target absent, gray world remains."
+    },
+    {
+      "name": "before_retirement_passage",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/before_retirement_passage.png",
+      "sha256": "1e8c7d1db97540e1bd864343aa6f3e6504fea6b0621eac29d209e69609acaff4",
+      "assessment": "SALVAGEABLE: circulation and visible storefront structure remain after toggles; device obstruction persists."
+    },
+    {
+      "name": "before_retirement_passage_phone",
+      "file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_foundations_01\\frames/before_retirement_passage_phone.png",
+      "sha256": "68372366a25eacb297cbcdd6e1a8fa9be81587164d329c6c8ddea55a9325ca4c",
+      "assessment": "SALVAGEABLE: final phone viewport still renders passage and shop signs."
+    }
+  ]
+}
