@@ -114,7 +114,7 @@ func _close_previous_job() -> void:
 	world.work_orders.close_job(job)
 
 func _write_receipt(captures_ok: bool) -> bool:
-	var path: String = shots.output_dir.path_join("composition_capture_receipt.json")
+	var path := shots.output_dir.path_join("composition_capture_receipt.json")
 	if FileAccess.file_exists(path):
 		push_error("Composition capture receipt already exists: " + path)
 		return false
