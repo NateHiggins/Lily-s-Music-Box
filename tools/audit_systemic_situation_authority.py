@@ -39,8 +39,8 @@ Audit domains and finding classes:
                   when the scene unloads.
   host-clock      HOST_CLOCK_MUTATES_WORLD - durable world facts derived
                   from unix/system time or OS ticks (profiling, perf
-                  measurement and cosmetic clocks are classified, not
-                  flagged).
+                  measurement, reviewed pure IDs and seed entropy are
+                  excluded; world-facing clocks use campaign time).
   objective-ui    OBJECTIVE_UI_LEAK - objective/mission/quest/tutorial
                   presentation in player-facing production UI (debug,
                   tests, diegetic work papers and ordinary dialogue are
@@ -66,8 +66,9 @@ never compared.
 Baseline policy (tools/systemic_situation_authority_baseline.json):
 new actionable production findings FAIL; a baselined finding whose class
 or confidence changes FAILS (a baseline entry never suppresses a
-different class, a higher-confidence mutation, or a production finding
-via a test-tier entry); vanished baseline entries are cleanup
+different class, a higher-confidence mutation, an actionable finding via
+an old non-actionable disposition, or a production finding via a test-tier
+entry); vanished baseline entries are cleanup
 opportunities; malformed or duplicate baselines FAIL.  Output is
 deterministic and byte-identical across runs.
 
@@ -257,6 +258,7 @@ HOST_CLOCK_RE = re.compile(
     r"Time\.get_time_(?:dict|string)_from_system\(|"
     r"Time\.get_date_dict_from_system\(|"
     r"OS\.get_ticks")
+HOST_UNIX_RE = re.compile(r"Time\.get_unix_time_from_system\(")
 HOST_CALENDAR_RE = re.compile(
     r"Time\.get_(?:date_dict|datetime_dict|datetime_string)_from_system\(")
 CALENDAR_FIELD_ACCESS_RE = re.compile(
@@ -378,7 +380,8 @@ class FileContext:
         for name, body in bodies.items():
             filename_only = (rel, name) in HOST_FILENAME_SCOPES and \
                 not CALENDAR_DURABLE_RE.search(body)
-            if HOST_CALENDAR_RE.search(body) and not filename_only:
+            if (HOST_CALENDAR_RE.search(body) or HOST_UNIX_RE.search(body)) and not filename_only \
+                    and not _pure_seed_entropy(rel, name, body):
                 self.calendar_sources.add(name)
         changed = True
         while changed:
@@ -628,6 +631,19 @@ def _scan_scene_local_autonomy(ctx, findings):
         "REVIEW", ctx.tier))
 
 
+def _pure_seed_entropy(rel, scope, body):
+    # Exact existing entropy boundary. It does not return the timestamp or
+    # write a durable fact; the random hexadecimal seed is the returned value.
+    return (rel == "game/scripts/game/reality_game_state.gd" and
+            scope == "_new_dream_seed" and
+            len(HOST_UNIX_RE.findall(body)) == 1 and
+            "RandomNumberGenerator.new()" in body and
+            re.search(r"rng\.seed\s*=.*Time\.get_unix_time_from_system\(", body) and
+            body.count("rng.randi()") == 2 and
+            re.search(r"return[^\n]*\bencoded\b", body) and
+            not CALENDAR_DURABLE_RE.search(body))
+
+
 def _scan_host_clock(ctx, findings, line, scope, line_no):
     helper_read = not FUNC_RE.match(line.strip()) and any(
         re.search(r"\b" + re.escape(source) + r"\s*\(", line)
@@ -639,7 +655,10 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
     campaign_owner = ctx.rel == "game/scripts/game/campaign_clock.gd"
     civil_host_read = HOST_CALENDAR_RE.search(line) or \
         re.search(r"Time\.get_time_(?:dict|string)_from_system\(", line)
-    if civil_host_read and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
+    unix_host_read = HOST_UNIX_RE.search(line)
+    if _pure_seed_entropy(ctx.rel, scope, code_body):
+        return
+    if (civil_host_read or unix_host_read) and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
             not CALENDAR_DURABLE_RE.search(code_body):
         return  # approved pure non-world filename generator only
     if campaign_owner and scope == "_sample_local_minute_of_day" and \
@@ -650,16 +669,17 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
         return  # exactly the pure creation-time hour/minute sampler
     calendar_persistence = (helper_read or civil_host_read) and \
         CALENDAR_DURABLE_RE.search(code_body)
-    if campaign_owner or calendar_persistence or civil_host_read:
+    if campaign_owner or calendar_persistence or civil_host_read or unix_host_read:
         findings.append(make_finding(
             "host-clock", "HOST_CLOCK_MUTATES_WORLD", ctx.rel, scope,
             line_no, line, ctx.writer, "authored campaign calendar",
-            "STRONG", "host calendar or unauthorized clock read can "
+            "STRONG", "host Unix/civil time or unauthorized clock read can "
             "replace authored campaign time, display host time in the world "
             "or persist host date fields",
             "use campaign_calendar.json and the simulation clock; only "
             "CampaignClock._sample_local_minute_of_day may sample local "
-            "hour/minute once, without calendar fields or durable writes",
+            "hour/minute once, without calendar fields or durable writes; "
+            "Unix host time is reserved for reviewed seed entropy or pure IDs",
             "REVIEW" if ctx.tier == "test" else "FIX", ctx.tier))
         return
     profiling = PROFILING_CONTEXT_RE.search(line) or \
@@ -915,6 +935,12 @@ def diff_baseline(baseline: dict, findings: list[dict]) -> dict:
                 {"finding": finding, "entry": entry,
                  "why": "test-tier entry cannot baseline a "
                         "production finding"})
+        elif finding["tier"] == "production" and \
+                finding["disposition"] in ACTIONABLE and \
+                entry.get("disposition") not in ACTIONABLE:
+            policy_violations.append(
+                {"finding": finding, "entry": entry,
+                 "why": "non-actionable baseline cannot suppress actionable finding"})
         else:
             covered.append(finding)
     vanished = [e for eid, e in sorted(base_by_id.items())

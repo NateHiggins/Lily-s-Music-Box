@@ -1,0 +1,54 @@
+{
+  "status": "prepared_not_applied_not_runtime_executed",
+  "source_head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "files": [
+    {
+      "path": "game/scripts/game/chirp_hunt.gd",
+      "sha256": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28"
+    },
+    {
+      "path": "game/scripts/game/maintenance_inventory.gd",
+      "sha256": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f"
+    },
+    {
+      "path": "game/scripts/game/work_orders.gd",
+      "sha256": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57"
+    },
+    {
+      "path": "game/scripts/props/night_register_prop.gd",
+      "sha256": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e"
+    },
+    {
+      "path": "game/scripts/reality/organism_incidents.gd",
+      "sha256": "d0ceca4606f2fe60c4e43f1fb925f3f3f9b96cd19f959fb7df82ab1f8ea70f8d"
+    },
+    {
+      "path": "game/tests/world_timestamp_test.gd",
+      "sha256": "faef187d393f69751aa6751b6ae1c5be4a7ee605032b39c7d4c5cb2495695d40"
+    },
+    {
+      "path": "game/tests/WorldTimestampTest.tscn",
+      "sha256": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931"
+    }
+  ],
+  "originals": {
+    "game/scripts/game/maintenance_inventory.gd": "9d51fb4113460c21a64aae382fb938dccd35d001ca48283c279d8a93a56229ce",
+    "game/scripts/game/work_orders.gd": "262a96e28eeab68a5ab878c423e5b1bafd1a3edf31de5c2fb5f637931e17419e",
+    "game/scripts/reality/organism_incidents.gd": "420e13e8c0f1387ec1d1d319605e85a762524fdb4dfab63d371a6177b5a10758",
+    "game/scripts/props/night_register_prop.gd": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf",
+    "game/scripts/game/chirp_hunt.gd": "217ad4cd3d3d9f2605411269d1741f919cfe389efbe361c7ffdbe10a45668393"
+  },
+  "originals_match_live": true,
+  "checks": [
+    "Unique mutation anchors",
+    "Original/live exact byte comparisons",
+    "Prepared patch and wrapped-minute negative source control"
+  ],
+  "not_run": [
+    "Godot parser/import",
+    "original-source red",
+    "candidate green",
+    "wrapped-minute red",
+    "save/load and existing owner regression scenes"
+  ]
+}

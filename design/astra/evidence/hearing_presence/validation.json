@@ -1,0 +1,695 @@
+{
+  "schema": "astra.hearing_presence.aggregate-validation.v1",
+  "status": "SCOPED_RUNTIME_EVIDENCE_VERIFIED",
+  "assembled_utc": "2026-09-05T07:06:46.873498+00:00",
+  "reviewed_head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "execution_attribution": "Root executed and preserved runtime runs; authority_debt verified raw results/hashes and assembled metadata without Godot. dream_forensics independently checked all hearing receipts.",
+  "production_integration_commit": null,
+  "production_integration_note": "Applied current sources are uncommitted at assembly; root owns later integration.",
+  "final_reviewed_runtime_reference": {
+    "receipt": "design/astra/evidence/world_timestamps/final_timestamps_01/receipt.json",
+    "receipt_sha256": "80ff6e5decbfbd7812ef487fbdea5f94737b7438b63270956691e46302b4b2ca",
+    "canonical_runtime_digest": "45dd96137ce2e8a517240c3c8959e6094fc0b4528388a3814427515ba1983d65",
+    "count": 1160,
+    "matches_live_at_completed_pre_profile_check": true,
+    "not_rehashed_during_renderer_profile": true
+  },
+  "final_owned_source_sha256": {
+    "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+    "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+    "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+    "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+  },
+  "runs": [
+    {
+      "name": "candidate_composed_01",
+      "mode": "composed",
+      "receipt_path": "design/astra/evidence/hearing_presence/candidate_composed_01/receipt.json",
+      "receipt_sha256": "e90db5b0eb46a8ca7bf0ca51c6b7c5f2fee3b451e12d0b9d8f9f730a6fcffde6",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "ORISON V2 PRESENCE LEDGER: PASS checks=23"
+      ],
+      "receipt_summary_lines_preserved": [
+        "ORISON V2 PRESENCE LEDGER: PASS checks=23"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [
+        "WARNING: no legal wall for found piece cam_noel_witches"
+      ],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "a8bd39ad0e54093cfd02b2ae03ec8ab626f606958a7e88368d8e887c13d0dc0a",
+        "godot.stdout.log": "830415d9f6c391d795def66ca905838f313ba93a50cb06571ea36d6718a1b2d5",
+        "godot.stdout.log.stderr": "b025243315904c17bcb6eb109d6a4cad187558d2d40bba935d02e0cdaa1e1d51",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/hearing_presence/candidate_composed_01/source_before.runtime_inputs.json",
+          "manifest_file_sha256": "bbb9ae9acec6e012fdf7f5072b7b6fbd45e3416df71616e46063f26f08c76c31",
+          "canonical_runtime_digest": "5f5be4ad80b969e319fcf6e5a8910afef6a87735d0cce37de61aed0ea8bcb267",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/hearing_presence/candidate_composed_01/source_after.runtime_inputs.json",
+          "manifest_file_sha256": "bbb9ae9acec6e012fdf7f5072b7b6fbd45e3416df71616e46063f26f08c76c31",
+          "canonical_runtime_digest": "5f5be4ad80b969e319fcf6e5a8910afef6a87735d0cce37de61aed0ea8bcb267",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\hearing_presence\\candidate_composed_01\\appdata",
+      "profile_existed_before_run": false,
+      "started_utc": "2026-09-05T06:51:07.203909+00:00",
+      "finished_utc": "2026-09-05T06:51:30.035124+00:00",
+      "scope": "real production file/API fixture; no physical human route or multi-process restart claim"
+    },
+    {
+      "name": "candidate_focused_01",
+      "mode": "focused",
+      "receipt_path": "design/astra/evidence/hearing_presence/candidate_focused_01/receipt.json",
+      "receipt_sha256": "dd504e98545aee03f3ef70dc06e73bca780d159e92ecf3ad2aa96826aaa0c267",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "NPC HEARING PRESENCE: PASS 13/13"
+      ],
+      "receipt_summary_lines_preserved": [
+        "[HEARING] PASS only the present riser neighbor hears the event",
+        "[HEARING] PASS the absent source-flat resident earns no hearing belief",
+        "[HEARING] PASS presence does not bypass acoustic threshold",
+        "[HEARING] PASS returning home does not replay a missed sound",
+        "[HEARING] PASS a later sound reaches both now-present residents",
+        "[HEARING] PASS the source-flat belief retains its local evidence route",
+        "[HEARING] PASS the neighbor belief retains its propagated evidence route",
+        "[HEARING] PASS the earned belief uses the supplied simulation clock",
+        "[HEARING] PASS recorded evidence is an owned copy",
+        "[HEARING] PASS the same learned event remains deduplicated",
+        "[HEARING] PASS an absent riser neighbor cannot hear through their empty flat",
+        "[HEARING] PASS an actor's explicit direct observation remains independent of home presence",
+        "[HEARING] PASS the source-unit-only fallback also respects absence",
+        "NPC HEARING PRESENCE: PASS 13/13"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "c94fd06a9459bf0c2d36d968f791848740ada31491c1f894c5e63d96934664ed",
+        "godot.stdout.log": "b1be4be8e88c80579d97f7cdc3a89f82e0fdaf3f357da1b3252f2228a8d352a3",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/hearing_presence/candidate_focused_01/source_before.runtime_inputs.json",
+          "manifest_file_sha256": "bbb9ae9acec6e012fdf7f5072b7b6fbd45e3416df71616e46063f26f08c76c31",
+          "canonical_runtime_digest": "5f5be4ad80b969e319fcf6e5a8910afef6a87735d0cce37de61aed0ea8bcb267",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/hearing_presence/candidate_focused_01/source_after.runtime_inputs.json",
+          "manifest_file_sha256": "bbb9ae9acec6e012fdf7f5072b7b6fbd45e3416df71616e46063f26f08c76c31",
+          "canonical_runtime_digest": "5f5be4ad80b969e319fcf6e5a8910afef6a87735d0cce37de61aed0ea8bcb267",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\hearing_presence\\candidate_focused_01\\appdata",
+      "profile_existed_before_run": false,
+      "started_utc": "2026-09-05T06:51:05.423779+00:00",
+      "finished_utc": "2026-09-05T06:51:06.623574+00:00",
+      "scope": "real production file/API fixture; no physical human route or multi-process restart claim"
+    },
+    {
+      "name": "original_composed_01",
+      "mode": "composed",
+      "receipt_path": "design/astra/evidence/hearing_presence/original_composed_01/receipt.json",
+      "receipt_sha256": "0dec76550a888739f0176db8161f1f1039012a6595b88647e7ac39f724d09c7e",
+      "recorded_native_or_runner_exit": 4,
+      "expected_exit": 4,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 1,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "ORISON V2 PRESENCE LEDGER: FAIL (4) checks=23"
+      ],
+      "receipt_summary_lines_preserved": [
+        "ORISON V2 PRESENCE LEDGER: FAIL (4) checks=23"
+      ],
+      "raw_failed_assertion_lines": [
+        "FAIL the absent resident gains no in-home hearing belief",
+        "FAIL coming home does not retroactively reveal the missed event",
+        "FAIL v2 save reconstructs the earned beliefs under v2",
+        "FAIL the same beliefs reconstruct under a v1 rollback"
+      ],
+      "raw_warning_headers": [
+        "WARNING: no legal wall for found piece cam_noel_witches"
+      ],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "49cfcb13ce7024a4befca930ae86723a1d961770c6450c9a3c0b8a4c3273ad74",
+        "godot.stdout.log": "ed026b98d222ea07a7202c791eb0455ba9e744fc6e2d908d53153ecaa693143c",
+        "godot.stdout.log.stderr": "29216daaeb28cf8e27ee21ba3d7d54cac624c269b11705743310614bc5457816",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/hearing_presence/original_composed_01/source_before.runtime_inputs.json",
+          "manifest_file_sha256": "a76a3044ab09928020d5ae838f54c0a70d8b6ee04690b3a67d9f49a20b86971e",
+          "canonical_runtime_digest": "01cbcc54881d91b9b9f0ab1e116af415926cafecf8c48db9110923b7632d1dda",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/hearing_presence/original_composed_01/source_after.runtime_inputs.json",
+          "manifest_file_sha256": "a76a3044ab09928020d5ae838f54c0a70d8b6ee04690b3a67d9f49a20b86971e",
+          "canonical_runtime_digest": "01cbcc54881d91b9b9f0ab1e116af415926cafecf8c48db9110923b7632d1dda",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\hearing_presence\\original_composed_01\\appdata",
+      "profile_existed_before_run": false,
+      "started_utc": "2026-09-05T06:49:58.074985+00:00",
+      "finished_utc": "2026-09-05T06:50:21.341565+00:00",
+      "scope": "real production file/API fixture; no physical human route or multi-process restart claim"
+    },
+    {
+      "name": "original_focused_01",
+      "mode": "focused",
+      "receipt_path": "design/astra/evidence/hearing_presence/original_focused_01/receipt.json",
+      "receipt_sha256": "2c72b82ceda77a0fb8b58fd33dd50c59bc6aa090eb9a3237ff9eae267b2e42af",
+      "recorded_native_or_runner_exit": 5,
+      "expected_exit": 6,
+      "expected_exit_matches": false,
+      "diagnostic_gate_exit": 1,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "NPC HEARING PRESENCE: FAIL 8/13"
+      ],
+      "receipt_summary_lines_preserved": [
+        "[HEARING] FAIL only the present riser neighbor hears the event",
+        "[HEARING] FAIL the absent source-flat resident earns no hearing belief",
+        "[HEARING] PASS presence does not bypass acoustic threshold",
+        "[HEARING] FAIL returning home does not replay a missed sound",
+        "[HEARING] PASS a later sound reaches both now-present residents",
+        "[HEARING] PASS the source-flat belief retains its local evidence route",
+        "[HEARING] PASS the neighbor belief retains its propagated evidence route",
+        "[HEARING] PASS the earned belief uses the supplied simulation clock",
+        "[HEARING] PASS recorded evidence is an owned copy",
+        "[HEARING] PASS the same learned event remains deduplicated",
+        "[HEARING] FAIL an absent riser neighbor cannot hear through their empty flat",
+        "[HEARING] PASS an actor's explicit direct observation remains independent of home presence",
+        "[HEARING] FAIL the source-unit-only fallback also respects absence",
+        "NPC HEARING PRESENCE: FAIL 8/13"
+      ],
+      "raw_failed_assertion_lines": [
+        "[HEARING] FAIL only the present riser neighbor hears the event",
+        "[HEARING] FAIL the absent source-flat resident earns no hearing belief",
+        "[HEARING] FAIL returning home does not replay a missed sound",
+        "[HEARING] FAIL an absent riser neighbor cannot hear through their empty flat",
+        "[HEARING] FAIL the source-unit-only fallback also respects absence"
+      ],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "ff861aeab609707d37715a645f6ddc009a66ccd11f821eb41aa35cc91e195137",
+        "godot.stdout.log": "3db2490e9487b0bc1b0c776980c13df6bf76a42fd9979a472e8072c5dc5c2f6f",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/hearing_presence/original_focused_01/source_before.runtime_inputs.json",
+          "manifest_file_sha256": "a76a3044ab09928020d5ae838f54c0a70d8b6ee04690b3a67d9f49a20b86971e",
+          "canonical_runtime_digest": "01cbcc54881d91b9b9f0ab1e116af415926cafecf8c48db9110923b7632d1dda",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/hearing_presence/original_focused_01/source_after.runtime_inputs.json",
+          "manifest_file_sha256": "a76a3044ab09928020d5ae838f54c0a70d8b6ee04690b3a67d9f49a20b86971e",
+          "canonical_runtime_digest": "01cbcc54881d91b9b9f0ab1e116af415926cafecf8c48db9110923b7632d1dda",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\hearing_presence\\original_focused_01\\appdata",
+      "profile_existed_before_run": false,
+      "started_utc": "2026-09-05T06:49:29.088819+00:00",
+      "finished_utc": "2026-09-05T06:49:30.306316+00:00",
+      "scope": "real production file/API fixture; no physical human route or multi-process restart claim"
+    },
+    {
+      "name": "regression_authority_01",
+      "mode": "authority",
+      "receipt_path": "design/astra/evidence/hearing_presence/regression_authority_01/receipt.json",
+      "receipt_sha256": "60efa80c22d3cb87dfccd30bdfe43c1ae10583a3645b6a23413945739ca1e236",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "OPEN SHIFT AUTHORITY TEST: PASS"
+      ],
+      "receipt_summary_lines_preserved": [
+        "OPEN SHIFT AUTHORITY TEST: PASS"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "61afbb904abb28574305e1281b58b8af2546bbee92bd4195babf8293a22ca42c",
+        "godot.stdout.log": "c624e24e6b05607375b32b25fd9261c817fc335a8f0dc30caefe9050c829be3e",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/hearing_presence/regression_authority_01/source_before.runtime_inputs.json",
+          "manifest_file_sha256": "bbb9ae9acec6e012fdf7f5072b7b6fbd45e3416df71616e46063f26f08c76c31",
+          "canonical_runtime_digest": "5f5be4ad80b969e319fcf6e5a8910afef6a87735d0cce37de61aed0ea8bcb267",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/hearing_presence/regression_authority_01/source_after.runtime_inputs.json",
+          "manifest_file_sha256": "bbb9ae9acec6e012fdf7f5072b7b6fbd45e3416df71616e46063f26f08c76c31",
+          "canonical_runtime_digest": "5f5be4ad80b969e319fcf6e5a8910afef6a87735d0cce37de61aed0ea8bcb267",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\hearing_presence\\regression_authority_01\\appdata",
+      "profile_existed_before_run": false,
+      "started_utc": "2026-09-05T06:52:47.450065+00:00",
+      "finished_utc": "2026-09-05T06:52:49.193504+00:00",
+      "scope": "real production file/API fixture; no physical human route or multi-process restart claim"
+    },
+    {
+      "name": "regression_matrix_01",
+      "mode": "matrix",
+      "receipt_path": "design/astra/evidence/hearing_presence/regression_matrix_01/receipt.json",
+      "receipt_sha256": "4ffa0761186591ba543dc8b358af7cf1117a783ed06e2e38c8a455d48ded942c",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "OPEN SHIFT SAVE MATRIX: 17/17 PASS"
+      ],
+      "receipt_summary_lines_preserved": [
+        "OPEN SHIFT SAVE MATRIX: 17/17 PASS"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "da3b991a49482d69420e1771d3dd54fdc24fdfae0d5f2510406eff42593414be",
+        "godot.stdout.log": "0e05daebed134927c9bdb3b1a7e1ca49880f99dc70ae45948df3d2325e6dc7a7",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/hearing_presence/regression_matrix_01/source_before.runtime_inputs.json",
+          "manifest_file_sha256": "bbb9ae9acec6e012fdf7f5072b7b6fbd45e3416df71616e46063f26f08c76c31",
+          "canonical_runtime_digest": "5f5be4ad80b969e319fcf6e5a8910afef6a87735d0cce37de61aed0ea8bcb267",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/hearing_presence/regression_matrix_01/source_after.runtime_inputs.json",
+          "manifest_file_sha256": "bbb9ae9acec6e012fdf7f5072b7b6fbd45e3416df71616e46063f26f08c76c31",
+          "canonical_runtime_digest": "5f5be4ad80b969e319fcf6e5a8910afef6a87735d0cce37de61aed0ea8bcb267",
+          "count": 1160,
+          "source_copies": {
+            "game/scripts/reality/npc_observation_ledger.gd": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1",
+            "game/tests/npc_hearing_presence_test.gd": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122",
+            "game/tests/orison_v2_presence_ledger_test.gd": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54",
+            "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+            "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/hearing_presence/run_case.py": "b4ee7fb6b178a7d9f6c84c2bcb8a60dc4040006aad4431da43521949b2bc7801",
+            "game/tests/NpcHearingPresenceTest.tscn": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6",
+            "game/tests/orison_v2_presence_ledger_test.tscn": "58a47b4f4f862c9c84a97f611a6dee8f470a0ffd7d6175c89b5b0fe84076fd78"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\hearing_presence\\regression_matrix_01\\appdata",
+      "profile_existed_before_run": false,
+      "started_utc": "2026-09-05T06:52:49.372180+00:00",
+      "finished_utc": "2026-09-05T06:52:51.462931+00:00",
+      "scope": "real production file/API fixture; no physical human route or multi-process restart claim"
+    }
+  ],
+  "verification": {
+    "run_count": 6,
+    "receipted_artifact_count": 198,
+    "all_receipted_artifact_hashes_match": true,
+    "all_source_copies_match": true,
+    "all_runtime_manifest_digests_recomputed": true,
+    "all_in_run_sources_stable": true,
+    "all_raw_logs_independently_inspected": true,
+    "prior_receipts_modified": false,
+    "no_engine_or_generator_run_by_aggregator": true,
+    "method": "All raw artifact, source-copy and full-live comparison checks finished before root released the renderer profiling lane. Assembly reads only retained metadata and uses those completed checks; no whole-tree rehash during profiling."
+  },
+  "limits": [
+    "actual_exit is the preserved serial runner forwarded process exit, not a number inferred from assertions.",
+    "The raw engine banner is retained. Original run receipts do not hash executable binary bytes; this aggregate does not retroactively bind them.",
+    "Wrappers admit warnings generally, not through a strict allowlist. Only the named found-art warning appears in the reviewed raw runs.",
+    "Runtime manifests bind project/scripts/scenes/tests/data text inputs, not all binary assets. Older full digests remain distinct from the final reviewed source.",
+    "Focused owner/presence callbacks and same-process save/load are not human physical traversal, a full-day soak or separate-process restart proofs.",
+    "Home presence gates apartment in_home_hearing/heating_riser paths including fallback. Explicit direct observation stays separate; old beliefs are preserved.",
+    "Composed helper actually reloads state and constructs each root, then reads its owned ledger. Same-process proof does not retroactively upgrade the former root-ID-only helper.",
+    "Radiator situation remains unoffered at initial and reconstructed boundaries. Neutral injected events do not prove embodied hearing in corridors, visited flats or outdoors.",
+    "All green selected hearing production/fixture copies match live. Full hearing digest differs from final reviewed digest only in subsequently revised MaintenanceJob/NightRegister tests.",
+    "Fixed absolute timestamp tolerance plus one-minute rejection control preserves new observation time; return does not grant missed knowledge."
+  ],
+  "result": {
+    "original_focused": "8/13, native 5, expected 6 mismatch, gate 1",
+    "original_composed": "19 passes and 4 failures, 23 checks, native 4/expected 4, gate 1",
+    "candidate_focused": "13/13, native 0/gate 0",
+    "candidate_composed": "23 raw passes, 23 checks, native 0/gate 0; found-art warning retained",
+    "authority": "21 raw pass lines, uncounted PASS footer, native 0/gate 0",
+    "matrix": "17/17, native 0/gate 0"
+  },
+  "original_focused_expectation_mismatch": {
+    "actual_native_exit": 5,
+    "configured_expected_exit": 6,
+    "expected_exit_matches": false,
+    "raw_pass_count": 8,
+    "raw_fail_count": 5,
+    "total": 13,
+    "interpretation": "The configured expectation was wrong. This remains a valid semantic red, but is not an expected-exit-matched control. No original receipt is rewritten."
+  },
+  "related_static_evidence": [
+    {
+      "receipt_path": "design/astra/evidence/foundation_repairs_audits_01/receipt.json",
+      "receipt_sha256": "7a5fbf1d44b5aeb7541101355bd03eb820b429b6e051d5021463b9c45b07611c",
+      "recorded_exits": {
+        "audio_emitters": 0,
+        "audio_emitters_selftest": 0,
+        "data_consumption": 1,
+        "data_consumption_selftest": 0,
+        "interaction_implementors": 0,
+        "interaction_implementors_selftest": 0,
+        "interaction_prompt_carriers": 0,
+        "interaction_prompt_carriers_selftest": 0,
+        "orison_spatial_dependencies": 0,
+        "orison_spatial_dependencies_selftest": 0,
+        "orison_v2_completeness": 2,
+        "orison_v2_completeness_selftest": 0,
+        "systemic_situation_authority": 0,
+        "systemic_situation_authority_selftest": 0
+      },
+      "scope": "Root-owned completed static audit inputs; referenced without rerunning or expanding runtime acceptance."
+    },
+    {
+      "receipt_path": "design/astra/evidence/foundation_period_01/receipt.json",
+      "receipt_sha256": "10bcb24bee37be0e665ea0286f4282fa3678ef61af6faecefb2980f1c953ae6f",
+      "recorded_exits": {
+        "period": 0,
+        "selftest": 0
+      },
+      "scope": "Root-owned completed static audit inputs; referenced without rerunning or expanding runtime acceptance."
+    }
+  ]
+}

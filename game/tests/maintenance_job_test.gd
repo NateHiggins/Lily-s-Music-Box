@@ -216,14 +216,29 @@ func _legacy_migration_checks() -> void:
 					"carbon_capsule_failed"]
 			and work_orders.status(LEGACY) == "missing",
 			"legacy closed-by-inspection migrates to awaiting_part, not repaired")
-	# A stale legacy record beside an already-authored job is retired without
-	# clobbering the job's progress.
+	# This job already archives the closed legacy source. A newly issued
+	# record with the same ID is different history: neither source may be
+	# discarded, and the authored job's exact progress must win unchanged.
 	work_orders.mark_job_repairable(JOB)
+	var authored_before := work_orders.job_state(JOB)
+	var archived_before: Dictionary = authored_before.get("legacy_order", {})
+	_check(str(authored_before.stage) == "repairable"
+			and str(authored_before.get("legacy_order_id", "")) == LEGACY
+			and str(archived_before.get("status", "")) == "closed",
+			"existing authored progress retains its prior closed legacy source")
 	work_orders.issue(LEGACY, "T", "O", "Orison house circuit")
+	var incoming_before: Dictionary = (RealityState.data
+			.get("work_orders", {}).get(LEGACY, {}) as Dictionary).duplicate(true)
+	_check(str(incoming_before.get("status", "")) == "issued"
+			and incoming_before != archived_before,
+			"reintroduced legacy record conflicts with the already archived source")
 	ChirpHunt.migrate_legacy(work_orders)
-	_check(work_orders.job_stage(JOB) == "repairable"
-			and work_orders.status(LEGACY) == "missing",
-			"migration never overwrites an existing authored job")
+	_check(work_orders.job_state(JOB) == authored_before,
+			"conflicting migration preserves every authored job fact and archived source")
+	_check(work_orders.status(LEGACY) == "issued"
+			and RealityState.data.get("work_orders", {}).get(LEGACY, {})
+					== incoming_before,
+			"conflicting migration preserves the exact incoming legacy record")
 
 
 func _legacy_orders_unchanged() -> void:

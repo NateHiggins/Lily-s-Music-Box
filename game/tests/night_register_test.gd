@@ -559,11 +559,13 @@ func _signing() -> void:
 			line.has("at") and not bool(line.report_out)
 			and (line.keys_out as Array).is_empty()
 			and str(line.job_id) == JOB_2A)
+	_check("the recorded hour declares the campaign elapsed-minute basis",
+			str(line.get("at_basis", "")) == "campaign_elapsed_minutes")
 	# THE THESIS, ASSERTED. The board records the CLAIM. It writes nothing
 	# about where anybody went and nothing that would verify the claim.
 	var extra: Array[String] = []
 	for key in line.keys():
-		if str(key) not in ["at", "filing", "filing_printed", "report_out",
+		if str(key) not in ["at", "at_basis", "filing", "filing_printed", "report_out",
 				"keys_out", "job_id", "job_stage"]:
 			extra.append(str(key))
 	_check("and records NOTHING beyond the claim and its circumstances (%s)"
@@ -874,18 +876,45 @@ func _conclusions() -> void:
 
 # --- what the board is not ---------------------------------------------------
 
+func _without_comment_lines(source: String) -> String:
+	# Only whole comment lines are omitted. Inline comments and all code
+	# remain visible to the ownership checks, regardless of file endings.
+	var code := ""
+	for raw in source.replace("\r\n", "\n").split("\n"):
+		if not raw.strip_edges().begins_with("#"):
+			code += raw + "\n"
+	return code
+
+
+func _comment_line_controls() -> void:
+	for ending in ["\n", "\r\n"]:
+		var label := "LF" if ending == "\n" else "CRLF"
+		var comments: String = ending.join([
+				"# issue_job close_job record_job diagnose_job offer_opening_report",
+				" \t# RealityCases activate_case resolve_case reopen_case leaf_state =",
+				"# _work_orders.call(\"close_job\")",
+				"_work_orders.call(\"job_stage\")"])
+		_check("%s ownership scan ignores whole comment lines only" % label,
+				_without_comment_lines(comments)
+						== "_work_orders.call(\"job_stage\")\n")
+		var foreign_calls: String = ending.join([
+				"_work_orders.call(\"issue_job\") # still executable",
+				"_work_orders.call(\"close_job\")",
+				"RealityCases.resolve_case(\"foreign\")",
+				"leaf_state = true"])
+		_check("%s ownership scan retains actual foreign-owner calls" % label,
+				_without_comment_lines(foreign_calls)
+						== foreign_calls.replace("\r\n", "\n") + "\n")
+
+
 func _ownership() -> void:
+	_comment_line_controls()
 	# Read as text, deliberately. Behaviour proves what the board DOES; only
 	# the source proves what it cannot do at all, and "there is no second
 	# ledger" is a claim about absence.
 	var source := FileAccess.get_file_as_string(
 			"res://scripts/props/night_register_prop.gd")
-	var code := ""
-	for raw in source.split("
-"):
-		if not raw.strip_edges().begins_with("#"):
-			code += raw + "
-"
+	var code := _without_comment_lines(source)
 	_check("the board is not a work order owner: no issue path exists",
 			not code.contains("issue_job"))
 	_check("and it never activates, resolves or reopens a case",

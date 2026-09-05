@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "base_commit": null,
+  "source": "synthetic manifest fixture",
+  "decisions": [
+    {"room": "T1_A", "object": "a_rug", "verdict": "MOVE",
+     "expected": {"room": "T1_A", "position": [2.15, 1.45], "tolerance_m": 0.05},
+     "rationale": "centre the rug"},
+    {"room": "T1_A", "object": "a_box1", "verdict": "ADD",
+     "rationale": "crate landed"},
+    {"room": "T1_A", "object": "a_ghost3", "verdict": "REPLACE",
+     "replacement": "a_box2", "rationale": "swap the placeholder for a crate"},
+    {"room": "T1_A", "object": "RuntimeThing", "verdict": "KEEP",
+     "scope": "runtime", "rationale": "runtime GDScript prop"},
+    {"room": "T1_ZZZ", "object": "a_box2", "verdict": "KEEP",
+     "rationale": "decision naming an undeclared room"}
+  ]
+}
