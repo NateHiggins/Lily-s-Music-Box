@@ -384,8 +384,21 @@ func _place_at_arrival() -> void:
 	if building == null or building.player == null:
 		return
 	var player: PlayerController = building.player
-	player.global_position = GameBoot.b2g([
+	var arrival_position := GameBoot.b2g([
 		ARRIVAL_POSITION_B.x, ARRIVAL_POSITION_B.y, ARRIVAL_POSITION_B.z])
+	var target := GameBoot.b2g([
+		ARRIVAL_LOOK_TARGET_B.x, ARRIVAL_LOOK_TARGET_B.y,
+		ARRIVAL_LOOK_TARGET_B.z])
+	var flat_direction := target - arrival_position
+	if building.has_method("arrival_placement"):
+		var placement: Dictionary = building.call("arrival_placement")
+		arrival_position = placement.get("position", Vector3.INF)
+		flat_direction = placement.get("facing", Vector3.INF)
+		if not arrival_position.is_finite() or not flat_direction.is_finite() \
+				or Vector2(flat_direction.x, flat_direction.z).length_squared() < 0.000001:
+			push_error("FIRST SHIFT: invalid building arrival placement")
+			return
+	player.global_position = arrival_position
 	player.velocity = Vector3.ZERO
 	player.noclip = false
 	player.call_locked = false
@@ -393,10 +406,6 @@ func _place_at_arrival() -> void:
 	player.collision_mask = 1
 	player.camera.position = Vector3(0, PlayerController.STANDING_EYE, 0)
 	player.camera.rotation = Vector3.ZERO
-	var target := GameBoot.b2g([
-		ARRIVAL_LOOK_TARGET_B.x, ARRIVAL_LOOK_TARGET_B.y,
-		ARRIVAL_LOOK_TARGET_B.z])
-	var flat_direction := target - player.global_position
 	flat_direction.y = 0.0
 	player.rotation.y = atan2(-flat_direction.x, -flat_direction.z)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

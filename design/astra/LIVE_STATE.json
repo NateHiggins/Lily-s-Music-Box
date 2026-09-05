@@ -59,10 +59,31 @@
   },
   "latest_v2_terminal_commit": "02fcb18a209624c9b609b65fb44b05b45c65de09",
   "current_v2_reservation_display": {
-    "status": "FOCUSED_RUNTIME_AND_MATCHED_CAPTURE_VERIFIED_PENDING_COMMIT",
+    "status": "FOCUSED_RUNTIME_AND_MATCHED_CAPTURE_VERIFIED_COMMITTED",
     "base_head": "02fcb18a209624c9b609b65fb44b05b45c65de09",
     "review": "reviews/v2_reservation_completed_03.json",
     "review_sha256": "7e3062fdacbe72402234bc034840c4e564f9ab9b56d71416c76599e85d963773",
-    "scope": "78 display-only guides suppressed in V2 production; dedicated review defaults visible. 28/25/28 runtime checks, terminal39 and directly viewed21 capture. Art, traversal, performance and human acceptance remain open."
+    "scope": "78 display-only guides suppressed in V2 production; dedicated review defaults visible. 28/25/28 runtime checks, terminal39 and directly viewed21 capture. Art, traversal, performance and human acceptance remain open.",
+    "integration_commit": "135d6b49dcd9f6feaa62b2125cb00203cb6c7d97"
+  },
+  "latest_v2_reservation_display_commit": "135d6b49dcd9f6feaa62b2125cb00203cb6c7d97",
+  "current_f01_provider": {
+    "status": "OPTIONAL_INPUTS_INSTALLED_ORIGINAL_PRODUCTION_ROOT_RESTORED_NATIVE_WORK_PAUSED_BY_OWNER",
+    "base_head": "135d6b49dcd9f6feaa62b2125cb00203cb6c7d97",
+    "continuation": "work/f01_provider_execution_05/README.md",
+    "source_seal_sha256": "7cc02545352dc4bb2076a2ef501416be40cf00455fc4024471f3cc9f79e5f6b0",
+    "observed": "Clean revised import; registry44; legacy22 with independently established found-art warning; candidate32 functional pass with foreign native overlap, exact additive recovery. No controlled candidate acceptance.",
+    "owner_steering": "Continue source work for now; do not launch further Godot until native work is resumed.",
+    "remaining": "Fresh candidate/omission/restored sequence; matched capture, physical routes, save/export and actual V2 consumer; no selector or release approval.",
+    "baseline_note": "execution_05 and capture_01 baselines predate connected V2 source edits; prepare a new baseline before resuming and preserve prior seals."
+  },
+  "current_v2_connected_world": {
+    "status": "SOURCE_IMPLEMENTED_NATIVE_UNRUN",
+    "base_head": "135d6b49dcd9f6feaa62b2125cb00203cb6c7d97",
+    "continuation": "work/v2_connected_world_01/README.md",
+    "source_checks": "work/v2_connected_world_01/source_checks.json",
+    "scope": "Actual explicit V2 runtime composes street and bodega with shared services; named front-door frame and arrival; derived open portal. No streaming or default cutover.",
+    "native_status": "Paused under owner source-work instruction. Previous runtime proofs remain scoped to their recorded hashes.",
+    "remaining": "Native compilation, composed reconstruction test, capsule route and purchase, matched views; full V2 remains unfinished."
   }
 }

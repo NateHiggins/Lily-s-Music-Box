@@ -1,0 +1,53 @@
+{
+  "status": "SOURCE_CHECKS_PASS_NATIVE_UNRUN",
+  "scope": "gdtoolkit 4.5 syntax parser and independent authored-geometry calculation only",
+  "native_godot_started": false,
+  "interior_yaw_degrees": -180.0,
+  "interior_origin": [
+    -1.4267135210066666e-15,
+    0.0,
+    -11.65
+  ],
+  "transformed_vestibule_center": [
+    -1.4695761589768265e-16,
+    0.0,
+    -1.200000000000001
+  ],
+  "door_corridor_source_blockers": [],
+  "preserved_protected_paths": [
+    "game/scripts/building/building_root_selector.gd",
+    "game/data/building_layout.json",
+    "art/data/building_layout.json",
+    "game/assets/building/floor_01.gltf",
+    "game/assets/building/floor_01.bin",
+    "game/assets/building/floor_02.gltf",
+    "game/assets/building/floor_02.bin",
+    "game/assets/building/floor_03.gltf",
+    "game/assets/building/floor_03.bin",
+    "game/assets/building/floor_04.gltf",
+    "game/assets/building/floor_04.bin",
+    "game/assets/building/floor_05.gltf",
+    "game/assets/building/floor_05.bin",
+    "game/assets/building/floor_06.gltf",
+    "game/assets/building/floor_06.bin",
+    "game/assets/building/floor_b1.gltf",
+    "game/assets/building/floor_b1.bin"
+  ],
+  "files": {
+    "game/scripts/building/orison_v2_world_connection.gd": "e0941b2b1ece7a089e0b42e465aca6cbd8f6f538d8b3893be9057e3f6b0c7cf9",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ca6a154bfbd28d7a9228b00f5a255ca5c0750574207ac16e052fc2599feef35a",
+    "game/scripts/building/orison_v2_blockout.gd": "e0d41993532fa8adce4d520dbabf0382c53c81a9a8947da526b8f392e64ba32b",
+    "game/scripts/game/first_shift_director.gd": "507953feb0cd9853c2b56df972597c67f131ca91fae22ede36d643fbcfb6349a",
+    "game/tests/orison_v2_connected_world_test.gd": "304f740e1ada65e72592a2ac5d9cce50fc41ddeb9a34a4c611b8484d28859a80",
+    "game/data/orison_v2/world_connection.json": "eefb8d3c93fa8a5c58932f5084235f36a1a4d339688557a57b59d2d4624a4d38",
+    "game/tests/OrisonV2ConnectedWorldTest.tscn": "e42ff906299e2440ceaafc20d1fcd3642479490081dde6a730637fdbfbb1d9d7"
+  },
+  "pending": [
+    "Godot compilation",
+    "two-cycle composed test",
+    "capsule walk both directions",
+    "bodega purchase in the shared work order",
+    "matched player-view captures",
+    "streaming, full V2 completion, performance and human acceptance"
+  ]
+}

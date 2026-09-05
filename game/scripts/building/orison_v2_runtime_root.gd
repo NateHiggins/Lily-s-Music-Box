@@ -8,6 +8,9 @@ const CUES := preload("res://scripts/building/orison_v2_readability_cues.gd")
 const Adapter := preload("res://scripts/building/orison_v2_anchor_adapter.gd")
 const FrameContract := preload("res://scripts/building/orison_v2_frame_contract.gd")
 const LineageRegistry := preload("res://scripts/reality/corruption_lineage_registry.gd")
+const WorldConnection := preload("res://scripts/building/orison_v2_world_connection.gd")
+const ExteriorResolver := preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd")
+const ExteriorCell := preload("res://scripts/building/orison_v2_exterior_cell.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -38,6 +41,10 @@ var startup_ms := 0.0
 var adapter
 var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
+var exterior_cell: OrisonV2ExteriorCell
+var shop_service: MaintenanceShopService
+var _exterior_resolver: Variant
+var _connection: Dictionary = {}
 
 func _ready() -> void:
 	var started := Time.get_ticks_usec()
@@ -62,7 +69,23 @@ func _ready() -> void:
 	_blockout = BLOCKOUT.instantiate()
 	_blockout.show_clearance_anchors = false
 	_blockout.show_reservation_volumes = false
+	_exterior_resolver = ExteriorResolver.load_default()
+	_connection = WorldConnection.prepare(
+			WorldConnection.read_object(_blockout.layout_path),
+			WorldConnection.read_object(ExteriorCell.GEOMETRY_PATH),
+			_exterior_resolver, WorldConnection.read_object(WorldConnection.CONFIG_PATH))
+	if _connection.is_empty():
+		_blockout.free()
+		_blockout = null
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: front-door world connection refused")
+		return
+	_blockout.transform = _connection.interior_transform
+	_blockout.space_geometry_exclusions.assign([_connection.excluded_space])
 	add_child(_blockout)
+	if not _blockout.failures.is_empty():
+		startup_failed = true
+		return
 	layout = _blockout.layout
 	for level: Dictionary in layout.get("levels", []):
 		floor_nodes[str(level.id)] = _blockout
@@ -71,7 +94,7 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: unresolved or duplicate required anchor")
 		return
-	add_child(CUES.new())
+	_blockout.add_child(CUES.new())
 	if not adapter.install_acoustic_overrides([
 			"F02_A_MAIN_VANTRY_POINT", "F02_A_MONITOR_01",
 			"F04_B_MONITOR_01"]):
@@ -79,6 +102,8 @@ func _ready() -> void:
 		push_error("ORISON V2 RUNTIME: acoustic binding failed")
 		return
 	_compose_authorities()
+	if startup_failed:
+		return
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
 
@@ -113,8 +138,12 @@ func _compose_authorities() -> void:
 	_mount("F04_B_MONITOR_01", terminal)
 	player = PlayerController.new()
 	player.name = "Player"
-	player.position = Vector3(0, 0, -14.25)
+	player.position = _connection.arrival.position
 	add_child(player)
+	if not _compose_exterior():
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: exterior composition failed")
+		return
 	vantry_points.bind_player(player)
 	service_set_carrier = ServiceSetCarrier.new()
 	service_set_carrier.name = "ServiceSetCarrier"
@@ -176,7 +205,29 @@ func _compose_authorities() -> void:
 	safety_net = SafetyNet.new()
 	safety_net.name = "SafetyNet"
 	safety_net.setup(player)
+	safety_net.anchor = _connection.arrival.position
 	add_child(safety_net)
+
+func arrival_placement() -> Dictionary:
+	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)
+
+func _compose_exterior() -> bool:
+	shop_service = MaintenanceShopService.new()
+	shop_service.name = "MaintenanceShopService"
+	add_child(shop_service)
+	exterior_cell = ExteriorCell.new()
+	exterior_cell.name = "StreetAndBodega"
+	if not exterior_cell.configure_dependencies({"player": player,
+			"work_orders": work_orders, "maintenance_inventory": maintenance_inventory,
+			"shop_service": shop_service, "spatial_resolver": _exterior_resolver,
+			"geometry_source": _connection.geometry}):
+		exterior_cell.free()
+		exterior_cell = null
+		return false
+	add_child(exterior_cell)
+	if exterior_cell.startup_failed:
+		return false
+	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
 func _compose_call_station(terminal: SignalTerminalProp) -> bool:
 	var operator := adapter.resolve("F04_B_MONITOR_STANCE") as Node3D
@@ -349,11 +400,16 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	if is_instance_valid(exterior_cell):
+		exterior_cell.shutdown_for_tests()
 	if adapter != null:
 		# Consumers are already detached before synchronous free, so tests and
 		# selector reconstruction do not leave deferred audio decoders behind.
 		adapter.restore_all(true)
 
 func _exit_tree() -> void:
+	if _exterior_resolver != null:
+		_exterior_resolver.teardown()
+		_exterior_resolver = null
 	if adapter != null:
 		adapter.restore_all()

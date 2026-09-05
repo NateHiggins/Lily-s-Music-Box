@@ -8,6 +8,8 @@ extends Node3D
 ## Keep semantic bounds while production hides nonphysical reservation meshes.
 @export var show_reservation_volumes := true
 @export var hold_route_doors_open := true
+## A composed exterior may own an open review space's physical geometry.
+@export var space_geometry_exclusions: Array[String] = []
 
 var layout: Dictionary = {}
 var level_y: Dictionary = {}
@@ -22,6 +24,13 @@ func _ready() -> void:
 	if layout.is_empty():
 		return
 	_validate_layout()
+	for identity: String in space_geometry_exclusions:
+		var matches := 0
+		for space: Dictionary in layout.get("spaces", []):
+			if str(space.id) == identity and bool(space.get("open_shell", false)):
+				matches += 1
+		if matches != 1:
+			failures.append("geometry exclusion must name one open-shell space: " + identity)
 	if not failures.is_empty():
 		for failure in failures:
 			push_error("ORISON V2: " + failure)
@@ -370,6 +379,9 @@ func _build_spaces() -> void:
 		parent.set_meta("purpose", str(space.get("purpose", "")))
 		parent.set_meta("room_id", str(space.id))
 		add_child(parent)
+		if str(space.id) in space_geometry_exclusions:
+			parent.set_meta("geometry_owned_by_exterior", true)
+			continue
 		if not bool(space.get("no_floor", false)):
 			_box(parent, "Floor", _rect_center(rect, y - slab_t * 0.5),
 					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, true)
