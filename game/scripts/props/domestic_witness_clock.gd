@@ -12,6 +12,7 @@ var tell := "correction"
 var frozen_time := "04:17"
 var accent := Color(0.7, 0.2, 0.2)
 var mounting := "wall"
+var _campaign_clock := CampaignClock.new()
 
 var _hour: Node3D
 var _minute: Node3D
@@ -488,12 +489,14 @@ func _process(delta: float) -> void:
 ## has always been wrong is scenery, and the player has no reading to
 ## measure the wrongness against.
 ##
-## So the clock keeps real time, and frozen_time becomes what it reads
+## So the clock keeps campaign time, and frozen_time becomes what it reads
 ## WRONG once possession starts. Eighteen clocks agreeing with each other
 ## and with the player's own night is what makes one of them disagreeing
 ## mean something.
 func _show_live_time() -> void:
-	var t := Time.get_time_dict_from_system()
+	var total := _campaign_clock.minute_of_day()
+	var t := {"hour": int(total / 60.0), "minute": int(total) % 60,
+			"second": fposmod(total * 60.0, 60.0)}
 	var h := float(int(t.hour) % 12)
 	var m := float(t.minute)
 	var sec := float(t.second)

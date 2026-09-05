@@ -1,5 +1,11 @@
 # Campaign opening date research: Queens, 1928
 
+**Accepted after this research:** the owner chose Saturday, November 10,
+1928. See the [current calendar ruling](../../ORISON_CAMPAIGN_CALENDAR_RULING_2026-09-05.md).
+The recommendation-stage provenance and source-access limitations below
+are retained; acceptance of the date does not turn proposed scenes into
+authored events or unverified recordings into historical evidence.
+
 Research recommendation only. No campaign date is accepted by this document; no product code, creative canon, historical-event data or audio was changed. Prepared for the owner's request to integrate a real-world timeline. Source access checked 2026-09-05 UTC. Read alongside `clock_review.md` and the latest owner time ruling.
 
 **Recommend Saturday, November 10, 1928, at the player's once-sampled local time of day.** The following morning brings a documented change to the actual New York radio dial. Starting the day before gives every possible sampled start time a period of ordinary apartment life before that change, without forcing a 03:00 opening or replaying an event which already happened. The choice of November 10 is an editorial recommendation; the dated radio event is November 11.

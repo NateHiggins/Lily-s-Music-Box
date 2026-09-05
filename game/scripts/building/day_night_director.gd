@@ -222,9 +222,6 @@ func _minute_now() -> float:
 
 
 func _process(delta: float) -> void:
-	if _campaign_clock and OS.get_environment("DAYNIGHT") != "0" \
-			and OS.get_environment("DAYNIGHT_FORCE").is_empty():
-		_campaign_clock.advance_seconds(delta)
 	_accum += delta
 	if _accum < 8.0:
 		return
@@ -296,9 +293,12 @@ func _apply(minute: float) -> void:
 	var source_a := _source_direction(a.elevation, a.azimuth)
 	var source_b := _source_direction(b.elevation, b.azimuth)
 	var source_dir := source_a.slerp(source_b, t).normalized()
+	var campaign_utc := _campaign_clock.utc_datetime() \
+			if _campaign_clock != null and _campaign_clock.bind_state() else {}
 	if OS.get_environment("DAYNIGHT") != "0" \
-			and OS.get_environment("DAYNIGHT_FORCE").is_empty():
-		var utc := Time.get_datetime_dict_from_system(true)
+			and OS.get_environment("DAYNIGHT_FORCE").is_empty() \
+			and not campaign_utc.is_empty():
+		var utc := campaign_utc
 		var latitude := float(_live_conditions.get("latitude", 40.75))
 		var longitude := float(_live_conditions.get("longitude", -73.92))
 		var sun: Vector3 = CelestialEphemerisScript.sun_direction(

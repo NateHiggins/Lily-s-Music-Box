@@ -252,11 +252,23 @@ AUTONOMY_CLAIM_RE = re.compile(
     r"autonom|advance_simulation|situation|neglect|continued_world")
 
 HOST_CLOCK_RE = re.compile(
-    r"Time\.get_unix_time[a-z_]*\(|Time\.get_ticks_msec\(|"
-    r"Time\.get_ticks_usec\(|Time\.get_datetime[a-z_]*\(|"
-    r"Time\.get_time_dict_from_system\(|"
+    r"Time\.get_unix_time_from_system\(|Time\.get_ticks_msec\(|"
+    r"Time\.get_ticks_usec\(|Time\.get_datetime_(?:dict|string)_from_system\(|"
+    r"Time\.get_time_(?:dict|string)_from_system\(|"
     r"Time\.get_date_dict_from_system\(|"
     r"OS\.get_ticks")
+HOST_CALENDAR_RE = re.compile(
+    r"Time\.get_(?:date_dict|datetime_dict|datetime_string)_from_system\(")
+CALENDAR_FIELD_ACCESS_RE = re.compile(
+    r'\.(?:year|month|day|weekday)\b|(?:get\(\s*|\[)["\x27]'
+    r'(?:year|month|day|weekday)["\x27]')
+CALENDAR_DURABLE_RE = re.compile(
+    r"RealityState|\b_state\b|\bstate\b|\.data\b|save|commit\(|"
+    r"record_fact|persist|FileAccess\.WRITE", re.IGNORECASE)
+HOST_FILENAME_SCOPES = {
+    ("game/scripts/songbook/songbook_store.gd", "_new_id"),
+    ("game/scripts/phoneos/phone_camera.gd", "_new_photo_id"),
+}
 PROFILING_CONTEXT_RE = re.compile(
     r"perf|profil|budget_ms|_ms\b|elapsed_ms|print|debug|stopwatch|"
     r"startup|timing", re.IGNORECASE)
@@ -356,6 +368,27 @@ class FileContext:
         if current:
             self.functions.append((current[0], current[1],
                                    len(self.lines) - 1))
+        # Follow named same-file helpers so separating the host read from
+        # its durable consumer does not evade the calendar rule. Pure,
+        # reviewed filename generators are non-world metadata boundaries.
+        self.calendar_sources = set()
+        bodies = {name: "\n".join(self.code_line(i)
+                                  for i in range(start + 1, end + 1))
+                  for name, start, end in self.functions}
+        for name, body in bodies.items():
+            filename_only = (rel, name) in HOST_FILENAME_SCOPES and \
+                not CALENDAR_DURABLE_RE.search(body)
+            if HOST_CALENDAR_RE.search(body) and not filename_only:
+                self.calendar_sources.add(name)
+        changed = True
+        while changed:
+            changed = False
+            for name, body in bodies.items():
+                if name not in self.calendar_sources and any(
+                        re.search(r"\b" + re.escape(source) + r"\s*\(", body)
+                        for source in self.calendar_sources):
+                    self.calendar_sources.add(name)
+                    changed = True
 
     def scope_at(self, index: int) -> str:
         for name, start, end in self.functions:
@@ -596,12 +629,39 @@ def _scan_scene_local_autonomy(ctx, findings):
 
 
 def _scan_host_clock(ctx, findings, line, scope, line_no):
-    if not HOST_CLOCK_RE.search(line):
+    helper_read = not FUNC_RE.match(line.strip()) and any(
+        re.search(r"\b" + re.escape(source) + r"\s*\(", line)
+        for source in ctx.calendar_sources)
+    if not HOST_CLOCK_RE.search(line) and not helper_read:
         return
-    if ctx.rel == "game/scripts/game/campaign_clock.gd" and \
-            scope == "_initialize_epoch_from_host":
-        return  # owner-authorized one-time campaign epoch capture
     body = ctx.function_body(scope)
+    code_body = "\n".join(raw.split("#", 1)[0] for raw in body.splitlines())
+    campaign_owner = ctx.rel == "game/scripts/game/campaign_clock.gd"
+    civil_host_read = HOST_CALENDAR_RE.search(line) or \
+        re.search(r"Time\.get_time_(?:dict|string)_from_system\(", line)
+    if civil_host_read and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
+            not CALENDAR_DURABLE_RE.search(code_body):
+        return  # approved pure non-world filename generator only
+    if campaign_owner and scope == "_sample_local_minute_of_day" and \
+            "Time.get_time_dict_from_system(" in line and \
+            len(HOST_CLOCK_RE.findall(code_body)) == 1 and \
+            not CALENDAR_FIELD_ACCESS_RE.search(code_body) and \
+            not CALENDAR_DURABLE_RE.search(code_body):
+        return  # exactly the pure creation-time hour/minute sampler
+    calendar_persistence = (helper_read or civil_host_read) and \
+        CALENDAR_DURABLE_RE.search(code_body)
+    if campaign_owner or calendar_persistence or civil_host_read:
+        findings.append(make_finding(
+            "host-clock", "HOST_CLOCK_MUTATES_WORLD", ctx.rel, scope,
+            line_no, line, ctx.writer, "authored campaign calendar",
+            "STRONG", "host calendar or unauthorized clock read can "
+            "replace authored campaign time, display host time in the world "
+            "or persist host date fields",
+            "use campaign_calendar.json and the simulation clock; only "
+            "CampaignClock._sample_local_minute_of_day may sample local "
+            "hour/minute once, without calendar fields or durable writes",
+            "REVIEW" if ctx.tier == "test" else "FIX", ctx.tier))
+        return
     profiling = PROFILING_CONTEXT_RE.search(line) or \
         PROFILING_CONTEXT_RE.search(scope)
     if profiling and not DURABLE_CONTEXT_RE.search(line):

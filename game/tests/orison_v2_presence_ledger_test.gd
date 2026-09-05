@@ -18,8 +18,7 @@ const Selector := preload("res://scripts/building/building_root_selector.gd")
 const LENA := "lena_ortiz"
 const OMAR := "omar_bell"
 const RADIATOR_NODE := "F02_B_RADIATOR_01"
-## 180.0 is the situation clock's own origin (03:00); the ecosystem adds
-## its durable elapsed simulation minutes to it.
+## Explicit campaign civil times; event provenance uses absolute minutes.
 const HOME_MINUTE := 180.0
 const CORRIDOR_MINUTE := 320.0
 
@@ -28,6 +27,8 @@ var passes := 0
 
 
 func _ready() -> void:
+	var old_clock_frozen := bool(CampaignTime.get("_frozen_for_tests"))
+	CampaignTime.set_frozen_for_tests(true)
 	var saved_persistence := RealityState.persistence_enabled
 	var old_path := RealityState.save_path
 	var save_path := "user://tests/v2_presence_ledger_save.json"
@@ -35,6 +36,9 @@ func _ready() -> void:
 			ProjectSettings.globalize_path("user://tests"))
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
+	var clock := CampaignClock.new()
+	clock.configure_date(1928, 11, 10, int(HOME_MINUTE))
+	var absolute_home := clock.absolute_minutes()
 	RealityCases._ready()
 	RealityState.data.intro_complete = true
 	RealityState.data.first_shift = {"phase": FirstShiftDirector.PHASE_COMPLETE}
@@ -63,9 +67,8 @@ func _ready() -> void:
 	# --- the gate does its real job ---------------------------------
 	var situation = world.open_shift_ecosystem.situation
 	situation.offer(LENA, 0.2, 0.25)
-	_check(is_equal_approx(float(world.open_shift_ecosystem.now_minutes()),
-			HOME_MINUTE),
-			"the shared clock starts at the situation's own origin minute")
+	_check(absf(float(world.open_shift_ecosystem.now_minutes()) - absolute_home) < 0.00001,
+			"the shared provider reads the configured absolute campaign minute")
 	_check(world.resident_is_home(LENA),
 			"Lena is home at 03:00, where her timetable puts her in bed")
 	var seen_home := world.observation_ledger.witness_visible_state("2B",
@@ -76,10 +79,10 @@ func _ready() -> void:
 
 	# Advance the SAME durable clock the belief timestamps read, into her
 	# authored corridor round. Nothing here teleports or mutates her.
-	situation.advance_simulation_minutes(CORRIDOR_MINUTE - HOME_MINUTE)
-	_check(is_equal_approx(float(world.open_shift_ecosystem.now_minutes()),
-			CORRIDOR_MINUTE),
-			"the situation clock advanced to her corridor round")
+	clock.advance_to(CORRIDOR_MINUTE - HOME_MINUTE)
+	_check(absf(float(world.open_shift_ecosystem.now_minutes())
+			- absolute_home - CORRIDOR_MINUTE + HOME_MINUTE) < 0.00001,
+			"the campaign clock advanced to her corridor round")
 	_check(not world.resident_is_home(LENA),
 			"Lena is NOT home while her timetable has her on the corridor")
 	var seen_out := world.observation_ledger.witness_visible_state("2B",
@@ -103,8 +106,7 @@ func _ready() -> void:
 			"saw_open_union")
 	_check(str(sight.get("channel", "")) == "in_home_sight"
 			and str(sight.get("where", "")) == "2B"
-			and is_equal_approx(float(sight.get("at_minutes", -1.0)),
-					HOME_MINUTE),
+			and absf(float(sight.get("at_minutes", -1.0)) - absolute_home) < 0.00001,
 			"the sight belief is dated to the minute she was present")
 
 	# PINNED, NOT ENDORSED. Presence gates sight only
@@ -118,8 +120,8 @@ func _ready() -> void:
 	var hearing := _belief(world.observation_ledger.beliefs(LENA),
 			"heard_riser_hammer_worsening")
 	_check(str(hearing.get("channel", "")) == "in_home_hearing"
-			and is_equal_approx(float(hearing.get("at_minutes", -1.0)),
-					CORRIDOR_MINUTE)
+			and absf(float(hearing.get("at_minutes", -1.0))
+					- absolute_home - CORRIDOR_MINUTE + HOME_MINUTE) < 0.00001
 			and not world.resident_is_home(LENA),
 			"KNOWN GAP pinned: hearing ignores presence, so an absent "
 			+ "resident still earns an in-home hearing belief")
@@ -149,6 +151,7 @@ func _ready() -> void:
 	RealityState.persistence_enabled = saved_persistence
 	RealityState.reset_campaign_for_tests()
 	Selector.reset_for_tests()
+	CampaignTime.set_frozen_for_tests(old_clock_frozen)
 	_check(Selector.DEFAULT_ID == "v1", "committed selector remains v1")
 	print("ORISON V2 PRESENCE LEDGER: %s checks=%d" % [
 			"PASS" if failures == 0 else "FAIL (%d)" % failures,

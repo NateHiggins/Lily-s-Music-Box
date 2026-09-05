@@ -20,6 +20,8 @@ extends Node3D
 ## the wall rather than put there by a person.
 
 const ATLAS := "res://assets/building/textures/notices/lobby_notices.png"
+const WirelessNotice := preload("res://scripts/game/historical_radio_notice.gd")
+const ControlArea := preload("res://scripts/props/prop_control_area.gd")
 const COLS := 4
 const ROWS := 2
 ## Which notice goes where, and how far past its date it is.
@@ -44,6 +46,9 @@ var _inspection_sheet: MeshInstance3D
 var _inspection_sheet_rest_z := 0.0
 var _inspection_tap: AudioStreamPlayer3D
 var _inspection_tween: Tween
+var _wireless_notice = WirelessNotice.new()
+var _clock_reader := CampaignClock.new()
+var _civil_time_provider: Callable
 
 
 func _ready() -> void:
@@ -79,6 +84,93 @@ func _ready() -> void:
 	for spec in SPILLED:
 		_notice(spec, 0.008, brass)
 	_build_inspection_owner(Vector3(1.42, 0.78, 0.20))
+	_build_wireless_notice()
+	if not _civil_time_provider.is_valid():
+		# A read-only handle onto the same durable campaign state used by the
+		# world's clock. Inspection never advances or resamples that clock.
+		_civil_time_provider = Callable(_clock_reader, "day_info")
+
+
+func bind_civil_time_provider(provider: Callable) -> void:
+	_civil_time_provider = provider
+
+
+func _exit_tree() -> void:
+	# The inspection tap can still be queued when a building is replaced.
+	# Release this owner's decoder and matching cache entry at the same boundary.
+	if _inspection_tween and _inspection_tween.is_valid():
+		_inspection_tween.kill()
+	_inspection_tween = null
+	if _inspection_tap:
+		var stream := _inspection_tap.stream
+		_inspection_tap.stop()
+		_inspection_tap.stream = null
+		if stream != null:
+			PropAudio.release_stream("tick", stream)
+		_inspection_tap.free()
+		_inspection_tap = null
+	_civil_time_provider = Callable()
+
+
+func _build_wireless_notice() -> void:
+	# A separate tenant hand-copy, alongside the old board rather than over
+	# its existing notices. Both dated columns remain on this fixed paper.
+	var sheet := MeshInstance3D.new()
+	sheet.name = "WirelessLicenseNotice"
+	var paper := QuadMesh.new()
+	paper.size = Vector2(0.44, 0.50)
+	sheet.mesh = paper
+	sheet.material_override = _finish(Color(0.85, 0.79, 0.65), 0.94, 0.0)
+	sheet.position = Vector3(-0.80, 0.0, 0.025)
+	sheet.rotation.z = -0.018
+	add_child(sheet)
+	var text := Label3D.new()
+	text.name = "WirelessLicenseText"
+	text.text = _wireless_notice.printed_text()
+	text.font = preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
+	text.font_size = 32
+	text.pixel_size = 0.00062
+	text.outline_size = 0
+	text.modulate = Color(0.12, 0.085, 0.055)
+	text.shaded = true
+	text.position.z = 0.004
+	sheet.add_child(text)
+	var pin := MeshInstance3D.new()
+	var pin_mesh := CylinderMesh.new()
+	pin_mesh.top_radius = 0.006
+	pin_mesh.bottom_radius = 0.004
+	pin_mesh.height = 0.009
+	pin_mesh.radial_segments = 6
+	pin.mesh = pin_mesh
+	pin.material_override = _finish(Color(0.46, 0.32, 0.11), 0.36, 0.86)
+	pin.rotation_degrees.x = 90.0
+	pin.position = Vector3(0.0, 0.235, 0.009)
+	sheet.add_child(pin)
+	var area := ControlArea.new()
+	area.name = "WirelessNoticeInspection"
+	area.configure("wireless_notice")
+	# The right paper edge overlaps the board's broad inspection rectangle;
+	# keep this target slightly forward so the printed notice owns that ray.
+	area.position = Vector3(-0.80, 0.0, 0.13)
+	var shape_node := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.44, 0.50, 0.05)
+	shape_node.shape = shape
+	area.add_child(shape_node)
+	add_child(area)
+
+
+func control_prompt(control_id: String) -> String:
+	return "Read wireless tuning notice" if control_id == "wireless_notice" else ""
+
+
+func interact_control(control_id: String, _player: Node = null) -> Dictionary:
+	if control_id != "wireless_notice":
+		return {}
+	if _inspection_tap:
+		_inspection_tap.play()
+	var info: Variant = _civil_time_provider.call() if _civil_time_provider.is_valid() else {}
+	return _wireless_notice.copy_at(info if info is Dictionary else {})
 
 
 ## One pinned sheet. The pin is a real head above the paper, because the

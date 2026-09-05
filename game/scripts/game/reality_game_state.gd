@@ -115,6 +115,8 @@ func commit() -> void:
 
 func save_game() -> bool:
 	if save_write_blocked:
+		if str(_player_notice.get("code", "")) == "campaign_clock_read_only":
+			return false
 		push_warning("refusing to overwrite newer Reality Maintenance save version %d"
 				% incompatible_save_version)
 		_set_future_save_notice()
@@ -197,6 +199,9 @@ func load_game() -> void:
 			data.waking_residues = {}
 		if not data.has("last_waking_residue_id"):
 			data.last_waking_residue_id = ""
+		if not CampaignClock.new().validate_saved_state():
+			_announce_loaded()
+			return
 		if int(data.get("version", 0)) < SAVE_VERSION:
 			_migrate()
 	_announce_loaded()
@@ -234,9 +239,20 @@ func start_new_campaign() -> void:
 	incompatible_save_version = 0
 	_player_notice = {}
 	data = _fresh_data()
-	save_game()
+	# Capture the local starting minute at the explicit creation action.
+	CampaignClock.new().bind_state()
 	state_changed.emit()
 	player_notice_changed.emit(player_notice())
+
+
+func block_invalid_campaign_clock(reason: String) -> void:
+	if incompatible_save_version > SAVE_VERSION:
+		return
+	save_write_blocked = true
+	if str(_player_notice.get("code", "")) == "campaign_clock_read_only":
+		return
+	_set_player_notice("campaign_clock_read_only", "CAMPAIGN TIME COULD NOT BE READ",
+			reason + " The existing save is protected. Progress cannot be saved in this session.")
 
 
 func _migrate() -> void:

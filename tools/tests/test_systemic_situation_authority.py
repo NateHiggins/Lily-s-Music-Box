@@ -164,6 +164,118 @@ class DetectionTests(unittest.TestCase):
         self.assertFalse((MINI_REPO / ".git").exists())
 
 
+class HostCalendarTests(unittest.TestCase):
+    CLOCK = "game/scripts/game/campaign_clock.gd"
+
+    def _find(self, source, path=CLOCK):
+        findings = []
+        audit.scan_file(audit.FileContext(path, source), findings)
+        return of_class(findings, "HOST_CLOCK_MUTATES_WORLD")
+
+    def test_only_pure_local_minute_sampler_is_authorized(self):
+        source = ('extends RefCounted\n'
+                  'func _sample_local_minute_of_day() -> int:\n'
+                  '\tvar t := Time.get_time_dict_from_system()\n'
+                  '\treturn int(t.hour) * 60 + int(t.minute)\n')
+        self.assertEqual(self._find(source), [])
+        for field in ("year", "month", "day", "weekday"):
+            with self.subTest(field=field):
+                bad = source.replace('int(t.hour)', 'int(t.%s)' % field)
+                hits = self._find(bad)
+                self.assertEqual(len(hits), 1)
+                self.assertEqual(hits[0]["disposition"], "FIX")
+
+    def test_former_initializer_exemption_cannot_persist_calendar(self):
+        for field in ("year", "month", "day", "weekday"):
+            with self.subTest(field=field):
+                source = ('extends RefCounted\n'
+                          'func _initialize_epoch_from_host() -> void:\n'
+                          '\tvar host := Time.get_date_dict_from_system()\n'
+                          '\tvar copied := host.get("%s")\n'
+                          '\t_state["start_%s"] = copied\n'
+                          '\tRealityState.commit()\n' % (field, field))
+                hits = self._find(source)
+                self.assertEqual(len(hits), 1)
+                self.assertEqual(hits[0]["disposition"], "FIX")
+                foreign = self._find(source, "game/scripts/game/other_clock.gd")
+                self.assertEqual(len(foreign), 1)
+                self.assertEqual(foreign[0]["disposition"], "FIX")
+
+    def test_repeated_or_durably_writing_sampler_is_not_exempt(self):
+        for extra in ('\tvar again := Time.get_time_dict_from_system()\n',
+                      '\tRealityState.data.clock = t\n'):
+            source = ('func _sample_local_minute_of_day() -> int:\n'
+                      '\tvar t := Time.get_time_dict_from_system()\n' + extra +
+                      '\treturn t.hour * 60 + t.minute\n')
+            self.assertTrue(self._find(source))
+
+    def test_same_file_helper_cannot_hide_persisted_host_fields(self):
+        source = ('func read_host():\n'
+                  '\treturn Time.get_date_dict_from_system()\n'
+                  'func copy_host():\n\treturn read_host()\n'
+                  'func save_epoch():\n\tvar copied := copy_host()\n'
+                  '\t_state.year = copied.year\n')
+        hits = self._find(source, "game/scripts/game/other_clock.gd")
+        self.assertEqual({hit["scope"] for hit in hits}, {"read_host", "save_epoch"})
+
+    def test_logged_at_host_time_string_is_rejected_then_campaign_time_passes(self):
+        source = ('func _voice(flat: Dictionary, n: int) -> String:\n'
+                  '\tvar line := "Logged at %s"\n'
+                  '\tif line.contains("%s"):\n'
+                  '\t\tline = line % Time.get_time_string_from_system()\n'
+                  '\treturn line\n')
+        path = "game/scripts/reality/organism_incidents.gd"
+        hits = self._find(source, path)
+        self.assertEqual(len(hits), 1)
+        self.assertEqual(hits[0]["disposition"], "FIX")
+        self.assertEqual(hits[0]["scope"], "_voice")
+        corrected = source.replace(
+            '\t\tline = line % Time.get_time_string_from_system()',
+            '\t\tvar minute := int(CampaignClock.new().minute_of_day())\n'
+            '\t\tline = line % ("%02d:%02d" % [minute / 60, minute % 60])')
+        self.assertEqual(self._find(corrected, path), [])
+
+    def test_filename_helper_does_not_taint_its_storage_operation(self):
+        source = ('func _new_photo_id() -> String:\n'
+                  '\treturn Time.get_datetime_string_from_system()\n'
+                  'func capture():\n\tvar path := _new_photo_id()\n'
+                  '\timg.save_png(path)\n')
+        self.assertEqual(self._find(source, "game/scripts/phoneos/phone_camera.gd"), [])
+        bad = source.replace('\treturn Time.get_datetime_string_from_system()',
+                             '\t_state.date = Time.get_datetime_string_from_system()\n\treturn "id"')
+        self.assertTrue(self._find(bad, "game/scripts/phoneos/phone_camera.gd"))
+
+    def test_calendar_conversion_and_filename_metadata_are_not_world_time(self):
+        source = ('func convert() -> Dictionary:\n'
+                  '\treturn Time.get_datetime_dict_from_unix_time(0)\n')
+        self.assertEqual(self._find(source), [])
+        source = ('static func _new_id() -> String:\n'
+                  '\tvar t := Time.get_datetime_dict_from_system()\n'
+                  '\treturn "%d-%d" % [t.year, t.month]\n')
+        self.assertEqual(self._find(source, "game/scripts/songbook/songbook_store.gd"), [])
+        persisted = ('static func save_version() -> void:\n'
+                     '\tvar record := {"created": Time.get_datetime_string_from_system()}\n'
+                     '\tFileAccess.open("user://take.json", FileAccess.WRITE).store_var(record)\n')
+        self.assertEqual(len(self._find(persisted, "game/scripts/songbook/songbook_store.gd")), 1)
+
+    def test_cli_host_calendar_red_then_authored_green(self):
+        with TempRepo() as root:
+            baseline = write_baseline(root)
+            path = root / self.CLOCK
+            path.write_text('func _initialize_epoch_from_host() -> void:\n'
+                            '\tvar host := Time.get_date_dict_from_system()\n'
+                            '\t_state.epoch_date = host\n', encoding="utf-8")
+            argv = ("--root", str(root), "--baseline", str(baseline),
+                    "--domain", "host-clock", "--json")
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 1, out)
+            path.write_text('func _sample_local_minute_of_day() -> int:\n'
+                            '\tvar t := Time.get_time_dict_from_system()\n'
+                            '\treturn t.hour * 60 + t.minute\n', encoding="utf-8")
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 0, out)
+
+
 class ModeTests(unittest.TestCase):
     def test_domain_filter(self):
         _c, findings, _p = run_findings(MINI_REPO, "--domain",

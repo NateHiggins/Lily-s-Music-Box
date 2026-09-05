@@ -280,7 +280,8 @@ func _voice(flat: Dictionary, n: int) -> String:
 		return DEFAULT_VOICE % [str(flat.unit), str(flat.resident)]
 	var line := str(lines[mini(n - 1, lines.size() - 1)])
 	if line.contains("%s"):
-		line = line % Time.get_time_string_from_system().substr(0, 5)
+		var minute := int(CampaignClock.new().minute_of_day())
+		line = line % ("%02d:%02d" % [minute / 60, minute % 60])
 	return line
 
 

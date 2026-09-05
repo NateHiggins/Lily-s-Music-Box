@@ -102,9 +102,7 @@ func capture() -> String:
 	var img := tex.get_image()
 	if img == null or img.is_empty():
 		return ""
-	var stamp := Time.get_datetime_string_from_system().replace(":", "")
-	var path := "%s/%s_%03d.png" % [DIR, stamp.replace("-", ""),
-			randi() % 1000]
+	var path := "%s/%s.png" % [DIR, _new_photo_id()]
 	if img.save_png(path) != OK:
 		push_warning("phone camera: could not write " + path)
 		return ""
@@ -114,6 +112,12 @@ func capture() -> String:
 	_flash = 1.0
 	captured.emit(path, roll.size())
 	return path
+
+
+## File identity metadata, never the photographed world's date.
+func _new_photo_id() -> String:
+	var stamp := Time.get_datetime_string_from_system().replace(":", "")
+	return "%s_%03d" % [stamp.replace("-", ""), randi() % 1000]
 
 
 ## Oldest out. Deleting the file as well as the entry matters: the roll

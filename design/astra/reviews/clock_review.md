@@ -1,5 +1,11 @@
 # Clock consumer review for the first post-sanitation correction
 
+**Historical source diagnosis.** The owner has since accepted November 10,
+1928. The no-accepted-month/day finding below records the earlier state;
+the [current calendar ruling](../../ORISON_CAMPAIGN_CALENDAR_RULING_2026-09-05.md)
+now governs. Runtime findings below are evidence from the stated commit,
+not a claim about the corrected implementation.
+
 Read-only source review at **c2dc01771bc25b07f5dcf7a6040102345b8c57d5**. No product code, state, date configuration or tests changed; no Godot process launched.
 
 ## Calendar authority: what is actually ruled

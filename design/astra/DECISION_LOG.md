@@ -22,3 +22,7 @@
 - ASTRA-D014: source inspection found the ordinary title action starts a fresh campaign even when a save was loaded. Atomic writes, damaged-save preservation and genuine continuation remain release blockers under ASTRA-SAVE; focused reconstruction tests are not a substitute for a restart through the title screen.
 
 - ASTRA-D015: migrate only the reviewed PolicyVoice%02d constructor record to its new function. All other 3,625 spatial-manifest records and their bytes are unchanged; an unrelated new generated family still fails. This is an exact traced relocation, not a regenerated baseline or a waiver of new debt.
+
+- ASTRA-D016: the owner explicitly accepts November 10. Saturday, November 10, 1928 is now the authored campaign opening date, superseding D009's pending proposal. Sample only local hour/minute once at creation; preserve simulation time on reload. Gregorian civil dates retain separate 365-key schedule anniversaries. The exact ruling is `../ORISON_CAMPAIGN_CALENDAR_RULING_2026-09-05.md`; source-backed November 11 radio assignments enter through a printed world consumer, without fabricated broadcasts or global resident knowledge.
+
+- ASTRA-D017: preserve ambiguous old wrapped timestamps as unresolved historical evidence. They cannot justify elapsed neglect or a new porter intervention. This conservative migration is not a claim that old interrupted porter errands have a complete recovery route; that remains explicit debt.

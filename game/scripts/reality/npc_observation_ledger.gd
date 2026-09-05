@@ -18,6 +18,7 @@ var _observers: Array = []
 var _minute_provider: Callable
 var _acoustic: Object
 var _presence_provider: Callable
+var _clock_basis := "monotonic_minutes"
 
 
 ## observers: [{"npc": id, "unit": "2B"}, ...]. acoustic must answer
@@ -25,11 +26,13 @@ var _presence_provider: Callable
 ## source unit itself can hear. presence answers whether an npc is home
 ## to see in-flat changes; invalid means assume home.
 func setup(observers: Array, minute_provider: Callable,
-		acoustic: Object = null, presence := Callable()) -> void:
+		acoustic: Object = null, presence := Callable(),
+		clock_basis := "monotonic_minutes") -> void:
 	_observers = observers.duplicate(true)
 	_minute_provider = minute_provider
 	_acoustic = acoustic
 	_presence_provider = presence
+	_clock_basis = clock_basis
 	_store()
 
 
@@ -119,6 +122,7 @@ func _record(npc: String, learned: String, channel: String,
 		if str(belief.get("learned", "")) == learned:
 			return false
 	store[npc].append({
+		"clock_schema_version": 2, "clock_basis": _clock_basis,
 		"learned": learned,
 		"channel": channel,
 		"where": where,
@@ -132,11 +136,22 @@ func _record(npc: String, learned: String, channel: String,
 
 func _now() -> float:
 	if _minute_provider.is_valid():
-		return fposmod(float(_minute_provider.call()), 1440.0)
+		return float(_minute_provider.call())
 	return -1.0
 
 
 func _store() -> Dictionary:
 	if not RealityState.data.has("npc_observations"):
 		RealityState.data.npc_observations = {}
-	return RealityState.data.npc_observations
+	var store: Dictionary = RealityState.data.npc_observations
+	var annotated := false
+	for npc in store:
+		for belief: Dictionary in store[npc]:
+			if not belief.has("clock_schema_version"):
+				# Keep the original provenance value. Its day was never saved.
+				belief.clock_schema_version = 1
+				belief.clock_basis = "legacy_wrapped_minute_unknown_day"
+				annotated = true
+	if annotated:
+		RealityState.commit()
+	return store

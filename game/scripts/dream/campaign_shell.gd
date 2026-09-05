@@ -86,11 +86,11 @@ func debug_start_dream_sequence() -> bool:
 func _restore_world() -> void:
 	match dream_director.phase():
 		"entered", "active":
-			_replace_world("dream")
-			dream_director.notify_dream_world_active()
+			if _replace_world("dream"):
+				dream_director.notify_dream_world_active()
 		"return_pending":
-			_replace_world("waking")
-			dream_director.complete_return()
+			if _replace_world("waking"):
+				dream_director.complete_return()
 		_:
 			_replace_world("waking")
 
@@ -107,14 +107,14 @@ func _on_world_swap_requested(kind: String) -> void:
 func _apply_world_swap(kind: String) -> void:
 	_swap_queued = false
 	if kind == "dream":
-		_replace_world("dream")
-		dream_director.notify_dream_world_active()
+		if _replace_world("dream"):
+			dream_director.notify_dream_world_active()
 	elif kind == "waking":
-		_replace_world("waking")
-		dream_director.complete_return()
+		if _replace_world("waking"):
+			dream_director.complete_return()
 
 
-func _replace_world(kind: String) -> void:
+func _replace_world(kind: String) -> bool:
 	if active_world != null and is_instance_valid(active_world):
 		if active_kind == "waking":
 			sleep_pressure.detach_waking_services()
@@ -127,15 +127,22 @@ func _replace_world(kind: String) -> void:
 	var packed := load(path) as PackedScene
 	if packed == null:
 		push_error("campaign world scene missing: %s" % path)
-		return
+		return false
 	var next := packed.instantiate()
 	if kind == "dream" and next.has_method("configure_dream"):
 		next.call("configure_dream", dream_director.context())
 	world_slot.add_child(next)
+	if next.get("startup_failed") == true:
+		# A failed root has no usable player/services. Do not publish it as
+		# an active world or acknowledge a Dream transition as completed.
+		world_slot.remove_child(next)
+		next.free()
+		return false
 	active_world = next
 	active_kind = kind
 	assert(world_slot.get_child_count() == 1)
 	world_changed.emit(kind, next)
+	return true
 
 func _selected_waking_path() -> String:
 	return waking_scene_path if not waking_scene_path.is_empty() \

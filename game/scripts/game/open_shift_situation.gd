@@ -7,11 +7,16 @@ signal fact_changed(situation_id: String, fact: String, state: Dictionary)
 
 var situation_id := ""
 var _minute_provider: Callable
+var _clock_basis := "monotonic_minutes"
+const TIMESTAMP_FIELDS := ["offered_at", "noticed_at", "accepted_at",
+		"last_attended_at", "compensation_started_at", "closed_at"]
 
 
-func setup(id: String, minute_provider: Callable) -> void:
+func setup(id: String, minute_provider: Callable,
+		clock_basis := "monotonic_minutes") -> void:
 	situation_id = id
 	_minute_provider = minute_provider
+	_clock_basis = clock_basis if minute_provider.is_valid() else "simulation_minutes"
 	_store()
 
 
@@ -37,7 +42,7 @@ func accept(commitment := "promised") -> bool:
 
 func attend(action: String) -> void:
 	var record := _store()
-	record.last_attended_at = _minute_now()
+	_stamp_time(record, "last_attended_at")
 	_append_unique(record.attempted_actions, action)
 	_commit("attempted_actions")
 
@@ -103,23 +108,24 @@ func resolve(kind: String, residue_facts: Dictionary) -> bool:
 		return false
 	record.resolution_kind = kind
 	record.residue = residue_facts.duplicate(true)
-	record.closed_at = _minute_now()
+	_stamp_time(record, "closed_at")
 	_commit("resolution_kind")
 	return true
 
 
 func elapsed_since(fact: String) -> float:
-	var at := float(_store().get(fact, -1.0))
-	if at < 0.0:
+	var record := _store()
+	var at := float(record.get(fact, -1.0))
+	if at < 0.0 or fact in record.get("clock_migration", {}).get("unresolved", []):
 		return 0.0
-	return fposmod(_minute_now() - at, 1440.0)
+	return maxf(0.0, _minute_now() - at)
 
 
 func _stamp_once(fact: String, extra: Dictionary) -> bool:
 	var record := _store()
 	if float(record.get(fact, -1.0)) >= 0.0:
 		return false
-	record[fact] = _minute_now()
+	_stamp_time(record, fact)
 	for key in extra:
 		record[key] = extra[key]
 	_commit(fact)
@@ -128,12 +134,17 @@ func _stamp_once(fact: String, extra: Dictionary) -> bool:
 
 func _minute_now() -> float:
 	if _minute_provider.is_valid():
-		return fposmod(float(_minute_provider.call()), 1440.0)
+		return float(_minute_provider.call())
 	# Without an injected clock, the situation's own durable simulation
 	# minutes are the clock, so timestamps stay meaningful in production
 	# and reconstruct deterministically after save/load.
-	return fposmod(180.0 + float(_store().elapsed_simulation_minutes),
-			1440.0)
+	return 180.0 + float(_store().elapsed_simulation_minutes)
+
+
+func _stamp_time(record: Dictionary, fact: String) -> void:
+	record[fact] = _minute_now()
+	var unresolved: Array = record.get("clock_migration", {}).get("unresolved", [])
+	unresolved.erase(fact)
 
 
 func _store() -> Dictionary:
@@ -142,6 +153,7 @@ func _store() -> Dictionary:
 	var all: Dictionary = RealityState.data.open_shift_situations
 	if not all.has(situation_id):
 		all[situation_id] = {
+			"clock_schema_version": 2, "clock_basis": _clock_basis,
 			"offered_at": -1.0, "noticed_at": -1.0,
 			"accepted_at": -1.0, "last_attended_at": -1.0,
 			"urgency": 0.0, "physical_severity": 0.0,
@@ -154,7 +166,30 @@ func _store() -> Dictionary:
 			"abandonment_boundary": "",
 			"recoverable_next_state": "inspect_and_repair",
 		}
-	return all[situation_id]
+	var record: Dictionary = all[situation_id]
+	if int(record.get("clock_schema_version", 0)) != 2 \
+			or str(record.get("clock_basis", "")) != _clock_basis:
+		# A wrapped legacy minute does not identify a historical day. Keep
+		# every original fact and the durable simulation duration; do not
+		# manufacture an epoch or let an uncertain deadline create neglect.
+		var originals := {}
+		var unresolved: Array[String] = []
+		for fact: String in TIMESTAMP_FIELDS:
+			originals[fact] = record.get(fact, -1.0)
+			if float(originals[fact]) >= 0.0:
+				unresolved.append(fact)
+		record.clock_migration = {
+			"status": "historical_day_unresolved",
+			"from_basis": record.get("clock_basis", "legacy_wrapped_minute"),
+			"to_basis": _clock_basis, "original_timestamps": originals,
+			"elapsed_simulation_minutes": record.get("elapsed_simulation_minutes", 0.0),
+			"unresolved": unresolved,
+			"notice": "Original facts retained. Ambiguous deadlines cannot authorize timed consequences; a new attested action establishes its own timestamp.",
+		}
+		record.clock_schema_version = 2
+		record.clock_basis = _clock_basis
+		RealityState.commit()
+	return record
 
 
 func _append_unique(values: Array, value: String) -> void:

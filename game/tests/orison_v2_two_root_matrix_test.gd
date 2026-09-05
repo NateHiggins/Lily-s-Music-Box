@@ -45,6 +45,10 @@ func _ready() -> void:
 			Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000.0])
 	_check(not porter_prompt.is_empty(), "first production interaction responds")
 	_check(not world.startup_failed and world.is_in_group("orison_v2_runtime"), "v2 production root starts")
+	_check(absf(float(world.open_shift_ecosystem.now_minutes())
+			- world.campaign_clock.absolute_minutes()) < 0.00001
+			and get_tree().get_nodes_in_group("campaign_time_owner").size() == 1,
+			"v2 root consumes absolute campaign time with one automatic owner")
 	_check(world.adapter.resolves_required_uniquely(), "all first-slice anchors resolve once")
 	_check(world.player is PlayerController and world.player.get_node_or_null("PauseServices") != null,
 			"production player and pause/accessibility surface composed")
@@ -93,6 +97,10 @@ func _exercise_v1_root() -> void:
 			float(Time.get_ticks_usec() - started) / 1000.0, _count_nodes(root),
 			root.find_children("*", "CollisionObject3D", true, false).size()])
 	_check(root.is_in_group("building_root"), "v1 selector instantiates complete production root")
+	_check(absf(float(root.open_shift_ecosystem.now_minutes())
+			- root.campaign_clock.absolute_minutes()) < 0.00001
+			and get_tree().get_nodes_in_group("campaign_time_owner").size() == 1,
+			"v1 root consumes absolute campaign time with one automatic owner")
 	_check(root.get("player") is PlayerController, "v1 production player constructed")
 	_check(_one(root, "FirstShiftDirector") and _one(root, "ServiceRoundDirector")
 			and _one(root, "WorkOrders") and _one(root, "CoreLoopDirector"),

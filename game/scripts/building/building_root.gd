@@ -264,6 +264,9 @@ var shop_service: MaintenanceShopService
 var core_loop: CoreLoopDirector
 var service_round: ServiceRoundDirector
 var open_shift_ecosystem: Node
+var campaign_clock: CampaignClock
+var resident_presence: ScheduleDirector
+var startup_failed := false
 var vantry_points: VantryPointNetwork
 var chirp_hunt: ChirpHunt
 var first_shift_director: FirstShiftDirector
@@ -301,7 +304,24 @@ var _visibility_cache_enabled := \
 		OS.get_environment("PERF_VISIBILITY_CACHE_OFF") != "1"
 
 
+func resident_is_home(npc: String) -> bool:
+	if resident_presence == null or resident_presence.data.is_empty() or campaign_clock == null:
+		return true
+	var info := campaign_clock.day_info()
+	if not bool(info.get("valid", false)):
+		return true
+	var block := resident_presence.resolve(npc, str(info.day),
+			campaign_clock.minute_of_day(), int(info.doy), bool(info.first_sat))
+	var place := str(block.get("place", "unit"))
+	return place.is_empty() or place.begins_with("unit")
+
+
 func _ready() -> void:
+	campaign_clock = CampaignClock.new()
+	if not campaign_clock.bind_state():
+		startup_failed = true
+		push_error("BuildingRoot requires a valid campaign calendar")
+		return
 	# Findable by group rather than only as the current scene. Systems
 	# that need the building reach for this group first and fall back to
 	# get_tree().current_scene — a fallback that works in play, where the
@@ -590,10 +610,10 @@ func _ready() -> void:
 	# The archetype timetables, driving the routines off the same clock
 	# the sky reads. Inert under DAYNIGHT=0 so the tests' canonical 03:00
 	# building keeps its exact pre-schedule behaviour.
-	var schedule_director := ScheduleDirector.new()
-	schedule_director.name = "ScheduleDirector"
-	add_child(schedule_director)
-	schedule_director.setup(resident_routines, layout)
+	resident_presence = ScheduleDirector.new()
+	resident_presence.name = "ScheduleDirector"
+	add_child(resident_presence)
+	resident_presence.setup(resident_routines, layout)
 	# The bar keeps hours on the same clock: OPEN / AFTER-HOURS / CLOSED.
 	var harukiya_states := HarukiyaStateDirector.new()
 	harukiya_states.name = "HarukiyaStateDirector"
@@ -702,7 +722,9 @@ func _ready() -> void:
 	if open_shift_radiator:
 		open_shift_radiator.bind_inventory(maintenance_inventory)
 	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
-			service_round, Callable())
+			service_round, Callable(campaign_clock, "absolute_minutes"),
+			null, null, Callable(), "campaign_absolute_minutes",
+			Callable(self, "resident_is_home"))
 	apartment_encroachment.bind_service_round(service_round)
 	var room0 := Room0.new()
 	add_child(room0)

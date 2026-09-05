@@ -41,6 +41,11 @@ var frame_contract: OrisonV2FrameContract
 
 func _ready() -> void:
 	var started := Time.get_ticks_usec()
+	campaign_clock = CampaignClock.new()
+	if not campaign_clock.bind_state():
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: valid campaign calendar required")
+		return
 	frame_contract = FrameContract.load_default()
 	if not frame_contract.errors.is_empty():
 		startup_failed = true
@@ -161,7 +166,8 @@ func _compose_authorities() -> void:
 		open_shift_radiator.bind_inventory(maintenance_inventory)
 	_compose_observation_ledger()
 	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
-			service_round, Callable(), observation_ledger)
+			service_round, Callable(campaign_clock, "absolute_minutes"),
+			observation_ledger, null, Callable(), "campaign_absolute_minutes")
 	safety_net = SafetyNet.new()
 	safety_net.name = "SafetyNet"
 	safety_net.setup(player)
@@ -186,8 +192,6 @@ func _compose_authorities() -> void:
 ## `_process` returns immediately (schedule_director.gd:99-101). Only the
 ## resolution half is used, which is the half that answers the question.
 func _compose_observation_ledger() -> void:
-	campaign_clock = CampaignClock.new()
-	campaign_clock.bind_state()
 	resident_presence = ScheduleDirector.new()
 	resident_presence.name = "ResidentPresenceTimetable"
 	add_child(resident_presence)
@@ -195,17 +199,14 @@ func _compose_observation_ledger() -> void:
 	observation_ledger = NpcObservationLedger.new()
 	observation_ledger.name = "ObservationLedger"
 	add_child(observation_ledger)
-	# ONE clock for both halves. The situation's own durable simulation
-	# minutes stamp the belief and place the resident at that same minute,
-	# so a belief can never be dated to a time at which its witness was
-	# somewhere else. Lazy by Callable: the situation exists before any
-	# observation is recorded.
-	var clock := Callable(open_shift_ecosystem, "now_minutes")
+	# Absolute campaign minutes stamp events. Only schedule lookup wraps to
+	# the clock's minute of day; the situation never advances its own clock.
+	var clock := Callable(campaign_clock, "absolute_minutes")
 	observation_ledger.setup([
 		{"npc": ServiceRoundDirector.RESIDENT_ID, "unit": "2B"},
 		{"npc": "omar_bell", "unit": "3B"},
 	], clock, get_tree().root.get_node_or_null("AcousticGraphData"),
-			Callable(self, "resident_is_home"))
+			Callable(self, "resident_is_home"), "campaign_absolute_minutes")
 
 
 ## True only while the resident's own authored timetable puts them inside
@@ -218,14 +219,13 @@ func _compose_observation_ledger() -> void:
 func resident_is_home(npc: String) -> bool:
 	if resident_presence == null or resident_presence.data.is_empty():
 		return true
-	if open_shift_ecosystem == null:
+	if campaign_clock == null:
 		return true
-	var info := campaign_clock.day_info_at(
-			float(open_shift_ecosystem.now_minutes())) if campaign_clock else {}
+	var info := campaign_clock.day_info()
 	if not bool(info.get("valid", false)):
 		return true
 	var block := resident_presence.resolve(npc, str(info.day),
-			float(open_shift_ecosystem.now_minutes()), int(info.doy),
+			campaign_clock.minute_of_day(), int(info.doy),
 			bool(info.first_sat))
 	var place := str(block.get("place", "unit"))
 	return place.is_empty() or place.begins_with("unit")
