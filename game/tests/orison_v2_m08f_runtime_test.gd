@@ -11,6 +11,14 @@ var passes := 0
 var beats: Array[String] = []
 
 func _ready() -> void:
+	var save_path := "user://tests/m08f_runtime.json"
+	var save_directory := ProjectSettings.globalize_path(save_path).get_base_dir()
+	var directory_error := DirAccess.make_dir_recursive_absolute(save_directory)
+	if directory_error != OK:
+		push_error("M08F test save directory could not be created: %s (error %d)" %
+				[save_directory, directory_error])
+		get_tree().quit(2)
+		return
 	var saved_persistence := RealityState.persistence_enabled
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
@@ -92,7 +100,6 @@ func _ready() -> void:
 			"basement_comparison", "diagnosis", "repair", "resident_return"],
 			"production event trace preserves the complete round")
 
-	var save_path := "user://tests/m08f_runtime.json"
 	var old_path := RealityState.save_path
 	RealityState.save_path = save_path
 	RealityState.persistence_enabled = true

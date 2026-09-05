@@ -1,0 +1,49 @@
+{
+ "ambiguous_dynamic": [],
+ "baseline_cleanup_opportunities": [],
+ "baseline_stale": [],
+ "comment_only": [],
+ "debug_only": [],
+ "exit": 1,
+ "forbidden": [
+  {
+   "classification": "FORBIDDEN_KEYBOARD",
+   "excerpt": "return \"Hold E \u2014 winding\u2026\"",
+   "family": "interact_prompt",
+   "file": "props/clock_prop.gd",
+   "line": 7,
+   "literal": "Hold E \u2014 winding\u2026",
+   "method": "interact_prompt",
+   "role": "production",
+   "token": "Hold E",
+   "via": "body-literal"
+  },
+  {
+   "classification": "FORBIDDEN_KEYBOARD",
+   "excerpt": "return \"Hold E \u2014 wind the clock\"",
+   "family": "interact_prompt",
+   "file": "props/clock_prop.gd",
+   "line": 8,
+   "literal": "Hold E \u2014 wind the clock",
+   "method": "interact_prompt",
+   "role": "production",
+   "token": "Hold E",
+   "via": "body-literal"
+  }
+ ],
+ "legacy_uncovered": [],
+ "outside_prompt_methods": 0,
+ "summary": {
+  "ambiguous_dynamic": 0,
+  "baseline_cleanup_opportunities": 0,
+  "baseline_stale": 0,
+  "comment_only": 0,
+  "debug_only": 0,
+  "files_scanned": 1,
+  "forbidden": 2,
+  "legacy_covered": 0,
+  "legacy_uncovered": 0,
+  "outside_prompt_methods": 0,
+  "prompt_methods": 1
+ }
+}

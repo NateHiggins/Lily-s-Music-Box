@@ -95,6 +95,13 @@ var _old_save_path := ""
 
 
 func _ready() -> void:
+	var save_directory := ProjectSettings.globalize_path(SAVE_PATH).get_base_dir()
+	var directory_error := DirAccess.make_dir_recursive_absolute(save_directory)
+	if directory_error != OK:
+		push_error("M11A test save directory could not be created: %s (error %d)" %
+				[save_directory, directory_error])
+		get_tree().quit(2)
+		return
 	_old_persistence = RealityState.persistence_enabled
 	_old_save_path = RealityState.save_path
 	RealityState.persistence_enabled = false

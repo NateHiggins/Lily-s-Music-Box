@@ -294,10 +294,10 @@ func interact_prompt() -> String:
 	if clock_variant == "vantry_master":
 		return "[E]  Try sealed Vantry setting cover"
 	if _winding:
-		return "Hold E — winding…"
+		return "Winding the clock…"
 	if spring_reserve >= 0.95:
 		return "The eight-day movement is fully wound"
-	return "Hold E — wind the clock"
+	return "Wind the clock"
 
 
 func interact(player: Node) -> Dictionary:
