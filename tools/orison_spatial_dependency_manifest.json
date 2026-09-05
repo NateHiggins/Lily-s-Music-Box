@@ -51337,21 +51337,21 @@
    "target_exists": null
   },
   {
-   "key": "95bf669490ffbd85",
+   "key": "0a3fa1b3f7fc3ddc",
    "kind": "generated_name",
-   "token": "_build_voice_pool",
+   "token": "_make_voice",
    "file": "game/scripts/audio/audio_policy.gd",
    "tier": "production",
    "subsystem": "audio",
    "symbols": [
-    "_build_voice_pool"
+    "_make_voice"
    ],
    "lines": [
-    336
+    383
    ],
    "count": 1,
    "context": [
-    "\"PolicyVoice%02d\" % i"
+    "\"PolicyVoice%02d\" % slot"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -51364,7 +51364,8 @@
    "confidence": "MEDIUM",
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
-   "target_exists": null
+   "target_exists": null,
+   "relocation_evidence": "ASTRA audio ownership repair ac40f16: existing PolicyVoice%02d family moved from _build_voice_pool (95bf669490ffbd85) to _make_voice; i becomes slot without changing emitted names or the 16-voice bound. See design/astra/evidence/spatial_audio_relocation/REVIEW.md and receipt.json. Existing classification and rationale retained."
   },
   {
    "key": "85ab5e0d6c5b0e14",
