@@ -22,7 +22,7 @@ func _ready() -> void:
 	_check(layout.levels.size() == 5, "M08E slice declares B1 through F04 transfer levels")
 	_check(layout.spaces.size() == 50, "fifty programmed blockout spaces")
 	_check(layout.doors.size() == 21, "twenty-one complete route/service/privacy leaves")
-	_check(layout.openings.size() == 19, "nineteen leafless circulation openings")
+	_check(layout.openings.size() == 21, "twenty-one leafless circulation openings")
 	_check(layout.windows.size() == 19, "nineteen exterior-valid daylight openings")
 	_check(layout.envelopes.size() == 70, "seventy fixed-use and clearance reservations")
 	_check(layout.fixtures.size() == 15, "fifteen gray-box fixed-use masses")
@@ -76,6 +76,8 @@ func _ready() -> void:
 			"2B shared partitions have one explicit wall owner")
 	_check(_new_doors_valid(layout), "M08E doors have boundary, hinge, latch, hand and swing")
 	_check(_service_connections_complete(layout), "heat, wet, flue, power and exhaust continuity is explicit")
+	_check(_service_hall_core_openings_use_one_contract(layout),
+			"F02 and F04 service hall/core openings share one single-owner schema")
 	var packed := load(SCENE_PATH) as PackedScene
 	_check(packed != null, "v2 scene loads independently")
 	if packed != null:
@@ -103,6 +105,15 @@ func _ready() -> void:
 					"route leaf has a complete open hinge: " + ident)
 			_check(root.get_node_or_null("%s/Latch" % ident) is Marker3D,
 					"route leaf has an explicit latch: " + ident)
+		for ident in ["F02_SERVICE_HALL_CORE_OPENING",
+				"F04_SERVICE_HALL_CORE_OPENING"]:
+			var reveal := root.get_node_or_null(ident) as Node3D
+			_check(reveal != null and bool(reveal.get_meta(
+					"non_colliding_reveal", false)),
+					"single-owner opening has a generic cased reveal: " + ident)
+			_check(reveal != null and _all_reveal_pieces_non_colliding(reveal)
+					and _source_service_practical_valid(reveal),
+					"opening reveal and source practical preserve wall collision: " + ident)
 		for ident in ["F01_LOBBY_WINDOW_W", "F01_LOBBY_WINDOW_E",
 				"F01_COMMON_WINDOW_S", "F01_COMMON_WINDOW_N",
 				"F02_A_MAIN_WINDOW_W_S", "F02_A_MAIN_WINDOW_W_N",
@@ -507,6 +518,49 @@ func _service_connections_complete(layout: Dictionary) -> bool:
 		systems[str(connection.get("system", ""))] = true
 	return systems.has("heat") and systems.has("wet") and systems.has("flue") \
 			and systems.has("electrical_service") and systems.has("exhaust")
+
+func _service_hall_core_openings_use_one_contract(layout: Dictionary) -> bool:
+	var expected := {
+		"F02_SERVICE_HALL_CORE_OPENING": ["F02_SERVICE_HALL", "F02_SERVICE_CORE"],
+		"F04_SERVICE_HALL_CORE_OPENING": ["F04_SERVICE_HALL", "F04_SERVICE_CORE"],
+	}
+	var seen := {}
+	for opening: Dictionary in layout.get("openings", []):
+		var ident := str(opening.get("id", ""))
+		if not expected.has(ident):
+			continue
+		seen[ident] = true
+		var expected_pair: Array = expected[ident]
+		if opening.get("connects", []) != expected_pair \
+				or str(opening.get("axis", "")) != "z" \
+				or not is_equal_approx(float(opening.center[0]), 9.5) \
+				or not is_equal_approx(float(opening.center[1]), 3.2) \
+				or not is_equal_approx(float(opening.get("width", 0.0)), 1.2) \
+				or not is_equal_approx(float(opening.get("height", 0.0)), 2.4) \
+				or str(opening.get("shared_wall_owner", "")) != str(expected_pair[1]):
+			return false
+	return seen.size() == 2
+
+func _all_reveal_pieces_non_colliding(reveal: Node3D) -> bool:
+	var pieces := 0
+	for child: Node in reveal.get_children():
+		if child.name == "ServicePractical":
+			continue
+		if not child is MeshInstance3D or child.get_node_or_null("Collision") != null:
+			return false
+		pieces += 1
+	return pieces == 3
+
+func _source_service_practical_valid(reveal: Node3D) -> bool:
+	var practical := reveal.get_node_or_null("ServicePractical") as Node3D
+	if practical == null or not bool(practical.get_meta(
+			"source_owned_service_practical", false)):
+		return false
+	var light := practical.get_node_or_null("WarmServiceLight") as OmniLight3D
+	return practical.get_node_or_null("Backplate") is MeshInstance3D \
+			and practical.get_node_or_null("OpalLens") is MeshInstance3D \
+			and light != null and light.light_energy > 0.0 \
+			and practical.find_children("Collision", "", true, false).is_empty()
 
 func _capsule_clear(root: Node3D, at: Vector3) -> bool:
 	var shape := CapsuleShape3D.new()

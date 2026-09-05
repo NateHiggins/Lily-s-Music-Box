@@ -1,0 +1,717 @@
+{
+	"checks": [
+		{
+			"label": "production exterior module scene loads",
+			"pass": true
+		},
+		{
+			"label": "authoritative source reader returns canonical SHOP_BODEGA",
+			"pass": true
+		},
+		{
+			"label": "every durable bodega source field is consumed",
+			"pass": true
+		},
+		{
+			"label": "two shop identities use one registry and durable bucket path",
+			"pass": true
+		},
+		{
+			"label": "resident timetable facts drive pure two-bucket catch-up",
+			"pass": true
+		},
+		{
+			"label": "same-target shop advancement is idempotent",
+			"pass": true
+		},
+		{
+			"label": "backward, duplicate, missing-lineage, and malformed records refuse atomically",
+			"pass": true
+		},
+		{
+			"label": "authored hardware-paint provenance refuses a bodega grant while MaintenanceInventory and WorkOrders remain authoritative",
+			"pass": true
+		},
+		{
+			"label": "bounded production exterior cell starts from authoritative sources",
+			"pass": true
+		},
+		{
+			"label": "one production player, work-order, inventory, and shop authority is composed",
+			"pass": true
+		},
+		{
+			"label": "public surfaces, threshold, and both semantic routes resolve",
+			"pass": true
+		},
+		{
+			"label": "generic builder consumes every declared primary geometry record",
+			"pass": true
+		},
+		{
+			"label": "explicit source-authored route-guide visuals can be enabled",
+			"pass": true
+		},
+		{
+			"label": "stocked fixture presentation reads the existing durable bodega bucket",
+			"pass": true
+		},
+		{
+			"label": "hidden guides preserve collision, threshold identity, routes, and semantic reconstruction",
+			"pass": true
+		},
+		{
+			"label": "accepted route has five named nodes in each direction",
+			"pass": true
+		},
+		{
+			"label": "public semantic initial-placement contract places the player at ORISON_EXIT",
+			"pass": true
+		},
+		{
+			"label": "PlayerController ray opens the real storefront leaf",
+			"pass": true
+		},
+		{
+			"label": "production PlayerController traverses collision-bearing street and threshold",
+			"pass": true
+		},
+		{
+			"label": "public bodega counter transaction refuses an unrelated maintenance part without mutating authorities",
+			"pass": true
+		},
+		{
+			"label": "same collision-bearing controller follows the semantic return to Orison",
+			"pass": true
+		},
+		{
+			"label": "public timetable advancement hides only depleted stock-role visuals",
+			"pass": true
+		},
+		{
+			"label": "save contains semantic exterior identities and no raw world coordinates",
+			"pass": true
+		},
+		{
+			"label": "primary module and PlayerController release after public teardown",
+			"pass": true
+		},
+		{
+			"label": "public teardown is deterministic, idempotent, and clears strong references",
+			"pass": true
+		},
+		{
+			"label": "reconstruction composes an externally parented production PlayerController",
+			"pass": true
+		},
+		{
+			"label": "reconstruction restores the bucket-driven depleted fixture state",
+			"pass": true
+		},
+		{
+			"label": "save, destruction, reload, and source reconstruction preserve exact semantic facts",
+			"pass": true
+		},
+		{
+			"label": "reconstructed module and injected controller release through public teardown",
+			"pass": true
+		},
+		{
+			"label": "disposable second street and shop construct through the same production paths",
+			"pass": true
+		},
+		{
+			"label": "nonzero-yaw shop remains attached to its named owning surface and routes",
+			"pass": true
+		},
+		{
+			"label": "rotated second instance has identical node, mesh, and collision cost",
+			"pass": true
+		},
+		{
+			"label": "both shops expose one public counter and one durable simulation bucket",
+			"pass": true
+		},
+		{
+			"label": "piece-two fixture remains absent from production and human evidence source",
+			"pass": true
+		},
+		{
+			"label": "rotated expansion module releases without retained scene owners",
+			"pass": true
+		},
+		{
+			"label": "both layouts, selector, and every floor GLTF/BIN hash are unchanged",
+			"pass": true
+		},
+		{
+			"label": "committed and absent-session production selector remain v1",
+			"pass": true
+		},
+		{
+			"label": "teardown retains zero orphan nodes",
+			"pass": true
+		},
+		{
+			"label": "teardown retains zero ObjectDB instances",
+			"pass": true
+		},
+		{
+			"label": "teardown retains zero resources",
+			"pass": true
+		}
+	],
+	"failures": 0,
+	"passes": 40,
+	"piece_two": {
+		"attachment_error_m": 0.0,
+		"costs_identical": true,
+		"expected_attached_origin": [
+			50.500129699707,
+			0.0,
+			13.0406293869019
+		],
+		"first_instance_cost": {
+			"collision_objects": 4,
+			"collision_shapes": 32,
+			"doors": 1,
+			"labels": 9,
+			"lights": 15,
+			"meshes": 168,
+			"nodes": 233
+		},
+		"production_source_contains_fixture": false,
+		"root_yaw_degrees": 34.9999998355989,
+		"second_instance_cost": {
+			"collision_objects": 4,
+			"collision_shapes": 32,
+			"doors": 1,
+			"labels": 9,
+			"lights": 15,
+			"meshes": 168,
+			"nodes": 233
+		},
+		"shop_origin": [
+			50.500129699707,
+			0.0,
+			13.0406293869019
+		],
+		"teardown": {
+			"already_torn_down": false,
+			"detached_owned_nodes": 6,
+			"freed_instances": 4,
+			"label": "piece_two",
+			"ok": true,
+			"public_api": true,
+			"released_audio_sources": 6,
+			"released_audio_voices": 0,
+			"removed_counters": 2,
+			"repeat_already_torn_down": true,
+			"retained_strong_references": 0,
+			"unmounted_counters": 2
+		}
+	},
+	"presentation": {
+		"bucket_presentation": {
+			"ok": true,
+			"shops": {
+				"SHOP_BODEGA": {
+					"condition": 100,
+					"ok": true,
+					"staffing_mode": "attended",
+					"stock": 24,
+					"stock_visuals": 18,
+					"stock_visuals_visible": true
+				}
+			}
+		},
+		"collision_objects_before": 6,
+		"collision_objects_hidden": 6,
+		"collision_shapes_before": 34,
+		"collision_shapes_hidden": 34,
+		"enabled": {
+			"affected_visuals": 5,
+			"collision_shapes_after": 34,
+			"collision_shapes_before": 34,
+			"guide_visuals_visible": true,
+			"ok": true,
+			"semantic_route_ids": [
+				"ROUTE_ORISON_TO_SHOP_BODEGA",
+				"ROUTE_SHOP_BODEGA_TO_ORISON"
+			],
+			"threshold_ids": [
+				"THRESHOLD_SHOP_BODEGA_FRONT"
+			]
+		},
+		"enabled_state": {
+			"bucket_presentation": {
+				"ok": true,
+				"shops": {
+					"SHOP_BODEGA": {
+						"condition": 100,
+						"ok": true,
+						"staffing_mode": "attended",
+						"stock": 24,
+						"stock_visuals": 18,
+						"stock_visuals_visible": true
+					}
+				}
+			},
+			"guide_visuals": 5,
+			"guide_visuals_visible": true
+		},
+		"hidden": {
+			"affected_visuals": 5,
+			"collision_shapes_after": 34,
+			"collision_shapes_before": 34,
+			"guide_visuals_visible": false,
+			"ok": true,
+			"semantic_route_ids": [
+				"ROUTE_ORISON_TO_SHOP_BODEGA",
+				"ROUTE_SHOP_BODEGA_TO_ORISON"
+			],
+			"threshold_ids": [
+				"THRESHOLD_SHOP_BODEGA_FRONT"
+			]
+		},
+		"hidden_state": {
+			"bucket_presentation": {
+				"ok": true,
+				"shops": {
+					"SHOP_BODEGA": {
+						"condition": 100,
+						"ok": true,
+						"staffing_mode": "attended",
+						"stock": 24,
+						"stock_visuals": 18,
+						"stock_visuals_visible": true
+					}
+				}
+			},
+			"guide_visuals": 5,
+			"guide_visuals_visible": false
+		},
+		"human_packet_required_state": "hidden",
+		"reconstruction_route_id": "ROUTE_SHOP_BODEGA_TO_ORISON",
+		"reconstruction_waypoint_id": "PAVEMENT_TURN",
+		"source_roles": [
+			"environment",
+			"route_guide",
+			"stock"
+		],
+		"threshold_id": "THRESHOLD_SHOP_BODEGA_FRONT"
+	},
+	"protected": {
+		"res://../art/data/building_layout.json": {
+			"after": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+			"before": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+			"match": true
+		},
+		"res://assets/building/floor_01.bin": {
+			"after": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+			"before": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+			"match": true
+		},
+		"res://assets/building/floor_01.gltf": {
+			"after": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+			"before": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+			"match": true
+		},
+		"res://assets/building/floor_02.bin": {
+			"after": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e",
+			"before": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e",
+			"match": true
+		},
+		"res://assets/building/floor_02.gltf": {
+			"after": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640",
+			"before": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640",
+			"match": true
+		},
+		"res://assets/building/floor_03.bin": {
+			"after": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8",
+			"before": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8",
+			"match": true
+		},
+		"res://assets/building/floor_03.gltf": {
+			"after": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f",
+			"before": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f",
+			"match": true
+		},
+		"res://assets/building/floor_04.bin": {
+			"after": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266",
+			"before": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266",
+			"match": true
+		},
+		"res://assets/building/floor_04.gltf": {
+			"after": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1",
+			"before": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1",
+			"match": true
+		},
+		"res://assets/building/floor_05.bin": {
+			"after": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8",
+			"before": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8",
+			"match": true
+		},
+		"res://assets/building/floor_05.gltf": {
+			"after": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a",
+			"before": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a",
+			"match": true
+		},
+		"res://assets/building/floor_06.bin": {
+			"after": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f",
+			"before": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f",
+			"match": true
+		},
+		"res://assets/building/floor_06.gltf": {
+			"after": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422",
+			"before": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422",
+			"match": true
+		},
+		"res://assets/building/floor_b1.bin": {
+			"after": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449",
+			"before": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449",
+			"match": true
+		},
+		"res://assets/building/floor_b1.gltf": {
+			"after": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e",
+			"before": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e",
+			"match": true
+		},
+		"res://data/building_layout.json": {
+			"after": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+			"before": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+			"match": true
+		},
+		"res://scripts/building/building_root_selector.gd": {
+			"after": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+			"before": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+			"match": true
+		}
+	},
+	"result": "PASS",
+	"route": {
+		"cost": {
+			"collision_objects": 6,
+			"collision_shapes": 34,
+			"counters": 1,
+			"doors": 1,
+			"instances": 2,
+			"labels": 9,
+			"lights": 18,
+			"meshes": 168,
+			"nodes": 308,
+			"shared_materials": 30,
+			"shared_meshes": 100,
+			"shared_shapes": 24
+		},
+		"declared_records": {
+			"boxes": 157,
+			"collision_boxes": 30,
+			"doors": 1,
+			"functional_props": 1,
+			"instances": 2,
+			"labels": 5,
+			"lights": 13,
+			"service_counters": 1,
+			"visible_boxes": 157
+		},
+		"traversal": {
+			"distance_m": 55.7999260425568,
+			"initial_placement": [
+				0.0,
+				0.000937499105930328,
+				0.579999923706055
+			],
+			"legs": [
+				{
+					"at": [
+						0.0,
+						0.000937499105930328,
+						3.87999725341797
+					],
+					"distance_m": 3.29999732971191,
+					"frames": 66,
+					"id": "PAVEMENT_TURN",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "outbound",
+					"target": [
+						0.0,
+						0.0399999991059303,
+						4.0
+					]
+				},
+				{
+					"at": [
+						18.5280685424805,
+						0.000937499105930328,
+						5.51380729675293
+					],
+					"distance_m": 18.5999641418457,
+					"frames": 372,
+					"id": "BODEGA_ALIGNMENT",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "outbound",
+					"target": [
+						18.6549987792969,
+						0.0399999991059303,
+						5.52500009536743
+					]
+				},
+				{
+					"at": [
+						18.6502113342285,
+						0.000937499105930328,
+						3.1669807434082
+					],
+					"distance_m": 2.3500030040741,
+					"frames": 47,
+					"id": "BODEGA_EXTERIOR",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "outbound",
+					"target": [
+						18.6549987792969,
+						0.0399999991059303,
+						3.07500004768372
+					]
+				},
+				{
+					"at": [
+						18.654748916626,
+						0.000937499105930328,
+						1.11698484420776
+					],
+					"distance_m": 2.0500009059906,
+					"frames": 42,
+					"id": "BODEGA_INTERIOR",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "threshold_to_interior",
+					"target": [
+						18.6549987792969,
+						0.0399999991059303,
+						1.00500011444092
+					]
+				},
+				{
+					"at": [
+						18.985466003418,
+						0.000937499105930328,
+						-0.499529749155045
+					],
+					"distance_m": 1.64999794960022,
+					"frames": 33,
+					"id": "BODEGA_SERVICE_STANCE",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "interior_to_counter",
+					"target": [
+						19.0049991607666,
+						0.0399999991059303,
+						-0.595000028610229
+					]
+				},
+				{
+					"at": [
+						18.6743907928467,
+						0.000937499105930328,
+						0.916711032390594
+					],
+					"distance_m": 1.45000195503235,
+					"frames": 30,
+					"id": "BODEGA_INTERIOR_RETURN",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "counter_to_return_route",
+					"target": [
+						18.6549987792969,
+						0.0399999991059303,
+						1.00500011444092
+					]
+				},
+				{
+					"at": [
+						18.6559715270996,
+						0.000937499105930328,
+						2.96662974357605
+					],
+					"distance_m": 2.05000138282776,
+					"frames": 41,
+					"id": "BODEGA_EXTERIOR",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "return_to_pavement",
+					"target": [
+						18.6549987792969,
+						0.0399999991059303,
+						3.07500004768372
+					]
+				},
+				{
+					"at": [
+						18.6550388336182,
+						0.000937499105930328,
+						5.41663408279419
+					],
+					"distance_m": 2.45000457763672,
+					"frames": 49,
+					"id": "BODEGA_ALIGNMENT",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "return_to_pavement",
+					"target": [
+						18.6549987792969,
+						0.0399999991059303,
+						5.52500009536743
+					]
+				},
+				{
+					"at": [
+						0.108479730784893,
+						0.000937499105930328,
+						4.00823736190796
+					],
+					"distance_m": 18.5999565124512,
+					"frames": 372,
+					"id": "PAVEMENT_TURN",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "return_to_pavement",
+					"target": [
+						0.0,
+						0.0399999991059303,
+						4.0
+					]
+				},
+				{
+					"at": [
+						0.00411011092364788,
+						0.000937499105930328,
+						0.709890007972717
+					],
+					"distance_m": 3.29999828338623,
+					"frames": 66,
+					"id": "ORISON_EXIT",
+					"noclip": false,
+					"ok": true,
+					"on_floor": true,
+					"phase": "pavement_to_orison",
+					"target": [
+						0.0,
+						0.0399999991059303,
+						0.579999923706055
+					]
+				}
+			],
+			"teleports_after_initial": 0
+		}
+	},
+	"save_reconstruction": {
+		"bucket": {
+			"condition": 100.0,
+			"hours": {
+				"close_minute": 1440.0,
+				"open_minute": 0.0
+			},
+			"last_advanced_minute": 2880.0,
+			"staffing": {
+				"mode": "attended",
+				"roles": [
+					"night_counter",
+					"day_counter"
+				]
+			},
+			"stock": 0.0,
+			"transactions": 24.0
+		},
+		"exact": true,
+		"exact_comparisons": {
+			"bucket": true,
+			"depleted_presentation": true,
+			"public_placement_consumed": true,
+			"reconstructed_route": true,
+			"semantic_cursor": true,
+			"serialized_subset": true,
+			"work_order": true
+		},
+		"first_teardown": {
+			"already_torn_down": false,
+			"detached_owned_nodes": 6,
+			"freed_instances": 2,
+			"label": "primary_before_reload",
+			"ok": true,
+			"public_api": true,
+			"released_audio_sources": 3,
+			"released_audio_voices": 2,
+			"removed_counters": 1,
+			"repeat_already_torn_down": true,
+			"retained_strong_references": 0,
+			"unmounted_counters": 1
+		},
+		"job_stage": "awaiting_part",
+		"loaded_subset_sha256": "fd99640eb26ea034a81dbea270eb7da0b3be739391f48ed3a9f8a4e71487c5c4",
+		"no_world_coordinates": true,
+		"reconstruction_expected_world_position": [
+			0.0,
+			0.0399999991059303,
+			4.0
+		],
+		"reconstruction_world_position": [
+			-0.000000238418579101563,
+			0.0000971090048551559,
+			4.0
+		],
+		"save_sha256": "31e5f576f3e1a8a97084c576b7f373b44310352f7d13e4ded428474ea32d7379",
+		"saved_subset_sha256": "fd99640eb26ea034a81dbea270eb7da0b3be739391f48ed3a9f8a4e71487c5c4",
+		"second_teardown": {
+			"already_torn_down": false,
+			"detached_owned_nodes": 5,
+			"freed_instances": 2,
+			"label": "reconstructed_after_load",
+			"ok": true,
+			"public_api": true,
+			"released_audio_sources": 3,
+			"released_audio_voices": 0,
+			"removed_counters": 1,
+			"repeat_already_torn_down": true,
+			"retained_strong_references": 0,
+			"unmounted_counters": 1
+		},
+		"semantic_cursor": {
+			"route_id": "ROUTE_SHOP_BODEGA_TO_ORISON",
+			"schema_version": 1.0,
+			"threshold_id": "THRESHOLD_SHOP_BODEGA_FRONT",
+			"waypoint_id": "PAVEMENT_TURN"
+		}
+	},
+	"schema_version": 2,
+	"task": "ORISON-V2-M11A-A",
+	"teardown": {
+		"baseline": {
+			"objects": 1793,
+			"orphan_nodes": 0,
+			"resources": 64
+		},
+		"delta": {
+			"objects": -54,
+			"orphan_nodes": 0,
+			"resources": 0
+		},
+		"final": {
+			"objects": 1739,
+			"orphan_nodes": 0,
+			"resources": 64
+		}
+	}
+}

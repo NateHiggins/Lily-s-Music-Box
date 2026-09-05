@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2M11BServiceOpeningsShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11b_service_openings_02",
+  "started_utc": "2026-08-31T01:48:46.5142215Z",
+  "elapsed_seconds": 8.76,
+  "timeout_seconds": 60,
+  "resolution": "1600x900",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 4,
+  "actual_frames": 4,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_m11b_service_openings_02_20260831T014846514Z.log",
+  "filtered_process_output": [
+    "[ORISON-V2-M11B-SERVICE-OPENINGS CAPTURE] 1/4 label=01_f02_core_side_approach elapsed=1.069 path=C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11b_service_openings_02/01_f02_core_side_approach.png",
+    "[ORISON-V2-M11B-SERVICE-OPENINGS CAPTURE] 2/4 label=02_f02_hall_side_return elapsed=2.719 path=C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11b_service_openings_02/02_f02_hall_side_return.png",
+    "[ORISON-V2-M11B-SERVICE-OPENINGS CAPTURE] 3/4 label=03_f04_core_side_approach elapsed=4.691 path=C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11b_service_openings_02/03_f04_core_side_approach.png",
+    "[ORISON-V2-M11B-SERVICE-OPENINGS CAPTURE] 4/4 label=04_f04_hall_side_return elapsed=6.262 path=C:\\PleaseRemainOnTheLine-v2-m11a-first-exterior-cell\\art\\renders\\orison_v2\\m11b_service_openings_02/04_f04_hall_side_return.png",
+    "[ORISON-V2-M11B-SERVICE-OPENINGS] RESULT: PASS captures=4 expected=4 elapsed=7.310"
+  ],
+  "files": [
+    {
+      "name": "01_f02_core_side_approach.png",
+      "bytes": 186358,
+      "sha256": "a4fd73b220ed8d7b5fa28b906c7088b3941a027806f5584ea4e1342e3dc19fc4"
+    },
+    {
+      "name": "02_f02_hall_side_return.png",
+      "bytes": 179141,
+      "sha256": "dbf41652e486f98f48612d897ca793cf6196b69735d5c94f115bc85eeddeb937"
+    },
+    {
+      "name": "03_f04_core_side_approach.png",
+      "bytes": 198468,
+      "sha256": "4d17c6ea7d67d5efe781f87bd20b206ce6ca7db983a640c8eef8dac8faa7e0fb"
+    },
+    {
+      "name": "04_f04_hall_side_return.png",
+      "bytes": 158414,
+      "sha256": "36883da61769870da0777d4f93da387fb0d09b92bef0c41c2778e0b6f1212055"
+    }
+  ]
+}

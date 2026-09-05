@@ -25,6 +25,7 @@ func _ready() -> void:
 	await _overlap_off_f04_is_refused()
 	await _door_to_missing_space_is_refused()
 	await _more_referential_faults_are_refused()
+	await _single_owner_opening_faults_are_refused()
 	await _a_refusal_builds_nothing()
 	_finish()
 
@@ -121,6 +122,53 @@ func _more_referential_faults_are_refused() -> void:
 			.contains("must name a spaces record"),
 			"a reference into the wrong table is refused")
 
+func _single_owner_opening_faults_are_refused() -> void:
+	var wrong_owner := _load_production()
+	var record := _opening(wrong_owner, "F02_SERVICE_HALL_CORE_OPENING")
+	record.shared_wall_owner = "F02_SERVICE_HALL_SOUTH"
+	_check((await _refusal_for(wrong_owner, "single-owner opening wrong owner"))
+			.contains("must name one connected space"),
+			"single-owner opening refuses an owner outside its endpoints")
+
+	var off_wall := _load_production()
+	record = _opening(off_wall, "F02_SERVICE_HALL_CORE_OPENING")
+	record.center = [9.4, 3.2]
+	_check((await _refusal_for(off_wall, "single-owner opening off wall"))
+			.contains("is not on its endpoints' shared wall"),
+			"single-owner opening refuses an off-wall center")
+
+	var out_of_span := _load_production()
+	record = _opening(out_of_span, "F04_SERVICE_HALL_CORE_OPENING")
+	record.center = [9.5, 9.0]
+	_check((await _refusal_for(out_of_span, "single-owner opening beyond span"))
+			.contains("does not lie entirely on the shared boundary"),
+			"single-owner opening refuses a cut beyond the shared span")
+
+	var conflicting_owner := _load_production()
+	var duplicate: Dictionary = _opening(conflicting_owner,
+			"F02_SERVICE_HALL_CORE_OPENING").duplicate(true)
+	duplicate.id = "F02_SERVICE_HALL_CORE_OPENING_02"
+	duplicate.center = [9.5, 6.2]
+	duplicate.shared_wall_owner = "F02_SERVICE_HALL"
+	conflicting_owner.openings.append(duplicate)
+	_check((await _refusal_for(conflicting_owner, "single-owner conflict"))
+			.contains("conflicts with F02_SERVICE_HALL_CORE_OPENING shared-wall owner"),
+			"one shared boundary refuses conflicting construction owners")
+
+	var overlapping_aperture := _load_production()
+	overlapping_aperture.openings.append({
+		"id": "F04_SERVICE_HALL_CORE_DECOY",
+		"level": "F04",
+		"center": [9.5, 6.2],
+		"width": 0.9,
+		"height": 2.1,
+		"axis": "z",
+		"connects": ["F04_SERVICE_HALL", "F04_SERVICE_CORE"],
+	})
+	_check((await _refusal_for(overlapping_aperture, "single-owner decoy aperture"))
+			.contains("conflicts with F04_SERVICE_HALL_CORE_OPENING single-owner partition"),
+			"single-owner partition refuses an unrelated aperture on its omitted wall")
+
 # -- silence is the defect ---------------------------------------------------
 
 func _a_refusal_builds_nothing() -> void:
@@ -146,6 +194,15 @@ func _build(path: String) -> Node3D:
 
 func _load_clean() -> Dictionary:
 	return JSON.parse_string(FileAccess.get_file_as_string(CLEAN)) as Dictionary
+
+func _load_production() -> Dictionary:
+	return JSON.parse_string(FileAccess.get_file_as_string(PRODUCTION)) as Dictionary
+
+func _opening(layout: Dictionary, opening_id: String) -> Dictionary:
+	for opening: Dictionary in layout.get("openings", []):
+		if str(opening.get("id", "")) == opening_id:
+			return opening
+	return {}
 
 func _write_scratch(layout: Dictionary) -> String:
 	var file := FileAccess.open(SCRATCH, FileAccess.WRITE)
