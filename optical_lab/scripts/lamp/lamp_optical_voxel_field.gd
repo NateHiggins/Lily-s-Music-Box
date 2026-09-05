@@ -9,6 +9,7 @@ var focus_range := 0.0
 var grid_far := 9.0
 var _timestamp_prefix := "lamp_mid"
 const MAX_BLOCKERS := 8
+const MATERIAL_OWNER_META := &"_lamp_optical_field_owner"
 var dimensions := TIERS[0]
 var radiance := Texture3DRD.new()
 var optics := Texture3DRD.new()
@@ -142,7 +143,7 @@ func observe(lamp: LampOpticalInstrument, force := false) -> bool:
 	var new_stability := float(_output.temporal_stability)
 	var pose_changed := pose != new_pose
 	var moved := pose_changed or range_m!=lamp.range_m or absf(outer-new_outer)>0.00001
-	if not force and not moved and absf(energy-new_energy)<0.00001 and color==new_color and absf(stability-new_stability)<0.00001 and absf(rate_of_change-absf(lamp.state.intensity_rate))<0.00001 and _geometry_revision==_applied_geometry:return false
+	if not force and not moved and enabled==(new_energy>0.0) and absf(energy-new_energy)<0.00001 and color==new_color and absf(stability-new_stability)<0.00001 and absf(rate_of_change-absf(lamp.state.intensity_rate))<0.00001 and _geometry_revision==_applied_geometry:return false
 	var was_enabled := enabled
 	_mutex.lock()
 	pose=new_pose;range_m=lamp.range_m;outer=new_outer
@@ -210,16 +211,35 @@ func _collect_timestamps() -> void:
 		if label==_timestamp_prefix+"_end" and begin>=0:gpu_samples_us.append(float(_rd.get_captured_timestamp_gpu_time(i)-begin)/1000.0)
 
 func bind_material(material: ShaderMaterial) -> void:
-	if _disposed or material==null or _materials.has(material):return
-	_materials.append(material)
+	if _disposed or material==null:return
+	var previous_id:=int(material.get_meta(MATERIAL_OWNER_META,0))
+	if previous_id==get_instance_id() and _materials.has(material):return
+	# Transfer ownership at binding time. A stale owner must never clear a
+	# replacement field's textures during its later teardown.
+	if previous_id!=0 and previous_id!=get_instance_id():
+		var previous:=instance_from_id(previous_id)
+		if previous is LampOpticalVoxelField:previous.unbind_material(material)
+	if not _materials.has(material):_materials.append(material)
+	material.set_meta(MATERIAL_OWNER_META,get_instance_id())
 	texture_bindings+=2
 	material.set_shader_parameter("lamp_radiance",radiance)
 	material.set_shader_parameter("lamp_optics",optics)
-	if near_cascade!=null:
-		material.set_shader_parameter("lamp_near_radiance",near_cascade.radiance)
-		material.set_shader_parameter("lamp_near_optics",near_cascade.optics)
-		texture_bindings+=2
+	material.set_shader_parameter("lamp_near_radiance",near_cascade.radiance if near_cascade!=null else null)
+	material.set_shader_parameter("lamp_near_optics",near_cascade.optics if near_cascade!=null else null)
+	if near_cascade!=null:texture_bindings+=2
 	_bind_transform(material)
+
+func unbind_material(material: ShaderMaterial) -> void:
+	if material==null:return
+	_materials.erase(material)
+	if int(material.get_meta(MATERIAL_OWNER_META,0))!=get_instance_id():return
+	material.remove_meta(MATERIAL_OWNER_META)
+	material.set_shader_parameter("lamp_volume_shape",Vector4(NEAR,range_m,outer,0))
+	material.set_shader_parameter("lamp_radiance",null)
+	material.set_shader_parameter("lamp_optics",null)
+	material.set_shader_parameter("lamp_near_radiance",null)
+	material.set_shader_parameter("lamp_near_optics",null)
+	material.set_shader_parameter("lamp_near_shape",Vector4.ZERO)
 
 func _bind_transform(material: ShaderMaterial) -> void:
 	transform_bindings+=1
@@ -241,14 +261,7 @@ func debug_readback(callback: Callable) -> void:
 
 func dispose() -> void:
 	if _disposed:return
-	for material in _materials:
-		material.set_shader_parameter("lamp_volume_shape",Vector4(NEAR,range_m,outer,0))
-		material.set_shader_parameter("lamp_radiance",null)
-		material.set_shader_parameter("lamp_optics",null)
-		material.set_shader_parameter("lamp_near_radiance",null)
-		material.set_shader_parameter("lamp_near_optics",null)
-		material.set_shader_parameter("lamp_near_shape",Vector4.ZERO)
-	_materials.clear()
+	while not _materials.is_empty():unbind_material(_materials[-1])
 	if near_cascade!=null:near_cascade.dispose()
 	_disposed=true
 	radiance.texture_rd_rid=RID();optics.texture_rd_rid=RID()

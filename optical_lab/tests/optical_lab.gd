@@ -74,6 +74,7 @@ func _run() -> void:
 		field.dispose();await _frames(8)
 		_finish();return
 	await _lifecycle_edges()
+	await _transition_regressions()
 	await _inject()
 	var near := Vector3(0,0,-1)
 	var far := Vector3(0,0,-5)
@@ -514,3 +515,45 @@ func _filtered_probe(label: String) -> void:
 		var pixel:=pixels.get_pixel(i,0)
 		maximum=maxf(maximum,maxf(absf(pixel.r-expected.radiance.x),maxf(absf(pixel.g-expected.visibility),absf(pixel.b-expected.transmittance))))
 	_check(label+"_filtered_world_samples",maximum<.003,maximum)
+
+func _transition_regressions() -> void:
+	var original_energy:=lamp.base_energy
+	lamp.base_energy=0.000001
+	field.observe(lamp,true);await _frames(4)
+	lamp.state.switched_on=false
+	var changed:=field.observe(lamp)
+	await _frames(4)
+	_check("subthreshold_off_transition_clears",changed and not field.enabled and field.energy==0.0)
+	readback_done=false
+	field.debug_readback(func(data: PackedByteArray):readback=data;readback_done=true)
+	for i in 120:
+		if readback_done:break
+		await _frames(1)
+	var maximum:=0.0
+	for index in range(0,readback.size(),8):
+		for channel in 3:maximum=maxf(maximum,absf(readback.decode_half(index+channel*2)))
+	_check("subthreshold_off_gpu_texture_zero",readback_done and maximum==0.0,maximum)
+	lamp.state.switched_on=true
+	_check("subthreshold_on_transition_updates",field.observe(lamp) and field.enabled)
+	await _frames(4)
+	lamp.base_energy=original_energy;lamp.state.restore_state(stable_state)
+	lamp._apply_output();field.observe(lamp,true);await _frames(4)
+	var first:=Field.new();var second:=Field.new()
+	first.initialize(1);second.initialize()
+	for i in 120:
+		if first.ready and second.ready:break
+		await _frames(1)
+	var material:=ShaderMaterial.new();material.shader=Receiver
+	first.bind_material(material)
+	var had_near:=material.get_shader_parameter("lamp_near_radiance")!=null
+	second.bind_material(material)
+	_check("hero_to_production_clears_near_binding",had_near and material.get_shader_parameter("lamp_near_radiance")==null and material.get_shader_parameter("lamp_near_shape")==Vector4.ZERO)
+	_check("material_transfer_releases_previous_owner",not first._materials.has(material) and second._materials.has(material))
+	first.dispose();await _frames(4)
+	_check("previous_owner_dispose_preserves_new_binding",material.get_shader_parameter("lamp_radiance")==second.radiance)
+	var bindings_before:=second.texture_bindings
+	second.bind_material(material)
+	_check("same_owner_rebind_is_idle",second.texture_bindings==bindings_before)
+	second.unbind_material(material);second.unbind_material(material)
+	_check("explicit_unbind_releases_material",not second._materials.has(material) and not material.has_meta(Field.MATERIAL_OWNER_META) and material.get_shader_parameter("lamp_radiance")==null)
+	second.dispose();await _frames(4)

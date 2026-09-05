@@ -1,8 +1,14 @@
 # Isolated lamp optical field
 
-**103 native checks passed; zero failures; empty engine stderr.** This change stops at isolated optical and performance proof. It does not merge into the game, supersede S2J, resume anatomy art, or declare L1D/production accepted.
+**111 native checks passed; zero failures; empty engine stderr.** This change stops at isolated optical and performance proof. It does not merge into the game, supersede S2J, resume anatomy art, or declare L1D/production accepted.
 
-[Results](evidence/isolated_01/receipt.json), [tested source hashes](evidence/isolated_01/run_manifest.json), and [engine log](evidence/isolated_01.log) identify the reviewed run. Earlier development runs are excluded from committed evidence.
+[Results](evidence/isolated_02/receipt.json), [tested source hashes](evidence/isolated_02/run_manifest.json), and [engine log](evidence/isolated_02.log) identify the reviewed run. Earlier development runs are excluded from committed evidence.
+
+## Transition corrections after the initial proof
+
+The original 103-check run at `3ea1968` remains preserved in `evidence/isolated_01`. A follow-up review reproduced three failed checks against that field implementation: near-zero energy could suppress the off transition, ownership remained with the old field after rebinding, and its disposal could erase the new binding. [The failing check record](evidence/isolated_02/regression_before.json) and [original stderr](evidence/isolated_02/regression_before.stderr) preserve that result.
+
+Off/on transitions now bypass the small intensity-change threshold. Native checks cover both directions at base energy 0.000001 and verify an entirely zero GPU radiance texture after off. Material binding transfers ownership explicitly: the previous owner releases the material, and later teardown cannot clear its replacement's textures. Hero-to-production transfer clears the old near-cascade bindings. `unbind_material(material)` supports participants leaving a live field; repeated binding/unbinding is harmless. Eight additional native checks cover these transitions, bringing the current suite to 111.
 
 ## Authority and architecture
 
@@ -60,29 +66,29 @@ Cells show **median / p95 / maximum**. CPU/GPU-field columns are microseconds; v
 
 | Configuration | CPU build us | Submission us | GPU field us | Viewport GPU ms | Draw calls | VRAM delta MiB |
 |---|---|---|---|---|---|---|
-| empty | n/a | n/a | n/a | 0.040 / 0.041 / 0.041 | 23.000 / 23.000 / 23.000 | 0.000 / 0.000 / 0.000 |
-| analytic | n/a | n/a | n/a | 0.045 / 0.047 / 0.058 | 33.000 / 33.000 / 33.000 | 0.000 / 0.000 / 0.000 |
-| field_no_occlusion | 7.000 / 10.000 / 18.000 | 6.000 / 10.000 / 16.000 | 4.864 / 5.344 / 5.664 | 0.045 / 0.054 / 0.059 | 33.000 / 33.000 / 33.000 | 2.250 / 2.250 / 2.250 |
-| field_occlusion | 8.000 / 8.000 / 46.000 | 6.000 / 7.000 / 8.000 | 7.360 / 7.776 / 7.872 | 0.046 / 0.047 / 0.048 | 34.000 / 34.000 / 34.000 | 2.250 / 2.250 / 2.250 |
-| opaque | 7.000 / 8.000 / 15.000 | 6.000 / 7.000 / 13.000 | 5.312 / 5.792 / 6.272 | 0.066 / 0.068 / 0.079 | 28.000 / 28.000 / 28.000 | 2.250 / 2.250 / 2.250 |
-| transparent_sss | 7.000 / 8.000 / 9.000 | 6.000 / 7.000 / 53.000 | 5.312 / 5.728 / 5.856 | 0.074 / 0.075 / 0.075 | 27.000 / 27.000 / 27.000 | 2.250 / 2.250 / 2.250 |
-| particles | 7.000 / 8.000 / 15.000 | 6.000 / 7.000 / 16.000 | 4.864 / 5.280 / 5.568 | 0.074 / 0.076 / 0.077 | 26.000 / 26.000 / 26.000 | 2.250 / 2.250 / 2.250 |
-| combined_production | 8.000 / 8.000 / 9.000 | 6.000 / 7.000 / 7.000 | 6.848 / 7.360 / 7.712 | 0.098 / 0.099 / 0.100 | 48.000 / 48.000 / 48.000 | 2.250 / 2.250 / 2.250 |
-| combined_hero | 5.000 / 5.000 / 11.000 | 3.000 / 4.000 / 9.000 | 6.368 / 6.976 / 7.040 | 0.097 / 0.099 / 0.100 | 48.000 / 48.000 / 48.000 | 20.251 / 20.251 / 20.251 |
+| empty | n/a | n/a | n/a | 0.037 / 0.044 / 0.051 | 23.000 / 23.000 / 23.000 | 0.000 / 0.000 / 0.000 |
+| analytic | n/a | n/a | n/a | 0.041 / 0.048 / 0.053 | 33.000 / 33.000 / 33.000 | 0.000 / 0.000 / 0.000 |
+| field_no_occlusion | 7.000 / 9.000 / 13.000 | 7.000 / 9.000 / 11.000 | 4.448 / 4.992 / 5.216 | 0.041 / 0.049 / 0.050 | 33.000 / 33.000 / 33.000 | 2.250 / 2.250 / 2.250 |
+| field_occlusion | 8.000 / 11.000 / 29.000 | 7.000 / 10.000 / 25.000 | 6.336 / 7.040 / 7.616 | 0.042 / 0.049 / 0.052 | 34.000 / 34.000 / 34.000 | 2.250 / 2.250 / 2.250 |
+| opaque | 8.000 / 9.000 / 16.000 | 7.000 / 8.000 / 10.000 | 4.864 / 5.504 / 5.728 | 0.060 / 0.068 / 0.069 | 28.000 / 28.000 / 28.000 | 2.250 / 2.250 / 2.250 |
+| transparent_sss | 8.000 / 9.000 / 11.000 | 7.000 / 9.000 / 12.000 | 4.896 / 5.472 / 5.760 | 0.066 / 0.075 / 0.082 | 27.000 / 27.000 / 27.000 | 2.250 / 2.250 / 2.250 |
+| particles | 8.000 / 9.000 / 10.000 | 7.000 / 9.000 / 10.000 | 4.448 / 5.024 / 5.120 | 0.068 / 0.076 / 0.079 | 26.000 / 26.000 / 26.000 | 2.250 / 2.250 / 2.250 |
+| combined_production | 8.000 / 9.000 / 10.000 | 7.000 / 8.000 / 18.000 | 6.336 / 6.848 / 7.104 | 0.092 / 0.101 / 0.102 | 48.000 / 48.000 / 48.000 | 2.250 / 2.250 / 2.250 |
+| combined_hero | 5.000 / 6.000 / 10.000 | 3.000 / 5.000 / 6.000 | 6.208 / 6.816 / 6.944 | 0.092 / 0.100 / 0.107 | 48.000 / 48.000 / 48.000 | 20.251 / 20.251 / 20.251 |
 
-Hero near cascade: CPU 8.000 / 9.000 / 12.000 us; submission 7.000 / 8.000 / 14.000 us; GPU generation 31.360 / 31.904 / 32.000 us.
+Hero near cascade: CPU 8.000 / 10.000 / 14.000 us; submission 7.000 / 9.000 / 13.000 us; GPU generation 28.896 / 29.408 / 29.472 us.
 
-Production controller: 13.000 / 15.000 / 24.000 us, with maximum below 200 us. Conservative median optical overhead is **0.060 ms**: combined viewport minus analytic viewport plus field generation. This small isolated scene passes the requested 2 ms target. No larger scene, higher resolution, overlapping-volume stress test, or production frame budget is implied.
+Production controller: 14.000 / 17.000 / 25.000 us, with maximum below 200 us. Conservative median optical overhead is **0.057 ms**: combined viewport minus analytic viewport plus field generation. This small isolated scene passes the requested 2 ms target. No larger scene, higher resolution, overlapping-volume stress test, or production frame budget is implied.
 
 GPU sampling cost is estimated against the same material/geometry with the shared sampler's diagnostic constant-input bypass enabled. Transfer functions/render paths remain active. This is an engine GPU timing difference, not an external per-instruction capture. Near-zero and negative differences reflect timer quantization/noise and remain signed.
 
 | Configuration | GPU sampling delta ms: median / p95 / maximum |
 |---|---|
-| combined_hero | 0.008 / 0.010 / 0.011 |
-| combined_production | 0.001 / 0.003 / 0.004 |
-| opaque | -0.001 / 0.001 / 0.011 |
-| particles | 0.002 / 0.004 / 0.005 |
-| transparent_sss | 0.000 / 0.001 / 0.001 |
+| combined_hero | 0.001 / 0.010 / 0.012 |
+| combined_production | 0.001 / 0.010 / 0.012 |
+| opaque | -0.001 / 0.008 / 0.009 |
+| particles | 0.000 / 0.009 / 0.012 |
+| transparent_sss | 0.000 / 0.009 / 0.016 |
 
 Each measured field-enabled interval contains 120 updates/uploads per active cascade. Per-frame count statistics and zero readback calls are recorded. GPU allocation and texture/matrix binding counters remain fixed during measured intervals; actual pose or cone/range changes update the relevant transforms/shapes. Ordinary injection performs no readback, source loading, or resource creation. Diagnostic readbacks occur outside timing intervals. Driver-internal stalls are not separately attributed; CPU build/submission tails remain reported.
 
@@ -90,7 +96,7 @@ GPU field generation uses RenderingDevice timestamp pairs. The exact [4.7.1 Vulk
 
 ## Lifecycle and reproduction
 
-Initialize during setup, wait for `ready` or `failed`, bind each participant once, provide validated occluders, and call `observe(lamp)` after the accepted controller/presentation update. Forced observations are used only for this update-cadence benchmark. Call `dispose()` before releasing the last field owner, including after initialization failure. The field is intentionally not serializable.
+Initialize during setup, wait for `ready` or `failed`, bind each participant once, provide validated occluders, and call `observe(lamp)` after the accepted controller/presentation update. Forced observations are used only for this update-cadence benchmark. Call `unbind_material(material)` when a participant leaves, and `dispose()` before releasing the last field owner, including after initialization failure. The field is intentionally not serializable.
 
 Disposal unbinds textures, frees six RIDs per cascade, and breaks callable ownership. Tests cover repeated initialization/disposal, disposal before initialization, and disposal while initialization is queued. Shutdown clears overrides, debug geometry, particles, viewport/capture references, and texture wrappers. **88 tracked newly owned objects/resources have zero retained references**, with no engine leak output. Engine-owned/preloaded shader caches are outside this owner count.
 
@@ -98,16 +104,16 @@ Disposal unbinds textures, frees six RIDs per cascade, and breaks callable owner
 & ./optical_lab/tools/run_lab.ps1 -EvidenceName current
 ```
 
-Requires `Godot_v4.7.1-stable_win64_console.exe` on PATH. The copied exclusive Windows runner is unchanged from the canonical runner. It refuses an occupied native lane; it does not stop foreign engines. The wrapper rejects nonempty stderr even after exit 0 and records tested-source hashes. `evidence/current` is ignored; `isolated_01` is the reviewed evidence.
+Requires `Godot_v4.7.1-stable_win64_console.exe` on PATH. The copied exclusive Windows runner is unchanged from the canonical runner. It refuses an occupied native lane; it does not stop foreign engines. The wrapper rejects nonempty stderr even after exit 0 and records tested-source hashes. `evidence/current` is ignored; `isolated_02` is the reviewed evidence.
 
 ## Captures
 
-![Aligned gold](evidence/isolated_01/family_05_on.png)
-![Angled gold](evidence/isolated_01/gold_angled.png)
-![Opaque open](evidence/isolated_01/family_00_on.png)
-![Opaque carved shadow](evidence/isolated_01/opaque_carved_shadow.png)
-![Front internal layer](evidence/isolated_01/cloud_front_internal_layer.png)
-![Rear internal layer](evidence/isolated_01/cloud_rear_internal_layer.png)
-![Two internal layers](evidence/isolated_01/cloud_two_internal_layers.png)
+![Aligned gold](evidence/isolated_02/family_05_on.png)
+![Angled gold](evidence/isolated_02/gold_angled.png)
+![Opaque open](evidence/isolated_02/family_00_on.png)
+![Opaque carved shadow](evidence/isolated_02/opaque_carved_shadow.png)
+![Front internal layer](evidence/isolated_02/cloud_front_internal_layer.png)
+![Rear internal layer](evidence/isolated_02/cloud_rear_internal_layer.png)
+![Two internal layers](evidence/isolated_02/cloud_two_internal_layers.png)
 
 Remaining material and temporal captures accompany the receipt. The explicit froxel overview uses a diagnostic display gain of 2; receiver captures and performance use actual optical values.

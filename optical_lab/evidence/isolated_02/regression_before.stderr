@@ -1,0 +1,18 @@
+ERROR: OPTICAL FIELD: subthreshold_off_transition_clears 
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/optical_lab.gd:37)
+       [1] _transition_regressions (res://tests/optical_lab.gd:526)
+       [2] _frames (res://tests/optical_lab.gd:40)
+ERROR: OPTICAL FIELD: material_transfer_releases_previous_owner 
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/optical_lab.gd:37)
+       [1] _transition_regressions (res://tests/optical_lab.gd:536)
+       [2] _frames (res://tests/optical_lab.gd:40)
+ERROR: OPTICAL FIELD: previous_owner_dispose_preserves_new_binding 
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/optical_lab.gd:37)
+       [1] _transition_regressions (res://tests/optical_lab.gd:538)
+       [2] _frames (res://tests/optical_lab.gd:40)

@@ -1,0 +1,23 @@
+{
+  "field_commit": "3ea1968877841ab3e4730188966226a05066bd42",
+  "field_source_sha256": "71fdaeaecc270d4ba56fd6b8825cb05dc9c634e5b2b831e87dd8435150f2e15c",
+  "checks_run": 106,
+  "failures": 3,
+  "failed_checks": [
+    {
+      "detail": "",
+      "id": "subthreshold_off_transition_clears",
+      "pass": false
+    },
+    {
+      "detail": "",
+      "id": "material_transfer_releases_previous_owner",
+      "pass": false
+    },
+    {
+      "detail": "",
+      "id": "previous_owner_dispose_preserves_new_binding",
+      "pass": false
+    }
+  ]
+}
