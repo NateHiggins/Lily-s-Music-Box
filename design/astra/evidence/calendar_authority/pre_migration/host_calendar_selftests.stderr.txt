@@ -1,0 +1,12 @@
+test_calendar_conversion_and_filename_metadata_are_not_world_time (__main__.HostCalendarTests.test_calendar_conversion_and_filename_metadata_are_not_world_time) ... ok
+test_cli_host_calendar_red_then_authored_green (__main__.HostCalendarTests.test_cli_host_calendar_red_then_authored_green) ... ok
+test_filename_helper_does_not_taint_its_storage_operation (__main__.HostCalendarTests.test_filename_helper_does_not_taint_its_storage_operation) ... ok
+test_former_initializer_exemption_cannot_persist_calendar (__main__.HostCalendarTests.test_former_initializer_exemption_cannot_persist_calendar) ... ok
+test_only_pure_local_minute_sampler_is_authorized (__main__.HostCalendarTests.test_only_pure_local_minute_sampler_is_authorized) ... ok
+test_repeated_or_durably_writing_sampler_is_not_exempt (__main__.HostCalendarTests.test_repeated_or_durably_writing_sampler_is_not_exempt) ... ok
+test_same_file_helper_cannot_hide_persisted_host_fields (__main__.HostCalendarTests.test_same_file_helper_cannot_hide_persisted_host_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.029s
+
+OK

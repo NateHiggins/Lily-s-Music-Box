@@ -1,0 +1,6 @@
+WARNING: saved dream revision 999 is unavailable; transaction cancelled
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _reconcile_saved_revision (res://scripts/dream/dream_director.gd:230)
+       [1] _test_dream_revision (res://tests/admin_prereq_contract_test.gd:97)
+       [2] _ready (res://tests/admin_prereq_contract_test.gd:13)

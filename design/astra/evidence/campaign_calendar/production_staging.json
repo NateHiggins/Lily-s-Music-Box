@@ -1,0 +1,222 @@
+{
+  "base_head": "d729e4d8042c18a26920a8ce555ca6954651e257",
+  "paths": [
+    {
+      "path": "design/ORISON_BIBLE.md",
+      "sha256": "2e4793e52c20114c81da28471c1a7f7f53254f9013c425a3985053ad841e55ab"
+    },
+    {
+      "path": "design/ORISON_CAMPAIGN_CALENDAR_RULING_2026-09-05.md",
+      "sha256": "184fd42792db97318429290503652ee34521bec37a0a5238e048504b57c34db4"
+    },
+    {
+      "path": "design/ORISON_V2_SHARED_FRAMES_RULING_2026-08-30.md",
+      "sha256": "28f8da434164dbd2f682594851ccdeea9c16275d6f72a4c415a7f5db6c3b23c6"
+    },
+    {
+      "path": "design/astra/DECISION_LOG.md",
+      "sha256": "2eb8526914e8e44cd406b5b4c967fdcfc69f020f0d311bbc2a5f22bbb82b16a6"
+    },
+    {
+      "path": "design/astra/evidence/.gitignore",
+      "sha256": "27d72d70820c27993bba605978b5d06c56381baadd5bedabf1c16003fbc21e0a"
+    },
+    {
+      "path": "design/astra/reviews/campaign_calendar_integration.md",
+      "sha256": "472e32dc03f819ad599585d0f27e6ae658eccef11b8e8e3ea2b9586b7dce6420"
+    },
+    {
+      "path": "design/astra/reviews/campaign_date_research.md",
+      "sha256": "8cdee84857c9122e7eed6552e995ca1f5516a83d65fab4cf13e63b5939e26f29"
+    },
+    {
+      "path": "design/astra/reviews/clock_review.md",
+      "sha256": "7a9d464ee61ff7cbb38481e4d4bfbf3870c7bba7ac33bccc78d53568876ac7e3"
+    },
+    {
+      "path": "design/astra/reviews/historical_notice_review.md",
+      "sha256": "53c584424c4df291ef6a8ad89070463fd74f58e67793ac4c5309303eaea0aa05"
+    },
+    {
+      "path": "design/astra/reviews/world_time_coherence.md",
+      "sha256": "1a6a2bed7f918de288f24e7d5331680adbcaac69483fb488d03d6d56ad1cefdf"
+    },
+    {
+      "path": "game/data/campaign_calendar.json",
+      "sha256": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a"
+    },
+    {
+      "path": "game/data/historical_radio_reallocation.json",
+      "sha256": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac"
+    },
+    {
+      "path": "game/data/orison_v2_shared_frames.json",
+      "sha256": "5d9b98876b699d306a3ed47b9a796b03fb2f5a1ad65922b4237dc94b859c21a0"
+    },
+    {
+      "path": "game/project.godot",
+      "sha256": "37497964f47cfe67919ef51e55b2a5a53b12b5051f17eede37bbdf600c4c72b4"
+    },
+    {
+      "path": "game/scripts/building/building_root.gd",
+      "sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e"
+    },
+    {
+      "path": "game/scripts/building/day_night_director.gd",
+      "sha256": "f8e2b2dae83ac53e05c471e19e0c4103274e2ebe88e24c39e237a357fba5abee"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_frame_contract.gd",
+      "sha256": "ae0604d2322c3acaa91b21739927db45a74c83cf10a06a8e3430c0e1d204ddae"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb"
+    },
+    {
+      "path": "game/scripts/characters/porter_actor.gd",
+      "sha256": "0f36c72da299c5264a23967998e46001c17787a51462d3745d4c8dacca354f15"
+    },
+    {
+      "path": "game/scripts/characters/schedule_director.gd",
+      "sha256": "fe4e1597bbd91cf5cac3b5bb4b6ba4595f2051dc6ab4fffdc146f5ef00a0345e"
+    },
+    {
+      "path": "game/scripts/dream/campaign_shell.gd",
+      "sha256": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f"
+    },
+    {
+      "path": "game/scripts/game/campaign_clock.gd",
+      "sha256": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd"
+    },
+    {
+      "path": "game/scripts/game/campaign_clock_driver.gd",
+      "sha256": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8"
+    },
+    {
+      "path": "game/scripts/game/historical_radio_notice.gd",
+      "sha256": "c0cc3393dcef068ce9d25dcc26f073b5e97d328c1c2532523bf51fc6b101023d"
+    },
+    {
+      "path": "game/scripts/game/open_shift_radiator_ecosystem.gd",
+      "sha256": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815"
+    },
+    {
+      "path": "game/scripts/game/open_shift_situation.gd",
+      "sha256": "3feb4b48bbee13d21d40bb45f23b67a0a77eb8de48365bf00409053feaab4448"
+    },
+    {
+      "path": "game/scripts/game/reality_game_state.gd",
+      "sha256": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e"
+    },
+    {
+      "path": "game/scripts/phoneos/phone_camera.gd",
+      "sha256": "ef6bd1cd6689f6d5b8c36fea84335a30fa046922622d59bc11a1aad3729dabd8"
+    },
+    {
+      "path": "game/scripts/phoneos/phone_os.gd",
+      "sha256": "cb8f5ee2d8f26662cd2d36afb40cbd09891fdcf625e1218cc9fb29c21dee3340"
+    },
+    {
+      "path": "game/scripts/props/clock_prop.gd",
+      "sha256": "f05c024048749e30bf4b189704bedbda117551c498b92f23e61cd4e067c23b06"
+    },
+    {
+      "path": "game/scripts/props/domestic_witness_clock.gd",
+      "sha256": "86e3fc391fa4b49f11cb2e7021eda39da3d1241b9344e69371ffc50639222040"
+    },
+    {
+      "path": "game/scripts/props/lobby_bulletin_board.gd",
+      "sha256": "91c881e014cbbc7e4d12f969ab78218fe9ca919d53c73c31226cd8275a651865"
+    },
+    {
+      "path": "game/scripts/reality/npc_observation_ledger.gd",
+      "sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401"
+    },
+    {
+      "path": "game/scripts/reality/organism_incidents.gd",
+      "sha256": "420e13e8c0f1387ec1d1d319605e85a762524fdb4dfab63d371a6177b5a10758"
+    },
+    {
+      "path": "game/scripts/songbook/songbook_store.gd",
+      "sha256": "9d988ddd08bd95a7c9b9b400c9c3108d90b12bba958fe5d403ec3be091289cfe"
+    },
+    {
+      "path": "game/tests/CampaignCalendarBaselineTest.tscn",
+      "sha256": "f89f15e5f23e99f2c90b5b55d5c07ba59dd4069428231b75689cecd78eff6240"
+    },
+    {
+      "path": "game/tests/CampaignCalendarTest.tscn",
+      "sha256": "2652d82d474476ba43bd90856483198bd78c3aa0636c6fbe4d27d24a4b00ebad"
+    },
+    {
+      "path": "game/tests/HistoricalRadioLobbyShot.tscn",
+      "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd"
+    },
+    {
+      "path": "game/tests/WorldTimeCoherenceTest.tscn",
+      "sha256": "d503e95bcf568f91347e6850086c4869b2b45835c1b403931c0820048cdd1590"
+    },
+    {
+      "path": "game/tests/admin_prereq_contract_test.gd",
+      "sha256": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902"
+    },
+    {
+      "path": "game/tests/campaign_calendar_baseline_test.gd",
+      "sha256": "1cef2c9026b6ec40f106c46f734f2289cd3356646828b813e961f747ccbe71c0"
+    },
+    {
+      "path": "game/tests/campaign_calendar_test.gd",
+      "sha256": "fc29e87706c185cddaa45ac5021533f360a9516d94fdd6a63c8b9b54f81472d0"
+    },
+    {
+      "path": "game/tests/historical_radio_lobby_shot.gd",
+      "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157"
+    },
+    {
+      "path": "game/tests/historical_radio_notice_test.gd",
+      "sha256": "d800373fbb437f4cce4c1b9736f3973392a3100df80a35920af6dc10bec3ae6b"
+    },
+    {
+      "path": "game/tests/historical_radio_notice_test.tscn",
+      "sha256": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e"
+    },
+    {
+      "path": "game/tests/open_shift_save_matrix_test.gd",
+      "sha256": "affb9e3d4295ce222c818b948c7f41ada5c568bbc23fa2f41072fa2f1b40ac5f"
+    },
+    {
+      "path": "game/tests/orison_v2_presence_ledger_test.gd",
+      "sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268"
+    },
+    {
+      "path": "game/tests/orison_v2_two_root_matrix_test.gd",
+      "sha256": "90f3f6f55ee3a6e3660f49ce1e59c454a936239df81ca60ecf17e2badd816102"
+    },
+    {
+      "path": "game/tests/schedule_live_probe.gd",
+      "sha256": "b95dbb20c1278a8ce36262f0139524b58b29a3af5102bf2df80af29250e49f0b"
+    },
+    {
+      "path": "game/tests/world_time_coherence_test.gd",
+      "sha256": "c48a4d4df79aa5a35692477d918380772f721e0c2bb02776fe888641b85d8fec"
+    },
+    {
+      "path": "tools/audit_period_dates.py",
+      "sha256": "f57ee5d4c4a0fc43a2ca5bec4c970b9f1f1a430bfa13c6ba046d757efe3791fd"
+    },
+    {
+      "path": "tools/audit_systemic_situation_authority.py",
+      "sha256": "e343f9082ebefbf97b6ccfaed666c3c9986be9bf8edd0cc97fe81f2c35e004d9"
+    },
+    {
+      "path": "tools/tests/test_period_dates.py",
+      "sha256": "8848254c443ce5c9ffb109b31d8cda9985584ae29ecd66e984b56750c796ac74"
+    },
+    {
+      "path": "tools/tests/test_systemic_situation_authority.py",
+      "sha256": "b69fb9005f476d10e60005226d062f236d813fdc0e570a193c665c11364f18d1"
+    }
+  ],
+  "excluded": "All staged paths are explicitly listed; next save-recovery preparations and evidence checkpoint are excluded."
+}

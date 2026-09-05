@@ -129,9 +129,9 @@
   },
   {
     "authoritative_owner": "CampaignClock",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "CampaignClock imports host date",
+    "automated_proof": "Calendar 52/52 exit0 (0.881s), protected-bind old source 51/52 exit1, midnight omission 49/50 exit1. World-time focused27/27; original duration and sight-presence controls fail. Raw exact-source receipts retained.",
+    "composed_runtime_proof": "V1/V2 reconstruction26/26, all four directions exit0 (92.763s); initial provider coherence and sole advance owner. Exact epoch preservation at each direction remains a pending30-check patch. Actual V1 notice captures show campaign-time copy through the player interaction ray, not walked input.",
+    "current_state": "Authored Saturday November 10, 1928; one local hour/minute sample, persisted Gregorian simulation clock, both root providers and visible civil-time readers integrated.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -140,23 +140,33 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-CLOCK",
     "implementation_strategy": "Prove host-date independence and correct elapsed-clock consumers with deterministic reload.",
-    "next_decisive_action": "Prove host-date independence and correct elapsed-clock consumers with deterministic reload.",
+    "next_decisive_action": "Finish protected save recovery and ordinary Continue; prove exact calendar through all root directions; replace remaining host Unix world timestamps with explicit campaign provenance.",
     "open_defects": [
-      "CampaignClock imports host date"
+      "WorkOrders, inventory, incident and NightRegister timestamp fields still use host Unix time",
+      "Fixed EST only; authored daylight-offset transitions absent",
+      "Legacy ambiguous duration facts require authored recoverability; an old porter intent may hold indefinitely",
+      "Absent-resident sight is gated; audible-event observation still ignores presence",
+      "Exact calendar across every composed reconstruction boundary pending",
+      "No human schedule/calendar perceptual acceptance or complete game performance proof"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
-      "measured_result": null
+      "measured_result": "Focused process0.881s; composed matrix92.763s. These are fixture durations, not p95 frame/boot measurements."
     },
     "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
-    "production_consumer": "ScheduleDirector / ResidentRoutines / celestial time",
+    "production_consumer": "CampaignTime, both building roots, ScheduleDirector, DayNightDirector, clock props, PhoneOS, songbook, Open Shift durations and observations.",
     "provenance": {
       "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
       "branch": "codex/astra-canonical-20260904",
+      "repair_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
-        "DEBT_DEDUPLICATION.md"
+        "DEBT_DEDUPLICATION.md",
+        "reviews/campaign_calendar_integration.md",
+        "reviews/world_time_coherence.md",
+        "evidence/historical_radio_notice/protected_bind_green/run_receipt.json",
+        "evidence/world_time_coherence/receipt.json"
       ]
     },
     "scope": "early complete path",
@@ -1232,9 +1242,9 @@
   },
   {
     "authoritative_owner": "CampaignClock / authored historical-event records / resident observation owners",
-    "automated_proof": "NOT_RUN: author factual primary-source events, explicit local campaign instants, month/day versus 365-key schedule mapping, and red proofs against host-calendar or coordinator knowledge injection.",
-    "composed_runtime_proof": "NOT_RUN: no historical event delivery or resident knowledge consumer is implemented by this obligation.",
-    "current_state": "Authorized historical timeline outcome; event consumers and starting date have not been selected or implemented",
+    "automated_proof": "Notice17/17 exit0, including invalid time and neighbor audio ownership; exact owner-teardown omission16/17 exit1. See immutable notice aggregate and final source bindings.",
+    "composed_runtime_proof": "Three final actual V1 lobby images reviewed; physical paper and both service-wire phases readable after copy repair. Camera teleported, Dummy audio. Not walked-input, listening, resident learning, V2 or human acceptance.",
+    "current_state": "Owner-selected November 10, 1928; sourced November11 03:00EST frequency reallocation has a physical V1 lobby hand-copy and campaign-time inspection text.",
     "dependencies": [
       "ASTRA-CLOCK",
       "ASTRA-AGENT-MINA",
@@ -1244,31 +1254,38 @@
     "experiential_outcome": "Residents learn real 1928 events through radios, newspapers and observations governed by campaign time",
     "human_proof_required": "Review historical accuracy and contextual/perceptual delivery without a tutorial or omniscient event announcement.",
     "id": "ASTRA-HISTORICAL-TIMELINE",
-    "implementation_strategy": "Keep factual event records separate from the proposed starting date. Candidate start is November 10, 1928 leading into the November 11 03:00 EST frequency reallocation; select only after authored calendar and schedule-key compatibility are explicit.",
-    "next_decisive_action": "Define source-backed factual event records separately from the November 10 proposal, then prove one radio/newspaper event reaches an observing resident on CampaignClock without hidden knowledge.",
+    "implementation_strategy": "Extend sourced historical records through real physical delivery and perception owners; preserve explicit instants and distinguish station frequencies from programme schedules.",
+    "next_decisive_action": "Provide the notice in the authored V2 world and prove one resident learns a sourced event through actual embodied reading or audible radio perception.",
     "open_defects": [
-      "Historical consumers absent",
-      "Starting date proposed but not selected",
-      "Month/day seasonal records and 365-day schedule keys require explicit compatible mapping"
+      "V2 physical notice consumer absent",
+      "Resident observation/learning delivery absent",
+      "Authentic radio programming and audible broadcast delivery absent",
+      "Human historical and perceptual acceptance pending",
+      "V1 Forward+ capture has unresolved shadow-count/light-unpair teardown BUG diagnostics"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
       "measured_result": null
     },
     "persistence_reconstruction": "Historical event availability and resident observations derive from saved CampaignClock and actual sources; reconstruct deterministically across midnight, saves, long absence and schedule-key mapping.",
-    "production_consumer": "Radio schedules, newspapers and actual resident observations; implementation absent",
+    "production_consumer": "V1 LobbyBulletinBoard named wireless-notice control and service-wire inspection copy via actual PlayerController interaction ray.",
     "provenance": {
-      "authority": "Latest explicit owner steering authorizes historical timeline integration; November 10 is a proposal, not a selected campaign date.",
+      "authority": "Latest explicit owner reply: nov 10 is perfect. The date is selected, superseding the earlier proposal.",
       "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
-      "research_sha256": "542fd6149a0a566cbca4addb34c97d824d6a318d47e12a0624b05b42200ea3da",
+      "repair_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+      "research_sha256": "8cdee84857c9122e7eed6552e995ca1f5516a83d65fab4cf13e63b5939e26f29",
       "sources": [
         "OWNER_MANDATE.md",
-        "reviews/campaign_date_research.md"
+        "reviews/campaign_date_research.md",
+        "reviews/historical_notice_review.md",
+        "reviews/campaign_calendar_integration.md",
+        "evidence/historical_radio_notice/runtime_visual_validation.json",
+        "evidence/historical_radio_notice/canonical_runtime_bindings.json"
       ]
     },
     "scope": "full world",
     "severity": "MAJOR",
-    "status": "ABSENT",
+    "status": "INTEGRATED",
     "subsystem": "historical environment"
   }
 ]

@@ -1,0 +1,43 @@
+{
+  "kind": "read_only_source_and_arithmetic_red",
+  "runtime_executed": false,
+  "head": "d729e4d8042c18a26920a8ce555ca6954651e257",
+  "at_utc": "2026-09-05T03:48:01.180875+00:00",
+  "sources": {
+    "game/scripts/building/day_night_director.gd": "a22547eda65e78931910b7027ad9bf46055dff086efba67ca82e45dd61eae8e0",
+    "game/scripts/building/building_root.gd": "65ea756f1a5767e75043b7d55572afc770fd9dad39c931d745f1ab86f99c3f4c",
+    "game/scripts/building/orison_v2_runtime_root.gd": "47c782800d12c1e124b5ae24fd84a2db68462f1ab05f2ab3ccad369aa51153b5",
+    "game/scripts/game/open_shift_situation.gd": "c18293121c2920151948320e2e3015184e52b051170636e4ba7773d2b8f3ab2c",
+    "game/scripts/game/open_shift_radiator_ecosystem.gd": "9bf2c4230415d76b599fb0b754ba1d9d38c8575635e815892c10e0c92b3029bd",
+    "game/scripts/characters/porter_actor.gd": "3f0b4f4fd2ff61168e2f0b7d33c159b707f6262a9c94fc9816b270e8ab94f6a3",
+    "game/scripts/reality/npc_observation_ledger.gd": "01c7b9b9aa0e21a07548859979335c498632df3176f5024f60a83d6d461b4bd8",
+    "game/scripts/characters/schedule_director.gd": "9c0c9fff5da3a2d6a7897867b65506655e9b17b16c11e27cad19a840db51931a",
+    "game/project.godot": "158fabd16522382f16500ba9018b8f33c5c54c7a79c1b4d4730b5202ea41c1f5"
+  },
+  "red_cases": [
+    {
+      "contract": "Situation age after 2885 minutes is 2885",
+      "observed_current_expression": "fposmod(_minute_now() - at, 1440.0)",
+      "input_offered_minute": 100.0,
+      "input_now_minute": 2985.0,
+      "actual_current_result": 5.0,
+      "expected": 2885.0
+    },
+    {
+      "contract": "Absolute event timestamps retain day",
+      "observed_current_expression": "fposmod(float(_minute_provider.call()), 1440.0)",
+      "input": 2885.0,
+      "actual_current_result": 5.0,
+      "expected": 2885.0
+    },
+    {
+      "contract": "V2 presence reads campaign Saturday20:00, where authored Lena schedule says bar",
+      "actual_source": "day_info_at(open_shift_ecosystem.now_minutes()) and resolve at ecosystem now_minutes",
+      "independent_ecosystem_minute": 180,
+      "campaign_minute_of_day": 1200,
+      "expected_place": "harukiya_bar",
+      "stale_ecosystem_place": "unit:bedroom",
+      "runtime_verification": "pending focused Godot lane"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "file": "props/lobby_bulletin_board.gd",
+  "family": "control_prompt",
+  "method": "control_prompt",
+  "role": "production",
+  "protocol": "named-control",
+  "action_owner": "same node",
+  "action_method": "interact_control",
+  "action_source": "props/lobby_bulletin_board.gd",
+  "rationale": "same node action (interact_control) resolved by source tracing",
+  "extraction": "game-only",
+  "identity": {
+    "file": "props/lobby_bulletin_board.gd",
+    "family": "control_prompt"
+  }
+}

@@ -316,11 +316,11 @@ class ProductionSmokeTests(unittest.TestCase):
     def test_production_census_agrees_with_manifest(self):
         self.assertEqual(self.code, 0)
         summary = self.report["summary"]
-        self.assertEqual(summary["discovered"], 85)
+        self.assertEqual(summary["discovered"], 86)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 18, "interact_prompt": 67})
+                         {"control_prompt": 19, "interact_prompt": 67})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 2, "production": 82})
+                         {"adapter": 1, "debug-only": 2, "production": 83})
 
     def test_projector_inheritance_resolution_pinned(self):
         imp = next(i for i in self.report["implementors"]

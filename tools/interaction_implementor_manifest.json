@@ -754,6 +754,22 @@
    "role": "production"
   },
   {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "props/lobby_bulletin_board.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "props/lobby_bulletin_board.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "props/lobby_bulletin_board.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
    "action_method": "interact",
    "action_owner": "same node",
    "action_source": "props/lobby_bulletin_board.gd",

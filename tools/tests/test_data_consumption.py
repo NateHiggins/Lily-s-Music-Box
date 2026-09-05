@@ -274,6 +274,28 @@ func teardown() -> void:
         finally:
             td.cleanup()
 
+    def test_constructor_argument_is_a_read_not_a_returned_member_alias(self):
+        source = '''var _state: Dictionary
+func bind_state():
+    _state = RealityState.data.campaign_clock
+func rebuild():
+    var old = _state
+    _state = _civil_record(date, int(old.start_minute_of_day))
+func display():
+    return _state.elapsed_minutes
+'''
+        events = audit.numeric_source_events(source)
+        self.assertIn((("campaign_clock", "start_minute_of_day"), "read"), events)
+        self.assertIn((("campaign_clock", "elapsed_minutes"), "read"), events)
+        self.assertFalse(any(path[:2] == ("campaign_clock", "start_minute_of_day")
+                             and len(path) > 2 for path, _kind in events))
+        # A function result must not invent a reader of an unrelated child.
+        result = audit.numeric_source_events('''func pretend():
+    var product = make_value(RealityState.data.bucket.stock)
+    print(product.unconsumed)
+''')
+        self.assertNotIn((("bucket", "stock", "unconsumed"), "read"), result)
+
     def test_a_state_chain_inside_prose_cannot_counterfeit_a_reader(self):
         td, root = self.fixture()
         try:

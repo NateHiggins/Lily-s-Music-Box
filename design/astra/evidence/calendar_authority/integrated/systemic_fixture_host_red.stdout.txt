@@ -1,0 +1,273 @@
+{
+ "tool_version": 1,
+ "summary": {
+  "findings": 3,
+  "by_class": {
+   "HOST_CLOCK_MUTATES_WORLD": 3
+  },
+  "by_confidence": {
+   "STRONG": 3
+  },
+  "by_domain": {
+   "host-clock": 3
+  },
+  "by_tier": {
+   "production": 3
+  },
+  "by_disposition": {
+   "DOCUMENT": 2,
+   "FIX": 1
+  }
+ },
+ "findings": [
+  {
+   "id": "6db2a767e1520347",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/scripts/campaign/story_coordinator_director.gd",
+   "scope": "stamp_host_clock",
+   "line": 44,
+   "evidence": "situation.issued_at = Time.get_unix_time_from_system()",
+   "writer": "coordinator",
+   "rightful_owner": "simulation clock authority",
+   "confidence": "STRONG",
+   "risk": "durable world state derives from the host wall clock; save/load and real-world time changes mutate the world",
+   "verify": "derive the fact from the simulation clock, or document an explicit contract authorizing wall-clock use here",
+   "disposition": "DOCUMENT",
+   "tier": "production"
+  },
+  {
+   "id": "ce16f75b218b3b39",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/scripts/game/campaign_clock.gd",
+   "scope": "_initialize_epoch_from_host",
+   "line": 2,
+   "evidence": "var host := Time.get_date_dict_from_system()",
+   "writer": "world_system",
+   "rightful_owner": "authored campaign calendar",
+   "confidence": "STRONG",
+   "risk": "host calendar or unauthorized clock read can replace authored campaign time, display host time in the world or persist host date fields",
+   "verify": "use campaign_calendar.json and the simulation clock; only CampaignClock._sample_local_minute_of_day may sample local hour/minute once, without calendar fields or durable writes",
+   "disposition": "FIX",
+   "tier": "production"
+  },
+  {
+   "id": "99a630c41fafb13d",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/scripts/game/maintenance_inventory.gd",
+   "scope": "consume",
+   "line": 12,
+   "evidence": "data.consumed_at = Time.get_unix_time_from_system()",
+   "writer": "inventory_authority",
+   "rightful_owner": "simulation clock authority",
+   "confidence": "STRONG",
+   "risk": "durable world state derives from the host wall clock; save/load and real-world time changes mutate the world",
+   "verify": "derive the fact from the simulation clock, or document an explicit contract authorizing wall-clock use here",
+   "disposition": "DOCUMENT",
+   "tier": "production"
+  }
+ ],
+ "drift": {
+  "new_actionable": [
+   {
+    "id": "ce16f75b218b3b39",
+    "domain": "host-clock",
+    "class": "HOST_CLOCK_MUTATES_WORLD",
+    "file": "game/scripts/game/campaign_clock.gd",
+    "scope": "_initialize_epoch_from_host",
+    "line": 2,
+    "evidence": "var host := Time.get_date_dict_from_system()",
+    "writer": "world_system",
+    "rightful_owner": "authored campaign calendar",
+    "confidence": "STRONG",
+    "risk": "host calendar or unauthorized clock read can replace authored campaign time, display host time in the world or persist host date fields",
+    "verify": "use campaign_calendar.json and the simulation clock; only CampaignClock._sample_local_minute_of_day may sample local hour/minute once, without calendar fields or durable writes",
+    "disposition": "FIX",
+    "tier": "production"
+   }
+  ],
+  "new_review": [],
+  "covered": [
+   {
+    "id": "6db2a767e1520347",
+    "domain": "host-clock",
+    "class": "HOST_CLOCK_MUTATES_WORLD",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "stamp_host_clock",
+    "line": 44,
+    "evidence": "situation.issued_at = Time.get_unix_time_from_system()",
+    "writer": "coordinator",
+    "rightful_owner": "simulation clock authority",
+    "confidence": "STRONG",
+    "risk": "durable world state derives from the host wall clock; save/load and real-world time changes mutate the world",
+    "verify": "derive the fact from the simulation clock, or document an explicit contract authorizing wall-clock use here",
+    "disposition": "DOCUMENT",
+    "tier": "production"
+   },
+   {
+    "id": "99a630c41fafb13d",
+    "domain": "host-clock",
+    "class": "HOST_CLOCK_MUTATES_WORLD",
+    "file": "game/scripts/game/maintenance_inventory.gd",
+    "scope": "consume",
+    "line": 12,
+    "evidence": "data.consumed_at = Time.get_unix_time_from_system()",
+    "writer": "inventory_authority",
+    "rightful_owner": "simulation clock authority",
+    "confidence": "STRONG",
+    "risk": "durable world state derives from the host wall clock; save/load and real-world time changes mutate the world",
+    "verify": "derive the fact from the simulation clock, or document an explicit contract authorizing wall-clock use here",
+    "disposition": "DOCUMENT",
+    "tier": "production"
+   }
+  ],
+  "vanished": [
+   {
+    "id": "0295015fe68ca4d0",
+    "domain": "proximity",
+    "class": "AUTONOMY_DEPENDS_ON_PROXIMITY",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "_process",
+    "evidence": "if player_in_range:",
+    "confidence": "HEURISTIC",
+    "tier": "production",
+    "disposition": "REVIEW"
+   },
+   {
+    "id": "2c10184b102bd53f",
+    "domain": "physical",
+    "class": "FOREIGN_PHYSICAL_MUTATION",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "foreign_job_write",
+    "evidence": "RealityState.data.work_orders.status = \"closed\"",
+    "confidence": "STRONG",
+    "tier": "production",
+    "disposition": "DELEGATE_TO_OWNER"
+   },
+   {
+    "id": "2e13c154b99bc1b9",
+    "domain": "timer",
+    "class": "DYNAMIC_UNRESOLVED",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "dynamic_meddle",
+    "evidence": "target.call(\"record_fact\")",
+    "confidence": "UNKNOWN",
+    "tier": "production",
+    "disposition": "REVIEW"
+   },
+   {
+    "id": "30a980fd92e2599d",
+    "domain": "proximity",
+    "class": "AUTONOMY_DEPENDS_ON_PROXIMITY",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "<module>",
+    "evidence": "var player_in_range := false",
+    "confidence": "HEURISTIC",
+    "tier": "production",
+    "disposition": "REVIEW"
+   },
+   {
+    "id": "8f696d259ed634e5",
+    "domain": "npc-knowledge",
+    "class": "DIRECT_NPC_KNOWLEDGE_WRITE",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "fabricate_knowledge",
+    "evidence": "situation.record_fact(\"npc_knowledge\", {\"neighbor\": \"heard_hammer\"})",
+    "confidence": "STRONG",
+    "tier": "production",
+    "disposition": "DELEGATE_TO_OWNER"
+   },
+   {
+    "id": "98276b4a7be8e6d5",
+    "domain": "proximity",
+    "class": "AUTONOMY_DEPENDS_ON_PROXIMITY",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "_process",
+    "evidence": "autonomy-claiming coordinator advances durable state only inside scene-local _process",
+    "confidence": "HEURISTIC",
+    "tier": "production",
+    "disposition": "REVIEW"
+   },
+   {
+    "id": "aceb5af1e8936ef8",
+    "domain": "timer",
+    "class": "TIMER_IMPERSONATES_ACTOR",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "timer_applies_consequence",
+    "evidence": "elapsed gate + radiator.apply_open_shift_condition(\"porter_temporary_shutoff\")",
+    "confidence": "STRONG",
+    "tier": "production",
+    "disposition": "DELEGATE_TO_OWNER"
+   },
+   {
+    "id": "b1fadf46827a7e15",
+    "domain": "dead-end",
+    "class": "COMPLIANCE_DEAD_END",
+    "file": "game/scripts/game/permit_stage_director.gd",
+    "scope": "advance",
+    "evidence": "match stage:",
+    "confidence": "HEURISTIC",
+    "tier": "production",
+    "disposition": "REVIEW"
+   },
+   {
+    "id": "b54439be3b5337cf",
+    "domain": "physical",
+    "class": "FOREIGN_PHYSICAL_MUTATION",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "foreign_mechanism_write",
+    "evidence": "radiator.heat_level = 0.0",
+    "confidence": "STRONG",
+    "tier": "production",
+    "disposition": "DELEGATE_TO_OWNER"
+   },
+   {
+    "id": "c2dff176e2310f92",
+    "domain": "custody",
+    "class": "DUPLICATE_CUSTODY",
+    "file": "game/scripts/campaign/story_coordinator_director.gd",
+    "scope": "string_custody",
+    "evidence": "situation.part_custody = \"player_has_widget\"",
+    "confidence": "STRONG",
+    "tier": "production",
+    "disposition": "DELEGATE_TO_OWNER"
+   },
+   {
+    "id": "d991c9438efda3c3",
+    "domain": "judgment",
+    "class": "ABSTRACT_JUDGMENT_FACT",
+    "file": "game/scripts/game/verdict_director.gd",
+    "scope": "judge_player",
+    "evidence": "situation.record_fact(\"morality\", \"bad\")",
+    "confidence": "HEURISTIC",
+    "tier": "production",
+    "disposition": "FIX"
+   },
+   {
+    "id": "ebbfdd360f73cbee",
+    "domain": "objective-ui",
+    "class": "OBJECTIVE_UI_LEAK",
+    "file": "game/scripts/ui/goal_banner.gd",
+    "scope": "show_goal",
+    "evidence": "label.text = \"Objective: Fix the boiler and Return to the porter\"",
+    "confidence": "HEURISTIC",
+    "tier": "production",
+    "disposition": "BASELINE_DEBT"
+   },
+   {
+    "id": "f302a0baf52c43ac",
+    "domain": "test-proof",
+    "class": "TEST_AUTHORITY_SHORTCUT",
+    "file": "game/tests/open_meddle_proof_test.gd",
+    "scope": "_ready",
+    "evidence": "1 direct consequence call(s), first: eco.meddle_wrong_valve(\"neighbor\")",
+    "confidence": "HEURISTIC",
+    "tier": "test",
+    "disposition": "ADD_PUBLIC_PROOF"
+   }
+  ],
+  "policy_violations": []
+ }
+}
