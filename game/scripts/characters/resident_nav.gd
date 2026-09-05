@@ -53,6 +53,12 @@ var stair_blocked := 0
 var _unreachable_warned := {}
 var passage_anchors: Dictionary = {}
 
+const DIRECT_MAX_LENGTH := 1.25
+const DIRECT_RADIUS := 0.33
+const DIRECT_HEIGHT := 1.65
+var _validated_world: WeakRef
+var _direct_shape: CapsuleShape3D
+
 
 # TASKS.md V3: the distinct (floor, from, to) route failures seen so far.
 # Zero on a healthy build; a harness may assert on it directly.
@@ -65,6 +71,7 @@ func unreachable_route_keys() -> Array:
 
 
 func build(layout: Dictionary) -> int:
+	_validated_world = null
 	var total := 0
 	for fl in layout["floors"]:
 		var fid := str(fl["id"])
@@ -147,7 +154,7 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
 	var z: float = float(fl["z"])
 	var rooms: Array = fl.get("rooms", [])
 	var entry := {"astar": astar, "z": z, "rooms": rooms,
-			"walls": fl.get("walls", []), "points": []}
+			"walls": fl.get("walls", []), "slabs": fl.get("slabs", []), "points": []}
 	var next_id := [0]
 
 	var add_node := func(pos_bl: Vector2, tag: String) -> int:
@@ -208,8 +215,8 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
 	for m in fl.get("markers", []):
 		if str(m.get("kind", "")) != "door" or bool(m.get("cabinet", false)):
 			continue
-		var p: Array = m["pos"]
-		var at := Vector2(float(p[0]), float(p[1]))
+		var portal: Dictionary = _door_portal_spec(m, entry.walls)
+		var at: Vector2 = portal.point
 		var joins: Array = []
 		var void_hit := false
 		var joined := {}
@@ -233,6 +240,13 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
 			joins.append(room)
 		door_specs.append({"at": at, "id": str(m.get("id", "")),
 				"joins": joins, "void": void_hit})
+		# A centre alone still invites grazing diagonal paths from the sparse
+		# corridor ring. The final approach to each matched aperture is normal
+		# to its wall, with body clearance independent of room-sampling PROBE.
+		if portal.has("normal"):
+			for side in [-1.0, 1.0]:
+				add_node.call(at + Vector2(portal.normal) * float(portal.approach_distance) * side,
+						"door_approach:" + str(m.get("id", "")) + ":" + str(side))
 
 	if needs_implicit_ring and ring_ids.is_empty():
 		var lane_x := (5.33 + CORE_X) * 0.5
@@ -310,6 +324,40 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
 	return entry.points.size()
 
 
+## collect_door_markers stores each leaf's HINGE; DoorProp extends along
+## local +X. Match that hinge/width/orientation to an authored wall opening
+## before moving the navigation point to its centre. Separately authored
+## exterior/shop anchors and already-centred points keep their coordinates.
+func _door_portal_spec(marker: Dictionary, walls: Array) -> Dictionary:
+	var p: Array = marker["pos"]
+	var hinge := Vector2(float(p[0]), float(p[1]))
+	var width := float(marker.get("w", 0.81))
+	var angle := deg_to_rad(-float(marker.get("yaw_deg", 0.0)))
+	var center := hinge + Vector2(cos(angle), sin(angle)) * width * 0.5
+	for wall in walls:
+		var wa: Array = wall.a
+		var wb: Array = wall.b
+		var horizontal := absf(float(wb[1]) - float(wa[1])) < 0.001
+		var start := minf(float(wa[0]), float(wb[0])) if horizontal \
+				else minf(float(wa[1]), float(wb[1]))
+		var cross := float(wa[1]) if horizontal else float(wa[0])
+		for opening in wall.get("openings", []):
+			if str(opening.get("type", "")) != "door" or str(opening.get("leaf", "closed")) == "none" \
+					or absf(float(opening.get("w", 0.0)) - width) > 0.001:
+				continue
+			var along := start + float(opening.get("at", 0.0))
+			var aperture := Vector2(along, cross) if horizontal else Vector2(cross, along)
+			if hinge.distance_to(aperture) < 0.001:
+				return {"point": hinge}
+			if center.distance_to(aperture) < 0.001:
+				# Same resident radius used by PassageNav's capsule contract;
+				# wall half-thickness plus 8cm margin keeps endpoint bodies clear.
+				var clearance := float(wall.get("t", 0.18)) * 0.5 + 0.33 + 0.08
+				return {"point": aperture, "normal": Vector2(-sin(angle), cos(angle)),
+						"approach_distance": clearance}
+	return {"point": hinge}
+
+
 func _room_at(rooms: Array, at: Vector2) -> Variant:
 	var best: Variant = null
 	var best_area := INF
@@ -364,6 +412,8 @@ func route(from: Vector3, to: Vector3) -> PackedVector3Array:
 	var astar: AStar3D = entry.astar
 	if astar.get_point_count() == 0:
 		return PackedVector3Array([from, to])
+	if floor_at(to.y) == fid and _direct_segment_clear(entry, from, to):
+		return PackedVector3Array([from, to])
 	# Euclidean-nearest is not necessarily reachable-nearest: a node on the
 	# other side of 18 cm of plaster is extremely close. Anchor endpoints only
 	# to nodes with an unobstructed segment through this floor's wall model.
@@ -388,6 +438,113 @@ func route(from: Vector3, to: Vector3) -> PackedVector3Array:
 		out.append(p)
 	out.append(to)
 	return out
+
+
+## A short public leg can be safer than detouring through a nearest portal.
+## This is a conservative envelope, not the actor's Body shape: its cap centres
+## at .33/1.32 with radius .33 contain Body's .28/1.27 with radius .28.
+## Longer, sloped, unvalidated or obstructed routes retain the existing graph.
+func _direct_segment_clear(entry: Dictionary, from: Vector3, to: Vector3) -> bool:
+	if not from.is_finite() or not to.is_finite() \
+			or absf(from.y - to.y) > 0.001 \
+			or from.distance_squared_to(to) > DIRECT_MAX_LENGTH * DIRECT_MAX_LENGTH \
+			or _validated_world == null or not is_inside_tree():
+		return false
+	var world: World3D = _validated_world.get_ref()
+	if world == null or world != get_viewport().find_world_3d() \
+			or not _segment_clear(entry, from, to) \
+			or not _direct_slab_clear(entry, from, to):
+		return false
+	var space := world.direct_space_state
+	if _direct_shape == null:
+		_direct_shape = CapsuleShape3D.new()
+		_direct_shape.radius = DIRECT_RADIUS
+		_direct_shape.height = DIRECT_HEIGHT
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = _direct_shape
+	query.collide_with_areas = false
+	query.margin = 0.001
+	query.transform = Transform3D(Basis(), from + Vector3.UP * DIRECT_HEIGHT * 0.5)
+	# cast_motion ignores initial overlap, so neither endpoint may overlap.
+	# No collider exclusions, including door leaves. Ordinary layer filtering
+	# still applies: resident Body nodes on layer zero are not crowd obstacles.
+	if not space.intersect_shape(query, 1).is_empty():
+		return false
+	query.transform.origin = to + Vector3.UP * DIRECT_HEIGHT * 0.5
+	if not space.intersect_shape(query, 1).is_empty():
+		return false
+	query.transform.origin = from + Vector3.UP * DIRECT_HEIGHT * 0.5
+	query.motion = to - from
+	var fractions := space.cast_motion(query)
+	if fractions.size() != 2 or fractions[0] < 1.0 or fractions[1] < 1.0:
+		return false
+	# Authored holes are excluded continuously below. Physical support is a
+	# separate sampled check: centre plus eight rim points at <= .20 m spacing.
+	var steps := maxi(1, ceili(from.distance_to(to) / 0.20))
+	for i in range(steps + 1):
+		var at := from.lerp(to, float(i) / float(steps))
+		for spoke in range(9):
+			var offset := Vector3.ZERO
+			if spoke > 0:
+				var angle := TAU * float(spoke - 1) / 8.0
+				offset = Vector3(cos(angle), 0, sin(angle)) * DIRECT_RADIUS
+			var ray := PhysicsRayQueryParameters3D.create(
+					at + offset + Vector3.UP * 0.10,
+					at + offset - Vector3.UP * 0.10)
+			ray.hit_from_inside = true
+			var hit := space.intersect_ray(ray)
+			if hit.is_empty() or hit.normal.y < 0.99 \
+					or absf(float(hit.position.y) - float(entry.z)) > 0.01:
+				return false
+	return true
+
+
+func _direct_slab_clear(entry: Dictionary, from: Vector3, to: Vector3) -> bool:
+	# The flat public leg keeps the actor's foot offset; it cannot bridge a step.
+	var clearance := from.y - float(entry.z)
+	if clearance < 0.015 or clearance > 0.08:
+		return false
+	var a := Vector2(from.x, -from.z)
+	var b := Vector2(to.x, -to.z)
+	for slab in entry.get("slabs", []):
+		if absf(float(slab.z_top) - float(entry.z)) > 0.001 \
+				or not _in_rect(slab.rect, a, -DIRECT_RADIUS) \
+				or not _in_rect(slab.rect, b, -DIRECT_RADIUS):
+			continue
+		var blocked := false
+		for hole in slab.get("holes", []):
+			if _direct_hole_crossed(a, b, hole):
+				blocked = true
+				break
+		if not blocked:
+			return true
+	return false
+
+
+func _direct_hole_crossed(a: Vector2, b: Vector2, hole: Array) -> bool:
+	# Clip against the radius-expanded hole rectangle, including its boundary.
+	# Checking the whole segment avoids stepping over a narrow authored opening.
+	var lo := Vector2(float(hole[0]), float(hole[1])) - Vector2.ONE * DIRECT_RADIUS
+	var hi := Vector2(float(hole[2]), float(hole[3])) + Vector2.ONE * DIRECT_RADIUS
+	var first := 0.0
+	var last := 1.0
+	for axis in range(2):
+		var delta: float = b[axis] - a[axis]
+		if absf(delta) < 0.000001:
+			if a[axis] < lo[axis] or a[axis] > hi[axis]:
+				return false
+			continue
+		var enter: float = (lo[axis] - a[axis]) / delta
+		var leave: float = (hi[axis] - a[axis]) / delta
+		first = maxf(first, minf(enter, leave))
+		last = minf(last, maxf(enter, leave))
+		if first > last:
+			return false
+	return true
+
+
+func _exit_tree() -> void:
+	_validated_world = null
 
 
 func _visible_candidates(entry: Dictionary, at: Vector3) -> Array:
@@ -476,6 +633,9 @@ func _add_safe_visibility_edges(entry: Dictionary) -> int:
 ## and "a body can actually walk here." Runs once, deferred until the
 ## building has committed its shapes to the physics server.
 func validate_with_collision(world: World3D) -> void:
+	_validated_world = null
+	if world == null:
+		return
 	var space := world.direct_space_state
 	collision_cut = 0
 	collision_relinked = 0
@@ -514,6 +674,8 @@ func validate_with_collision(world: World3D) -> void:
 				linked += 1
 				collision_relinked += 1
 	stair_blocked = _validate_stairs(space)
+	if is_inside_tree() and world == get_viewport().find_world_3d():
+		_validated_world = weakref(world)
 	print("[NAV] collision audit: %d edges cut by real geometry, %d island nodes relinked, %d stair legs obstructed"
 			% [collision_cut, collision_relinked, stair_blocked])
 

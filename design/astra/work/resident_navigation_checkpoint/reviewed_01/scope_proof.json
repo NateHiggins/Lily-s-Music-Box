@@ -1,0 +1,142 @@
+{
+  "schema": "astra.resident-nav-checkpoint.scope.v1",
+  "head": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+  "owned_source_count": 8,
+  "production_owner_count": 2,
+  "fixture_count": 6,
+  "package_roots": [
+    "design/astra/evidence/resident_lift_waiting",
+    "design/astra/evidence/resident_f01_haunt",
+    "design/astra/work/resident_lift_wait",
+    "design/astra/work/resident_f01_haunt"
+  ],
+  "reviews": [
+    "design/astra/reviews/resident_lift_waiting_review.md"
+  ],
+  "protected": [
+    {
+      "path": "art/data/building_layout.json",
+      "head_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "index_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "working_clean_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353"
+    },
+    {
+      "path": "game/data/building_layout.json",
+      "head_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "index_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "working_clean_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353"
+    },
+    {
+      "path": "game/scripts/building/building_root_selector.gd",
+      "head_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "index_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "working_clean_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b"
+    },
+    {
+      "path": "game/assets/building/floor_01.gltf",
+      "head_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "index_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "working_clean_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72"
+    },
+    {
+      "path": "game/assets/building/floor_01.bin",
+      "head_blob": "eccac077808b8cdd55557f962bade7219a096381",
+      "index_blob": "eccac077808b8cdd55557f962bade7219a096381",
+      "working_clean_blob": "eccac077808b8cdd55557f962bade7219a096381"
+    },
+    {
+      "path": "game/assets/building/floor_02.gltf",
+      "head_blob": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "index_blob": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "working_clean_blob": "7074e4008cabd39cb1711343a5d56b01c2655012"
+    },
+    {
+      "path": "game/assets/building/floor_02.bin",
+      "head_blob": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "index_blob": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "working_clean_blob": "68aab152640f78c9b7289d325ea62304bf379cab"
+    },
+    {
+      "path": "game/assets/building/floor_03.gltf",
+      "head_blob": "439c30732d8330ea77198c665c06358dc01b1800",
+      "index_blob": "439c30732d8330ea77198c665c06358dc01b1800",
+      "working_clean_blob": "439c30732d8330ea77198c665c06358dc01b1800"
+    },
+    {
+      "path": "game/assets/building/floor_03.bin",
+      "head_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "index_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "working_clean_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7"
+    },
+    {
+      "path": "game/assets/building/floor_04.gltf",
+      "head_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "index_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "working_clean_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1"
+    },
+    {
+      "path": "game/assets/building/floor_04.bin",
+      "head_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "index_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "working_clean_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1"
+    },
+    {
+      "path": "game/assets/building/floor_05.gltf",
+      "head_blob": "0c5be14216e4a47b73435b248308016295895af9",
+      "index_blob": "0c5be14216e4a47b73435b248308016295895af9",
+      "working_clean_blob": "0c5be14216e4a47b73435b248308016295895af9"
+    },
+    {
+      "path": "game/assets/building/floor_05.bin",
+      "head_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "index_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "working_clean_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa"
+    },
+    {
+      "path": "game/assets/building/floor_06.gltf",
+      "head_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "index_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "working_clean_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4"
+    },
+    {
+      "path": "game/assets/building/floor_06.bin",
+      "head_blob": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "index_blob": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "working_clean_blob": "a6051af911939a0cefe18ce710846c7c66dae767"
+    },
+    {
+      "path": "game/assets/building/floor_b1.gltf",
+      "head_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "index_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "working_clean_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5"
+    },
+    {
+      "path": "game/assets/building/floor_b1.bin",
+      "head_blob": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "index_blob": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "working_clean_blob": "d7be0479698c28d82e76db91783e2971bdc5865f"
+    }
+  ],
+  "evidence": {
+    "result_artifact_maps_verified": 22,
+    "artifact_references_verified": 26350,
+    "final_declared_runs": 9,
+    "retained_new_fixture_failures": 2,
+    "policy": "Historical failures stay byte-bound; selection does not turn failed tests or diagnostic debt into acceptance."
+  },
+  "final_aggregate": {
+    "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/aggregate.json",
+    "sha256": "5ead54ffedbf6f8dde19b633a7ebe1eab06b4fa2b38d2efff45ec9901f19282f"
+  },
+  "excluded_live_scope": [
+    "BuildingRoot",
+    "ApartmentEncroachment",
+    "StreetCoreVisibilityTest",
+    "PassageVisibilityTest",
+    "material/renderer packages",
+    "all protected assets"
+  ],
+  "historical_overlay_policy": "Copied historical runtime sources remain evidence only; they do not adopt unrelated production overlays.",
+  "human_or_release_acceptance": false,
+  "staged": false
+}

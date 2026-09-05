@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "year": 1928,
+  "comment": "Authored telephone ecology. PHONE-A activates only the lobby board; later phases activate endpoints without changing lifecycle ownership.",
+  "sources": {
+    "bell_machine_switching_1920": {
+      "url": "https://telephonecollectors.info/index.php/browse/document-repository/catalogs-manuals/western-electric-bell-system/publications-and-educational-documents-by-date/13034-20apr-bell-tel-news-cleveland-tel-vol-ix-apr20-machine-switching/file",
+      "documented": "Manual answering/listening key, subscriber order, B operator, trunk, multiple, ringing; automatic sender and selector equivalents."
+    },
+    "ny_message_bureau_1928": {
+      "url": "https://time.com/archive/6656705/message-bureau/",
+      "documented": "New York subscribers could arrange for unanswered calls to be redirected to a bureau and recorded for later delivery."
+    }
+  },
+  "endpoints": [
+    {"id":"house_board", "role":"operator_board", "location":"F01 lobby", "extension":"HOUSE", "phase":"PHONE-A", "active":true, "source":"bell_machine_switching_1920"},
+    {"id":"apt_4b", "role":"subscriber", "location":"4B", "extension":"4B", "phase":"PHONE-C", "active":false, "source":"ny_message_bureau_1928"},
+    {"id":"apt_3d", "role":"subscriber", "location":"3D", "extension":"3D", "phase":"PHONE-D", "active":false, "source":"bell_machine_switching_1920"},
+    {"id":"street_booth", "role":"public", "location":"north pavement", "extension":"PUBLIC", "phase":"PHONE-E", "active":false, "source":"bell_machine_switching_1920"}
+  ]
+}

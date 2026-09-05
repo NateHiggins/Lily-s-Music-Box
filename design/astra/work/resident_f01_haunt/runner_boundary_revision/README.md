@@ -1,0 +1,7 @@
+This is an offline proposal; the active run_haunt.py and every completed runtime receipt remain unchanged.
+
+The generated command now explicitly selects Continue for the unchanged serial runner, clears LASTEXITCODE before invocation, and refuses an absent exit with 125. This allows the runner catch to retain Write-Error diagnostics and reach its declared timeout exit124. It also prevents a parameter-binding failure or a no-exit return from borrowing a previous success code. Log-aware diagnostics remain a separate gate; Continue does not approve engine errors.
+
+validation_01 uses the actual generated command expression extracted from each frozen wrapper Python AST and harmless PowerShell stub scripts. No Godot process, game write or renderer work occurs. The same timeout expectation124 fails against the original source (actual wrapper1), then all seven candidate controls pass: timeout/error124, success0, scene6, declared error7 with stderr retained, invalid parameter125, absent exit125, and preexisting zero cleared before absent-exit refusal125. Each raw command, stub, stdout/stderr and actual exit is preserved. These are wrapper boundary controls, not runtime engine acceptance.
+
+Do not relabel prior native_exit fields: completed receipts bind the wrapper version actually used. original_haunt_01 never launched an engine; later completed scene results have their actual scene completion and observed PID evidence. Future runs must copy the reviewed wrapper source and bind its new hash independently.

@@ -1,0 +1,33 @@
+test_changed_assessor_between_runs_rejected (__main__.HauntControlTests.test_changed_assessor_between_runs_rejected) ... ok
+test_changed_fixture_rejected (__main__.HauntControlTests.test_changed_fixture_rejected) ... ok
+test_changed_runtime_source_rejected (__main__.HauntControlTests.test_changed_runtime_source_rejected) ... ok
+test_complete_named_pair_is_admitted (__main__.HauntControlTests.test_complete_named_pair_is_admitted) ... ok
+test_extra_cross_run_source_change_rejected (__main__.HauntControlTests.test_extra_cross_run_source_change_rejected) ... ok
+test_failed_restore_rejected (__main__.HauntControlTests.test_failed_restore_rejected) ... ok
+test_failure_count_mismatch_rejected (__main__.HauntControlTests.test_failure_count_mismatch_rejected) ... ok
+test_missing_completion_rejected (__main__.HauntControlTests.test_missing_completion_rejected) ... ok
+test_partial_actual_arrival_rejected (__main__.HauntControlTests.test_partial_actual_arrival_rejected) ... ok
+test_partial_restored_return_rejected (__main__.HauntControlTests.test_partial_restored_return_rejected) ... ok
+test_raw_compact_pairing_signature_rejected (__main__.HauntControlTests.test_raw_compact_pairing_signature_rejected) ... ok
+test_raw_unknown_error_rejected_even_if_gate_metadata_omits_it (__main__.HauntControlTests.test_raw_unknown_error_rejected_even_if_gate_metadata_omits_it) ... ok
+test_render_overrides_cleared_and_recorded (__main__.HauntControlTests.test_render_overrides_cleared_and_recorded) ... ok
+test_retention_rejected (__main__.HauntControlTests.test_retention_rejected) ... ok
+test_retirement_omission_rejected_even_with_consistent_counts (__main__.HauntControlTests.test_retirement_omission_rejected_even_with_consistent_counts) ... FAIL
+test_unrelated_named_failure_rejected (__main__.HauntControlTests.test_unrelated_named_failure_rejected) ... ok
+test_unreviewed_route_error_rejected (__main__.HauntControlTests.test_unreviewed_route_error_rejected) ... ok
+test_unreviewed_warning_rejected (__main__.HauntControlTests.test_unreviewed_warning_rejected) ... ok
+
+======================================================================
+FAIL: test_retirement_omission_rejected_even_with_consistent_counts (__main__.HauntControlTests.test_retirement_omission_rejected_even_with_consistent_counts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\validation\omission_parser_01\red_source\test_haunt_control.py", line 60, in test_retirement_omission_rejected_even_with_consistent_counts
+    self.rejected(f, "missing actual lifecycle/retirement " + RETIRED)
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\validation\omission_parser_01\red_source\test_haunt_control.py", line 44, in rejected
+    self.assertFalse(result["expected_control_pattern"], result)
+AssertionError: True is not false : {'expected_control_pattern': True, 'reasons': [], 'scope': 'Exact old-haunt failure after actual arrival and retirement, then complete restored lifecycle; no accepted route-error exemption'}
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.004s
+
+FAILED (failures=1)

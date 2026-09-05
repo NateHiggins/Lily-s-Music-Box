@@ -1,0 +1,62 @@
+{
+  "scope": "Outside-game reviewed preparation; fixture and Godot controls UNRUN",
+  "files": [
+    {
+      "path": "inspect_static_geometry.py",
+      "sha256": "0b9d6d5dc165ce65e96a0ba62ecc8ad2be9487515315632e533d93720aa1ca6d",
+      "bytes": 5914
+    },
+    {
+      "path": "originals/game/scripts/characters/resident_routines.gd",
+      "sha256": "7e88a9f430e7f7ed7149312392f9711741e55fb51230f8eee53e3c634b33e6a5",
+      "bytes": 43978
+    },
+    {
+      "path": "preparation.json",
+      "sha256": "d1ed7d00ffab537ebab8a7b45ff5632d41ff788e32295058dac3a1337f8ea61b",
+      "bytes": 1020
+    },
+    {
+      "path": "proposed/game/scripts/characters/resident_routines.gd",
+      "sha256": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a",
+      "bytes": 43978
+    },
+    {
+      "path": "proposed/game/tests/resident_f01_haunt_test.gd",
+      "sha256": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f",
+      "bytes": 16401
+    },
+    {
+      "path": "proposed/game/tests/ResidentF01HauntTest.tscn",
+      "sha256": "773015d7ba78a550d7686fbc00eff67b29a56b0ca2a85fa4fd6b0458b5895fa6",
+      "bytes": 192
+    },
+    {
+      "path": "README.md",
+      "sha256": "a545fc0a35b4c9171689c5e0b796dceaccd58eda2cc6a9b09855bcf996281299",
+      "bytes": 4740
+    },
+    {
+      "path": "resident_f01_haunt.patch",
+      "sha256": "8cb4235478df267c4a7e21d75623187891cab5913fe90749622c2b43da109fb9",
+      "bytes": 17650
+    },
+    {
+      "path": "run_haunt.py",
+      "sha256": "cc11b13dd6b6dc2726452efa40c18d2193161eed844c5e3885b41a6a247295e1",
+      "bytes": 13142
+    },
+    {
+      "path": "run_omission.py",
+      "sha256": "fd7e0e01bda9996b4b3c0f9c43f275ba618ab4702eb3316e230091ee4fe23a8a",
+      "bytes": 4584
+    },
+    {
+      "path": "static_geometry_01.json",
+      "sha256": "462be5c4eeea3fcb92728519b460dff32bc1a196f41788be10c5ec6c1dda9520",
+      "bytes": 2393
+    }
+  ],
+  "independent_static_review": "authority_debt found no definite GDScript/API blocker; _step-only/player-yield and F01-only sweep scope retained",
+  "live_routines_matches_original": true
+}

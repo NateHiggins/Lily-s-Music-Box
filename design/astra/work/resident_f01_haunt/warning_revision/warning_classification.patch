@@ -1,0 +1,65 @@
+--- a/design/astra/work/resident_f01_haunt/haunt_control.py
++++ b/design/astra/work/resident_f01_haunt/haunt_control.py
+@@ -76,6 +76,47 @@
+     return named
+ 
+ 
++
++def known_warning(lines, index):
++    """Exact retained source/details only; debt stays recorded, never suppressed.
++
++    Provenance: evidence/resident_f01_haunt/warning_review_01/provenance.json,
++    including full foundation candidate receipt1dd7f238faaaf3a84e03a3d1f9113804ec32124b2ff549ce9648ca84041f0c9e.
++    """
++    header = lines[index].strip()
++    following = []
++    for line in lines[index + 1:index + 12]:
++        if line.strip().startswith(('WARNING:', 'ERROR:', 'SCRIPT ERROR:')):
++            break
++        following.append(line.strip())
++    site = next((line for line in following if line.startswith('at: ')), '')
++    if header == 'WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.':
++        if following and following[0] == 'at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)':
++            return 'known RGB8 conversion debt'
++    if header == 'WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message':
++        details = {
++            'windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.': 'known host registry warning',
++            r'Removing layer VK_LAYER_OBS_HOOK (C:\ProgramData\obs-studio-hook\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\ProgramData\lovense-obs-studio-hook\obs-vulkan64.json)': 'known duplicate OBS layer warning',
++        }
++        if following and following[0] in details and site == 'at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:654)':
++            return details[following[0]]
++    if header == 'WARNING: no legal wall for found piece cam_noel_witches':
++        if site == 'at: push_warning (core/variant/variant_utility.cpp:1033)' and any('_place_wall_piece (res://scripts/building/found_art_pass.gd:54)' in line for line in following):
++            return 'known found-art placement debt'
++    return ''
++
++
++def warning_debt(stdout, stderr):
++    from collections import Counter
++    counts = Counter()
++    for text in [stdout, stderr]:
++        lines = text.splitlines()
++        for i, line in enumerate(lines):
++            if line.strip().startswith('WARNING:'):
++                counts[known_warning(lines, i) or 'unreviewed warning'] += 1
++    return dict(counts)
++
++
+ def _diagnostics(result, stdout, stderr, tag, reasons):
+     gate = result.get("diagnostic_gate", {})
+     if gate.get("light_unpair_count") != 0 or gate.get("softshadow_underflow_count") != 0:
+@@ -98,7 +139,7 @@
+                 reasons.append(tag + ": unknown raw error (no route error allowance declared)")
+         if re.search(r"Parse Error|Invalid call|Invalid access", stripped, re.I):
+             reasons.append(tag + ": raw script failure")
+-        if stripped.startswith("WARNING:") and stripped != "WARNING: no legal wall for found piece cam_noel_witches":
++        if stripped.startswith("WARNING:") and not known_warning(lines, i):
+             reasons.append(tag + ": unreviewed warning")
+ 
+ 
+@@ -156,4 +197,5 @@
+             or restoration.get("candidate_restored_sha256") != restoration.get("expected_candidate_sha256")):
+         reasons.append("exact candidate restoration not proven")
+     return {"expected_control_pattern": not reasons, "reasons": reasons,
++            "known_warning_debt": {"omission": warning_debt(old_stdout, old_stderr), "restored": warning_debt(new_stdout, new_stderr)},
+             "scope": "Exact old-haunt failure after actual arrival and retirement, then complete restored lifecycle; no accepted route-error exemption"}

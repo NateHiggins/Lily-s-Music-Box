@@ -1,0 +1,60 @@
+{
+  "phase": "regressions",
+  "status": "COMPLETE",
+  "runs": [
+    {
+      "name": "08_waiting_regression",
+      "result_sha256": "5f6f504228786b926bd65f84e5c97a217e0220a5844fe8b3e09cb8caa71e4aaf",
+      "actual_runner_exit": 0,
+      "assessment": {
+        "expected": "green",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [],
+          "checks": 40
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 0,
+        "diagnostic_gate_exit": 0,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1,
+          "known RGB8 conversion debt": 965,
+          "known found-art placement debt": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    },
+    {
+      "name": "09_passage_regression",
+      "result_sha256": "619ce73c2056f249db1bc0432e24ca38415fbe6cc69dbab5bd84cc395d9284e8",
+      "actual_runner_exit": 0,
+      "assessment": {
+        "expected": "green",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [],
+          "checks": 26
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 0,
+        "diagnostic_gate_exit": 0,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1,
+          "known RGB8 conversion debt": 965,
+          "known found-art placement debt": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    }
+  ],
+  "mutations": [],
+  "scope": "Exact declared controls only; raw diagnostic red stays red."
+}

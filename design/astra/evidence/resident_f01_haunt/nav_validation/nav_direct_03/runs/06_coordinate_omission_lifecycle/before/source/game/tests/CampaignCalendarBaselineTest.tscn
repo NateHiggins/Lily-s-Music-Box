@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/campaign_calendar_baseline_test.gd" id="1"]
+
+[node name="CampaignCalendarBaselineTest" type="Node"]
+script = ExtResource("1")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://tests/maintenance_service_round_test.gd" type="Script" id="1"]
+
+[node name="MaintenanceServiceRoundTest" type="Node"]
+script = ExtResource("1")

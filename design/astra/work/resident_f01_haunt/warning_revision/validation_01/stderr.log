@@ -1,0 +1,27 @@
+test_changed_assessor_between_runs_rejected (test_haunt_control.HauntControlTests.test_changed_assessor_between_runs_rejected) ... ok
+test_changed_fixture_rejected (test_haunt_control.HauntControlTests.test_changed_fixture_rejected) ... ok
+test_changed_runtime_source_rejected (test_haunt_control.HauntControlTests.test_changed_runtime_source_rejected) ... ok
+test_complete_named_pair_is_admitted (test_haunt_control.HauntControlTests.test_complete_named_pair_is_admitted) ... ok
+test_extra_cross_run_source_change_rejected (test_haunt_control.HauntControlTests.test_extra_cross_run_source_change_rejected) ... ok
+test_failed_restore_rejected (test_haunt_control.HauntControlTests.test_failed_restore_rejected) ... ok
+test_failure_count_mismatch_rejected (test_haunt_control.HauntControlTests.test_failure_count_mismatch_rejected) ... ok
+test_missing_completion_rejected (test_haunt_control.HauntControlTests.test_missing_completion_rejected) ... ok
+test_partial_actual_arrival_rejected (test_haunt_control.HauntControlTests.test_partial_actual_arrival_rejected) ... ok
+test_partial_restored_return_rejected (test_haunt_control.HauntControlTests.test_partial_restored_return_rejected) ... ok
+test_raw_compact_pairing_signature_rejected (test_haunt_control.HauntControlTests.test_raw_compact_pairing_signature_rejected) ... ok
+test_raw_unknown_error_rejected_even_if_gate_metadata_omits_it (test_haunt_control.HauntControlTests.test_raw_unknown_error_rejected_even_if_gate_metadata_omits_it) ... ok
+test_render_overrides_cleared_and_recorded (test_haunt_control.HauntControlTests.test_render_overrides_cleared_and_recorded) ... ok
+test_retention_rejected (test_haunt_control.HauntControlTests.test_retention_rejected) ... ok
+test_retirement_omission_rejected_even_with_consistent_counts (test_haunt_control.HauntControlTests.test_retirement_omission_rejected_even_with_consistent_counts) ... ok
+test_unrelated_named_failure_rejected (test_haunt_control.HauntControlTests.test_unrelated_named_failure_rejected) ... ok
+test_unreviewed_route_error_rejected (test_haunt_control.HauntControlTests.test_unreviewed_route_error_rejected) ... ok
+test_unreviewed_warning_rejected (test_haunt_control.HauntControlTests.test_unreviewed_warning_rejected) ... ok
+test_exact_conversion_remains_named_debt (test_known_warning.KnownWarningTests.test_exact_conversion_remains_named_debt) ... ok
+test_exact_registry_detail_and_site_required (test_known_warning.KnownWarningTests.test_exact_registry_detail_and_site_required) ... ok
+test_same_header_wrong_site_rejected (test_known_warning.KnownWarningTests.test_same_header_wrong_site_rejected) ... ok
+test_unknown_warning_is_still_reported (test_known_warning.KnownWarningTests.test_unknown_warning_is_still_reported) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.005s
+
+OK

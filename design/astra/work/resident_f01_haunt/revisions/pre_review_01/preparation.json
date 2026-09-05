@@ -1,0 +1,25 @@
+{
+  "scope": "Outside-game preparation only. Static exported-mesh check passed; Godot fixture UNRUN. No runtime acceptance.",
+  "source_binding": {
+    "game/scripts/characters/resident_routines.gd": {
+      "original_sha256": "7e88a9f430e7f7ed7149312392f9711741e55fb51230f8eee53e3c634b33e6a5",
+      "proposed_sha256": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a"
+    },
+    "game/tests/resident_f01_haunt_test.gd": {
+      "original_sha256": null,
+      "proposed_sha256": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f"
+    },
+    "game/tests/ResidentF01HauntTest.tscn": {
+      "original_sha256": null,
+      "proposed_sha256": "773015d7ba78a550d7686fbc00eff67b29a56b0ca2a85fa4fd6b0458b5895fa6"
+    }
+  },
+  "patch_sha256": "8cb4235478df267c4a7e21d75623187891cab5913fe90749622c2b43da109fb9",
+  "git_apply_check": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "live_routines_matches_original": true,
+  "no_live_fixture_installed": true
+}

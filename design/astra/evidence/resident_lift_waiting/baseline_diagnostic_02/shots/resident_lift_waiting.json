@@ -1,0 +1,3848 @@
+{
+	"after_collision_graph": [
+		{
+			"at": [
+				-9.57999992370605,
+				9.60000038146973,
+				7.94999980926514
+			],
+			"connections": [
+				37
+			],
+			"id": 0,
+			"tag": "room:F04_A_BED"
+		},
+		{
+			"at": [
+				-6.6100001335144,
+				9.60000038146973,
+				4.98999977111816
+			],
+			"connections": [
+				38
+			],
+			"id": 1,
+			"tag": "room:F04_A_BATH"
+		},
+		{
+			"at": [
+				-9.57999992370605,
+				9.60000038146973,
+				3.34999990463257
+			],
+			"connections": [
+				37
+			],
+			"id": 2,
+			"tag": "room:F04_A_MAIN"
+		},
+		{
+			"at": [
+				-6.6100001335144,
+				9.60000038146973,
+				-3.89499998092651
+			],
+			"connections": [
+				7,
+				4,
+				40,
+				39
+			],
+			"id": 3,
+			"tag": "room:F04_B_VESTIBULE"
+		},
+		{
+			"at": [
+				-6.6100001335144,
+				9.60000038146973,
+				-5.71999979019165
+			],
+			"connections": [
+				3
+			],
+			"id": 4,
+			"tag": "room:F04_B_BATH"
+		},
+		{
+			"at": [
+				-6.08500003814697,
+				9.60000038146973,
+				-7.82000017166138
+			],
+			"connections": [
+				41,
+				6,
+				51
+			],
+			"id": 5,
+			"tag": "room:F04_B_CLOSET"
+		},
+		{
+			"at": [
+				-9.30500030517578,
+				9.60000038146973,
+				-8.07499980926514
+			],
+			"connections": [
+				51,
+				5,
+				7,
+				41
+			],
+			"id": 6,
+			"tag": "room:F04_B_KITCHEN"
+		},
+		{
+			"at": [
+				-10.6800003051758,
+				9.60000038146973,
+				-4.58500003814697
+			],
+			"connections": [
+				6,
+				3,
+				39
+			],
+			"id": 7,
+			"tag": "room:F04_B_MAIN"
+		},
+		{
+			"at": [
+				-12.2749996185303,
+				9.60000038146973,
+				-8.07499980926514
+			],
+			"connections": [
+				51,
+				41
+			],
+			"id": 8,
+			"tag": "room:F04_B_ALCOVE"
+		},
+		{
+			"at": [
+				7.54500007629395,
+				9.60000038146973,
+				-7.94999980926514
+			],
+			"connections": [
+				42,
+				11
+			],
+			"id": 9,
+			"tag": "room:F04_C_BED1"
+		},
+		{
+			"at": [
+				11.6149997711182,
+				9.60000038146973,
+				-7.94999980926514
+			],
+			"connections": [],
+			"id": 10,
+			"tag": "room:F04_C_BED2"
+		},
+		{
+			"at": [
+				6.6100001335144,
+				9.60000038146973,
+				-4.98999977111816
+			],
+			"connections": [
+				9,
+				43
+			],
+			"id": 11,
+			"tag": "room:F04_C_BATH"
+		},
+		{
+			"at": [
+				9.57999992370605,
+				9.60000038146973,
+				-2.68499994277954
+			],
+			"connections": [
+				42,
+				43
+			],
+			"id": 12,
+			"tag": "room:F04_C_MAIN"
+		},
+		{
+			"at": [
+				9.57999992370605,
+				9.60000038146973,
+				7.94999980926514
+			],
+			"connections": [
+				45
+			],
+			"id": 13,
+			"tag": "room:F04_D_BED"
+		},
+		{
+			"at": [
+				6.6100001335144,
+				9.60000038146973,
+				4.98999977111816
+			],
+			"connections": [],
+			"id": 14,
+			"tag": "room:F04_D_BATH"
+		},
+		{
+			"at": [
+				9.57999992370605,
+				9.60000038146973,
+				3.625
+			],
+			"connections": [
+				46,
+				45,
+				47
+			],
+			"id": 15,
+			"tag": "room:F04_D_MAIN"
+		},
+		{
+			"at": [
+				6.6100001335144,
+				9.60000038146973,
+				1.91999995708466
+			],
+			"connections": [],
+			"id": 16,
+			"tag": "room:F04_D_OFFICE"
+		},
+		{
+			"at": [
+				-9.57999992370605,
+				9.60000038146973,
+				-1.11000001430511
+			],
+			"connections": [],
+			"id": 17,
+			"tag": "room:F04_WSTOR"
+		},
+		{
+			"at": [
+				4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"connections": [
+				25,
+				35
+			],
+			"id": 18,
+			"tag": "room:F04_CORRIDOR"
+		},
+		{
+			"at": [
+				-1.20000004768372,
+				9.60000038146973,
+				5.0
+			],
+			"connections": [
+				50,
+				22,
+				23,
+				48
+			],
+			"id": 19,
+			"tag": "room:F04_HALL"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				0.0
+			],
+			"connections": [],
+			"id": 20,
+			"tag": "room:F04_ATRIUM"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				-5.0
+			],
+			"connections": [
+				30
+			],
+			"id": 21,
+			"tag": "room:F04_UTILITY"
+		},
+		{
+			"at": [
+				-4.38000011444092,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"connections": [
+				23,
+				29,
+				49,
+				19,
+				48
+			],
+			"id": 22,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"connections": [
+				22,
+				24,
+				19,
+				48,
+				49,
+				50
+			],
+			"id": 23,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				4.38000011444092,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"connections": [
+				23,
+				25,
+				49,
+				48
+			],
+			"id": 24,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"connections": [
+				24,
+				26,
+				18,
+				35
+			],
+			"id": 25,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				4.38000011444092,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"connections": [
+				25,
+				27
+			],
+			"id": 26,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"connections": [
+				26,
+				28,
+				30
+			],
+			"id": 27,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				-4.38000011444092,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"connections": [
+				27,
+				29
+			],
+			"id": 28,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				-4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"connections": [
+				28,
+				22,
+				31,
+				33
+			],
+			"id": 29,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				-2.42000007629395,
+				9.60000038146973,
+				-6.75
+			],
+			"connections": [
+				21,
+				27
+			],
+			"id": 30,
+			"tag": "door:F04_DOOR_01"
+		},
+		{
+			"at": [
+				-5.32999992370605,
+				9.60000038146973,
+				2.10500001907349
+			],
+			"connections": [
+				29
+			],
+			"id": 31,
+			"tag": "door:F04_DOOR_02"
+		},
+		{
+			"at": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			],
+			"connections": [
+				40
+			],
+			"id": 32,
+			"tag": "door:F04_DOOR_03"
+		},
+		{
+			"at": [
+				-5.32999992370605,
+				9.60000038146973,
+				-0.629999995231628
+			],
+			"connections": [
+				29
+			],
+			"id": 33,
+			"tag": "door:F04_DOOR_04"
+		},
+		{
+			"at": [
+				5.32999992370605,
+				9.60000038146973,
+				3.76500010490417
+			],
+			"connections": [
+				46,
+				47
+			],
+			"id": 34,
+			"tag": "door:F04_DOOR_05"
+		},
+		{
+			"at": [
+				5.32999992370605,
+				9.60000038146973,
+				0.135000005364418
+			],
+			"connections": [
+				25,
+				18
+			],
+			"id": 35,
+			"tag": "door:F04_DOOR_06"
+		},
+		{
+			"at": [
+				-8.70499992370605,
+				9.60000038146973,
+				-9.85000038146973
+			],
+			"connections": [
+				41
+			],
+			"id": 36,
+			"tag": "door:F04_DOOR_07"
+		},
+		{
+			"at": [
+				-9.21500015258789,
+				9.60000038146973,
+				6.25
+			],
+			"connections": [
+				0,
+				2,
+				38
+			],
+			"id": 37,
+			"tag": "door:F04_DOOR_08"
+		},
+		{
+			"at": [
+				-7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			],
+			"connections": [
+				1,
+				37
+			],
+			"id": 38,
+			"tag": "door:F04_DOOR_09"
+		},
+		{
+			"at": [
+				-7.71000003814697,
+				9.60000038146973,
+				-3.48499989509583
+			],
+			"connections": [
+				3,
+				7
+			],
+			"id": 39,
+			"tag": "door:F04_DOOR_10"
+		},
+		{
+			"at": [
+				-7.0149998664856,
+				9.60000038146973,
+				-4.51999998092651
+			],
+			"connections": [
+				3,
+				32
+			],
+			"id": 40,
+			"tag": "door:F04_DOOR_11"
+		},
+		{
+			"at": [
+				-6.65999984741211,
+				9.60000038146973,
+				-7.41499996185303
+			],
+			"connections": [
+				5,
+				6,
+				8,
+				36,
+				51
+			],
+			"id": 41,
+			"tag": "door:F04_DOOR_12"
+		},
+		{
+			"at": [
+				6.70499992370605,
+				9.60000038146973,
+				-6.25
+			],
+			"connections": [
+				9,
+				12,
+				44
+			],
+			"id": 42,
+			"tag": "door:F04_DOOR_13"
+		},
+		{
+			"at": [
+				11.6450004577637,
+				9.60000038146973,
+				-6.25
+			],
+			"connections": [
+				12,
+				11
+			],
+			"id": 43,
+			"tag": "door:F04_DOOR_14"
+		},
+		{
+			"at": [
+				7.80999994277954,
+				9.60000038146973,
+				-4.58500003814697
+			],
+			"connections": [
+				42
+			],
+			"id": 44,
+			"tag": "door:F04_DOOR_15"
+		},
+		{
+			"at": [
+				8.40499973297119,
+				9.60000038146973,
+				6.25
+			],
+			"connections": [
+				13,
+				15
+			],
+			"id": 45,
+			"tag": "door:F04_DOOR_16"
+		},
+		{
+			"at": [
+				7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			],
+			"connections": [
+				15,
+				34
+			],
+			"id": 46,
+			"tag": "door:F04_DOOR_17"
+		},
+		{
+			"at": [
+				6.20499992370605,
+				9.60000038146973,
+				2.83999991416931
+			],
+			"connections": [
+				34,
+				15
+			],
+			"id": 47,
+			"tag": "door:F04_DOOR_18"
+		},
+		{
+			"at": [
+				-1.20000004768372,
+				9.60000038146973,
+				6.75
+			],
+			"connections": [
+				19,
+				22,
+				23,
+				24,
+				50
+			],
+			"id": 48,
+			"tag": "opening"
+		},
+		{
+			"at": [
+				1.92499995231628,
+				9.60000038146973,
+				6.75
+			],
+			"connections": [
+				22,
+				23,
+				24
+			],
+			"id": 49,
+			"tag": "opening"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				3.25
+			],
+			"connections": [
+				19,
+				48,
+				23
+			],
+			"id": 50,
+			"tag": "opening"
+		},
+		{
+			"at": [
+				-10.8999996185303,
+				9.60000038146973,
+				-8.10000038146973
+			],
+			"connections": [
+				5,
+				6,
+				41,
+				8
+			],
+			"id": 51,
+			"tag": "opening"
+		}
+	],
+	"before_collision_graph": [
+		{
+			"at": [
+				-9.57999992370605,
+				9.60000038146973,
+				7.94999980926514
+			],
+			"connections": [
+				37,
+				38
+			],
+			"id": 0,
+			"tag": "room:F04_A_BED"
+		},
+		{
+			"at": [
+				-6.6100001335144,
+				9.60000038146973,
+				4.98999977111816
+			],
+			"connections": [
+				38
+			],
+			"id": 1,
+			"tag": "room:F04_A_BATH"
+		},
+		{
+			"at": [
+				-9.57999992370605,
+				9.60000038146973,
+				3.34999990463257
+			],
+			"connections": [
+				31,
+				37,
+				38
+			],
+			"id": 2,
+			"tag": "room:F04_A_MAIN"
+		},
+		{
+			"at": [
+				-6.6100001335144,
+				9.60000038146973,
+				-3.89499998092651
+			],
+			"connections": [
+				32,
+				39,
+				40,
+				4,
+				7
+			],
+			"id": 3,
+			"tag": "room:F04_B_VESTIBULE"
+		},
+		{
+			"at": [
+				-6.6100001335144,
+				9.60000038146973,
+				-5.71999979019165
+			],
+			"connections": [
+				40,
+				3
+			],
+			"id": 4,
+			"tag": "room:F04_B_BATH"
+		},
+		{
+			"at": [
+				-6.08500003814697,
+				9.60000038146973,
+				-7.82000017166138
+			],
+			"connections": [
+				41,
+				6,
+				8,
+				36,
+				51
+			],
+			"id": 5,
+			"tag": "room:F04_B_CLOSET"
+		},
+		{
+			"at": [
+				-9.30500030517578,
+				9.60000038146973,
+				-8.07499980926514
+			],
+			"connections": [
+				36,
+				5,
+				7,
+				8,
+				39,
+				41,
+				51
+			],
+			"id": 6,
+			"tag": "room:F04_B_KITCHEN"
+		},
+		{
+			"at": [
+				-10.6800003051758,
+				9.60000038146973,
+				-4.58500003814697
+			],
+			"connections": [
+				39,
+				3,
+				6,
+				8,
+				32,
+				36,
+				51
+			],
+			"id": 7,
+			"tag": "room:F04_B_MAIN"
+		},
+		{
+			"at": [
+				-12.2749996185303,
+				9.60000038146973,
+				-8.07499980926514
+			],
+			"connections": [
+				5,
+				6,
+				7,
+				36,
+				41,
+				51
+			],
+			"id": 8,
+			"tag": "room:F04_B_ALCOVE"
+		},
+		{
+			"at": [
+				7.54500007629395,
+				9.60000038146973,
+				-7.94999980926514
+			],
+			"connections": [
+				42,
+				11
+			],
+			"id": 9,
+			"tag": "room:F04_C_BED1"
+		},
+		{
+			"at": [
+				11.6149997711182,
+				9.60000038146973,
+				-7.94999980926514
+			],
+			"connections": [
+				43
+			],
+			"id": 10,
+			"tag": "room:F04_C_BED2"
+		},
+		{
+			"at": [
+				6.6100001335144,
+				9.60000038146973,
+				-4.98999977111816
+			],
+			"connections": [
+				42,
+				44,
+				9,
+				43
+			],
+			"id": 11,
+			"tag": "room:F04_C_BATH"
+		},
+		{
+			"at": [
+				9.57999992370605,
+				9.60000038146973,
+				-2.68499994277954
+			],
+			"connections": [
+				35,
+				43,
+				44,
+				18,
+				25,
+				42
+			],
+			"id": 12,
+			"tag": "room:F04_C_MAIN"
+		},
+		{
+			"at": [
+				9.57999992370605,
+				9.60000038146973,
+				7.94999980926514
+			],
+			"connections": [
+				45,
+				46
+			],
+			"id": 13,
+			"tag": "room:F04_D_BED"
+		},
+		{
+			"at": [
+				6.6100001335144,
+				9.60000038146973,
+				4.98999977111816
+			],
+			"connections": [
+				46,
+				34
+			],
+			"id": 14,
+			"tag": "room:F04_D_BATH"
+		},
+		{
+			"at": [
+				9.57999992370605,
+				9.60000038146973,
+				3.625
+			],
+			"connections": [
+				34,
+				45,
+				46,
+				47
+			],
+			"id": 15,
+			"tag": "room:F04_D_MAIN"
+		},
+		{
+			"at": [
+				6.6100001335144,
+				9.60000038146973,
+				1.91999995708466
+			],
+			"connections": [
+				47
+			],
+			"id": 16,
+			"tag": "room:F04_D_OFFICE"
+		},
+		{
+			"at": [
+				-9.57999992370605,
+				9.60000038146973,
+				-1.11000001430511
+			],
+			"connections": [
+				33
+			],
+			"id": 17,
+			"tag": "room:F04_WSTOR"
+		},
+		{
+			"at": [
+				4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"connections": [
+				12,
+				25,
+				34,
+				35
+			],
+			"id": 18,
+			"tag": "room:F04_CORRIDOR"
+		},
+		{
+			"at": [
+				-1.20000004768372,
+				9.60000038146973,
+				5.0
+			],
+			"connections": [
+				20,
+				22,
+				23,
+				48,
+				50
+			],
+			"id": 19,
+			"tag": "room:F04_HALL"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				0.0
+			],
+			"connections": [
+				19,
+				50
+			],
+			"id": 20,
+			"tag": "room:F04_ATRIUM"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				-5.0
+			],
+			"connections": [
+				30,
+				28
+			],
+			"id": 21,
+			"tag": "room:F04_UTILITY"
+		},
+		{
+			"at": [
+				-4.38000011444092,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"connections": [
+				23,
+				29,
+				31,
+				19,
+				48,
+				49
+			],
+			"id": 22,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"connections": [
+				22,
+				24,
+				19,
+				48,
+				49,
+				50
+			],
+			"id": 23,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				4.38000011444092,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"connections": [
+				23,
+				25,
+				34,
+				35,
+				48,
+				49
+			],
+			"id": 24,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"connections": [
+				24,
+				26,
+				34,
+				35,
+				12,
+				18
+			],
+			"id": 25,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				4.38000011444092,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"connections": [
+				25,
+				27
+			],
+			"id": 26,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"connections": [
+				26,
+				28,
+				30
+			],
+			"id": 27,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				-4.38000011444092,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"connections": [
+				27,
+				29,
+				30,
+				32,
+				33,
+				21
+			],
+			"id": 28,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				-4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"connections": [
+				28,
+				22,
+				31,
+				32,
+				33
+			],
+			"id": 29,
+			"tag": "ring"
+		},
+		{
+			"at": [
+				-2.42000007629395,
+				9.60000038146973,
+				-6.75
+			],
+			"connections": [
+				21,
+				28,
+				27
+			],
+			"id": 30,
+			"tag": "door:F04_DOOR_01"
+		},
+		{
+			"at": [
+				-5.32999992370605,
+				9.60000038146973,
+				2.10500001907349
+			],
+			"connections": [
+				29,
+				22,
+				2,
+				32,
+				33
+			],
+			"id": 31,
+			"tag": "door:F04_DOOR_02"
+		},
+		{
+			"at": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			],
+			"connections": [
+				29,
+				28,
+				3,
+				39,
+				40,
+				7,
+				31,
+				33
+			],
+			"id": 32,
+			"tag": "door:F04_DOOR_03"
+		},
+		{
+			"at": [
+				-5.32999992370605,
+				9.60000038146973,
+				-0.629999995231628
+			],
+			"connections": [
+				29,
+				28,
+				17,
+				31,
+				32
+			],
+			"id": 33,
+			"tag": "door:F04_DOOR_04"
+		},
+		{
+			"at": [
+				5.32999992370605,
+				9.60000038146973,
+				3.76500010490417
+			],
+			"connections": [
+				15,
+				25,
+				24,
+				46,
+				47,
+				14,
+				18,
+				35
+			],
+			"id": 34,
+			"tag": "door:F04_DOOR_05"
+		},
+		{
+			"at": [
+				5.32999992370605,
+				9.60000038146973,
+				0.135000005364418
+			],
+			"connections": [
+				12,
+				25,
+				24,
+				43,
+				18,
+				34
+			],
+			"id": 35,
+			"tag": "door:F04_DOOR_06"
+		},
+		{
+			"at": [
+				-8.70499992370605,
+				9.60000038146973,
+				-9.85000038146973
+			],
+			"connections": [
+				6,
+				5,
+				7,
+				8,
+				39,
+				41,
+				51
+			],
+			"id": 36,
+			"tag": "door:F04_DOOR_07"
+		},
+		{
+			"at": [
+				-9.21500015258789,
+				9.60000038146973,
+				6.25
+			],
+			"connections": [
+				0,
+				2,
+				38
+			],
+			"id": 37,
+			"tag": "door:F04_DOOR_08"
+		},
+		{
+			"at": [
+				-7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			],
+			"connections": [
+				1,
+				2,
+				37,
+				0
+			],
+			"id": 38,
+			"tag": "door:F04_DOOR_09"
+		},
+		{
+			"at": [
+				-7.71000003814697,
+				9.60000038146973,
+				-3.48499989509583
+			],
+			"connections": [
+				3,
+				7,
+				32,
+				40,
+				6,
+				36,
+				51
+			],
+			"id": 39,
+			"tag": "door:F04_DOOR_10"
+		},
+		{
+			"at": [
+				-7.0149998664856,
+				9.60000038146973,
+				-4.51999998092651
+			],
+			"connections": [
+				3,
+				4,
+				32,
+				39
+			],
+			"id": 40,
+			"tag": "door:F04_DOOR_11"
+		},
+		{
+			"at": [
+				-6.65999984741211,
+				9.60000038146973,
+				-7.41499996185303
+			],
+			"connections": [
+				5,
+				6,
+				8,
+				36,
+				51
+			],
+			"id": 41,
+			"tag": "door:F04_DOOR_12"
+		},
+		{
+			"at": [
+				6.70499992370605,
+				9.60000038146973,
+				-6.25
+			],
+			"connections": [
+				9,
+				11,
+				44,
+				12
+			],
+			"id": 42,
+			"tag": "door:F04_DOOR_13"
+		},
+		{
+			"at": [
+				11.6450004577637,
+				9.60000038146973,
+				-6.25
+			],
+			"connections": [
+				10,
+				12,
+				35,
+				44,
+				11
+			],
+			"id": 43,
+			"tag": "door:F04_DOOR_14"
+		},
+		{
+			"at": [
+				7.80999994277954,
+				9.60000038146973,
+				-4.58500003814697
+			],
+			"connections": [
+				12,
+				11,
+				42,
+				43
+			],
+			"id": 44,
+			"tag": "door:F04_DOOR_15"
+		},
+		{
+			"at": [
+				8.40499973297119,
+				9.60000038146973,
+				6.25
+			],
+			"connections": [
+				13,
+				15,
+				46
+			],
+			"id": 45,
+			"tag": "door:F04_DOOR_16"
+		},
+		{
+			"at": [
+				7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			],
+			"connections": [
+				15,
+				14,
+				34,
+				45,
+				13
+			],
+			"id": 46,
+			"tag": "door:F04_DOOR_17"
+		},
+		{
+			"at": [
+				6.20499992370605,
+				9.60000038146973,
+				2.83999991416931
+			],
+			"connections": [
+				16,
+				15,
+				34
+			],
+			"id": 47,
+			"tag": "door:F04_DOOR_18"
+		},
+		{
+			"at": [
+				-1.20000004768372,
+				9.60000038146973,
+				6.75
+			],
+			"connections": [
+				19,
+				22,
+				23,
+				24,
+				50
+			],
+			"id": 48,
+			"tag": "opening"
+		},
+		{
+			"at": [
+				1.92499995231628,
+				9.60000038146973,
+				6.75
+			],
+			"connections": [
+				22,
+				23,
+				24
+			],
+			"id": 49,
+			"tag": "opening"
+		},
+		{
+			"at": [
+				0.0,
+				9.60000038146973,
+				3.25
+			],
+			"connections": [
+				19,
+				20,
+				23,
+				48
+			],
+			"id": 50,
+			"tag": "opening"
+		},
+		{
+			"at": [
+				-10.8999996185303,
+				9.60000038146973,
+				-8.10000038146973
+			],
+			"connections": [
+				5,
+				6,
+				7,
+				8,
+				36,
+				39,
+				41
+			],
+			"id": 51,
+			"tag": "opening"
+		}
+	],
+	"checks": [
+		{
+			"label": "authored campaign time configured",
+			"passed": true
+		},
+		{
+			"label": "real V1 routines and navigation exist",
+			"passed": true
+		},
+		{
+			"label": "actual 4D Transient Guests owner exists",
+			"passed": true
+		},
+		{
+			"label": "actual untouched 4D spawn is the recorded failure origin",
+			"passed": true
+		},
+		{
+			"label": "waiting point preserves authored shaft center and current storey",
+			"passed": false
+		},
+		{
+			"label": "waiting point is on public side with resident body and wall clearance",
+			"passed": false
+		},
+		{
+			"label": "waiting point follows a different authored shaft instead of a copied location",
+			"passed": false
+		},
+		{
+			"label": "real lift begins at F01 with F04 closed",
+			"passed": true
+		},
+		{
+			"label": "4D outbound route reaches public waiting point",
+			"passed": false
+		},
+		{
+			"label": "return route reaches the actual 4D home",
+			"passed": false
+		},
+		{
+			"label": "outbound route passes unchanged production wall and collider checks",
+			"passed": false
+		},
+		{
+			"label": "return route passes unchanged production wall and collider checks",
+			"passed": false
+		},
+		{
+			"label": "resident capsule fits on the public landing",
+			"passed": true
+		},
+		{
+			"label": "deterministic normal elevator choice available",
+			"passed": true
+		},
+		{
+			"label": "normal departure chooses actual elevator stage",
+			"passed": true
+		},
+		{
+			"label": "resident at home neither requests lift nor boards prematurely",
+			"passed": false
+		},
+		{
+			"label": "actual V1 root retired",
+			"passed": true
+		}
+	],
+	"collision_audit": {
+		"cut": 368,
+		"readiness": "production two-physics-frame validator, then 1.6 seconds and two further physics frames",
+		"relinked": 71,
+		"stairs_blocked": 0
+	},
+	"coordinates": {
+		"candidate_clearance": -1.15000009536743,
+		"home_godot": [
+			9.74279975891113,
+			9.63000011444092,
+			3.20499992370605
+		],
+		"old_target_godot": [
+			1.9,
+			9.63000011444092,
+			5.6
+		],
+		"public_door_face_godot_z": 6.75,
+		"shaft_blender_xy": [
+			0.85,
+			-6.75,
+			3.0,
+			-4.55
+		],
+		"wait_godot": [
+			1.89999997615814,
+			9.63000011444092,
+			5.59999990463257
+		]
+	},
+	"endpoint_diagnostics": {
+		"actual": {
+			"from": [
+				9.74279975891113,
+				9.63000011444092,
+				3.20499992370605
+			],
+			"goals": [
+				{
+					"distance": 1.32402515411377,
+					"id": 49
+				}
+			],
+			"pair": [
+				-1,
+				-1
+			],
+			"starts": [
+				{
+					"distance": 0.203803837299347,
+					"id": 15
+				},
+				{
+					"distance": 8.53271484375,
+					"id": 46
+				},
+				{
+					"distance": 11.0626335144043,
+					"id": 45
+				},
+				{
+					"distance": 12.6501531600952,
+					"id": 47
+				},
+				{
+					"distance": 19.7873039245605,
+					"id": 34
+				}
+			],
+			"to": [
+				1.89999997615814,
+				9.63000011444092,
+				5.59999990463257
+			]
+		},
+		"old": {
+			"from": [
+				9.74279975891113,
+				9.63000011444092,
+				3.20499992370605
+			],
+			"goals": [
+				{
+					"distance": 1.32402515411377,
+					"id": 49
+				}
+			],
+			"pair": [
+				-1,
+				-1
+			],
+			"starts": [
+				{
+					"distance": 0.203803837299347,
+					"id": 15
+				},
+				{
+					"distance": 8.53271484375,
+					"id": 46
+				},
+				{
+					"distance": 11.0626335144043,
+					"id": 45
+				},
+				{
+					"distance": 12.6501531600952,
+					"id": 47
+				},
+				{
+					"distance": 19.7873039245605,
+					"id": 34
+				}
+			],
+			"to": [
+				1.89999997615814,
+				9.63000011444092,
+				5.59999990463257
+			]
+		}
+	},
+	"failures": 8,
+	"outbound": [
+		[
+			9.74279975891113,
+			9.63000011444092,
+			3.20499992370605
+		]
+	],
+	"removed_edge_obstructions": [
+		{
+			"a": 0,
+			"b": 38,
+			"blocking_hits": [
+				{
+					"at": [
+						-8.4175500869751,
+						9.95000076293945,
+						6.27199983596802
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_08/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.86999988555908,
+						9.95000076293945,
+						5.48160982131958
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-8.4175500869751,
+						10.75,
+						6.27199983596802
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_08/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-8.3149995803833,
+						10.75,
+						6.12396764755249
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/Switches/SW_F04_SW_08_0",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-9.57999992370605,
+				9.60000038146973,
+				7.94999980926514
+			],
+			"to": [
+				-7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			]
+		},
+		{
+			"a": 2,
+			"b": 31,
+			"blocking_hits": [
+				{
+					"at": [
+						-9.10000038146973,
+						9.95000076293945,
+						3.209388256073
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furnish_hull",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.4200005531311,
+						10.75,
+						2.1313648223877
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-9.57999992370605,
+				9.60000038146973,
+				3.34999990463257
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				2.10500001907349
+			]
+		},
+		{
+			"a": 2,
+			"b": 38,
+			"blocking_hits": [
+				{
+					"at": [
+						-9.10000038146973,
+						9.95000076293945,
+						3.90457582473755
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furnish_hull",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.83199977874756,
+						10.75,
+						5.3695821762085
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_09/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-9.57999992370605,
+				9.60000038146973,
+				3.34999990463257
+			],
+			"to": [
+				-7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			]
+		},
+		{
+			"a": 3,
+			"b": 32,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						-3.41499996185303
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						-3.41499996185303
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-6.6100001335144,
+				9.60000038146973,
+				-3.89499998092651
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			]
+		},
+		{
+			"a": 4,
+			"b": 40,
+			"blocking_hits": [
+				{
+					"at": [
+						-7.0149998664856,
+						9.95000076293945,
+						-4.51999998092651
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.0149998664856,
+						10.75,
+						-4.51999998092651
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-6.6100001335144,
+				9.60000038146973,
+				-5.71999979019165
+			],
+			"to": [
+				-7.0149998664856,
+				9.60000038146973,
+				-4.51999998092651
+			]
+		},
+		{
+			"a": 5,
+			"b": 8,
+			"blocking_hits": [
+				{
+					"at": [
+						-6.63800001144409,
+						9.95000076293945,
+						-7.84278106689453
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_12/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-12.0500001907349,
+						9.95000076293945,
+						-8.06573104858398
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furniture_trim/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-6.63800001144409,
+						10.75,
+						-7.84278106689453
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_12/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-6.08500003814697,
+				9.60000038146973,
+				-7.82000017166138
+			],
+			"to": [
+				-12.2749996185303,
+				9.60000038146973,
+				-8.07499980926514
+			]
+		},
+		{
+			"a": 5,
+			"b": 36,
+			"blocking_hits": [
+				{
+					"at": [
+						-6.6077094078064,
+						9.95000076293945,
+						-8.22500038146973
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-6.6077094078064,
+						10.75,
+						-8.22500038146973
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-6.08500003814697,
+				9.60000038146973,
+				-7.82000017166138
+			],
+			"to": [
+				-8.70499992370605,
+				9.60000038146973,
+				-9.85000038146973
+			]
+		},
+		{
+			"a": 6,
+			"b": 36,
+			"blocking_hits": [
+				{
+					"at": [
+						-8.75570392608643,
+						9.95000076293945,
+						-9.69999980926514
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls_cbrick/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-8.75570392608643,
+						10.75,
+						-9.69999980926514
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls_cbrick/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-9.30500030517578,
+				9.60000038146973,
+				-8.07499980926514
+			],
+			"to": [
+				-8.70499992370605,
+				9.60000038146973,
+				-9.85000038146973
+			]
+		},
+		{
+			"a": 6,
+			"b": 8,
+			"blocking_hits": [
+				{
+					"at": [
+						-12.0500001907349,
+						9.95000076293945,
+						-8.07499980926514
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furniture_trim/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				}
+			],
+			"from": [
+				-9.30500030517578,
+				9.60000038146973,
+				-8.07499980926514
+			],
+			"to": [
+				-12.2749996185303,
+				9.60000038146973,
+				-8.07499980926514
+			]
+		},
+		{
+			"a": 6,
+			"b": 39,
+			"blocking_hits": [
+				{
+					"at": [
+						-8.39999961853027,
+						9.95000076293945,
+						-5.47064065933228
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furniture_metal/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.73199987411499,
+						10.75,
+						-3.54831027984619
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-7.71000003814697,
+						10.75,
+						-3.48499989509583
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-9.30500030517578,
+				9.60000038146973,
+				-8.07499980926514
+			],
+			"to": [
+				-7.71000003814697,
+				9.60000038146973,
+				-3.48499989509583
+			]
+		},
+		{
+			"a": 7,
+			"b": 8,
+			"blocking_hits": [
+				{
+					"at": [
+						-12.0500001907349,
+						9.95000076293945,
+						-7.58268165588379
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furniture_trim/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				}
+			],
+			"from": [
+				-10.6800003051758,
+				9.60000038146973,
+				-4.58500003814697
+			],
+			"to": [
+				-12.2749996185303,
+				9.60000038146973,
+				-8.07499980926514
+			]
+		},
+		{
+			"a": 7,
+			"b": 32,
+			"blocking_hits": [
+				{
+					"at": [
+						-7.73200035095215,
+						9.95000076293945,
+						-3.9402973651886
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						-3.41499996185303
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.73200035095215,
+						10.75,
+						-3.9402973651886
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						-3.41499996185303
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-10.6800003051758,
+				9.60000038146973,
+				-4.58500003814697
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			]
+		},
+		{
+			"a": 7,
+			"b": 36,
+			"blocking_hits": [
+				{
+					"at": [
+						-8.76126766204834,
+						9.95000076293945,
+						-9.69999980926514
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls_cbrick/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-8.76126766204834,
+						10.75,
+						-9.69999980926514
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls_cbrick/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-10.6800003051758,
+				9.60000038146973,
+				-4.58500003814697
+			],
+			"to": [
+				-8.70499992370605,
+				9.60000038146973,
+				-9.85000038146973
+			]
+		},
+		{
+			"a": 7,
+			"b": 51,
+			"blocking_hits": [
+				{
+					"at": [
+						-10.8400001525879,
+						9.95000076293945,
+						-7.14136934280396
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-10.8400001525879,
+						10.75,
+						-7.14136934280396
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-10.6800003051758,
+				9.60000038146973,
+				-4.58500003814697
+			],
+			"to": [
+				-10.8999996185303,
+				9.60000038146973,
+				-8.10000038146973
+			]
+		},
+		{
+			"a": 8,
+			"b": 36,
+			"blocking_hits": [
+				{
+					"at": [
+						-10.960000038147,
+						9.95000076293945,
+						-8.72881603240967
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-10.960000038147,
+						10.75,
+						-8.72881603240967
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-12.2749996185303,
+				9.60000038146973,
+				-8.07499980926514
+			],
+			"to": [
+				-8.70499992370605,
+				9.60000038146973,
+				-9.85000038146973
+			]
+		},
+		{
+			"a": 10,
+			"b": 43,
+			"blocking_hits": [
+				{
+					"at": [
+						11.6439418792725,
+						9.95000076293945,
+						-6.30999994277954
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						11.6439418792725,
+						10.75,
+						-6.30999994277954
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				11.6149997711182,
+				9.60000038146973,
+				-7.94999980926514
+			],
+			"to": [
+				11.6450004577637,
+				9.60000038146973,
+				-6.25
+			]
+		},
+		{
+			"a": 11,
+			"b": 42,
+			"blocking_hits": [
+				{
+					"at": [
+						6.70047616958618,
+						9.95000076293945,
+						-6.19000005722046
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						6.70047616958618,
+						10.75,
+						-6.19000005722046
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				6.6100001335144,
+				9.60000038146973,
+				-4.98999977111816
+			],
+			"to": [
+				6.70499992370605,
+				9.60000038146973,
+				-6.25
+			]
+		},
+		{
+			"a": 11,
+			"b": 44,
+			"blocking_hits": [
+				{
+					"at": [
+						7.80999994277954,
+						9.95000076293945,
+						-4.58500003814697
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						7.80999994277954,
+						10.75,
+						-4.58500003814697
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				6.6100001335144,
+				9.60000038146973,
+				-4.98999977111816
+			],
+			"to": [
+				7.80999994277954,
+				9.60000038146973,
+				-4.58500003814697
+			]
+		},
+		{
+			"a": 12,
+			"b": 35,
+			"blocking_hits": [
+				{
+					"at": [
+						9.0600004196167,
+						9.95000076293945,
+						-2.33996486663818
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furnish_hull",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						6.23214530944824,
+						10.75,
+						-0.463599979877472
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/DomesticAnomaly_cam_noel_chain/@StaticBody3D@24240",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				9.57999992370605,
+				9.60000038146973,
+				-2.68499994277954
+			],
+			"to": [
+				5.32999992370605,
+				9.60000038146973,
+				0.135000005364418
+			]
+		},
+		{
+			"a": 12,
+			"b": 44,
+			"blocking_hits": [
+				{
+					"at": [
+						7.86999988555908,
+						9.95000076293945,
+						-4.52059316635132
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						7.86999988555908,
+						10.75,
+						-4.52059316635132
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				9.57999992370605,
+				9.60000038146973,
+				-2.68499994277954
+			],
+			"to": [
+				7.80999994277954,
+				9.60000038146973,
+				-4.58500003814697
+			]
+		},
+		{
+			"a": 12,
+			"b": 18,
+			"blocking_hits": [
+				{
+					"at": [
+						9.0600004196167,
+						9.95000076293945,
+						-2.41650009155273
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furnish_hull",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.35199975967407,
+						10.75,
+						-0.501888334751129
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_06/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				}
+			],
+			"from": [
+				9.57999992370605,
+				9.60000038146973,
+				-2.68499994277954
+			],
+			"to": [
+				4.38000011444092,
+				9.60000038146973,
+				0.0
+			]
+		},
+		{
+			"a": 12,
+			"b": 25,
+			"blocking_hits": [
+				{
+					"at": [
+						9.0600004196167,
+						9.95000076293945,
+						-2.41650009155273
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furnish_hull",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.35199975967407,
+						10.75,
+						-0.501888334751129
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_06/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				}
+			],
+			"from": [
+				9.57999992370605,
+				9.60000038146973,
+				-2.68499994277954
+			],
+			"to": [
+				4.38000011444092,
+				9.60000038146973,
+				0.0
+			]
+		},
+		{
+			"a": 13,
+			"b": 46,
+			"blocking_hits": [
+				{
+					"at": [
+						8.4175500869751,
+						9.95000076293945,
+						6.27199983596802
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_16/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						7.86999988555908,
+						9.95000076293945,
+						5.48160982131958
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						8.4175500869751,
+						10.75,
+						6.27199983596802
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_16/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						7.86999988555908,
+						10.75,
+						5.48160982131958
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				9.57999992370605,
+				9.60000038146973,
+				7.94999980926514
+			],
+			"to": [
+				7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			]
+		},
+		{
+			"a": 14,
+			"b": 46,
+			"blocking_hits": [
+				{
+					"at": [
+						7.80999994277954,
+						9.95000076293945,
+						5.39499998092651
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						7.80999994277954,
+						10.75,
+						5.39499998092651
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				6.6100001335144,
+				9.60000038146973,
+				4.98999977111816
+			],
+			"to": [
+				7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			]
+		},
+		{
+			"a": 14,
+			"b": 34,
+			"blocking_hits": [
+				{
+					"at": [
+						6.32000017166138,
+						9.95000076293945,
+						4.71246099472046
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/Service_4D_wc",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.42000007629395,
+						10.75,
+						3.85113286972046
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				6.6100001335144,
+				9.60000038146973,
+				4.98999977111816
+			],
+			"to": [
+				5.32999992370605,
+				9.60000038146973,
+				3.76500010490417
+			]
+		},
+		{
+			"a": 15,
+			"b": 34,
+			"blocking_hits": [
+				{
+					"at": [
+						6.39250135421753,
+						9.95000076293945,
+						3.73000001907349
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						6.39250135421753,
+						10.75,
+						3.73000001907349
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				9.57999992370605,
+				9.60000038146973,
+				3.625
+			],
+			"to": [
+				5.32999992370605,
+				9.60000038146973,
+				3.76500010490417
+			]
+		},
+		{
+			"a": 16,
+			"b": 47,
+			"blocking_hits": [
+				{
+					"at": [
+						6.20499992370605,
+						9.95000076293945,
+						2.83999991416931
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						6.20499992370605,
+						10.75,
+						2.83999991416931
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				6.6100001335144,
+				9.60000038146973,
+				1.91999995708466
+			],
+			"to": [
+				6.20499992370605,
+				9.60000038146973,
+				2.83999991416931
+			]
+		},
+		{
+			"a": 17,
+			"b": 33,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						-0.629999995231628
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						-0.629999995231628
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-9.57999992370605,
+				9.60000038146973,
+				-1.11000001430511
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-0.629999995231628
+			]
+		},
+		{
+			"a": 18,
+			"b": 34,
+			"blocking_hits": [
+				{
+					"at": [
+						5.30800008773804,
+						9.95000076293945,
+						3.67781066894531
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.32999992370605,
+						9.95000076293945,
+						3.76500010490417
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.30800008773804,
+						10.75,
+						3.67781066894531
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						5.32999992370605,
+						10.75,
+						3.76500010490417
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"to": [
+				5.32999992370605,
+				9.60000038146973,
+				3.76500010490417
+			]
+		},
+		{
+			"a": 19,
+			"b": 20,
+			"blocking_hits": [
+				{
+					"at": [
+						-0.370800018310547,
+						9.95000076293945,
+						1.54500007629395
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_stairs_guard",
+					"door_excused": false,
+					"height": 0.35
+				}
+			],
+			"from": [
+				-1.20000004768372,
+				9.60000038146973,
+				5.0
+			],
+			"to": [
+				0.0,
+				9.60000038146973,
+				0.0
+			]
+		},
+		{
+			"a": 20,
+			"b": 50,
+			"blocking_hits": [
+				{
+					"at": [
+						0.0,
+						9.95000076293945,
+						1.48500001430511
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_stairs_guard",
+					"door_excused": false,
+					"height": 0.35
+				}
+			],
+			"from": [
+				0.0,
+				9.60000038146973,
+				0.0
+			],
+			"to": [
+				0.0,
+				9.60000038146973,
+				3.25
+			]
+		},
+		{
+			"a": 21,
+			"b": 28,
+			"blocking_hits": [
+				{
+					"at": [
+						-2.30049848556519,
+						9.95000076293945,
+						-6.72799968719482
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_01/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-2.42000007629395,
+						9.95000076293945,
+						-6.81776237487793
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-2.30049848556519,
+						10.75,
+						-6.72799968719482
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_01/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-2.42000007629395,
+						10.75,
+						-6.81776237487793
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				0.0,
+				9.60000038146973,
+				-5.0
+			],
+			"to": [
+				-4.38000011444092,
+				9.60000038146973,
+				-8.28999996185303
+			]
+		},
+		{
+			"a": 22,
+			"b": 31,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.23999977111816,
+						9.95000076293945,
+						2.69094848632813
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.23999977111816,
+						10.75,
+						2.69094848632813
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-4.38000011444092,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				2.10500001907349
+			]
+		},
+		{
+			"a": 24,
+			"b": 34,
+			"blocking_hits": [
+				{
+					"at": [
+						5.23999977111816,
+						9.95000076293945,
+						4.19368553161621
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.23999977111816,
+						10.75,
+						4.19368553161621
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				4.38000011444092,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"to": [
+				5.32999992370605,
+				9.60000038146973,
+				3.76500010490417
+			]
+		},
+		{
+			"a": 24,
+			"b": 35,
+			"blocking_hits": [
+				{
+					"at": [
+						5.23999977111816,
+						9.95000076293945,
+						0.907580852508545
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.23999977111816,
+						10.75,
+						0.907580852508545
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				4.38000011444092,
+				9.60000038146973,
+				8.28999996185303
+			],
+			"to": [
+				5.32999992370605,
+				9.60000038146973,
+				0.135000005364418
+			]
+		},
+		{
+			"a": 25,
+			"b": 34,
+			"blocking_hits": [
+				{
+					"at": [
+						5.30800008773804,
+						9.95000076293945,
+						3.67781066894531
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.32999992370605,
+						9.95000076293945,
+						3.76500010490417
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.30800008773804,
+						10.75,
+						3.67781066894531
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						5.32999992370605,
+						10.75,
+						3.76500010490417
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"to": [
+				5.32999992370605,
+				9.60000038146973,
+				3.76500010490417
+			]
+		},
+		{
+			"a": 28,
+			"b": 30,
+			"blocking_hits": [
+				{
+					"at": [
+						-2.53454542160034,
+						9.95000076293945,
+						-6.84000015258789
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-2.53454542160034,
+						10.75,
+						-6.84000015258789
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-4.38000011444092,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"to": [
+				-2.42000007629395,
+				9.60000038146973,
+				-6.75
+			]
+		},
+		{
+			"a": 28,
+			"b": 32,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.30800008773804,
+						9.95000076293945,
+						-3.52789449691772
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_03/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						-3.41499996185303
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.30800008773804,
+						10.75,
+						-3.52789449691772
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_03/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						-3.41499996185303
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-4.38000011444092,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			]
+		},
+		{
+			"a": 28,
+			"b": 33,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.30800008773804,
+						9.95000076293945,
+						-0.807389616966248
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_04/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						-0.629999995231628
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.17993450164795,
+						10.75,
+						-1.83999991416931
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/Switches/SW_F04_SW_04_270",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-4.38000011444092,
+				9.60000038146973,
+				-8.28999996185303
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-0.629999995231628
+			]
+		},
+		{
+			"a": 29,
+			"b": 32,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.23999977111816,
+						9.95000076293945,
+						-3.09147310256958
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.23999977111816,
+						10.75,
+						-3.09147310256958
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-4.38000011444092,
+				9.60000038146973,
+				0.0
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			]
+		},
+		{
+			"a": 31,
+			"b": 32,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						2.09500002861023
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_02/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						1.19500005245209
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						2.09500002861023
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_02/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						1.19500005245209
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-5.32999992370605,
+				9.60000038146973,
+				2.10500001907349
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			]
+		},
+		{
+			"a": 31,
+			"b": 33,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						2.09500002861023
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_02/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						1.1949999332428
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						2.09500002861023
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_02/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						1.1949999332428
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-5.32999992370605,
+				9.60000038146973,
+				2.10500001907349
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-0.629999995231628
+			]
+		},
+		{
+			"a": 32,
+			"b": 39,
+			"blocking_hits": [
+				{
+					"at": [
+						-7.65000009536743,
+						9.95000076293945,
+						-3.48323512077332
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.65000009536743,
+						10.75,
+						-3.48323512077332
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			],
+			"to": [
+				-7.71000003814697,
+				9.60000038146973,
+				-3.48499989509583
+			]
+		},
+		{
+			"a": 32,
+			"b": 33,
+			"blocking_hits": [
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						-1.58000004291534
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_04/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						9.95000076293945,
+						-0.630000054836273
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						-1.58000004291534
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_04/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-5.32999992370605,
+						10.75,
+						-0.630000054836273
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-5.32999992370605,
+				9.60000038146973,
+				-3.41499996185303
+			],
+			"to": [
+				-5.32999992370605,
+				9.60000038146973,
+				-0.629999995231628
+			]
+		},
+		{
+			"a": 34,
+			"b": 35,
+			"blocking_hits": [
+				{
+					"at": [
+						5.32999992370605,
+						9.95000076293945,
+						3.75500011444092
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.32999992370605,
+						9.95000076293945,
+						2.85500001907349
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.32999992370605,
+						10.75,
+						3.75500011444092
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						5.32999992370605,
+						10.75,
+						2.85500001907349
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				5.32999992370605,
+				9.60000038146973,
+				3.76500010490417
+			],
+			"to": [
+				5.32999992370605,
+				9.60000038146973,
+				0.135000005364418
+			]
+		},
+		{
+			"a": 35,
+			"b": 43,
+			"blocking_hits": [
+				{
+					"at": [
+						5.3398904800415,
+						9.95000076293945,
+						0.125
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_06/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						7.44159412384033,
+						9.95000076293945,
+						-2.0
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furnish_hull",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						5.3398904800415,
+						10.75,
+						0.125
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_06/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						11.5856580734253,
+						10.75,
+						-6.19000005722046
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				5.32999992370605,
+				9.60000038146973,
+				0.135000005364418
+			],
+			"to": [
+				11.6450004577637,
+				9.60000038146973,
+				-6.25
+			]
+		},
+		{
+			"a": 36,
+			"b": 39,
+			"blocking_hits": [
+				{
+					"at": [
+						-7.73199987411499,
+						9.95000076293945,
+						-3.62573385238647
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.71000003814697,
+						9.95000076293945,
+						-3.48499989509583
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.73199987411499,
+						10.75,
+						-3.62573385238647
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-7.71000003814697,
+						10.75,
+						-3.48499989509583
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-8.70499992370605,
+				9.60000038146973,
+				-9.85000038146973
+			],
+			"to": [
+				-7.71000003814697,
+				9.60000038146973,
+				-3.48499989509583
+			]
+		},
+		{
+			"a": 36,
+			"b": 51,
+			"blocking_hits": [
+				{
+					"at": [
+						-9.55000019073486,
+						9.95000076293945,
+						-9.17630958557129
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furniture_trim/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-8.90499973297119,
+						10.75,
+						-9.69054698944092
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_stone_trim/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-8.70499992370605,
+				9.60000038146973,
+				-9.85000038146973
+			],
+			"to": [
+				-10.8999996185303,
+				9.60000038146973,
+				-8.10000038146973
+			]
+		},
+		{
+			"a": 39,
+			"b": 40,
+			"blocking_hits": [
+				{
+					"at": [
+						-7.70328521728516,
+						9.95000076293945,
+						-3.49499988555908
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.05528974533081,
+						9.95000076293945,
+						-4.46000003814697
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.70328521728516,
+						10.75,
+						-3.49499988555908
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				},
+				{
+					"at": [
+						-7.05528974533081,
+						10.75,
+						-4.46000003814697
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-7.71000003814697,
+				9.60000038146973,
+				-3.48499989509583
+			],
+			"to": [
+				-7.0149998664856,
+				9.60000038146973,
+				-4.51999998092651
+			]
+		},
+		{
+			"a": 39,
+			"b": 51,
+			"blocking_hits": [
+				{
+					"at": [
+						-7.71691226959229,
+						9.95000076293945,
+						-3.49499988555908
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-8.99913311004639,
+						9.95000076293945,
+						-5.34999990463257
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_furnish_hull",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						-7.71691226959229,
+						10.75,
+						-3.49499988555908
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_10/HingedLeaf",
+					"door_excused": true,
+					"height": 1.15
+				}
+			],
+			"from": [
+				-7.71000003814697,
+				9.60000038146973,
+				-3.48499989509583
+			],
+			"to": [
+				-10.8999996185303,
+				9.60000038146973,
+				-8.10000038146973
+			]
+		},
+		{
+			"a": 43,
+			"b": 44,
+			"blocking_hits": [
+				{
+					"at": [
+						7.8100004196167,
+						9.95000076293945,
+						-4.58500003814697
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						7.8100004196167,
+						10.75,
+						-4.58500003814697
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				11.6450004577637,
+				9.60000038146973,
+				-6.25
+			],
+			"to": [
+				7.80999994277954,
+				9.60000038146973,
+				-4.58500003814697
+			]
+		},
+		{
+			"a": 45,
+			"b": 46,
+			"blocking_hits": [
+				{
+					"at": [
+						7.86999988555908,
+						9.95000076293945,
+						5.4812183380127
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 0.35
+				},
+				{
+					"at": [
+						7.86999988555908,
+						10.75,
+						5.4812183380127
+					],
+					"collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+					"door_excused": false,
+					"height": 1.15
+				}
+			],
+			"from": [
+				8.40499973297119,
+				9.60000038146973,
+				6.25
+			],
+			"to": [
+				7.80999994277954,
+				9.60000038146973,
+				5.39499998092651
+			]
+		}
+	],
+	"returning": [
+		[
+			1.89999997615814,
+			9.63000011444092,
+			5.59999990463257
+		]
+	],
+	"routine_rng_seed": 2,
+	"scope": "Actual 4D outbound/return navigation, public waiting body clearance and real elevator source readiness; movement advanced through production _follow at fixed1/60 without claiming elapsed travel time. No full haunt arrival or gameplay acceptance.",
+	"waiting_body_overlaps": []
+}

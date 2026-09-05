@@ -1,0 +1,28 @@
+{
+  "scope": "First strict diagnostics/scene-completion assessment only. No restored run exists; no paired acceptance.",
+  "source_receipt": "design\\astra\\evidence\\resident_f01_haunt\\original_haunt_02\\result.json",
+  "source_receipt_sha256": "326ea5ae361ec6492a03be5a7a08379371736296dfc759d1fa842560d1bd82b1",
+  "assessor_sha256": "e181f00c23fdde43ed8072e18d6b6f82312d23904c8c1ebd0415580853eeb5ad",
+  "strict_scene_and_diagnostic_admissible": false,
+  "reason_counts": {
+    "original: unreviewed warning": 968
+  },
+  "named_old_failures": [
+    "actual Body shape clears all current destination colliders",
+    "actual destination Body still clears after real car arrival",
+    "destination has real F01 slab support at the authored floor height",
+    "public destination route and swept actual Body clear the closed lift landing",
+    "whole destination body footprint fits the public F01 lobby",
+    "whole destination body footprint is outside the lift shaft"
+  ],
+  "actual_root_retired": true,
+  "actual_F01_arrival": true,
+  "source_unchanged": true,
+  "native_exit": 1,
+  "diagnostic_gate_exit": 1,
+  "raw_hashes": {
+    "godot.stdout.log": "b0944008b9e2f19d9872e2a83fc04cf14544b7c5323352360abf163bc3685bc6",
+    "godot.stdout.log.stderr": "d71f2db72710a3d1a575648935cf3d873aff4023cd51ac5714adf822c6794783",
+    "shots/resident_f01_haunt.json": "2f0b7ea259a15d0d80c7cc9e2e0d7811227e6752a792ec69a6fd6bfbc177e609"
+  }
+}

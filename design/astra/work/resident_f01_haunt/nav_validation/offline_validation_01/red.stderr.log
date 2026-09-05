@@ -1,0 +1,32 @@
+test_changed_log_rejected (__main__.Artifacts.test_changed_log_rejected) ... ok
+test_changed_source_rejected_even_with_rebound_artifact (__main__.Artifacts.test_changed_source_rejected_even_with_rebound_artifact) ... ok
+test_false_pid_and_changed_engine_rejected (__main__.Artifacts.test_false_pid_and_changed_engine_rejected) ... ok
+test_valid_then_omitted_consumed_binding_rejected (__main__.Artifacts.test_valid_then_omitted_consumed_binding_rejected) ... FAIL
+test_absent_exit_refused (__main__.Bridge.test_absent_exit_refused) ... ok
+test_cmdlet_array_arguments_preserved (__main__.Bridge.test_cmdlet_array_arguments_preserved) ... ok
+test_write_error_timeout_preserved (__main__.Bridge.test_write_error_timeout_preserved) ... ok
+test_deleted_row_refused_even_with_matching_footer (__main__.Contracts.test_deleted_row_refused_even_with_matching_footer) ... ok
+test_duplicate_and_reordered_rows_refused (__main__.Contracts.test_duplicate_and_reordered_rows_refused) ... ok
+test_exact_warning_kept_as_debt (__main__.Contracts.test_exact_warning_kept_as_debt) ... ok
+test_false_retirement_and_repeated_footer_refused (__main__.Contracts.test_false_retirement_and_repeated_footer_refused) ... ok
+test_green_and_exact_original_red (__main__.Contracts.test_green_and_exact_original_red) ... ok
+test_missing_readable_json_refused (__main__.Contracts.test_missing_readable_json_refused) ... ok
+test_source_pid_and_engine_refused_independently (__main__.Contracts.test_source_pid_and_engine_refused_independently) ... ok
+test_timeout_and_lane_refusal_are_not_scene_exits (__main__.Contracts.test_timeout_and_lane_refusal_are_not_scene_exits) ... ok
+test_unknown_error_warning_and_retention_refused (__main__.Contracts.test_unknown_error_warning_and_retention_refused) ... ok
+test_foreign_change_refuses_false_restore (__main__.Restoration.test_foreign_change_refuses_false_restore) ... ok
+test_interrupted_omission_restores_exact_candidate (__main__.Restoration.test_interrupted_omission_restores_exact_candidate) ... ok
+
+======================================================================
+FAIL: test_valid_then_omitted_consumed_binding_rejected (__main__.Artifacts.test_valid_then_omitted_consumed_binding_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\nav_validation\offline_validation_01\required_artifact_guard_omitted\test_controls.py", line 114, in test_valid_then_omitted_consumed_binding_rejected
+    with self.assertRaises(ValueError): assess.verify_artifacts(p)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.806s
+
+FAILED (failures=1)

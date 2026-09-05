@@ -1,0 +1,74 @@
+{
+  "schema": "astra-resident-nav-short-direct-preparation-v1",
+  "status": "UNAPPLIED_UNRUN_ROOT_REVIEW_REQUIRED",
+  "live_nav_sha256": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8",
+  "live_routines_sha256": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a",
+  "live_f01_fixture_sha256": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f",
+  "scope": "outside-game proposal; static derivation only; no engine or source mutation",
+  "derivation": {
+    "public_leg_length_m": 0.9410765112359359,
+    "maximum_m": 1.25,
+    "capsule": [
+      0.33,
+      1.65,
+      0.825
+    ],
+    "actual_body": [
+      0.28,
+      1.55,
+      0.775
+    ],
+    "cap_centre_distances": [
+      0.05,
+      0.05
+    ],
+    "max_support_samples": 72
+  },
+  "files": [
+    {
+      "path": "direct_segment_helpers.gd.txt",
+      "sha256": "4e0859f6fed42e24222416b2efb698a110fa1430ad53578f4af555a8bf980210",
+      "bytes": 4273
+    },
+    {
+      "path": "originals/game/scripts/characters/resident_nav.gd",
+      "sha256": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8",
+      "bytes": 28375
+    },
+    {
+      "path": "patch_validation.json",
+      "sha256": "c0e971043eace16580772bae581fa31314a88e16f1fc308f079154286ce53bbc",
+      "bytes": 706
+    },
+    {
+      "path": "proposal.patch",
+      "sha256": "247d52563413b49a6b84cab3c5c3a53c32102ec9d7a77d03f62e6721f5a23cca",
+      "bytes": 15649
+    },
+    {
+      "path": "proposed/game/scripts/characters/resident_nav.gd",
+      "sha256": "9e0840a037ef8c2a10e394eeba8a1539cc29d8e7c4b34926b232942a94687f44",
+      "bytes": 33244
+    },
+    {
+      "path": "proposed/game/tests/resident_nav_direct_segment_test.gd",
+      "sha256": "935fde1a25cb972b0ce6e969830d25633d16cd9af119103b2fb97a5d0b571e09",
+      "bytes": 8151
+    },
+    {
+      "path": "proposed/game/tests/ResidentNavDirectSegmentTest.tscn",
+      "sha256": "2efa1804cda593dbd019d0815051670b00257ae0e11e7b00cf1ee7247947fa99",
+      "bytes": 209
+    },
+    {
+      "path": "README.md",
+      "sha256": "2a57572d2cf67ebc2d96e9b664fa27aed62070bb2c40e4c489aa5e18dff041d7",
+      "bytes": 7173
+    },
+    {
+      "path": "resident_nav_direct_segment.patch",
+      "sha256": "d731c4dff10906d7bb881de857df8c21d758d3473dfab7a237b6575bcb815788",
+      "bytes": 6927
+    }
+  ]
+}

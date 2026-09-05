@@ -1,0 +1,316 @@
+class_name PoltergeistLibrary
+## Eighteen personalities, ONE thing wearing them. See ORISON_BIBLE III.1.
+##
+## This file used to open "one poltergeist per resident", which described the
+## data accurately and the fiction wrongly. There is one tenant, it is the
+## building, and what a resident calls their poltergeist is the Orison paying
+## attention to them while wearing their shadow. Nothing below changes shape as
+## a result - each entry was always derived from its resident's own case, which
+## is exactly what "wears the subject's shadow" means in practice - but the
+## entries are costumes, not creatures, and the difference matters at three
+## points: they are never defeated, only satisfied; an unresolved one is fair
+## game anywhere in the building including the dream; and none of them may ever
+## be given a form of its own.
+##
+## What it wants is in III.1 too, and it governs every escalation decision here:
+## it is trying to make the subject face themselves, and it climbs the ladder
+## because the last rung did not land.
+##
+## Every personality here is derived from that resident's case in
+## `reality_cases.json` — its manifestation, its resolution flags, its portal
+## rule. Nothing is invented. Mina's case says captions escalate from nouns
+## to false claims about thoughts; so her poltergeist annotates, and what it
+## eventually annotates is the player. Omar's says every repaired object
+## returns with another impossible fault; so his breaks what you have just
+## seen working. The haunting IS the wound, restated until it is legible.
+##
+## That is the design rule, and it is what separates this from a jump-scare
+## generator: an intrusion is only allowed if it is a sentence about the
+## person whose apartment it happens in. The escalation ladder is the
+## argument being made more plainly each time —
+##
+##   tell      an anomaly small enough to be dismissed
+##   pattern   the same anomaly, repeating, no longer dismissible
+##   reenact   the trauma staged in the room, using the room
+##   address   it stops performing and speaks to the player directly
+##
+## The address rung is the point of the whole system. It is where the
+## haunting says the thing the resident cannot, and it is deliberately the
+## rarest — a poltergeist that explains itself every ten minutes is a
+## chatterbox, not a wound. The director spends a long time on rungs one and
+## two so that rung four lands.
+##
+## An act is [kind, argument]. The executors are in `intrusions.gd`; the
+## meta-layer kinds are in `fourth_wall.gd`. Anything an act touches must be
+## restorable, because a poltergeist is a state the building passes through,
+## not damage it keeps.
+
+const POLTERGEISTS := {
+"mina_caption_crisis": {
+	"unit": "2A", "resident": "Mina Vale",
+	"wound": "Everything she is must be annotated, or it does not count.",
+	"tell": [["prop_turn", 1], ["whisper", "…correction. correction."]],
+	"pattern": [["caption_room", 3], ["light_flicker", "stutter"]],
+	"reenact": [["caption_room", 6], ["prop_turn", 3],
+			["whisper", "the record shows you paused here."]],
+	"address": [["caption_player", 4]],
+	"voice": "[SUBJECT DECLINES TO STATE WHAT HE IS FEELING]",
+},
+"juno_feedback_tetris": {
+	"unit": "2C", "resident": "Juno Kells",
+	"wound": "Her work was taken, so she takes, and calls it collaboration.",
+	"tell": [["sound", "hum"], ["light_flicker", "beat"]],
+	"pattern": [["motif_mutate", 1], ["prop_drift", 2]],
+	"reenact": [["sound", "hum"], ["motif_mutate", 2],
+			["whisper", "that was my part. that was MY part."]],
+	"address": [["fourth_wall", "second_operator"]],
+	"voice": "Somebody else is already answering in this channel.",
+},
+"omar_unrepairable": {
+	"unit": "3B", "resident": "Omar Bell",
+	"wound": "If he cannot fix it, he failed it. There is no third option.",
+	"tell": [["prop_tremble", 2]],
+	"pattern": [["prop_fault", 2], ["sound", "knock"]],
+	"reenact": [["prop_fault", 4], ["prop_fall", 1],
+			["whisper", "i just had that working. i just HAD that working."]],
+	"address": [["fourth_wall", "unrepairable_notice"]],
+	"voice": "Some things are not repairable. You are allowed to say so.",
+},
+"rhea_bad_karaoke": {
+	"unit": "3D", "resident": "Rhea Sato",
+	"wound": "Every involuntary sound she makes is evidence against her.",
+	"tell": [["sound", "breath"]],
+	"pattern": [["sound", "breath"], ["light_flicker", "swell"]],
+	"reenact": [["whisper", "you made a noise. everyone heard it."],
+			["sound", "breath"], ["prop_turn", 4]],
+	"address": [["fourth_wall", "mic_hot"]],
+	"voice": "Your microphone has been open this entire time.",
+},
+"nadia_code_pinball": {
+	"unit": "5A", "resident": "Nadia Quell",
+	"wound": "She was made to sign off on something she knew was unsafe.",
+	"tell": [["light_flicker", "fault"]],
+	"pattern": [["distort", "folded"], ["prop_turn", 2]],
+	"reenact": [["distort", "fractured"],
+			["whisper", "the egress was compliant on paper."]],
+	"address": [["fourth_wall", "violation_notice"]],
+	"voice": "OCCUPANCY EXCEEDED. THIS FLOOR HAS NO SECOND EXIT.",
+},
+"sacha_camera_delay": {
+	"unit": "6A", "resident": "Sacha Reed",
+	"wound": "Nothing that happened to them counts until it is documented.",
+	"tell": [["sound", "shutter"]],
+	"pattern": [["prop_turn", 3], ["sound", "shutter"]],
+	"reenact": [["fourth_wall", "photo_behind"],
+			["whisper", "wait — do that again, i wasn't recording."]],
+	"address": [["fourth_wall", "session_time"]],
+	"voice": "You have been on the line for %d minutes. Nobody has verified that.",
+},
+"evelyn_paper_jam": {
+	"unit": "1A", "resident": "Evelyn Marsh",
+	"wound": "Care and control became the same reflex, and it never switches off.",
+	"tell": [["prop_drift", 1]],
+	"pattern": [["caption_room", 2], ["prop_turn", 2]],
+	"reenact": [["caption_room", 4],
+			["whisper", "this is nearly right. do it once more."]],
+	"address": [["fourth_wall", "graded"]],
+	"voice": "SEE ME.",
+},
+"teresa_call_bells": {
+	"unit": "1D", "resident": "Teresa Vale",
+	"wound": "She rested once, and someone died, and the bell never stopped.",
+	"tell": [["sound", "bell"]],
+	"pattern": [["sound", "bell"], ["light_flicker", "stutter"]],
+	"reenact": [["sound", "bell"], ["prop_tremble", 3],
+			["whisper", "somebody is calling. it isn't your shift."]],
+	"address": [["fourth_wall", "alarm"]],
+	"voice": "Not every alarm is yours.",
+},
+"lena_unraveling": {
+	"unit": "2B", "resident": "Lena Ortiz",
+	"wound": "She is loved for being useful, so she must never stop mending.",
+	"tell": [["prop_drift", 1]],
+	"pattern": [["prop_drift", 3], ["light_flicker", "swell"]],
+	"reenact": [["prop_scatter", 5],
+			["whisper", "if i put it all back, will you stay."]],
+	"address": [["fourth_wall", "unravel_ui"]],
+	"voice": "A visible repair is still a repair.",
+},
+"malcolm_memory_plants": {
+	"unit": "3A", "resident": "Malcolm Reed",
+	"wound": "He kept a cutting alive so the goodbye would not finish.",
+	"tell": [["sound", "leaves"]],
+	"pattern": [["prop_drift", 2], ["whisper", "…say it again."]],
+	"reenact": [["sound", "leaves"], ["light_follow", 1],
+			["whisper", "one more time. just the last part."]],
+	"address": [["fourth_wall", "replay_last"]],
+	"voice": "Compost is transformation. You are allowed to let it finish.",
+},
+"peter_form_corridor": {
+	"unit": "4A", "resident": "Peter Wren",
+	"wound": "He was brave once, imperfectly, and has been filing about it since.",
+	"tell": [["prop_turn", 1]],
+	"pattern": [["distort", "accordion"], ["prop_drift", 2]],
+	"reenact": [["distort", "accordion"],
+			["whisper", "pending further information. pending. pending."]],
+	"address": [["fourth_wall", "consent_form"]],
+	"voice": "PROCEEDING WITHOUT COMPLETE INFORMATION — ACKNOWLEDGE",
+},
+"cam_tilted_room": {
+	"unit": "4C", "resident": "Cam Ortiz",
+	"wound": "If he stops moving the crash catches up, so he never stops.",
+	"tell": [["prop_tremble", 1]],
+	"pattern": [["distort", "breathing"], ["prop_drift", 2]],
+	"reenact": [["distort", "upside_down"], ["prop_fall", 2],
+			["whisper", "don't stand still. please don't stand still."]],
+	"address": [["fourth_wall", "stillness"]],
+	"voice": "Weight can be shared. You can put it down.",
+},
+"noel_domestic_museum": {
+	"unit": "4C", "resident": "Noel Price",
+	"wound": "He preserved his family so carefully that nobody may touch it.",
+	"tell": [["prop_turn", 2]],
+	"pattern": [["museum_label", 3]],
+	"reenact": [["museum_label", 6],
+			["whisper", "please do not handle. please do not handle."]],
+	"address": [["fourth_wall", "accession"]],
+	"voice": "ACCESSION 1927.4C.1 — DOMESTIC LIFE, UNUSED, EXCELLENT CONDITION",
+},
+"transient_infinite_checkout": {
+	"unit": "4D", "resident": "Transient Guests",
+	"wound": "Leaving forever is how they avoid ever deciding to leave.",
+	"tell": [["prop_drift", 1]],
+	"pattern": [["distort", "dollhouse"], ["sound", "knock"]],
+	"reenact": [["distort", "dollhouse"], ["prop_vanish", 3],
+			["whisper", "checkout is at eleven. checkout is at eleven."]],
+	"address": [["fourth_wall", "checkout"]],
+	"voice": "YOUR STAY HAS BEEN EXTENDED INDEFINITELY. NO ACTION REQUIRED.",
+},
+"cal_memory_radio": {
+	"unit": "5B", "resident": "Cal Dwyer",
+	"wound": "He tuned a moment so finely that it can never be allowed to end.",
+	"tell": [["sound", "static"]],
+	"pattern": [["sound", "static"], ["light_flicker", "fault"]],
+	# His case is a radio receiving expired moments, so the building's own
+	# broadcast is the instrument closest to hand: every set in the Orison
+	# stops carrying the programme at once.
+	"reenact": [["tv_infect", 14.0], ["motif_mutate", 1],
+			["whisper", "hold it there. don't move the dial."]],
+	"address": [["fourth_wall", "previous_session"]],
+	"voice": "RESUMING PLAYBACK FROM A SESSION THAT HAS NOT HAPPENED",
+},
+"iris_runaway_paint": {
+	"unit": "5C", "resident": "Iris Bell",
+	"wound": "An imagined audience holds the brush, and it is never satisfied.",
+	"tell": [["light_flicker", "swell"]],
+	"pattern": [["prop_turn", 4], ["light_follow", 1]],
+	"reenact": [["prop_turn", 6], ["light_follow", 1],
+			["whisper", "they're watching you look at it."]],
+	"address": [["fourth_wall", "audience"]],
+	"voice": "Creation need not perform. Nobody is scoring this.",
+},
+"jonah_sentence_insects": {
+	"unit": "6B", "resident": "Jonah Price",
+	"wound": "He cannot write the ending, so the ending has started biting.",
+	"tell": [["whisper", "…and then he"]],
+	"pattern": [["word_loss", 2], ["sound", "skitter"]],
+	"reenact": [["word_loss", 4], ["prop_tremble", 3],
+			["whisper", "i never finished the"]],
+	"address": [["fourth_wall", "unfinished"]],
+	"voice": "Endings do not erase continuation. Write it badly and let it end.",
+},
+"mae_contradictory_antiques": {
+	"unit": "6C", "resident": "Mae Kessler",
+	"wound": "Two true versions of her family cannot both be survivable.",
+	"tell": [["prop_turn", 1]],
+	# Two histories, and an object that is in both and neither: it is gone
+	# when you look away and back, which is the shape of her whole problem.
+	"pattern": [["museum_label", 2], ["prop_vanish", 2]],
+	"reenact": [["museum_label", 4],
+			["whisper", "both of those happened. both of them."]],
+	"address": [["fourth_wall", "provenance"]],
+	"voice": "SAVE ORIGIN DISPUTED — TWO HISTORIES ON FILE — BOTH RETAINED",
+},
+}
+
+## The quiet tell each resident carries around before their case is active.
+## These are deliberately domestic and deniable: one sound is plumbing; a
+## recurring personal rhythm is a presence. They cease only at resolution.
+const SIGNATURES := {
+	"mina_caption_crisis": {"thing":"the label-maker click", "sound":"pop", "pitch":1.34, "pattern":2},
+	"juno_feedback_tetris": {"thing":"three beats seeking a fourth", "sound":"tick", "pitch":0.82, "pattern":3},
+	"omar_unrepairable": {"thing":"the answering radiator", "sound":"tick", "pitch":0.91, "pattern":2, "radiator":true},
+	"rhea_bad_karaoke": {"thing":"a breath held past comfort", "sound":"breath", "pitch":1.05, "pattern":1},
+	"nadia_code_pinball": {"thing":"the breaker that almost trips", "sound":"power_down", "pitch":1.12, "pattern":1},
+	"sacha_camera_delay": {"thing":"a shutter after the moment", "sound":"pop", "pitch":1.58, "pattern":1, "delay":0.9},
+	"evelyn_paper_jam": {"thing":"the red pen correcting the wall", "sound":"creak", "pitch":1.42, "pattern":2},
+	"teresa_call_bells": {"thing":"the unanswered call bell", "sound":"bell", "pitch":1.18, "pattern":1},
+	"lena_unraveling": {"thing":"thread pulled through plaster", "sound":"creak", "pitch":1.68, "pattern":3},
+	"malcolm_memory_plants": {"thing":"leaves moving in a sealed room", "sound":"creak", "pitch":0.72, "pattern":1},
+	"peter_form_corridor": {"thing":"a stamp in the next room", "sound":"thud", "pitch":1.48, "pattern":2},
+	"cam_tilted_room": {"thing":"furniture settling uphill", "sound":"thud", "pitch":0.78, "pattern":1},
+	"noel_domestic_museum": {"thing":"glass touched from inside", "sound":"tick", "pitch":1.72, "pattern":1},
+	"transient_infinite_checkout": {"thing":"luggage beyond the door", "sound":"door_squeak", "pitch":0.76, "pattern":1},
+	"cal_memory_radio": {"thing":"a station between stations", "sound":"radiator_whistle", "pitch":0.88, "pattern":1},
+	"iris_runaway_paint": {"thing":"a frame adjusting itself", "sound":"tick", "pitch":1.21, "pattern":2},
+	"jonah_sentence_insects": {"thing":"one insect behind the baseboard", "sound":"tick", "pitch":1.86, "pattern":4},
+	"mae_contradictory_antiques": {"thing":"two clocks disagreeing", "sound":"tick", "pitch":0.67, "pattern":2, "alternate_pitch":1.41},
+}
+
+## How each wound recruits the rest of the building. `carrier` determines
+## what can catch it; `pattern` determines the visible order of infection.
+## The hint is diegetic design guidance: each rule leaves evidence from which
+## a player can infer what will be struck next.
+const PROPAGATION := {
+	"mina_caption_crisis": {"carrier":"tokens", "tokens":["MONITOR", "LIGHT", "DOME", "SCONCE"], "pattern":"ascending", "step":0.16, "hint":"screens name a thing; the nearest light repeats the name"},
+	"juno_feedback_tetris": {"carrier":"tokens", "tokens":["SPEAKER", "MONITOR", "BOXFAN"], "pattern":"echo", "step":0.28, "echoes":2, "hint":"each open audio channel copies the previous channel one beat late"},
+	"omar_unrepairable": {"carrier":"tokens", "tokens":["RADIATOR", "TOASTER", "FRIDGE", "WASHER", "DRYER", "BOILER"], "pattern":"handoff", "step":0.42, "limit":14, "hint":"a new fault appears in the next repairable machine after the last is touched"},
+	"rhea_bad_karaoke": {"carrier":"network", "networks":["flue", "heating"], "pattern":"return_wave", "step":0.22, "hint":"breath climbs the flues and returns from the floor above"},
+	"nadia_code_pinball": {"carrier":"tokens", "tokens":["CORR", "ELEVATOR", "STAIR", "DOME"], "pattern":"egress", "step":0.12, "hint":"exit-route fixtures fail in code-compliance order"},
+	"sacha_camera_delay": {"carrier":"tokens", "tokens":["MONITOR", "CAMERA", "TV"], "pattern":"delayed_floor", "step":0.34, "base_delay":1.1, "hint":"the recorded floor reacts only after the live floor has gone quiet"},
+	"evelyn_paper_jam": {"carrier":"unit_stack", "stack":"A", "pattern":"ascending", "step":0.24, "hint":"the same apartment letter is graded upward, floor by floor"},
+	"teresa_call_bells": {"carrier":"tokens", "tokens":["ELEVATOR", "BELL", "CORR", "DOME"], "pattern":"triage", "step":0.18, "echoes":3, "hint":"the closest unanswered alarm rings first; ignored alarms recruit farther ones"},
+	"lena_unraveling": {"carrier":"network", "networks":["structural"], "pattern":"seam", "step":0.30, "hint":"the crack follows one continuous structural seam and never jumps a gap"},
+	"malcolm_memory_plants": {"carrier":"network", "networks":["water", "heating"], "pattern":"graft", "step":0.38, "hint":"water feeds heat; each successful crossing grows one new remembered branch"},
+	"peter_form_corridor": {"carrier":"tokens", "tokens":["CORR", "DOME", "ELEVATOR"], "pattern":"duplicate", "step":0.20, "echoes":2, "hint":"every doorway duplicates the pending route instead of completing it"},
+	"cam_tilted_room": {"carrier":"network", "networks":["structural"], "pattern":"gravity_wave", "step":0.14, "hint":"the lowest structural member tips first and the incline climbs"},
+	"noel_domestic_museum": {"carrier":"same_type", "pattern":"accession", "step":0.44, "limit":12, "hint":"matching objects are accessioned oldest-floor-first"},
+	"transient_infinite_checkout": {"carrier":"tokens", "tokens":["CORR", "ELEVATOR", "DOME"], "pattern":"round_trip", "step":0.17, "hint":"the checkout wave descends toward the lobby, then comes back upstairs"},
+	"cal_memory_radio": {"carrier":"tokens", "tokens":["SPEAKER", "MONITOR", "TV", "RADIATOR", "INTERCOM"], "pattern":"frequency_hop", "step":0.31, "hint":"the station alternates electrical receivers and heating pipes"},
+	"iris_runaway_paint": {"carrier":"tokens", "tokens":["LIGHT", "LAMP", "SCONCE", "DOME", "PENDANT"], "pattern":"spiral", "step":0.11, "hint":"light changes circle the building clockwise like an audience turning its heads"},
+	"jonah_sentence_insects": {"carrier":"tokens", "tokens":["RADIATOR", "STRUCT", "DOME"], "pattern":"missing_word", "step":0.13, "skip_every":4, "hint":"three nodes speak and the fourth—the ending—is always missing"},
+	"mae_contradictory_antiques": {"carrier":"unit_mirror", "pattern":"contradiction", "step":0.19, "echoes":2, "hint":"opposite apartments report the same event in reverse order"},
+}
+
+
+static func ids() -> Array:
+	return POLTERGEISTS.keys()
+
+
+static func profile(case_id: String) -> Dictionary:
+	return POLTERGEISTS.get(case_id, {})
+
+
+## The ladder in order, so the director can index a rung by tier 1-4 without
+## caring what any of them contain.
+static func rung(case_id: String, tier: int) -> Array:
+	var p := profile(case_id)
+	if p.is_empty():
+		return []
+	match clampi(tier, 1, 4):
+		1: return p.tell
+		2: return p.pattern
+		3: return p.reenact
+		_: return p.address
+
+
+static func unit_of(case_id: String) -> String:
+	return profile(case_id).get("unit", "")
+
+
+static func signature(case_id: String) -> Dictionary:
+	return SIGNATURES.get(case_id, {})
+
+
+static func propagation(case_id: String) -> Dictionary:
+	return PROPAGATION.get(case_id, {})

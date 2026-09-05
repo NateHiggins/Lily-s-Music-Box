@@ -1,0 +1,43 @@
+{
+  "status": "UNAPPLIED_OFFLINE_CLASSIFICATION_PROPOSAL",
+  "candidate_sha256": "0d99a12d958fd2172d1f8643c9f033c3027ef3f4a494a3d6884abeb062114fc2",
+  "active_sha256": "e181f00c23fdde43ed8072e18d6b6f82312d23904c8c1ebd0415580853eeb5ad",
+  "files": [
+    {
+      "path": "haunt_control.py",
+      "sha256": "0d99a12d958fd2172d1f8643c9f033c3027ef3f4a494a3d6884abeb062114fc2"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0184762d5c4eb986671ab823e7e54039da6975e166c3a56331af4a14856c5521"
+    },
+    {
+      "path": "test_haunt_control.py",
+      "sha256": "770862ed8364db362ae750a70dd813a6a007ec32133ec3df0f8cd94f1180f28e"
+    },
+    {
+      "path": "test_known_warning.py",
+      "sha256": "ca727c6018919d531d12b03d643e477d47fec1859cb8468f8496423bc925ee7d"
+    },
+    {
+      "path": "validation_01/observed_warning_debt.json",
+      "sha256": "0e0859893bb4e9101be01bf5a0b7e5145a7868ae0bd7b7351dfd9bd20e217a13"
+    },
+    {
+      "path": "validation_01/stderr.log",
+      "sha256": "f69d643e34f35dffc3e7a02e9e982bd7af89579bce6c50399dadd91535fc9671"
+    },
+    {
+      "path": "validation_01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation_01/validation.json",
+      "sha256": "1d8a9c539619176eec9997fc2feb5c2404ac92d3b89fdaacd748762159fef68a"
+    },
+    {
+      "path": "warning_classification.patch",
+      "sha256": "4bd7a001f7ac6eb214e90023b283967cb218b3acd9d86c99119fc44fa455fbc6"
+    }
+  ]
+}

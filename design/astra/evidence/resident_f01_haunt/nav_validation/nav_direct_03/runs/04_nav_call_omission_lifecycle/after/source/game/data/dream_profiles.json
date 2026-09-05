@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "mina_release_print": {
+      "case_id": "mina_caption_crisis",
+      "campaign_slot": 1,
+      "onset": {
+        "allowed_forms": [
+          "gradual"
+        ],
+        "gradual_seconds": 2.6
+      },
+      "pursuit": {
+        "silhouette_resident": "mina_vale",
+        "lit_speed_mps": 3.35,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.35,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.72,
+        "hearing_period_jitter_s": 0.08,
+        "capture_radius_m": 0.75
+      },
+      "hazards": {
+        "allow": [
+          "open_lift_void",
+          "vantry_signal_trunk",
+          "hollow_runner"
+        ],
+        "tuning": {
+          "open_lift_void": {
+            "outcome": "fall",
+            "caption": "CHAIN BELOW"
+          },
+          "vantry_signal_trunk": {
+            "outcome": "contact",
+            "caption": "TRUNK HISS",
+            "condition": "lamp_on"
+          },
+          "hollow_runner": {
+            "outcome": "",
+            "caption": "DRY CREAK",
+            "condition": "running",
+            "break_speed_mps": 3.8
+          }
+        }
+      },
+      "maze": {},
+      "truth": {
+        "rule_id": "silence_without_annotation",
+        "statement": "Silence does not require annotation"
+      },
+      "presentation": {
+        "incarnation_id": "mina",
+        "production_enabled": true,
+        "palette": [2, -0.08, 0.05, 0.15],
+        "pattern": [1, 1.12, 0.86, 1.18],
+        "irradiance": [0.88, 1.08, 1.12, 0.82],
+        "motion": [0.07, 0.18, 0.72, 0.36],
+        "signature": {"id": "blank_mercy", "threshold": 0.78, "strength": 0.72},
+        "substance_keys": [
+          "T_ai_dream_mina_ink_fiber",
+          "T_ai_dream_mina_erased_stock",
+          "T_ai_dream_mina_gilt_edge",
+          "T_ai_dream_mina_lens_membrane"
+        ],
+        "fauna": [
+          {"family": "buttons", "pattern": 1, "jewel_token": 0, "substance_slot": 2, "response": 0.86},
+          {"family": "tessellates", "pattern": 1, "jewel_token": 2, "substance_slot": 0, "response": 1.02},
+          {"family": "anemones", "pattern": 1, "jewel_token": 2, "substance_slot": 0, "response": 0.94},
+          {"family": "ribbonettes", "pattern": 1, "jewel_token": 2, "substance_slot": 1, "response": 0.88},
+          {"family": "loupe", "pattern": 1, "jewel_token": 1, "substance_slot": 3, "response": 0.82}
+        ]
+      }
+    },
+    "peter_release_print": {
+      "case_id": "peter_form_corridor",
+      "campaign_slot": 2,
+      "onset": {
+        "allowed_forms": [
+          "gradual",
+          "sudden"
+        ],
+        "gradual_seconds": 2.2,
+        "sudden_seconds": 0.65
+      },
+      "pursuit": {
+        "silhouette_resident": "peter_wren",
+        "lit_speed_mps": 3.2,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.1,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.58,
+        "hearing_period_jitter_s": 0.06,
+        "capture_radius_m": 0.75,
+        "attention_event": "junction_reverse"
+      },
+      "hazards": {
+        "allow": [],
+        "tuning": {}
+      },
+      "maze": {
+        "junction_reverse_event": "junction_reverse",
+        "junction_min_doors": 3,
+        "doors_added": 1
+      },
+      "truth": {
+        "rule_id": "proceed_uncertain",
+        "statement": "Uncertainty does not prevent action"
+      },
+      "presentation": {
+        "incarnation_id": "peter",
+        "production_enabled": true,
+        "palette": [1, -0.03, -0.08, 0.28],
+        "pattern": [2, 0.92, 1.18, 0.88],
+        "irradiance": [1.04, 0.92, 1.16, 1.24],
+        "motion": [0.055, 0.12, 0.64, 0.52],
+        "signature": {"id": "decision_route", "threshold": 0.74, "strength": 0.78},
+        "substance_keys": [
+          "T_ai_dream_peter_ledger_stock",
+          "T_ai_dream_peter_stamp_pad",
+          "T_ai_dream_peter_carbon_copy",
+          "T_ai_dream_peter_brass_fastener"
+        ],
+        "fauna": [
+          {"family": "buttons", "pattern": 2, "jewel_token": 1, "substance_slot": 3, "response": 0.92},
+          {"family": "tessellates", "pattern": 2, "jewel_token": 1, "substance_slot": 0, "response": 1.08},
+          {"family": "anemones", "pattern": 2, "jewel_token": 1, "substance_slot": 1, "response": 0.96},
+          {"family": "ribbonettes", "pattern": 2, "jewel_token": 2, "substance_slot": 2, "response": 0.94},
+          {"family": "loupe", "pattern": 2, "jewel_token": 1, "substance_slot": 3, "response": 0.84}
+        ]
+      }
+    },
+    "juno_release_print": {
+      "case_id": "juno_feedback_tetris",
+      "campaign_slot": 3,
+      "onset": {"allowed_forms": ["gradual", "sudden"], "gradual_seconds": 2.4, "sudden_seconds": 0.7},
+      "pursuit": {
+        "silhouette_resident": "juno_kells",
+        "lit_speed_mps": 3.25,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.2,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.52,
+        "hearing_period_jitter_s": 0.06,
+        "capture_radius_m": 0.75,
+        "attention_event": "channel_echo_congealed"
+      },
+      "hazards": {"allow": [], "tuning": {}},
+      "maze": {
+        "channel_echo_event": "channel_echo_congealed",
+        "echo_delay_s": 4.166667,
+        "settle_after_s": 6.583333,
+        "max_partitions": 3
+      },
+      "truth": {"rule_id": "open_channel", "statement": "Connection requires an open channel"},
+      "presentation": {
+        "incarnation_id": "juno",
+        "production_enabled": true,
+        "palette": [2, 0.04, -0.06, 0.22],
+        "pattern": [3, 1.28, 0.82, 1.42],
+        "irradiance": [0.94, 1.18, 1.04, 0.72],
+        "motion": [0.12, 0.76, 0.48, 0.64],
+        "signature": {"id": "standing_wave", "threshold": 0.72, "strength": 0.68},
+        "substance_keys": [
+          "T_ai_dream_juno_speaker_cloth",
+          "T_ai_dream_juno_oxidized_brass",
+          "T_ai_dream_juno_diaphragm",
+          "T_ai_dream_juno_bakelite"
+        ],
+        "fauna": [
+          {"family": "buttons", "pattern": 3, "jewel_token": 0, "substance_slot": 1, "response": 0.88},
+          {"family": "tessellates", "pattern": 3, "jewel_token": 0, "substance_slot": 0, "response": 1.10},
+          {"family": "anemones", "pattern": 3, "jewel_token": 2, "substance_slot": 2, "response": 1.02},
+          {"family": "ribbonettes", "pattern": 3, "jewel_token": 2, "substance_slot": 1, "response": 1.12},
+          {"family": "loupe", "pattern": 3, "jewel_token": 1, "substance_slot": 0, "response": 0.86}
+        ]
+      }
+    },
+    "mae_release_print": {
+      "case_id": "mae_contradictory_antiques",
+      "campaign_slot": 4,
+      "onset": {"allowed_forms": ["gradual", "sudden"], "gradual_seconds": 2.3, "sudden_seconds": 0.68},
+      "pursuit": {
+        "silhouette_resident": "mae_kessler",
+        "lit_speed_mps": 3.18,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.05,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.66,
+        "hearing_period_jitter_s": 0.07,
+        "capture_radius_m": 0.75,
+        "attention_event": "contradictory_return"
+      },
+      "hazards": {"allow": [], "tuning": {}},
+      "maze": {
+        "convergence_return_event": "contradictory_return",
+        "convergence_min_doors": 3,
+        "provenances": ["ESTATE RECORD — 1912", "FAMILY TESTIMONY — 1928"]
+      },
+      "truth": {"rule_id": "contradiction_survivable", "statement": "Contradiction is survivable"},
+      "presentation": {
+        "incarnation_id": "mae",
+        "production_enabled": true,
+        "palette": [0, 0.02, 0.02, 0.34],
+        "pattern": [4, 0.84, 1.06, 1.34],
+        "irradiance": [0.92, 1.12, 0.96, 1.36],
+        "motion": [0.08, 0.42, 0.82, 0.74],
+        "signature": {"id": "double_reflection", "threshold": 0.76, "strength": 0.66},
+        "substance_keys": [
+          "T_ai_dream_mae_lacquer_craquelure",
+          "T_ai_dream_mae_marquetry_grain",
+          "T_ai_dream_mae_foxed_label_stock",
+          "T_ai_dream_mae_aged_glass"
+        ],
+        "fauna": [
+          {"family": "buttons", "pattern": 4, "jewel_token": 0, "substance_slot": 1, "response": 0.90},
+          {"family": "tessellates", "pattern": 4, "jewel_token": 0, "substance_slot": 1, "response": 1.04},
+          {"family": "anemones", "pattern": 4, "jewel_token": 2, "substance_slot": 0, "response": 0.98},
+          {"family": "ribbonettes", "pattern": 4, "jewel_token": 2, "substance_slot": 2, "response": 1.06},
+          {"family": "loupe", "pattern": 4, "jewel_token": 1, "substance_slot": 3, "response": 0.84}
+        ]
+      }
+    },
+    "cal_release_print": {
+      "case_id": "cal_memory_radio",
+      "campaign_slot": 5,
+      "onset": {"allowed_forms": ["gradual", "sudden"], "gradual_seconds": 2.5, "sudden_seconds": 0.72},
+      "pursuit": {
+        "silhouette_resident": "cal_dwyer",
+        "lit_speed_mps": 3.12,
+        "lit_speed_jitter_mps": 0.07,
+        "dark_speed_mps": 5.92,
+        "dark_speed_jitter_mps": 0.11,
+        "hearing_period_s": 0.82,
+        "hearing_period_jitter_s": 0.08,
+        "capture_radius_m": 0.75,
+        "attention_event": "broadcast_handoff"
+      },
+      "hazards": {"allow": [], "tuning": {}},
+      "maze": {
+        "broadcast_handoff_event": "broadcast_handoff",
+        "broadcast_max_handoffs": 4
+      },
+      "truth": {"rule_id": "presence_not_preservation", "statement": "Presence is not preservation"},
+      "presentation": {
+        "incarnation_id": "cal",
+        "production_enabled": true,
+        "palette": [1, 0.06, -0.04, 0.30],
+        "pattern": [5, 1.04, 0.90, 1.22],
+        "irradiance": [0.96, 1.16, 1.02, 1.18],
+        "motion": [0.06, 0.34, 0.70, 0.62],
+        "signature": {"id": "completed_phrase", "threshold": 0.75, "strength": 0.74},
+        "substance_keys": [
+          "T_ai_dream_cal_dial_glass",
+          "T_ai_dream_cal_bakelite",
+          "T_ai_dream_cal_wax_groove",
+          "T_ai_dream_cal_valve_mica"
+        ],
+        "fauna": [
+          {"family": "buttons", "pattern": 5, "jewel_token": 1, "substance_slot": 3, "response": 0.90},
+          {"family": "tessellates", "pattern": 5, "jewel_token": 1, "substance_slot": 1, "response": 1.06},
+          {"family": "anemones", "pattern": 5, "jewel_token": 2, "substance_slot": 2, "response": 0.98},
+          {"family": "ribbonettes", "pattern": 5, "jewel_token": 2, "substance_slot": 3, "response": 1.08},
+          {"family": "loupe", "pattern": 5, "jewel_token": 1, "substance_slot": 0, "response": 0.86}
+        ]
+      }
+    },
+    "omar_release_print": {
+      "case_id": "omar_unrepairable",
+      "campaign_slot": 6,
+      "onset": {"allowed_forms": ["gradual", "sudden"], "gradual_seconds": 2.1, "sudden_seconds": 0.64},
+      "pursuit": {
+        "silhouette_resident": "omar_bell",
+        "lit_speed_mps": 3.28,
+        "lit_speed_jitter_mps": 0.08,
+        "dark_speed_mps": 6.18,
+        "dark_speed_jitter_mps": 0.12,
+        "hearing_period_s": 0.61,
+        "hearing_period_jitter_s": 0.06,
+        "capture_radius_m": 0.75
+      },
+      "hazards": {"allow": [], "tuning": {}},
+      "maze": {"revisit_fault_event": "impossible_fault_revealed"},
+      "truth": {"rule_id": "some_things_unrepairable", "statement": "Some things are not repairable"},
+      "presentation": {
+        "incarnation_id": "omar",
+        "production_enabled": true,
+        "palette": [2, -0.02, 0.05, 0.24],
+        "pattern": [6, 1.16, 0.86, 1.38],
+        "irradiance": [0.90, 1.14, 1.08, 1.42],
+        "motion": [0.075, 0.52, 0.78, 0.70],
+        "signature": {"id": "honest_seam", "threshold": 0.77, "strength": 0.76},
+        "substance_keys": [
+          "T_ai_dream_omar_tool_steel",
+          "T_ai_dream_omar_fatigue_fracture",
+          "T_ai_dream_omar_solder_alloy",
+          "T_ai_dream_omar_workshop_enamel"
+        ],
+        "fauna": [
+          {"family": "buttons", "pattern": 6, "jewel_token": 1, "substance_slot": 2, "response": 0.90},
+          {"family": "tessellates", "pattern": 6, "jewel_token": 2, "substance_slot": 0, "response": 1.08},
+          {"family": "anemones", "pattern": 6, "jewel_token": 2, "substance_slot": 1, "response": 1.04},
+          {"family": "ribbonettes", "pattern": 6, "jewel_token": 1, "substance_slot": 2, "response": 1.10},
+          {"family": "loupe", "pattern": 6, "jewel_token": 1, "substance_slot": 3, "response": 0.88}
+        ]
+      }
+    }
+  }
+}

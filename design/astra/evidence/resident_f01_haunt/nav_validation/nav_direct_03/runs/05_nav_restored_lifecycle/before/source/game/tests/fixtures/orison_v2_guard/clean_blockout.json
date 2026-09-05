@@ -1,0 +1,478 @@
+{
+ "schema_version": 1,
+ "layout_id": "orison_v2_guard_fixture_01",
+ "status": "test fixture",
+ "production_default": false,
+ "orientation": {
+  "north": "+z",
+  "east": "+x",
+  "up": "+y"
+ },
+ "dimensions": {
+  "outer_bounds": [
+   -10.0,
+   -9.0,
+   10.0,
+   7.0
+  ],
+  "floor_to_floor": 3.2,
+  "clear_height": 3.0,
+  "slab_thickness": 0.2,
+  "outer_wall": 0.35,
+  "core_wall": 0.25,
+  "partition_wall": 0.14
+ },
+ "palette": {
+  "public": "8f918e",
+  "private": "a58d68",
+  "service": "667c86",
+  "wet": "4e9ca0",
+  "core": "3e4347",
+  "opening": "e9ece8",
+  "clearance": "5da66b",
+  "interaction": "b04491",
+  "unresolved": "c49b3c"
+ },
+ "levels": [
+  {
+   "id": "B1",
+   "y": -3.2
+  },
+  {
+   "id": "F01",
+   "y": 0.0
+  },
+  {
+   "id": "F02",
+   "y": 3.2
+  },
+  {
+   "id": "F04",
+   "y": 9.6
+  }
+ ],
+ "spaces": [
+  {
+   "id": "B1_CORE",
+   "level": "B1",
+   "class": "core",
+   "rect": [
+    -4.0,
+    0.0,
+    0.0,
+    5.0
+   ],
+   "purpose": "basement arrival",
+   "no_floor": true,
+   "no_ceiling": true
+  },
+  {
+   "id": "B1_BOILER_ROOM",
+   "level": "B1",
+   "class": "service",
+   "rect": [
+    0.0,
+    0.0,
+    6.0,
+    5.0
+   ],
+   "purpose": "heat plant and firing"
+  },
+  {
+   "id": "F01_APRON",
+   "level": "F01",
+   "class": "public",
+   "rect": [
+    -3.0,
+    -8.0,
+    3.0,
+    -5.0
+   ],
+   "purpose": "street approach",
+   "open_shell": true
+  },
+  {
+   "id": "F01_VESTIBULE",
+   "level": "F01",
+   "class": "public",
+   "rect": [
+    -3.0,
+    -5.0,
+    3.0,
+    -2.0
+   ],
+   "purpose": "weather lock"
+  },
+  {
+   "id": "F01_LOBBY",
+   "level": "F01",
+   "class": "public",
+   "rect": [
+    -3.0,
+    -2.0,
+    3.0,
+    4.0
+   ],
+   "purpose": "arrival and watch"
+  },
+  {
+   "id": "F02_HALL",
+   "level": "F02",
+   "class": "public",
+   "rect": [
+    -3.0,
+    -2.0,
+    3.0,
+    0.0
+   ],
+   "purpose": "unit decision"
+  },
+  {
+   "id": "F02_A_MAIN",
+   "level": "F02",
+   "class": "private",
+   "rect": [
+    -9.0,
+    -2.0,
+    -3.0,
+    4.0
+   ],
+   "purpose": "living and rest"
+  },
+  {
+   "id": "F02_B_MAIN",
+   "level": "F02",
+   "class": "private",
+   "rect": [
+    3.0,
+    -2.0,
+    9.0,
+    4.0
+   ],
+   "purpose": "living and rest"
+  },
+  {
+   "id": "F04_HALL",
+   "level": "F04",
+   "class": "public",
+   "rect": [
+    -3.0,
+    -2.0,
+    3.0,
+    0.0
+   ],
+   "purpose": "unit decision"
+  },
+  {
+   "id": "F04_B_MAIN",
+   "level": "F04",
+   "class": "private",
+   "rect": [
+    -9.0,
+    -2.0,
+    -3.0,
+    4.0
+   ],
+   "purpose": "player rest"
+  }
+ ],
+ "doors": [
+  {
+   "id": "F01_DOOR_06",
+   "level": "F01",
+   "center": [
+    0.0,
+    -5.0
+   ],
+   "width": 1.1,
+   "height": 2.13,
+   "yaw": 0.0,
+   "hinge": "left",
+   "swing": "out",
+   "connects": [
+    "F01_APRON",
+    "F01_VESTIBULE"
+   ]
+  },
+  {
+   "id": "F02_DOOR_02",
+   "level": "F02",
+   "center": [
+    -3.0,
+    -1.0
+   ],
+   "width": 0.91,
+   "height": 2.13,
+   "yaw": 1.5707963,
+   "hinge": "right",
+   "swing": "west",
+   "connects": [
+    "F02_HALL",
+    "F02_A_MAIN"
+   ]
+  },
+  {
+   "id": "F02_DOOR_09",
+   "level": "F02",
+   "center": [
+    3.0,
+    -1.0
+   ],
+   "width": 0.91,
+   "height": 2.13,
+   "yaw": 1.5707963,
+   "hinge": "left",
+   "swing": "east",
+   "connects": [
+    "F02_HALL",
+    "F02_B_MAIN"
+   ]
+  },
+  {
+   "id": "F04_DOOR_03",
+   "level": "F04",
+   "center": [
+    -3.0,
+    -1.0
+   ],
+   "width": 0.91,
+   "height": 2.13,
+   "yaw": 1.5707963,
+   "hinge": "left",
+   "swing": "west",
+   "connects": [
+    "F04_HALL",
+    "F04_B_MAIN"
+   ]
+  }
+ ],
+ "openings": [
+  {
+   "id": "F01_LOBBY_OPENING",
+   "level": "F01",
+   "center": [
+    0.0,
+    -2.0
+   ],
+   "width": 2.0,
+   "height": 2.4,
+   "axis": "x",
+   "connects": [
+    "F01_VESTIBULE",
+    "F01_LOBBY"
+   ]
+  },
+  {
+   "id": "B1_BOILER_OPENING",
+   "level": "B1",
+   "center": [
+    0.0,
+    2.5
+   ],
+   "width": 1.2,
+   "height": 2.4,
+   "axis": "z",
+   "connects": [
+    "B1_CORE",
+    "B1_BOILER_ROOM"
+   ]
+  }
+ ],
+ "windows": [
+  {
+   "id": "F01_LOBBY_WINDOW",
+   "level": "F01",
+   "center": [
+    0.0,
+    4.0
+   ],
+   "width": 1.5,
+   "height": 1.5,
+   "sill": 0.8,
+   "axis": "x",
+   "space": "F01_LOBBY"
+  }
+ ],
+ "envelopes": [],
+ "fixtures": [],
+ "platforms": [],
+ "lift_landings": [
+  {
+   "id": "F01_LIFT_LANDING",
+   "level": "F01",
+   "shaft": "SERVICE_LIFT_SHAFT",
+   "center": [
+    4.5,
+    5.0
+   ],
+   "width": 0.91,
+   "height": 2.13,
+   "yaw": 0.0,
+   "clear_depth": 1.5
+  }
+ ],
+ "stairs": [
+  {
+   "id": "PRIMARY_B1_F01",
+   "kind": "u",
+   "from": "B1",
+   "to": "F01",
+   "origin": [
+    -2.0,
+    0.0
+   ],
+   "width": 1.2,
+   "gap": 0.3,
+   "landing_depth": 1.2,
+   "rise": 0.16,
+   "tread": 0.285,
+   "risers_per_flight": 10,
+   "guard_height": 0.91
+  }
+ ],
+ "risers": [
+  {
+   "id": "HEAT_STACK",
+   "rect": [
+    4.0,
+    0.0,
+    4.4,
+    0.4
+   ],
+   "from_y": -3.2,
+   "to_y": 12.8,
+   "class": "service"
+  },
+  {
+   "id": "SERVICE_LIFT_SHAFT",
+   "rect": [
+    4.0,
+    5.0,
+    5.0,
+    6.0
+   ],
+   "from_y": -3.2,
+   "to_y": 12.8,
+   "class": "core",
+   "solid": false
+  }
+ ],
+ "anchors": [
+  {
+   "id": "F01_WATCHMAN_DETECTOR",
+   "level": "F01",
+   "position": [
+    -2.0,
+    1.1,
+    0.0
+   ],
+   "yaw": 0.0,
+   "kind": "interaction"
+  },
+  {
+   "id": "F01_NIGHT_REGISTER",
+   "level": "F01",
+   "position": [
+    -1.0,
+    1.1,
+    0.0
+   ],
+   "yaw": 0.0,
+   "kind": "interaction"
+  },
+  {
+   "id": "F01_SIGNAL_REGISTER",
+   "level": "F01",
+   "position": [
+    0.0,
+    1.1,
+    0.0
+   ],
+   "yaw": 0.0,
+   "kind": "interaction"
+  },
+  {
+   "id": "F01_TOUR_KEY_GUARD",
+   "level": "F01",
+   "position": [
+    1.0,
+    1.1,
+    0.0
+   ],
+   "yaw": 0.0,
+   "kind": "interaction"
+  },
+  {
+   "id": "F02_A_MAIN_VANTRY_POINT",
+   "level": "F02",
+   "position": [
+    -6.0,
+    1.0,
+    1.0
+   ],
+   "yaw": 0.0,
+   "kind": "interaction"
+  },
+  {
+   "id": "F02_B_RADIATOR_01",
+   "level": "F02",
+   "position": [
+    8.0,
+    0.4,
+    1.0
+   ],
+   "yaw": 0.0,
+   "kind": "interaction"
+  },
+  {
+   "id": "F04_B_MONITOR_01",
+   "level": "F04",
+   "position": [
+    -6.0,
+    1.0,
+    1.0
+   ],
+   "yaw": 0.0,
+   "kind": "interaction"
+  },
+  {
+   "id": "F04_B_BED",
+   "level": "F04",
+   "position": [
+    -7.0,
+    0.5,
+    3.0
+   ],
+   "yaw": 0.0,
+   "kind": "semantic"
+  },
+  {
+   "id": "B1_BOILER_01",
+   "level": "B1",
+   "position": [
+    3.0,
+    1.0,
+    2.0
+   ],
+   "yaw": 0.0,
+   "kind": "interaction"
+  }
+ ],
+ "capsule_stations": [],
+ "route_edges": [
+  {
+   "id": "ROUTE_B1_F01",
+   "from": "B1_CORE",
+   "to": "F01_LOBBY",
+   "via": "PRIMARY_B1_F01"
+  }
+ ],
+ "service_connections": [
+  {
+   "id": "B1_BOILER_HEAT_FEED",
+   "from": "B1_BOILER_01",
+   "to": "HEAT_STACK",
+   "system": "heat"
+  }
+ ]
+}

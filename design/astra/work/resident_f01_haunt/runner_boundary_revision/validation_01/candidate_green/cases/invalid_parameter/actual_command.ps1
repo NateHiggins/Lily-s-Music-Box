@@ -1,0 +1,5 @@
+$ErrorActionPreference = 'Continue'
+$global:LASTEXITCODE = $null
+& 'C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\runner_boundary_revision\validation_01\candidate_green\cases\invalid_parameter\harmless_stub.ps1' -ProjectPath 'C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\runner_boundary_revision\validation_01\candidate_green\cases\invalid_parameter\game' -Scene 'res://never_launch.tscn' -LogPath 'C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\runner_boundary_revision\validation_01\candidate_green\cases\invalid_parameter\unused.log' -TimeoutSeconds 240 -Windowed -ShotDir 'C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\runner_boundary_revision\validation_01\candidate_green\cases\invalid_parameter\shots' -ExtraArgs @('--verbose', '--audio-driver', 'Dummy', '--resolution', '1280x720', '--rendering-method', 'forward_plus', '--rendering-driver', 'vulkan')
+if ($null -eq $global:LASTEXITCODE) { Write-Error 'Serial runner returned without an exit code'; exit 125 }
+exit $global:LASTEXITCODE

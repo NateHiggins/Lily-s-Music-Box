@@ -1,0 +1,39 @@
+{
+  "runs": [
+    {
+      "run": "omit_portal_01",
+      "omitted": "resident_nav.gd",
+      "wrapper_exit": 1,
+      "native_exit": 1,
+      "gate_exit": 1,
+      "source_unchanged": true
+    },
+    {
+      "run": "omit_wait_01",
+      "omitted": "resident_routines.gd",
+      "wrapper_exit": 1,
+      "native_exit": 1,
+      "gate_exit": 1,
+      "source_unchanged": true
+    },
+    {
+      "run": "candidate_restored_01",
+      "omitted": null,
+      "wrapper_exit": 0,
+      "native_exit": 0,
+      "gate_exit": 0,
+      "source_unchanged": true
+    }
+  ],
+  "candidate_expected": {
+    "resident_nav.gd": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8",
+    "resident_routines.gd": "7e88a9f430e7f7ed7149312392f9711741e55fb51230f8eee53e3c634b33e6a5"
+  },
+  "restored": {
+    "resident_nav.gd": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8",
+    "resident_routines.gd": "7e88a9f430e7f7ed7149312392f9711741e55fb51230f8eee53e3c634b33e6a5"
+  },
+  "exact_candidate_restored": true,
+  "final_fixture_sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+  "expected_fixture_sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0"
+}

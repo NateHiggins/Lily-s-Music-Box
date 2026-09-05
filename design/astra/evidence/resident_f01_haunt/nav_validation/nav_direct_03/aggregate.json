@@ -1,0 +1,371 @@
+{
+  "schema": "astra.resident-f01-nav-validation.aggregate.v1",
+  "status": "DECLARED_CONTROLS_COMPLETE_SOURCE_BOUND",
+  "scope": "One actual Transient Guests owner and existing selected nav regressions; no collision-bearing human/all-resident/visual/performance acceptance.",
+  "runs": [
+    {
+      "name": "01_original_focused",
+      "mode": "direct",
+      "expected": "old_direct",
+      "actual_runner_exit": 8,
+      "completed_fixture_exit": 8,
+      "checks": 33,
+      "failed_labels": [
+        "validated clear short segment uses exact endpoints",
+        "reverse clear short segment uses exact endpoints",
+        "exact maximum length is admitted",
+        "envelope contains production Body capsule",
+        "removed side obstruction restores shortcut",
+        "restored physical floor admits shortcut",
+        "fresh validation admits shortcut",
+        "null revalidation revokes admission"
+      ],
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 4.837474699997983,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "393cadd7a64c4be6c5f3b78e1ea861d16b95d1df0ff81ac48d73f6d19d53f38c",
+      "before_all_game_files_sha256": "4553c16fcb7ad2e884f23baa810be28395d964b4899c2cbf341c02e49f58a65c",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/01_original_focused/result.json",
+      "result_sha256": "a9c35ba35beb6b1e84aab2db9555d9c0f83bb0ba6a3a04ca2f3dbc759098fd8a"
+    },
+    {
+      "name": "02_candidate_focused",
+      "mode": "direct",
+      "expected": "green",
+      "actual_runner_exit": 0,
+      "completed_fixture_exit": 0,
+      "checks": 33,
+      "failed_labels": [],
+      "diagnostic_gate_exit": 0,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 4.786326900000859,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "d443d432ebbe9d33f2b3134990aed8cc101ffe9d922775fe9871abdf2bbc8a9c",
+      "before_all_game_files_sha256": "7d02ae022ae8c1f4fef1542d72a8aa063cc3070923fa3f9d7b51b2dd78b4558f",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/02_candidate_focused/result.json",
+      "result_sha256": "8f3fb24ea50ead28d16ca7bfff1a3fc237a0e55260f00b4ad5f78953f6adc2b2"
+    },
+    {
+      "name": "03_candidate_lifecycle",
+      "mode": "haunt",
+      "expected": "green",
+      "actual_runner_exit": 0,
+      "completed_fixture_exit": 0,
+      "checks": 31,
+      "failed_labels": [],
+      "diagnostic_gate_exit": 0,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 151.18454330000168,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1,
+        "known RGB8 conversion debt": 967,
+        "known found-art placement debt": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "d443d432ebbe9d33f2b3134990aed8cc101ffe9d922775fe9871abdf2bbc8a9c",
+      "before_all_game_files_sha256": "7d02ae022ae8c1f4fef1542d72a8aa063cc3070923fa3f9d7b51b2dd78b4558f",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/03_candidate_lifecycle/result.json",
+      "result_sha256": "93e41d212dd291a05ef799aa7103d2a6311f64e4172ee1003d728e4199c5649d"
+    },
+    {
+      "name": "04_nav_call_omission_lifecycle",
+      "mode": "haunt",
+      "expected": "nav_omission",
+      "actual_runner_exit": 1,
+      "completed_fixture_exit": 1,
+      "checks": 21,
+      "failed_labels": [
+        "public destination route and swept actual Body clear the closed lift landing"
+      ],
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 83.22355930000049,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1,
+        "known RGB8 conversion debt": 966,
+        "known found-art placement debt": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "f7accee3125c197c7a6b38f53cd3c0d7231936d9479cd0784fafb23f4b7f91e4",
+      "before_all_game_files_sha256": "855c2b695d43bc2d8253b49ee0bf1967061bb7451e8ce48556b0393632336536",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/04_nav_call_omission_lifecycle/result.json",
+      "result_sha256": "0e8ed5b143f12b71569db78903c73f25bb0868ba94625914f19bc971221136ec"
+    },
+    {
+      "name": "05_nav_restored_lifecycle",
+      "mode": "haunt",
+      "expected": "green",
+      "actual_runner_exit": 0,
+      "completed_fixture_exit": 0,
+      "checks": 31,
+      "failed_labels": [],
+      "diagnostic_gate_exit": 0,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 150.41704369999934,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1,
+        "known RGB8 conversion debt": 967,
+        "known found-art placement debt": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "d443d432ebbe9d33f2b3134990aed8cc101ffe9d922775fe9871abdf2bbc8a9c",
+      "before_all_game_files_sha256": "7d02ae022ae8c1f4fef1542d72a8aa063cc3070923fa3f9d7b51b2dd78b4558f",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/05_nav_restored_lifecycle/result.json",
+      "result_sha256": "dc20dcd0e9ed9c2dc755265fdd28d93c1f995ad9adabb0e7a0789b0e625d1842"
+    },
+    {
+      "name": "06_coordinate_omission_lifecycle",
+      "mode": "haunt",
+      "expected": "coordinate_omission",
+      "actual_runner_exit": 1,
+      "completed_fixture_exit": 1,
+      "checks": 21,
+      "failed_labels": [
+        "whole destination body footprint fits the public F01 lobby",
+        "whole destination body footprint is outside the lift shaft",
+        "destination has real F01 slab support at the authored floor height",
+        "actual Body shape clears all current destination colliders",
+        "public destination route and swept actual Body clear the closed lift landing",
+        "actual destination Body still clears after real car arrival"
+      ],
+      "diagnostic_gate_exit": 1,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 83.39441280000028,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1,
+        "known RGB8 conversion debt": 966,
+        "known found-art placement debt": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "9a74958292dc6a5af4b78077298d13648bfd2f3e3fbafa0cb624c6ea4941b431",
+      "before_all_game_files_sha256": "fb88aa0c52d934908dd64e98c823823fffb02b83eb628394732e5e14d9761b21",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/06_coordinate_omission_lifecycle/result.json",
+      "result_sha256": "768ae70431a78d748a5215de6aba1b25d88c48ebd1f1776d0fd81b77ba1dc89e"
+    },
+    {
+      "name": "07_coordinate_restored_lifecycle",
+      "mode": "haunt",
+      "expected": "green",
+      "actual_runner_exit": 0,
+      "completed_fixture_exit": 0,
+      "checks": 31,
+      "failed_labels": [],
+      "diagnostic_gate_exit": 0,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 150.13085449999926,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1,
+        "known RGB8 conversion debt": 967,
+        "known found-art placement debt": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "d443d432ebbe9d33f2b3134990aed8cc101ffe9d922775fe9871abdf2bbc8a9c",
+      "before_all_game_files_sha256": "7d02ae022ae8c1f4fef1542d72a8aa063cc3070923fa3f9d7b51b2dd78b4558f",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/07_coordinate_restored_lifecycle/result.json",
+      "result_sha256": "886c045da17809a80e151db3e559c656d07048918ec8a00797db99130610775a"
+    },
+    {
+      "name": "08_waiting_regression",
+      "mode": "waiting",
+      "expected": "green",
+      "actual_runner_exit": 0,
+      "completed_fixture_exit": 0,
+      "checks": 40,
+      "failed_labels": [],
+      "diagnostic_gate_exit": 0,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 61.442533400000684,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1,
+        "known RGB8 conversion debt": 965,
+        "known found-art placement debt": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "d443d432ebbe9d33f2b3134990aed8cc101ffe9d922775fe9871abdf2bbc8a9c",
+      "before_all_game_files_sha256": "7d02ae022ae8c1f4fef1542d72a8aa063cc3070923fa3f9d7b51b2dd78b4558f",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/08_waiting_regression/result.json",
+      "result_sha256": "5f6f504228786b926bd65f84e5c97a217e0220a5844fe8b3e09cb8caa71e4aaf"
+    },
+    {
+      "name": "09_passage_regression",
+      "mode": "passage",
+      "expected": "green",
+      "actual_runner_exit": 0,
+      "completed_fixture_exit": 0,
+      "checks": 26,
+      "failed_labels": [],
+      "diagnostic_gate_exit": 0,
+      "control_acceptance_exit": 0,
+      "runner_condition": null,
+      "elapsed_with_wrapper_and_snapshot_seconds": 50.957729599998856,
+      "known_warning_debt": {
+        "known host registry warning": 1,
+        "known duplicate OBS layer warning": 1,
+        "known RGB8 conversion debt": 965,
+        "known found-art placement debt": 1
+      },
+      "raw_error_header_count": 5,
+      "source_unchanged": true,
+      "before_runtime_inputs_sha256": "d443d432ebbe9d33f2b3134990aed8cc101ffe9d922775fe9871abdf2bbc8a9c",
+      "before_all_game_files_sha256": "7d02ae022ae8c1f4fef1542d72a8aa063cc3070923fa3f9d7b51b2dd78b4558f",
+      "pid_ancestry_verified": true,
+      "engine_identity_verified": true,
+      "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/09_passage_regression/result.json",
+      "result_sha256": "619ce73c2056f249db1bc0432e24ca38415fbe6cc69dbab5bd84cc395d9284e8"
+    }
+  ],
+  "phases": {
+    "focused": {
+      "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/focused.json",
+      "sha256": "8ba471177ea04eb18902c22e482e059593295aac5aa086eefc699908096e839f",
+      "status": "COMPLETE",
+      "restoration": null
+    },
+    "lifecycle": {
+      "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/lifecycle.json",
+      "sha256": "1c97fe2458af67a5e46005e17bc3ca6131d303c1739655276f94e3150571a1bd",
+      "status": "COMPLETE",
+      "restoration": null
+    },
+    "nav-control": {
+      "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/nav-control.json",
+      "sha256": "6cd636e3bf7ca5b3458b6e02b572f6bdeb6d58fec13048c5ed23c2dc682dc1e1",
+      "status": "COMPLETE",
+      "restoration": {
+        "path": "game/scripts/characters/resident_nav.gd",
+        "exact_bytes_restored": true,
+        "candidate_sha256": "9e0840a037ef8c2a10e394eeba8a1539cc29d8e7c4b34926b232942a94687f44"
+      }
+    },
+    "coordinate-control": {
+      "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/coordinate-control.json",
+      "sha256": "a61db1974231bf469dbe56e48e343210d7c1fa3c8874315aaa38e19440078a2f",
+      "status": "COMPLETE",
+      "restoration": {
+        "path": "game/scripts/characters/resident_routines.gd",
+        "exact_bytes_restored": true,
+        "candidate_sha256": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a"
+      }
+    },
+    "regressions": {
+      "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/regressions.json",
+      "sha256": "35311f16803b71fae428848f1282c0f9ef70771949d10334870ea779530280c4",
+      "status": "COMPLETE",
+      "restoration": null
+    }
+  },
+  "retained_fixture_failures": [
+    {
+      "batch": "nav_direct_01",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_01/runs/01_original_focused/result.json",
+      "result_sha256": "7fdecd024bbcfb96c5a0f869651f6e0b6bdc40b14a36796103f42b49492482de",
+      "actual_runner_exit": 124,
+      "classification": "timeout_termination",
+      "JSON_present": false,
+      "source_unchanged": true,
+      "scope": "Retained fixture parse/schema error; no accepted original nav control and no production nav application."
+    },
+    {
+      "batch": "nav_direct_02",
+      "result": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_02/runs/01_original_focused/result.json",
+      "result_sha256": "f77bb78d7e846f14df3093a801a0a494fa996e7767059dd29da870474e20660e",
+      "actual_runner_exit": 124,
+      "classification": "timeout_termination",
+      "JSON_present": false,
+      "source_unchanged": true,
+      "scope": "Retained fixture parse/schema error; no accepted original nav control and no production nav application."
+    }
+  ],
+  "current_prepared_package": {
+    "path": "design/astra/work/resident_f01_haunt/nav_validation/package.json",
+    "sha256": "04553e962b72ceea6ffae8146bebb4033599fb84f857b37a461f1f4d1daa48b6"
+  },
+  "independent_review": {
+    "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/independent_review_01.json",
+    "sha256": "2d0a62ab5224fbc4d49551bd9a1df58b86e27d117b40850685a9d372759c11ac"
+  },
+  "boundaries": [
+    "Direct segment <=1.25m, conservative .33/1.65/+ .825 capsule, authored walls/slab/hole and current validated World3D with physical support samples; original graph remains fallback.",
+    "Actual F01 fixture independently queries the owner Body .28/1.55/+ .775. Other actors/player held; _step once per real physics frame bypasses _process/player-yield; production lift readiness and dwell timer unchanged.",
+    "Runtime supports are sampled; no proof against every unmodelled sub-sample floor hole. Layer-zero resident Body nodes are not crowd obstacles.",
+    "Waiting40/Passage26 preserve their historical .33/1.524/+ .80 audit capsule scope; no actual-Body identity claim is promoted.",
+    "Known raw host loader errors/warnings, RGB conversion and found-art warnings remain debt. Expected omission diagnostic exits stay1 even where exact control acceptance is0.",
+    "Elapsed figures include wrapper/snapshot work and are not performance acceptance.",
+    "No further engine/staging/commit by this agent; lane and live ownership released to root after empty process census.",
+    "The rider is hidden while production elevator transit owns the leg, then production arrival places it at the public landing; this is that existing abstraction, not collision-bearing cabin travel."
+  ],
+  "final_tested_owned_sources": {
+    "game/scripts/characters/resident_nav.gd": "9e0840a037ef8c2a10e394eeba8a1539cc29d8e7c4b34926b232942a94687f44",
+    "game/scripts/characters/resident_routines.gd": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a",
+    "game/tests/resident_nav_direct_segment_test.gd": "bda5bf9892c756ebf31448b11e4138762027dacd9712bf86553ff55253c45f0a",
+    "game/tests/ResidentNavDirectSegmentTest.tscn": "2efa1804cda593dbd019d0815051670b00257ae0e11e7b00cf1ee7247947fa99",
+    "game/tests/resident_f01_haunt_test.gd": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f",
+    "game/tests/ResidentF01HauntTest.tscn": "773015d7ba78a550d7686fbc00eff67b29a56b0ca2a85fa4fd6b0458b5895fa6",
+    "game/tests/resident_lift_waiting_test.gd": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+    "game/tests/ResidentLiftWaitingTest.tscn": "0702fc39ebf6834f63d3b69dc1eac1590ff6f4c9fa5a2314d14e03f53904db3a"
+  },
+  "additional_unchanged_regression_sources": {
+    "game/tests/passage_nav_test.gd": "82d80acee12da8c77a1238a6b54e8502053dbe52c85069baeaff43b607a17098",
+    "game/tests/PassageNavTest.tscn": "09e210714493d9f6d9bd028c5c98f8274a48f5c3476241d97d180ad13c5f6ad6"
+  },
+  "artifact_inventory": {
+    "path": "design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_03/artifact_inventory.json",
+    "sha256": "6f961bb6c6f3fb4375a9c816e008312fc8fbca3d89d8554ac0572b72d4e20245"
+  }
+}

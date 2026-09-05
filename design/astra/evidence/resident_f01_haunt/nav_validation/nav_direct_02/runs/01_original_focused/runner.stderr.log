@@ -1,0 +1,8 @@
+Exception: C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\nav_validation\runner_bridge.ps1:17
+Line |
+  17 |  & $runnerPath @parameters
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~
+     | TIMEOUT: 'res://tests/ResidentNavDirectSegmentTest.tscn' was still running at the 180-second ceiling and was
+     | terminated by the runner. The ceiling ended this run, not the suite - it reported no verdict. Re-run with a
+     | higher -TimeoutSeconds if the suite is legitimately this expensive, or diagnose a hang. Partial log:
+     | C:\PleaseRemainOnTheLine-astra\design\astra\evidence\resident_f01_haunt\nav_validation\nav_direct_02\runs\01_original_focused\godot.stdout.log

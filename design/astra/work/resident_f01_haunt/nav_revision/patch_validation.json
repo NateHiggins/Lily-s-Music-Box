@@ -1,0 +1,20 @@
+{
+  "scope": "offline patch applicability only; no Godot",
+  "retained_initial_attempt": {
+    "command": "git apply --check --directory=design/astra/work/resident_f01_haunt/nav_revision/originals design/astra/work/resident_f01_haunt/nav_revision/proposal.patch",
+    "exit": 1,
+    "diagnostic": "patch failed at resident_nav.gd:53; LF-normalized review hunk vs archived CRLF bytes"
+  },
+  "final": {
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "--directory=design/astra/work/resident_f01_haunt/nav_revision/originals",
+      "design\\astra\\work\\resident_f01_haunt\\nav_revision\\proposal.patch"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

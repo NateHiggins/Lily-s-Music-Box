@@ -1,0 +1,7 @@
+harmless_stub.ps1: C:\PleaseRemainOnTheLine-astra\design\astra\work\resident_f01_haunt\runner_boundary_revision\validation_01\candidate_green\cases\invalid_parameter\actual_command.ps1:3
+Line |
+   3 |  … green\cases\invalid_parameter\unused.log' -TimeoutSeconds 240 -Window …
+     |                                                              ~~~
+     | Cannot validate argument on parameter 'TimeoutSeconds'. The 240 argument is greater than the maximum allowed
+     | range of 180. Supply an argument that is less than or equal to 180 and then try the command again.
+Write-Error: Serial runner returned without an exit code

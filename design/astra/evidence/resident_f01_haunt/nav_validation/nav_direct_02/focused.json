@@ -1,0 +1,44 @@
+{
+  "phase": "focused",
+  "status": "STOPPED_REVIEW_REQUIRED",
+  "runs": [
+    {
+      "name": "01_original_focused",
+      "result_sha256": "f77bb78d7e846f14df3093a801a0a494fa996e7767059dd29da870474e20660e",
+      "actual_runner_exit": 124,
+      "assessment": {
+        "expected": "old_direct",
+        "structure": {
+          "complete": false,
+          "errors": [
+            "required readable JSON scene receipt absent"
+          ],
+          "failed": []
+        },
+        "runner_condition": "timeout_termination",
+        "completed_fixture_exit": null,
+        "diagnostic_gate_exit": 1,
+        "control_acceptance_exit": 1,
+        "reasons": [
+          "required readable JSON scene receipt absent",
+          "runner condition: timeout_termination",
+          "run: unknown raw error (no route error allowance declared)",
+          "run: raw script failure",
+          "run: unknown raw error (no route error allowance declared)",
+          "run: raw script failure",
+          "functional failures differ from declared exact control",
+          "runner/completed-scene exit differs from declared control"
+        ],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    }
+  ],
+  "mutations": [],
+  "scope": "Exact declared controls only; raw diagnostic red stays red.",
+  "failure": "consumed artifact binding omitted",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\resident_f01_haunt\\nav_validation\\execute.py\", line 160, in execute\n    run_one(batch, PHASES[phase][0], record, nav_name=\"nav_original.gd\")\n  File \"C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\resident_f01_haunt\\nav_validation\\execute.py\", line 118, in run_one\n    verified_result(batch, name)\n  File \"C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\resident_f01_haunt\\nav_validation\\execute.py\", line 73, in verified_result\n    result = assess.verify_artifacts(folder)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\resident_f01_haunt\\nav_validation\\assess.py\", line 124, in verify_artifacts\n    if not required.issubset(artifacts): raise ValueError(\"consumed artifact binding omitted\")\n                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: consumed artifact binding omitted\n"
+}

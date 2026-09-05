@@ -1,0 +1,67 @@
+{
+  "phase": "nav-control",
+  "status": "COMPLETE",
+  "runs": [
+    {
+      "name": "04_nav_call_omission_lifecycle",
+      "result_sha256": "0e8ed5b143f12b71569db78903c73f25bb0868ba94625914f19bc971221136ec",
+      "actual_runner_exit": 1,
+      "assessment": {
+        "expected": "nav_omission",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [
+            "public destination route and swept actual Body clear the closed lift landing"
+          ],
+          "checks": 21
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 1,
+        "diagnostic_gate_exit": 1,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1,
+          "known RGB8 conversion debt": 966,
+          "known found-art placement debt": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    },
+    {
+      "name": "05_nav_restored_lifecycle",
+      "result_sha256": "dc20dcd0e9ed9c2dc755265fdd28d93c1f995ad9adabb0e7a0789b0e625d1842",
+      "actual_runner_exit": 0,
+      "assessment": {
+        "expected": "green",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [],
+          "checks": 31
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 0,
+        "diagnostic_gate_exit": 0,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1,
+          "known RGB8 conversion debt": 967,
+          "known found-art placement debt": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    }
+  ],
+  "mutations": [],
+  "scope": "Exact declared controls only; raw diagnostic red stays red.",
+  "restoration": {
+    "path": "game/scripts/characters/resident_nav.gd",
+    "exact_bytes_restored": true,
+    "candidate_sha256": "9e0840a037ef8c2a10e394eeba8a1539cc29d8e7c4b34926b232942a94687f44"
+  }
+}

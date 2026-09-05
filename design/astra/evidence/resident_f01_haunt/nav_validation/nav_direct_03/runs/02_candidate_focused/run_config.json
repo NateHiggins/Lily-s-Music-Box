@@ -1,0 +1,98 @@
+{
+  "schema": "astra.nav-validation.run.v1",
+  "mode": "direct",
+  "expected": "green",
+  "name": "02_candidate_focused",
+  "batch": "nav_direct_03",
+  "scene": "res://tests/ResidentNavDirectSegmentTest.tscn",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\resident_f01_haunt\\nav_validation\\runner_bridge.ps1",
+    "-InvocationPath",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_f01_haunt\\nav_validation\\nav_direct_03\\runs\\02_candidate_focused\\invocation.json"
+  ],
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/ResidentNavDirectSegmentTest.tscn",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_f01_haunt\\nav_validation\\nav_direct_03\\runs\\02_candidate_focused\\godot.stdout.log",
+    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_f01_haunt\\nav_validation\\nav_direct_03\\runs\\02_candidate_focused\\shots",
+    "TimeoutSeconds": 180,
+    "Windowed": true,
+    "ExtraArgs": [
+      "--verbose",
+      "--audio-driver",
+      "Dummy",
+      "--resolution",
+      "1280x720",
+      "--rendering-method",
+      "forward_plus",
+      "--rendering-driver",
+      "vulkan"
+    ]
+  },
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_f01_haunt\\nav_validation\\nav_direct_03\\runs\\02_candidate_focused\\APPDATA",
+  "profile_existed_before_run": false,
+  "started_utc": "2026-09-05T08:46:03.055175+00:00",
+  "cleared_environment_keys": [
+    "CAMPAIGN_TIME_FREEZE",
+    "DAYNIGHT_FORCE",
+    "ORISON_BUILDING_ROOT",
+    "PERF_NEON_LETTER_BATCHING_OFF",
+    "PERF_STREET_CORE_GEOMETRY_ON",
+    "PERF_STREET_HARUKIYA_GEOMETRY_ON",
+    "REALITY_TIME",
+    "REALITY_TIME_OVERRIDE",
+    "SCHEDULE",
+    "SHOT_DIR",
+    "VULKAN_PAIRING_CASE"
+  ],
+  "present_overrides_removed": [],
+  "before": {
+    "all_game_files_sha256": "7d02ae022ae8c1f4fef1542d72a8aa063cc3070923fa3f9d7b51b2dd78b4558f",
+    "runtime_inputs_sha256": "d443d432ebbe9d33f2b3134990aed8cc101ffe9d922775fe9871abdf2bbc8a9c",
+    "instruments": {
+      "assess.py": "9f892191f6d86ea9419f640e2052216966df5a51b4d5330e075d676bcfd2e3fc",
+      "contracts.json": "70b707cc43b435d0adebc62189e21bbf4ea3c07848a2c2871eb13e313431eff4",
+      "execute.py": "a577825495ca30ef5ba813cb4c63fb7f30376a644d5bd20f8dd975395155a2f9",
+      "haunt_control.py": "0d99a12d958fd2172d1f8643c9f033c3027ef3f4a494a3d6884abeb062114fc2",
+      "package.json": "04553e962b72ceea6ffae8146bebb4033599fb84f857b37a461f1f4d1daa48b6",
+      "runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+      "run_case.py": "1ab2d6d2cd28bb0653f96a6bd373d1cd5fc2f8594dd8234681928ba4a20635de",
+      "support.py": "0622b9123c3097fce66d0d13b451307e7091d58352b616aa9c390c86fd7af7de",
+      "test_controls.py": "fb91870cac2e3a2d675cae93387f12cefc9f378e2a49fa992e06d57463728c47",
+      "canonical_run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "pairing_parser.py": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639"
+    },
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "instrument_binding": {
+    "assess.py": "9f892191f6d86ea9419f640e2052216966df5a51b4d5330e075d676bcfd2e3fc",
+    "contracts.json": "70b707cc43b435d0adebc62189e21bbf4ea3c07848a2c2871eb13e313431eff4",
+    "execute.py": "a577825495ca30ef5ba813cb4c63fb7f30376a644d5bd20f8dd975395155a2f9",
+    "haunt_control.py": "0d99a12d958fd2172d1f8643c9f033c3027ef3f4a494a3d6884abeb062114fc2",
+    "package.json": "04553e962b72ceea6ffae8146bebb4033599fb84f857b37a461f1f4d1daa48b6",
+    "runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+    "run_case.py": "1ab2d6d2cd28bb0653f96a6bd373d1cd5fc2f8594dd8234681928ba4a20635de",
+    "support.py": "0622b9123c3097fce66d0d13b451307e7091d58352b616aa9c390c86fd7af7de",
+    "test_controls.py": "fb91870cac2e3a2d675cae93387f12cefc9f378e2a49fa992e06d57463728c47",
+    "canonical_run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "pairing_parser.py": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639"
+  },
+  "head_observed": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+  "scope": "Selected nav admission/actual resident/regression scope only; no visual, all-resident or performance acceptance."
+}

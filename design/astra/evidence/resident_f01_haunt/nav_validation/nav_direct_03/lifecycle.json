@@ -1,0 +1,34 @@
+{
+  "phase": "lifecycle",
+  "status": "COMPLETE",
+  "runs": [
+    {
+      "name": "03_candidate_lifecycle",
+      "result_sha256": "93e41d212dd291a05ef799aa7103d2a6311f64e4172ee1003d728e4199c5649d",
+      "actual_runner_exit": 0,
+      "assessment": {
+        "expected": "green",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [],
+          "checks": 31
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 0,
+        "diagnostic_gate_exit": 0,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1,
+          "known RGB8 conversion debt": 967,
+          "known found-art placement debt": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    }
+  ],
+  "mutations": [],
+  "scope": "Exact declared controls only; raw diagnostic red stays red."
+}
