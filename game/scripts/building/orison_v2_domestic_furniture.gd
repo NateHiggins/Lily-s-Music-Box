@@ -1,0 +1,98 @@
+extends RefCounted
+## Individual source-derived assemblies. Adapter owns placement and teardown.
+const PATH := "res://data/orison_v2/domestic_furniture.json"
+const WaterCloset := preload("res://scripts/building/orison_v2_water_closet.gd")
+const MATERIAL_ALIASES := {"floor_oak": "oak_quartered"}
+var errors: Array[String] = []
+
+func mount(adapter: Variant) -> bool:
+	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	if not validate(source, adapter):
+		return false
+	for record: Dictionary in source.furniture:
+		var body: StaticBody3D
+		if record.kind == "toilet":
+			body = WaterCloset.new()
+			body.call("setup", {"id": record.id, "asm": "toilet"})
+		else:
+			body = StaticBody3D.new()
+			var collision := CollisionShape3D.new()
+			var shape := BoxShape3D.new()
+			var low := _vector(record.bounds[0])
+			var high := _vector(record.bounds[1])
+			shape.size = high - low
+			collision.shape = shape
+			collision.position = (high + low) * 0.5
+			body.add_child(collision)
+		body.set_meta("v2_furniture_id", str(record.id))
+		for surface: Dictionary in record.surfaces:
+			var arrays: Array = []
+			arrays.resize(Mesh.ARRAY_MAX)
+			var vertices := PackedVector3Array()
+			var normals := PackedVector3Array()
+			for i in range(0, surface.vertices.size(), 3):
+				vertices.append(Vector3(surface.vertices[i], surface.vertices[i + 1], surface.vertices[i + 2]))
+				normals.append(Vector3(surface.normals[i], surface.normals[i + 1], surface.normals[i + 2]))
+			arrays[Mesh.ARRAY_VERTEX] = vertices
+			arrays[Mesh.ARRAY_NORMAL] = normals
+			var mesh := ArrayMesh.new()
+			mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+			var visual := MeshInstance3D.new()
+			visual.mesh = mesh
+			visual.material_override = MatLib.get_mat(str(MATERIAL_ALIASES.get(surface.material, surface.material)))
+			body.add_child(visual)
+		if not adapter.mount_consumer(str(record.id), body):
+			body.free()
+			errors.append("furniture mount refused: " + str(record.id))
+			return false
+	return true
+
+func validate(source: Variant, adapter: Variant) -> bool:
+	errors.clear()
+	if source is not Dictionary or source.get("schema_version") != 1 or source.get("furniture") is not Array:
+		errors.append("malformed furniture source")
+		return false
+	var seen: Dictionary = {}
+	for record: Variant in source.furniture:
+		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet"]:
+			errors.append("invalid furniture identity or kind")
+			continue
+		if seen.has(record.id) or adapter == null or not adapter.resolve(record.id) is Node3D:
+			errors.append("duplicate or missing furniture anchor: " + str(record.id))
+		seen[record.id] = true
+		var bounds: Variant = record.get("bounds")
+		if bounds is not Array or bounds.size() != 2 or not _numbers(bounds[0], 3) or not _numbers(bounds[1], 3):
+			errors.append("invalid furniture bounds")
+			continue
+		for axis in range(3):
+			if bounds[1][axis] <= bounds[0][axis]:
+				errors.append("inverted furniture bounds")
+		if record.get("surfaces") is not Array or record.surfaces.is_empty():
+			errors.append("missing furniture surfaces")
+			continue
+		for surface: Variant in record.surfaces:
+			if surface is not Dictionary or surface.get("material") is not String:
+				errors.append("invalid furniture surface")
+				continue
+			if not MatLib.SETS.has(MATERIAL_ALIASES.get(surface.material, surface.material)):
+				errors.append("unknown furniture material")
+			var vertices: Variant = surface.get("vertices")
+			if vertices is not Array or vertices.is_empty() or vertices.size() % 9 != 0:
+				errors.append("invalid furniture triangles")
+				continue
+			if not _numbers(vertices, vertices.size()) or not _numbers(surface.get("normals"), vertices.size()):
+				errors.append("invalid furniture coordinates or normals")
+	if seen.is_empty():
+		errors.append("empty furniture source")
+	return errors.is_empty()
+
+func _numbers(values: Variant, count: int) -> bool:
+	if values is not Array or values.size() != count:
+		return false
+	for value: Variant in values:
+		if typeof(value) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(value)):
+			return false
+	return true
+
+func _vector(values: Array) -> Vector3:
+	return Vector3(values[0], values[1], values[2])

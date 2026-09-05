@@ -14,6 +14,7 @@ const ExteriorCell := preload("res://scripts/building/orison_v2_exterior_cell.gd
 const ShopSimulation := preload("res://scripts/building/orison_v2_shop_simulation.gd")
 const Atmosphere := preload("res://scripts/building/orison_v2_atmosphere.gd")
 const DomesticFittings := preload("res://scripts/building/orison_v2_domestic_fittings.gd")
+const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_furniture.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -138,6 +139,11 @@ func _compose_authorities() -> void:
 	if not fittings.mount(adapter):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: domestic fittings refused: %s" % [fittings.errors])
+		return
+	var furniture := DomesticFurniture.new()
+	if not furniture.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: furniture refused: %s" % [furniture.errors])
 		return
 	var telephone := HouseSwitchboardProp.new()
 	var line := HouseTelephoneNetwork.new()

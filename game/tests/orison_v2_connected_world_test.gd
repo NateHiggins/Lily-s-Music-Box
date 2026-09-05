@@ -4,6 +4,7 @@ const Connection := preload("res://scripts/building/orison_v2_world_connection.g
 const Resolver := preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd")
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 const Fittings := preload("res://scripts/building/orison_v2_domestic_fittings.gd")
+const Furniture := preload("res://scripts/building/orison_v2_domestic_furniture.gd")
 var failures: Array[String] = []
 var checks := 0
 
@@ -43,6 +44,25 @@ func _run() -> void:
 		await get_tree().physics_frame
 		_check(not world.startup_failed, "composition %d starts" % iteration)
 		if not world.startup_failed:
+			var furniture_source := Connection.read_object(Furniture.PATH)
+			var furniture_loader := Furniture.new()
+			_check(furniture_loader.validate(furniture_source, world.adapter), "furniture source validates")
+			var invalid_furniture := furniture_source.duplicate(true)
+			invalid_furniture.furniture[0].surfaces[0].vertices.pop_back()
+			_check(not furniture_loader.validate(invalid_furniture, world.adapter), "incomplete furniture triangle refused")
+			for record: Dictionary in furniture_source.furniture:
+				var body := world.adapter.resolve(str(record.id)) as StaticBody3D
+				_check(body != null and body.get_meta("v2_furniture_id", "") == str(record.id),
+						"furniture has a collision owner: " + str(record.id))
+				if body != null:
+					_check(body.find_children("*", "MeshInstance3D", true, false).size() >= record.surfaces.size(),
+							"furniture has its extracted visible surfaces: " + str(record.id))
+			var wc := world.adapter.resolve("3B_wc") as BakedFurnitureInteraction
+			_check(wc != null and wc.owner_unit == "3B", "WC preserves household owner")
+			if wc != null:
+				_check(wc.interact_prompt() == "[E] Flush water closet", "WC starts ready")
+				wc.interact()
+				_check(wc.interact_prompt() == "[E] Test refilling cistern handle", "WC enters existing refill behavior")
 			var fitting_source := Connection.read_object(Fittings.PATH)
 			var loader := Fittings.new()
 			_check(loader.validate(fitting_source, world.adapter), "domestic fitting records validate")
