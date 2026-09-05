@@ -105,7 +105,7 @@ func _ready() -> void:
 	_blockout.add_child(CUES.new())
 	if not adapter.install_acoustic_overrides([
 			"F02_A_MAIN_VANTRY_POINT", "F02_A_MONITOR_01",
-			"F04_B_MONITOR_01"]):
+			"F04_B_MONITOR_01", "F03_B_RADIATOR_01"]):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: acoustic binding failed")
 		return
@@ -349,6 +349,15 @@ func _compose_service_round_props() -> void:
 	_retire_blockout_fixture("F02_B_RADIATOR_MASS")
 	_retire_blockout_fixture("F02_B_RADIATOR_USE")
 	_mount("F02_B_RADIATOR_01", radiator)
+	var omar_radiator := RadiatorProp.new()
+	omar_radiator.prop_type = "radiator"
+	omar_radiator.unit = "3B"
+	omar_radiator.riser = "H-B"
+	omar_radiator.section_count = 7
+	omar_radiator.installation_drop = 0.75
+	omar_radiator.graph_node_id = "F03_B_RADIATOR_01"
+	omar_radiator.bind_inventory(maintenance_inventory)
+	_mount("F03_B_RADIATOR_01", omar_radiator)
 	var boiler := BoilerProp.new()
 	boiler.prop_type = "boiler"
 	_mount("B1_BOILER_01", boiler)

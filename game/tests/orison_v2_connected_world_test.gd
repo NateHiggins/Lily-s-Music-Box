@@ -61,6 +61,34 @@ func _run() -> void:
 			ray.exclude = [world.player.get_rid()]
 			_check(world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(), "front portal ray is unobstructed")
 			_check(exterior.service_counter("SHOP_BODEGA") != null, "bodega service counter is mounted")
+			var omar_radiator := world.find_child("F03_B_RADIATOR_01", true, false) as RadiatorProp
+			_check(omar_radiator != null and omar_radiator.unit == "3B"
+					and omar_radiator.section_count == 7, "3B radiator uses its preserved owner configuration")
+			var construction: Node3D = world.adapter.root
+			for station: Dictionary in world.layout.capsule_stations:
+				if str(station.level) != "F03":
+					continue
+				var coordinates: Array = station.position
+				var elevation := 0.0
+				for level: Dictionary in world.layout.levels:
+					if str(level.id) == str(station.level):
+						elevation = float(level.y)
+				var capsule := CapsuleShape3D.new()
+				capsule.radius = 0.33
+				capsule.height = 1.524
+				var query := PhysicsShapeQueryParameters3D.new()
+				query.shape = capsule
+				query.transform = Transform3D(Basis.IDENTITY, construction.to_global(Vector3(
+						float(coordinates[0]), elevation + float(coordinates[1]), float(coordinates[2]))))
+				query.exclude = [world.player.get_rid()]
+				query.collide_with_areas = false
+				_check(world.get_world_3d().direct_space_state.intersect_shape(query, 8).is_empty(),
+						"F03 capsule station clear: " + str(station.id))
+				var ground := PhysicsRayQueryParameters3D.create(query.transform.origin,
+						query.transform.origin - Vector3.UP * 1.1)
+				ground.exclude = [world.player.get_rid()]
+				_check(not world.get_world_3d().direct_space_state.intersect_ray(ground).is_empty(),
+						"F03 capsule station has floor: " + str(station.id))
 		world.shutdown_for_tests()
 		remove_child(world)
 		world.free()
