@@ -1,0 +1,75 @@
+{
+  "status": "FOCUSED_RUNTIME_AND_MATCHED_CAPTURE_PASS_VISUAL_DEBT_REMAINS",
+  "seal_sha256": "39ce05cfe46cc07a41821b2ce690d6cf6210356bb0430c92304bdb502b296d2e",
+  "runs": [
+    {
+      "phase": "01_candidate",
+      "native_exit": 0,
+      "passed": 28,
+      "total": 28,
+      "artifact_count": 63,
+      "result_sha256": "141b709e32b635c086c3a07f5d9d11a0a3f8d9ef6604b48ac10d2561cff560e7",
+      "restoration_sha256": "4694693d34576937b90fca966ae9e4e3c5ed8f7529fdc7b574f3a438be2989e3"
+    },
+    {
+      "phase": "02_production_flag_omission",
+      "native_exit": 1,
+      "passed": 25,
+      "total": 28,
+      "artifact_count": 63,
+      "result_sha256": "fe5328285a78f4073a6553eb98269898c0b0c001d89405379498caa31ba5ae1e",
+      "restoration_sha256": "9a3d2aad0ae1cadcf15fc56e8feff4d637c3481c6cb64e7912aef1c5e028556c"
+    },
+    {
+      "phase": "03_restored_candidate",
+      "native_exit": 0,
+      "passed": 28,
+      "total": 28,
+      "artifact_count": 63,
+      "result_sha256": "ead228d03e2b4fa872dbf9e2f7a04ef438f28599a29b9b0dee160744f163eb81",
+      "restoration_sha256": "057873e356c451186a6cac00b17e69b3214b9be736f67e6546395e38e7bc34f1"
+    },
+    {
+      "phase": "04_terminal_regression",
+      "native_exit": 0,
+      "passed": 39,
+      "total": 39,
+      "artifact_count": 63,
+      "result_sha256": "efff65ca3149926c69b9e026130efef7bb1426a972a588406094ab065c74a00a",
+      "restoration_sha256": "e4f63d96a9a5a0fb29151eea6852b4f0fa6cd494386c561e8b95c8745217e0e8"
+    }
+  ],
+  "capture": {
+    "result_sha256": "98a923b7b5438024641eb3924e098c85783f9181a95f741ea8d8798ca4ff092b",
+    "artifact_count": 24,
+    "checks": 21,
+    "invocation_sha256": "c59d8bc1f13b17007cbc188d18d4837f66262885dad92a21b9c7243d1d9bdcd7",
+    "images": {
+      "v2_actual_f04_semantic_stance": {
+        "path": "design/astra/evidence/vulkan_composed/runs/reservation_operator_view_v2_01/frames/v2_actual_f04_semantic_stance.png",
+        "sha256": "497411f1f51c1ea61246e2d51fcbee223a97b1f5c4ab4cb34fdae0d47926c299",
+        "size": [
+          1280,
+          720
+        ],
+        "directly_viewed_by_root": true
+      },
+      "v2_actual_f04_phone": {
+        "path": "design/astra/evidence/vulkan_composed/runs/reservation_operator_view_v2_01/frames/v2_actual_f04_phone.png",
+        "sha256": "cc145303da6e8e4444635f19dc40b1fdf7dd77b5599a12184840c1c33455416c",
+        "size": [
+          320,
+          240
+        ],
+        "directly_viewed_by_root": true
+      }
+    }
+  },
+  "visual_findings": [
+    "Translucent reservation volumes no longer cross the desk in either directly viewed image.",
+    "Terminal face and desktop support-desk prompt remain visible.",
+    "Coarse furniture masses, dark lighting and unfinished handset remain visible; no final art acceptance."
+  ],
+  "scope": "Display-only correction on 78 existing non-colliding nodes; unchanged geometry/collision/semantics, terminal39 regression and controlled21 capture. No traversal, performance, human acceptance or release claim.",
+  "historical_runtime02_remains_failed": true
+}

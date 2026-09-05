@@ -1,0 +1,80 @@
+{
+  "schema": "astra.v2-reservation-display.run.v1",
+  "phase": "04_terminal_regression",
+  "before": {
+    "all_game_files_sha256": "97399584f10f26610dfaba26cd5f755411468b78ca93566add73f913c75f764d",
+    "runtime_text_sha256": "39b5f113ba340225296566dc5eb02df7318460165bd4006a874e0632ef865eb0",
+    "copied_sources": {
+      "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+      "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+      "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+      "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+      "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+      "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc",
+      "game/scripts/call/call_interface.gd": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c",
+      "game/scripts/call/case_library.gd": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c",
+      "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+      "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+      "game/scripts/game/first_shift_director.gd": "5c53680040277cb76539e1e7702a620333dc681f7a5f6a3103a7afb948f00bfd",
+      "game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+      "game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+      "game/tests/OrisonV2ReservationDisplayTest.tscn": "c9c2bbaafc8b5f430398bf02808ca623438cd63b421758dbb80a31743c99b721",
+      "game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60",
+      "game/tests/orison_v2_reservation_display_test.gd": "6a6527b9e6fd87ad8a06e28511831ee52f47c747fb273bf84d089cacc0c3ae6c",
+      "game/tests/orison_v2_terminal_access_test.gd": "800d7bf531758e2720d70d3167378c5bb77a90b0cb054ddad0347010feec47e3"
+    },
+    "head_observed": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+    "instruments": {
+      "assess.py": "76a40f3b7bc327a4cbb5f37c18b731d0113d8753482c486ae0696660456739c7",
+      "core.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+      "known_diagnostics.json": "838bcb65d975e791502fa77b95ebaf6e3de503aeebfca2a44a8b71f50347e7ee",
+      "package.json": "09cfd91bc198f9e0d69b67a109b2b82f3b5ac19a5a3b2d63457041d35415d53e",
+      "run.py": "c7bc009067bae3dcd274d41216accb976c2a16b8ceee022120f4708dda161fa6",
+      "runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+      "support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+      "terminal_assess.py": "47e629894b3958cc4e5acb1a8a495924bf04c14121caceb46510f571dee29564",
+      "test_assess.py": "d637f0f674fced38de206f81e160e12547252644cdbf77a5c45acb0fe33f24ff",
+      "test_runner_contract.py": "3e4a6afa3baa16826f7327d8a9bc1caee9578589a37e70c0490550b7dd0cde7f",
+      "canonical_run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "reservation_preparation.json": "34db3c19b2462c49093115e224c320139a094871eb485ae78f66ae44e8c2f601",
+      "terminal_39_preparation.json": "bb79be11112e7d23666ce8437cc6604b76be4c293716c747a728b634d87cbd02"
+    },
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "started_at_utc": "2026-09-05T15:54:09.640536+00:00",
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\04_terminal_regression\\APPDATA",
+  "cleared_environment_keys": [
+    "APPDATA"
+  ],
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/OrisonV2TerminalAccessTest.tscn",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\04_terminal_regression\\godot.stdout.log",
+    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\04_terminal_regression\\shots",
+    "TimeoutSeconds": 180,
+    "Windowed": true,
+    "ExtraArgs": [
+      "--verbose",
+      "--audio-driver",
+      "Dummy",
+      "--resolution",
+      "1280x720",
+      "--rendering-method",
+      "forward_plus",
+      "--rendering-driver",
+      "vulkan"
+    ]
+  },
+  "package_sha256": "09cfd91bc198f9e0d69b67a109b2b82f3b5ac19a5a3b2d63457041d35415d53e"
+}

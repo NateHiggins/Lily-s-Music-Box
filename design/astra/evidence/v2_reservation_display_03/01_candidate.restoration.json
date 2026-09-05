@@ -1,0 +1,38 @@
+{
+  "phase": "01_candidate",
+  "status": "EXACT_OWNED_SOURCES_RESTORED",
+  "pre_transition_hashes": {
+    "game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+    "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955"
+  },
+  "desired_hashes": {
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc"
+  },
+  "copied_paths": [
+    "game/scripts/building/orison_v2_blockout.gd",
+    "game/scripts/building/orison_v2_runtime_root.gd"
+  ],
+  "restored_paths": [
+    "game/scripts/building/orison_v2_blockout.gd",
+    "game/scripts/building/orison_v2_runtime_root.gd"
+  ],
+  "process_census": [],
+  "target_phase": "01_candidate",
+  "expected_hashes": {
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc"
+  },
+  "restoration_input_hashes": {
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc"
+  },
+  "hashes": {
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc"
+  },
+  "observed_final_hashes": {
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc"
+  }
+}

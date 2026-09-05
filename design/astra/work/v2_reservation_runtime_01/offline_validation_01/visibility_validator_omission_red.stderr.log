@@ -1,0 +1,14 @@
+test_visible_production_cannot_be_admitted_as_green (test_assess.ReservationControls.test_visible_production_cannot_be_admitted_as_green) ... FAIL
+
+======================================================================
+FAIL: test_visible_production_cannot_be_admitted_as_green (test_assess.ReservationControls.test_visible_production_cannot_be_admitted_as_green)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\v2_reservation_runtime_01\runtime\test_assess.py", line 44, in test_visible_production_cannot_be_admitted_as_green
+    self.assertIn("reservation_geometry_display_witness_invalid",evaluate(p,log,code)["reasons"])
+AssertionError: 'reservation_geometry_display_witness_invalid' not found in []
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (failures=1)

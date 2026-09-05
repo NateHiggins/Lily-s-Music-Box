@@ -1,0 +1,15 @@
+test_duplicate_anonymous_siblings_cannot_alias (test_assess.ReservationControls.test_duplicate_anonymous_siblings_cannot_alias) ... FAIL
+
+======================================================================
+FAIL: test_duplicate_anonymous_siblings_cannot_alias (test_assess.ReservationControls.test_duplicate_anonymous_siblings_cannot_alias)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\v2_reservation_runtime_03\runtime\test_assess.py", line 52, in test_duplicate_anonymous_siblings_cannot_alias
+    with self.assertRaises(ValueError):assess.comparison_identity(raw)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+FAILED (failures=1)

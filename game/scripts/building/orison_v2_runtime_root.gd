@@ -61,6 +61,7 @@ func _ready() -> void:
 	add_to_group("orison_v2_runtime")
 	_blockout = BLOCKOUT.instantiate()
 	_blockout.show_clearance_anchors = false
+	_blockout.show_reservation_volumes = false
 	add_child(_blockout)
 	layout = _blockout.layout
 	for level: Dictionary in layout.get("levels", []):

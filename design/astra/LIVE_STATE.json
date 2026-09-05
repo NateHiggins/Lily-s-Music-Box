@@ -44,7 +44,7 @@
   },
   "latest_f01_source_commit": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
   "current_v2_terminal_repair": {
-    "status": "FOCUSED_INPUT_AND_CAPTURE_VERIFIED_COMMIT_PENDING",
+    "status": "FOCUSED_INPUT_AND_CAPTURE_VERIFIED_COMMITTED",
     "base_head": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
     "input_review": "reviews/v2_terminal_access_arrival_02_review.json",
     "input_review_sha256": "9128b8815edbf5d603220cacfeee9c05f66e89efed862c2fb1cda3e67baa0c04",
@@ -54,6 +54,15 @@
       "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
       "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a"
     },
-    "scope": "39-check actual controlled-pose input with selective negatives and21-check operator/phone capture. No traversal, complete case, performance, visual or human acceptance."
+    "scope": "39-check actual controlled-pose input with selective negatives and21-check operator/phone capture. No traversal, complete case, performance, visual or human acceptance.",
+    "integration_commit": "02fcb18a209624c9b609b65fb44b05b45c65de09"
+  },
+  "latest_v2_terminal_commit": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+  "current_v2_reservation_display": {
+    "status": "FOCUSED_RUNTIME_AND_MATCHED_CAPTURE_VERIFIED_PENDING_COMMIT",
+    "base_head": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+    "review": "reviews/v2_reservation_completed_03.json",
+    "review_sha256": "7e3062fdacbe72402234bc034840c4e564f9ab9b56d71416c76599e85d963773",
+    "scope": "78 display-only guides suppressed in V2 production; dedicated review defaults visible. 28/25/28 runtime checks, terminal39 and directly viewed21 capture. Art, traversal, performance and human acceptance remain open."
   }
 }

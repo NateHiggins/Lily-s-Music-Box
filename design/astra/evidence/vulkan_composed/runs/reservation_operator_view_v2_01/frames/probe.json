@@ -1,0 +1,320 @@
+{
+	"arcade_observations": [],
+	"captures": [
+		{
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\frames/v2_actual_f04_semantic_stance.png",
+			"name": "v2_actual_f04_semantic_stance",
+			"reviewed": false,
+			"scope": "controlled composition, not traversal or human acceptance",
+			"size": [
+				1280.0,
+				720.0
+			],
+			"viewport": "/root",
+			"written": true
+		},
+		{
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\frames/v2_actual_f04_phone.png",
+			"name": "v2_actual_f04_phone",
+			"reviewed": false,
+			"scope": "controlled composition, not traversal or human acceptance",
+			"size": [
+				320.0,
+				240.0
+			],
+			"viewport": "/root/VulkanComposedRootTest/HarnessPhoneCameraHost/@SubViewport@1460",
+			"written": true
+		}
+	],
+	"checks": [
+		{
+			"label": "campaign calendar seeded at authored 03:00 without host time",
+			"passed": true
+		},
+		{
+			"label": "Vulkan Forward+ is active",
+			"passed": true
+		},
+		{
+			"label": "CampaignShell composed the selected real root",
+			"passed": true
+		},
+		{
+			"label": "root startup succeeded",
+			"passed": true
+		},
+		{
+			"label": "real production player exists",
+			"passed": true
+		},
+		{
+			"label": "V2 genuinely has no V1 zone APIs",
+			"passed": true
+		},
+		{
+			"label": "actual V2 production terminal is present",
+			"passed": true
+		},
+		{
+			"label": "profile photo directory is available",
+			"passed": true
+		},
+		{
+			"label": "production phone lens shares selected root world",
+			"passed": true
+		},
+		{
+			"label": "V2 F04 uses actual semantic stance",
+			"passed": true
+		},
+		{
+			"label": "V2 operator anchor resolves uniquely at its authored position",
+			"passed": true
+		},
+		{
+			"label": "V2 operator belongs to the authored terminal stance envelope",
+			"passed": true
+		},
+		{
+			"label": "V2 terminal resolves one actual SignalScope mesh",
+			"passed": true
+		},
+		{
+			"label": "V2 original bedside terminal view is blocked by actual physics geometry",
+			"passed": true
+		},
+		{
+			"label": "V2 operator camera has a clear physics segment to SignalScope",
+			"passed": true
+		},
+		{
+			"label": "V2 actual terminal front faces its authored operator",
+			"passed": true
+		},
+		{
+			"label": "V2 composes a DeskZone bound to its actual call interface",
+			"passed": true
+		},
+		{
+			"label": "capture written v2_actual_f04_semantic_stance",
+			"passed": true
+		},
+		{
+			"label": "capture written v2_actual_f04_phone",
+			"passed": true
+		},
+		{
+			"label": "actual shell retired",
+			"passed": true
+		},
+		{
+			"label": "actual selected world retired",
+			"passed": true
+		}
+	],
+	"execution_scope": "full",
+	"functional_failures": 0,
+	"native_diagnostics_accepted": false,
+	"no_op_native_call_count_proven": false,
+	"owned_controls": [
+		{
+			"camera_position": [
+				-9.89999961853027,
+				11.0100002288818,
+				1.25
+			],
+			"capture_anchor": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_MONITOR_STANCE",
+			"capture_anchor_position": [
+				-9.89999961853027,
+				9.60000038146973,
+				1.25
+			],
+			"complete": true,
+			"desk_zones": [
+				{
+					"bound_to_actual_call_interface": true,
+					"path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_DESK_ZONE",
+					"position": [
+						-9.05000019073486,
+						9.60000038146973,
+						1.25
+					]
+				}
+			],
+			"face_dot_operator": 1.0,
+			"face_minimum_dot": 0.5,
+			"kind": "v2_terminal_operator_view",
+			"operator_direction_world": [
+				-1.0,
+				0.0,
+				0.0
+			],
+			"operator_scope_sightline": {
+				"blocked": false,
+				"collide_with_areas": false,
+				"collide_with_bodies": true,
+				"collider_class": "",
+				"collider_path": "",
+				"excluded_player_rid_only": true,
+				"from": [
+					-9.89999961853027,
+					11.0100002288818,
+					1.25
+				],
+				"hit_from_inside": true,
+				"hit_normal": [],
+				"hit_position": [],
+				"length_m": 0.83780974149704,
+				"scope": "physical obstruction only; SignalScope need not be a collider",
+				"to": [
+					-9.27400016784668,
+					10.5150003433228,
+					1.50499999523163
+				]
+			},
+			"original_bedside_obstruction": {
+				"blocked": true,
+				"collide_with_areas": false,
+				"collide_with_bodies": true,
+				"collider_class": "StaticBody3D",
+				"collider_path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_PRIVATE_HALL/WallNorth_00/Collision",
+				"excluded_player_rid_only": true,
+				"from": [
+					-11.9499998092651,
+					11.0100002288818,
+					8.89999961853027
+				],
+				"hit_from_inside": true,
+				"hit_normal": [
+					0.0,
+					0.0,
+					1.0
+				],
+				"hit_position": [
+					-11.0098695755005,
+					10.9095039367676,
+					6.42000007629395
+				],
+				"length_m": 8.18709945678711,
+				"scope": "physical obstruction only; SignalScope need not be a collider",
+				"to": [
+					-9.05000019073486,
+					10.7000007629395,
+					1.25
+				]
+			},
+			"reservation_geometry": [
+				{
+					"albedo_alpha": 0.319999992847443,
+					"camera_cull_mask_overlap": true,
+					"camera_inside_world_bounds": false,
+					"collision_descendants": [],
+					"material_class": "StandardMaterial3D",
+					"path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_TERMINAL_USE",
+					"position": [
+						-9.05000019073486,
+						10.0,
+						1.25
+					],
+					"purpose": "terminal fixed-use reservation",
+					"transparency": 1,
+					"visible_in_tree": false,
+					"world_bounds_position": [
+						-9.44999980926514,
+						9.60000038146973,
+						0.850000023841858
+					],
+					"world_bounds_size": [
+						0.799999237060547,
+						0.799999237060547,
+						0.799999952316284
+					]
+				},
+				{
+					"albedo_alpha": 0.319999992847443,
+					"camera_cull_mask_overlap": true,
+					"camera_inside_world_bounds": false,
+					"collision_descendants": [],
+					"material_class": "StandardMaterial3D",
+					"path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_TERMINAL_STANCE",
+					"position": [
+						-9.89999961853027,
+						9.60999965667725,
+						1.25
+					],
+					"purpose": "0.9 by 1.2 m terminal interaction stance",
+					"transparency": 1,
+					"visible_in_tree": false,
+					"world_bounds_position": [
+						-10.3499994277954,
+						9.59999942779541,
+						0.649999976158142
+					],
+					"world_bounds_size": [
+						0.899999618530273,
+						0.0200004577636719,
+						1.20000004768372
+					]
+				}
+			],
+			"retained_bedside_position": [
+				-11.9499998092651,
+				9.60000038146973,
+				8.89999961853027
+			],
+			"scope": "controlled operator capture and physics obstruction diagnostics; ray clearance is not interaction or readability proof",
+			"scope_position": [
+				-9.27400016784668,
+				10.5150003433228,
+				1.50499999523163
+			],
+			"terminal_area_count": 0,
+			"terminal_front_world": [
+				-1.0,
+				0.0,
+				-0.0000000874227765734759
+			],
+			"terminal_has_interact": false,
+			"terminal_position": [
+				-9.05000019073486,
+				10.3500003814697,
+				1.25
+			],
+			"terminal_yaw_radians": 3.14159250259399
+		}
+	],
+	"pid": 31540,
+	"populations": [
+		{
+			"population": {
+				"classes": {
+					"Label3D": 38,
+					"MeshInstance3D": 1278,
+					"MultiMeshInstance3D": 1,
+					"Sprite3D": 1
+				},
+				"eligible": 1210,
+				"geometry": 1318,
+				"layer_zero": 0,
+				"owner_hidden": 108
+			},
+			"station": "v2_f04",
+			"zone_gate_applicability": "absent in this root"
+		}
+	],
+	"renderer": "forward_plus",
+	"root": "v2",
+	"schema": "astra.vulkan_composed.probe.v2",
+	"scope": "actual root composition, controlled teleports, source-bound script and rendered transition smoke measurements; stderr and images require independent external review",
+	"separate_world_case_executed": false,
+	"subviews": [
+		{
+			"kind": "PhoneCamera",
+			"ownership": "fixture-mounted production implementation",
+			"shared_world": true
+		}
+	],
+	"transitions": [],
+	"v2_street_passage_applicability": "absent",
+	"variant": "candidate"
+}

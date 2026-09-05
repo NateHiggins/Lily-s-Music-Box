@@ -5,6 +5,8 @@ extends Node3D
 @export_file("*.json") var layout_path := "res://data/orison_v2_blockout.json"
 @export var show_ceilings := true
 @export var show_clearance_anchors := true
+## Keep semantic bounds while production hides nonphysical reservation meshes.
+@export var show_reservation_volumes := true
 @export var hold_route_doors_open := true
 
 var layout: Dictionary = {}
@@ -639,6 +641,7 @@ func _build_envelopes() -> void:
 				Vector3(_rect_w(rect), height, _rect_d(rect)),
 				str(envelope.get("class", "unresolved")), false)
 		node.set_meta("purpose", str(envelope.get("purpose", "")))
+		node.visible = show_reservation_volumes
 
 func _build_fixtures() -> void:
 	for fixture: Dictionary in layout.get("fixtures", []):
@@ -677,9 +680,10 @@ func _build_lift_landings() -> void:
 				Vector3(0.09, height, 0.10), "core", false)
 		_box(parent, "Head", Vector3(0.0, height + 0.045, 0.0),
 				Vector3(width + 0.18, 0.09, 0.10), "core", false)
-		_box(parent, "Clearance", Vector3(0.0, 0.01, float(landing.clear_depth) * 0.5),
+		var clearance := _box(parent, "Clearance", Vector3(0.0, 0.01, float(landing.clear_depth) * 0.5),
 				Vector3(maxf(width, 1.5), 0.02, float(landing.clear_depth)),
 				"clearance", false)
+		clearance.visible = show_reservation_volumes
 
 func _build_stairs() -> void:
 	for stair: Dictionary in layout.stairs:

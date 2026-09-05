@@ -1,0 +1,92 @@
+{
+  "schema": "astra.v2-reservation-checkpoint.static-review.v1",
+  "scope": "Small declared package/dependency reads only; no full-game census, engine, import, source mutation, or offline test execution.",
+  "head": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+  "checks": [
+    {
+      "name": "current canonical HEAD",
+      "passed": true,
+      "actual": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+      "expected": "02fcb18a209624c9b609b65fb44b05b45c65de09"
+    },
+    {
+      "name": "runtime prepared leaves",
+      "passed": true,
+      "count": 19,
+      "differences": []
+    },
+    {
+      "name": "runtime instruments",
+      "passed": true,
+      "count": 9,
+      "differences": []
+    },
+    {
+      "name": "display prepared leaves",
+      "passed": true,
+      "count": 7,
+      "differences": []
+    },
+    {
+      "name": "current reviewed dependencies",
+      "passed": true,
+      "count": 19,
+      "differences": []
+    },
+    {
+      "name": "runtime preparation parent hash",
+      "passed": true
+    },
+    {
+      "name": "proposal agrees between original and runtime packages: game/scripts/building/orison_v2_blockout.gd",
+      "passed": true
+    },
+    {
+      "name": "HEAD content agrees with current source: game/scripts/building/orison_v2_blockout.gd",
+      "passed": true,
+      "git_blob": "5df27ceb3a45ebf2b73cde37a7e61f9cb60c4b0d",
+      "working_sha256": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e"
+    },
+    {
+      "name": "proposal agrees between original and runtime packages: game/scripts/building/orison_v2_runtime_root.gd",
+      "passed": true
+    },
+    {
+      "name": "HEAD content agrees with current source: game/scripts/building/orison_v2_runtime_root.gd",
+      "passed": true,
+      "git_blob": "bdeb1fcc6967bebe8cc2d83279425fef6c61090f",
+      "working_sha256": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955"
+    },
+    {
+      "name": "production omission deletes only one false assignment",
+      "passed": true
+    },
+    {
+      "name": "copied terminal assessor is exact accepted assessor",
+      "passed": true
+    },
+    {
+      "name": "new fixtures and evidence namespace remain uninstalled",
+      "passed": true
+    },
+    {
+      "name": "optional capture source/runner/gate binding still current",
+      "passed": true
+    }
+  ],
+  "bindings": {
+    "design/astra/work/v2_reservation_runtime_01/preparation.json": "ad7c167f3a27636b0d46eca27695fa2a1383a2b3880c8a47ca0f55d695e248b4",
+    "design/astra/work/v2_reservation_runtime_01/runtime/package.json": "096d45c58baf16462730f242db77fd4e6e215f03bd0266301b82aaabb9674c50",
+    "design/astra/work/v2_reservation_runtime_01/runtime/run.py": "37e708e26bdce7d99118b4fe63e02f91e7254dc7cecab9f90a829cd3fdab5fb0",
+    "design/astra/work/v2_reservation_runtime_01/runtime/assess.py": "e1a8a8c383b00f6aeb89901c3de558f499f401065bf05dd09bf07c3e8ef983d5",
+    "design/astra/work/v2_reservation_runtime_01/runtime/terminal_assess.py": "47e629894b3958cc4e5acb1a8a495924bf04c14121caceb46510f571dee29564",
+    "design/astra/work/v2_reservation_runtime_01/runtime/core.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+    "design/astra/work/v2_reservation_runtime_01/runtime/support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+    "design/astra/work/v2_reservation_runtime_01/runtime/test_assess.py": "899be112931bb3c58b3076479fd0b4371700fde9c1ef3f4ff4b7279e314f1730",
+    "design/astra/work/v2_reservation_runtime_01/runtime/test_runner_contract.py": "29442b0145e2f1521956596c9f6885d37536dd70defd589137ce7329aa64108b",
+    "design/astra/work/v2_reservation_runtime_01/proposed/game/tests/orison_v2_reservation_display_test.gd": "595cf3dacf207140053b8ff4602c740af479ba141679dd2e6be177c4dc83661e",
+    "design/astra/work/v2_reservation_runtime_01/proposed/game/tests/OrisonV2ReservationDisplayTest.tscn": "c9c2bbaafc8b5f430398bf02808ca623438cd63b421758dbb80a31743c99b721",
+    "design/astra/work/v2_reservation_display_01/reservation_display.patch": "402c8b25c2c5a0bdfe8a401f25e72a79675d7fc6181e39b2991f08d58a8beebb"
+  },
+  "status": "STATIC_BINDINGS_MATCH"
+}
