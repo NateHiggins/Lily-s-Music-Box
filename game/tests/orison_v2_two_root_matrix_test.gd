@@ -4,6 +4,8 @@ const Selector := preload("res://scripts/building/building_root_selector.gd")
 const PROD_LAYOUT := "res://data/building_layout.json"
 var failures := 0
 var passes := 0
+var calendar_direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
+		"v1_to_v2": 0, "v2_to_v1": 0}
 var direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
 		"v1_to_v2": 0, "v2_to_v1": 0}
 
@@ -81,9 +83,9 @@ func _ready() -> void:
 	RealityState.persistence_enabled = saved_persistence
 	RealityState.reset_campaign_for_tests()
 	Selector.reset_for_tests()
-	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s checks=%d" % [
+	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s calendar_totals=%s checks=%d" % [
 			"PASS" if failures == 0 else "FAIL (%d)" % failures,
-			direction_totals, passes + failures])
+			direction_totals, calendar_direction_totals, passes + failures])
 	get_tree().quit(failures)
 
 func _exercise_v1_root() -> void:
@@ -114,6 +116,8 @@ func _exercise_v1_root() -> void:
 	await get_tree().process_frame
 
 func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
+	var old_clock_frozen := bool(CampaignTime.get("_frozen_for_tests"))
+	CampaignTime.set_frozen_for_tests(true)
 	var key := "%s_to_%s" % [from_id, to_id]
 	var old_path := RealityState.save_path
 	var old_persistence := RealityState.persistence_enabled
@@ -121,6 +125,12 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	RealityState.save_path = save_path
 	RealityState.persistence_enabled = true
 	RealityState.reset_campaign_for_tests()
+	var clock := CampaignClock.new()
+	var clock_seeded := clock.configure_date(1928, 11, 10, 1439) \
+			and clock.advance_to(181.5)
+	var expected_clock: Dictionary = JSON.parse_string(JSON.stringify(
+			RealityState.data.campaign_clock))
+	var expected_absolute := clock.absolute_minutes()
 	RealityState.data.intro_complete = true
 	RealityState.data.first_shift = {"phase": FirstShiftDirector.PHASE_COMPLETE,
 			"report_id": ChirpHunt.JOB_ID, "filing": "fault_corrected"}
@@ -132,6 +142,8 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	await get_tree().process_frame
 	var origin_ok := origin_shell.active_world != null and (
 			origin_shell.active_world.is_in_group("orison_v2_runtime") == (from_id == "v2"))
+	var origin_clock_ok := _calendar_record_matches(expected_clock) \
+			and _bound_calendar_matches(origin_shell.active_world, expected_absolute)
 	var save_started := Time.get_ticks_usec()
 	var saved := RealityState.save_game()
 	var save_ms := float(Time.get_ticks_usec() - save_started) / 1000.0
@@ -142,6 +154,7 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	RealityState.reset_campaign_for_tests()
 	RealityState.load_game()
 	var loaded: bool = not RealityState.data.first_shift.is_empty()
+	var loaded_clock_ok := _calendar_record_matches(expected_clock)
 	Selector.reset_for_tests(to_id)
 	var reconstruction_started := Time.get_ticks_usec()
 	var shell := CampaignShell.new()
@@ -162,6 +175,11 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	var ok: bool = origin_ok and saved and loaded and selected_ok and semantic_ok
 	direction_totals[key] = 1 if ok else 0
 	_check(ok, "%s save reconstructs semantic facts through CampaignShell" % key)
+	var calendar_ok := clock_seeded and origin_clock_ok and loaded_clock_ok \
+			and _calendar_record_matches(expected_clock) \
+			and _bound_calendar_matches(shell.active_world, expected_absolute)
+	calendar_direction_totals[key] = 1 if calendar_ok else 0
+	_check(calendar_ok, "%s preserves exact calendar epoch/start/elapsed through real roots" % key)
 	remove_child(shell)
 	shell.free()
 	await get_tree().process_frame
@@ -169,6 +187,30 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path))
 	RealityState.save_path = old_path
 	RealityState.persistence_enabled = old_persistence
+	CampaignTime.set_frozen_for_tests(old_clock_frozen)
+
+func _calendar_record_matches(expected: Dictionary) -> bool:
+	# JSON changes integer variants to floats; every persisted key/value must
+	# otherwise match exactly, including epoch, start minute, elapsed and zone.
+	var restored: Variant = JSON.parse_string(JSON.stringify(
+			RealityState.data.get("campaign_clock", {})))
+	return restored is Dictionary and restored == expected
+
+func _bound_calendar_matches(world: Node, expected_absolute: float) -> bool:
+	if world == null:
+		return false
+	var bound := world.get("campaign_clock") as CampaignClock
+	if bound == null or not bound.bind_state():
+		return false
+	var info := bound.day_info()
+	return absf(bound.absolute_minutes() - expected_absolute) < 0.00001 \
+			and absf(bound.elapsed_minutes() - 181.5) < 0.00001 \
+			and absf(bound.minute_of_day() - 180.5) < 0.00001 \
+			and bool(info.get("valid", false)) \
+			and int(info.get("year", -1)) == 1928 \
+			and int(info.get("month", -1)) == 11 \
+			and int(info.get("day_of_month", -1)) == 11 \
+			and str(info.get("day", "")) == "sun"
 
 func _one(root: Node, named: String) -> bool:
 	return root.find_children(named, "", true, false).size() == 1
