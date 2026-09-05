@@ -1,0 +1,47 @@
+{
+  "version": 4,
+  "intro_complete": true,
+  "dream_seed": "1928000019280000",
+  "maintenance_jobs": {
+    "vantry_chirp_2a": {
+      "stage": "repaired",
+      "origin": "reported",
+      "evidence": [
+        "carbon_capsule_failed"
+      ],
+      "repair_result": {
+        "quality": "good"
+      },
+      "issued_at_basis": "fixture_basis_preserved"
+    }
+  },
+  "maintenance_items": {
+    "carbon_transmitter_capsule": {
+      "shop_id": "hardware",
+      "consumed": true
+    }
+  },
+  "dream": {
+    "phase": "armed",
+    "active": false,
+    "case_id": "mina_caption_crisis",
+    "profile_id": "mina_release_print",
+    "window": {},
+    "seed_hex": "1928000019280000",
+    "night_index": 0
+  },
+  "campaign_clock": {
+    "schema_version": 2,
+    "calendar_mode": "gregorian",
+    "year": 1928,
+    "month": 11,
+    "day_of_month": 10,
+    "timezone": "America/New_York",
+    "utc_offset_minutes": -300,
+    "epoch_date": "1928-11-10",
+    "start_weekday": "sat",
+    "start_doy": 314,
+    "start_minute_of_day": 807,
+    "elapsed_minutes": 0.0
+  }
+}

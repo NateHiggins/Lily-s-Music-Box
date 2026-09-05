@@ -1,0 +1,89 @@
+{
+  "schema": "astra.save_recovery.runtime.v1",
+  "name": "original_invalid_red",
+  "mode": "invalid",
+  "scene": "res://tests/reality_invalid_load_control.tscn",
+  "expected_exit": 1,
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\original_invalid_red\\command.ps1"
+  ],
+  "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\original_invalid_red\\appdata",
+  "profile_existed_before_run": false,
+  "started_utc": "2026-09-05T04:38:20.958213+00:00",
+  "scope": "real production file/API fixture; no physical human route or multi-process restart claim",
+  "source_before": {
+    "head": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+    "runtime_input_count": 1139,
+    "runtime_inputs_sha256": "faa830a52917c77cd9b99edee0d124ac802b95fe4fa5048bf0d5e7bb2b49b449",
+    "tracked_game_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_copies": {
+      "game/scripts/game/reality_game_state.gd": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e",
+      "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+      "game/scripts/game/campaign_clock_driver.gd": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8",
+      "game/scripts/game_boot.gd": "9d0fe3aa51a80eed6e19567b4c36a379fdb2aaec5b6a6a12f166aa4ca1fcd6a1",
+      "game/scripts/ui/title_screen.gd": "b7d0e4cd4c73d483162f53894ef1835d34e7a493779d22007288e6f7e5eb9c00",
+      "game/tests/reality_invalid_load_control.gd": "d9e76d0fca74baedcaa3380c7d9b0469eb5bd22f13778ea4f47297e2f4194196",
+      "game/data/campaign_calendar.json": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a",
+      "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+    }
+  },
+  "actual_exit": 1,
+  "elapsed_seconds": 0.79,
+  "source_after": {
+    "head": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+    "runtime_input_count": 1139,
+    "runtime_inputs_sha256": "faa830a52917c77cd9b99edee0d124ac802b95fe4fa5048bf0d5e7bb2b49b449",
+    "tracked_game_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_copies": {
+      "game/scripts/game/reality_game_state.gd": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e",
+      "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+      "game/scripts/game/campaign_clock_driver.gd": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8",
+      "game/scripts/game_boot.gd": "9d0fe3aa51a80eed6e19567b4c36a379fdb2aaec5b6a6a12f166aa4ca1fcd6a1",
+      "game/scripts/ui/title_screen.gd": "b7d0e4cd4c73d483162f53894ef1835d34e7a493779d22007288e6f7e5eb9c00",
+      "game/tests/reality_invalid_load_control.gd": "d9e76d0fca74baedcaa3380c7d9b0469eb5bd22f13778ea4f47297e2f4194196",
+      "game/data/campaign_calendar.json": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a",
+      "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+    }
+  },
+  "source_unchanged": true,
+  "summary_lines": [
+    "[INVALID LOAD CONTROL] FAIL failures=6"
+  ],
+  "diagnostic_headers": [
+    "ERROR: Parse JSON failed. Error at line 0: Expected '}'"
+  ],
+  "expected_exit_matches": true,
+  "finished_utc": "2026-09-05T04:38:22.111408+00:00",
+  "artifact_hashes": {
+    "command.ps1": "37970af7429b31602d7b346dfdd39090d8b43d3b99e0f6a55b4cae91dbc9bcf8",
+    "godot.stdout.log": "00c8e4b9d66c1e7d5771562969dfb341b90697a7dfa34f12712a7dfce5ccdb9d",
+    "godot.stdout.log.stderr": "78681b63cc5652039c6439b5f19a90148a76159737e291830f8aad3d6e5a9e2f",
+    "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_after/game/data/campaign_calendar.json": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a",
+    "source_after/game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+    "source_after/game/scripts/game/campaign_clock_driver.gd": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8",
+    "source_after/game/scripts/game/reality_game_state.gd": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e",
+    "source_after/game/scripts/game_boot.gd": "9d0fe3aa51a80eed6e19567b4c36a379fdb2aaec5b6a6a12f166aa4ca1fcd6a1",
+    "source_after/game/scripts/ui/title_screen.gd": "b7d0e4cd4c73d483162f53894ef1835d34e7a493779d22007288e6f7e5eb9c00",
+    "source_after/game/tests/reality_invalid_load_control.gd": "d9e76d0fca74baedcaa3380c7d9b0469eb5bd22f13778ea4f47297e2f4194196",
+    "source_after/tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "source_after.game.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_after.runtime_inputs.json": "60a753e8f6fcd9fe218c355dd421b56002d29ee63b9efa977c1009ecb54ff15a",
+    "source_before/game/data/campaign_calendar.json": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a",
+    "source_before/game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+    "source_before/game/scripts/game/campaign_clock_driver.gd": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8",
+    "source_before/game/scripts/game/reality_game_state.gd": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e",
+    "source_before/game/scripts/game_boot.gd": "9d0fe3aa51a80eed6e19567b4c36a379fdb2aaec5b6a6a12f166aa4ca1fcd6a1",
+    "source_before/game/scripts/ui/title_screen.gd": "b7d0e4cd4c73d483162f53894ef1835d34e7a493779d22007288e6f7e5eb9c00",
+    "source_before/game/tests/reality_invalid_load_control.gd": "d9e76d0fca74baedcaa3380c7d9b0469eb5bd22f13778ea4f47297e2f4194196",
+    "source_before/tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "source_before.game.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_before.runtime_inputs.json": "60a753e8f6fcd9fe218c355dd421b56002d29ee63b9efa977c1009ecb54ff15a"
+  }
+}

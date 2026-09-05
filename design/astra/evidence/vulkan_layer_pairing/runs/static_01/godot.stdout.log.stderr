@@ -1,0 +1,35 @@
+ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message
+	loader_get_json: Failed to open JSON file C:\Program Files\TikTok LIVE Studio\0.49.6\resources\app\electron\sdk\lib\LiveStudioVulkanLayer64.json
+	Objects - 1
+		Object[0] - VK_OBJECT_TYPE_INSTANCE, Handle 1794567626512
+   at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:657)
+ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message
+	loader_get_json: Failed to open JSON file C:\Program Files (x86)\Epic Games\Launcher\Portal\Extras\Overlay\EOSOverlayVkLayer-Win32.json
+	Objects - 1
+		Object[0] - VK_OBJECT_TYPE_INSTANCE, Handle 1794567626512
+   at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:657)
+ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message
+	loader_get_json: Failed to open JSON file C:\Program Files (x86)\Epic Games\Launcher\Portal\Extras\Overlay\EOSOverlayVkLayer-Win64.json
+	Objects - 1
+		Object[0] - VK_OBJECT_TYPE_INSTANCE, Handle 1794567626512
+   at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:657)
+ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message
+	loader_get_json: Failed to open JSON file C:\Program Files\TikTok LIVE Studio\0.49.6\resources\app\electron\sdk\lib\LiveStudioVulkanLayer32.json
+	Objects - 1
+		Object[0] - VK_OBJECT_TYPE_INSTANCE, Handle 1794567626512
+   at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:657)
+ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message
+	loader_get_json: Failed to open JSON file C:\Program Files\TikTok LIVE Studio\0.49.6\resources\app\electron\sdk\lib\LiveStudioVulkanLayer64.json
+	Objects - 1
+		Object[0] - VK_OBJECT_TYPE_INSTANCE, Handle 1794567626512
+   at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:657)
+WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message
+	windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.
+	Objects - 1
+		Object[0] - VK_OBJECT_TYPE_INSTANCE, Handle 1794567626512
+   at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:654)
+WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message
+	Removing layer VK_LAYER_OBS_HOOK (C:\ProgramData\obs-studio-hook\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\ProgramData\lovense-obs-studio-hook\obs-vulkan64.json)
+	Objects - 1
+		Object[0] - VK_OBJECT_TYPE_INSTANCE, Handle 1794567626512
+   at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:654)

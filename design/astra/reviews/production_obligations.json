@@ -130,7 +130,7 @@
   {
     "authoritative_owner": "CampaignClock",
     "automated_proof": "Calendar 52/52 exit0 (0.881s), protected-bind old source 51/52 exit1, midnight omission 49/50 exit1. World-time focused27/27; original duration and sight-presence controls fail. Raw exact-source receipts retained.",
-    "composed_runtime_proof": "V1/V2 reconstruction26/26, all four directions exit0 (92.763s); initial provider coherence and sole advance owner. Exact epoch preservation at each direction remains a pending30-check patch. Actual V1 notice captures show campaign-time copy through the player interaction ray, not walked input.",
+    "composed_runtime_proof": "Final title_save_recovery/runtime/matrix_calendar_final:30/30 exit0,92.851s; all four root directions preserve the exact epoch/start/elapsed clock and destination civil date. Actual Continue enters CampaignShell with a real player and matching clock/facts in both roots (5 checks each). Headless reconstruction/launch evidence, not walked input or full-game performance.",
     "current_state": "Authored Saturday November 10, 1928; one local hour/minute sample, persisted Gregorian simulation clock, both root providers and visible civil-time readers integrated.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
@@ -140,14 +140,14 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-CLOCK",
     "implementation_strategy": "Prove host-date independence and correct elapsed-clock consumers with deterministic reload.",
-    "next_decisive_action": "Finish protected save recovery and ordinary Continue; prove exact calendar through all root directions; replace remaining host Unix world timestamps with explicit campaign provenance.",
+    "next_decisive_action": "Replace remaining host Unix world timestamps with explicit campaign provenance; retain legacy ambiguity. Then prove resident perception and schedule delivery in the composed world.",
     "open_defects": [
       "WorkOrders, inventory, incident and NightRegister timestamp fields still use host Unix time",
       "Fixed EST only; authored daylight-offset transitions absent",
       "Legacy ambiguous duration facts require authored recoverability; an old porter intent may hold indefinitely",
       "Absent-resident sight is gated; audible-event observation still ignores presence",
-      "Exact calendar across every composed reconstruction boundary pending",
-      "No human schedule/calendar perceptual acceptance or complete game performance proof"
+      "No human schedule/calendar perceptual acceptance or complete game performance proof",
+      "Complete dramatic-boundary, human schedule and physical perception coverage remains open"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -158,6 +158,7 @@
     "provenance": {
       "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
       "branch": "codex/astra-canonical-20260904",
+      "reconstruction_commit": "9548301873807117a870aeb6e517173e81a4713f",
       "repair_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
       "sources": [
         "OWNER_MANDATE.md",
@@ -166,7 +167,10 @@
         "reviews/campaign_calendar_integration.md",
         "reviews/world_time_coherence.md",
         "evidence/historical_radio_notice/protected_bind_green/run_receipt.json",
-        "evidence/world_time_coherence/receipt.json"
+        "evidence/world_time_coherence/receipt.json",
+        "evidence/title_save_recovery/runtime/matrix_calendar_final/receipt.json",
+        "evidence/title_save_recovery/runtime/actual_continue_v1_final/receipt.json",
+        "evidence/title_save_recovery/runtime/actual_continue_v2_final/receipt.json"
       ]
     },
     "scope": "early complete path",
@@ -176,9 +180,9 @@
   },
   {
     "authoritative_owner": "RealityState",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "Direct save writes are unchecked; malformed saves remain writable; normal title action starts a new campaign instead of resuming.",
+    "automated_proof": "Final storage195/195, compatibility14/14 and calendar52/52 exit0 clean. Original protection, malformed-entry, UTF-8, omitted-readback and future-fallback controls fail meaningfully; exact restores pass. Title123/123, existing title/audio and composed17/29 regressions pass.",
+    "composed_runtime_proof": "Actual Continue enters CampaignShell with a real player and preserved saved facts/calendar under V1 and V2 (5/5 each). Four-direction exact calendar matrix30/30. Four interruption/recovery cases span ten real processes; killed writer exit81 is deliberate, new readers exit0. Ten final title states captured and reviewed; no human input/listening acceptance.",
+    "current_state": "Checked temp/backup/journal recovery, byte readback and UTF-8/envelope validation integrated. Ordinary title Continue preserves the saved campaign; explicit New archives prior bytes and launches only after verified persistence.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -186,29 +190,38 @@
     "experiential_outcome": "Resume every dramatic boundary without loss or duplication",
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-SAVE",
-    "implementation_strategy": "Red corruption/interruption paths; validated atomic write/readback/schema migration.",
-    "next_decisive_action": "Preserve damaged bytes and latch failure, expose a genuine continuation route, then prove transactional writes and fresh-process reconstruction with failure injection.",
+    "implementation_strategy": "Retain one save owner and fixed sibling paths; complete domain validation and native durable replacement, then the full dramatic-boundary/packaging/human matrix.",
+    "next_decisive_action": "Validate remaining domain scalar/ID/deeper payloads through their existing owners and prove the complete dramatic-boundary route; establish native replacement and two-machine packaging before release.",
     "open_defects": [
-      "No atomic write/readback/recovery transaction",
-      "Malformed, non-dictionary or wrong-shaped data lacks a preservation latch",
-      "Read failures do not prevent later overwrite",
-      "Normal BEGIN THE NIGHT path resets previously loaded campaign facts",
-      "Current future-version and write-open tests do not prove partial-write or process-restart recovery"
+      "No native atomic replacement or checked OS power-loss durability; verified backup/journal supplies bounded crash recovery",
+      "Single-process ownership only; no cross-process file lock",
+      "Absent/version-0 documents retain default-based migration policy",
+      "Domain scalar ranges, IDs, vocabulary, chronology and deeper nested payloads are not comprehensively checked before adoption",
+      "Complete eleven-boundary and sequence-breaking reconstruction route remains unproven",
+      "Human pointer/controller, listening, comprehension and two-machine install/recovery gates remain open"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
-      "measured_result": null
+      "measured_result": "Title handler process17.337s; actual V1/V2 Continue processes23.799s/3.369s with different content scopes; four-direction matrix92.851s; legacy composed saves1.699s/2.640s. These include fixture setup/teardown and are not boot or frame p95 measurements."
     },
     "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
-    "production_consumer": "CampaignShell / fact consumers",
+    "production_consumer": "RealityState/RealitySaveStorage, production title and GameBoot, CampaignShell and reconstructed fact consumers.",
     "provenance": {
       "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
       "branch": "codex/astra-canonical-20260904",
+      "repair_commit": "9548301873807117a870aeb6e517173e81a4713f",
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
         "DEBT_DEDUPLICATION.md",
-        "reviews/save_recovery_review.md"
+        "reviews/save_recovery_review.md",
+        "reviews/save_recovery_implementation_review.md",
+        "reviews/title_save_recovery_visual_review.md",
+        "evidence/save_recovery/complete_recovery_green/receipt.json",
+        "evidence/save_recovery/process_restart_03/receipt.json",
+        "evidence/title_save_recovery/runtime/handlers_final/receipt.json",
+        "evidence/title_save_recovery/runtime/matrix_calendar_final/receipt.json",
+        "evidence/title_save_recovery/runtime/title_capture_final/receipt.json"
       ]
     },
     "scope": "release",

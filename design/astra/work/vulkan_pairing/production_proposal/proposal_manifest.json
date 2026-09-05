@@ -1,0 +1,11 @@
+{
+  "schema": "astra-proposed-production-layer-patch-v1",
+  "status": "PREPARED_OUTSIDE_GAME_NOT_APPLIED_OR_GODOT_TESTED",
+  "base_commit": "9548301873807117a870aeb6e517173e81a4713f",
+  "path": "game/scripts/building/building_root.gd",
+  "base_sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+  "proposal_sha256": "66c7012e95729925db39915b8c742752ffb160ad50547fc346cb8443ed6cb967",
+  "patch_sha256": "cef3d6fff91a53817155704eca6efbb7275e2e84b59f8e9a3a40c7f70654c30f",
+  "live_source_unchanged": true,
+  "scope": "Only two existing assignments plus synchronous changed-only geometry same-scenario helper; preserve blocker tables, authored masks, visibility, scene hierarchy, engine and renderer."
+}

@@ -1,0 +1,129 @@
+{
+  "schema": "astra.save_recovery.process_restart.v1",
+  "started_utc": "2026-09-05T05:00:27.203022+00:00",
+  "scope": "real process termination/restart at marked storage boundaries; no power-loss atomicity claim",
+  "sampling_evidence_limit": "Scene-installed callback counts do not observe preceding RealityState autoload sampling. Exact full saved-clock equality is checked across processes; source/static authority validates the no-resampling path.",
+  "source_before": {
+    "head": "716a64de3549155aba41e56f036cba7f3c46f7a7",
+    "sha256": "f83cc084db0fac5016bb4a039f91f96148061f5bbac7de3ce2a4e354d2f47819",
+    "file_count": 1152
+  },
+  "cases": [
+    {
+      "name": "before_promote",
+      "processes": [
+        {
+          "mode": "writer",
+          "boundary": "before_promote",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_02\\before_promote\\writer\\command.ps1"
+          ],
+          "runner_pid": 21284,
+          "started_utc": "2026-09-05T05:00:27.504280+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_02\\before_promote\\appdata",
+          "nonce": "f096c4d5-db15-4e6a-b412-b603f10c0f07",
+          "marker": {
+            "boundary": "before_promote",
+            "gap_delete_error": 0,
+            "nonce": "f096c4d5-db15-4e6a-b412-b603f10c0f07",
+            "operation": "rename",
+            "pid": 4196,
+            "save_path": "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/save_recovery/process_restart_02/before_promote/appdata/PleaseRemainOnTheLine/reality_maintenance_save.json",
+            "stage": "promote"
+          },
+          "controller_error": "RuntimeError('Marker PID is not the exact installed Godot fixture command: {\"ProcessId\": 4196, \"ParentProcessId\": 24088, \"ExecutablePath\": \"C:\\\\\\\\Users\\\\\\\\nate_\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Microsoft\\\\\\\\WinGet\\\\\\\\Packages\\\\\\\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\\\\\Godot_v4.7.1-stable_win64.exe\", \"CommandLine\": \"C:\\\\\\\\Users\\\\\\\\nate_\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Microsoft\\\\\\\\WinGet\\\\\\\\Packages\\\\\\\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\\\\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\\\\\\\PleaseRemainOnTheLine-astra\\\\\\\\game --verbose res://tests/reality_save_restart_worker.tscn\", \"CreationDate\": \"2026-09-05T01:00:27.738726-04:00\"}')",
+          "runner_exit": 1,
+          "finished_utc": "2026-09-05T05:00:43.211929+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] WAIT pid=4196 boundary=before_promote",
+            "[SAVE RESTART] FAIL mode=writer failures=1"
+          ],
+          "report": {
+            "can_continue": true,
+            "failures": 1,
+            "last_save_result": {
+              "code": "save_write_failed",
+              "ok": false,
+              "protection_required": false,
+              "recovered": true,
+              "stage": "promote_or_verify"
+            },
+            "load_status": {
+              "has_saved_campaign": true,
+              "reason": "",
+              "status": "loaded"
+            },
+            "mode": "writer",
+            "pid": 4196,
+            "projection": {
+              "clock": {
+                "calendar_mode": "gregorian",
+                "day_of_month": 10.0,
+                "elapsed_minutes": 3.25,
+                "epoch_date": "1928-11-10",
+                "month": 11.0,
+                "schema_version": 2.0,
+                "start_doy": 314.0,
+                "start_minute_of_day": 807.0,
+                "start_weekday": "sat",
+                "timezone": "America/New_York",
+                "utc_offset_minutes": -300.0,
+                "year": 1928.0
+              },
+              "dream": {
+                "active": false,
+                "case_id": "mina_caption_crisis",
+                "night_index": 0.0,
+                "phase": "return_pending",
+                "profile_id": "mina_release_print",
+                "seed_hex": "1928000019280000",
+                "window": {}
+              },
+              "item": {
+                "consumed": true,
+                "shop_id": "hardware"
+              },
+              "job": {
+                "evidence": [
+                  "carbon_capsule_failed"
+                ],
+                "issued_at_basis": "fixture_basis_preserved",
+                "origin": "reported",
+                "repair_result": {
+                  "quality": "good"
+                },
+                "stage": "closed"
+              },
+              "seed": "1928000019280000",
+              "version": 4.0
+            },
+            "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+            "samples": 0,
+            "write_blocked": false
+          },
+          "passed": false
+        }
+      ],
+      "before": {
+        "reality_maintenance_save.json": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        }
+      }
+    }
+  ],
+  "source_after": {
+    "head": "716a64de3549155aba41e56f036cba7f3c46f7a7",
+    "sha256": "f83cc084db0fac5016bb4a039f91f96148061f5bbac7de3ce2a4e354d2f47819",
+    "file_count": 1152
+  },
+  "source_unchanged": true,
+  "finished_utc": "2026-09-05T05:00:43.341729+00:00",
+  "passed": false
+}

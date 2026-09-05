@@ -1,0 +1,848 @@
+{
+  "schema": "astra.save_recovery.process_restart.v1",
+  "started_utc": "2026-09-05T05:04:50.484163+00:00",
+  "scope": "real process termination/restart at marked storage boundaries; no power-loss atomicity claim",
+  "sampling_evidence_limit": "Scene-installed callback counts do not observe preceding RealityState autoload sampling. Exact full saved-clock equality is checked across processes; source/static authority validates the no-resampling path.",
+  "source_before": {
+    "head": "716a64de3549155aba41e56f036cba7f3c46f7a7",
+    "sha256": "e4d89a965381ff53943dcf2dddc08bbd19beac5a7b195d092392c4b1268cc2b1",
+    "file_count": 1152
+  },
+  "cases": [
+    {
+      "name": "before_promote",
+      "processes": [
+        {
+          "mode": "writer",
+          "boundary": "before_promote",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\before_promote\\writer\\command.ps1"
+          ],
+          "runner_pid": 2000,
+          "started_utc": "2026-09-05T05:04:50.777937+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\before_promote\\appdata",
+          "nonce": "dc575064-8518-4565-a5f5-a11f23c4ebad",
+          "marker": {
+            "boundary": "before_promote",
+            "gap_delete_error": 0,
+            "nonce": "dc575064-8518-4565-a5f5-a11f23c4ebad",
+            "operation": "rename",
+            "pid": 9960,
+            "save_path": "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/save_recovery/process_restart_03/before_promote/appdata/PleaseRemainOnTheLine/reality_maintenance_save.json",
+            "stage": "promote"
+          },
+          "termination": {
+            "mechanism": "Windows TerminateProcess on verified fixture handle",
+            "requested_exit": 81,
+            "observed_native_exit": 81,
+            "wait_result": 0,
+            "process_identity": {
+              "ProcessId": 9960,
+              "ParentProcessId": 15172,
+              "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+              "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+              "CreationDate": "2026-09-05T01:04:50.987379-04:00"
+            },
+            "verified_ancestor_chain": [
+              {
+                "ProcessId": 9960,
+                "ParentProcessId": 15172,
+                "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+                "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+                "CreationDate": "2026-09-05T01:04:50.987379-04:00"
+              },
+              {
+                "ProcessId": 15172,
+                "ParentProcessId": 2000,
+                "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+                "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+                "CreationDate": "2026-09-05T01:04:50.979688-04:00"
+              }
+            ],
+            "terminated_utc": "2026-09-05T05:04:52.546444+00:00"
+          },
+          "runner_exit": 81,
+          "finished_utc": "2026-09-05T05:04:52.579324+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] WAIT pid=9960 boundary=before_promote"
+          ],
+          "passed": true
+        },
+        {
+          "mode": "reader",
+          "boundary": "",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\before_promote\\reader\\command.ps1"
+          ],
+          "runner_pid": 13752,
+          "started_utc": "2026-09-05T05:04:52.776860+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\before_promote\\appdata",
+          "nonce": "fedcdbaa-7895-49d5-87a5-bf9ac48282bf",
+          "runner_exit": 0,
+          "finished_utc": "2026-09-05T05:04:53.374199+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] PASS mode=reader failures=0"
+          ],
+          "report": {
+            "can_continue": true,
+            "failures": 0,
+            "last_save_result": {},
+            "load_status": {
+              "has_saved_campaign": true,
+              "reason": "",
+              "status": "loaded"
+            },
+            "mode": "reader",
+            "pid": 24564,
+            "projection": {
+              "clock": {
+                "calendar_mode": "gregorian",
+                "day_of_month": 10.0,
+                "elapsed_minutes": 0.0,
+                "epoch_date": "1928-11-10",
+                "month": 11.0,
+                "schema_version": 2.0,
+                "start_doy": 314.0,
+                "start_minute_of_day": 807.0,
+                "start_weekday": "sat",
+                "timezone": "America/New_York",
+                "utc_offset_minutes": -300.0,
+                "year": 1928.0
+              },
+              "dream": {
+                "active": false,
+                "case_id": "mina_caption_crisis",
+                "night_index": 0.0,
+                "phase": "armed",
+                "profile_id": "mina_release_print",
+                "seed_hex": "1928000019280000",
+                "window": {}
+              },
+              "item": {
+                "consumed": true,
+                "shop_id": "hardware"
+              },
+              "job": {
+                "evidence": [
+                  "carbon_capsule_failed"
+                ],
+                "issued_at_basis": "fixture_basis_preserved",
+                "origin": "reported",
+                "repair_result": {
+                  "quality": "good"
+                },
+                "stage": "repaired"
+              },
+              "seed": "1928000019280000",
+              "version": 4.0
+            },
+            "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+            "samples": 0,
+            "write_blocked": false
+          },
+          "passed": true
+        }
+      ],
+      "before": {
+        "reality_maintenance_save.json": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        }
+      },
+      "after_writer": {
+        "reality_maintenance_save.json": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        },
+        "reality_maintenance_save.json.bak": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        },
+        "reality_maintenance_save.json.tmp": {
+          "bytes": 6775,
+          "sha256": "c29047cfa098ab570c26a4698fe3ba90d6ce39581689e8380d62b954c9ea6e36"
+        },
+        "reality_maintenance_save.json.txn": {
+          "bytes": 180,
+          "sha256": "c03bc0c7d675db6a88b25c68bbdac5e59b1499809edcf3a8cfad36d8f6e38810"
+        }
+      },
+      "after_reader": {
+        "reality_maintenance_save.json": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        },
+        "reality_maintenance_save.json.bak": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        },
+        "reality_maintenance_save.json.tmp": {
+          "bytes": 6775,
+          "sha256": "c29047cfa098ab570c26a4698fe3ba90d6ce39581689e8380d62b954c9ea6e36"
+        },
+        "reality_maintenance_save.json.txn": {
+          "bytes": 180,
+          "sha256": "c03bc0c7d675db6a88b25c68bbdac5e59b1499809edcf3a8cfad36d8f6e38810"
+        }
+      },
+      "complete_generation": true,
+      "expected_load_status": "loaded",
+      "load_status_matches": true,
+      "passed": true
+    },
+    {
+      "name": "after_promote",
+      "processes": [
+        {
+          "mode": "writer",
+          "boundary": "after_promote",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\after_promote\\writer\\command.ps1"
+          ],
+          "runner_pid": 592,
+          "started_utc": "2026-09-05T05:04:53.572648+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\after_promote\\appdata",
+          "nonce": "04a0d714-56be-403a-b389-74cbb70b7696",
+          "marker": {
+            "boundary": "after_promote",
+            "gap_delete_error": 0,
+            "nonce": "04a0d714-56be-403a-b389-74cbb70b7696",
+            "operation": "read",
+            "pid": 27340,
+            "save_path": "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/save_recovery/process_restart_03/after_promote/appdata/PleaseRemainOnTheLine/reality_maintenance_save.json",
+            "stage": "primary_verify"
+          },
+          "termination": {
+            "mechanism": "Windows TerminateProcess on verified fixture handle",
+            "requested_exit": 81,
+            "observed_native_exit": 81,
+            "wait_result": 0,
+            "process_identity": {
+              "ProcessId": 27340,
+              "ParentProcessId": 27668,
+              "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+              "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+              "CreationDate": "2026-09-05T01:04:53.794856-04:00"
+            },
+            "verified_ancestor_chain": [
+              {
+                "ProcessId": 27340,
+                "ParentProcessId": 27668,
+                "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+                "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+                "CreationDate": "2026-09-05T01:04:53.794856-04:00"
+              },
+              {
+                "ProcessId": 27668,
+                "ParentProcessId": 592,
+                "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+                "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+                "CreationDate": "2026-09-05T01:04:53.786969-04:00"
+              }
+            ],
+            "terminated_utc": "2026-09-05T05:04:55.178777+00:00"
+          },
+          "runner_exit": 81,
+          "finished_utc": "2026-09-05T05:04:55.216226+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] WAIT pid=27340 boundary=after_promote"
+          ],
+          "passed": true
+        },
+        {
+          "mode": "reader",
+          "boundary": "",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\after_promote\\reader\\command.ps1"
+          ],
+          "runner_pid": 22800,
+          "started_utc": "2026-09-05T05:04:55.403600+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\after_promote\\appdata",
+          "nonce": "f1eae896-94d9-49f5-aecb-83e45a3350fd",
+          "runner_exit": 0,
+          "finished_utc": "2026-09-05T05:04:56.012752+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] PASS mode=reader failures=0"
+          ],
+          "report": {
+            "can_continue": true,
+            "failures": 0,
+            "last_save_result": {},
+            "load_status": {
+              "has_saved_campaign": true,
+              "reason": "",
+              "status": "loaded"
+            },
+            "mode": "reader",
+            "pid": 29076,
+            "projection": {
+              "clock": {
+                "calendar_mode": "gregorian",
+                "day_of_month": 10.0,
+                "elapsed_minutes": 3.25,
+                "epoch_date": "1928-11-10",
+                "month": 11.0,
+                "schema_version": 2.0,
+                "start_doy": 314.0,
+                "start_minute_of_day": 807.0,
+                "start_weekday": "sat",
+                "timezone": "America/New_York",
+                "utc_offset_minutes": -300.0,
+                "year": 1928.0
+              },
+              "dream": {
+                "active": false,
+                "case_id": "mina_caption_crisis",
+                "night_index": 0.0,
+                "phase": "return_pending",
+                "profile_id": "mina_release_print",
+                "seed_hex": "1928000019280000",
+                "window": {}
+              },
+              "item": {
+                "consumed": true,
+                "shop_id": "hardware"
+              },
+              "job": {
+                "evidence": [
+                  "carbon_capsule_failed"
+                ],
+                "issued_at_basis": "fixture_basis_preserved",
+                "origin": "reported",
+                "repair_result": {
+                  "quality": "good"
+                },
+                "stage": "closed"
+              },
+              "seed": "1928000019280000",
+              "version": 4.0
+            },
+            "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+            "samples": 0,
+            "write_blocked": false
+          },
+          "passed": true
+        }
+      ],
+      "before": {
+        "reality_maintenance_save.json": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        }
+      },
+      "after_writer": {
+        "reality_maintenance_save.json": {
+          "bytes": 6775,
+          "sha256": "c29047cfa098ab570c26a4698fe3ba90d6ce39581689e8380d62b954c9ea6e36"
+        },
+        "reality_maintenance_save.json.bak": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        },
+        "reality_maintenance_save.json.txn": {
+          "bytes": 180,
+          "sha256": "c03bc0c7d675db6a88b25c68bbdac5e59b1499809edcf3a8cfad36d8f6e38810"
+        }
+      },
+      "after_reader": {
+        "reality_maintenance_save.json": {
+          "bytes": 6775,
+          "sha256": "c29047cfa098ab570c26a4698fe3ba90d6ce39581689e8380d62b954c9ea6e36"
+        },
+        "reality_maintenance_save.json.bak": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        },
+        "reality_maintenance_save.json.txn": {
+          "bytes": 180,
+          "sha256": "c03bc0c7d675db6a88b25c68bbdac5e59b1499809edcf3a8cfad36d8f6e38810"
+        }
+      },
+      "complete_generation": true,
+      "expected_load_status": "loaded",
+      "load_status_matches": true,
+      "passed": true
+    },
+    {
+      "name": "deletion_gap",
+      "processes": [
+        {
+          "mode": "writer",
+          "boundary": "deletion_gap",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\deletion_gap\\writer\\command.ps1"
+          ],
+          "runner_pid": 13936,
+          "started_utc": "2026-09-05T05:04:56.193574+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\deletion_gap\\appdata",
+          "nonce": "409fecca-440a-4980-a6ff-0d75d782ca41",
+          "marker": {
+            "boundary": "deletion_gap",
+            "gap_delete_error": 0,
+            "nonce": "409fecca-440a-4980-a6ff-0d75d782ca41",
+            "operation": "rename",
+            "pid": 29424,
+            "save_path": "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/save_recovery/process_restart_03/deletion_gap/appdata/PleaseRemainOnTheLine/reality_maintenance_save.json",
+            "stage": "promote"
+          },
+          "termination": {
+            "mechanism": "Windows TerminateProcess on verified fixture handle",
+            "requested_exit": 81,
+            "observed_native_exit": 81,
+            "wait_result": 0,
+            "process_identity": {
+              "ProcessId": 29424,
+              "ParentProcessId": 23804,
+              "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+              "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+              "CreationDate": "2026-09-05T01:04:56.40904-04:00"
+            },
+            "verified_ancestor_chain": [
+              {
+                "ProcessId": 29424,
+                "ParentProcessId": 23804,
+                "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+                "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+                "CreationDate": "2026-09-05T01:04:56.40904-04:00"
+              },
+              {
+                "ProcessId": 23804,
+                "ParentProcessId": 13936,
+                "ExecutablePath": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+                "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --headless --path C:\\PleaseRemainOnTheLine-astra\\game --verbose res://tests/reality_save_restart_worker.tscn",
+                "CreationDate": "2026-09-05T01:04:56.400896-04:00"
+              }
+            ],
+            "terminated_utc": "2026-09-05T05:04:57.802653+00:00"
+          },
+          "runner_exit": 81,
+          "finished_utc": "2026-09-05T05:04:57.846922+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] WAIT pid=29424 boundary=deletion_gap"
+          ],
+          "passed": true
+        },
+        {
+          "mode": "reader",
+          "boundary": "",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\deletion_gap\\reader\\command.ps1"
+          ],
+          "runner_pid": 25512,
+          "started_utc": "2026-09-05T05:04:58.013370+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\deletion_gap\\appdata",
+          "nonce": "17f93bfd-2965-431d-baad-b31e3e65953b",
+          "runner_exit": 0,
+          "finished_utc": "2026-09-05T05:04:58.629583+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] PASS mode=reader failures=0"
+          ],
+          "report": {
+            "can_continue": true,
+            "failures": 0,
+            "last_save_result": {},
+            "load_status": {
+              "has_saved_campaign": true,
+              "reason": "The previous complete save was recovered.",
+              "status": "recovered"
+            },
+            "mode": "reader",
+            "pid": 28816,
+            "projection": {
+              "clock": {
+                "calendar_mode": "gregorian",
+                "day_of_month": 10.0,
+                "elapsed_minutes": 0.0,
+                "epoch_date": "1928-11-10",
+                "month": 11.0,
+                "schema_version": 2.0,
+                "start_doy": 314.0,
+                "start_minute_of_day": 807.0,
+                "start_weekday": "sat",
+                "timezone": "America/New_York",
+                "utc_offset_minutes": -300.0,
+                "year": 1928.0
+              },
+              "dream": {
+                "active": false,
+                "case_id": "mina_caption_crisis",
+                "night_index": 0.0,
+                "phase": "armed",
+                "profile_id": "mina_release_print",
+                "seed_hex": "1928000019280000",
+                "window": {}
+              },
+              "item": {
+                "consumed": true,
+                "shop_id": "hardware"
+              },
+              "job": {
+                "evidence": [
+                  "carbon_capsule_failed"
+                ],
+                "issued_at_basis": "fixture_basis_preserved",
+                "origin": "reported",
+                "repair_result": {
+                  "quality": "good"
+                },
+                "stage": "repaired"
+              },
+              "seed": "1928000019280000",
+              "version": 4.0
+            },
+            "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+            "samples": 0,
+            "write_blocked": false
+          },
+          "passed": true
+        }
+      ],
+      "before": {
+        "reality_maintenance_save.json": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        }
+      },
+      "after_writer": {
+        "reality_maintenance_save.json.bak": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        },
+        "reality_maintenance_save.json.tmp": {
+          "bytes": 6775,
+          "sha256": "c29047cfa098ab570c26a4698fe3ba90d6ce39581689e8380d62b954c9ea6e36"
+        },
+        "reality_maintenance_save.json.txn": {
+          "bytes": 180,
+          "sha256": "c03bc0c7d675db6a88b25c68bbdac5e59b1499809edcf3a8cfad36d8f6e38810"
+        }
+      },
+      "after_reader": {
+        "reality_maintenance_save.json": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        },
+        "reality_maintenance_save.json.bak": {
+          "bytes": 1107,
+          "sha256": "017fb5fa0e8e60bed420c232d2fe827016fea013defad7ccb026aa7c26fa4786"
+        }
+      },
+      "complete_generation": true,
+      "expected_load_status": "recovered",
+      "load_status_matches": true,
+      "passed": true
+    },
+    {
+      "name": "failed_first_new",
+      "processes": [
+        {
+          "mode": "first_fail",
+          "boundary": "",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\first_fail\\command.ps1"
+          ],
+          "runner_pid": 27568,
+          "started_utc": "2026-09-05T05:04:58.803081+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\appdata",
+          "nonce": "6dcbb69d-654b-42fd-9525-2d2202a6d48c",
+          "runner_exit": 0,
+          "finished_utc": "2026-09-05T05:04:59.417190+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] PASS mode=first_fail failures=0"
+          ],
+          "report": {
+            "can_continue": false,
+            "failures": 0,
+            "last_save_result": {
+              "code": "save_write_failed",
+              "ok": false,
+              "protection_required": false,
+              "recovered": false,
+              "stage": "temp_verify"
+            },
+            "load_status": {
+              "has_saved_campaign": false,
+              "reason": "",
+              "status": "missing"
+            },
+            "mode": "first_fail",
+            "pid": 24592,
+            "projection": {
+              "clock": {},
+              "dream": {},
+              "item": {},
+              "job": {},
+              "seed": "3daab70778ce44c6",
+              "version": 4
+            },
+            "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+            "samples": 1,
+            "write_blocked": false
+          },
+          "passed": true
+        },
+        {
+          "mode": "first_protected",
+          "boundary": "",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\first_protected\\command.ps1"
+          ],
+          "runner_pid": 24028,
+          "started_utc": "2026-09-05T05:04:59.602081+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\appdata",
+          "nonce": "708261c8-83ca-4812-9c0a-b62eaaeab395",
+          "runner_exit": 0,
+          "finished_utc": "2026-09-05T05:05:00.253901+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] PASS mode=first_protected failures=0"
+          ],
+          "report": {
+            "can_continue": false,
+            "failures": 0,
+            "last_save_result": {
+              "code": "save_recovery_required",
+              "ok": false,
+              "protection_required": true,
+              "recovered": false,
+              "stage": "write_latch"
+            },
+            "load_status": {
+              "has_saved_campaign": true,
+              "reason": "save_recovery_required",
+              "status": "protected"
+            },
+            "mode": "first_protected",
+            "pid": 12040,
+            "projection": {
+              "clock": {},
+              "dream": {},
+              "item": {},
+              "job": {},
+              "seed": "e6b2a58dc4f1ee47",
+              "version": 4
+            },
+            "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+            "samples": 0,
+            "write_blocked": true
+          },
+          "passed": true
+        },
+        {
+          "mode": "first_retry",
+          "boundary": "",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\first_retry\\command.ps1"
+          ],
+          "runner_pid": 19724,
+          "started_utc": "2026-09-05T05:05:00.436498+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\appdata",
+          "nonce": "d57614d2-4637-4a84-b204-3e967552cefa",
+          "runner_exit": 0,
+          "finished_utc": "2026-09-05T05:05:01.049411+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] PASS mode=first_retry failures=0"
+          ],
+          "report": {
+            "can_continue": true,
+            "failures": 0,
+            "last_save_result": {
+              "code": "",
+              "ok": true,
+              "protection_required": false,
+              "recovered": false,
+              "stage": "complete"
+            },
+            "load_status": {
+              "has_saved_campaign": true,
+              "reason": "",
+              "status": "loaded"
+            },
+            "mode": "first_retry",
+            "pid": 28772,
+            "projection": {
+              "clock": {
+                "calendar_mode": "gregorian",
+                "day_of_month": 10,
+                "elapsed_minutes": 0.0,
+                "epoch_date": "1928-11-10",
+                "month": 11,
+                "schema_version": 2,
+                "start_doy": 314,
+                "start_minute_of_day": 807,
+                "start_weekday": "sat",
+                "timezone": "America/New_York",
+                "utc_offset_minutes": -300,
+                "year": 1928
+              },
+              "dream": {},
+              "item": {},
+              "job": {},
+              "seed": "3fc39fe9e3b8e931",
+              "version": 4
+            },
+            "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+            "samples": 1,
+            "write_blocked": false
+          },
+          "passed": true
+        },
+        {
+          "mode": "reader",
+          "boundary": "",
+          "command": [
+            "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\reader\\command.ps1"
+          ],
+          "runner_pid": 13528,
+          "started_utc": "2026-09-05T05:05:01.233610+00:00",
+          "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\appdata",
+          "nonce": "c7faad2d-49df-4fe4-8c2c-96e1e2625240",
+          "runner_exit": 0,
+          "finished_utc": "2026-09-05T05:05:01.834885+00:00",
+          "diagnostic_headers": [],
+          "summary_lines": [
+            "[SAVE RESTART] PASS mode=reader failures=0"
+          ],
+          "report": {
+            "can_continue": true,
+            "failures": 0,
+            "last_save_result": {},
+            "load_status": {
+              "has_saved_campaign": true,
+              "reason": "",
+              "status": "loaded"
+            },
+            "mode": "reader",
+            "pid": 19840,
+            "projection": {
+              "clock": {
+                "calendar_mode": "gregorian",
+                "day_of_month": 10.0,
+                "elapsed_minutes": 0.0,
+                "epoch_date": "1928-11-10",
+                "month": 11.0,
+                "schema_version": 2.0,
+                "start_doy": 314.0,
+                "start_minute_of_day": 807.0,
+                "start_weekday": "sat",
+                "timezone": "America/New_York",
+                "utc_offset_minutes": -300.0,
+                "year": 1928.0
+              },
+              "dream": {},
+              "item": {},
+              "job": {},
+              "seed": "3fc39fe9e3b8e931",
+              "version": 4.0
+            },
+            "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+            "samples": 0,
+            "write_blocked": false
+          },
+          "passed": true
+        }
+      ],
+      "after_failed_new": {
+        "reality_maintenance_save.json.tmp": {
+          "bytes": 954,
+          "sha256": "11eda90e6494da112e47414c78acbad4fa4892e6f7bca51f6e2d7d98772c8414"
+        }
+      },
+      "after_protected_reader": {
+        "reality_maintenance_save.json.tmp": {
+          "bytes": 954,
+          "sha256": "11eda90e6494da112e47414c78acbad4fa4892e6f7bca51f6e2d7d98772c8414"
+        }
+      },
+      "orphan_preserved": true,
+      "after_retry": {
+        "reality_maintenance_save.json": {
+          "bytes": 954,
+          "sha256": "467ecb3e4006c4ca33809a081dea7313deb03b44d10a2656f45b166b9550575a"
+        },
+        "reality_maintenance_save.json.replaced.11eda90e6494da112e47414c78acbad4fa4892e6f7bca51f6e2d7d98772c8414": {
+          "bytes": 954,
+          "sha256": "11eda90e6494da112e47414c78acbad4fa4892e6f7bca51f6e2d7d98772c8414"
+        }
+      },
+      "after_retry_reader": {
+        "reality_maintenance_save.json": {
+          "bytes": 954,
+          "sha256": "467ecb3e4006c4ca33809a081dea7313deb03b44d10a2656f45b166b9550575a"
+        },
+        "reality_maintenance_save.json.replaced.11eda90e6494da112e47414c78acbad4fa4892e6f7bca51f6e2d7d98772c8414": {
+          "bytes": 954,
+          "sha256": "11eda90e6494da112e47414c78acbad4fa4892e6f7bca51f6e2d7d98772c8414"
+        }
+      },
+      "committed_primary_preserved": true,
+      "passed": true
+    }
+  ],
+  "source_after": {
+    "head": "716a64de3549155aba41e56f036cba7f3c46f7a7",
+    "sha256": "e4d89a965381ff53943dcf2dddc08bbd19beac5a7b195d092392c4b1268cc2b1",
+    "file_count": 1152
+  },
+  "source_unchanged": true,
+  "finished_utc": "2026-09-05T05:05:01.966072+00:00",
+  "passed": true
+}

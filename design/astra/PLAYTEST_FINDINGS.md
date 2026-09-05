@@ -20,3 +20,33 @@ Next player-visible proof: boot the clean composed baseline, traverse the accept
 - SAVE-RESTART: read-only production trace shows BEGIN THE NIGHT invokes a new campaign, rather than continuation of loaded facts. No playthrough through that route has yet proved safe restart; preserve this as a product blocker.
 
 - ART-M08F-CURRENT: all twelve new composition images were inspected individually and their receipt hashes verified. FINAL0, REFINE5, SALVAGEABLE2, REPLACE5. Replace framing for 06/07/09/10/11: missing identifiable apparatus faces, poor target isolation, cropped boiler detail or an occluding wall. Root separately inspected 01/05/08. Exact per-frame observations are in reviews/m08f_composition_visual_review.md. No actual player-camera traversal or human acceptance is implied.
+
+- CALENDAR-CURRENT: owner-selected Saturday November 10, 1928 is integrated.
+  Calendar 52/52 and world-time 27/27 checks pass after retained source controls.
+  Both roots share the authoritative clock. This is not human schedule review.
+- NOTICE-CURRENT: actual V1 lobby paper and player-ray inspection copy were
+  captured before and after the November 11, 03:00 EST reallocation. The first
+  service-wire copy clipped; the final three-line copy is readable in all three
+  reviewed frames. Camera teleport and Dummy audio limit this to composition
+  and interaction-handler evidence, not walked input or listening.
+- V1-RENDER-CURRENT: final notice capture exits 0 with 261 soft-shadow-count
+  and 1,252 light-unpair BUG diagnostics. The installed engine source has the
+  matching known layer-change defect; isolated reproduction and a bounded
+  workaround are under test. No warning suppression or renderer switch.
+
+- SAVE-TITLE-CURRENT: the earlier SAVE-RESTART reset path is repaired. Actual
+  Continue enters CampaignShell with a real player and matching saved facts in
+  both roots. Four reconstruction directions preserve the exact clock (30/30).
+  Final title handler checks pass 123/123. These are source-bound runtime
+  observations, not physical human pointer/controller routes.
+- SAVE-BYTES-CURRENT: 195 bounded corruption/recovery checks pass after real
+  old-source, malformed-entry, invalid UTF-8, omitted-readback and future-fallback
+  reds. Before/after promotion and a deliberately simulated deletion gap were
+  tested with real process termination and fresh readers; a failed first New
+  also passes four-process protection/retry/reload proof. Strict power-loss
+  durability and complete domain payload validation remain open.
+- TITLE-VISUAL-CURRENT: ten final states were individually inspected at
+  1280×720. Continue, protected notices, both replacement choices and failed
+  launch/retry are readable. Duplicate overlays, fixed 3:00 A.M. and ordinary
+  debug entry were removed under the existing mandate. The full hero/music
+  assets remain. Agent visual inspection grants no human acceptance.

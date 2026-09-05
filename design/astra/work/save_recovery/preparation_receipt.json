@@ -1,0 +1,75 @@
+{
+  "status": "integrated_focused_runtime_validated",
+  "files": [
+    {
+      "target": "game/scripts/game/reality_game_state.gd",
+      "sha256": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+      "lines": 434
+    },
+    {
+      "target": "game/scripts/game/reality_save_storage.gd",
+      "sha256": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+      "lines": 310
+    },
+    {
+      "target": "game/tests/reality_invalid_load_control.gd",
+      "sha256": "d9e76d0fca74baedcaa3380c7d9b0469eb5bd22f13778ea4f47297e2f4194196",
+      "lines": 41
+    },
+    {
+      "target": "game/tests/reality_invalid_load_control.tscn",
+      "sha256": "6cccb95896149b46b113fdd5fd1ba57d841e36ccc1cd7a162da7bd4eeab1e3d0",
+      "lines": 6
+    },
+    {
+      "target": "game/tests/reality_save_recovery_test.gd",
+      "sha256": "bb9aa9031a98f389d12e867c5e2a1d20c625b05c6c19c8868eeac1149b87ab6f",
+      "lines": 341
+    },
+    {
+      "target": "game/tests/reality_save_recovery_test.tscn",
+      "sha256": "6412943296fe2eb79ec213fff31e02856acbf3851e9f635a800f67ca8b24b583",
+      "lines": 6
+    },
+    {
+      "target": "game/tests/reality_save_restart_worker.gd",
+      "sha256": "8323f2db31d2ec52ae7204db6b27ef4cb0514ca95e325fc21a9a08bd570864c4",
+      "lines": 126
+    },
+    {
+      "target": "game/tests/reality_save_restart_worker.tscn",
+      "sha256": "c009d65e3152aca024826dea5550f7deed05a415bb86ac2dd64c505a8644ae88",
+      "lines": 6
+    }
+  ],
+  "original_live_byte_matches": {
+    "game/scripts/game/reality_game_state.gd": false,
+    "game/scripts/game/campaign_clock.gd": false
+  },
+  "original_copy_role": "Preserved pre-integration references; live differences are intentional after authorized implementation.",
+  "checks": [
+    "Python preparation scripts parse with ast.parse",
+    "exact negative-control mutation anchors are unique",
+    "patch/source SHA256 package generated"
+  ],
+  "runtime_receipts": {
+    "original_invalid_red": "design/astra/evidence/save_recovery/original_invalid_red/receipt.json",
+    "candidate_invalid_02": "design/astra/evidence/save_recovery/candidate_invalid_02/receipt.json",
+    "malformed_entry_red": "design/astra/evidence/save_recovery/malformed_entry_red/receipt.json",
+    "malformed_entry_green": "design/astra/evidence/save_recovery/malformed_entry_green/receipt.json",
+    "invalid_utf8_red": "design/astra/evidence/save_recovery/invalid_utf8_red/receipt.json",
+    "invalid_utf8_green": "design/astra/evidence/save_recovery/invalid_utf8_green/receipt.json",
+    "complete_no_readback_red": "design/astra/evidence/save_recovery/complete_no_readback_red/receipt.json",
+    "complete_future_fallback_red": "design/astra/evidence/save_recovery/complete_future_fallback_red/receipt.json",
+    "complete_recovery_green": "design/astra/evidence/save_recovery/complete_recovery_green/receipt.json",
+    "complete_compat_green": "design/astra/evidence/save_recovery/complete_compat_green/receipt.json",
+    "complete_calendar_green": "design/astra/evidence/save_recovery/complete_calendar_green/receipt.json",
+    "process_restart_03": "design/astra/evidence/save_recovery/process_restart_03/receipt.json"
+  },
+  "not_run": [
+    "human K3 route matrix",
+    "native atomic replacement / power-loss durability"
+  ],
+  "integration_dependency": "Root-owned CampaignClock.bind_state guard is present and covered by focused runtime checks.",
+  "current_clock_sha256": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd"
+}

@@ -1,0 +1,48 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/RealitySaveCompatTest.tscn remapped: res://tests/RealitySaveCompatTest.tscn
+Loading resource: res://tests/reality_save_compat_test.gd remapped: res://tests/reality_save_compat_test.gd
+Completed load for: 'res://tests/reality_save_compat_test.gd' remapped 'res://tests/reality_save_compat_test.gd' at thread -1
+Completed load for: 'res://tests/RealitySaveCompatTest.tscn' remapped 'res://tests/RealitySaveCompatTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+  PASS future save blocks writes
+  PASS future version is named
+  PASS future save publishes a player notice
+  PASS notice names consequence and both remedies plainly
+  PASS autoload presents the persistence owner's exact notice
+  PASS dismissal hides copy without releasing the safety latch
+  PASS future data is not merged
+  PASS unknown future facts stay out of runtime
+  PASS commit preserves future save byte for byte
+  PASS explicit new campaign releases latch
+  PASS new campaign clears the obsolete notice
+  PASS explicit new campaign writes current version
+  PASS unwritable save target refuses the write
+  FAIL write failure publishes its player consequence
+[SAVE COMPAT] FAIL 1/14
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\vulkan_pairing",
+    "-p",
+    "test_gate.py",
+    "-v"
+  ],
+  "actual_exit": 1,
+  "wrapper_sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+  "test_sha256": "76581c5fd4402a6b6c0bf1f557042beed6f42e723a1af99c2d138773651a3b18",
+  "godot_launched": false
+}

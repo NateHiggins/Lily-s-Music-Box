@@ -1,0 +1,12 @@
+--- candidate/zone_layer_gate.gd
++++ omission/zone_layer_gate.gd
+@@ -28,8 +28,7 @@
+ 		var world: World3D = target.get_world_3d()
+ 		if world != null:
+ 			# OMIT_REBIND_CONTROL_BEGIN
+-			RenderingServer.instance_set_scenario(target.get_instance(), world.scenario)
+-			rebinds += 1
++			pass # Negative control: omit only the pre-change rebind operation/counter.
+ 			# OMIT_REBIND_CONTROL_END
+ 	target.layers = mask
+ 	changes += 1

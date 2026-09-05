@@ -1,0 +1,138 @@
+{
+	"captures": [
+		{
+			"cyan_sample_pixels": 1229,
+			"expected_target_visible": true,
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\static_01\\shots/01_initial.png",
+			"height": 720,
+			"orange_sample_pixels": 2236,
+			"target_layers": 1,
+			"target_visible_property": true,
+			"width": 1280
+		},
+		{
+			"cyan_sample_pixels": 1229,
+			"expected_target_visible": true,
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\static_01\\shots/02_blocked.png",
+			"height": 720,
+			"orange_sample_pixels": 2236,
+			"target_layers": 1,
+			"target_visible_property": true,
+			"width": 1280
+		},
+		{
+			"cyan_sample_pixels": 1229,
+			"expected_target_visible": true,
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\static_01\\shots/03_restored.png",
+			"height": 720,
+			"orange_sample_pixels": 2236,
+			"target_layers": 1,
+			"target_visible_property": true,
+			"width": 1280
+		},
+		{
+			"cyan_sample_pixels": 1229,
+			"expected_target_visible": true,
+			"file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\static_01\\shots/04_light_deleted.png",
+			"height": 720,
+			"orange_sample_pixels": 2236,
+			"target_layers": 1,
+			"target_visible_property": true,
+			"width": 1280
+		}
+	],
+	"case": "static",
+	"checks": [
+		{
+			"label": "known case",
+			"passed": true
+		},
+		{
+			"label": "actual Forward+ renderer",
+			"passed": true
+		},
+		{
+			"label": "01_initial PNG saved",
+			"passed": true
+		},
+		{
+			"label": "01_initial target draw matches layer expectation",
+			"passed": true
+		},
+		{
+			"label": "01_initial unaffected neighbor still draws",
+			"passed": true
+		},
+		{
+			"label": "02_blocked PNG saved",
+			"passed": true
+		},
+		{
+			"label": "02_blocked target draw matches layer expectation",
+			"passed": true
+		},
+		{
+			"label": "02_blocked unaffected neighbor still draws",
+			"passed": true
+		},
+		{
+			"label": "03_restored PNG saved",
+			"passed": true
+		},
+		{
+			"label": "03_restored target draw matches layer expectation",
+			"passed": true
+		},
+		{
+			"label": "03_restored unaffected neighbor still draws",
+			"passed": true
+		},
+		{
+			"label": "neighbor mask and visibility remain owned by neighbor",
+			"passed": true
+		},
+		{
+			"label": "04_light_deleted PNG saved",
+			"passed": true
+		},
+		{
+			"label": "04_light_deleted target draw matches layer expectation",
+			"passed": true
+		},
+		{
+			"label": "04_light_deleted unaffected neighbor still draws",
+			"passed": true
+		},
+		{
+			"label": "light actually retired before final capture",
+			"passed": true
+		},
+		{
+			"label": "static control never changes layers or scenario",
+			"passed": true
+		}
+	],
+	"counts": {
+		"changes": 0,
+		"rebinds": 0,
+		"unchanged_calls": 0
+	},
+	"engine": {
+		"build": "official",
+		"hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+		"hex": 263937,
+		"major": 4,
+		"minor": 7,
+		"patch": 1,
+		"status": "stable",
+		"string": "4.7.1-stable (official)",
+		"timestamp": 0
+	},
+	"functional_failures": 0,
+	"pid": 9612,
+	"renderer": "forward_plus",
+	"schema": "astra-vulkan-pairing-probe-v1",
+	"scope": "standalone primitive scene; external log gate required; no production or human acceptance",
+	"stage_times": [],
+	"user_data_dir": "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/vulkan_layer_pairing/runs/static_01/APPDATA/AstraVulkanPairing"
+}

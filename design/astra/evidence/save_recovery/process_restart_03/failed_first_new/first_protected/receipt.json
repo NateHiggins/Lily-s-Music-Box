@@ -1,0 +1,52 @@
+{
+  "mode": "first_protected",
+  "boundary": "",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\first_protected\\command.ps1"
+  ],
+  "runner_pid": 24028,
+  "started_utc": "2026-09-05T05:04:59.602081+00:00",
+  "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\appdata",
+  "nonce": "708261c8-83ca-4812-9c0a-b62eaaeab395",
+  "runner_exit": 0,
+  "finished_utc": "2026-09-05T05:05:00.253901+00:00",
+  "diagnostic_headers": [],
+  "summary_lines": [
+    "[SAVE RESTART] PASS mode=first_protected failures=0"
+  ],
+  "report": {
+    "can_continue": false,
+    "failures": 0,
+    "last_save_result": {
+      "code": "save_recovery_required",
+      "ok": false,
+      "protection_required": true,
+      "recovered": false,
+      "stage": "write_latch"
+    },
+    "load_status": {
+      "has_saved_campaign": true,
+      "reason": "save_recovery_required",
+      "status": "protected"
+    },
+    "mode": "first_protected",
+    "pid": 12040,
+    "projection": {
+      "clock": {},
+      "dream": {},
+      "item": {},
+      "job": {},
+      "seed": "e6b2a58dc4f1ee47",
+      "version": 4
+    },
+    "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+    "samples": 0,
+    "write_blocked": true
+  },
+  "passed": true
+}

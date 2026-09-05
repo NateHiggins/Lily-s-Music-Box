@@ -1,0 +1,177 @@
+{
+  "case": "candidate",
+  "created_utc": "2026-09-05T05:15:14.044784+00:00",
+  "command_file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\candidate_01\\command.ps1",
+  "project": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\candidate_01\\project",
+  "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\candidate_01\\APPDATA",
+  "SHOT_DIR": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\candidate_01\\shots",
+  "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "wrapper_sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+  "source_sha256": "80dee2270d52087ab872343c75df59a7a30b6b15c74289856cfc5b30886d378d",
+  "prepared_only": false,
+  "started_utc": "2026-09-05T05:15:14.044784+00:00",
+  "engine_binaries_before": [
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+      "bytes": 198152,
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+    },
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+      "bytes": 178997256,
+      "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+    }
+  ],
+  "finished_utc": "2026-09-05T05:15:18.590893+00:00",
+  "wall_seconds": 3.75,
+  "runner_pid": 28912,
+  "engine_exit": 0,
+  "engine_binaries": [
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+      "bytes": 198152,
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+    },
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+      "bytes": 178997256,
+      "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+    }
+  ],
+  "godot_pid": 9800,
+  "renderer_adapter_lines": [
+    "Optional Vulkan device extension VK_EXT_fragment_density_map not found",
+    "Optional Vulkan device extension VK_EXT_fragment_density_map2 not found",
+    "Optional Vulkan device extension VK_QCOM_fragment_density_map_offset not found",
+    "Optional Vulkan device extension VK_EXT_astc_decode_mode not found",
+    "Optional Vulkan device extension VK_EXT_texture_compression_astc_hdr not found",
+    "Optional Vulkan device extension VK_NV_ray_tracing_validation not found",
+    "Optional Vulkan device extension VK_KHR_external_memory_fd not found",
+    "Optional Vulkan device extension VK_EXT_debug_marker not found",
+    "- Vulkan Fragment Shading Rate supported:",
+    "- Vulkan Fragment Density Map not supported",
+    "- Vulkan multiview supported:",
+    "- Vulkan subgroup:",
+    "- Vulkan Acceleration Structure supported",
+    "- Vulkan Raytracing supported",
+    "Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080",
+    "[PAIRING_CHECK] PASS actual Forward+ renderer"
+  ],
+  "artifacts": [
+    {
+      "path": "command.ps1",
+      "sha256": "a3bccf5b0d6759a7a8fbab03d0feb00b6de44591df51de99247bc95d6945ce87",
+      "bytes": 633
+    },
+    {
+      "path": "godot.stdout.log",
+      "sha256": "5a579d40a87f45f9882bfbdff3df64a5f2352ae13f1d52eed31e659675c0c989",
+      "bytes": 25381
+    },
+    {
+      "path": "godot.stdout.log.stderr",
+      "sha256": "e2ae6ae8f576179ca005d6a6a6162f731caa2709c6f5e46f65a5a5a279de3d01",
+      "bytes": 2677
+    },
+    {
+      "path": "project/probe.gd",
+      "sha256": "25b455739e1b92022ece18805fc86272ad58c9661808aadc04d0d8418e0ea56c",
+      "bytes": 7255
+    },
+    {
+      "path": "project/probe.tscn",
+      "sha256": "254c01216bcd2758efe57552c1618f5d025ca516e3ff643f02aac04a8c186d55",
+      "bytes": 165
+    },
+    {
+      "path": "project/project.godot",
+      "sha256": "4b16defc972b78b8ae3f75808dcaa4b149cf0f421f863d36385fd0645c6b0b75",
+      "bytes": 527
+    },
+    {
+      "path": "project/zone_layer_gate.gd",
+      "sha256": "3ce8355dca3d5feaa0c8d9825949cccdfff8e1763c8035529670824b14eca337",
+      "bytes": 1008
+    },
+    {
+      "path": "run_case.source.py",
+      "sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+      "bytes": 11620
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "6512f5629c348826aef82d8854b6159494d345e4c0603f9b1f6adb1caa54579a",
+      "bytes": 1578
+    },
+    {
+      "path": "run_godot_serial.source.ps1",
+      "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "bytes": 8191
+    },
+    {
+      "path": "runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner_pid.json",
+      "sha256": "6e3ffd806d711d0ac43a258473ec1e6309c74cc26e6073d31be956e35a215ad4",
+      "bytes": 76
+    },
+    {
+      "path": "shots/01_initial.png",
+      "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+      "bytes": 17329
+    },
+    {
+      "path": "shots/02_blocked.png",
+      "sha256": "2c242fed2f63e62dbd0dbc7aa6505137e720ff89d2b3125b81be743b83c21494",
+      "bytes": 13364
+    },
+    {
+      "path": "shots/03_restored.png",
+      "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+      "bytes": 17329
+    },
+    {
+      "path": "shots/04_light_deleted.png",
+      "sha256": "123c98c1a2b9c5edb1566e8b898164109390eb62ed38690daa474d4899f05a6c",
+      "bytes": 5709
+    },
+    {
+      "path": "shots/probe_receipt.json",
+      "sha256": "c1d422488a9924fb6297ab2533b74aa4e7d2a337d98d625961b1fb3d677a4143",
+      "bytes": 3995
+    },
+    {
+      "path": "source_after.json",
+      "sha256": "923243acb81ac109eba678375d7fae9309415813b45985fc18f4ca1f6247d6f5",
+      "bytes": 554
+    },
+    {
+      "path": "source_before.json",
+      "sha256": "923243acb81ac109eba678375d7fae9309415813b45985fc18f4ca1f6247d6f5",
+      "bytes": 554
+    }
+  ],
+  "gate": {
+    "diagnostic_gate_exit": 0,
+    "reasons": [],
+    "pairing_diagnostics": 0,
+    "inherited_host_manifest_errors": 5,
+    "unexpected_error_headers": {},
+    "retention_diagnostics": [],
+    "all_diagnostic_headers": {
+      "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 5,
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2
+    },
+    "expected_diagnostic_result": "green",
+    "control_expectation_met": true
+  },
+  "visual_review": "pending manual inspection; no human acceptance implied"
+}

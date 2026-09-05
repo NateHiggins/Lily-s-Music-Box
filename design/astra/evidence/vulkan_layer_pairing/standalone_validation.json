@@ -1,0 +1,533 @@
+{
+  "schema": "astra-vulkan-pairing-standalone-validation-v1",
+  "created_utc": "2026-09-05T05:21:27.072645+00:00",
+  "status": "SCOPED_STANDALONE_RED_GREEN_RED_PROVEN",
+  "production_status": "NOT_APPLIED_OR_VALIDATED",
+  "human_accepted": false,
+  "manual_review": "Codex image viewer inspection of all20 listed local PNGs; controlled primitives, no V1 scene proof",
+  "selftests": {
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\vulkan_pairing",
+      "-p",
+      "test_gate.py",
+      "-v"
+    ],
+    "exit": 0,
+    "tests": 10,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "d1113fb22b24b9ada30f56bf1013617f89ae6f40eaf65e7751d6e6a4d72f977f",
+    "source_sha256": "a9c0659e0e56bbd3aa81bf0fc1f843c569b00f9d38b80a58d806139d75e6fa20",
+    "wrapper_sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac"
+  },
+  "accepted_control_set": [
+    "static_02",
+    "raw_01",
+    "candidate_01",
+    "omission_01"
+  ],
+  "excluded_retained_runs": {
+    "static_01": "Initial wrapper resolved CWD launcher with Python instead of the runner's installed PowerShell Get-Command path; scene remained unchanged and functionally passed. External gate refusal preserved; fresh rerun used corrected binding."
+  },
+  "runs": [
+    {
+      "run": "static_01",
+      "classification": "WRAPPER_BINDING_FAILED_EXCLUDED",
+      "engine_exit": 0,
+      "observed_python_cli_exit": 1,
+      "diagnostic_gate_exit": 1,
+      "functional_passed": 17,
+      "functional_total": 17,
+      "godot_pid": 9612,
+      "runner_pid": 21156,
+      "wall_seconds": 2.92200000000048,
+      "source_sha256": "80dee2270d52087ab872343c75df59a7a30b6b15c74289856cfc5b30886d378d",
+      "source_stable": true,
+      "result_path": "design/astra/evidence/vulkan_layer_pairing/runs/static_01/result.json",
+      "result_sha256": "5bb1d2e13338a854a4212a6d66e8b5f925fbadecf02dd24b9d5198db4618a435",
+      "stdout_sha256": "0908b72f2a054fff11a43d7875d0c8388b5a1df27e4e5df6f5c5ddac22b2dc0b",
+      "stderr_sha256": "85780ff49bba1024b9068a58d229b5c0071cbf22ac976e3ce547f4c1f95c0256",
+      "counts": {
+        "changes": 0,
+        "rebinds": 0,
+        "unchanged_calls": 0
+      },
+      "pairing_diagnostics": 0,
+      "retention_diagnostics": [],
+      "inherited_host_manifest_errors": 5,
+      "control_expectation_met": false,
+      "stage_times": [],
+      "manual_images": [
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/static_01/shots/01_initial.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/static_01/shots/02_blocked.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/static_01/shots/03_restored.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/static_01/shots/04_light_deleted.png",
+          "sha256": "92cb5ffab68414ff056f1d92deb271997deb79987efd22839d521660bfe26230",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        }
+      ]
+    },
+    {
+      "run": "static_02",
+      "classification": "CLEAN_STATIC_CONTROL",
+      "engine_exit": 0,
+      "observed_python_cli_exit": 0,
+      "diagnostic_gate_exit": 0,
+      "functional_passed": 17,
+      "functional_total": 17,
+      "godot_pid": 21904,
+      "runner_pid": 23316,
+      "wall_seconds": 2.8590000000003783,
+      "source_sha256": "80dee2270d52087ab872343c75df59a7a30b6b15c74289856cfc5b30886d378d",
+      "source_stable": true,
+      "result_path": "design/astra/evidence/vulkan_layer_pairing/runs/static_02/result.json",
+      "result_sha256": "bc3b3190097b38b549ab379155f224dd5891b006bc46504e1a75b35f711dbb09",
+      "stdout_sha256": "88daed83a55415bfebd17e10bce23faa05b5e1a827930d6b9be22c4276d7725d",
+      "stderr_sha256": "b63f39b0ae83122a6278be07e35fd64133ab4e5d1dfd28e52f9af4532f6a87e4",
+      "counts": {
+        "changes": 0,
+        "rebinds": 0,
+        "unchanged_calls": 0
+      },
+      "pairing_diagnostics": 0,
+      "retention_diagnostics": [],
+      "inherited_host_manifest_errors": 5,
+      "control_expectation_met": true,
+      "stage_times": [],
+      "manual_images": [
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/static_02/shots/01_initial.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/static_02/shots/02_blocked.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/static_02/shots/03_restored.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/static_02/shots/04_light_deleted.png",
+          "sha256": "92cb5ffab68414ff056f1d92deb271997deb79987efd22839d521660bfe26230",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        }
+      ]
+    },
+    {
+      "run": "raw_01",
+      "classification": "EXPECTED_NATIVE_RED",
+      "engine_exit": 0,
+      "observed_python_cli_exit": 1,
+      "diagnostic_gate_exit": 1,
+      "functional_passed": 21,
+      "functional_total": 21,
+      "godot_pid": 18148,
+      "runner_pid": 28888,
+      "wall_seconds": 3.7809999999990396,
+      "source_sha256": "80dee2270d52087ab872343c75df59a7a30b6b15c74289856cfc5b30886d378d",
+      "source_stable": true,
+      "result_path": "design/astra/evidence/vulkan_layer_pairing/runs/raw_01/result.json",
+      "result_sha256": "b3ad0cacd36612ca9c900374e14b936ca695c8c52bb2c19b9a298a36bf5c626d",
+      "stdout_sha256": "3c3982c253f252cf4ee5f2e3216c6450e7bd1834dda140ad55dd363a11e2c705",
+      "stderr_sha256": "223f7d50d88935c55f49ae56dd29c1fd2cb3400ce17b957bc8c2b31478064c00",
+      "counts": {
+        "changes": 15,
+        "rebinds": 0,
+        "unchanged_calls": 10
+      },
+      "pairing_diagnostics": 2,
+      "retention_diagnostics": [],
+      "inherited_host_manifest_errors": 5,
+      "control_expectation_met": true,
+      "stage_times": [
+        {
+          "elapsed_usec": 88084,
+          "stage": "first_hide_8_frames"
+        },
+        {
+          "elapsed_usec": 646066,
+          "stage": "six_hide_restore_cycles_36_frames"
+        }
+      ],
+      "manual_images": [
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/raw_01/shots/01_initial.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/raw_01/shots/02_blocked.png",
+          "sha256": "2c242fed2f63e62dbd0dbc7aa6505137e720ff89d2b3125b81be743b83c21494",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": false,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 0,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/raw_01/shots/03_restored.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/raw_01/shots/04_light_deleted.png",
+          "sha256": "123c98c1a2b9c5edb1566e8b898164109390eb62ed38690daa474d4899f05a6c",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": false,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 0,
+            "cyan": 1229
+          }
+        }
+      ]
+    },
+    {
+      "run": "candidate_01",
+      "classification": "ISOLATED_WORKAROUND_PROVEN",
+      "engine_exit": 0,
+      "observed_python_cli_exit": 0,
+      "diagnostic_gate_exit": 0,
+      "functional_passed": 21,
+      "functional_total": 21,
+      "godot_pid": 9800,
+      "runner_pid": 28912,
+      "wall_seconds": 3.75,
+      "source_sha256": "80dee2270d52087ab872343c75df59a7a30b6b15c74289856cfc5b30886d378d",
+      "source_stable": true,
+      "result_path": "design/astra/evidence/vulkan_layer_pairing/runs/candidate_01/result.json",
+      "result_sha256": "7b6ac967641044efb30bbedcdad8aa117425dbe68188ef775895ab4c63d9316b",
+      "stdout_sha256": "5a579d40a87f45f9882bfbdff3df64a5f2352ae13f1d52eed31e659675c0c989",
+      "stderr_sha256": "e2ae6ae8f576179ca005d6a6a6162f731caa2709c6f5e46f65a5a5a279de3d01",
+      "counts": {
+        "changes": 15,
+        "rebinds": 15,
+        "unchanged_calls": 10
+      },
+      "pairing_diagnostics": 0,
+      "retention_diagnostics": [],
+      "inherited_host_manifest_errors": 5,
+      "control_expectation_met": true,
+      "stage_times": [
+        {
+          "elapsed_usec": 87213,
+          "stage": "first_hide_8_frames"
+        },
+        {
+          "elapsed_usec": 648985,
+          "stage": "six_hide_restore_cycles_36_frames"
+        }
+      ],
+      "manual_images": [
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/candidate_01/shots/01_initial.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/candidate_01/shots/02_blocked.png",
+          "sha256": "2c242fed2f63e62dbd0dbc7aa6505137e720ff89d2b3125b81be743b83c21494",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": false,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 0,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/candidate_01/shots/03_restored.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/candidate_01/shots/04_light_deleted.png",
+          "sha256": "123c98c1a2b9c5edb1566e8b898164109390eb62ed38690daa474d4899f05a6c",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": false,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 0,
+            "cyan": 1229
+          }
+        }
+      ]
+    },
+    {
+      "run": "omission_01",
+      "classification": "EXPECTED_OMISSION_RED",
+      "engine_exit": 0,
+      "observed_python_cli_exit": 1,
+      "diagnostic_gate_exit": 1,
+      "functional_passed": 21,
+      "functional_total": 21,
+      "godot_pid": 16344,
+      "runner_pid": 4724,
+      "wall_seconds": 3.75,
+      "source_sha256": "f5f870e86cb7cf12a20894957c33155933a289002965e76890ec2dea4c54fb24",
+      "source_stable": true,
+      "result_path": "design/astra/evidence/vulkan_layer_pairing/runs/omission_01/result.json",
+      "result_sha256": "44ce405f54cd75b334f8e706887af5be5d34bbcc6a0fed6b22f83530f8f930e4",
+      "stdout_sha256": "01f5939a0216a61aed5f778cdc5ec87091fbae5d4d5e5507cc4eccc39bb2d883",
+      "stderr_sha256": "55dd06aea2d72a4d803bd92deea4f546ab0545beaf4a3e40c7fe7695baf28e15",
+      "counts": {
+        "changes": 15,
+        "rebinds": 0,
+        "unchanged_calls": 10
+      },
+      "pairing_diagnostics": 2,
+      "retention_diagnostics": [],
+      "inherited_host_manifest_errors": 5,
+      "control_expectation_met": true,
+      "stage_times": [
+        {
+          "elapsed_usec": 103913,
+          "stage": "first_hide_8_frames"
+        },
+        {
+          "elapsed_usec": 647628,
+          "stage": "six_hide_restore_cycles_36_frames"
+        }
+      ],
+      "manual_images": [
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/omission_01/shots/01_initial.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/omission_01/shots/02_blocked.png",
+          "sha256": "2c242fed2f63e62dbd0dbc7aa6505137e720ff89d2b3125b81be743b83c21494",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": false,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 0,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/omission_01/shots/03_restored.png",
+          "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": true,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 2236,
+            "cyan": 1229
+          }
+        },
+        {
+          "path": "design/astra/evidence/vulkan_layer_pairing/runs/omission_01/shots/04_light_deleted.png",
+          "sha256": "123c98c1a2b9c5edb1566e8b898164109390eb62ed38690daa474d4899f05a6c",
+          "width": 1280,
+          "height": 720,
+          "manual_observation": {
+            "target_visible": false,
+            "neighbor_visible": true,
+            "unintended_geometry_seen": false
+          },
+          "probe_pixel_samples": {
+            "orange": 0,
+            "cyan": 1229
+          }
+        }
+      ]
+    }
+  ],
+  "review": {
+    "path": "design/astra/reviews/vulkan_pairing_execution_review.md",
+    "sha256": "590f9a1f51a90fd134ba7161384b409daf0eb271e301397e09790eb65e5ca7e1"
+  },
+  "production_proposal": {
+    "manifest": "design/astra/work/vulkan_pairing/production_proposal/proposal_manifest.json",
+    "patch_sha256": "cef3d6fff91a53817155704eca6efbb7275e2e84b59f8e9a3a40c7f70654c30f",
+    "patch_applicability_check_exit": 0,
+    "base_commit": "9548301873807117a870aeb6e517173e81a4713f",
+    "applied_to_live_game": false,
+    "godot_tested": false
+  },
+  "limits": [
+    "Minimal raw/omission reproduces unpaired-light membership error, not separate V1 soft-shadow underflow.",
+    "Five inherited host loader errors and two warnings per run remain in full raw logs.",
+    "Primitive single-process timings include frame waits and do not establish production transition cost.",
+    "V1 retirement, ownership regressions, GI/LOD/SubViewport and human acceptance remain pending production handoff."
+  ]
+}
