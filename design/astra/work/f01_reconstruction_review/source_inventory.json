@@ -1,0 +1,3026 @@
+{
+  "schema": "astra.f01-reconstruction-read-only-inventory.v1",
+  "canonical_head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "clean_c1_source_reference": "c34ad283df148496fbd98e68638470835c930c5c",
+  "accepted_m11b_reference": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+  "historical_c2_reference_for_comparison_only": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+  "generator_or_engine_executed": false,
+  "production_mutated": false,
+  "protected_17": [
+    {
+      "path": "art/data/building_layout.json",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "reference_sha256": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+      "bytes": 2479531,
+      "current_exists": true,
+      "current_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "current_git_clean_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "accepted_m11b_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/data/building_layout.json",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "reference_sha256": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+      "bytes": 2479531,
+      "current_exists": true,
+      "current_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "current_git_clean_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "accepted_m11b_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/scripts/building/building_root_selector.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "reference_sha256": "d7aff8b7c598af55cef9243b184f7df9cc6b8ff234daa61fc19c01e9709f37c8",
+      "bytes": 1418,
+      "current_exists": true,
+      "current_sha256": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "current_git_clean_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "accepted_m11b_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_01.gltf",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "reference_sha256": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89",
+      "bytes": 642156,
+      "current_exists": true,
+      "current_sha256": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "current_git_clean_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "accepted_m11b_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_01.bin",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "eccac077808b8cdd55557f962bade7219a096381",
+      "reference_sha256": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+      "bytes": 12020428,
+      "current_exists": true,
+      "current_sha256": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+      "current_exact_reference_bytes": true,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "eccac077808b8cdd55557f962bade7219a096381",
+      "current_git_clean_blob": "eccac077808b8cdd55557f962bade7219a096381",
+      "accepted_m11b_blob": "eccac077808b8cdd55557f962bade7219a096381",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_02.gltf",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "reference_sha256": "de62d5bec6190d87413d5b6dc21feb9810b3fc9dba326fe75f793236639dfa33",
+      "bytes": 157033,
+      "current_exists": true,
+      "current_sha256": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "current_git_clean_blob": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "accepted_m11b_blob": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_02.bin",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "reference_sha256": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e",
+      "bytes": 6144948,
+      "current_exists": true,
+      "current_sha256": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e",
+      "current_exact_reference_bytes": true,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "current_git_clean_blob": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "accepted_m11b_blob": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_03.gltf",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "439c30732d8330ea77198c665c06358dc01b1800",
+      "reference_sha256": "b47e6553fe86b23743d01415b8f8269074420ca0c9c12f9b8d50bf86aeceabb6",
+      "bytes": 178520,
+      "current_exists": true,
+      "current_sha256": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "439c30732d8330ea77198c665c06358dc01b1800",
+      "current_git_clean_blob": "439c30732d8330ea77198c665c06358dc01b1800",
+      "accepted_m11b_blob": "439c30732d8330ea77198c665c06358dc01b1800",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_03.bin",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "reference_sha256": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8",
+      "bytes": 6245068,
+      "current_exists": true,
+      "current_sha256": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8",
+      "current_exact_reference_bytes": true,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "current_git_clean_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "accepted_m11b_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_04.gltf",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "reference_sha256": "33996b679c680effc8946f305a2d3d412bcf470fd1fcbce839e5456246fa96f0",
+      "bytes": 168262,
+      "current_exists": true,
+      "current_sha256": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "current_git_clean_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "accepted_m11b_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_04.bin",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "reference_sha256": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266",
+      "bytes": 6417828,
+      "current_exists": true,
+      "current_sha256": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266",
+      "current_exact_reference_bytes": true,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "current_git_clean_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "accepted_m11b_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_05.gltf",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "0c5be14216e4a47b73435b248308016295895af9",
+      "reference_sha256": "8459d034d554893b3a8d0b02b5841b2c3e4d9c9339b0fdcc9db64bacad213d5a",
+      "bytes": 173702,
+      "current_exists": true,
+      "current_sha256": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "0c5be14216e4a47b73435b248308016295895af9",
+      "current_git_clean_blob": "0c5be14216e4a47b73435b248308016295895af9",
+      "accepted_m11b_blob": "0c5be14216e4a47b73435b248308016295895af9",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_05.bin",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "reference_sha256": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8",
+      "bytes": 6335272,
+      "current_exists": true,
+      "current_sha256": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8",
+      "current_exact_reference_bytes": true,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "current_git_clean_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "accepted_m11b_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_06.gltf",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "reference_sha256": "5a4ca0026535b03eb60c5a4bbbbf5176c4115aa119a31784521d9054ef6e70cc",
+      "bytes": 165042,
+      "current_exists": true,
+      "current_sha256": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "current_git_clean_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "accepted_m11b_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_06.bin",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "reference_sha256": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f",
+      "bytes": 6391960,
+      "current_exists": true,
+      "current_sha256": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f",
+      "current_exact_reference_bytes": true,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "current_git_clean_blob": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "accepted_m11b_blob": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_b1.gltf",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "reference_sha256": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
+      "bytes": 141887,
+      "current_exists": true,
+      "current_sha256": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "current_git_clean_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "accepted_m11b_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "unchanged_since_accepted_m11b": true
+    },
+    {
+      "path": "game/assets/building/floor_b1.bin",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "reference_sha256": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449",
+      "bytes": 2778748,
+      "current_exists": true,
+      "current_sha256": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449",
+      "current_exact_reference_bytes": true,
+      "current_matches_reference_after_crlf_to_lf": true,
+      "current_head_blob": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "current_git_clean_blob": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "accepted_m11b_blob": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "unchanged_since_accepted_m11b": true
+    }
+  ],
+  "all_17_git_clean_equal_c1_and_accepted_m11b": true,
+  "all_17_match_reference_with_only_crlf_normalization": true,
+  "current_authored_inputs_compared_with_c1": [
+    {
+      "path": "art/data/gen_layout.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "56f4a8c18dd02eff18c35d2ba0720cd2ac71460a",
+      "reference_sha256": "0f84b5affa7012046e5e01043dd43e9ded0808ca077c47f28124e6e34fdaff97",
+      "bytes": 566196,
+      "current_exists": true,
+      "current_sha256": "7a6cd27b73daf610b1c9439fafd7f2343ec803c57e9da972e8c8418f3043cd88",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true
+    },
+    {
+      "path": "art/blender/scripts/build_orison.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "cf73e528622db09b5c0215df9e30210cf920b085",
+      "reference_sha256": "171f1e5af303f87a27192dab2b2f3daf40bcec5bd1b87adb806cbd0c935ff450",
+      "bytes": 224077,
+      "current_exists": true,
+      "current_sha256": "3c3bbfa470c0470c26a919cc3c7a5182b0bc5128abe5f9a27addf0b88c9bfd11",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true
+    },
+    {
+      "path": "game/data/orison_v2/exterior/regions.json",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "adf1c8101fe69cd62da34bf66da806912367f2ed",
+      "reference_sha256": "22b6c0415e720d0df5c601dcafa7d430fad0f523f264eb4b8cab0f98a4812448",
+      "bytes": 8674,
+      "current_exists": true,
+      "current_sha256": "1f128e4411e135acfc7e9046d5a2c3edf940d39adce54d336fbba8523f1a488a",
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": true
+    }
+  ],
+  "clean_c1_export_dependency_closure": [
+    {
+      "path": "art/data/m11c1/floor01_source_ownership.json",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "67d7a1e4567e7db309392ebefafa42456227a3f9",
+      "reference_sha256": "be6e37716a83fd615d733475aed642b9e66f13a12c803b55bdd87035e302755e",
+      "bytes": 2098288,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_owner_first/__init__.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "e5e7bb9997968741a257c43c6c6ffb71e694ae79",
+      "reference_sha256": "56ec0fdbbf1cc0b752983c5bf30d5765335126c8d79bfec13caca6611cb332b7",
+      "bytes": 271,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_owner_first/author_source_ownership.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "be869f3e613319a5d72b24dbfe5253e947de2240",
+      "reference_sha256": "11642350ff30b6c91357e84aa3a41c434e2988afb01362e9484bf95a98dbcc86",
+      "bytes": 16150,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_owner_first/generate_owner_first_candidate.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "fb8991a9d48fd8a880688b8923bf6f958606820c",
+      "reference_sha256": "64799b8861dba0637130dcc26dcfdecef90a628cd79d928ebdd55896ef9b41c8",
+      "bytes": 37620,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_owner_first/owner_first_export.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "1359a761946960b8abd431275195737d8725d9b7",
+      "reference_sha256": "2a748359edd8e3ff243d9826c12bde167eaa4bbaf5cf6122b9d4c72d0e58b494",
+      "bytes": 87890,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_owner_first/run_disposable_export.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "3fc234347f030000ed1aeae8dca6e6c636d9566e",
+      "reference_sha256": "d5bc56d6a01f0b9c2dd7f092d467866a751662e3ee6f9866b047d7f9cecdcd45",
+      "bytes": 8071,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_owner_first/source_ownership.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "49b58f604749b52c061e068c98c3a24bdf9d30f1",
+      "reference_sha256": "ca9c1f8ddb5e345a2a3985df143bce25af454033a733aa7de5917bb32dc71f23",
+      "bytes": 21692,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/rehearse_orison_floor01_partition.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "277d99c2ac25db5fb6112c8f3841b68dec1febf7",
+      "reference_sha256": "964d7af5203840dbeafe58e31d8a4bf315e78ab2925e660a1d344cbc8db6f5b7",
+      "bytes": 66824,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    }
+  ],
+  "clean_c1_rehearsal_and_test_dependency_closure": [
+    {
+      "path": "design/ORISON_V2_M11C0_FLOOR01_PARTITION_MANIFEST_2026-08-31.json",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "2b093cbaf70e8ea8be7d3c0ee7ddd5a38e187d7a",
+      "reference_sha256": "0d442ad81d1ce625786a2095c2fea1621323b15edfb179cb2022f65012e1b35c",
+      "bytes": 14227,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_capture.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "f0f7fa85654c063cff30b73273f1081e830f406b",
+      "reference_sha256": "a0f759a94828412efed03ff6f7228c4759a0b1d964955a5dfba3871742568526",
+      "bytes": 21492,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_capture.gd.uid",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "35dfb621c9f395d7f0818f6d870b78025d34779f",
+      "reference_sha256": "61e09ed8861101c99725e295526dfd17560c66940cf6576a329639fb86fb82a4",
+      "bytes": 19,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_cell_registry.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "fdaf25be3b39ae82d8df3ada3a081c40ca71101c",
+      "reference_sha256": "dcb9e9916a964a0506ed9e56d9b626f6e2b6835ef1d13e54e8aba570479adcdf",
+      "bytes": 4758,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_cell_registry.gd.uid",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "c7f878568764165821e781ea13e4a4f685253369",
+      "reference_sha256": "8948b90508466f83755624b510dcad5de26acc0d9190dacd026b70a28d72720b",
+      "bytes": 20,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_consumer_adaptation.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "c893a197d4486de2fe9344c5da2aeef37a1632cc",
+      "reference_sha256": "df3008e43b486b73327b93bed1a38f697ef1505a5e2984a51505dd2b6a8d359f",
+      "bytes": 8515,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_consumer_adaptation.gd.uid",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "54b2e647942b2b0ead82ccd3bbba86df297f08d5",
+      "reference_sha256": "b5acd34c5833aa0b6d0ea35c49b1bc690def7ba42a61c0fe7efda73f34e993ff",
+      "bytes": 20,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_harness_support.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "6b22a9785232f7a3058c924f63fab5072753aeca",
+      "reference_sha256": "7a84d28c7962dd7e3779727ae0fd896220f6b978637177aecf4d79e1b71eb293",
+      "bytes": 59791,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_harness_support.gd.uid",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "c8e67238d54fa74f10a2d4e51eed1304e4e268d1",
+      "reference_sha256": "733bb4e1b197bf3e520a0a356d8c6ec312117a835bccaa76886bf019b987c26d",
+      "bytes": 20,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_marker_consumer_adapter.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "bcb2c03fda2cf5bfed962f4233a143b6674aa7e7",
+      "reference_sha256": "4a1638398d912bb56c1db9f4839413e0f746f5ed9553ca697b67dc69d17ac016",
+      "bytes": 4828,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_marker_consumer_adapter.gd.uid",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "7b9259c7e63e883199e52cfba3e1e1e46ddadf12",
+      "reference_sha256": "31f7fe59b616f3dc529c43798b3aa2adb58eee1bbd22f64d62cba53ff2c29507",
+      "bytes": 19,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_owner_first_harness.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "23d7dbc69b4aa97ea82808bc289f8f7672dc4ff4",
+      "reference_sha256": "470ecba19dc6094e6c75121cc1c22da5953e9be8770895c7f7205c93a8317ad7",
+      "bytes": 853,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_owner_first_harness.gd.uid",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "c1704123c1d6b73ed402e044e95327e2020fefca",
+      "reference_sha256": "9a8094b60d15e0d0d72c778d546ab8d7ebfc078aa7f75be24955ccf8a23b3af7",
+      "bytes": 20,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_owner_first_harness.tscn",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "399115a30993e4fab336466b23171e0513b993ef",
+      "reference_sha256": "002d35345ff0cc8feafffb42f0af58f110f14db7bf7834702cc14c91fdc488be",
+      "bytes": 238,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_runtime_validation.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "51bc2d8d4f5d3444b1a236122f5cac3618b38d7d",
+      "reference_sha256": "9106cf106d57e783b1f704661205219384d270b46dfd06924753ea4356befee6",
+      "bytes": 76855,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_runtime_validation.gd.uid",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "65e6d63e5d72f86b7412431140d38e9876292b1a",
+      "reference_sha256": "49caabfc68ec1af4dab8878d7d0d1f7c2cc476e01afb84c0bb095c217da90b76",
+      "bytes": 19,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/tests/orison_v2_m11c1_owner_first/m11c1_scanner_consumer_adapter.gd",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "ac160d1fb661b531cea2d6311efe1c365e5d495d",
+      "reference_sha256": "4aa6b324e7c8eafef514e709c2a3635e722be09f6e95da7110bd6ca860c406c1",
+      "bytes": 29043,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_rehearsal/README.md",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "455a9f12b97971cfb7ea1fcbdeb07ce26dfab908",
+      "reference_sha256": "4989032333c160990eb75e4dbd703bfadb0666066811a979f2a29295e43c319c",
+      "bytes": 6627,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_rehearsal/m11c1_runtime_config.schema.json",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "638e2fa822b264d750ad63d15b4ef58c983807fb",
+      "reference_sha256": "a49918942389790fe12cdcc2d32b8db183931196bc40f1988e4906323378851e",
+      "bytes": 9587,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c1_floor01_rehearsal/prepare_runtime_rehearsal.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "1b5d90ef08dc02718b158947c25a2400bbc7774e",
+      "reference_sha256": "749449e479caea8748fa93c08a03eaf36b885d16737fad9eed0561ab8a779d1d",
+      "bytes": 74628,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/tests/test_m11c1_floor01_source_ownership.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "68a2a9e1f8720682fb50d0ddb697f8557e7b76a9",
+      "reference_sha256": "80677488c07f835cc09e1f2b35be263fbd63dee4f57bf6a691ef30e579129334",
+      "bytes": 14974,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/tests/test_m11c1_owner_first_export.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "7ec37b4c0c9ed919b60ba83291ae04b2bbc8099a",
+      "reference_sha256": "13cd704d032cb16416cabaa8b3862c3e03fde78f1365be2fec1118854029cb3b",
+      "bytes": 12659,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/tests/test_m11c1_runtime_rehearsal.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "0118dbee2e3908a24e93b765e972daed7e74f4d2",
+      "reference_sha256": "177de7fa0cf6b4158a29040620c1cbf99061a4ce5d944ba515286f8331e89e05",
+      "bytes": 16762,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/tests/test_m11c1_scanner_consumer_adapter.py",
+      "reference": "c34ad283df148496fbd98e68638470835c930c5c",
+      "git_blob": "7c3da2f497411c6a04d5be8b7b8c25195d04c759",
+      "reference_sha256": "4aa0faa805d7d6d40e1c2f6b50dbf2e2a197da31d75ea4a0e348a2361c045abf",
+      "bytes": 6719,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    }
+  ],
+  "c2_deployment_reference_only": [
+    {
+      "path": "game/assets/building/floor_01_cells/floor01_asset_manifest.json",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "27632d72087f4e299a4f89de9121d8ccd7ae95dc",
+      "reference_sha256": "0f5233f40962c699b961961bc4e21a99db7af077d450f70cbbd8d4d040c486e9",
+      "bytes": 86500,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/floor01_compatibility_aliases.json",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "21e369e43ff674aba5b4e7ef2b57e873c5e7f235",
+      "reference_sha256": "ef2c3bf206e57118065de0696de5ebcdd3684c2e51619d0b6386e0a33557ca9a",
+      "bytes": 149272,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/floor01_owner_first_lineage.json",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "7494f7127ed8c5866401a011eec17f2044c188d1",
+      "reference_sha256": "d2baa403bb68f8d4256b217c89bd225c3ec5147f0882fe78fd97c6beaa4ad866",
+      "bytes": 15687735,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/orison_f01_interior.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "93a7c8257a461697e2bf6c6ecb7d24943e64d4b9",
+      "reference_sha256": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012",
+      "bytes": 5041436,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/orison_f01_interior.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "6102e08c1786069b92fa70832024d8120cecac80",
+      "reference_sha256": "bc6ff5536e374be8385232b65c0404014d5970c9a27f016c0a301d01748c48e4",
+      "bytes": 168259,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/orison_facade_shell.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "f0c333363c68c3128ae003ba0f160381aa89265f",
+      "reference_sha256": "e5666a66f32f7e86fbe30c404b20bf1be3f7d1fbd369e314f7c7d89089be777b",
+      "bytes": 1239972,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/orison_facade_shell.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "e74f16b3f71c24352c629701be100ba8331e6467",
+      "reference_sha256": "c47a6eeefe146ff9bebb6d09a8ae5d24f6beb6f9a69a15a4f79b2b8e9c2314c8",
+      "bytes": 66765,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/passage.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "6d2ad8f336f61fdf8d0da1dae06313dc8d363c3c",
+      "reference_sha256": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36",
+      "bytes": 741472,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/passage.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "182c76dfd0d0041aeb1a7b0a765f37b1ea19dee8",
+      "reference_sha256": "143d159a55e1bebdf1507b0ea2e515ccd763bf2b47770cdd11bb0349cf0f9907",
+      "bytes": 60429,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_bar.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "2c74c26a6f5a286c8935322ef69d6225ba5f984a",
+      "reference_sha256": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
+      "bytes": 1255696,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_bar.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "efa0c6f5ff1ed368ba28fdb8414ce51229892ec1",
+      "reference_sha256": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+      "bytes": 149853,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_bodega.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "9036904c05c3dd4d9a76a16bebc0987df8dced04",
+      "reference_sha256": "639c74a18a499d042af8a44f6a11b70fc739e5ba81382a1769788990b4fa67aa",
+      "bytes": 156300,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_bodega.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "e4cdf1ce83662be5ca4e172a8ea1438711222b96",
+      "reference_sha256": "98c241f535cf369f6c5302b704d334c423d51dfe24f545d827a3ecb49c45c68f",
+      "bytes": 52019,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_funeral_parlour.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "2f01a0c33508c8cd0cdb87b502a8b6fd910534ec",
+      "reference_sha256": "2aba70fa1cf9027b4725edef8e1f598b3d274e7e839a80ea502d62c9332721f4",
+      "bytes": 93812,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "ada33b0c5c6a24d699c6e98eeb6824de634a741b",
+      "reference_sha256": "156126eccebb5136d505943080fd8ec7d25ec84880f3ab82d9e865cb0e238be8",
+      "bytes": 57090,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_hardware_paint.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "c9bdc9afb250efe0b5b68de7cb8fecb7059e40fd",
+      "reference_sha256": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb",
+      "bytes": 185660,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_hardware_paint.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "8565035aafce0117306fd50967476162fd6ae149",
+      "reference_sha256": "c4c7573c3dbec95bec3b1c30a3858915f21cd1e0953ca77b10705a0fefc37fec",
+      "bytes": 53565,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_keys_cut.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "445bb6624673e907cf24ff8b46efef81c08c4c3b",
+      "reference_sha256": "115f13475d0874826a975abba23ec20abed310e27b5e2d73e26f30ceb502097f",
+      "bytes": 150596,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_keys_cut.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "e46a551b6967e1c0ee52a55a3c6d8b347a4b5d92",
+      "reference_sha256": "e9654a3ffc0f08c3c048afbecbca468857a1ab6b6a210b088e478d9f15efa2be",
+      "bytes": 50215,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_luncheonette.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "abed8a174c5b1e11718597ed5c4b8bb7af81c3f3",
+      "reference_sha256": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
+      "bytes": 137364,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_luncheonette.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "bd7f839c3e7af9831431baa8ce211c5a76465860",
+      "reference_sha256": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
+      "bytes": 80173,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_model_laundry.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "1f0a5cdb99098aaeb4c4c633d6021a3b476fa213",
+      "reference_sha256": "3147958516513b9d8ac0bed0150eff8037b0e6e0371a1c737ab61175bfc960f4",
+      "bytes": 155284,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_model_laundry.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "88694746b7b237324967c7fee65d9590494977a9",
+      "reference_sha256": "0e8fff621511552fc51b7aa9b5d5fb9ed5ec89e976fc9bfd077dbbd986437af8",
+      "bytes": 76460,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_news_cigars.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "00ea9801ae97a8e22286ab28a13a9004ee30310a",
+      "reference_sha256": "a5f02344357a93404ff20ded11527b5c04e7a90b56d25fafbd5cb0f34338b926",
+      "bytes": 88804,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_news_cigars.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "2dd0c39a3b8d0af4556571afca484b71dbf8bd25",
+      "reference_sha256": "2504ef7ff2283a7f32a8cae426dfdf1a70760e5d7719a32cf63daad9e50a8871",
+      "bytes": 63946,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_otis_son.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "1f3c9afc147a2c741550163711f15915d6be501e",
+      "reference_sha256": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
+      "bytes": 149276,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_otis_son.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "9afce8a361aa5d795dd624b951d4895dce8dba8e",
+      "reference_sha256": "352a40ef1a5a5196d4945349d410dc023d17e11629e11b22d36bb3a68c5e2c61",
+      "bytes": 72634,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_pawnbroker.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "516216d82bc73b0a876ff753a493069095b76825",
+      "reference_sha256": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff",
+      "bytes": 121252,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_pawnbroker.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "2312723c28880c1ff4babcd2c056f0898c7c8b2c",
+      "reference_sha256": "7c8a009e1a5cefeb2767bd83b58a8b6fae400b248049f484032bd6480a84d6b2",
+      "bytes": 79375,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_photo_supplies.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "838e87e6738b631dfaea64679b065909139775b1",
+      "reference_sha256": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+      "bytes": 119212,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_photo_supplies.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "dad5aa65aff044a03ace707362ca8b081179ab93",
+      "reference_sha256": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+      "bytes": 79883,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_radio_service.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "d3d3d7d312031373ee1b22239d1bbfecc7582a7b",
+      "reference_sha256": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+      "bytes": 101236,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_radio_service.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "42b958063f2970c95e80c82429e490bfb57aee8d",
+      "reference_sha256": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+      "bytes": 81449,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_shoe_rebuilding.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "5acd75b71475b3baf4b97656da723ac84ba18890",
+      "reference_sha256": "a8c0cd8fa55990d23b8658168ee39b8218d2202305ea3aea1ae30bdb52b75918",
+      "bytes": 84308,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "ac8bdca63399ae8d0c95af4687868785efe4c8bd",
+      "reference_sha256": "7c5e3a4aff034e7533fed0c157ca4da7ad264d4d7632d9ff91fbd4622f7dc8d6",
+      "bytes": 50571,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/site_street_common.bin",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "9a3c9efdbe94aab01b64f9d58202cd435c8ced34",
+      "reference_sha256": "4b8d4a73f088df1b067f850689c2bc436517ef3e13e2e98e18a90a90b51cafa9",
+      "bytes": 2288868,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/assets/building/floor_01_cells/site_street_common.gltf",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "c59d019d93201e8b1dcfb9b185e20657ea9f8c46",
+      "reference_sha256": "102693f5e35816da2650f81065219a19daa9a77a96b4c9b232a6fcdf4c04a6a2",
+      "bytes": 99719,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "game/data/floor_01_cell_registry.json",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "b2c186fb98bd62bcbed04d32607bfc22bfaade74",
+      "reference_sha256": "e179aa4787ef79226666010047de504ad973ba76353bffb090731413a13be6f1",
+      "bytes": 158448,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/m11c2_floor01_production/export_floor01_cells.py",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "3c2065cbf56a85ada929f944f28928312d1d8f16",
+      "reference_sha256": "799a5b860ca1fe166645b40f6cd356785460b24d40f6bf384d47176bf88ab24c",
+      "bytes": 44839,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    },
+    {
+      "path": "tools/tests/test_m11c2_floor01_production_export.py",
+      "reference": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+      "git_blob": "49302f60d01d390542f863d3984c896dbe7183f4",
+      "reference_sha256": "1b84619aafa802d984edbbe525b30858c5410c534e31d38f8c9699abe8c8a8d3",
+      "bytes": 11929,
+      "current_exists": false,
+      "current_sha256": null,
+      "current_exact_reference_bytes": false,
+      "current_matches_reference_after_crlf_to_lf": false
+    }
+  ],
+  "protected_floor01_image_dependencies": [
+    {
+      "uri": "textures/T_ai_materials_plaster_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_plaster_b_normal.png",
+      "sha256": "2cb0ac73f37d8be32e06cf65756129e502e9cfe16e37fe46d22bc512495e8464",
+      "bytes": 582861
+    },
+    {
+      "uri": "textures/T_ai_materials_plaster_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_plaster_b_albedo.png",
+      "sha256": "6c044b23aabf6defe33b5317a8f737e57de2a44395c7d4e1016ca3cf48acfec0",
+      "bytes": 1529733
+    },
+    {
+      "uri": "textures/T_ai_materials_plaster_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_plaster_b_rough.png",
+      "sha256": "02eed19150cffc6836c6f8103f5754368abe0767e5bf8059da932cb41dfc1f5e",
+      "bytes": 89817
+    },
+    {
+      "uri": "textures/T_ai_materials_plaster_stained_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_plaster_stained_b_normal.png",
+      "sha256": "2b6b43966dcf955c87d9fa194e36e03759ddbe39039988e71fb16d9cf48d87a3",
+      "bytes": 610294
+    },
+    {
+      "uri": "textures/T_ai_materials_plaster_stained_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png",
+      "sha256": "9d34977c45ecce8a702eb3b570d78d3fed422d62eea51765a116fa110b1cf15c",
+      "bytes": 1673228
+    },
+    {
+      "uri": "textures/T_ai_materials_plaster_stained_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_plaster_stained_b_rough.png",
+      "sha256": "abf6150987dfd7c21c488cf9afcd0e27a30489ccdf3ac4d9890c290e622bbc4f",
+      "bytes": 110447
+    },
+    {
+      "uri": "textures/T_ai_materials_tin_ceiling_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_tin_ceiling_b_normal.png",
+      "sha256": "76ab57d06cfdf94359913f16d050eb3f0c72a18d3872bceb9806c6bb35a514d1",
+      "bytes": 1075479
+    },
+    {
+      "uri": "textures/T_ai_materials_tin_ceiling_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_tin_ceiling_b_albedo.png",
+      "sha256": "86af45a9b5d2c250f86907e0debcbb94cc736086c3d5d4996183c54c48a52f2d",
+      "bytes": 1412662
+    },
+    {
+      "uri": "textures/T_ai_materials_tin_ceiling_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_tin_ceiling_b_rough.png",
+      "sha256": "a852f02be7f7e122f0f3b384226b0a1671177b06c79a667828632d52b7861fb5",
+      "bytes": 161506
+    },
+    {
+      "uri": "textures/T_ai_materials_metal_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_metal_b_normal.png",
+      "sha256": "59c6323194f1146e567e786d25971bcfc68782a21ef412a8e12105278baab380",
+      "bytes": 630098
+    },
+    {
+      "uri": "textures/T_ai_materials_metal_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_metal_b_albedo.png",
+      "sha256": "fba2fee71543d6dfcbbce474a9dec39c5ea9f6b02f1db6752909fac875a7caeb",
+      "bytes": 1722318
+    },
+    {
+      "uri": "textures/T_ai_materials_metal_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_metal_b_rough.png",
+      "sha256": "fcbc3ee2dd0dffe0d7016e0485aca66dcb75b18f994de0620c33830c9ee5cf1f",
+      "bytes": 174599
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w00_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w00_normal.png",
+      "sha256": "cea754ffc1d41b8aee1bdf27de8f0ab6e569664740ca357b8899a57923de4143",
+      "bytes": 316366
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w00_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w00_albedo.png",
+      "sha256": "55435102f9205324a0156a7c3725df7ed93cd481f425a8651317076f2981f026",
+      "bytes": 440797
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w00_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w00_roughness.png",
+      "sha256": "0c40b71469f6e3de756f172140146edd8b8a3a187091950138facb1cec3841fd",
+      "bytes": 120664
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w01_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w01_normal.png",
+      "sha256": "3a02f8ecbef06478e493833f49b30363250cc153889d3411dd102086696246f0",
+      "bytes": 291122
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w01_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w01_albedo.png",
+      "sha256": "784450e29f9fdc502521afd002e7a534f515fcb93430c46d71cefb2e9678080f",
+      "bytes": 351351
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w01_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w01_roughness.png",
+      "sha256": "9c6b3a20d36ac7920fc903154f0a8a8dc483aa6588dab744cd6a394fbd4314e3",
+      "bytes": 96133
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w02_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w02_normal.png",
+      "sha256": "c382bae01f879d8509ea709329f47ff06a8a6ede414c671196dda825ba1e8db5",
+      "bytes": 234942
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w02_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w02_albedo.png",
+      "sha256": "9814f1088f954304041391fd89ce4f9932e221685cc185a22b7e8cdb0dce2756",
+      "bytes": 305970
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w02_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w02_roughness.png",
+      "sha256": "e6bf9a12e9ed77adc46d6e01c43373d1aa776dd24b688eee2d551c5aed0b7141",
+      "bytes": 80255
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w03_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w03_normal.png",
+      "sha256": "2e8769501b8ff8820ad1d92fb2bb6ef7cf45aaa07e3540625fcd38f8bbb9e1c4",
+      "bytes": 310224
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w03_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w03_albedo.png",
+      "sha256": "cad07bcb5c46e6be7d023b114b3d2fdb3f819118dd1078e1b2b776e012479853",
+      "bytes": 403208
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w03_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w03_roughness.png",
+      "sha256": "a71a19b56c7673563798b54f17fa46aa3e44ab5a9e719da5429d443e06a61b8a",
+      "bytes": 107337
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w04_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w04_normal.png",
+      "sha256": "50db766ac1e4c861130f30f53a36bca711bb4db8e5fd527a35b451083c17f1d4",
+      "bytes": 400219
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w04_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w04_albedo.png",
+      "sha256": "cd77afbb7b2d28d689450b12c4309082a7ed9167670f192fe178eaf8b693b1d4",
+      "bytes": 438906
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w04_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w04_roughness.png",
+      "sha256": "53e4719ca6add240d5db253fbb8fc994adb8c94704f2b1cbf526b6afb5d4c8f9",
+      "bytes": 105925
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w05_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w05_normal.png",
+      "sha256": "2e537692108abab84f0bd10d725532783c28b7a7bcf512f9580c0daeed509178",
+      "bytes": 269605
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w05_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w05_albedo.png",
+      "sha256": "5262725922f3fd87c8ce535566de31d00a248c591b4629b065e3e693f43f2707",
+      "bytes": 385983
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w05_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w05_roughness.png",
+      "sha256": "612ce8428670fb64fd1a69c42fee7997602ff82f5bac1837bd414165fa2cb5d3",
+      "bytes": 115822
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w06_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w06_normal.png",
+      "sha256": "65784773da5308fd45b7a641d25877c277d0e9b782e69f24bdba4872f4cf2bf8",
+      "bytes": 296066
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w06_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w06_albedo.png",
+      "sha256": "44b094fee9fa851b37589b797a8862293b824b76e0f9def48884a3a7482d3590",
+      "bytes": 450414
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w06_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w06_roughness.png",
+      "sha256": "613908e9c85f8c5fe5f192e8e44c481409fd853304a263b210ee247210157c5c",
+      "bytes": 113005
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w07_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w07_normal.png",
+      "sha256": "e6505eccbdb3a3b431da872643fd0fe4d7c08579e6dcb18f58b5cf054dac6c66",
+      "bytes": 319423
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w07_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w07_albedo.png",
+      "sha256": "ad533f9df53302de56d9aec13b2c6480044fae8635154b7547b8b6305c482159",
+      "bytes": 426745
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w07_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w07_roughness.png",
+      "sha256": "69ff7d3f6f913af3987e1898d4e338bf1f8170a4134869f877ad52a8d788a210",
+      "bytes": 108479
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w08_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w08_normal.png",
+      "sha256": "b949de5864c67724b2683609802ec2432e182c41189c02380363657c830cf81f",
+      "bytes": 451672
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w08_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w08_albedo.png",
+      "sha256": "c389ccea8fa71222559b8be8b80a33fb09c3e4ef702bb44d9b1c2a077eab54a8",
+      "bytes": 611827
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w08_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w08_roughness.png",
+      "sha256": "9f801a3730293fe564254b5ece2778a8b32d85ac843a752775d3177a0ade549b",
+      "bytes": 161948
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w09_normal.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w09_normal.png",
+      "sha256": "18474afa1f9dd38d9a595c18d142d7c7ba8ff37c47b6a2fc18970cda370074a3",
+      "bytes": 425027
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w09_albedo.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w09_albedo.png",
+      "sha256": "c900b4b9ff12fc089856d1f24beae546b19bb54ccc9fa7f9f9ae4ce846d40337",
+      "bytes": 611562
+    },
+    {
+      "uri": "textures/T_wallfinish_f01_w09_roughness.png",
+      "path": "game/assets/building/textures/T_wallfinish_f01_w09_roughness.png",
+      "sha256": "cb552087afbd0aa5b439811951637f6b9e299cae99aecb1874059751ae57f2fd",
+      "bytes": 169996
+    },
+    {
+      "uri": "textures/T_ai_materials_ceramic_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_ceramic_b_normal.png",
+      "sha256": "326bd38659be17a490066e867093efcd1fbbe286625b665d79dac281ed148742",
+      "bytes": 383765
+    },
+    {
+      "uri": "textures/T_ai_materials_ceramic_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_ceramic_b_albedo.png",
+      "sha256": "90399420e312fb509fac7c8287c8e42855e255b11226b4fe42ec67b817282b53",
+      "bytes": 563976
+    },
+    {
+      "uri": "textures/T_ai_materials_ceramic_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_ceramic_b_rough.png",
+      "sha256": "1558197811bde36319be4db6d30920e33b771519524be01bb1a62ff84af9b081",
+      "bytes": 156182
+    },
+    {
+      "uri": "textures/T_ai_materials_concrete_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_concrete_b_normal.png",
+      "sha256": "9e7148661933b30a708b68e58903cc6ae809f5ef85e1c816270d67bf5def36d3",
+      "bytes": 929902
+    },
+    {
+      "uri": "textures/T_ai_materials_concrete_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_concrete_b_albedo.png",
+      "sha256": "cbc821955c9a24a35068b8f36eeeda3ee3c5d86e229bdb755c06006c0b576a89",
+      "bytes": 1853299
+    },
+    {
+      "uri": "textures/T_ai_materials_concrete_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_concrete_b_rough.png",
+      "sha256": "9201295275e0ffd0f785a520579333194ef90368ad73b9a0fa02a86f9e58d164",
+      "bytes": 138095
+    },
+    {
+      "uri": "textures/T_ai_materials_floor_oak_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_floor_oak_b_normal.png",
+      "sha256": "c2ea681ade9db651d9f7e89bf36f5664de02527b60b6017ecd102801cafcbed9",
+      "bytes": 807005
+    },
+    {
+      "uri": "textures/T_ai_materials_floor_oak_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_floor_oak_b_albedo.png",
+      "sha256": "bd2dfa9200f1d9261515006679ef401d6192e42f0a633ce4ee21d5a8ec83c68b",
+      "bytes": 1563418
+    },
+    {
+      "uri": "textures/T_ai_materials_floor_oak_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_floor_oak_b_rough.png",
+      "sha256": "45cd63cbac4d20e499fdde57c9acca7753016a8cd0f59b3f4ff6e2a57f39bd9c",
+      "bytes": 158357
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_b_normal.png",
+      "sha256": "9fa61e085c49fd9144512b0649e48daa8c0c6b3363d8fe51c64e277f8f43757a",
+      "bytes": 903485
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_b_albedo.png",
+      "sha256": "5114646805f159b9591f24f34dbca42b774fc43d95e2cc5fa0936e32e4a7f4c8",
+      "bytes": 2030992
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_b_rough.png",
+      "sha256": "e5c5c4c5361ce571ff013f4a06456edc73296ceee75cf6adcbe16a5a282eb30a",
+      "bytes": 218136
+    },
+    {
+      "uri": "textures/T_ai_materials_bakelite_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_b_normal.png",
+      "sha256": "cd8ea306e798addd3c2763ba9a14d4f8a56fe486b0a2261cec5e90b3f8930942",
+      "bytes": 658727
+    },
+    {
+      "uri": "textures/T_ai_materials_bakelite_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_b_albedo.png",
+      "sha256": "c6b7229abf6770227aa4c0d4dd2bb92eb0897741733020be2790be5d04e24b2c",
+      "bytes": 1450766
+    },
+    {
+      "uri": "textures/T_ai_materials_bakelite_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_b_rough.png",
+      "sha256": "1354a0b2adcedae42bfb095b965f8f9a29655a769815879709bcb545bb306b2b",
+      "bytes": 134552
+    },
+    {
+      "uri": "textures/T_ai_materials_bakelite_black_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png",
+      "sha256": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+      "bytes": 57693
+    },
+    {
+      "uri": "textures/T_ai_materials_bakelite_black_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png",
+      "sha256": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+      "bytes": 201322
+    },
+    {
+      "uri": "textures/T_ai_materials_bakelite_black_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png",
+      "sha256": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+      "bytes": 37868
+    },
+    {
+      "uri": "textures/T_library_furniture_book_brown_normal.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_brown_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+      "bytes": 1878
+    },
+    {
+      "uri": "textures/T_library_furniture_book_brown_albedo.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_brown_albedo.png",
+      "sha256": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e",
+      "bytes": 361143
+    },
+    {
+      "uri": "textures/T_library_furniture_book_brown_rough.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_brown_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+      "bytes": 4589
+    },
+    {
+      "uri": "textures/T_library_furniture_book_burgundy_normal.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_burgundy_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+      "bytes": 1878
+    },
+    {
+      "uri": "textures/T_library_furniture_book_burgundy_albedo.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png",
+      "sha256": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
+      "bytes": 341735
+    },
+    {
+      "uri": "textures/T_library_furniture_book_burgundy_rough.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_burgundy_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+      "bytes": 4589
+    },
+    {
+      "uri": "textures/T_library_furniture_book_green_normal.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_green_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+      "bytes": 1878
+    },
+    {
+      "uri": "textures/T_library_furniture_book_green_albedo.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_green_albedo.png",
+      "sha256": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f",
+      "bytes": 338482
+    },
+    {
+      "uri": "textures/T_library_furniture_book_green_rough.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_green_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+      "bytes": 4589
+    },
+    {
+      "uri": "textures/T_library_furniture_book_navy_normal.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_navy_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+      "bytes": 1878
+    },
+    {
+      "uri": "textures/T_library_furniture_book_navy_albedo.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_navy_albedo.png",
+      "sha256": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1",
+      "bytes": 332849
+    },
+    {
+      "uri": "textures/T_library_furniture_book_navy_rough.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_navy_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+      "bytes": 4589
+    },
+    {
+      "uri": "textures/T_library_furniture_book_ochre_normal.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_ochre_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+      "bytes": 1878
+    },
+    {
+      "uri": "textures/T_library_furniture_book_ochre_albedo.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_ochre_albedo.png",
+      "sha256": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983",
+      "bytes": 352992
+    },
+    {
+      "uri": "textures/T_library_furniture_book_ochre_rough.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_ochre_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+      "bytes": 4589
+    },
+    {
+      "uri": "textures/T_library_furniture_book_teal_normal.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_teal_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+      "bytes": 1878
+    },
+    {
+      "uri": "textures/T_library_furniture_book_teal_albedo.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_teal_albedo.png",
+      "sha256": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
+      "bytes": 366126
+    },
+    {
+      "uri": "textures/T_library_furniture_book_teal_rough.png",
+      "path": "game/assets/building/textures/T_library_furniture_book_teal_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+      "bytes": 4589
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_b_normal.png",
+      "sha256": "f6a65f8ae4f65f5222d69378d55e218c2fc07ee7858ed7d8ab6306cd79673fac",
+      "bytes": 871827
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_b_albedo.png",
+      "sha256": "7396468765c58d9c718399f17ae33a16109e8e2097ed456cdacfd62d9cb5fe79",
+      "bytes": 2254732
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_b_rough.png",
+      "sha256": "d8b7865ed3c52fbf111696f73bbfc59121baaed1f509b2e7a55e97669226cf0c",
+      "bytes": 228139
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_bright_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_bright_normal.png",
+      "sha256": "2246f9e34c07518f94d1d8dfb4f374c86f4834b8fb22a55a0a83f308464be6f7",
+      "bytes": 81325
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_bright_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_bright_albedo.png",
+      "sha256": "d34cce25b7b06c59f06c918060974312a9fabd2d6857789180590a87581e9b71",
+      "bytes": 261734
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_bright_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_bright_rough.png",
+      "sha256": "3b0680da5091da03b8212ecbf287c12934f4d248e82380ed45d101c6f0dd1fa1",
+      "bytes": 66931
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_normal.png",
+      "sha256": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+      "bytes": 895232
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_albedo.png",
+      "sha256": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+      "bytes": 2221644
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_rough.png",
+      "sha256": "96160db7aae734e36f3c42abddc3795995e9d8ea8f7739a1eaa432f5d63fc54d",
+      "bytes": 237594
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_mesh_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_mesh_normal.png",
+      "sha256": "ffa3452fa9e62d83138a2c22e79cd3b811886800face31861409f7b2450d9def",
+      "bytes": 115410
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_mesh_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png",
+      "sha256": "028870c51a301aae725e85a96aba0f64f8bdc85e29d64a4fca9406ba5eef089b",
+      "bytes": 221869
+    },
+    {
+      "uri": "textures/T_ai_materials_brass_mesh_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_brass_mesh_rough.png",
+      "sha256": "7ed0cf343d586a266eba266d98896b7eb4e6004487f822f59995e03304b9659a",
+      "bytes": 68415
+    },
+    {
+      "uri": "textures/T_ai_materials_bronze_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_bronze_normal.png",
+      "sha256": "c235d1e0e1e10456d9b934be79e42d2293cb43a90e5aa5026b9e0ce294ff3ca3",
+      "bytes": 105821
+    },
+    {
+      "uri": "textures/T_ai_materials_bronze_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_bronze_albedo.png",
+      "sha256": "de9b91776f62e52e70e36f1733d2147b5f96a327745d2f661382e688a381602c",
+      "bytes": 243819
+    },
+    {
+      "uri": "textures/T_ai_materials_bronze_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_bronze_rough.png",
+      "sha256": "336b7648b51e3124c6ba8c55a6def99ce263c8ab60d0f858148dedfabebd35a8",
+      "bytes": 64923
+    },
+    {
+      "uri": "textures/T_ai_materials_cast_iron_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_cast_iron_b_normal.png",
+      "sha256": "ded797b5a2b7272ede7113ef85a5a51ef70777a7fe73d1e28328c94b064bcee2",
+      "bytes": 1304808
+    },
+    {
+      "uri": "textures/T_ai_materials_cast_iron_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_cast_iron_b_albedo.png",
+      "sha256": "e29e8af9ae49ffe16ba718373dea8c95af5f81f621cb756dcab2e37694989ebf",
+      "bytes": 2517306
+    },
+    {
+      "uri": "textures/T_ai_materials_cast_iron_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_cast_iron_b_rough.png",
+      "sha256": "1fa3ea924061c69986f76ac01058b9bc17501305ae3d6eac0bff517f52c35d39",
+      "bytes": 251980
+    },
+    {
+      "uri": "textures/T_ai_materials_chrome_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_chrome_b_normal.png",
+      "sha256": "dbf7855df40bd0986a80ba2568ccd944a6db0e9400b5c89dab4e6d78ff8d6812",
+      "bytes": 842738
+    },
+    {
+      "uri": "textures/T_ai_materials_chrome_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_chrome_b_albedo.png",
+      "sha256": "52818b170ec1f66bc9b2d99fa16305a5937491999af53bbe6d723e85fe84d19b",
+      "bytes": 1931967
+    },
+    {
+      "uri": "textures/T_ai_materials_chrome_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_chrome_b_rough.png",
+      "sha256": "075253b5fc73139d265a9ee592ff30db94db7866e157a01cba8cfda4073c948f",
+      "bytes": 163437
+    },
+    {
+      "uri": "textures/T_ai_materials_countertop_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_countertop_b_normal.png",
+      "sha256": "74e5bd880ac2771681f3dad39151283b9341b44d8d0c2421e221478652a8e540",
+      "bytes": 580301
+    },
+    {
+      "uri": "textures/T_ai_materials_countertop_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_countertop_b_albedo.png",
+      "sha256": "4eda532d4505f6142c763273391609e0c62144816d464adb1d688b272d87fe39",
+      "bytes": 1586598
+    },
+    {
+      "uri": "textures/T_ai_materials_countertop_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_countertop_b_rough.png",
+      "sha256": "8d3eafa9a0a0af5f7bcd6bd0f7951a05e4fbe18d50d550e32be09c0109b39035",
+      "bytes": 151939
+    },
+    {
+      "uri": "textures/T_ai_materials_enamel_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_enamel_b_normal.png",
+      "sha256": "167b2236c1b175da053dc0e7445a394b95add74da2c1e1c80aa8fa0a50a74063",
+      "bytes": 961639
+    },
+    {
+      "uri": "textures/T_ai_materials_enamel_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_enamel_b_albedo.png",
+      "sha256": "e630f3697fdb8b91928e6587fdf85d969dcbeefe95985ca35243cabd5b00022f",
+      "bytes": 2035595
+    },
+    {
+      "uri": "textures/T_ai_materials_enamel_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_enamel_b_rough.png",
+      "sha256": "7ccff5f5a38ebac117104a98593f2b4925f6fdf3a3fa8c9b5d38d7c61adc96ca",
+      "bytes": 205771
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_cool_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_cool_b_normal.png",
+      "sha256": "65a7e4658f126100db65fa05ce9dc8899ca13d271a0f0859a6641fd0e1ba791f",
+      "bytes": 1134953
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_cool_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_cool_b_albedo.png",
+      "sha256": "9b9ec8eecf2805b104adbc69db57689fe3046ba1360a76b5851f52631d9b2b2e",
+      "bytes": 2364708
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_cool_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_cool_b_rough.png",
+      "sha256": "6baf891f6afd1358f7c3b0fc06a965a9b03df167ea283f64e59371d690d4a20f",
+      "bytes": 159033
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_green_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_green_b_normal.png",
+      "sha256": "0eefc73f6aeb5cbdad6431b2653dc8376ee53bfc3b02da9ac98a874a713d5bc4",
+      "bytes": 968949
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_green_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_green_b_albedo.png",
+      "sha256": "210286be9c96e86bff01c87d9127883f826ca411694aa91874a0108ee51dadcd",
+      "bytes": 2044290
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_green_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_green_b_rough.png",
+      "sha256": "e23a0cd2795195aede629328a74807b07bdf0e2dcb9c0f0d68c73910c2cccd74",
+      "bytes": 142686
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_warm_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_warm_b_normal.png",
+      "sha256": "7f28053f076dd6df5f55714546af9909eff321fbebef7d5a45d32d54ddbfa437",
+      "bytes": 911061
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_warm_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_warm_b_albedo.png",
+      "sha256": "484a90a02635618082aa1444afd2e27ff0a3853a890800163a7303c7a3c38dcf",
+      "bytes": 2126593
+    },
+    {
+      "uri": "textures/T_ai_materials_fabric_warm_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_fabric_warm_b_rough.png",
+      "sha256": "97740a9982409865fb64e2023ce2ef4d4f21ef5792c77ac8724537b2b5f0fd58",
+      "bytes": 108922
+    },
+    {
+      "uri": "textures/T_ai_materials_felt_violet_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_felt_violet_b_normal.png",
+      "sha256": "e8fb511d1b46a9874bf5f1901498d40f0797310914b2c46606216ab6ba5461a5",
+      "bytes": 725381
+    },
+    {
+      "uri": "textures/T_ai_materials_felt_violet_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_felt_violet_b_albedo.png",
+      "sha256": "b06a0256dcc8b425a46a8827523c700334f2089ad7ccf34f98894fda35d69553",
+      "bytes": 1857297
+    },
+    {
+      "uri": "textures/T_ai_materials_felt_violet_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_felt_violet_b_rough.png",
+      "sha256": "491e961f2007bd6d3702b28d0ce1bc84b0463849c9c2bf118f7196220790c4ea",
+      "bytes": 61594
+    },
+    {
+      "uri": "textures/T_fx_fx_shadow.png",
+      "path": "game/assets/building/textures/T_fx_fx_shadow.png",
+      "sha256": "4fbe140766797f7cd2ca83d69fc72f69a6d0c022af9a0515daef96d46abe80b1",
+      "bytes": 29827
+    },
+    {
+      "uri": "textures/T_glass_normal.png",
+      "path": "game/assets/building/textures/T_glass_normal.png",
+      "sha256": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+      "bytes": 91530
+    },
+    {
+      "uri": "textures/T_glass_rough.png",
+      "path": "game/assets/building/textures/T_glass_rough.png",
+      "sha256": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+      "bytes": 53704
+    },
+    {
+      "uri": "textures/T_ai_materials_handrail_wood_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_handrail_wood_b_normal.png",
+      "sha256": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+      "bytes": 555539
+    },
+    {
+      "uri": "textures/T_ai_materials_handrail_wood_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_handrail_wood_b_albedo.png",
+      "sha256": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+      "bytes": 1592071
+    },
+    {
+      "uri": "textures/T_ai_materials_handrail_wood_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_handrail_wood_b_rough.png",
+      "sha256": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+      "bytes": 132362
+    },
+    {
+      "uri": "textures/T_ai_materials_slab_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_slab_b_normal.png",
+      "sha256": "46f698fc84ca96b73cfbdb4c0063a176f8f4fcdc7c245257f17bb38a76c420c5",
+      "bytes": 932494
+    },
+    {
+      "uri": "textures/T_ai_materials_slab_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_slab_b_albedo.png",
+      "sha256": "622ba09621966b9f298118402eaca83880aa1251dcb3fa7debb0c25c267946fb",
+      "bytes": 1869687
+    },
+    {
+      "uri": "textures/T_ai_materials_slab_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_slab_b_rough.png",
+      "sha256": "6c1da2dc3ff6da83713cc0618e77d242c2fcf5a1189a32eef051c698a56446b0",
+      "bytes": 138590
+    },
+    {
+      "uri": "textures/T_ai_materials_lacquer_red_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_lacquer_red_b_normal.png",
+      "sha256": "1104195b3d6694c6b1dfd6558d944e2bd127c8120f34ca766cdd126ac364b079",
+      "bytes": 686451
+    },
+    {
+      "uri": "textures/T_ai_materials_lacquer_red_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_lacquer_red_b_albedo.png",
+      "sha256": "1d700ff53ee72a209364926b2e3562967304dacff8f786bc6fc6f23b0322ace3",
+      "bytes": 1234591
+    },
+    {
+      "uri": "textures/T_ai_materials_lacquer_red_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_lacquer_red_b_rough.png",
+      "sha256": "740a6524e66baf2d6ff290b7d36d9cf55fefa25defd1d1fd385a0bf3b3eed204",
+      "bytes": 121358
+    },
+    {
+      "uri": "textures/T_ai_materials_linen_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_linen_b_normal.png",
+      "sha256": "691f0fe20ea29533d2ea39131694c7b07d8960f71d3a02c1457b985f42e8ef91",
+      "bytes": 744515
+    },
+    {
+      "uri": "textures/T_ai_materials_linen_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_linen_b_albedo.png",
+      "sha256": "1333b538c75bb8588f89d044ef154529f711eaedb752131a478bb1ab18baad96",
+      "bytes": 1788623
+    },
+    {
+      "uri": "textures/T_ai_materials_linen_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_linen_b_rough.png",
+      "sha256": "2cf793bc24e69c58841599208f653e7c0a4c51f917277b2d06618f092ba738a1",
+      "bytes": 74128
+    },
+    {
+      "uri": "textures/T_ai_materials_milk_glass_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_milk_glass_normal.png",
+      "sha256": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+      "bytes": 32089
+    },
+    {
+      "uri": "textures/T_ai_materials_milk_glass_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png",
+      "sha256": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+      "bytes": 114303
+    },
+    {
+      "uri": "textures/T_ai_materials_milk_glass_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_milk_glass_rough.png",
+      "sha256": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+      "bytes": 21352
+    },
+    {
+      "uri": "textures/T_ai_materials_nickel_plated_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+      "sha256": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+      "bytes": 820861
+    },
+    {
+      "uri": "textures/T_ai_materials_nickel_plated_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+      "sha256": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+      "bytes": 2204256
+    },
+    {
+      "uri": "textures/T_ai_materials_nickel_plated_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png",
+      "sha256": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+      "bytes": 175853
+    },
+    {
+      "uri": "textures/T_ai_materials_oak_quartered_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+      "sha256": "7b518ee49df1fd91af6a6803941f15abb69864f9746c50e74efc7c4c6106718d",
+      "bytes": 78451
+    },
+    {
+      "uri": "textures/T_ai_materials_oak_quartered_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+      "sha256": "911ce83872ab46bec22456b651b3806f8b5c2ac452fdd6f0766bc747ca6f72e5",
+      "bytes": 201777
+    },
+    {
+      "uri": "textures/T_ai_materials_oak_quartered_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+      "sha256": "a4b6124c52bd78cd119b2112c206d5fb876e9c95a5b262abe35a3a1116662093",
+      "bytes": 48849
+    },
+    {
+      "uri": "textures/T_ai_materials_paper_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_paper_b_normal.png",
+      "sha256": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+      "bytes": 544676
+    },
+    {
+      "uri": "textures/T_ai_materials_paper_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_paper_b_albedo.png",
+      "sha256": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
+      "bytes": 1459247
+    },
+    {
+      "uri": "textures/T_ai_materials_paper_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_paper_b_rough.png",
+      "sha256": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
+      "bytes": 95016
+    },
+    {
+      "uri": "textures/T_ai_materials_plant_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_plant_b_normal.png",
+      "sha256": "eedcb1fbb83c364e6ee0d5fe4f7441d727b1b781a161076402fb36bc88bca818",
+      "bytes": 820223
+    },
+    {
+      "uri": "textures/T_ai_materials_plant_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_plant_b_albedo.png",
+      "sha256": "97a8055069a3fef322f4cca6b9fb2189eab10c3b367efc9c9dbec16531e2108e",
+      "bytes": 1512055
+    },
+    {
+      "uri": "textures/T_ai_materials_plant_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_plant_b_rough.png",
+      "sha256": "dcb25fca0f414bb39dcec0b1247d416a8a80f215436e8c55a267b0bc274aee62",
+      "bytes": 147777
+    },
+    {
+      "uri": "textures/T_ai_materials_plywood_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_plywood_b_normal.png",
+      "sha256": "6f1fe61fcadf8edd594c5fd42bf110a4411d50dcf8cdd94acbb656288bd90216",
+      "bytes": 750724
+    },
+    {
+      "uri": "textures/T_ai_materials_plywood_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_plywood_b_albedo.png",
+      "sha256": "36882fc86ea733afa983931e35117300f415e824b9e0dcea8551fa6aa7067cd6",
+      "bytes": 1397372
+    },
+    {
+      "uri": "textures/T_ai_materials_plywood_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_plywood_b_rough.png",
+      "sha256": "12becd9c689d93afdddc1975366fc5ad51df774c0dfe8b2a0d6587642cc9b499",
+      "bytes": 127759
+    },
+    {
+      "uri": "textures/T_ai_materials_porcelain_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_porcelain_b_normal.png",
+      "sha256": "a14ddcca31bfbf03e0e08142eee1bb773e33058a870bcd4d0ff91448035b8733",
+      "bytes": 664734
+    },
+    {
+      "uri": "textures/T_ai_materials_porcelain_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_porcelain_b_albedo.png",
+      "sha256": "31a14b3ce0efee7f7e2849cc27fc4e054a77891f4853985f104e484accb7092c",
+      "bytes": 1379090
+    },
+    {
+      "uri": "textures/T_ai_materials_porcelain_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_porcelain_b_rough.png",
+      "sha256": "a9147417289f7d3bef9503ad4d60da6cc4d18e6f40748c70074b57faef9e347a",
+      "bytes": 141683
+    },
+    {
+      "uri": "textures/T_ai_materials_rubber_aged_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png",
+      "sha256": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+      "bytes": 753707
+    },
+    {
+      "uri": "textures/T_ai_materials_rubber_aged_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png",
+      "sha256": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+      "bytes": 1916888
+    },
+    {
+      "uri": "textures/T_ai_materials_rubber_aged_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png",
+      "sha256": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+      "bytes": 136716
+    },
+    {
+      "uri": "textures/T_ai_materials_rug_warm_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_rug_warm_b_normal.png",
+      "sha256": "32774a5cf3d894c7ac5e4ca81ff6fbc2930b610b38bb6ee9d0d753ce92153583",
+      "bytes": 1082507
+    },
+    {
+      "uri": "textures/T_ai_materials_rug_warm_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_rug_warm_b_albedo.png",
+      "sha256": "2f79ac5a7a6a8ca1d6b526e862239c7039833502dd7b1a41c9ec527fe05c2afc",
+      "bytes": 2326618
+    },
+    {
+      "uri": "textures/T_ai_materials_rug_warm_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_rug_warm_b_rough.png",
+      "sha256": "33b0beb921caf9f62517a53f7dd52f0c71494fcf9eced56703f500a64846ac75",
+      "bytes": 159884
+    },
+    {
+      "uri": "textures/T_ai_materials_safety_orange_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_safety_orange_b_normal.png",
+      "sha256": "3f479cf659db7d2f649cea9cda40b07ff41d1b0c31e71ead813c8dd3417ab646",
+      "bytes": 692942
+    },
+    {
+      "uri": "textures/T_ai_materials_safety_orange_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_safety_orange_b_albedo.png",
+      "sha256": "6c7399002a8eb8c1e063dcbdbf40e212f34b0fc2fd89a4be3d802b4d1ef2bcf3",
+      "bytes": 1407452
+    },
+    {
+      "uri": "textures/T_ai_materials_safety_orange_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_safety_orange_b_rough.png",
+      "sha256": "84d796bdc582b05a2647d8a7ee8162d2f40cb93772aa949c0766e4a9132f6c44",
+      "bytes": 129452
+    },
+    {
+      "uri": "textures/T_ai_materials_soil_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_soil_b_normal.png",
+      "sha256": "06d088352f95de311a74b2b4f29a5a9fbf1949121c25c39a57ce4856251997f8",
+      "bytes": 1249311
+    },
+    {
+      "uri": "textures/T_ai_materials_soil_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_soil_b_albedo.png",
+      "sha256": "c6eaefba26d031fc966ee7f37d6bdf85a3117f7c99e5b3b14b3f87165399e828",
+      "bytes": 2409356
+    },
+    {
+      "uri": "textures/T_ai_materials_soil_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_soil_b_rough.png",
+      "sha256": "dec00fcc885156e0840b2b6e54f9d5bc2ee7b5b5a457f9b5bd712d1b4c969549",
+      "bytes": 174114
+    },
+    {
+      "uri": "textures/T_ai_materials_soot_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_soot_b_normal.png",
+      "sha256": "6c588de9d7cab4120b8748dea60d22cf82ef3d00b340a02d7fab176ecba3ef50",
+      "bytes": 946597
+    },
+    {
+      "uri": "textures/T_ai_materials_soot_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_soot_b_albedo.png",
+      "sha256": "cb5bc82e203c284d2e9d759efdb3ef33e4a545dd9cd475fa9edb3ba50b50c945",
+      "bytes": 1999769
+    },
+    {
+      "uri": "textures/T_ai_materials_soot_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_soot_b_rough.png",
+      "sha256": "88764d617de96951230fe0083d5c81404fc0b3e3286719161dd863d8a7d6c581",
+      "bytes": 120729
+    },
+    {
+      "uri": "textures/T_ai_materials_stairwell_teal_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_stairwell_teal_b_normal.png",
+      "sha256": "608e406c64c27e609835bd1be76c4bcaa71b542b8ee4acd94c37e260693cab41",
+      "bytes": 1132007
+    },
+    {
+      "uri": "textures/T_ai_materials_stairwell_teal_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_stairwell_teal_b_albedo.png",
+      "sha256": "c15ec22bd60b53dec42a568fb9d66e3a7801f25a825bd7254a6f92be8274f92a",
+      "bytes": 1849183
+    },
+    {
+      "uri": "textures/T_ai_materials_stairwell_teal_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_stairwell_teal_b_rough.png",
+      "sha256": "b45c80c934bee39664c3dce74fdaf818dcf679df559c6ea7486309a25ece2fbf",
+      "bytes": 190543
+    },
+    {
+      "uri": "textures/T_ai_materials_terracotta_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_terracotta_b_normal.png",
+      "sha256": "ed06025fa4a1ffe8a94b9943a9e8f6651d80705b1b4bf113fa64517318963b20",
+      "bytes": 762861
+    },
+    {
+      "uri": "textures/T_ai_materials_terracotta_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_terracotta_b_albedo.png",
+      "sha256": "7f62991bec9ef5c45c28d8e298714efc83665f66d47ec738e9056d3ad2f57f1c",
+      "bytes": 1863582
+    },
+    {
+      "uri": "textures/T_ai_materials_terracotta_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_terracotta_b_rough.png",
+      "sha256": "70acf0329c7e8cd84c7e3e571c6a67411e613ae93ed257585805c27149f985bc",
+      "bytes": 127270
+    },
+    {
+      "uri": "textures/T_ai_materials_timber_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_timber_b_normal.png",
+      "sha256": "7b731a372f2ad886bb074465e951de9eee7c8012e469248e7933f7db179f588c",
+      "bytes": 1139661
+    },
+    {
+      "uri": "textures/T_ai_materials_timber_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_timber_b_albedo.png",
+      "sha256": "69706e04ebe42d6742d39e61c1f3e1c7e9342cc2d8e2ea1b9f3c47e216226a28",
+      "bytes": 2023560
+    },
+    {
+      "uri": "textures/T_ai_materials_timber_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_timber_b_rough.png",
+      "sha256": "1f860992bbfde1477a0051ead61abde1f360d6c867531ed0361e228b1034696c",
+      "bytes": 169163
+    },
+    {
+      "uri": "textures/T_ai_materials_trim_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_trim_b_normal.png",
+      "sha256": "0ce4dd7a901d895b7c548c719ccb31347e79f68f87d95cebe435537eac5cea55",
+      "bytes": 855447
+    },
+    {
+      "uri": "textures/T_ai_materials_trim_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_trim_b_albedo.png",
+      "sha256": "3d39f0685ad2f254f1654213efaa45573fb596bb2f198489a555e0df9e253092",
+      "bytes": 2016179
+    },
+    {
+      "uri": "textures/T_ai_materials_trim_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_trim_b_rough.png",
+      "sha256": "494796a7d48c38a6612414c83020564d089344f68ac48a30bbc2ccbb93722dbb",
+      "bytes": 180036
+    },
+    {
+      "uri": "textures/T_ai_materials_vinyl_oxblood_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_normal.png",
+      "sha256": "afb2e8fa929114445585cd517ec829591d5b1603eb7b32f43c57a00295dabe5e",
+      "bytes": 935728
+    },
+    {
+      "uri": "textures/T_ai_materials_vinyl_oxblood_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png",
+      "sha256": "b49268c6181b07a09a46f5aa44cb19a4b3d15eba7875beb990307be518db4fde",
+      "bytes": 2055215
+    },
+    {
+      "uri": "textures/T_ai_materials_vinyl_oxblood_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_rough.png",
+      "sha256": "1190fc5c1d5e1c8ecc7465e1ca40e1f71a4d9fb6e15c647b2b0f3d71ed100d7f",
+      "bytes": 183266
+    },
+    {
+      "uri": "textures/T_ai_materials_wood_dark_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png",
+      "sha256": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+      "bytes": 555539
+    },
+    {
+      "uri": "textures/T_ai_materials_wood_dark_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png",
+      "sha256": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+      "bytes": 1592071
+    },
+    {
+      "uri": "textures/T_ai_materials_wood_dark_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png",
+      "sha256": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+      "bytes": 132362
+    },
+    {
+      "uri": "textures/T_ai_materials_art_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_art_normal.png",
+      "sha256": "5830b325bfab8223bd939ab5b6ebbf7435bbbb42f54c54e33d274503a74ca89c",
+      "bytes": 640261
+    },
+    {
+      "uri": "textures/T_ai_materials_art_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_art_albedo.png",
+      "sha256": "054a43a07b81356de168df6e008b8e7de5a7cd8d3a7b8c0a4f1fa51ffe0c459e",
+      "bytes": 1548238
+    },
+    {
+      "uri": "textures/T_ai_materials_art_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_art_rough.png",
+      "sha256": "4d563e45075be995660b5037ac6293be39c88450fcf5db4b531e5c40e7dd9502",
+      "bytes": 153437
+    },
+    {
+      "uri": "textures/T_ai_materials_asphalt_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_asphalt_b_normal.png",
+      "sha256": "eb5a108218d4707b6bc7d3273c4823da7d7f490248ce26984fb4fb37a571b72c",
+      "bytes": 1404331
+    },
+    {
+      "uri": "textures/T_ai_materials_asphalt_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_asphalt_b_albedo.png",
+      "sha256": "984edd28e3b5023ea9cadbf29d59e88983e590cb520be34ef77ee8eb9b8e5349",
+      "bytes": 2429093
+    },
+    {
+      "uri": "textures/T_ai_materials_asphalt_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_asphalt_b_rough.png",
+      "sha256": "75d00a23a3aecc08fa29a819ea58949b12c187d0a6c388596b7c56d4a979bb0e",
+      "bytes": 181812
+    },
+    {
+      "uri": "textures/T_generated_blind_slat_normal.png",
+      "path": "game/assets/building/textures/T_generated_blind_slat_normal.png",
+      "sha256": "b039c3d4a5a086de4a8ea3c70bdcead4b99b832446398191c5ac110ba6061456",
+      "bytes": 32519
+    },
+    {
+      "uri": "textures/T_generated_blind_slat_albedo.png",
+      "path": "game/assets/building/textures/T_generated_blind_slat_albedo.png",
+      "sha256": "36f9f6784b24e1deb29d4948bebad774650a5be1c1338b6350dddfacdd299d1c",
+      "bytes": 230829
+    },
+    {
+      "uri": "textures/T_generated_blind_slat_rough.png",
+      "path": "game/assets/building/textures/T_generated_blind_slat_rough.png",
+      "sha256": "00870b0ff2d971ecd9bfc50ef39b69810b53caab5864fba1ede0ef202ad7d634",
+      "bytes": 249732
+    },
+    {
+      "uri": "textures/T_ai_materials_brick_patched_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_brick_patched_b_normal.png",
+      "sha256": "40da277283fb88d735bc908ca85ec5e2f4d89b17c7df5e0cb7be199129ece70f",
+      "bytes": 1414822
+    },
+    {
+      "uri": "textures/T_ai_materials_brick_patched_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_brick_patched_b_albedo.png",
+      "sha256": "f2865ea5a11896ce14087ea28682742593b5da413b6af0cd39d90adaf318b892",
+      "bytes": 2142492
+    },
+    {
+      "uri": "textures/T_ai_materials_brick_patched_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_brick_patched_b_rough.png",
+      "sha256": "c9f0ad9695e89d4288a2ac134530267a9807062fadb63b6630679116acce6286",
+      "bytes": 172115
+    },
+    {
+      "uri": "textures/T_ai_materials_common_brick_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_common_brick_b_normal.png",
+      "sha256": "40da277283fb88d735bc908ca85ec5e2f4d89b17c7df5e0cb7be199129ece70f",
+      "bytes": 1414822
+    },
+    {
+      "uri": "textures/T_ai_materials_common_brick_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_common_brick_b_albedo.png",
+      "sha256": "f2865ea5a11896ce14087ea28682742593b5da413b6af0cd39d90adaf318b892",
+      "bytes": 2142492
+    },
+    {
+      "uri": "textures/T_ai_materials_common_brick_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_common_brick_b_rough.png",
+      "sha256": "c9f0ad9695e89d4288a2ac134530267a9807062fadb63b6630679116acce6286",
+      "bytes": 172115
+    },
+    {
+      "uri": "textures/T_ai_materials_face_brick_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_face_brick_b_normal.png",
+      "sha256": "81106855b105a2baa639be9440c49c7fc228458dac89c6e27ad2bc2b73f0d685",
+      "bytes": 1232528
+    },
+    {
+      "uri": "textures/T_ai_materials_face_brick_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_face_brick_b_albedo.png",
+      "sha256": "3f8c10e23b32d6dcab541af68a437696b6390af7fbe1322d27e14f4580aed5d6",
+      "bytes": 1817688
+    },
+    {
+      "uri": "textures/T_ai_materials_face_brick_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_face_brick_b_rough.png",
+      "sha256": "b33eeefb2cb266fd361ae180f6ed660436c8ca872313d959f60830e3a00ef29f",
+      "bytes": 139542
+    },
+    {
+      "uri": "textures/T_fx_fx_damp_normal.png",
+      "path": "game/assets/building/textures/T_fx_fx_damp_normal.png",
+      "sha256": "e0aa549f565ce484a4036be30063ef2f28d6a67a598af77a01d3006bd744904e",
+      "bytes": 54160
+    },
+    {
+      "uri": "textures/T_fx_fx_damp.png",
+      "path": "game/assets/building/textures/T_fx_fx_damp.png",
+      "sha256": "6d3ed9ac4cb08a03f7c1d4088a514e42767389820c56b7858113e37547c36471",
+      "bytes": 120080
+    },
+    {
+      "uri": "textures/T_fx_fx_damp_rough.png",
+      "path": "game/assets/building/textures/T_fx_fx_damp_rough.png",
+      "sha256": "f7af96e695babe0d4c4ab0237878cd862b9f87bba3f0d849f0368076520702f5",
+      "bytes": 76644
+    },
+    {
+      "uri": "textures/T_fx_fx_drip_normal.png",
+      "path": "game/assets/building/textures/T_fx_fx_drip_normal.png",
+      "sha256": "9968e4f1f02782fee81aa2d213af1ef309042c52be740854e75af8a8543a3541",
+      "bytes": 53828
+    },
+    {
+      "uri": "textures/T_fx_fx_drip.png",
+      "path": "game/assets/building/textures/T_fx_fx_drip.png",
+      "sha256": "4f7bdf9dce3cf258f351c772075851e5538b2cbc6212c57515e9b3b083033268",
+      "bytes": 39797
+    },
+    {
+      "uri": "textures/T_fx_fx_drip_rough.png",
+      "path": "game/assets/building/textures/T_fx_fx_drip_rough.png",
+      "sha256": "e391ccdd7592cd46f10ec0d56ac0123fefe9164f4f8bb8daf08eae462b0f667f",
+      "bytes": 36941
+    },
+    {
+      "uri": "textures/T_ai_materials_indicator_enamel_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_indicator_enamel_normal.png",
+      "sha256": "f3034797fc658673767625552c3c607b63b3b041cc34b95f89730365138fd850",
+      "bytes": 55487
+    },
+    {
+      "uri": "textures/T_ai_materials_indicator_enamel_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_indicator_enamel_albedo.png",
+      "sha256": "64bfd4a979e1cf5ca37f116c83e4b187d25dbd56d3e18cbb82e496c0ec8cd32d",
+      "bytes": 160719
+    },
+    {
+      "uri": "textures/T_ai_materials_indicator_enamel_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_indicator_enamel_rough.png",
+      "sha256": "5c5fd3837456c45f683d4e35cc5bf4e335749940107a361886dcd691173ada29",
+      "bytes": 26259
+    },
+    {
+      "uri": "textures/T_ai_materials_leaf_fall_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_leaf_fall_b_normal.png",
+      "sha256": "2ffc66718f3e460b02b570cee3742885df154413db66cda17393c782c1382f21",
+      "bytes": 974887
+    },
+    {
+      "uri": "textures/T_ai_materials_leaf_fall_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_leaf_fall_b_albedo.png",
+      "sha256": "a359fd7f8f4399de57bad1a5bcd2d1eea1ed6cc3cf9d1c9561d7263ac2aab286",
+      "bytes": 2053265
+    },
+    {
+      "uri": "textures/T_ai_materials_leaf_fall_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_leaf_fall_b_rough.png",
+      "sha256": "dbdb479f0165fd4db06fbab41bad1ecb12c090f8fff99ed907118d7dcd48d2c0",
+      "bytes": 198432
+    },
+    {
+      "uri": "textures/T_ai_materials_limestone_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_limestone_b_normal.png",
+      "sha256": "e749716315fa6ecb160142bf47d29a7893f9f76346e402562206032af808c18f",
+      "bytes": 795374
+    },
+    {
+      "uri": "textures/T_ai_materials_limestone_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_limestone_b_albedo.png",
+      "sha256": "295ec390745c0b47e9bfac80099737c79a683b053b38264bad34b13c02975d76",
+      "bytes": 1784119
+    },
+    {
+      "uri": "textures/T_ai_materials_limestone_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_limestone_b_rough.png",
+      "sha256": "67923e23188a8aafcfebea0b1c8bd9878b7fb9f572209d5bee2bca344e86d730",
+      "bytes": 128406
+    },
+    {
+      "uri": "textures/T_ai_materials_linoleum_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_linoleum_b_normal.png",
+      "sha256": "89a79f367c5af0f31a05f60fc650f59b0fa49d93b71f3df28c83ec0613dd1bb2",
+      "bytes": 610385
+    },
+    {
+      "uri": "textures/T_ai_materials_linoleum_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_linoleum_b_albedo.png",
+      "sha256": "8554589b70fe70f45d3047707ef40dc81d83ac1e13c135338769217c44f67e45",
+      "bytes": 1678773
+    },
+    {
+      "uri": "textures/T_ai_materials_linoleum_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_linoleum_b_rough.png",
+      "sha256": "fffc88b001a0062cac98ab26b1a8a83353f83672464bf97f5e0b23801a428e72",
+      "bytes": 147763
+    },
+    {
+      "uri": "textures/T_ai_materials_puddle_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_puddle_b_normal.png",
+      "sha256": "a5e5adecfeda6a0dae6f5e2e1dfbec58a85ad80d9730cc1f4a8dbf38e6e6be0d",
+      "bytes": 419523
+    },
+    {
+      "uri": "textures/T_ai_materials_puddle_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_puddle_b_albedo.png",
+      "sha256": "11d1dcf5755b0badb391d6efe946b343cabe85138774d655b095c55397ba9e8c",
+      "bytes": 1721429
+    },
+    {
+      "uri": "textures/T_ai_materials_puddle_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_puddle_b_rough.png",
+      "sha256": "e167a982dc09aa6fb6faf214012adaa2f40eb7467e68a424ed9a367314b0ab7b",
+      "bytes": 81794
+    },
+    {
+      "uri": "textures/T_ai_materials_sidewalk_grout_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_sidewalk_grout_b_normal.png",
+      "sha256": "f0d42f1722348cd0bf5dc9eddc949fa6bd76652029f1dc007c5cf90e9ed76cb7",
+      "bytes": 560827
+    },
+    {
+      "uri": "textures/T_ai_materials_sidewalk_grout_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_sidewalk_grout_b_albedo.png",
+      "sha256": "b994f585f53b1382685b54a6eec4e73164dd3297b602dbfc2a163be1f3eff60d",
+      "bytes": 1194045
+    },
+    {
+      "uri": "textures/T_ai_materials_sidewalk_grout_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_sidewalk_grout_b_rough.png",
+      "sha256": "6d56169de2cc6d96dd02209bddc63eb764b85cc06153ed58c85f5183d1ea84a0",
+      "bytes": 111010
+    },
+    {
+      "uri": "textures/T_ai_materials_sidewalk_haunted_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_sidewalk_haunted_b_normal.png",
+      "sha256": "2287e575bf227befee6367b3baf590cc44cb91f9a255e9e2a068807bf687706c",
+      "bytes": 1009186
+    },
+    {
+      "uri": "textures/T_ai_materials_sidewalk_haunted_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_sidewalk_haunted_b_albedo.png",
+      "sha256": "177e3baa88d114b15d98a6f98de5be9c2be6945f9d73e29d69aedfa970653ae8",
+      "bytes": 2238009
+    },
+    {
+      "uri": "textures/T_ai_materials_sidewalk_haunted_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_sidewalk_haunted_b_rough.png",
+      "sha256": "8fd1ef34751638428dc115345fa34a4afa70ce9881905ada18a3e78ca241a854",
+      "bytes": 128537
+    },
+    {
+      "uri": "textures/T_ai_materials_wet_asphalt_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_wet_asphalt_b_normal.png",
+      "sha256": "f2711a1ba78ba5b34265f7b3353070ed3107170c3bbeb92f1f2a21cc61dd6669",
+      "bytes": 657045
+    },
+    {
+      "uri": "textures/T_ai_materials_wet_asphalt_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_wet_asphalt_b_albedo.png",
+      "sha256": "540333d10c606ef02f3824743f2a0f510dab43ff4bc1f3a4d67e3f6a373ad3d7",
+      "bytes": 1758149
+    },
+    {
+      "uri": "textures/T_ai_materials_wet_asphalt_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_wet_asphalt_b_rough.png",
+      "sha256": "8f850d3b4b7f3b18331012ab7af09aed0e3044f773655d7211cf17702355660c",
+      "bytes": 131098
+    },
+    {
+      "uri": "textures/T_fx_fx_ao.png",
+      "path": "game/assets/building/textures/T_fx_fx_ao.png",
+      "sha256": "6a0c81a8a498b8dcee7bf012d17f49576994f749f8a7f68351681a7f77f1594f",
+      "bytes": 296
+    },
+    {
+      "uri": "textures/T_ai_materials_bar_wall_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_bar_wall_b_normal.png",
+      "sha256": "e6c225a0622cab4613ae5970f911e7a0376d98ccb6858230ddc2d1d33117ed04",
+      "bytes": 650514
+    },
+    {
+      "uri": "textures/T_ai_materials_bar_wall_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_bar_wall_b_albedo.png",
+      "sha256": "d6a5be39a11852ebcec16ac464057afbef94453de8d9e6bfe1a89b5d0001eb1c",
+      "bytes": 1285333
+    },
+    {
+      "uri": "textures/T_ai_materials_bar_wall_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_bar_wall_b_rough.png",
+      "sha256": "cdd9b827632b0e2c93619d650b7de66aa76f7201469d3371a40f3089e79baaf8",
+      "bytes": 104210
+    },
+    {
+      "uri": "textures/T_ai_materials_bar_wall_red_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_bar_wall_red_b_normal.png",
+      "sha256": "304f9f15cc97761a11c7de173f7646f5cc284464d7617a05004cd53917950584",
+      "bytes": 759971
+    },
+    {
+      "uri": "textures/T_ai_materials_bar_wall_red_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_bar_wall_red_b_albedo.png",
+      "sha256": "51effa4fabf694373395a801257ad9f72a1154bca764e9a20a7e724eb138e455",
+      "bytes": 1551173
+    },
+    {
+      "uri": "textures/T_ai_materials_bar_wall_red_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_bar_wall_red_b_rough.png",
+      "sha256": "abc8942ebc80292da23283e873777d9211352998cdb914dbb14ef29b72438493",
+      "bytes": 131547
+    },
+    {
+      "uri": "textures/T_ai_materials_mirror_aged_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png",
+      "sha256": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+      "bytes": 475130
+    },
+    {
+      "uri": "textures/T_ai_materials_mirror_aged_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png",
+      "sha256": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
+      "bytes": 1822449
+    },
+    {
+      "uri": "textures/T_ai_materials_mirror_aged_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png",
+      "sha256": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
+      "bytes": 117870
+    },
+    {
+      "uri": "textures/T_ai_materials_quarry_tile_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_quarry_tile_b_normal.png",
+      "sha256": "d49534b6d1889909623a790f40c69ef2267dbede9888a9452e5ed926ebe4736e",
+      "bytes": 916128
+    },
+    {
+      "uri": "textures/T_ai_materials_quarry_tile_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_quarry_tile_b_albedo.png",
+      "sha256": "9b10b46cff73b918417e24ad1e01891f25bfc6924fc1df82e65f8ff5a57e6b0f",
+      "bytes": 1531429
+    },
+    {
+      "uri": "textures/T_ai_materials_quarry_tile_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_quarry_tile_b_rough.png",
+      "sha256": "32495063172177be6dfff7d34146e046bf719d015eb180bc400361653fd6ca86",
+      "bytes": 115621
+    },
+    {
+      "uri": "textures/T_library_architectural_haunted_wallpaper_normal.png",
+      "path": "game/assets/building/textures/T_library_architectural_haunted_wallpaper_normal.png",
+      "sha256": "e9c69a6f3e4245d539aad40405d45f4f0a796b5ac31dd2da67189996a46b7f10",
+      "bytes": 451
+    },
+    {
+      "uri": "textures/T_library_architectural_haunted_wallpaper_albedo.png",
+      "path": "game/assets/building/textures/T_library_architectural_haunted_wallpaper_albedo.png",
+      "sha256": "48f67cce28079cce48bf4c6d4ca38b65c7c938a34fc0bd367fd8817778afdfa7",
+      "bytes": 1647644
+    },
+    {
+      "uri": "textures/T_library_architectural_haunted_wallpaper_rough.png",
+      "path": "game/assets/building/textures/T_library_architectural_haunted_wallpaper_rough.png",
+      "sha256": "156e909bd5021ef265e4e5034213626ff81a87ba0304ece09679a0c6a65ea4ba",
+      "bytes": 539892
+    },
+    {
+      "uri": "textures/T_ai_materials_awning_vinyl_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_awning_vinyl_normal.png",
+      "sha256": "a0435f3fded31aae71fd8e512558f1205dcd75c45d2ac9f71b9f7c149fcc1ff3",
+      "bytes": 722098
+    },
+    {
+      "uri": "textures/T_ai_materials_awning_vinyl_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_awning_vinyl_albedo.png",
+      "sha256": "9c51107132cb0ad807812cd4786b666c50470e88174534b7e8f07ffbb2d602f3",
+      "bytes": 1426405
+    },
+    {
+      "uri": "textures/T_ai_materials_awning_vinyl_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_awning_vinyl_rough.png",
+      "sha256": "d36788bc8e296971744077f081d596f910e0fbe3e78283a954ea4ce3ed6b99ab",
+      "bytes": 115756
+    },
+    {
+      "uri": "textures/T_ai_materials_subway_tile_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_subway_tile_b_normal.png",
+      "sha256": "19a9896011af52c5ec0b385e6fe1c3bade5cd2acc19c5cb37b4b5fcbbb7b65eb",
+      "bytes": 1109684
+    },
+    {
+      "uri": "textures/T_ai_materials_subway_tile_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_subway_tile_b_albedo.png",
+      "sha256": "74cd72a02cb79e647dd399c4f23293858902a5958dc4c2176e99795e0bb6effd",
+      "bytes": 1791216
+    },
+    {
+      "uri": "textures/T_ai_materials_subway_tile_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_subway_tile_b_rough.png",
+      "sha256": "3fc383260719315db37cc9d1b30bbde33fedac831fbd32987fdda7dbd0dddaf3",
+      "bytes": 188444
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_dark_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_dark_normal.png",
+      "sha256": "83da81d2226acb3960e346a09d726db2fccee60263ba737205d3181cf726deb5",
+      "bytes": 92723
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_dark_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_dark_albedo.png",
+      "sha256": "e7d196c50c3ae325bf8aac89139b2569613009b4272e9046d87d404dd325e316",
+      "bytes": 225545
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_dark_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_dark_rough.png",
+      "sha256": "c741cdd536217f9a97fefb7bd462612e43f7045a3c94e82bd81e4a340ff8c9f8",
+      "bytes": 64919
+    },
+    {
+      "uri": "textures/T_ai_materials_wainscot_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_wainscot_b_normal.png",
+      "sha256": "53d829e0faec151d222535f19c8f84cbadcff845288d840caae7d4408b3026c9",
+      "bytes": 1006821
+    },
+    {
+      "uri": "textures/T_ai_materials_wainscot_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_wainscot_b_albedo.png",
+      "sha256": "cf16e286c3db480e674e8599bfd7ab285b3ed1fb4e5e0f7cfb770b101f904b01",
+      "bytes": 1724766
+    },
+    {
+      "uri": "textures/T_ai_materials_wainscot_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_wainscot_b_rough.png",
+      "sha256": "15f90b6f788331da77d9e0d150b48386d4fe8c953b4c2ba593f62c567a13b2e7",
+      "bytes": 138434
+    },
+    {
+      "uri": "textures/T_ai_materials_marble_lobby_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_marble_lobby_b_normal.png",
+      "sha256": "46aac270087a1a77779c7ddb06a5735f7bcecb4c21912cb9d31e66fce278b28a",
+      "bytes": 341195
+    },
+    {
+      "uri": "textures/T_ai_materials_marble_lobby_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_marble_lobby_b_albedo.png",
+      "sha256": "5e133dc36851f6b2a334d6f2470240d14e3be636d651db03bef5b211e8dbf190",
+      "bytes": 659383
+    },
+    {
+      "uri": "textures/T_ai_materials_marble_lobby_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_marble_lobby_b_rough.png",
+      "sha256": "a395d4d9d21b8d05a49aa2bb82b11c128049d9798eef03cbc1480012b2e7c299",
+      "bytes": 101670
+    },
+    {
+      "uri": "textures/T_ai_materials_zinc_liner_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_zinc_liner_normal.png",
+      "sha256": "ed2ddaf99ba6a66691221350263721a4d848688456ea94f4e8fc6dcb1b6e5864",
+      "bytes": 826451
+    },
+    {
+      "uri": "textures/T_ai_materials_zinc_liner_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_zinc_liner_albedo.png",
+      "sha256": "7660d3b67d0cc6b12d94cb176c6c1716ade45ebfaa7cbe9bf0e49da586f49a42",
+      "bytes": 2065298
+    },
+    {
+      "uri": "textures/T_ai_materials_zinc_liner_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_zinc_liner_rough.png",
+      "sha256": "dc57fdcacb5854aa29200ab92ecc107daa06d145052e61ebcea59a78e38b0e94",
+      "bytes": 143691
+    },
+    {
+      "uri": "textures/T_ai_materials_appliance_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_appliance_b_normal.png",
+      "sha256": "622d8620c9d706814be5de544a6697c80509faf87af24b641a1779b9cdad2a41",
+      "bytes": 824169
+    },
+    {
+      "uri": "textures/T_ai_materials_appliance_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_appliance_b_albedo.png",
+      "sha256": "dd1f4b4270f4817de20a10879da9090fcb0835227d0d724e108edb8cbe693a2c",
+      "bytes": 1879284
+    },
+    {
+      "uri": "textures/T_ai_materials_appliance_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_appliance_b_rough.png",
+      "sha256": "f0a38884d820e44675a08fb0abcdda601eb8f0a5581ee864474f1131c4a513e6",
+      "bytes": 203103
+    },
+    {
+      "uri": "textures/T_ai_materials_copper_aged_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_copper_aged_normal.png",
+      "sha256": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+      "bytes": 730352
+    },
+    {
+      "uri": "textures/T_ai_materials_copper_aged_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png",
+      "sha256": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+      "bytes": 1923107
+    },
+    {
+      "uri": "textures/T_ai_materials_copper_aged_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_copper_aged_rough.png",
+      "sha256": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+      "bytes": 137635
+    },
+    {
+      "uri": "textures/T_generated_road_paint_normal.png",
+      "path": "game/assets/building/textures/T_generated_road_paint_normal.png",
+      "sha256": "95a3325485a2c592305a4d00b2d2a4b503e048722b8f736fd8589791c95a1858",
+      "bytes": 697679
+    },
+    {
+      "uri": "textures/T_generated_road_paint_albedo.png",
+      "path": "game/assets/building/textures/T_generated_road_paint_albedo.png",
+      "sha256": "d50930f9861247ac1f70a3b0b37b14c6241143d6a06e5665d94c9cd962f9f6bd",
+      "bytes": 473408
+    },
+    {
+      "uri": "textures/T_generated_road_paint_rough.png",
+      "path": "game/assets/building/textures/T_generated_road_paint_rough.png",
+      "sha256": "013737fad11895b01a900b268ba40a0140f436c852f24399e2d86c07c6fc2481",
+      "bytes": 314111
+    },
+    {
+      "uri": "textures/T_generated_sash_normal.png",
+      "path": "game/assets/building/textures/T_generated_sash_normal.png",
+      "sha256": "e8aa15293c8ed40a1651a4649ab42d7d84d7207b55f6a99832106a5bf439d913",
+      "bytes": 45474
+    },
+    {
+      "uri": "textures/T_generated_sash_albedo.png",
+      "path": "game/assets/building/textures/T_generated_sash_albedo.png",
+      "sha256": "9bf2da21607cd709a287095270bd3a33771377064436ab694e5a1c0a77d5d8a6",
+      "bytes": 303454
+    },
+    {
+      "uri": "textures/T_generated_sash_rough.png",
+      "path": "game/assets/building/textures/T_generated_sash_rough.png",
+      "sha256": "00c3d19d9821c57a048b74bac23bf934411f8779b5eff32f51468b9efb7d3fb4",
+      "bytes": 250509
+    },
+    {
+      "uri": "textures/T_ai_materials_stair_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_stair_b_normal.png",
+      "sha256": "11d0a8f2872ea3fcae47384974ccbfe49b771067a62266e6e9f6db3cc1bdfc38",
+      "bytes": 945253
+    },
+    {
+      "uri": "textures/T_ai_materials_stair_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_stair_b_albedo.png",
+      "sha256": "ce3d53a2b20862653ef725276ce3692bb1485f18cfd05671bccbdea7006c7944",
+      "bytes": 1847606
+    },
+    {
+      "uri": "textures/T_ai_materials_stair_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_stair_b_rough.png",
+      "sha256": "9d6a4b3c4568a77a4d289ed81149bc462cded9bfc0e7b50410ae679f352a4331",
+      "bytes": 195504
+    },
+    {
+      "uri": "textures/T_ai_materials_baluster_b_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_baluster_b_normal.png",
+      "sha256": "0ce4dd7a901d895b7c548c719ccb31347e79f68f87d95cebe435537eac5cea55",
+      "bytes": 855447
+    },
+    {
+      "uri": "textures/T_ai_materials_baluster_b_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_baluster_b_albedo.png",
+      "sha256": "3d39f0685ad2f254f1654213efaa45573fb596bb2f198489a555e0df9e253092",
+      "bytes": 2016179
+    },
+    {
+      "uri": "textures/T_ai_materials_baluster_b_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_baluster_b_rough.png",
+      "sha256": "494796a7d48c38a6612414c83020564d089344f68ac48a30bbc2ccbb93722dbb",
+      "bytes": 180036
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_normal.png",
+      "sha256": "35bf5dc8a9f7f013bc79921e1fec3050b8e946edc5c427ae7f4c6cc2d1e0b3c3",
+      "bytes": 930025
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_albedo.png",
+      "sha256": "5bb7170dfea6c99706376da7c83aa43d5d7d5138dc92879a98988ac64fc48c71",
+      "bytes": 2173738
+    },
+    {
+      "uri": "textures/T_ai_materials_terrazzo_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_terrazzo_rough.png",
+      "sha256": "c49569f7652f949dd10d870870c01d7fcf393ff4aa7d1abd3798e9b087862db5",
+      "bytes": 223632
+    },
+    {
+      "uri": "textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+      "path": "game/assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+      "sha256": "650f09e337e2493033cabeb467494deac68b7625fdb9402040796941fc7b0a26",
+      "bytes": 1264032
+    },
+    {
+      "uri": "textures/T_fx_fx_ceiling_soffit_failed.png",
+      "path": "game/assets/building/textures/T_fx_fx_ceiling_soffit_failed.png",
+      "sha256": "7884ce1ad132e47c7896f5f2fa1fd8a42e86d7efb68ee1677610911fa37217af",
+      "bytes": 2804024
+    },
+    {
+      "uri": "textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+      "path": "game/assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+      "sha256": "6d87160d535e91f3050cdc9ccf1757f79ffb8f94d54dc13897450cc9bf972685",
+      "bytes": 474654
+    },
+    {
+      "uri": "textures/T_ai_materials_stair_treads_normal.png",
+      "path": "game/assets/building/textures/T_ai_materials_stair_treads_normal.png",
+      "sha256": "ba275c8519571128fe2d2c8f8c04bc85932f2c3f7acadb847ed9086a016a0cf4",
+      "bytes": 808725
+    },
+    {
+      "uri": "textures/T_ai_materials_stair_treads_albedo.png",
+      "path": "game/assets/building/textures/T_ai_materials_stair_treads_albedo.png",
+      "sha256": "549ca2090c426b212875d5cd0ed11d631ca451c9af1fd1e0f9044f453c4b866d",
+      "bytes": 1636542
+    },
+    {
+      "uri": "textures/T_ai_materials_stair_treads_rough.png",
+      "path": "game/assets/building/textures/T_ai_materials_stair_treads_rough.png",
+      "sha256": "5c4b65787d16f443fa3fdd8e01aa00ba3fb707ea6f5809cddd14a9e0e2a15ee0",
+      "bytes": 170926
+    },
+    {
+      "uri": "textures/T_fx_fx_grease_normal.png",
+      "path": "game/assets/building/textures/T_fx_fx_grease_normal.png",
+      "sha256": "969919498d09bf03c2b7b83c0534cb169e2e3afbc4c50612cfe1a0171d795edb",
+      "bytes": 52375
+    },
+    {
+      "uri": "textures/T_fx_fx_grease.png",
+      "path": "game/assets/building/textures/T_fx_fx_grease.png",
+      "sha256": "3c2147c82dc9805de007d4e1246a9ba4a1868cc32cdd4b702a5fca231b79a0a3",
+      "bytes": 109017
+    },
+    {
+      "uri": "textures/T_fx_fx_grease_rough.png",
+      "path": "game/assets/building/textures/T_fx_fx_grease_rough.png",
+      "sha256": "5f92a43a56892af8bee50ce54ef6c6040d84a16252cc1f6076b8ad03fc9a88a4",
+      "bytes": 88926
+    },
+    {
+      "uri": "textures/T_fx_fx_scuff_normal.png",
+      "path": "game/assets/building/textures/T_fx_fx_scuff_normal.png",
+      "sha256": "1dc026feafae790f9a92f3b28976be103e053a5d23cd20de8631799664150ff1",
+      "bytes": 108238
+    },
+    {
+      "uri": "textures/T_fx_fx_scuff.png",
+      "path": "game/assets/building/textures/T_fx_fx_scuff.png",
+      "sha256": "9b3105bf06a3ff5c18c59c340234f8b9dae86a736bec7a1d194e694e09945829",
+      "bytes": 63201
+    },
+    {
+      "uri": "textures/T_fx_fx_scuff_rough.png",
+      "path": "game/assets/building/textures/T_fx_fx_scuff_rough.png",
+      "sha256": "8c7a62d2e2f2d95fb483521650af2b0ee2baf23f3044be2c84142622abca45d1",
+      "bytes": 63965
+    },
+    {
+      "uri": "textures/T_fx_fx_traffic_normal.png",
+      "path": "game/assets/building/textures/T_fx_fx_traffic_normal.png",
+      "sha256": "69cc8270370cc9f3b86806fb8af13f2f31fb4518f1fcde15f52d96d867560d6b",
+      "bytes": 40015
+    },
+    {
+      "uri": "textures/T_fx_fx_traffic.png",
+      "path": "game/assets/building/textures/T_fx_fx_traffic.png",
+      "sha256": "7d89d1a0d9e2217a1e5ed1e5c687b57705d5006056d0c75a485b5c5becbe7e42",
+      "bytes": 52212
+    },
+    {
+      "uri": "textures/T_fx_fx_traffic_rough.png",
+      "path": "game/assets/building/textures/T_fx_fx_traffic_rough.png",
+      "sha256": "05eb9b280eac6826dc09f321ea641502b2a634f0e2e68a241397a52cd36e0af5",
+      "bytes": 70017
+    }
+  ],
+  "uncommitted_foundation_source_snapshot": [
+    {
+      "status": " M",
+      "path": "game/scripts/building/building_root.gd",
+      "sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4"
+    },
+    {
+      "status": " M",
+      "path": "game/scripts/characters/resident_nav.gd",
+      "sha256": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8"
+    },
+    {
+      "status": " M",
+      "path": "game/scripts/characters/resident_routines.gd",
+      "sha256": "7e88a9f430e7f7ed7149312392f9711741e55fb51230f8eee53e3c634b33e6a5"
+    },
+    {
+      "status": " M",
+      "path": "game/scripts/game/chirp_hunt.gd",
+      "sha256": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28"
+    },
+    {
+      "status": " M",
+      "path": "game/scripts/game/maintenance_inventory.gd",
+      "sha256": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f"
+    },
+    {
+      "status": " M",
+      "path": "game/scripts/game/work_orders.gd",
+      "sha256": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57"
+    },
+    {
+      "status": " M",
+      "path": "game/scripts/props/night_register_prop.gd",
+      "sha256": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e"
+    },
+    {
+      "status": " M",
+      "path": "game/scripts/reality/npc_observation_ledger.gd",
+      "sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+    },
+    {
+      "status": " M",
+      "path": "game/scripts/reality/organism_incidents.gd",
+      "sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87"
+    },
+    {
+      "status": " M",
+      "path": "game/tests/orison_v2_presence_ledger_test.gd",
+      "sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+    },
+    {
+      "status": " M",
+      "path": "game/tests/passage_visibility_test.gd",
+      "sha256": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732"
+    },
+    {
+      "status": " M",
+      "path": "game/tests/street_core_visibility_test.gd",
+      "sha256": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45"
+    },
+    {
+      "status": " M",
+      "path": "tools/audit_systemic_situation_authority.py",
+      "sha256": "635dbc83e1c7c2c398509f2c639f09850c542497623318b496960cab6ef60c9b"
+    },
+    {
+      "status": " M",
+      "path": "tools/tests/test_systemic_situation_authority.py",
+      "sha256": "e9eb8c4f2bf44256581a508676a86d81e48cea76e4be38a1ad0082546bb8000d"
+    }
+  ],
+  "installed_binary_files_without_launch": [
+    {
+      "path": "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+      "exists": true,
+      "bytes": 112975320,
+      "sha256": "e27fbfea8564aa645d4463cb0949695fd85562b9de6df9561b06859a1074adf7"
+    },
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+      "exists": true,
+      "bytes": 178997256,
+      "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+    },
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+      "exists": true,
+      "bytes": 198152,
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+    }
+  ],
+  "notes": [
+    "Hashes bind this inventory instant; the parent owns continuing foundation edits. Rebind before implementation.",
+    "C1 source is attributable but its isolated runtime/human-pending receipt is not production acceptance.",
+    "C2 generated artifacts and registry are comparison targets, never adopted output in this review.",
+    "Only the historical 17-path protection boundary is called protected_17; the roof, textures, generator and other current files are not implicitly writable.",
+    "Git blobs use LF while materialized text assets use CRLF. Raw reference and current hashes are recorded separately; no file is normalized or written. Sidecar layout raw hash 68838c... matches the materialized layout, not the Git LF blob."
+  ]
+}

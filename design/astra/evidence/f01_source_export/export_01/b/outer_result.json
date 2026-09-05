@@ -1,0 +1,28 @@
+{
+  "status": "PROCESS_AND_PROTECTION_PASS_PENDING_INDEPENDENT_OUTPUT_CHECKS",
+  "outer_contract_exit": 0,
+  "actual_bridge_exit": 0,
+  "actual_blender_exit": 0,
+  "actual_controller_exit": 0,
+  "inputs_unchanged": true,
+  "empty_process_census_after": true,
+  "failure": null,
+  "elapsed_seconds": 86.53199999999924,
+  "artifacts": {
+    "after.json": "8be6d466048994c68ed2ecaf2fe693687499f2ddfcf29eb44011614b839eb752",
+    "after_process_census.json": "2fdc6309d83bff6f15b3f4ff32588faf92ce94780edc63e2cbc000f6fd96b104",
+    "before.json": "8be6d466048994c68ed2ecaf2fe693687499f2ddfcf29eb44011614b839eb752",
+    "before_process_census.json": "2fdc6309d83bff6f15b3f4ff32588faf92ce94780edc63e2cbc000f6fd96b104",
+    "blender.stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blender.stdout.raw": "e22440f43e61384604e240e4ffebebee14e6e9475d4d4c817b2c1c13a2e0a79d",
+    "blender_child.json": "f2db73175504a453516f9ebb190ad31400b883956d96662581beccf3041eaaf2",
+    "command.json": "a07c1cdd493d56e856aa9e498a2f2e7ceb84a9e7c25175fbdf6596c55128b3e9",
+    "config.json": "b5f78935f335a46c67cdd08befb67696220645f0d38e25b96eaca8609bcd3e4a",
+    "controller.stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "controller.stdout.raw": "0f5b7bff24615f077dc2c55d17496803b0bf1d9341b01c4db7a3acebaa45f41d",
+    "controller_bridge.json": "7c67ab2f854f7f6882a97fd19c21f97765c693f02578592b963e28bf798a8e7d",
+    "environment.json": "db39d49cbd9bfa8307422cc1696a1a63862cc357cdd063877452f36b5c3faeee"
+  },
+  "output": "C:\\OrisonF01Reconstruction\\astra_77dc_export_b_01",
+  "independent_output_acceptance": false
+}

@@ -1,0 +1,116 @@
+{
+  "scope": "READ_ONLY_PREPARATION; no adoption, production edits, engine, exporter, or generator run",
+  "head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "reviewed_utc": "2026-09-05T06:53:45.934657+00:00",
+  "source_sha256": {
+    "design/astra/reviews/m11_review.md": "359bf2cedee8bd1cb043924fcf4738296692e146e9ceca38890c37129a215f74",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/scripts/building/harukiya_state_director.gd": "6fcdfb6e9b170fb81ef2fc77c1dc45d571b3d51f1874660b690696b65982e4a5",
+    "game/scripts/building/orison_detail_pass.gd": "f9b2ac25b7dadc82ea9a954dc607167d13f1acf222ed80e98a31ac822d1a4029",
+    "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+    "game/scripts/building/orison_v2_exterior_cell.gd": "1c5ed89bd27b579b98628f913eaa51eac39b50fa68ad78954f282aa71746488c",
+    "game/scripts/building/orison_v2_exterior_spatial_resolver.gd": "b777b410c51000b3584e9e7746f8c514c6d3f59850446be5732009f3ada43507",
+    "game/scripts/building/surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+    "game/scripts/building/vantry_point_network.gd": "37345934896706e4b94295bd41c83abc8caecbef25610a2e10fc21b98286c0cd",
+    "game/scripts/characters/resident_nav.gd": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8",
+    "game/scripts/characters/resident_routines.gd": "7e88a9f430e7f7ed7149312392f9711741e55fb51230f8eee53e3c634b33e6a5",
+    "game/scripts/characters/schedule_director.gd": "fe4e1597bbd91cf5cac3b5bb4b6ba4595f2051dc6ab4fffdc146f5ef00a0345e",
+    "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+    "game/scripts/game/maintenance_shop_service.gd": "696b8c24b074fae73ca6110db955d618a0913f7b4997214be68b5cffe9a9f60c"
+  },
+  "acceptance": {
+    "last_human_boundary": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+    "c1_tip": "503465defa24d19d55b53c9a17bf8a4affdfb5eb",
+    "c1_status": "technically proven isolated rehearsal; no traceable human acceptance",
+    "c2_tip": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+    "c2_status": "committed tip is distinct from separately captured dirty working-tree production consumers; those unfinished consumers remain quarantined and must not be copied"
+  },
+  "contracts": [
+    {
+      "id": "provider_selection",
+      "source": "game/scripts/building/building_root_selector.gd",
+      "line": 5,
+      "current_contract": "Default v1 selection is distinct from F01 geometry selection. No live Floor01CellRegistry or Floor01GeometryConfiguration exists.",
+      "required_plan": "Keep selector/default unchanged; design an explicit root-owned provider seam with a legacy F01 implementation and reversible opt-in. Do not import dirty C2 default-owner cutover."
+    },
+    {
+      "id": "floor_parent_and_order",
+      "source": "game/scripts/building/building_root.gd",
+      "line": 333,
+      "current_contract": "Protected layout loads once; FLOOR_SCENES instantiates floor_01.gltf into the direct child named F01 and floor_nodes[F01]. Passage indexing precedes late builders; SurfacePass follows height-map setup.",
+      "required_plan": "Retain the F01 parent/transform and floor_nodes contract even if render children change; mount provider before indices/material pass, then classify late production children separately."
+    },
+    {
+      "id": "passage_and_street_aliases",
+      "source": "game/scripts/building/building_root.gd",
+      "line": 1469,
+      "current_contract": "Passage depends on _retail_shop_, _retail_passage_shell_, _retail_passage_proxy_ names. Street indexes measured bounds but exempts facade glazing/stone_trim/sash/blind batches and F01_DOOR_06 boundary ownership.",
+      "required_plan": "Provide explicit batch-to-owner/zone aliases preserving all current memberships and exceptions; compare actual source-derived populations and bounds. Renaming meshes or flattening them into one cell silently changes rendering ownership."
+    },
+    {
+      "id": "late_owner_and_private_world",
+      "source": "game/scripts/building/building_root.gd",
+      "line": 1877,
+      "current_contract": "Late/root geometry classification excludes registered props, moving actors and any ancestor SubViewport. The current paired-bookkeeping helper changes masks through same-scenario retirement and both blocker tables remain independent.",
+      "required_plan": "Preserve this current foundation code when introducing providers. Cell traversal must stop at viewport boundaries; do not classify cabinet private-world geometry as F01 or Passage foreign."
+    },
+    {
+      "id": "surface_class_and_import_owner",
+      "source": "game/scripts/building/surface_pass.gd",
+      "line": 259,
+      "current_contract": "apply traverses floor descendants and substring classes. _is_imported (381) requires a glTF/glb scene ancestor and node.owner == that imported scene root. _class_for (391) is name based.",
+      "required_plan": "Preserve class tokens and imported ownership or add an explicit equivalent provider classification. A new tscn wrapper or renamed owner mesh can lose surface treatment or enter prop passes. Preserve governor physics and release all cached material/prop references before provider destruction."
+    },
+    {
+      "id": "marker_props_and_door_registry",
+      "source": "game/scripts/building/building_root.gd",
+      "line": 1270,
+      "current_contract": "Protected marker records instantiate root-owned functional props and doors. Exact IDs, marker transforms and functional_props_by_floor / doors_by_floor drive lookup and visibility independently from imported floor children. F01_DOOR_06 selects LandmarkEntryDoor.",
+      "required_plan": "Keep unique marker IDs, root discovery and coarse floor registries. Avoid duplicate semantic anchors plus live consumers of the same name. Geometry replacement alone must not remove props, rewrite door ownership, or fabricate marker transforms."
+    },
+    {
+      "id": "apparatus_and_first_shift",
+      "source": "game/scripts/building/building_root.gd",
+      "line": 667,
+      "current_contract": "FirstShift binds F01_WATCHMAN_DETECTOR, F01_NIGHT_REGISTER, F01_SIGNAL_REGISTER, F01_TOUR_KEY_GUARD. OrisonDetailPass authors those names and telephone/fire-line consumers under F01.",
+      "required_plan": "Retain those aliases, signals and scoped service ownership; validate actual first-shift/M08F reconstruction, not only node existence. F01_D_BED_VANTRY_POINT, F01_ENTRY_SCONCE and F01_CORRIDOR_DOME_03 remain literal witness/light/case identities."
+    },
+    {
+      "id": "shop_and_room_records",
+      "source": "game/scripts/game/maintenance_shop_service.gd",
+      "line": 108,
+      "current_contract": "build_counters resolves stock counter_anchor_id through layout furniture; mount_counter (128) is an existing duplicate-rejecting semantic seam and unmount APIs exist. Cases/art use floor IDs, unit rooms, room rects, walls and furniture beyond visible geometry.",
+      "required_plan": "Keep stock IDs and all consumed furniture/room records; reuse one service-owned counter mount per shop. Do not substitute a render-only owner manifest for the gameplay layout."
+    },
+    {
+      "id": "navigation_schedule_and_acoustics",
+      "source": "game/scripts/characters/resident_nav.gd",
+      "line": 324,
+      "current_contract": "Current nav matches door hinge+width+yaw to actual wall apertures, uses wall thickness for capsule-clear approach nodes and keeps collision pruning. Schedule resolves real passage anchors and unit-room centers.",
+      "required_plan": "Preserve marker conventions, aperture/wall data, room IDs and shared Blender-to-Godot frame. Validate actual routes and acoustic positions after provider changes. Rebase from the latest navigation fixes, not old C2 root/routine assumptions."
+    },
+    {
+      "id": "accepted_semantic_adapter_scope",
+      "source": "game/scripts/building/orison_v2_anchor_adapter.gd",
+      "line": 17,
+      "current_contract": "resolve requires exactly one matching name. mount_consumer (75) renames the semantic anchor to *_Semantic and keeps the live consumer on root; unmount restores it. Acoustic overrides are scoped and restored.",
+      "required_plan": "This is a useful consumer ownership contract, not a live F01 geometry provider or a batch alias registry. Reuse intentionally only with unique names and explicit cleanup."
+    },
+    {
+      "id": "accepted_spatial_resolver_scope",
+      "source": "game/scripts/building/orison_v2_exterior_spatial_resolver.gd",
+      "line": 10,
+      "current_contract": "Accepted resolver reads orison_v2/exterior/regions.json with frame/region/template/surface/instance/threshold/route semantics. The isolated exterior cell is dependency-injected and is not the default V1 F01 floor provider.",
+      "required_plan": "Keep its coordinate/provenance contract separate from a new legacy F01 adapter. Its acceptance does not accept C1 owner-source artwork or authorize a selector/whole-route cutover."
+    },
+    {
+      "id": "reconstruction_and_release",
+      "source": "game/scripts/dream/campaign_shell.gd",
+      "line": 117,
+      "current_contract": "Current shell detaches waking services, removes active_world and frees it immediately before loading/rebinding destination; startup_failed roots are refused. There is no current F01 provider teardown hook.",
+      "required_plan": "Define root-owned idempotent release for provider indices/material caches/consumers without copying C2 deferred deletion. Prove repeated actual shell destroy/reconstruct and both-direction root/save continuation with final calendar, protected-save and audio ownership behavior."
+    }
+  ],
+  "runtime_validation": "NOT_RUN; static consumer inventory only. Latest renderer/nav/timestamp foundations are uncommitted and under independent runtime work; rebind exact source after that work."
+}

@@ -1,0 +1,29 @@
+{
+  "command": [
+    "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+    "--background",
+    "--factory-startup",
+    "--python",
+    "C:\\PleaseRemainOnTheLine-astra\\tools\\m11c1_floor01_owner_first\\generate_owner_first_candidate.py",
+    "--",
+    "--generator",
+    "C:\\PleaseRemainOnTheLine-astra\\art\\blender\\scripts\\build_orison.py",
+    "--layout",
+    "C:\\PleaseRemainOnTheLine-astra\\art\\data\\building_layout.json",
+    "--ownership-sidecar",
+    "C:\\PleaseRemainOnTheLine-astra\\art\\data\\m11c1\\floor01_source_ownership.json",
+    "--output",
+    "C:\\OrisonF01Reconstruction\\astra_77dc_export_a_01"
+  ],
+  "cwd": "C:\\PleaseRemainOnTheLine-astra",
+  "status": "EXITED",
+  "timeout_seconds": 1200,
+  "pid": 28088,
+  "actual_blender_exit": 0,
+  "forced_timeout_termination": false,
+  "elapsed_seconds": 40.93800000000192,
+  "stdout_raw_sha256": "6805c6c3f5e893bb5f301878b231ecd37c70965e23b28b17cce971c3ad867c38",
+  "stderr_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_decoded_utf8_sha256": "fc690632cf82dbcf1c41956c974e5900ccfed740d8e35d4db8429f31f1680669",
+  "stderr_decoded_utf8_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

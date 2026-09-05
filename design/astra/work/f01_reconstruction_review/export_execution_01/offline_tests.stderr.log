@@ -1,0 +1,15 @@
+test_changed_command_refused_before_child (__main__.BridgeControls.test_changed_command_refused_before_child) ... ok
+test_changed_decode_contract_refused_before_child (__main__.BridgeControls.test_changed_decode_contract_refused_before_child) ... ok
+test_duplicate_blender_call_refused (__main__.BridgeControls.test_duplicate_blender_call_refused) ... ok
+test_raw_bytes_and_text_newlines_remain_distinct (__main__.BridgeControls.test_raw_bytes_and_text_newlines_remain_distinct) ... ok
+test_timeout_preserves_actual_owned_child_exit (__main__.BridgeControls.test_timeout_preserves_actual_owned_child_exit) ... ok
+test_census_failure_refuses (__main__.GuardControls.test_census_failure_refuses) ... ok
+test_empty_census (__main__.GuardControls.test_empty_census) ... ok
+test_live_census_is_not_empty (__main__.GuardControls.test_live_census_is_not_empty) ... ok
+test_missing_protected_file_retains_snapshot_failure (__main__.GuardControls.test_missing_protected_file_retains_snapshot_failure) ... ok
+test_output_containment_and_missing_paths_refuse (__main__.GuardControls.test_output_containment_and_missing_paths_refuse) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.080s
+
+OK

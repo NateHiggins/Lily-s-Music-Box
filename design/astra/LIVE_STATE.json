@@ -2,10 +2,10 @@
   "canonical_branch": "codex/astra-canonical-20260904",
   "completeness_source": {
     "audit_id": "orison_v2_completeness",
-    "path": "evidence/navigation_commit_audits_01/orison_v2_completeness.stdout.txt",
-    "receipt_path": "evidence/navigation_commit_audits_01/receipt.json",
-    "receipt_sha256": "6ec8e19a9a3399802fff8c79a48afbe695a5736070ae1e96b02a03498e84f431",
-    "repository_head": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+    "path": "evidence/renderer_material_commit_audits_01/orison_v2_completeness.stdout.txt",
+    "receipt_path": "evidence/renderer_material_commit_audits_01/receipt.json",
+    "receipt_sha256": "e6bf834a3ff0848f0104031dbfe3451b7ae43b0c86948f4a5af6613948ff6e8d",
+    "repository_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
     "sha256": "eeefd38e403dfaad4424f638457a7b305c60b0213155cb77132a7038ae4e8c7e"
   },
   "frozen_sanitation_base": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
@@ -16,12 +16,28 @@
     "status": "INTEGRATED"
   },
   "latest_calendar_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
-  "latest_repair_commit": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "latest_repair_commit": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
   "latest_save_title_commit": "9548301873807117a870aeb6e517173e81a4713f",
-  "ledger_evidence_head": "da68962aaeaabf56851abb7190dda14d7ff5675f",
-  "policy": "The selected audit binds HEAD da68962aaeaabf56851abb7190dda14d7ff5675f plus its captured uncommitted renderer/material and fixture overlay. Its 1,627 source inputs were stable for that run. Later changes are not silently included. The two navigation owners and six fixtures are committed with exact historical evidence. Renderer and material candidates remain separate. Historical runtime receipts keep their original HEAD and source overlays; static evidence grants no runtime, human or release acceptance.",
+  "ledger_evidence_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "policy": "The selected static audit binds renderer/material commit 77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4 and2328 stable explicit text/glTF inputs. Its broader text suffix coverage is declared in the binding receipt; native assets have separate protected/runtime manifests. The two owners and fourteen fixtures are committed with exact failed/control/final evidence. Later V2 fixture/C1 work is not included. Historical runtime receipts retain their original HEAD and captured overlays. Static or bounded runtime success grants no human, visual or release acceptance.",
   "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
   "schema_version": 1,
   "latest_time_hearing_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b",
-  "latest_navigation_commit": "da68962aaeaabf56851abb7190dda14d7ff5675f"
+  "latest_navigation_commit": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "latest_renderer_material_commit": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "current_f01_source_replay": {
+    "path": "evidence/f01_source_replay/installed_01/receipt.json",
+    "sha256": "020e2bca59cc397687398b6ae717d7ac323b2a3a8a2bdb9b7bd6ef679bf68a95",
+    "base_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+    "source_reference": "c34ad283df148496fbd98e68638470835c930c5c",
+    "status": "SOURCE_REPLAY_VALIDATED",
+    "scope": "Uncommitted named source additions; static audit at HEAD excludes them; no geometry adoption."
+  },
+  "current_f01_export": {
+    "path": "evidence/f01_source_export/export_01/summary.json",
+    "sha256": "764ce33a56f6b9f6bea11b491ae33a17fd77508be5e8d63acd2053edd052ce0c",
+    "base_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+    "status": "TWO_EXPORT_BYTE_OWNERSHIP_ALIAS_CHECKS_PASS_HUMAN_PENDING",
+    "scope": "External deterministic reconstruction only. No generated production asset, provider, streaming, traversal, human acceptance or release proof."
+  }
 }

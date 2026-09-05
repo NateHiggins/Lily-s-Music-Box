@@ -1,0 +1,17 @@
+{
+  "status": "INDEPENDENT_SELECTION_REVIEW_PASS_BOUNDED_SCHEMAS",
+  "actual_verifier_exit": 0,
+  "selection_sha256": "4a7c1c923f3076343ee5fe29069ae6d60f808b67b927c26cc7b68d248f3f5cce",
+  "raw_files_verified": 3784,
+  "live_game_paths_verified": 16,
+  "protected_paths_verified": 17,
+  "retained_result_manifests_verified": 36,
+  "artifact_references_verified": 1850,
+  "unresolved_checked_reference_count": 0,
+  "bindings": {
+    "verify.py": "98c140b0594ce9d702e504cb06017ee39148437940d782d2784bc5202e2cc531",
+    "review.json": "08e7da7e9fed81e46f0fe8cb46178f1ca9ef8e93ddaac61701b412f754f48935",
+    "review.md": "bb41f4e00d67a55372153bdbf202a18e48d9d85a077b6998fd4e891b28bce9d6"
+  },
+  "no_staging_or_mutation": true
+}
