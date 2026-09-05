@@ -18,6 +18,7 @@ func _check(ok: bool, label: String) -> void:
 		push_error("CONNECTED WORLD: " + label)
 
 func _run() -> void:
+	RealityState.persistence_enabled = false
 	var resolver: Variant = Resolver.load_default()
 	var source := Connection.read_object("res://data/orison_v2_blockout.json")
 	var geometry := Connection.read_object("res://data/orison_v2/exterior/exterior_geometry.json")
@@ -78,6 +79,11 @@ func _run() -> void:
 			var fitting_source := Connection.read_object(Fittings.PATH)
 			var loader := Fittings.new()
 			_check(loader.validate(fitting_source, world.adapter), "domestic fitting records validate")
+			for side in [-1.0, 1.0, 0.0, 1.5, "1"]:
+				var drain_source := fitting_source.duplicate(true)
+				drain_source.fittings[0].properties.drain_side = side
+				_check(loader.validate(drain_source, world.adapter) == (typeof(side) == TYPE_FLOAT and absf(float(side)) == 1.0),
+						"drain side accepts only numeric left/right: " + str(side))
 			var duplicate_fitting := fitting_source.duplicate(true)
 			duplicate_fitting.fittings.append(duplicate_fitting.fittings[0].duplicate(true))
 			_check(not loader.validate(duplicate_fitting, world.adapter), "duplicate fitting refused")
@@ -91,8 +97,11 @@ func _run() -> void:
 				if prop != null:
 					_check(prop.has_method("interact_prompt") and not str(prop.call("interact_prompt")).is_empty(),
 							"fitting exposes its production interaction: " + str(fitting.id))
-			_check(world.find_children("*", "WorldEnvironment", true, false).size() == 1,
-					"runtime owns one world environment")
+			var waking_environments := 0
+			for environment_node in world.find_children("*", "WorldEnvironment", true, false):
+				if environment_node.get_viewport() == world.get_viewport():
+					waking_environments += 1
+			_check(waking_environments == 1, "waking viewport owns one world environment")
 			_check(world.day_night_director != null and not world.day_night_director.resolved_profile().is_empty(),
 					"runtime atmosphere consumes campaign day/night profile")
 			_check(world.shop_simulation != null and not world.shop_simulation.failed,
@@ -138,10 +147,36 @@ func _run() -> void:
 				ground.exclude = [world.player.get_rid()]
 				_check(not world.get_world_3d().direct_space_state.intersect_ray(ground).is_empty(),
 						"F03 capsule station has floor: " + str(station.id))
+		if iteration == 0 and not OS.get_environment("SHOT_DIR").is_empty() and not world.startup_failed:
+			await _capture_3b(world)
 		world.shutdown_for_tests()
 		remove_child(world)
 		world.free()
-		await get_tree().process_frame
+		# AudioServer retires stopped decoder instances on its mix thread.
+		await get_tree().create_timer(0.25).timeout
 		_check(get_tree().get_nodes_in_group("orison_v2_exterior_cell").is_empty(), "exterior detaches on reconstruction")
 	print("CONNECTED WORLD: %d checks; %d failures" % [checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _capture_3b(world: Node3D) -> void:
+	var directory := OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(directory)
+	var camera := Camera3D.new()
+	camera.fov = 72.0
+	world.add_child(camera)
+	camera.make_current()
+	var construction: Node3D = world.adapter.root
+	var views := [
+		["3b_work", Vector3(13.6, 8.0, -2.5), Vector3(13.65, 7.3, -0.2)],
+		["3b_kitchen", Vector3(10.2, 8.0, -7.35), Vector3(11.6, 7.2, -5.7)],
+		["3b_sleep", Vector3(12.1, 8.0, -9.2), Vector3(10.45, 7.1, -10.5)],
+		["3b_storage", Vector3(11.8, 8.0, -10.0), Vector3(10.4, 7.5, -8.5)],
+		["3b_bath", Vector3(14.2, 8.0, -10.25), Vector3(14.4, 7.25, -11.8)]]
+	for view: Array in views:
+		camera.global_position = construction.to_global(view[1])
+		camera.look_at(construction.to_global(view[2]), Vector3.UP)
+		await get_tree().create_timer(0.2).timeout
+		await RenderingServer.frame_post_draw
+		var result := get_viewport().get_texture().get_image().save_png(directory.path_join(str(view[0]) + ".png"))
+		_check(result == OK, "rendered view saved: " + str(view[0]))
+	camera.queue_free()

@@ -19,6 +19,7 @@ func _refresh() -> Dictionary:
 	return {"ok": true}
 
 func _run() -> void:
+	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	var clock := CampaignClock.new()
 	_check(clock.configure_date(1928, 11, 10, 0), "authored test epoch")

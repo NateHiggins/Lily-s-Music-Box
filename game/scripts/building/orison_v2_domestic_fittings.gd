@@ -74,7 +74,8 @@ func validate(source: Variant, adapter: Variant) -> bool:
 					and float(record.properties[property]) == floorf(float(record.properties[property]))
 			if actual != expected and not integer_json:
 				errors.append("invalid domestic fitting property: %s/%s" % [identity, property])
-		if record.properties.has("drain_side") and record.properties.drain_side not in [-1, 1]:
+		if record.properties.has("drain_side") and (typeof(record.properties.drain_side) not in [TYPE_INT, TYPE_FLOAT] \
+				or absf(float(record.properties.drain_side)) != 1.0):
 			errors.append("domestic drainboard side must be left or right: " + identity)
 		if kind in ["sink", "shower"]:
 			var fixture := str(record.properties.get("fixture", ""))
