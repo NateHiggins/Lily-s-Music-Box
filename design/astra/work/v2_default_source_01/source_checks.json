@@ -1,0 +1,48 @@
+{
+  "status": "SOURCE_CHECKS_PASS_NATIVE_UNRUN",
+  "base_head": "409bcac716ede34da837879296fd961472a8a913",
+  "native_godot_started": false,
+  "gdscript_syntax_parser": "gdtoolkit 4.5; not the Godot compiler",
+  "parsed_gdscript_files": 6,
+  "sky_shader_exact_extraction": true,
+  "existing_spatial_inventory_records_unchanged": true,
+  "reviewed_inventory_additions": 7,
+  "preserved_paths": [
+    "game/scripts/building/building_root_selector.gd",
+    "game/scripts/building/building_root.gd",
+    "game/data/building_layout.json",
+    "art/data/building_layout.json",
+    "game/scripts/game/campaign_clock_driver.gd",
+    "game/scripts/game/campaign_clock.gd",
+    "game/assets/building/floor_01.gltf",
+    "game/assets/building/floor_01.bin",
+    "game/assets/building/floor_02.gltf",
+    "game/assets/building/floor_02.bin",
+    "game/assets/building/floor_03.gltf",
+    "game/assets/building/floor_03.bin",
+    "game/assets/building/floor_04.gltf",
+    "game/assets/building/floor_04.bin",
+    "game/assets/building/floor_05.gltf",
+    "game/assets/building/floor_05.bin",
+    "game/assets/building/floor_06.gltf",
+    "game/assets/building/floor_06.bin",
+    "game/assets/building/floor_b1.gltf",
+    "game/assets/building/floor_b1.bin"
+  ],
+  "files": {
+    "game/scripts/building/orison_v2_runtime_root.gd": "3e9ad576be0059a31e03d67c4b88d82b49c4d9f2b39ffd2276aad29004bad9fe",
+    "game/scripts/building/orison_v2_shop_bucket_registry.gd": "6c2196bda856a6bfb7f139e93743697f0249e914dac5a7d1f15642e69f8bbbe7",
+    "game/scripts/building/orison_v2_shop_simulation.gd": "f0e59521e9f3488f1de3f82a8a7397fbeb81ebc814a2bb629fe3471c23d890e9",
+    "game/scripts/building/orison_v2_atmosphere.gd": "009c75fd4f43ac3b214acf32d9430c3b2c2bf72ca780d744481b17db949419d1",
+    "game/tests/orison_v2_shop_simulation_test.gd": "37d61ae59bf135511c1805a9ffd4d931c437625aeed2f4aa7595ff40aed63e13",
+    "game/tests/orison_v2_connected_world_test.gd": "f824364743a93791c62504e14d7a71ae54d9d21d00e857c2b56b8d92673b0a59",
+    "game/tests/OrisonV2ShopSimulationTest.tscn": "63d331b8e48794b676a70ba4a5c1d2469cb3f23a456250fc9d4a4ab3d32f6926",
+    "game/shaders/orison_waking_sky.gdshader": "08fc2084be78e8442815cb4ad82b3df26e28319cb42fca55ddd608e83e4a496d",
+    "tools/orison_spatial_dependency_manifest.json": "a113f4cefce3a766c4883f938546bfe5a6cd519d541b8f297f03b344716e9129"
+  },
+  "native_scenes_prepared_not_run": [
+    "res://tests/OrisonV2ShopSimulationTest.tscn",
+    "res://tests/OrisonV2ConnectedWorldTest.tscn"
+  ],
+  "default_switch": "NOT_APPLIED: structural, runtime, visual and performance gates remain open"
+}

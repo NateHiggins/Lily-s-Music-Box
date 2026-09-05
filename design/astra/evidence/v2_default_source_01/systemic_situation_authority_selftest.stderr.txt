@@ -1,0 +1,51 @@
+test_class_change_is_policy_violation (__main__.BaselineTests.test_class_change_is_policy_violation) ... ok
+test_clean_against_written_baseline (__main__.BaselineTests.test_clean_against_written_baseline) ... ok
+test_confidence_increase_is_policy_violation (__main__.BaselineTests.test_confidence_increase_is_policy_violation) ... ok
+test_duplicate_baseline_entries (__main__.BaselineTests.test_duplicate_baseline_entries) ... ok
+test_internal_failure_is_70 (__main__.BaselineTests.test_internal_failure_is_70) ... ok
+test_line_movement_is_not_drift (__main__.BaselineTests.test_line_movement_is_not_drift) ... ok
+test_malformed_baseline (__main__.BaselineTests.test_malformed_baseline) ... ok
+test_malformed_baseline_without_actionable (__main__.BaselineTests.test_malformed_baseline_without_actionable) ... ok
+test_new_actionable_fails (__main__.BaselineTests.test_new_actionable_fails) ... ok
+test_test_tier_entry_cannot_baseline_production (__main__.BaselineTests.test_test_tier_entry_cannot_baseline_production) ... ok
+test_usage_error (__main__.BaselineTests.test_usage_error) ... ok
+test_vanished_entry_is_cleanup (__main__.BaselineTests.test_vanished_entry_is_cleanup) ... ok
+test_write_baseline_refuses_production_paths (__main__.BaselineTests.test_write_baseline_refuses_production_paths) ... ok
+test_abstract_judgment (__main__.DetectionTests.test_abstract_judgment) ... ok
+test_coordinator_knowledge_write_flagged (__main__.DetectionTests.test_coordinator_knowledge_write_flagged) ... ok
+test_direct_mutation_vs_domain_api (__main__.DetectionTests.test_direct_mutation_vs_domain_api) ... ok
+test_dynamic_unresolved (__main__.DetectionTests.test_dynamic_unresolved) ... ok
+test_every_finding_is_fully_formed (__main__.DetectionTests.test_every_finding_is_fully_formed) ... ok
+test_foreign_reality_data_names_owner (__main__.DetectionTests.test_foreign_reality_data_names_owner) ... ok
+test_internal_shortcut_vs_public_interaction (__main__.DetectionTests.test_internal_shortcut_vs_public_interaction) ... ok
+test_inventory_authority_vs_string_custody (__main__.DetectionTests.test_inventory_authority_vs_string_custody) ... ok
+test_no_git_metadata_needed (__main__.DetectionTests.test_no_git_metadata_needed) ... ok
+test_npc_authority_own_perception_not_flagged (__main__.DetectionTests.test_npc_authority_own_perception_not_flagged) ... ok
+test_objective_hud_vs_diegetic_paper (__main__.DetectionTests.test_objective_hud_vs_diegetic_paper) ... ok
+test_scene_local_autonomy_risk (__main__.DetectionTests.test_scene_local_autonomy_risk) ... ok
+test_single_path_compliance_vs_compensator (__main__.DetectionTests.test_single_path_compliance_vs_compensator) ... ok
+test_timer_apply_flagged_scheduling_not (__main__.DetectionTests.test_timer_apply_flagged_scheduling_not) ... ok
+test_unix_time_profiling_vs_durable (__main__.DetectionTests.test_unix_time_profiling_vs_durable) ... ok
+test_calendar_conversion_and_filename_metadata_are_not_world_time (__main__.HostCalendarTests.test_calendar_conversion_and_filename_metadata_are_not_world_time) ... ok
+test_cli_host_calendar_red_then_authored_green (__main__.HostCalendarTests.test_cli_host_calendar_red_then_authored_green) ... ok
+test_filename_helper_does_not_taint_its_storage_operation (__main__.HostCalendarTests.test_filename_helper_does_not_taint_its_storage_operation) ... ok
+test_former_initializer_exemption_cannot_persist_calendar (__main__.HostCalendarTests.test_former_initializer_exemption_cannot_persist_calendar) ... ok
+test_logged_at_host_time_string_is_rejected_then_campaign_time_passes (__main__.HostCalendarTests.test_logged_at_host_time_string_is_rejected_then_campaign_time_passes) ... ok
+test_only_pure_local_minute_sampler_is_authorized (__main__.HostCalendarTests.test_only_pure_local_minute_sampler_is_authorized) ... ok
+test_repeated_or_durably_writing_sampler_is_not_exempt (__main__.HostCalendarTests.test_repeated_or_durably_writing_sampler_is_not_exempt) ... ok
+test_same_file_helper_cannot_hide_persisted_host_fields (__main__.HostCalendarTests.test_same_file_helper_cannot_hide_persisted_host_fields) ... ok
+test_documented_old_stamp_cannot_suppress_new_fix (__main__.HostUnixTests.test_documented_old_stamp_cannot_suppress_new_fix) ... ok
+test_exact_seed_entropy_and_pure_ids_remain_allowed (__main__.HostUnixTests.test_exact_seed_entropy_and_pure_ids_remain_allowed) ... ok
+test_unix_named_helper_taint_reaches_renamed_consumer (__main__.HostUnixTests.test_unix_named_helper_taint_reaches_renamed_consumer) ... ok
+test_unix_world_stamp_requires_fix_and_campaign_value_passes (__main__.HostUnixTests.test_unix_world_stamp_requires_fix_and_campaign_value_passes) ... ok
+test_live_baseline_shape (__main__.LiveRepoSmokeTests.test_live_baseline_shape) ... ok
+test_live_clean_against_baseline (__main__.LiveRepoSmokeTests.test_live_clean_against_baseline) ... ok
+test_compare_mode (__main__.ModeTests.test_compare_mode) ... ok
+test_deterministic_output (__main__.ModeTests.test_deterministic_output) ... ok
+test_domain_filter (__main__.ModeTests.test_domain_filter) ... ok
+test_production_only_excludes_tests (__main__.ModeTests.test_production_only_excludes_tests) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 1.480s
+
+OK

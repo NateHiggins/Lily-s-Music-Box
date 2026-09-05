@@ -42,6 +42,12 @@ func _run() -> void:
 		await get_tree().physics_frame
 		_check(not world.startup_failed, "composition %d starts" % iteration)
 		if not world.startup_failed:
+			_check(world.find_children("*", "WorldEnvironment", true, false).size() == 1,
+					"runtime owns one world environment")
+			_check(world.day_night_director != null and not world.day_night_director.resolved_profile().is_empty(),
+					"runtime atmosphere consumes campaign day/night profile")
+			_check(world.shop_simulation != null and not world.shop_simulation.failed,
+					"runtime owns active shop simulation")
 			var exterior: Node3D = world.exterior_cell
 			_check(exterior.global_transform.is_equal_approx(Transform3D.IDENTITY), "exterior keeps canonical frame")
 			_check(exterior.player == world.player and exterior.work_orders == world.work_orders

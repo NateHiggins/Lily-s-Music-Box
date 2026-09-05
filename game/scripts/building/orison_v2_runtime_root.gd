@@ -11,6 +11,8 @@ const LineageRegistry := preload("res://scripts/reality/corruption_lineage_regis
 const WorldConnection := preload("res://scripts/building/orison_v2_world_connection.gd")
 const ExteriorResolver := preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd")
 const ExteriorCell := preload("res://scripts/building/orison_v2_exterior_cell.gd")
+const ShopSimulation := preload("res://scripts/building/orison_v2_shop_simulation.gd")
+const Atmosphere := preload("res://scripts/building/orison_v2_atmosphere.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -43,6 +45,8 @@ var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
 var exterior_cell: OrisonV2ExteriorCell
 var shop_service: MaintenanceShopService
+var shop_simulation: Node
+var day_night_director: DayNightDirector
 var _exterior_resolver: Variant
 var _connection: Dictionary = {}
 
@@ -66,6 +70,10 @@ func _ready() -> void:
 		return
 	add_to_group("building_root")
 	add_to_group("orison_v2_runtime")
+	var atmosphere := Atmosphere.new()
+	atmosphere.name = "WakingAtmosphere"
+	add_child(atmosphere)
+	day_night_director = atmosphere.director
 	_blockout = BLOCKOUT.instantiate()
 	_blockout.show_clearance_anchors = false
 	_blockout.show_reservation_volumes = false
@@ -199,6 +207,13 @@ func _compose_authorities() -> void:
 	if open_shift_radiator:
 		open_shift_radiator.bind_inventory(maintenance_inventory)
 	_compose_observation_ledger()
+	shop_simulation = ShopSimulation.new()
+	shop_simulation.name = "ShopSimulation"
+	add_child(shop_simulation)
+	if not shop_simulation.setup(campaign_clock, resident_presence,
+			exterior_cell.shop_bucket_registry, Callable(exterior_cell, "refresh_shop_presentation")):
+		startup_failed = true
+		return
 	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
 			service_round, Callable(campaign_clock, "absolute_minutes"),
 			observation_ledger, null, Callable(), "campaign_absolute_minutes")
@@ -400,6 +415,8 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	if is_instance_valid(shop_simulation):
+		shop_simulation.shutdown()
 	if is_instance_valid(exterior_cell):
 		exterior_cell.shutdown_for_tests()
 	if adapter != null:

@@ -1,0 +1,36 @@
+test_deterministic_json_output (__main__.CliTests.test_deterministic_json_output) ... ok
+test_missing_root_is_usage_error (__main__.CliTests.test_missing_root_is_usage_error) ... ok
+test_operates_without_godot_or_git_metadata (__main__.CliTests.test_operates_without_godot_or_git_metadata) ... ok
+test_adapter_pattern_detected (__main__.DiscoveryTests.test_adapter_pattern_detected) ... ok
+test_composed_interact_area (__main__.DiscoveryTests.test_composed_interact_area) ... ok
+test_debug_role_from_known_path (__main__.DiscoveryTests.test_debug_role_from_known_path) ... ok
+test_inherited_via_class_name (__main__.DiscoveryTests.test_inherited_via_class_name) ... ok
+test_inherited_via_script_path (__main__.DiscoveryTests.test_inherited_via_script_path) ... ok
+test_named_control_same_file (__main__.DiscoveryTests.test_named_control_same_file) ... ok
+test_parent_delegation_detected (__main__.DiscoveryTests.test_parent_delegation_detected) ... ok
+test_unresolved_dynamic_delegation (__main__.DiscoveryTests.test_unresolved_dynamic_delegation) ... ok
+test_whole_object_same_file (__main__.DiscoveryTests.test_whole_object_same_file) ... ok
+test_adapter_losing_target_fails (__main__.DriftTests.test_adapter_losing_target_fails) ... ok
+test_changed_prompt_family_reported (__main__.DriftTests.test_changed_prompt_family_reported) ... ok
+test_file_move_causes_explicit_drift (__main__.DriftTests.test_file_move_causes_explicit_drift) ... ok
+test_generated_manifest_agrees_with_source (__main__.DriftTests.test_generated_manifest_agrees_with_source) ... ok
+test_line_number_changes_cause_no_drift (__main__.DriftTests.test_line_number_changes_cause_no_drift) ... ok
+test_named_control_without_action_fails (__main__.DriftTests.test_named_control_without_action_fails) ... ok
+test_new_unclassified_implementor_fails (__main__.DriftTests.test_new_unclassified_implementor_fails) ... ok
+test_production_to_debug_reclassification_fails (__main__.DriftTests.test_production_to_debug_reclassification_fails) ... ok
+test_removed_implementor_is_stale_not_silent (__main__.DriftTests.test_removed_implementor_is_stale_not_silent) ... ok
+test_resolved_inheritance_disappearing_fails (__main__.DriftTests.test_resolved_inheritance_disappearing_fails) ... ok
+test_tolerated_unresolved_stays_green_when_declared (__main__.DriftTests.test_tolerated_unresolved_stays_green_when_declared) ... ok
+test_duplicate_manifest_record_is_malformed (__main__.ManifestValidationTests.test_duplicate_manifest_record_is_malformed) ... ok
+test_invalid_role_value_is_malformed (__main__.ManifestValidationTests.test_invalid_role_value_is_malformed) ... ok
+test_missing_manifest_is_usage_error (__main__.ManifestValidationTests.test_missing_manifest_is_usage_error) ... ok
+test_unreadable_manifest_is_usage_error (__main__.ManifestValidationTests.test_unreadable_manifest_is_usage_error) ... ok
+test_no_unresolved_required_relationships_in_production (__main__.ProductionSmokeTests.test_no_unresolved_required_relationships_in_production) ... ok
+test_production_census_agrees_with_manifest (__main__.ProductionSmokeTests.test_production_census_agrees_with_manifest) ... ok
+test_projector_inheritance_resolution_pinned (__main__.ProductionSmokeTests.test_projector_inheritance_resolution_pinned) ... ok
+test_wayfinding_composition_resolution_pinned (__main__.ProductionSmokeTests.test_wayfinding_composition_resolution_pinned) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.440s
+
+OK

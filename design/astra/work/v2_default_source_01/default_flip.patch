@@ -1,0 +1,6 @@
+diff --git a/game/scripts/building/building_root_selector.gd b/game/scripts/building/building_root_selector.gd
+--- a/game/scripts/building/building_root_selector.gd
++++ b/game/scripts/building/building_root_selector.gd
+@@ -4,1 +4,1 @@
+-const DEFAULT_ID := "v1" # Future cutover and rollback change this value only.
++const DEFAULT_ID := "v2" # Future cutover and rollback change this value only.

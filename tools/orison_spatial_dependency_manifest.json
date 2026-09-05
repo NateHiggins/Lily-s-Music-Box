@@ -109242,6 +109242,204 @@
    "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "e4df3123e2131a21",
+   "kind": "id_reference",
+   "token": "F01_DOOR_06",
+   "file": "game/data/orison_v2/world_connection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/door_id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "V2 connection resolves the preserved F01 front door uniquely from blockout doors. Source inventory only; this does not confer runtime or cutover acceptance.",
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "081f54852e081df0",
+   "kind": "id_reference",
+   "token": "F01_STREET_APRON",
+   "file": "game/data/orison_v2/world_connection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/outside_space_id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "V2 connection keeps this open-shell semantic space while the exterior owns its geometry. Source inventory only; this does not confer runtime or cutover acceptance.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "37a6d01e4a9686da",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/data/orison_v2/world_connection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/inside_space_id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "V2 connection derives outward orientation from the named vestibule and its connected door. Source inventory only; this does not confer runtime or cutover acceptance.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "278e31b0de3e0971",
+   "kind": "id_reference",
+   "token": "F04_B_DESK_ZONE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_call_station"
+   ],
+   "lines": [
+    263
+   ],
+   "count": 1,
+   "context": [
+    "desk.name = \"F04_B_DESK_ZONE\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime creates this preserved DeskZone identity from the terminal-use footprint and operator stance. Source inventory only; this does not confer runtime or cutover acceptance.",
+   "resolved_target": "F04/marker",
+   "target_exists": true
+  },
+  {
+   "key": "1eef430d5e31abf3",
+   "kind": "id_reference",
+   "token": "F04_B_MONITOR_STANCE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_call_station"
+   ],
+   "lines": [
+    248
+   ],
+   "count": 1,
+   "context": [
+    "var operator := adapter.resolve(\"F04_B_MONITOR_STANCE\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime adapter resolves the named operator stance; global position controls terminal orientation. Source inventory only; this does not confer runtime or cutover acceptance.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "09631e744e448653",
+   "kind": "id_reference",
+   "token": "F04_B_TERMINAL_USE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_call_station"
+   ],
+   "lines": [
+    249
+   ],
+   "count": 1,
+   "context": [
+    "var use := adapter.resolve(\"F04_B_TERMINAL_USE\") as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime adapter resolves the named use envelope; global AABB controls interaction footprint. Source inventory only; this does not confer runtime or cutover acceptance.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b8009f733680f4dd",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/sky/orison_queens_night_rain_half_dome_4k.png",
+   "file": "game/scripts/building/orison_v2_atmosphere.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "V2 atmosphere reuses the existing production night panorama; asset path must survive migration. Source inventory only; this does not confer runtime or cutover acceptance.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
