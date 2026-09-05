@@ -1,0 +1,96 @@
+{
+  "schema": "astra.v2-terminal-operator-view.preparation.v1",
+  "status": "PREPARED_NOT_INSTALLED_NOT_RUN",
+  "captured_head_historical": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "original_fixture_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+  "candidate_fixture_sha256": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+  "scene_unchanged_sha256": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+  "changed_live_paths_if_later_authorized": [
+    "game/tests/vulkan_composed_root_test.gd"
+  ],
+  "v1_prefix_and_shared_suffix_byte_preservation_verified": true,
+  "original_function_block": "_v2 only; three V2-only helpers appended before existing shared suffix",
+  "original_v2_checks": 14,
+  "added_ordered_labels": [
+    "V2 operator anchor resolves uniquely at its authored position",
+    "V2 operator belongs to the authored terminal stance envelope",
+    "V2 terminal resolves one actual SignalScope mesh",
+    "V2 original bedside terminal view is blocked by actual physics geometry",
+    "V2 operator camera has a clear physics segment to SignalScope",
+    "V2 actual terminal front faces its authored operator",
+    "V2 composes a DeskZone bound to its actual call interface"
+  ],
+  "expected_complete_v2_checks": 21,
+  "expected_preserved_v1_checks": 305,
+  "static_expected_failures_not_runtime_results": [
+    "V2 actual terminal front faces its authored operator",
+    "V2 composes a DeskZone bound to its actual call interface"
+  ],
+  "expected_native_gate_if_only_those_defects_observed": {
+    "native": 1,
+    "strict_gate": 1,
+    "new_expected_red_exception": false
+  },
+  "capture_names_unchanged": [
+    "v2_actual_f04_semantic_stance",
+    "v2_actual_f04_phone"
+  ],
+  "scope": "No engine, no live fixture/product edits. A clear physics segment does not prove ray interaction, visual readability, body clearance or traversal. DeskZone absence is an actual accessibility defect.",
+  "source_bindings_sha256": {
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+    "game/scripts/props/functional_prop.gd": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca",
+    "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+    "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+    "game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+    "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+    "game/scripts/call/desk_zone.gd": "294fa6275cc8355ed277f6a9be1b1293699e1680ab7189a04182861d0d06de2e",
+    "game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+    "design/astra/work/vulkan_composed/run_case.py": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "design/astra/work/vulkan_composed/gate.py": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+  },
+  "files_sha256": {
+    "terminal_operator_view.patch": "44daf621acdbabfab27f175d5c2d0c682f699dc04730d8a0ee03c49349780cd9",
+    "originals/game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "originals/game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "proposed/game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "proposed/game/tests/vulkan_composed_root_test.gd": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+    "README.md": "92547f7f3acac60e6ed90044b177ef9867f3510bc0042d4c919acfbae417a7e8",
+    "static_validation.json": "fc6338a5512a58e76352f370d278f5811e55a7f1e9184036bc292ecf3b5f5bd0"
+  },
+  "checkpoint_scope": "Excluded from current renderer/material checkpoint; original5ec source owns its completed305 V1 proof.",
+  "desk_check_scope": "Presence of a DeskZone bound to the real CallInterface only. Its absence is a current accessibility defect; presence would not prove stance reach, ray hit, seating, or calls.",
+  "raw_byte_preservation": {
+    "raw_preserved_prefix_bytes": 20001,
+    "raw_preserved_suffix_bytes": 12445,
+    "raw_preserved_prefix_sha256": "3e07c4d5072ae4bae9c373bcd909787b1257a55fab7f2cec7959e59a0254b947",
+    "raw_preserved_suffix_sha256": "fda3bcc501e4b41fef673507b29b5babd2d0f4194f76cfd3c3cb58fc9142de79"
+  },
+  "expected_complete_v2_ordered_labels": [
+    "campaign calendar seeded at authored 03:00 without host time",
+    "Vulkan Forward+ is active",
+    "CampaignShell composed the selected real root",
+    "root startup succeeded",
+    "real production player exists",
+    "V2 genuinely has no V1 zone APIs",
+    "actual V2 production terminal is present",
+    "profile photo directory is available",
+    "production phone lens shares selected root world",
+    "V2 F04 uses actual semantic stance",
+    "V2 operator anchor resolves uniquely at its authored position",
+    "V2 operator belongs to the authored terminal stance envelope",
+    "V2 terminal resolves one actual SignalScope mesh",
+    "V2 original bedside terminal view is blocked by actual physics geometry",
+    "V2 operator camera has a clear physics segment to SignalScope",
+    "V2 actual terminal front faces its authored operator",
+    "V2 composes a DeskZone bound to its actual call interface",
+    "capture written v2_actual_f04_semantic_stance",
+    "capture written v2_actual_f04_phone",
+    "actual shell retired",
+    "actual selected world retired"
+  ],
+  "prepared_command_not_executed": "python design/astra/work/vulkan_composed/run_case.py v2 candidate terminal_operator_view_v2_01",
+  "planned_fresh_evidence_root": "design/astra/evidence/vulkan_composed/runs/terminal_operator_view_v2_01"
+}

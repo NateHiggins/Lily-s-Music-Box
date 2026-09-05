@@ -31,13 +31,29 @@
     "base_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
     "source_reference": "c34ad283df148496fbd98e68638470835c930c5c",
     "status": "SOURCE_REPLAY_VALIDATED",
-    "scope": "Uncommitted named source additions; static audit at HEAD excludes them; no geometry adoption."
+    "scope": "Ten attributable source files committed with their source-bound tests. The selected static audit at renderer/material HEAD excludes these later additions; no geometry adoption.",
+    "integration_commit": "af9c5b6fdc42079d4bd64549b709a49ababa9e50"
   },
   "current_f01_export": {
     "path": "evidence/f01_source_export/export_01/summary.json",
     "sha256": "764ce33a56f6b9f6bea11b491ae33a17fd77508be5e8d63acd2053edd052ce0c",
     "base_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
     "status": "TWO_EXPORT_BYTE_OWNERSHIP_ALIAS_CHECKS_PASS_HUMAN_PENDING",
-    "scope": "External deterministic reconstruction only. No generated production asset, provider, streaming, traversal, human acceptance or release proof."
+    "scope": "External deterministic reconstruction only. No generated production asset, provider, streaming, traversal, human acceptance or release proof.",
+    "evidence_commit": "af9c5b6fdc42079d4bd64549b709a49ababa9e50"
+  },
+  "latest_f01_source_commit": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+  "current_v2_terminal_repair": {
+    "status": "FOCUSED_INPUT_AND_CAPTURE_VERIFIED_COMMIT_PENDING",
+    "base_head": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+    "input_review": "reviews/v2_terminal_access_arrival_02_review.json",
+    "input_review_sha256": "9128b8815edbf5d603220cacfeee9c05f66e89efed862c2fb1cda3e67baa0c04",
+    "capture_review": "reviews/v2_terminal_candidate_view_01.json",
+    "capture_review_sha256": "3a11228440443cc91524df8718e95138039afb5dc1810a2510178510ce3fd871",
+    "sources": {
+      "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a"
+    },
+    "scope": "39-check actual controlled-pose input with selective negatives and21-check operator/phone capture. No traversal, complete case, performance, visual or human acceptance."
   }
 }

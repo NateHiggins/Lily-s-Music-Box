@@ -124,6 +124,10 @@ func _compose_authorities() -> void:
 	call_interface.name = "CallInterface"
 	call_interface.world = _blockout
 	add_child(call_interface)
+	if not _compose_call_station(terminal):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: invalid support desk anchors")
+		return
 	virus_director = VirusSoundDirector.new()
 	virus_director.name = "VirusSoundDirector"
 	virus_director.setup(self)
@@ -172,6 +176,31 @@ func _compose_authorities() -> void:
 	safety_net.name = "SafetyNet"
 	safety_net.setup(player)
 	add_child(safety_net)
+
+func _compose_call_station(terminal: SignalTerminalProp) -> bool:
+	var operator := adapter.resolve("F04_B_MONITOR_STANCE") as Node3D
+	var use := adapter.resolve("F04_B_TERMINAL_USE") as MeshInstance3D
+	if operator == null or use == null or terminal == null:
+		return false
+	var bounds: AABB = use.global_transform * use.get_aabb()
+	var toward_operator: Vector3 = operator.global_position - terminal.global_position
+	toward_operator.y = 0.0
+	if toward_operator.length_squared() < 0.000001 or bounds.size.x <= 0.0 or bounds.size.z <= 0.0:
+		return false
+	# The instrument face is local +X. Preserve the authored anchor transform;
+	# only the mounted production consumer turns toward its operator.
+	terminal.global_rotation.y = atan2(-toward_operator.z, toward_operator.x)
+	# The ordinary player ray does not hit an Area from inside it. Keep this
+	# target inside the existing terminal-use footprint, ahead of the stance.
+	var desk := DeskZone.new()
+	desk.name = "F04_B_DESK_ZONE"
+	desk.call_interface = call_interface
+	desk.interaction_footprint = Vector2(bounds.size.x, bounds.size.z)
+	_blockout.add_child(desk)
+	var center: Vector3 = bounds.position + bounds.size * 0.5
+	desk.global_position = Vector3(center.x, operator.global_position.y, center.z)
+	return true
+
 
 ## WHO IS ACTUALLY HOME TO SEE IT.
 ##

@@ -1,0 +1,276 @@
+{
+	"checks": [
+		{
+			"label": "authored campaign calendar is valid",
+			"passed": true
+		},
+		{
+			"label": "V1 default desk footprint and height remain unchanged",
+			"passed": true
+		},
+		{
+			"label": "CampaignShell composes the actual V2 root",
+			"passed": true
+		},
+		{
+			"label": "actual V2 startup succeeds",
+			"passed": true
+		},
+		{
+			"label": "actual production player and camera are present",
+			"passed": true
+		},
+		{
+			"label": "terminal operator and semantic identities resolve uniquely",
+			"passed": true
+		},
+		{
+			"label": "actual SignalScope retains its authored cylinder axis",
+			"passed": true
+		},
+		{
+			"label": "original semantic terminal transform remains exact",
+			"passed": true
+		},
+		{
+			"label": "mounted terminal keeps semantic position scale and stable identity",
+			"passed": true
+		},
+		{
+			"label": "operator anchor remains the authored stance",
+			"passed": true
+		},
+		{
+			"label": "actual scope front faces the operator",
+			"passed": false
+		},
+		{
+			"label": "V2 owns exactly one actual DeskZone",
+			"passed": false
+		},
+		{
+			"label": "desk reuses the sole production call owner",
+			"passed": false
+		},
+		{
+			"label": "call owner retains terminal and acoustic identity",
+			"passed": true
+		},
+		{
+			"label": "desk target uses the authored footprint and ordinary height",
+			"passed": false
+		},
+		{
+			"label": "desk target is at the terminal use area on the operator floor",
+			"passed": false
+		},
+		{
+			"label": "ordinary player ray acquires the actual desk Area",
+			"passed": false
+		},
+		{
+			"label": "actual player prompt offers the support desk",
+			"passed": false
+		},
+		{
+			"label": "desk line is silent before occupancy",
+			"passed": true
+		},
+		{
+			"label": "real interact input acquires reciprocal seated ownership",
+			"passed": false
+		},
+		{
+			"label": "real entry opens the call panel and starts the first case",
+			"passed": false
+		},
+		{
+			"label": "real call owner updates the actual terminal stage",
+			"passed": false
+		},
+		{
+			"label": "occupied line plays on the existing Telephone owner",
+			"passed": false
+		},
+		{
+			"label": "entry does not teleport the authored operator",
+			"passed": false
+		},
+		{
+			"label": "seated E releases player desk and call ownership",
+			"passed": false
+		},
+		{
+			"label": "seated E hides the modal and stops the line",
+			"passed": false
+		},
+		{
+			"label": "standing player can reacquire the same physical desk",
+			"passed": false
+		},
+		{
+			"label": "ray reentry resumes the same live case and owner",
+			"passed": false
+		},
+		{
+			"label": "actual Escape key releases reciprocal ownership",
+			"passed": false
+		},
+		{
+			"label": "Escape restores world input and stops the line",
+			"passed": false
+		},
+		{
+			"label": "exactly two real ray entries emitted desk interactions",
+			"passed": false
+		},
+		{
+			"label": "opening sequence settles through its actual owner",
+			"passed": false
+		},
+		{
+			"label": "entry and exit do not complete a case or advance campaign time",
+			"passed": true
+		},
+		{
+			"label": "actual V2 world retires",
+			"passed": true
+		},
+		{
+			"label": "actual CampaignShell retires",
+			"passed": true
+		},
+		{
+			"label": "retirement restores original acoustic records",
+			"passed": true
+		}
+	],
+	"diagnostics": {
+		"call_count": 1,
+		"case_open_delay_factor": 0.05,
+		"complete": true,
+		"desk_count": 0,
+		"desk_size": [],
+		"escape_key_dispatched": false,
+		"first_interact_action_dispatched": true,
+		"first_ray": {
+			"collider": "",
+			"from": [
+				-3.59999990463257,
+				1.50999999046326,
+				24.7199993133545
+			],
+			"hit_from_inside": false,
+			"hit_position": [],
+			"target_is_desk": false,
+			"to": [
+				-3.10680842399597,
+				1.50999999046326,
+				22.6787338256836
+			]
+		},
+		"front_dot": -0.0000000754979012640433,
+		"operator_direction": [
+			-0.84999942779541,
+			0.0,
+			0.0
+		],
+		"reentry_action_dispatched": false,
+		"scope": "actual input and physics acquisition at a controlled authored pose; no traversal or completed case proof",
+		"scope_basis": [
+			[
+				-0.00000000000000330011807777566,
+				1.0,
+				-0.0000000437113882867379
+			],
+			[
+				-0.0000000754979012640433,
+				-0.0000000437113882867379,
+				-1.0
+			],
+			[
+				-1.0,
+				0.0,
+				0.0000000754979012640433
+			]
+		],
+		"scope_front": [
+			0.0000000754979012640433,
+			0.0,
+			1.0
+		],
+		"scope_position": [
+			-8.79500007629395,
+			10.5150003433228,
+			1.47399997711182
+		],
+		"seated_E_action_dispatched": false,
+		"second_ray": {
+			"collider": "",
+			"from": [
+				-3.59999990463257,
+				1.50999999046326,
+				24.7199993133545
+			],
+			"hit_from_inside": false,
+			"hit_position": [],
+			"target_is_desk": false,
+			"to": [
+				-4.02841520309448,
+				2.25261425971985,
+				22.8029747009277
+			]
+		},
+		"semantic_basis": [
+			[
+				0.0000000754979012640433,
+				0.0,
+				1.0
+			],
+			[
+				0.0,
+				1.0,
+				0.0
+			],
+			[
+				-1.0,
+				0.0,
+				0.0000000754979012640433
+			]
+		],
+		"semantic_position": [
+			-9.05000019073486,
+			10.3500003814697,
+			1.25
+		],
+		"terminal_basis": [
+			[
+				0.0000000754979012640433,
+				0.0,
+				1.0
+			],
+			[
+				0.0,
+				1.0,
+				0.0
+			],
+			[
+				-1.0,
+				0.0,
+				0.0000000754979012640433
+			]
+		],
+		"terminal_position": [
+			-9.05000019073486,
+			10.3500003814697,
+			1.25
+		],
+		"world_events": []
+	},
+	"failures": 20,
+	"pid": 30496,
+	"renderer": "forward_plus",
+	"root": "v2",
+	"schema": "astra.v2-terminal-access.probe.v1",
+	"scope": "real player action and call ownership from controlled operator placement; delayed narrative compressed"
+}

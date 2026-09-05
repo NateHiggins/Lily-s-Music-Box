@@ -1,0 +1,24 @@
+test_each_ray_at_old_curb_rejects_even_with_true_claims (test_assess.AdmissionControls.test_each_ray_at_old_curb_rejects_even_with_true_claims) ... 
+  test_each_ray_at_old_curb_rejects_even_with_true_claims (test_assess.AdmissionControls.test_each_ray_at_old_curb_rejects_even_with_true_claims) (ray='first_ray') ... FAIL
+  test_each_ray_at_old_curb_rejects_even_with_true_claims (test_assess.AdmissionControls.test_each_ray_at_old_curb_rejects_even_with_true_claims) (ray='second_ray') ... FAIL
+
+======================================================================
+FAIL: test_each_ray_at_old_curb_rejects_even_with_true_claims (test_assess.AdmissionControls.test_each_ray_at_old_curb_rejects_even_with_true_claims) (ray='first_ray')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\v2_terminal_access_arrival_02\runtime\test_assess.py", line 113, in test_each_ray_at_old_curb_rejects_even_with_true_claims
+    self.assertIn("arrival_or_authored_operator_ray_origin_invalid", verdict["reasons"])
+AssertionError: 'arrival_or_authored_operator_ray_origin_invalid' not found in []
+
+======================================================================
+FAIL: test_each_ray_at_old_curb_rejects_even_with_true_claims (test_assess.AdmissionControls.test_each_ray_at_old_curb_rejects_even_with_true_claims) (ray='second_ray')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\v2_terminal_access_arrival_02\runtime\test_assess.py", line 113, in test_each_ray_at_old_curb_rejects_even_with_true_claims
+    self.assertIn("arrival_or_authored_operator_ray_origin_invalid", verdict["reasons"])
+AssertionError: 'arrival_or_authored_operator_ray_origin_invalid' not found in []
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=2)

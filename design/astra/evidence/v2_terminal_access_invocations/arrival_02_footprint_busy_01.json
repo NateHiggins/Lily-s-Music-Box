@@ -1,0 +1,16 @@
+{
+  "schema": "astra.terminal-prelaunch-refusal.v1",
+  "command": ["python", "-B", "design/astra/work/v2_terminal_access_arrival_02/runtime/run.py", "05_footprint_omission"],
+  "actual_command_exit": 1,
+  "diagnostic": "ValueError: lane busy before source transition",
+  "provenance": "Command exit and diagnostic transcribed from exec tool output. The process identities below were independently observed immediately afterward; no raw child stream capture is claimed.",
+  "observed_processes": [
+    {"pid": 9232, "parent_pid": 12016, "name": "Godot_v4.7.1-stable_win64_console.exe", "command_line": "\"D:\\Godot_projects\\jawbreaker\\Godot_v4.7.1-stable_win64_console.exe\" --headless --path . --script tests/smoke_physics.gd"},
+    {"pid": 29576, "parent_pid": 9232, "name": "Godot_v4.7.1-stable_win64.exe", "command_line": "D:\\Godot_projects\\jawbreaker\\Godot_v4.7.1-stable_win64.exe --headless --path . --script tests/smoke_physics.gd"}
+  ],
+  "requested_run_directory_absent_after_refusal": true,
+  "source_transition_executed": false,
+  "engine_launched_by_refused_command": false,
+  "other_project_interrupted": false,
+  "next_action": "Wait for an empty engine census, then launch the still-unrun fifth phase. Preserve this refusal."
+}

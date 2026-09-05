@@ -1,0 +1,8 @@
+{
+  "status": "PREPARED_NOT_EXECUTED_WAITING_LANE",
+  "prior_no_launch_invocation": "design/astra/evidence/vulkan_composed/invocations/terminal_operator_view_v2_01",
+  "original_controller_sha256": "62ba391ad6ab3b91cc3740a1ee10b5c5cccf0390572631f67ccbc10f47050176",
+  "controller_sha256": "fefb05fd74eda214914b5b61b81117b919195874de9b34723d7e541f8da65af8",
+  "only_controller_change": "Persist the exact preflight source/head/process fields before asserting an empty lane. Wrapper, fixture and one proposed runtime invocation are unchanged.",
+  "runtime_directory_still_fresh": true
+}

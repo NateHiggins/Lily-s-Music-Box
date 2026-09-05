@@ -1,0 +1,37 @@
+{
+  "source_run": "design/astra/evidence/vulkan_composed/runs/terminal_operator_view_v2_01/result.json",
+  "source_result_sha256": "3c89c4a8d8168984f9e5f7448c367398a5adfd4b459d5fe1fe072ab11cda683c",
+  "errors": [
+    [
+      "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+      "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+    ],
+    [
+      "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+      "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+    ],
+    [
+      "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+      "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+    ],
+    [
+      "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+      "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+    ]
+  ],
+  "warnings": [
+    [
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+      "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)"
+    ],
+    [
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+      "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files."
+    ],
+    [
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+      "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)"
+    ]
+  ],
+  "scope": "Exact preserved header/next-line pairs only; counts are retained, no unknown error or warning accepted."
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "astra.terminal-restoration-recovery.v1",
+  "status": "EXACT_OWNED_SOURCES_RESTORED",
+  "phase": "05_footprint_omission",
+  "target_phase": "02_candidate",
+  "orchestrator_sha256": "9974ef4ad6344520496a5c3e59cd24ac2de0b040e3d02adadcf73738aed363ab",
+  "preserved_refusal_sha256": "3fe69fba1c56633e8928642d580e9d7ebc5ed1019f3c80da10041b08f13f0d35",
+  "result_sha256": "3fda50567e61c694ffc8a63913f9ff3b1f7767114179cfa06d343218652274ea",
+  "before_hashes": {
+    "game/scripts/building/orison_v2_runtime_root.gd": "0c80cb42f4f0ee295b500d068424650b5723db5f219652ec409c34e456f21e4b",
+    "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a"
+  },
+  "processes_before": [],
+  "scope": "Postrun recovery after an unrelated engine occupied the lane. Actual fifth run retained with concurrent-process context; no performance acceptance.",
+  "process_census": [],
+  "hashes": {
+    "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+    "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a"
+  }
+}

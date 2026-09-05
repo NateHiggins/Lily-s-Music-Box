@@ -1,0 +1,47 @@
+{
+  "actual_engine_exit": 1,
+  "elapsed_seconds": 6.235,
+  "gate": {
+    "diagnostic_gate_exit": 1,
+    "reasons": [
+      "actual engine/runner exit 1",
+      "functional checks failed or missing"
+    ],
+    "unpair_errors": 0,
+    "soft_shadow_underflows": 0,
+    "non_inherited_error_headers": {},
+    "inherited_manifest_errors": [
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      }
+    ],
+    "warnings": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 39
+    },
+    "retention": [],
+    "functional_checks_meaningful": false,
+    "expected_unpair_red_observed": false,
+    "expected_viewport_guard_red_observed": false,
+    "execution_scope": "full",
+    "full_candidate_scope_completed": false,
+    "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+  }
+}

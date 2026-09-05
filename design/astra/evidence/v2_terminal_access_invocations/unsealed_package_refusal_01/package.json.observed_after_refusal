@@ -1,0 +1,30 @@
+{
+  "install": {
+    "game/tests/orison_v2_terminal_access_test.gd": "74a2bd4ffddbdc6a6ae60184985ae3a07f0b8e90c40fdcc7f5727ff0ff4b024b",
+    "game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60"
+  },
+  "production_bindings": {
+    "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+    "game/scripts/call/desk_zone.gd": "294fa6275cc8355ed277f6a9be1b1293699e1680ab7189a04182861d0d06de2e",
+    "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+    "game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+    "game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+    "game/scripts/call/call_interface.gd": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c",
+    "game/scripts/call/case_library.gd": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c",
+    "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e"
+  },
+  "engine_sha256": [
+    "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a",
+    "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+  ],
+  "serial_runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "reused_core_sha256": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+  "reused_support_sha256": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+  "reused_bridge_sha256": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+  "source_copy_count": 14,
+  "files": {}
+}

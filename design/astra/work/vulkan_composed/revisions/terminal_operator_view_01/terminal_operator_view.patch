@@ -1,0 +1,126 @@
+--- a/game/tests/vulkan_composed_root_test.gd
++++ b/game/tests/vulkan_composed_root_test.gd
+@@ -392,15 +392,115 @@
+ 	var stance: Dictionary = world.core_loop.resolve_return_anchor()
+ 	_check("V2 F04 uses actual semantic stance", stance.get("id") == "F04_B_BED" and stance.get("position") is Vector3)
+ 	var terminal := world.find_child("F04_B_MONITOR_01", true, false) as Node3D
+-	if stance.get("position") is Vector3 and terminal != null:
+-		player.global_position = stance.position
+-		camera.global_position = player.global_position + Vector3.UP * player.STANDING_EYE
+-		camera.look_at(terminal.global_position + Vector3.UP * 0.35)
+-		phone.track(camera)
+-		await _render_frames(8)
+-		await _capture("v2_actual_f04_semantic_stance", get_viewport())
+-		await _capture("v2_actual_f04_phone", phone.lens)
++	var operators: Array[Node] = world.find_children("F04_B_MONITOR_STANCE", "", true, false)
++	var operator: Node3D = operators[0] as Node3D if operators.size() == 1 else null
++	_check("V2 operator anchor resolves uniquely at its authored position", operator != null
++			and operator.global_position.distance_to(Vector3(-9.9, 9.6, 1.25)) < 0.001)
++	var envelopes: Array[Node] = world.find_children("F04_B_TERMINAL_STANCE", "", true, false)
++	var envelope: MeshInstance3D = envelopes[0] as MeshInstance3D if envelopes.size() == 1 else null
++	var inside_stance := false
++	if envelope != null and operator != null:
++		var bounds: AABB = envelope.global_transform * envelope.get_aabb()
++		inside_stance = bounds.grow(0.001).has_point(operator.global_position)
++	_check("V2 operator belongs to the authored terminal stance envelope", inside_stance)
++	var scopes: Array[Node] = terminal.find_children("SignalScope", "MeshInstance3D", true, false) if terminal != null else []
++	var signal_scope: MeshInstance3D = scopes[0] as MeshInstance3D if scopes.size() == 1 else null
++	_check("V2 terminal resolves one actual SignalScope mesh", signal_scope != null and signal_scope.mesh != null)
++	if terminal == null or operator == null or signal_scope == null or not (stance.get("position") is Vector3):
++		controls.append({"kind": "v2_terminal_operator_view", "complete": false,
++			"reason": "required live terminal/operator/scope/bed anchor missing"})
++		return
++	# Retain the exact old camera's target as an obstruction witness. The bed
++	# is still the correct wake anchor; it is not the terminal operator stance.
++	var old_eye: Vector3 = stance.position + Vector3.UP * player.STANDING_EYE
++	var old_target: Vector3 = terminal.global_position + Vector3.UP * 0.35
++	player.global_position = operator.global_position
++	camera.global_position = player.global_position + Vector3.UP * player.STANDING_EYE
++	camera.look_at(signal_scope.global_position)
++	phone.track(camera)
++	await get_tree().physics_frame
++	await _render_frames(8)
++	var bedside_ray := _v2_sightline(old_eye, old_target)
++	var operator_ray := _v2_sightline(camera.global_position, signal_scope.global_position)
++	_check("V2 original bedside terminal view is blocked by actual physics geometry", bool(bedside_ray.blocked))
++	_check("V2 operator camera has a clear physics segment to SignalScope", not bool(operator_ray.blocked))
++	# SignalTerminalProp authors its instrument face along local +X. Record
++	# actual mounted orientation; do not rotate the product to make this pass.
++	var face: Vector3 = terminal.global_transform.basis.x
++	face.y = 0.0
++	var toward_operator: Vector3 = operator.global_position - terminal.global_position
++	toward_operator.y = 0.0
++	var face_dot := -1.0
++	if face.length_squared() > 0.000001 and toward_operator.length_squared() > 0.000001:
++		face_dot = face.normalized().dot(toward_operator.normalized())
++	_check("V2 actual terminal front faces its authored operator", face_dot >= 0.5)
++	var desk_rows: Array = []
++	var bound_desk := false
++	for node in world.find_children("*", "Area3D", true, false):
++		if node is DeskZone:
++			var desk := node as DeskZone
++			var matches_call: bool = desk.call_interface != null and desk.call_interface == world.call_interface
++			bound_desk = bound_desk or matches_call
++			desk_rows.append({"path": str(desk.get_path()), "position": _v2_vec(desk.global_position), "bound_to_actual_call_interface": matches_call})
++	_check("V2 composes a DeskZone bound to its actual call interface", bound_desk)
++	var reservations: Array = []
++	for identity in ["F04_B_TERMINAL_USE", "F04_B_TERMINAL_STANCE", "F04_B_MONITOR_01_Semantic"]:
++		var records: Array[Node] = world.find_children(identity, "", true, false)
++		for record in records:
++			if record is MeshInstance3D:
++				reservations.append(_v2_geometry_witness(record as MeshInstance3D))
++			for mesh_node in record.find_children("*", "MeshInstance3D", true, false):
++				reservations.append(_v2_geometry_witness(mesh_node as MeshInstance3D))
++	controls.append({"kind": "v2_terminal_operator_view", "complete": true,
++		"capture_anchor": str(operator.get_path()), "capture_anchor_position": _v2_vec(operator.global_position),
++		"camera_position": _v2_vec(camera.global_position), "scope_position": _v2_vec(signal_scope.global_position),
++		"retained_bedside_position": _v2_vec(stance.position), "original_bedside_obstruction": bedside_ray,
++		"operator_scope_sightline": operator_ray, "terminal_position": _v2_vec(terminal.global_position),
++		"terminal_yaw_radians": terminal.global_rotation.y, "terminal_front_world": _v2_vec(face.normalized()),
++		"operator_direction_world": _v2_vec(toward_operator.normalized()), "face_dot_operator": face_dot,
++		"face_minimum_dot": 0.5, "desk_zones": desk_rows, "terminal_has_interact": terminal.has_method("interact"),
++		"terminal_area_count": terminal.find_children("*", "Area3D", true, false).size(), "reservation_geometry": reservations,
++		"scope": "controlled operator capture and physics obstruction diagnostics; ray clearance is not interaction or readability proof"})
++	# Keep the gate's historical filenames. The source-bound receipt above now
++	# names the operator explicitly; these are not bedside or traversal images.
++	await _capture("v2_actual_f04_semantic_stance", get_viewport())
++	await _capture("v2_actual_f04_phone", phone.lens)
+ 	populations.append({"station": "v2_f04", "population": _population(world), "zone_gate_applicability": "absent in this root"})
++
++func _v2_vec(value: Vector3) -> Array:
++	return [value.x, value.y, value.z]
++
++func _v2_sightline(from: Vector3, target: Vector3) -> Dictionary:
++	var query := PhysicsRayQueryParameters3D.create(from, target)
++	query.collide_with_bodies = true
++	query.collide_with_areas = false
++	query.hit_from_inside = true
++	query.exclude = [player.get_rid()]
++	var hit: Dictionary = camera.get_world_3d().direct_space_state.intersect_ray(query)
++	var collider := hit.get("collider") as Node
++	return {"from": _v2_vec(from), "to": _v2_vec(target), "length_m": from.distance_to(target),
++		"blocked": not hit.is_empty(), "collider_path": str(collider.get_path()) if collider != null else "",
++		"collider_class": collider.get_class() if collider != null else "",
++		"hit_position": _v2_vec(hit.position) if not hit.is_empty() else [],
++		"hit_normal": _v2_vec(hit.normal) if not hit.is_empty() else [],
++		"collide_with_bodies": true, "collide_with_areas": false, "hit_from_inside": true,
++		"excluded_player_rid_only": true, "scope": "physical obstruction only; SignalScope need not be a collider"}
++
++func _v2_geometry_witness(mesh: MeshInstance3D) -> Dictionary:
++	var bounds: AABB = mesh.global_transform * mesh.get_aabb()
++	var material: Material = mesh.get_active_material(0) if mesh.mesh != null and mesh.mesh.get_surface_count() > 0 else null
++	var collision_paths: Array = []
++	for body in mesh.find_children("*", "CollisionObject3D", true, false):
++		collision_paths.append(str(body.get_path()))
++	return {"path": str(mesh.get_path()), "position": _v2_vec(mesh.global_position),
++		"world_bounds_position": _v2_vec(bounds.position), "world_bounds_size": _v2_vec(bounds.size),
++		"visible_in_tree": mesh.is_visible_in_tree(), "purpose": str(mesh.get_meta("purpose", "")),
++		"camera_inside_world_bounds": bounds.has_point(camera.global_position),
++		"camera_cull_mask_overlap": (mesh.layers & camera.cull_mask) != 0,
++		"material_class": material.get_class() if material != null else "",
++		"transparency": int((material as BaseMaterial3D).transparency) if material is BaseMaterial3D else -1,
++		"albedo_alpha": (material as BaseMaterial3D).albedo_color.a if material is BaseMaterial3D else -1.0,
++		"collision_descendants": collision_paths}
+ 
+ func _collect_arcade_masks(node: Node) -> void:
+ 	if node is ArcadeMachine:

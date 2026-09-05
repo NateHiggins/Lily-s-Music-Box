@@ -1,0 +1,117 @@
+--- a/game/tests/orison_v2_terminal_access_test.gd
++++ b/game/tests/orison_v2_terminal_access_test.gd
+@@ -50,6 +50,11 @@
+ 		await _finish(acoustic_before)
+ 		return
+ 	player.set_physics_process(false)
++	# _ready queues FirstShiftDirector's resume placement. Observe that real
++	# one-shot boundary before this fixture authors its controlled operator pose.
++	# Neither is_node_ready nor ritual_phase is a callback completion signal.
++	var arrival: Dictionary = await _observe_deferred_arrival()
++	_check("deferred first-shift arrival settles before controlled placement", bool(arrival.settled))
+ 	player.world_modified.connect(func(where: Vector3, identity: String) -> void:
+ 		world_events.append({"position": _vec(where), "identity": str(identity)}))
+ 	var terminal := world.adapter.resolve("F04_B_MONITOR_01") as SignalTerminalProp
+@@ -112,6 +117,7 @@
+ 	await get_tree().physics_frame
+ 	await _frames(3)
+ 	var first_ray: Dictionary = _ray_witness()
++	_check("first ray starts from the authored operator and eye", _at_operator(first_ray, operator))
+ 	_check("ordinary player ray acquires the actual desk Area", bool(first_ray.target_is_desk))
+ 	_check("actual player prompt offers the support desk", player._prompt_panel.visible
+ 			and player._prompt.text.contains("support desk"))
+@@ -145,6 +151,7 @@
+ 	await get_tree().physics_frame
+ 	await _frames(2)
+ 	var second_ray: Dictionary = _ray_witness()
++	_check("second ray starts from the authored operator and eye", _at_operator(second_ray, operator))
+ 	_check("standing player can reacquire the same physical desk", bool(second_ray.target_is_desk))
+ 	if first_entered: await _interact_action()
+ 	var reentered: bool = first_entered and desk != null and desk.seated_player == player \
+@@ -167,7 +174,8 @@
+ 			and ci.closed_outcomes.is_empty() and not ci._closed
+ 			and RealityState.data.campaign_clock == clock_before)
+ 	await get_tree().create_timer(0.65).timeout
+-	diagnostics = {"complete": true, "scope_front": _vec(front), "operator_direction": _vec(to_operator),
++	diagnostics = {"complete": true, "arrival": arrival,
++		"operator_position": _vec(operator.global_position), "scope_front": _vec(front), "operator_direction": _vec(to_operator),
+ 		"front_dot": front_dot, "terminal_position": _vec(terminal.global_position),
+ 		"terminal_basis": _basis(terminal.global_basis), "semantic_position": _vec(semantic.global_position),
+ 		"semantic_basis": _basis(semantic.global_basis), "scope_position": _vec(scope.global_position),
+@@ -183,6 +191,56 @@
+ 	return desk != null and desk.seated_player == null and player.seated_interaction == null \
+ 		and not player.call_locked and ci._player == null and ci._seat_owner == null
+ 
++func _observe_deferred_arrival() -> Dictionary:
++	var before: Vector3 = player.global_position
++	var expected := Vector3(-3.6, 0.1, 24.72)
++	var phase_before: String = world.first_shift_director.ritual_phase()
++	var waited := 0
++	while waited < 120:
++		await get_tree().process_frame
++		waited += 1
++		if _arrival_pose_matches(expected): break
++	var observed: bool = _arrival_pose_matches(expected)
++	# Additional process frames allow the already scheduled callback to settle;
++	# this is a witnessed one-shot placement, not general world readiness.
++	await _frames(2)
++	var after: Vector3 = player.global_position
++	var phase_after: String = world.first_shift_director.ritual_phase()
++	var settled: bool = observed and _arrival_pose_matches(expected) \
++		and not before.is_equal_approx(expected) and phase_after == phase_before \
++		and phase_after == FirstShiftDirector.PHASE_COMPLETE
++	return {"before_position": _vec(before), "position": _vec(after),
++		"camera_position": _vec(player.camera.global_position),
++		"velocity": _vec(player.velocity), "yaw": player.rotation.y,
++		"camera_local_rotation": _vec(player.camera.rotation),
++		"phase_before": phase_before, "phase_after": phase_after,
++		"waited_process_frames": waited, "stable_process_frames": 2,
++		"observed": observed, "settled": settled,
++		"director_owns_world": world.first_shift_director.building == world,
++		"intro_complete": bool(RealityState.data.get("intro_complete", false)),
++		"noclip": player.noclip, "call_locked": player.call_locked,
++		"collision_layer": player.collision_layer, "collision_mask": player.collision_mask}
++
++func _arrival_pose_matches(expected: Vector3) -> bool:
++	var target := Vector3(0.0, 2.15, 9.82)
++	var flat: Vector3 = target - expected
++	var expected_yaw: float = atan2(-flat.x, -flat.z)
++	return world.first_shift_director != null and world.first_shift_director.building == world \
++		and bool(RealityState.data.get("intro_complete", false)) \
++		and player.global_position.is_equal_approx(expected) \
++		and player.camera.global_position.is_equal_approx(expected + Vector3.UP * player.STANDING_EYE) \
++		and player.camera.rotation.is_equal_approx(Vector3.ZERO) \
++		and is_equal_approx(player.rotation.y, expected_yaw) \
++		and player.velocity.is_zero_approx() and not player.noclip and not player.call_locked \
++		and player.collision_layer == 1 and player.collision_mask == 1
++
++func _at_operator(ray: Dictionary, operator: Node3D) -> bool:
++	var expected_eye: Vector3 = operator.global_position + Vector3.UP * player.STANDING_EYE
++	return player.global_position.is_equal_approx(operator.global_position) \
++		and player.camera.global_position.is_equal_approx(expected_eye) \
++		and Vector3(ray.from[0], ray.from[1], ray.from[2]).is_equal_approx(expected_eye) \
++		and not player.is_physics_processing()
++
+ func _box(owner: DeskZone) -> BoxShape3D:
+ 	if owner == null: return null
+ 	var children: Array[Node] = owner.find_children("*", "CollisionShape3D", true, false)
+@@ -197,7 +255,9 @@
+ 	query.exclude = [player.get_rid()]
+ 	var hit: Dictionary = player.get_world_3d().direct_space_state.intersect_ray(query)
+ 	var collider := hit.get("collider") as Node
+-	return {"from": _vec(from), "to": _vec(to), "hit_from_inside": query.hit_from_inside,
++	return {"from": _vec(from), "to": _vec(to), "actor_position": _vec(player.global_position),
++		"camera_position": _vec(player.camera.global_position),
++		"physics_processing": player.is_physics_processing(), "hit_from_inside": query.hit_from_inside,
+ 		"collider": str(collider.get_path()) if collider != null else "",
+ 		"target_is_desk": collider != null and collider == desk,
+ 		"hit_position": _vec(hit.position) if not hit.is_empty() else []}
+@@ -251,7 +311,7 @@
+ 		push_error("V2 TERMINAL ACCESS receipt write failed")
+ 		get_tree().quit(2)
+ 		return
+-	file.store_string(JSON.stringify({"schema": "astra.v2-terminal-access.probe.v1", "pid": OS.get_process_id(),
++	file.store_string(JSON.stringify({"schema": "astra.v2-terminal-access.probe.v2", "pid": OS.get_process_id(),
+ 		"root": "v2", "renderer": RenderingServer.get_current_rendering_method(),
+ 		"checks": checks, "failures": failed, "diagnostics": diagnostics,
+ 		"scope": "real player action and call ownership from controlled operator placement; delayed narrative compressed"}, "\t"))
