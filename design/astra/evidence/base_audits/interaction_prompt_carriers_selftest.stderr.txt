@@ -1,0 +1,33 @@
+test_baseline_never_covers_forbidden_carriers (__main__.BaselineTests.test_baseline_never_covers_forbidden_carriers) ... ok
+test_combined_forbidden_plus_stale_exit_five (__main__.BaselineTests.test_combined_forbidden_plus_stale_exit_five) ... ok
+test_legacy_without_baseline_fails_then_baseline_covers (__main__.BaselineTests.test_legacy_without_baseline_fails_then_baseline_covers) ... ok
+test_malformed_baseline_is_a_usage_error (__main__.BaselineTests.test_malformed_baseline_is_a_usage_error) ... ok
+test_new_legacy_occurrence_fails (__main__.BaselineTests.test_new_legacy_occurrence_fails) ... ok
+test_removed_legacy_is_cleanup_opportunity_not_failure (__main__.BaselineTests.test_removed_legacy_is_cleanup_opportunity_not_failure) ... ok
+test_stale_baseline_entry_fails_distinctly (__main__.BaselineTests.test_stale_baseline_entry_fails_distinctly) ... ok
+test_bracket_carriers (__main__.ClassifyLiteralTests.test_bracket_carriers) ... ok
+test_clean_semantic_prompts (__main__.ClassifyLiteralTests.test_clean_semantic_prompts) ... ok
+test_glyph_carrier (__main__.ClassifyLiteralTests.test_glyph_carrier) ... ok
+test_instructional_key_names (__main__.ClassifyLiteralTests.test_instructional_key_names) ... ok
+test_mouse_and_pad_instructions (__main__.ClassifyLiteralTests.test_mouse_and_pad_instructions) ... ok
+test_deterministic_json_output (__main__.CliTests.test_deterministic_json_output) ... ok
+test_fixture_tree_exit_and_counts (__main__.CliTests.test_fixture_tree_exit_and_counts) ... ok
+test_missing_root_is_usage_error (__main__.CliTests.test_missing_root_is_usage_error) ... ok
+test_operates_without_godot_or_git_metadata (__main__.CliTests.test_operates_without_godot_or_git_metadata) ... ok
+test_known_production_violation_is_reported_not_suppressed (__main__.ProductionSmokeTests.test_known_production_violation_is_reported_not_suppressed) ... ok
+test_production_counts_match_interaction_contract (__main__.ProductionSmokeTests.test_production_counts_match_interaction_contract) ... ok
+test_clean_prop_produces_no_findings (__main__.ScanTests.test_clean_prop_produces_no_findings) ... ok
+test_comment_only_carrier_is_separate_and_nonfailing (__main__.ScanTests.test_comment_only_carrier_is_separate_and_nonfailing) ... ok
+test_concatenated_carrier_detected (__main__.ScanTests.test_concatenated_carrier_detected) ... ok
+test_conditional_and_ternary_returns_covered (__main__.ScanTests.test_conditional_and_ternary_returns_covered) ... ok
+test_constant_referenced_by_method_detected (__main__.ScanTests.test_constant_referenced_by_method_detected) ... ok
+test_debug_only_implementation_reclassified (__main__.ScanTests.test_debug_only_implementation_reclassified) ... ok
+test_direct_carriers_detected_with_method_and_family (__main__.ScanTests.test_direct_carriers_detected_with_method_and_family) ... ok
+test_include_debug_promotes_debug_files (__main__.ScanTests.test_include_debug_promotes_debug_files) ... ok
+test_string_outside_prompt_method_not_a_finding (__main__.ScanTests.test_string_outside_prompt_method_not_a_finding) ... ok
+test_unresolved_dynamic_prompt_marked_separately (__main__.ScanTests.test_unresolved_dynamic_prompt_marked_separately) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.833s
+
+OK

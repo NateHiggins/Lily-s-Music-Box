@@ -1,0 +1,28 @@
+WARNING: could not write Reality Maintenance save
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] save_game (res://scripts/game/reality_game_state.gd:118)
+       [1] _ready (res://tests/orison_v2_m08f_runtime_test.gd:100)
+WARNING: could not write Reality Maintenance save
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] save_game (res://scripts/game/reality_game_state.gd:118)
+       [1] commit (res://scripts/game/reality_game_state.gd:106)
+       [2] _initialize_epoch_from_host (res://scripts/game/campaign_clock.gd:35)
+       [3] bind_state (res://scripts/game/campaign_clock.gd:20)
+       [4] _compose_observation_ledger (res://scripts/building/orison_v2_runtime_root.gd:190)
+       [5] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [6] _ready (res://scripts/building/orison_v2_runtime_root.gd:75)
+       [7] _replace_world (res://scripts/dream/campaign_shell.gd:134)
+       [8] _restore_world (res://scripts/dream/campaign_shell.gd:95)
+       [9] _ready (res://scripts/dream/campaign_shell.gd:50)
+       [10] _ready (res://tests/orison_v2_m08f_runtime_test.gd:119)
+ERROR:   FAIL  save, destroy, CampaignShell reconstruct, and load preserve round facts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m08f_runtime_test.gd:179)
+       [1] _ready (res://tests/orison_v2_m08f_runtime_test.gd:123)
+WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
