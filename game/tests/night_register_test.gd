@@ -56,6 +56,7 @@ func _ready() -> void:
 	_conclusions()
 	_presentation_rule()
 	_ownership()
+	await _teardown()
 
 	print("NIGHT REGISTER TEST: %s (%d/%d)"
 			% ["PASS" if failures == 0 else "FAIL", checks - failures, checks])
@@ -102,12 +103,33 @@ func _fresh_board() -> void:
 	# live in `RealityState`, so a board that is "fresh" while the save still
 	# holds the previous section's signatures is not fresh at all -- it comes
 	# up reading them, which is exactly what a real one should do.
+	_retire_board()
 	RealityState.reset_campaign_for_tests()
 	work_orders.setup(null)
-	board.queue_free()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)
+
+
+func _retire_board() -> void:
+	# Sections run synchronously: deferred deletion would leave the previous
+	# fixture subscribed to every later WorkOrders transition in this frame.
+	if is_instance_valid(board):
+		board.free()
+	board = null
+
+
+func _teardown() -> void:
+	_retire_board()
+	building.free()
+	building = null
+	work_orders.free()
+	work_orders = null
+	# Let source-owned audio retirement reach the mixer before app shutdown.
+	# Production teardown does the release; the fixture supplies its lifetime.
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().create_timer(0.1).timeout
 
 
 ## SR7-H: a round the board will actually accept a signature for -- report
@@ -701,7 +723,7 @@ func _presentation_rule() -> void:
 	# because the rule derives it from `WorkOrders` -- which its own owner
 	# persists -- and this board writes not a word of it down.
 	var before := board.presented_job_id()
-	board.queue_free()
+	_retire_board()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)
@@ -718,7 +740,7 @@ func _presentation_rule() -> void:
 	board.take_slip()
 	_check("002 taken and acknowledged", board.latched_job() == JOB_2B
 			and work_orders.job_stage(JOB_2B) == "acknowledged")
-	board.queue_free()
+	_retire_board()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)
@@ -731,7 +753,7 @@ func _presentation_rule() -> void:
 	work_orders.record_job_repair(JOB_2B,
 			{"quality": "good", "note": "vent freed"})
 	work_orders.close_job(JOB_2B)
-	board.queue_free()
+	_retire_board()
 	board = RegisterScript.new() as NightRegisterProp
 	board.prop_type = "night_register"
 	building.add_child(board)

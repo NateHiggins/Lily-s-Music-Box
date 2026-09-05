@@ -238,13 +238,6 @@ func _ready() -> void:
 	_refresh_board()
 
 
-func _exit_tree() -> void:
-	# These voices live in the global pool, outside FunctionalProp's child
-	# emitters. Retire this register's source when its scene leaves the tree.
-	AudioPolicy.release_source(StringName(name))
-	super()
-
-
 ## The spine and the building are found by walking up, the way the watchman's
 ## detector finds the day/night owner: no new binding seam, no registration,
 ## and a null spine simply means an empty spindle.
@@ -1280,9 +1273,6 @@ func _balk(seconds: float, focus := "") -> void:
 
 
 func _present_register_sound(cue_id: StringName) -> void:
-	# Work-order callbacks can arrive between detachment and deferred free.
-	if not is_inside_tree():
-		return
 	AudioPolicy.present_3d(cue_id, global_position, 1.0, StringName(name))
 
 

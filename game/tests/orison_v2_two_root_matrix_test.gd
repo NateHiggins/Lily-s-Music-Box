@@ -8,6 +8,13 @@ var direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
 		"v1_to_v2": 0, "v2_to_v1": 0}
 
 func _ready() -> void:
+	var save_directory := ProjectSettings.globalize_path("user://tests")
+	var directory_error := DirAccess.make_dir_recursive_absolute(save_directory)
+	if directory_error != OK:
+		push_error("Two-root matrix test save directory could not be created: %s (error %d)" %
+				[save_directory, directory_error])
+		get_tree().quit(2)
+		return
 	var layout_hash := FileAccess.get_sha256(PROD_LAYOUT)
 	var saved_nodes := AcousticGraphData.nodes.duplicate(true)
 	var saved_persistence := RealityState.persistence_enabled

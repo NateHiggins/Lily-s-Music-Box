@@ -1280,9 +1280,6 @@ func _balk(seconds: float, focus := "") -> void:
 
 
 func _present_register_sound(cue_id: StringName) -> void:
-	# Work-order callbacks can arrive between detachment and deferred free.
-	if not is_inside_tree():
-		return
 	AudioPolicy.present_3d(cue_id, global_position, 1.0, StringName(name))
 
 
