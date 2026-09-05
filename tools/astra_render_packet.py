@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Deterministic views of frozen repository evidence; never mutates Git or game."""
+"""Frozen Git views plus an explicitly sourced live ledger; no Git/game writes."""
 from __future__ import annotations
 from collections import Counter
 import hashlib
 import json
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "design/astra"
@@ -28,12 +29,78 @@ def esc(value):
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
+def evidence_path(name):
+    """Live inputs must name an existing artifact inside the packet."""
+    if not isinstance(name, str) or not name or "\\" in name:
+        raise ValueError("Live evidence path must be a packet-relative POSIX path")
+    relative = Path(name)
+    if relative.is_absolute() or ":" in name or ".." in relative.parts:
+        raise ValueError(f"Unsafe live evidence path: {name}")
+    resolved = (OUT / relative).resolve()
+    if not resolved.is_relative_to(OUT.resolve()):
+        raise ValueError(f"Live evidence escapes packet: {name}")
+    return resolved
+
+
+def live_completeness(base):
+    """Authenticate explicit audit inputs without scanning moving Git state.
+
+    A nonzero audit is valid evidence and is retained as such. A fresh static
+    inventory never becomes a fresh runtime or human acceptance claim.
+    """
+    state = read("LIVE_STATE.json")
+    if state.get("schema_version") != 1 or state.get("frozen_sanitation_base") != base:
+        raise ValueError("LIVE_STATE schema/base does not match frozen sanitation")
+    head = state.get("ledger_evidence_head", "")
+    if not isinstance(head, str) or not re.fullmatch(r"[0-9a-f]{40}", head):
+        raise ValueError("LIVE_STATE requires an exact ledger evidence head")
+    binding = state["completeness_source"]
+    source_path = evidence_path(binding["path"])
+    receipt_path = evidence_path(binding["receipt_path"])
+    source_bytes, receipt_bytes = source_path.read_bytes(), receipt_path.read_bytes()
+    source_sha = hashlib.sha256(source_bytes).hexdigest()
+    receipt_sha = hashlib.sha256(receipt_bytes).hexdigest()
+    if source_sha != binding.get("sha256") or receipt_sha != binding.get("receipt_sha256"):
+        raise ValueError("Live completeness source/receipt hash mismatch")
+    receipt = json.loads(receipt_bytes.decode("utf-8-sig"))
+    if receipt.get("repository_head") != head or binding.get("repository_head") != head:
+        raise ValueError("Stale live completeness receipt: evidence heads disagree")
+    if binding.get("audit_id") != "orison_v2_completeness":
+        raise ValueError("Live source must be the completeness audit")
+    runs = [r for r in receipt["runs"] if r.get("id") == binding["audit_id"]]
+    selftests = [r for r in receipt["runs"] if r.get("id") == binding["audit_id"] + "_selftest"]
+    if len(runs) != 1 or len(selftests) != 1:
+        raise ValueError("Live receipt needs one completeness run and one fixture run")
+    run, selftest = runs[0], selftests[0]
+    if (receipt_path.parent / run["stdout"]).resolve() != source_path or run.get("stdout_sha256") != source_sha:
+        raise ValueError("Live source does not match receipt output identity")
+    if type(run.get("exit_code")) is not int or type(selftest.get("exit_code")) is not int:
+        raise ValueError("Live receipt must retain actual integer exits")
+    source = json.loads(source_bytes.decode("utf-8-sig"))
+    requirements = source.get("requirements")
+    if not isinstance(requirements, list) or not requirements:
+        raise ValueError("Live completeness has no requirements")
+    ids = [r["id"] for r in requirements]
+    if len(ids) != len(set(ids)) or source.get("summary", {}).get("requirements") != len(ids):
+        raise ValueError("Live completeness requirement identities/count do not close")
+    provenance = {
+        "kind": "STATIC_AUDIT", "path": binding["path"], "sha256": source_sha,
+        "receipt_path": binding["receipt_path"], "receipt_sha256": receipt_sha,
+        "repository_head": head, "audit_id": binding["audit_id"],
+        "exit_code": run["exit_code"], "selftest_exit_code": selftest["exit_code"],
+        "runtime_proof_created": False, "human_acceptance_created": False,
+    }
+    return state, source, provenance
+
+
 def render():
     snap = read("evidence/repository_snapshot.json")
     rules = read("reviews/adoption_rulings.json")
     patches = read("evidence/patch_equivalence.json")
     duplicates = {line.split()[1] for result in patches for line in result["stdout"].splitlines() if line.startswith("- ")}
     base = snap["base_commit"]
+    # Validate live inputs before touching even the unchanged frozen views.
+    live, source, audit_proof = live_completeness(base)
     rows = []
     for commit in snap["commits_outside_base"]:
         sha = commit["commit"]
@@ -102,7 +169,6 @@ def render():
               "- `OWNER_MANDATE.md`: exact current instruction text; outranks older date/quest/release assumptions.",
               "", "Fresh import/boot success, beauty, player comprehension, and complete release scope are not proven by Git. See RELEASE_EVIDENCE_MATRIX.md and PLAYTEST_FINDINGS.md."]
     write("REPOSITORY_TRUTH.md", "\n".join(truth) + "\n")
-    source = read("evidence/base_audits/orison_v2_completeness.stdout.txt")
     master = []
     for r in source["requirements"]:
         status = r["status"] if r["status"] in {"ABSENT", "PROGRAMMED", "RUNTIME_PROVEN", "HUMAN_ACCEPTED"} else "PROGRAMMED"
@@ -115,10 +181,15 @@ def render():
                "dependencies": r["blocked_by"],
                "severity": "BLOCKER" if any(s in scopes for s in ["FIRST_SLICE_TECHNICAL", "GOLDEN_SHIFT_V2"]) else "RELEASE_CRITICAL",
                "scope": "early complete path" if "GOLDEN_SHIFT_V2" in scopes or "FIRST_SLICE_TECHNICAL" in scopes else "full world",
-               "provenance": {"base_commit": base, "source": "evidence/base_audits/orison_v2_completeness.stdout.txt", "requirement": r["id"], "claims": r["provenance"]},
+               "provenance": {"base_commit": base, "evidence_commit": live["ledger_evidence_head"],
+                              "source": audit_proof["path"], "source_sha256": audit_proof["sha256"],
+                              "receipt": audit_proof["receipt_path"], "receipt_sha256": audit_proof["receipt_sha256"],
+                              "requirement": r["id"], "claims": r["provenance"]},
                "implementation_strategy": "Owner-first source to semantic owner to named anchor to derived transform; complete structural dependencies before room art.",
-               "automated_proof": "Baseline completeness exit 2, existing fixture suite exit 0. This row inherits only the source's scoped evidence.",
-               "composed_runtime_proof": {"new_run": "NOT_RUN", "source_status": r["status"], "source_provenance": r["provenance"]},
+               "automated_proof": {**audit_proof, "new_run": "STATIC_AUDIT_ONLY"},
+               "composed_runtime_proof": {"new_run": "NOT_RUN", "source_status": r["status"],
+                                         "source_provenance": r["provenance"],
+                                         "inheritance_note": "The current static audit reports inherited claims; it did not execute these runtime/human proofs."},
                "human_proof_required": "Real-eye-height route/function comprehension, production lighting and motion; final acceptance remains required.",
                "performance": {"budget": "Provisional p95 frame <16.6ms, main <=8ms, physics <=2ms, GPU <14ms; production boot <18s.", "measured_result": None, "scope": "Must name complete content scope; no first-slice extrapolation."},
                "persistence_reconstruction": "Stable semantic identities; save/destroy/reconstruct without authority duplication or lost facts.",
@@ -129,12 +200,16 @@ def render():
     for row in read("reviews/production_obligations.json"):
         master.append(row)
     master.sort(key=lambda r: r["id"])
-    ledger = {"schema_version": 1, "base_commit": base, "evidence_policy": "Inherited evidence is labelled. No completion percentage; sanitation creates no geometry and grants no human acceptance.",
+    ledger = {"schema_version": 2, "base_commit": base,
+              "ledger_evidence_head": live["ledger_evidence_head"], "completeness_source": audit_proof,
+              "evidence_policy": "Frozen Git decisions remain at sanitation base. The live ledger reads only LIVE_STATE's hash-bound current audit. V2 audit runtime/human tiers are inherited source claims; authored outcome rows cite their own current runtime receipts. No completion percentage.",
               "counts_by_severity": dict(sorted(Counter(r["severity"] for r in master).items())),
               "counts_by_scope": dict(sorted(Counter(r["scope"] for r in master).items())),
               "counts_by_evidence_tier": dict(sorted(Counter(r["status"] for r in master).items())), "rows": master}
     dump("MASTER_COMPLETION_LEDGER.json", ledger)
-    lines = ["# Master completion ledger", "", ledger["evidence_policy"], "", "Counts are obligations, not completion percentages.", ""]
+    lines = ["# Master completion ledger", "", ledger["evidence_policy"], "",
+             f"Current static evidence head: `{live['ledger_evidence_head']}`. Source: `{audit_proof['path']}` (SHA-256 `{audit_proof['sha256']}`). Audit exit {audit_proof['exit_code']}; fixture exit {audit_proof['selftest_exit_code']}. These exits do not constitute new composed-runtime or human proof.",
+             "", "Counts are obligations, not completion percentages.", ""]
     for key in ["counts_by_severity", "counts_by_scope", "counts_by_evidence_tier"]:
         lines.append(f"- {key}: " + "; ".join(f"{k}={v}" for k,v in ledger[key].items()))
     lines += ["", "The JSON carries owners, consumers, provenance, implementation strategy, proof, performance, persistence and defects for every row. V2 source statuses are retained separately: spatial proof does not silently become composed runtime proof.", "", "| Stable ID | Outcome / current state | Severity / scope | Evidence tier | Next decisive action |", "| --- | --- | --- | --- | --- |"]

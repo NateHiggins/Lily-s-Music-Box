@@ -1,18 +1,23 @@
 [
   {
     "authoritative_owner": "Git / scoped receipts",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "Packet assembled; validation pending",
+    "automated_proof": {
+      "packet_selftests": "8 tests passed, 17 mutation fixtures rejected; actual validator CLI exits 1 then 0",
+      "receipt": "evidence/packet_validation.json",
+      "receipt_sha256": "265bd5f8dd9ac966572ff82609c6637e45541d2f0b39e756e93238b22c8c4fd9",
+      "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8"
+    },
+    "composed_runtime_proof": "No player-facing feature or new runtime proof is created by sanitation.",
+    "current_state": "Frozen repository truth and red-validated packet committed at ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
     "dependencies": [],
     "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
     "experiential_outcome": "Trust one canonical line and preserve recoverable work",
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-SANITIZE-0",
     "implementation_strategy": "Validate deterministic packet with red fixtures; commit named paths.",
-    "next_decisive_action": "Validate deterministic packet with red fixtures; commit named paths.",
+    "next_decisive_action": "Keep current audits and authored outcomes bound to explicit immutable evidence; preserve the sanitation packet.",
     "open_defects": [
-      "Packet assembled; validation pending"
+      "Maintain frozen census separately from live evidence; no release claim."
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -23,6 +28,7 @@
     "provenance": {
       "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
       "branch": "codex/astra-canonical-20260904",
+      "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
@@ -31,14 +37,23 @@
     },
     "scope": "release",
     "severity": "BLOCKER",
-    "status": "PROGRAMMED",
+    "status": "INTEGRATED",
     "subsystem": "repository"
   },
   {
     "authoritative_owner": "Bodega source / OrisonV2Blockout",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "12 dependency commits outside main",
+    "automated_proof": {
+      "accepted_boundary": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+      "completeness_exit": 2,
+      "completeness_selftest_exit": 0,
+      "latest_static_receipt": "evidence/final_repair_audits/receipt.json",
+      "merge_commit": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "runtime_revalidation": "SCOPED_PASS_WITH_REPAIRS",
+      "static_receipt": "evidence/m11b_audits/receipt.json",
+      "static_receipt_sha256": "0a74fcb9b6eed3a9c1f53e14acb32c6d2b41d5853129d3816c5a226714a89553"
+    },
+    "composed_runtime_proof": "evidence/m11b_runtime/receipt.json; evidence/audio_repair_runtime/final_review.json; evidence/audio_ownership/receipt.json. These prove scoped runtime behavior, not exterior selector integration or whole-world visual acceptance.",
+    "current_state": "Accepted boundary integrated; M11B75/M11A40, repaired M08F29 and actual fresh-profile matrix24 pass within their scoped contracts.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -47,9 +62,11 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-INTEGRATE-M11B",
     "implementation_strategy": "Integrate only through a9e455b after sanitation and replay required tests.",
-    "next_decisive_action": "Integrate only through a9e455b after sanitation and replay required tests.",
+    "next_decisive_action": "Reconstruct the quarantined F01 proposal from traceable dependencies in a clean implementation; preserve accepted review scope and v1 default.",
     "open_defects": [
-      "12 dependency commits outside main"
+      "Standalone exterior remains outside the production selector",
+      "No full-world or new human visual acceptance",
+      "Five existing v1 cam_noel_witches placement warnings remain"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -60,6 +77,8 @@
     "provenance": {
       "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
       "branch": "codex/astra-canonical-20260904",
+      "merge_commit": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "source_boundary": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
@@ -68,7 +87,7 @@
     },
     "scope": "early complete path",
     "severity": "BLOCKER",
-    "status": "QUARANTINED",
+    "status": "INTEGRATED",
     "subsystem": "world substrate"
   },
   {
@@ -149,7 +168,7 @@
     "authoritative_owner": "RealityState",
     "automated_proof": "See exact base_audits exits; new outcome proof pending.",
     "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "Version4 direct write lacks atomic readback",
+    "current_state": "Direct save writes are unchecked; malformed saves remain writable; normal title action starts a new campaign instead of resuming.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -158,9 +177,13 @@
     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
     "id": "ASTRA-SAVE",
     "implementation_strategy": "Red corruption/interruption paths; validated atomic write/readback/schema migration.",
-    "next_decisive_action": "Red corruption/interruption paths; validated atomic write/readback/schema migration.",
+    "next_decisive_action": "Preserve damaged bytes and latch failure, expose a genuine continuation route, then prove transactional writes and fresh-process reconstruction with failure injection.",
     "open_defects": [
-      "Version4 direct write lacks atomic readback"
+      "No atomic write/readback/recovery transaction",
+      "Malformed, non-dictionary or wrong-shaped data lacks a preservation latch",
+      "Read failures do not prevent later overwrite",
+      "Normal BEGIN THE NIGHT path resets previously loaded campaign facts",
+      "Current future-version and write-open tests do not prove partial-write or process-restart recovery"
     ],
     "performance": {
       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
@@ -174,7 +197,8 @@
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
-        "DEBT_DEDUPLICATION.md"
+        "DEBT_DEDUPLICATION.md",
+        "reviews/save_recovery_review.md"
       ]
     },
     "scope": "release",
@@ -445,7 +469,7 @@
     "authoritative_owner": "V2 authored geometry/material sources",
     "automated_proof": "See exact base_audits exits; new outcome proof pending.",
     "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
-    "current_state": "Prototype art; full eye-height verdict census absent",
+    "current_state": "Current twelve-frame production composition inspection: FINAL0, REFINE5, SALVAGEABLE2, REPLACE5; dark blockout and apparatus readability remain substantial debt.",
     "dependencies": [
       "ASTRA-SANITIZE-0"
     ],
@@ -470,7 +494,8 @@
       "sources": [
         "OWNER_MANDATE.md",
         "AUTHORITY_HIERARCHY.md",
-        "DEBT_DEDUPLICATION.md"
+        "DEBT_DEDUPLICATION.md",
+        "reviews/m08f_composition_visual_review.md"
       ]
     },
     "scope": "full world",
@@ -517,7 +542,7 @@
   },
   {
     "authoritative_owner": "AcousticGraphData / AudioPolicy",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "automated_proof": "evidence/audio_red_green.json: 25 audit red/green pairs; evidence/audio_ownership/receipt.json: bounded NightRegister lifetime repair. Neither proves listening or complete acoustic coverage.",
     "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
     "current_state": "Static gate green; cue coverage is narrower than all sound",
     "dependencies": [
@@ -628,7 +653,7 @@
   },
   {
     "authoritative_owner": "PlayerController / focus/cancel owners",
-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "automated_proof": "evidence/prompt_repair/receipt.json: three semantic prompt repairs, 28 selftests, baseline unchanged. Actual independent input routes remain unproven.",
     "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
     "current_state": "Human controller-only route pending",
     "dependencies": [
@@ -1069,5 +1094,181 @@
     "severity": "RELEASE_CRITICAL",
     "status": "PROGRAMMED",
     "subsystem": "campaign"
+  },
+  {
+    "authoritative_owner": "M08F test fixture setup",
+    "automated_proof": {
+      "commit": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+      "exits": [
+        0,
+        0
+      ],
+      "m08f_checks": "29/29",
+      "m11a_checks": "40/40",
+      "matrix_receipt": "evidence/audio_repair_runtime/matrix_directory_green/verbose_launch/receipt.json",
+      "receipt": "evidence/harness_directory_repair/receipt.json"
+    },
+    "composed_runtime_proof": "Actual V2 M08F save/destroy/CampaignShell reconstruction and isolated M11A save reconstruction pass in separate fresh profiles; this does not close production save corruption/restart recovery.",
+    "current_state": "M08F, M11A and genuine two-root harnesses now create checked save parents; each passed in independently fresh profiles after preserved failures.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0",
+      "ASTRA-INTEGRATE-M11B"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "A fresh isolated test profile can execute M08F save/reconstruction without another suite preparing it",
+    "human_proof_required": "No new human acceptance is inferred. Audio changes require a composed listening check after the ownership contract is proven.",
+    "id": "ASTRA-BASE-M08F-FRESH-PROFILE",
+    "implementation_strategy": "Retain absent-parent red proof, make the fixture own directory creation, then replay independently in a fresh isolated profile.",
+    "next_decisive_action": "Maintain independent-profile runs; address production save/title recovery separately under ASTRA-SAVE.",
+    "open_defects": [
+      "This repairs harness setup; it does not implement atomic production saves or safe title-screen continuation"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "orison_v2_m08f_runtime_test.gd",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "evidence_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "sources": [
+        "reviews/baseline_runtime_diagnosis.md",
+        "evidence/base_runtime/receipt.json"
+      ]
+    },
+    "scope": "early complete path",
+    "severity": "MAJOR",
+    "status": "RUNTIME_PROVEN",
+    "subsystem": "runtime evidence"
+  },
+  {
+    "authoritative_owner": "NightRegisterProp / AudioPolicy source-owned slots",
+    "automated_proof": {
+      "late_callback": "red19/20 exit1 / green20/20 exit0",
+      "receipt": "evidence/audio_ownership/receipt.json",
+      "receipt_sha256": "c574ea4442aa516712485ff2f6b916aec3d270aca9e145991e7051547d6195eb",
+      "same_fixture_controls": "missing owner1 / missing pending-slot release1 / complete0"
+    },
+    "composed_runtime_proof": "Final M08F verbose exit0 and genuine fresh-profile matrix24 exit0; independent source-ownership controls retain live-neighbor playback. No sound is skipped or globally muted.",
+    "current_state": "NightRegister paper cue identified and repaired; pending playback and off-tree callbacks covered; final M08F29, owner20, NightRegister148 and matrix24 have no audio retention diagnostics.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0",
+      "ASTRA-INTEGRATE-M11B"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Retired register sounds release their streams and decoders without silencing another live source",
+    "human_proof_required": "No new human acceptance is inferred. Audio changes require a composed listening check after the ownership contract is proven.",
+    "id": "ASTRA-BASE-M08F-RETENTION",
+    "implementation_strategy": "Isolate idle ServiceSet, register refusal, shared clip, actual printing and policy controls; prove weak-reference retirement over two cycles before repair.",
+    "next_decisive_action": "Perform composed listening and continue broader ownership/performance coverage without generalizing this bounded repair.",
+    "open_defects": [
+      "No new listening acceptance or whole-game lifetime certification",
+      "Other historical audio paths require their own ownership evidence"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "NightRegisterProp in composed roots and AudioPolicy.release_source",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "evidence_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "repair_commit": "ac40f163fc0be18bfd8cb5bb2ede2a6c4f5f3f54",
+      "sources": [
+        "reviews/baseline_runtime_diagnosis.md",
+        "evidence/base_runtime/receipt.json"
+      ]
+    },
+    "scope": "release",
+    "severity": "RELEASE_CRITICAL",
+    "status": "RUNTIME_PROVEN",
+    "subsystem": "audio lifetime"
+  },
+  {
+    "authoritative_owner": "M08F runtime and capture harness authors",
+    "automated_proof": {
+      "receipt": "evidence/capture_contract_source_binding/validation.json",
+      "receipt_sha256": "73f1db6160373ed270783b2ba2fe4760014a61ecaf77a16770942c87c71866e3",
+      "windowed_receipt": "evidence/capture_contract_runtime/receipt.json"
+    },
+    "composed_runtime_proof": "Twelve windowed composition images captured after correcting a typed-path parse error. They prove inspection capture only; loader/RGB8 diagnostics and visual debt are retained.",
+    "current_state": "Capture is explicitly inspection-only; 105 selftests and 23 CLI controls reject unsupported/stale runtime receipts; seven prior runtime claims are demoted.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0",
+      "ASTRA-INTEGRATE-M11B"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "A captured inspection cannot claim save, denial, traversal or retention proofs it did not execute",
+    "human_proof_required": "No new human acceptance is inferred. Audio changes require a composed listening check after the ownership contract is proven.",
+    "id": "ASTRA-M08F-EVIDENCE-INTEGRITY",
+    "implementation_strategy": "Add a fixture that rejects unsupported claims, distinguish inspection/capture from executable runtime checks, and require actual failure-sensitive save, denial and teardown evidence.",
+    "next_decisive_action": "Generate actual executed runtime-contract receipts for the seven open requirements, with source digests and measured ownership; improve failed inspection framing.",
+    "open_defects": [
+      "Seven runtime claims still need admissible execution receipts",
+      "Five inspection frames need replacement framing; none is FINAL",
+      "Windowed loader and RGB8 diagnostics remain"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "M08F review packet / completeness evidence consumers",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "evidence_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "repair_commit": "fc359a687e069d0b2e2baa70d71c352da26fd87e",
+      "sources": [
+        "reviews/baseline_runtime_diagnosis.md",
+        "evidence/base_runtime/receipt.json"
+      ]
+    },
+    "scope": "release",
+    "severity": "RELEASE_CRITICAL",
+    "status": "INTEGRATED",
+    "subsystem": "runtime evidence"
+  },
+  {
+    "authoritative_owner": "CampaignClock / authored historical-event records / resident observation owners",
+    "automated_proof": "NOT_RUN: author factual primary-source events, explicit local campaign instants, month/day versus 365-key schedule mapping, and red proofs against host-calendar or coordinator knowledge injection.",
+    "composed_runtime_proof": "NOT_RUN: no historical event delivery or resident knowledge consumer is implemented by this obligation.",
+    "current_state": "Authorized historical timeline outcome; event consumers and starting date have not been selected or implemented",
+    "dependencies": [
+      "ASTRA-CLOCK",
+      "ASTRA-AGENT-MINA",
+      "ASTRA-AUDIO"
+    ],
+    "desired_final_state": "Source-backed factual event records reach residents through actual radio, newspaper and observation consumers on CampaignClock, with persistent bounded knowledge and no host-clock or hidden-coordinator knowledge injection.",
+    "experiential_outcome": "Residents learn real 1928 events through radios, newspapers and observations governed by campaign time",
+    "human_proof_required": "Review historical accuracy and contextual/perceptual delivery without a tutorial or omniscient event announcement.",
+    "id": "ASTRA-HISTORICAL-TIMELINE",
+    "implementation_strategy": "Keep factual event records separate from the proposed starting date. Candidate start is November 10, 1928 leading into the November 11 03:00 EST frequency reallocation; select only after authored calendar and schedule-key compatibility are explicit.",
+    "next_decisive_action": "Define source-backed factual event records separately from the November 10 proposal, then prove one radio/newspaper event reaches an observing resident on CampaignClock without hidden knowledge.",
+    "open_defects": [
+      "Historical consumers absent",
+      "Starting date proposed but not selected",
+      "Month/day seasonal records and 365-day schedule keys require explicit compatible mapping"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Historical event availability and resident observations derive from saved CampaignClock and actual sources; reconstruct deterministically across midnight, saves, long absence and schedule-key mapping.",
+    "production_consumer": "Radio schedules, newspapers and actual resident observations; implementation absent",
+    "provenance": {
+      "authority": "Latest explicit owner steering authorizes historical timeline integration; November 10 is a proposal, not a selected campaign date.",
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "research_sha256": "542fd6149a0a566cbca4addb34c97d824d6a318d47e12a0624b05b42200ea3da",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "reviews/campaign_date_research.md"
+      ]
+    },
+    "scope": "full world",
+    "severity": "MAJOR",
+    "status": "ABSENT",
+    "subsystem": "historical environment"
   }
 ]

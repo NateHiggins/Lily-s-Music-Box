@@ -1,0 +1,4 @@
+# Isolated Godot profiles are retained on disk. Hash-bound receipts and logs
+# live outside them and are staged explicitly.
+**/userdata*/
+runtime_userdata/

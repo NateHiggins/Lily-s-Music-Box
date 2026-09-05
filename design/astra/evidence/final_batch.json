@@ -1,0 +1,115 @@
+{
+  "evidence_head": "d4d1b01f3ed9fef63707d9abb68d5ff57dbb01cb",
+  "canonical_branch": "codex/astra-canonical-20260904",
+  "verified_remote_main": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+  "remote_verification": "git ls-remote origin refs/heads/main, exit0, matched prior base during finalization",
+  "production_selector": "v1 unchanged",
+  "protected_paths": [
+    {
+      "path": "art/data/building_layout.json",
+      "base_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "current_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353"
+    },
+    {
+      "path": "game/data/building_layout.json",
+      "base_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "current_blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353"
+    },
+    {
+      "path": "game/scripts/building/building_root_selector.gd",
+      "base_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "current_blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b"
+    },
+    {
+      "path": "game/assets/building/floor_01.gltf",
+      "base_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "current_blob": "cb44616d6650879e70ecae3ce0650d5760f36d72"
+    },
+    {
+      "path": "game/assets/building/floor_01.bin",
+      "base_blob": "eccac077808b8cdd55557f962bade7219a096381",
+      "current_blob": "eccac077808b8cdd55557f962bade7219a096381"
+    },
+    {
+      "path": "game/assets/building/floor_02.gltf",
+      "base_blob": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "current_blob": "7074e4008cabd39cb1711343a5d56b01c2655012"
+    },
+    {
+      "path": "game/assets/building/floor_02.bin",
+      "base_blob": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "current_blob": "68aab152640f78c9b7289d325ea62304bf379cab"
+    },
+    {
+      "path": "game/assets/building/floor_03.gltf",
+      "base_blob": "439c30732d8330ea77198c665c06358dc01b1800",
+      "current_blob": "439c30732d8330ea77198c665c06358dc01b1800"
+    },
+    {
+      "path": "game/assets/building/floor_03.bin",
+      "base_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "current_blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7"
+    },
+    {
+      "path": "game/assets/building/floor_04.gltf",
+      "base_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "current_blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1"
+    },
+    {
+      "path": "game/assets/building/floor_04.bin",
+      "base_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "current_blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1"
+    },
+    {
+      "path": "game/assets/building/floor_05.gltf",
+      "base_blob": "0c5be14216e4a47b73435b248308016295895af9",
+      "current_blob": "0c5be14216e4a47b73435b248308016295895af9"
+    },
+    {
+      "path": "game/assets/building/floor_05.bin",
+      "base_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "current_blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa"
+    },
+    {
+      "path": "game/assets/building/floor_06.gltf",
+      "base_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "current_blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4"
+    },
+    {
+      "path": "game/assets/building/floor_06.bin",
+      "base_blob": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "current_blob": "a6051af911939a0cefe18ce710846c7c66dae767"
+    },
+    {
+      "path": "game/assets/building/floor_b1.gltf",
+      "base_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "current_blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5"
+    },
+    {
+      "path": "game/assets/building/floor_b1.bin",
+      "base_blob": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "current_blob": "d7be0479698c28d82e76db91783e2971bdc5865f"
+    }
+  ],
+  "frozen_sanitation_files_unchanged": [
+    "design/astra/REPOSITORY_TRUTH.md",
+    "design/astra/BRANCH_ADOPTION_MATRIX.json",
+    "design/astra/BRANCH_ADOPTION_MATRIX.md",
+    "design/astra/evidence/repository_snapshot.json",
+    "design/astra/evidence/packet_validation.json"
+  ],
+  "static_receipt": "final_repair_audits/receipt.json",
+  "packet_validation": "packet_final_binding_validation.json",
+  "full_game_complete": false,
+  "historical_start_date": "November10,1928 proposed; not selected or implemented",
+  "quarantined_branches_adopted": false,
+  "pushed": false,
+  "remaining_release_blocks": [
+    "source-bound runtime receipts for seven demoted requirements",
+    "independent civil campaign clock and selected date",
+    "title continuation and atomic/damaged-save recovery",
+    "finished F01/world art and readable inspection frames",
+    "complete character behavior, cases/dreams and systemic consumers",
+    "performance, accessibility, packaging and owner gates"
+  ]
+}

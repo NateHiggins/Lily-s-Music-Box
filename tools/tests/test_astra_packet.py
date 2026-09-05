@@ -4,7 +4,7 @@
 No Git, Godot, production writes, or live repository census is used. Renderer
 and input preparation run only in disposable copies of the frozen packet.
 
-    python tools/tests/test_astra_packet.py --evidence design/astra/evidence/packet_validation.json
+    python tools/tests/test_astra_packet.py --evidence design/astra/evidence/packet_live_validation.json
     python tools/tests/test_astra_packet.py --check-packet design/astra
 """
 from __future__ import annotations
@@ -52,6 +52,7 @@ REQUIRED_FILES = (
     "MASTER_COMPLETION_LEDGER.json", "MASTER_COMPLETION_LEDGER.md",
     "INTEGRATION_REGISTER.md", "DECISION_LOG.md", "RISK_REGISTER.md",
     "PLAYTEST_FINDINGS.md", "RELEASE_EVIDENCE_MATRIX.md", "OWNER_MANDATE.md",
+    "LIVE_STATE.json",
 )
 JSON_FILES = {
     "snapshot": "evidence/repository_snapshot.json",
@@ -60,7 +61,9 @@ JSON_FILES = {
     "dream_review": "reviews/dream_review.json",
     "rulings": "reviews/adoption_rulings.json",
     "obligations": "reviews/production_obligations.json",
-    "completeness": "evidence/base_audits/orison_v2_completeness.stdout.txt",
+    "baseline_completeness": "evidence/base_audits/orison_v2_completeness.stdout.txt",
+    "baseline_audit_receipt": "evidence/base_audits/receipt.json",
+    "live_state": "LIVE_STATE.json",
     "matrix": "BRANCH_ADOPTION_MATRIX.json",
     "ledger": "MASTER_COMPLETION_LEDGER.json",
 }
@@ -72,6 +75,7 @@ GENERATED = (
 OBSERVATIONS: list[dict] = []
 DETERMINISM: dict = {}
 CLI_PROOF: dict = {}
+LIVE_REJECTIONS: list[dict] = []
 
 
 def digest(data: bytes) -> str:
@@ -86,7 +90,37 @@ def load_packet(path: Path) -> dict:
         name: (path / name).is_file() and (path / name).stat().st_size > 0
         for name in REQUIRED_FILES
     }
+    data["baseline_source_sha256"] = digest((path / JSON_FILES["baseline_completeness"]).read_bytes())
+    data["baseline_receipt_sha256"] = digest((path / JSON_FILES["baseline_audit_receipt"]).read_bytes())
+    data["live_load_error"] = None
+    data["completeness"] = {"requirements": []}
+    data["live_receipt"] = {}
+    try:
+        binding = data["live_state"]["completeness_source"]
+        for name in (binding["path"], binding["receipt_path"]):
+            relative = Path(name)
+            if (relative.is_absolute() or ":" in name or "\\" in name
+                    or ".." in relative.parts
+                    or not (path / relative).resolve().is_relative_to(path.resolve())):
+                raise ValueError("Live source must be inside the packet")
+        source_bytes = (path / binding["path"]).read_bytes()
+        receipt_bytes = (path / binding["receipt_path"]).read_bytes()
+        data["completeness"] = json.loads(source_bytes.decode("utf-8-sig"))
+        data["live_receipt"] = json.loads(receipt_bytes.decode("utf-8-sig"))
+        data["live_source_sha256"] = digest(source_bytes)
+        data["live_receipt_sha256"] = digest(receipt_bytes)
+        data["loaded_source_path"] = binding["path"]
+        data["loaded_receipt_path"] = binding["receipt_path"]
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        data["live_load_error"] = type(error).__name__
     return data
+
+
+def packet_input_files(path: Path) -> tuple[str, ...]:
+    live = json.loads((path / "LIVE_STATE.json").read_text(encoding="utf-8"))
+    binding = live["completeness_source"]
+    return tuple(sorted(set((*REQUIRED_FILES, *JSON_FILES.values(),
+                             binding["path"], binding["receipt_path"]))))
 
 
 def review_rulings(data: dict) -> dict:
@@ -126,6 +160,48 @@ def validate(data: dict) -> list[str]:
     base = snap["base_commit"]
     require(matrix.get("canonical_base") == base and ledger.get("base_commit") == base,
             "BASE_MISMATCH", "matrix and ledger must use the frozen base")
+    live = data["live_state"]
+    binding = live.get("completeness_source", {})
+    receipt = data["live_receipt"]
+    head = live.get("ledger_evidence_head")
+    require(not data["live_load_error"], "LIVE_LOAD", "missing/invalid live source")
+    require(live.get("schema_version") == 1 and live.get("frozen_sanitation_base") == base,
+            "LIVE_BASE", "live state must retain frozen sanitation identity")
+    require(isinstance(head, str) and re.fullmatch(r"[0-9a-f]{40}", head) is not None,
+            "LIVE_HEAD", "exact evidence head required")
+    require(binding.get("path") == data.get("loaded_source_path")
+            and binding.get("receipt_path") == data.get("loaded_receipt_path"),
+            "LIVE_PATH", "explicit binding must select the loaded artifacts")
+    require(binding.get("sha256") == data.get("live_source_sha256")
+            and binding.get("receipt_sha256") == data.get("live_receipt_sha256"),
+            "LIVE_HASH", "raw source/receipt identity must match binding")
+    require(binding.get("repository_head") == head and receipt.get("repository_head") == head,
+            "LIVE_STALE_HEAD", "receipt/binding/evidence heads must agree")
+    require(binding.get("audit_id") == "orison_v2_completeness", "LIVE_AUDIT_ID", "wrong audit")
+    runs = [r for r in receipt.get("runs", []) if r.get("id") == "orison_v2_completeness"]
+    selftests = [r for r in receipt.get("runs", []) if r.get("id") == "orison_v2_completeness_selftest"]
+    require(len(runs) == 1 and len(selftests) == 1, "LIVE_RUN_COVERAGE", "exact audit/fixture pair required")
+    proof = None
+    if len(runs) == 1 and len(selftests) == 1:
+        run, selftest = runs[0], selftests[0]
+        expected_output = (Path(binding.get("receipt_path", "")).parent / run.get("stdout", "")).as_posix()
+        require(expected_output == binding.get("path")
+                and run.get("stdout_sha256") == data.get("live_source_sha256"),
+                "LIVE_RECEIPT_OUTPUT", "receipt must name/hash selected output")
+        require(type(run.get("exit_code")) is int and type(selftest.get("exit_code")) is int,
+                "LIVE_EXITS", "actual integer exits required")
+        proof = {"kind": "STATIC_AUDIT", "path": binding.get("path"),
+                 "sha256": data.get("live_source_sha256"), "receipt_path": binding.get("receipt_path"),
+                 "receipt_sha256": data.get("live_receipt_sha256"), "repository_head": head,
+                 "audit_id": "orison_v2_completeness", "exit_code": run.get("exit_code"),
+                 "selftest_exit_code": selftest.get("exit_code"),
+                 "runtime_proof_created": False, "human_acceptance_created": False}
+        require(ledger.get("completeness_source") == proof, "LIVE_LEDGER_SOURCE", "ledger source stale or promoted")
+    live_ids = [r["id"] for r in data["completeness"]["requirements"]]
+    require(bool(live_ids) and len(live_ids) == len(set(live_ids))
+            and data["completeness"].get("summary", {}).get("requirements") == len(live_ids),
+            "LIVE_REQUIREMENTS", "source count/identities must close")
+    require(ledger.get("ledger_evidence_head") == head, "LIVE_LEDGER_HEAD", "ledger must use explicit live head")
     source = indexed(snap["commits_outside_base"], "commit", "snapshot commits")
     commits = indexed(matrix["commits"], "commit", "matrix commits")
     require(set(source) == set(commits), "COMMIT_COVERAGE",
@@ -247,13 +323,29 @@ def validate(data: dict) -> list[str]:
                 and row["provenance"].get("base_commit") == base,
                 "MASTER_PROVENANCE", row_id)
         if row_id in source_requirements:
-            state = source_requirements[row_id]["status"]
+            source_row = source_requirements[row_id]
+            state = source_row["status"]
             expected_status = state if state in {
                 "ABSENT", "PROGRAMMED", "RUNTIME_PROVEN", "HUMAN_ACCEPTED"
             } else "PROGRAMMED"
             require(row.get("current_state") == state and row.get("source_evidence_tier") == state
                     and row.get("status") == expected_status,
                     "MASTER_TIER_PROMOTION", row_id)
+            provenance = row.get("provenance", {})
+            require(provenance.get("evidence_commit") == head
+                    and provenance.get("source") == binding.get("path")
+                    and provenance.get("source_sha256") == data.get("live_source_sha256")
+                    and provenance.get("receipt") == binding.get("receipt_path")
+                    and provenance.get("receipt_sha256") == data.get("live_receipt_sha256")
+                    and provenance.get("claims") == source_row["provenance"],
+                    "LIVE_ROW_PROVENANCE", row_id)
+            require(row.get("automated_proof") == {**(proof or {}), "new_run": "STATIC_AUDIT_ONLY"},
+                    "LIVE_STATIC_PROOF", row_id)
+            runtime = row.get("composed_runtime_proof", {})
+            require(isinstance(runtime, dict) and runtime.get("new_run") == "NOT_RUN"
+                    and runtime.get("source_status") == state
+                    and runtime.get("source_provenance") == source_row["provenance"],
+                    "LIVE_RUNTIME_PROMOTION", row_id)
         elif row_id in obligations:
             require(row == obligations[row_id], "MASTER_OBLIGATION_MAPPING", row_id)
     for count_key, row_key in (("counts_by_severity", "severity"),
@@ -388,19 +480,79 @@ class AstraPacketTests(unittest.TestCase):
         self.assert_mutation_fails("c2_evidence_in_sequence", lambda d: append_sha(d, c2),
                                    "SEQUENCE_C2")
 
+    def test_live_source_identity_and_inherited_proof_cannot_be_laundered(self):
+        def stale_source(data):
+            binding = data["live_state"]["completeness_source"]
+            binding.update(path=JSON_FILES["baseline_completeness"],
+                           receipt_path=JSON_FILES["baseline_audit_receipt"],
+                           sha256=data["baseline_source_sha256"],
+                           receipt_sha256=data["baseline_receipt_sha256"],
+                           repository_head=data["snapshot"]["base_commit"])
+            data.update(completeness=data["baseline_completeness"],
+                        live_receipt=data["baseline_audit_receipt"],
+                        live_source_sha256=data["baseline_source_sha256"],
+                        live_receipt_sha256=data["baseline_receipt_sha256"],
+                        loaded_source_path=binding["path"], loaded_receipt_path=binding["receipt_path"])
+
+        self.assert_mutation_fails("live_source_hash_mismatch", lambda d:
+            d["live_state"]["completeness_source"].update(sha256="0" * 64), "LIVE_HASH")
+        self.assert_mutation_fails("stale_valid_baseline_source", stale_source, "LIVE_STALE_HEAD")
+        self.assert_mutation_fails("static_audit_claimed_as_runtime", lambda d: next(
+            row for row in d["ledger"]["rows"] if row["id"].startswith("V2.")
+        )["composed_runtime_proof"].update(new_run="PASS"), "LIVE_RUNTIME_PROMOTION")
+
+    def test_renderer_rejects_invalid_live_input_before_writing_frozen_views(self):
+        renderer = load_tool("astra_render_packet")
+        with tempfile.TemporaryDirectory(prefix="astra-live-source-fixture-") as tmp:
+            packet = Path(tmp)
+            for relative in packet_input_files(PACKET):
+                target = packet / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((PACKET / relative).read_bytes())
+            original = self.frozen["live_state"]
+            before = {name: digest((packet / name).read_bytes()) for name in GENERATED}
+
+            def stale(state):
+                state["completeness_source"].update(
+                    path=JSON_FILES["baseline_completeness"],
+                    receipt_path=JSON_FILES["baseline_audit_receipt"],
+                    sha256=self.frozen["baseline_source_sha256"],
+                    receipt_sha256=self.frozen["baseline_receipt_sha256"],
+                    repository_head=self.frozen["snapshot"]["base_commit"],
+                )
+
+            cases = (
+                ("missing_live_file", lambda s: s["completeness_source"].update(path="evidence/missing.json")),
+                ("live_path_escape", lambda s: s["completeness_source"].update(path="../outside.json")),
+                ("live_hash_mismatch", lambda s: s["completeness_source"].update(sha256="0" * 64)),
+                ("stale_baseline_receipt", stale),
+            )
+            for name, change in cases:
+                with self.subTest(name=name):
+                    state = copy.deepcopy(original)
+                    change(state)
+                    (packet / "LIVE_STATE.json").write_text(json.dumps(state), encoding="utf-8")
+                    with mock.patch.multiple(renderer, OUT=packet), self.assertRaises((ValueError, OSError)):
+                        renderer.render()
+                    self.assertEqual(before, {n: digest((packet / n).read_bytes()) for n in GENERATED})
+                    LIVE_REJECTIONS.append({"fixture_id": name, "renderer_rejected": True,
+                                            "all_existing_generated_views_unchanged": True})
+
     def test_prepare_and_renderer_are_deterministic_on_frozen_fixture(self):
         prepare = load_tool("astra_prepare_inputs")
         renderer = load_tool("astra_render_packet")
         with tempfile.TemporaryDirectory(prefix="astra-packet-fixture-") as tmp:
             root = Path(tmp)
             packet = root / "design/astra"
-            for relative in (*REQUIRED_FILES, *JSON_FILES.values()):
+            for relative in packet_input_files(PACKET):
                 source = PACKET / relative
                 target = packet / relative
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(source.read_bytes())
             immutable_names = [JSON_FILES[key] for key in (
-                "snapshot", "patches", "m11_review", "dream_review", "completeness")]
+                "snapshot", "patches", "m11_review", "dream_review", "baseline_completeness", "live_state")]
+            immutable_names.extend([self.frozen["live_state"]["completeness_source"]["path"],
+                                    self.frozen["live_state"]["completeness_source"]["receipt_path"]])
             immutable_before = {name: digest((packet / name).read_bytes()) for name in immutable_names}
             generated_inputs = ("reviews/adoption_rulings.json", "reviews/production_obligations.json")
 
@@ -451,7 +603,7 @@ class AstraPacketTests(unittest.TestCase):
     def test_cli_returns_one_for_deleted_commit_and_zero_after_restoration(self):
         with tempfile.TemporaryDirectory(prefix="astra-packet-cli-") as tmp:
             packet = Path(tmp)
-            for relative in (*REQUIRED_FILES, *JSON_FILES.values()):
+            for relative in packet_input_files(PACKET):
                 target = packet / relative
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes((PACKET / relative).read_bytes())
@@ -488,6 +640,8 @@ def main() -> int:
     parser.add_argument("--evidence", type=Path)
     parser.add_argument("--check-packet", type=Path)
     args, unittest_args = parser.parse_known_args()
+    if args.evidence is not None and args.evidence.name == "packet_validation.json" and args.evidence.exists():
+        raise SystemExit("Preserve the original sanitation proof; select a new live validation receipt path.")
     if args.check_packet is not None:
         errors = validate(load_packet(args.check_packet))
         print(json.dumps({"valid": not errors, "errors": errors}, indent=2))
@@ -495,6 +649,7 @@ def main() -> int:
     OBSERVATIONS.clear()
     DETERMINISM.clear()
     CLI_PROOF.clear()
+    LIVE_REJECTIONS.clear()
     program = unittest.main(argv=[sys.argv[0], *unittest_args], exit=False)
     passed = program.result.wasSuccessful()
     if args.evidence is not None:
@@ -502,11 +657,15 @@ def main() -> int:
         source_paths = {"tools/tests/test_astra_packet.py": Path(__file__),
                         **{"tools/" + name + ".py": ROOT / "tools" / (name + ".py")
                            for name in ("astra_prepare_inputs", "astra_render_packet", "astra_repository_snapshot")},
-                        **{"design/astra/" + name: PACKET / name for name in JSON_FILES.values()}}
+                        **{"design/astra/" + name: PACKET / name for name in JSON_FILES.values()},
+                        **{"design/astra/" + name: PACKET / name for name in (
+                            data["live_state"]["completeness_source"]["path"],
+                            data["live_state"]["completeness_source"]["receipt_path"])}}
         receipt = {
             "schema_version": 1,
             "scope": "Frozen sanitation packet structural/evidence validation; no live Git or runtime claims",
             "base_commit": data["snapshot"]["base_commit"],
+            "ledger_evidence_head": data["live_state"]["ledger_evidence_head"],
             "source_sha256": {name: digest(path.read_bytes()) for name, path in sorted(source_paths.items())},
             "tests_run": program.result.testsRun,
             "tests_successful": passed,
@@ -516,6 +675,7 @@ def main() -> int:
                        "master_rows": len(data["ledger"]["rows"])},
             "deterministic_replay": DETERMINISM,
             "actual_cli_red_green": CLI_PROOF,
+            "live_renderer_red_fixtures": sorted(LIVE_REJECTIONS, key=lambda r: r["fixture_id"]),
             "red_fixture_results": sorted(OBSERVATIONS, key=lambda row: row["fixture_id"]),
             "red_fixture_exit_semantics": "1 when validate() reports errors, otherwise 0; same validator as --check-packet",
             "limitations": [

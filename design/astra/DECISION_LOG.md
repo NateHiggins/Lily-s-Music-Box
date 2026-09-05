@@ -12,3 +12,13 @@
 - ASTRA-D009: owner asks to anchor the campaign in real 1928 events. Research recommends November 10 leading into the November 11 03:00 EST radio reallocation. This remains a proposal, not a selected canonical date; exact historical facts and fictional extensions are kept separate in reviews/campaign_date_research.md.
 
 - ASTRA-D010: M08F capture labels claim save reconstruction and zero retained objects without performing either measurement. Restrict that suite to image evidence until corrected; never promote its labels to runtime truth.
+
+- ASTRA-D011: preserve the original fresh-profile M08F/M11A failures; commit checked harness-local save-parent creation and three carrier-neutral prompt corrections at 647c72d1740d106d51139dc8f7a1c5a82b078cb9. The prompt baseline is unchanged. A later genuinely fresh two-root run exposed the same independent matrix precondition; preserve and repair that separately.
+
+- ASTRA-D012: actual M08F weak-reference tracing identifies the NightRegister paper cue in AudioPolicy, not ServiceSet receipt playback, as the retained owner. Two independent direct-player controls passed. Retire only the register's pooled source; cover pending 3D playback and late callbacks after detachment. No global muting, interaction skipping or ServiceSet rewrite.
+
+- ASTRA-D013: capture success cannot promote runtime contracts. Remove unsupported captions and reject legacy capture-only receipts at the completeness consumer. Preserve the seven resulting demotions until actual source-bound execution supplies the missing contracts.
+
+- ASTRA-D014: source inspection found the ordinary title action starts a fresh campaign even when a save was loaded. Atomic writes, damaged-save preservation and genuine continuation remain release blockers under ASTRA-SAVE; focused reconstruction tests are not a substitute for a restart through the title screen.
+
+- ASTRA-D015: migrate only the reviewed PolicyVoice%02d constructor record to its new function. All other 3,625 spatial-manifest records and their bytes are unchanged; an unrelated new generated family still fails. This is an exact traced relocation, not a regenerated baseline or a waiver of new debt.
