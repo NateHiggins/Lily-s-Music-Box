@@ -245,7 +245,7 @@
     {"id":"F02_B_RADIATOR_USE","level":"F02","rect":[15.15,-3.75,15.65,-2.25],"height":0.8,"class":"service","purpose":"radiator on exterior heat wall"},
     {"id":"F02_B_RADIATOR_STANCE_ENVELOPE","level":"F02","rect":[13.95,-3.6,15.15,-2.4],"height":0.02,"class":"clearance","purpose":"vent and control service stance"},
     {"id":"F03_B_REPAIR_USE","level":"F03","rect":[12.4,-1.5,14.8,-0.2],"height":0.02,"class":"clearance","purpose":"categorized repair work and seated approach"},
-    {"id":"F03_B_KITCHEN_WORK_AISLE","level":"F03","rect":[10.55,-7.8,11.65,-5.5],"height":0.02,"class":"clearance","purpose":"1.10 m cooking work aisle"},
+    {"id":"F03_B_KITCHEN_WORK_AISLE","level":"F03","rect":[9.8,-7.5,12.75,-6.35],"height":0.02,"class":"clearance","purpose":"1.15 m clear aisle in front of the appliance run"},
     {"id":"F03_B_BATH_USE","level":"F03","rect":[13.5,-11.9,14.6,-10.1],"height":0.02,"class":"clearance","purpose":"basin and bathing approach"},
     {"id":"F03_B_SLEEP_USE","level":"F03","rect":[9.95,-11.8,12.2,-9.8],"height":0.02,"class":"clearance","purpose":"sleep and bedside approach"}
   ],
@@ -320,7 +320,17 @@
     {"id":"F03_B_RADIATOR_01","level":"F03","space":"F03_B_MAIN","position":[15.4,0.75,-3.4],"yaw":1.5707963,"kind":"interaction"},
     {"id":"F03_B_RADIATOR_STANCE","level":"F03","space":"F03_B_MAIN","position":[14.45,0,-3.4],"yaw":-1.5707963,"kind":"clearance"},
     {"id":"F03_B_KITCHEN_SERVICE_STANCE","level":"F03","space":"F03_B_KITCHEN","position":[10.2,0,-6.8],"yaw":1.5707963,"kind":"clearance"},
-    {"id":"F03_SERVICE_TRANSFER_STANCE","level":"F03","space":"F03_SERVICE_HALL","position":[8.9,0,5.5],"yaw":-1.5707963,"kind":"clearance"}
+    {"id":"F03_SERVICE_TRANSFER_STANCE","level":"F03","space":"F03_SERVICE_HALL","position":[8.9,0,5.5],"yaw":-1.5707963,"kind":"clearance"},
+    {"id":"F03_3B_KITCHEN_SINK_01","level":"F03","space":"F03_B_KITCHEN","position":[10.25,0,-5.72],"yaw":0,"kind":"interaction"},
+    {"id":"F03_3B_KITCHEN_SINK_01_STANCE","level":"F03","space":"F03_B_KITCHEN","position":[10.25,0,-6.8],"yaw":3.141592653589793,"kind":"clearance"},
+    {"id":"F03_3B_STOVE_01","level":"F03","space":"F03_B_KITCHEN","position":[11.65,0,-5.72],"yaw":0,"kind":"interaction"},
+    {"id":"F03_3B_STOVE_01_STANCE","level":"F03","space":"F03_B_KITCHEN","position":[11.65,0,-6.9],"yaw":3.141592653589793,"kind":"clearance"},
+    {"id":"F03_3B_FRIDGE_01","level":"F03","space":"F03_B_KITCHEN","position":[12.45,0,-5.72],"yaw":0,"kind":"interaction"},
+    {"id":"F03_3B_FRIDGE_01_STANCE","level":"F03","space":"F03_B_KITCHEN","position":[12.45,0,-6.95],"yaw":3.141592653589793,"kind":"clearance"},
+    {"id":"F03_3B_SINK_01","level":"F03","space":"F03_B_BATH","position":[15.15,0,-10.32],"yaw":0,"kind":"interaction"},
+    {"id":"F03_3B_SINK_01_STANCE","level":"F03","space":"F03_B_BATH","position":[15.15,0,-11.2],"yaw":3.141592653589793,"kind":"clearance"},
+    {"id":"F03_3B_SHOWER_01","level":"F03","space":"F03_B_BATH","position":[13.55,0,-11.8],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F03_3B_SHOWER_01_STANCE","level":"F03","space":"F03_B_BATH","position":[13.55,0,-10.8],"yaw":6.283185307179586,"kind":"clearance"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},
@@ -345,7 +355,12 @@
     {"id":"F03_CAPSULE_3B_BATH","level":"F03","position":[14.2,0.85,-10.6]},
     {"id":"F03_CAPSULE_SERVICE_RISER_BYPASS","level":"F03","position":[7.7,0.85,0.5]},
     {"id":"F03_CAPSULE_SERVICE_HALL","level":"F03","position":[8.9,0.85,5.5]},
-    {"id":"F03_CAPSULE_SERVICE_ENTRY","level":"F03","position":[10.0,0.85,5.5]}
+    {"id":"F03_CAPSULE_SERVICE_ENTRY","level":"F03","position":[10.0,0.85,5.5]},
+    {"id":"F03_3B_KITCHEN_SINK_01_CAPSULE","level":"F03","position":[10.25,0.85,-6.8]},
+    {"id":"F03_3B_STOVE_01_CAPSULE","level":"F03","position":[11.65,0.85,-6.9]},
+    {"id":"F03_3B_FRIDGE_01_CAPSULE","level":"F03","position":[12.45,0.85,-6.95]},
+    {"id":"F03_3B_SINK_01_CAPSULE","level":"F03","position":[15.15,0.85,-11.2]},
+    {"id":"F03_3B_SHOWER_01_CAPSULE","level":"F03","position":[13.55,0.85,-10.8]}
   ],
   "platforms": [
     {"id":"B1_PUBLIC_LANDING_W","level":"B1","rect":[-2.2,-3.85,1.7,3.85],"class":"core"},

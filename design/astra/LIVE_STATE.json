@@ -102,5 +102,14 @@
     "source_checks": "work/v2_f03_program_01/source_checks.json",
     "scope": "F03 public/service connection and 3B domestic room geometry; riser bypass and supported service threshold; existing Omar radiator mounted.",
     "remaining": "Functional fittings, remaining F03 apartments, actual vertical/capsule/controller proof, full cutover requirements. Godot remains unlaunched."
+  },
+  "current_v2_f03_fittings": {
+    "status": "SOURCE_IMPLEMENTED_NATIVE_UNRUN_DEFAULT_NOT_SWITCHED",
+    "base_head": "5ecd79c938fbbab8b8143e22204eb9a4527e923a",
+    "continuation": "work/v2_f03_fittings_01/README.md",
+    "source_checks": "work/v2_f03_fittings_01/source_checks.json",
+    "audits": "evidence/v2_f03_fittings_01/receipt.json",
+    "scope": "Five existing 3B domestic appliance implementations mounted at named anchors; original settings and fridge acoustic identity preserved; five operating stances.",
+    "remaining": "Native compile, moving-body clearance, targeting, saved-state and visual proof; WC, sleeping furniture and repair-work presentation; spatial binding review and full cutover requirements."
   }
 }

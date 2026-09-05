@@ -3,6 +3,7 @@ extends Node
 const Connection := preload("res://scripts/building/orison_v2_world_connection.gd")
 const Resolver := preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd")
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
+const Fittings := preload("res://scripts/building/orison_v2_domestic_fittings.gd")
 var failures: Array[String] = []
 var checks := 0
 
@@ -42,6 +43,22 @@ func _run() -> void:
 		await get_tree().physics_frame
 		_check(not world.startup_failed, "composition %d starts" % iteration)
 		if not world.startup_failed:
+			var fitting_source := Connection.read_object(Fittings.PATH)
+			var loader := Fittings.new()
+			_check(loader.validate(fitting_source, world.adapter), "domestic fitting records validate")
+			var duplicate_fitting := fitting_source.duplicate(true)
+			duplicate_fitting.fittings.append(duplicate_fitting.fittings[0].duplicate(true))
+			_check(not loader.validate(duplicate_fitting, world.adapter), "duplicate fitting refused")
+			var bad_property := fitting_source.duplicate(true)
+			bad_property.fittings[0].properties["unknown_setting"] = true
+			_check(not loader.validate(bad_property, world.adapter), "unknown appliance setting refused")
+			for fitting: Dictionary in fitting_source.fittings:
+				var prop := world.find_child(str(fitting.id), true, false) as FunctionalProp
+				_check(prop != null and prop.prop_type == str(fitting.kind)
+						and str(prop.get("unit")) == str(fitting.unit), "fitting has one production owner: " + str(fitting.id))
+				if prop != null:
+					_check(prop.has_method("interact_prompt") and not str(prop.call("interact_prompt")).is_empty(),
+							"fitting exposes its production interaction: " + str(fitting.id))
 			_check(world.find_children("*", "WorldEnvironment", true, false).size() == 1,
 					"runtime owns one world environment")
 			_check(world.day_night_director != null and not world.day_night_director.resolved_profile().is_empty(),

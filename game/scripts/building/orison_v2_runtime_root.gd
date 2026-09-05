@@ -13,6 +13,7 @@ const ExteriorResolver := preload("res://scripts/building/orison_v2_exterior_spa
 const ExteriorCell := preload("res://scripts/building/orison_v2_exterior_cell.gd")
 const ShopSimulation := preload("res://scripts/building/orison_v2_shop_simulation.gd")
 const Atmosphere := preload("res://scripts/building/orison_v2_atmosphere.gd")
+const DomesticFittings := preload("res://scripts/building/orison_v2_domestic_fittings.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -133,6 +134,11 @@ func _compose_authorities() -> void:
 	_mount("LobbyMailBank", MailBankProp.new())
 	_mount("LobbyPorterBoard", OtisProp.new())
 	_compose_service_round_props()
+	var fittings := DomesticFittings.new()
+	if not fittings.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: domestic fittings refused: %s" % [fittings.errors])
+		return
 	var telephone := HouseSwitchboardProp.new()
 	var line := HouseTelephoneNetwork.new()
 	line.name = "HouseTelephoneNetwork"
