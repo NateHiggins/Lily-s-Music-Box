@@ -58,6 +58,18 @@ func _run() -> void:
 					_check(body.find_children("*", "MeshInstance3D", true, false).size() >= record.surfaces.size(),
 							"furniture has its extracted visible surfaces: " + str(record.id))
 			var wc := world.adapter.resolve("3B_wc") as BakedFurnitureInteraction
+			var wardrobe := world.adapter.resolve("3B_aw_wardrobe") as BakedFurnitureInteraction
+			_check(wardrobe != null and wardrobe.owner_unit == "3B", "wardrobe preserves household ownership")
+			if wardrobe != null:
+				_check(wardrobe.interact_prompt() == "[E] Open private wardrobe", "wardrobe starts closed")
+				wardrobe.interact()
+				_check(wardrobe.interact_prompt() == "[E] Close private wardrobe", "wardrobe uses existing open action")
+				await get_tree().create_timer(0.5).timeout
+			var invalid_wardrobe := furniture_source.duplicate(true)
+			for record: Dictionary in invalid_wardrobe.furniture:
+				if record.kind == "wardrobe":
+					record.mechanism.id = "another_household"
+			_check(not furniture_loader.validate(invalid_wardrobe, world.adapter), "mismatched wardrobe owner refused")
 			_check(wc != null and wc.owner_unit == "3B", "WC preserves household owner")
 			if wc != null:
 				_check(wc.interact_prompt() == "[E] Flush water closet", "WC starts ready")

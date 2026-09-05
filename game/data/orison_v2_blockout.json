@@ -336,7 +336,15 @@
     {"id":"3B_workbench","level":"F03","space":"F03_B_MAIN","position":[13.65,0,-0.2],"yaw":0,"kind":"furniture"},
     {"id":"3B_workbench_STANCE","level":"F03","space":"F03_B_MAIN","position":[13.65,0,-1.35],"yaw":3.141592653589793,"kind":"clearance"},
     {"id":"3B_wc","level":"F03","space":"F03_B_BATH","position":[15.05,0,-11.9],"yaw":3.141592653589793,"kind":"furniture"},
-    {"id":"3B_wc_STANCE","level":"F03","space":"F03_B_BATH","position":[15.05,0,-11.02],"yaw":0,"kind":"clearance"}
+    {"id":"3B_wc_STANCE","level":"F03","space":"F03_B_BATH","position":[15.05,0,-11.02],"yaw":0,"kind":"clearance"},
+    {"id":"3B_abed_ns","level":"F03","space":"F03_B_ALCOVE","position":[11.62,0,-11.4],"yaw":0,"kind":"furniture"},
+    {"id":"3B_abed_ns_STANCE","level":"F03","space":"F03_B_ALCOVE","position":[11.9,0,-10.7],"yaw":0,"kind":"clearance"},
+    {"id":"3B_aw_wardrobe","level":"F03","space":"F03_B_ALCOVE","position":[10.4,0,-8.5],"yaw":0,"kind":"furniture"},
+    {"id":"3B_aw_wardrobe_STANCE","level":"F03","space":"F03_B_ALCOVE","position":[11.7,0,-9.15],"yaw":-1.5707963267948966,"kind":"clearance"},
+    {"id":"3B_tools0","level":"F03","space":"F03_B_MAIN","position":[11.8,0,-3.5],"yaw":-1.5707963267948966,"kind":"furniture"},
+    {"id":"3B_tools0_STANCE","level":"F03","space":"F03_B_MAIN","position":[12.65,0,-3.5],"yaw":1.5707963267948966,"kind":"clearance"},
+    {"id":"3B_tools1","level":"F03","space":"F03_B_MAIN","position":[11.8,0,-4.6],"yaw":-1.5707963267948966,"kind":"furniture"},
+    {"id":"3B_tools1_STANCE","level":"F03","space":"F03_B_MAIN","position":[12.65,0,-4.6],"yaw":1.5707963267948966,"kind":"clearance"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},
@@ -357,7 +365,7 @@
     {"id":"F03_CAPSULE_3B_MAIN","level":"F03","position":[13.1,0.85,-2.5]},
     {"id":"F03_CAPSULE_3B_HALL","level":"F03","position":[14.2,0.85,-6.3]},
     {"id":"F03_CAPSULE_3B_KITCHEN","level":"F03","position":[11.4,0.85,-6.8]},
-    {"id":"F03_CAPSULE_3B_ALCOVE","level":"F03","position":[11.3,0.85,-9.15]},
+    {"id":"F03_CAPSULE_3B_ALCOVE","level":"F03","position":[11.7,0.85,-9.15]},
     {"id":"F03_CAPSULE_3B_BATH","level":"F03","position":[14.2,0.85,-10.6]},
     {"id":"F03_CAPSULE_SERVICE_RISER_BYPASS","level":"F03","position":[7.7,0.85,0.5]},
     {"id":"F03_CAPSULE_SERVICE_HALL","level":"F03","position":[8.9,0.85,5.5]},
@@ -369,7 +377,11 @@
     {"id":"F03_3B_SHOWER_01_CAPSULE","level":"F03","position":[13.55,0.85,-10.8]},
     {"id":"3B_abed_CAPSULE","level":"F03","position":[11.9,0.85,-10.7]},
     {"id":"3B_workbench_CAPSULE","level":"F03","position":[13.65,0.85,-1.35]},
-    {"id":"3B_wc_CAPSULE","level":"F03","position":[15.05,0.85,-11.02]}
+    {"id":"3B_wc_CAPSULE","level":"F03","position":[15.05,0.85,-11.02]},
+    {"id":"3B_abed_ns_CAPSULE","level":"F03","position":[11.9,0.85,-10.7]},
+    {"id":"3B_aw_wardrobe_CAPSULE","level":"F03","position":[11.7,0.85,-9.15]},
+    {"id":"3B_tools0_CAPSULE","level":"F03","position":[12.65,0.85,-3.5]},
+    {"id":"3B_tools1_CAPSULE","level":"F03","position":[12.65,0.85,-4.6]}
   ],
   "platforms": [
     {"id":"B1_PUBLIC_LANDING_W","level":"B1","rect":[-2.2,-3.85,1.7,3.85],"class":"core"},

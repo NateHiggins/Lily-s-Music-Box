@@ -120,5 +120,14 @@
     "audits": "evidence/v2_f03_furniture_02/receipt.json",
     "scope": "Individual source-derived 3B bed, machinist bench and WC; existing WC flush behavior and V2 teardown; named placements and standing clearance.",
     "remaining": "Native compile, actual traversal/input, material and audio review, saved-state proof; tools, operable repair-work and remaining interiors; spatial binding review and cutover contract."
+  },
+  "current_v2_f03_storage": {
+    "status": "SOURCE_IMPLEMENTED_NATIVE_UNRUN_DEFAULT_NOT_SWITCHED",
+    "base_head": "3a4ffbd7907fa6e3320388eceaf776c650be639b",
+    "continuation": "work/v2_f03_storage_01/README.md",
+    "source_checks": "work/v2_f03_storage_01/source_checks.json",
+    "audits": "evidence/v2_f03_storage_01/receipt.json",
+    "scope": "Original 3B nightstand, two sorting shelves and wardrobe with existing leaf interaction; scoped material coverage and sampled swing versus standing positions.",
+    "remaining": "Native compile, input/animation/audio/visual and saved-state proof; individual spatial binding review, bench equipment and repair interactions, remaining apartments and cutover."
   }
 }
