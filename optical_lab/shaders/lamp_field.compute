@@ -1,0 +1,50 @@
+#version 450
+layout(local_size_x=4, local_size_y=4, local_size_z=4) in;
+layout(set=0,binding=0,rgba16f) uniform writeonly image3D radiance_volume;
+layout(set=0,binding=1,rgba16f) uniform writeonly image3D optical_volume;
+layout(set=0,binding=2,std430) readonly buffer Inputs {
+ vec4 origin_range; vec4 right_tan; vec4 up_inner; vec4 forward_outer;
+ vec4 color_stability; vec4 control; vec4 grid_dynamics; vec4 blockers[16];
+} p;
+vec2 intersect_box(vec3 start,vec3 end,vec3 lo,vec3 hi) {
+ vec3 ray=end-start;
+ vec3 inv=1.0/mix(vec3(1e-8),ray,greaterThan(abs(ray),vec3(1e-8)));
+ vec3 a=(lo-start)*inv,b=(hi-start)*inv;
+ vec3 mn=min(a,b),mx=max(a,b);
+ float enter=max(0.0,max(mn.x,max(mn.y,mn.z)));
+ float leave=min(1.0,min(mx.x,min(mx.y,mx.z)));
+ return vec2(enter,leave);
+}
+void main(){
+ ivec3 cell=ivec3(gl_GlobalInvocationID),size=imageSize(radiance_volume);
+ if(any(greaterThanEqual(cell,size)))return;
+ vec3 uv=(vec3(cell)+0.5)/vec3(size);
+ float depth=p.control.x+(p.grid_dynamics.x-p.control.x)*uv.z*uv.z;
+ vec2 lateral=(uv.xy*2.0-1.0)*depth*p.right_tan.w;
+ vec3 relative=p.forward_outer.xyz*depth+p.right_tan.xyz*lateral.x+p.up_inner.xyz*lateral.y;
+ float distance=length(relative),cosine=depth/max(distance,1e-5);
+ float angular=smoothstep(p.forward_outer.w,p.up_inner.w,cosine);
+ vec3 point=p.origin_range.xyz+relative;
+ float visibility=0.0,transmittance=0.0,transport=0.0;
+ for(int tap=0;tap<4;tap++){
+  vec2 offset=vec2((tap&1)==0?-1.0:1.0,(tap&2)==0?-1.0:1.0)*0.018;
+  vec3 start=p.origin_range.xyz+p.right_tan.xyz*offset.x+p.up_inner.xyz*offset.y;
+  float v=1.0,t=1.0;
+  for(int i=0;i<int(p.control.w);i++){
+   vec4 lo=p.blockers[i*2],hi=p.blockers[i*2+1];
+   vec2 segment=intersect_box(start,point,lo.xyz,hi.xyz);
+   if(segment.y>segment.x){
+    v*=1.0-hi.w;
+    t*=exp(-lo.w*(segment.y-segment.x)*length(point-start));
+   }
+  }
+  visibility+=v*0.25; transmittance+=t*0.25; transport+=v*t*0.25;
+ }
+ float falloff=1.0/(1.0+distance*distance);
+ float edge=1.0-smoothstep(p.origin_range.w*0.88,p.origin_range.w,distance);
+ float power=angular*falloff*edge*p.control.z;
+ vec3 radiance=p.color_stability.rgb*power*transport;
+ float scatter=clamp(p.control.y*(1.0-exp(-distance*0.08))*transport,0.0,0.12);
+ imageStore(radiance_volume,cell,vec4(radiance,transmittance));
+ imageStore(optical_volume,cell,vec4(visibility,depth,scatter,p.color_stability.w));
+}

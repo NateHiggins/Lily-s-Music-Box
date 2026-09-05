@@ -1,0 +1,7 @@
+* text eol=lf
+scripts/lamp/lamp_optical_state.gd -text
+scripts/lamp/lamp_optical_instrument.gd -text
+shaders/lamp_beam_fog.gdshader -text
+tools/run_godot_serial.ps1 -text
+evidence/** -text
+*.png -text

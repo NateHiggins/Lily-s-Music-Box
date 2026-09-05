@@ -1,0 +1,10 @@
+config_version=5
+[application]
+config/name="Lamp Optical Voxel Lab"
+run/main_scene="res://tests/OpticalLab.tscn"
+[display]
+window/size/viewport_width=960
+window/size/viewport_height=640
+window/vsync/vsync_mode=0
+[rendering]
+renderer/rendering_method="forward_plus"
