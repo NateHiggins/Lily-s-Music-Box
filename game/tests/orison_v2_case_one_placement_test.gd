@@ -15,6 +15,21 @@ func _route() -> void:
 			Vector3(-3.2,3.2,0),Vector3(-6.4,3.2,0),Vector3(-8.5,3.2,0),
 			Vector3(-9.2,3.2,1.4)]:
 		if not await _walk(point): return
+	var fixture: LightFixtureProp = world.adapter.resolve("F02_A_MAIN_LT_PENDANT_SHADE")
+	var plate: Node3D = world.adapter.resolve("F02_A_MAIN_SWITCH")
+	var other: LightFixtureProp = world.adapter.resolve("F03_B_MAIN_LT_PENDANT_SHADE")
+	var other_powered := other.powered
+	for point in [Vector3(-8.5,3.2,0),Vector3(-8.5,3.2,-2.0)]:
+		if not await _walk(point): return
+	player.set_lamp_enabled(false)
+	_require(fixture.powered,"2A main pendant begins powered")
+	for enabled in [false,true]:
+		if not await _use(plate,plate.global_position-plate.global_basis.z*.05,
+				"case_room_switch_%s"%enabled): return
+		_require(fixture.powered == enabled and other.powered == other_powered,
+				"physical 2A switch controls only its room circuit")
+	if not await _walk(Vector3(-8.5,3.2,0)): return
+	if not await _walk(Vector3(-9.2,3.2,1.4)): return
 	RealityState.ensure_case(MinaCaseGameplay.CASE_ID,"mina_vale")
 	RealityCases.interact_with_resident("mina_vale")
 	for i in 30:

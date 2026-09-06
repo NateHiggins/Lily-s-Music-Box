@@ -177,7 +177,9 @@ func _verify_3b_switches(world: Node3D) -> void:
 		_check(plate != null, "mounted switch: " + str(record.id))
 		if plate == null: continue
 		var feet := plate.global_position - plate.global_basis.z * 0.75
-		feet.y = world.adapter.root.to_global(Vector3(0, 6.4, 0)).y + 0.02
+		for anchor: Dictionary in world.layout.anchors:
+			if anchor.id == record.id:
+				feet.y = plate.global_position.y - float(anchor.position[1]) + 0.02
 		player.global_position = feet
 		player.camera.global_position = feet + Vector3.UP * player.STANDING_EYE
 		player.camera.look_at(plate.to_global(Vector3(0, 0, -0.045)))

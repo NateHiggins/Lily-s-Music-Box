@@ -12,17 +12,6 @@ func mount(adapter: Variant, owner: MinaCaseGameplay) -> bool:
 		placements[record.id] = Transform3D(adapter.root.global_basis * Basis(Vector3.UP,deg_to_rad(float(record.yaw_degrees))),
 				anchor.global_position + adapter.root.global_basis * offset)
 	if not owner.place_case_objects(placements): return false
-	for record: Dictionary in source.lights:
-		var anchor := adapter.resolve(record.anchor) as Node3D
-		if anchor == null: return false
-		var fixture := LightFixtureProp.new()
-		fixture.name = record.id
-		fixture.prop_type = "pendant_shade"
-		fixture.range_clamp = 7.0
-		fixture.energy_scale = 1.5
-		adapter.root.add_child(fixture)
-		fixture.global_position = anchor.global_position + adapter.root.global_basis * Vector3(
-				record.offset[0],record.offset[1],record.offset[2])
 	for record: Dictionary in source.tables:
 		var anchor := adapter.resolve(record.anchor) as Node3D
 		if anchor == null: return false
