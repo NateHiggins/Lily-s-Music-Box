@@ -39,6 +39,11 @@ func _ready() -> void:
 			and gameplay.letter.interact_prompt().is_empty()
 			and gameplay.letter.collision_layer == 0,
 			"disabled case target vanishes instead of consuming E")
+	_repair_round(0)
+	var premature_calibration: Dictionary = gameplay.console.interact(null)
+	_check(_state().stage == "active" and _state().repair_count == 0
+			and str(premature_calibration.get("condition", "")).contains("REPAIR REQUIRED"),
+			"factual captions cannot bypass the first physical transmitter repair")
 	_repair_job()
 	_check(_state().stage == "stabilized" and _state().repair_count == 1,
 			"the physical Vantry repair temporarily stabilizes Mina's case")

@@ -48,11 +48,7 @@ func _route() -> void:
 	# space. Its long front is separated by the fitted display furniture.
 	if not await _walk_world(Vector3(counter.global_position.x, 0, door_center.z-0.18)): return
 	var counter_target := counter.global_position + Vector3(0, 0.12, 1.2)
-	var job := "vantry_chirp_2a"
-	var orders := world.work_orders
-	if not _require(orders.issue_job(job, "reported") and orders.acknowledge_job(job)
-			and orders.diagnose_job(job) and orders.mark_job_awaiting_part(job),
-			"maintenance job awaits authored capsule"): return
+	if not _prepare_procurement(): return
 	if not _require(world.shop_service.pending_item("hardware_paint") == "carbon_transmitter_capsule",
 			"right shop offers the awaited part"): return
 	if not await _use(counter, counter_target, "hardware_counter"): return
@@ -84,3 +80,10 @@ func _capture(identity: String, target: Vector3) -> void:
 	player.camera.look_at(target)
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join(identity+".png"))
+
+func _prepare_procurement() -> bool:
+	var job := "vantry_chirp_2a"
+	var orders := world.work_orders
+	return _require(orders.issue_job(job, "reported") and orders.acknowledge_job(job)
+			and orders.diagnose_job(job) and orders.mark_job_awaiting_part(job),
+			"maintenance job awaits authored capsule")

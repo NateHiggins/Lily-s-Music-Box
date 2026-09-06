@@ -297,6 +297,10 @@ func _use_calibrator() -> Dictionary:
 	if state.stage not in ["active", "reopened", "recognized", "resistant"]:
 		return _case_object_card("calibrator",
 				"CONTROL GUARDED / CURRENT STAGE REFUSED")
+	if int(state.get("repair_count", 0)) == 0:
+		_feedback = "The transmitter must be repaired before caption calibration."
+		_refresh()
+		return _case_object_card("calibrator", "TRANSMITTER REPAIR REQUIRED")
 	if _inspection_count(state) < EVIDENCE.size():
 		_feedback = "Calibration rejected: some captions claim more than is observable."
 		_refresh()
