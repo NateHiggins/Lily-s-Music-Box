@@ -1,0 +1,402 @@
+{
+  "status": "FRESH_BASELINE_SEALED_PROVIDER_INPUTS_UNCHANGED",
+  "head": "37f0307f279dde0c9413f43a7c28947fde0a4eb1",
+  "seal_sha256": "a07ea22a5ee7f3f83148b61218b46eb2d76a37cfb9fbf1359c9e01ae6ecc5654",
+  "install_paths": [
+    {
+      "target": "game/assets/building/floor_01_cells/orison_f01_interior.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\orison_f01_interior.gltf",
+      "expected_sha256": "5f070ac931a81f8a539753e0431850f8e429cb7dcb61db0ae496755cbbd87f8b",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "69e6a3c937c7f10a0a9141ebaf7381f78b3bc2fc20d37488a55530b10d6a5299",
+      "stride_views": 240
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/orison_f01_interior.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\orison_f01_interior.bin",
+      "expected_sha256": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/orison_facade_shell.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\orison_facade_shell.gltf",
+      "expected_sha256": "153611a5904274824e9e9cc41d9f2a1e9d8ba9e98424d0f20aae543919b52e2f",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "b1ea94dfe33d483ff9f68348621a7d2c78de68331b1f34484d3e6bb13029ef20",
+      "stride_views": 93
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/orison_facade_shell.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\orison_facade_shell.bin",
+      "expected_sha256": "e5666a66f32f7e86fbe30c404b20bf1be3f7d1fbd369e314f7c7d89089be777b",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/site_street_common.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\site_street_common.gltf",
+      "expected_sha256": "51fca69e631da9944eb1050a7e4422dc4c2046dc030590925c5c8d2f15f2025f",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "7162253a72fcb4b33a0e6989a3036edda6db64db24e3927b516a15c543338a8f",
+      "stride_views": 153
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/site_street_common.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\site_street_common.bin",
+      "expected_sha256": "4b8d4a73f088df1b067f850689c2bc436517ef3e13e2e98e18a90a90b51cafa9",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/passage.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\passage.gltf",
+      "expected_sha256": "cace2d1422ac8233e1bb959e63726fdc6e8ac06a96c753148dc0e06299383134",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "c39d471ce141702b54113960207c78567ea5b8b9d6306769e6cea5298cba7c9d",
+      "stride_views": 93
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/passage.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\passage.bin",
+      "expected_sha256": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_bar.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_bar.gltf",
+      "expected_sha256": "3f7b857975966e9af1696d9da680bc8d77a598206c2a521e02db128489a77407",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "f5067c2eafcafef1ca3df3bdf9ab89e927cf7ea8b9a1b44952ecb3afc627651d",
+      "stride_views": 216
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_bar.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_bar.bin",
+      "expected_sha256": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_bodega.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_bodega.gltf",
+      "expected_sha256": "b836c8ab778018ed7b10d5dbc392eaacc2b0ba3b94ac0b8117a0b66cb0171c65",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "676f1ef55017ee468810482ddcd3f35dc6c06a4872c530a0cfaab0bde9d02bd7",
+      "stride_views": 69
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_bodega.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_bodega.bin",
+      "expected_sha256": "639c74a18a499d042af8a44f6a11b70fc739e5ba81382a1769788990b4fa67aa",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_model_laundry.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_model_laundry.gltf",
+      "expected_sha256": "b7ac33a69d4aedfcc7cf7e45d653870578d55fcc8a3ff25055f7a5c6109ed161",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "577f32bb4cca519af8176bbe27f50fddc530182502589368ff642a94074cc41d",
+      "stride_views": 99
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_model_laundry.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_model_laundry.bin",
+      "expected_sha256": "3147958516513b9d8ac0bed0150eff8037b0e6e0371a1c737ab61175bfc960f4",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_shoe_rebuilding.gltf",
+      "expected_sha256": "2d2d14cb5cbe63d12fe72a8b499a4ee25f4cbad8bb4fe71cc5a150df531232a3",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "47573cf149d89d88acdec2560659bab7c02f45ec54399a82ceb0e81f14aac0e3",
+      "stride_views": 63
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_shoe_rebuilding.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_shoe_rebuilding.bin",
+      "expected_sha256": "a8c0cd8fa55990d23b8658168ee39b8218d2202305ea3aea1ae30bdb52b75918",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_keys_cut.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_keys_cut.gltf",
+      "expected_sha256": "e0117e7ae5d690d3e32fecc93802e3388543f0250414d29ef4ab66b4c876b115",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "34ef3b8880c5795167fb9c0d00773484769e8f6fc038063391ee51a360aa5b8a",
+      "stride_views": 63
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_keys_cut.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_keys_cut.bin",
+      "expected_sha256": "115f13475d0874826a975abba23ec20abed310e27b5e2d73e26f30ceb502097f",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_hardware_paint.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_hardware_paint.gltf",
+      "expected_sha256": "fd71a36c25710d8277fdc0415fd459bf082c367862ed9f679d648c8992b340f5",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "097c0f64535e9b731df08dfbf3709bd550e3502d12d30a700237e56d690d6932",
+      "stride_views": 66
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_hardware_paint.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_hardware_paint.bin",
+      "expected_sha256": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_funeral_parlour.gltf",
+      "expected_sha256": "e0b0c58301f31ec8d3106d663876e3ad1cd486c9b4d54d18c3dd904c567fac16",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "924f362fa4a87d66048bfa416e72e13dc642ece71354261ba2bef3be1806cdd3",
+      "stride_views": 72
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_funeral_parlour.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_funeral_parlour.bin",
+      "expected_sha256": "2aba70fa1cf9027b4725edef8e1f598b3d274e7e839a80ea502d62c9332721f4",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_photo_supplies.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_photo_supplies.gltf",
+      "expected_sha256": "5cce5d19bb9b25631ca3d6f1eb23f9897f09bbf709232b90b6f1adcc5240d46e",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "759b54bea7ccd3495ab3a7bfded7b880bd42f1552f09bc37a99315294f73b312",
+      "stride_views": 105
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_photo_supplies.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_photo_supplies.bin",
+      "expected_sha256": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_radio_service.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_radio_service.gltf",
+      "expected_sha256": "9a6e368488d8a1e72fa023ba3d8a46bb7a47d8da6e5da22b8c34940b31157689",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "e0f865b53e8186e467bc72915e853a1f121321ff202967a1ae9b34dec78a5a95",
+      "stride_views": 108
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_radio_service.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_radio_service.bin",
+      "expected_sha256": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_pawnbroker.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_pawnbroker.gltf",
+      "expected_sha256": "03f952ddeed5ff78c112aa2e50470b2e554224daee3fe95208492fe5e5584673",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "664f35a4a802537c6ccab8de0a975ce28a705da3bd60f4bf3f04db8f162c23b2",
+      "stride_views": 105
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_pawnbroker.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_pawnbroker.bin",
+      "expected_sha256": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_news_cigars.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_news_cigars.gltf",
+      "expected_sha256": "a48aa07337444cd61e1e45855ef55d77225a77792b424b7f713cb28c8bc3a7f1",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "dbc83eac68711c0e200b6703700edd57026f4d1b7b867691b814aa49a589792b",
+      "stride_views": 84
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_news_cigars.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_news_cigars.bin",
+      "expected_sha256": "a5f02344357a93404ff20ded11527b5c04e7a90b56d25fafbd5cb0f34338b926",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_otis_son.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_otis_son.gltf",
+      "expected_sha256": "457211ac8f4e2e58ee6b8a7c88b452c8af82090a00e7f1f75a773c9fdee8c086",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "082d463ae56acd73d096de2566b04203eb56cc046bfaf233813a7cc52bd156a5",
+      "stride_views": 93
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_otis_son.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_otis_son.bin",
+      "expected_sha256": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_luncheonette.gltf",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_02\\proposed\\game\\assets\\building\\floor_01_cells\\shop_luncheonette.gltf",
+      "expected_sha256": "9830babd4e2f029e15f067c6bb5cbf5edd75fa0a3089ef1ad37cd14936636f25",
+      "binding": "reused from exact parent materialization; rehash before installation",
+      "old_sha256": "43f3d37add52d6808ae79c9431d841f04b8fdecddcdb465c159b43b8763e67b5",
+      "stride_views": 105
+    },
+    {
+      "target": "game/assets/building/floor_01_cells/shop_luncheonette.bin",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\preserve_texture_names_01\\proposed\\game\\assets\\building\\floor_01_cells\\shop_luncheonette.bin",
+      "expected_sha256": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
+      "binding": "reused from exact parent materialization; rehash before installation"
+    },
+    {
+      "target": "game/data/floor01_provider_registry.tres",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_execution_04\\proposed\\game\\data\\floor01_provider_registry.tres",
+      "expected_sha256": "b3d88dfbf15680c8b40e78ca933320bf7d92a747a247eb8ed6a1c88c8839e3af",
+      "binding": "sealed small source/resource hash; verify again before named installation",
+      "old_sha256": "f7107d6c54ee068388458b8fd4193a97e5a071e6fb608f6c901453594649adc8"
+    },
+    {
+      "target": "game/scripts/building/building_root.gd",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\scripts\\building\\building_root.gd",
+      "expected_sha256": "69bc00ca1558b4447cfc78d26925a8d5ebdaab674ddfc1fde68f4b33e25057d6",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    },
+    {
+      "target": "game/scripts/building/floor01_cell_registry.gd",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\scripts\\building\\floor01_cell_registry.gd",
+      "expected_sha256": "65722b157d6223f303c3bd226dd9e694e46aa4267b10f64c0ee00c754e8a0b7f",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    },
+    {
+      "target": "game/scripts/building/floor01_geometry_provider.gd",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\scripts\\building\\floor01_geometry_provider.gd",
+      "expected_sha256": "26a261fc3f2fb37d2f7cc0ba03ac96c36c4d76b581edd6852a4fc119472672f1",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    },
+    {
+      "target": "game/scripts/building/floor01_registry_data.gd",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\scripts\\building\\floor01_registry_data.gd",
+      "expected_sha256": "e2fbc10bb286d72ff419b62286b47188304b3f81f231a203f8d289a8f71e0592",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    },
+    {
+      "target": "game/tests/fixtures/floor01_provider_candidate_root.tscn",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\tests\\fixtures\\floor01_provider_candidate_root.tscn",
+      "expected_sha256": "48e130204489689941375d082971ba3dd15f8dd8b15301cd1267381d36094673",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    },
+    {
+      "target": "game/tests/floor01_provider_parity_test.gd",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\tests\\floor01_provider_parity_test.gd",
+      "expected_sha256": "362a30d66251c6e30b52a93b9357926b3b84af30bceee7ebc9bb68763d247e09",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    },
+    {
+      "target": "game/tests/floor01_registry_contract_test.gd",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\tests\\floor01_registry_contract_test.gd",
+      "expected_sha256": "d4ff653de47ecff65f1f189cea4a9a71bb75c89a9a6eef8323ae324c63ed3fb5",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    },
+    {
+      "target": "game/tests/Floor01ProviderParityTest.tscn",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\tests\\Floor01ProviderParityTest.tscn",
+      "expected_sha256": "dbece3e382daba5d4d44520f70972cb2e2e1f878fc2752d35324f2451f569f76",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    },
+    {
+      "target": "game/tests/Floor01RegistryContractTest.tscn",
+      "source": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\f01_provider_parity_01\\revisions\\imported_resource_controls_02\\proposed\\game\\tests\\Floor01RegistryContractTest.tscn",
+      "expected_sha256": "2f02c448f1477da8b1af17113db37d7fe7de15cb29ee32e9d4592678ec58826d",
+      "binding": "sealed small source/resource hash; verify again before named installation"
+    }
+  ],
+  "export_input_paths_verified": 2071,
+  "textures_verified": 304,
+  "protected": {
+    "art/data/building_layout.json": {
+      "head": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "index": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+    },
+    "game/data/building_layout.json": {
+      "head": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "index": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+    },
+    "game/scripts/building/building_root_selector.gd": {
+      "head": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "index": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "sha256": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802"
+    },
+    "game/assets/building/floor_01.gltf": {
+      "head": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "index": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "sha256": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1"
+    },
+    "game/assets/building/floor_01.bin": {
+      "head": "eccac077808b8cdd55557f962bade7219a096381",
+      "index": "eccac077808b8cdd55557f962bade7219a096381",
+      "sha256": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477"
+    },
+    "game/assets/building/floor_02.gltf": {
+      "head": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "index": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "sha256": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640"
+    },
+    "game/assets/building/floor_02.bin": {
+      "head": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "index": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "sha256": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e"
+    },
+    "game/assets/building/floor_03.gltf": {
+      "head": "439c30732d8330ea77198c665c06358dc01b1800",
+      "index": "439c30732d8330ea77198c665c06358dc01b1800",
+      "sha256": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f"
+    },
+    "game/assets/building/floor_03.bin": {
+      "head": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "index": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "sha256": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8"
+    },
+    "game/assets/building/floor_04.gltf": {
+      "head": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "index": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "sha256": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1"
+    },
+    "game/assets/building/floor_04.bin": {
+      "head": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "index": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "sha256": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266"
+    },
+    "game/assets/building/floor_05.gltf": {
+      "head": "0c5be14216e4a47b73435b248308016295895af9",
+      "index": "0c5be14216e4a47b73435b248308016295895af9",
+      "sha256": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a"
+    },
+    "game/assets/building/floor_05.bin": {
+      "head": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "index": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "sha256": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8"
+    },
+    "game/assets/building/floor_06.gltf": {
+      "head": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "index": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "sha256": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422"
+    },
+    "game/assets/building/floor_06.bin": {
+      "head": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "index": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "sha256": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f"
+    },
+    "game/assets/building/floor_b1.gltf": {
+      "head": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "index": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "sha256": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e"
+    },
+    "game/assets/building/floor_b1.bin": {
+      "head": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "index": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "sha256": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449"
+    }
+  },
+  "additional_inputs": {
+    "game\\export_presets.cfg": "8763222711515cc808e413c149432def6a82a59fe470182f582fa545fb224162",
+    "tools\\run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "game\\scripts\\building\\surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+    "design/astra/work/f01_provider_execution_07/lane.py": "45e81885119fa8e7cfd5c2971cb495c5762990909894e916937c408bdfa7755e"
+  },
+  "previous_preflight_sha256": "119545699845b16907e9fb20d59d4d99a368b911d3247b2591b43d9f2ec0e098"
+}

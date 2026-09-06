@@ -1,0 +1,21 @@
+{
+  "runner": "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/Floor01ProviderParityTest.tscn",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\f01_provider_execution_07\\05_restored\\stdout.log",
+    "TimeoutSeconds": 180,
+    "Windowed": true,
+    "ExtraArgs": [
+      "--verbose",
+      "--audio-driver",
+      "Dummy",
+      "--resolution",
+      "1280x720",
+      "--rendering-method",
+      "forward_plus",
+      "--rendering-driver",
+      "vulkan"
+    ]
+  }
+}

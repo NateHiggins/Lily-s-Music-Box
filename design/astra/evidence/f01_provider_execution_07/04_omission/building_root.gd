@@ -1735,10 +1735,6 @@ func _street_core_protected_geometry() -> Dictionary:
 	# anyway: a batch carrying the building's own glazing and joinery IS the
 	# exterior view of it, whichever floor it belongs to.
 	for fid in floor_nodes:
-		if fid == "F01" and floor01_geometry_mode == "owner_first_cells":
-			for target: Node3D in floor01_geometry_provider.envelope_targets():
-				_protect_street_geometry(target, protected)
-			continue
 		for child in floor_nodes[fid].get_children():
 			var suffix := String(child.name).trim_prefix(fid + "_")
 			for token in ENVELOPE_BATCHES:

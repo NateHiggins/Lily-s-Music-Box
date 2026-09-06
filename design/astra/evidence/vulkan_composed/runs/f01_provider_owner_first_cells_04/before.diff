@@ -1,0 +1,115 @@
+diff --git a/game/scripts/building/building_root.gd b/game/scripts/building/building_root.gd
+index 9b8282e..1033a2e 100644
+--- a/game/scripts/building/building_root.gd
++++ b/game/scripts/building/building_root.gd
+@@ -22,6 +22,11 @@ const PeriodRealityLayerScript := preload(
+ const LiveWeatherServiceScript := preload(
+ 		"res://scripts/building/live_weather_service.gd")
+ 
++const Floor01Provider := preload("res://scripts/building/floor01_geometry_provider.gd")
++@export_enum("legacy", "owner_first_cells") var floor01_geometry_mode := "legacy"
++@export_file("*.tres") var floor01_registry_path := ""
++var floor01_geometry_provider
++
+ const FLOOR_SCENES := {
+ 	"B1": "res://assets/building/floor_b1.gltf",
+ 	"F01": "res://assets/building/floor_01.gltf",
+@@ -322,6 +327,11 @@ func _ready() -> void:
+ 		startup_failed = true
+ 		push_error("BuildingRoot requires a valid campaign calendar")
+ 		return
++	floor01_geometry_provider = Floor01Provider.new()
++	if not floor01_geometry_provider.prepare(floor01_geometry_mode, floor01_registry_path, ENVELOPE_BATCHES):
++		startup_failed = true
++		push_error("F01 geometry refused: " + str(floor01_geometry_provider.error))
++		return
+ 	# Findable by group rather than only as the current scene. Systems
+ 	# that need the building reach for this group first and fall back to
+ 	# get_tree().current_scene — a fallback that works in play, where the
+@@ -334,11 +344,15 @@ func _ready() -> void:
+ 	layout = JSON.parse_string(f.get_as_text())
+ 	_build_environment()
+ 	for fid in FLOOR_SCENES:
+-		var scene := load(FLOOR_SCENES[fid]) as PackedScene
+-		if scene == null:
+-			push_warning("missing floor scene %s" % fid)
+-			continue
+-		var node := scene.instantiate()
++		var node: Node
++		if fid == "F01":
++			node = floor01_geometry_provider.take_host()
++		else:
++			var scene := load(FLOOR_SCENES[fid]) as PackedScene
++			if scene == null:
++				push_warning("missing floor scene %s" % fid)
++				continue
++			node = scene.instantiate()
+ 		node.name = fid
+ 		add_child(node)
+ 		floor_nodes[fid] = node
+@@ -1474,12 +1488,12 @@ func _index_passage_geometry() -> void:
+ 		var geometry := candidate as GeometryInstance3D
+ 		if geometry == null:
+ 			continue
+-		var geometry_name := String(geometry.name)
+-		if geometry_name.contains("_retail_shop_"):
++		var role: String = floor01_geometry_provider.passage_role(geometry)
++		if role == "interior":
+ 			passage_interior_nodes.append(geometry)
+-		elif geometry_name.contains("_retail_passage_shell_"):
++		elif role == "shell":
+ 			passage_shell_nodes.append(geometry)
+-		elif not geometry_name.contains("_retail_passage_proxy_"):
++		elif role == "foreign":
+ 			passage_foreign_f01_nodes.append(geometry)
+ 	print("[PASSAGE] %d interior, %d shell and %d foreign F01 draws indexed" %
+ 			[passage_interior_nodes.size(), passage_shell_nodes.size(),
+@@ -1721,6 +1735,10 @@ func _street_core_protected_geometry() -> Dictionary:
+ 	# anyway: a batch carrying the building's own glazing and joinery IS the
+ 	# exterior view of it, whichever floor it belongs to.
+ 	for fid in floor_nodes:
++		if fid == "F01" and floor01_geometry_mode == "owner_first_cells":
++			for target: Node3D in floor01_geometry_provider.envelope_targets():
++				_protect_street_geometry(target, protected)
++			continue
+ 		for child in floor_nodes[fid].get_children():
+ 			var suffix := String(child.name).trim_prefix(fid + "_")
+ 			for token in ENVELOPE_BATCHES:
+@@ -2900,3 +2918,8 @@ func _announce_renderer() -> void:
+ 			% [want, got] + "Forward+ features (SSS, transmittance, clearcoat, decals, "
+ 			+ "HDR headroom) are NOT what you are looking at.")
+ 	printerr("[RENDER] FALLBACK: wanted %s, running %s" % [want, got])
++
++
++func _exit_tree() -> void:
++	if floor01_geometry_provider != null:
++		floor01_geometry_provider.release_references()
+diff --git a/game/tests/vulkan_composed_root_test.gd b/game/tests/vulkan_composed_root_test.gd
+index 0439be6..7eda56a 100644
+--- a/game/tests/vulkan_composed_root_test.gd
++++ b/game/tests/vulkan_composed_root_test.gd
+@@ -69,15 +69,23 @@ func _ready() -> void:
+ 	vp = get_viewport().get_viewport_rid()
+ 	RenderingServer.viewport_set_measure_render_time(vp, true)
+ 	_phase("root_construct")
++	var provider_mode := OS.get_environment("F01_CAPTURE_MODE")
++	if selected != "v1" or provider_mode not in ["legacy", "owner_first_cells"]:
++		push_error("F01 capture requires declared V1 provider mode")
++		get_tree().quit(2)
++		return
++	var expected_scene := "res://tests/fixtures/floor01_provider_candidate_root.tscn" if provider_mode == "owner_first_cells" else Selector.path_for(selected)
+ 	shell = CampaignShell.new()
+ 	shell.sleep_manual_clock = true
++	shell.waking_scene_path = expected_scene
+ 	add_child(shell)
+ 	world = shell.active_world
+-	_check("CampaignShell composed the selected real root", world != null and world.scene_file_path == Selector.path_for(selected))
++	_check("CampaignShell composed the selected real root", world != null and world.scene_file_path == expected_scene)
+ 	if world == null:
+ 		await _finish()
+ 		return
+ 	_check("root startup succeeded", world.get("startup_failed") != true)
++	controls.append({"kind":"f01_provider_capture", "mode":provider_mode, "census":world.floor01_geometry_provider.public_census()})
+ 	player = world.get("player") as PlayerController
+ 	_check("real production player exists", player != null)
+ 	if player == null:
