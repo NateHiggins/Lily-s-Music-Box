@@ -7,7 +7,7 @@ func _init() -> void:
 func _route() -> void:
 	var passage := world.passage_region
 	if not _require(passage != null and not passage.startup_failed
-			and passage.cell_nodes.size() == 13 and passage.shop_service == world.shop_service,
+			and passage.cell_nodes.has("gateway") and passage.shop_service == world.shop_service,
 			"arcade composes in the same production world"): return
 	if not _require(world.shop_service.inventory == world.maintenance_inventory
 			and world.shop_service.work_orders == world.work_orders
@@ -22,6 +22,10 @@ func _route() -> void:
 		Vector3(14, 0, 32)]
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
+	var residency: Dictionary = passage.residency.snapshot()
+	print("RESIDENCY_AT_NAVE ", JSON.stringify(residency))
+	if not _require(residency.state == "RESIDENT" and residency.load_cycles >= 1
+			and residency.unload_cycles >= 1, "arcade geometry reloads asynchronously after leaving the core"): return
 	await _capture("nave", passage.to_global(Vector3(14, 2.5, 63)))
 	var door: DoorProp = passage.doors.get("SITE_SHOP_DOOR_HARDWARE_PAINT")
 	if not _require(door != null, "authored hardware shop door exists"): return

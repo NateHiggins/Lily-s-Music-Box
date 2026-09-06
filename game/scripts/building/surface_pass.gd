@@ -256,6 +256,11 @@ func govern(delta: float, gpu_ms: float) -> void:
 
 
 ## Returns the number of surfaces swapped. Idempotent per surface.
+## A streaming owner may retain only the numeric texture measurements from
+## its current world. This avoids GPU readback when the same immutable imported
+## textures return, without retaining meshes, textures or shader materials.
+var texture_statistics: Dictionary = {}
+
 func apply(floor_nodes: Dictionary) -> int:
 	if OS.get_environment("SURFACE") == "0":
 		return 0
@@ -282,7 +287,8 @@ func apply(floor_nodes: Dictionary) -> int:
 					continue
 				var recipe: Dictionary = (cls.recipe as Dictionary).duplicate()
 				recipe["parallax_budget"] = budget
-				mi.set_surface_override_material(s, surface_for(original, recipe, str(cls.key), _cache))
+				mi.set_surface_override_material(s, surface_for(original, recipe, str(cls.key), _cache,
+						texture_statistics.get(texture_source_key(original), {})))
 				swapped += 1
 	materials = _cache.size()
 	print("[SURFACE] %d surfaces layered (%d materials)" % [swapped, materials])
@@ -427,7 +433,7 @@ static func base_key(key: String) -> String:
 ## `relief_mul`, which scales the calibrated relief. `cache` (optional) is
 ## keyed by (material id, cache_key).
 static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
-		cache_key: String = "", cache: Dictionary = {}) -> ShaderMaterial:
+		cache_key: String = "", cache: Dictionary = {}, measured_stats: Dictionary = {}) -> ShaderMaterial:
 	var ck := "%d|%s" % [original.get_instance_id(), cache_key]
 	if not cache_key.is_empty() and cache.has(ck):
 		return cache[ck]
@@ -474,7 +480,7 @@ static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 		# is still measured.
 		m.set_shader_parameter("height_range",
 				Vector2(0.0, 1.0) if CALIBRATION.has(key) else height_range(height))
-	var stats := texture_stats(original)
+	var stats := measured_stats if _valid_texture_stats(measured_stats) else texture_stats(original)
 	m.set_shader_parameter("albedo_mean", stats.albedo_mean)
 	m.set_shader_parameter("rough_mean", stats.rough_mean)
 	if cutout:
@@ -536,6 +542,20 @@ static func height_range(height: Texture2D) -> Vector2:
 ## to know what "average" is. Textures are shared across storeys and material
 ## variants, so cache by the actual texture pair rather than recomputing the
 ## same decompression/resample once per material.
+static func texture_source_key(original: BaseMaterial3D) -> String:
+	if original.albedo_texture == null or original.albedo_texture.resource_path.is_empty():
+		return ""
+	var rough_path := original.roughness_texture.resource_path if original.roughness_texture != null else ""
+	if original.roughness_texture != null and rough_path.is_empty(): return ""
+	return "%s|%s|%d" % [original.albedo_texture.resource_path, rough_path, original.roughness_texture_channel]
+
+static func _valid_texture_stats(value: Dictionary) -> bool:
+	if value.get("albedo_mean") is not Vector3 or typeof(value.get("rough_mean")) not in [TYPE_FLOAT, TYPE_INT]: return false
+	var mean: Vector3 = value.albedo_mean
+	var rough := float(value.rough_mean)
+	return mean.is_finite() and mean.x >= 0.0 and mean.x <= 1.0 and mean.y >= 0.0 and mean.y <= 1.0 \
+			and mean.z >= 0.0 and mean.z <= 1.0 and is_finite(rough) and rough >= 0.0 and rough <= 1.0
+
 static var _stats_cache := {}
 static func texture_stats(original: BaseMaterial3D) -> Dictionary:
 	var rough_id := original.roughness_texture.get_instance_id() \

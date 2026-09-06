@@ -282,6 +282,8 @@ func _compose_exterior() -> bool:
 	add_child(passage_region)
 	if passage_region.startup_failed:
 		return false
+	if not passage_region.enable_residency(player, _blockout, layout):
+		return false
 	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
 func _compose_call_station(terminal: SignalTerminalProp) -> bool:

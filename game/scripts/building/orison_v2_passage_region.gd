@@ -1,10 +1,12 @@
 class_name OrisonV2PassageRegion
 extends Node3D
 ## Authored arcade cells registered at the same front-door origin as V2.
-## Resident composition first; no streaming or independent shop authority.
+## Geometry streams at interior boundaries; physical actors and shop authority
+## retain their identities while the imported geometry is dormant.
 
 const Surface := preload("res://scripts/building/surface_pass.gd")
 const Finish := preload("res://scripts/building/passage_finish_pass.gd")
+const Residency := preload("res://scripts/building/orison_v2_passage_residency.gd")
 const CELLS := ["passage", "shop_model_laundry", "shop_shoe_rebuilding",
 	"shop_keys_cut", "shop_hardware_paint", "shop_funeral_parlour",
 	"shop_photo_supplies", "shop_radio_service", "shop_pawnbroker",
@@ -19,6 +21,9 @@ var surface_pass: RefCounted
 var finish: PassageFinishPass
 var _signs: Array[ShopSignProp] = []
 var _counter_ids: Array[String] = []
+var _geometry_root: Node3D
+var _actors: Node3D
+var residency: Node
 
 func configure(service: MaintenanceShopService) -> bool:
 	if is_inside_tree() or service == null:
@@ -46,14 +51,20 @@ func _ready() -> void:
 		return
 	if not _mount_scene("gateway", "res://assets/building/orison_v2/exterior/passage_gateway.gltf"):
 		return
+	_geometry_root = Node3D.new()
+	_geometry_root.name = "ResidentGeometry"
+	add_child(_geometry_root)
 	for identity: String in CELLS:
 		if not _mount_scene(identity, "res://assets/building/floor_01_cells/%s.gltf" % identity):
 			return
 	surface_pass = Surface.new()
 	surface_pass.apply(cell_nodes)
+	_actors = Node3D.new()
+	_actors.name = "PassageActors"
+	add_child(_actors)
 	_mount_markers()
 	finish = Finish.new()
-	add_child(finish)
+	_actors.add_child(finish)
 	finish.build(source_layout)
 	for sign_prop: ShopSignProp in _signs:
 		sign_prop.bind_hours_director(finish.hours_director)
@@ -71,7 +82,8 @@ func _mount_scene(identity: String, path: String) -> bool:
 		_fail("non-spatial cell: " + identity)
 		return false
 	cell.name = identity
-	add_child(cell)
+	if identity == "gateway": add_child(cell)
+	else: _geometry_root.add_child(cell)
 	cell_nodes[identity] = cell
 	return true
 
@@ -124,7 +136,7 @@ func _mount_markers() -> void:
 			prop.name = identity
 			prop.position = GameBoot.b2g(marker.pos)
 			prop.rotation.y = deg_to_rad(-float(marker.get("yaw_deg", 0.0)))
-			add_child(prop)
+			_actors.add_child(prop)
 
 func _mount_counters() -> void:
 	for item_id: String in shop_service.stock_ids():
@@ -156,6 +168,8 @@ func _mount_counters() -> void:
 		_counter_ids.append(identity)
 
 func shutdown() -> void:
+	if is_instance_valid(residency):
+		residency.shutdown()
 	if is_instance_valid(shop_service):
 		for identity: String in _counter_ids:
 			shop_service.unmount_counter(identity)
@@ -167,6 +181,49 @@ func shutdown() -> void:
 	cell_nodes.clear()
 	surface_pass = null
 	shop_service = null
+
+func enable_residency(player: PlayerController, frame: Node3D, layout: Dictionary) -> bool:
+	if residency != null or startup_failed:
+		return false
+	residency = Residency.new()
+	if not residency.configure(self, player, frame, layout):
+		residency.free()
+		residency = null
+		return false
+	add_child(residency)
+	return true
+
+func suspend_geometry() -> WeakRef:
+	for identity: String in _counter_ids:
+		shop_service.unmount_counter(identity)
+	_counter_ids.clear()
+	finish.hours_director.set_passage_active(false)
+	for cart: PassagePushcart in finish.pushcarts:
+		cart.set_passage_active(false)
+	_actors.visible = false
+	_actors.process_mode = Node.PROCESS_MODE_DISABLED
+	var retired: WeakRef = weakref(_geometry_root)
+	remove_child(_geometry_root)
+	_geometry_root.queue_free()
+	_geometry_root = null
+	for identity: String in CELLS:
+		cell_nodes.erase(identity)
+	surface_pass = null
+	return retired
+
+func activate_geometry(geometry: Node3D, cells: Dictionary, surfaces: RefCounted) -> void:
+	_geometry_root = geometry
+	_geometry_root.name = "ResidentGeometry"
+	add_child(_geometry_root)
+	cell_nodes.merge(cells)
+	surface_pass = surfaces
+	_actors.process_mode = Node.PROCESS_MODE_INHERIT
+	_actors.visible = true
+	finish.hours_director.set_passage_active(true)
+	finish.hours_director.apply_for_minute(ScheduleDirector.minute_now())
+	for cart: PassagePushcart in finish.pushcarts:
+		cart.set_passage_active(true)
+	_mount_counters()
 
 func _exit_tree() -> void:
 	shutdown()
