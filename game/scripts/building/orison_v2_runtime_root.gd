@@ -16,6 +16,7 @@ const Atmosphere := preload("res://scripts/building/orison_v2_atmosphere.gd")
 const DomesticFittings := preload("res://scripts/building/orison_v2_domestic_fittings.gd")
 const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_furniture.gd")
 const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
+const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -136,6 +137,10 @@ func _compose_authorities() -> void:
 	_mount("LobbyMailBank", MailBankProp.new())
 	_mount("LobbyPorterBoard", OtisProp.new())
 	_compose_service_round_props()
+	if not DomesticDoors.new().mount(adapter, layout):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: domestic door mounting refused")
+		return
 	var fittings := DomesticFittings.new()
 	if not fittings.mount(adapter):
 		startup_failed = true
