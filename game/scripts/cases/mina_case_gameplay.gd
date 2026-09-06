@@ -61,7 +61,6 @@ var console: CaseInteractable
 var shift_clock: CaseInteractable
 var dialogue: CaseDialoguePanel
 var evidence_nodes: Array[CaseInteractable] = []
-var _choice_indices: Dictionary = {}
 var _feedback := ""
 var _visit_overlay: ColorRect
 var _visit_label: Label
@@ -87,6 +86,22 @@ func _ready() -> void:
 	RealityState.state_changed.connect(_on_reality_state_changed)
 	_reconcile_physical_repair()
 	_refresh()
+
+## A composed world supplies all placements together; case state and callbacks
+## stay owned here. Legacy composition retains the original authored positions.
+func place_case_objects(placements: Dictionary) -> bool:
+	var objects := {"calibrator": console, "time_clock": shift_clock,
+		"letter": letter, "voice": _voice}
+	for i in EVIDENCE.size(): objects[EVIDENCE[i].id] = evidence_nodes[i]
+	if placements.size() != objects.size(): return false
+	for identity: String in objects:
+		if not is_instance_valid(objects[identity]) or placements.get(identity) is not Transform3D:
+			return false
+		var transform: Transform3D = placements[identity]
+		if not transform.is_finite() or is_zero_approx(transform.basis.determinant()): return false
+	for identity: String in objects:
+		(objects[identity] as Node3D).global_transform = placements[identity]
+	return true
 
 
 func _build_apartment_targets() -> void:
@@ -254,10 +269,10 @@ func _inspect(evidence_id: String) -> Dictionary:
 	var spec := _evidence_spec(evidence_id)
 	if spec.is_empty():
 		return {}
-	var key := "%d_%s" % [round, evidence_id]
-	var index: int = (int(_choice_indices.get(key, -1)) + 1) \
-			% spec.choices.size()
-	_choice_indices[key] = index
+	# The selected caption is already a durable case fact. Advancing from an
+	# unsaved local index restarted some choice cycles after reconstruction.
+	var selected_index: int = (spec.choices as Array).find(_selected_caption(state, evidence_id))
+	var index: int = (selected_index + 1) % spec.choices.size()
 	var selected: String = spec.choices[index]
 	var prefix := "caption_%d_%s=" % [round, evidence_id]
 	for marker in state.apartment_changes.duplicate():

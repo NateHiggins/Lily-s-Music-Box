@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "objects": [
+    {"id":"caption_cards","anchor":"F02_A_CAPTION_WORK_ZONE","offset":[-1.2,0.38,-1.0],"yaw_degrees":0},
+    {"id":"style_guide","anchor":"F02_A_CAPTION_WORK_ZONE","offset":[-0.6,0.38,-1.0],"yaw_degrees":0},
+    {"id":"redaction_pencil","anchor":"F02_A_CAPTION_WORK_ZONE","offset":[0.0,0.38,-1.0],"yaw_degrees":0},
+    {"id":"calibrator","anchor":"F02_A_CAPTION_WORK_ZONE","offset":[-0.8,0.38,0.95],"yaw_degrees":0},
+    {"id":"voice","anchor":"F02_A_CONVERSATION_CLEARANCE","offset":[0,1.4875,0],"yaw_degrees":0},
+    {"id":"time_clock","anchor":"F01_WATCHMAN_DETECTOR","offset":[-0.7,0,0],"yaw_degrees":0},
+    {"id":"letter","anchor":"F04_B_THRESHOLD","offset":[-0.2,0.015,0.35],"yaw_degrees":12.6}
+  ],
+  "lights": [
+    {"id":"F02_A_MAIN_LT_PENDANT_SHADE","anchor":"F02_A_CAPTION_WORK_ZONE","offset":[0,2.24,0]}
+  ],
+  "tables": [
+    {"id":"F02_A_CaptionDesk","anchor":"F02_A_CAPTION_WORK_ZONE","offset":[-0.6,-0.4,-1.0],"width":1.8,"depth":0.9,"height":0.78},
+    {"id":"F02_A_CalibratorTable","anchor":"F02_A_CAPTION_WORK_ZONE","offset":[-0.8,-0.4,0.95],"width":0.85,"depth":0.65,"height":0.78}
+  ]
+}

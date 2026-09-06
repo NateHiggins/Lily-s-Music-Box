@@ -11,6 +11,8 @@ var direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
 		"v1_to_v2": 0, "v2_to_v1": 0}
 var inventory_direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
 		"v1_to_v2": 0, "v2_to_v1": 0}
+var case_direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
+		"v1_to_v2": 0, "v2_to_v1": 0}
 
 func _ready() -> void:
 	var save_directory := ProjectSettings.globalize_path("user://tests")
@@ -86,9 +88,9 @@ func _ready() -> void:
 	RealityState.persistence_enabled = saved_persistence
 	RealityState.reset_campaign_for_tests()
 	Selector.reset_for_tests()
-	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s calendar_totals=%s inventory_totals=%s checks=%d" % [
+	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s calendar_totals=%s inventory_totals=%s case_totals=%s checks=%d" % [
 			"PASS" if failures == 0 else "FAIL (%d)" % failures,
-			direction_totals, calendar_direction_totals, inventory_direction_totals, passes + failures])
+			direction_totals, calendar_direction_totals, inventory_direction_totals, case_direction_totals, passes + failures])
 	get_tree().quit(failures)
 
 func _exercise_v1_root() -> void:
@@ -158,6 +160,14 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 			and service.acquire("carbon_transmitter_capsule", "hardware_paint")
 	var expected_item: Dictionary = JSON.parse_string(JSON.stringify(
 			service.inventory.item_state("carbon_transmitter_capsule")))
+	var case_owner: MinaCaseGameplay = origin_shell.active_world.get("mina_gameplay")
+	var case_started := RealityCases.activate_case(MinaCaseGameplay.CASE_ID)
+	for i in MinaCaseGameplay.EVIDENCE.size():
+		var spec: Dictionary = MinaCaseGameplay.EVIDENCE[i]
+		for choice in (spec.choices as Array).find(spec.fact)+1:
+			case_owner.evidence_nodes[i].interact(origin_shell.active_world.get("player"))
+	var expected_case_changes: Array = RealityState.case_state(MinaCaseGameplay.CASE_ID).apartment_changes.duplicate(true)
+	var case_seeded := case_started and case_owner._inspection_count(RealityState.case_state(MinaCaseGameplay.CASE_ID)) == 3
 	var save_started := Time.get_ticks_usec()
 	var saved := RealityState.save_game()
 	var save_ms := float(Time.get_ticks_usec() - save_started) / 1000.0
@@ -202,6 +212,15 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 			and not restored_service.acquire("carbon_transmitter_capsule", "hardware_paint")
 	inventory_direction_totals[key] = 1 if inventory_ok else 0
 	_check(inventory_ok, "%s preserves acquired capsule provenance and rejects duplicate acquisition" % key)
+	var restored_case: Dictionary = RealityState.case_state(MinaCaseGameplay.CASE_ID)
+	var restored_case_owner: MinaCaseGameplay = shell.active_world.get("mina_gameplay")
+	var case_ok: bool = case_seeded and restored_case.get("apartment_changes",[]) == expected_case_changes \
+			and restored_case_owner._inspection_count(restored_case) == 3
+	restored_case_owner.evidence_nodes[0].interact(shell.active_world.get("player"))
+	case_ok = case_ok and restored_case_owner._selected_caption(
+			RealityState.case_state(MinaCaseGameplay.CASE_ID),"caption_cards") == "FAILURE"
+	case_direction_totals[key] = 1 if case_ok else 0
+	_check(case_ok,"%s preserves factual captions and continues the saved choice cycle" % key)
 	remove_child(shell)
 	shell.free()
 	await get_tree().process_frame

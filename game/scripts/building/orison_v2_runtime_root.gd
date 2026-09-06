@@ -208,6 +208,10 @@ func _compose_authorities() -> void:
 	mina_gameplay.name = "MinaCaseGameplay"
 	mina_gameplay.setup(objective_tracker, work_orders)
 	add_child(mina_gameplay)
+	if not preload("res://scripts/building/orison_v2_case_one_placement.gd").new().mount(adapter, mina_gameplay):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: incomplete case-one placement")
+		return
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)
