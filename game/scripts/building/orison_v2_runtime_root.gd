@@ -15,6 +15,7 @@ const ShopSimulation := preload("res://scripts/building/orison_v2_shop_simulatio
 const Atmosphere := preload("res://scripts/building/orison_v2_atmosphere.gd")
 const DomesticFittings := preload("res://scripts/building/orison_v2_domestic_fittings.gd")
 const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_furniture.gd")
+const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -145,6 +146,14 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: furniture refused: %s" % [furniture.errors])
 		return
+	var lighting := RoomLighting.new()
+	if not lighting.mount(adapter, self):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: room lighting refused: %s" % [lighting.errors])
+		return
+	var light_rig := LightRig.new()
+	light_rig.name = "LightRig"
+	get_node("WakingAtmosphere").add_child(light_rig)
 	var telephone := HouseSwitchboardProp.new()
 	var line := HouseTelephoneNetwork.new()
 	line.name = "HouseTelephoneNetwork"

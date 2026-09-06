@@ -39,6 +39,8 @@ func _run() -> void:
 	resolver.teardown()
 	for iteration in 2:
 		RealityState.reset_campaign_for_tests()
+		var fixed_clock := CampaignClock.new()
+		_check(fixed_clock.configure_date(1928, 11, 10, 20 * 60), "fixed November evening")
 		var world := Runtime.instantiate()
 		add_child(world)
 		await get_tree().process_frame
@@ -147,6 +149,8 @@ func _run() -> void:
 				ground.exclude = [world.player.get_rid()]
 				_check(not world.get_world_3d().direct_space_state.intersect_ray(ground).is_empty(),
 						"F03 capsule station has floor: " + str(station.id))
+		if not world.startup_failed:
+			await _verify_3b_switches(world)
 		if iteration == 0 and not OS.get_environment("SHOT_DIR").is_empty() and not world.startup_failed:
 			await _capture_3b(world)
 		world.shutdown_for_tests()
@@ -158,12 +162,86 @@ func _run() -> void:
 	print("CONNECTED WORLD: %d checks; %d failures" % [checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
+## Controlled standing poses exercise production targeting/input, not a walked route.
+func _verify_3b_switches(world: Node3D) -> void:
+	var player: CharacterBody3D = world.player
+	var saved_pose := player.global_transform
+	var saved_camera: Transform3D = player.camera.transform
+	var was_processing := player.is_physics_processing()
+	player.set_physics_process(false)
+	player.camera.make_current()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	var source := Connection.read_object("res://data/orison_v2/room_lighting.json")
+	for record: Dictionary in source.switches:
+		var plate := world.find_child(str(record.id), true, false) as StaticBody3D
+		_check(plate != null, "mounted switch: " + str(record.id))
+		if plate == null: continue
+		var feet := plate.global_position - plate.global_basis.z * 0.75
+		feet.y = world.adapter.root.to_global(Vector3(0, 6.4, 0)).y + 0.02
+		player.global_position = feet
+		player.camera.global_position = feet + Vector3.UP * player.STANDING_EYE
+		player.camera.look_at(plate.to_global(Vector3(0, 0, -0.045)))
+		await get_tree().physics_frame
+		await get_tree().process_frame
+		var capsule := CapsuleShape3D.new()
+		capsule.radius = 0.33
+		capsule.height = 1.524
+		var stance := PhysicsShapeQueryParameters3D.new()
+		stance.shape = capsule
+		stance.transform.origin = feet + Vector3.UP * 0.762
+		stance.exclude = [player.get_rid()]
+		_check(world.get_world_3d().direct_space_state.intersect_shape(stance).is_empty(),
+				"switch standing capsule clear: " + str(record.id))
+		var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
+				player.camera.global_position - player.camera.global_basis.z * 2.1)
+		ray.collide_with_areas = true
+		ray.exclude = [player.get_rid()]
+		var hit: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(ray)
+		print("SWITCH TARGET ", record.id, " feet=", feet, " hit=", hit.get("collider"), " at=", hit.get("position"))
+		_check(hit.get("collider") == plate, "player targets switch: " + str(record.id))
+		player._update_prompt()
+		_check("light" in player._prompt.text.to_lower(), "switch player prompt: " + str(record.id))
+		for expected_on in [false, true]:
+			# Timer callbacks run after Node._process. Inject at the next frame
+			# boundary so the production just-pressed poll can observe the action.
+			await get_tree().process_frame
+			Input.action_press("interact")
+			await get_tree().create_timer(0.1).timeout
+			Input.action_release("interact")
+			await get_tree().create_timer(0.8).timeout
+			for fixture_record: Dictionary in source.fixtures:
+				if fixture_record.kind == "lamp": continue
+				var fixture := world.find_child(str(fixture_record.id), true, false) as LightFixtureProp
+				var wanted: bool = expected_on if fixture_record.room == record.room else true
+				_check(fixture.powered == wanted, "switch circuit isolation %s -> %s: %s" % [record.id, fixture_record.id, wanted])
+				if fixture_record.room == record.room:
+					_check(fixture.light.light_energy > 0.05 if wanted else fixture.light.light_energy < 0.05,
+							"switch light output follows power: " + str(record.id))
+			var task_lamp := world.find_child("F03_B_LAMP_01", true, false) as LampProp
+			_check(task_lamp.is_locally_enabled(), "room switch preserves task lamp: " + str(record.id))
+		# Looking away must not reuse the previous switch target.
+		player.camera.look_at(player.camera.global_position - plate.global_basis.z)
+		await get_tree().process_frame
+		Input.action_press("interact")
+		await get_tree().process_frame
+		await get_tree().process_frame
+		Input.action_release("interact")
+		for fixture_record: Dictionary in source.fixtures:
+			if fixture_record.kind == "lamp": continue
+			var fixture := world.find_child(str(fixture_record.id), true, false) as LightFixtureProp
+			_check(fixture.powered, "looking away leaves circuit on: " + str(fixture_record.id))
+	player.global_transform = saved_pose
+	player.camera.transform = saved_camera
+	player.set_physics_process(was_processing)
+
 func _capture_3b(world: Node3D) -> void:
 	var directory := OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(directory)
-	var camera := Camera3D.new()
-	camera.fov = 72.0
-	world.add_child(camera)
+	var player: CharacterBody3D = world.player
+	var was_processing := player.is_physics_processing()
+	player.set_physics_process(false)
+	player.set_lamp_enabled(false)
+	var camera: Camera3D = player.camera
 	camera.make_current()
 	var construction: Node3D = world.adapter.root
 	var views := [
@@ -172,11 +250,21 @@ func _capture_3b(world: Node3D) -> void:
 		["3b_sleep", Vector3(12.1, 8.0, -9.2), Vector3(10.45, 7.1, -10.5)],
 		["3b_storage", Vector3(11.8, 8.0, -10.0), Vector3(10.4, 7.5, -8.5)],
 		["3b_bath", Vector3(14.2, 8.0, -10.25), Vector3(14.4, 7.25, -11.8)]]
+	var lighting_views: Array[Dictionary] = []
 	for view: Array in views:
+		player.global_position = construction.to_global(view[1]) - Vector3.UP * player.STANDING_EYE
 		camera.global_position = construction.to_global(view[1])
 		camera.look_at(construction.to_global(view[2]), Vector3.UP)
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(1.0).timeout
+		var rig: LightRig = world.get_node("WakingAtmosphere/LightRig")
+		var fixtures: Array[Dictionary] = []
+		for fixture in rig.debug_fixtures():
+			if not str(fixture.name).begins_with("F03_B_") and str(fixture.name)!="3B_LT_SCONCE":continue
+			fixtures.append({"id":str(fixture.name),"position":str(fixture.global_position),"floor":rig._fixture_floor(fixture),"powered":fixture.get("powered"),"energy":fixture.light.light_energy,"light_position":str(fixture.light.global_position)})
+		lighting_views.append({"view":str(view[0]),"rig":rig.stats(),"fixtures":fixtures})
 		await RenderingServer.frame_post_draw
 		var result := get_viewport().get_texture().get_image().save_png(directory.path_join(str(view[0]) + ".png"))
 		_check(result == OK, "rendered view saved: " + str(view[0]))
-	camera.queue_free()
+	var lighting_file:=FileAccess.open(directory.path_join("lighting.json"),FileAccess.WRITE)
+	lighting_file.store_string(JSON.stringify(lighting_views,"  "))
+	player.set_physics_process(was_processing)

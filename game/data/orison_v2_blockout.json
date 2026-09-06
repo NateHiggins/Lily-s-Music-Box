@@ -344,7 +344,16 @@
     {"id":"3B_tools0","level":"F03","space":"F03_B_MAIN","position":[11.8,0,-3.5],"yaw":-1.5707963267948966,"kind":"furniture"},
     {"id":"3B_tools0_STANCE","level":"F03","space":"F03_B_MAIN","position":[12.65,0,-3.5],"yaw":1.5707963267948966,"kind":"clearance"},
     {"id":"3B_tools1","level":"F03","space":"F03_B_MAIN","position":[11.8,0,-4.6],"yaw":-1.5707963267948966,"kind":"furniture"},
-    {"id":"3B_tools1_STANCE","level":"F03","space":"F03_B_MAIN","position":[12.65,0,-4.6],"yaw":1.5707963267948966,"kind":"clearance"}
+    {"id":"3B_tools1_STANCE","level":"F03","space":"F03_B_MAIN","position":[12.65,0,-4.6],"yaw":1.5707963267948966,"kind":"clearance"},
+    {"id":"F03_B_MAIN_LT_PENDANT_SHADE","level":"F03","space":"F03_B_MAIN","position":[13.6,2.9,-2.4],"yaw":0,"kind":"fixture"},
+    {"id":"F03_B_KITCHEN_LT_KITCHEN_LINEAR","level":"F03","space":"F03_B_KITCHEN","position":[11.3,2.9,-6.65],"yaw":0,"kind":"fixture"},
+    {"id":"F03_B_ALCOVE_LT_FLUSH_DOME","level":"F03","space":"F03_B_ALCOVE","position":[11.2,2.9,-10.3],"yaw":0,"kind":"fixture"},
+    {"id":"3B_LT_SCONCE","level":"F03","space":"F03_B_BATH","position":[15.53,1.62,-11.1],"yaw":-1.5707963267948966,"kind":"fixture"},
+    {"id":"F03_B_LAMP_01","level":"F03","space":"F03_B_MAIN","position":[14.25,0.91,-0.02],"yaw":0,"kind":"fixture"},
+    {"id":"F03_B_MAIN_SWITCH","level":"F03","space":"F03_B_MAIN","position":[11.59,1.12,-1.7],"yaw":-1.5707963267948966,"kind":"interaction"},
+    {"id":"F03_B_KITCHEN_SWITCH","level":"F03","space":"F03_B_KITCHEN","position":[9.59,1.12,-7.55],"yaw":-1.5707963267948966,"kind":"interaction"},
+    {"id":"F03_B_ALCOVE_SWITCH","level":"F03","space":"F03_B_ALCOVE","position":[12.91,1.12,-9.8],"yaw":1.5707963267948966,"kind":"interaction"},
+    {"id":"F03_B_BATH_SWITCH","level":"F03","space":"F03_B_BATH","position":[14.8,1.12,-9.89],"yaw":0,"kind":"interaction"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

@@ -1,0 +1,66 @@
+{
+  "fixtures": [
+    {
+      "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+      "room": "F03_B_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 6.28,
+        "energy_scale": 1.69
+      }
+    },
+    {
+      "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F03_B_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 5.2,
+        "energy_scale": 1.69
+      }
+    },
+    {
+      "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+      "room": "F03_B_ALCOVE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.52,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "3B_LT_SCONCE",
+      "room": "F03_B_BATH",
+      "kind": "sconce_globe",
+      "properties": {
+        "range_clamp": 4.0,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "room": "F03_B_MAIN",
+      "kind": "lamp",
+      "properties": {
+        "variant": "bench_friction"
+      }
+    }
+  ],
+  "switches": [
+    {
+      "id": "F03_B_MAIN_SWITCH",
+      "room": "F03_B_MAIN"
+    },
+    {
+      "id": "F03_B_KITCHEN_SWITCH",
+      "room": "F03_B_KITCHEN"
+    },
+    {
+      "id": "F03_B_ALCOVE_SWITCH",
+      "room": "F03_B_ALCOVE"
+    },
+    {
+      "id": "F03_B_BATH_SWITCH",
+      "room": "F03_B_BATH"
+    }
+  ]
+}
