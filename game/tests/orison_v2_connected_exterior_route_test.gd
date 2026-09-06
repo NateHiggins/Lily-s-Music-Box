@@ -68,6 +68,12 @@ func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
 		if hit_node == owner_node: matched = true
 		hit_node = hit_node.get_parent()
 	player._update_prompt()
+	if not matched or player._prompt.text.is_empty():
+		print("INTERACTION_DIAGNOSTIC ", JSON.stringify({"label": label,
+			"player": str(player.global_position), "camera": str(player.camera.global_position),
+			"target": str(target), "forward": str(-player.camera.global_basis.z),
+			"distance": player.camera.global_position.distance_to(target),
+			"hit": str(hit.get("collider")), "prompt": player._prompt.text}))
 	if not _require(matched and not player._prompt.text.is_empty(), "actual player ray/prompt reaches " + label): return false
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
