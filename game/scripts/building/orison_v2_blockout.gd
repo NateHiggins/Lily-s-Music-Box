@@ -717,12 +717,14 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 	var run := tread * count
 	var half_rise := rise * count
 	var guard_h := float(stair.guard_height)
+	# Bound each tread to one riser's thickness. Filling it down to base_y
+	# creates a false low ceiling beneath the next stacked flight.
 	for i in count:
 		var step_h := rise * (i + 1)
 		var z := z0 + tread * (i + 0.5)
 		_box(parent, "FlightA_Step%02d" % i,
-				Vector3(x0 + width * 0.5, base_y + step_h * 0.5, z),
-				Vector3(width, step_h, tread), "core", true)
+				Vector3(x0 + width * 0.5, base_y + step_h - rise * 0.5, z),
+				Vector3(width, rise, tread), "core", true)
 		_box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
@@ -747,8 +749,8 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 		var step_h := rise * (i + 1)
 		var z := north_start - tread * (i + 0.5)
 		_box(parent, "FlightB_Step%02d" % i,
-				Vector3(x_b + width * 0.5, base_y + half_rise + step_h * 0.5, z),
-				Vector3(width, step_h, tread), "core", true)
+				Vector3(x_b + width * 0.5, base_y + half_rise + step_h - rise * 0.5, z),
+				Vector3(width, rise, tread), "core", true)
 		_box(parent, "FlightB_Guard%02d" % i,
 				Vector3(x_b + width - 0.025,
 						base_y + half_rise + step_h + guard_h * 0.5, z),
