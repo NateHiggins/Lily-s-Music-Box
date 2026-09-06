@@ -300,12 +300,26 @@ func _bind_shape(material: ShaderMaterial) -> void:
 	material.set_shader_parameter("lamp_volume_shape",Vector4(NEAR,grid_far,outer,1.0 if enabled else 0.0))
 
 ## Explicit diagnostic readback only; never called by observe/update.
+## A valid receiver gets exactly one deferred completion. Empty data means
+## unavailable/cancelled; a destroyed receiver is skipped without engine errors.
 func debug_readback(callback: Callable, optical_channels := false) -> void:
-	if not ready or _disposed:return
+	if not callback.is_valid():return
+	if not ready or _disposed:
+		_defer_capture_result(callback,PackedByteArray())
+		return
 	readbacks+=1
 	RenderingServer.call_on_render_thread(func():
-		var data := _rd.texture_get_data(_optics_rid if optical_channels else _radiance_rid,0)
-		callback.call_deferred(data))
+		var data:=PackedByteArray()
+		if not _disposed and ready:
+			data=_rd.texture_get_data(_optics_rid if optical_channels else _radiance_rid,0)
+		_defer_capture_result(callback,data))
+
+func _defer_capture_result(callback: Callable, data: PackedByteArray) -> void:
+	# The queued lambda retains this owner only until completion, so dropping
+	# the field after dispose cannot silently lose an already requested result.
+	var deliver:=func():
+		if callback.is_valid():callback.call(PackedByteArray() if _disposed else data)
+	deliver.call_deferred()
 
 func dispose() -> void:
 	if _disposed:return

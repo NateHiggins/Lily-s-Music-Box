@@ -1,8 +1,8 @@
 # Isolated lamp optical field
 
-**149 native checks passed; zero failures; empty engine stderr.** This change stops at isolated optical and performance proof. It does not merge into the game, supersede S2J, resume anatomy art, or declare L1D/production accepted.
+**157 native checks passed; zero failures; empty engine stderr.** This change stops at isolated optical and performance proof. It does not merge into the game, supersede S2J, resume anatomy art, or declare L1D/production accepted.
 
-[Results](evidence/isolated_03/receipt.json), [tested source hashes](evidence/isolated_03/run_manifest.json), and [engine log](evidence/isolated_03.log) identify the reviewed run. Earlier development runs are excluded from committed evidence.
+[Results](evidence/isolated_04/receipt.json), [tested source hashes](evidence/isolated_04/run_manifest.json), and [engine log](evidence/isolated_04.log) identify the reviewed run. Earlier development runs are excluded from committed evidence.
 
 ## Transition corrections after the initial proof
 
@@ -12,11 +12,19 @@ Off/on transitions now bypass the small intensity-change threshold. Native check
 
 ## Invalid-input and stationary-update contract
 
-A subsequent check reproduced acceptance of a zero-range lamp against `7a336e5`; [the failing record](evidence/isolated_03/regression_before.json) and [stderr](evidence/isolated_03/regression_before.stderr) preserve it. The current 149-check suite adds invalid-input, GPU clearing, recovery, and stationary-scattering coverage.
+A subsequent check reproduced acceptance of a zero-range lamp against `7a336e5`; [the failing record](evidence/isolated_03/regression_before.json) and [stderr](evidence/isolated_03/regression_before.stderr) preserve it. The 149-check checkpoint added invalid-input, GPU clearing, recovery, and stationary-scattering coverage.
 
 Missing/detached lamps, singular/nonfinite transforms, invalid range/energy/color/stability/rate/scattering, and invalid initialization tiers/focus ranges are rejected. `observe()` returns false and sets `last_observation_error`; it disables sampling and clears both GPU volumes instead of retaining the previous light. A later valid observation reconstructs light and clears the error. This does not mutate the accepted controller. Initialization errors remain in `failed` and require a new field instance.
 
 Ranges must be finite, above the 5 mm near plane at GPU float32 precision, and at most 1e12 m (a shader numeric guard, not useful scene coverage). Incident spectral energy must fit the 65504 half-float maximum. Scattering is constrained to [0, 1]. Off/invalid injection clears before evaluating geometric inputs, preventing rejected geometry from creating invalid texture values. Changing scattering while stationary now invalidates both cascades; optical-channel GPU readback verifies the new values in the diagnostic path.
+
+## Capture completion during teardown
+
+The previous implementation at `d483d69` silently dropped a diagnostic capture request when the field was unavailable. [The failing record](evidence/isolated_04/regression_before.json) and [stderr](evidence/isolated_04/regression_before.stderr) preserve the reproduction.
+
+A valid capture receiver now receives one deferred completion while the engine continues processing: a full byte array on success, or an empty array when unavailable/cancelled. Requests after disposal also complete with an empty array. Disposing an owner before delivery cancels that delivery, and queued GPU work checks disposal before reading. Invalid callables are ignored without scheduling GPU work; receivers destroyed before delivery are skipped without an engine error.
+
+The completion lambda retains its field only until delivery, so releasing the last external field reference after `dispose()` cannot silently lose a valid callback. Tests verify cancellation and eventual weak-reference release in production and hero tiers, including optical-channel capture and pending injection. These eight additional checks bring the current suite to 157. Diagnostic capture remains outside ordinary frames and performance intervals.
 
 ## Authority and architecture
 
@@ -76,27 +84,27 @@ Cells show **median / p95 / maximum**. CPU/GPU-field columns are microseconds; v
 |---|---|---|---|---|---|---|
 | empty | n/a | n/a | n/a | 0.040 / 0.041 / 0.041 | 23.000 / 23.000 / 23.000 | 0.000 / 0.000 / 0.000 |
 | analytic | n/a | n/a | n/a | 0.045 / 0.046 / 0.047 | 33.000 / 33.000 / 33.000 | 0.000 / 0.000 / 0.000 |
-| field_no_occlusion | 9.000 / 10.000 / 49.000 | 6.000 / 7.000 / 8.000 | 5.248 / 5.600 / 5.856 | 0.045 / 0.046 / 0.047 | 33.000 / 33.000 / 33.000 | 2.250 / 2.250 / 2.250 |
-| field_occlusion | 10.000 / 11.000 / 21.000 | 6.000 / 7.000 / 8.000 | 7.104 / 7.520 / 7.680 | 0.046 / 0.047 / 0.055 | 34.000 / 34.000 / 34.000 | 2.250 / 2.250 / 2.250 |
-| opaque | 10.000 / 10.000 / 12.000 | 6.000 / 7.000 / 7.000 | 5.600 / 6.016 / 6.048 | 0.066 / 0.067 / 0.067 | 28.000 / 28.000 / 28.000 | 2.250 / 2.250 / 2.250 |
-| transparent_sss | 9.000 / 10.000 / 12.000 | 6.000 / 7.000 / 12.000 | 5.600 / 6.048 / 6.176 | 0.074 / 0.074 / 0.075 | 27.000 / 27.000 / 27.000 | 2.250 / 2.250 / 2.250 |
-| particles | 10.000 / 11.000 / 20.000 | 6.000 / 7.000 / 8.000 | 5.152 / 5.664 / 5.760 | 0.076 / 0.077 / 0.091 | 26.000 / 26.000 / 26.000 | 2.250 / 2.250 / 2.250 |
-| combined_production | 10.000 / 11.000 / 14.000 | 6.000 / 8.000 / 12.000 | 6.720 / 7.232 / 7.616 | 0.098 / 0.099 / 0.110 | 48.000 / 48.000 / 48.000 | 2.250 / 2.250 / 2.250 |
-| combined_hero | 9.000 / 10.000 / 11.000 | 3.000 / 3.000 / 4.000 | 6.496 / 6.880 / 6.976 | 0.098 / 0.099 / 0.100 | 48.000 / 48.000 / 48.000 | 20.251 / 20.251 / 20.251 |
+| field_no_occlusion | 9.000 / 10.000 / 22.000 | 6.000 / 7.000 / 46.000 | 5.088 / 5.632 / 5.792 | 0.045 / 0.046 / 0.047 | 33.000 / 33.000 / 33.000 | 2.250 / 2.250 / 2.250 |
+| field_occlusion | 10.000 / 11.000 / 20.000 | 6.000 / 7.000 / 16.000 | 7.136 / 7.616 / 7.712 | 0.046 / 0.047 / 0.048 | 34.000 / 34.000 / 34.000 | 2.250 / 2.250 / 2.250 |
+| opaque | 9.000 / 10.000 / 11.000 | 6.000 / 7.000 / 8.000 | 5.568 / 6.080 / 6.272 | 0.066 / 0.067 / 0.067 | 28.000 / 28.000 / 28.000 | 2.250 / 2.250 / 2.250 |
+| transparent_sss | 9.000 / 10.000 / 18.000 | 6.000 / 7.000 / 12.000 | 5.504 / 6.016 / 6.208 | 0.074 / 0.075 / 0.099 | 27.000 / 27.000 / 27.000 | 2.250 / 2.250 / 2.250 |
+| particles | 9.000 / 10.000 / 22.000 | 6.000 / 7.000 / 9.000 | 5.152 / 5.632 / 5.888 | 0.076 / 0.077 / 0.077 | 26.000 / 26.000 / 26.000 | 2.250 / 2.250 / 2.250 |
+| combined_production | 10.000 / 11.000 / 12.000 | 6.000 / 7.000 / 12.000 | 7.008 / 7.424 / 7.680 | 0.100 / 0.101 / 0.116 | 48.000 / 48.000 / 48.000 | 2.250 / 2.250 / 2.250 |
+| combined_hero | 9.000 / 10.000 / 14.000 | 3.000 / 3.000 / 4.000 | 6.688 / 7.104 / 7.200 | 0.100 / 0.101 / 0.101 | 48.000 / 48.000 / 48.000 | 20.251 / 20.251 / 20.251 |
 
-Hero near cascade: CPU 7.000 / 8.000 / 13.000 us; submission 7.000 / 7.000 / 8.000 us; GPU generation 30.112 / 30.624 / 30.912 us.
+Hero near cascade: CPU 7.000 / 8.000 / 18.000 us; submission 6.000 / 7.000 / 17.000 us; GPU generation 31.904 / 32.256 / 32.544 us.
 
-Production controller: 14.000 / 15.000 / 29.000 us, with maximum below 200 us. Conservative median optical overhead is **0.060 ms**: combined viewport minus analytic viewport plus field generation. This small isolated scene passes the requested 2 ms target. No larger scene, higher resolution, overlapping-volume stress test, or production frame budget is implied.
+Production controller: 14.000 / 16.000 / 21.000 us, with maximum below 200 us. Conservative median optical overhead is **0.062 ms**: combined viewport minus analytic viewport plus field generation. This small isolated scene passes the requested 2 ms target. No larger scene, higher resolution, overlapping-volume stress test, or production frame budget is implied.
 
 GPU sampling cost is estimated against the same material/geometry with the shared sampler's diagnostic constant-input bypass enabled. Transfer functions/render paths remain active. This is an engine GPU timing difference, not an external per-instruction capture. Near-zero and negative differences reflect timer quantization/noise and remain signed.
 
 | Configuration | GPU sampling delta ms: median / p95 / maximum |
 |---|---|
-| combined_hero | 0.002 / 0.010 / 0.011 |
-| combined_production | 0.001 / 0.003 / 0.014 |
+| combined_hero | 0.011 / 0.012 / 0.013 |
+| combined_production | 0.002 / 0.003 / 0.018 |
 | opaque | -0.001 / 0.000 / 0.001 |
-| particles | 0.002 / 0.004 / 0.016 |
-| transparent_sss | 0.000 / 0.001 / 0.002 |
+| particles | 0.002 / 0.003 / 0.004 |
+| transparent_sss | 0.000 / 0.001 / 0.026 |
 
 Each measured field-enabled interval contains 120 updates/uploads per active cascade. Per-frame count statistics and zero readback calls are recorded. GPU allocation and texture/matrix binding counters remain fixed during measured intervals; actual pose or cone/range changes update the relevant transforms/shapes. Ordinary injection performs no readback, source loading, or resource creation. Diagnostic readbacks occur outside timing intervals. Driver-internal stalls are not separately attributed; CPU build/submission tails remain reported.
 
@@ -112,16 +120,16 @@ Disposal unbinds textures, frees six RIDs per cascade, and breaks callable owner
 & ./optical_lab/tools/run_lab.ps1 -EvidenceName current
 ```
 
-Requires `Godot_v4.7.1-stable_win64_console.exe` on PATH. The copied exclusive Windows runner is unchanged from the canonical runner. It refuses an occupied native lane; it does not stop foreign engines. The wrapper rejects nonempty stderr even after exit 0 and records tested-source hashes. `evidence/current` is ignored; `isolated_03` is the reviewed evidence.
+Requires `Godot_v4.7.1-stable_win64_console.exe` on PATH. The copied exclusive Windows runner is unchanged from the canonical runner. It refuses an occupied native lane; it does not stop foreign engines. The wrapper rejects nonempty stderr even after exit 0 and records tested-source hashes. `evidence/current` is ignored; `isolated_04` is the reviewed evidence.
 
 ## Captures
 
-![Aligned gold](evidence/isolated_03/family_05_on.png)
-![Angled gold](evidence/isolated_03/gold_angled.png)
-![Opaque open](evidence/isolated_03/family_00_on.png)
-![Opaque carved shadow](evidence/isolated_03/opaque_carved_shadow.png)
-![Front internal layer](evidence/isolated_03/cloud_front_internal_layer.png)
-![Rear internal layer](evidence/isolated_03/cloud_rear_internal_layer.png)
-![Two internal layers](evidence/isolated_03/cloud_two_internal_layers.png)
+![Aligned gold](evidence/isolated_04/family_05_on.png)
+![Angled gold](evidence/isolated_04/gold_angled.png)
+![Opaque open](evidence/isolated_04/family_00_on.png)
+![Opaque carved shadow](evidence/isolated_04/opaque_carved_shadow.png)
+![Front internal layer](evidence/isolated_04/cloud_front_internal_layer.png)
+![Rear internal layer](evidence/isolated_04/cloud_rear_internal_layer.png)
+![Two internal layers](evidence/isolated_04/cloud_two_internal_layers.png)
 
 Remaining material and temporal captures accompany the receipt. The explicit froxel overview uses a diagnostic display gain of 2; receiver captures and performance use actual optical values.

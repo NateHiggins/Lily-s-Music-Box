@@ -1,0 +1,6 @@
+ERROR: OPTICAL FIELD: unavailable_capture_completes { "calls": 0, "bytes": -1 }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/optical_lab.gd:37)
+       [1] _queued_capture_regressions (res://tests/optical_lab.gd:665)
+       [2] _frames (res://tests/optical_lab.gd:40)

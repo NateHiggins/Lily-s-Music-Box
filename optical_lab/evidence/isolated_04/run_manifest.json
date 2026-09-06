@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "timestamp_utc": "2026-09-06T00:11:32.9892064Z",
+  "engine": "Godot 4.7.1-stable; Vulkan Forward+",
+  "viewport": "960x640; VSync off; 30 warm-up + 120 measured frames per configuration",
+  "controller_step_s": 0.008333333333333333,
+  "renderer_gpu": "NVIDIA GeForce RTX 4080",
+  "gpu_field_units": "Vulkan timestamp nanoseconds divided by 1000 => microseconds",
+  "gpu_material_units": "engine viewport milliseconds; matched sampling-bypass difference, signed",
+  "synchronization": "No explicit sync/readback calls in measured loops; driver-internal stalls are not separately attributed",
+  "sources_sha256": {
+    "project.godot": "7e682bc3abe988eea4c27054cefee10816fd1eeed5703a90b36d5708365a79b9",
+    "scripts/lamp/lamp_optical_instrument.gd": "951c3e016baf7bc337a5654cece9860edaf9e1b96f1f7199fe65e91466db6885",
+    "scripts/lamp/lamp_optical_state.gd": "ffda7e1f985e72ceb18b62d2959a9cd13c743bfba653b31d2be74ab6e82e8604",
+    "scripts/lamp/lamp_optical_voxel_field.gd": "410d65e036f80495a58e16e0d122f81c966b8e6facc3c154c2fb517e472ef779",
+    "shaders/lamp_beam_fog.gdshader": "d34f6af1846d99cd928ff4b696db4375c07047958b5d3c63aadf09151e2bc8c2",
+    "shaders/lamp_field.compute": "61d71766b7f95090169683a1d9ccd162c03312168aa047c664cb0e60f2facac7",
+    "shaders/lamp_optical_sample.gdshaderinc": "ecfaccf494d1a7a688831cddfbd83fe7a5f952c17ca22491847641902615a16d",
+    "shaders/optical_cloud.gdshader": "efd8b42b54c2f27682aadc89c521df79a5b1eb896b2f4d3d5b6b541ce704e04d",
+    "shaders/optical_receiver.gdshader": "abc21a0ce995c9318923aebabcc7bf524d2ad39119710dfdc68cab96ea06ce12",
+    "tests/optical_lab.gd": "63867d9fe461f4ed6d93936ceb05cf99030013be81be80a61143954e76db58d1",
+    "tests/optical_probe.gdshader": "2e173506b11a12e81cd6460fd07942837a134e3101820c2c2682a03a06f233bb",
+    "tests/optical_reference.gd": "bdf29aa06e361c7fba270ee7c09edf8789d49085fab35f9bb662967d564546c2",
+    "tests/OpticalLab.tscn": "e8011a1a0066dab74edd266193f5d2c38193487711d01e4d983a8429a33c9236",
+    "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "tools/run_lab.ps1": "30944338d675e54d89f7705201affda1c4ec3a7897cfd259870c89b335562fa3"
+  }
+}

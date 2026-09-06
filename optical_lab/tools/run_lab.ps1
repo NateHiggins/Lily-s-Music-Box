@@ -17,7 +17,7 @@ Get-ChildItem -LiteralPath $project -File -Recurse | Where-Object {
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 if ((Get-Item -LiteralPath ($log + '.stderr')).Length -ne 0) { throw "Engine stderr is not empty; run is invalid" }
 $receipt = Get-Content -LiteralPath (Join-Path $output 'receipt.json') -Raw | ConvertFrom-Json
-if ($receipt.failures -ne 0 -or $receipt.checks.Count -lt 149) { throw "Optical proof is incomplete or failed" }
+if ($receipt.failures -ne 0 -or $receipt.checks.Count -lt 157) { throw "Optical proof is incomplete or failed" }
 $requiredChecks = @(
     'subthreshold_off_transition_clears', 'subthreshold_off_gpu_texture_zero',
     'subthreshold_on_transition_updates', 'material_transfer_releases_previous_owner',
@@ -26,7 +26,11 @@ $requiredChecks = @(
     'invalid_range_disables_field', 'range_below_gpu_precision_rejected',
     'focus_below_gpu_precision_rejected', 'missing_lamp_clears_gpu',
     'invalid_scattering_clears_mid', 'invalid_scattering_clears_near',
-    'hero_valid_input_recovers', 'scattering_updates_both_cascades'
+    'hero_valid_input_recovers', 'scattering_updates_both_cascades',
+    'unavailable_capture_completes', 'disposed_capture_completes',
+    'invalid_capture_callable_is_idle', 'destroyed_capture_receiver_skipped',
+    'queued_capture_cancelled_tier_0', 'queued_capture_cancelled_tier_1',
+    'queued_capture_owner_released_tier_0', 'queued_capture_owner_released_tier_1'
 )
 foreach ($required in $requiredChecks) {
     $matchingChecks = @($receipt.checks | Where-Object { $_.id -eq $required -and $_.pass })

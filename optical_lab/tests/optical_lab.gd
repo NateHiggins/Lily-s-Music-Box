@@ -1,4 +1,9 @@
 extends Node3D
+class CaptureSink:
+	extends Node
+	var result: Dictionary
+	func accept(_data: PackedByteArray) -> void:
+		result.calls+=1
 const Field := preload("res://scripts/lamp/lamp_optical_voxel_field.gd")
 const Reference := preload("res://tests/optical_reference.gd")
 const Cloud := preload("res://shaders/optical_cloud.gdshader")
@@ -85,6 +90,7 @@ func _run() -> void:
 	_check("outside_zero",Reference.query(field,Vector3(5,0,-1)).radiance==Vector3.ZERO)
 	_build_probe()
 	await _input_contract_proofs()
+	await _queued_capture_regressions()
 	await _verify_gpu("open")
 	await _filtered_probe("open")
 	var revision:=field._geometry_revision
@@ -655,3 +661,36 @@ func _assert_scattering(owner: LampOpticalVoxelField, label: String) -> void:
 	var index:=((cell.z*owner.dimensions.y+cell.y)*owner.dimensions.x+cell.x)*8+4
 	var actual:=readback.decode_half(index) if readback_done else -1.0
 	_check(label,readback_done and absf(actual-expected)<.0002,{"actual":actual,"expected":expected})
+
+func _queued_capture_regressions() -> void:
+	var unavailable:=Field.new()
+	var result:={"calls":0,"bytes":-1}
+	unavailable.debug_readback(func(data: PackedByteArray):result.calls+=1;result.bytes=data.size())
+	await _frames(4)
+	_check("unavailable_capture_completes",result.calls==1 and result.bytes==0,result)
+	unavailable.dispose();await _frames(4)
+	var disposed_result:={"calls":0,"bytes":-1}
+	unavailable.debug_readback(func(data: PackedByteArray):disposed_result.calls+=1;disposed_result.bytes=data.size())
+	await _frames(4)
+	_check("disposed_capture_completes",disposed_result.calls==1 and disposed_result.bytes==0,disposed_result)
+	var requests_before:=field.readbacks
+	field.debug_readback(Callable())
+	_check("invalid_capture_callable_is_idle",field.readbacks==requests_before)
+	var dropped_result:={"calls":0}
+	var sink:=CaptureSink.new();sink.result=dropped_result
+	field.debug_readback(Callable(sink,"accept"));sink.free()
+	await _frames(4)
+	_check("destroyed_capture_receiver_skipped",dropped_result.calls==0)
+	for tier in 2:
+		var pending:=Field.new();pending.initialize(tier)
+		for i in 120:
+			if pending.ready:break
+			await _frames(1)
+		pending.observe(lamp,true)
+		var owner_ref: WeakRef=weakref(pending)
+		var pending_result:={"calls":0,"bytes":-1}
+		pending.debug_readback(func(data: PackedByteArray):pending_result.calls+=1;pending_result.bytes=data.size(),tier==1)
+		pending.dispose();pending=null
+		await _frames(8)
+		_check("queued_capture_cancelled_tier_"+str(tier),pending_result.calls==1 and pending_result.bytes==0,pending_result)
+		_check("queued_capture_owner_released_tier_"+str(tier),owner_ref.get_ref()==null)
