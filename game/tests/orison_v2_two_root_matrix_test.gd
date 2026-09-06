@@ -9,6 +9,8 @@ var calendar_direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
 		"v1_to_v2": 0, "v2_to_v1": 0}
 var direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
 		"v1_to_v2": 0, "v2_to_v1": 0}
+var inventory_direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
+		"v1_to_v2": 0, "v2_to_v1": 0}
 
 func _ready() -> void:
 	var save_directory := ProjectSettings.globalize_path("user://tests")
@@ -84,9 +86,9 @@ func _ready() -> void:
 	RealityState.persistence_enabled = saved_persistence
 	RealityState.reset_campaign_for_tests()
 	Selector.reset_for_tests()
-	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s calendar_totals=%s checks=%d" % [
+	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s calendar_totals=%s inventory_totals=%s checks=%d" % [
 			"PASS" if failures == 0 else "FAIL (%d)" % failures,
-			direction_totals, calendar_direction_totals, passes + failures])
+			direction_totals, calendar_direction_totals, inventory_direction_totals, passes + failures])
 	get_tree().quit(failures)
 
 func _exercise_v1_root() -> void:
@@ -147,6 +149,15 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 			origin_shell.active_world.is_in_group("orison_v2_runtime") == (from_id == "v2"))
 	var origin_clock_ok := _calendar_record_matches(expected_clock) \
 			and _bound_calendar_matches(origin_shell.active_world, expected_absolute)
+	var orders: WorkOrders = origin_shell.active_world.get("work_orders")
+	var service: MaintenanceShopService = origin_shell.active_world.get("shop_service")
+	var job := "vantry_chirp_2a"
+	var acquired := orders.issue_job(job, "reported") and orders.acknowledge_job(job) \
+			and orders.diagnose_job(job) and orders.mark_job_awaiting_part(job) \
+			and service.counter("hardware_paint") != null \
+			and service.acquire("carbon_transmitter_capsule", "hardware_paint")
+	var expected_item: Dictionary = JSON.parse_string(JSON.stringify(
+			service.inventory.item_state("carbon_transmitter_capsule")))
 	var save_started := Time.get_ticks_usec()
 	var saved := RealityState.save_game()
 	var save_ms := float(Time.get_ticks_usec() - save_started) / 1000.0
@@ -183,6 +194,14 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 			and _bound_calendar_matches(shell.active_world, expected_absolute)
 	calendar_direction_totals[key] = 1 if calendar_ok else 0
 	_check(calendar_ok, "%s preserves exact calendar epoch/start/elapsed through real roots" % key)
+	var restored_service: MaintenanceShopService = shell.active_world.get("shop_service")
+	var restored_item: Dictionary = JSON.parse_string(JSON.stringify(
+			restored_service.inventory.item_state("carbon_transmitter_capsule")))
+	var inventory_ok := acquired and not expected_item.is_empty() and restored_item == expected_item \
+			and restored_service.counter("hardware_paint") != null \
+			and not restored_service.acquire("carbon_transmitter_capsule", "hardware_paint")
+	inventory_direction_totals[key] = 1 if inventory_ok else 0
+	_check(inventory_ok, "%s preserves acquired capsule provenance and rejects duplicate acquisition" % key)
 	remove_child(shell)
 	shell.free()
 	await get_tree().process_frame

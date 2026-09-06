@@ -17,6 +17,7 @@ const DomesticFittings := preload("res://scripts/building/orison_v2_domestic_fit
 const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_furniture.gd")
 const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
+const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -48,6 +49,7 @@ var adapter
 var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
 var exterior_cell: OrisonV2ExteriorCell
+var passage_region: OrisonV2PassageRegion
 var shop_service: MaintenanceShopService
 var shop_simulation: Node
 var day_night_director: DayNightDirector
@@ -256,6 +258,9 @@ func _compose_exterior() -> bool:
 	shop_service = MaintenanceShopService.new()
 	shop_service.name = "MaintenanceShopService"
 	add_child(shop_service)
+	shop_service.setup(maintenance_inventory, work_orders)
+	if not shop_service.is_valid():
+		return false
 	exterior_cell = ExteriorCell.new()
 	exterior_cell.name = "StreetAndBodega"
 	if not exterior_cell.configure_dependencies({"player": player,
@@ -267,6 +272,15 @@ func _compose_exterior() -> bool:
 		return false
 	add_child(exterior_cell)
 	if exterior_cell.startup_failed:
+		return false
+	passage_region = PassageRegion.new()
+	passage_region.name = "VantryArcade"
+	if not passage_region.configure(shop_service):
+		passage_region.free()
+		passage_region = null
+		return false
+	add_child(passage_region)
+	if passage_region.startup_failed:
 		return false
 	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
@@ -453,6 +467,8 @@ func shutdown_for_tests() -> void:
 	if is_instance_valid(shop_simulation):
 		shop_simulation.shutdown()
 	if is_instance_valid(exterior_cell):
+		if is_instance_valid(passage_region):
+			passage_region.shutdown()
 		exterior_cell.shutdown_for_tests()
 	if adapter != null:
 		# Consumers are already detached before synchronous free, so tests and

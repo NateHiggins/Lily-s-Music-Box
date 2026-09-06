@@ -1,0 +1,8 @@
+SCRIPT ERROR: Parse Error: Could not find type "OrisonV2PassageRegion" in the current scope.
+   at: GDScript::reload (res://scripts/building/orison_v2_runtime_root.gd:52)
+ERROR: Failed to load script "res://scripts/building/orison_v2_runtime_root.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Trying to assign value of type 'Node3D' to a variable of type 'orison_v2_runtime_root.gd'.
+   at: _run (res://tests/orison_v2_vertical_route_test.gd:16)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/orison_v2_vertical_route_test.gd:16)

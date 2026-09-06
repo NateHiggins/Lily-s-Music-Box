@@ -8,7 +8,11 @@ func _route() -> void:
 	var exterior := world.exterior_cell
 	if not _require(exterior.player == player and exterior.work_orders == world.work_orders
 			and exterior.maintenance_inventory == world.maintenance_inventory
-			and exterior.shop_service == world.shop_service, "shared world authorities"): return
+			and exterior.shop_service == world.shop_service
+			and world.shop_service.inventory == world.maintenance_inventory
+			and world.shop_service.work_orders == world.work_orders, "shared world authorities"): return
+	if not _require(world.shop_service.stock_record("carbon_transmitter_capsule").get("shop_id") == "hardware_paint",
+			"shared service loads the actual authored hardware stock"): return
 	for point in [Vector3(2.3, 0, -6.5), Vector3(0, 0, -8.5),
 			Vector3(0, 0, -10.2), Vector3(0, 0, -12.2)]:
 		if not await _walk(point): return
