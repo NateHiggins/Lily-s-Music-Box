@@ -18,6 +18,12 @@ vec2 intersect_box(vec3 start,vec3 end,vec3 lo,vec3 hi) {
 void main(){
  ivec3 cell=ivec3(gl_GlobalInvocationID),size=imageSize(radiance_volume);
  if(any(greaterThanEqual(cell,size)))return;
+ // Clear before evaluating geometric inputs, including rejected observations.
+ if(p.control.z<0.5){
+  imageStore(radiance_volume,cell,vec4(0.0));
+  imageStore(optical_volume,cell,vec4(0.0,0.0,0.0,1.0));
+  return;
+ }
  vec3 uv=(vec3(cell)+0.5)/vec3(size);
  float depth=p.control.x+(p.grid_dynamics.x-p.control.x)*uv.z*uv.z;
  vec2 lateral=(uv.xy*2.0-1.0)*depth*p.right_tan.w;

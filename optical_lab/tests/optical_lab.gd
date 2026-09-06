@@ -75,6 +75,7 @@ func _run() -> void:
 		_finish();return
 	await _lifecycle_edges()
 	await _transition_regressions()
+	await _invalid_range_regression()
 	await _inject()
 	var near := Vector3(0,0,-1)
 	var far := Vector3(0,0,-5)
@@ -83,6 +84,7 @@ func _run() -> void:
 	_check("behind_zero",Reference.query(field,Vector3(0,0,1)).radiance==Vector3.ZERO)
 	_check("outside_zero",Reference.query(field,Vector3(5,0,-1)).radiance==Vector3.ZERO)
 	_build_probe()
+	await _input_contract_proofs()
 	await _verify_gpu("open")
 	await _filtered_probe("open")
 	var revision:=field._geometry_revision
@@ -557,3 +559,99 @@ func _transition_regressions() -> void:
 	second.unbind_material(material);second.unbind_material(material)
 	_check("explicit_unbind_releases_material",not second._materials.has(material) and not material.has_meta(Field.MATERIAL_OWNER_META) and material.get_shader_parameter("lamp_radiance")==null)
 	second.dispose();await _frames(4)
+
+func _invalid_range_regression() -> void:
+	var original_range:=lamp.range_m
+	lamp.range_m=0.0
+	var accepted:=field.observe(lamp,true)
+	await _frames(4)
+	_check("invalid_range_disables_field",not accepted and not field.enabled)
+	lamp.range_m=original_range;field.observe(lamp,true);await _frames(4)
+
+func _input_contract_proofs() -> void:
+	var original_range:=lamp.range_m
+	var original_energy:=lamp.base_energy
+	lamp.range_m=Field.NEAR+0.000000000001
+	_check("range_below_gpu_precision_rejected",not field.observe(lamp) and not field.enabled)
+	lamp.range_m=original_range;field.observe(lamp,true)
+	var tiny_focus:=Field.new();tiny_focus.initialize(1,Field.NEAR+0.000000000001)
+	_check("focus_below_gpu_precision_rejected",not tiny_focus.failed.is_empty() and tiny_focus.resource_allocations==0)
+	tiny_focus.dispose();await _frames(2)
+	_check("tiny_focus_teardown",_rids_released(tiny_focus))
+	for bad_range in [-1.0,Field.NEAR,NAN,INF,Field.MAX_RANGE_M*2.0]:
+		lamp.range_m=bad_range
+		_check("range_rejected_"+str(bad_range),not field.observe(lamp) and not field.enabled and not field.last_observation_error.is_empty())
+		lamp.range_m=original_range;field.observe(lamp,true)
+	for bad_energy in [-1.0,NAN,INF,Field.MAX_RADIANCE*1000.0]:
+		lamp.base_energy=bad_energy
+		_check("energy_rejected_"+str(bad_energy),not field.observe(lamp) and not field.enabled)
+		lamp.base_energy=original_energy;field.observe(lamp,true)
+	var pose_before:=lamp.transform
+	lamp.transform=Transform3D(Basis.from_scale(Vector3(0,1,1)),Vector3.ZERO)
+	var singular_rejected:=not field.observe(lamp) and not field.enabled
+	lamp.transform=pose_before
+	_check("singular_pose_rejected",singular_rejected)
+	field.observe(lamp,true)
+	lamp.state.intensity_rate=NAN
+	_check("nonfinite_controller_output_rejected",not field.observe(lamp) and not field.enabled)
+	lamp.state.restore_state(stable_state);lamp._apply_output();field.observe(lamp,true)
+	_check("missing_lamp_disables",not field.observe(null) and not field.enabled)
+	await _assert_texture_zero(field,"missing_lamp_clears_gpu")
+	_check("valid_observation_recovers",field.observe(lamp) and field.enabled and field.last_observation_error.is_empty())
+	var detached:=LampOpticalInstrument.new()
+	_check("detached_lamp_rejected",not field.observe(detached) and not field.enabled)
+	detached.free();field.observe(lamp,true)
+	for configuration in [Vector2(2,0),Vector2(-1,0),Vector2(1,-1),Vector2(1,Field.NEAR),Vector2(1,NAN)]:
+		var invalid:=Field.new();invalid.initialize(int(configuration.x),configuration.y)
+		_check("initialization_rejected_"+str(configuration),not invalid.ready and not invalid.failed.is_empty() and invalid.resource_allocations==0)
+		invalid.dispose();await _frames(2)
+		_check("rejected_initialization_teardown_"+str(configuration),_rids_released(invalid))
+	var main_field:=field
+	var hero:=Field.new();hero.initialize(1)
+	for i in 120:
+		if hero.ready:break
+		await _frames(1)
+	field=hero;field.bind_material(probe_material);field.observe(lamp,true);await _frames(4)
+	var mid_updates:=field.updates;var near_updates:=field.near_cascade.updates
+	field.scattering=.4
+	_check("scattering_updates_both_cascades",field.observe(lamp) and field.updates>mid_updates and field.near_cascade.updates>near_updates and field.near_cascade.scattering==.4)
+	await _frames(4)
+	await _assert_scattering(field,"mid_scattering_gpu")
+	await _assert_scattering(field.near_cascade,"near_scattering_gpu")
+	field.scattering=NAN
+	_check("invalid_scattering_disables_both",not field.observe(lamp) and not field.enabled and not field.near_cascade.enabled)
+	await _assert_texture_zero(field,"invalid_scattering_clears_mid")
+	await _assert_texture_zero(field.near_cascade,"invalid_scattering_clears_near")
+	field.scattering=.05
+	_check("hero_valid_input_recovers",field.observe(lamp) and field.enabled and field.near_cascade.enabled)
+	await _filtered_probe("recovered_hero")
+	field=main_field;field.bind_material(probe_material)
+	hero.dispose();await _frames(8)
+	_check("input_contract_hero_teardown",_rids_released(hero) and _rids_released(hero.near_cascade))
+	await _inject()
+
+func _assert_texture_zero(owner: LampOpticalVoxelField, label: String) -> void:
+	readback_done=false
+	owner.debug_readback(func(data: PackedByteArray):readback=data;readback_done=true)
+	for i in 120:
+		if readback_done:break
+		await _frames(1)
+	var zero:=readback_done and readback.size()==owner.dimensions.x*owner.dimensions.y*owner.dimensions.z*8
+	for index in range(0,readback.size(),8):
+		for channel in 3:
+			var value:=readback.decode_half(index+channel*2)
+			zero=zero and is_finite(value) and value==0.0
+	_check(label,zero)
+
+func _assert_scattering(owner: LampOpticalVoxelField, label: String) -> void:
+	readback_done=false
+	owner.debug_readback(func(data: PackedByteArray):readback=data;readback_done=true,true)
+	for i in 120:
+		if readback_done:break
+		await _frames(1)
+	var cell:=owner.dimensions/2
+	var distance:=Reference.cell_world(owner,cell).distance_to(owner.pose.origin)
+	var expected:=clampf(owner.scattering*(1.0-exp(-distance*.08)),0.0,.12)
+	var index:=((cell.z*owner.dimensions.y+cell.y)*owner.dimensions.x+cell.x)*8+4
+	var actual:=readback.decode_half(index) if readback_done else -1.0
+	_check(label,readback_done and absf(actual-expected)<.0002,{"actual":actual,"expected":expected})

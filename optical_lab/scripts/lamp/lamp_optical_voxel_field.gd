@@ -9,12 +9,17 @@ var focus_range := 0.0
 var grid_far := 9.0
 var _timestamp_prefix := "lamp_mid"
 const MAX_BLOCKERS := 8
+const MAX_RANGE_M := 1.0e12
+const MAX_RADIANCE := 65504.0
 const MATERIAL_OWNER_META := &"_lamp_optical_field_owner"
 var dimensions := TIERS[0]
 var radiance := Texture3DRD.new()
 var optics := Texture3DRD.new()
 var ready := false
 var failed := ""
+var last_observation_error := ""
+var rejected_observations := 0
+var _applied_scattering := -1.0
 var updates := 0
 var uploads := 0
 var readbacks := 0
@@ -63,6 +68,10 @@ var _applied_geometry := -1
 func initialize(tier := 0, focused_range := 0.0) -> void:
 	if _initialized or _disposed:return
 	_initialized=true
+	var focus_gpu:=Vector2(focused_range,NEAR)
+	if tier<0 or tier>=TIERS.size() or not is_finite(focused_range) or focused_range<0.0 or (focused_range>0.0 and focus_gpu.x<=focus_gpu.y) or focused_range>MAX_RANGE_M:
+		failed="Invalid optical tier or focus range"
+		return
 	focus_range=focused_range
 	dimensions = TIERS[clampi(tier,0,1)]
 	if tier==1 and focused_range<=0.0:
@@ -131,19 +140,39 @@ func set_occluders(boxes: Array[AABB], absorption: Array[float], opaque: Array[f
 
 func observe(lamp: LampOpticalInstrument, force := false) -> bool:
 	if not ready or _disposed:return false
-	if near_cascade!=null:
-		near_cascade.profiling=profiling
-		near_cascade.observe(lamp,force)
 	var start := Time.get_ticks_usec()
+	if not is_instance_valid(lamp) or not lamp.is_inside_tree() or lamp.state==null:
+		return _reject_observation("Lamp or state is unavailable")
+	var raw_pose:=lamp.global_transform
+	if not raw_pose.origin.is_finite() or not raw_pose.basis.is_finite() or not is_finite(raw_pose.basis.determinant()) or raw_pose.basis.determinant()==0.0:
+		return _reject_observation("Lamp transform is nonfinite or singular")
+	var range_gpu:=Vector2(lamp.range_m,NEAR)
+	if not is_finite(lamp.range_m) or range_gpu.x<=range_gpu.y or lamp.range_m>MAX_RANGE_M:
+		return _reject_observation("Lamp range is outside the supported numeric domain")
+	if not is_finite(lamp.base_energy) or lamp.base_energy<0.0 or not is_finite(scattering) or scattering<0.0 or scattering>1.0:
+		return _reject_observation("Invalid energy or scattering")
 	lamp.state.write_output(_output)
-	var new_pose := lamp.global_transform.orthonormalized()
+	var new_pose := raw_pose.orthonormalized()
 	var new_energy := float(_output.intensity)*lamp.base_energy if lamp.state.switched_on else 0.0
-	var new_outer := tan(deg_to_rad(float(_output.cone_angle_deg)))
+	var angle:=float(_output.cone_angle_deg)
 	var new_color: Color = _output.color
 	var new_stability := float(_output.temporal_stability)
+	var spectral:=Vector3(new_color.r,new_color.g,new_color.b)
+	if not is_finite(new_energy) or new_energy<0.0 or new_energy>MAX_RADIANCE or not spectral.is_finite() or minf(spectral.x,minf(spectral.y,spectral.z))<0.0 or new_energy*maxf(spectral.x,maxf(spectral.y,spectral.z))>MAX_RADIANCE:
+		return _reject_observation("Spectral energy cannot be represented by the optical texture")
+	if not is_finite(angle) or angle<=0.0 or angle>=89.0 or not is_finite(new_stability) or new_stability<0.0 or new_stability>1.0 or not is_finite(lamp.state.intensity_rate):
+		return _reject_observation("Invalid accepted optical output")
+	var new_outer := tan(deg_to_rad(angle))
+	last_observation_error=""
+	if near_cascade!=null:
+		near_cascade.scattering=scattering
+		near_cascade.profiling=profiling
+		var child_start:=Time.get_ticks_usec()
+		near_cascade.observe(lamp,force)
+		start+=Time.get_ticks_usec()-child_start
 	var pose_changed := pose != new_pose
 	var moved := pose_changed or range_m!=lamp.range_m or absf(outer-new_outer)>0.00001
-	if not force and not moved and enabled==(new_energy>0.0) and absf(energy-new_energy)<0.00001 and color==new_color and absf(stability-new_stability)<0.00001 and absf(rate_of_change-absf(lamp.state.intensity_rate))<0.00001 and _geometry_revision==_applied_geometry:return false
+	if not force and not moved and enabled==(new_energy>0.0) and absf(energy-new_energy)<0.00001 and color==new_color and absf(stability-new_stability)<0.00001 and absf(rate_of_change-absf(lamp.state.intensity_rate))<0.00001 and scattering==_applied_scattering and _geometry_revision==_applied_geometry:return false
 	var was_enabled := enabled
 	_mutex.lock()
 	pose=new_pose;range_m=lamp.range_m;outer=new_outer
@@ -163,6 +192,7 @@ func observe(lamp: LampOpticalInstrument, force := false) -> bool:
 	for i in blockers.size():
 		_write4(112+i*32,blockers[i].position,extinction[i])
 		_write4(128+i*32,blockers[i].end,opacity[i])
+	_applied_scattering=scattering
 	_applied_geometry=_geometry_revision
 	var schedule := not _queued
 	_queued=true
@@ -175,6 +205,24 @@ func observe(lamp: LampOpticalInstrument, force := false) -> bool:
 	if schedule:RenderingServer.call_on_render_thread(_inject_call)
 	updates+=1
 	return true
+
+## Reject bad observations without retaining the previous frame's light. The
+## last valid transform remains bound, disabled, until valid input recovers.
+func _reject_observation(reason: String) -> bool:
+	last_observation_error=reason
+	rejected_observations+=1
+	if near_cascade!=null:near_cascade._reject_observation(reason)
+	energy=0.0;enabled=false
+	_applied_geometry=-1
+	_mutex.lock()
+	_parameters.encode_float(88,0.0)
+	var schedule:=not _queued
+	_queued=true
+	_mutex.unlock()
+	for material in _materials:_bind_shape(material)
+	if schedule:RenderingServer.call_on_render_thread(_inject_call)
+	updates+=1
+	return false
 
 func _write4(offset: int, xyz: Vector3, w: float) -> void:
 	_parameters.encode_float(offset,xyz.x);_parameters.encode_float(offset+4,xyz.y)
@@ -252,11 +300,11 @@ func _bind_shape(material: ShaderMaterial) -> void:
 	material.set_shader_parameter("lamp_volume_shape",Vector4(NEAR,grid_far,outer,1.0 if enabled else 0.0))
 
 ## Explicit diagnostic readback only; never called by observe/update.
-func debug_readback(callback: Callable) -> void:
+func debug_readback(callback: Callable, optical_channels := false) -> void:
 	if not ready or _disposed:return
 	readbacks+=1
 	RenderingServer.call_on_render_thread(func():
-		var data := _rd.texture_get_data(_radiance_rid,0)
+		var data := _rd.texture_get_data(_optics_rid if optical_channels else _radiance_rid,0)
 		callback.call_deferred(data))
 
 func dispose() -> void:

@@ -17,16 +17,20 @@ Get-ChildItem -LiteralPath $project -File -Recurse | Where-Object {
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 if ((Get-Item -LiteralPath ($log + '.stderr')).Length -ne 0) { throw "Engine stderr is not empty; run is invalid" }
 $receipt = Get-Content -LiteralPath (Join-Path $output 'receipt.json') -Raw | ConvertFrom-Json
-if ($receipt.failures -ne 0 -or $receipt.checks.Count -lt 111) { throw "Optical proof is incomplete or failed" }
+if ($receipt.failures -ne 0 -or $receipt.checks.Count -lt 149) { throw "Optical proof is incomplete or failed" }
 $requiredChecks = @(
     'subthreshold_off_transition_clears', 'subthreshold_off_gpu_texture_zero',
     'subthreshold_on_transition_updates', 'material_transfer_releases_previous_owner',
     'previous_owner_dispose_preserves_new_binding', 'hero_to_production_clears_near_binding',
-    'same_owner_rebind_is_idle', 'explicit_unbind_releases_material'
+    'same_owner_rebind_is_idle', 'explicit_unbind_releases_material',
+    'invalid_range_disables_field', 'range_below_gpu_precision_rejected',
+    'focus_below_gpu_precision_rejected', 'missing_lamp_clears_gpu',
+    'invalid_scattering_clears_mid', 'invalid_scattering_clears_near',
+    'hero_valid_input_recovers', 'scattering_updates_both_cascades'
 )
 foreach ($required in $requiredChecks) {
-    $matches = @($receipt.checks | Where-Object { $_.id -eq $required -and $_.pass })
-    if ($matches.Count -ne 1) { throw "Missing or failed transition proof: $required" }
+    $matchingChecks = @($receipt.checks | Where-Object { $_.id -eq $required -and $_.pass })
+    if ($matchingChecks.Count -ne 1) { throw "Missing or failed transition proof: $required" }
 }
 foreach ($entry in $manifest.GetEnumerator()) {
     $actual = (Get-FileHash -LiteralPath (Join-Path $project $entry.Key) -Algorithm SHA256).Hash.ToLowerInvariant()
