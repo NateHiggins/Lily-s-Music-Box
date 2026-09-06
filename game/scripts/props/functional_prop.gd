@@ -20,6 +20,7 @@ var rng := RandomNumberGenerator.new()
 
 static var _catalog: Dictionary = {}
 var _last_action := -100.0
+var _event_generation := 0
 
 
 func _ready() -> void:
@@ -157,6 +158,8 @@ func _on_network_event(node_id: String, index: int, accent: float,
 
 func _on_reality_event(_case_id: String, node_id: String, strength: float,
 		recurrence: int) -> void:
+	if not is_inside_tree() or is_queued_for_deletion():
+		return
 	if node_id != graph_node_id or graph_node_id == "":
 		return
 	if state == PState.OFF or state == PState.FAULT:
@@ -178,6 +181,10 @@ func _on_reality_event(_case_id: String, node_id: String, strength: float,
 
 
 func _receive(index: int, accent: float, pitch: float, strength: float) -> void:
+	# Autoload deliveries can arrive after a world has detached but before its
+	# props are freed. Such a delivery has no live mechanism or timer owner.
+	if not is_inside_tree() or is_queued_for_deletion():
+		return
 	if state == PState.OFF or state == PState.FAULT:
 		return
 	accent = accent * lerpf(0.55, 1.0, strength)  # distant arrivals soften
@@ -191,8 +198,9 @@ func _receive(index: int, accent: float, pitch: float, strength: float) -> void:
 	_last_action = now
 	var latency: float = profile.get("response_latency", 0.05) \
 			+ rng.randf_range(0.0, profile.get("timing_drift", 0.02))
+	var generation := _event_generation
 	await get_tree().create_timer(latency, false).timeout
-	if is_inside_tree():
+	if is_inside_tree() and not is_queued_for_deletion() and generation == _event_generation:
 		_perform_synced_event(index, accent, pitch)
 
 
@@ -222,6 +230,7 @@ func make_emitter(stream_key: String, volume_db := -8.0,
 
 
 func _exit_tree() -> void:
+	_event_generation += 1
 	# Recorded streams are cached globally, while decoder playback belongs to
 	# the prop that requested it. Scene replacement must sever both sides so a
 	# retired building cannot retain Ogg playback/resources until process exit.

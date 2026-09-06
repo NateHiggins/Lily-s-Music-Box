@@ -4,6 +4,7 @@ const Selector := preload("res://scripts/building/building_root_selector.gd")
 const PROD_LAYOUT := "res://data/building_layout.json"
 var failures := 0
 var passes := 0
+var run_id := Crypto.new().generate_random_bytes(8).hex_encode()
 var calendar_direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
 		"v1_to_v2": 0, "v2_to_v1": 0}
 var direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
@@ -121,7 +122,9 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	var key := "%s_to_%s" % [from_id, to_id]
 	var old_path := RealityState.save_path
 	var old_persistence := RealityState.persistence_enabled
-	var save_path := "user://tests/m08d_%s.json" % key
+	# The crash-safe writer retains sidecars. Each run owns a fresh namespace;
+	# deleting only the primary leaves a recovery set that must be protected.
+	var save_path := "user://tests/m08d_%s_%s.json" % [run_id, key]
 	RealityState.save_path = save_path
 	RealityState.persistence_enabled = true
 	RealityState.reset_campaign_for_tests()
@@ -184,7 +187,7 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	shell.free()
 	await get_tree().process_frame
 	await get_tree().process_frame
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path))
+	print("[M08D SAVE EVIDENCE] ", ProjectSettings.globalize_path(save_path))
 	RealityState.save_path = old_path
 	RealityState.persistence_enabled = old_persistence
 	CampaignTime.set_frozen_for_tests(old_clock_frozen)
