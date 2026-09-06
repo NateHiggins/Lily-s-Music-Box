@@ -351,8 +351,10 @@ func _leave_quiet_beat() -> void:
 
 
 func _advance_visit() -> Dictionary:
+	if not CampaignClock.new().bind_state():
+		return _case_object_card("time_clock", "VISIT NOT ADVANCED / CLOCK UNAVAILABLE")
 	shift_clock.set_enabled(false)
-	_visit_label.text = "VISIT TWO  ·  11:43 PM\nSAME COMPLAINT, DIFFERENT WORDING"
+	_visit_label.text = "RETURNING FOR THE NEXT SHIFT"
 	var player := get_tree().get_first_node_in_group(
 			"player_controller") as PlayerController
 	if player:
@@ -361,7 +363,7 @@ func _advance_visit() -> Dictionary:
 	tween.tween_property(_visit_overlay, "color:a", 1.0, 0.45)
 	tween.parallel().tween_property(_visit_label, "modulate:a", 1.0, 0.45)
 	tween.tween_interval(1.15)
-	tween.tween_callback(func(): RealityCases.reopen_case(CASE_ID))
+	tween.tween_callback(_complete_visit_transition)
 	tween.tween_property(_visit_overlay, "color:a", 0.0, 0.65)
 	tween.parallel().tween_property(_visit_label, "modulate:a", 0.0, 0.45)
 	tween.tween_callback(func():
@@ -369,6 +371,26 @@ func _advance_visit() -> Dictionary:
 			player.call_locked = false)
 	return _case_object_card("time_clock",
 			"CARD STAMPED / VISIT BOUNDARY ACCEPTED")
+
+func _complete_visit_transition() -> void:
+	var state := RealityState.case_state(CASE_ID)
+	var clock := CampaignClock.new()
+	if state.is_empty() or state.get("resolved", false) or not state.get("recurrence_pending", false) \
+			or not clock.bind_state():
+		_refresh()
+		return
+	var remaining := 1423.0 - clock.minute_of_day()
+	if remaining <= 0.0: remaining += CampaignClock.MINUTES_PER_DAY
+	var target := clock.elapsed_minutes() + remaining
+	# This explicit montage advances the shared clock without a separate save.
+	# reopen_case commits the clock and recurrence together on this same call.
+	clock.advance_seconds(remaining * 60.0)
+	if absf(clock.elapsed_minutes() - target) > 0.00001:
+		_visit_label.text = "THE NEXT SHIFT COULD NOT BEGIN"
+		_refresh()
+		return
+	RealityCases.reopen_case(CASE_ID)
+	_visit_label.text = "VISIT TWO  ·  11:43 PM\nSAME COMPLAINT, DIFFERENT WORDING"
 
 
 func _case_object_card(object_id: String, condition: String) -> Dictionary:
