@@ -18,6 +18,7 @@ const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_fu
 const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.gd")
+const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -273,6 +274,9 @@ func _compose_exterior() -> bool:
 	add_child(exterior_cell)
 	if exterior_cell.startup_failed:
 		return false
+	var street_boundaries := StreetBoundaries.new()
+	street_boundaries.name = "StreetBoundaries"
+	add_child(street_boundaries)
 	passage_region = PassageRegion.new()
 	passage_region.name = "VantryArcade"
 	if not passage_region.configure(shop_service):

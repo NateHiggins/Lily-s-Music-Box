@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "frame": "ORISON_FRONT_DOOR_THRESHOLD",
+  "intent": "Covered east pavement dogleg; temporary closure beyond the turn. West controls remain in ExteriorDetailPass.",
+  "boxes": [
+    {
+      "id": "ShedStreetRoof",
+      "center": [
+        22.25,
+        2.8,
+        3.25
+      ],
+      "size": [
+        6.5,
+        0.24,
+        3.1
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnRoof",
+      "center": [
+        24,
+        2.8,
+        -0.65
+      ],
+      "size": [
+        3,
+        0.24,
+        4.7
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedRoadHoarding",
+      "center": [
+        22.9,
+        1.3,
+        4.7
+      ],
+      "size": [
+        5.2,
+        2.6,
+        0.16
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedEastHoarding",
+      "center": [
+        25.42,
+        1.3,
+        0.8
+      ],
+      "size": [
+        0.16,
+        2.6,
+        7.8
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedInnerReturn",
+      "center": [
+        22.58,
+        1.3,
+        -0.65
+      ],
+      "size": [
+        0.16,
+        2.6,
+        4.7
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTemporaryClosure",
+      "center": [
+        24,
+        1.3,
+        -3.08
+      ],
+      "size": [
+        3,
+        2.6,
+        0.16
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnFloor",
+      "center": [
+        24,
+        -0.08,
+        -0.65
+      ],
+      "size": [
+        3,
+        0.16,
+        4.7
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedStreetPost0",
+      "center": [
+        19.2,
+        1.4,
+        4.55
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedStreetBeam0",
+      "center": [
+        19.2,
+        2.6,
+        3.25
+      ],
+      "size": [
+        0.16,
+        0.2,
+        3.1
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedStreetPost1",
+      "center": [
+        21,
+        1.4,
+        4.55
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedStreetBeam1",
+      "center": [
+        21,
+        2.6,
+        3.25
+      ],
+      "size": [
+        0.16,
+        0.2,
+        3.1
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedStreetPost2",
+      "center": [
+        22.8,
+        1.4,
+        4.55
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedStreetBeam2",
+      "center": [
+        22.8,
+        2.6,
+        3.25
+      ],
+      "size": [
+        0.16,
+        0.2,
+        3.1
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedStreetPost3",
+      "center": [
+        25.3,
+        1.4,
+        4.55
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedStreetBeam3",
+      "center": [
+        25.3,
+        2.6,
+        3.25
+      ],
+      "size": [
+        0.16,
+        0.2,
+        3.1
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnPost0_0",
+      "center": [
+        22.73,
+        1.4,
+        1.7
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnPost0_1",
+      "center": [
+        25.27,
+        1.4,
+        1.7
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnBeam0",
+      "center": [
+        24,
+        2.6,
+        1.7
+      ],
+      "size": [
+        3,
+        0.2,
+        0.16
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnPost1_0",
+      "center": [
+        22.73,
+        1.4,
+        -0.55
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnPost1_1",
+      "center": [
+        25.27,
+        1.4,
+        -0.55
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnBeam1",
+      "center": [
+        24,
+        2.6,
+        -0.55
+      ],
+      "size": [
+        3,
+        0.2,
+        0.16
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnPost2_0",
+      "center": [
+        22.73,
+        1.4,
+        -2.85
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnPost2_1",
+      "center": [
+        25.27,
+        1.4,
+        -2.85
+      ],
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ShedTurnBeam2",
+      "center": [
+        24,
+        2.6,
+        -2.85
+      ],
+      "size": [
+        3,
+        0.2,
+        0.16
+      ],
+      "material": "oak_quartered"
+    },
+    {
+      "id": "ClosureCrossbrace",
+      "center": [
+        24,
+        1.05,
+        -2.94
+      ],
+      "size": [
+        2.7,
+        0.14,
+        0.09
+      ],
+      "material": "oak_quartered",
+      "roll_degrees": 24
+    },
+    {
+      "id": "ClosureNoticeBoard",
+      "center": [
+        24,
+        1.65,
+        -2.98
+      ],
+      "size": [
+        1.45,
+        0.34,
+        0.03
+      ],
+      "material": "paper"
+    },
+    {
+      "id": "ShedInnerStreetHoarding",
+      "center": [
+        21.765,
+        1.3,
+        1.85
+      ],
+      "size": [
+        1.79,
+        2.6,
+        0.16
+      ],
+      "material": "oak_quartered"
+    }
+  ],
+  "lights": [
+    {
+      "id": "ShedEntryWorkLamp",
+      "center": [
+        21.4,
+        2.45,
+        3.3
+      ]
+    },
+    {
+      "id": "ShedTurnWorkLamp",
+      "center": [
+        24,
+        2.45,
+        -1.5
+      ]
+    }
+  ]
+}

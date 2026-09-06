@@ -73,8 +73,14 @@ def build():
     delta = curb_center-old_curb
     boxes['pavement_slab']['size_m'][2] = north
     boxes['pavement_slab']['position_m'][2] = north/2
+    boxes['pavement_slab']['size_m'][0] = 45.8
+    boxes['pavement_slab']['position_m'][0] = 2.6
     boxes['street_lane']['size_m'][2] = south-north
     boxes['street_lane']['position_m'][2] = (north+south)/2
+    boxes['street_lane']['size_m'][0] = 41.1
+    boxes['street_lane']['position_m'][0] = 0.25
+    boxes['street_curb']['size_m'][0] = 41.1
+    boxes['street_curb']['position_m'][0] = 0.25
     boxes['street_curb']['position_m'][2] = curb_center
     for name, box in boxes.items():
         if name.startswith(('curb_coping_', 'street_lamp_')):
@@ -88,9 +94,9 @@ def build():
         if light['id'].startswith('street_lamp_pool'):
             light['position_m'][2] += delta
     far_walk = json.loads(json.dumps(boxes['pavement_slab']))
-    far_walk.update(id='passage_pavement_slab', position_m=[9.5,-0.08,(south+gateway)/2], size_m=[25,0.16,gateway-south])
+    far_walk.update(id='passage_pavement_slab', position_m=[0.85,-0.08,(south+gateway)/2], size_m=[42.3,0.16,gateway-south])
     far_curb = json.loads(json.dumps(boxes['street_curb']))
-    far_curb.update(id='passage_street_curb', position_m=[9.5,-0.02,south+curb_width/2])
+    far_curb.update(id='passage_street_curb', position_m=[0.25,-0.02,south+curb_width/2])
     street['boxes'] = [b for b in street['boxes'] if b['id'] not in ['passage_pavement_slab', 'passage_street_curb']]+[far_walk,far_curb]
     GEOMETRY.write_text(readable(data)+'\n', encoding='utf-8')
     regions = json.loads(REGIONS.read_text())
@@ -98,19 +104,27 @@ def build():
     pavement = next(s for s in template['surfaces'] if s['id'] == 'pavement')
     assert pavement['u_axis'] == [1,0,0] and pavement['v_axis'] == [0,0,1]
     shift = pavement['point_m'][2]-north/2
+    shift_x = pavement['point_m'][0]-2.6
     before_placements = {p['id']: pavement['point_m'][2]+p['offset_uvn_m'][1] for p in template['placements'] if p['surface_id'] == 'pavement'}
     pavement['point_m'][2] = north/2
+    pavement['point_m'][0] = 2.6
+    pavement['size_m'][0] = 45.8
     pavement['size_m'][1] = north
     for placement in template['placements']:
         if placement['surface_id'] == 'pavement':
+            placement['offset_uvn_m'][0] += shift_x
             placement['offset_uvn_m'][1] += shift
             assert abs(pavement['point_m'][2]+placement['offset_uvn_m'][1]-before_placements[placement['id']]) < 1e-8
     for instance in regions['instances']:
         if instance['owner_instance_id'] == 'STREET_ORISON_01' and instance['owner_surface_id'] == 'pavement':
+            instance['offset_uvn_m'][0] += shift_x
             instance['offset_uvn_m'][1] += shift
     template['boundary_xz_m'][3] = gateway
+    template['boundary_xz_m'][0] = -20.3
+    template['boundary_xz_m'][1] = -3.16
+    template['boundary_xz_m'][2] = 25.5
     region = next(r for r in regions['regions'] if r['id'] == 'REGION_STREET')
-    region['boundary'] = [[-3,0],[22,0],[22,gateway],[-3,gateway]]
+    region['boundary'] = [[-20.3,0],[22.5,0],[22.5,-3.16],[25.5,-3.16],[25.5,north],[22,north],[22,gateway],[-20.3,gateway]]
     REGIONS.write_text(readable(regions, compact_records=False)+'\n', encoding='utf-8')
     sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     report = {'schema': 'orison.v2.street-section-source.v1',

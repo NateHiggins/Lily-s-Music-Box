@@ -11,7 +11,7 @@
       "id": "REGION_STREET",
       "kind": "street",
       "lineage_id": "street",
-      "boundary": [[-3,0],[22,0],[22,18.521],[-3,18.521]]
+      "boundary": [[-20.3,0],[22.5,0],[22.5,-3.16],[25.5,-3.16],[25.5,4.955],[22,4.955],[22,18.521],[-20.3,18.521]]
     },
     {
       "id": "REGION_SHOPS",
@@ -25,16 +25,16 @@
       "id": "TEMPLATE_STREET_SEGMENT_V1",
       "kind": "street",
       "lineage_id": "street",
-      "boundary_xz_m": [-3.0,0.0,22.0,18.521],
+      "boundary_xz_m": [-20.3,-3.16,25.5,18.521],
       "surfaces": [
         {
           "id": "pavement",
           "kind": "walkable",
-          "point_m": [9.5,0.0,2.4775],
+          "point_m": [2.6,0.0,2.4775],
           "u_axis": [1.0,0.0,0.0],
           "v_axis": [0.0,0.0,1.0],
           "normal": [0.0,1.0,0.0],
-          "size_m": [25.0,4.955]
+          "size_m": [45.8,4.955]
         },
         {
           "id": "orison_threshold",
@@ -51,28 +51,28 @@
           "id": "orison_exit",
           "purpose": "player route begins outside Orison",
           "surface_id": "pavement",
-          "offset_uvn_m": [-9.5,-1.8975,0.04],
+          "offset_uvn_m": [-2.5999999999999996,-1.8975,0.04],
           "facing_local": [0.0,0.0,1.0]
         },
         {
           "id": "pavement_out",
           "purpose": "turn along the Orison-side pavement",
           "surface_id": "pavement",
-          "offset_uvn_m": [-9.5,1.5225,0.04],
+          "offset_uvn_m": [-2.5999999999999996,1.5225,0.04],
           "facing_local": [1.0,0.0,0.0]
         },
         {
           "id": "route_overview_eye",
           "purpose": "player-height route-origin stance retaining Orison and outbound pavement",
           "surface_id": "pavement",
-          "offset_uvn_m": [-8.5,2.0225,1.41],
+          "offset_uvn_m": [-1.5999999999999996,2.0225,1.41],
           "facing_local": [0.64,0.0,-0.77]
         },
         {
           "id": "route_overview_target",
           "purpose": "shared Orison-entrance and outbound-pavement look target",
           "surface_id": "pavement",
-          "offset_uvn_m": [-5.7,-2.2775,1.55],
+          "offset_uvn_m": [1.2000000000000002,-2.2775,1.55],
           "facing_local": [0.55,0.0,-0.84]
         }
       ]
@@ -208,7 +208,7 @@
       "lineage_id": "shopfronts",
       "owner_instance_id": "STREET_ORISON_01",
       "owner_surface_id": "pavement",
-      "offset_uvn_m": [9.155,-0.35250000000000004,0.0],
+      "offset_uvn_m": [16.055,-0.35250000000000004,0.0],
       "local_yaw_degrees": 0.0,
       "root_frame_identity": "",
       "semantic_identity": "SHOP_BODEGA",
