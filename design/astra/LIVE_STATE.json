@@ -137,6 +137,20 @@
     "receipt": "evidence/v2_native_resume_01/receipt.json",
     "native_permission": "Owner explicitly resumed Godot; use shared serial runner.",
     "results": "Rendered connected world 212/0; shop simulation 19/0; final stderr empty.",
-    "remaining": "Lighting/readability failed visual review; controller routes/targeting, disk-save proof, spatial reviews and cutover still open."
+    "remaining": "Superseded in part by current_v2_completion_resume; full visual acceptance, spatial reviews and cutover remain open."
+  },
+  "current_v2_completion_resume": {
+    "status": "ACTIVE_CANONICAL_V2_IMPLEMENTATION_DEFAULT_UNCHANGED",
+    "owner_steering": "Continue working toward V2 until finished; Godot authorized through the shared serial runner.",
+    "canonical_worktree": "C:/PleaseRemainOnTheLine-astra",
+    "latest_committed_head": "28433d2",
+    "lighting": "2277a22: four room fixtures, bench lamp, four physical switches; 374 connected-world checks pass. Player-camera room views captured with carried lamp off.",
+    "domestic_route": "eea3c0d: four production 3B doors; 51-check continuous player-input route through entry/main/kitchen/alcove/bath/service exit passes, including lamp/wardrobe/WC targeting.",
+    "save_reconstruction": "e3fa1b4: detached prop-event lifecycle repaired; four lifetime checks and all 30 four-direction disk-save/calendar matrix checks pass. Known V1 found-art warning remains.",
+    "vertical_route": "28433d2: stacked-stair false ceiling repaired; 61-waypoint primary/service/B1 climb and return passes. Structural suite now checks F03/F04 stations on their authored floors.",
+    "service_runtime": "Current M08F 29-check direct-owner service-round/save reconstruction passes with empty stderr; not upgraded to unmeasured resource-retention proof.",
+    "evidence": ["evidence/v2_3b_lighting_02/README.md", "evidence/v2_3b_routes_01/README.md", "evidence/v2_save_resume_01/README.md", "evidence/v2_vertical_route_01/README.md", "evidence/v2_runtime_resume_01/README.md"],
+    "next": "Actual connected interior/street/bodega route, then remaining exterior/streaming and golden-shift dependencies. Preserve optional F01 provider work and isolated optical branch.",
+    "remaining": "V2 is unfinished: construction seam/Passage, actual streaming/F01 provider acceptance, complete golden shift, F05/F06/full B1/roof, remaining apartments and cast, derived acoustic topology, full consumer/resource/performance and human acceptance, selector cutover. No release or default flip claimed."
   }
 }

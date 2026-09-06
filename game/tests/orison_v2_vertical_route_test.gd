@@ -4,6 +4,7 @@ var world: OrisonV2RuntimeRoot
 var player: PlayerController
 var trace: Array[Dictionary] = []
 var failures: Array[String] = []
+var route_label := "VERTICAL ROUTE"
 
 func _ready() -> void:
 	call_deferred("_run")
@@ -37,7 +38,7 @@ func _run() -> void:
 	remove_child(world)
 	world.free()
 	await get_tree().create_timer(0.25).timeout
-	print("VERTICAL ROUTE: %d waypoints; %d failures" % [trace.size(), failures.size()])
+	print("%s: %d waypoints; %d failures" % [route_label, trace.size(), failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _route() -> void:
@@ -82,7 +83,8 @@ func _route() -> void:
 func _walk(local_target: Vector3) -> bool:
 	var target: Vector3 = world.adapter.root.to_global(local_target)
 	var started := Time.get_ticks_msec()
-	while Time.get_ticks_msec() - started < 6000:
+	var travel_budget_ms := maxi(6000, int(player.global_position.distance_to(target) / player.WALK * 1000.0) + 2000)
+	while Time.get_ticks_msec() - started < travel_budget_ms:
 		var delta := target - player.global_position
 		delta.y = 0
 		if delta.length() < 0.1: break
@@ -101,5 +103,5 @@ func _walk(local_target: Vector3) -> bool:
 	if not ok:
 		var label := "target %s actual %s" % [local_target, actual]
 		failures.append(label)
-		push_error("VERTICAL ROUTE: " + label)
+		push_error(route_label + ": " + label)
 	return ok
