@@ -1,4 +1,7 @@
 extends Node
+class WakeDriver extends "res://tests/orison_v2_vertical_route_test.gd":
+	func _ready() -> void:
+		pass # The boundary owns the existing world and its earned player spawn.
 ## Boundary reconstruction from the preceding physically earned save. This
 ## drives the public dream transaction; it does not claim a played dream route.
 var failures: Array[String] = []
@@ -41,6 +44,10 @@ func _ready() -> void:
 	for caption in shell.active_world.find_children("MinaCaseCaption","Label3D",true,false):
 		retired_subjects.append(weakref(caption))
 	check(retired_subjects.size()==7,"all new 2A furniture and caption subjects are tracked")
+	for identity in ["4B_wake_bed", "4B_wake_nightstand"]:
+		var furnishing := shell.active_world.find_child(identity,true,false)
+		check(furnishing is StaticBody3D,"wake furnishing mounted: " + identity)
+		if furnishing != null: retired_subjects.append(weakref(furnishing))
 
 	check(shell.dream_director.enter_armed_dream(),"public dream entry accepts earned transaction")
 	await get_tree().create_timer(1).timeout
@@ -65,6 +72,7 @@ func _ready() -> void:
 	check(RealityState.has_waking_residue(MinaCaptionManifestation.RESIDUE_ID),"wake records the factual Mina residue")
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join("earned_wake.png"))
+	await verify_wake_room(world)
 	var residue := RealityState.waking_residue(MinaCaptionManifestation.RESIDUE_ID).duplicate(true)
 	world.mina_gameplay.bind_wake(shell.core_loop)
 	check(RealityState.waking_residue(MinaCaptionManifestation.RESIDUE_ID)==residue,"repeated wake binding is idempotent")
@@ -82,6 +90,31 @@ func _ready() -> void:
 			and RealityState.waking_residue(MinaCaptionManifestation.RESIDUE_ID)==residue,
 			"disk reload preserves completed wake and the exact factual residue")
 	await finish()
+
+func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	var bed := world.adapter.resolve("4B_wake_bed") as Node3D
+	check(bed != null and absf(world.adapter.root.to_local(bed.global_position).y-9.6)<.01,
+			"physical bed stands on the F04 floor")
+	var driver := WakeDriver.new()
+	add_child(driver)
+	driver.world = world
+	driver.player = world.player
+	driver.route_label = "EARNED WAKE EGRESS"
+	# These are actual controller inputs after the real wake transaction, with
+	# no replacement spawn or teleport. Cross both authored alcove/hall openings.
+	for point in [Vector3(-11.95,9.6,7.25),Vector3(-9.8,9.6,7.25),
+			Vector3(-9.8,9.6,5.5),Vector3(-9.8,9.6,7.25),
+			Vector3(-11.95,9.6,7.25),Vector3(-11.95,9.6,8.9)]:
+		if not await driver._walk(point): break
+	check(driver.failures.is_empty() and driver.trace.size()==6,"wake capsule walks out through the hall and back to bedside")
+	FileAccess.open(output.path_join("wake_route.json"),FileAccess.WRITE).store_string(
+			JSON.stringify({"trace":driver.trace,"failures":driver.failures},"\t"))
+	driver.free()
+	world.player.rotation.y = PI/2
+	world.player.camera.rotation.x = -.25
+	await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(output.path_join("bedside_review.png"))
+
 func finish() -> void:
 	if shell != null: shell.free()
 	await get_tree().create_timer(.3).timeout
