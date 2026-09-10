@@ -75,6 +75,17 @@ func setup(objective_tracker: ObjectiveTracker,
 		work_orders.job_stage_changed.connect(_on_job_stage_changed)
 
 
+func bind_wake(loop: CoreLoopDirector) -> void:
+	if not loop.wake_completed.is_connected(_on_wake_completed):
+		loop.wake_completed.connect(_on_wake_completed)
+	if loop.boundary() == "wake_complete":
+		_on_wake_completed(CoreLoopDirector.RETURN_ANCHOR_ID)
+
+
+func _on_wake_completed(_return_anchor_id: String) -> void:
+	MinaCaptionManifestation.record_waking_residue()
+
+
 func _ready() -> void:
 	_build_apartment_targets()
 	_build_dialogue()

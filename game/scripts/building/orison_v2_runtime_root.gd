@@ -238,6 +238,7 @@ func _compose_authorities() -> void:
 		core_loop.name = "CoreLoopDirector"
 		add_child(core_loop)
 		core_loop.setup(work_orders, player, layout, resolver)
+	mina_gameplay.bind_wake(core_loop)
 	first_shift_director.bind_opening_report_offer(
 			Callable(core_loop, "offer_opening_report"))
 	service_round = ServiceRoundDirector.new()
