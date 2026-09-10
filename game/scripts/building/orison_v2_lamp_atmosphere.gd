@@ -15,6 +15,7 @@ var volume: FogVolume
 var material: ShaderMaterial
 var particles: GPUParticles3D
 var particle_material: ShaderMaterial
+var receivers: RefCounted
 var driver: Node
 var _environment: Environment
 var _environment_before := {}
@@ -59,6 +60,8 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	volume.material = material
 	add_child(volume)
 	_build_dust()
+	receivers = preload("res://scripts/lamp/lamp_optical_receivers.gd").new()
+	receivers.setup(get_parent(),player.flashlight,field)
 	process_priority = 100
 	_update_volume(0)
 	return true
@@ -73,6 +76,7 @@ func _update_volume(delta: float) -> void:
 		particles.visible = false
 		particles.emitting = false
 		_update_environment(false)
+		if receivers != null: receivers.hide_all()
 		if not _failed_reported:
 			_failed_reported = true
 			push_error("V2 lamp optical field: " + field.failed)
@@ -81,6 +85,7 @@ func _update_volume(delta: float) -> void:
 	_due -= delta
 	observation.observe_player(player,delta)
 	if field.ready:
+		receivers.bind_pending()
 		if not _bound:
 			field.bind_material(material)
 			field.bind_material(particle_material)
@@ -140,6 +145,9 @@ func _build_dust() -> void:
 	add_child(particles)
 
 func _exit_tree() -> void:
+	if receivers != null:
+		receivers.dispose()
+		receivers = null
 	if _environment != null:
 		_environment.volumetric_fog_enabled = bool(_environment_before.enabled)
 		_environment.volumetric_fog_density = float(_environment_before.density)

@@ -46,6 +46,8 @@ func mount(adapter: Variant) -> bool:
 			visual.mesh = mesh
 			visual.material_override = _material(str(surface.material))
 			body.add_child(visual)
+			if surface.material == "glassish":
+				preload("res://scripts/lamp/lamp_optical_receivers.gd").add_glass_haze(visual)
 		if not adapter.mount_consumer(str(record.id), body):
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
@@ -108,14 +110,10 @@ func _numbers(values: Variant, count: int) -> bool:
 func _vector(values: Array) -> Vector3:
 	return Vector3(values[0], values[1], values[2])
 
-func _material(key: String) -> StandardMaterial3D:
+func _material(key: String) -> Material:
 	if key == "glassish":
-		# Same alpha/tint policy as the source exporter; native optical review pending.
-		var glass := StandardMaterial3D.new()
-		glass.albedo_color = Color(0.76, 0.85, 0.89, 0.16)
-		glass.roughness = 0.06
-		glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		glass.cull_mode = BaseMaterial3D.CULL_DISABLED
+		var glass := ShaderMaterial.new()
+		glass.shader = preload("res://shaders/lamp_glass_surface.gdshader")
 		return glass
 	var material := MatLib.get_mat(str(MATERIAL_ALIASES.get(key, key)), GARMENT_TINTS.get(key, Color.WHITE))
 	if GARMENT_TINTS.has(key):

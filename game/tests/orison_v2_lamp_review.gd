@@ -89,7 +89,7 @@ func _run() -> void:
 	_check(air.material.get_shader_parameter("lamp_radiance") == air.field.radiance,
 			"participating-air material samples the shared field texture")
 	_check(air.particle_material.get_shader_parameter("lamp_radiance") == air.field.radiance
-			and air.field._materials.size() == 2, "air and dust share exactly one optical field")
+			and air.field._materials.size() == 3, "air, dust and bedside glass share one optical field")
 	_check(air.particles.amount == 48 and not air.particles.local_coords
 			and air.particles.visible and air.particles.emitting,
 			"bounded world-space dust participates while lamp is on")
@@ -152,6 +152,10 @@ func _run() -> void:
 	retained.append_array([weakref(air.particles),weakref(air.particle_material),
 			weakref(air.particles.draw_pass_1),weakref(air.particles.process_material)])
 	retained.append_array([weakref(air.driver),weakref(air.driver.state)])
+	retained.append(weakref(air.receivers))
+	for record: Array in air.receivers.receivers.values():
+		retained.append(weakref(record[1]))
+		retained.append(record[0])
 	await _profile(air)
 	await _profile_injection(air)
 	world.shutdown_for_tests()
@@ -160,7 +164,7 @@ func _run() -> void:
 	_check(not environment.volumetric_fog_enabled, "teardown restores original environment fog ownership")
 	for reference: WeakRef in retained:
 		_check(reference.get_ref() == null, "new beam owner/resource released")
-	print("V2 LAMP REVIEW: %d checks; %d failures; air and dust, other material families pending" % [checks,failures.size()])
+	print("V2 LAMP REVIEW: %d checks; %d failures; air, dust and bedside glass; cellular families pending" % [checks,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _capture(label: String) -> void:
