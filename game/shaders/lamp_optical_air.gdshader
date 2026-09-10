@@ -49,6 +49,8 @@ void fog() {
 	// do not substitute eight analytic lab boxes for the composed building.
 	DENSITY *= optical.visibility * smoothstep(0.0, 0.004, optical.scattering)
 		* step(0.000001, dot(optical.radiance, vec3(0.333333)));
-	ALBEDO = vec3(0.96, 0.78, 0.54);
+	// The lamp already supplies its thermal spectrum. Nearly neutral dust
+	// avoids tinting that warm light orange a second time.
+	ALBEDO = vec3(0.94, 0.92, 0.88);
 	EMISSION = vec3(0.0);
 }

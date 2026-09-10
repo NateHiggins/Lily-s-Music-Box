@@ -48,6 +48,17 @@ func _run() -> void:
 	player.camera.global_position = player.global_position + Vector3.UP*player.STANDING_EYE
 	player.camera.look_at(world.adapter.root.to_global(Vector3(-13.4,4.3,.75)))
 	player.set_lamp_enabled(true)
+	# Settle the carried-device transform, then hold one deterministic thermal
+	# state for every photometric comparison. Never tune against different sags.
+	await get_tree().create_timer(.3).timeout
+	player.set_process(false)
+	world.service_set_carrier.set_process(false)
+	air.driver.state = preload("res://scripts/lamp/lamp_optical_state.gd").new()
+	air.driver.state.configure(0x28A11CE,true)
+	air.driver.state.advance(2.0)
+	air.driver.apply_output()
+	FileAccess.open(directory.path_join("thermal_state.json"),FileAccess.WRITE).store_string(
+			JSON.stringify(air.driver.state.save_state(),"\t",true,true))
 	player.set_beam_mask_enabled(true)
 	await _capture("01_current_overlay")
 	player.set_beam_mask_enabled(false)
@@ -90,13 +101,17 @@ func _run() -> void:
 	_check(not player._light_mask.is_visible_in_tree() and player.flashlight.light_projector == null,
 			"no photographic overlay or projected texture")
 	# A dark-room comparison isolates the lamp from the room pendant.
+	for energy in [.74,1.5,2.4]:
+		player.set_lamp_base_energy(energy)
+		await _capture("room_energy_%s"%str(energy).replace(".","_"))
+	player.set_lamp_base_energy(1.5)
 	var room_light: LightFixtureProp = world.adapter.resolve("F02_A_MAIN_LT_PENDANT_SHADE")
 	room_light.set_powered(false)
 	await _capture("03b_lamp_only_volume")
-	for energy in [1.5,4.2]:
+	for energy in [1.5,2.4,4.2]:
 		player.set_lamp_base_energy(energy)
 		await _capture("energy_%s"%str(energy).replace(".","_"))
-	player.set_lamp_base_energy(.74)
+	player.set_lamp_base_energy(1.5)
 	air.set_process(false)
 	fog.visible = false
 	air.particles.visible = false
@@ -104,6 +119,8 @@ func _run() -> void:
 	fog.visible = true
 	air.set_process(true)
 	await _shadow_control(air)
+	player.set_process(true)
+	world.service_set_carrier.set_process(true)
 	player.set_lamp_enabled(false)
 	await _capture("04_lamp_off")
 	_check(not player.lamp_is_enabled() and not fog.visible and player.flashlight.light_volumetric_fog_energy == 0,
@@ -134,6 +151,7 @@ func _run() -> void:
 			weakref(air.particles.draw_pass_1),weakref(air.particles.process_material)])
 	retained.append_array([weakref(air.driver),weakref(air.driver.state)])
 	await _profile(air)
+	await _profile_injection(air)
 	world.shutdown_for_tests()
 	world.queue_free()
 	await get_tree().create_timer(.3).timeout
@@ -177,26 +195,53 @@ func _shadow_control(air: Node3D) -> void:
 	player.camera.make_current()
 	camera.queue_free()
 	blocker.queue_free()
-	player.set_process(true)
 	air.set_process(true)
 
 func _profile(air: Node3D) -> void:
+	# Freeze scheduled actors, fixture personalities and thermal drift. Keep
+	# the optical owner running so its actual injection cost stays measured.
+	world.process_mode = Node.PROCESS_MODE_DISABLED
+	air.process_mode = Node.PROCESS_MODE_ALWAYS
+	air.driver.state.configure(0x28A11CE,true)
+	air.driver.state.advance(2.0)
+	air.driver.apply_output()
 	var viewport_rid := get_viewport().get_viewport_rid()
 	RenderingServer.viewport_set_measure_render_time(viewport_rid,true)
 	var results := {}
-	for iteration in 4:
-		var enabled: bool = iteration in [1,2]
+	for iteration in 8:
+		var enabled: bool = iteration % 4 in [1,2]
 		air.set_process(enabled)
 		fog.visible = enabled
 		air.particles.visible = enabled
 		air.particles.emitting = enabled
 		world.get_node("WakingAtmosphere").environment.volumetric_fog_enabled = enabled
-		for i in 120: await RenderingServer.frame_post_draw
+		for i in 60: await RenderingServer.frame_post_draw
 		var gpu: Array[float] = []
-		for i in 120:
+		for i in 90:
 			await RenderingServer.frame_post_draw
 			gpu.append(RenderingServer.viewport_get_measured_render_time_gpu(viewport_rid))
 		var raw := gpu.duplicate()
 		gpu.sort()
-		results[str(iteration)+("_volume" if enabled else "_spotlight")] = {"gpu_median_ms":gpu[60],"gpu_p95_ms":gpu[113],"gpu_max_ms":gpu[119],"samples_ms":raw}
+		results[str(iteration)+("_volume" if enabled else "_spotlight")] = {"gpu_median_ms":gpu[45],"gpu_p95_ms":gpu[85],"gpu_max_ms":gpu[89],"samples_ms":raw}
 	FileAccess.open(directory.path_join("profile.json"),FileAccess.WRITE).store_string(JSON.stringify(results,"\t"))
+
+func _profile_injection(air: Node3D) -> void:
+	# Force a fresh injection at a fixed pose: a conservative moving-lamp
+	# compute measurement, independent of whole-viewport timing noise.
+	air.set_process(false)
+	air.field.profiling = true
+	for i in 180:
+		air.field.observe(air.observation,true)
+		await RenderingServer.frame_post_draw
+	air.field.profiling = false
+	await RenderingServer.frame_post_draw
+	var result := {}
+	for key in ["gpu_samples_us","construction_us","submission_us"]:
+		var samples: Array = air.field.get(key).duplicate()
+		var raw := samples.duplicate()
+		samples.sort()
+		if samples.size() > 10:
+			result[key] = {"count":samples.size(),"median":samples[samples.size()/2],
+					"p95":samples[int(samples.size()*.95)],"max":samples[-1],"samples":raw}
+	_check(result.size() == 3, "composed injection exposes GPU and CPU timing samples")
+	FileAccess.open(directory.path_join("injection_profile.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))

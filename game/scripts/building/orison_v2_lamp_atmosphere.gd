@@ -22,6 +22,12 @@ var _due := 0.0
 func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	player = owner_player
 	player.set_beam_mask_enabled(false)
+	# V2 has a real thermal output multiplier and no photographic exposure
+	# mask. Keep a modest usable throw while room fixtures remain dominant.
+	player.set_lamp_base_energy(1.5)
+	# Finite filament aperture gives nearby blockers a contact shadow and
+	# softens the shadow with distance, rather than a pinhole silhouette.
+	player.flashlight.light_size = .018
 	driver = preload("res://scripts/lamp/carried_lamp_optical_driver.gd").new()
 	add_child(driver)
 	if not driver.setup(player): return false
