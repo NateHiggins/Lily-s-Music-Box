@@ -7,11 +7,12 @@ class Output extends RefCounted:
 	var intensity := 0.0
 	var color := Color.WHITE
 	var angle := 38.0
+	var stability := 1.0
 	func write_output(target: Dictionary) -> void:
 		target.intensity = intensity
 		target.color = color
 		target.cone_angle_deg = angle
-		target.temporal_stability = 1.0
+		target.temporal_stability = stability
 
 var state := Output.new()
 var base_energy := 1.0
@@ -27,3 +28,6 @@ func observe_player(player: PlayerController, delta: float) -> void:
 	_previous = state.intensity
 	state.color = player.flashlight.light_color
 	state.angle = player.flashlight.spot_angle
+	if is_instance_valid(player.lamp_presentation):
+		state.stability = float(player.lamp_presentation.output.temporal_stability)
+		state.intensity_rate = player.lamp_presentation.state.intensity_rate * player._lamp_base_energy

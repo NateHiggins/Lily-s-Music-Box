@@ -36,6 +36,8 @@ func _run() -> void:
 		return
 	air.set_process(false)
 	air.volume.visible = false
+	air.particles.visible = false
+	air.particles.emitting = false
 	var atmosphere: Node3D = world.get_node("WakingAtmosphere")
 	var environment: Environment = atmosphere.environment
 	environment.volumetric_fog_enabled = false
@@ -60,8 +62,26 @@ func _run() -> void:
 			"instantaneous optical field injects actual carried-lamp observations")
 	_check(air.field.last_observation_error.is_empty() and air.field.readbacks == 0,
 			"ordinary optical frames have valid observations and no readback")
+	_check(player.lamp_presentation == air.driver, "one preserved controller owns V2 lamp presentation")
+	var device: ServiceSetProp = world.service_set_carrier.device
+	_check(device._lamp_glass_material.emission == air.driver.output.color
+			and is_equal_approx(device._lamp_glass_material.emission_energy_multiplier,float(air.driver.output.filament_emission)),
+			"modeled lens follows controller color and thermal emission")
+	var radio_was_on := device.radio_powered
+	device.set_radio_powered(not radio_was_on,false)
+	_check(is_equal_approx(device._lamp_glass_material.emission_energy_multiplier,float(air.driver.output.filament_emission)),
+			"radio state cannot overwrite thermal lens output")
+	device.set_radio_powered(radio_was_on,false)
+	_check(is_equal_approx(air.field.stability,float(air.driver.output.temporal_stability))
+			and is_equal_approx(air.field.energy,player.flashlight.light_energy),
+			"field consumes actual controller stability and delivered energy")
 	_check(air.material.get_shader_parameter("lamp_radiance") == air.field.radiance,
 			"participating-air material samples the shared field texture")
+	_check(air.particle_material.get_shader_parameter("lamp_radiance") == air.field.radiance
+			and air.field._materials.size() == 2, "air and dust share exactly one optical field")
+	_check(air.particles.amount == 48 and not air.particles.local_coords
+			and air.particles.visible and air.particles.emitting,
+			"bounded world-space dust participates while lamp is on")
 	_check(fog.visible and player.flashlight.shadow_enabled, "real shadow lamp lights bounded volume")
 	_check(fog.size == Vector3(3.9,6.5,3.9), "accepted L1C world bounds expressed on native Y cone axis")
 	_check(fog.global_basis.y.dot(player.flashlight.global_basis.z) > .999
@@ -79,6 +99,7 @@ func _run() -> void:
 	player.set_lamp_base_energy(.74)
 	air.set_process(false)
 	fog.visible = false
+	air.particles.visible = false
 	await _capture("03c_lamp_only_no_volume")
 	fog.visible = true
 	air.set_process(true)
@@ -87,6 +108,7 @@ func _run() -> void:
 	await _capture("04_lamp_off")
 	_check(not player.lamp_is_enabled() and not fog.visible and player.flashlight.light_volumetric_fog_energy == 0,
 			"logical off immediately excludes participating beam")
+	_check(not air.particles.visible and not air.particles.emitting, "logical off excludes dust and stops emission")
 	_check(not air.field.enabled and air.field.energy == 0, "logical off clears instantaneous field input")
 	air.field.debug_readback(func(bytes: PackedByteArray):
 		_off_bytes = bytes
@@ -108,13 +130,16 @@ func _run() -> void:
 	_check(fog.global_transform.is_equal_approx(player.flashlight.global_transform * Transform3D(Basis(Vector3.RIGHT,PI*.5),Vector3(0,0,-3.25))),
 			"volume follows the real carried lens transform")
 	var retained := [weakref(air),weakref(fog),weakref(air.material),weakref(air.field),weakref(air.field.radiance),weakref(air.field.optics)]
+	retained.append_array([weakref(air.particles),weakref(air.particle_material),
+			weakref(air.particles.draw_pass_1),weakref(air.particles.process_material)])
+	retained.append_array([weakref(air.driver),weakref(air.driver.state)])
 	await _profile(air)
 	world.shutdown_for_tests()
 	world.queue_free()
 	await get_tree().create_timer(.3).timeout
 	for reference: WeakRef in retained:
 		_check(reference.get_ref() == null, "new beam owner/resource released")
-	print("V2 LAMP REVIEW: %d checks; %d failures; participating air only, other material families pending" % [checks,failures.size()])
+	print("V2 LAMP REVIEW: %d checks; %d failures; air and dust, other material families pending" % [checks,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _capture(label: String) -> void:
@@ -163,6 +188,8 @@ func _profile(air: Node3D) -> void:
 		var enabled: bool = iteration in [1,2]
 		air.set_process(enabled)
 		fog.visible = enabled
+		air.particles.visible = enabled
+		air.particles.emitting = enabled
 		world.get_node("WakingAtmosphere").environment.volumetric_fog_enabled = enabled
 		for i in 120: await RenderingServer.frame_post_draw
 		var gpu: Array[float] = []

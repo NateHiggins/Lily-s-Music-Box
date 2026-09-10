@@ -38,6 +38,7 @@ const STAGGER_ROLL := 0.085
 
 var camera: Camera3D
 var flashlight: SpotLight3D
+var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
 var telegram_hud: TelegramHud
@@ -579,6 +580,10 @@ func set_lamp_enabled(on: bool) -> void:
 		flashlight.light_projector = null
 	if carried_device and carried_device.has_method("set_lamp_enabled"):
 		carried_device.set_lamp_enabled(on)
+	if is_instance_valid(lamp_presentation):
+		lamp_presentation.set_powered(on)
+		if changed: _play_lamp_sound(on)
+		return
 	if not changed:
 		# A NO-OP MUST BE A NO-OP. This used to zero `_lamp_phase` and force
 		# `visible`, so any caller re-asserting the state the lamp was already
@@ -626,6 +631,9 @@ func set_lamp_enabled(on: bool) -> void:
 ## collapses, then falls dark down the same colour ramp it came up.
 func _advance_lamp(delta: float) -> void:
 	if flashlight == null:
+		return
+	if is_instance_valid(lamp_presentation):
+		lamp_presentation.advance_frame(delta)
 		return
 	if _lamp_phase <= 0.0:
 		if flashlight.visible != _lamp_on:
@@ -681,6 +689,9 @@ func lamp_is_enabled() -> bool:
 ## the moment its filament finishes coming up.
 func set_lamp_base_energy(value: float) -> void:
 	_lamp_base_energy = maxf(0.0, value)
+	if is_instance_valid(lamp_presentation):
+		lamp_presentation.apply_output()
+		return
 	if flashlight and _lamp_phase <= 0.0 and _lamp_on:
 		_apply_lamp_gutter()
 

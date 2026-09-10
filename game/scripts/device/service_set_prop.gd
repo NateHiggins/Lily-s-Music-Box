@@ -24,6 +24,9 @@ const LAMP_WARM := Color("ffd08a")
 
 var radio_powered := true
 var lamp_enabled := true
+var _optical_lens := false
+var _optical_color := Color.WHITE
+var _optical_emission := 0.0
 var order_open := false
 var incoming_call := false
 
@@ -131,6 +134,12 @@ func set_lamp_enabled(on: bool, animate := true) -> void:
 	lamp_enabled = on
 	_apply_state(animate)
 
+func set_lamp_optical_output(color: Color, emission: float) -> void:
+	_optical_lens = true
+	_optical_color = color
+	_optical_emission = maxf(0.0,emission)
+	_set_jewel(_lamp_glass_material,color,_optical_emission > .001,_optical_emission)
+
 
 func _on_job_stage_changed(_job_id: String, _from_stage: String,
 		_to_stage: String, _state: Dictionary) -> void:
@@ -152,7 +161,10 @@ func _apply_state(animate: bool) -> void:
 			1.65 if incoming_call else 1.25)
 	_set_jewel(_net_material, GREEN, radio_powered, 0.82)
 	_set_jewel(_lamp_indicator_material, RED, lamp_enabled, 0.82)
-	_set_jewel(_lamp_glass_material, LAMP_WARM, lamp_enabled, 2.1)
+	if _optical_lens:
+		_set_jewel(_lamp_glass_material,_optical_color,_optical_emission > .001,_optical_emission)
+	else:
+		_set_jewel(_lamp_glass_material, LAMP_WARM, lamp_enabled, 2.1)
 	if _aerial:
 		var aerial_y := 1.0 if radio_powered else 0.14
 		if animate and is_inside_tree():

@@ -4,6 +4,7 @@ extends Node
 ## cannot accidentally collapse into the same boolean.
 
 signal state_changed
+signal snapshot_preparing
 signal waking_residue_applied(residue_id: String, facts: Dictionary)
 signal player_notice_changed(notice: Dictionary)
 
@@ -139,7 +140,8 @@ func save_game() -> bool:
 		_last_save_result = {"ok": false, "code": str(_player_notice.get("code", "save_recovery_required")),
 				"stage": "write_latch", "recovered": false, "protection_required": true}
 		return false
-	_last_save_result = _storage().write_snapshot(JSON.stringify(data, "\t").to_utf8_buffer())
+	snapshot_preparing.emit()
+	_last_save_result = _storage().write_snapshot(JSON.stringify(data, "\t", true, true).to_utf8_buffer())
 	if not bool(_last_save_result.ok):
 		if bool(_last_save_result.get("protection_required", false)):
 			_block_save(str(_last_save_result.code), _last_save_result)
@@ -198,6 +200,8 @@ func _validate_document(candidate: Dictionary) -> Dictionary:
 		return {"ok": false, "code": "save_invalid_read_only", "detail": "Invalid save version."}
 	if float(version) > SAVE_VERSION:
 		return {"ok": false, "code": "future_save_read_only", "version": int(version)}
+	if candidate.has("lamp_optics") and not preload("res://scripts/lamp/lamp_optical_snapshot.gd").valid(candidate.lamp_optics):
+		return _invalid_shape("lamp_optics")
 	for key in ["cases", "building_personality", "work_orders", "maintenance_jobs",
 			"maintenance_items", "open_shift_situations", "shop_buckets", "exterior_semantics",
 			"organism_incidents", "core_loop", "first_shift", "dream", "sleep_pressure", "waking_residues",
@@ -347,7 +351,7 @@ func start_new_campaign() -> bool:
 				"stage": "prepare_new_clock", "detail": clock.validation_error,
 				"recovered": false, "protection_required": previous_blocked}
 		return false
-	_last_save_result = _storage().write_snapshot(JSON.stringify(candidate, "\t").to_utf8_buffer(), true)
+	_last_save_result = _storage().write_snapshot(JSON.stringify(candidate, "\t", true, true).to_utf8_buffer(), true)
 	if not _last_save_result.ok:
 		# A title consumer reads last_save_result; the prior notice/latch survive.
 		# If rollback itself failed, even a formerly valid campaign is protected.

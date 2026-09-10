@@ -3,6 +3,7 @@ extends Node
 const Selector := preload("res://scripts/building/building_root_selector.gd")
 const PROD_LAYOUT := "res://data/building_layout.json"
 var failures := 0
+var optical_direction_totals := {"v1_to_v1":0,"v2_to_v2":0,"v1_to_v2":0,"v2_to_v1":0}
 var passes := 0
 var run_id := Crypto.new().generate_random_bytes(8).hex_encode()
 var calendar_direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
@@ -88,9 +89,9 @@ func _ready() -> void:
 	RealityState.persistence_enabled = saved_persistence
 	RealityState.reset_campaign_for_tests()
 	Selector.reset_for_tests()
-	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s calendar_totals=%s inventory_totals=%s case_totals=%s checks=%d" % [
+	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s calendar_totals=%s inventory_totals=%s case_totals=%s optical_totals=%s checks=%d" % [
 			"PASS" if failures == 0 else "FAIL (%d)" % failures,
-			direction_totals, calendar_direction_totals, inventory_direction_totals, case_direction_totals, passes + failures])
+			direction_totals, calendar_direction_totals, inventory_direction_totals, case_direction_totals, optical_direction_totals, passes + failures])
 	get_tree().quit(failures)
 
 func _exercise_v1_root() -> void:
@@ -168,6 +169,14 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 			case_owner.evidence_nodes[i].interact(origin_shell.active_world.get("player"))
 	var expected_case_changes: Array = RealityState.case_state(MinaCaseGameplay.CASE_ID).apartment_changes.duplicate(true)
 	var case_seeded := case_started and case_owner._inspection_count(RealityState.case_state(MinaCaseGameplay.CASE_ID)) == 3
+	var origin_player: PlayerController = origin_shell.active_world.get("player")
+	origin_player.camera.make_current()
+	var expected_optical: Dictionary = {}
+	if from_id == "v2":
+		origin_player.set_process(false)
+		origin_player._advance_lamp(1.0)
+		origin_player.set_lamp_enabled(false)
+		expected_optical = origin_player.lamp_presentation.state.save_state()
 	var save_started := Time.get_ticks_usec()
 	var saved := RealityState.save_game()
 	var save_ms := float(Time.get_ticks_usec() - save_started) / 1000.0
@@ -177,12 +186,16 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	await get_tree().process_frame
 	RealityState.reset_campaign_for_tests()
 	RealityState.load_game()
+	var loaded_optical: Dictionary = RealityState.data.get("lamp_optics",{}).duplicate(true)
 	var loaded: bool = not RealityState.data.first_shift.is_empty()
 	var loaded_clock_ok := _calendar_record_matches(expected_clock)
 	Selector.reset_for_tests(to_id)
 	var reconstruction_started := Time.get_ticks_usec()
 	var shell := CampaignShell.new()
 	add_child(shell)
+	var restored_optical: Dictionary = {}
+	if to_id == "v2":
+		restored_optical = shell.active_world.get("player").lamp_presentation.state.save_state()
 	await get_tree().process_frame
 	var reconstruction_ms := float(Time.get_ticks_usec() - reconstruction_started) / 1000.0
 	print("[M08D SAVE PERF] %s save_ms=%.3f reconstruct_ms=%.3f" % [
@@ -221,6 +234,20 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 			RealityState.case_state(MinaCaseGameplay.CASE_ID),"caption_cards") == "FAILURE"
 	case_direction_totals[key] = 1 if case_ok else 0
 	_check(case_ok,"%s preserves factual captions and continues the saved choice cycle" % key)
+	var optical_ok := true
+	if from_id == "v2":
+		optical_ok = _optical_matches(loaded_optical,expected_optical)
+		if to_id == "v2":
+			optical_ok = optical_ok and _optical_matches(restored_optical,expected_optical) \
+					and not shell.active_world.get("player").lamp_is_enabled() \
+					and _optical_matches(RealityState.data.get("lamp_optics",{}),
+						shell.active_world.get("player").lamp_presentation.state.save_state())
+		else:
+			optical_ok = optical_ok and _optical_matches(RealityState.data.get("lamp_optics",{}),expected_optical)
+	else:
+		optical_ok = loaded_optical.is_empty() and (to_id != "v2" or restored_optical.switched_on)
+	optical_direction_totals[key] = 1 if optical_ok else 0
+	_check(optical_ok,"%s preserves optional optical state or initializes legacy lamp safely"%key)
 	remove_child(shell)
 	shell.free()
 	await get_tree().process_frame
@@ -229,6 +256,15 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
 	RealityState.save_path = old_path
 	RealityState.persistence_enabled = old_persistence
 	CampaignTime.set_frozen_for_tests(old_clock_frozen)
+
+func _optical_matches(actual: Dictionary, expected: Dictionary) -> bool:
+	if actual.size() != expected.size(): return false
+	for key in expected:
+		if not actual.has(key): return false
+		if typeof(expected[key]) == TYPE_FLOAT:
+			if absf(float(actual[key])-float(expected[key])) > 1.0e-12: return false
+		elif actual[key] != expected[key]: return false
+	return true
 
 func _calendar_record_matches(expected: Dictionary) -> bool:
 	# JSON changes integer variants to floats; every persisted key/value must
