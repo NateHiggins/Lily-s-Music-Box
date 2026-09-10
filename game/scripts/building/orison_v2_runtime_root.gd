@@ -120,6 +120,10 @@ func _ready() -> void:
 	_compose_authorities()
 	if startup_failed:
 		return
+	var lamp_air := preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new()
+	lamp_air.name = "LampAtmosphere"
+	add_child(lamp_air)
+	lamp_air.setup(player, atmosphere.environment)
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
 
