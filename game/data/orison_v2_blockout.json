@@ -26,6 +26,7 @@
     {"id": "F04", "y": 9.6}
   ],
   "spaces": [
+    {"id":"B1_LAUNDRY","level":"B1","class":"service","rect":[-10.0,-3.85,-2.2,3.85],"purpose":"shared wringer washing, rinse tubs and ceiling airer","exterior_sides":["west"]},
     {"id":"B1_PUBLIC_CORE","level":"B1","class":"core","rect":[-2.2,-3.85,5.4,3.85],"purpose":"readable basement arrival and primary stair","no_floor":true,"no_ceiling":true,"wall_sides":["south","north"]},
     {"id":"B1_BOILER_APPROACH","level":"B1","class":"service","rect":[5.4,-1.0,9.5,0.2],"purpose":"lit 1.2 m core-to-boiler retreat route","wall_sides":["south","north"]},
     {"id":"B1_BOILER_ROOM","level":"B1","class":"service","rect":[9.5,-5.5,15.65,5.5],"purpose":"heat plant, water-column comparison and firing access","exterior_sides":["east"]},
@@ -92,6 +93,7 @@
     {"id":"F03_B_BATH","level":"F03","rect":[13.0,-12.35,15.65,-9.8],"purpose":"complete private bathing and sanitation","class":"wet","exterior_sides":["south","east"]}
   ],
   "doors": [
+    {"id":"B1_LAUNDRY_DOOR","level":"B1","center":[-2.2,-1.5],"width":1.1,"height":2.13,"yaw":1.5707963267948966,"hinge":"left","swing":"laundry","connects":["B1_PUBLIC_CORE","B1_LAUNDRY"]},
     {"id":"F01_DOOR_06","level":"F01","center":[0.0,-11.65],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"left","swing":"out","connects":["F01_STREET_APRON","F01_VESTIBULE"]},
     {"id":"F01_INNER_DOOR","level":"F01","center":[0.0,-9.25],"width":1.1,"height":2.13,"yaw":0.0,"hinge":"right","swing":"north","connects":["F01_VESTIBULE","F01_LOBBY"]},
     {"id":"F02_DOOR_02","level":"F02","center":[-5.6,0.0],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"west","connects":["F02_WEST_HALL","F02_A_VESTIBULE"]},
@@ -251,11 +253,11 @@
   ],
   "fixtures": [
     {"id":"F01_RITUAL_DESK_MASS","level":"F01","position":[-3.45,0.4,-2.85],"size":[2.2,0.8,0.75],"class":"service","collision":true,"purpose":"single operational caretaker desk"},
-    {"id":"F01_RITUAL_WIRE_COLUMN","level":"F01","position":[-5.12,1.2,-1.15],"size":[0.18,2.4,2.5],"class":"service","collision":true,"purpose":"annunciator, key and register wiring wall"},
+    {"id":"F01_RITUAL_WIRE_COLUMN","level":"F01","position":[-5.12,1.2,-0.825],"size":[0.18,2.4,1.85],"class":"service","collision":true,"purpose":"annunciator, key and register wiring wall, clear of mail doorway"},
     {"id":"F01_WATCHMAN_DETECTOR_BODY","level":"F01","position":[-2.0,1.05,-3.1],"size":[0.38,0.62,0.24],"class":"opening","collision":false,"purpose":"arrival-side watchman clock face"},
     {"id":"F01_NIGHT_REGISTER_BODY","level":"F01","position":[-3.25,0.82,-0.08],"size":[0.72,0.18,0.48],"class":"opening","collision":false,"purpose":"bound report register on filing ledge"},
     {"id":"F01_SIGNAL_REGISTER_BODY","level":"F01","position":[-5.0,1.15,-0.6],"size":[0.16,0.72,0.62],"class":"opening","collision":false,"purpose":"wired annunciator register"},
-    {"id":"F01_TOUR_KEY_GUARD_BODY","level":"F01","position":[-5.0,1.15,-1.75],"size":[0.16,0.72,0.62],"class":"private","collision":false,"purpose":"locked tour-key custody guard"},
+    {"id":"F01_TOUR_KEY_GUARD_BODY","level":"F01","position":[-5.0,1.15,-1.35],"size":[0.16,0.72,0.62],"class":"private","collision":false,"purpose":"locked tour-key custody guard"},
     {"id":"F02_B_FABRIC_TABLE_MASS","level":"F02","position":[13.1,0.4,-0.35],"size":[2.5,0.8,0.75],"class":"private","collision":true,"purpose":"folding fabric cutting and repair surface"},
     {"id":"F02_B_KITCHEN_RUN_MASS","level":"F02","position":[10.08,0.45,-6.4],"size":[0.65,0.9,3.1],"class":"service","collision":true,"purpose":"sink range and food-storage run"},
     {"id":"F02_B_BED_MASS","level":"F02","position":[10.9,0.35,-10.9],"size":[1.4,0.7,2.0],"class":"private","collision":true,"purpose":"sleeping use"},
@@ -267,6 +269,11 @@
     {"id":"B1_BREECHING_MASS","level":"B1","position":[14.35,2.25,1.65],"size":[2.0,0.55,0.55],"class":"service","collision":true,"purpose":"boiler-to-flue relationship"}
   ],
   "anchors": [
+    {"id":"B1_WASHER_01","level":"B1","space":"B1_LAUNDRY","position":[-9.25,0,-0.8],"yaw":-1.5707963267948966,"kind":"fixture"},
+    {"id":"B1_WASHER_02","level":"B1","space":"B1_LAUNDRY","position":[-9.25,0,0.9],"yaw":-1.5707963267948966,"kind":"fixture"},
+    {"id":"B1_LAUNDRY_AIRER_01","level":"B1","space":"B1_LAUNDRY","position":[-6.0,0,2.7],"yaw":0,"kind":"fixture"},
+    {"id":"B1_LAUNDRY_LT_FLUSH_DOME","level":"B1","space":"B1_LAUNDRY","position":[-6.0,2.85,0],"yaw":0,"kind":"fixture"},
+    {"id":"B1_LAUNDRY_SWITCH","level":"B1","space":"B1_LAUNDRY","position":[-2.25,1.12,-2.4],"yaw":1.5707963267948966,"kind":"interaction"},
     {"id":"STREET_APPROACH","level":"F01","position":[0.0,0.0,-14.5],"yaw":0.0,"kind":"review"},
     {"id":"F01_LOBBY_THRESHOLD","level":"F01","position":[0.0,0.0,-8.8],"yaw":0.0,"kind":"review"},
     {"id":"LobbyMailBank","level":"F01","position":[-6.2,0.0,-1.8],"yaw":1.5707963,"kind":"interaction"},
@@ -304,8 +311,8 @@
     ,{"id":"F01_NIGHT_REGISTER_STANCE","level":"F01","space":"F01_WATCH","position":[-3.25,0.0,-0.95],"yaw":0.0,"kind":"clearance"}
     ,{"id":"F01_SIGNAL_REGISTER","level":"F01","space":"F01_WATCH","position":[-4.9,1.15,-0.6],"yaw":-1.5707963,"kind":"interaction"}
     ,{"id":"F01_SIGNAL_REGISTER_STANCE","level":"F01","space":"F01_WATCH","position":[-4.0,0.0,-0.6],"yaw":1.5707963,"kind":"clearance"}
-    ,{"id":"F01_TOUR_KEY_GUARD","level":"F01","space":"F01_WATCH","position":[-4.9,1.15,-1.75],"yaw":-1.5707963,"kind":"interaction"}
-    ,{"id":"F01_TOUR_KEY_GUARD_STANCE","level":"F01","space":"F01_WATCH","position":[-4.0,0.0,-1.75],"yaw":1.5707963,"kind":"clearance"}
+    ,{"id":"F01_TOUR_KEY_GUARD","level":"F01","space":"F01_WATCH","position":[-4.9,1.15,-1.35],"yaw":1.5707963,"kind":"interaction"}
+    ,{"id":"F01_TOUR_KEY_GUARD_STANCE","level":"F01","space":"F01_WATCH","position":[-4.0,0.0,-1.35],"yaw":1.5707963,"kind":"clearance"}
     ,{"id":"B1_ARRIVAL_REVIEW","level":"B1","space":"B1_PUBLIC_CORE","position":[1.4,1.41,-2.6],"yaw":1.5707963,"kind":"review"}
     ,{"id":"B1_BOILER_THRESHOLD_REVIEW","level":"B1","space":"B1_BOILER_APPROACH","position":[8.7,1.41,-0.4],"yaw":1.5707963,"kind":"review"}
     ,{"id":"B1_BOILER_01","level":"B1","space":"B1_BOILER_ROOM","position":[12.45,1.0,-0.5],"yaw":-1.5707963,"kind":"interaction"}

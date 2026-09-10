@@ -17,6 +17,9 @@ var _walking := false
 ## ResidentRoutines owns building navigation once the actor is registered.
 ## The local Mina-era pacing behavior remains available for isolated tests.
 var externally_driven := false
+var preferred_idle := ""
+var preferred_walk := ""
+var face_interacting_player := false
 
 
 func setup(character_name: String, character_id: String,
@@ -179,6 +182,10 @@ func play_case_role(fragment: String) -> bool:
 func _play_named(fragment: String) -> void:
 	if _animation_player == null:
 		return
+	var preferred := preferred_idle if fragment == "idle" else preferred_walk if fragment == "walk" else ""
+	if not preferred.is_empty() and _animation_player.has_animation(preferred):
+		_animation_player.play(preferred,0.22)
+		return
 	for animation_name in _animation_player.get_animation_list():
 		if fragment.to_lower() in str(animation_name).to_lower():
 			_animation_player.play(animation_name, 0.22)
@@ -200,6 +207,11 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> void:
+	if face_interacting_player and _player is Node3D:
+		var toward: Vector3 = _player.global_position - global_position
+		if Vector2(toward.x,toward.z).length_squared() > .001:
+			var target := global_rotation.y + wrapf(atan2(toward.x,toward.z)-global_rotation.y,-PI,PI)
+			create_tween().tween_property(self,"global_rotation:y",target,.35)
 	var music := get_tree().get_first_node_in_group("music_director")
 	if music and music.try_music_conversation(resident_id):
 		return

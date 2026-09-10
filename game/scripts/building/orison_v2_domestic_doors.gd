@@ -1,6 +1,7 @@
 extends RefCounted
 ## Reuse production leaves at the semantic opening's hinge, retaining its frame.
 const SPECS := {
+	"B1_LAUNDRY_DOOR": {"kind": "service", "swing_out": false, "unit": ""},
 	"F03_DOOR_03": {"kind": "apartment_entry", "swing_out": true},
 	"F03_B_SERVICE_DOOR": {"kind": "service", "swing_out": true},
 	"F03_B_ALCOVE_DOOR": {"kind": "apartment_interior", "swing_out": false},
@@ -30,7 +31,7 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 		door.height = float(record.height)
 		door.door_kind = str(SPECS[identity].kind)
 		door.swing_out = bool(SPECS[identity].swing_out)
-		door.unit = "3B"
+		door.unit = str(SPECS[identity].get("unit","3B"))
 		door.position.x = -door.width * 0.5
 		door.set_meta("semantic_id", identity)
 		anchor.add_child(door)

@@ -1,0 +1,45 @@
+ERROR: CONNECTED WORLD: switch circuit isolation F03_B_KITCHEN_SWITCH -> F03_B_KITCHEN_LT_KITCHEN_LINEAR: true
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:218)
+ERROR: CONNECTED WORLD: switch light output follows power: F03_B_KITCHEN_SWITCH
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:220)
+ERROR: CONNECTED WORLD: looking away leaves circuit on: F03_B_KITCHEN_LT_KITCHEN_LINEAR
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:234)
+ERROR: CONNECTED WORLD: switch circuit isolation F03_B_ALCOVE_SWITCH -> F03_B_KITCHEN_LT_KITCHEN_LINEAR: true
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:218)
+ERROR: CONNECTED WORLD: switch circuit isolation F03_B_ALCOVE_SWITCH -> F03_B_KITCHEN_LT_KITCHEN_LINEAR: true
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:218)
+ERROR: CONNECTED WORLD: looking away leaves circuit on: F03_B_KITCHEN_LT_KITCHEN_LINEAR
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:234)
+ERROR: CONNECTED WORLD: switch circuit isolation F03_B_BATH_SWITCH -> F03_B_KITCHEN_LT_KITCHEN_LINEAR: true
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:218)
+ERROR: CONNECTED WORLD: switch circuit isolation F03_B_BATH_SWITCH -> F03_B_KITCHEN_LT_KITCHEN_LINEAR: true
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:218)
+ERROR: CONNECTED WORLD: looking away leaves circuit on: F03_B_KITCHEN_LT_KITCHEN_LINEAR
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _verify_3b_switches (res://tests/orison_v2_connected_world_test.gd:234)

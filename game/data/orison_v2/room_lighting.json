@@ -1,5 +1,6 @@
 {
   "fixtures": [
+    {"id":"B1_LAUNDRY_LT_FLUSH_DOME","room":"B1_LAUNDRY","kind":"flush_dome","properties":{"range_clamp":6.5,"energy_scale":1.5}},
     {"id":"F02_A_MAIN_LT_PENDANT_SHADE","room":"F02_A_MAIN","kind":"pendant_shade","properties":{"range_clamp":7.0,"energy_scale":1.5}},
     {
       "id": "F03_B_MAIN_LT_PENDANT_SHADE",
@@ -47,6 +48,7 @@
     }
   ],
   "switches": [
+    {"id":"B1_LAUNDRY_SWITCH","room":"B1_LAUNDRY"},
     {"id":"F02_A_MAIN_SWITCH","room":"F02_A_MAIN"},
     {
       "id": "F03_B_MAIN_SWITCH",

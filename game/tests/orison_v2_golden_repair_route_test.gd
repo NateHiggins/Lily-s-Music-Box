@@ -1,6 +1,6 @@
 extends "res://tests/orison_v2_passage_route_test.gd"
-## Continuous first repair route. Complaint is public case-owner activation;
-## physical resident encounter, recurrence and dream/wake are separate gates.
+## Continuous first repair route, beginning with the physical resident.
+## Recurrence and dream/wake remain separate gates.
 var _reported_job: Dictionary = {}
 
 func _init() -> void:
@@ -8,13 +8,24 @@ func _init() -> void:
 
 func _route() -> void:
 	if not await _enter_2a(): return
-	RealityState.ensure_case(MinaCaseGameplay.CASE_ID,"mina_vale")
-	RealityCases.interact_with_resident("mina_vale")
+	for point in [Vector3(-10.5,3.2,2.5),Vector3(-13.4,3.2,2.5),Vector3(-13.4,3.2,1.95)]:
+		if not await _walk(point): return
+	var mina: AnimatedResident = world.mina_routine.actor
+	if not await _use(mina,mina.global_position+Vector3.UP*1.15,"physical_mina_complaint"): return
+	if not _require(world.mina_gameplay.dialogue.visible and player.call_locked,
+			"physical Mina opens the authored protected complaint dialogue"): return
+	await get_tree().create_timer(.4).timeout
+	var directory := OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(directory.path_join("mina_complaint_open.png"))
 	for i in 30:
 		if not world.mina_gameplay.dialogue.visible: break
 		world.mina_gameplay.dialogue.choose(0)
 		await get_tree().process_frame
 	if not _require(not player.call_locked,"complaint releases movement"): return
+	for point in [Vector3(-13.4,3.2,2.5),Vector3(-10.5,3.2,2.5),Vector3(-9.2,3.2,1.4)]:
+		if not await _walk(point): return
 	var detector: VantryPointProp = world.vantry_points.active_owner
 	if not await _use(detector,detector.global_position-Vector3.UP*.05,"listening_head_inspection"): return
 	_reported_job = world.work_orders.job_state(ChirpHunt.JOB_ID).duplicate(true)

@@ -39,6 +39,7 @@ var service_round: ServiceRoundDirector
 var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
+var mina_routine: Node3D
 var campaign_clock: CampaignClock
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
@@ -150,6 +151,10 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: domestic fittings refused: %s" % [fittings.errors])
 		return
 	var furniture := DomesticFurniture.new()
+	if not preload("res://scripts/building/orison_v2_laundry.gd").new().mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: laundry mounting refused")
+		return
 	if not furniture.mount(adapter):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: furniture refused: %s" % [furniture.errors])
@@ -240,6 +245,13 @@ func _compose_authorities() -> void:
 	if open_shift_radiator:
 		open_shift_radiator.bind_inventory(maintenance_inventory)
 	_compose_observation_ledger()
+	mina_routine = preload("res://scripts/characters/orison_v2_mina_routine.gd").new()
+	mina_routine.name = "MinaRoutine"
+	add_child(mina_routine)
+	if not mina_routine.setup(self):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: Mina route composition refused")
+		return
 	shop_simulation = ShopSimulation.new()
 	shop_simulation.name = "ShopSimulation"
 	add_child(shop_simulation)
@@ -333,10 +345,9 @@ func _compose_call_station(terminal: SignalTerminalProp) -> bool:
 ## The timetable is the authority that already owns this fact, and it
 ## owns it as DATA: `ScheduleDirector.resolve()` is pure over
 ## res://data/resident_schedules.json and needs no resident body, no floor
-## node and no layout geometry. v2 has neither bodies nor routines, so the
-## director's DISPATCH half stays inert here — its target is null and
-## `_process` returns immediately (schedule_director.gd:99-101). Only the
-## resolution half is used, which is the half that answers the question.
+## node and no layout geometry. The legacy routine dispatcher stays inert
+## because its target is null. Mina's V2 route owner consumes this same
+## timetable resolution through the V2 spatial graph.
 func _compose_observation_ledger() -> void:
 	resident_presence = ScheduleDirector.new()
 	resident_presence.name = "ResidentPresenceTimetable"

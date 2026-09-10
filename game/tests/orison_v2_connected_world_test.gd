@@ -168,7 +168,11 @@ func _verify_3b_switches(world: Node3D) -> void:
 	var saved_pose := player.global_transform
 	var saved_camera: Transform3D = player.camera.transform
 	var was_processing := player.is_physics_processing()
+	var was_looking := player.is_processing_unhandled_input()
 	player.set_physics_process(false)
+	# This fixture owns standing poses. Desktop mouse motion must not turn
+	# its prescribed aim while ordinary polled interaction remains active.
+	player.set_process_unhandled_input(false)
 	player.camera.make_current()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	var source := Connection.read_object("res://data/orison_v2/room_lighting.json")
@@ -208,7 +212,8 @@ func _verify_3b_switches(world: Node3D) -> void:
 			# boundary so the production just-pressed poll can observe the action.
 			await get_tree().process_frame
 			Input.action_press("interact")
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().process_frame
+			await get_tree().process_frame
 			Input.action_release("interact")
 			await get_tree().create_timer(0.8).timeout
 			for fixture_record: Dictionary in source.fixtures:
@@ -235,6 +240,7 @@ func _verify_3b_switches(world: Node3D) -> void:
 	player.global_transform = saved_pose
 	player.camera.transform = saved_camera
 	player.set_physics_process(was_processing)
+	player.set_process_unhandled_input(was_looking)
 
 func _capture_3b(world: Node3D) -> void:
 	var directory := OS.get_environment("SHOT_DIR")

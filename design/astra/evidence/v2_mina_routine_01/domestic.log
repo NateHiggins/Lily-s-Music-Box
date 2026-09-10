@@ -1,0 +1,21 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 61 spaces / 26 doors / 89 anchors
+[SURFACE] 320 surfaces layered (293 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ORISON V2 RUNTIME] ready startup_ms=4180.580
+[LIGHTING] 57 sources active in system; 57 full personalities; profiles steady/breathe/mains/beat/dropout=[11, 10, 12, 17, 7]
+[PASSAGE HOURS] AFTER_HOURS; 10 grilles drawn
+MINA DESTINATION: unit:bedroom time=15.0 failures=[]
+[PASSAGE HOURS] OPEN; 10 grilles folded
+MINA DESTINATION: unit:bathroom time=8.0 failures=[]
+MINA DESTINATION: unit:kitchen time=11.0 failures=[]
+MINA DESTINATION: unit:desk time=130.0 failures=["wrong authored timetable block"]
+MINA ROUTINE: direction=outbound domestic=true mail=false metres=41.5447839424014 failures=["wrong authored timetable block"]
