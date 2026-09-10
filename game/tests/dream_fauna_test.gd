@@ -46,26 +46,29 @@ func _run()->void:
 	var binding_count:=0; var molten_count:=0; var lamp_bound:=true
 	root.call("_collect_molten_materials"); root.call("_update_molten")
 	var molten:Array=root.get("_molten_materials")
+	var expected_bindings := 6 if RenderingServer.get_current_rendering_method()=="forward_plus" else 5
 	for batch in family_batches:
 		var family := batch as MultiMeshInstance3D
-		var material:ShaderMaterial=family.multimesh.mesh.surface_get_material(0)
-		if material!=null:
-			binding_count+=1
-			if molten.has(material): molten_count+=1
-			lamp_bound=lamp_bound and float(material.get_shader_parameter("lamp_energy"))>0.0
+		for surface in family.multimesh.mesh.get_surface_count():
+			var material:ShaderMaterial=family.multimesh.mesh.surface_get_material(surface)
+			if material!=null:
+				binding_count+=1
+				if molten.has(material): molten_count+=1
+				lamp_bound=lamp_bound and float(material.get_shader_parameter("lamp_energy"))>0.0
 	var bindings:=fauna.get_node("FaunaMaterialBindings") as Node3D
-	var bindings_zero_draw:=bindings!=null and bindings.get_child_count()==5
+	var bindings_zero_draw:=bindings!=null and bindings.get_child_count()==expected_bindings
 	if bindings!=null:
 		for child in bindings.get_children():
 			bindings_zero_draw=bindings_zero_draw and child is MeshInstance3D \
 					and (child as MeshInstance3D).mesh==null and not child.visible
-	_check("five zero-draw bindings cross the existing molten owner boundary",
-			binding_count==5 and molten_count==5 and lamp_bound and bindings_zero_draw)
+	_check("all surface bindings cross the existing molten owner boundary without draws",
+			binding_count==expected_bindings and molten_count==expected_bindings and lamp_bound and bindings_zero_draw)
 	var production_shader:Shader=load("res://shaders/dream_fauna.gdshader")
+	var production_code := FileAccess.get_file_as_string("res://shaders/dream_fauna_surface.gdshaderinc")
 	_check("production fauna shader owns no emission or PBR writes",
-			production_shader!=null and not production_shader.code.contains("EMISSION") \
-			and not production_shader.code.contains("METALLIC") \
-			and not production_shader.code.contains("ROUGHNESS"))
+			production_shader!=null and not production_code.contains("EMISSION") \
+			and not production_code.contains("METALLIC") \
+			and not production_code.contains("ROUGHNESS"))
 	var channels_ok:=true
 	for high in [0,1,127,255]:
 		for low in [0,1,127,255]:
@@ -94,7 +97,10 @@ func _run()->void:
 		var batch := fauna.get_node(family_name) as MultiMeshInstance3D
 		var part_format := part.surface_get_format(0)
 		var signature := DreamFaunaParts.mesh_signature(part)
-		production_parts_ok = production_parts_ok and batch.multimesh.mesh == part \
+		var same_part: bool = batch.multimesh.mesh == part
+		if family_name=="Tessellates" and expected_bindings==6:
+			same_part = _partition_matches(part,batch.multimesh.mesh)
+		production_parts_ok = production_parts_ok and same_part \
 				and part.get_surface_count() == 1 \
 				and part.get_faces().size() / 3 < DreamFaunaParts.TRIANGLE_CEILING \
 				and (part_format & Mesh.ARRAY_FORMAT_COLOR) != 0 \
@@ -315,3 +321,19 @@ func _check(label:String,ok:bool)->void:
 	checks+=1
 	if not ok: failures+=1; printerr("[FAUNA FAIL] "+label)
 	else: print("[fauna ok] "+label)
+
+
+func _partition_matches(source: Mesh, candidate: Mesh) -> bool:
+	if candidate.get_surface_count()!=2: return false
+	var original := source.surface_get_arrays(0)
+	var vertices: PackedVector3Array = original[Mesh.ARRAY_VERTEX]
+	var triangles := {}
+	for surface in 2:
+		var arrays := candidate.surface_get_arrays(surface)
+		for slot in Mesh.ARRAY_MAX:
+			if slot!=Mesh.ARRAY_INDEX and arrays[slot]!=original[slot]: return false
+		var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+		for i in range(0,indices.size(),3):
+			if indices[i]%3!=0 or indices[i+1]!=indices[i]+1 or indices[i+2]!=indices[i]+2 or triangles.has(indices[i]): return false
+			triangles[indices[i]]=true
+	return triangles.size()*3==vertices.size()

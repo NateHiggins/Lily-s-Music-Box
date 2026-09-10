@@ -146,7 +146,7 @@ func _run() -> void:
 	field.dispose()
 	field = null
 	await get_tree().create_timer(.2).timeout
-	print("LAMP GLASS MATERIAL: 22 checks; %d failures"%failures)
+	print("LAMP GLASS MATERIAL: 25 checks; %d failures"%failures)
 	get_tree().quit(0 if failures == 0 else 1)
 
 func _sample(label: String) -> float:

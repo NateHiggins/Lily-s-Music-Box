@@ -1017,6 +1017,15 @@ func _make_batch(label: String, mesh: Mesh, color: Color, jewel: Color,
 	# select one of five bounded costume records. It creates no fauna owner and
 	# does not enter instance custom data or the density tick.
 	material.set_meta("dream_fauna_family_index", int(motif))
+	if int(motif) == 1 and RenderingServer.get_current_rendering_method() == "forward_plus":
+		var tissue := material.duplicate() as ShaderMaterial
+		tissue.shader = preload("res://shaders/dream_tessellate_translucent.gdshader")
+		mesh = preload("res://scripts/lamp/lamp_tessellate_material.gd").split(mesh,material,tissue)
+		var tissue_binding := MeshInstance3D.new()
+		tissue_binding.name = label+"InteriorMaterialBinding"
+		tissue_binding.visible = false
+		tissue_binding.material_override = tissue
+		_material_bindings.add_child(tissue_binding)
 	var node := MultiMeshInstance3D.new(); node.name = label
 	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	if mesh is PrimitiveMesh:

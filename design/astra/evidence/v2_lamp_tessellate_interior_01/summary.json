@@ -1,0 +1,68 @@
+{
+  "base": "710a12b",
+  "status": "INTEGRATED_TECHNICAL_PASS_VISUAL_ACCEPTANCE_OPEN",
+  "tests": {
+    "dream_final": {
+      "checks": 48,
+      "failures": 0
+    },
+    "glass_final": {
+      "checks": 25,
+      "failures": 0
+    },
+    "fauna_final": {
+      "checks": 29,
+      "failures": 0
+    },
+    "partition_03": {
+      "result": "PASS",
+      "triangles": 268
+    },
+    "composed_final": {
+      "checks": 44,
+      "failures": 0
+    }
+  },
+  "material_gpu_paired_median_delta_ms": 0.28125,
+  "source_sha256": {
+    "game/scripts/dream/dream_fauna_director.gd": "42080fee79aba6909b1faf4cd3222f06ec46036e0823954dcc5e921e703fb2e0",
+    "game/scripts/lamp/lamp_optical_receivers.gd": "56ec1ccaa5f403b821a12618f09cf0d562522b933e6fe68ff866e9850bd4785a",
+    "game/scripts/lamp/lamp_tessellate_material.gd": "5e33ce435abbd6b525abe6f72068528f3902a020ff35800987350bbfeac74acc",
+    "game/shaders/dream_fauna.gdshader": "cc0f30625d4d409be206d99f71281b1339114713905d520f0fd43c73ff095304",
+    "game/shaders/dream_fauna_surface.gdshaderinc": "b8f505f890de1b2092bfb6f90ca9b9b65c2bd8b8c02d9be78dd4a7239f237a42",
+    "game/shaders/dream_tessellate_interior.gdshaderinc": "615dba3f0fb781ecc684c93f7cfa79d389e2bdfbf38fe01ef84e996dfd33dc4c",
+    "game/shaders/dream_tessellate_translucent.gdshader": "e0d927c6ae7fe76511052ea779b8db48b474214bc5d31d7f1a17f24bacd949ce",
+    "game/tests/dream_fauna_test.gd": "238e9eba6a9c5e60c41a290054dc0510f5c5896394dae7c0d79a2ca27219a193",
+    "game/tests/lamp_glass_material_test.gd": "f093de0fb5916926623c2de6e50473a8d99c48d7851ac57d883fff4e7f84f234",
+    "game/tests/lamp_tessellate_partition_test.gd": "55e5710cf95ad73a5d707aec0d6871cb82a22cbc7d0e80b5439f9d797d74d919",
+    "game/tests/lamp_tessellate_review.gd": "360538a4c1f2cf18319380a15653eccda5e950bb6b923ebe759240a2cbff1e12",
+    "game/tests/orison_v2_lamp_review.gd": "acb976cddcda9e145ca44493b3150c27bea9a2a053c59a9efffb625ef725315f",
+    "game/tests/LampTessellatePartitionTest.tscn": "a82a0c9d4f119cbb6484f01868dc839f45bfb67d5c6b90c840df214cf870e9af",
+    "game/tests/LampTessellateReview.tscn": "238d82634a69042e442090ca9bbe3283938111308bc7a5e968530b48e2957f34"
+  },
+  "remaining": [
+    "human visual acceptance; failed S2J remains open",
+    "worst-case/full-game performance acceptance",
+    "broader V2 completion; V1 default unchanged"
+  ],
+  "scoped_checks": 147,
+  "combined_v2_gpu": {
+    "method": "32 interleaved ABBA blocks; main-view delta plus auxiliary depth viewport plus separately measured field generation",
+    "view_pair_deltas_ms": [
+      -1.079,
+      0.7925,
+      0.941,
+      0.6825,
+      1.8715,
+      1.106,
+      0.3105,
+      2.3955
+    ],
+    "median_view_delta_ms": 0.86675,
+    "mid_plus_near_generation_median_ms": 0.19712,
+    "estimated_combined_median_ms": 1.06387,
+    "preferred_median_target_ms": 2,
+    "scope": "tested 1280x720 view on RTX 4080; variable blocks, not a worst-case or whole-game budget"
+  },
+  "final_stderr_empty": true
+}

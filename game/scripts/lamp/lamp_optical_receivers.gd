@@ -11,7 +11,7 @@ var receivers: Dictionary = {}
 var lights: Dictionary = {}
 var surfaces: Dictionary = {}
 var surface_materials: Dictionary = {}
-const DREAM_SURFACES := ["res://shaders/dream_fauna.gdshader", "res://shaders/dream_lineage_gold.gdshader", "res://shaders/dream_klimt.gdshader"]
+const DREAM_SURFACES := ["res://shaders/dream_fauna.gdshader", "res://shaders/dream_lineage_gold.gdshader", "res://shaders/dream_klimt.gdshader", "res://shaders/dream_tessellate_translucent.gdshader"]
 var disposed := false
 
 func setup(owner_root: Node, owner_lamp: Light3D, owner_field: RefCounted) -> void:

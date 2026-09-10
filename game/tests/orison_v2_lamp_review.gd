@@ -218,7 +218,8 @@ func _profile(air: Node3D) -> void:
 	var shadow_rid: RID = air.scene_shadow.viewport.get_viewport_rid()
 	RenderingServer.viewport_set_measure_render_time(shadow_rid,true)
 	var results := {}
-	for iteration in 8:
+	# Short ABBA blocks reduce GPU clock/time-order drift after capture warmup.
+	for iteration in 32:
 		var enabled: bool = iteration % 4 in [1,2]
 		air.set_process(enabled)
 		air.scene_shadow.set_process(enabled)
@@ -227,19 +228,19 @@ func _profile(air: Node3D) -> void:
 		air.particles.visible = enabled
 		air.particles.emitting = enabled
 		world.get_node("WakingAtmosphere").environment.volumetric_fog_enabled = enabled
-		for i in 60: await RenderingServer.frame_post_draw
+		for i in 12: await RenderingServer.frame_post_draw
 		var gpu: Array[float] = []
 		var shadow_gpu: Array[float] = []
-		for i in 90:
+		for i in 12:
 			await RenderingServer.frame_post_draw
 			gpu.append(RenderingServer.viewport_get_measured_render_time_gpu(viewport_rid))
 			shadow_gpu.append(RenderingServer.viewport_get_measured_render_time_gpu(shadow_rid) if enabled else 0.0)
 		var raw := gpu.duplicate()
 		gpu.sort()
-		results[str(iteration)+("_volume" if enabled else "_spotlight")] = {"gpu_median_ms":gpu[45],"gpu_p95_ms":gpu[85],"gpu_max_ms":gpu[89],"samples_ms":raw}
+		results[str(iteration)+("_volume" if enabled else "_spotlight")] = {"gpu_median_ms":gpu[6],"gpu_p95_ms":gpu[11],"gpu_max_ms":gpu[11],"samples_ms":raw}
 		var shadow_raw := shadow_gpu.duplicate()
 		shadow_gpu.sort()
-		results[str(iteration)+("_volume" if enabled else "_spotlight")]["shadow_view"] = {"gpu_median_ms":shadow_gpu[45],"gpu_p95_ms":shadow_gpu[85],"samples_ms":shadow_raw}
+		results[str(iteration)+("_volume" if enabled else "_spotlight")]["shadow_view"] = {"gpu_median_ms":shadow_gpu[6],"gpu_p95_ms":shadow_gpu[11],"samples_ms":shadow_raw}
 	FileAccess.open(directory.path_join("profile.json"),FileAccess.WRITE).store_string(JSON.stringify(results,"\t"))
 
 func _profile_injection(air: Node3D) -> void:
