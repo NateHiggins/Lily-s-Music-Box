@@ -3,7 +3,7 @@
   "source": "game/assets/building/floor_01_cells/site_street_common.gltf",
   "source_sha256": "51fca69e631da9944eb1050a7e4422dc4c2046dc030590925c5c8d2f15f2025f",
   "output": "game/assets/building/orison_v2/exterior/passage_gateway.gltf",
-  "output_sha256": "9d24f9b536c925672e54224d55eae7dbc8ff957891ee519cd7ed138edc041f3c",
+  "output_sha256": "6437bfd9833ef9fe09ea18b3047c0803d7257cc2e7bba574756e6f903b5a1655",
   "authored_nodes": [
     "F01_OWN_STREET_retail_passage_proxy_common_brick-col",
     "F01_OWN_STREET_retail_passage_proxy_gateway_cast_iron",
@@ -102,7 +102,48 @@
     "game/assets/building/textures/T_generated_road_paint_albedo.png": "d50930f9861247ac1f70a3b0b37b14c6241143d6a06e5665d94c9cd962f9f6bd",
     "game/assets/building/textures/T_generated_road_paint_rough.png": "013737fad11895b01a900b268ba40a0140f436c852f24399e2d86c07c6fc2481"
   },
-  "geometry_changed": false,
-  "runtime_adopted": false,
-  "scope": "Entrance extraction only; shared-frame placement and connected traversal remain unproved."
+  "geometry_changed": true,
+  "runtime_adopted": true,
+  "subway_relocation": {
+    "source_center_m": [
+      19.375,
+      0,
+      30.525
+    ],
+    "target_world_center_m": [
+      2.5,
+      0,
+      16
+    ],
+    "yaw_degrees": 90,
+    "moved": {
+      "F01_OWN_STREET_retail_passage_proxy_gateway_cast_iron": {
+        "vertices": 1266,
+        "triangles": 640
+      },
+      "F01_OWN_STREET_retail_passage_proxy_gateway_cast_iron-col": {
+        "vertices": 1008,
+        "triangles": 504
+      },
+      "F01_OWN_STREET_retail_passage_proxy_gateway_glassish-col": {
+        "vertices": 312,
+        "triangles": 156
+      },
+      "F01_OWN_STREET_retail_passage_proxy_gateway_limestone-col": {
+        "vertices": 336,
+        "triangles": 168
+      },
+      "F01_OWN_STREET_retail_passage_proxy_gateway_soot-col": {
+        "vertices": 3720,
+        "triangles": 1860
+      },
+      "F01_OWN_STREET_retail_passage_proxy_gateway_subway_tile-col": {
+        "vertices": 72,
+        "triangles": 36
+      }
+    },
+    "buffer": "game/assets/building/orison_v2/exterior/passage_gateway_subway.bin",
+    "buffer_sha256": "a6158d5440da0bc74695710e8afb911a97e4d01afef1dce8b4914103c5a6a2e0"
+  },
+  "scope": "Existing gateway extraction with subway kiosk turned along the opposite sidewalk outside the arcade; other triangles unchanged."
 }

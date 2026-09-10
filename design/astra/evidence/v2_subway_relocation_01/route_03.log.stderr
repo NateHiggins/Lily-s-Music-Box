@@ -1,0 +1,4 @@
+ERROR: V2 SUBWAY SIDEWALK: target (-21.65, 0.0, -28.95) actual (-17.33266, 0.000944, -28.8051)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _walk (res://tests/orison_v2_vertical_route_test.gd:106)

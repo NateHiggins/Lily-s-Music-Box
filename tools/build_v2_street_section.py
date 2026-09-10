@@ -97,7 +97,9 @@ def build():
     far_walk.update(id='passage_pavement_slab', position_m=[0.85,-0.08,(south+gateway)/2], size_m=[42.3,0.16,gateway-south])
     far_curb = json.loads(json.dumps(boxes['street_curb']))
     far_curb.update(id='passage_street_curb', position_m=[0.25,-0.02,south+curb_width/2])
-    street['boxes'] = [b for b in street['boxes'] if b['id'] not in ['passage_pavement_slab', 'passage_street_curb']]+[far_walk,far_curb]
+    street['boxes'] = [b for b in street['boxes'] if not b['id'].startswith('passage_pavement_slab') and b['id'] != 'passage_street_curb']+[far_walk,far_curb]
+    from relocate_v2_subway_pavement import open_stair
+    open_stair(street)
     GEOMETRY.write_text(readable(data)+'\n', encoding='utf-8')
     regions = json.loads(REGIONS.read_text())
     template = next(t for t in regions['surface_templates'] if t['id'] == 'TEMPLATE_STREET_SEGMENT_V1')
