@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode cull_disabled, ambient_light_disabled;
+render_mode cull_disabled, ambient_light_disabled, specular_disabled;
 #include "res://shaders/lamp_optical_sample.gdshaderinc"
 varying vec3 optical_world;
 
@@ -23,4 +23,17 @@ void fragment() {
 	ALPHA_HASH_SCALE = 1.0;
 	// Native lighting receives real geometry shadows. No emission or additive
 	// glow can make a mote shine through an occluder or outside the beam.
+}
+
+// A mote scatters through its volume; it is not a flat card whose brightness
+// changes with the billboard normal. Both vectors point away from the mote,
+// hence -dot(LIGHT, VIEW) is the physical forward-scattering cosine.
+void light() {
+	float cosine = -dot(LIGHT, VIEW);
+	const float g = 0.25;
+	float phase = (1.0 - g*g) / pow(max(1.0 + g*g - 2.0*g*cosine, 0.01), 1.5);
+	// Godot supplies the real scene shadow, cone, range and thermal color.
+	// The shared field gates occupancy in fragment(), never adds radiance
+	// again for every light or bypasses the renderer's shadow attenuation.
+	DIFFUSE_LIGHT += LIGHT_COLOR * ATTENUATION * phase / (4.0 * PI);
 }

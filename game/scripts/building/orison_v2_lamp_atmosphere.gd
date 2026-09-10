@@ -16,6 +16,8 @@ var material: ShaderMaterial
 var particles: GPUParticles3D
 var particle_material: ShaderMaterial
 var driver: Node
+var _environment: Environment
+var _environment_before := {}
 var _elapsed := 0.0
 var _due := 0.0
 
@@ -36,6 +38,9 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	field.initialize(0)
 	observation = preload("res://scripts/lamp/carried_lamp_observation.gd").new()
 	add_child(observation)
+	_environment = environment
+	_environment_before = {"enabled":environment.volumetric_fog_enabled,
+		"density":environment.volumetric_fog_density,"length":environment.volumetric_fog_length}
 	environment.volumetric_fog_enabled = true
 	environment.volumetric_fog_density = .0001
 	environment.volumetric_fog_length = 12.0
@@ -67,6 +72,7 @@ func _update_volume(delta: float) -> void:
 		volume.visible = false
 		particles.visible = false
 		particles.emitting = false
+		_update_environment(false)
 		if not _failed_reported:
 			_failed_reported = true
 			push_error("V2 lamp optical field: " + field.failed)
@@ -83,6 +89,7 @@ func _update_volume(delta: float) -> void:
 	volume.global_transform = player.flashlight.global_transform * Transform3D(Basis(Vector3.RIGHT,PI*.5),Vector3(0,0,-3.25))
 	var useful: bool = player.lamp_is_enabled() and float(driver.output.intensity) >= .035
 	volume.visible = useful and _bound
+	_update_environment(volume.visible)
 	particles.global_transform = player.flashlight.global_transform.translated_local(Vector3(0,0,-3.25))
 	particles.visible = useful and _bound
 	particles.emitting = useful and _bound
@@ -92,6 +99,13 @@ func _update_volume(delta: float) -> void:
 		_due = 1.0/15.0
 		material.set_shader_parameter("optical_time",_elapsed)
 		material.set_shader_parameter("lamp_output",minf(1.0,float(driver.output.volumetric_multiplier)) if useful else 0.0)
+
+func _update_environment(useful: bool) -> void:
+	# Waking V2 has no ambient volumetric fog before this owner mounts.
+	# Release the full-screen froxel pass when our only volume is inactive.
+	# An environment that already owned fog must retain that independent pass.
+	if _environment != null:
+		_environment.volumetric_fog_enabled = useful or bool(_environment_before.enabled)
 
 func _build_dust() -> void:
 	particles = GPUParticles3D.new()
@@ -126,6 +140,11 @@ func _build_dust() -> void:
 	add_child(particles)
 
 func _exit_tree() -> void:
+	if _environment != null:
+		_environment.volumetric_fog_enabled = bool(_environment_before.enabled)
+		_environment.volumetric_fog_density = float(_environment_before.density)
+		_environment.volumetric_fog_length = float(_environment_before.length)
+		_environment = null
 	if field != null:
 		field.dispose()
 		field = null

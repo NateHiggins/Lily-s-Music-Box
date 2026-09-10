@@ -1,0 +1,716 @@
+SHADER ERROR: Using 'return' in the 'fog' processor function is incorrect.
+   at: (null) (res://shaders/lamp_optical_air.gdshader:38)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/building/orison_v2_lamp_atmosphere.gd:56)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:126)
+       [2] _run (res://tests/orison_v2_lamp_review.gd:27)
+ERROR: Fog shader compilation failed.
+   at: set_code (servers/rendering/renderer_rd/environment/fog.cpp:382)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/building/orison_v2_lamp_atmosphere.gd:56)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:126)
+       [2] _run (res://tests/orison_v2_lamp_review.gd:27)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)
+ERROR: Parameter "version" is null.
+   at: version_get_shader (./servers/rendering/renderer_rd/shader_rd.h:203)

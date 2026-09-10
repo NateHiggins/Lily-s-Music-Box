@@ -126,6 +126,7 @@ func _run() -> void:
 	_check(not player.lamp_is_enabled() and not fog.visible and player.flashlight.light_volumetric_fog_energy == 0,
 			"logical off immediately excludes participating beam")
 	_check(not air.particles.visible and not air.particles.emitting, "logical off excludes dust and stops emission")
+	_check(not environment.volumetric_fog_enabled, "logical off releases lamp-owned full-screen fog pass")
 	_check(not air.field.enabled and air.field.energy == 0, "logical off clears instantaneous field input")
 	air.field.debug_readback(func(bytes: PackedByteArray):
 		_off_bytes = bytes
@@ -144,6 +145,7 @@ func _run() -> void:
 	player.set_lamp_enabled(true)
 	await get_tree().create_timer(.6).timeout
 	_check(fog.visible and not player._light_mask.is_visible_in_tree(), "toggle cannot restore photographic overlay")
+	_check(environment.volumetric_fog_enabled, "lamp on restores participating fog pass")
 	_check(fog.global_transform.is_equal_approx(player.flashlight.global_transform * Transform3D(Basis(Vector3.RIGHT,PI*.5),Vector3(0,0,-3.25))),
 			"volume follows the real carried lens transform")
 	var retained := [weakref(air),weakref(fog),weakref(air.material),weakref(air.field),weakref(air.field.radiance),weakref(air.field.optics)]
@@ -155,6 +157,7 @@ func _run() -> void:
 	world.shutdown_for_tests()
 	world.queue_free()
 	await get_tree().create_timer(.3).timeout
+	_check(not environment.volumetric_fog_enabled, "teardown restores original environment fog ownership")
 	for reference: WeakRef in retained:
 		_check(reference.get_ref() == null, "new beam owner/resource released")
 	print("V2 LAMP REVIEW: %d checks; %d failures; air and dust, other material families pending" % [checks,failures.size()])
