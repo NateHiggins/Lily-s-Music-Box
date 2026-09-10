@@ -39,6 +39,11 @@ func mount(adapter: Variant) -> bool:
 			consumer.free()
 			errors.append("domestic fitting mount failed: " + str(record.id))
 			return false
+		if record.id == MinaCaptionManifestation.RESIDUE_ANCHOR_ID:
+			var display := preload("res://scripts/cases/mina_waking_residue_display.gd").new()
+			display.name = MinaCaptionManifestation.RESIDUE_SOCKET_ID
+			display.position = Vector3(FridgeProp.MON_W*.5,.85,-.075)
+			(consumer.get("_door") as Node3D).add_child(display)
 	return true
 
 func validate(source: Variant, adapter: Variant) -> bool:

@@ -87,3 +87,17 @@ func _piece(body: StaticBody3D, at: Vector3, size: Vector3) -> void:
 	collision.shape = shape
 	collision.position = at
 	body.add_child(collision)
+
+func mount_captions(adapter: Variant, actor: AnimatedResident) -> bool:
+	var subjects: Array[Node3D] = [adapter.resolve("2A_sofa"),adapter.resolve("F02_A_CaptionDesk"),
+		adapter.resolve("F02_A_MAIN_WINDOW_W_S"),actor]
+	for subject in subjects:
+		if subject==null: return false
+	var offsets := [Vector3(0,1,0),Vector3(0,1,0),Vector3(.12,1.65,0),Vector3(0,1.95,0)]
+	for i in subjects.size():
+		var caption := preload("res://scripts/cases/mina_case_caption_display.gd").new()
+		caption.name = "MinaCaseCaption"
+		caption.caption_index = i
+		caption.position = offsets[i]
+		subjects[i].add_child(caption)
+	return true

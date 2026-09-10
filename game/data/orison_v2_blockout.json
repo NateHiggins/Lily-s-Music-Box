@@ -269,6 +269,10 @@
     {"id":"B1_BREECHING_MASS","level":"B1","position":[14.35,2.25,1.65],"size":[2.0,0.55,0.55],"class":"service","collision":true,"purpose":"boiler-to-flue relationship"}
   ],
   "anchors": [
+    {"id":"2A_sofa","level":"F02","space":"F02_A_MAIN","position":[-11.8,0,-3.15],"yaw":3.141592653589793,"kind":"furniture"},
+    {"id":"F02_2A_FRIDGE_01","level":"F02","space":"F02_A_KITCHEN","position":[-11.2,0,5.72],"yaw":0,"kind":"interaction"},
+    {"id":"F02_2A_FRIDGE_01_STANCE","level":"F02","space":"F02_A_KITCHEN","position":[-11.2,0,4.42],"yaw":3.141592653589793,"kind":"clearance"},
+
     {"id":"B1_WASHER_01","level":"B1","space":"B1_LAUNDRY","position":[-9.25,0,-0.8],"yaw":-1.5707963267948966,"kind":"fixture"},
     {"id":"B1_WASHER_02","level":"B1","space":"B1_LAUNDRY","position":[-9.25,0,0.9],"yaw":-1.5707963267948966,"kind":"fixture"},
     {"id":"B1_LAUNDRY_AIRER_01","level":"B1","space":"B1_LAUNDRY","position":[-6.0,0,2.7],"yaw":0,"kind":"fixture"},

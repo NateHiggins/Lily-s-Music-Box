@@ -34,10 +34,22 @@ func _ready() -> void:
 		await finish()
 		return
 	var retired: WeakRef = weakref(shell.active_world)
+	var retired_subjects: Array[WeakRef] = []
+	for identity in ["2A_sofa",MinaCaptionManifestation.RESIDUE_ANCHOR_ID,MinaCaptionManifestation.RESIDUE_SOCKET_ID]:
+		var subject := shell.active_world.find_child(identity,true,false)
+		if subject!=null: retired_subjects.append(weakref(subject))
+	for caption in shell.active_world.find_children("MinaCaseCaption","Label3D",true,false):
+		retired_subjects.append(weakref(caption))
+	check(retired_subjects.size()==7,"all new 2A furniture and caption subjects are tracked")
+
 	check(shell.dream_director.enter_armed_dream(),"public dream entry accepts earned transaction")
 	await get_tree().create_timer(1).timeout
 	check(shell.world_kind()=="dream" and shell.active_world is DreamMazeRoot and shell.world_child_count()==1,"real Dream root replaces V2 exclusively")
 	check(retired.get_ref()==null,"retired V2 root is released")
+	var subjects_released := true
+	for reference in retired_subjects:
+		subjects_released = subjects_released and reference.get_ref()==null
+	check(subjects_released,"new 2A furniture and caption subjects retire with V2")
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join("earned_dream.png"))
 	var dream: WeakRef = weakref(shell.active_world)

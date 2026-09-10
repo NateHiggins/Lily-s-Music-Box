@@ -260,6 +260,10 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: Mina route composition refused")
 		return
+	if not preload("res://scripts/building/orison_v2_case_one_placement.gd").new().mount_captions(adapter,mina_routine.actor):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: case caption subjects missing")
+		return
 	shop_simulation = ShopSimulation.new()
 	shop_simulation.name = "ShopSimulation"
 	add_child(shop_simulation)
