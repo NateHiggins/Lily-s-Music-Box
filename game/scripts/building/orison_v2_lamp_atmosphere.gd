@@ -16,6 +16,7 @@ var material: ShaderMaterial
 var particles: GPUParticles3D
 var particle_material: ShaderMaterial
 var receivers: RefCounted
+var scene_shadow: Node3D
 var driver: Node
 var _environment: Environment
 var _environment_before := {}
@@ -36,7 +37,7 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	if not driver.setup(player): return false
 	if RenderingServer.get_current_rendering_method() != "forward_plus": return true
 	field = Field.new()
-	field.initialize(0)
+	field.initialize(1)
 	observation = preload("res://scripts/lamp/carried_lamp_observation.gd").new()
 	add_child(observation)
 	_environment = environment
@@ -62,6 +63,9 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	_build_dust()
 	receivers = preload("res://scripts/lamp/lamp_optical_receivers.gd").new()
 	receivers.setup(get_parent(),player.flashlight,field)
+	scene_shadow = preload("res://scripts/lamp/lamp_scene_shadow.gd").new()
+	add_child(scene_shadow)
+	scene_shadow.setup(field,player.flashlight)
 	process_priority = 100
 	_update_volume(0)
 	return true
@@ -90,7 +94,7 @@ func _update_volume(delta: float) -> void:
 			field.bind_material(material)
 			field.bind_material(particle_material)
 			_bound = true
-		field.observe(observation)
+		field.observe(observation,observation.state.switched_on)
 	volume.global_transform = player.flashlight.global_transform * Transform3D(Basis(Vector3.RIGHT,PI*.5),Vector3(0,0,-3.25))
 	var useful: bool = player.lamp_is_enabled() and float(driver.output.intensity) >= .035
 	volume.visible = useful and _bound

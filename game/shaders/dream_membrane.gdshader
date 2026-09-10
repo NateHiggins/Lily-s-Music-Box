@@ -8,6 +8,9 @@ render_mode cull_disabled, depth_draw_opaque, diffuse_burley, specular_schlick_g
 // through it clings as a ring around the root. Birth, portal, flower,
 // bubble membrane and dimensional extrusion at once; no tearing.
 #include "res://shaders/dream_corruption_layers.gdshaderinc"
+#include "res://shaders/lamp_material_transport.gdshaderinc"
+uniform float membrane_thickness_m : hint_range(0.0001,0.01) = 0.0015;
+uniform vec3 membrane_extinction_per_m = vec3(180.0,650.0,380.0);
 
 uniform float radius_m = 0.38;
 uniform float tension : hint_range(0.0, 1.0) = 0.0;
@@ -78,7 +81,8 @@ void fragment() {
 	METALLIC = 0.0;
 	EMISSION = gold_hot * min(0.6, behind * (0.15 + 0.35 * thin)) * (0.8 + 0.2 * sin(TIME * 2.3 + seed))
 			+ membrane_tint * 0.05 * tension;
-	BACKLIGHT = tissue * 0.9;
+	BACKLIGHT = tissue * 0.9 * lamp_material_transmittance(
+			membrane_extinction_per_m,membrane_thickness_m*mix(1.0,0.18,thin),1.0);
 	// Strongest at the root, fading out over the disc: a cling, not a patch.
 	float cling_fade = 1.0 - smoothstep(0.18, 0.95, r);
 	ALPHA = edge * cling_fade * mix(0.92, 0.5, thin) * (1.0 - hole) * (0.35 + 0.65 * max(tension, through));

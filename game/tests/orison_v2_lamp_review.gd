@@ -153,6 +153,7 @@ func _run() -> void:
 			weakref(air.particles.draw_pass_1),weakref(air.particles.process_material)])
 	retained.append_array([weakref(air.driver),weakref(air.driver.state)])
 	retained.append(weakref(air.receivers))
+	retained.append_array([weakref(air.scene_shadow),weakref(air.scene_shadow.viewport),weakref(air.scene_shadow.camera),weakref(air.scene_shadow.effect),weakref(air.field.near_cascade)])
 	for record: Array in air.receivers.receivers.values():
 		retained.append(weakref(record[1]))
 		retained.append(record[0])
@@ -214,22 +215,31 @@ func _profile(air: Node3D) -> void:
 	air.driver.apply_output()
 	var viewport_rid := get_viewport().get_viewport_rid()
 	RenderingServer.viewport_set_measure_render_time(viewport_rid,true)
+	var shadow_rid: RID = air.scene_shadow.viewport.get_viewport_rid()
+	RenderingServer.viewport_set_measure_render_time(shadow_rid,true)
 	var results := {}
 	for iteration in 8:
 		var enabled: bool = iteration % 4 in [1,2]
 		air.set_process(enabled)
+		air.scene_shadow.set_process(enabled)
+		air.scene_shadow.viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if enabled else SubViewport.UPDATE_DISABLED
 		fog.visible = enabled
 		air.particles.visible = enabled
 		air.particles.emitting = enabled
 		world.get_node("WakingAtmosphere").environment.volumetric_fog_enabled = enabled
 		for i in 60: await RenderingServer.frame_post_draw
 		var gpu: Array[float] = []
+		var shadow_gpu: Array[float] = []
 		for i in 90:
 			await RenderingServer.frame_post_draw
 			gpu.append(RenderingServer.viewport_get_measured_render_time_gpu(viewport_rid))
+			shadow_gpu.append(RenderingServer.viewport_get_measured_render_time_gpu(shadow_rid) if enabled else 0.0)
 		var raw := gpu.duplicate()
 		gpu.sort()
 		results[str(iteration)+("_volume" if enabled else "_spotlight")] = {"gpu_median_ms":gpu[45],"gpu_p95_ms":gpu[85],"gpu_max_ms":gpu[89],"samples_ms":raw}
+		var shadow_raw := shadow_gpu.duplicate()
+		shadow_gpu.sort()
+		results[str(iteration)+("_volume" if enabled else "_spotlight")]["shadow_view"] = {"gpu_median_ms":shadow_gpu[45],"gpu_p95_ms":shadow_gpu[85],"samples_ms":shadow_raw}
 	FileAccess.open(directory.path_join("profile.json"),FileAccess.WRITE).store_string(JSON.stringify(results,"\t"))
 
 func _profile_injection(air: Node3D) -> void:
@@ -251,4 +261,9 @@ func _profile_injection(air: Node3D) -> void:
 			result[key] = {"count":samples.size(),"median":samples[samples.size()/2],
 					"p95":samples[int(samples.size()*.95)],"max":samples[-1],"samples":raw}
 	_check(result.size() == 3, "composed injection exposes GPU and CPU timing samples")
+	var near_gpu: Array = air.field.near_cascade.gpu_samples_us.duplicate()
+	near_gpu.sort()
+	_check(near_gpu.size()>10,"hero cascade exposes its separate injection cost")
+	if not near_gpu.is_empty():
+		result["near_cascade_gpu_us"] = {"median":near_gpu[near_gpu.size()/2],"max":near_gpu[-1],"count":near_gpu.size()}
 	FileAccess.open(directory.path_join("injection_profile.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))

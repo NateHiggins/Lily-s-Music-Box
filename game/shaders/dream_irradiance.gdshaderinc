@@ -33,14 +33,17 @@ uniform vec4 incarnation_fauna = vec4(0.0, 0.0, 0.0, 1.0);
 
 // x neon, y oblique, z molten, w scalar.
 vec4 dream_irradiance(vec3 world_position, vec3 world_normal,
-		vec2 field, vec3 light_origin) {
+		vec2 field, vec3 light_origin, out vec3 spectrum) {
+	spectrum = vec3(1.0);
 	vec3 toward_light = normalize(light_origin - world_position);
 	float incidence = mix(irradiance_incidence_floor, 1.0,
 			abs(dot(normalize(world_normal), toward_light)));
 	float direct = field.g;
 	if (lamp_optical_bound) {
 		LampOpticalSample optical = sample_lamp_optics(world_position);
-		direct = clamp(dot(optical.radiance,vec3(0.2126,0.7152,0.0722)) * optical_response_gain,0.0,1.0);
+		float luminance = dot(optical.radiance,vec3(0.2126,0.7152,0.0722));
+		direct = clamp(luminance * optical_response_gain,0.0,1.0);
+		if (luminance > 0.000001) spectrum = clamp(optical.radiance/luminance,vec3(0.0),vec3(4.0));
 	}
 	float scalar = clamp(direct * incidence
 			+ field.r * irradiance_retained_gain, 0.0, 1.0);
@@ -55,6 +58,12 @@ vec4 dream_irradiance(vec3 world_position, vec3 world_normal,
 	// Retained conversion can select a dormant colour band, but cannot stand
 	// in for live lamp energy in gold, wet-film and cellular reflection terms.
 	return vec4(neon, oblique, molten, lamp_optical_bound ? direct * incidence : scalar);
+}
+
+vec4 dream_irradiance(vec3 world_position, vec3 world_normal,
+		vec2 field, vec3 light_origin) {
+	vec3 spectrum;
+	return dream_irradiance(world_position,world_normal,field,light_origin,spectrum);
 }
 
 vec3 dream_irradiance_hue(vec3 colour) {

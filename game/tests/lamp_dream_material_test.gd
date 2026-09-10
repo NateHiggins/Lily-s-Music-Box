@@ -18,6 +18,7 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	_check(bridge.field.ready and bridge.field.failed.is_empty(),"production field initialized")
+	_check(bridge.scene_shadow.effect.passes > 0,"actual Dream geometry injects into optical field")
 	_check(bridge.bound.size() > 0,"actual collected materials bound")
 	var paths := {}
 	for material: ShaderMaterial in bridge.bound:
@@ -36,6 +37,9 @@ func _run() -> void:
 		bound_material.set_shader_parameter("lamp_optical_bound",true)
 	await _sample("actual_root_optical_restored")
 	root.visible = false
+	# The following synthetic sampling probe has its own lamp pose, so the
+	# real root's depth view must not shadow that unrelated diagnostic pose.
+	bridge.scene_shadow.viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	for canvas in root.find_children("*","CanvasLayer",true,false): canvas.hide()
 	var camera := Camera3D.new()
 	camera.environment = Environment.new()
@@ -49,7 +53,7 @@ func _run() -> void:
 	add_child(quad)
 	var material := ShaderMaterial.new()
 	var shader := Shader.new()
-	shader.code = 'shader_type spatial; render_mode unshaded;\n#include "res://shaders/dream_irradiance.gdshaderinc"\nvarying vec3 world; void vertex(){world=(MODEL_MATRIX*vec4(VERTEX,1.0)).xyz;} void fragment(){ALBEDO=vec3(dream_irradiance(world,vec3(0,0,1),vec2(1),vec3(0)).w);}'
+	shader.code = 'shader_type spatial; render_mode unshaded;\n#include "res://shaders/dream_irradiance.gdshaderinc"\nvarying vec3 world; void vertex(){world=(MODEL_MATRIX*vec4(VERTEX,1.0)).xyz;} void fragment(){vec3 spectrum; vec4 light=dream_irradiance(world,vec3(0,0,1),vec2(1),vec3(0),spectrum); ALBEDO=vec3(light.w)*spectrum;}'
 	material.shader = shader
 	quad.material_override = material
 	var observation: Node3D = bridge.observation
@@ -59,6 +63,13 @@ func _run() -> void:
 	bridge.field.bind_material(material)
 	bridge.field.observe(observation)
 	var on := await _sample("on")
+	observation.state.color = Color(1.0,.25,.05)
+	bridge.field.observe(observation)
+	await _sample("warm_spectrum")
+	var warm_image := get_viewport().get_texture().get_image()
+	var warm_color := warm_image.get_pixel(warm_image.get_width()/2+30,warm_image.get_height()/2+30)
+	_check(warm_color.r>warm_color.g and warm_color.g>warm_color.b,"shared sample carries lamp spectrum into material transfer")
+	observation.state.color = Color.WHITE
 	observation.position.x = 20
 	bridge.field.observe(observation)
 	var translated := await _sample("translated_away")

@@ -1,0 +1,28 @@
+#version 450
+layout(local_size_x=4,local_size_y=4,local_size_z=4) in;
+layout(set=0,binding=0,rgba16f) uniform image3D radiance_volume;
+layout(set=0,binding=1,rgba16f) uniform image3D optical_volume;
+layout(set=0,binding=2) uniform sampler2D scene_depth;
+layout(push_constant,std430) uniform Params { vec4 ranges; } p;
+void main() {
+ ivec3 cell=ivec3(gl_GlobalInvocationID),size=imageSize(radiance_volume);
+ if(any(greaterThanEqual(cell,size)))return;
+ vec3 uv=(vec3(cell)+0.5)/vec3(size);
+ float z=p.ranges.x+(p.ranges.z-p.ranges.x)*uv.z*uv.z;
+ // Godot Forward+ reverse Z, matching the lamp camera's near/far planes.
+ float visibility=0.0;
+ vec2 texel=1.0/vec2(textureSize(scene_depth,0));
+ for(int y=0;y<2;y++)for(int x=0;x<2;x++) {
+  float d=texture(scene_depth,vec2(uv.x,1.0-uv.y)+(vec2(x,y)-0.5)*texel).r;
+  float blocker=p.ranges.x*p.ranges.y/(p.ranges.x+d*(p.ranges.y-p.ranges.x));
+  float half_cell=(p.ranges.z-p.ranges.x)*uv.z/float(size.z);
+  visibility += float(z <= blocker + max(0.008,half_cell+blocker*0.002))*0.25;
+ }
+ vec4 r=imageLoad(radiance_volume,cell);
+ vec4 o=imageLoad(optical_volume,cell);
+ r.rgb*=visibility;
+ o.r*=visibility;
+ o.b*=visibility;
+ imageStore(radiance_volume,cell,r);
+ imageStore(optical_volume,cell,o);
+}

@@ -5,6 +5,7 @@ const Field = preload("res://scripts/lamp/lamp_optical_voxel_field.gd")
 const Observation = preload("res://scripts/lamp/carried_lamp_observation.gd")
 var field: RefCounted
 var observation: Node3D
+var scene_shadow: Node3D
 var player: PlayerController
 var requested: Array[ShaderMaterial] = []
 var bound: Array[ShaderMaterial] = []
@@ -13,9 +14,12 @@ var failed_reported := false
 func setup(owner_player: PlayerController) -> void:
 	player = owner_player
 	field = Field.new()
-	field.initialize(0)
+	field.initialize(1)
 	observation = Observation.new()
 	add_child(observation)
+	scene_shadow = preload("res://scripts/lamp/lamp_scene_shadow.gd").new()
+	add_child(scene_shadow)
+	scene_shadow.setup(field,player.flashlight)
 	process_priority = 100
 
 func set_materials(materials: Array[ShaderMaterial]) -> void:
@@ -53,7 +57,7 @@ func _process(delta: float) -> void:
 	_bind_ready()
 	if field.ready:
 		observation.observe_player(player,delta)
-		field.observe(observation)
+		field.observe(observation,observation.state.switched_on)
 
 func _exit_tree() -> void:
 	if field != null: field.dispose()

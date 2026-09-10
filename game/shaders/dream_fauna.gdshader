@@ -189,8 +189,9 @@ void fragment() {
 	vec2 irradiance_field = texture(exposure_tex, vec3(
 			fauna_world.x / exposure_extent, fauna_world.z / exposure_extent,
 			ex_y)).rg;
+	vec3 optical_spectrum;
 	vec4 irradiance = dream_irradiance(fauna_world, fauna_normal,
-			irradiance_field, lamp_origin);
+			irradiance_field, lamp_origin,optical_spectrum);
 	float awake = irradiance.w;
 	int incarnation_slot = int(floor(incarnation_fauna.z + 0.5));
 	vec4 incarnation_skin = dream_incarnation_surface(fauna_world,
@@ -435,6 +436,7 @@ void fragment() {
 		ALBEDO = mix(ALBEDO, incarnation_skin.rgb,
 			0.28 + irradiance.y * 0.20);
 	}
+	ALBEDO *= mix(vec3(1.0),optical_spectrum,clamp(irradiance.w,0.0,1.0));
 	// CT-1: the atlas normal through a derivative cotangent frame — the
 	// fauna meshes carry no tangents, so the frame is built per pixel from
 	// the world position and the atlas coordinate.
