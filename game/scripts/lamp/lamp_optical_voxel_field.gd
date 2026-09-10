@@ -268,6 +268,7 @@ func bind_material(material: ShaderMaterial) -> void:
 		if previous != null and previous.get_script() == get_script():previous.unbind_material(material)
 	if not _materials.has(material):_materials.append(material)
 	material.set_meta(MATERIAL_OWNER_META,get_instance_id())
+	material.set_shader_parameter("lamp_optical_bound",true)
 	texture_bindings+=2
 	material.set_shader_parameter("lamp_radiance",radiance)
 	material.set_shader_parameter("lamp_optics",optics)
@@ -281,6 +282,7 @@ func unbind_material(material: ShaderMaterial) -> void:
 	_materials.erase(material)
 	if int(material.get_meta(MATERIAL_OWNER_META,0))!=get_instance_id():return
 	material.remove_meta(MATERIAL_OWNER_META)
+	material.set_shader_parameter("lamp_optical_bound",false)
 	material.set_shader_parameter("lamp_volume_shape",Vector4(NEAR,range_m,outer,0))
 	material.set_shader_parameter("lamp_radiance",null)
 	material.set_shader_parameter("lamp_optics",null)

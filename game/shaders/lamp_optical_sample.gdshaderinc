@@ -1,4 +1,5 @@
 // One camera-independent lamp-to-froxel mapping for all material participants.
+uniform bool lamp_optical_bound = false;
 uniform sampler3D lamp_radiance : filter_linear, repeat_disable;
 uniform sampler3D lamp_optics : filter_linear, repeat_disable;
 uniform sampler3D lamp_near_radiance : filter_linear, repeat_disable;

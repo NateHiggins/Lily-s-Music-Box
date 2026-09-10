@@ -120,13 +120,33 @@ func _run() -> void:
 	receiver = null
 	await get_tree().process_frame
 	_check(material_ref.get_ref() == null,"receiver material releases after removal")
+	for path: String in Receivers.DREAM_SURFACES:
+		var material := ShaderMaterial.new()
+		material.shader = load(path)
+		var first := MeshInstance3D.new()
+		first.mesh = quad
+		first.material_override = material
+		var second := MeshInstance3D.new()
+		second.mesh = quad
+		second.material_override = material
+		add_child(first)
+		add_child(second)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		_check(registry.surfaces.size() == 2 and field._materials.size() == 1,"late shared Dream material binds once: "+path)
+		first.queue_free()
+		await get_tree().process_frame
+		_check(bool(material.get_shader_parameter("lamp_optical_bound")),"surviving shared receiver keeps its field")
+		second.queue_free()
+		await get_tree().process_frame
+		_check(field._materials.is_empty() and registry.surface_materials.is_empty(),"last shared receiver releases field")
 	fill.light_cull_mask &= ~4
 	registry.dispose()
 	_check(fill.light_cull_mask == (fill_mask & ~4) and lamp.light_cull_mask == lamp_mask,"registry teardown restores owned bit and preserves unrelated mask changes")
 	field.dispose()
 	field = null
 	await get_tree().create_timer(.2).timeout
-	print("LAMP GLASS MATERIAL: 13 checks; %d failures"%failures)
+	print("LAMP GLASS MATERIAL: 22 checks; %d failures"%failures)
 	get_tree().quit(0 if failures == 0 else 1)
 
 func _sample(label: String) -> float:

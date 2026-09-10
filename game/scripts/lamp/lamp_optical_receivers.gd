@@ -9,6 +9,9 @@ var field: RefCounted
 var pending: Array[WeakRef] = []
 var receivers: Dictionary = {}
 var lights: Dictionary = {}
+var surfaces: Dictionary = {}
+var surface_materials: Dictionary = {}
+const DREAM_SURFACES := ["res://shaders/dream_fauna.gdshader", "res://shaders/dream_lineage_gold.gdshader", "res://shaders/dream_klimt.gdshader"]
 var disposed := false
 
 func setup(owner_root: Node, owner_lamp: Light3D, owner_field: RefCounted) -> void:
@@ -43,6 +46,16 @@ func _consider(node: Node) -> void:
 			node.visible = false
 			pending.append(weakref(node))
 			bind_pending()
+	elif node is GeometryInstance3D:
+		var material := node.material_override as ShaderMaterial
+		if material != null and material.shader != null and material.shader.resource_path in DREAM_SURFACES:
+			var id := node.get_instance_id()
+			if not surfaces.has(id):
+				surfaces[id] = [weakref(node),material]
+				surface_materials[material] = int(surface_materials.get(material,0)) + 1
+				field.bind_material(material)
+				if not field.failed.is_empty(): material.set_shader_parameter("lamp_volume_shape",Vector4.ZERO)
+				node.tree_exiting.connect(_release_surface.bind(id),CONNECT_ONE_SHOT)
 
 func bind_pending() -> void:
 	if disposed or not field.ready or not field.failed.is_empty(): return
@@ -60,9 +73,22 @@ func bind_pending() -> void:
 	pending.clear()
 
 func hide_all() -> void:
+	for material: ShaderMaterial in surface_materials:
+		material.set_shader_parameter("lamp_volume_shape",Vector4.ZERO)
 	for record: Array in receivers.values():
 		var mesh: MeshInstance3D = record[0].get_ref()
 		if is_instance_valid(mesh): mesh.visible = false
+
+func _release_surface(id: int) -> void:
+	if not surfaces.has(id): return
+	var material: ShaderMaterial = surfaces[id][1]
+	surfaces.erase(id)
+	var remaining := int(surface_materials[material]) - 1
+	if remaining > 0:
+		surface_materials[material] = remaining
+	else:
+		surface_materials.erase(material)
+		field.unbind_material(material)
 
 func _release(id: int) -> void:
 	if not receivers.has(id): return
@@ -82,6 +108,11 @@ func dispose() -> void:
 	disposed = true
 	if is_instance_valid(root) and root.is_inside_tree():
 		root.get_tree().node_added.disconnect(_node_added)
+	for id in surfaces.keys():
+		var surface: GeometryInstance3D = surfaces[id][0].get_ref()
+		if is_instance_valid(surface) and surface.tree_exiting.is_connected(_release_surface.bind(id)):
+			surface.tree_exiting.disconnect(_release_surface.bind(id))
+		_release_surface(id)
 	for id in receivers.keys():
 		var mesh: MeshInstance3D = receivers[id][0].get_ref()
 		if is_instance_valid(mesh):

@@ -1,0 +1,11 @@
+ERROR: live response turns off despite maximal ecological exposure
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/lamp_dream_material_test.gd:78)
+       [1] _run (res://tests/lamp_dream_material_test.gd:55)
+       [2] _sample (res://tests/lamp_dream_material_test.gd:73)
+SCRIPT ERROR: Invalid type in function 'set_materials' in base 'Node3D (lamp_optical_material_bridge.gd)'. The array of argument 1 (Array) does not have the same element type as the expected typed array argument.
+   at: _run (res://tests/lamp_dream_material_test.gd:60)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/lamp_dream_material_test.gd:60)
+       [1] _sample (res://tests/lamp_dream_material_test.gd:73)
