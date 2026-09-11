@@ -39,6 +39,21 @@ func mount(adapter: Variant) -> bool:
 			consumer.free()
 			errors.append("domestic fitting mount failed: " + str(record.id))
 			return false
+		if record.kind == "sink":
+			# TapProp's primary Area supplies the E target, not movement
+			# collision. V2 has no baked fixture hull beneath the live mesh.
+			# Derive a solid body after construction, in fixture-local space.
+			var bounds: AABB = consumer._visual_bounds()
+			if bounds.size.length_squared() > 0.0001:
+				var body := StaticBody3D.new()
+				body.name = "FixtureBody"
+				var collision := CollisionShape3D.new()
+				var shape := BoxShape3D.new()
+				shape.size = bounds.size
+				collision.shape = shape
+				collision.position = bounds.get_center()
+				body.add_child(collision)
+				consumer.add_child(body)
 		if record.id == MinaCaptionManifestation.RESIDUE_ANCHOR_ID:
 			var display := preload("res://scripts/cases/mina_waking_residue_display.gd").new()
 			display.name = MinaCaptionManifestation.RESIDUE_SOCKET_ID

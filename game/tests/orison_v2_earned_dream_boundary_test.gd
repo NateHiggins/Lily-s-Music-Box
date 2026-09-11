@@ -48,7 +48,7 @@ func _ready() -> void:
 	var remote_display := shell.active_world.get_node_or_null("MinaRemoteCaptions")
 	check(remote_display != null,"V2 remote caption owner exists")
 	if remote_display != null: retired_subjects.append(weakref(remote_display))
-	for identity in ["4B_wake_bed", "4B_wake_nightstand", "F04_B_ALCOVE_SWITCH", "F04_B_ALCOVE_LT_FLUSH_DOME", "4B_couch", "4B_shelf"]:
+	for identity in ["4B_wake_bed", "4B_wake_nightstand", "F04_B_ALCOVE_SWITCH", "F04_B_ALCOVE_LT_FLUSH_DOME", "4B_couch", "4B_shelf", "4B_wc", "F04_4B_SINK_01"]:
 		var furnishing := shell.active_world.find_child(identity,true,false)
 		check(furnishing is Node3D,"wake furnishing mounted: " + identity)
 		if furnishing != null: retired_subjects.append(weakref(furnishing))
@@ -105,6 +105,12 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	var tap := world.adapter.resolve("F04_4B_SINK_01") as TapProp
+	check(tap != null and tap.fixture == "bath_sink" and tap.unit == "4B"
+			and tap.get_node_or_null("FixtureBody") is StaticBody3D,
+			"4B lavatory reconstructs with its functional owner and solid body")
+	check(world.adapter.resolve("4B_wc") is BakedFurnitureInteraction,
+			"4B toilet reconstructs with the shared flush owner")
 	for identity in ["4B_couch", "4B_shelf"]:
 		var furnishing := world.adapter.resolve(identity) as StaticBody3D
 		check(furnishing != null and furnishing.get_meta("v2_furniture_id", "") == identity,

@@ -1,11 +1,64 @@
 {
   "schema_version": 1,
   "fittings": [
-    {"id":"F02_2A_FRIDGE_01","kind":"fridge","unit":"2A","properties":{"monitor_top":true}},
-    {"id":"F03_3B_KITCHEN_SINK_01","kind":"sink","unit":"3B","properties":{"fixture":"kitchen_sink","drain_side":1,"compact_kitchen":false,"has_drainboard":true}},
-    {"id":"F03_3B_STOVE_01","kind":"stove","unit":"3B","properties":{"ambient_lit":false}},
-    {"id":"F03_3B_FRIDGE_01","kind":"fridge","unit":"3B","properties":{"monitor_top":false}},
-    {"id":"F03_3B_SINK_01","kind":"sink","unit":"3B","properties":{"fixture":"bath_sink"}},
-    {"id":"F03_3B_SHOWER_01","kind":"shower","unit":"3B","properties":{"fixture":"shower"}}
+    {
+      "id": "F02_2A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2A",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F03_3B_KITCHEN_SINK_01",
+      "kind": "sink",
+      "unit": "3B",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": false,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F03_3B_STOVE_01",
+      "kind": "stove",
+      "unit": "3B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F03_3B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "3B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F03_3B_SINK_01",
+      "kind": "sink",
+      "unit": "3B",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F03_3B_SHOWER_01",
+      "kind": "shower",
+      "unit": "3B",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F04_4B_SINK_01",
+      "kind": "sink",
+      "unit": "4B",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    }
   ]
 }

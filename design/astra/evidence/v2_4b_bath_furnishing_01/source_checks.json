@@ -1,0 +1,53 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "route_radius_m": 0.25,
+  "main_room_route": [
+    [
+      -9.8,
+      4.75
+    ],
+    [
+      -8.2,
+      4.75
+    ],
+    [
+      -7.6,
+      4.7
+    ],
+    [
+      -6.7,
+      4.5
+    ]
+  ],
+  "furniture": [
+    {
+      "id": "4B_wc",
+      "world_bounds_xz": [
+        -6.970000000000001,
+        5.1,
+        -6.43,
+        5.86
+      ],
+      "triangles": 328,
+      "source_record_retained": true
+    }
+  ],
+  "texture_sha256": {
+    "T_library_furniture_porcelain_albedo.png": "e85e5384e87a545a1cf3b368fc466a8611b87932ea7ad2ee7557a4a291263b5c",
+    "T_library_furniture_porcelain_rough.png": "9c0c46ffaca87f8aa08c408000d2bf16c722e775b030ff0b5832bf434a1f51cc",
+    "T_library_furniture_porcelain_normal.png": "800359566e5913a649d47b0d243cd872d6810b9c75f7311611965bf422092559",
+    "T_library_architectural_painted_trim_albedo.png": "f4beb89801df323f60c42c30dfad97af0d5243fc8846296903b2b1ebee3e6be7",
+    "T_library_architectural_painted_trim_rough.png": "e7e87c348ac238fff6c31ba35f0b4ed7663e3a68ab9f83d1d781a5bd3f8cd9c4",
+    "T_library_architectural_painted_trim_normal.png": "416bbfb7fe054518f7e23a0701085bceae724bb318182aca2437c10e33022ee7",
+    "T_library_appliances_brushed_steel_albedo.png": "48bd84ce5e9c6b93af065c840f21f5dba791ef26c0932da3a9cd9019e774901d",
+    "T_library_appliances_brushed_steel_rough.png": "6b8863cbd7370213bc774033e50b0a43238c6a7067d764a940c855c6bb3ec16e",
+    "T_library_appliances_brushed_steel_normal.png": "6f3a032e3cf9ffd42f0d874f8e2e0610137573466420957d9df0d41bf709bbfa"
+  },
+  "lavatory_envelope_xz": [
+    -8.0,
+    3.5199999999999996,
+    -7.199999999999999,
+    4.12
+  ],
+  "lavatory_envelope_status": "source estimate; runtime bounds verification pending"
+}

@@ -219,5 +219,12 @@
     "scope": "Source-derived 4B couch and bookshelf mounted through two V2 furniture anchors; six catalog book-cover materials added using shipped textures. Source geometry, containment, route-clearance and repeatability checks pass; prior 10 furniture and 42 material records preserved. Generator now rejects missing textures before writes. Boundary lifetime/reconstruction assertions added but not run.",
     "constraint": "Owner requested no Godot; no engine launched. Exposure packing remains a separate uncommitted runtime-pending candidate.",
     "next": "When owner permits Godot, verify material loading, actual main-room route, Dream retirement/wake reconstruction, visuals and exposure-packing measurements."
+  },
+  "v2_4b_bath_furnishing": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_bath_furnishing_01/README.md",
+    "scope": "Source toilet and functional lavatory mounted through 4B bath anchors. V2 sinks now receive solid visual-bounds collision; existing 3B sinks affected. Source checks/repeatability/syntax pass; prior records preserved.",
+    "constraint": "No Godot launched per owner instruction. Runtime routes, controls, lifecycle and visual checks pending.",
+    "next": "Continue V2 source integration. BoilerTend is not yet composed in V2; do not mistake tap mounting for dynamic boiler/service integration."
   }
 }
