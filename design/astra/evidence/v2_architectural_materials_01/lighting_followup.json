@@ -1,0 +1,28 @@
+{
+  "base": "3fffd69",
+  "baseline": {
+    "checks": 46,
+    "failures": []
+  },
+  "trial": {
+    "checks": 46,
+    "failures": []
+  },
+  "fixture": {
+    "active_floor": "F04",
+    "powered": true,
+    "visible": true,
+    "energy": 1.49818849563599,
+    "budget_scale": 0.752,
+    "position": [
+      13.1,
+      12.35,
+      -20.65
+    ]
+  },
+  "trial_energy_scale": 3.0,
+  "retained_energy_scale": 1.25,
+  "decision": "Reverted brightness trial: brighter bedding did not resolve wall readability. No accepted lighting change.",
+  "played_dream": "run_03 refused before launch because foreign Jawbreaker Godot run acquired shared lane.",
+  "final_stderr_bytes": 0
+}

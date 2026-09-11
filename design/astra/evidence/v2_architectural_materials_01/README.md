@@ -43,3 +43,17 @@ Next: rerun OrisonV2EarnedDreamBoundaryTest through the unchanged serial runner
 with the prior earned Dream-pending save; inspect WAKE_FIXTURE, correct the
 real room-light issue and review materials under usable light. Then resume
 OrisonV2PlayedDreamTest. V2 remains unfinished and V1 remains default.
+
+## Fixture diagnosis and rejected brightness trial
+
+run_03 passes 46 checks with empty stderr. WAKE_FIXTURE confirms the real
+fixture is powered, visible, assigned to F04, at the correct world location,
+with approximately 1.498 energy and .752 budget scale. This excludes the
+missing-light/floor-gating hypothesis. run_04 also passes 46 checks with empty
+stderr at an experimental energy_scale of 3.0. Its image brightens the bedding
+but does not sufficiently resolve wall readability. The trial was reverted;
+the original 1.25 setting remains. No lighting improvement is claimed.
+
+The subsequent played-Dream attempt was refused before launch when another
+Jawbreaker Godot run acquired the lane. A dedicated engine window is needed
+to proceed through sustained traversal and rendering verification.
