@@ -1,0 +1,32 @@
+{
+  "base": "1537018",
+  "before": {
+    "alcove_owns_full_east_wall": false,
+    "shared_wall_owner_count": 1,
+    "shared_interval": [
+      6.35,
+      8.25
+    ],
+    "aperture": [
+      6.05,
+      8.45
+    ],
+    "aperture_fits_shared_interval": false
+  },
+  "after": {
+    "alcove_owns_full_east_wall": true,
+    "shared_wall_owner_count": 1,
+    "shared_interval": [
+      6.35,
+      8.25
+    ],
+    "aperture": [
+      6.35,
+      8.15
+    ],
+    "aperture_fits_shared_interval": true
+  },
+  "anchors_windows_doors_unchanged": true,
+  "test_syntax": "gdtoolkit pass; not Godot type checking",
+  "runtime": "PENDING: serial runner refused while foreign Godot processes 7800 and 29372 were active"
+}

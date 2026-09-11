@@ -96,6 +96,18 @@ func _ready() -> void:
 	await finish()
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	# Probe the previously missing wall at normal player height, including the
+	# edge just beyond the approach room. The walking route proves the opening.
+	for z in [8.3, 8.9, 10.8]:
+		var ray := PhysicsRayQueryParameters3D.create(
+				world.adapter.root.to_global(Vector3(-11.4,11.01,z)),
+				world.adapter.root.to_global(Vector3(-10.1,11.01,z)))
+		ray.exclude = [world.player.get_rid()]
+		var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
+		var collider := hit.get("collider") as Node
+		var room := world.adapter.resolve("F04_B_ALCOVE")
+		check(collider != null and room != null and room.is_ancestor_of(collider),
+				"alcove owns a solid east boundary at z=" + str(z))
 	var bed := world.adapter.resolve("4B_wake_bed") as Node3D
 	check(bed != null and absf(world.adapter.root.to_local(bed.global_position).y-9.6)<.01,
 			"physical bed stands on the F04 floor")
