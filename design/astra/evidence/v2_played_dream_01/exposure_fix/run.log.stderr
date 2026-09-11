@@ -1,0 +1,7 @@
+WARNING: dream exposure field: the live pocket is 100.0 x 4.0 m and the field tiles every 96 m -- two live rooms are now sharing voxels and GRID_XZ must grow
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _note_extent (res://scripts/dream/dream_exposure_field.gd:535)
+       [1] stamp_room (res://scripts/dream/dream_exposure_field.gd:229)
+       [2] _block_e_tiling (res://tests/dream_exposure_test.gd:218)
+       [3] _ready (res://tests/dream_exposure_test.gd:39)

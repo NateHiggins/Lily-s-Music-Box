@@ -52,7 +52,7 @@ extends RefCounted
 ##
 ## So it does not move. It TILES: world position maps into the grid modulo the
 ## grid, and the sampler repeats. Nothing is ever re-anchored, nothing is ever
-## resampled, and a room 48 m away aliases onto the same voxels as one here --
+## resampled, and a room one full grid extent away aliases onto these voxels --
 ## which is safe for exactly the reason the pocket is safe, that the far room
 ## does not exist. Rooms are stamped when built and zeroed when freed, so a
 ## region wrapping back into use was cleared by whoever left it.
@@ -94,9 +94,10 @@ extends RefCounted
 ## at pixel resolution from a value interpolated out of this. Finer would cost
 ## linearly for detail that is thrown away and then re-invented.
 const VOXEL_M := 0.5
-## 96 x 96 voxels of 0.5 m is 48 m square. See the wrapping note above: this
-## has to comfortably exceed the widest the live pocket can ever be.
-const GRID_XZ := 96
+## A played Mina escape produced a 52 m live pocket, exceeding the former
+## 48 m tile. Keep the half-metre resolution and give the live pocket 96 m;
+## the extent diagnostic still rejects any future pocket that outgrows it.
+const GRID_XZ := 192
 ## Eight layers of 0.5 m covers 0..4 m, which holds the 3.015 m clear ceiling
 ## and its slab. Y does NOT wrap -- the fractal is single-storey, every room
 ## is placed in a plane, and a ceiling bleeding onto a floor would be a
@@ -455,7 +456,7 @@ func is_dirty() -> bool:
 ## Every (wrapped x, wrapped z, unwrapped x, unwrapped z) the rect covers.
 ## The unwrapped pair is carried because the per-room blotch hash must be a
 ## function of the room's real position -- hashing the wrapped index would
-## give two rooms 48 m apart the identical pattern, which is exactly the
+## give two rooms one grid extent apart the identical pattern, which is exactly the
 ## repetition the wrapping is otherwise invisible against.
 ##
 ## THE FOOTPRINT IS HALF-OPEN, and that is a correctness requirement rather

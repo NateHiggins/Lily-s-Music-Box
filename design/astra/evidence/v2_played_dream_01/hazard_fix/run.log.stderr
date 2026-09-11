@@ -1,0 +1,6 @@
+WARNING: contact with no campaign shell; outcome not committed
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _commit_outcome (res://scripts/dream/dream_maze_root.gd:1698)
+       [1] _block_a_funnel (res://tests/dream_hazard_test.gd:86)
+       [2] _spawn_root (res://tests/dream_hazard_test.gd:458)

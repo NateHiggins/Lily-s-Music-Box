@@ -1,0 +1,136 @@
+{
+  "base": "5e790a4",
+  "runs": {
+    "run_04": {
+      "checks": 50,
+      "failures": [],
+      "distance_m": 2.84999664872885,
+      "rooms": 1,
+      "outcomes": [
+        {
+          "case_id": "mina_caption_crisis",
+          "outcome": "capture"
+        }
+      ],
+      "impacts": [],
+      "stderr_bytes": 0
+    },
+    "run_05": {
+      "checks": 50,
+      "failures": [],
+      "distance_m": 7.51397848874331,
+      "rooms": 2,
+      "outcomes": [
+        {
+          "case_id": "mina_caption_crisis",
+          "outcome": "contact"
+        }
+      ],
+      "impacts": [],
+      "stderr_bytes": 0
+    },
+    "run_06": {
+      "checks": 52,
+      "failures": [],
+      "distance_m": 7.51397848874331,
+      "rooms": 2,
+      "outcomes": [
+        {
+          "case_id": "mina_caption_crisis",
+          "outcome": "contact"
+        }
+      ],
+      "impacts": [
+        {
+          "contact_s": 2.81666666666666,
+          "hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+          "kind": "conditional",
+          "lamp_on": true,
+          "minimum_warning_s": 0.9,
+          "module": "@0.0.1.0.1.2",
+          "outcome": "contact",
+          "realised_warning_s": 1.33333333333333,
+          "tell_distance_m": 5.4875693321228,
+          "tell_start_s": 1.48333333333333
+        }
+      ],
+      "stderr_bytes": 0
+    },
+    "run_07": {
+      "checks": 53,
+      "failures": [
+        "contact preserves the authored warning interval"
+      ],
+      "distance_m": 60.8619909309782,
+      "rooms": 6,
+      "outcomes": [
+        {
+          "case_id": "mina_caption_crisis",
+          "outcome": "capture"
+        }
+      ],
+      "impacts": [
+        {
+          "contact_s": 14.9500000000003,
+          "hazard_id": "hollow_runner@0.0.1.0.1.2.1.1.1.3",
+          "kind": "conditional",
+          "lamp_on": false,
+          "minimum_warning_s": 0.75,
+          "module": "@0.0.1.0.1.2.1.1.1.3",
+          "outcome": "",
+          "realised_warning_s": 0.566666666666695,
+          "tell_distance_m": 4.54674339294434,
+          "tell_start_s": 14.3833333333336
+        }
+      ],
+      "stderr_bytes": 783
+    },
+    "run_08": {
+      "checks": 53,
+      "failures": [],
+      "distance_m": 61.4412787458859,
+      "rooms": 6,
+      "outcomes": [
+        {
+          "case_id": "mina_caption_crisis",
+          "outcome": "capture"
+        }
+      ],
+      "impacts": [
+        {
+          "contact_s": 15.1333333333337,
+          "hazard_id": "hollow_runner@0.0.1.0.1.2.1.1.1.3",
+          "kind": "conditional",
+          "lamp_on": false,
+          "minimum_warning_s": 0.75,
+          "module": "@0.0.1.0.1.2.1.1.1.3",
+          "outcome": "",
+          "realised_warning_s": 0.750000000000037,
+          "tell_distance_m": 4.54674339294434,
+          "tell_start_s": 14.3833333333336
+        }
+      ],
+      "stderr_bytes": 0
+    }
+  },
+  "focused": {
+    "hazards": "45 checks pass; expected negative no-shell warning only",
+    "exposure": "36 checks pass; expected intentional overflow control warning only"
+  },
+  "capacity": {
+    "voxel_m": 0.5,
+    "old_grid": [
+      96,
+      8,
+      96
+    ],
+    "new_grid": [
+      192,
+      8,
+      192
+    ],
+    "old_rg8_bytes": 147456,
+    "new_rg8_bytes": 589824,
+    "note": "4x volume storage/upload; full release performance not measured"
+  }
+}

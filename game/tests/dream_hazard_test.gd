@@ -20,7 +20,7 @@ const SEED_HEX := "f123456789abcdef"
 const ALT_SEED_HEX := "f123456789abcdee"
 const PROFILE := "mina_release_print"
 const CASE := "mina_caption_crisis"
-const EXPECTED_CHECKS := 42
+const EXPECTED_CHECKS := 45
 const DT := 1.0 / 120.0
 
 var failures := 0
@@ -38,6 +38,16 @@ func _ready() -> void:
 	await _block_d_trunk()
 	await _block_e_void()
 	await _block_f_runner()
+	var quick := DreamHazard.new()
+	quick.position = Vector3.ZERO
+	quick.condition = "running"
+	quick.minimum_warning_s = .75
+	quick.evaluate(Vector3(4,0,0), false, 7.5, 10.0)
+	quick.evaluate(Vector3.ZERO, false, 7.5, 10.566)
+	_check("late-loaded runner waits for its full warning", not quick.contacted)
+	quick.evaluate(Vector3.ZERO, false, 7.5, 10.75)
+	_check("runner contacts when its authored warning has elapsed", quick.contacted)
+	_check("runner records the actual full warning", is_equal_approx(quick.contact_s-quick.tell_started_s,.75))
 	if checks != EXPECTED_CHECKS:
 		failures += 1
 		printerr("[N7] HARNESS FAIL: %d checks ran, %d expected"

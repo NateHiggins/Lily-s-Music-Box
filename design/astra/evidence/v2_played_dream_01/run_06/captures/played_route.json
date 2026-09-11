@@ -1,0 +1,88 @@
+{
+	"distance_m": 7.51397848874331,
+	"impacts": [
+		{
+			"contact_s": 2.81666666666666,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": true,
+			"minimum_warning_s": 0.9,
+			"module": "@0.0.1.0.1.2",
+			"outcome": "contact",
+			"realised_warning_s": 1.33333333333333,
+			"tell_distance_m": 5.4875693321228,
+			"tell_start_s": 1.48333333333333
+		}
+	],
+	"natural_return": true,
+	"outcomes": [
+		{
+			"case_id": "mina_caption_crisis",
+			"outcome": "contact"
+		}
+	],
+	"perceptions": [
+		{
+			"at_s": 1.48333333333333,
+			"bearing_deg": 7.30730691184209,
+			"caption": "TRUNK HISS",
+			"first": true,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": true,
+			"sector": "AHEAD"
+		},
+		{
+			"at_s": 2.16666666666666,
+			"bearing_deg": 310.131204265849,
+			"caption": "TRUNK HISS",
+			"first": true,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.3",
+			"kind": "conditional",
+			"lamp_on": true,
+			"sector": "AHEAD LEFT"
+		},
+		{
+			"at_s": 2.55,
+			"bearing_deg": 291.885740426562,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2.3",
+			"kind": "conditional",
+			"lamp_on": true,
+			"sector": "LEFT"
+		},
+		{
+			"at_s": 2.68333333333333,
+			"bearing_deg": 22.9765258490384,
+			"caption": "TRUNK HISS",
+			"first": false,
+			"hazard_id": "vantry_signal_trunk@0.0.1.0.1.2",
+			"kind": "conditional",
+			"lamp_on": true,
+			"sector": "AHEAD RIGHT"
+		}
+	],
+	"rooms": [
+		"@0.0.1.0.1",
+		"@0.0.1.0.1.2"
+	],
+	"trace": [
+		{
+			"collision_mask": 1,
+			"distance": 0.0,
+			"noclip": false,
+			"position": "(4.07, 0.0, 2.9)",
+			"room": "@0.0.1.0.1",
+			"seconds": 0.0
+		},
+		{
+			"collision_mask": 1,
+			"distance": 4.30784779787064,
+			"noclip": false,
+			"position": "(8.369416, 0.0, 2.652169)",
+			"room": "@0.0.1.0.1.2",
+			"seconds": 0.926
+		}
+	]
+}
