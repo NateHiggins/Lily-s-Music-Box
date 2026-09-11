@@ -43,6 +43,25 @@ func _route() -> void:
 		state.resolved = stage=="resolved"
 		state.recurrence_count = 0 if stage=="active" else 1
 		RealityState.commit()
+		await get_tree().process_frame
+		var remote := world.get_node("MinaRemoteCaptions")
+		var before: Dictionary = state.duplicate(true)
+		var count: int = remote.get("_remote_labels").size()
+		for identity in ["missing_v2_subject", "F04_B_BED"]:
+			AcousticGraphData.reality_event.emit(MinaCaptionManifestation.CASE_ID,identity,1.0,int(state.recurrence_count))
+		_require(remote.get("_remote_labels").size()==count,"remote display rejects absent and semantic-only subjects: "+stage)
+		AcousticGraphData.reality_event.emit("unrelated_case",str(fridge.name),1.0,0)
+		AcousticGraphData.reality_event.emit(MinaCaptionManifestation.CASE_ID,str(fridge.name),.05,int(state.recurrence_count))
+		_require(remote.get("_remote_labels").size()==count,"remote display ignores other cases and weak arrivals: "+stage)
+		AcousticGraphData.reality_event.emit(MinaCaptionManifestation.CASE_ID,str(fridge.name),1.0,int(state.recurrence_count))
+		var arrival := remote.get("_remote_labels").get(str(fridge.name)) as Label3D
+		_require((arrival!=null)==(stage in ["active","reopened"]),"remote arrival follows case visibility: "+stage)
+		if arrival!=null:
+			_require(arrival.get_parent()==fridge and arrival.position.is_equal_approx(Vector3.UP*.72),"remote caption follows actual V2 subject: "+stage)
+			_require((arrival.text=="BUILDING")==(stage=="active"),"remote recurrence replaces factual noun: "+stage)
+			AcousticGraphData.reality_event.emit(MinaCaptionManifestation.CASE_ID,str(fridge.name),1.0,int(state.recurrence_count))
+			_require(remote.get("_remote_labels").get(str(fridge.name))==arrival,"repeated arrival reuses one caption: "+stage)
+		_require(state==before,"remote display leaves case facts unchanged: "+stage)
 		for i in subjects.size():
 			var caption := subjects[i].get_node("MinaCaseCaption") as Label3D
 			_require(caption.visible==(stage in ["active","reopened"]),"caption visibility "+stage+"/"+str(i))

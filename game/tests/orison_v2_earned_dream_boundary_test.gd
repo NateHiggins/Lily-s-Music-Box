@@ -44,6 +44,9 @@ func _ready() -> void:
 	for caption in shell.active_world.find_children("MinaCaseCaption","Label3D",true,false):
 		retired_subjects.append(weakref(caption))
 	check(retired_subjects.size()==7,"all new 2A furniture and caption subjects are tracked")
+	var remote_display := shell.active_world.get_node_or_null("MinaRemoteCaptions")
+	check(remote_display != null,"V2 remote caption owner exists")
+	if remote_display != null: retired_subjects.append(weakref(remote_display))
 	for identity in ["4B_wake_bed", "4B_wake_nightstand", "F04_B_ALCOVE_SWITCH", "F04_B_ALCOVE_LT_FLUSH_DOME"]:
 		var furnishing := shell.active_world.find_child(identity,true,false)
 		check(furnishing is Node3D,"wake furnishing mounted: " + identity)

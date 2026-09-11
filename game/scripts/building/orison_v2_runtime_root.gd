@@ -264,6 +264,10 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: case caption subjects missing")
 		return
+	var remote_captions := preload("res://scripts/cases/orison_v2_remote_caption_display.gd").new()
+	remote_captions.name = "MinaRemoteCaptions"
+	remote_captions.adapter = adapter
+	add_child(remote_captions)
 	shop_simulation = ShopSimulation.new()
 	shop_simulation.name = "ShopSimulation"
 	add_child(shop_simulation)
