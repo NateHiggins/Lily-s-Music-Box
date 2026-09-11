@@ -1,5 +1,5 @@
 extends Node
-class WakeDriver extends "res://tests/orison_v2_vertical_route_test.gd":
+class WakeDriver extends "res://tests/orison_v2_connected_exterior_route_test.gd":
 	func _ready() -> void:
 		pass # The boundary owns the existing world and its earned player spawn.
 ## Boundary reconstruction from the preceding physically earned save. This
@@ -44,9 +44,9 @@ func _ready() -> void:
 	for caption in shell.active_world.find_children("MinaCaseCaption","Label3D",true,false):
 		retired_subjects.append(weakref(caption))
 	check(retired_subjects.size()==7,"all new 2A furniture and caption subjects are tracked")
-	for identity in ["4B_wake_bed", "4B_wake_nightstand"]:
+	for identity in ["4B_wake_bed", "4B_wake_nightstand", "F04_B_ALCOVE_SWITCH", "F04_B_ALCOVE_LT_FLUSH_DOME"]:
 		var furnishing := shell.active_world.find_child(identity,true,false)
-		check(furnishing is StaticBody3D,"wake furnishing mounted: " + identity)
+		check(furnishing is Node3D,"wake furnishing mounted: " + identity)
 		if furnishing != null: retired_subjects.append(weakref(furnishing))
 
 	check(shell.dream_director.enter_armed_dream(),"public dream entry accepts earned transaction")
@@ -107,6 +107,17 @@ func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 			Vector3(-11.95,9.6,7.25),Vector3(-11.95,9.6,8.9)]:
 		if not await driver._walk(point): break
 	check(driver.failures.is_empty() and driver.trace.size()==6,"wake capsule walks out through the hall and back to bedside")
+	var fixture := world.adapter.resolve("F04_B_ALCOVE_LT_FLUSH_DOME") as LightFixtureProp
+	var plate := world.adapter.resolve("F04_B_ALCOVE_SWITCH") as Node3D
+	if check(fixture != null and plate != null,"bedroom fixture and switch reconstruct"):
+		var original_power := fixture.powered
+		if await driver._walk(Vector3(-11.5,9.6,9.1)):
+			check(await driver._use(plate,plate.global_position,"bedroom_switch_off"),"physical bedroom switch is reachable")
+			check(fixture.powered != original_power,"bedroom switch changes fixture power")
+			check(await driver._use(plate,plate.global_position,"bedroom_switch_on"),"physical bedroom switch can be used again")
+			check(fixture.powered == original_power,"bedroom switch restores fixture power")
+			check(await driver._walk(Vector3(-11.95,9.6,8.9)),"player returns beside bed after switching")
+	check(driver.failures.is_empty(),"all wake movement and interactions pass")
 	FileAccess.open(output.path_join("wake_route.json"),FileAccess.WRITE).store_string(
 			JSON.stringify({"trace":driver.trace,"failures":driver.failures},"\t"))
 	driver.free()

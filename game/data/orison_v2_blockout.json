@@ -269,6 +269,9 @@
     {"id":"B1_BREECHING_MASS","level":"B1","position":[14.35,2.25,1.65],"size":[2.0,0.55,0.55],"class":"service","collision":true,"purpose":"boiler-to-flue relationship"}
   ],
   "anchors": [
+    {"id":"F04_B_ALCOVE_LT_FLUSH_DOME","level":"F04","space":"F04_B_ALCOVE","position":[-13.1,2.9,9.0],"yaw":0,"kind":"fixture"},
+    {"id":"F04_B_ALCOVE_SWITCH","level":"F04","space":"F04_B_ALCOVE","position":[-10.66,1.12,9.1],"yaw":1.5707963267948966,"kind":"interaction"},
+
     {"id":"4B_wake_bed","level":"F04","space":"F04_B_ALCOVE","position":[-13.1,0,8.9],"yaw":0,"kind":"furniture"},
     {"id":"4B_wake_nightstand","level":"F04","space":"F04_B_ALCOVE","position":[-12.05,0,9.95],"yaw":0,"kind":"furniture"},
 

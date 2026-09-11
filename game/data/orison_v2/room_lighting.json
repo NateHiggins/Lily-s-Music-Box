@@ -1,7 +1,23 @@
 {
   "fixtures": [
-    {"id":"B1_LAUNDRY_LT_FLUSH_DOME","room":"B1_LAUNDRY","kind":"flush_dome","properties":{"range_clamp":6.5,"energy_scale":1.5}},
-    {"id":"F02_A_MAIN_LT_PENDANT_SHADE","room":"F02_A_MAIN","kind":"pendant_shade","properties":{"range_clamp":7.0,"energy_scale":1.5}},
+    {
+      "id": "B1_LAUNDRY_LT_FLUSH_DOME",
+      "room": "B1_LAUNDRY",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+      "room": "F02_A_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 7.0,
+        "energy_scale": 1.5
+      }
+    },
     {
       "id": "F03_B_MAIN_LT_PENDANT_SHADE",
       "room": "F03_B_MAIN",
@@ -45,11 +61,26 @@
       "properties": {
         "variant": "bench_friction"
       }
+    },
+    {
+      "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+      "room": "F04_B_ALCOVE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.0,
+        "energy_scale": 1.25
+      }
     }
   ],
   "switches": [
-    {"id":"B1_LAUNDRY_SWITCH","room":"B1_LAUNDRY"},
-    {"id":"F02_A_MAIN_SWITCH","room":"F02_A_MAIN"},
+    {
+      "id": "B1_LAUNDRY_SWITCH",
+      "room": "B1_LAUNDRY"
+    },
+    {
+      "id": "F02_A_MAIN_SWITCH",
+      "room": "F02_A_MAIN"
+    },
     {
       "id": "F03_B_MAIN_SWITCH",
       "room": "F03_B_MAIN"
@@ -65,6 +96,10 @@
     {
       "id": "F03_B_BATH_SWITCH",
       "room": "F03_B_BATH"
+    },
+    {
+      "id": "F04_B_ALCOVE_SWITCH",
+      "room": "F04_B_ALCOVE"
     }
   ]
 }
