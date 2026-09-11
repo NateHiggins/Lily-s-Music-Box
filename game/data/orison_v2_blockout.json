@@ -372,7 +372,11 @@
     {"id":"F03_B_MAIN_SWITCH","level":"F03","space":"F03_B_MAIN","position":[11.59,1.12,-1.7],"yaw":-1.5707963267948966,"kind":"interaction"},
     {"id":"F03_B_KITCHEN_SWITCH","level":"F03","space":"F03_B_KITCHEN","position":[9.59,1.12,-7.55],"yaw":-1.5707963267948966,"kind":"interaction"},
     {"id":"F03_B_ALCOVE_SWITCH","level":"F03","space":"F03_B_ALCOVE","position":[12.91,1.12,-9.8],"yaw":1.5707963267948966,"kind":"interaction"},
-    {"id":"F03_B_BATH_SWITCH","level":"F03","space":"F03_B_BATH","position":[14.8,1.12,-9.89],"yaw":0,"kind":"interaction"}
+    {"id":"F03_B_BATH_SWITCH","level":"F03","space":"F03_B_BATH","position":[14.8,1.12,-9.89],"yaw":0,"kind":"interaction"},
+    {"id": "4B_couch","level": "F04","space": "F04_B_MAIN","position": [-12.65,0,-3.15],"yaw": 3.141592653589793,"kind": "furniture"},
+    {"id": "4B_couch_STANCE","level": "F04","space": "F04_B_MAIN","position": [-12.65,0,-1.8],"yaw": 6.283185307179586,"kind": "clearance"},
+    {"id": "4B_shelf","level": "F04","space": "F04_B_MAIN","position": [-8.45,0,-3.5],"yaw": 3.141592653589793,"kind": "furniture"},
+    {"id": "4B_shelf_STANCE","level": "F04","space": "F04_B_MAIN","position": [-8.45,0,-2.45],"yaw": 6.283185307179586,"kind": "clearance"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

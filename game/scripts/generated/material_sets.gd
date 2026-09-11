@@ -9,6 +9,12 @@ const SETS := {
 	'concrete': ["T_ai_materials_concrete_albedo.png", "T_ai_materials_concrete_rough.png", "T_ai_materials_concrete_normal.png", 2.8, 0],
 	'terrazzo': ["T_ai_materials_terrazzo_albedo.png", "T_ai_materials_terrazzo_rough.png", "T_ai_materials_terrazzo_normal.png", 4, 0],
 	'stair': ["T_ai_materials_stair_albedo.png", "T_ai_materials_stair_rough.png", "T_ai_materials_stair_normal.png", 1.2, 0],
+	'book_burgundy': ["T_library_furniture_book_burgundy_albedo.png", "T_library_furniture_book_burgundy_rough.png", "T_library_furniture_book_burgundy_normal.png", 0.32, 0],
+	'book_green': ["T_library_furniture_book_green_albedo.png", "T_library_furniture_book_green_rough.png", "T_library_furniture_book_green_normal.png", 0.32, 0],
+	'book_navy': ["T_library_furniture_book_navy_albedo.png", "T_library_furniture_book_navy_rough.png", "T_library_furniture_book_navy_normal.png", 0.32, 0],
+	'book_ochre': ["T_library_furniture_book_ochre_albedo.png", "T_library_furniture_book_ochre_rough.png", "T_library_furniture_book_ochre_normal.png", 0.32, 0],
+	'book_teal': ["T_library_furniture_book_teal_albedo.png", "T_library_furniture_book_teal_rough.png", "T_library_furniture_book_teal_normal.png", 0.32, 0],
+	'book_brown': ["T_library_furniture_book_brown_albedo.png", "T_library_furniture_book_brown_rough.png", "T_library_furniture_book_brown_normal.png", 0.32, 0],
 	'enamel': ["T_library_appliances_aged_enamel_worn_enamel_albedo.png", "T_library_appliances_aged_enamel_worn_enamel_rough.png", "T_library_appliances_aged_enamel_normal.png", 1, 0], # visual lock
 	'enamel_appliance': ["T_ai_materials_enamel_appliance_albedo.png", "T_ai_materials_enamel_appliance_rough.png", "T_ai_materials_enamel_appliance_normal.png", 0.72, 0],
 	'appliance': ["T_library_appliances_aged_enamel_worn_appliance_albedo.png", "T_library_appliances_aged_enamel_worn_appliance_rough.png", "T_library_appliances_aged_enamel_normal.png", 1, 0], # visual lock

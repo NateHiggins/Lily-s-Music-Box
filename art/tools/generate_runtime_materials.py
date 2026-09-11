@@ -27,6 +27,8 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 RUNTIME_POLICY = {
     "plaster_stained": {}, "floor_oak": {}, "ceramic": {}, "subway_tile": {},
     "concrete": {}, "terrazzo": {}, "stair": {},
+    "book_burgundy": {}, "book_green": {}, "book_navy": {},
+    "book_ochre": {}, "book_teal": {}, "book_brown": {},
     "enamel": {}, "enamel_appliance": {}, "appliance": {},
     "metal": {}, "chrome": {},
     "bakelite": {}, "cast_iron": {"roughness_multiplier": 0.60},
@@ -99,7 +101,12 @@ def _metadata_for(mapped: str) -> dict:
 
 
 def _canonical_files(key: str) -> list[str]:
-    return ["T_ai_materials_%s_%s.png" % (key, suffix)
+    mapped = str(_read_json(MAPPING).get(key, ""))
+    # Library plates already ship under their catalog path. Resolve that
+    # identity directly instead of inventing an AI-stage copy of the asset.
+    stem = "T_" + mapped.replace("/", "_") if mapped.startswith("library/") \
+        else "T_ai_materials_" + key
+    return ["%s_%s.png" % (stem, suffix)
             for suffix in ("albedo", "rough", "normal")]
 
 
@@ -226,6 +233,9 @@ def validate(contract: dict, require_current: bool = True) -> list[str]:
 
 def generate() -> list[Path]:
     contract = build_contract()
+    errors = validate(contract, require_current=False)
+    if errors:
+        raise RuntimeError("\n".join(errors))
     changed = []
     data = _json_bytes(contract)
     for path in MANIFESTS:
