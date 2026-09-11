@@ -1,0 +1,38 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+  [loop ok] Mina's complaint recognizes a discovered job without overwriting it
+  [loop ok] a discovered start enters the same coordinator flow
+  [loop ok] clock-in asks the campaign owner to place the authored first report
+  [loop ok] clocking in or offering twice neither duplicates nor resets the report
+  [loop ok] offering work activates no case before the player takes its paper
+  [loop ok] the loop starts idle
+  [loop ok] save/load before issue resumes idle without issuing
+  [loop ok] Mina's complaint issues the job with reported origin
+  [loop ok] a repeated complaint neither duplicates nor resets the job
+  [loop ok] unrelated case and dialogue events are ignored
+  [loop ok] save/load at issued/acknowledged resumes in place
+  [loop ok] save/load at awaiting_part resumes in place
+  [loop ok] the real shop transaction still drives repairable
+  [loop ok] save/load at repairable duplicates nothing and requests nothing
+  [loop ok] repair requests the earned conversation without closing
+  [loop ok] save/load at conversation-pending does not re-request
+  [loop ok] an ordinary conversation flag does not close the job
+  [loop ok] the case owner carries recurrence and its second stabilization
+  [loop ok] the first resolution flag cannot close an incomplete rule
+  [loop ok] the complete rule closes the job but still waits for integration
+  [loop ok] save/load at conversation-complete waits for integration
+  [loop ok] conversation completion alone does not request a dream
+  [loop ok] final case integration arms the dream window
+  [loop ok] integration during protection still suppresses dream entry
+  [loop ok] dream entry is requested once the protection lifts
+  [loop ok] save/load at dream-pending re-requests exactly once
+  [loop ok] wake completion accepts the boundary
+  [loop ok] wake returns the player to the authored 4B bedside anchor
+  [loop ok] legacy return without authored facing preserves orientation
+  [loop ok] wake preserves repair, spent capsule, evidence and closed job
+  [loop ok] a duplicate wake is rejected without mutation
+  [loop ok] save/load after wake resurrects neither dream, item nor chirp
+BOUNDARY TRACE: idle | job_open | awaiting_part | repairable | conversation_pending | conversation_complete | dream_pending | wake_complete
+CORE LOOP TEST: PASS

@@ -72,6 +72,10 @@ func _ready() -> void:
 	var world := shell.active_world as OrisonV2RuntimeRoot
 	var anchor := shell.core_loop.resolve_return_anchor()
 	check(world.player.global_position.distance_to(anchor.position)<.5,"wake lands at V2 authored bedside")
+	var facing: Vector3 = anchor.facing_position
+	check((-world.player.camera.global_basis.z).dot(
+			(facing-world.player.camera.global_position).normalized())>.99,
+			"actual wake view faces the authored bed without review staging")
 	check(world.work_orders.job_stage(ChirpHunt.JOB_ID)=="closed" and RealityState.case_state(MinaCaseGameplay.CASE_ID).resolved,"wake preserves earned work and resolution")
 	check(RealityState.has_waking_residue(MinaCaptionManifestation.RESIDUE_ID),"wake records the factual Mina residue")
 	await RenderingServer.frame_post_draw
@@ -105,7 +109,7 @@ func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 		ray.exclude = [world.player.get_rid()]
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
 		var collider := hit.get("collider") as Node
-		var room := world.adapter.resolve("F04_B_ALCOVE")
+		var room: Node = world.adapter.resolve("F04_B_ALCOVE")
 		check(collider != null and room != null and room.is_ancestor_of(collider),
 				"alcove owns a solid east boundary at z=" + str(z))
 	var bed := world.adapter.resolve("4B_wake_bed") as Node3D

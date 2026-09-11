@@ -258,6 +258,14 @@ func _build_hud() -> void:
 	pause_services.call("bind_player", self)
 
 
+## Orient a reconstructed player toward an authored world-space return subject.
+func face_world_point(target: Vector3) -> void:
+	var direction := target - global_position
+	if not target.is_finite() or Vector2(direction.x, direction.z).length_squared() < .0001:
+		return
+	global_rotation = Vector3(0, atan2(-direction.x, -direction.z), 0)
+	camera.look_at(target)
+
 ## What the crosshair is looking at, refreshed for the prompt line.
 func _update_prompt() -> void:
 	_prompt.text = ""

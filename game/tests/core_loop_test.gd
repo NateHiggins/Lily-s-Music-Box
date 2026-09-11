@@ -254,12 +254,15 @@ func _reported_golden_loop() -> void:
 
 	# The wake boundary returns the player and erases no committed work.
 	player.global_position = Vector3(50, 0, 50)
+	player.rotation.y = .7
 	_check(director.notify_wake_complete() and wakes == 1,
 			"wake completion accepts the boundary")
 	var anchor := director.resolve_return_anchor()
 	_check(not anchor.is_empty()
 			and player.global_position.distance_to(anchor.position) < 0.01,
 			"wake returns the player to the authored 4B bedside anchor")
+	_check(not anchor.has("facing_position") and is_equal_approx(player.rotation.y, .7),
+			"legacy return without authored facing preserves orientation")
 	var job := work_orders.job_state(JOB)
 	_check(str(job.stage) == "closed" and job.evidence == ["no_battery_bay"]
 			and str(job.repair_result.quality) == "good"

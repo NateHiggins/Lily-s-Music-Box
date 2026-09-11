@@ -1,4 +1,33 @@
-# 4B east enclosure correction — runtime pending
+# 4B east enclosure and authored wake view
+
+## Runtime follow-up (base 7c0b5c2)
+
+boundary_02 exposed a Godot type-inference error in the new test's room
+variable. It now explicitly declares Node. Only the verified owned test
+processes were stopped; the failed log is retained.
+
+boundary_03 passes 36 checks, including all three east-wall collision rays,
+the eight normal controller waypoints, two physical switch presses, actual
+Dream/V2 replacement, subject release and disk reload. Its actual wake image
+shows the exposed-sky gap replaced by the room wall. Stderr is empty.
+
+The V2 return anchor now optionally supplies a world-space facing position
+above the semantic bed. CoreLoopDirector applies it through the player's
+face_world_point method after the existing placement and velocity reset.
+The method keeps the body level and aims the camera at the authored subject.
+Legacy anchors have no facing field and retain their previous orientation.
+No campaign facts, Dream outcome, return position or selector defaults change.
+
+boundary_04 passes 37 checks with empty stderr, adding a direction check on
+the actual wake camera before any review staging. The inspected earned_wake
+image now faces the physical bed. This improves orientation after returning;
+the room's material, furnishing and window presentation still need finishing.
+
+The first legacy CoreLoopTest attempt was refused because another Godot run
+acquired the lane. After it exited, core_loop_02 passed with empty stderr,
+including the new assertion that a legacy return preserves orientation.
+
+## Initial source checkpoint
 
 Base 1537018. The preceding earned_wake capture exposed sky beside the bed.
 Source inspection found that F04_B_ALCOVE omitted its east wall, relying on
