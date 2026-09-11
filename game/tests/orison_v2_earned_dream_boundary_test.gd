@@ -21,6 +21,7 @@ func _ready() -> void:
 		get_tree().quit(1)
 		return
 	RealityState.persistence_enabled = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	RealityState.save_path = source
 	RealityState.load_game()
 	RealityState.save_path = output.path_join("boundary_save.json")
@@ -124,8 +125,10 @@ func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 	FileAccess.open(output.path_join("wake_route.json"),FileAccess.WRITE).store_string(
 			JSON.stringify({"trace":driver.trace,"failures":driver.failures},"\t"))
 	driver.free()
-	world.player.rotation.y = PI/2
-	world.player.camera.rotation.x = -.25
+	var view_target := bed.global_position + Vector3.UP * .5
+	var view_delta := view_target - world.player.global_position
+	world.player.rotation.y = atan2(-view_delta.x,-view_delta.z)
+	world.player.camera.look_at(view_target)
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join("bedside_review.png"))
 
