@@ -140,6 +140,20 @@
       "roughness_multiplier": 0.6,
       "visual_lock": false
     },
+    "ceramic": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.65,
+      "catalog_mapping": "ai_materials/ceramic",
+      "files": [
+        "T_ai_materials_ceramic_albedo.png",
+        "T_ai_materials_ceramic_rough.png",
+        "T_ai_materials_ceramic_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.65,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "chrome": {
       "alpha": false,
       "canonical_meters_per_tile": 0.8,
@@ -153,6 +167,20 @@
       "meters_per_tile": 0.8,
       "roughness_multiplier": 1.0,
       "visual_lock": true
+    },
+    "concrete": {
+      "alpha": false,
+      "canonical_meters_per_tile": 2.8,
+      "catalog_mapping": "ai_materials/concrete",
+      "files": [
+        "T_ai_materials_concrete_albedo.png",
+        "T_ai_materials_concrete_rough.png",
+        "T_ai_materials_concrete_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 2.8,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
     },
     "copper_aged": {
       "alpha": false,
@@ -209,6 +237,20 @@
       "meters_per_tile": 0.7,
       "roughness_multiplier": 1.0,
       "visual_lock": true
+    },
+    "floor_oak": {
+      "alpha": false,
+      "canonical_meters_per_tile": 2.7,
+      "catalog_mapping": "ai_materials/floor_oak",
+      "files": [
+        "T_ai_materials_floor_oak_albedo.png",
+        "T_ai_materials_floor_oak_rough.png",
+        "T_ai_materials_floor_oak_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 2.7,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
     },
     "fx_grease": {
       "alpha": true,
@@ -364,6 +406,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "plaster_stained": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.8,
+      "catalog_mapping": "ai_materials/plaster_stained",
+      "files": [
+        "T_ai_materials_plaster_stained_albedo.png",
+        "T_ai_materials_plaster_stained_rough.png",
+        "T_ai_materials_plaster_stained_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.8,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "porcelain": {
       "alpha": false,
       "canonical_meters_per_tile": 0.4,
@@ -433,6 +489,48 @@
       "meters_per_tile": 0.55,
       "roughness_multiplier": 0.9,
       "visual_lock": true
+    },
+    "stair": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/stair",
+      "files": [
+        "T_ai_materials_stair_albedo.png",
+        "T_ai_materials_stair_rough.png",
+        "T_ai_materials_stair_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "subway_tile": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.67,
+      "catalog_mapping": "ai_materials/subway_tile",
+      "files": [
+        "T_ai_materials_subway_tile_albedo.png",
+        "T_ai_materials_subway_tile_rough.png",
+        "T_ai_materials_subway_tile_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.67,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "terrazzo": {
+      "alpha": false,
+      "canonical_meters_per_tile": 4.0,
+      "catalog_mapping": "ai_materials/terrazzo",
+      "files": [
+        "T_ai_materials_terrazzo_albedo.png",
+        "T_ai_materials_terrazzo_rough.png",
+        "T_ai_materials_terrazzo_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 4.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
     },
     "terrazzo_dark": {
       "alpha": false,

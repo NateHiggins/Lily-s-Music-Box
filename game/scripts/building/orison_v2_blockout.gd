@@ -8,6 +8,8 @@ extends Node3D
 ## Keep semantic bounds while production hides nonphysical reservation meshes.
 @export var show_reservation_volumes := true
 @export var hold_route_doors_open := true
+@export var production_materials := false
+var architectural_materials := preload("res://scripts/building/orison_v2_architectural_materials.gd").new()
 ## A composed exterior may own an open review space's physical geometry.
 @export var space_geometry_exclusions: Array[String] = []
 
@@ -803,6 +805,9 @@ func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 	mesh.size = size
 	mesh.material = materials.get(material_key, materials.get("unresolved"))
 	mesh_node.mesh = mesh
+	if production_materials and material_key not in ["clearance", "interaction", "unresolved"]:
+		mesh_node.material_override = architectural_materials.material_for(node_name,material_key)
+		mesh_node.set_meta("v2_material_key",architectural_materials.key_for(node_name,material_key))
 	mesh_node.position = at
 	parent.add_child(mesh_node)
 	if collision:

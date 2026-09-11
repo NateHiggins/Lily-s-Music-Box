@@ -7,6 +7,7 @@ const PUBLIC := Color(0.18, 0.48, 0.72)
 const UNIT_2A := Color(0.18, 0.58, 0.42)
 const UNIT_4B := Color(0.72, 0.38, 0.16)
 const WARM := Color(1.0, 0.72, 0.38)
+var show_bed_context := true
 
 func _ready() -> void:
 	_portal(Vector3(0, 0, -11.65), 0.0, 1.1, 2.13, PUBLIC, "PUBLIC ENTRANCE")
@@ -23,15 +24,16 @@ func _ready() -> void:
 	_band(Vector3(1.1, 0.012, -3.35), Vector3(2.2, 0.024, 0.16), PUBLIC)
 	_band(Vector3(-3.55, 3.212, 0), Vector3(3.7, 0.024, 0.16), UNIT_2A)
 	_band(Vector3(-3.55, 9.612, 0), Vector3(3.7, 0.024, 0.16), UNIT_4B)
-	_band(Vector3(-11.55, 9.612, 5.1), Vector3(0.16, 0.024, 7.0), UNIT_4B)
+	if show_bed_context:
+		_band(Vector3(-11.55, 9.612, 5.1), Vector3(0.16, 0.024, 7.0), UNIT_4B)
 	_terminal_mass()
-	_bed_mass()
+	if show_bed_context: _bed_mass()
 	_light(Vector3(0, 2.25, -10.2), WARM, 6.0, 2.2)
 	_light(Vector3(1.8, 2.2, -3.0), PUBLIC, 6.0, 2.0)
 	_light(Vector3(-5.6, 5.15, 0), UNIT_2A, 4.0, 1.4)
 	_light(Vector3(-5.6, 11.55, 0), UNIT_4B, 4.0, 1.4)
 	_light(Vector3(-9.05, 11.0, 1.25), WARM, 3.8, 1.25)
-	_light(Vector3(-13.1, 11.0, 8.9), WARM, 4.0, 1.15)
+	if show_bed_context: _light(Vector3(-13.1, 11.0, 8.9), WARM, 4.0, 1.15)
 
 func _portal(at: Vector3, yaw: float, width: float, height: float,
 		color: Color, words: String) -> void:

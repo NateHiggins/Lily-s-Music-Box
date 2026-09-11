@@ -105,6 +105,28 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	var finishes: Dictionary = {}
+	var mapped := 0
+	var maps_valid := true
+	for visual: MeshInstance3D in world.adapter.root.find_children("*","MeshInstance3D",true,false):
+		if not visual.has_meta("v2_material_key"): continue
+		var key := str(visual.get_meta("v2_material_key"))
+		finishes[key] = true
+		mapped += 1
+		var material := visual.material_override as ShaderMaterial
+		if key != "glass":
+			maps_valid = maps_valid and material != null
+			if material != null:
+				maps_valid = maps_valid and material.get_shader_parameter("albedo_tex") is Texture2D \
+						and material.get_shader_parameter("normal_tex") is Texture2D \
+						and material.get_shader_parameter("rough_tex") is Texture2D
+	check(mapped>100 and maps_valid,"V2 architecture consumes actual albedo normal and roughness maps")
+	for key in ["floor_oak","plaster_stained","trim","ceramic","subway_tile","stair","glass"]:
+		check(finishes.has(key),"architectural material family mounted: "+key)
+	check(world.adapter.root.find_child("BedHomeContext",true,false)==null,
+			"playable V2 omits the overlapping schematic bed")
+	FileAccess.open(output.path_join("architectural_materials.json"),FileAccess.WRITE).store_string(
+			JSON.stringify({"mapped_meshes":mapped,"families":finishes.keys(),"maps_valid":maps_valid},"\t"))
 	# Probe the previously missing wall at normal player height, including the
 	# edge just beyond the approach room. The walking route proves the opening.
 	for z in [8.3, 8.9, 10.8]:
@@ -135,6 +157,11 @@ func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 	var fixture := world.adapter.resolve("F04_B_ALCOVE_LT_FLUSH_DOME") as LightFixtureProp
 	var plate := world.adapter.resolve("F04_B_ALCOVE_SWITCH") as Node3D
 	if check(fixture != null and plate != null,"bedroom fixture and switch reconstruct"):
+		var rig := world.find_child("LightRig",true,false)
+		print("WAKE_FIXTURE ",JSON.stringify({"powered":fixture.powered,
+				"energy":fixture.light.light_energy,"scale":fixture.get("_target_scale"),
+				"position":str(fixture.light.global_position),"visible":fixture.light.visible,
+				"active_floor":rig.get("active_floor") if rig else "missing"}))
 		var original_power := fixture.powered
 		if await driver._walk(Vector3(-11.5,9.6,9.1)):
 			check(await driver._use(plate,plate.global_position,"bedroom_switch_off"),"physical bedroom switch is reachable")

@@ -85,6 +85,7 @@ func _ready() -> void:
 	_blockout = BLOCKOUT.instantiate()
 	_blockout.show_clearance_anchors = false
 	_blockout.show_reservation_volumes = false
+	_blockout.production_materials = true
 	_exterior_resolver = ExteriorResolver.load_default()
 	_connection = WorldConnection.prepare(
 			WorldConnection.read_object(_blockout.layout_path),
@@ -110,7 +111,9 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: unresolved or duplicate required anchor")
 		return
-	_blockout.add_child(CUES.new())
+	var cues := CUES.new()
+	cues.show_bed_context = false
+	_blockout.add_child(cues)
 	if not adapter.install_acoustic_overrides([
 			"F02_A_MAIN_VANTRY_POINT", "F02_A_MONITOR_01",
 			"F04_B_MONITOR_01", "F03_B_RADIATOR_01"]):

@@ -25,6 +25,8 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # its authored roughness map by this value; selected finishes deliberately cap
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
+    "plaster_stained": {}, "floor_oak": {}, "ceramic": {}, "subway_tile": {},
+    "concrete": {}, "terrazzo": {}, "stair": {},
     "enamel": {}, "enamel_appliance": {}, "appliance": {},
     "metal": {}, "chrome": {},
     "bakelite": {}, "cast_iron": {"roughness_multiplier": 0.60},
