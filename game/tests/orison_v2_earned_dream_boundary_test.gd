@@ -64,7 +64,9 @@ func _ready() -> void:
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join("earned_dream.png"))
 	var dream: WeakRef = weakref(shell.active_world)
-	check(shell.dream_director.end_dream("contact"),"public outcome commits return transaction")
+	if not check(await complete_dream(),"dream outcome commits return transaction"):
+		await finish()
+		return
 	await get_tree().create_timer(1).timeout
 	check(shell.world_kind()=="waking" and shell.active_world is OrisonV2RuntimeRoot and shell.world_child_count()==1,"actual V2 reconstructs after dream")
 	check(dream.get_ref()==null,"retired Dream root is released")
@@ -98,6 +100,9 @@ func _ready() -> void:
 			and RealityState.waking_residue(MinaCaptionManifestation.RESIDUE_ID)==residue,
 			"disk reload preserves completed wake and the exact factual residue")
 	await finish()
+
+func complete_dream() -> bool:
+	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 	# Probe the previously missing wall at normal player height, including the
