@@ -31,24 +31,7 @@ func mount(adapter: Variant) -> bool:
 				collision.position = (high + low) * 0.5
 				body.add_child(collision)
 		body.set_meta("v2_furniture_id", str(record.id))
-		for surface: Dictionary in record.surfaces:
-			var arrays: Array = []
-			arrays.resize(Mesh.ARRAY_MAX)
-			var vertices := PackedVector3Array()
-			var normals := PackedVector3Array()
-			for i in range(0, surface.vertices.size(), 3):
-				vertices.append(Vector3(surface.vertices[i], surface.vertices[i + 1], surface.vertices[i + 2]))
-				normals.append(Vector3(surface.normals[i], surface.normals[i + 1], surface.normals[i + 2]))
-			arrays[Mesh.ARRAY_VERTEX] = vertices
-			arrays[Mesh.ARRAY_NORMAL] = normals
-			var mesh := ArrayMesh.new()
-			mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-			var visual := MeshInstance3D.new()
-			visual.mesh = mesh
-			visual.material_override = _material(str(surface.material))
-			body.add_child(visual)
-			if surface.material == "glassish":
-				preload("res://scripts/lamp/lamp_optical_receivers.gd").add_glass_haze(visual)
+		_add_surfaces(body, record.surfaces)
 		if not adapter.mount_consumer(str(record.id), body):
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
@@ -97,24 +80,47 @@ func validate(source: Variant, adapter: Variant) -> bool:
 							or box[0][axis] < bounds[0][axis] \
 							or box[1][axis] > bounds[1][axis]:
 						errors.append("furniture collision box exceeds its bounds")
-		if record.get("surfaces") is not Array or record.surfaces.is_empty():
-			errors.append("missing furniture surfaces")
-			continue
-		for surface: Variant in record.surfaces:
-			if surface is not Dictionary or surface.get("material") is not String:
-				errors.append("invalid furniture surface")
-				continue
-			if surface.material != "glassish" and not MatLib.SETS.has(MATERIAL_ALIASES.get(surface.material, surface.material)):
-				errors.append("unknown furniture material")
-			var vertices: Variant = surface.get("vertices")
-			if vertices is not Array or vertices.is_empty() or vertices.size() % 9 != 0:
-				errors.append("invalid furniture triangles")
-				continue
-			if not _numbers(vertices, vertices.size()) or not _numbers(surface.get("normals"), vertices.size()):
-				errors.append("invalid furniture coordinates or normals")
+		_validate_surfaces(record.get("surfaces"))
 	if seen.is_empty():
 		errors.append("empty furniture source")
 	return errors.is_empty()
+
+func _add_surfaces(body: Node3D, surfaces: Array) -> void:
+	for surface: Dictionary in surfaces:
+		var arrays: Array = []
+		arrays.resize(Mesh.ARRAY_MAX)
+		var vertices := PackedVector3Array()
+		var normals := PackedVector3Array()
+		for i in range(0, surface.vertices.size(), 3):
+			vertices.append(Vector3(surface.vertices[i], surface.vertices[i + 1], surface.vertices[i + 2]))
+			normals.append(Vector3(surface.normals[i], surface.normals[i + 1], surface.normals[i + 2]))
+		arrays[Mesh.ARRAY_VERTEX] = vertices
+		arrays[Mesh.ARRAY_NORMAL] = normals
+		var mesh := ArrayMesh.new()
+		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		var visual := MeshInstance3D.new()
+		visual.mesh = mesh
+		visual.material_override = _material(str(surface.material))
+		body.add_child(visual)
+		if surface.material == "glassish":
+			preload("res://scripts/lamp/lamp_optical_receivers.gd").add_glass_haze(visual)
+
+func _validate_surfaces(surfaces: Variant) -> void:
+	if surfaces is not Array or surfaces.is_empty():
+		errors.append("missing furniture surfaces")
+		return
+	for surface: Variant in surfaces:
+		if surface is not Dictionary or surface.get("material") is not String:
+			errors.append("invalid furniture surface")
+			continue
+		if surface.material != "glassish" and not MatLib.SETS.has(MATERIAL_ALIASES.get(surface.material, surface.material)):
+			errors.append("unknown furniture material")
+		var vertices: Variant = surface.get("vertices")
+		if vertices is not Array or vertices.is_empty() or vertices.size() % 9 != 0:
+			errors.append("invalid furniture triangles")
+			continue
+		if not _numbers(vertices, vertices.size()) or not _numbers(surface.get("normals"), vertices.size()):
+			errors.append("invalid furniture coordinates or normals")
 
 func _numbers(values: Variant, count: int) -> bool:
 	if values is not Array or values.size() != count:

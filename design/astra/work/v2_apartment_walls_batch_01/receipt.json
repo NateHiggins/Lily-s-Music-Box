@@ -1,0 +1,184 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "rooms": 26,
+  "missing_intervals_before": 15,
+  "missing_intervals_after": 0,
+  "added_wall_intervals": [
+    {
+      "owner": "F02_A_VESTIBULE",
+      "level": "F02",
+      "side": "east",
+      "axis": "z",
+      "fixed": -5.6,
+      "start": -1.35,
+      "end": -0.6,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F02_A_VESTIBULE",
+      "level": "F02",
+      "side": "east",
+      "axis": "z",
+      "fixed": -5.6,
+      "start": 0.6,
+      "end": 1.35,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F02_A_MAIN",
+      "level": "F02",
+      "side": "east",
+      "axis": "z",
+      "fixed": -7.55,
+      "start": -3.85,
+      "end": -1.35,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F02_A_MAIN",
+      "level": "F02",
+      "side": "east",
+      "axis": "z",
+      "fixed": -7.55,
+      "start": 1.35,
+      "end": 3.1,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F02_A_BATH",
+      "level": "F02",
+      "side": "south",
+      "axis": "x",
+      "fixed": 3.1,
+      "start": -7.55,
+      "end": -5.95,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F02_A_BED",
+      "level": "F02",
+      "side": "east",
+      "axis": "z",
+      "fixed": -10.25,
+      "start": 7.85,
+      "end": 11.65,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F02_B_MAIN",
+      "level": "F02",
+      "side": "east",
+      "axis": "z",
+      "fixed": 15.65,
+      "start": -4.2,
+      "end": 0.3,
+      "extension": true,
+      "apertures": [
+        {
+          "id": "F02_B_MAIN_WINDOW_E",
+          "start": -2.55,
+          "end": -1.05,
+          "sill": 0.75,
+          "height": 1.7
+        }
+      ]
+    },
+    {
+      "owner": "F02_B_KITCHEN",
+      "level": "F02",
+      "side": "north",
+      "axis": "x",
+      "fixed": -4.2,
+      "start": 9.5,
+      "end": 11.5,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F04_B_VESTIBULE",
+      "level": "F04",
+      "side": "east",
+      "axis": "z",
+      "fixed": -5.6,
+      "start": -1.35,
+      "end": -0.6,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F04_B_VESTIBULE",
+      "level": "F04",
+      "side": "east",
+      "axis": "z",
+      "fixed": -5.6,
+      "start": 0.6,
+      "end": 1.65,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F04_B_MAIN",
+      "level": "F04",
+      "side": "east",
+      "axis": "z",
+      "fixed": -7.55,
+      "start": -3.85,
+      "end": -1.35,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F04_B_MAIN",
+      "level": "F04",
+      "side": "east",
+      "axis": "z",
+      "fixed": -7.55,
+      "start": 1.65,
+      "end": 3.45,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F04_B_ALCOVE_APPROACH",
+      "level": "F04",
+      "side": "south",
+      "axis": "x",
+      "fixed": 6.35,
+      "start": -9.05,
+      "end": -7.55,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F04_B_BATH",
+      "level": "F04",
+      "side": "south",
+      "axis": "x",
+      "fixed": 3.45,
+      "start": -7.55,
+      "end": -5.95,
+      "extension": true,
+      "apertures": []
+    },
+    {
+      "owner": "F04_B_CLOSET",
+      "level": "F04",
+      "side": "west",
+      "axis": "z",
+      "fixed": -7.55,
+      "start": 6.05,
+      "end": 6.35,
+      "extension": true,
+      "apertures": []
+    }
+  ],
+  "route_samples": 6754,
+  "limits": "Owned boundary coverage only. Authored apertures retained. Source routes checked only against added wall intervals; runtime physics, visual seams and light containment remain unverified."
+}

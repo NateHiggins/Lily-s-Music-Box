@@ -330,5 +330,14 @@
     "checks": "Source sweeps against furniture/fittings/case tables, 1647 resident-route samples and 3755 player-route samples pass. All affected GDScript syntax parses; runtime input, timetable and teardown checks prepared.",
     "next": "Continue category passes for storage and surface props, audit full room/wall programs and extend the remaining twenty source unit IDs. Include separate case/service collision owners in occupancy checks.",
     "limits": "Godot prohibited; physical motion, target visibility, hardware/jamb clearance, visuals, acoustics, persistence, performance and lifecycle unverified. V2 not complete or default; S2J remains open."
+  },
+  "v2_apartment_surface_props_and_walls_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_surface_props_and_walls_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "scope": "19 support-owned surface props across all four detailed apartments; 9148 triangles using shared furniture materials. Fifteen missing wall intervals across eleven room edges now have explicit bounded ownership; all 26 detailed apartment boundaries audited. Existing semantic records preserved.",
+    "checks": "Support/material/separation and repeatability checks pass. New wall solids avoid furniture/fitting estimates and separate case tables; 6754 source route samples pass. Existing seating/lighting/door checks and independent syntax parse pass. Composition, teardown, aperture and malformed-input engine checks prepared.",
+    "next": "Batch remaining cabinetry/storage, coffee tables, boards and equipment. Establish room programs for twenty other source unit IDs, remaining levels/services and persistence. Run prepared runtime/visual checks when Godot is permitted.",
+    "limits": "Godot prohibited. Physical contact/targeting, visuals, voxel shadow participation, complete routes, seams/light containment, performance and lifecycle remain unverified. Small fixed decoration adds no collision or inventory behavior. V2 incomplete; V1 remains default; S2J open."
   }
 }

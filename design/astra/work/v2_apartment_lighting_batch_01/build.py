@@ -71,7 +71,9 @@ def supporting_wall(layout, room, plate, yaw):
         if space["level"] != room["level"] or space.get("open_shell",False): continue
         r = space["rect"]
         for side, fixed, lo, hi in [("west",r[0],r[1],r[3]),("east",r[2],r[1],r[3])] if axis == "z" else [("south",r[1],r[0],r[2]),("north",r[3],r[0],r[2])]:
-            if side not in space.get("wall_sides",["north","south","west","east"]): continue
+            intervals = [(lo,hi)] if side in space.get("wall_sides",["north","south","west","east"]) else []
+            intervals += [(e["start"],e["end"]) for e in space.get("wall_extensions",[]) if e["side"]==side]
+            if not any(a+.08 < wall[along_idx] < b-.08 for a,b in intervals): continue
             if abs(fixed-wall[fixed_idx]) > 1e-6 or not lo+.08 < wall[along_idx] < hi-.08: continue
             cuts = []
             for cut in layout["doors"] + layout.get("openings",[]):

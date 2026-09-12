@@ -163,10 +163,13 @@ def build(apply=False):
     OUT.mkdir(parents=True,exist_ok=True)
     (OUT/"receipt.json").write_text(json.dumps(receipt,indent=2)+"\n",encoding="utf-8")
     inventory = []
-    mounted_ids = {r["id"] for r in rows}
+    surface_path = ROOT/"game/data/orison_v2/domestic_surface_props.json"
+    surface_props = json.loads(surface_path.read_text(encoding="utf-8"))["props"] if surface_path.exists() else []
+    mounted_ids = {r["id"] for r in rows} | {r["id"] for r in surface_props}
     for unit in ["2A","2B","3B","4B"]:
         prefix = "F0"+unit[0]+"_"+unit[1]+"_"
         inventory.append(dict(unit=unit,rooms=[s for s in spaces if s.startswith(prefix)],
+                              mounted_surface_props=[dict(id=r["id"],kind=r["kind"],support=r["support"]) for r in surface_props if r["unit"]==unit],
                               mounted_furniture=[dict(id=r["id"],kind=r["kind"],room=indexed[r["id"]]["space"]) for r in rows if indexed[r["id"]]["space"].startswith(prefix)],
                               remaining_source_assemblies=[dict(id=r["id"],assembly=r["asm"]) for r in records.values() if r["id"].startswith(unit+"_") and r.get("asm") and r["id"] not in mounted_ids]))
     (OUT/"apartment_inventory.json").write_text(json.dumps(inventory,indent=2)+"\n",encoding="utf-8")

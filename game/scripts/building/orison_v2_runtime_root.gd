@@ -238,6 +238,11 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: incomplete case-one placement")
 		return
+	var surface_props := preload("res://scripts/building/orison_v2_surface_props.gd").new()
+	if not surface_props.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: surface props refused: %s" % [surface_props.errors])
+		return
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)

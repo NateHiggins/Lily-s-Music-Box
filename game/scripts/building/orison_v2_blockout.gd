@@ -102,6 +102,7 @@ func _validate_layout() -> void:
 			failures.append("invalid platform rect: " + str(platform.get("id", "?")))
 	_validate_references(ids)
 	_validate_room_overlaps()
+	_validate_wall_extensions()
 	_validate_single_owner_openings()
 	for required in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 			"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED",
@@ -358,6 +359,54 @@ func _valid_rect(value: Variant) -> bool:
 	return value is Array and value.size() == 4 \
 			and float(value[0]) < float(value[2]) and float(value[1]) < float(value[3])
 
+func _validate_wall_extensions() -> void:
+	var edges: Array[Dictionary] = []
+	for space: Dictionary in layout.get("spaces", []):
+		if not _valid_rect(space.get("rect", [])): continue
+		var extensions: Variant = space.get("wall_extensions", [])
+		if extensions is not Array:
+			failures.append(str(space.id) + " wall_extensions must be an array")
+			continue
+		if bool(space.get("open_shell", false)):
+			if not extensions.is_empty(): failures.append(str(space.id) + " open shell cannot own wall extensions")
+			continue
+		var sides: Array = space.get("wall_sides", ["south", "north", "west", "east"])
+		for side: String in sides:
+			var edge := _wall_edge(space.rect, side)
+			edges.append({"owner":space.id, "level":space.level, "axis":"z" if side in ["west","east"] else "x",
+					"fixed":edge.x, "start":edge.y, "end":edge.z, "extension":false})
+		for extension: Variant in extensions:
+			if extension is not Dictionary or extension.get("side") not in ["south","north","west","east"]:
+				failures.append(str(space.id) + " invalid wall extension side")
+				continue
+			var valid := true
+			for field in ["start", "end"]:
+				var value: Variant = extension.get(field)
+				if typeof(value) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(value)): valid = false
+			if not valid:
+				failures.append(str(space.id) + " invalid wall extension interval")
+				continue
+			var edge := _wall_edge(space.rect, str(extension.side))
+			if extension.side in sides or float(extension.start) < edge.y - .0001 or float(extension.end) > edge.z + .0001 \
+					or float(extension.end) <= float(extension.start):
+				failures.append(str(space.id) + " wall extension exceeds or duplicates its edge")
+				continue
+			edges.append({"owner":space.id, "level":space.level, "axis":"z" if extension.side in ["west","east"] else "x",
+					"fixed":edge.x, "start":extension.start, "end":extension.end, "extension":true})
+	for i in edges.size():
+		if not bool(edges[i].extension): continue
+		for j in edges.size():
+			if i == j or edges[i].level != edges[j].level or edges[i].axis != edges[j].axis \
+					or not is_equal_approx(float(edges[i].fixed), float(edges[j].fixed)): continue
+			if minf(float(edges[i].end),float(edges[j].end)) > maxf(float(edges[i].start),float(edges[j].start)) + .0001:
+				failures.append("%s wall extension overlaps wall owned by %s" % [edges[i].owner, edges[j].owner])
+
+func _wall_edge(rect: Array, side: String) -> Vector3:
+	if side == "west": return Vector3(rect[0],rect[1],rect[3])
+	if side == "east": return Vector3(rect[2],rect[1],rect[3])
+	if side == "south": return Vector3(rect[1],rect[0],rect[2])
+	return Vector3(rect[3],rect[0],rect[2])
+
 func _build_palette() -> void:
 	for key: String in layout.get("palette", {}):
 		var mat := StandardMaterial3D.new()
@@ -393,6 +442,14 @@ func _build_spaces() -> void:
 		if not bool(space.get("open_shell", false)):
 			_build_space_outline(parent, str(space.id), rect, y, clear_h, cls,
 					space.get("wall_sides", ["south", "north", "west", "east"]))
+			for index in space.get("wall_extensions", []).size():
+				var extension: Dictionary = space.wall_extensions[index]
+				var side := str(extension.side)
+				var edge := _wall_edge(rect, side)
+				_wall_with_openings(parent, str(space.id), side.capitalize() + "Extension%02d" % index,
+						"z" if side in ["west","east"] else "x", edge.x,
+						float(extension.start), float(extension.end), y, clear_h,
+						float(layout.dimensions.partition_wall), cls)
 
 func _build_space_outline(parent: Node3D, space_id: String, rect: Array, y: float,
 		height: float, cls: String, sides: Array) -> void:
@@ -455,6 +512,10 @@ func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 	for opening: Dictionary in openings:
 		var lo := maxf(start, float(opening.center) - float(opening.width) * 0.5)
 		var hi := minf(finish, float(opening.center) + float(opening.width) * 0.5)
+		# Partial edges share their owner's complete aperture roster. An opening
+		# outside this segment must not produce geometry past either endpoint.
+		if hi <= lo + 0.001:
+			continue
 		if lo > cursor + 0.001:
 			_wall_segment(parent, "Wall%s_%02d" % [label, part], axis, fixed,
 					cursor, lo, y, height, thickness, cls)
