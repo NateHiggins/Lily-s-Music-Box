@@ -105,6 +105,13 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	var kitchen_tap := world.adapter.resolve("F04_4B_KITCHEN_SINK_01") as TapProp
+	check(kitchen_tap != null and kitchen_tap.compact_kitchen
+			and not kitchen_tap.has_drainboard and kitchen_tap.unit == "4B"
+			and world.boiler_tend.taps.has(kitchen_tap),
+			"4B compact kitchen sink reconstructs on the boiler supply")
+	check(world.adapter.resolve("4B_sink_counter") is StaticBody3D,
+			"4B supporting counter reconstructs")
 	var range_prop := world.adapter.resolve("F04_B_STOVE_01") as StoveProp
 	var icebox := world.adapter.resolve("F04_B_FRIDGE_01") as FridgeProp
 	check(range_prop != null and range_prop.unit == "4B"

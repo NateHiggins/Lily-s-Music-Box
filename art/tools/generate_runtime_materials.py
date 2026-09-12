@@ -27,6 +27,7 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 RUNTIME_POLICY = {
     "plaster_stained": {}, "floor_oak": {}, "ceramic": {}, "subway_tile": {},
     "concrete": {}, "terrazzo": {}, "stair": {},
+    "countertop": {},
     "book_burgundy": {}, "book_green": {}, "book_navy": {},
     "book_ochre": {}, "book_teal": {}, "book_brown": {},
     "enamel": {}, "enamel_appliance": {}, "appliance": {},

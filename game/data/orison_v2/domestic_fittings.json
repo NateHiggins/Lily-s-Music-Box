@@ -75,6 +75,17 @@
       "properties": {
         "monitor_top": false
       }
+    },
+    {
+      "id": "F04_4B_KITCHEN_SINK_01",
+      "kind": "sink",
+      "unit": "4B",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "compact_kitchen": true,
+        "has_drainboard": false,
+        "drain_side": 1
+      }
     }
   ]
 }

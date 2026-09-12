@@ -280,6 +280,20 @@
       "roughness_multiplier": 0.58,
       "visual_lock": false
     },
+    "countertop": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/countertop",
+      "files": [
+        "T_ai_materials_countertop_albedo.png",
+        "T_ai_materials_countertop_rough.png",
+        "T_ai_materials_countertop_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "enamel": {
       "alpha": false,
       "canonical_meters_per_tile": 0.6,

@@ -245,5 +245,11 @@
     "packet": "evidence/v2_4b_kitchen_appliances_01/README.md",
     "scope": "Authored 4B gas range and oak icebox mounted via kitchen anchors. Shared V2 loader now adds solid bodies to stoves/fridges as well as sinks. Source identity, placement, preservation and syntax checks pass.",
     "limits": "No Godot launched. Existing 2A/3B appliance routes also need collision regression. Counter-supported kitchen sink, lighting and visual presentation remain unfinished."
+  },
+  "v2_4b_sink_counter": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_sink_counter_01/README.md",
+    "scope": "Authored four-piece worktop with new open support frame, compact kitchen TapProp and countertop catalogue material integrated. 144 triangles. Source winding, bowl clearance, preservation, repeatability and syntax pass.",
+    "limits": "No Godot launched. Coarse counter collision requires sink targeting/physical route checks. Kitchen lighting, pipe presentation, complete service/persistence and visual acceptance remain open."
   }
 }
