@@ -32,11 +32,13 @@ func _ready() -> void:
 			world.shutdown_for_tests()
 			world.free()
 			break
+		await get_tree().physics_frame
 		var refs: Array[WeakRef] = []
 		_check_room_circuits(world, refs)
 		_check_apartment_doors(world, refs)
 		_check_surface_props(world, refs)
 		_check_storage_tables_boards(world, furniture)
+		_check_household_radios(world, refs)
 		for identity in ["F02_B_FABRIC_TABLE_MASS", "F02_B_KITCHEN_RUN_MASS",
 				"F02_B_BED_MASS", "F02_B_STORAGE_MASS", "F02_B_BATH_MASS"]:
 			var mass := world.find_child(identity, true, false) as Node3D
@@ -335,3 +337,74 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 	check(cupboards == ["2A", "2B", "3B", "4B"], "one kitchen wall cupboard per detailed apartment")
 	check(timber_surfaces == 4 and plywood_surfaces == 1 and glass_surfaces == 2,
 			"new wood and glass surface bindings covered")
+
+func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
+	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+			"res://data/orison_v2/domestic_radios.json"))
+	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+			"res://data/domestic_radios.json"))
+	var dry_adapter := SurfaceSourceAdapter.new()
+	var radios: Array[DomesticRadioProp] = []
+	var emitters: Array[AudioStreamPlayer3D] = []
+	for record: Dictionary in source.receivers:
+		var radio := world.adapter.resolve(record.id) as DomesticRadioProp
+		var support := world.adapter.resolve(record.support) as StaticBody3D
+		dry_adapter.supports[record.support] = support
+		check(radio != null and support != null, "household receiver and table mount: " + str(record.unit))
+		if radio == null or support == null: continue
+		radios.append(radio)
+		refs.append(weakref(radio))
+		check(radio.get_parent() == support, "radio lifetime belongs to furniture support")
+		check(radio.unit == record.unit and not radio.powered, "household identity preserved and starts silent")
+		check(radio.find_children("*", "StaticBody3D", true, false).is_empty(), "receiver adds no movement blocker")
+		var area := radio.get_node_or_null("PrimaryInteraction") as Area3D
+		check(area != null, "receiver has physical interaction target")
+		var stance := world.adapter.resolve(str(record.id) + "_STANCE") as Node3D
+		check(stance != null, "receiver has supported operator stance")
+		if area != null and stance != null:
+			refs.append(weakref(area))
+			var origin := stance.global_position + Vector3.UP * 1.41
+			var target := radio.to_global(Vector3(0,.15,0))
+			check(origin.distance_to(target) < 2.1, "wireless target is within player reach")
+			var query := PhysicsRayQueryParameters3D.create(origin, target, 1, [world.player.get_rid()])
+			query.collide_with_areas = true
+			var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
+			check(hit.get("collider") == area, "furniture does not swallow receiver target ray: " + str(record.unit))
+		var emitter := radio.get("_programme") as AudioStreamPlayer3D
+		check(emitter != null, "receiver has shared programme emitter")
+		if emitter != null:
+			emitters.append(emitter)
+			refs.append(weakref(emitter))
+			check(not emitter.playing and emitter.stream != null, "programme is loaded but silent on entry")
+			check(emitter.bus == "Broadcast" and emitter.max_distance <= 5.5, "programme has bounded diegetic audio")
+		for mesh: MeshInstance3D in radio.find_children("*", "MeshInstance3D", true, false):
+			var material := mesh.material_override as StandardMaterial3D
+			check(material != null and material.albedo_texture != null, "all receiver parts have texture-backed materials")
+	check(radios.size() == 4 and emitters.size() == 4, "all four households have complete receivers")
+	var loader := preload("res://scripts/building/orison_v2_radios.gd").new()
+	check(loader.validate(source, catalog, dry_adapter), "complete household source accepts supports")
+	check(not loader.validate(source, catalog, world.adapter), "duplicate radio installation is refused")
+	var bad := source.duplicate(true)
+	bad.receivers[0].support = "MISSING_RADIO_TABLE"
+	check(not loader.validate(bad, catalog, dry_adapter), "absent radio table refused")
+	bad = source.duplicate(true)
+	bad.receivers[0].position[0] = NAN
+	check(not loader.validate(bad, catalog, dry_adapter), "nonfinite radio pose refused")
+	bad = source.duplicate(true)
+	bad.receivers.pop_back()
+	check(not loader.validate(bad, catalog, dry_adapter), "missing household refused")
+	var bad_catalog := catalog.duplicate(true)
+	for profile: Dictionary in bad_catalog.profiles:
+		if profile.unit == "2A": profile.family = "unknown_receiver"
+	check(not loader.validate(source, bad_catalog, dry_adapter), "unsupported receiver geometry refused")
+	var reality_before := JSON.stringify(RealityState.data)
+	for i in radios.size():
+		radios[i].interact(world.player)
+		for j in radios.size(): check(radios[j].powered == (i == j), "one household switch cannot power another")
+		if i < emitters.size(): check(emitters[i].playing, "powered radio starts its programme")
+		radios[i].interact(world.player)
+		if i < emitters.size(): check(not emitters[i].playing, "radio switch returns programme to silence")
+	check(JSON.stringify(RealityState.data) == reality_before, "local radio use leaves persistent campaign state untouched")
+	# Reconstruct/free with all programme decoders active. WeakRefs in the
+	# caller must retire together with the table and receiver owners.
+	for radio in radios: radio.interact(world.player)

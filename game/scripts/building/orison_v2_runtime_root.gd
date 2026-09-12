@@ -243,6 +243,11 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: surface props refused: %s" % [surface_props.errors])
 		return
+	var radios := preload("res://scripts/building/orison_v2_radios.gd").new()
+	if not radios.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: household radios refused: %s" % [radios.errors])
+		return
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)

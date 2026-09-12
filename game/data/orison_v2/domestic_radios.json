@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "receivers": [
+    {
+      "id": "DomesticRadio_2A",
+      "unit": "2A",
+      "support": "2A_wireless_table",
+      "position": [
+        0.08,
+        0.745,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticRadio_2B",
+      "unit": "2B",
+      "support": "2B_wireless_table",
+      "position": [
+        0.08,
+        0.745,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticRadio_3B",
+      "unit": "3B",
+      "support": "3B_wireless_table",
+      "position": [
+        -0.08,
+        0.745,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticRadio_4B",
+      "unit": "4B",
+      "support": "4B_wireless_table",
+      "position": [
+        0.08,
+        0.745,
+        0
+      ],
+      "yaw": 0
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+extends "res://scripts/props/domestic_radio_prop.gd"
+## V2 presentation over the existing household receiver's controls, event
+## gating and audio lifetime. The source radio family remains authoritative.
+
+func _build_visual() -> void:
+	super._build_visual()
+	var speaker := str(radio_profile.get("speaker", "cone"))
+	# The legacy speaker cones floated above their supporting surface. Give
+	# these separate speakers a foot and short pedestal on the radio table.
+	if speaker.contains("cone"):
+		make_box(Vector3(.18,.028,.13), Vector3(-.38,.014,0), DARK_WOOD)
+		make_box(Vector3(.035,.10,.035), Vector3(-.38,.064,0), BRASS)
+	if speaker.contains("horn"):
+		make_box(Vector3(.18,.028,.15), Vector3(.37,.014,0), DARK_WOOD)
+		make_box(Vector3(.035,.12,.035), Vector3(.37,.074,0), BRASS)
+	retexture(self, [
+		[WOOD, "wood_dark", Color.WHITE],
+		[DARK_WOOD, "wood_dark", Color(.55,.55,.55)],
+		[BLACK, "bakelite_black", Color.WHITE],
+		[BRASS, "brass", Color.WHITE],
+		[CLOTH, "linen", Color.WHITE],
+		[PAPER, "paper", Color.WHITE],
+		[Color(.085,.09,.09), "cast_iron", Color.WHITE]])
+	if family == "atwater_kent_44":
+		# This family's first mesh is its pressed-metal chassis, while its
+		# knobs share the legacy black palette. Preserve that distinction.
+		var chassis := get_child(0) as MeshInstance3D
+		chassis.material_override = MatLib.get_mat("enamel_appliance", Color(.14,.15,.15))
