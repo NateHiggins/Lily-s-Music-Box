@@ -40,6 +40,27 @@ func _ready() -> void:
 			var tap := world.adapter.resolve(identity) as TapProp
 			check(tap != null and owner.taps.count(tap) == 1, "live fixture membership " + identity)
 			if tap == null: continue
+			if tap.fixture == "shower":
+				var body := tap.get_node_or_null("FixtureBody") as StaticBody3D
+				check(body != null and body.get_child_count() == 10,
+						"shower has receptor pieces rather than a curtain-sized hull: " + identity)
+				if body != null:
+					var before := tap.get_flow_state()
+					body.call("interact", null)
+					check(tap.get_flow_state() == before and body.call("interact_prompt") == "",
+							"receptor contact does not cycle the water or advertise a control")
+				for control_name in ["HotValveControl", "ColdValveControl"]:
+					var control := tap.get_node_or_null(control_name) as Area3D
+					check(control != null and control.get("tap") == tap,
+							"shower valve target belongs to its live tap: " + identity)
+				# At standing height the receptor must not obstruct the curtain/valves.
+				var overhead_clear := true
+				if body != null:
+					for collision: CollisionShape3D in body.get_children():
+						var box := collision.shape as BoxShape3D
+						overhead_clear = overhead_clear and box != null \
+								and collision.position.y + box.size.y * .5 < .3
+				check(overhead_clear, "shower collision stays below the control opening")
 			tap.set_hot(true)
 			tap.set_cold(false)
 			check(is_equal_approx(float(tap.get_flow_state().temperature),

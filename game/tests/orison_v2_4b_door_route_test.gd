@@ -22,6 +22,9 @@ func _route() -> void:
 	for point in [Vector3(-10.05, 9.6, 4.0), Vector3(-10.5, 9.6, 4.75)]:
 		if not await _walk(point): return
 	if not await _open_door("F04_B_BATH_DOOR"): return
+	for point in [Vector3(-7.9, 9.6, 4.75), Vector3(-8.45, 9.6, 4.35)]:
+		if not await _walk(point): return
+	if not await _use_shower(): return
 	for point in [Vector3(-7.9, 9.6, 4.75), Vector3(-10.5, 9.6, 4.75)]:
 		if not await _walk(point): return
 	# The open bathroom leaf projects into the private hall. Close it from a
@@ -73,3 +76,28 @@ func _close_door(identity: String) -> bool:
 	await get_tree().create_timer(.6).timeout
 	return _require(not door.open and absf(body.rotation.y) < .01,
 			"input closes physical leaf: " + identity)
+
+func _use_shower() -> bool:
+	var shower := world.adapter.resolve("F04_4B_SHOWER_01") as TapProp
+	if not _require(shower != null and not shower.is_curtain_open(), "4B shower starts drawn"): return false
+	if not await _use(shower, shower.to_global(Vector3(0, 1.18, -.31)), "4B_shower_open"): return false
+	if not _require(shower.is_curtain_open(), "input gathers the real curtain"): return false
+	var hot := shower.get_node("HotValveControl") as Area3D
+	var cold := shower.get_node("ColdValveControl") as Area3D
+	if not await _use(hot, hot.global_position, "4B_shower_hot"): return false
+	var hot_flow := shower.get_flow_state()
+	if not _require(hot_flow.hot and not hot_flow.cold and float(hot_flow.temperature) > 0,
+			"hot valve supplies boiler-heated water through input"): return false
+	if not await _use(cold, cold.global_position, "4B_shower_mix"): return false
+	var mix := shower.get_flow_state()
+	if not _require(mix.hot and mix.cold and float(mix.temperature) < float(hot_flow.temperature),
+			"independent cold valve dilutes the hot supply"): return false
+	if not await _use(hot, hot.global_position, "4B_shower_hot_off"): return false
+	var cold_flow := shower.get_flow_state()
+	if not _require(not cold_flow.hot and cold_flow.cold and float(cold_flow.temperature) == 0,
+			"closing hot leaves only cold water"): return false
+	if not await _use(cold, cold.global_position, "4B_shower_cold_off"): return false
+	var stopped := shower.get_flow_state()
+	if not _require(not stopped.hot and not stopped.cold, "both valves shut through input"): return false
+	if not await _use(shower, shower.to_global(Vector3(.29, 1.18, .25)), "4B_shower_draw"): return false
+	return _require(not shower.is_curtain_open(), "input draws the curtain again")

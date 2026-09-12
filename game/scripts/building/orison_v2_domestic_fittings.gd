@@ -2,6 +2,7 @@ extends RefCounted
 ## Existing appliance implementations mounted through semantic anchors.
 ## Validate every record before mounting any consumer. The adapter owns teardown.
 const PATH := "res://data/orison_v2/domestic_fittings.json"
+const Shower := preload("res://scripts/building/orison_v2_shower.gd")
 const SCRIPTS := {
 	"sink": preload("res://scripts/props/tap_prop.gd"),
 	"shower": preload("res://scripts/props/tap_prop.gd"),
@@ -54,6 +55,9 @@ func mount(adapter: Variant) -> bool:
 				collision.position = bounds.get_center()
 				body.add_child(collision)
 				consumer.add_child(body)
+		if record.kind == "shower" and not Shower.new().mount(consumer as TapProp):
+			errors.append("shower collision/control mounting failed: " + str(record.id))
+			return false
 		if record.id == MinaCaptionManifestation.RESIDUE_ANCHOR_ID:
 			var display := preload("res://scripts/cases/mina_waking_residue_display.gd").new()
 			display.name = MinaCaptionManifestation.RESIDUE_SOCKET_ID

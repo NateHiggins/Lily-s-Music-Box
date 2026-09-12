@@ -287,5 +287,11 @@
     "packet": "evidence/v2_4b_entry_door_01/README.md",
     "scope": "4B entry now uses the production apartment subtype and unit identity with authored left hinge and inward swing. Prior eight specs, layout and shared DoorProp preserved. Sampled collider sweep stays in vestibule/threshold. Four-door route and wake reconstruction checks prepared.",
     "limits": "No Godot launched. Physical opening, passage, closing, collision restoration, reconstruction and appearance remain unverified. Previous runtime receipts predate the solid 4B doors; no default cutover."
+  },
+  "v2_4b_shower": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_shower_01/README.md",
+    "scope": "4B shower mounted with shared materials and existing boiler supply; six water fittings now composed. Both V2 showers receive low receptor collision and independent physical hot/cold targets. Existing shared tap, player and boiler owners preserved. Source geometry/preservation/syntax checks pass; player-input and lifecycle checks prepared.",
+    "limits": "No Godot launched. Actual valve/curtain targeting, receptor stepping, 3B/4B routes, flow presentation, materials and lifetime remain pending. Saved valve/curtain state, full plumbing and default cutover remain open."
   }
 }

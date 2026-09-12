@@ -48,7 +48,7 @@ func _ready() -> void:
 	var remote_display := shell.active_world.get_node_or_null("MinaRemoteCaptions")
 	check(remote_display != null,"V2 remote caption owner exists")
 	if remote_display != null: retired_subjects.append(weakref(remote_display))
-	for identity in ["4B_wake_bed", "4B_wake_nightstand", "F04_B_ALCOVE_SWITCH", "F04_B_ALCOVE_LT_FLUSH_DOME", "4B_couch", "4B_shelf", "4B_wc", "F04_4B_SINK_01"]:
+	for identity in ["4B_wake_bed", "4B_wake_nightstand", "F04_B_ALCOVE_SWITCH", "F04_B_ALCOVE_LT_FLUSH_DOME", "4B_couch", "4B_shelf", "4B_wc", "F04_4B_SINK_01", "F04_4B_SHOWER_01"]:
 		var furnishing := shell.active_world.find_child(identity,true,false)
 		check(furnishing is Node3D,"wake furnishing mounted: " + identity)
 		if furnishing != null: retired_subjects.append(weakref(furnishing))
@@ -105,6 +105,13 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	var shower := world.adapter.resolve("F04_4B_SHOWER_01") as TapProp
+	check(shower != null and shower.fixture == "shower" and shower.unit == "4B"
+			and shower.get_node_or_null("FixtureBody") is StaticBody3D
+			and shower.get_node_or_null("HotValveControl") is Area3D
+			and shower.get_node_or_null("ColdValveControl") is Area3D
+			and world.boiler_tend != null and world.boiler_tend.taps.count(shower) == 1,
+			"4B shower reconstructs with receptor collision, valve targets and boiler supply")
 	var entry_opening := world.adapter.resolve("F04_DOOR_03") as Node3D
 	var entry := entry_opening.get_node_or_null("F04_DOOR_03_Leaf") as DoorProp if entry_opening != null else null
 	check(entry != null and entry.door_kind == "apartment_entry" and entry.unit == "4B"
