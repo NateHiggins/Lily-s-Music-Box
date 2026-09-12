@@ -114,6 +114,7 @@ func _ready() -> void:
 		return
 	var cues := CUES.new()
 	cues.show_bed_context = false
+	cues.show_terminal_context = false
 	_blockout.add_child(cues)
 	if not adapter.install_acoustic_overrides([
 			"F02_A_MAIN_VANTRY_POINT", "F02_A_MONITOR_01",

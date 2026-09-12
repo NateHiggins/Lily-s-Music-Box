@@ -105,6 +105,9 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	check(world.adapter.resolve("4B_terminal_desk") is StaticBody3D
+			and world.find_child("TerminalHomeContext", true, false) == null,
+			"physical terminal desk replaces schematic workspace blocks")
 	var kitchen_tap := world.adapter.resolve("F04_4B_KITCHEN_SINK_01") as TapProp
 	check(kitchen_tap != null and kitchen_tap.compact_kitchen
 			and not kitchen_tap.has_drainboard and kitchen_tap.unit == "4B"

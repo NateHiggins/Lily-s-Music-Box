@@ -257,5 +257,11 @@
     "packet": "evidence/v2_4b_service_lighting_01/README.md",
     "scope": "Kitchen and private-hall flush-dome fixtures with physical switches through existing room circuits. Source placement, doorway clearance, preservation and syntax checks pass. Playable reservations confirmed hidden and non-colliding.",
     "limits": "No Godot launched. Physical switch use, budget behavior, illumination, wake tests and visuals remain pending; existing development lights retained."
+  },
+  "v2_4b_terminal_desk": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_terminal_desk_01/README.md",
+    "scope": "New oak-topped terminal desk replaces schematic workspace blocks only in playable V2. Existing instrument, desk zone, semantic identity and lighting preserved. Source dimensions, winding, stance clearance, repeatability and syntax pass.",
+    "limits": "No Godot launched. Solid desk collision, terminal targeting, physical use, lifecycle and appearance remain unverified; coarse collider does not establish knee clearance."
   }
 }
