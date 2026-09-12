@@ -239,5 +239,11 @@
     "packet": "evidence/v2_4b_room_lighting_01/README.md",
     "scope": "Main-room pendant and bath flush-dome with separate physical switches; source anchors/circuit preservation/syntax pass. 2B radiator now explicitly binds inventory and graph identity.",
     "limits": "No Godot launched. Switch targeting, appearance, fixture budgeting, radiator custody and new boundary assertions remain unverified. Existing development lights remain. Whole-building heat balance and plant persistence still open."
+  },
+  "v2_4b_kitchen_appliances": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_kitchen_appliances_01/README.md",
+    "scope": "Authored 4B gas range and oak icebox mounted via kitchen anchors. Shared V2 loader now adds solid bodies to stoves/fridges as well as sinks. Source identity, placement, preservation and syntax checks pass.",
+    "limits": "No Godot launched. Existing 2A/3B appliance routes also need collision regression. Counter-supported kitchen sink, lighting and visual presentation remain unfinished."
   }
 }

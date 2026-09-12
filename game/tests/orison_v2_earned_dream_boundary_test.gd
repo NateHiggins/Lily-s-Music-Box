@@ -105,6 +105,14 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	var range_prop := world.adapter.resolve("F04_B_STOVE_01") as StoveProp
+	var icebox := world.adapter.resolve("F04_B_FRIDGE_01") as FridgeProp
+	check(range_prop != null and range_prop.unit == "4B"
+			and range_prop.get_node_or_null("FixtureBody") is StaticBody3D,
+			"4B gas range reconstructs with solid body")
+	check(icebox != null and icebox.unit == "4B" and not icebox.monitor_top
+			and icebox.get_node_or_null("FixtureBody") is StaticBody3D,
+			"4B retains its authored icebox with solid body")
 	var radiator := world.adapter.resolve("F02_B_RADIATOR_01") as RadiatorProp
 	check(radiator != null and radiator.inventory == world.maintenance_inventory
 			and radiator.graph_node_id == "F02_B_RADIATOR_01",

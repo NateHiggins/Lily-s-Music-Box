@@ -39,8 +39,8 @@ func mount(adapter: Variant) -> bool:
 			consumer.free()
 			errors.append("domestic fitting mount failed: " + str(record.id))
 			return false
-		if record.kind == "sink":
-			# TapProp's primary Area supplies the E target, not movement
+		if record.kind in ["sink", "stove", "fridge"]:
+			# The primary Area supplies the E target, not movement
 			# collision. V2 has no baked fixture hull beneath the live mesh.
 			# Derive a solid body after construction, in fixture-local space.
 			var bounds: AABB = consumer._visual_bounds()

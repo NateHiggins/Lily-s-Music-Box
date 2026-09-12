@@ -59,6 +59,22 @@
       "properties": {
         "fixture": "bath_sink"
       }
+    },
+    {
+      "id": "F04_B_STOVE_01",
+      "kind": "stove",
+      "unit": "4B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4B",
+      "properties": {
+        "monitor_top": false
+      }
     }
   ]
 }
