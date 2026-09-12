@@ -36,6 +36,14 @@
         "support": "2A_desk"
       }
     ],
+    "mounted_source_components": [
+      {
+        "id": "2A_k_wall_cupboard",
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": false
+      }
+    ],
     "mounted_furniture": [
       {
         "id": "2A_sofa",
@@ -106,6 +114,21 @@
         "id": "2A_desk_dkch",
         "kind": "chair",
         "room": "F02_A_BED"
+      },
+      {
+        "id": "2A_k_wall_cupboard",
+        "kind": "cupboard",
+        "room": "F02_A_KITCHEN"
+      },
+      {
+        "id": "2A_cof",
+        "kind": "coffee",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_pinboard",
+        "kind": "pinboard",
+        "room": "F02_A_BED"
       }
     ],
     "remaining_source_assemblies": [
@@ -114,16 +137,8 @@
         "assembly": "kitchen"
       },
       {
-        "id": "2A_cof",
-        "assembly": "coffee"
-      },
-      {
         "id": "2A_tv",
         "assembly": "tv"
-      },
-      {
-        "id": "2A_pinboard",
-        "assembly": "pinboard"
       },
       {
         "id": "2A_deck",
@@ -161,6 +176,14 @@
         "id": "2B_story_notions",
         "kind": "jarrow",
         "support": "2B_fabric_worktable"
+      }
+    ],
+    "mounted_source_components": [
+      {
+        "id": "2B_k_wall_cupboard",
+        "assembly": "2B_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": false
       }
     ],
     "mounted_furniture": [
@@ -213,16 +236,22 @@
         "id": "2B_fabric_shelf_02",
         "kind": "shelf",
         "room": "F02_B_PRIVATE_HALL"
+      },
+      {
+        "id": "2B_k_wall_cupboard",
+        "kind": "cupboard",
+        "room": "F02_B_KITCHEN"
+      },
+      {
+        "id": "2B_story_pattern_board",
+        "kind": "pinboard",
+        "room": "F02_B_MAIN"
       }
     ],
     "remaining_source_assemblies": [
       {
         "id": "2B_k",
         "assembly": "kitchen"
-      },
-      {
-        "id": "2B_story_pattern_board",
-        "assembly": "pinboard"
       }
     ]
   },
@@ -276,6 +305,14 @@
         "id": "3B_coil",
         "kind": "cablecoil",
         "support": "3B_tools1"
+      }
+    ],
+    "mounted_source_components": [
+      {
+        "id": "3B_k_wall_cupboard",
+        "assembly": "3B_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": false
       }
     ],
     "mounted_furniture": [
@@ -333,6 +370,21 @@
         "id": "3B_stool",
         "kind": "chair",
         "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_k_wall_cupboard",
+        "kind": "cupboard",
+        "room": "F03_B_KITCHEN"
+      },
+      {
+        "id": "3B_toolboard",
+        "kind": "toolboard",
+        "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_partscrate",
+        "kind": "crate",
+        "room": "F03_B_MAIN"
       }
     ],
     "remaining_source_assemblies": [
@@ -347,14 +399,6 @@
       {
         "id": "3B_radio",
         "assembly": "radio"
-      },
-      {
-        "id": "3B_toolboard",
-        "assembly": "toolboard"
-      },
-      {
-        "id": "3B_partscrate",
-        "assembly": "crate"
       }
     ]
   },
@@ -380,6 +424,14 @@
         "id": "4B_dishrack",
         "kind": "dishrack",
         "support": "4B_sink_counter"
+      }
+    ],
+    "mounted_source_components": [
+      {
+        "id": "4B_wall_cupboard",
+        "assembly": "2A_k",
+        "component": "upper_cabinet",
+        "new_unit_variant": true
       }
     ],
     "mounted_furniture": [
@@ -442,13 +494,19 @@
         "id": "4B_desk_chair",
         "kind": "chair",
         "room": "F04_B_MAIN"
+      },
+      {
+        "id": "4B_wall_cupboard",
+        "kind": "cupboard",
+        "room": "F04_B_KITCHEN"
+      },
+      {
+        "id": "4B_coffee",
+        "kind": "coffee",
+        "room": "F04_B_MAIN"
       }
     ],
     "remaining_source_assemblies": [
-      {
-        "id": "4B_coffee",
-        "assembly": "coffee"
-      },
       {
         "id": "4B_tv",
         "assembly": "tv"

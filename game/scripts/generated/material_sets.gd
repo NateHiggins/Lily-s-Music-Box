@@ -36,6 +36,8 @@ const SETS := {
 	'porcelain': ["T_library_furniture_porcelain_albedo.png", "T_library_furniture_porcelain_rough.png", "T_library_furniture_porcelain_normal.png", 0.9, 0], # visual lock
 	'porcelain_fixture': ["T_ai_materials_porcelain_fixture_albedo.png", "T_ai_materials_porcelain_fixture_rough.png", "T_ai_materials_porcelain_fixture_normal.png", 0.4, 0],
 	'wood_dark': ["T_library_furniture_walnut_albedo.png", "T_library_furniture_walnut_rough.png", "T_library_furniture_walnut_normal.png", 1.2, 0], # visual lock
+	'timber': ["T_ai_materials_timber_albedo.png", "T_ai_materials_timber_rough.png", "T_ai_materials_timber_normal.png", 1, 0],
+	'plywood': ["T_ai_materials_plywood_albedo.png", "T_ai_materials_plywood_rough.png", "T_ai_materials_plywood_normal.png", 1.2, 0],
 	'fabric_warm': ["T_library_furniture_upholstery_rust_albedo.png", "T_library_furniture_upholstery_rust_rough.png", "T_library_furniture_upholstery_rust_normal.png", 0.7, 0], # visual lock
 	'linen': ["T_library_furniture_linen_albedo.png", "T_library_furniture_linen_rough.png", "T_library_furniture_linen_normal.png", 0.6, 0], # visual lock
 	'shower_duck': ["T_library_furniture_linen_albedo.png", "T_library_furniture_linen_rough.png", "T_library_furniture_linen_normal.png", 0.65, 0, 0.62],

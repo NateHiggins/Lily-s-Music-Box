@@ -170,6 +170,7 @@ def build(apply=False):
         prefix = "F0"+unit[0]+"_"+unit[1]+"_"
         inventory.append(dict(unit=unit,rooms=[s for s in spaces if s.startswith(prefix)],
                               mounted_surface_props=[dict(id=r["id"],kind=r["kind"],support=r["support"]) for r in surface_props if r["unit"]==unit],
+                              mounted_source_components=[dict(id=r["id"],**r["source_component"]) for r in rows if r["id"].startswith(unit+"_") and "source_component" in r],
                               mounted_furniture=[dict(id=r["id"],kind=r["kind"],room=indexed[r["id"]]["space"]) for r in rows if indexed[r["id"]]["space"].startswith(prefix)],
                               remaining_source_assemblies=[dict(id=r["id"],assembly=r["asm"]) for r in records.values() if r["id"].startswith(unit+"_") and r.get("asm") and r["id"] not in mounted_ids]))
     (OUT/"apartment_inventory.json").write_text(json.dumps(inventory,indent=2)+"\n",encoding="utf-8")

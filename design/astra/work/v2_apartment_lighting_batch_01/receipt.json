@@ -49,6 +49,7 @@
       "eye_to_switch_m": 1.0028459502834923,
       "obstacle_clearances_m": {
         "2A_sink_support": 3.2359542642009007,
+        "2A_k_wall_cupboard": 3.3545355863368025,
         "F02_2A_FRIDGE_01": 1.1899999999999995,
         "F02_2A_KITCHEN_SINK_01": 3.2643835558953547,
         "F02_2A_STOVE_01": 1.9209372712298556
@@ -85,7 +86,8 @@
         "2A_bed0_ns": 3.9175140076329007,
         "2A_w0_wardrobe": 3.9300000000000006,
         "2A_desk": 1.75,
-        "2A_desk_dkch": 2.35261556570554
+        "2A_desk_dkch": 2.35261556570554,
+        "2A_pinboard": 2.0599779125029474
       }
     },
     {
@@ -106,7 +108,8 @@
         "2B_din_t": 1.6500000000000004,
         "2B_din_dc1": 0.9903217532251993,
         "2B_din_dc2": 2.0980467106334877,
-        "2B_fabric_worktable": 0.4
+        "2B_fabric_worktable": 0.4,
+        "2B_story_pattern_board": 0.984
       }
     },
     {
@@ -117,6 +120,7 @@
       "eye_to_switch_m": 0.9075791976461348,
       "obstacle_clearances_m": {
         "2B_sink_support": 1.6499999999999986,
+        "2B_k_wall_cupboard": 1.8969999999999985,
         "F02_2B_KITCHEN_SINK_01": 1.629999999999999,
         "F02_2B_STOVE_01": 1.694963126442578,
         "F02_2B_FRIDGE_01": 1.9549424543960363

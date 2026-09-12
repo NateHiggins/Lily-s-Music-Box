@@ -518,6 +518,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "plywood": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/plywood",
+      "files": [
+        "T_ai_materials_plywood_albedo.png",
+        "T_ai_materials_plywood_rough.png",
+        "T_ai_materials_plywood_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "porcelain": {
       "alpha": false,
       "canonical_meters_per_tile": 0.4,
@@ -641,6 +655,20 @@
       ],
       "metallic": 0.0,
       "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "timber": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "ai_materials/timber",
+      "files": [
+        "T_ai_materials_timber_albedo.png",
+        "T_ai_materials_timber_rough.png",
+        "T_ai_materials_timber_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },

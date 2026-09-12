@@ -339,5 +339,14 @@
     "checks": "Support/material/separation and repeatability checks pass. New wall solids avoid furniture/fitting estimates and separate case tables; 6754 source route samples pass. Existing seating/lighting/door checks and independent syntax parse pass. Composition, teardown, aperture and malformed-input engine checks prepared.",
     "next": "Batch remaining cabinetry/storage, coffee tables, boards and equipment. Establish room programs for twenty other source unit IDs, remaining levels/services and persistence. Run prepared runtime/visual checks when Godot is permitted.",
     "limits": "Godot prohibited. Physical contact/targeting, visuals, voxel shadow participation, complete routes, seams/light containment, performance and lifecycle remain unverified. Small fixed decoration adds no collision or inventory behavior. V2 incomplete; V1 remains default; S2J open."
+  },
+  "v2_storage_tables_boards_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_storage_tables_boards_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "scope": "Ten pieces: four kitchen wall cupboards, two coffee tables, two pinboards, toolboard and parts crate. 1116 triangles; furniture total 57. Added canonical timber/plywood to the runtime material contract with all 49 old definitions preserved. Kitchen component metadata distinguishes upper cabinets from incomplete lower aggregates.",
+    "checks": "3D placement and wall support; 6876 source route samples; 17 domestic/service leaves at 201 sweep samples each; standing clearances; preservation and byte-identical regeneration pass. Seating, lighting, door, wall and surface-prop checks pass. Independent syntax parse passes; category/material/lifetime engine checks prepared.",
+    "next": "Remaining lower kitchen cabinetry decisions and television/reel-deck/radio integration with real media/interaction owners. Detailed room programs for twenty other source unit IDs; remaining building levels, services and persistence. Runtime/visual acceptance when Godot is permitted.",
+    "limits": "Godot remains prohibited. Fixed storage and boards have no opening/removal/inventory mechanics. Coffee collision is a conservative solid box. No runtime physics, targeting, materials/optics, performance or lifecycle acceptance. V2 incomplete and V1 remains default; S2J open."
   }
 }

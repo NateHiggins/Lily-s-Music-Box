@@ -50,7 +50,7 @@ RUNTIME_POLICY = {
     "zinc_liner": {"roughness_multiplier": 0.82},
     "copper_aged": {"roughness_multiplier": 0.58},
     "porcelain": {}, "porcelain_fixture": {},
-    "wood_dark": {}, "fabric_warm": {}, "linen": {},
+    "wood_dark": {}, "timber": {}, "plywood": {}, "fabric_warm": {}, "linen": {},
     # Deliberate semantic alias, not a visual lock: rubberized duck keeps the
     # approved clean linen weave but has its own tint and waxed optical policy.
     # The rejected linen_aged AI plate carried a fixture-sized horizontal fold.

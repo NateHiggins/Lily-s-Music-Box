@@ -36,6 +36,7 @@ func _ready() -> void:
 		_check_room_circuits(world, refs)
 		_check_apartment_doors(world, refs)
 		_check_surface_props(world, refs)
+		_check_storage_tables_boards(world, furniture)
 		for identity in ["F02_B_FABRIC_TABLE_MASS", "F02_B_KITCHEN_RUN_MASS",
 				"F02_B_BED_MASS", "F02_B_STORAGE_MASS", "F02_B_BATH_MASS"]:
 			var mass := world.find_child(identity, true, false) as Node3D
@@ -279,3 +280,58 @@ func _check_wall_extensions() -> void:
 				"unrelated apertures preserve exact segment size")
 	holder.free()
 	builder.free()
+
+func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
+	var expected := {"cupboard":4, "coffee":2, "pinboard":2, "toolboard":1, "crate":1}
+	var seen := {"cupboard":0, "coffee":0, "pinboard":0, "toolboard":0, "crate":0}
+	var cupboards: Array[String] = []
+	var timber_surfaces := 0
+	var plywood_surfaces := 0
+	var glass_surfaces := 0
+	for record: Dictionary in source.furniture:
+		if not expected.has(record.kind): continue
+		seen[record.kind] += 1
+		var body := world.adapter.resolve(record.id) as StaticBody3D
+		check(body != null, "category furniture mounted: " + str(record.id))
+		if body == null: continue
+		check(not body.has_method("interact"), "fixed storage does not claim inventory mechanics")
+		var shapes := body.find_children("*", "CollisionShape3D", true, false)
+		check(shapes.size() == 1, "bounded fixed furniture collision: " + str(record.id))
+		if record.kind == "cupboard":
+			cupboards.append(str(record.id).left(2))
+			var local := world.adapter.root.to_local(body.global_position)
+			var floor := 3.2 if str(record.id).begins_with("2") else 6.4 if str(record.id).begins_with("3") else 9.6
+			check(is_equal_approx(local.y - floor, 1.65), "wall cupboard mounted above standing capsule")
+			if shapes.size() == 1:
+				var shape := shapes[0] as CollisionShape3D
+				check(is_equal_approx((shape.shape as BoxShape3D).size.y, .7),
+						"upper cupboard has no phantom lower cabinet collider")
+			check(record.source_component.component == "upper_cabinet", "cupboard retains partial source attribution")
+		var meshes: Array[Node] = body.find_children("*", "MeshInstance3D", true, false)
+		# Glass haze is a nested receiver; enumerate only direct material surfaces.
+		var direct: Array[MeshInstance3D] = []
+		for node in meshes:
+			if node.get_parent() == body: direct.append(node as MeshInstance3D)
+		check(direct.size() == record.surfaces.size(), "all category material surfaces mounted")
+		for i in mini(direct.size(), record.surfaces.size()):
+			var key := str(record.surfaces[i].material)
+			var material := direct[i].material_override
+			if key == "glassish":
+				glass_surfaces += 1
+				check(material is ShaderMaterial and (material as ShaderMaterial).shader.resource_path \
+						== "res://shaders/lamp_glass_surface.gdshader", "coffee table uses existing optical glass shader")
+			elif key in ["timber", "plywood"]:
+				if key == "timber": timber_surfaces += 1
+				else: plywood_surfaces += 1
+				check(material is StandardMaterial3D, "wood has catalogue material: " + key)
+				if material is StandardMaterial3D:
+					check(material.albedo_texture != null and material.normal_texture != null \
+							and material.roughness_texture != null, "complete wood texture triplet: " + key)
+					if material.albedo_texture != null:
+						check(material.albedo_texture.resource_path.get_file() == "T_ai_materials_" + key + "_albedo.png",
+								"wood uses its own canonical texture: " + key)
+	check(seen == expected, "complete storage/table/board category roster")
+	cupboards.sort()
+	check(cupboards == ["2A", "2B", "3B", "4B"], "one kitchen wall cupboard per detailed apartment")
+	check(timber_surfaces == 4 and plywood_surfaces == 1 and glass_surfaces == 2,
+			"new wood and glass surface bindings covered")
