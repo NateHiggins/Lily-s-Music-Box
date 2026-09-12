@@ -427,6 +427,8 @@ func _compose_service_round_props() -> void:
 	radiator.prop_type = "radiator"
 	radiator.unit = "2B"
 	radiator.riser = "H-B"
+	radiator.graph_node_id = "F02_B_RADIATOR_01"
+	radiator.bind_inventory(maintenance_inventory)
 	radiator.section_count = 10
 	radiator.installation_drop = 0.75
 	_retire_blockout_fixture("F02_B_RADIATOR_MASS")

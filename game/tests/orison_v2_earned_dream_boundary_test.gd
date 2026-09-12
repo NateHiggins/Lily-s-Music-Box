@@ -105,6 +105,24 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	var radiator := world.adapter.resolve("F02_B_RADIATOR_01") as RadiatorProp
+	check(radiator != null and radiator.inventory == world.maintenance_inventory
+			and radiator.graph_node_id == "F02_B_RADIATOR_01",
+			"2B radiator binds the campaign inventory and stable graph identity")
+	var alcove := world.adapter.resolve("F04_B_ALCOVE_LT_FLUSH_DOME") as LightFixtureProp
+	for pair in [["F04_B_MAIN_SWITCH", "F04_B_MAIN_LT_PENDANT_SHADE"],
+			["F04_B_BATH_SWITCH", "F04_B_BATH_LT_FLUSH_DOME"]]:
+		var plate := world.adapter.resolve(pair[0]) as StaticBody3D
+		var fixture := world.adapter.resolve(pair[1]) as LightFixtureProp
+		if check(plate != null and fixture != null and alcove != null,
+				"4B room circuit reconstructs: " + str(pair[0])):
+			var previous := fixture.powered
+			var bedside := alcove.powered
+			plate.call("interact", world.player)
+			check(fixture.powered != previous and alcove.powered == bedside,
+					"room switch changes its circuit without changing alcove")
+			plate.call("interact", world.player)
+			check(fixture.powered == previous, "room switch restores its circuit")
 	var tap := world.adapter.resolve("F04_4B_SINK_01") as TapProp
 	check(tap != null and tap.fixture == "bath_sink" and tap.unit == "4B"
 			and tap.get_node_or_null("FixtureBody") is StaticBody3D,

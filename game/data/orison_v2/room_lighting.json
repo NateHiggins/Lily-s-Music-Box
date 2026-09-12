@@ -70,6 +70,24 @@
         "range_clamp": 5.0,
         "energy_scale": 1.25
       }
+    },
+    {
+      "id": "F04_B_MAIN_LT_PENDANT_SHADE",
+      "room": "F04_B_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 7.0,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F04_B_BATH_LT_FLUSH_DOME",
+      "room": "F04_B_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.0,
+        "energy_scale": 1.05
+      }
     }
   ],
   "switches": [
@@ -100,6 +118,14 @@
     {
       "id": "F04_B_ALCOVE_SWITCH",
       "room": "F04_B_ALCOVE"
+    },
+    {
+      "id": "F04_B_MAIN_SWITCH",
+      "room": "F04_B_MAIN"
+    },
+    {
+      "id": "F04_B_BATH_SWITCH",
+      "room": "F04_B_BATH"
     }
   ]
 }
