@@ -184,6 +184,9 @@ func _verify_3b_switches(world: Node3D) -> void:
 		for anchor: Dictionary in world.layout.anchors:
 			if anchor.id == record.id:
 				feet.y = plate.global_position.y - float(anchor.position[1]) + 0.02
+		var authored_stance := world.adapter.resolve(str(record.id) + "_STANCE") as Node3D
+		if authored_stance != null:
+			feet = authored_stance.global_position + Vector3.UP * 0.02
 		player.global_position = feet
 		player.camera.global_position = feet + Vector3.UP * player.STANDING_EYE
 		player.camera.look_at(plate.to_global(Vector3(0, 0, -0.045)))

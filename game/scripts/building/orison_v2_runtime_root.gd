@@ -173,6 +173,13 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: furniture refused: %s" % [furniture.errors])
 		return
+	# All replacement fittings/furniture now exist. Standalone gray-box scenes
+	# retain their masses; the playable apartment has one physical owner per use.
+	for identity in ["F02_B_FABRIC_TABLE_MASS", "F02_B_KITCHEN_RUN_MASS",
+			"F02_B_BED_MASS", "F02_B_STORAGE_MASS", "F02_B_BATH_MASS"]:
+		_retire_blockout_fixture(identity)
+	if startup_failed:
+		return
 	var lighting := RoomLighting.new()
 	if not lighting.mount(adapter, self):
 		startup_failed = true

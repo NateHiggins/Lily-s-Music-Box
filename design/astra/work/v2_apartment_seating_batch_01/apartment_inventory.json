@@ -1,0 +1,431 @@
+[
+  {
+    "unit": "2A",
+    "rooms": [
+      "F02_A_VESTIBULE",
+      "F02_A_MAIN",
+      "F02_A_KITCHEN",
+      "F02_A_PRIVATE_HALL",
+      "F02_A_BATH",
+      "F02_A_BED"
+    ],
+    "mounted_furniture": [
+      {
+        "id": "2A_sofa",
+        "kind": "sofa",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_wc",
+        "kind": "toilet",
+        "room": "F02_A_BATH"
+      },
+      {
+        "id": "2A_bed0",
+        "kind": "bed",
+        "room": "F02_A_BED"
+      },
+      {
+        "id": "2A_bed0_ns",
+        "kind": "nightstand",
+        "room": "F02_A_BED"
+      },
+      {
+        "id": "2A_w0_wardrobe",
+        "kind": "wardrobe",
+        "room": "F02_A_BED"
+      },
+      {
+        "id": "2A_shelf0",
+        "kind": "shelf",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_shelf1",
+        "kind": "shelf",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_shelf2",
+        "kind": "shelf",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_sink_support",
+        "kind": "counter",
+        "room": "F02_A_KITCHEN"
+      },
+      {
+        "id": "2A_din_t",
+        "kind": "table_round",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_din_dc1",
+        "kind": "chair",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_din_dc2",
+        "kind": "chair",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_desk",
+        "kind": "desk",
+        "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_desk_dkch",
+        "kind": "chair",
+        "room": "F02_A_MAIN"
+      }
+    ],
+    "remaining_source_assemblies": [
+      {
+        "id": "2A_k",
+        "assembly": "kitchen"
+      },
+      {
+        "id": "2A_k_kmug",
+        "assembly": "mug"
+      },
+      {
+        "id": "2A_k_kdishrack",
+        "assembly": "dishrack"
+      },
+      {
+        "id": "2A_cof",
+        "assembly": "coffee"
+      },
+      {
+        "id": "2A_tv",
+        "assembly": "tv"
+      },
+      {
+        "id": "2A_pinboard",
+        "assembly": "pinboard"
+      },
+      {
+        "id": "2A_phones",
+        "assembly": "headphones"
+      },
+      {
+        "id": "2A_papers",
+        "assembly": "papers"
+      },
+      {
+        "id": "2A_mug",
+        "assembly": "mug"
+      },
+      {
+        "id": "2A_deck",
+        "assembly": "reeldeck"
+      }
+    ]
+  },
+  {
+    "unit": "2B",
+    "rooms": [
+      "F02_B_VESTIBULE",
+      "F02_B_MAIN",
+      "F02_B_KITCHEN",
+      "F02_B_BED",
+      "F02_B_PRIVATE_HALL",
+      "F02_B_BATH"
+    ],
+    "mounted_furniture": [
+      {
+        "id": "2B_wc",
+        "kind": "toilet",
+        "room": "F02_B_BATH"
+      },
+      {
+        "id": "2B_abed",
+        "kind": "bed",
+        "room": "F02_B_BED"
+      },
+      {
+        "id": "2B_aw_wardrobe",
+        "kind": "wardrobe",
+        "room": "F02_B_BED"
+      },
+      {
+        "id": "2B_sink_support",
+        "kind": "counter",
+        "room": "F02_B_KITCHEN"
+      },
+      {
+        "id": "2B_din_t",
+        "kind": "table_rect",
+        "room": "F02_B_MAIN"
+      },
+      {
+        "id": "2B_din_dc1",
+        "kind": "chair",
+        "room": "F02_B_MAIN"
+      },
+      {
+        "id": "2B_din_dc2",
+        "kind": "chair",
+        "room": "F02_B_MAIN"
+      },
+      {
+        "id": "2B_fabric_worktable",
+        "kind": "table_rect",
+        "room": "F02_B_MAIN"
+      },
+      {
+        "id": "2B_fabric_shelf_01",
+        "kind": "shelf",
+        "room": "F02_B_PRIVATE_HALL"
+      },
+      {
+        "id": "2B_fabric_shelf_02",
+        "kind": "shelf",
+        "room": "F02_B_PRIVATE_HALL"
+      }
+    ],
+    "remaining_source_assemblies": [
+      {
+        "id": "2B_k",
+        "assembly": "kitchen"
+      },
+      {
+        "id": "2B_k_kmug",
+        "assembly": "mug"
+      },
+      {
+        "id": "2B_k_kdishrack",
+        "assembly": "dishrack"
+      },
+      {
+        "id": "2B_story_notions",
+        "assembly": "jarrow"
+      },
+      {
+        "id": "2B_story_patterns",
+        "assembly": "papers"
+      },
+      {
+        "id": "2B_story_pattern_board",
+        "assembly": "pinboard"
+      }
+    ]
+  },
+  {
+    "unit": "3B",
+    "rooms": [
+      "F03_B_VESTIBULE",
+      "F03_B_MAIN",
+      "F03_B_KITCHEN",
+      "F03_B_PRIVATE_HALL",
+      "F03_B_ALCOVE",
+      "F03_B_BATH"
+    ],
+    "mounted_furniture": [
+      {
+        "id": "3B_abed",
+        "kind": "bed",
+        "room": "F03_B_ALCOVE"
+      },
+      {
+        "id": "3B_workbench",
+        "kind": "workbench",
+        "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_wc",
+        "kind": "toilet",
+        "room": "F03_B_BATH"
+      },
+      {
+        "id": "3B_abed_ns",
+        "kind": "nightstand",
+        "room": "F03_B_ALCOVE"
+      },
+      {
+        "id": "3B_aw_wardrobe",
+        "kind": "wardrobe",
+        "room": "F03_B_ALCOVE"
+      },
+      {
+        "id": "3B_tools0",
+        "kind": "shelf",
+        "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_tools1",
+        "kind": "shelf",
+        "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_din_t",
+        "kind": "table_round",
+        "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_din_dc1",
+        "kind": "chair",
+        "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_din_dc2",
+        "kind": "chair",
+        "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_stool",
+        "kind": "chair",
+        "room": "F03_B_MAIN"
+      }
+    ],
+    "remaining_source_assemblies": [
+      {
+        "id": "3B_k",
+        "assembly": "kitchen"
+      },
+      {
+        "id": "3B_k_kmug",
+        "assembly": "mug"
+      },
+      {
+        "id": "3B_k_kdishrack",
+        "assembly": "dishrack"
+      },
+      {
+        "id": "3B_tv",
+        "assembly": "tv"
+      },
+      {
+        "id": "3B_radio",
+        "assembly": "radio"
+      },
+      {
+        "id": "3B_toolboard",
+        "assembly": "toolboard"
+      },
+      {
+        "id": "3B_tray1",
+        "assembly": "partstray"
+      },
+      {
+        "id": "3B_tray2",
+        "assembly": "partstray"
+      },
+      {
+        "id": "3B_jars",
+        "assembly": "jarrow"
+      },
+      {
+        "id": "3B_manuals",
+        "assembly": "bookpile"
+      },
+      {
+        "id": "3B_mug",
+        "assembly": "mug"
+      },
+      {
+        "id": "3B_partscrate",
+        "assembly": "crate"
+      },
+      {
+        "id": "3B_coil",
+        "assembly": "cablecoil"
+      }
+    ]
+  },
+  {
+    "unit": "4B",
+    "rooms": [
+      "F04_B_VESTIBULE",
+      "F04_B_MAIN",
+      "F04_B_KITCHEN",
+      "F04_B_PRIVATE_HALL",
+      "F04_B_ALCOVE_APPROACH",
+      "F04_B_BATH",
+      "F04_B_CLOSET",
+      "F04_B_ALCOVE"
+    ],
+    "mounted_furniture": [
+      {
+        "id": "4B_wake_bed",
+        "kind": "bed",
+        "room": "F04_B_ALCOVE"
+      },
+      {
+        "id": "4B_wake_nightstand",
+        "kind": "nightstand",
+        "room": "F04_B_ALCOVE"
+      },
+      {
+        "id": "4B_couch",
+        "kind": "sofa",
+        "room": "F04_B_MAIN"
+      },
+      {
+        "id": "4B_shelf",
+        "kind": "shelf",
+        "room": "F04_B_MAIN"
+      },
+      {
+        "id": "4B_wc",
+        "kind": "toilet",
+        "room": "F04_B_BATH"
+      },
+      {
+        "id": "4B_terminal_desk",
+        "kind": "desk",
+        "room": "F04_B_MAIN"
+      },
+      {
+        "id": "4B_sink_counter",
+        "kind": "counter",
+        "room": "F04_B_KITCHEN"
+      },
+      {
+        "id": "4B_equipment_shelf",
+        "kind": "shelf",
+        "room": "F04_B_CLOSET"
+      },
+      {
+        "id": "4B_meal_table",
+        "kind": "table_round",
+        "room": "F04_B_MAIN"
+      },
+      {
+        "id": "4B_meal_chair_01",
+        "kind": "chair",
+        "room": "F04_B_MAIN"
+      },
+      {
+        "id": "4B_meal_chair_02",
+        "kind": "chair",
+        "room": "F04_B_MAIN"
+      },
+      {
+        "id": "4B_desk_chair",
+        "kind": "chair",
+        "room": "F04_B_MAIN"
+      }
+    ],
+    "remaining_source_assemblies": [
+      {
+        "id": "4B_coffee",
+        "assembly": "coffee"
+      },
+      {
+        "id": "4B_tv",
+        "assembly": "tv"
+      },
+      {
+        "id": "4B_mug",
+        "assembly": "mug"
+      },
+      {
+        "id": "4B_dishrack",
+        "assembly": "dishrack"
+      }
+    ]
+  }
+]

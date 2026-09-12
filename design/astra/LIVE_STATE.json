@@ -308,5 +308,19 @@
     "scope": "21 additions: two toilets, four sinks, two showers, three appliances, eight source furniture pieces and two open sink stands. All four detailed V2 apartments now have complete toilet/sink/shower/stove/fridge source rosters. 28 furniture, 20 fittings, 12 water consumers. Prior records preserved; regeneration, placement/material and syntax checks pass. Batch reconstruction/active-tween teardown harness prepared.",
     "next": "Batch room lighting/switches, seating/tables/work surfaces, storage and small props across available rooms; establish remaining source units' V2 room programs and repeat category passes.",
     "limits": "No Godot launched. Twenty source unit IDs lack detailed V2 apartment rooms. Actual passage, interactions, dynamic clearances, visuals, performance and lifecycle remain pending. Full furnishing and default cutover are not complete."
+  },
+  "v2_apartment_lighting_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_apartment_lighting_batch_01/README.md",
+    "scope": "15 fixtures, 15 physical switches and 15 stances complete the source circuit roster for all 26 detailed apartment spaces. Existing records and shared power/budget owners preserved. Source placement and repeatability pass; circuit-isolation/reconstruction and authored-stance input checks prepared.",
+    "limits": "Godot remains prohibited. Physical targeting, lighting/material appearance, performance, persistence and lifecycle unverified. V1 remains default."
+  },
+  "v2_apartment_seating_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_apartment_seating_batch_01/README.md",
+    "inventory": "work/v2_apartment_seating_batch_01/apartment_inventory.json",
+    "scope": "19 furniture pieces: four meal tables, eight dining chairs, writing desk, three work chairs, fabric worktable and two shelves. 47 furniture total. Five obsolete solid 2B planning masses retire after replacements mount. Old furniture preserved; placement, 2621 approach samples and repeatability pass.",
+    "next": "Continue category passes for storage/surface props and apartment doors, then remaining unit room programs. Preserve the owner direction to batch across apartments.",
+    "limits": "Source only; no Godot. Twenty source unit IDs lack detailed V2 rooms. Fixed chairs and coarse table hulls do not establish sitting or knee clearance. Full routes, runtime/visual acceptance, performance and default cutover remain pending."
   }
 }

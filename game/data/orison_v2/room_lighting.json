@@ -115,6 +115,141 @@
         "range_clamp": 3.0,
         "energy_scale": 1.05
       }
+    },
+    {
+      "id": "F02_A_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F02_A_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F02_A_KITCHEN_LT_FLUSH_DOME",
+      "room": "F02_A_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.2,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F02_A_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_A_BATH_LT_FLUSH_DOME",
+      "room": "F02_A_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F02_A_BED_LT_FLUSH_DOME",
+      "room": "F02_A_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_B_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F02_B_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+      "room": "F02_B_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F02_B_KITCHEN_LT_FLUSH_DOME",
+      "room": "F02_B_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_B_BED_LT_FLUSH_DOME",
+      "room": "F02_B_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F02_B_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_B_BATH_LT_FLUSH_DOME",
+      "room": "F02_B_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F03_B_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F03_B_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F03_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F03_B_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_B_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F04_B_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME",
+      "room": "F04_B_ALCOVE_APPROACH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.5,
+        "energy_scale": 1.05
+      }
     }
   ],
   "switches": [
@@ -165,6 +300,66 @@
     {
       "id": "F04_B_CLOSET_SWITCH",
       "room": "F04_B_CLOSET"
+    },
+    {
+      "id": "F02_A_VESTIBULE_SWITCH",
+      "room": "F02_A_VESTIBULE"
+    },
+    {
+      "id": "F02_A_KITCHEN_SWITCH",
+      "room": "F02_A_KITCHEN"
+    },
+    {
+      "id": "F02_A_PRIVATE_HALL_SWITCH",
+      "room": "F02_A_PRIVATE_HALL"
+    },
+    {
+      "id": "F02_A_BATH_SWITCH",
+      "room": "F02_A_BATH"
+    },
+    {
+      "id": "F02_A_BED_SWITCH",
+      "room": "F02_A_BED"
+    },
+    {
+      "id": "F02_B_VESTIBULE_SWITCH",
+      "room": "F02_B_VESTIBULE"
+    },
+    {
+      "id": "F02_B_MAIN_SWITCH",
+      "room": "F02_B_MAIN"
+    },
+    {
+      "id": "F02_B_KITCHEN_SWITCH",
+      "room": "F02_B_KITCHEN"
+    },
+    {
+      "id": "F02_B_BED_SWITCH",
+      "room": "F02_B_BED"
+    },
+    {
+      "id": "F02_B_PRIVATE_HALL_SWITCH",
+      "room": "F02_B_PRIVATE_HALL"
+    },
+    {
+      "id": "F02_B_BATH_SWITCH",
+      "room": "F02_B_BATH"
+    },
+    {
+      "id": "F03_B_VESTIBULE_SWITCH",
+      "room": "F03_B_VESTIBULE"
+    },
+    {
+      "id": "F03_B_PRIVATE_HALL_SWITCH",
+      "room": "F03_B_PRIVATE_HALL"
+    },
+    {
+      "id": "F04_B_VESTIBULE_SWITCH",
+      "room": "F04_B_VESTIBULE"
+    },
+    {
+      "id": "F04_B_ALCOVE_APPROACH_SWITCH",
+      "room": "F04_B_ALCOVE_APPROACH"
     }
   ]
 }

@@ -62,7 +62,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		return false
 	var seen: Dictionary = {}
 	for record: Variant in source.furniture:
-		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk"]:
+		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect"]:
 			errors.append("invalid furniture identity or kind")
 			continue
 		if seen.has(record.id) or adapter == null or not adapter.resolve(record.id) is Node3D:
