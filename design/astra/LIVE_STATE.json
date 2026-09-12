@@ -293,5 +293,11 @@
     "packet": "evidence/v2_4b_shower_01/README.md",
     "scope": "4B shower mounted with shared materials and existing boiler supply; six water fittings now composed. Both V2 showers receive low receptor collision and independent physical hot/cold targets. Existing shared tap, player and boiler owners preserved. Source geometry/preservation/syntax checks pass; player-input and lifecycle checks prepared.",
     "limits": "No Godot launched. Actual valve/curtain targeting, receptor stepping, 3B/4B routes, flow presentation, materials and lifetime remain pending. Saved valve/curtain state, full plumbing and default cutover remain open."
+  },
+  "v2_sink_controls": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_sink_controls_01/README.md",
+    "scope": "Four V2 sinks now use physical hot/cold targets and lower-hull plus splash collision. Removed the broad sink Area that dispatched to the curtain-only handler. Shower control factory shared with placement and receptor data preserved. All six water fittings covered by prepared control/lifetime checks; 4B sink input routes prepared.",
+    "limits": "No Godot launched. Runtime targeting, physical routes, water presentation and lifecycle remain pending. Lower sink hull remains coarse; stopper access, precise bowl collision, saved valve state and default cutover remain open."
   }
 }

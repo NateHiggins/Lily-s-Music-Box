@@ -40,6 +40,23 @@ func _ready() -> void:
 			var tap := world.adapter.resolve(identity) as TapProp
 			check(tap != null and owner.taps.count(tap) == 1, "live fixture membership " + identity)
 			if tap == null: continue
+			for control_name in ["HotValveControl", "ColdValveControl"]:
+				var control := tap.get_node_or_null(control_name) as Area3D
+				check(control != null and control.get("tap") == tap,
+						"water valve target belongs to its live tap: " + identity)
+				if control != null:
+					var field := "hot" if control_name == "HotValveControl" else "cold"
+					var other := "cold" if field == "hot" else "hot"
+					control.call("interact", null)
+					check(tap.get_flow_state()[field] and not tap.get_flow_state()[other],
+							"control opens only its own valve: " + identity + "/" + field)
+					control.call("interact", null)
+					check(not tap.get_flow_state()[field], "control closes its valve again")
+			if tap.fixture != "shower":
+				var sink_body := tap.get_node_or_null("FixtureBody") as StaticBody3D
+				check(sink_body != null and sink_body.get_child_count() == 2
+						and tap.get_node_or_null("PrimaryInteraction") == null,
+						"sink replaces the masking primary area and separates lower hull from splash")
 			if tap.fixture == "shower":
 				var body := tap.get_node_or_null("FixtureBody") as StaticBody3D
 				check(body != null and body.get_child_count() == 10,
@@ -49,10 +66,6 @@ func _ready() -> void:
 					body.call("interact", null)
 					check(tap.get_flow_state() == before and body.call("interact_prompt") == "",
 							"receptor contact does not cycle the water or advertise a control")
-				for control_name in ["HotValveControl", "ColdValveControl"]:
-					var control := tap.get_node_or_null(control_name) as Area3D
-					check(control != null and control.get("tap") == tap,
-							"shower valve target belongs to its live tap: " + identity)
 				# At standing height the receptor must not obstruct the curtain/valves.
 				var overhead_clear := true
 				if body != null:
@@ -80,7 +93,11 @@ func _ready() -> void:
 			check(float(tap.get_flow_state().temperature) == 0.0, "cold-only stays cold")
 			tap.set_cold(false)
 		var refs: Array[WeakRef] = [weakref(owner), weakref(owner.boiler)]
-		for tap in owner.taps: refs.append(weakref(tap))
+		for tap in owner.taps:
+			refs.append(weakref(tap))
+			for control_name in ["HotValveControl", "ColdValveControl"]:
+				var control := tap.get_node_or_null(control_name)
+				if control != null: refs.append(weakref(control))
 		world.shutdown_for_tests()
 		world.free()
 		for reference in refs: check(reference.get_ref() == null, "world-owned service resource retires")
