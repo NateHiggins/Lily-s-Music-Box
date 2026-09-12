@@ -248,6 +248,11 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household radios refused: %s" % [radios.errors])
 		return
+	var projectors := preload("res://scripts/building/orison_v2_projectors.gd").new()
+	if not projectors.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: apartment projectors refused: %s" % [projectors.errors])
+		return
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)

@@ -39,6 +39,7 @@ func _ready() -> void:
 		_check_surface_props(world, refs)
 		_check_storage_tables_boards(world, furniture)
 		_check_household_radios(world, refs)
+		await _check_projectors(world, refs)
 		await _check_prep_cabinets(world, refs)
 		_check_specialist_devices(world, refs)
 		for identity in ["F02_B_FABRIC_TABLE_MASS", "F02_B_KITCHEN_RUN_MASS",
@@ -533,3 +534,120 @@ func _check_specialist_devices(world: OrisonV2RuntimeRoot, refs: Array[WeakRef])
 	check(JSON.stringify(RealityState.data) == state_before, "specialist radio is local ephemeral state")
 	# Exercise decoder and knob-tween teardown while both are active.
 	radio.interact(world.player)
+
+func _check_projectors(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
+	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+			"res://data/orison_v2/domestic_projectors.json"))
+	var subjects: Array[ProjectorProp] = []
+	var dry_adapter := SurfaceSourceAdapter.new()
+	for record: Dictionary in source.projectors:
+		var prop := world.adapter.resolve(record.id) as ProjectorProp
+		var stand := world.adapter.resolve(record.support) as StaticBody3D
+		check(prop != null and stand != null, "projector and stand mounted for " + str(record.unit))
+		if prop == null or stand == null: continue
+		dry_adapter.supports[record.support] = stand
+		subjects.append(prop)
+		refs.append(weakref(prop))
+		check(prop.get_parent() == stand, "projector lifetime belongs to stand")
+		check(prop.unit == record.unit and prop.reel == record.reel and not prop.powered,
+				"projector enters with its household reel loaded and lamp off")
+		var shapes := prop.find_children("*", "CollisionShape3D", true, false)
+		check(shapes.size() == 1, "projector has one fitted control body")
+		if shapes.size() == 1:
+			check(((shapes[0] as CollisionShape3D).shape as BoxShape3D).size.is_equal_approx(Vector3(.29,.51,.40)),
+					"projector does not retain television-sized interaction skin")
+		for key in ["_feed", "_accum"]:
+			var viewport := prop.get(key) as SubViewport
+			refs.append(weakref(viewport))
+			check(viewport.render_target_update_mode == SubViewport.UPDATE_DISABLED, "idle projection buffer is disabled")
+		refs.append(weakref(prop.get("_video")))
+		refs.append(weakref(prop.get("_screen")))
+		refs.append(weakref(prop.get("_beam")))
+		var stance := world.adapter.resolve(str(record.id) + "_STANCE") as Node3D
+		check(stance != null, "projector operator stance resolves")
+		if stance != null:
+			var origin := stance.global_position + Vector3.UP * 1.41
+			var target := prop.to_global(Vector3(0,.205,0))
+			check(origin.distance_to(target) < 2.1, "projector is within operator reach")
+			var ray := PhysicsRayQueryParameters3D.create(origin,target,1,[world.player.get_rid()])
+			check(world.get_world_3d().direct_space_state.intersect_ray(ray).get("collider") == prop,
+					"operator ray reaches projector above stand")
+	check(subjects.size() == 3, "all authored apartment media markers have projectors")
+	var loader := preload("res://scripts/building/orison_v2_projectors.gd").new()
+	check(loader.validate(source,dry_adapter), "projector manifest accepts complete stand roster")
+	check(not loader.validate(source,world.adapter), "duplicate projector installation refused")
+	for mutation: String in ["missing", "support", "pose", "reel", "duplicate"]:
+		var bad := source.duplicate(true)
+		if mutation == "missing": bad.projectors.pop_back()
+		elif mutation == "support": bad.projectors[0].support = "3B_projector_stand"
+		elif mutation == "pose": bad.projectors[0].position[1] = NAN
+		elif mutation == "reel": bad.projectors[0].reel = "../unlisted"
+		else: bad.projectors[1] = bad.projectors[0].duplicate(true)
+		check(not loader.validate(bad,dry_adapter), "projector source rejects " + mutation)
+	for i in subjects.size():
+		var prop := subjects[i]
+		var state_before := JSON.stringify(RealityState.data)
+		prop.interact(world.player)
+		check(JSON.stringify(RealityState.data) == state_before, "projector switch leaves campaign state untouched")
+		for j in subjects.size(): check(subjects[j].powered == (j <= i), "projector switches remain household-local")
+		check(bool(prop.get("_running")) and (prop.get("_screen") as MeshInstance3D).visible,
+				"loaded projector finds a continuous physical image surface: " + prop.unit)
+	await get_tree().create_timer(.4).timeout
+	for prop in subjects:
+		var video := prop.get("_video") as VideoStreamPlayer
+		var position_before := video.stream_position
+		check(video.is_playing(), "projector reel is decoding")
+		check(position_before > 0, "projector reel advances from its opening frame")
+		prop.set_npc(true)
+		prop.interact(world.player)
+		check(prop.powered and bool(prop.get("_running")), "NPC latch keeps projector running after player releases")
+		check(video.stream_position >= position_before, "overlapping latches preserve reel position")
+		prop.set_npc(false)
+		check(not video.is_playing() and not (prop.get("_screen") as MeshInstance3D).visible,
+				"last released latch stops decoder and projection")
+		for key in ["_feed", "_accum"]:
+			check((prop.get(key) as SubViewport).render_target_update_mode == SubViewport.UPDATE_DISABLED,
+					"last released latch parks render buffers")
+		var saved_reel := prop.reel
+		prop.load_reel("missing_v2_test_reel")
+		prop.interact(world.player)
+		check(prop.reel.is_empty() and video.stream == null and not bool(prop.get("_running")),
+				"invalid reel releases previous decoder and stays dark")
+		prop.load_reel(saved_reel)
+		check(bool(prop.get("_running")), "valid reel resumes an already-powered machine")
+		prop.interact(world.player)
+	await _check_projector_surface_failures(world)
+	# All machines must retire while decoding with their exposure buffers live.
+	for prop in subjects: prop.interact(world.player)
+
+func _check_projector_surface_failures(world: OrisonV2RuntimeRoot) -> void:
+	var holder := Node3D.new()
+	world.add_child(holder)
+	holder.global_position = Vector3(0,1000,0)
+	var projector := preload("res://scripts/building/orison_v2_projector_prop.gd").new()
+	projector.setup_v2("projection_test","ch_01")
+	holder.add_child(projector)
+	var wall := StaticBody3D.new()
+	wall.position = Vector3(0,.205,-2)
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(2,2,.1)
+	collision.shape = shape
+	wall.add_child(collision)
+	holder.add_child(wall)
+	await get_tree().physics_frame
+	projector.interact(world.player)
+	check(bool(projector.get("_running")), "continuous test wall admits full projection")
+	projector.interact(world.player)
+	shape.size = Vector3(.1,.1,.1)
+	await get_tree().physics_frame
+	projector.interact(world.player)
+	check(not bool(projector.get("_running")) and not projector._screen.visible,
+			"centre-only jamb hit cannot display a floating full image")
+	projector.interact(world.player)
+	wall.position.z = -10
+	await get_tree().physics_frame
+	projector.interact(world.player)
+	check(not bool(projector.get("_running")) and not projector._screen.visible \
+			and not projector._video.is_playing(), "missed wall keeps projection and decoder off")
+	holder.free()

@@ -167,11 +167,14 @@ def build(apply=False):
     surface_props = json.loads(surface_path.read_text(encoding="utf-8"))["props"] if surface_path.exists() else []
     radio_path = ROOT/"game/data/orison_v2/domestic_radios.json"
     receivers = json.loads(radio_path.read_text(encoding="utf-8"))["receivers"] if radio_path.exists() else []
+    projector_path = ROOT/"game/data/orison_v2/domestic_projectors.json"
+    projectors = json.loads(projector_path.read_text(encoding="utf-8"))["projectors"] if projector_path.exists() else []
     radio_profiles = {r["unit"]:r for r in previous.load("game/data/domestic_radios.json")["profiles"]}
-    mounted_ids = {r["id"] for r in rows} | {r["id"] for r in surface_props}
+    mounted_ids = {r["id"] for r in rows} | {r["id"] for r in surface_props} | {r["id"] for r in projectors}
     for unit in ["2A","2B","3B","4B"]:
         prefix = "F0"+unit[0]+"_"+unit[1]+"_"
         inventory.append(dict(unit=unit,rooms=[s for s in spaces if s.startswith(prefix)],
+                              mounted_projectors=[dict(id=r["id"],support=r["support"],reel=r["reel"],assembly="projector_replaces_tv_marker") for r in projectors if r["unit"]==unit],
                               mounted_household_radios=[dict(id=r["id"],support=r["support"],family=radio_profiles[unit]["family"]) for r in receivers if r["unit"]==unit],
                               mounted_supported_devices=[dict(id=r["id"],kind=r["kind"],support=r["support_source"]["id"]) for r in rows if r["id"].startswith(unit+"_") and "support_source" in r],
                               mounted_surface_props=[dict(id=r["id"],kind=r["kind"],support=r["support"]) for r in surface_props if r["unit"]==unit],

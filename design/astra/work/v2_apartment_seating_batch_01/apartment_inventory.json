@@ -9,6 +9,14 @@
       "F02_A_BATH",
       "F02_A_BED"
     ],
+    "mounted_projectors": [
+      {
+        "id": "2A_tv",
+        "support": "2A_projector_stand",
+        "reel": "ch_01",
+        "assembly": "projector_replaces_tv_marker"
+      }
+    ],
     "mounted_household_radios": [
       {
         "id": "DomesticRadio_2A",
@@ -158,16 +166,17 @@
         "id": "2A_deck",
         "kind": "reeldeck",
         "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_projector_stand",
+        "kind": "table_rect",
+        "room": "F02_A_MAIN"
       }
     ],
     "remaining_source_assemblies": [
       {
         "id": "2A_k",
         "assembly": "kitchen"
-      },
-      {
-        "id": "2A_tv",
-        "assembly": "tv"
       }
     ]
   },
@@ -181,6 +190,7 @@
       "F02_B_PRIVATE_HALL",
       "F02_B_BATH"
     ],
+    "mounted_projectors": [],
     "mounted_household_radios": [
       {
         "id": "DomesticRadio_2B",
@@ -307,6 +317,14 @@
       "F03_B_PRIVATE_HALL",
       "F03_B_ALCOVE",
       "F03_B_BATH"
+    ],
+    "mounted_projectors": [
+      {
+        "id": "3B_tv",
+        "support": "3B_projector_stand",
+        "reel": "ch_02",
+        "assembly": "projector_replaces_tv_marker"
+      }
     ],
     "mounted_household_radios": [
       {
@@ -457,16 +475,17 @@
         "id": "3B_radio",
         "kind": "radio",
         "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_projector_stand",
+        "kind": "table_rect",
+        "room": "F03_B_MAIN"
       }
     ],
     "remaining_source_assemblies": [
       {
         "id": "3B_k",
         "assembly": "kitchen"
-      },
-      {
-        "id": "3B_tv",
-        "assembly": "tv"
       }
     ]
   },
@@ -481,6 +500,14 @@
       "F04_B_BATH",
       "F04_B_CLOSET",
       "F04_B_ALCOVE"
+    ],
+    "mounted_projectors": [
+      {
+        "id": "4B_tv",
+        "support": "4B_projector_stand",
+        "reel": "ch_03",
+        "assembly": "projector_replaces_tv_marker"
+      }
     ],
     "mounted_household_radios": [
       {
@@ -590,13 +617,13 @@
         "id": "4B_prep_cabinet",
         "kind": "prep_cabinet",
         "room": "F04_B_KITCHEN"
+      },
+      {
+        "id": "4B_projector_stand",
+        "kind": "table_rect",
+        "room": "F04_B_MAIN"
       }
     ],
-    "remaining_source_assemblies": [
-      {
-        "id": "4B_tv",
-        "assembly": "tv"
-      }
-    ]
+    "remaining_source_assemblies": []
   }
 ]
