@@ -39,6 +39,8 @@ func _ready() -> void:
 		_check_surface_props(world, refs)
 		_check_storage_tables_boards(world, furniture)
 		_check_household_radios(world, refs)
+		await _check_prep_cabinets(world, refs)
+		_check_specialist_devices(world, refs)
 		for identity in ["F02_B_FABRIC_TABLE_MASS", "F02_B_KITCHEN_RUN_MASS",
 				"F02_B_BED_MASS", "F02_B_STORAGE_MASS", "F02_B_BATH_MASS"]:
 			var mass := world.find_child(identity, true, false) as Node3D
@@ -408,3 +410,126 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 	# Reconstruct/free with all programme decoders active. WeakRefs in the
 	# caller must retire together with the table and receiver owners.
 	for radio in radios: radio.interact(world.player)
+
+func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
+	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+			"res://data/orison_v2/domestic_furniture.json"))
+	var loader := preload("res://scripts/building/orison_v2_domestic_furniture.gd").new()
+	check(loader.validate(source, world.adapter), "complete furniture manifest validates")
+	for mutation: String in ["unit", "bounds", "collision", "radio_owner", "radio_bounds"]:
+		var bad := source.duplicate(true)
+		for record: Dictionary in bad.furniture:
+			if record.id == "2A_prep_cabinet":
+				if mutation == "unit": record.mechanism.unit = "3B"
+				elif mutation == "bounds": record.bounds[1][0] += .1
+				elif mutation == "collision": record.erase("collision_boxes")
+			if record.id == "3B_radio":
+				if mutation == "radio_owner": record.mechanism.id = "2A_deck"
+				elif mutation == "radio_bounds": record.bounds[1][1] += .1
+		check(not loader.validate(bad, world.adapter), "mechanism contract rejects " + mutation)
+	var cabinets: Array[StaticBody3D] = []
+	var panels: Array[AnimatableBody3D] = []
+	for unit: String in UNITS:
+		var cabinet := world.adapter.resolve(unit + "_prep_cabinet") as StaticBody3D
+		check(cabinet != null and cabinet.has_method("interact"), "operable preparation cabinet for " + unit)
+		if cabinet == null or not cabinet.has_method("interact"): continue
+		cabinets.append(cabinet)
+		refs.append(weakref(cabinet))
+		check(cabinet.get("unit") == unit and not bool(cabinet.get("opened")), "cabinet reconstructs closed for its household")
+		var panel := cabinet.get_node_or_null("SlidingPanel") as AnimatableBody3D
+		check(panel != null and panel.has_method("interact"), "moving panel forwards cabinet interaction")
+		if panel == null: continue
+		panels.append(panel)
+		refs.append(weakref(panel))
+		check(_cabinet_aperture_hit(cabinet).get("collider") == panel, "closed panel blocks lower shelf access")
+		var stance := world.adapter.resolve(unit + "_prep_cabinet_STANCE") as Node3D
+		if stance != null:
+			var query := PhysicsRayQueryParameters3D.create(stance.global_position + Vector3.UP * 1.41,
+					cabinet.to_global(Vector3(-.19,.55,-.253)), 1, [world.player.get_rid()])
+			var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
+			check(hit.get("collider") == panel, "cabinet panel can be reached from cooking aisle")
+		else: check(false, "preparation cabinet stance resolves")
+	check(cabinets.size() == 4 and panels.size() == 4, "complete four-kitchen preparation category")
+	for i in cabinets.size():
+		var state_before := JSON.stringify(RealityState.data)
+		cabinets[i].call("interact", world.player)
+		check(JSON.stringify(RealityState.data) == state_before, "cabinet opening does not write campaign state")
+		for j in cabinets.size():
+			check(bool(cabinets[j].get("opened")) == (j <= i), "cabinet switch has local household state")
+	await get_tree().create_timer(.36).timeout
+	await get_tree().physics_frame
+	for cabinet in cabinets:
+		var panel := cabinet.get_node("SlidingPanel") as AnimatableBody3D
+		check(is_equal_approx(panel.position.x, .382), "panel reaches full bypass travel")
+		check(_cabinet_aperture_hit(cabinet).is_empty(), "open cabinet exposes actual free shelf space")
+		var query := PhysicsRayQueryParameters3D.create(cabinet.to_global(Vector3(-.19,.55,-.6)),
+				cabinet.to_global(Vector3(-.19,.55,.24)), 1)
+		check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == cabinet,
+				"open shelf retains its physical back panel")
+		var state_before := JSON.stringify(RealityState.data)
+		panel.call("interact", world.player)
+		check(JSON.stringify(RealityState.data) == state_before, "cabinet closing does not write campaign state")
+	await get_tree().create_timer(.36).timeout
+	await get_tree().physics_frame
+	for cabinet in cabinets:
+		check(_cabinet_aperture_hit(cabinet).get("collider") == cabinet.get_node("SlidingPanel"),
+				"closing restores the physical front")
+	# Rapid reversal and immediate world teardown exercise cancellation of an
+	# active physics tween, rather than only freeing a stationary cabinet.
+	for cabinet in cabinets:
+		cabinet.call("interact", world.player)
+		cabinet.call("interact", world.player)
+		cabinet.call("interact", world.player)
+
+func _cabinet_aperture_hit(cabinet: Node3D) -> Dictionary:
+	var query := PhysicsRayQueryParameters3D.create(cabinet.to_global(Vector3(-.19,.55,-.6)),
+			cabinet.to_global(Vector3(-.19,.55,.16)), 1)
+	return cabinet.get_world_3d().direct_space_state.intersect_ray(query)
+
+func _check_specialist_devices(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
+	var deck := world.adapter.resolve("2A_deck") as StaticBody3D
+	var coffee := world.adapter.resolve("2A_cof") as Node3D
+	check(deck != null and coffee != null, "Mina's reel deck and glass table mount")
+	if deck != null and coffee != null:
+		check(coffee.to_local(deck.global_position).is_equal_approx(Vector3(0,.3838806654,0)),
+				"reel deck rests on extracted glass top")
+		check(not deck.has_method("interact"), "fixed source reel deck does not claim playback")
+	var radio := world.adapter.resolve("3B_radio") as BakedFurnitureInteraction
+	check(radio != null, "Omar's specialist valve receiver mounts with native controls")
+	if radio == null: return
+	refs.append(weakref(radio))
+	check(not bool(radio.get("_powered")), "specialist receiver reconstructs switched off")
+	var shapes := radio.find_children("*", "CollisionShape3D", true, false)
+	check(shapes.size() == 1, "specialist receiver has one native collision owner")
+	var stance := world.adapter.resolve("3B_tools0_STANCE") as Node3D
+	check(stance != null, "equipment-shelf operator stance resolves")
+	if stance != null:
+		var origin := stance.global_position + Vector3.UP * 1.41
+		var target := radio.to_global(Vector3(0,.14,0))
+		check(origin.distance_to(target) < 2.1, "specialist receiver is within player reach")
+		var query := PhysicsRayQueryParameters3D.create(origin, target, 1, [world.player.get_rid()])
+		check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == radio,
+				"equipment shelf does not swallow specialist radio targeting")
+	var emitter := radio.get("_radio_bed") as AudioStreamPlayer3D
+	var click := radio.get("_control_click") as AudioStreamPlayer3D
+	check(emitter != null and click != null, "native radio programme and switch emitters exist")
+	if emitter == null or click == null: return
+	refs.append(weakref(emitter))
+	refs.append(weakref(click))
+	check(emitter.stream != null and not emitter.playing and emitter.bus == "Broadcast" \
+			and emitter.max_distance <= 7.0, "native programme starts silent with bounded range")
+	var household_states: Dictionary = {}
+	for unit: String in UNITS:
+		var household := world.adapter.resolve("DomesticRadio_" + unit) as DomesticRadioProp
+		if household != null: household_states[unit] = household.powered
+	var state_before := JSON.stringify(RealityState.data)
+	radio.interact(world.player)
+	check(bool(radio.get("_powered")) and emitter.playing, "specialist power starts its programme")
+	radio.interact(world.player)
+	check(not bool(radio.get("_powered")) and not emitter.playing, "specialist power silences its programme")
+	for unit: String in household_states:
+		var household := world.adapter.resolve("DomesticRadio_" + unit) as DomesticRadioProp
+		check(household.powered == household_states[unit], "specialist switch leaves household receivers unchanged")
+	check(JSON.stringify(RealityState.data) == state_before, "specialist radio is local ephemeral state")
+	# Exercise decoder and knob-tween teardown while both are active.
+	radio.interact(world.player)

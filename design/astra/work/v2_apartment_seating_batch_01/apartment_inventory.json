@@ -16,6 +16,13 @@
         "family": "atwater_kent_44"
       }
     ],
+    "mounted_supported_devices": [
+      {
+        "id": "2A_deck",
+        "kind": "reeldeck",
+        "support": "2A_cof"
+      }
+    ],
     "mounted_surface_props": [
       {
         "id": "2A_k_kmug",
@@ -141,6 +148,16 @@
         "id": "2A_wireless_table",
         "kind": "table_rect",
         "room": "F02_A_MAIN"
+      },
+      {
+        "id": "2A_prep_cabinet",
+        "kind": "prep_cabinet",
+        "room": "F02_A_KITCHEN"
+      },
+      {
+        "id": "2A_deck",
+        "kind": "reeldeck",
+        "room": "F02_A_MAIN"
       }
     ],
     "remaining_source_assemblies": [
@@ -151,10 +168,6 @@
       {
         "id": "2A_tv",
         "assembly": "tv"
-      },
-      {
-        "id": "2A_deck",
-        "assembly": "reeldeck"
       }
     ]
   },
@@ -175,6 +188,7 @@
         "family": "three_dial_battery"
       }
     ],
+    "mounted_supported_devices": [],
     "mounted_surface_props": [
       {
         "id": "2B_k_kmug",
@@ -270,6 +284,11 @@
         "id": "2B_wireless_table",
         "kind": "table_rect",
         "room": "F02_B_MAIN"
+      },
+      {
+        "id": "2B_prep_cabinet",
+        "kind": "prep_cabinet",
+        "room": "F02_B_KITCHEN"
       }
     ],
     "remaining_source_assemblies": [
@@ -294,6 +313,13 @@
         "id": "DomesticRadio_3B",
         "support": "3B_wireless_table",
         "family": "three_dial_battery"
+      }
+    ],
+    "mounted_supported_devices": [
+      {
+        "id": "3B_radio",
+        "kind": "radio",
+        "support": "3B_tools0"
       }
     ],
     "mounted_surface_props": [
@@ -421,6 +447,16 @@
         "id": "3B_wireless_table",
         "kind": "table_rect",
         "room": "F03_B_MAIN"
+      },
+      {
+        "id": "3B_prep_cabinet",
+        "kind": "prep_cabinet",
+        "room": "F03_B_KITCHEN"
+      },
+      {
+        "id": "3B_radio",
+        "kind": "radio",
+        "room": "F03_B_MAIN"
       }
     ],
     "remaining_source_assemblies": [
@@ -431,10 +467,6 @@
       {
         "id": "3B_tv",
         "assembly": "tv"
-      },
-      {
-        "id": "3B_radio",
-        "assembly": "radio"
       }
     ]
   },
@@ -457,6 +489,7 @@
         "family": "three_dial_battery"
       }
     ],
+    "mounted_supported_devices": [],
     "mounted_surface_props": [
       {
         "id": "4B_mug",
@@ -552,6 +585,11 @@
         "id": "4B_wireless_table",
         "kind": "table_rect",
         "room": "F04_B_MAIN"
+      },
+      {
+        "id": "4B_prep_cabinet",
+        "kind": "prep_cabinet",
+        "room": "F04_B_KITCHEN"
       }
     ],
     "remaining_source_assemblies": [

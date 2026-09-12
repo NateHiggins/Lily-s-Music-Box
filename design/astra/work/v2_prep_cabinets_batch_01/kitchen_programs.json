@@ -1,0 +1,135 @@
+{
+  "status": "SOURCE_ROLE_ROSTERS_COMPLETE_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "kitchens": [
+    {
+      "unit": "2A",
+      "room": "F02_A_KITCHEN",
+      "installed_roles": {
+        "fridge": {
+          "id": "F02_2A_FRIDGE_01",
+          "source_owner": "fitting"
+        },
+        "sink": {
+          "id": "F02_2A_KITCHEN_SINK_01",
+          "source_owner": "fitting"
+        },
+        "stove": {
+          "id": "F02_2A_STOVE_01",
+          "source_owner": "fitting"
+        },
+        "counter": {
+          "id": "2A_sink_support",
+          "source_owner": "furniture"
+        },
+        "cupboard": {
+          "id": "2A_k_wall_cupboard",
+          "source_owner": "furniture"
+        },
+        "prep_cabinet": {
+          "id": "2A_prep_cabinet",
+          "source_owner": "furniture"
+        }
+      },
+      "legacy_aggregate": "2A_k",
+      "disposition": "Role coverage replaced by separate working fittings, upper cupboard and dry preparation cabinet. Legacy lower aggregate mesh is not installed.",
+      "runtime_status": "NOT_RUN"
+    },
+    {
+      "unit": "2B",
+      "room": "F02_B_KITCHEN",
+      "installed_roles": {
+        "sink": {
+          "id": "F02_2B_KITCHEN_SINK_01",
+          "source_owner": "fitting"
+        },
+        "stove": {
+          "id": "F02_2B_STOVE_01",
+          "source_owner": "fitting"
+        },
+        "fridge": {
+          "id": "F02_2B_FRIDGE_01",
+          "source_owner": "fitting"
+        },
+        "counter": {
+          "id": "2B_sink_support",
+          "source_owner": "furniture"
+        },
+        "cupboard": {
+          "id": "2B_k_wall_cupboard",
+          "source_owner": "furniture"
+        },
+        "prep_cabinet": {
+          "id": "2B_prep_cabinet",
+          "source_owner": "furniture"
+        }
+      },
+      "legacy_aggregate": "2B_k",
+      "disposition": "Role coverage replaced by separate working fittings, upper cupboard and dry preparation cabinet. Legacy lower aggregate mesh is not installed.",
+      "runtime_status": "NOT_RUN"
+    },
+    {
+      "unit": "3B",
+      "room": "F03_B_KITCHEN",
+      "installed_roles": {
+        "sink": {
+          "id": "F03_3B_KITCHEN_SINK_01",
+          "source_owner": "fitting"
+        },
+        "stove": {
+          "id": "F03_3B_STOVE_01",
+          "source_owner": "fitting"
+        },
+        "fridge": {
+          "id": "F03_3B_FRIDGE_01",
+          "source_owner": "fitting"
+        },
+        "cupboard": {
+          "id": "3B_k_wall_cupboard",
+          "source_owner": "furniture"
+        },
+        "prep_cabinet": {
+          "id": "3B_prep_cabinet",
+          "source_owner": "furniture"
+        }
+      },
+      "legacy_aggregate": "3B_k",
+      "disposition": "Role coverage replaced by separate working fittings, upper cupboard and dry preparation cabinet. Legacy lower aggregate mesh is not installed.",
+      "runtime_status": "NOT_RUN"
+    },
+    {
+      "unit": "4B",
+      "room": "F04_B_KITCHEN",
+      "installed_roles": {
+        "stove": {
+          "id": "F04_B_STOVE_01",
+          "source_owner": "fitting"
+        },
+        "fridge": {
+          "id": "F04_B_FRIDGE_01",
+          "source_owner": "fitting"
+        },
+        "sink": {
+          "id": "F04_4B_KITCHEN_SINK_01",
+          "source_owner": "fitting"
+        },
+        "counter": {
+          "id": "4B_sink_counter",
+          "source_owner": "furniture"
+        },
+        "cupboard": {
+          "id": "4B_wall_cupboard",
+          "source_owner": "furniture"
+        },
+        "prep_cabinet": {
+          "id": "4B_prep_cabinet",
+          "source_owner": "furniture"
+        }
+      },
+      "legacy_aggregate": null,
+      "disposition": "Role coverage replaced by separate working fittings, upper cupboard and dry preparation cabinet. Legacy lower aggregate mesh is not installed.",
+      "runtime_status": "NOT_RUN"
+    }
+  ],
+  "limits": "Role coverage does not establish cooking, usable inventory, plumbing topology, saved cabinet state, complete apartment content or physical/visual acceptance. Raw legacy assembly omissions remain listed in apartment_inventory.json."
+}

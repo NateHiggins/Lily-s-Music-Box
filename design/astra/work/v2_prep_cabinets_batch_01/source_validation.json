@@ -1,0 +1,34 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base_head": "2973f02",
+  "old_furniture_preserved": 61,
+  "furniture_added": 6,
+  "anchors_added": 10,
+  "source_triangles_added": 756,
+  "runtime_cabinet_triangles": 192,
+  "protected_owners": [
+    "game/data/domestic_radios.json",
+    "game/data/runtime_material_sets.json",
+    "game/data/orison_v2/domestic_radios.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/domestic_surface_props.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/data/orison_v2/case_one_placement.json",
+    "game/data/orison_v2/mina_routine.json",
+    "game/scripts/props/baked_furniture_interaction.gd",
+    "game/scripts/props/domestic_radio_prop.gd",
+    "game/scripts/props/functional_prop.gd",
+    "game/scripts/audio/prop_audio.gd",
+    "game/scripts/audio/audio_policy.gd",
+    "game/scripts/building/broadcast_director.gd",
+    "game/project.godot"
+  ],
+  "regeneration_sha256": {
+    "game/data/orison_v2/domestic_furniture.json": "913bf60c683a3e00740d52451de6500c54bfe1d439982e7aac303857eef6e018",
+    "game/data/orison_v2_blockout.json": "8b9fb05eddc67ab6f5c08131f04228fec3f5b17344be266f929f6a05259da162",
+    "design/astra/work/v2_prep_cabinets_batch_01/receipt.json": "016b269e4d1d75003fae570314894527592c823a2f44de2ac5a3d1dbd69d2a72",
+    "design/astra/work/v2_specialist_devices_batch_01/receipt.json": "619c7f3e186bdc05da50ab3cb9623b17cd42b19fc970350d20de2e963846e768"
+  },
+  "limits": "Source-only proof. Prepared physics, audio, material, teardown and malformed-input checks require Godot; visual/performance acceptance pending."
+}

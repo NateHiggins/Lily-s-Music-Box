@@ -173,6 +173,7 @@ def build(apply=False):
         prefix = "F0"+unit[0]+"_"+unit[1]+"_"
         inventory.append(dict(unit=unit,rooms=[s for s in spaces if s.startswith(prefix)],
                               mounted_household_radios=[dict(id=r["id"],support=r["support"],family=radio_profiles[unit]["family"]) for r in receivers if r["unit"]==unit],
+                              mounted_supported_devices=[dict(id=r["id"],kind=r["kind"],support=r["support_source"]["id"]) for r in rows if r["id"].startswith(unit+"_") and "support_source" in r],
                               mounted_surface_props=[dict(id=r["id"],kind=r["kind"],support=r["support"]) for r in surface_props if r["unit"]==unit],
                               mounted_source_components=[dict(id=r["id"],**r["source_component"]) for r in rows if r["id"].startswith(unit+"_") and "source_component" in r],
                               mounted_furniture=[dict(id=r["id"],kind=r["kind"],room=indexed[r["id"]]["space"]) for r in rows if indexed[r["id"]]["space"].startswith(prefix)],

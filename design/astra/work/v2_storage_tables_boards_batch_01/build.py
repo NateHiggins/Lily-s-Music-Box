@@ -197,8 +197,13 @@ def build(apply=False):
     layout["anchors"]=geometry.merge(layout["anchors"],anchors)
     rows=geometry.merge(furniture["furniture"],additions); indexed={a["id"]:a for a in anchors}
     new_volumes=[(r["id"],indexed[r["id"]]["level"],volume(r["bounds"],indexed[r["id"]])) for r in additions]
+    supported={r["id"]:r["support_source"]["id"] for r in rows if "support_source" in r}
     for identity,level,b in new_volumes:
         for other,floor,other_b in obstacles(layout,rows):
+            # The specialist-device generator checks visible support contact.
+            # A support's conservative top hull may intersect its supported
+            # object's base by the documented few millimetres.
+            if supported.get(other)==identity or supported.get(identity)==other: continue
             if other!=identity and floor==level:assert not overlap(b,other_b),("furnishing overlap",identity,other,b,other_b)
     supports=check_walls(layout,new_volumes)
     samples,swept=check_routes_and_doors(layout,new_volumes)

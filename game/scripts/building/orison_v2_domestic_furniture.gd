@@ -3,6 +3,8 @@ extends RefCounted
 const PATH := "res://data/orison_v2/domestic_furniture.json"
 const WaterCloset := preload("res://scripts/building/orison_v2_water_closet.gd")
 const Wardrobe := preload("res://scripts/building/orison_v2_wardrobe.gd")
+const PrepCabinet := preload("res://scripts/building/orison_v2_prep_cabinet.gd")
+const SpecialistRadio := preload("res://scripts/building/orison_v2_specialist_radio.gd")
 const MATERIAL_ALIASES := {"floor_oak": "oak_quartered", "fabric_cool": "linen", "fabric_green": "linen"}
 const GARMENT_TINTS := {"fabric_cool": Color(0.36, 0.42, 0.51), "fabric_green": Color(0.38, 0.46, 0.36)}
 var errors: Array[String] = []
@@ -19,8 +21,12 @@ func mount(adapter: Variant) -> bool:
 		elif record.kind == "wardrobe":
 			body = Wardrobe.new()
 			body.call("setup", record.mechanism)
+		elif record.kind == "radio":
+			body = SpecialistRadio.new()
+			body.call("setup", record.mechanism)
 		else:
-			body = StaticBody3D.new()
+			body = PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new()
+			if record.kind == "prep_cabinet": body.call("setup", str(record.mechanism.unit))
 			for box: Array in record.get("collision_boxes", [record.bounds]):
 				var collision := CollisionShape3D.new()
 				var shape := BoxShape3D.new()
@@ -45,12 +51,24 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		return false
 	var seen: Dictionary = {}
 	for record: Variant in source.furniture:
-		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect", "cupboard", "coffee", "crate", "pinboard", "toolboard"]:
+		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect", "cupboard", "coffee", "crate", "pinboard", "toolboard", "prep_cabinet", "radio", "reeldeck"]:
 			errors.append("invalid furniture identity or kind")
 			continue
 		if seen.has(record.id) or adapter == null or not adapter.resolve(record.id) is Node3D:
 			errors.append("duplicate or missing furniture anchor: " + str(record.id))
 		seen[record.id] = true
+		if record.kind == "radio":
+			var mechanism: Variant = record.get("mechanism")
+			if mechanism is not Dictionary or mechanism.size() != 2 \
+					or mechanism.get("asm") != "radio" or mechanism.get("id") != record.id:
+				errors.append("invalid specialist radio mechanism")
+		if record.kind == "prep_cabinet":
+			var mechanism: Variant = record.get("mechanism")
+			if mechanism is not Dictionary or mechanism.size() != 1 \
+					or mechanism.get("unit") not in ["2A", "2B", "3B", "4B"] \
+					or not str(record.id).begins_with(str(mechanism.get("unit", "")) + "_") \
+					or not record.has("collision_boxes"):
+				errors.append("invalid preparation cabinet mechanism")
 		if record.kind == "wardrobe":
 			var mechanism: Variant = record.get("mechanism")
 			if mechanism is not Dictionary or mechanism.size() != 4 \
@@ -64,9 +82,15 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		for axis in range(3):
 			if bounds[1][axis] <= bounds[0][axis]:
 				errors.append("inverted furniture bounds")
+		if record.kind == "prep_cabinet" and (not _vector(bounds[0]).is_equal_approx(Vector3(-.415,0,-.29)) \
+				or not _vector(bounds[1]).is_equal_approx(Vector3(.415,.9,.245))):
+			errors.append("preparation cabinet bounds do not cover its fixed mechanism")
+		if record.kind == "radio" and (not _vector(bounds[0]).is_equal_approx(Vector3(-.24,-.03,-.19)) \
+				or not _vector(bounds[1]).is_equal_approx(Vector3(.24,.31,.15))):
+			errors.append("specialist radio bounds do not match its native collision")
 		if record.has("collision_boxes"):
 			var boxes: Variant = record.collision_boxes
-			if record.kind not in ["desk", "counter"] or boxes is not Array \
+			if record.kind not in ["desk", "counter", "prep_cabinet"] or boxes is not Array \
 					or boxes.is_empty() or boxes.size() > 64:
 				errors.append("invalid furniture collision pieces")
 				continue
