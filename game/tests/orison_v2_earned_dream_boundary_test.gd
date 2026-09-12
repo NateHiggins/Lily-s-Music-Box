@@ -105,6 +105,12 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	check(world.adapter.resolve("4B_equipment_shelf") is StaticBody3D,
+			"4B closet equipment shelf reconstructs")
+	var closet := world.adapter.resolve("F04_B_CLOSET_DOOR") as Node3D
+	check(closet != null and closet.get_node_or_null("F04_B_CLOSET_DOOR_Leaf") is DoorProp
+			and closet.get_node_or_null("Hinge") == null,
+			"4B closet uses one production leaf instead of its placeholder")
 	check(world.adapter.resolve("4B_terminal_desk") is StaticBody3D
 			and world.find_child("TerminalHomeContext", true, false) == null,
 			"physical terminal desk replaces schematic workspace blocks")
@@ -142,7 +148,8 @@ func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 	for pair in [["F04_B_MAIN_SWITCH", "F04_B_MAIN_LT_PENDANT_SHADE"],
 			["F04_B_BATH_SWITCH", "F04_B_BATH_LT_FLUSH_DOME"],
 			["F04_B_KITCHEN_SWITCH", "F04_B_KITCHEN_LT_FLUSH_DOME"],
-			["F04_B_PRIVATE_HALL_SWITCH", "F04_B_PRIVATE_HALL_LT_FLUSH_DOME"]]:
+			["F04_B_PRIVATE_HALL_SWITCH", "F04_B_PRIVATE_HALL_LT_FLUSH_DOME"],
+			["F04_B_CLOSET_SWITCH", "F04_B_CLOSET_LT_FLUSH_DOME"]]:
 		var plate := world.adapter.resolve(pair[0]) as StaticBody3D
 		var fixture := world.adapter.resolve(pair[1]) as LightFixtureProp
 		if check(plate != null and fixture != null and alcove != null,

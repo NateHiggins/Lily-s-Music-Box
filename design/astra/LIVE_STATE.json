@@ -269,5 +269,11 @@
     "packet": "evidence/v2_furniture_collision_pieces_01/README.md",
     "scope": "Desk and sink counter now use collisions from their visible frame blocks, preserving open centre/cutout. Nine and twelve pieces; optional bounded validated data, other furniture unchanged. Source openness/solid surfaces, preservation, regeneration and syntax pass.",
     "limits": "No Godot launched. Physics rays, actual player/prop clearance, targeting, lifecycle and added-shape cost remain pending. Sink fixture retains its separate body."
+  },
+  "v2_4b_closet": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_closet_01/README.md",
+    "scope": "Shared equipment-shelf design placed in closet, production DoorProp replaces placeholder leaf, and switched ceiling fixture added. Source containment, approach/sweep estimates, preservation, repeatability and syntax pass.",
+    "limits": "No Godot launched. Narrow-route passage, physical interactions, hardware sweep, lighting, lifecycle and visuals remain pending. Fixed shelf containers are not interactive inventory storage."
   }
 }

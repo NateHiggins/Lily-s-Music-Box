@@ -106,6 +106,15 @@
         "range_clamp": 4.0,
         "energy_scale": 1.25
       }
+    },
+    {
+      "id": "F04_B_CLOSET_LT_FLUSH_DOME",
+      "room": "F04_B_CLOSET",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.0,
+        "energy_scale": 1.05
+      }
     }
   ],
   "switches": [
@@ -152,6 +161,10 @@
     {
       "id": "F04_B_PRIVATE_HALL_SWITCH",
       "room": "F04_B_PRIVATE_HALL"
+    },
+    {
+      "id": "F04_B_CLOSET_SWITCH",
+      "room": "F04_B_CLOSET"
     }
   ]
 }
