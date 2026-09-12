@@ -226,5 +226,12 @@
     "scope": "Source toilet and functional lavatory mounted through 4B bath anchors. V2 sinks now receive solid visual-bounds collision; existing 3B sinks affected. Source checks/repeatability/syntax pass; prior records preserved.",
     "constraint": "No Godot launched per owner instruction. Runtime routes, controls, lifecycle and visual checks pending.",
     "next": "Continue V2 source integration. BoilerTend is not yet composed in V2; do not mistake tap mounting for dynamic boiler/service integration."
+  },
+  "v2_hot_water": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_hot_water_01/README.md",
+    "scope": "One existing BoilerTend composed after four V2 taps/shower mount; initial and subsequent plant output feeds existing temperature readers. Shared boiler/tap/balance owners unchanged.",
+    "checks": "Syntax and source ordering/identity checks pass; real V2 two-reconstruction harness prepared but not run.",
+    "remaining": "Godot forbidden for now. Dynamic radiator balance, plant persistence, full plumbing topology and runtime/visual acceptance remain open."
   }
 }

@@ -36,6 +36,7 @@ var safety_net: SafetyNet
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
+var boiler_tend: BoilerTend
 var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
@@ -159,6 +160,8 @@ func _compose_authorities() -> void:
 	if not fittings.mount(adapter):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: domestic fittings refused: %s" % [fittings.errors])
+		return
+	if not _compose_hot_water():
 		return
 	var furniture := DomesticFurniture.new()
 	if not preload("res://scripts/building/orison_v2_laundry.gd").new().mount(adapter):
@@ -463,6 +466,24 @@ func _bind_first_shift_station() -> void:
 	if tour_guard:
 		tour_guard.tour_key_taken.connect(first_shift_director.observe_tour_key_taken)
 		tour_guard.tour_key_returned.connect(first_shift_director.observe_tour_key_returned)
+
+func _compose_hot_water() -> bool:
+	var plant := adapter.resolve("B1_BOILER_01") as BoilerProp
+	if plant == null:
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: hot water has no mounted boiler")
+		return false
+	var taps: Array[TapProp] = []
+	for node in _blockout.find_children("*", "Node3D", true, false):
+		if node is TapProp:
+			taps.append(node as TapProp)
+	boiler_tend = BoilerTend.new()
+	boiler_tend.name = "BoilerTend"
+	add_child(boiler_tend)
+	# Reuse the existing plant clock and hot-water curve. V2's radiator
+	# topology is not yet bound to HeatBalance; do not invent a partial budget.
+	boiler_tend.configure(plant, null, taps)
+	return true
 
 func _compose_vantry() -> void:
 	var anchor := adapter.resolve("F02_A_MAIN_VANTRY_POINT") as Node3D
