@@ -105,6 +105,16 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	for identity in ["F04_B_HALL_DOOR", "F04_B_BATH_DOOR"]:
+		var opening := world.adapter.resolve(identity) as Node3D
+		var leaf := opening.get_node_or_null(identity + "_Leaf") as DoorProp if opening != null else null
+		if check(leaf != null and opening.get_node_or_null("Hinge") == null,
+				"4B right-hung production door reconstructs: " + identity):
+			var hinge := opening.to_local(leaf.to_global(Vector3.ZERO))
+			var latch := opening.to_local(leaf.to_global(Vector3(leaf.width, 0, 0)))
+			check(hinge.distance_to(Vector3(leaf.width * .5, 0, 0)) < .001
+					and latch.distance_to(Vector3(-leaf.width * .5, 0, 0)) < .001,
+					"closed right leaf spans authored hinge and latch")
 	check(world.adapter.resolve("4B_equipment_shelf") is StaticBody3D,
 			"4B closet equipment shelf reconstructs")
 	var closet := world.adapter.resolve("F04_B_CLOSET_DOOR") as Node3D
@@ -115,12 +125,14 @@ func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 			and world.find_child("TerminalHomeContext", true, false) == null,
 			"physical terminal desk replaces schematic workspace blocks")
 	var below_desk := PhysicsRayQueryParameters3D.create(
-			Vector3(-9.6, 10.0, 1.25), Vector3(-8.5, 10.0, 1.25), 1)
+			world.adapter.root.to_global(Vector3(-9.6, 10.0, 1.25)),
+			world.adapter.root.to_global(Vector3(-8.5, 10.0, 1.25)), 1)
 	below_desk.exclude = [world.player.get_rid()]
 	check(world.get_world_3d().direct_space_state.intersect_ray(below_desk).is_empty(),
 			"desk collision leaves its open centre clear")
 	var desk_top := PhysicsRayQueryParameters3D.create(
-			Vector3(-9.05, 10.0, 1.25), Vector3(-9.05, 10.34, 1.25), 1)
+			world.adapter.root.to_global(Vector3(-9.05, 10.0, 1.25)),
+			world.adapter.root.to_global(Vector3(-9.05, 10.34, 1.25)), 1)
 	desk_top.exclude = [world.player.get_rid()]
 	var top_hit := world.get_world_3d().direct_space_state.intersect_ray(desk_top)
 	check(top_hit.get("collider") == world.adapter.resolve("4B_terminal_desk"),

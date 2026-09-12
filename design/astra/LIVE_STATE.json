@@ -275,5 +275,11 @@
     "packet": "evidence/v2_4b_closet_01/README.md",
     "scope": "Shared equipment-shelf design placed in closet, production DoorProp replaces placeholder leaf, and switched ceiling fixture added. Source containment, approach/sweep estimates, preservation, repeatability and syntax pass.",
     "limits": "No Godot launched. Narrow-route passage, physical interactions, hardware sweep, lighting, lifecycle and visuals remain pending. Fixed shelf containers are not interactive inventory storage."
+  },
+  "v2_4b_right_hinge_doors": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_4b_right_hinge_doors_01/README.md",
+    "scope": "Hall and bathroom now use production DoorProp with authored right hinges and positive scale. Source hinge/latch, swing direction, desk-clearance estimate and syntax checks pass. Pending desk physics rays corrected from building-local to world coordinates.",
+    "limits": "No Godot launched. New leaves start closed; physical interactions, route passage, swept hardware clearance, reconstruction and visuals remain pending. V2 is not the default."
   }
 }
