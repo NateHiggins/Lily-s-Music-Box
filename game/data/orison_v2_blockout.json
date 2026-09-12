@@ -104,8 +104,8 @@
     {"id":"F01_PACKAGE_COMMON_DOOR","level":"F01","center":[-9.2,2.4],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"package","connects":["F01_PACKAGE","F01_COMMON_B"]},
     {"id":"F01_REAR_SERVICE_DOOR","level":"F01","center":[8.9,9.25],"width":0.91,"height":2.13,"yaw":0.0,"hinge":"left","swing":"out","connects":["F01_SERVICE_HALL","F01_REAR_APRON"]},
     {"id":"F01_SERVICE_CORE_DOOR","level":"F01","center":[9.5,5.5],"width":0.91,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"core","connects":["F01_SERVICE_HALL","F01_SERVICE_CORE"]}
-    ,{"id":"F02_A_HALL_DOOR","level":"F02","center":[-9.6,3.1],"width":0.81,"height":2.13,"yaw":0.0,"hinge":"right","swing":"south","connects":["F02_A_MAIN","F02_A_PRIVATE_HALL"]}
-    ,{"id":"F02_A_BATH_DOOR","level":"F02","center":[-8.95,4.6],"width":0.81,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"hall","connects":["F02_A_PRIVATE_HALL","F02_A_BATH"]}
+    ,{"id":"F02_A_HALL_DOOR","level":"F02","center":[-9.6,3.1],"width":0.81,"height":2.13,"yaw":0.0,"hinge":"right","swing":"hall","connects":["F02_A_MAIN","F02_A_PRIVATE_HALL"]}
+    ,{"id":"F02_A_BATH_DOOR","level":"F02","center":[-8.95,4.6],"width":0.81,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"bath","connects":["F02_A_PRIVATE_HALL","F02_A_BATH"]}
     ,{"id":"F02_A_BED_DOOR","level":"F02","center":[-10.25,7.1],"width":0.81,"height":2.13,"yaw":1.5707963,"hinge":"left","swing":"bed","connects":["F02_A_PRIVATE_HALL","F02_A_BED"]}
     ,{"id":"F04_B_HALL_DOOR","level":"F04","center":[-10.05,3.45],"width":0.81,"height":2.13,"yaw":0.0,"hinge":"right","swing":"south","connects":["F04_B_MAIN","F04_B_PRIVATE_HALL"]}
     ,{"id":"F04_B_BATH_DOOR","level":"F04","center":[-9.05,4.75],"width":0.81,"height":2.13,"yaw":1.5707963,"hinge":"right","swing":"hall","connects":["F04_B_PRIVATE_HALL","F04_B_BATH"]}
@@ -490,11 +490,11 @@
     {"id":"F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME","level":"F04","space":"F04_B_ALCOVE_APPROACH","position":[-9.05,3,7.3],"yaw":0,"kind":"fixture"},
     {"id":"F04_B_ALCOVE_APPROACH_SWITCH","level":"F04","space":"F04_B_ALCOVE_APPROACH","position":[-9.15,1.12,8.16],"yaw":0,"kind":"fixture"},
     {"id":"F04_B_ALCOVE_APPROACH_SWITCH_STANCE","level":"F04","space":"F04_B_ALCOVE_APPROACH","position":[-9.15,0,7.3],"yaw":-3.141592653589793,"kind":"clearance"},
-    {"id":"2A_din_t","level":"F02","space":"F02_A_MAIN","position":[-11.35,0,1.15],"yaw":0,"kind":"furniture"},
-    {"id":"2A_din_dc1","level":"F02","space":"F02_A_MAIN","position":[-12.3,0,1.15],"yaw":-1.5707963267948966,"kind":"furniture"},
-    {"id":"2A_din_dc2","level":"F02","space":"F02_A_MAIN","position":[-11.35,0,0.2],"yaw":3.141592653589793,"kind":"furniture"},
-    {"id":"2A_desk","level":"F02","space":"F02_A_MAIN","position":[-13.1,0,-0.15],"yaw":3.141592653589793,"kind":"furniture"},
-    {"id":"2A_desk_dkch","level":"F02","space":"F02_A_MAIN","position":[-12.05,0,-0.15],"yaw":3.141592653589793,"kind":"furniture"},
+    {"id":"2A_din_t","level":"F02","space":"F02_A_MAIN","position":[-13.8,0,-2.7],"yaw":0,"kind":"furniture"},
+    {"id":"2A_din_dc1","level":"F02","space":"F02_A_MAIN","position":[-14.75,0,-2.7],"yaw":-1.5707963267948966,"kind":"furniture"},
+    {"id":"2A_din_dc2","level":"F02","space":"F02_A_MAIN","position":[-13.7,0,-1.75],"yaw":0,"kind":"furniture"},
+    {"id":"2A_desk","level":"F02","space":"F02_A_BED","position":[-13.7,0,6.75],"yaw":3.141592653589793,"kind":"furniture"},
+    {"id":"2A_desk_dkch","level":"F02","space":"F02_A_BED","position":[-13.7,0,7.5],"yaw":0,"kind":"furniture"},
     {"id":"2B_din_t","level":"F02","space":"F02_B_MAIN","position":[14.75,0,-0.65],"yaw":0,"kind":"furniture"},
     {"id":"2B_din_dc1","level":"F02","space":"F02_B_MAIN","position":[13.75,0,-0.65],"yaw":-1.5707963267948966,"kind":"furniture"},
     {"id":"2B_din_dc2","level":"F02","space":"F02_B_MAIN","position":[14.75,0,-1.55],"yaw":3.141592653589793,"kind":"furniture"},
@@ -506,8 +506,8 @@
     {"id":"4B_meal_chair_01","level":"F04","space":"F04_B_MAIN","position":[-13.65,0,1.6],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"4B_meal_chair_02","level":"F04","space":"F04_B_MAIN","position":[-14.6,0,2.55],"yaw":0,"kind":"furniture"},
     {"id":"4B_desk_chair","level":"F04","space":"F04_B_MAIN","position":[-8.05,0,2.55],"yaw":1.5707963267948966,"kind":"furniture"},
-    {"id":"2A_din_t_STANCE","level":"F02","space":"F02_A_MAIN","position":[-11.35,0,2.2],"yaw":0,"kind":"clearance"},
-    {"id":"2A_desk_STANCE","level":"F02","space":"F02_A_MAIN","position":[-13.4,0,0.75],"yaw":0,"kind":"clearance"},
+    {"id":"2A_din_t_STANCE","level":"F02","space":"F02_A_MAIN","position":[-13,0,-1.75],"yaw":1.5707963267948966,"kind":"clearance"},
+    {"id":"2A_desk_STANCE","level":"F02","space":"F02_A_BED","position":[-12.3,0,6.75],"yaw":1.5707963267948966,"kind":"clearance"},
     {"id":"2B_din_t_STANCE","level":"F02","space":"F02_B_MAIN","position":[13.65,0,-1.8],"yaw":-1.5707963267948966,"kind":"clearance"},
     {"id":"3B_din_t_STANCE","level":"F03","space":"F03_B_MAIN","position":[12.5,0,-2.5],"yaw":-1.5707963267948966,"kind":"clearance"},
     {"id":"4B_meal_table_STANCE","level":"F04","space":"F04_B_MAIN","position":[-14.6,0,0.45],"yaw":3.141592653589793,"kind":"clearance"},

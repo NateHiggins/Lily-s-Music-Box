@@ -30,6 +30,11 @@ func _ready() -> void:
 			clock.advance_to(transition[0])
 			await _travel(routine,str(transition[1]))
 			if not failures.is_empty(): break
+		if domestic:
+			for identity in ["F02_A_HALL_DOOR", "F02_A_BATH_DOOR", "F02_A_BED_DOOR"]:
+				var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
+				if door == null or not door.open:
+					failures.append("resident did not open home door: " + identity)
 		if routine.travelled_metres < (20 if domestic else 30): failures.append("full connected route not travelled")
 		print("MINA ROUTINE: direction=", "return" if return_home else "outbound",
 				" domestic=",domestic," mail=",mail_round," metres=",routine.travelled_metres," failures=",failures)

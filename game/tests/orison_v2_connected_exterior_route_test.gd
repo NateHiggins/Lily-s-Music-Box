@@ -51,6 +51,15 @@ func _route() -> void:
 func _walk_world(target: Vector3) -> bool:
 	return await _walk(world.adapter.root.to_local(target))
 
+func _open_apartment_door(identity: String) -> bool:
+	var opening := world.adapter.resolve(identity) as Node3D
+	var door := opening.get_node_or_null(identity + "_Leaf") as DoorProp if opening != null else null
+	if not _require(door != null, "physical apartment door exists: " + identity): return false
+	if door.open: return true
+	if not await _use(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), identity + "_open"): return false
+	await get_tree().create_timer(.6).timeout
+	return _require(door.open, "apartment door opens through player input: " + identity)
+
 func _require(ok: bool, label: String) -> bool:
 	print("CONNECTED EXTERIOR CHECK: ", label, " = ", ok)
 	if not ok:

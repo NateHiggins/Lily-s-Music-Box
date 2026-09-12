@@ -1,5 +1,10 @@
 # Apartment dining, work seating and storage pass
 
+Placement correction: the subsequent `../v2_apartment_doors_batch_01/README.md`
+packet identifies and repairs four overlaps with separately owned case tables.
+The generator/receipt/inventory here now reflect those corrected placements.
+The initial checks described below did not include those case owners.
+
 Source integrated; runtime pending. No Godot launched.
 
 Added 19 pieces across all four detailed apartments:

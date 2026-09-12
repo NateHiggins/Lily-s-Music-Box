@@ -28,6 +28,7 @@ func _ready() -> void:
 			break
 		var refs: Array[WeakRef] = []
 		_check_room_circuits(world, refs)
+		_check_apartment_doors(world, refs)
 		for identity in ["F02_B_FABRIC_TABLE_MASS", "F02_B_KITCHEN_RUN_MASS",
 				"F02_B_BED_MASS", "F02_B_STORAGE_MASS", "F02_B_BATH_MASS"]:
 			var mass := world.find_child(identity, true, false) as Node3D
@@ -135,3 +136,34 @@ func _check_room_circuits(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		for identity: String in fixtures:
 			check(fixtures[identity].powered == before[identity], "return throw restores circuit: " + identity)
 	check(covered.size() == rooms.size(), "every apartment room has a mounted circuit")
+
+func _check_apartment_doors(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
+	var covered := 0
+	for record: Dictionary in world.layout.doors:
+		var unit := ""
+		for room: String in record.connects:
+			for candidate: String in UNITS:
+				if room.begins_with("F0" + candidate[0] + "_" + candidate[1] + "_"):
+					unit = candidate
+		if unit.is_empty(): continue
+		covered += 1
+		var opening := world.adapter.resolve(record.id) as Node3D
+		check(opening != null, "apartment opening retained: " + str(record.id))
+		if opening == null: continue
+		var door := opening.get_node_or_null(str(record.id) + "_Leaf") as DoorProp
+		check(door != null and door.unit == unit, "one production door with household owner: " + str(record.id))
+		check(opening.get_node_or_null("Hinge") == null, "placeholder leaf retired: " + str(record.id))
+		if door == null: continue
+		refs.append(weakref(door))
+		var body := door.get_node_or_null("HingedLeaf") as AnimatableBody3D
+		check(body != null, "physical movable door body: " + str(record.id))
+		check(is_equal_approx(door.width, float(record.width)) and is_equal_approx(door.height, float(record.height)),
+				"door fits its authored opening: " + str(record.id))
+		check(door.scale == Vector3.ONE, "door handedness uses positive scale")
+		var right: bool = record.hinge == "right"
+		check(is_equal_approx(door.position.x, float(record.width) * (.5 if right else -.5)), "correct hinge jamb")
+		# Existing shared API must answer resident requests; teardown occurs
+		# with the resulting tweens active, alongside toilet/wardrobe motion.
+		door.npc_set_open(true)
+		check(door.open, "production resident opening API: " + str(record.id))
+	check(covered == 16, "all doors across all four detailed apartments covered")

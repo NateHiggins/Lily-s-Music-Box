@@ -14,11 +14,11 @@ ROOT = Path(__file__).resolve().parents[4]
 OUT = Path(__file__).resolve().parent
 PI = math.pi
 PLACEMENTS = [
-    ("2A_din_t","F02_A_MAIN",[-11.35,0,1.15],0),
-    ("2A_din_dc1","F02_A_MAIN",[-12.3,0,1.15],-PI/2),
-    ("2A_din_dc2","F02_A_MAIN",[-11.35,0,.2],PI),
-    ("2A_desk","F02_A_MAIN",[-13.1,0,-.15],PI),
-    ("2A_desk_dkch","F02_A_MAIN",[-12.05,0,-.15],PI),
+    ("2A_din_t","F02_A_MAIN",[-13.8,0,-2.7],0),
+    ("2A_din_dc1","F02_A_MAIN",[-14.75,0,-2.7],-PI/2),
+    ("2A_din_dc2","F02_A_MAIN",[-13.7,0,-1.75],0),
+    ("2A_desk","F02_A_BED",[-13.7,0,6.75],PI),
+    ("2A_desk_dkch","F02_A_BED",[-13.7,0,7.5],0),
     ("2B_din_t","F02_B_MAIN",[14.75,0,-.65],0),
     ("2B_din_dc1","F02_B_MAIN",[13.75,0,-.65],-PI/2),
     ("2B_din_dc2","F02_B_MAIN",[14.75,0,-1.55],PI),
@@ -35,8 +35,8 @@ PLACEMENTS = [
     ("4B_desk_chair","F04_B_MAIN",[-8.05,0,2.55],PI/2),
 ]
 STANCES = [
-    ("2A_din_t_STANCE","F02_A_MAIN",[-11.35,0,2.2],0),
-    ("2A_desk_STANCE","F02_A_MAIN",[-13.4,0,.75],0),
+    ("2A_din_t_STANCE","F02_A_MAIN",[-13,0,-1.75],PI/2),
+    ("2A_desk_STANCE","F02_A_BED",[-12.3,0,6.75],PI/2),
     ("2B_din_t_STANCE","F02_B_MAIN",[13.65,0,-1.8],-PI/2),
     ("2B_fabric_worktable_STANCE","F02_B_MAIN",[12.65,0,-1.25],PI),
     ("2B_fabric_shelf_01_STANCE","F02_B_PRIVATE_HALL",[14.35,0,-5.25],-PI/2),
@@ -94,6 +94,18 @@ def build(apply=False):
     indexed = {a["id"]:a for a in merged}
     rows = lighting.merge(furniture["furniture"],additions)
     footprints = {r["id"]:lighting.footprint(r["bounds"],indexed[r["id"]]) for r in rows}
+    # Case tables have a separate composition owner and are absent from the
+    # furniture dataset. Include them rather than treating that dataset as the
+    # whole collision world.
+    envelopes = {r["id"]:r for r in layout["envelopes"]}
+    case_footprints = {}
+    for table in previous.load("game/data/orison_v2/case_one_placement.json")["tables"]:
+        envelope = envelopes[table["anchor"]]
+        r, offset = envelope["rect"], table["offset"]
+        x,z = (r[0]+r[2])/2+offset[0],(r[1]+r[3])/2+offset[2]
+        case_footprints[table["id"]] = [x-table["width"]/2,z-table["depth"]/2,x+table["width"]/2,z+table["depth"]/2]
+        indexed[table["id"]] = dict(space="F02_A_MAIN",level=envelope["level"])
+    footprints.update(case_footprints)
     new_ids = {r["id"] for r in additions}
     for identity in new_ids:
         rect, room = footprints[identity], spaces[indexed[identity]["space"]]["rect"]
@@ -122,6 +134,7 @@ def build(apply=False):
     # Source route candidates match the revised domestic driver and the 4B
     # main-room spine. These checks do not simulate doors, actors or physics.
     routes += [("F03",[[12.5,-2.5],[12.5,-1.35],[13.65,-1.35],[12.5,-1.35],[12.5,-2.5],[12.6,-3.55],[12.6,-4.45],[14.2,-4.45],[14.2,-6.8]]),
+               ("F02",[[-9.2,1.4],[-10.5,1],[-12.4,.85],[-11.2,.85],[-11.1,1.7],[-10.5,2.5]]),
                ("F04",[[-6.65,0],[-13,0],[-13,4.7]]),
                ("F04",[[-10.8,0],[-10.8,2.25],[-10.05,2.25]])]
     samples = 0

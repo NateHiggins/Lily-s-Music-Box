@@ -322,5 +322,13 @@
     "scope": "19 furniture pieces: four meal tables, eight dining chairs, writing desk, three work chairs, fabric worktable and two shelves. 47 furniture total. Five obsolete solid 2B planning masses retire after replacements mount. Old furniture preserved; placement, 2621 approach samples and repeatability pass.",
     "next": "Continue category passes for storage/surface props and apartment doors, then remaining unit room programs. Preserve the owner direction to batch across apartments.",
     "limits": "Source only; no Godot. Twenty source unit IDs lack detailed V2 rooms. Fixed chairs and coarse table hulls do not establish sitting or knee clearance. Full routes, runtime/visual acceptance, performance and default cutover remain pending."
+  },
+  "v2_apartment_doors_batch": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_apartment_doors_batch_01/README.md",
+    "scope": "Eight production leaves complete all sixteen doors in the four detailed apartments. Two 2A swing sides and bedroom approach corrected to keep the resident route clear; Mina opens her own home doors through the shared API. Seven furniture/stance anchors relocated after detecting overlap with separately owned case tables.",
+    "checks": "Source sweeps against furniture/fittings/case tables, 1647 resident-route samples and 3755 player-route samples pass. All affected GDScript syntax parses; runtime input, timetable and teardown checks prepared.",
+    "next": "Continue category passes for storage and surface props, audit full room/wall programs and extend the remaining twenty source unit IDs. Include separate case/service collision owners in occupancy checks.",
+    "limits": "Godot prohibited; physical motion, target visibility, hardware/jamb clearance, visuals, acoustics, persistence, performance and lifecycle unverified. V2 not complete or default; S2J remains open."
   }
 }

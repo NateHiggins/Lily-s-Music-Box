@@ -1,0 +1,98 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "apartment_doors": 16,
+  "new_leaves": [
+    {
+      "id": "F02_DOOR_02",
+      "swing": "west",
+      "hinge": "right",
+      "sweep_rect": [
+        -6.527278695009389,
+        -0.6073441533525069,
+        -5.577999988076271,
+        0.4462787065043998
+      ]
+    },
+    {
+      "id": "F02_A_HALL_DOOR",
+      "swing": "hall",
+      "hinge": "right",
+      "sweep_rect": [
+        -9.996438168635166,
+        3.078,
+        -9.060020688878504,
+        3.9274381686351667
+      ]
+    },
+    {
+      "id": "F02_A_BATH_DOOR",
+      "swing": "bath",
+      "hinge": "right",
+      "sweep_rect": [
+        -8.972000010583983,
+        4.060020710704041,
+        -8.122561820488023,
+        4.996438169356709
+      ]
+    },
+    {
+      "id": "F02_A_BED_DOOR",
+      "swing": "bed",
+      "hinge": "left",
+      "sweep_rect": [
+        -11.077438179511976,
+        6.703561830643291,
+        -10.227999989416016,
+        7.639979289295958
+      ]
+    },
+    {
+      "id": "F02_B_ENTRY_DOOR",
+      "swing": "vestibule",
+      "hinge": "left",
+      "sweep_rect": [
+        9.47799998807627,
+        -3.6962787065044,
+        10.42727869500939,
+        -2.642655846647493
+      ]
+    },
+    {
+      "id": "F02_B_KITCHEN_DOOR",
+      "swing": "kitchen",
+      "hinge": "left",
+      "sweep_rect": [
+        11.972561820488025,
+        -6.596438169356709,
+        12.822000010583984,
+        -5.660020710704042
+      ]
+    },
+    {
+      "id": "F02_B_BED_DOOR",
+      "swing": "bed",
+      "hinge": "right",
+      "sweep_rect": [
+        11.972561842241642,
+        -9.389979332947032,
+        12.822000010583984,
+        -8.453561832086375
+      ]
+    },
+    {
+      "id": "F02_B_BATH_DOOR",
+      "swing": "bath",
+      "hinge": "left",
+      "sweep_rect": [
+        13.660020688878504,
+        -10.177438168635167,
+        14.596438168635165,
+        -9.328
+      ]
+    }
+  ],
+  "resident_route_samples": 1647,
+  "player_route_samples": 3755,
+  "limits": "Sampled leaf collider only; jamb/hardware clearance, actual motion, player/NPC targeting, acoustics and persistence require runtime checks."
+}
