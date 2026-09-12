@@ -126,7 +126,9 @@ func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 			"2B radiator binds the campaign inventory and stable graph identity")
 	var alcove := world.adapter.resolve("F04_B_ALCOVE_LT_FLUSH_DOME") as LightFixtureProp
 	for pair in [["F04_B_MAIN_SWITCH", "F04_B_MAIN_LT_PENDANT_SHADE"],
-			["F04_B_BATH_SWITCH", "F04_B_BATH_LT_FLUSH_DOME"]]:
+			["F04_B_BATH_SWITCH", "F04_B_BATH_LT_FLUSH_DOME"],
+			["F04_B_KITCHEN_SWITCH", "F04_B_KITCHEN_LT_FLUSH_DOME"],
+			["F04_B_PRIVATE_HALL_SWITCH", "F04_B_PRIVATE_HALL_LT_FLUSH_DOME"]]:
 		var plate := world.adapter.resolve(pair[0]) as StaticBody3D
 		var fixture := world.adapter.resolve(pair[1]) as LightFixtureProp
 		if check(plate != null and fixture != null and alcove != null,
