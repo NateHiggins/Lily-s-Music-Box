@@ -105,6 +105,12 @@ func complete_dream() -> bool:
 	return shell.dream_director.end_dream("contact")
 
 func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
+	var entry_opening := world.adapter.resolve("F04_DOOR_03") as Node3D
+	var entry := entry_opening.get_node_or_null("F04_DOOR_03_Leaf") as DoorProp if entry_opening != null else null
+	check(entry != null and entry.door_kind == "apartment_entry" and entry.unit == "4B"
+			and entry.is_in_group("apartment_doors") and not entry.open
+			and entry_opening.get_node_or_null("Hinge") == null,
+			"4B entry reconstructs as a closed production apartment door")
 	for identity in ["F04_B_HALL_DOOR", "F04_B_BATH_DOOR"]:
 		var opening := world.adapter.resolve(identity) as Node3D
 		var leaf := opening.get_node_or_null(identity + "_Leaf") as DoorProp if opening != null else null

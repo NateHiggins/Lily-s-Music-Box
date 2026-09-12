@@ -2,6 +2,7 @@ extends RefCounted
 ## Reuse production leaves at the semantic opening's hinge, retaining its frame.
 const SPECS := {
 	"B1_LAUNDRY_DOOR": {"kind": "service", "swing_out": false, "unit": ""},
+	"F04_DOOR_03": {"kind": "apartment_entry", "swing_out": false, "unit": "4B"},
 	"F04_B_CLOSET_DOOR": {"kind": "apartment_interior", "swing_out": false, "unit": "4B"},
 	"F04_B_HALL_DOOR": {"kind": "apartment_interior", "swing_out": false, "unit": "4B"},
 	"F04_B_BATH_DOOR": {"kind": "apartment_interior", "swing_out": false, "unit": "4B"},
