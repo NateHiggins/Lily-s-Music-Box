@@ -94,6 +94,84 @@
         "has_drainboard": false,
         "drain_side": 1
       }
+    },
+    {
+      "id": "F02_2A_SINK_01",
+      "kind": "sink",
+      "unit": "2A",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F02_2B_SINK_01",
+      "kind": "sink",
+      "unit": "2B",
+      "properties": {
+        "fixture": "bath_sink"
+      }
+    },
+    {
+      "id": "F02_2A_KITCHEN_SINK_01",
+      "kind": "sink",
+      "unit": "2A",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": false,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F02_2B_KITCHEN_SINK_01",
+      "kind": "sink",
+      "unit": "2B",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": false,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F02_2A_SHOWER_01",
+      "kind": "shower",
+      "unit": "2A",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F02_2B_SHOWER_01",
+      "kind": "shower",
+      "unit": "2B",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F02_2A_STOVE_01",
+      "kind": "stove",
+      "unit": "2A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F02_2B_STOVE_01",
+      "kind": "stove",
+      "unit": "2B",
+      "properties": {
+        "ambient_lit": true
+      }
+    },
+    {
+      "id": "F02_2B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2B",
+      "properties": {
+        "monitor_top": false
+      }
     }
   ]
 }

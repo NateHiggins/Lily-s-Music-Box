@@ -299,5 +299,14 @@
     "packet": "evidence/v2_sink_controls_01/README.md",
     "scope": "Four V2 sinks now use physical hot/cold targets and lower-hull plus splash collision. Removed the broad sink Area that dispatched to the curtain-only handler. Shower control factory shared with placement and receptor data preserved. All six water fittings covered by prepared control/lifetime checks; 4B sink input routes prepared.",
     "limits": "No Godot launched. Runtime targeting, physical routes, water presentation and lifecycle remain pending. Lower sink hull remains coarse; stopper access, precise bowl collision, saved valve state and default cutover remain open."
+  },
+  "v2_apartment_batches": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "owner_workflow": "Work in category passes across apartments: toilets, sinks, remaining furniture/props. Do not return to one-fixture-per-turn work. Godot remains prohibited for now.",
+    "packet": "evidence/v2_apartment_batches_01/README.md",
+    "inventory": "work/v2_apartment_batches_01/apartment_inventory.json",
+    "scope": "21 additions: two toilets, four sinks, two showers, three appliances, eight source furniture pieces and two open sink stands. All four detailed V2 apartments now have complete toilet/sink/shower/stove/fridge source rosters. 28 furniture, 20 fittings, 12 water consumers. Prior records preserved; regeneration, placement/material and syntax checks pass. Batch reconstruction/active-tween teardown harness prepared.",
+    "next": "Batch room lighting/switches, seating/tables/work surfaces, storage and small props across available rooms; establish remaining source units' V2 room programs and repeat category passes.",
+    "limits": "No Godot launched. Twenty source unit IDs lack detailed V2 apartment rooms. Actual passage, interactions, dynamic clearances, visuals, performance and lifecycle remain pending. Full furnishing and default cutover are not complete."
   }
 }

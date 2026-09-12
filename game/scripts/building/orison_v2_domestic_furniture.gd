@@ -72,7 +72,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 			var mechanism: Variant = record.get("mechanism")
 			if mechanism is not Dictionary or mechanism.size() != 4 \
 					or mechanism.get("id") != record.id or mechanism.get("asm") != "wardrobe" \
-					or mechanism.get("W") != 1.3 or mechanism.get("case_wood") != "oak_quartered":
+					or mechanism.get("W") != 1.3 or mechanism.get("case_wood") not in ["oak_quartered", "wood_dark"]:
 				errors.append("invalid household wardrobe mechanism")
 		var bounds: Variant = record.get("bounds")
 		if bounds is not Array or bounds.size() != 2 or not _numbers(bounds[0], 3) or not _numbers(bounds[1], 3):
