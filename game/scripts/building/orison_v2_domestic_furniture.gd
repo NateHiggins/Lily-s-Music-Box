@@ -21,14 +21,15 @@ func mount(adapter: Variant) -> bool:
 			body.call("setup", record.mechanism)
 		else:
 			body = StaticBody3D.new()
-			var collision := CollisionShape3D.new()
-			var shape := BoxShape3D.new()
-			var low := _vector(record.bounds[0])
-			var high := _vector(record.bounds[1])
-			shape.size = high - low
-			collision.shape = shape
-			collision.position = (high + low) * 0.5
-			body.add_child(collision)
+			for box: Array in record.get("collision_boxes", [record.bounds]):
+				var collision := CollisionShape3D.new()
+				var shape := BoxShape3D.new()
+				var low := _vector(box[0])
+				var high := _vector(box[1])
+				shape.size = high - low
+				collision.shape = shape
+				collision.position = (high + low) * 0.5
+				body.add_child(collision)
 		body.set_meta("v2_furniture_id", str(record.id))
 		for surface: Dictionary in record.surfaces:
 			var arrays: Array = []
@@ -80,6 +81,22 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		for axis in range(3):
 			if bounds[1][axis] <= bounds[0][axis]:
 				errors.append("inverted furniture bounds")
+		if record.has("collision_boxes"):
+			var boxes: Variant = record.collision_boxes
+			if record.kind not in ["desk", "counter"] or boxes is not Array \
+					or boxes.is_empty() or boxes.size() > 64:
+				errors.append("invalid furniture collision pieces")
+				continue
+			for box: Variant in boxes:
+				if box is not Array or box.size() != 2 \
+						or not _numbers(box[0], 3) or not _numbers(box[1], 3):
+					errors.append("invalid furniture collision box")
+					continue
+				for axis in range(3):
+					if box[1][axis] <= box[0][axis] \
+							or box[0][axis] < bounds[0][axis] \
+							or box[1][axis] > bounds[1][axis]:
+						errors.append("furniture collision box exceeds its bounds")
 		if record.get("surfaces") is not Array or record.surfaces.is_empty():
 			errors.append("missing furniture surfaces")
 			continue

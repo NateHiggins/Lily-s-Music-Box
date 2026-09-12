@@ -108,6 +108,17 @@ func verify_wake_room(world: OrisonV2RuntimeRoot) -> void:
 	check(world.adapter.resolve("4B_terminal_desk") is StaticBody3D
 			and world.find_child("TerminalHomeContext", true, false) == null,
 			"physical terminal desk replaces schematic workspace blocks")
+	var below_desk := PhysicsRayQueryParameters3D.create(
+			Vector3(-9.6, 10.0, 1.25), Vector3(-8.5, 10.0, 1.25), 1)
+	below_desk.exclude = [world.player.get_rid()]
+	check(world.get_world_3d().direct_space_state.intersect_ray(below_desk).is_empty(),
+			"desk collision leaves its open centre clear")
+	var desk_top := PhysicsRayQueryParameters3D.create(
+			Vector3(-9.05, 10.0, 1.25), Vector3(-9.05, 10.34, 1.25), 1)
+	desk_top.exclude = [world.player.get_rid()]
+	var top_hit := world.get_world_3d().direct_space_state.intersect_ray(desk_top)
+	check(top_hit.get("collider") == world.adapter.resolve("4B_terminal_desk"),
+			"desk top remains physically solid above its open centre")
 	var kitchen_tap := world.adapter.resolve("F04_4B_KITCHEN_SINK_01") as TapProp
 	check(kitchen_tap != null and kitchen_tap.compact_kitchen
 			and not kitchen_tap.has_drainboard and kitchen_tap.unit == "4B"

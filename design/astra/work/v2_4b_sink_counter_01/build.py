@@ -48,7 +48,7 @@ for box in blocks:
             order=[0,2,1,0,3,2] if side else [0,1,2,0,2,3]
             for i in order:
                 surface['vertices']+=corners[i];surface['normals']+=n
-record=dict(id='4B_sink_counter',kind='counter',
+record=dict(id='4B_sink_counter',kind='counter',collision_boxes=[[b['low'],b['high']] for b in blocks],
     bounds=[[min(b['low'][i] for b in blocks) for i in range(3)],
             [max(b['high'][i] for b in blocks) for i in range(3)]],surfaces=list(surfaces.values()))
 target='game/data/orison_v2/domestic_furniture.json'

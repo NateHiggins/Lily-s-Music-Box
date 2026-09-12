@@ -263,5 +263,11 @@
     "packet": "evidence/v2_4b_terminal_desk_01/README.md",
     "scope": "New oak-topped terminal desk replaces schematic workspace blocks only in playable V2. Existing instrument, desk zone, semantic identity and lighting preserved. Source dimensions, winding, stance clearance, repeatability and syntax pass.",
     "limits": "No Godot launched. Solid desk collision, terminal targeting, physical use, lifecycle and appearance remain unverified; coarse collider does not establish knee clearance."
+  },
+  "v2_furniture_collision_pieces": {
+    "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
+    "packet": "evidence/v2_furniture_collision_pieces_01/README.md",
+    "scope": "Desk and sink counter now use collisions from their visible frame blocks, preserving open centre/cutout. Nine and twelve pieces; optional bounded validated data, other furniture unchanged. Source openness/solid surfaces, preservation, regeneration and syntax pass.",
+    "limits": "No Godot launched. Physics rays, actual player/prop clearance, targeting, lifecycle and added-shape cost remain pending. Sink fixture retains its separate body."
   }
 }
