@@ -1,0 +1,22 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "checks": [
+    "rib/lantern/lunette clearances",
+    "solid gable support",
+    "byte-identical regeneration",
+    "all glTF resources resolve",
+    "binary lengths and emitted triangle winding",
+    "three GDScript syntax parses"
+  ],
+  "rejected_controls": [
+    "roof_rib_overlap",
+    "lantern_overlap"
+  ],
+  "artifacts": {
+    "game/assets/building/orison_v2/passage/passage.gltf": "e44f0d8c16e846011d525eb07b38373f5d07bab31c8528f1cde17bbd9570c738",
+    "game/assets/building/orison_v2/passage/ceiling_detail.bin": "18fbeac6f802a8d4a4b05fdb561b86f29d1c31e9e265ed87f2efc3d075452f37",
+    "game/data/orison_v2/arcade_ceiling_source.json": "e88f3bf776807920c8cce1fc5a3be18fe6af35c2faf68590fa4ec276283ad2da"
+  },
+  "preview": "Flat-colour drawing of generated geometry only; not material, lighting or runtime proof."
+}

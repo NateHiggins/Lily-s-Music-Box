@@ -25,6 +25,11 @@ var _geometry_root: Node3D
 var _actors: Node3D
 var residency: Node
 
+static func cell_path(identity: String) -> String:
+	if identity == "passage":
+		return "res://assets/building/orison_v2/passage/passage.gltf"
+	return "res://assets/building/floor_01_cells/%s.gltf" % identity
+
 func configure(service: MaintenanceShopService) -> bool:
 	if is_inside_tree() or service == null:
 		return false
@@ -55,7 +60,7 @@ func _ready() -> void:
 	_geometry_root.name = "ResidentGeometry"
 	add_child(_geometry_root)
 	for identity: String in CELLS:
-		if not _mount_scene(identity, "res://assets/building/floor_01_cells/%s.gltf" % identity):
+		if not _mount_scene(identity, cell_path(identity)):
 			return
 	surface_pass = Surface.new()
 	surface_pass.apply(cell_nodes)

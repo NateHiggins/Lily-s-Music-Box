@@ -10,6 +10,7 @@ func _init() -> void:
 func _capture(identity: String, target: Vector3) -> void:
 	await super._capture(identity, target)
 	if identity != "nave": return
+	_check_ceiling_detail()
 	_surface_signature = _surface_values()
 	_moved_cart = world.passage_region.finish.pushcarts[0]
 	_initial_cart_position = _moved_cart.global_position
@@ -64,6 +65,17 @@ func _route() -> void:
 			"counter remount preserves acquisition and duplicate protection")
 	_require(not _surface_signature.is_empty() and _surface_values() == _surface_signature,
 			"all shader values and texture paths survive geometry reconstruction")
+	_check_ceiling_detail()
+
+func _check_ceiling_detail() -> void:
+	var cell: Node3D = world.passage_region.cell_nodes.passage
+	var details := cell.find_children("V2_PASSAGE_finish_ceiling_*", "MeshInstance3D", true, false)
+	_require(details.size() == 3, "all three ceiling detail batches survive passage residency")
+	for mesh: MeshInstance3D in details:
+		_require(mesh.mesh != null and mesh.mesh.get_surface_count() == 1,
+				"ceiling ornaments remain single batched surfaces")
+		var material := mesh.get_active_material(0) as ShaderMaterial
+		_require(material != null, "ceiling detail receives the architectural surface pass")
 
 func _surface_values() -> Dictionary:
 	var result := {}

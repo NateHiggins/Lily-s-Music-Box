@@ -118,7 +118,7 @@ func _begin_load() -> void:
 			return
 		_height_pending[path] = true
 	for identity: String in region.CELLS:
-		var path := "res://assets/building/floor_01_cells/%s.gltf" % identity
+		var path: String = region.cell_path(identity)
 		var error := ResourceLoader.load_threaded_request(path, "PackedScene")
 		if error != OK:
 			_fail("threaded cell request failed: " + identity)
