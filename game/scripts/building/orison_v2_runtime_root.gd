@@ -248,6 +248,11 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: surface props refused: %s" % [surface_props.errors])
 		return
+	var bath_details := preload("res://scripts/building/orison_v2_bath_details.gd").new()
+	if not bath_details.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: bathroom details refused: %s" % [bath_details.errors])
+		return
 	var radios := preload("res://scripts/building/orison_v2_radios.gd").new()
 	if not radios.mount(adapter):
 		startup_failed = true

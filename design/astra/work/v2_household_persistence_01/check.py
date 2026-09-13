@@ -40,7 +40,10 @@ def main():
                'game/scripts/game/open_shift_radiator_ecosystem.gd','game/scripts/props/radiator_prop.gd',
                'game/scripts/building/switch_system.gd','game/data/building_layout.json','game/data/orison_v2_blockout.json',
                'game/scripts/building/building_root_selector.gd']
-    protected += [p.relative_to(ROOT).as_posix() for p in (ROOT/'game/data/orison_v2').rglob('*.json')]
+    # Preserve this checkpoint's existing data. Later additive manifests were
+    # not present at BASE and belong to their own category proof.
+    baseline_paths=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'--','game/data/orison_v2'],cwd=ROOT,text=True).splitlines()
+    protected += [p for p in baseline_paths if p.endswith('.json')]
     for path in protected:
         old=subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT)
         assert (ROOT/path).read_bytes().replace(b'\r\n',b'\n')==old.replace(b'\r\n',b'\n'),('protected file changed',path)

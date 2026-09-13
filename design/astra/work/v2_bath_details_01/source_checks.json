@@ -1,0 +1,19 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "base": "0123c92",
+  "godot": "NOT_RUN",
+  "source_hashes": {
+    "game/scripts/building/orison_v2_bath_details.gd": "160eb576238b2deeab8450e88b99e3b0d1cfa56f11a429a25464677f322d14c9",
+    "game/scripts/building/orison_v2_runtime_root.gd": "f1c71f8317d6f0648d58b4007385a67a8c949630bc9ebaa526cc1f6855072566",
+    "game/tests/orison_v2_apartment_batch_test.gd": "6bb5aaf0c7ff6e7afa32fb16cf1fed2230c9ff9894f1f601a8ef5bc963d3742f",
+    "game/scripts/props/tap_prop.gd": "d4b59e25ce2773105b53a760d2378541d3ba0d15a2a678a1086bbd0150f07e70",
+    "game/scripts/building/orison_v2_household_state.gd": "203de125976c582fd3607bd2da3f0b38d55bc169328f02cb7a10b34f370472e8",
+    "game/scripts/building/orison_v2_water_controls.gd": "e3b50f4514e97f756848fa32ba42fadad40cb53fa7c2699c73a7ee2f28af261e",
+    "game/scripts/building/orison_v2_water_closet.gd": "9262f00642efb95d513f4c067464638a86d893928b2e19f3d9b18ad77158196c",
+    "game/data/runtime_material_sets.json": "a38b92420989a537a2cb7366d11741c0801886b3af94270327dcb7dc05fa27ce",
+    "game/data/orison_v2_blockout.json": "c9a31ae9a712c4487f1d68bb6739f40e7eee0664811680302d076cf6bf44227c"
+  },
+  "source_parses": 3,
+  "household_persistence_source_replay": true,
+  "limits": "Prepared runtime rejection, material/resource sharing and two-world disposal checks are not executed. Flat-colour source preview is not an engine/material/lighting capture."
+}

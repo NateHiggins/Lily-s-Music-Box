@@ -125,6 +125,12 @@ def obstacles(layout,furniture):
             a=anchors[r["support"]]; x,y,z=r["position"]; c,s=math.cos(a["yaw"]),math.sin(a["yaw"])
             at=dict(position=[a["position"][0]+c*x+s*z,a["position"][1]+y,a["position"][2]-s*x+c*z],yaw=a["yaw"]+r["yaw"])
             result.append((r["id"],a["level"],volume(r["bounds"],at)))
+    # Bath fittings follow actual sink/toilet supports and remain visible to
+    # later category checks despite having no additional movement collider.
+    if (ROOT/'game/data/orison_v2/bath_details.json').exists():
+        for r in load('game/data/orison_v2/bath_details.json')['props']:
+            a=anchors[r['support']]
+            result.append((r['id'],a['level'],volume(r['bounds'],a)))
     # Solid service chases occupy every storey they cross, including their
     # full height. Include them for every category using this shared census.
     for riser in layout.get("risers",[]):

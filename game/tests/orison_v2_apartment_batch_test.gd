@@ -50,6 +50,7 @@ func _ready() -> void:
 		_check_room_circuits(world, refs)
 		_check_apartment_doors(world, refs)
 		_check_surface_props(world, refs)
+		_check_bath_details(world, refs)
 		_check_storage_tables_boards(world, furniture)
 		_check_household_radios(world, refs)
 		await _check_projectors(world, refs)
@@ -863,3 +864,40 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 		else: bad.installed[0].sections = 30
 		check(not loader.validate(bad,dry_adapter), "invalid heating roster rejected: " + mutation)
 	for anchor: Node in dry_adapter.supports.values(): anchor.free()
+
+func _check_bath_details(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
+	var loader := preload("res://scripts/building/orison_v2_bath_details.gd").new()
+	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(loader.DETAIL_PATH))
+	var dry := SurfaceSourceAdapter.new()
+	var shared := {}
+	check(source.props.size() == 18, "six complete sets of bath details")
+	for record: Dictionary in source.props:
+		var support := world.adapter.resolve(str(record.support)) as Node3D
+		dry.supports[record.support] = support
+		var detail := world.adapter.resolve(str(record.id)) as Node3D
+		check(detail != null and detail.get_parent() == support, "bath detail belongs to physical support: " + str(record.id))
+		if detail == null: continue
+		refs.append(weakref(detail))
+		check(detail.transform.is_equal_approx(Transform3D.IDENTITY), "bath contact remains support-local")
+		var visuals := detail.get_children()
+		check(visuals.size() == record.surfaces.size(), "bath has only its material batches")
+		for i in visuals.size():
+			var visual := visuals[i] as MeshInstance3D
+			check(visual != null, "bath detail adds no interaction, light or collision owner")
+			if visual == null: continue
+			check(visual.mesh != null and visual.material_override != null, "bath material is bound")
+			if shared.has(record.kind):
+				check(visual.mesh == shared[record.kind][i].mesh, "same bath geometry shares mesh resources across homes")
+		if not shared.has(record.kind): shared[record.kind] = visuals
+	check(loader.validate(source, dry), "complete bath roster accepts real supports")
+	check(not loader.validate(source, world.adapter), "duplicate bath mount refused")
+	for mutation: String in ["missing", "support", "offset", "bounds", "surface", "material"]:
+		var bad := source.duplicate(true)
+		match mutation:
+			"missing": bad.props.pop_back()
+			"support": bad.props[0].support = "2B_wc"
+			"offset": bad.props[0].position = [0,0,1]
+			"bounds": bad.props[0].bounds[1][0] = 2.0
+			"surface": bad.props[0].surfaces[0].vertices[0] = 5.0
+			"material": bad.props[0].surfaces[0].material = "missing_bath_finish"
+		check(not loader.validate(bad, dry), "invalid bath detail batch rejected: " + mutation)
