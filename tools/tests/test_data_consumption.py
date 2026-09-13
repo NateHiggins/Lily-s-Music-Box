@@ -83,6 +83,39 @@ class DataConsumptionTests(unittest.TestCase):
         finally:
             td.cleanup()
 
+    def test_floor01_registry_identity_maps_are_data_but_value_schema_is_audited(self):
+        td, root = self.fixture()
+        try:
+            (root / "game/data/floor_01_cell_registry.json").write_text(
+                json.dumps({
+                    "schema": "orison.floor01.cell-registry.v1",
+                    "semantic_owner_index": {
+                        "F01_DOOR_06": "CELL_FACADE",
+                    },
+                    "compatibility_alias_index": {
+                        "F01_ceiling_plaster": {
+                            "cell_id": "CELL_INTERIOR",
+                            "node_index": 0,
+                            "mesh_index": 0,
+                            "unread_schema_field": "must remain visible",
+                        },
+                    },
+                }), encoding="utf-8")
+            (root / "game/scripts/game/floor01_registry.gd").write_text(
+                'const P="res://data/floor_01_cell_registry.json"\n'
+                'func f(row): return [row.schema, row.semantic_owner_index, '
+                'row.compatibility_alias_index, row.cell_id, row.node_index, '
+                'row.mesh_index]\n', encoding="utf-8")
+            rows = audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+            target = "game/data/floor_01_cell_registry.json"
+            unread = {r.get("field") for r in rows
+                      if r["file"] == target and r["kind"] == "FIELD_UNREAD"}
+            self.assertNotIn("F01_DOOR_06", unread)
+            self.assertNotIn("F01_ceiling_plaster", unread)
+            self.assertIn("unread_schema_field", unread)
+        finally:
+            td.cleanup()
+
     def test_nested_durable_numbers_are_walked_and_scoped_to_their_owner(self):
         td, root = self.fixture()
         try:

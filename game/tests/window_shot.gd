@@ -73,14 +73,14 @@ func _ready() -> void:
 	# to show, asserted so a later change cannot quietly undo them.
 	var carriageway := GameBoot.b2g([2.0, -17.5, 1.68])
 	root._apply_visibility(carriageway)
-	var glazing: GeometryInstance3D = root.floor_nodes["F01"].get_node_or_null(
-			"F01_glazing")
-	var joinery: GeometryInstance3D = root.floor_nodes["F01"].get_node_or_null(
-			"F01_stone_trim")
+	var glazing := _facade_alias_geometry("F01_glazing")
+	var joinery := _facade_alias_geometry("F01_stone_trim")
 	_check("the ground floor keeps its glass from the carriageway",
-			glazing != null and glazing.layers != 0)
+			not glazing.is_empty() and glazing.all(func(node):
+				return node.layers != 0))
 	_check("the ground floor keeps its joinery from the carriageway",
-			joinery != null and joinery.layers != 0)
+			not joinery.is_empty() and joinery.all(func(node):
+				return node.layers != 0))
 
 	var against := GameBoot.b2g([-7.0, -10.8, 1.68])
 	root._apply_visibility(against)
@@ -127,6 +127,32 @@ func _check(label: String, condition: bool) -> void:
 	else:
 		_failed += 1
 		push_error("  FAIL  " + label)
+
+
+func _facade_alias_geometry(alias_identity: String) -> Array:
+	var result: Array = []
+	var registry: Node = root.floor01_geometry_registry() \
+			if root.has_method("floor01_geometry_registry") else null
+	if registry != null and bool(registry.call("is_owner_first")):
+		for alias_node in registry.call("resolve_compatibility_alias", alias_identity):
+			if str(registry.call("owner_cell_for_node", alias_node)) \
+					!= "CELL_ORISON_FACADE_SHELL":
+				continue
+			_collect_geometry(alias_node, result)
+		return result
+	var legacy := root.floor_nodes["F01"].find_child(
+			alias_identity, true, false) as Node
+	_collect_geometry(legacy, result)
+	return result
+
+
+func _collect_geometry(node: Node, output: Array) -> void:
+	if node == null:
+		return
+	if node is GeometryInstance3D:
+		output.append(node)
+	for child in node.get_children():
+		_collect_geometry(child, output)
 
 
 func _hide_capture_ui(node: Node) -> void:

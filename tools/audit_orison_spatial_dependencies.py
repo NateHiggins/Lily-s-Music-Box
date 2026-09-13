@@ -110,6 +110,25 @@ TEST_DIRS = ("game/tests",)
 DATA_DIRS = ("game/data",)
 DATA_EXCLUDE_NAMES = {"building_layout.json"}
 
+# This registry is an identity-to-owner authority, not a consumer of the
+# identities it indexes. Its schema deliberately repeats every owned F01
+# semantic and compatibility identity so runtime lookup can remain independent
+# of node names after owner-first rebatching. Ignore only those definitional
+# subtrees; any future room, coordinate, fallback or asset reference elsewhere
+# in the document is still scanned normally. This is schema-aware source
+# classification, not a manifest/baseline exception.
+FLOOR01_CELL_REGISTRY_SCHEMA = "orison.floor01.cell-registry.v1"
+FLOOR01_CELL_REGISTRY_DEFINITION_CRUMBS = (
+    re.compile(r"^/floor_id$"),
+    re.compile(r"^/persistent_host/id$"),
+    re.compile(
+        r"^/cells(?:\[\d+\]|\[\*\])/(?:semantic_owners|"
+        r"compatibility_aliases)(?:\[\d+\]|\[\*\])?$"),
+    re.compile(r"^/semantic_owner_index(?:/.*)?$"),
+    re.compile(r"^/compatibility_alias_index(?:/.*)?$"),
+    re.compile(r"^/facade_sharing(?:\[\d+\]|\[\*\])/id$"),
+)
+
 FLOOR_ID_RE = re.compile(r"^(B1|F0[1-9]|ROOF)$")
 UNIT_ID_RE = re.compile(r"^[1-6][A-D]$")
 # Id-looking fragments used to catch dynamically assembled or stale ids.
@@ -226,6 +245,27 @@ class AuditError(Exception):
 # the heuristic classification for contracts confirmed by hand.
 # --------------------------------------------------------------------------
 KNOWN_CONTRACTS: dict[str, dict] = {
+    # -- Owner-first F01 production cut (M11C2). ---------------------------
+    "asset_path:game/scripts/building/floor01_cell_registry.gd:*": {
+        "authority": ["RUNTIME_LOOKUP"],
+        "spatial": ["ASSET_PATH"],
+        "disposition": "PRESERVE_OR_ALIAS",
+        "confidence": "HIGH",
+        "rationale": "M11C2's production geometry registry binds the retained "
+                     "rollback monolith, the independently addressable cell "
+                     "asset root and its hash-bound manifests. These are the "
+                     "two explicit session geometry providers; neither path "
+                     "is save or gameplay authority.",
+    },
+    "floor_reference:game/scripts/building/floor01_cell_registry.gd:F01": {
+        "authority": ["RUNTIME_LOOKUP", "GENERATED_IDENTITY"],
+        "spatial": ["FLOOR_MEMBERSHIP", "SEMANTIC_ANCHOR"],
+        "disposition": "MUST_PRESERVE_ID",
+        "confidence": "HIGH",
+        "rationale": "The owner-first registry's persistent geometry-free F01 "
+                     "host identity keeps gameplay and durable authorities "
+                     "alive while either geometry provider is replaced.",
+    },
     # -- Two-root rebuild composition (v2 parity surface). ------------------
     "asset_path:game/scripts/building/building_root_selector.gd:*": {
         "authority": ["RUNTIME_LOOKUP"],
@@ -837,21 +877,28 @@ class Scanner:
             return
         self.stats["files_scanned"] += 1
         rel = self._rel(path)
+        schema = str(data.get("schema", "")) if isinstance(data, dict) else ""
 
         def walk(node, crumb):
             if isinstance(node, dict):
                 for k, v in node.items():
-                    self._json_token(k, rel, crumb, is_key=True)
+                    self._json_token(k, rel, crumb, is_key=True,
+                                     schema=schema)
                     walk(v, crumb + "/" + str(k)[:40])
             elif isinstance(node, list):
                 for idx, v in enumerate(node):
                     walk(v, crumb + f"[{idx}]" if idx < 3 else crumb + "[*]")
             elif isinstance(node, str):
-                self._json_token(node, rel, crumb, is_key=False)
+                self._json_token(node, rel, crumb, is_key=False,
+                                 schema=schema)
 
         walk(data, "")
 
-    def _json_token(self, token, rel, crumb, is_key):
+    def _json_token(self, token, rel, crumb, is_key, schema=""):
+        if schema == FLOOR01_CELL_REGISTRY_SCHEMA and any(
+                pattern.match(crumb)
+                for pattern in FLOOR01_CELL_REGISTRY_DEFINITION_CRUMBS):
+            return
         rec = self.universe.get(token)
         if rec is None:
             if ID_FRAGMENT_RE.match(token):

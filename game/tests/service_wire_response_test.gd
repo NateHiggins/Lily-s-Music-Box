@@ -143,7 +143,7 @@ func _ready() -> void:
 	add_child(counter)
 	var counter_card: Dictionary = counter.interact(hand)
 	_check("jobless counter inspects instead of swallowing E",
-			counter.interact_prompt() == "[E]  Inspect hardware counter"
+			counter.interact_prompt() == "Inspect hardware counter"
 			and counter._counter_tap.playing
 			and counter_card.get("card_id", "") == "hardware_counter"
 			and str(counter_card.get("condition", "")).contains(

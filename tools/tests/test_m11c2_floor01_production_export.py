@@ -30,6 +30,7 @@ from tools.m11c2_floor01_production.export_floor01_cells import (  # noqa: E402
     LEGACY_MODE,
     LEGACY_MONOLITH,
     LINEAGE_NAME,
+    LINEAGE_REL,
     OWNERSHIP_REL,
     PRODUCTION_EXPORTER_REL,
     PROTECTED_RELATIVE_PATHS,
@@ -71,7 +72,8 @@ class ProductionFloor01ExportTests(unittest.TestCase):
         cls.registry = load_json(cls.registry_path)
         cls.assets = load_json(cls.asset_root / ASSET_MANIFEST_NAME)
         cls.aliases = load_json(cls.asset_root / ALIASES_NAME)
-        cls.lineage = load_json(cls.asset_root / LINEAGE_NAME)
+        cls.lineage_path = REPO_ROOT.joinpath(*LINEAGE_REL.parts)
+        cls.lineage = load_json(cls.lineage_path)
 
     def test_registry_schema_modes_and_all_fields_validate(self):
         self.assertEqual(self.registry["schema"], SCHEMA_REGISTRY)
@@ -164,8 +166,15 @@ class ProductionFloor01ExportTests(unittest.TestCase):
     def test_manifest_hashes_and_protected_inputs_are_current(self):
         generated = self.assets["generated_manifests"]
         self.assertEqual(
-            sha256_file(self.asset_root / LINEAGE_NAME),
+            sha256_file(self.lineage_path),
             generated["lineage"]["sha256"])
+        self.assertEqual(generated["lineage"]["path"], LINEAGE_REL.as_posix())
+        self.assertEqual(LINEAGE_REL.name, LINEAGE_NAME)
+        self.assertEqual(
+            self.registry["lineage_manifest_path"], LINEAGE_REL.as_posix())
+        self.assertFalse(
+            (self.asset_root / LINEAGE_NAME).exists(),
+            "the lineage sidecar must not also live in the Godot asset root")
         self.assertEqual(
             sha256_file(self.asset_root / ALIASES_NAME),
             generated["compatibility_aliases"]["sha256"])
@@ -238,6 +247,7 @@ class ProductionFloor01ExportTests(unittest.TestCase):
         artifacts = {
             ASSET_ROOT_REL / name: b"" for name in _allowed_asset_names()
         }
+        artifacts[LINEAGE_REL] = b""
         artifacts[REGISTRY_REL] = b""
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw)
@@ -254,7 +264,7 @@ class ProductionFloor01ExportTests(unittest.TestCase):
             if path.is_file() and path.suffix != ".import"
         }
         self.assertEqual(actual, expected)
-        self.assertEqual(len(expected), 37)
+        self.assertEqual(len(expected), 36)
         self.assertEqual(
             set(self.registry["semantic_owner_index"]),
             {row["identity"] for row in self.lineage["semantic_owners"]})

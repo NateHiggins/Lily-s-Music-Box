@@ -17,7 +17,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-TOOL_VERSION = 2
+TOOL_VERSION = 3
 DEFAULT_EXCEPTIONS = "tools/data_consumption_exceptions.json"
 PATH_RE = re.compile(r"res://data/([A-Za-z0-9_./-]+\.json)")
 STRING_RE = re.compile(r"['\"]([A-Za-z_][A-Za-z0-9_]*)['\"]")
@@ -36,18 +36,42 @@ CONST_NUMBER_RE = re.compile(
     r"(?:\s*:\s*[^=]+)?\s*(?::=|=)\s*(?P<value>[^#]+?)\s*$")
 ASSIGNMENT_RE = re.compile(r"(?<![=!<>])(?P<op>\+=|-=|\*=|/=|=(?!=))")
 
+# These containers are schema-declared identity maps: their keys are authored
+# record identities, not independently consumable schema fields.  Their values
+# are still traversed, so a new field inside an alias target remains visible to
+# the audit.  Keep this closed over explicit schema identities; an unfamiliar
+# document or container continues to fail conservatively.
+DYNAMIC_MAP_PATHS_BY_SCHEMA = {
+    "orison.floor01.cell-registry.v1": frozenset({
+        "compatibility_alias_index",
+        "semantic_owner_index",
+    }),
+}
 
-def json_fields(value, prefix=""):
+
+def json_fields(value, prefix="", dynamic_map_paths=frozenset()):
     out = Counter()
     if isinstance(value, dict):
+        if prefix in dynamic_map_paths:
+            for child in value.values():
+                out.update(json_fields(
+                    child, prefix + "[]", dynamic_map_paths))
+            return out
         for key, child in value.items():
             path = f"{prefix}.{key}" if prefix else key
             out[path] += 1
-            out.update(json_fields(child, path))
+            out.update(json_fields(child, path, dynamic_map_paths))
     elif isinstance(value, list):
         for child in value:
-            out.update(json_fields(child, prefix + "[]"))
+            out.update(json_fields(child, prefix + "[]", dynamic_map_paths))
     return out
+
+
+def data_json_fields(value):
+    schema = value.get("schema") if isinstance(value, dict) else None
+    dynamic_map_paths = DYNAMIC_MAP_PATHS_BY_SCHEMA.get(
+        schema, frozenset())
+    return json_fields(value, dynamic_map_paths=dynamic_map_paths)
 
 
 def production_sources(root: Path):
@@ -439,7 +463,7 @@ def scan(root: Path, exception_path: Path):
             records.append({"kind": "FILE_UNREAD", "file": rel_repo,
                             "detail": file_exception or "no production path reader",
                             "excepted": bool(file_exception)})
-        fields = json_fields(parsed)
+        fields = data_json_fields(parsed)
         # Instance-map keys (resident ids, fixture ids, room ids) are data,
         # not thousands of distinct schema fields. Consumption is therefore
         # reported by leaf token per file, with occurrence counts retained.
