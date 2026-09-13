@@ -45,6 +45,7 @@ from tools.m11c2_floor01_production.export_floor01_cells import (  # noqa: E402
     _allowed_asset_names,
     _production_resource,
     collect_protected_hashes,
+    sha256_bound_input,
     validate_registry,
 )
 
@@ -201,16 +202,16 @@ class ProductionFloor01ExportTests(unittest.TestCase):
             if path.is_file()))
         self.assertEqual(
             self.assets["authoritative_inputs"]["ownership"],
-            sha256_file(REPO_ROOT.joinpath(*OWNERSHIP_REL.parts)))
+            sha256_bound_input(REPO_ROOT.joinpath(*OWNERSHIP_REL.parts)))
         self.assertEqual(
             self.assets["authoritative_inputs"]["generator"],
-            sha256_file(REPO_ROOT.joinpath(*GENERATOR_REL.parts)))
+            sha256_bound_input(REPO_ROOT.joinpath(*GENERATOR_REL.parts)))
         self.assertEqual(
             self.assets["authoritative_inputs"]["generator_adapter"],
-            sha256_file(REPO_ROOT.joinpath(*ADAPTER_REL.parts)))
+            sha256_bound_input(REPO_ROOT.joinpath(*ADAPTER_REL.parts)))
         self.assertEqual(
             self.assets["authoritative_inputs"]["production_exporter"],
-            sha256_file(REPO_ROOT.joinpath(*PRODUCTION_EXPORTER_REL.parts)))
+            sha256_bound_input(REPO_ROOT.joinpath(*PRODUCTION_EXPORTER_REL.parts)))
 
     def test_unknown_cell_and_dependency_cycle_are_refused(self):
         unknown = copy.deepcopy(self.registry)

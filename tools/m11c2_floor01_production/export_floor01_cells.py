@@ -132,6 +132,24 @@ def _sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+# Text inputs the manifests bind by hash must hash the same on every checkout.
+# The repository runs with core.autocrlf, so a fresh checkout rewrites these
+# files with CRLF while a tool-written or mixed working copy carries LF; the
+# 2026-09-13 close bound raw bytes and a fresh worktree failed the export
+# suite. Bound text inputs are therefore hashed as Git-normalized (LF) content,
+# the same discipline the M11C2 harness uses for its M11C1 contract
+# (M11C1_LF_SHA256). Binary inputs are hashed raw.
+TEXT_INPUT_SUFFIXES = frozenset({".json", ".py", ".gd", ".gltf"})
+
+
+def sha256_bound_input(path: Path) -> str:
+    """SHA-256 of a bound input: LF-normalized for text, raw for binary."""
+
+    if path.suffix.lower() in TEXT_INPUT_SUFFIXES:
+        return _sha256_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
+    return _sha256_file(path)
+
+
 def _json_bytes(value: Any) -> bytes:
     return (json.dumps(
         value, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False,
@@ -169,7 +187,7 @@ def collect_protected_hashes(repo_root: Path = REPO_ROOT) -> dict[str, str]:
         path = _repo_path(repo_root, relative)
         if not path.is_file():
             raise ProductionExportError(f"protected input is absent: {relative}")
-        result[relative.as_posix()] = _sha256_file(path)
+        result[relative.as_posix()] = sha256_bound_input(path)
     return result
 
 
@@ -752,12 +770,13 @@ def build_production_artifacts(
     input_hashes = {
         "layout": protected[LAYOUT_REL.as_posix()],
         "runtime_layout_mirror": protected[LAYOUT_MIRROR_REL.as_posix()],
-        "ownership": _sha256_file(_repo_path(repo_root, OWNERSHIP_REL)),
-        "generator": _sha256_file(_repo_path(repo_root, GENERATOR_REL)),
-        "generator_adapter": _sha256_file(_repo_path(repo_root, ADAPTER_REL)),
-        "production_exporter": _sha256_file(
+        "ownership": sha256_bound_input(_repo_path(repo_root, OWNERSHIP_REL)),
+        "generator": sha256_bound_input(_repo_path(repo_root, GENERATOR_REL)),
+        "generator_adapter": sha256_bound_input(_repo_path(repo_root, ADAPTER_REL)),
+        "production_exporter": sha256_bound_input(
             _repo_path(repo_root, PRODUCTION_EXPORTER_REL)),
-        "exterior_regions": _sha256_file(_repo_path(repo_root, EXTERIOR_REGIONS_REL)),
+        "exterior_regions": sha256_bound_input(
+            _repo_path(repo_root, EXTERIOR_REGIONS_REL)),
     }
     stable_lineage = _stable_lineage(
         rehearsal=lineage, input_hashes=input_hashes,

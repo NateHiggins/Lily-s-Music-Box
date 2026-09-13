@@ -1,12 +1,12 @@
 {
   "authoritative_inputs": {
-    "exterior_regions": "1f128e4411e135acfc7e9046d5a2c3edf940d39adce54d336fbba8523f1a488a",
-    "generator": "142925a6d859e24ce5e4bded94069ed3db430c944e11b153dd57ed630cc1418b",
-    "generator_adapter": "60861127494a5e1c56ec30c4c6b2ba244150e9d7a7d6a81529a46643cac71a63",
-    "layout": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
-    "ownership": "801fe75f07bf0e3ee22762a6098668b2e20e44c975a432edffd9ebe846d04a6d",
-    "production_exporter": "8b58ae80b79d3580eba72b77756b09a49020d0b7b407b4bbc8b43270cce9c684",
-    "runtime_layout_mirror": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+    "exterior_regions": "22b6c0415e720d0df5c601dcafa7d430fad0f523f264eb4b8cab0f98a4812448",
+    "generator": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "generator_adapter": "f1db11edad77a85871599f42ae6b43a7ebebd788dd67fdf0901418db711c0f27",
+    "layout": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "ownership": "be6e37716a83fd615d733475aed642b9e66f13a12c803b55bdd87035e302755e",
+    "production_exporter": "af5300afd524fb0d9132c31989b9657f267a753449942dd41c309efa6d71366b",
+    "runtime_layout_mirror": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c"
   },
   "canonical_equivalence": {
     "generated_contributions": 9820,
@@ -538,32 +538,32 @@
     },
     "lineage": {
       "path": "art/data/m11c2/floor01_owner_first_lineage.json",
-      "sha256": "313436bc2d17134c4e3a0055487c6a0a04e9eae016a451339ba25b4bfd441fe4"
+      "sha256": "95a9bb0cdead05075f079e5e9bc94c5324408f1ec60b24a435f0d622d8c0b172"
     }
   },
   "legacy_mixed_cell_present": false,
   "owner_before_material": true,
   "production_asset": true,
   "protected_hashes": {
-    "art/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "game/assets/building/floor_01.bin": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
-    "game/assets/building/floor_01.gltf": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+    "game/assets/building/floor_01.gltf": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89",
     "game/assets/building/floor_02.bin": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e",
-    "game/assets/building/floor_02.gltf": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640",
+    "game/assets/building/floor_02.gltf": "de62d5bec6190d87413d5b6dc21feb9810b3fc9dba326fe75f793236639dfa33",
     "game/assets/building/floor_03.bin": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8",
-    "game/assets/building/floor_03.gltf": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f",
+    "game/assets/building/floor_03.gltf": "b47e6553fe86b23743d01415b8f8269074420ca0c9c12f9b8d50bf86aeceabb6",
     "game/assets/building/floor_04.bin": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266",
-    "game/assets/building/floor_04.gltf": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1",
+    "game/assets/building/floor_04.gltf": "33996b679c680effc8946f305a2d3d412bcf470fd1fcbce839e5456246fa96f0",
     "game/assets/building/floor_05.bin": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8",
-    "game/assets/building/floor_05.gltf": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a",
+    "game/assets/building/floor_05.gltf": "8459d034d554893b3a8d0b02b5841b2c3e4d9c9339b0fdcc9db64bacad213d5a",
     "game/assets/building/floor_06.bin": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f",
-    "game/assets/building/floor_06.gltf": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422",
+    "game/assets/building/floor_06.gltf": "5a4ca0026535b03eb60c5a4bbbbf5176c4115aa119a31784521d9054ef6e70cc",
     "game/assets/building/floor_b1.bin": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449",
-    "game/assets/building/floor_b1.gltf": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e",
+    "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/assets/building/roof.bin": "9a91886cc50bc555c72487709720b682514fc3c8a60034510ecff2f861d20d46",
-    "game/assets/building/roof.gltf": "e920a9b42de85627c94bd2cacfee384c1e11b64bc4a384058b4550d01d670758",
-    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
-    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802"
+    "game/assets/building/roof.gltf": "459f700f7d75c5789730c0e06ce22ac96f506c47a1cbd101a74cf810cb27e391",
+    "game/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "game/scripts/building/building_root_selector.gd": "d7aff8b7c598af55cef9243b184f7df9cc6b8ff234daa61fc19c01e9709f37c8"
   },
   "rollback_monolith_loaded_simultaneously": false,
   "rollback_monolith_retained": true,
