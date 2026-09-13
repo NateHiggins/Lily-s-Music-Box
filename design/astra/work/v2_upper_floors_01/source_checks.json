@@ -1,0 +1,28 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "27f407b",
+  "syntax_parses": 6,
+  "completeness_exit": 2,
+  "related_category_checks": [
+    "heating",
+    "accessories",
+    "prep cabinets",
+    "bath details",
+    "56-control persistence source"
+  ],
+  "source_hashes": {
+    "game/scripts/building/orison_v2_upper_floor_doors.gd": "fb5202b0b7352d84cc74e40a01f63a8bac070cc058f6845c033d7f122bc2ce16",
+    "game/scripts/building/orison_v2_domestic_doors.gd": "67dab1829921c66ee39ace1ec88728ddd3f57e773a81fdeb4f74c8c50d1c8a09",
+    "game/scripts/building/orison_v2_runtime_root.gd": "2075cd36f56e245ae5e2106a28ce550f99a0dab72905b5b058e95eeec668a39e",
+    "game/tests/orison_v2_upper_floors_test.gd": "533de2ddb1adb6d41c5eb797825c649ba8a7690eda176572ea80826871d765ce",
+    "game/scripts/building/orison_v2_blockout.gd": "63b15d4d58e923a6e9adf8c6854638a8ec914d8314ced8428df3aa71504d985a",
+    "game/tests/orison_v2_apartment_batch_test.gd": "6bb5aaf0c7ff6e7afa32fb16cf1fed2230c9ff9894f1f601a8ef5bc963d3742f",
+    "game/scripts/props/door_prop.gd": "b4dbf255da788e96b1719b2b83db27c686ab64212351a71bf0f43c4841c7b0df",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/scripts/building/orison_v2_household_state.gd": "203de125976c582fd3607bd2da3f0b38d55bc169328f02cb7a10b34f370472e8",
+    "game/data/runtime_material_sets.json": "a38b92420989a537a2cb7366d11741c0801886b3af94270327dcb7dc05fa27ce",
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+  },
+  "limits": "Rooms and circulation are source-integrated, not furnished or runtime-proven. Door/persistence/old-room behavior and both floor approaches still need engine execution. V1 stays default."
+}

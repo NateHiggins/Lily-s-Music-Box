@@ -29,16 +29,19 @@ const SPECS := {
 }
 
 func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
+	return mount_specs(adapter, layout, SPECS)
+
+func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dictionary) -> bool:
 	var records: Dictionary = {}
 	for record: Dictionary in layout.doors:
-		if not SPECS.has(str(record.id)): continue
+		if not specs.has(str(record.id)): continue
 		var anchor := adapter.resolve(str(record.id)) as Node3D
 		if records.has(record.id) or anchor == null or anchor.get_node_or_null("Hinge") == null:
 			return false
 		if record.hinge not in ["left", "right"] or float(record.width) <= 0.1 or float(record.height) <= 1.5:
 			return false
 		records[record.id] = record
-	if records.size() != SPECS.size(): return false
+	if records.size() != specs.size(): return false
 	for identity: String in records:
 		var record: Dictionary = records[identity]
 		var anchor := adapter.resolve(identity) as Node3D
@@ -49,14 +52,16 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 		door.name = identity + "_Leaf"
 		door.width = float(record.width)
 		door.height = float(record.height)
-		door.door_kind = str(SPECS[identity].kind)
+		door.door_kind = str(specs[identity].kind)
 		var right_hinge := record.hinge == "right"
 		# DoorProp extends along local +X. A half-turn places a right-hung
 		# leaf across the same opening without negative physics scale.
 		# Reverse its local swing so the opening's authored side is retained.
-		door.swing_out = not bool(SPECS[identity].swing_out) if right_hinge else bool(SPECS[identity].swing_out)
-		door.unit = str(SPECS[identity].get("unit","3B"))
+		door.swing_out = not bool(specs[identity].swing_out) if right_hinge else bool(specs[identity].swing_out)
+		door.unit = str(specs[identity].get("unit","3B"))
+		door.leaf_state = str(specs[identity].get("leaf_state", "closed"))
 		door.position.x = door.width * 0.5 if right_hinge else -door.width * 0.5
+		door.position.z = float(specs[identity].get("mount_offset", 0.0))
 		door.rotation.y = PI if right_hinge else 0.0
 		door.set_meta("semantic_id", identity)
 		anchor.add_child(door)

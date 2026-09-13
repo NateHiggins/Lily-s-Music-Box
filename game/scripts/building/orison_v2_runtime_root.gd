@@ -162,6 +162,10 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: domestic door mounting refused")
 		return
+	if not preload("res://scripts/building/orison_v2_upper_floor_doors.gd").new().mount(adapter, layout):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: upper floor door mounting refused")
+		return
 	var fittings := DomesticFittings.new()
 	if not fittings.mount(adapter):
 		startup_failed = true

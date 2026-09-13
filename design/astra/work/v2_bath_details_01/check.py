@@ -25,6 +25,16 @@ protected = ['game/scripts/props/tap_prop.gd','game/scripts/building/orison_v2_h
              'game/data/runtime_material_sets.json','game/data/orison_v2_blockout.json']
 for path in protected:
     baseline = subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT)
+    if path=='game/data/orison_v2_blockout.json':
+        # Bath support ownership survives additive upper floor programs.
+        previous=json.loads(baseline);current=build.load(path)
+        for key,value in previous.items():
+            if isinstance(value,list):
+                assert len(current[key])==len({r['id'] for r in current[key]}),key
+                by_id={r['id']:r for r in current[key]}
+                assert all(by_id.get(r['id'])==r for r in value),('original layout record changed',key)
+            else:assert current.get(key)==value,('original layout property changed',key)
+        continue
     assert (ROOT/path).read_bytes().replace(b'\r\n',b'\n') == baseline.replace(b'\r\n',b'\n'),path
 result = dict(status='SOURCE_PASS_RUNTIME_PENDING',base=BASE,godot='NOT_RUN',
               source_hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in scripts+protected},

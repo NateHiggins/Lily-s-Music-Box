@@ -46,6 +46,17 @@ def main():
     protected += [p for p in baseline_paths if p.endswith('.json')]
     for path in protected:
         old=subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT)
+        if path=='game/data/orison_v2_blockout.json':
+            # Later floors may append records; this packet still protects
+            # every original record and non-table property exactly.
+            previous=json.loads(old);current=load(path)
+            for key,value in previous.items():
+                if isinstance(value,list):
+                    assert len(current[key])==len({r['id'] for r in current[key]}),key
+                    by_id={r['id']:r for r in current[key]}
+                    assert all(by_id.get(r['id'])==r for r in value),('original layout record changed',key)
+                else:assert current.get(key)==value,('original layout property changed',key)
+            continue
         assert (ROOT/path).read_bytes().replace(b'\r\n',b'\n')==old.replace(b'\r\n',b'\n'),('protected file changed',path)
     scripts=['game/scripts/building/orison_v2_household_state.gd',
              'game/scripts/building/orison_v2_medicine_cabinet.gd',
