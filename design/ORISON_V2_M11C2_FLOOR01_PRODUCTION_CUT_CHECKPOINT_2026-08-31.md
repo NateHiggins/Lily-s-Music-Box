@@ -1,6 +1,6 @@
 # Orison v2 M11C2 floor-01 production cut checkpoint — 2026-08-31
 
-Evidence class: **TECHNICAL CHECKPOINT — FINAL RECEIPTS BOUND 2026-09-13 — HUMAN REVIEW PENDING**
+Evidence class: **TECHNICAL CHECKPOINT — FINAL RECEIPTS BOUND 2026-09-13, CORRECTED FOR CHECKOUT-INVARIANT HASHING THE SAME DAY — HUMAN REVIEW PENDING**
 
 ## Disposition
 
@@ -38,7 +38,8 @@ gameplay/save authority, or a merge to main.
   production cells, 2026-08-31).
 - Production consumer/registry commit: **3ef15f5**.
 - Objective proof and evidence commit: **dbdb762**.
-- Inert checkpoint/receipt commit: **the commit that lands this document** (its hash cannot be written into itself).
+- Inert checkpoint/receipt commit: **6d918a7** (first close).
+- Correction commit (management review, same day): **the commit that lands this revision** (its hash cannot be written into itself); contents in the correction section below.
 
 Staging was by named path only; **git diff --cached --name-only** was read
 before each commit. No **git add -A** staging was used.
@@ -77,6 +78,17 @@ before each commit. No **git add -A** staging was used.
    **.gitattributes** now marks the cell asset root, the registry JSON and the
    lineage sidecar as never-normalized; the same conversion test now
    reproduces the index bytes exactly.
+6. **Bound-input hashing made checkout-invariant (management correction).**
+   Management's review found the export suite failing in a fresh worktree of
+   6d918a7: the asset manifest's authoritative_inputs recorded raw SHA-256 of
+   two working copies with mixed line endings (the Blender generator and the
+   M11C1 adapter), which a fresh checkout under core.autocrlf rewrites. The
+   exporter now hashes every bound text input (.json, .py, .gd, .gltf:
+   ownership sidecar, generator, adapter, exporter, exterior regions, both
+   layouts, the selector and every protected floor GLTF) as Git-normalized LF
+   content, binary inputs raw; the export test uses the same function. No
+   attributes were added to shared sources. The manifest, registry and
+   lineage were regenerated; the fresh-worktree proof is recorded below.
 
 ## Expected completeness movement
 
@@ -205,9 +217,9 @@ and **receipts/m11c2_production_export_check_2026-09-13.json** in the packet.
 | game/data/floor_01_cell_registry.json | 158,426 | d4c9f1032676dfa5bdfb50af5f1176078e8be016277dd99c6adb810451bb3e2f |
 
 Every hash above was re-read from disk at checkpoint time and matches the
-manifest binding: **yes**.
-Registry binding of the asset manifest: **2c80df4489bd51e7b777654cdec4f4e11ef89cea4b714b4206a269da7a185081** (matches disk: **yes**).
-Asset-manifest binding of the lineage sidecar: **313436bc2d17134c4e3a0055487c6a0a04e9eae016a451339ba25b4bfd441fe4** at **art/data/m11c2/floor01_owner_first_lineage.json** (matches disk: **yes**, 15,687,735 bytes).
+manifest binding: **no**.
+Registry binding of the asset manifest: **84f89f6f121ed833bf33d703a4702c670e4112832a05bc7ca64c280412d37f9a** (matches disk: **yes**).
+Asset-manifest binding of the lineage sidecar: **95a9bb0cdead05075f079e5e9bc94c5324408f1ec60b24a435f0d622d8c0b172** at **art/data/m11c2/floor01_owner_first_lineage.json** (matches disk: **yes**, 15,687,735 bytes).
 
 | Cell | GLTF bytes | BIN bytes | Primitives | Triangles | Vertices | Collision objects |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -621,7 +633,9 @@ exit codes captured through log paths, never through a pipe.
 | Godot ServiceWireResponseTest | tools/run_godot_serial.ps1 -Scene res://tests/ServiceWireResponseTest.tscn -LogPath (file) | 124 | TIMEOUT KILL at 180 s after SCRIPT ERROR: the test reads counter._counter_tap, a property main removed from maintenance_shop_counter.gd in 2082b4c (2026-08-27) while the test kept referencing it; the suite hangs on main and at 503465d (exit 124 there too). Pre-existing, not introduced by this close; the assertion on the counter prompt was updated to the ruled carrier-free text. |
 | Godot OrisonV2M11C2ProductionMatrix (re-run) | res://tests/orison_v2_m11c2_production_matrix.tscn under the lane mutex, 1,500 s ceiling, -LogPath (file) | 0 | ORISON V2 M11C2 PRODUCTION MATRIX: PASS checks=26 failures=0 |
 | Capture receipt re-merge | python tools/merge_m11c2_capture_receipts.py | 0 | M11C2 capture merge: PASS pairs=5 route=9 |
-| Production export regeneration | python tools/m11c2_floor01_production/export_floor01_cells.py --write, then --check | 0 | PASS both; 38 artifact hashes identical across two Blender generations; 34 cell files byte-identical to 46d40e9 |
+| Production export regeneration (first close) | python tools/m11c2_floor01_production/export_floor01_cells.py --write, then --check | 0 | PASS both; 38 artifact hashes identical across two Blender generations; 34 cell files byte-identical to 46d40e9 |
+| Production export regeneration (correction, checkout-invariant hashing) | python tools/m11c2_floor01_production/export_floor01_cells.py --write, then --check | 0 | PASS both (runs M11C1-51b5018706abebce2a99ae71 and M11C1-ea14464026be1e95c756f454); 38 artifact hashes identical; 34 cell files byte-identical to 46d40e9; receipts *_2026-09-13_correction.json in the packet |
+| Godot OrisonV2M11C2Floor01RegistryTest after the correction (this tree) | tools/run_godot_serial.ps1 -Scene res://tests/orison_v2_m11c2_floor01_registry_test.tscn -LogPath (file) | 0 | [M11C2-REGISTRY] PASS (0 failure(s)) |
 
 Data-consumption (reader) audit before/after: the audit is a report with zero
 exceptions, exit 1 at both ends. Base **503465d**: FIELD_UNREAD 1,289, FILE_UNREAD 11, MALFORMED 1, DURABLE_NUMERIC_MONOTONIC_ONLY 2, blocking 1,303. This close: FIELD_UNREAD 1,288, FILE_UNREAD 11, MALFORMED 1, DURABLE_NUMERIC_MONOTONIC_ONLY 2, blocking 1,302.
@@ -656,11 +670,61 @@ Spatial dependency manifest: re-inventoried with --update-manifest (the only wri
 | game/assets/building/floor_b1.bin | 2,778,748 | 2,778,748 | 226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449 | yes |
 
 Protected comparison against **design/ORISON_V2_M11C2_PREWRITE_BASELINE_2026-08-31.md**: **17/17 byte-identical**.
-The asset manifest's own protected_hashes block matches the baseline for every row: **yes**.
+The baseline table above is a raw-bytes comparison of this working tree,
+as the baseline itself was taken. The asset manifest binds the same files in
+the checkout-invariant space (LF-normalized for text, raw for .bin); the two
+spaces differ for every text file that git normalizes on checkout, so the
+manifest's block is listed separately here and is proven invariant below.
+
+| Path | Manifest binding (LF-normalized) | Equals index blob normalized | Raw working-tree hash equals binding |
+| --- | --- | --- | --- |
+| art/data/building_layout.json | f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c | yes | no |
+| game/assets/building/floor_01.bin | e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477 | yes | yes |
+| game/assets/building/floor_01.gltf | 46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89 | yes | no |
+| game/assets/building/floor_02.bin | 4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e | yes | yes |
+| game/assets/building/floor_02.gltf | de62d5bec6190d87413d5b6dc21feb9810b3fc9dba326fe75f793236639dfa33 | yes | no |
+| game/assets/building/floor_03.bin | 8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8 | yes | yes |
+| game/assets/building/floor_03.gltf | b47e6553fe86b23743d01415b8f8269074420ca0c9c12f9b8d50bf86aeceabb6 | yes | no |
+| game/assets/building/floor_04.bin | f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266 | yes | yes |
+| game/assets/building/floor_04.gltf | 33996b679c680effc8946f305a2d3d412bcf470fd1fcbce839e5456246fa96f0 | yes | no |
+| game/assets/building/floor_05.bin | a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8 | yes | yes |
+| game/assets/building/floor_05.gltf | 8459d034d554893b3a8d0b02b5841b2c3e4d9c9339b0fdcc9db64bacad213d5a | yes | no |
+| game/assets/building/floor_06.bin | 8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f | yes | yes |
+| game/assets/building/floor_06.gltf | 5a4ca0026535b03eb60c5a4bbbbf5176c4115aa119a31784521d9054ef6e70cc | yes | no |
+| game/assets/building/floor_b1.bin | 226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449 | yes | yes |
+| game/assets/building/floor_b1.gltf | 8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e | yes | no |
+| game/assets/building/roof.bin | 9a91886cc50bc555c72487709720b682514fc3c8a60034510ecff2f861d20d46 | yes | yes |
+| game/assets/building/roof.gltf | 459f700f7d75c5789730c0e06ce22ac96f506c47a1cbd101a74cf810cb27e391 | yes | no |
+| game/data/building_layout.json | f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c | yes | no |
+| game/scripts/building/building_root_selector.gd | d7aff8b7c598af55cef9243b184f7df9cc6b8ff234daa61fc19c01e9709f37c8 | yes | no |
+
+Every manifest binding equals the LF-normalized index blob: **yes**; the same holds for the authoritative inputs: **yes**.
+
+## Fresh-worktree proof (management correction)
+
+A fresh **git worktree add** of commit **798292c** at C:\PleaseRemainOnTheLine-fresh-798292c (never edited by a tool; every file as git checks it out) was used, not this working tree:
+
+| Proof in the fresh worktree | Exit | Result |
+| --- | ---: | --- |
+| python tools/tests/test_m11c2_floor01_production_export.py | 0 | OK, Ran 11 tests in 2.076s |
+| bound-input hashes of the generator and adapter in the fresh checkout equal the manifest | 0 | {"generator": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0", "adapter": "f1db11edad77a85871599f42ae6b43a7ebebd788dd67fdf0901418db711c0f27", "generator_equal": true, "adapter_equal": true} |
+| Godot --import pass 1 / pass 2 (fresh .godot cache) | 0 | pass1 exit 0, pass2 exit 0 |
+| Godot OrisonV2M11C2Floor01RegistryTest (registry boot in both modes, bound-file validation) | 0 | [M11C2-REGISTRY] PASS (0 failure(s)) | [F01 REGISTRY] owner_first_cells configure alias_target_check_ms=2.391 asset_manifest_parse_ms=1.261 asset_manifest_sha256_ms=0.369 bound_files_total_ms=109.896 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=36.936 cell_descriptor_parse_ms=21.453 compatibility_aliases_parse_ms=2.124 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.537 index_ms=1.012 lineage_parsed=false lineage_sha256_ms=37.022 registry_manifest_read_parse_ms=2.406 registry_manifest_validate_ms=3.605 total_ms=116.927 |
+
+The worktree was removed afterwards. The same two files management named
+hash in the fresh checkout to 042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0 (generator) and f1db11edad77a85871599f42ae6b43a7ebebd788dd67fdf0901418db711c0f27 (adapter) under the invariant function, equal to the manifest.
+
+### Matrix launcher
+
+The production matrix run bound above was launched by
+**tools/run_godot_long_suite.ps1**, committed in the correction commit (it
+was a scratch copy during the first close). It reproduces the serial
+runner's mutex, process census, headless launch and log contract with a
+1,500-second ceiling; the exact invocation is in its header.
 
 ## Push weight
 
-Compressed pack for origin/main..HEAD before the close: 27,861,618 bytes (90,773,668 bytes of blobs uncompressed). After the close commits: 108,249,495 bytes compressed. The lineage JSON compresses about eightfold (1,935,982 bytes per blob). The 2026-08-31 blob remains in commit 46d40e9's history; relocating the file in a new commit adds one compressed copy rather than removing one. Removing it would require rewriting the tip commit, which this close did not do. The bulk of the pack is the frozen packet itself: 83,249,112 bytes of matched Forward+ captures, route frames, logs and receipts, committed as evidence.
+Compressed pack for origin/main..HEAD before the close: 27,861,618 bytes (90,773,668 bytes of blobs uncompressed). After the close commits: 108,278,049 bytes compressed. The lineage JSON compresses about eightfold (1,935,982 bytes per blob). The 2026-08-31 blob remains in commit 46d40e9's history; relocating the file in a new commit adds one compressed copy rather than removing one. Removing it would require rewriting the tip commit, which this close did not do. The bulk of the pack is the frozen packet itself: 83,249,112 bytes of matched Forward+ captures, route frames, logs and receipts, committed as evidence.
 
 ## Remaining limitations and debts
 
