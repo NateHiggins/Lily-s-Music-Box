@@ -9,6 +9,11 @@ then either installs or byte-checks the exact production artifact allowlist.
 The protected ``floor_01.gltf``/``.bin`` monolith is comparison and rollback
 input.  It is never an output of this command.  The F01 ownership sidecar is
 also input-only; no second ownership table is authored here.
+
+The production owner lineage is written beside that ownership sidecar under
+``art/data/m11c2`` rather than into the Godot project: the runtime binds it
+by SHA-256 through the asset manifest and never parses it, and no production
+reader consumes a lineage field (M11C2-CLOSE ruling, 2026-09-13).
 """
 
 from __future__ import annotations
@@ -51,6 +56,8 @@ LEGACY_MONOLITH = "res://assets/building/floor_01.gltf"
 ASSET_ROOT_REL = PurePosixPath("game/assets/building/floor_01_cells")
 REGISTRY_REL = PurePosixPath("game/data/floor_01_cell_registry.json")
 LINEAGE_NAME = "floor01_owner_first_lineage.json"
+# Provenance sidecar: repository data, not a Godot resource. Bound by hash.
+LINEAGE_REL = PurePosixPath("art/data/m11c2") / LINEAGE_NAME
 ALIASES_NAME = "floor01_compatibility_aliases.json"
 ASSET_MANIFEST_NAME = "floor01_asset_manifest.json"
 
@@ -437,8 +444,7 @@ def validate_registry(value: Mapping[str, Any]) -> None:
     expected_manifest_paths = {
         "asset_manifest_path": (
             "res://assets/building/floor_01_cells/" + ASSET_MANIFEST_NAME),
-        "lineage_manifest_path": (
-            "res://assets/building/floor_01_cells/" + LINEAGE_NAME),
+        "lineage_manifest_path": LINEAGE_REL.as_posix(),
         "compatibility_alias_manifest_path": (
             "res://assets/building/floor_01_cells/" + ALIASES_NAME),
     }
@@ -647,8 +653,7 @@ def _build_registry(
         "asset_manifest_path": (
             "res://assets/building/floor_01_cells/" + ASSET_MANIFEST_NAME),
         "asset_manifest_sha256": asset_manifest_sha256,
-        "lineage_manifest_path": (
-            "res://assets/building/floor_01_cells/" + LINEAGE_NAME),
+        "lineage_manifest_path": LINEAGE_REL.as_posix(),
         "compatibility_alias_manifest_path": (
             "res://assets/building/floor_01_cells/" + ALIASES_NAME),
         "cells": cell_rows,
@@ -760,7 +765,7 @@ def build_production_artifacts(
     stable_aliases = _alias_manifest(stable_lineage, cell_resources)
     lineage_bytes = _json_bytes(stable_lineage)
     aliases_bytes = _json_bytes(stable_aliases)
-    lineage_rel = ASSET_ROOT_REL / LINEAGE_NAME
+    lineage_rel = LINEAGE_REL
     aliases_rel = ASSET_ROOT_REL / ALIASES_NAME
     artifacts[lineage_rel] = lineage_bytes
     artifacts[aliases_rel] = aliases_bytes
@@ -825,9 +830,7 @@ def build_production_artifacts(
 
 
 def _allowed_asset_names() -> set[str]:
-    names = {
-        LINEAGE_NAME, ALIASES_NAME, ASSET_MANIFEST_NAME,
-    }
+    names = {ALIASES_NAME, ASSET_MANIFEST_NAME}
     for cell_id in CELL_IDS:
         slug = CELL_SLUGS[cell_id]
         names.update({f"{slug}.gltf", f"{slug}.bin"})
@@ -838,6 +841,7 @@ def _assert_exact_destinations(
         artifacts: Mapping[PurePosixPath, bytes], repo_root: Path) -> None:
     expected = {
         *(ASSET_ROOT_REL / name for name in _allowed_asset_names()),
+        LINEAGE_REL,
         REGISTRY_REL,
     }
     if set(artifacts) != expected:

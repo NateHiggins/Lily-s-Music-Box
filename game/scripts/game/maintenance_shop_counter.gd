@@ -26,7 +26,7 @@ func interact_prompt() -> String:
 		return ""
 	var transaction := service.counter_prompt(shop_id)
 	return transaction if not transaction.is_empty() \
-			else "[E]  Inspect %s" % surface_label
+			else "Inspect %s" % surface_label
 
 
 func interact(_player: Node) -> Dictionary:

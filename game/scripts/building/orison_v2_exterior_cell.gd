@@ -941,6 +941,7 @@ func _material(material_id: String) -> StandardMaterial3D:
 		return _material_cache[material_id] as StandardMaterial3D
 	var record: Dictionary = _material_records.get(material_id, {})
 	var material := StandardMaterial3D.new()
+	material.set_meta(&"orison_v2_exterior_owned", true)
 	var albedo := _color(record.get("albedo_rgba"), true)
 	material.albedo_color = albedo
 	material.roughness = float(record.get("roughness", 1.0))
@@ -962,6 +963,7 @@ func _box_mesh(size: Vector3) -> BoxMesh:
 	if _mesh_cache.has(key):
 		return _mesh_cache[key] as BoxMesh
 	var mesh := BoxMesh.new()
+	mesh.set_meta(&"orison_v2_exterior_owned", true)
 	mesh.size = size
 	_mesh_cache[key] = mesh
 	return mesh
@@ -972,6 +974,7 @@ func _box_shape(size: Vector3) -> BoxShape3D:
 	if _shape_cache.has(key):
 		return _shape_cache[key] as BoxShape3D
 	var shape := BoxShape3D.new()
+	shape.set_meta(&"orison_v2_exterior_owned", true)
 	shape.size = size
 	_shape_cache[key] = shape
 	return shape

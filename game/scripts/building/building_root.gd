@@ -21,10 +21,13 @@ const PeriodRealityLayerScript := preload(
 		"res://scripts/building/period_reality_layer.gd")
 const LiveWeatherServiceScript := preload(
 		"res://scripts/building/live_weather_service.gd")
+const Floor01GeometryConfigurationScript := preload(
+		"res://scripts/building/floor01_geometry_configuration.gd")
+const Floor01CellRegistryScript := preload(
+		"res://scripts/building/floor01_cell_registry.gd")
 
 const FLOOR_SCENES := {
 	"B1": "res://assets/building/floor_b1.gltf",
-	"F01": "res://assets/building/floor_01.gltf",
 	"F02": "res://assets/building/floor_02.gltf",
 	"F03": "res://assets/building/floor_03.gltf",
 	"F04": "res://assets/building/floor_04.gltf",
@@ -157,6 +160,13 @@ var call_interface: CallInterface
 var light_rig: LightRig
 var virus_director: VirusSoundDirector
 var floor_nodes: Dictionary = {}
+## F01 gameplay/detail authorities bind to this persistent identity-transform
+## host. Only its child geometry provider changes between the production cells
+## and the byte-identical rollback monolith.
+var floor01_composition_host: Node3D
+var floor01_cell_registry: Floor01CellRegistry
+var floor01_geometry_mode := ""
+var floor01_geometry_startup_receipt: Dictionary = {}
 const FloorCoveragePassScript := preload("res://scripts/building/floor_coverage_pass.gd")
 const SurfacePassScript := preload("res://scripts/building/surface_pass.gd")
 var floor_coverage: RefCounted
@@ -313,6 +323,13 @@ func _ready() -> void:
 	var f := FileAccess.open("res://data/building_layout.json", FileAccess.READ)
 	layout = JSON.parse_string(f.get_as_text())
 	_build_environment()
+	# F01 is the only independently addressable production floor. Its registry
+	# is the single authority for owner-first cells versus the rollback monolith;
+	# the static floor map must never carry a second F01 asset path.
+	if not _build_floor01_geometry_provider():
+		push_error("F01 geometry composition refused: %s" % str(
+				floor01_geometry_startup_receipt.get("error", "unknown error")))
+		return
 	for fid in FLOOR_SCENES:
 		var scene := load(FLOOR_SCENES[fid]) as PackedScene
 		if scene == null:
@@ -823,6 +840,133 @@ func _ready() -> void:
 			organism_incidents.attach_props()
 	get_tree().create_timer(1.5).timeout.connect(func() -> void:
 		surface_pass.apply_props(self))
+
+
+func _build_floor01_geometry_provider() -> bool:
+	floor01_geometry_mode = Floor01GeometryConfigurationScript.selected_mode()
+	floor01_composition_host = Node3D.new()
+	floor01_composition_host.name = "F01"
+	floor01_composition_host.set_meta(&"floor01_geometry_free_host", true)
+	floor01_composition_host.set_meta(&"floor01_persistent_gameplay_host", true)
+	add_child(floor01_composition_host)
+	floor_nodes["F01"] = floor01_composition_host
+	floor01_cell_registry = Floor01CellRegistryScript.new()
+	floor01_cell_registry.name = "Floor01GeometryProvider"
+	floor01_composition_host.add_child(floor01_cell_registry)
+	var configured: Dictionary = floor01_cell_registry.configure(
+			floor01_geometry_mode)
+	if not bool(configured.get("ok", false)):
+		floor01_geometry_startup_receipt = configured.duplicate(true)
+		floor01_geometry_startup_receipt["stage"] = "configure"
+		return false
+	var mounted: Dictionary = floor01_cell_registry.mount_default()
+	if not bool(mounted.get("ok", false)):
+		floor01_geometry_startup_receipt = mounted.duplicate(true)
+		floor01_geometry_startup_receipt["stage"] = "mount_default"
+		floor01_cell_registry.public_teardown()
+		return false
+	floor01_geometry_startup_receipt = {
+		"ok": true,
+		"stage": "ready",
+		"mode": floor01_geometry_mode,
+		"host": "F01",
+		"host_geometry_free": true,
+		"persistent_gameplay_authority": true,
+		"configuration": configured,
+		"mount": mounted,
+		"save_authority": false,
+	}
+	return true
+
+
+func active_floor01_geometry_mode() -> String:
+	return floor01_geometry_mode
+
+
+func floor01_geometry_host() -> Node3D:
+	return floor01_composition_host
+
+
+func floor01_geometry_registry() -> Floor01CellRegistry:
+	return floor01_cell_registry
+
+
+func floor01_geometry_receipt() -> Dictionary:
+	var receipt := floor01_geometry_startup_receipt.duplicate(true)
+	if is_instance_valid(floor01_cell_registry):
+		receipt["registry"] = floor01_cell_registry.registry_receipt()
+	return receipt
+
+
+## Public, deterministic geometry teardown. Gameplay/save/director children on
+## F01's persistent composition host are deliberately not destroyed here.
+func teardown_floor01_geometry() -> Dictionary:
+	var surface_release := {
+		"ok": true,
+		"reason": "surface pass or F01 provider is not active",
+		"cleared_surface_overrides": 0,
+		"released_cache_entries": 0,
+	}
+	if surface_pass != null and is_instance_valid(floor01_cell_registry) \
+			and surface_pass.has_method("release_geometry"):
+		surface_release = surface_pass.release_geometry(floor01_cell_registry)
+	_clear_floor01_geometry_references()
+	var registry_receipt := {"ok": true, "retained_instances": 0,
+			"retained_resources": 0, "retained_strong_references": 0}
+	if is_instance_valid(floor01_cell_registry):
+		registry_receipt = floor01_cell_registry.public_teardown()
+	return {
+		"ok": bool(surface_release.get("ok", false)) \
+				and bool(registry_receipt.get("ok", false)),
+		"api": "BuildingRoot.teardown_floor01_geometry",
+		"mode": floor01_geometry_mode,
+		"host_preserved": is_instance_valid(floor01_composition_host),
+		"surface_release": surface_release,
+		"registry": registry_receipt,
+		"retained_instances": int(registry_receipt.get("retained_instances", 0)),
+		"retained_resources": int(registry_receipt.get("retained_resources", 0)),
+		"retained_strong_references": int(registry_receipt.get(
+				"retained_strong_references", 0)),
+		"durable_authority_destroyed": false,
+	}
+
+
+func _clear_floor01_geometry_references() -> void:
+	# Zone gates temporarily own render layers and shadow flags. Relinquish those
+	# writes before severing the references that make restoration possible.
+	for nodes: Array in [passage_interior_nodes, passage_shell_nodes,
+			passage_foreign_f01_nodes, passage_late_interior_nodes,
+			passage_late_foreign_nodes, passage_shared_f01_nodes,
+			street_core_nodes]:
+		for raw_node in nodes:
+			# A streamed geometry owner may already have released one of these
+			# non-owning visibility references.  Casting a freed Object raises before
+			# the typed value can be checked, so validate the untyped reference first.
+			if not is_instance_valid(raw_node):
+				continue
+			var visual := raw_node as VisualInstance3D
+			if not is_instance_valid(visual):
+				continue
+			var instance_id := visual.get_instance_id()
+			if passage_late_saved.has(instance_id):
+				visual.layers = int(passage_late_saved[instance_id])
+	for light in passage_foreign_lights:
+		if not is_instance_valid(light):
+			continue
+		var instance_id := light.get_instance_id()
+		if passage_light_saved.has(instance_id):
+			light.shadow_enabled = bool(passage_light_saved[instance_id])
+	passage_interior_nodes.clear()
+	passage_shell_nodes.clear()
+	passage_foreign_f01_nodes.clear()
+	passage_late_interior_nodes.clear()
+	passage_late_foreign_nodes.clear()
+	passage_shared_f01_nodes.clear()
+	street_core_nodes.clear()
+	passage_foreign_lights.clear()
+	passage_light_saved.clear()
+	passage_late_saved.clear()
+	_zone_layer_blocks.clear()
 
 
 func _build_environment() -> void:
@@ -1448,6 +1592,42 @@ func _index_passage_geometry() -> void:
 	var floor: Node = floor_nodes.get("F01")
 	if floor == null:
 		return
+	passage_interior_nodes.clear()
+	passage_shell_nodes.clear()
+	passage_foreign_f01_nodes.clear()
+	if is_instance_valid(floor01_cell_registry) \
+			and floor01_cell_registry.is_owner_first():
+		passage_interior_nodes.append_array(
+				floor01_cell_registry.geometry_nodes_for_cells(
+						Floor01CellRegistry.PASSAGE_SHOP_CELL_IDS))
+		passage_shell_nodes.append_array(
+				floor01_cell_registry.geometry_nodes_for_cell("CELL_PASSAGE"))
+		var shared_ids := {}
+		for alias_identity in floor01_cell_registry.compatibility_aliases():
+			if not alias_identity.contains("_retail_passage_proxy_"):
+				continue
+			for alias_node in floor01_cell_registry.resolve_compatibility_alias(
+					alias_identity):
+				var alias_geometry: Array[GeometryInstance3D] = []
+				_collect_street_geometry(alias_node, alias_geometry)
+				for geometry in alias_geometry:
+					shared_ids[geometry.get_instance_id()] = true
+					if geometry not in passage_shared_f01_nodes:
+						passage_shared_f01_nodes.append(geometry)
+		var passage_owned := {}
+		for geometry in passage_interior_nodes:
+			passage_owned[geometry.get_instance_id()] = true
+		for geometry in passage_shell_nodes:
+			passage_owned[geometry.get_instance_id()] = true
+		for cell_id in Floor01CellRegistry.TARGET_CELL_IDS:
+			for geometry in floor01_cell_registry.geometry_nodes_for_cell(cell_id):
+				if not passage_owned.has(geometry.get_instance_id()) \
+						and not shared_ids.has(geometry.get_instance_id()):
+					passage_foreign_f01_nodes.append(geometry)
+		print("[PASSAGE] %d interior, %d shell and %d foreign owner-cell draws indexed" %
+				[passage_interior_nodes.size(), passage_shell_nodes.size(),
+				passage_foreign_f01_nodes.size()])
+		return
 	for candidate in floor.find_children("*", "GeometryInstance3D", true, false):
 		var geometry := candidate as GeometryInstance3D
 		if geometry == null:
@@ -1698,8 +1878,18 @@ func _street_core_protected_geometry() -> Dictionary:
 	# the envelope's 2.80 m ceiling. The class is named rather than the instance
 	# anyway: a batch carrying the building's own glazing and joinery IS the
 	# exterior view of it, whichever floor it belongs to.
+	if is_instance_valid(floor01_cell_registry) \
+			and floor01_cell_registry.is_owner_first():
+		for geometry in floor01_cell_registry.geometry_nodes_for_cell(
+				"CELL_ORISON_FACADE_SHELL"):
+			protected[geometry.get_instance_id()] = true
 	for fid in floor_nodes:
-		for child in floor_nodes[fid].get_children():
+		if fid == "F01" and is_instance_valid(floor01_cell_registry) \
+				and floor01_cell_registry.is_owner_first():
+			continue
+		var floor_geometry: Array[GeometryInstance3D] = []
+		_collect_street_geometry(floor_nodes[fid], floor_geometry)
+		for child in floor_geometry:
 			var suffix := String(child.name).trim_prefix(fid + "_")
 			for token in ENVELOPE_BATCHES:
 				if suffix.contains(token):

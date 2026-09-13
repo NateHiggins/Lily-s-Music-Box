@@ -169,6 +169,11 @@ static func coverage_rule_for(texture_path: String) -> Dictionary:
 var swapped := 0
 var materials := 0
 var _cache := {}
+## Layered architecture materials are cached by shipping-material identity and
+## class.  Keep weak per-surface users as well so an independently unloadable
+## provider can relinquish only its entries without disturbing another floor
+## that legitimately shares the same cached material.
+var _cache_users := {}
 
 ## ---- MX-2: the parallax governor ------------------------------------------
 ## The probe measures, the material obeys. Every GOVERN_INTERVAL seconds the
@@ -282,7 +287,10 @@ func apply(floor_nodes: Dictionary) -> int:
 					continue
 				var recipe: Dictionary = (cls.recipe as Dictionary).duplicate()
 				recipe["parallax_budget"] = budget
-				mi.set_surface_override_material(s, surface_for(original, recipe, str(cls.key), _cache))
+				var cache_key := _surface_cache_key(original, str(cls.key))
+				mi.set_surface_override_material(s, surface_for(
+						original, recipe, str(cls.key), _cache))
+				_track_cache_user(cache_key, mi, s)
 				swapped += 1
 	materials = _cache.size()
 	print("[SURFACE] %d surfaces layered (%d materials)" % [swapped, materials])
@@ -377,6 +385,105 @@ func restore_props() -> void:
 	props_swapped = 0
 
 
+## Release only layered materials applied to geometry below `geometry_root`.
+##
+## SurfacePass outlives an independently unloadable F01 provider because it is
+## also the standing material authority for F02..ROOF and for script-built
+## props.  Its cache therefore cannot simply be cleared during an F01 unload.
+## This boundary uses the weak ownership recorded when each override was
+## applied, removes users below the retiring provider, and erases an entry only
+## when no living user remains.  Materials still used by another floor or by a
+## persistent gameplay prop remain untouched, even if another presentation pass
+## has since replaced one of the retiring provider's current overrides.
+func release_geometry(geometry_root: Node) -> Dictionary:
+	if geometry_root == null or not is_instance_valid(geometry_root):
+		return {
+			"ok": false,
+			"reason": "geometry root is missing",
+			"cleared_surface_overrides": 0,
+			"released_cache_entries": 0,
+			"remaining_cache_entries": _cache.size(),
+		}
+	var cleared := 0
+	var released_keys := 0
+	var released_materials := 0
+	var shared_entries_preserved := 0
+	for raw_key: Variant in _cache_users.keys().duplicate():
+		var cached := _cache.get(raw_key) as ShaderMaterial
+		var surviving_users: Array[Dictionary] = []
+		var released_here := false
+		for raw_user: Variant in _cache_users.get(raw_key, []):
+			var user := raw_user as Dictionary
+			var user_ref := user.get("node") as WeakRef
+			var node := user_ref.get_ref() as MeshInstance3D \
+					if user_ref != null else null
+			if not is_instance_valid(node):
+				continue
+			if not _is_within(node, geometry_root):
+				surviving_users.append(user)
+				continue
+			released_here = true
+			var surface_index := int(user.get("surface", -1))
+			if surface_index >= 0 \
+					and surface_index < node.get_surface_override_material_count() \
+					and node.get_surface_override_material(surface_index) == cached:
+				node.set_surface_override_material(surface_index, null)
+				cleared += 1
+		if not released_here:
+			# Prune dead weak users without claiming another provider's entry.
+			if surviving_users.is_empty():
+				_cache_users.erase(raw_key)
+				_cache.erase(raw_key)
+			else:
+				_cache_users[raw_key] = surviving_users
+			continue
+		if not surviving_users.is_empty():
+			_cache_users[raw_key] = surviving_users
+			shared_entries_preserved += 1
+			continue
+		_cache_users.erase(raw_key)
+		if cached != null:
+			released_materials += 1
+		if _cache.erase(raw_key):
+			released_keys += 1
+	materials = _cache.size()
+	return {
+		"ok": true,
+		"cleared_surface_overrides": cleared,
+		"released_cache_entries": released_keys,
+		"released_materials": released_materials,
+		"shared_cache_entries_preserved": shared_entries_preserved,
+		"remaining_cache_entries": _cache.size(),
+	}
+
+
+func _track_cache_user(cache_key: String, node: MeshInstance3D,
+		surface_index: int) -> void:
+	if not _cache_users.has(cache_key):
+		_cache_users[cache_key] = []
+	var users := _cache_users[cache_key] as Array
+	var node_id := node.get_instance_id()
+	for raw_user: Variant in users:
+		var user := raw_user as Dictionary
+		if int(user.get("node_id", 0)) == node_id \
+				and int(user.get("surface", -1)) == surface_index:
+			return
+	users.append({
+		"node": weakref(node),
+		"node_id": node_id,
+		"surface": surface_index,
+	})
+
+
+static func _is_within(node: Node, boundary: Node) -> bool:
+	var cursor := node
+	while cursor != null:
+		if cursor == boundary:
+			return true
+		cursor = cursor.get_parent()
+	return false
+
+
 ## glTF geometry is owned by its imported scene; a prop's mesh is not.
 static func _is_imported(node: Node) -> bool:
 	var cursor: Node = node
@@ -428,7 +535,7 @@ static func base_key(key: String) -> String:
 ## keyed by (material id, cache_key).
 static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 		cache_key: String = "", cache: Dictionary = {}) -> ShaderMaterial:
-	var ck := "%d|%s" % [original.get_instance_id(), cache_key]
+	var ck := _surface_cache_key(original, cache_key)
 	if not cache_key.is_empty() and cache.has(ck):
 		return cache[ck]
 	var key := catalog_key(original)
@@ -501,6 +608,11 @@ static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 	if not cache_key.is_empty():
 		cache[ck] = m
 	return m
+
+
+static func _surface_cache_key(original: BaseMaterial3D,
+		cache_key: String) -> String:
+	return "%d|%s" % [original.get_instance_id(), cache_key]
 
 
 ## The working range of a height map — its 5th and 95th percentiles from a
