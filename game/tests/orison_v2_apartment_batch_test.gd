@@ -2,6 +2,7 @@ extends Node
 ## Prepared category-level composition/lifetime check. No played route claim.
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 const UNITS := ["2A", "2B", "3B", "4B"]
+const ALL_DOMESTIC_UNITS := ["2A", "2B", "3A", "3B", "4A", "4B"]
 var failures: Array[String] = []
 var checks := 0
 
@@ -49,7 +50,7 @@ func _ready() -> void:
 			if mass == null: continue
 			for shape: CollisionShape3D in mass.find_children("*", "CollisionShape3D", true, false):
 				check(shape.disabled, "replaced planning collision retired: " + identity)
-		for unit: String in UNITS:
+		for unit: String in ALL_DOMESTIC_UNITS:
 			var dining_table := unit + "_din_t" if unit != "4B" else "4B_meal_table"
 			check(world.adapter.resolve(dining_table) is StaticBody3D, "meal table mounted for " + unit)
 			for index in range(1, 3):
@@ -111,9 +112,9 @@ func _check_room_circuits(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 	var rooms: Dictionary = {}
 	for space: Dictionary in layout.spaces:
 		var identity := str(space.id)
-		for prefix in ["F02_A_", "F02_B_", "F03_B_", "F04_B_"]:
+		for prefix in ["F02_A_", "F02_B_", "F03_A_", "F03_B_", "F04_A_", "F04_B_"]:
 			if identity.begins_with(prefix): rooms[identity] = true
-	check(rooms.size() == 26, "all detailed apartment spaces covered")
+	check(rooms.size() == 38, "all detailed apartment spaces covered")
 	var fixtures: Dictionary = {}
 	var owners: Dictionary = {}
 	for record: Dictionary in lighting.fixtures:
@@ -155,7 +156,7 @@ func _check_apartment_doors(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) ->
 	for record: Dictionary in world.layout.doors:
 		var unit := ""
 		for room: String in record.connects:
-			for candidate: String in UNITS:
+			for candidate: String in ALL_DOMESTIC_UNITS:
 				if room.begins_with("F0" + candidate[0] + "_" + candidate[1] + "_"):
 					unit = candidate
 		if unit.is_empty(): continue
@@ -179,7 +180,7 @@ func _check_apartment_doors(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) ->
 		# with the resulting tweens active, alongside toilet/wardrobe motion.
 		door.npc_set_open(true)
 		check(door.open, "production resident opening API: " + str(record.id))
-	check(covered == 16, "all doors across all four detailed apartments covered")
+	check(covered == 24, "all doors across all six detailed apartments covered")
 
 func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
@@ -254,7 +255,7 @@ func _check_wall_extensions() -> void:
 							> maxf(low.y, float(window.sill)) + .0001
 					check(not (overlaps_width and overlaps_height), "window aperture remains free of wall geometry")
 			holder.free()
-	check(count == 15, "all fifteen missing intervals have build coverage")
+	check(count == 23, "all original and expanded wall intervals have build coverage")
 	# Reject corrupt interval data before building any geometry.
 	for bad: Variant in [{"side":"east","start":-100.0,"end":0.0},
 			{"side":"east","start":NAN,"end":0.0}, {"side":"up","start":0.0,"end":1.0},
@@ -287,7 +288,7 @@ func _check_wall_extensions() -> void:
 	builder.free()
 
 func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
-	var expected := {"cupboard":4, "coffee":2, "pinboard":2, "toolboard":1, "crate":1}
+	var expected := {"cupboard":6, "coffee":2, "pinboard":2, "toolboard":1, "crate":1}
 	var seen := {"cupboard":0, "coffee":0, "pinboard":0, "toolboard":0, "crate":0}
 	var cupboards: Array[String] = []
 	var timber_surfaces := 0
@@ -337,8 +338,8 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 								"wood uses its own canonical texture: " + key)
 	check(seen == expected, "complete storage/table/board category roster")
 	cupboards.sort()
-	check(cupboards == ["2A", "2B", "3B", "4B"], "one kitchen wall cupboard per detailed apartment")
-	check(timber_surfaces == 4 and plywood_surfaces == 1 and glass_surfaces == 2,
+	check(cupboards == ["2A", "2B", "3A", "3B", "4A", "4B"], "one kitchen wall cupboard per detailed apartment")
+	check(timber_surfaces == 6 and plywood_surfaces == 1 and glass_surfaces == 2,
 			"new wood and glass surface bindings covered")
 
 func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
@@ -430,7 +431,7 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		check(not loader.validate(bad, world.adapter), "mechanism contract rejects " + mutation)
 	var cabinets: Array[StaticBody3D] = []
 	var panels: Array[AnimatableBody3D] = []
-	for unit: String in UNITS:
+	for unit: String in ALL_DOMESTIC_UNITS:
 		var cabinet := world.adapter.resolve(unit + "_prep_cabinet") as StaticBody3D
 		check(cabinet != null and cabinet.has_method("interact"), "operable preparation cabinet for " + unit)
 		if cabinet == null or not cabinet.has_method("interact"): continue
@@ -450,7 +451,7 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 			var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
 			check(hit.get("collider") == panel, "cabinet panel can be reached from cooking aisle")
 		else: check(false, "preparation cabinet stance resolves")
-	check(cabinets.size() == 4 and panels.size() == 4, "complete four-kitchen preparation category")
+	check(cabinets.size() == 6 and panels.size() == 6, "complete six-kitchen preparation category")
 	for i in cabinets.size():
 		var state_before := JSON.stringify(RealityState.data)
 		cabinets[i].call("interact", world.player)

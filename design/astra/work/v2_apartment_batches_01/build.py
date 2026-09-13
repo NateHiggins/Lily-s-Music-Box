@@ -17,7 +17,7 @@ PI = math.pi
 SOURCE = "art/blender/scripts/build_orison.py"
 # identity, room, building-local floor position, yaw, standing position.
 FURNITURE = [
-    ("2A_wc", "F02_A_BATH", [-6.65,0,5.16], 0, [-6.65,0,4.35]),
+    ("2A_wc", "F02_A_BATH", [-6.94,0,5.16], 0, [-7.0,0,4.35]),
     ("2B_wc", "F02_B_BATH", [15,0,-11.8], PI, [15,0,-10.8]),
     ("2A_bed0", "F02_A_BED", [-13.7,0,9.95], 0, [-12.35,0,9.95]),
     ("2B_abed", "F02_B_BED", [10.65,0,-10.95], PI, [11.9,0,-10.95]),
@@ -36,7 +36,7 @@ FITTINGS = [
     ("F02_2B_SINK_01", "F02_B_BATH", [15.32,0,-10.05], PI/2, [14.4,0,-10.05]),
     ("F02_2A_KITCHEN_SINK_01", "F02_A_KITCHEN", [-14.7,0,5.72], 0, [-14.7,0,4.55]),
     ("F02_2B_KITCHEN_SINK_01", "F02_B_KITCHEN", [9.96,0,-7.3], -PI/2, [11.1,0,-7.3]),
-    ("F02_2A_SHOWER_01", "F02_A_BATH", [-6.55,0,3.57], PI, [-6.55,0,4.35]),
+    ("F02_2A_SHOWER_01", "F02_A_BATH", [-6.94,0,3.57], PI, [-7.0,0,4.35]),
     ("F02_2B_SHOWER_01", "F02_B_BATH", [13.35,0,-11.88], PI, [13.35,0,-10.8]),
     ("F02_2A_STOVE_01", "F02_A_KITCHEN", [-12.8,0,5.72], 0, [-12.8,0,4.55]),
     ("F02_2B_STOVE_01", "F02_B_KITCHEN", [9.96,0,-5.9], -PI/2, [11.1,0,-5.9]),

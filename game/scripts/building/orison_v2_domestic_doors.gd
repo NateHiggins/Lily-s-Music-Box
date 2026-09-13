@@ -1,6 +1,14 @@
 extends RefCounted
 ## Reuse production leaves at the semantic opening's hinge, retaining its frame.
 const SPECS := {
+	"F03_DOOR_02": {"kind": "apartment_entry", "swing_out": false, "unit": "3A"},
+	"F03_A_HALL_DOOR": {"kind": "apartment_interior", "swing_out": true, "unit": "3A"},
+	"F03_A_BATH_DOOR": {"kind": "apartment_interior", "swing_out": true, "unit": "3A"},
+	"F03_A_BED_DOOR": {"kind": "apartment_interior", "swing_out": false, "unit": "3A"},
+	"F04_DOOR_02": {"kind": "apartment_entry", "swing_out": true, "unit": "4A"},
+	"F04_A_KITCHEN_DOOR": {"kind": "apartment_interior", "swing_out": false, "unit": "4A"},
+	"F04_A_BED_DOOR": {"kind": "apartment_interior", "swing_out": false, "unit": "4A"},
+	"F04_A_BATH_DOOR": {"kind": "apartment_interior", "swing_out": false, "unit": "4A"},
 	"F02_DOOR_02": {"kind": "apartment_entry", "swing_out": false, "unit": "2A"},
 	"F02_A_HALL_DOOR": {"kind": "apartment_interior", "swing_out": true, "unit": "2A"},
 	"F02_A_BATH_DOOR": {"kind": "apartment_interior", "swing_out": true, "unit": "2A"},

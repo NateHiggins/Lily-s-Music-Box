@@ -1,0 +1,47 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "1aa22cc",
+  "old_furniture_preserved": 70,
+  "old_fittings_preserved": 20,
+  "new_rooms": 12,
+  "new_furniture": 22,
+  "new_fittings": 10,
+  "new_circuits": 12,
+  "allowed_existing_edits": [
+    "F04_SERVICE_HALL",
+    "F02_A_BATH_DOOR",
+    "2A_wc",
+    "2A_wc_STANCE",
+    "F02_2A_SHOWER_01",
+    "F02_2A_SHOWER_01_STANCE",
+    "F02_A_BATH_SWITCH",
+    "F02_A_BATH_SWITCH_STANCE",
+    "4B_wc_STANCE"
+  ],
+  "negative_controls_rejected": [
+    "overlapping_room",
+    "severed_entry",
+    "riser_obstruction",
+    "invalid_material"
+  ],
+  "protected": [
+    "game/data/building_layout.json",
+    "game/data/resident_schedules.json",
+    "game/data/resident_story_details.json",
+    "game/data/orison_v2/mina_routine.json",
+    "game/data/orison_v2/case_one_placement.json",
+    "game/data/runtime_material_sets.json",
+    "game/project.godot",
+    "game/scripts/props/door_prop.gd",
+    "game/scripts/props/tap_prop.gd"
+  ],
+  "sha256": {
+    "game/data/orison_v2_blockout.json": "2d4545a4c63ef4eee35e8377a9f3f5dbe62f1957db641fe276a8ec21045894f6",
+    "game/data/orison_v2/domestic_furniture.json": "b42d04de3851d7bc08d3d8d4b98534dcc0a9df9bbf622b578a81b74f83ad7bae",
+    "game/data/orison_v2/domestic_fittings.json": "7961611748d0a48f488055734ce88bb2c156f7610250221d4cbf4146a96ac710",
+    "game/data/orison_v2/room_lighting.json": "7db309c6a76ff816b3de6119f8cf48b74360b14524c878a2982e9da445840e42",
+    "design/astra/work/v2_apartment_expansion_01/receipt.json": "d4a612f6ec7a37cb474ab22235f8a1560838aff831824d604ca559009549773f"
+  },
+  "limits": "No engine compilation, movement, water/light/audio behavior, resident navigation, appearance or performance proof."
+}

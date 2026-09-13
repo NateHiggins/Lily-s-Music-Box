@@ -1,7 +1,7 @@
 {
   "status": "SOURCE_PASS_RUNTIME_PENDING",
   "godot": "NOT_RUN",
-  "applied": true,
+  "applied": false,
   "source_sha256": "3c3bbfa470c0470c26a919cc3c7a5182b0bc5128abe5f9a27addf0b88c9bfd11",
   "new_furniture": [
     {
@@ -150,9 +150,9 @@
       "id": "2A_wc",
       "room": "F02_A_BATH",
       "rect": [
-        -6.92,
+        -7.210000000000001,
         4.76,
-        -6.380000000000001,
+        -6.67,
         5.5200000000000005
       ]
     },
@@ -316,9 +316,9 @@
       "id": "F02_2A_SHOWER_01",
       "room": "F02_A_BATH",
       "rect": [
-        -6.9275,
+        -7.317500000000001,
         3.1925,
-        -6.172499999999999,
+        -6.5625,
         3.9475
       ],
       "estimate": true
@@ -369,7 +369,7 @@
     }
   ],
   "output_sha256": {
-    "game/data/orison_v2/domestic_furniture.json": "8e18f8ed9ec74a3b52c39d39d1cb26b4db22eb6b7d01b8665b8cc76b89c2e9ba",
-    "game/data/orison_v2/domestic_fittings.json": "aee1dc2139bf02a0ac8092cf6520b0c5065e7a8dbb4943ef92c467794f294434"
+    "game/data/orison_v2/domestic_furniture.json": "3e06d80157caba372105cff2beba1b4b0b29027038a337c73b26a3aebd4467ce",
+    "game/data/orison_v2/domestic_fittings.json": "9d791deaa5809b40c58abe46eddb0a09a34a748f4fbb218698282aecee5db6fc"
   }
 }

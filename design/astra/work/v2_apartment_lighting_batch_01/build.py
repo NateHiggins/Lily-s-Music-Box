@@ -16,7 +16,7 @@ PLACEMENTS = [
     ("F02_A_VESTIBULE", [-6.6,0], [-7,1.26], 0, [-7,.45], 3,1.05),
     ("F02_A_KITCHEN", [-12.9,4.7], [-10.95,3.19], PI, [-10.95,4.15], 5.2,1.25),
     ("F02_A_PRIVATE_HALL", [-9.6,5.75], [-10.16,5.6], -PI/2, [-9.5,5.6], 4,1.25),
-    ("F02_A_BATH", [-7.4,4.35], [-6.04,4.45], PI/2, [-7.25,4.45], 4,1.05),
+    ("F02_A_BATH", [-7.4,4.35], [-6.49,4.45], PI/2, [-7.6,4.45], 4,1.05),
     ("F02_A_BED", [-12.8,9.25], [-10.34,6.4], PI/2, [-11.2,6.7], 5.5,1.25),
     ("F02_B_VESTIBULE", [10.5,-2.5], [10.45,-1.24], 0, [10.45,-2.15], 3,1.05),
     ("F02_B_MAIN", [13.6,-1.75], [11.59,-.8], -PI/2, [12.5,-.8], 6.5,1.5),
@@ -84,6 +84,15 @@ def supporting_wall(layout, room, plate, yaw):
                     cuts.append(cut)
             if any(abs(cut["center"][along_idx]-wall[along_idx]) < cut["width"]/2+.08 for cut in cuts): continue
             candidates.append(space["id"]+":"+side)
+    # A solid service chase supplies a physical mounting face too. Check
+    # its actual extent and height, rather than exempting a named switch.
+    level_y=next(r['y'] for r in layout['levels'] if r['id']==room['level'])
+    for riser in layout.get('risers',[]):
+        if not riser.get('solid',True) or riser['from_y']>level_y+1 or riser['to_y']<level_y+1.24:continue
+        r=riser['rect']
+        if not r[along_idx]+.08<wall[along_idx]<r[along_idx+2]-.08:continue
+        for fixed in [r[fixed_idx],r[fixed_idx+2]]:
+            if abs(fixed-wall[fixed_idx])<1e-6:candidates.append(riser['id']+':solid_face')
     assert candidates, ("switch lacks uninterrupted wall",room["id"],plate)
     return candidates
 

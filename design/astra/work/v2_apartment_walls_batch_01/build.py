@@ -157,7 +157,7 @@ def build(apply=False):
         expected=[dict(side=s,start=a,end=b) for s,a,b in PATCHES[space["id"]]]
         assert "wall_extensions" not in space or space["wall_extensions"]==expected,("conflicting extensions",space["id"])
         space["wall_extensions"]=expected
-    walls=owned(layout); added=[w for w in walls if w.get("extension")]
+    walls=owned(layout); added=[w for w in walls if w.get("extension") and w['owner'] in PATCHES]
     assert len(added)==15
     for w in added:
         for other in walls:
