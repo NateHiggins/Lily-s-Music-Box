@@ -108,7 +108,7 @@ def obstacles(layout,furniture):
         result.append((table["id"],e["level"],[x-table["width"]/2,0,z-table["depth"]/2,x+table["width"]/2,table["height"],z+table["depth"]/2]))
     for a in layout["anchors"]:
         if "RADIATOR" in a["id"] and not a["id"].endswith("STANCE"):
-            result.append((a["id"],a["level"],volume([[-.7,-.75,-.15],[.7,.2,.15]],a)))
+            result.append((a["id"],a["level"],volume([[-.72,-.75,-.15],[.7,.2,.15]],a)))
         if a["id"].endswith("SWITCH"):
             result.append((a["id"],a["level"],volume([[-.08,-.12,-.08],[.08,.12,.08]],a)))
     # Surface dressing has no collider, but boards/cupboards must not pass

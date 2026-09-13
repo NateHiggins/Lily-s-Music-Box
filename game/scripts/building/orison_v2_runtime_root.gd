@@ -37,6 +37,7 @@ var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
 var boiler_tend: BoilerTend
+var heat_balance: HeatBalance
 var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
@@ -153,6 +154,7 @@ func _compose_authorities() -> void:
 	_mount("LobbyMailBank", MailBankProp.new())
 	_mount("LobbyPorterBoard", OtisProp.new())
 	_compose_service_round_props()
+	if startup_failed: return
 	if not DomesticDoors.new().mount(adapter, layout):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: domestic door mounting refused")
@@ -446,26 +448,14 @@ func _compose_service_round_props() -> void:
 	var tour_guard := TourKeyGuardProp.new()
 	tour_guard.prop_type = "tour_key_guard"
 	_mount("F01_TOUR_KEY_GUARD", tour_guard)
-	var radiator := RadiatorProp.new()
-	radiator.prop_type = "radiator"
-	radiator.unit = "2B"
-	radiator.riser = "H-B"
-	radiator.graph_node_id = "F02_B_RADIATOR_01"
-	radiator.bind_inventory(maintenance_inventory)
-	radiator.section_count = 10
-	radiator.installation_drop = 0.75
 	_retire_blockout_fixture("F02_B_RADIATOR_MASS")
 	_retire_blockout_fixture("F02_B_RADIATOR_USE")
-	_mount("F02_B_RADIATOR_01", radiator)
-	var omar_radiator := RadiatorProp.new()
-	omar_radiator.prop_type = "radiator"
-	omar_radiator.unit = "3B"
-	omar_radiator.riser = "H-B"
-	omar_radiator.section_count = 7
-	omar_radiator.installation_drop = 0.75
-	omar_radiator.graph_node_id = "F03_B_RADIATOR_01"
-	omar_radiator.bind_inventory(maintenance_inventory)
-	_mount("F03_B_RADIATOR_01", omar_radiator)
+	var heating := preload("res://scripts/building/orison_v2_heating.gd").new()
+	if not heating.mount(adapter,maintenance_inventory):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: heating refused: %s" % [heating.errors])
+		return
+	heat_balance = heating.balance
 	var boiler := BoilerProp.new()
 	boiler.prop_type = "boiler"
 	_mount("B1_BOILER_01", boiler)
@@ -505,9 +495,9 @@ func _compose_hot_water() -> bool:
 	boiler_tend = BoilerTend.new()
 	boiler_tend.name = "BoilerTend"
 	add_child(boiler_tend)
-	# Reuse the existing plant clock and hot-water curve. V2's radiator
-	# topology is not yet bound to HeatBalance; do not invent a partial budget.
-	boiler_tend.configure(plant, null, taps)
+	# One plant supplies both hot water and all 23 authored heating demands.
+	# Unbuilt rooms retain logical demand; six migrated radiators expose controls.
+	boiler_tend.configure(plant, heat_balance, taps)
 	return true
 
 func _compose_vantry() -> void:

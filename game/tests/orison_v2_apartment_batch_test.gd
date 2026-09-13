@@ -24,6 +24,10 @@ func _ready() -> void:
 			"res://data/orison_v2/domestic_furniture.json"))
 	var fittings: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://data/orison_v2/domestic_fittings.json"))
+	var heating_acoustics := {}
+	for unit: String in ALL_DOMESTIC_UNITS:
+		var identity := "F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"
+		heating_acoustics[identity] = AcousticGraphData.nodes[identity].duplicate(true)
 	for cycle in 2:
 		RealityState.reset_campaign_for_tests()
 		var world := Runtime.instantiate() as OrisonV2RuntimeRoot
@@ -35,6 +39,7 @@ func _ready() -> void:
 			break
 		await get_tree().physics_frame
 		var refs: Array[WeakRef] = []
+		_check_heating(world, refs)
 		_check_room_circuits(world, refs)
 		_check_apartment_doors(world, refs)
 		_check_surface_props(world, refs)
@@ -103,8 +108,21 @@ func _ready() -> void:
 						"production wardrobe opens: " + str(record.id))
 		# Free while cistern/wardrobe tweens are active, exercising their existing
 		# teardown owners instead of waiting until all temporary state is idle.
+		for unit: String in ALL_DOMESTIC_UNITS:
+			var radiator := world.adapter.resolve("F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01") as RadiatorProp
+			if radiator != null: radiator.set_supply_open(false)
+		var servicing := world.adapter.resolve("F03_A_RADIATOR_01") as RadiatorProp
+		var panel: MaintenanceActivityPanel
+		if servicing != null:
+			servicing.perform_physical_action("service_vent")
+			panel = servicing.get("_service_panel") as MaintenanceActivityPanel
+			check(panel != null and world.player.call_locked, "household vent activity owns player input")
 		world.shutdown_for_tests()
+		if is_instance_valid(panel):
+			check(panel.is_queued_for_deletion() and not world.player.call_locked, "radiator teardown closes service panel and releases input")
 		world.free()
+		for identity: String in heating_acoustics:
+			check(AcousticGraphData.nodes[identity] == heating_acoustics[identity], "radiator acoustic position restored after teardown")
 		for ref in refs: check(ref.get_ref() == null, "batch subject retires with its world")
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
@@ -672,3 +690,82 @@ func _check_projector_surface_failures(world: OrisonV2RuntimeRoot) -> void:
 	check(not bool(projector.get("_running")) and not projector._screen.visible \
 			and not projector._video.is_playing(), "missed wall keeps projection and decoder off")
 	holder.free()
+
+func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
+	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/heating.json"))
+	var balance := world.heat_balance
+	check(balance != null and balance.all_results().size() == 23, "all authored demands share one heat budget")
+	if balance == null: return
+	refs.append(weakref(balance))
+	check(world.boiler_tend.heat_balance == balance, "real boiler drives radiator and tap supply")
+	var boiler := world.adapter.resolve("B1_BOILER_01") as BoilerProp
+	check(boiler != null, "heating plant resolves")
+	if boiler == null: return
+	var total := balance.total_delivered_heat()
+	check(is_equal_approx(total,23.0*HeatBalance.DEFAULT_TARGET*boiler.boiler_output()), "full building budget conserved")
+	var target := world.adapter.resolve("F03_A_RADIATOR_01") as RadiatorProp
+	var neighbor_before := float(balance.result_for("F06_C_RADIATOR_01").heat)
+	if target != null:
+		target.set_supply_open(false,0)
+		check(is_zero_approx(float(balance.result_for(target.graph_node_id).heat)), "closed radiator receives no steam")
+		check(float(balance.result_for("F06_C_RADIATOR_01").heat) > neighbor_before, "unbuilt household retains its share of released steam")
+		check(is_equal_approx(total,balance.total_delivered_heat()), "closing one valve does not manufacture steam")
+		target.set_supply_open(true,0)
+	var dry_adapter := SurfaceSourceAdapter.new()
+	var packing_before := JSON.stringify(world.maintenance_inventory.serialize())
+	var count := 0
+	for record: Dictionary in source.installed:
+		var radiator := world.adapter.resolve(record.id) as RadiatorProp
+		check(radiator != null, "installed radiator exists: " + str(record.id))
+		if radiator == null: continue
+		count += 1
+		refs.append(weakref(radiator))
+		check(radiator.get("_balance") == balance and radiator.unit == record.unit and radiator.riser == record.riser, "radiator identity and model binding")
+		var acoustic: Dictionary = AcousticGraphData.nodes[record.id]
+		check(Vector3(acoustic.pos[0],acoustic.pos[2],-acoustic.pos[1]).is_equal_approx(radiator.global_position), "heating acoustic endpoint follows installed pose")
+		check(radiator.section_count == record.sections, "household casting count retained")
+		var body := radiator.get_node_or_null("InstalledRadiatorCollision") as StaticBody3D
+		check(body != null and body.get_child_count() == 2, "installed radiator blocks movement with case and pipe hulls")
+		if body != null: refs.append(weakref(body))
+		var stance := world.adapter.resolve(str(record.id).replace("_01","_STANCE")) as Node3D
+		var area := radiator.get_node_or_null("TurnValveSurface") as Area3D
+		check(stance != null and area != null, "physical handwheel and stance resolve")
+		if stance != null and area != null:
+			var origin := stance.global_position + Vector3.UP*1.41
+			var query := PhysicsRayQueryParameters3D.create(origin,area.global_position,1,[world.player.get_rid()])
+			query.collide_with_areas = true
+			check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == area, "handwheel ray clears furniture and radiator hull: " + str(record.id))
+		var anchor := Node3D.new()
+		dry_adapter.supports[record.id] = anchor
+		if record.unit == "2B":
+			check(radiator.inventory == world.maintenance_inventory, "2B keeps its packing custodian")
+		else:
+			radiator.bind_inventory(world.maintenance_inventory)
+			check(radiator.inventory == null, "household radiator refuses 2B packing custody")
+			check(radiator.get_node_or_null("OpenServiceSurface") == null and radiator.get_node_or_null("CommitRepairSurface") == null, "2B union situation is not duplicated")
+			radiator.perform_physical_action("open_service")
+			radiator.perform_physical_action("inspect_union")
+			radiator.apply_maintenance_result({"mechanism_patch":{"vent_grade":radiator.vent_grade,"supply_position":1.0}})
+			radiator.set_supply_open(false)
+			check(radiator.perform_physical_action("turn_valve").observation == "supply_open", "household valve reaches healthy detent")
+	check(count == 6, "complete developed-home heating category")
+	check(JSON.stringify(world.maintenance_inventory.serialize()) == packing_before, "household actions cannot acquire or consume 2B packing")
+	var water := boiler.water_level
+	boiler.set_water_level(0)
+	check(is_zero_approx(balance.total_delivered_heat()), "cold plant cannot leave artificial radiator heat")
+	for tap: TapProp in world.boiler_tend.taps: check(is_equal_approx(float(tap.get("_boiler_temperature")),.18), "same cold plant updates hot-water curve")
+	if target != null: check(int(target.visual_state_receipt().warm_sections) == 0, "household casting tint follows cold boiler")
+	boiler.set_water_level(water)
+	check(balance.total_delivered_heat() > 0, "plant supply restores through the real binding")
+	var loader := preload("res://scripts/building/orison_v2_heating.gd").new()
+	check(loader.validate(source,dry_adapter), "heating manifest accepts unoccupied anchors")
+	check(not loader.validate(source,world.adapter), "duplicate installation refused")
+	for mutation: String in ["demand", "unit", "riser", "sections", "fractional_sections"]:
+		var bad := source.duplicate(true)
+		if mutation == "demand": bad.network.pop_back()
+		elif mutation == "unit": bad.installed[0].unit = "2B"
+		elif mutation == "riser": bad.installed[0].riser = "H-D"
+		elif mutation == "fractional_sections": bad.installed[0].sections = 8.5
+		else: bad.installed[0].sections = 30
+		check(not loader.validate(bad,dry_adapter), "invalid heating roster rejected: " + mutation)
+	for anchor: Node in dry_adapter.supports.values(): anchor.free()
