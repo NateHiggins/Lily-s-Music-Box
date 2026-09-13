@@ -76,8 +76,12 @@ legacy_monolith injected only for tests. Selector v1 everywhere.
 - The Sept-3 "hour one, zero geometry" item was never done. **unit.2B.entry**
   and **f01.watch_station** are PROGRAMMED on built, walked, owner-accepted
   spaces; no admitted checkpoint backticks their ids. Two of the 86
-  structural blockers, no geometry. The stale B1 landing claim is already
-  gone.
+  structural blockers, no geometry. **Correction (later the same day):**
+  the stale **B1_PUBLIC_LANDING_E** claim is NOT gone; management misread
+  the M10 queue line as the stale row. The M08E spatial-owners checkpoint
+  still backticks an id that exists only in the layout's platforms array,
+  which the audit's identity universe does not read. Clearing it is a tool
+  change, not a checkpoint change.
 - The period audit is in no standard battery; the dry-run plan and the
   handoff list five gates and omit it. It was silently red for a day.
 - The reader gate remains a report, not a gate: 1,302 blocking, zero
@@ -164,6 +168,41 @@ Management re-verified rather than accepted:
 
 Verdict: MERGE-CANDIDATE stands subject to that one correction and a
 re-report. M11D may start in parallel; it needs no Godot.
+
+## 9. Review of the correction re-report and of M11D (2026-09-13, evening)
+
+**M11C2 at 89df0e0** (29 ahead of main). Management re-verified in a fresh
+`git worktree add` of the correction commit 798292c: the export suite
+passes 11/11; all 17 protected files hash identical to the prewrite
+baseline; .gitattributes is unchanged and no shared .py source received an
+attribute; tools/run_godot_long_suite.ps1 is committed. The fresh-worktree
+Godot registry boot was NOT reproduced by management: the machine's Godot
+lane was held by another project's test run (jawbreaker) across two
+attempts and an eight-minute wait. The developer's logged fresh-worktree
+run (import twice, registry PASS, lineage_parsed false, configure 116.9 ms)
+is accepted on the strength of the Python reproduction and the unchanged
+runtime files. Former open finding 3 is closed. Verdict: MERGE-CANDIDATE
+**89df0e0** stands.
+
+**M11D at be81264** (one commit, one file, based on main). Management
+copied the checkpoint into a main worktree: evidence-impact admits it and
+changes exactly two rows (**f01.watch_station** and **unit.2B.entry**,
+PROGRAMMED to SPATIALLY_PROVEN); the six scopes move 0/1/86/45/101/103 to
+0/1/84/45/100/102 with the document present and return with it absent.
+Exactly two backticked ids. Verdict: MERGE-CANDIDATE **be81264** stands. It
+merges independently of the chain.
+
+Standing corrections to this record: the stale identifier on main is
+**B1_PUBLIC_LANDING_E** (see the correction in section 3); management's
+earlier claim that it was gone was wrong, and the developer caught it.
+
+Next dispatch while the owner decides on the merges: ORISON-V2-M11E-HYGIENE,
+two tool-lane items on main that need no owner decision and no geometry:
+teach the completeness identity universe to read the layout's platforms
+array so the stale B1 row resolves honestly, and repair
+ServiceWireResponseTest, which reads a property main removed on
+2026-08-27 and then hangs to a 124. GoldenLoopTest's two failing checks
+stay parked on the owner's beat-4 decision.
 
 ## 7. Report format required from the developer
 
