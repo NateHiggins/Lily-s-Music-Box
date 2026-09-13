@@ -3,6 +3,7 @@ extends StaticBody3D
 ## from the furniture source; bypass panels stay inside that closed envelope.
 const TRAVEL := .382
 const DURATION := .28
+signal open_state_changed(open: bool)
 var unit := ""
 var opened := false
 var _slide: AnimatableBody3D
@@ -64,7 +65,13 @@ func interact(_actor: Node = null) -> Dictionary:
 	_motion = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	_motion.tween_property(_slide, "position:x", TRAVEL if opened else 0.0, DURATION) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	open_state_changed.emit(opened)
 	return {"action":"kitchen_cabinet", "unit":unit, "open":opened}
+
+func restore_open_state(value: bool) -> void:
+	if _motion != null and _motion.is_valid(): _motion.kill()
+	opened = value
+	_slide.position.x = TRAVEL if opened else 0.0
 
 func _exit_tree() -> void:
 	if _motion != null and _motion.is_valid(): _motion.kill()

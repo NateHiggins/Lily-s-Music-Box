@@ -1,0 +1,20 @@
+[
+  {
+    "path": "design/astra/work/v2_heating_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"status\": \"SOURCE_PASS_RUNTIME_PENDING\", \"godot\": \"NOT_RUN\", \"base\": \"7c9a536\", \"network_demands\": 23, \"installed\": [{\"id\": \"F02_A_RADIATOR_01\", \"unit\": \"2A\", \"riser\": \"H-A\", \"sections\": 8}, {\"id\": \"F02_B_RADIATOR_01\", \"unit\": \"2B\", \"riser\": \"H-B\", \"sections\": 10}, {\"id\": \"F03_A_RADIATOR_01\", \"unit\": \"3A\", \"riser\": \"H-A\", \"sections\": 9}, {\"id\": \"F03_B_RADIATOR_01\", \"unit\": \"3B\", \"riser\": \"H-B\", \"sections\": 7}, {\"id\": \"F04_A_RADIATOR_01\", \"unit\": \"4A\", \"riser\": \"H-A\", \"sections\": 7}, {\"id\": \"F04_B_RADIATOR_01\", \"unit\": \"4B\", \"riser\": \"H-B\", \"sections\": 8}], \"new_emitters\": 4, \"checks\": {\"route_samples\": 6864, \"door_sweeps\": 25, \"stance_checks\": 166, \"approach_samples\": 138, \"valve_sightline_samples\": 404}, \"limits\": \"Full roster preserves logical demand for seventeen unbuilt emitters. Six installed controls; no complete building claim. 2B ten-section accepted apparatus retained despite legacy nine-section marker. Source estimates only; physics, balance execution, listening, visuals, save and lifetime pending.\"}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_household_accessories_01/build.py",
+    "exit": 0,
+    "stdout": "{\"status\": \"SOURCE_PASS_RUNTIME_PENDING\", \"godot\": \"NOT_RUN\", \"base\": \"d7f9f8e\", \"toasters\": 6, \"medicine_cabinets\": 6, \"reflection_viewports\": 1, \"checks\": {\"contact_points\": 294, \"mechanism_poses\": 582, \"sightline_samples\": 1212, \"route_samples\": 6864, \"domestic_door_sweeps\": 25, \"backing\": [{\"id\": \"F02_2A_MIRROR_01\", \"walls\": [\"F02_A_MAIN:north\"]}, {\"id\": \"F02_2B_MIRROR_01\", \"walls\": [\"F02_B_BATH:east\"]}, {\"id\": \"F03_3A_MIRROR_01\", \"walls\": [\"F03_A_MAIN:north\"]}, {\"id\": \"F03_3B_MIRROR_01\", \"walls\": [\"F03_B_BATH:north\", \"F03_B_PRIVATE_HALL:south\"]}, {\"id\": \"F04_4A_MIRROR_01\", \"walls\": [\"F04_A_BATH:east\"]}, {\"id\": \"F04_4B_MIRROR_01\", \"walls\": [\"F04_B_BATH:south\", \"F04_B_MAIN:north\"]}]}, \"limits\": \"Native mechanisms and material bindings reused; no new electrical supply model. Source envelopes/contact/swing checks do not prove compiled execution, interaction rays, reflection appearance, voxel lighting, lifecycle, traversal or performance.\"}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_prep_cabinets_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"cabinets\": 4, \"furniture_total\": 95, \"route_samples\": 6864, \"operator_approach_samples\": 231, \"applied\": false}\n",
+    "stderr": ""
+  }
+]

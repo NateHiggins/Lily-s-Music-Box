@@ -19,6 +19,7 @@ const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
+const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
 
 var layout: Dictionary = {}
 var floor_nodes: Dictionary = {}
@@ -39,6 +40,7 @@ var service_round: ServiceRoundDirector
 var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
 var mirror_renderer: PlanarMirrorRenderer
+var household_state: HouseholdState
 var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
@@ -323,6 +325,13 @@ func _compose_authorities() -> void:
 	safety_net.setup(player)
 	safety_net.anchor = _connection.arrival.position
 	add_child(safety_net)
+	household_state = HouseholdState.new()
+	household_state.name = "HouseholdState"
+	add_child(household_state)
+	if not household_state.bind(adapter, get_node("V2RoomSwitches") as SwitchSystem):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
+		return
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)
@@ -549,6 +558,7 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	if is_instance_valid(household_state): household_state.shutdown()
 	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
 	if is_instance_valid(shop_simulation):
 		shop_simulation.shutdown()
@@ -562,6 +572,7 @@ func shutdown_for_tests() -> void:
 		adapter.restore_all(true)
 
 func _exit_tree() -> void:
+	if is_instance_valid(household_state): household_state.shutdown()
 	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
 	if _exterior_resolver != null:
 		_exterior_resolver.teardown()

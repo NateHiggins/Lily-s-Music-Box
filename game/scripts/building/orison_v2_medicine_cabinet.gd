@@ -1,6 +1,16 @@
 extends "res://scripts/props/medicine_cabinet_prop.gd"
 ## Surface mounted over the basin. Keep MirrorGlass -> CabinetDoor -> cabinet
 ## intact for the shared reflection owner. The moving leaf is also solid.
+signal open_state_changed(open: bool)
+
+func set_door_open(open: bool, duration := .35) -> void:
+	super.set_door_open(open, duration)
+	open_state_changed.emit(open)
+
+func restore_open_state(value: bool) -> void:
+	_open = value
+	_swing = 1.0 if value else 0.0
+	_apply_swing()
 
 func _build_visual() -> void:
 	super._build_visual()
