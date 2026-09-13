@@ -1,4 +1,4 @@
-"""Source-assembly surface dressing for all four detailed apartments.
+"""Source-assembly surface dressing for all six detailed apartments.
 
 No Blender/Godot imports or launches. Positions are relative to actual supports.
 """
@@ -16,6 +16,13 @@ OUT = Path(__file__).resolve().parent
 TARGET = "game/data/orison_v2/domestic_surface_props.json"
 # identity, unit, supporting semantic owner, local position, local yaw.
 PLACEMENTS = [
+    ("3A_k_kmug","3A","F03_3A_KITCHEN_SINK_01",[.62,.9195,-.09],0),
+    ("3A_k_kdishrack","3A","F03_3A_KITCHEN_SINK_01",[.43,.9195,0],0),
+    ("4A_k_kmug","4A","F04_4A_KITCHEN_SINK_01",[.62,.9195,-.09],0),
+    ("4A_k_kdishrack","4A","F04_4A_KITCHEN_SINK_01",[.43,.9195,0],0),
+    ("3A_story_cuttings","3A","3A_potting_bench",[-.35,.745,0],0),
+    ("3A_story_seed_jars","3A","3A_potting_bench",[.35,.745,0],0),
+    ("4A_story_briefs","4A","4A_writing_table",[0,.745,0],math.radians(-3)),
     ("2A_k_kmug","2A","F02_2A_KITCHEN_SINK_01",[.62,.9195,-.09],0),
     ("2A_k_kdishrack","2A","F02_2A_KITCHEN_SINK_01",[.43,.9195,0],0),
     ("2B_k_kmug","2B","F02_2B_KITCHEN_SINK_01",[.62,.9195,-.09],0),
@@ -129,7 +136,9 @@ def build(apply=False):
         checks.append(dict(id=identity,support=support,rect=rect,height=position[1],contact=contact,visual_base_adjustment_m=-bottom))
     output=dict(schema_version=1,props=props)
     encoded=json.dumps(output,separators=(",",":"))+"\n"
-    if (ROOT/TARGET).exists(): assert load(TARGET)==output,"refusing to replace changed surface-prop data"
+    if (ROOT/TARGET).exists():
+        output["props"]=extract.merge_rows(load(TARGET)["props"],props)
+        encoded=json.dumps(output,separators=(",",":"))+"\n"
     if apply:(ROOT/TARGET).write_text(encoded,encoding="utf-8")
     OUT.mkdir(parents=True,exist_ok=True)
     receipt=dict(status="SOURCE_PASS_RUNTIME_PENDING",godot="NOT_RUN",props=len(props),triangles=sum(len(s["vertices"])//9 for r in props for s in r["surfaces"]),

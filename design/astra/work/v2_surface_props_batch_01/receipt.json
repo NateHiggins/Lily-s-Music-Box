@@ -1,10 +1,101 @@
 {
   "status": "SOURCE_PASS_RUNTIME_PENDING",
   "godot": "NOT_RUN",
-  "props": 19,
-  "triangles": 9148,
+  "props": 26,
+  "triangles": 13340,
   "source_sha256": "3c3bbfa470c0470c26a919cc3c7a5182b0bc5128abe5f9a27addf0b88c9bfd11",
   "checks": [
+    {
+      "id": "3A_k_kmug",
+      "support": "F03_3A_KITCHEN_SINK_01",
+      "rect": [
+        0.58,
+        -0.12804226065180613,
+        0.6866277834122121,
+        -0.05195773934819385
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3A_k_kdishrack",
+      "support": "F03_3A_KITCHEN_SINK_01",
+      "rect": [
+        0.365,
+        -0.135,
+        0.495,
+        0.135
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.004403306607916825
+    },
+    {
+      "id": "4A_k_kmug",
+      "support": "F04_4A_KITCHEN_SINK_01",
+      "rect": [
+        0.58,
+        -0.12804226065180613,
+        0.6866277834122121,
+        -0.05195773934819385
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "4A_k_kdishrack",
+      "support": "F04_4A_KITCHEN_SINK_01",
+      "rect": [
+        0.365,
+        -0.135,
+        0.495,
+        0.135
+      ],
+      "height": 0.9195,
+      "contact": "drainboard rib-top estimate",
+      "visual_base_adjustment_m": -0.004403306607916825
+    },
+    {
+      "id": "3A_story_cuttings",
+      "support": "3A_potting_bench",
+      "rect": [
+        -0.46582282282282284,
+        -0.18860747995402424,
+        -0.12964473764056575,
+        0.11525225225225225
+      ],
+      "height": 0.745,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "3A_story_seed_jars",
+      "support": "3A_potting_bench",
+      "rect": [
+        0.13149999999999995,
+        -0.046,
+        0.5685,
+        0.046
+      ],
+      "height": 0.745,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
+    {
+      "id": "4A_story_briefs",
+      "support": "4A_writing_table",
+      "rect": [
+        -0.12755723106650413,
+        -0.14490795710529522,
+        0.11053342266278542,
+        0.1719565314070713
+      ],
+      "height": 0.745,
+      "contact": "four footprint corners on extracted horizontal surface",
+      "visual_base_adjustment_m": -0.0
+    },
     {
       "id": "2A_k_kmug",
       "support": "F02_2A_KITCHEN_SINK_01",

@@ -56,7 +56,7 @@ RUNTIME_POLICY = {
     # The rejected linen_aged AI plate carried a fixture-sized horizontal fold.
     "shower_duck": {"roughness_multiplier": 0.62,
                     "runtime_alias": "linen"},
-    "paper": {}, "trim": {}, "plant": {}, "brass_bright": {},
+    "paper": {}, "trim": {}, "plant": {}, "terracotta": {}, "soil": {}, "brass_bright": {},
     "bronze": {}, "car_paint": {}, "oak_quartered": {},
     "milk_glass": {}, "bakelite_black": {}, "terrazzo_dark": {},
     "brass_mesh": {}, "indicator_enamel": {},

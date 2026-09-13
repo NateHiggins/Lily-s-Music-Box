@@ -85,6 +85,16 @@ func _ready() -> void:
 			check(prop != null, "furniture mounted: " + str(record.id))
 			if prop == null: continue
 			refs.append(weakref(prop))
+			if record.kind == "plant":
+				check(str(record.id) == "3A_story_specimen", "authored Malcolm specimen mounted")
+				var bound_materials: Array[String] = []
+				for mesh: MeshInstance3D in prop.find_children("*", "MeshInstance3D", true, false):
+					var material := mesh.material_override as StandardMaterial3D
+					check(material != null and material.albedo_texture != null, "plant surfaces have textures")
+					for key: String in ["plant", "timber", "soil", "terracotta"]:
+						if material == MatLib.get_mat(key): bound_materials.append(key)
+				bound_materials.sort()
+				check(bound_materials == ["plant", "soil", "terracotta", "timber"], "plant uses all four semantic materials")
 			if record.kind == "wardrobe":
 				check(prop.get("_case_wood") == record.mechanism.case_wood,
 						"wardrobe retains its household wood: " + str(record.id))
@@ -185,7 +195,7 @@ func _check_apartment_doors(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) ->
 func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://data/orison_v2/domestic_surface_props.json"))
-	var counts := {"2A":0, "2B":0, "3B":0, "4B":0}
+	var counts := {"2A":0, "2B":0, "3A":0, "3B":0, "4A":0, "4B":0}
 	var dry_adapter := SurfaceSourceAdapter.new()
 	for record: Dictionary in source.props:
 		var support := world.adapter.resolve(record.support) as Node3D
@@ -203,7 +213,7 @@ func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 				"fixed dressing adds no interaction or collision owner: " + str(record.id))
 		check(prop.find_children("*", "MeshInstance3D", true, false).size() >= record.surfaces.size(),
 				"material surfaces mounted: " + str(record.id))
-	check(counts == {"2A":5, "2B":4, "3B":8, "4B":2}, "surface category roster across all apartments")
+	check(counts == {"2A":5, "2B":4, "3A":4, "3B":8, "4A":3, "4B":2}, "surface category roster across all apartments")
 	var loader := preload("res://scripts/building/orison_v2_surface_props.gd").new()
 	check(loader.validate(source, dry_adapter), "complete source accepts available supports")
 	var missing := source.duplicate(true)
@@ -381,10 +391,16 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 			refs.append(weakref(emitter))
 			check(not emitter.playing and emitter.stream != null, "programme is loaded but silent on entry")
 			check(emitter.bus == "Broadcast" and emitter.max_distance <= 5.5, "programme has bounded diegetic audio")
+		if record.unit == "3A":
+			check(radio.family == "crystal_set" and "headphones" in radio.interact_prompt(),
+					"Malcolm retains passive headphone listening")
+			check(emitter != null and is_equal_approx(emitter.max_distance, 1.6)
+					and is_equal_approx(float(radio.public_state().reach), 1.6), "headphone reach matches emitter")
+		if record.unit == "4A": check(radio.family == "atwater_kent_44", "Peter retains authored AC set")
 		for mesh: MeshInstance3D in radio.find_children("*", "MeshInstance3D", true, false):
 			var material := mesh.material_override as StandardMaterial3D
 			check(material != null and material.albedo_texture != null, "all receiver parts have texture-backed materials")
-	check(radios.size() == 4 and emitters.size() == 4, "all four households have complete receivers")
+	check(radios.size() == 6 and emitters.size() == 6, "all six households have complete receivers")
 	var loader := preload("res://scripts/building/orison_v2_radios.gd").new()
 	check(loader.validate(source, catalog, dry_adapter), "complete household source accepts supports")
 	check(not loader.validate(source, catalog, world.adapter), "duplicate radio installation is refused")
@@ -401,6 +417,10 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 	for profile: Dictionary in bad_catalog.profiles:
 		if profile.unit == "2A": profile.family = "unknown_receiver"
 	check(not loader.validate(source, bad_catalog, dry_adapter), "unsupported receiver geometry refused")
+	bad_catalog = catalog.duplicate(true)
+	for profile: Dictionary in bad_catalog.profiles:
+		if profile.unit == "3A": profile.speaker = "cone"
+	check(not loader.validate(source, bad_catalog, dry_adapter), "crystal placement refuses a speaker substitution")
 	var reality_before := JSON.stringify(RealityState.data)
 	for i in radios.size():
 		radios[i].interact(world.player)

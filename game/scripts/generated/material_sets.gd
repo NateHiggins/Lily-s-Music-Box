@@ -44,6 +44,8 @@ const SETS := {
 	'paper': ["T_library_furniture_aged_paper_albedo.png", "T_library_furniture_aged_paper_rough.png", "T_library_furniture_aged_paper_normal.png", 0.5, 0], # visual lock
 	'trim': ["T_library_architectural_painted_trim_albedo.png", "T_library_architectural_painted_trim_rough.png", "T_library_architectural_painted_trim_normal.png", 1.2, 0], # visual lock
 	'plant': ["T_library_organic_leaf_surface_albedo.png", "T_library_organic_leaf_surface_rough.png", "T_library_organic_leaf_surface_normal.png", 0.5, 0], # visual lock
+	'terracotta': ["T_ai_materials_terracotta_albedo.png", "T_ai_materials_terracotta_rough.png", "T_ai_materials_terracotta_normal.png", 0.4, 0],
+	'soil': ["T_ai_materials_soil_albedo.png", "T_ai_materials_soil_rough.png", "T_ai_materials_soil_normal.png", 0.35, 0],
 	'brass_bright': ["T_ai_materials_brass_bright_albedo.png", "T_ai_materials_brass_bright_rough.png", "T_ai_materials_brass_bright_normal.png", 0.35, 0.85],
 	'bronze': ["T_ai_materials_bronze_albedo.png", "T_ai_materials_bronze_rough.png", "T_ai_materials_bronze_normal.png", 0.6, 0.75],
 	'car_paint': ["T_ai_materials_car_paint_albedo.png", "T_ai_materials_car_paint_rough.png", "T_ai_materials_car_paint_normal.png", 1, 0],

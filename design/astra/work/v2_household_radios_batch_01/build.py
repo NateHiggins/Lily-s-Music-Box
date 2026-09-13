@@ -1,4 +1,4 @@
-"""Four functional household receivers with dedicated, source-checked supports.
+"""Six functional household receivers with dedicated, source-checked supports.
 
 No Godot/Blender launch. Receiver bounds below conservatively cover the shared
 families used here, their V2 speaker feet and their movable tuning knobs.
@@ -13,14 +13,16 @@ import zlib
 ROOT=Path(__file__).resolve().parents[4]
 OUT=Path(__file__).resolve().parent
 PLACEMENTS=[
+    ("3A_wireless_table","F03_A_MAIN",[-8.02,0,-3.04],math.pi/2),
+    ("4A_wireless_table","F04_A_MAIN",[12.55,0,-3.77],math.pi),
     ("2A_wireless_table","F02_A_MAIN",[-8.02,0,-3.04],math.pi/2),
     ("2B_wireless_table","F02_B_MAIN",[12.55,0,-3.77],math.pi),
     ("3B_wireless_table","F03_B_MAIN",[11.84,0,-.5],-math.pi/2),
     ("4B_wireless_table","F04_B_MAIN",[-14.95,0,-1.5],-math.pi/2),
 ]
-STANCES={"2A":[-9.1,-3.04],"2B":[12.55,-2.65],"3B":[12.4,-1.4],"4B":[-13.8,-1.5]}
-APPROACHES={"2A":[-8.5,0],"2B":[12.5,-2.5],"3B":[12.5,-1.35],"4B":[-13,0]}
-BOUNDS={"2A":[[-.53,0,-.175],[.275,.35,.145]],
+STANCES={"3A":[-9.1,-3.04],"4A":[12.55,-2.65],"2A":[-9.1,-3.04],"2B":[12.55,-2.65],"3B":[12.4,-1.4],"4B":[-13.8,-1.5]}
+APPROACHES={"3A":[-8.5,0],"4A":[12.5,-2.5],"2A":[-8.5,0],"2B":[12.5,-2.5],"3B":[12.5,-1.35],"4B":[-13,0]}
+BOUNDS={"3A":[[-.17,0,-.12],[.29,.25,.12]],"4A":[[-.53,0,-.175],[.275,.35,.145]],"2A":[[-.53,0,-.175],[.275,.35,.145]],
         "2B":[[-.53,0,-.17],[.24,.35,.12]],
         "3B":[[-.24,0,-.17],[.53,.38,.12]],
         "4B":[[-.53,0,-.17],[.24,.35,.12]]}
@@ -83,9 +85,9 @@ def build(apply=False):
         unit=table["id"][:2];a=indexed[table["id"]]
         local=[-.08 if unit=="3B" else .08,.745,0]
         record=dict(id="DomesticRadio_"+unit,unit=unit,support=table["id"],position=local,yaw=0)
-        expected_family="atwater_kent_44" if unit=="2A" else "three_dial_battery"
+        expected_family="crystal_set" if unit=="3A" else "atwater_kent_44" if unit in ["2A","4A"] else "three_dial_battery"
         assert profiles[unit]["family"]==expected_family
-        assert profiles[unit]["speaker"]==("horn" if unit=="3B" else "cone")
+        assert profiles[unit]["speaker"]==("headphones" if unit=="3A" else "horn" if unit=="3B" else "cone")
         local_rect=merge.footprint(BOUNDS[unit],dict(position=local,yaw=0))
         for x in [local_rect[0],local_rect[2]]:
             for z in [local_rect[1],local_rect[3]]:
@@ -106,7 +108,8 @@ def build(apply=False):
         receivers.append(record)
         checks.append(dict(unit=unit,family=expected_family,speaker=profiles[unit]["speaker"],support=table["id"],support_height_m=.745,world_bounds=b,eye_to_receiver_m=distance))
     data=dict(schema_version=1,receivers=receivers);target=ROOT/"game/data/orison_v2/domestic_radios.json"
-    if target.exists():assert json.loads(target.read_text(encoding="utf-8"))==data,"conflicting receiver source"
+    if target.exists():
+        data["receivers"]=merge.merge(load("game/data/orison_v2/domestic_radios.json")["receivers"],receivers)
     if apply:
         target.write_text(json.dumps(data,indent=2)+"\n",encoding="utf-8")
         (ROOT/"game/data/orison_v2/domestic_furniture.json").write_text(json.dumps(dict(furniture,furniture=rows),separators=(",",":"))+"\n",encoding="utf-8")
@@ -116,9 +119,9 @@ def build(apply=False):
             start=text.index("[",text.index('"anchors"'));_,length=json.JSONDecoder().raw_decode(text[start:]);end=start+length-1
             extra=",\n".join("    "+json.dumps(a,separators=(",",":")) for a in added)
             path.write_text(text[:end].rstrip()+",\n"+extra+"\n  "+text[end:],encoding="utf-8")
-    receipt=dict(status="SOURCE_PASS_RUNTIME_PENDING",godot="NOT_RUN",tables=4,receivers=checks,route_samples=route_samples,operator_approach_samples=approach_samples,door_sweeps=door_sweeps,table_triangles=sum(len(s["vertices"])//9 for r in tables for s in r["surfaces"]),limits="Receiver envelope estimates and sampled sightlines only. Physical targeting, audio isolation/release, materials, conductor events, lifecycle and persistence require runtime verification.")
+    receipt=dict(status="SOURCE_PASS_RUNTIME_PENDING",godot="NOT_RUN",tables=len(tables),receivers=checks,route_samples=route_samples,operator_approach_samples=approach_samples,door_sweeps=door_sweeps,table_triangles=sum(len(s["vertices"])//9 for r in tables for s in r["surfaces"]),limits="Receiver envelope estimates and sampled sightlines only. Physical targeting, audio isolation/release, materials, conductor events, lifecycle and persistence require runtime verification.")
     (OUT/"receipt.json").write_text(json.dumps(receipt,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps(dict(tables=4,receivers=4,furniture_total=len(rows),route_samples=route_samples,door_sweeps=door_sweeps,applied=apply)))
+    print(json.dumps(dict(tables=len(tables),receivers=len(receivers),furniture_total=len(rows),route_samples=route_samples,door_sweeps=door_sweeps,applied=apply)))
 
 
 if __name__=="__main__":

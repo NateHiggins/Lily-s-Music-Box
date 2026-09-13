@@ -1,10 +1,15 @@
 extends RefCounted
-## All four household receivers use the existing radio profiles and behavior.
+## All six household receivers use the existing radio profiles and behavior.
 ## Furniture supports own their transforms and destruction.
 const PATH := "res://data/orison_v2/domestic_radios.json"
 const PROFILES := "res://data/domestic_radios.json"
 const Radio := preload("res://scripts/building/orison_v2_radio_prop.gd")
-const UNITS := ["2A", "2B", "3B", "4B"]
+const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B"]
+const PLACED_PROFILES := {
+	"2A": ["atwater_kent_44", "cone"], "2B": ["three_dial_battery", "cone"],
+	"3A": ["crystal_set", "headphones"], "3B": ["three_dial_battery", "horn"],
+	"4A": ["atwater_kent_44", "cone"], "4B": ["three_dial_battery", "cone"]
+}
 var errors: Array[String] = []
 
 func mount(adapter: Variant) -> bool:
@@ -51,8 +56,7 @@ func validate(source: Variant, catalog: Variant, adapter: Variant) -> bool:
 			errors.append("duplicate or missing household radio profile")
 		if profiles.has(record.unit):
 			var profile: Dictionary = profiles[record.unit]
-			if profile.get("family") not in ["atwater_kent_44", "three_dial_battery"] \
-					or profile.get("speaker") not in ["cone", "horn"]:
+			if [profile.get("family"), profile.get("speaker")] != PLACED_PROFILES[record.unit]:
 				errors.append("household receiver family needs a supported V2 placement")
 		units[record.unit] = true
 		ids[record.id] = true

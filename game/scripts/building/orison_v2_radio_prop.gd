@@ -20,9 +20,27 @@ func _build_visual() -> void:
 		[BRASS, "brass", Color.WHITE],
 		[CLOTH, "linen", Color.WHITE],
 		[PAPER, "paper", Color.WHITE],
-		[Color(.085,.09,.09), "cast_iron", Color.WHITE]])
+		[Color(.085,.09,.09), "cast_iron", Color.WHITE],
+		[Color(.36,.22,.10), "wood_dark", Color.WHITE]])
 	if family == "atwater_kent_44":
 		# This family's first mesh is its pressed-metal chassis, while its
 		# knobs share the legacy black palette. Preserve that distinction.
 		var chassis := get_child(0) as MeshInstance3D
 		chassis.material_override = MatLib.get_mat("enamel_appliance", Color(.14,.15,.15))
+
+	if family == "crystal_set":
+		var base := get_child(0) as MeshInstance3D
+		base.material_override = MatLib.get_mat("oak_quartered")
+		# The passive set is heard at its headphones, without a room speaker.
+		_programme.max_distance = 1.6
+		_programme.unit_size = .35
+
+func interact_prompt() -> String:
+	if family == "crystal_set":
+		return "[E] Stop listening" if powered else "[E] Listen through Malcolm's headphones"
+	return super.interact_prompt()
+
+func public_state() -> Dictionary:
+	var result := super.public_state()
+	if family == "crystal_set": result.reach = 1.6
+	return result

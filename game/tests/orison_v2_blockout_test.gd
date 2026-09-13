@@ -29,7 +29,7 @@ func _ready() -> void:
 	_check(layout.platforms.size() == 25, "25 core platforms including the F03 service entry")
 	_check(layout.lift_landings.size() == 8, "eight passenger/service lift landings")
 	_check(layout.stairs.size() == 7, "public/service U-stairs include B1-to-F01")
-	_check(layout.anchors.size() == 370, "370 named gameplay/review anchors across the current category batches")
+	_check(layout.anchors.size() == 375, "375 named gameplay/review anchors across the current category batches")
 	_check(layout.capsule_stations.size() == 35, "35 declared F03/F04 capsule stations")
 	_check(_f04_rooms_do_not_overlap(layout), "F04 apartment rooms do not overlap")
 	_check(_f04_shared_partitions_owned_once(layout),

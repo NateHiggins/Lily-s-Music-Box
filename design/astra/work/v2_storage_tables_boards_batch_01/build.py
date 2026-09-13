@@ -117,6 +117,13 @@ def obstacles(layout,furniture):
         a=anchors[r["support"]]; x,y,z=r["position"]; c,s=math.cos(a["yaw"]),math.sin(a["yaw"])
         at=dict(position=[a["position"][0]+c*x+s*z,a["position"][1]+y,a["position"][2]-s*x+c*z],yaw=a["yaw"]+r["yaw"])
         result.append((r["id"],a["level"],volume(r["bounds"],at)))
+    # Solid service chases occupy every storey they cross, including their
+    # full height. Include them for every category using this shared census.
+    for riser in layout.get("risers",[]):
+        if not riser.get("solid",True):continue
+        r=riser["rect"]
+        for level in layout["levels"]:
+            result.append((riser["id"],level["id"],[r[0],riser["from_y"]-level["y"],r[1],r[2],riser["to_y"]-level["y"],r[3]]))
     return result
 
 

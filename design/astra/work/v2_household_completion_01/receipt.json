@@ -1,0 +1,28 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "0b3b240",
+  "furniture_total": 95,
+  "surface_props": 26,
+  "receivers": 6,
+  "new_furniture": [
+    "3A_wireless_table",
+    "4A_wireless_table",
+    "3A_story_specimen"
+  ],
+  "checks": {
+    "plant_world_bounds": [
+      -15.358810033169885,
+      0.0,
+      1.8911899668301158,
+      -14.641189966830115,
+      1.3401519035106022,
+      2.6088100331698842
+    ],
+    "clearance_stances": 41,
+    "route_samples": 6864,
+    "door_sweeps": 25
+  },
+  "plant_triangles": 776,
+  "limits": "Plant is fixed, with conservative full silhouette collision; no watering or growth. Source estimates do not prove actual traversal, targeting, materials/voxel shadows, headphone perception, lifecycle or performance."
+}

@@ -588,6 +588,20 @@
       "roughness_multiplier": 0.62,
       "visual_lock": false
     },
+    "soil": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.35,
+      "catalog_mapping": "ai_materials/soil",
+      "files": [
+        "T_ai_materials_soil_albedo.png",
+        "T_ai_materials_soil_rough.png",
+        "T_ai_materials_soil_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.35,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "soot": {
       "alpha": false,
       "canonical_meters_per_tile": 1.2,
@@ -627,6 +641,20 @@
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.67,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "terracotta": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "ai_materials/terracotta",
+      "files": [
+        "T_ai_materials_terracotta_albedo.png",
+        "T_ai_materials_terracotta_rough.png",
+        "T_ai_materials_terracotta_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.4,
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
