@@ -38,6 +38,7 @@ var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
 var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
+var mirror_renderer: PlanarMirrorRenderer
 var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
@@ -255,6 +256,14 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: apartment projectors refused: %s" % [projectors.errors])
 		return
+	var accessories := preload("res://scripts/building/orison_v2_household_accessories.gd").new()
+	if not accessories.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: household accessories refused: %s" % [accessories.errors])
+		return
+	mirror_renderer = PlanarMirrorRenderer.new()
+	add_child(mirror_renderer)
+	mirror_renderer.setup(player.camera)
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)
@@ -540,6 +549,7 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
 	if is_instance_valid(shop_simulation):
 		shop_simulation.shutdown()
 	if is_instance_valid(exterior_cell):
@@ -552,6 +562,7 @@ func shutdown_for_tests() -> void:
 		adapter.restore_all(true)
 
 func _exit_tree() -> void:
+	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
 	if _exterior_resolver != null:
 		_exterior_resolver.teardown()
 		_exterior_resolver = null

@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "accessories": [
+    {
+      "id": "F02_2A_TOASTER_01",
+      "unit": "2A",
+      "kind": "toaster",
+      "support": "2A_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z",
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F02_2A_MIRROR_01",
+      "unit": "2A",
+      "kind": "mirror",
+      "support": "F02_2A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.242
+      ],
+      "yaw": 0,
+      "hinge_side": "right",
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F02_2B_TOASTER_01",
+      "unit": "2B",
+      "kind": "toaster",
+      "support": "2B_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z",
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "unit": "2B",
+      "kind": "mirror",
+      "support": "F02_2B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.202
+      ],
+      "yaw": 0,
+      "hinge_side": "right",
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F03_3A_TOASTER_01",
+      "unit": "3A",
+      "kind": "toaster",
+      "support": "3A_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z",
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "unit": "3A",
+      "kind": "mirror",
+      "support": "F03_3A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.242
+      ],
+      "yaw": 0,
+      "hinge_side": "right",
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F03_3B_TOASTER_01",
+      "unit": "3B",
+      "kind": "toaster",
+      "support": "3B_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z",
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "unit": "3B",
+      "kind": "mirror",
+      "support": "F03_3B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.392
+      ],
+      "yaw": 0,
+      "hinge_side": "right",
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.78
+      ]
+    },
+    {
+      "id": "F04_4A_TOASTER_01",
+      "unit": "4A",
+      "kind": "toaster",
+      "support": "4A_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z",
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.16,
+          0,
+          -0.235
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "unit": "4A",
+      "kind": "mirror",
+      "support": "F04_4A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.202
+      ],
+      "yaw": 0,
+      "hinge_side": "right",
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F04_B_TOASTER_01",
+      "unit": "4B",
+      "kind": "toaster",
+      "support": "4B_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-x",
+      "bounds": [
+        [
+          -0.16,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "motion_bounds": [
+        [
+          -0.29,
+          0,
+          -0.15
+        ],
+        [
+          0.16,
+          0.2,
+          0.08
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "unit": "4B",
+      "kind": "mirror",
+      "support": "F04_4B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.222
+      ],
+      "yaw": 0,
+      "hinge_side": "left",
+      "bounds": [
+        [
+          -0.254,
+          1.176,
+          -0.1
+        ],
+        [
+          0.254,
+          1.834,
+          0.058
+        ]
+      ],
+      "stance": [
+        0,
+        0,
+        -0.85
+      ]
+    }
+  ]
+}

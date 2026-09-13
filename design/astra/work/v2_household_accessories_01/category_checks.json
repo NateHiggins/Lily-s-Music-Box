@@ -1,0 +1,80 @@
+[
+  {
+    "path": "design/astra/work/v2_apartment_batches_01/build.py",
+    "exit": 0,
+    "stdout": "{\"furniture\": 12, \"fittings\": 9, \"anchors\": 42, \"apartments_with_rooms\": [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"], \"apartments_without_rooms\": [\"1A\", \"1B\", \"1C\", \"1D\", \"2C\", \"2D\", \"3C\", \"3D\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"5D\", \"6A\", \"6B\", \"6C\", \"6D\"], \"applied\": false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_apartment_seating_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"furniture\": 19, \"anchors\": 27, \"route_samples\": 2906, \"applied\": false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_apartment_lighting_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"fixtures\": 15, \"switches\": 15, \"anchors\": 45, \"rooms_with_circuits\": 26, \"applied\": false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_apartment_doors_batch_01/check.py",
+    "exit": 0,
+    "stdout": "{\"status\": \"SOURCE_PASS_RUNTIME_PENDING\", \"godot\": \"NOT_RUN\", \"apartment_doors\": 16, \"new_leaves\": [{\"id\": \"F02_DOOR_02\", \"swing\": \"west\", \"hinge\": \"right\", \"sweep_rect\": [-6.527278695009389, -0.6073441533525069, -5.577999988076271, 0.4462787065043998]}, {\"id\": \"F02_A_HALL_DOOR\", \"swing\": \"hall\", \"hinge\": \"right\", \"sweep_rect\": [-9.996438168635166, 3.078, -9.060020688878504, 3.9274381686351667]}, {\"id\": \"F02_A_BATH_DOOR\", \"swing\": \"bath\", \"hinge\": \"right\", \"sweep_rect\": [-8.972000011923729, 3.99265589557613, -8.022721280651833, 5.046278707853155]}, {\"id\": \"F02_A_BED_DOOR\", \"swing\": \"bed\", \"hinge\": \"left\", \"sweep_rect\": [-11.077438179511976, 6.703561830643291, -10.227999989416016, 7.639979289295958]}, {\"id\": \"F02_B_ENTRY_DOOR\", \"swing\": \"vestibule\", \"hinge\": \"left\", \"sweep_rect\": [9.47799998807627, -3.6962787065044, 10.42727869500939, -2.642655846647493]}, {\"id\": \"F02_B_KITCHEN_DOOR\", \"swing\": \"kitchen\", \"hinge\": \"left\", \"sweep_rect\": [11.972561820488025, -6.596438169356709, 12.822000010583984, -5.660020710704042]}, {\"id\": \"F02_B_BED_DOOR\", \"swing\": \"bed\", \"hinge\": \"right\", \"sweep_rect\": [11.972561842241642, -9.389979332947032, 12.822000010583984, -8.453561832086375]}, {\"id\": \"F02_B_BATH_DOOR\", \"swing\": \"bath\", \"hinge\": \"left\", \"sweep_rect\": [13.660020688878504, -10.177438168635167, 14.596438168635165, -9.328]}], \"resident_route_samples\": 1647, \"player_route_samples\": 3743, \"limits\": \"Sampled leaf collider only; jamb/hardware clearance, actual motion, player/NPC targeting, acoustics and persistence require runtime checks.\"}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_apartment_walls_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"status\": \"SOURCE_PASS_RUNTIME_PENDING\", \"godot\": \"NOT_RUN\", \"rooms\": 26, \"missing_intervals_before\": 15, \"missing_intervals_after\": 0, \"route_samples\": 6742, \"limits\": \"Owned boundary coverage only. Authored apertures retained. Source routes checked only against added wall intervals; runtime physics, visual seams and light containment remain unverified.\"}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_surface_props_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"status\": \"SOURCE_PASS_RUNTIME_PENDING\", \"godot\": \"NOT_RUN\", \"props\": 26, \"triangles\": 13340}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_storage_tables_boards_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"additions\": 10, \"furniture_total\": 95, \"route_samples\": 6864, \"door_sweeps\": 25, \"applied\": false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_household_radios_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"tables\": 6, \"receivers\": 6, \"furniture_total\": 95, \"route_samples\": 6864, \"door_sweeps\": 25, \"applied\": false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_prep_cabinets_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"cabinets\": 4, \"furniture_total\": 95, \"route_samples\": 6864, \"operator_approach_samples\": 231, \"applied\": false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_specialist_devices_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"devices\": 2, \"furniture_total\": 95, \"radio_target_distance_m\": 0.9843419121423204, \"applied\": false}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_projectors_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"status\": \"SOURCE_PASS_RUNTIME_PENDING\", \"godot\": \"NOT_RUN\", \"stands\": 3, \"projectors\": [{\"unit\": \"2A\", \"wall\": \"F02_A_MAIN\", \"throw_m\": 2.1000000000000005, \"image_height_m\": 0.9660000000000003, \"source_rays\": 9, \"operator_distance_m\": 1.100727032465361}, {\"unit\": \"3B\", \"wall\": \"F03_B_MAIN\", \"throw_m\": 0.55, \"image_height_m\": 0.5, \"source_rays\": 9, \"operator_distance_m\": 1.4227086841655248}, {\"unit\": \"4B\", \"wall\": \"F04_B_MAIN\", \"throw_m\": 1.7000000000000002, \"image_height_m\": 0.7820000000000001, \"source_rays\": 9, \"operator_distance_m\": 1.0107423014794625}], \"route_samples\": 6864, \"approach_samples\": 183, \"door_sweeps\": 25, \"limits\": \"Sampled static placement and throw only; no Godot targeting, decoding, visuals, optical/occlusion, performance or lifecycle proof.\"}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_household_completion_01/build.py",
+    "exit": 0,
+    "stdout": "{\"status\": \"SOURCE_PASS_RUNTIME_PENDING\", \"godot\": \"NOT_RUN\", \"base\": \"0b3b240\", \"furniture_total\": 95, \"surface_props\": 26, \"receivers\": 6, \"new_furniture\": [\"3A_wireless_table\", \"4A_wireless_table\", \"3A_story_specimen\"], \"checks\": {\"plant_world_bounds\": [-15.358810033169885, 0.0, 1.8911899668301158, -14.641189966830115, 1.3401519035106022, 2.6088100331698842], \"clearance_stances\": 42, \"route_samples\": 6864, \"door_sweeps\": 25}, \"plant_triangles\": 776, \"limits\": \"Plant is fixed, with conservative full silhouette collision; no watering or growth. Source estimates do not prove actual traversal, targeting, materials/voxel shadows, headphone perception, lifecycle or performance.\"}\n",
+    "stderr": ""
+  },
+  {
+    "path": "design/astra/work/v2_heating_batch_01/build.py",
+    "exit": 0,
+    "stdout": "{\"status\": \"SOURCE_PASS_RUNTIME_PENDING\", \"godot\": \"NOT_RUN\", \"base\": \"7c9a536\", \"network_demands\": 23, \"installed\": [{\"id\": \"F02_A_RADIATOR_01\", \"unit\": \"2A\", \"riser\": \"H-A\", \"sections\": 8}, {\"id\": \"F02_B_RADIATOR_01\", \"unit\": \"2B\", \"riser\": \"H-B\", \"sections\": 10}, {\"id\": \"F03_A_RADIATOR_01\", \"unit\": \"3A\", \"riser\": \"H-A\", \"sections\": 9}, {\"id\": \"F03_B_RADIATOR_01\", \"unit\": \"3B\", \"riser\": \"H-B\", \"sections\": 7}, {\"id\": \"F04_A_RADIATOR_01\", \"unit\": \"4A\", \"riser\": \"H-A\", \"sections\": 7}, {\"id\": \"F04_B_RADIATOR_01\", \"unit\": \"4B\", \"riser\": \"H-B\", \"sections\": 8}], \"new_emitters\": 4, \"checks\": {\"route_samples\": 6864, \"door_sweeps\": 25, \"stance_checks\": 166, \"approach_samples\": 138, \"valve_sightline_samples\": 404}, \"limits\": \"Full roster preserves logical demand for seventeen unbuilt emitters. Six installed controls; no complete building claim. 2B ten-section accepted apparatus retained despite legacy nine-section marker. Source estimates only; physics, balance execution, listening, visuals, save and lifetime pending.\"}\n",
+    "stderr": ""
+  }
+]

@@ -25,6 +25,12 @@ func _ready() -> void:
 	var fittings: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://data/orison_v2/domestic_fittings.json"))
 	var heating_acoustics := {}
+	var accessory_acoustics := {}
+	var accessory_source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+			"res://data/orison_v2/household_accessories.json"))
+	for record: Dictionary in accessory_source.accessories:
+		if AcousticGraphData.nodes.has(record.id):
+			accessory_acoustics[record.id] = AcousticGraphData.nodes[record.id].duplicate(true)
 	for unit: String in ALL_DOMESTIC_UNITS:
 		var identity := "F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"
 		heating_acoustics[identity] = AcousticGraphData.nodes[identity].duplicate(true)
@@ -39,6 +45,7 @@ func _ready() -> void:
 			break
 		await get_tree().physics_frame
 		var refs: Array[WeakRef] = []
+		await _check_household_accessories(world, refs)
 		_check_heating(world, refs)
 		_check_room_circuits(world, refs)
 		_check_apartment_doors(world, refs)
@@ -117,12 +124,24 @@ func _ready() -> void:
 			servicing.perform_physical_action("service_vent")
 			panel = servicing.get("_service_panel") as MaintenanceActivityPanel
 			check(panel != null and world.player.call_locked, "household vent activity owns player input")
+		for record: Dictionary in accessory_source.accessories:
+			var accessory := world.adapter.resolve(str(record.id)) as FunctionalProp
+			if accessory is ToasterProp:
+				accessory.start_cycle()
+				accessory.set_crumb_tray_open(false, 0)
+				accessory.set_crumb_tray_open(true)
+			elif accessory is MedicineCabinetProp:
+				accessory.set_door_open(true)
 		world.shutdown_for_tests()
+		check(world.mirror_renderer.active_mirror() == null and not world.mirror_renderer.is_processing(),
+				"reflection stops before support-owned cabinets retire")
 		if is_instance_valid(panel):
 			check(panel.is_queued_for_deletion() and not world.player.call_locked, "radiator teardown closes service panel and releases input")
 		world.free()
 		for identity: String in heating_acoustics:
 			check(AcousticGraphData.nodes[identity] == heating_acoustics[identity], "radiator acoustic position restored after teardown")
+		for identity: String in accessory_acoustics:
+			check(AcousticGraphData.nodes[identity] == accessory_acoustics[identity], "accessory acoustic position restored after teardown")
 		for ref in refs: check(ref.get_ref() == null, "batch subject retires with its world")
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
@@ -131,6 +150,81 @@ func _ready() -> void:
 				JSON.stringify({"checks":checks,"failures":failures},"\t"))
 	print("APARTMENT BATCH: %d checks, %d failures" % [checks,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _check_household_accessories(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
+	var loader := preload("res://scripts/building/orison_v2_household_accessories.gd").new()
+	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(loader.PATH))
+	var probe := SurfaceSourceAdapter.new()
+	for record: Dictionary in source.accessories:
+		probe.supports[record.support] = StaticBody3D.new() if record.kind == "toaster" else TapProp.new()
+	check(loader.validate(source, probe), "complete accessory source validates before mounting")
+	var broken := source.duplicate(true)
+	broken.accessories.pop_back()
+	check(not loader.validate(broken, probe), "missing cabinet rejected before mounting")
+	broken = source.duplicate(true)
+	broken.accessories[0].position[1] = .95
+	check(not loader.validate(broken, probe), "floating toaster rejected before mounting")
+	broken = source.duplicate(true)
+	broken.accessories[1].position[2] = NAN
+	check(not loader.validate(broken, probe), "nonfinite cabinet placement rejected")
+	broken = source.duplicate(true)
+	broken.accessories[1].hinge_side = "left"
+	check(not loader.validate(broken, probe), "wrong cabinet hinge rejected")
+	broken = source.duplicate(true)
+	broken.accessories[2] = broken.accessories[0].duplicate(true)
+	check(not loader.validate(broken, probe), "duplicate accessory rejected")
+	for support: Node in probe.supports.values(): support.free()
+	var renderer := world.mirror_renderer
+	refs.append(weakref(renderer))
+	await get_tree().process_frame
+	var views := renderer.find_children("*", "SubViewport", true, false)
+	check(views.size() == 1, "six mirrors share exactly one reflection viewport")
+	if views.size() == 1: refs.append(weakref(views[0]))
+	var saved_camera := world.player.camera.global_transform
+	var saved_infection: float = Conductor.infection
+	Conductor.infection = 0
+	var toasters: Array[ToasterProp] = []
+	for record: Dictionary in source.accessories:
+		var prop := world.adapter.resolve(str(record.id)) as FunctionalProp
+		check(prop != null and prop.get("unit") == record.unit, "native household accessory: " + str(record.id))
+		if prop == null: continue
+		refs.append(weakref(prop))
+		var support := world.adapter.resolve(str(record.support)) as Node3D
+		check(prop.get_parent() == support, "accessory belongs to its actual support")
+		var stance := support.to_global(Vector3(record.stance[0], record.stance[1], record.stance[2]))
+		var target := prop.to_global(Vector3(0, .11, 0) if record.kind == "toaster" else Vector3(0, 1.505, -.08))
+		var ray := PhysicsRayQueryParameters3D.create(stance + Vector3.UP * 1.41, target, 1, [world.player.get_rid()])
+		ray.collide_with_areas = true
+		var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
+		check(not hit.is_empty() and prop.is_ancestor_of(hit.collider), "real player ray reaches accessory: " + str(record.id))
+		if prop is ToasterProp:
+			var toaster := prop as ToasterProp
+			check(toaster.tray_axis == (Vector3.LEFT if record.unit == "4B" else Vector3.FORWARD), "authored tray direction retained")
+			toaster.set_crumb_tray_open(true, 0)
+			check(toaster.is_crumb_tray_open() and (toaster.get("_crumb_tray") as Node3D).position.is_equal_approx(
+					Vector3(0,.027,0)+toaster.tray_axis*.16), "full crumb tray travel")
+			toaster.set_crumb_tray_open(false, 0)
+			toaster.start_cycle()
+			toaster.interact(world.player)
+			toasters.append(toaster)
+		else:
+			var cabinet := prop as MedicineCabinetProp
+			check(cabinet.inventory_names().size() == MedicineCabinetProp.KEPT[record.unit].size(), "resident-specific cabinet contents retained")
+			check(cabinet.get_node_or_null("CabinetDoor/CabinetLeafBody") is AnimatableBody3D, "moving cabinet leaf is solid")
+			cabinet.set_door_open(true, 0)
+			check(cabinet.is_door_open(), "cabinet opens through native mechanism")
+			cabinet.set_door_open(false, 0)
+			world.player.camera.global_position = stance + Vector3.UP * 1.41
+			world.player.camera.look_at(cabinet.mirror_center())
+			renderer._process(0)
+			check(renderer.active_mirror() == cabinet, "shared reflection selects viewed household cabinet")
+	world.player.camera.global_transform = saved_camera
+	await get_tree().create_timer(6.0, false).timeout
+	for toaster in toasters:
+		check(toaster.cycles_completed == 1 and toaster.state == FunctionalProp.PState.IDLE, "normal toaster cycle returns raised and cold")
+		toaster.start_cycle()
+		toaster.set_crumb_tray_open(true)
+	Conductor.infection = saved_infection
 
 func _check_room_circuits(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	var lighting: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
