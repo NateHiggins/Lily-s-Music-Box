@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/orison_v2_m11c2_production_capture.gd" id="1_capture"]
+
+[node name="OrisonV2M11C2ProductionCapture" type="Node"]
+script = ExtResource("1_capture")

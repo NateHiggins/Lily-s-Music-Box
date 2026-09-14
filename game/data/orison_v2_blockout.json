@@ -123,6 +123,8 @@
     ,{"id":"F02_SERVICE_CROSSING_SOUTH","level":"F02","center":[8.9,-3.85],"width":0.91,"height":2.13,"axis":"x","connects":["F02_SERVICE_HALL_SOUTH","F02_SERVICE_CROSSING"]}
     ,{"id":"F02_B_MAIN_OPENING","level":"F02","center":[11.5,-2.5],"width":1.2,"height":2.4,"axis":"z","connects":["F02_B_VESTIBULE","F02_B_MAIN"]}
     ,{"id":"F02_B_MAIN_HALL_OPENING","level":"F02","center":[14.2,-4.2],"width":1.2,"height":2.4,"axis":"x","connects":["F02_B_MAIN","F02_B_PRIVATE_HALL"]}
+    ,{"id":"F02_SERVICE_HALL_CORE_OPENING","level":"F02","center":[9.5,3.2],"width":1.2,"height":2.4,"axis":"z","shared_wall_owner":"F02_SERVICE_CORE","connects":["F02_SERVICE_HALL","F02_SERVICE_CORE"]}
+    ,{"id":"F04_SERVICE_HALL_CORE_OPENING","level":"F04","center":[9.5,3.2],"width":1.2,"height":2.4,"axis":"z","shared_wall_owner":"F04_SERVICE_CORE","connects":["F04_SERVICE_HALL","F04_SERVICE_CORE"]}
   ],
   "windows": [
     {"id":"F01_LOBBY_WINDOW_W","level":"F01","center":[-3.7,-9.25],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F01_LOBBY"},

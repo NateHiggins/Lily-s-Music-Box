@@ -1,0 +1,217 @@
+{
+  "schema_version": 2,
+  "milestone": "ORISON-V2-M11C0",
+  "authority": "rehearsal_only",
+  "decision_state": "PRODUCTION_PARTITION_UNPROVEN",
+  "source": {
+    "gltf": "game/assets/building/floor_01.gltf",
+    "bin": "game/assets/building/floor_01.bin",
+    "source_layout": "art/data/building_layout.json",
+    "runtime_layout": "game/data/building_layout.json",
+    "gltf_sha256": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+    "bin_sha256": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+    "layout_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "node_count": 531,
+    "mesh_count": 531,
+    "primitive_count": 531,
+    "accessor_count": 1740,
+    "material_count": 104,
+    "triangle_count": 183726,
+    "buffer_bytes": 12020428
+  },
+  "target_partition": {
+    "description": "The smallest source-owned production design derived from layout ownership, runtime residency, semantic compatibility and shared-boundary requirements. It is not executable until every emitted range carries source provenance.",
+    "persistent_host": {
+      "id": "F01_COMPOSITION_HOST",
+      "geometry_owner": false,
+      "purpose": "Stable production composition and service host; cell residency must not move gameplay authority into geometry scenes."
+    },
+    "cells": [
+      {"id": "CELL_ORISON_F01_INTERIOR", "kind": "building_interior", "residency_sets": ["orison_f01"]},
+      {"id": "CELL_ORISON_FACADE_SHELL", "kind": "shared_facade", "residency_sets": ["orison_f01", "exterior_street"]},
+      {"id": "CELL_SITE_STREET_COMMON", "kind": "exterior_site", "residency_sets": ["exterior_street"]},
+      {"id": "CELL_PASSAGE", "kind": "shared_arcade", "residency_sets": ["passage"]},
+      {"id": "CELL_SHOP_BAR", "kind": "shop", "residency_sets": ["bar"]},
+      {"id": "CELL_SHOP_BODEGA", "kind": "shop", "residency_sets": ["bodega"]},
+      {"id": "CELL_SHOP_MODEL_LAUNDRY", "kind": "shop", "residency_sets": ["shop_model_laundry"]},
+      {"id": "CELL_SHOP_SHOE_REBUILDING", "kind": "shop", "residency_sets": ["shop_shoe_rebuilding"]},
+      {"id": "CELL_SHOP_KEYS_CUT", "kind": "shop", "residency_sets": ["shop_keys_cut"]},
+      {"id": "CELL_SHOP_HARDWARE_PAINT", "kind": "shop", "residency_sets": ["shop_hardware_paint"]},
+      {"id": "CELL_SHOP_FUNERAL_PARLOUR", "kind": "shop", "residency_sets": ["shop_funeral_parlour"]},
+      {"id": "CELL_SHOP_PHOTO_SUPPLIES", "kind": "shop", "residency_sets": ["shop_photo_supplies"]},
+      {"id": "CELL_SHOP_RADIO_SERVICE", "kind": "shop", "residency_sets": ["shop_radio_service"]},
+      {"id": "CELL_SHOP_PAWNBROKER", "kind": "shop", "residency_sets": ["shop_pawnbroker"]},
+      {"id": "CELL_SHOP_NEWS_CIGARS", "kind": "shop", "residency_sets": ["shop_news_cigars"]},
+      {"id": "CELL_SHOP_OTIS_SON", "kind": "shop", "residency_sets": ["shop_otis___son"]},
+      {"id": "CELL_SHOP_LUNCHEONETTE", "kind": "shop", "residency_sets": ["shop_luncheonette"]}
+    ],
+    "ownership_requirements": {
+      "required_source_field": "owner_cell",
+      "anonymous_record_policy": "Assign durable source IDs before production mutation; canonical rehearsal hashes may not become save or gameplay identities.",
+      "emission_policy": "Every emitted vertex/index range inherits exactly one source record and owner_cell; material batching is keyed by owner_cell before material.",
+      "shared_use_policy": "One geometry owner, explicit residency dependencies; never duplicate a boundary into both cells.",
+      "centroid_or_bounds_inference_forbidden": true
+    }
+  },
+  "safe_current_partition": {
+    "description": "Exact whole-primitive disposable cut possible from the protected export without inferring or splitting source ownership. CELL_LEGACY_MIXED intentionally keeps every provenance-welded or otherwise non-separable primitive together and therefore does not satisfy independent Orison/site residency.",
+    "cells": [
+      {"id": "CELL_LEGACY_MIXED", "slug": "legacy_mixed", "expected_nodes": 134, "production_eligible": false},
+      {"id": "CELL_SITE_STREET_DEDICATED", "slug": "site_street_dedicated", "expected_nodes": 8, "production_eligible": false},
+      {"id": "CELL_PASSAGE_PORTAL_PROXY", "slug": "passage_portal_proxy", "expected_nodes": 12, "production_eligible": false},
+      {"id": "CELL_PASSAGE_SHELL", "slug": "passage_shell", "expected_nodes": 20, "production_eligible": false},
+      {"id": "CELL_SHOP_BAR", "slug": "shop_bar", "expected_nodes": 31, "production_eligible": false},
+      {"id": "CELL_SHOP_BODEGA", "slug": "shop_bodega", "expected_nodes": 16, "production_eligible": false},
+      {"id": "CELL_SHOP_MODEL_LAUNDRY", "slug": "shop_model_laundry", "expected_nodes": 32, "production_eligible": false},
+      {"id": "CELL_SHOP_SHOE_REBUILDING", "slug": "shop_shoe_rebuilding", "expected_nodes": 20, "production_eligible": false},
+      {"id": "CELL_SHOP_KEYS_CUT", "slug": "shop_keys_cut", "expected_nodes": 20, "production_eligible": false},
+      {"id": "CELL_SHOP_HARDWARE_PAINT", "slug": "shop_hardware_paint", "expected_nodes": 21, "production_eligible": false},
+      {"id": "CELL_SHOP_FUNERAL_PARLOUR", "slug": "shop_funeral_parlour", "expected_nodes": 23, "production_eligible": false},
+      {"id": "CELL_SHOP_PHOTO_SUPPLIES", "slug": "shop_photo_supplies", "expected_nodes": 34, "production_eligible": false},
+      {"id": "CELL_SHOP_RADIO_SERVICE", "slug": "shop_radio_service", "expected_nodes": 35, "production_eligible": false},
+      {"id": "CELL_SHOP_PAWNBROKER", "slug": "shop_pawnbroker", "expected_nodes": 34, "production_eligible": false},
+      {"id": "CELL_SHOP_NEWS_CIGARS", "slug": "shop_news_cigars", "expected_nodes": 27, "production_eligible": false},
+      {"id": "CELL_SHOP_OTIS_SON", "slug": "shop_otis___son", "expected_nodes": 30, "production_eligible": false},
+      {"id": "CELL_SHOP_LUNCHEONETTE", "slug": "shop_luncheonette", "expected_nodes": 34, "production_eligible": false}
+    ],
+    "ordered_node_rules": [
+      {"id": "passage_proxy", "match": {"prefix": "F01_retail_passage_proxy_"}, "cell": "CELL_PASSAGE_PORTAL_PROXY"},
+      {"id": "passage_shell", "match": {"prefix": "F01_retail_passage_shell_"}, "cell": "CELL_PASSAGE_SHELL"},
+      {"id": "bodega", "match": {"prefix": "F01_retail_bod_"}, "cell": "CELL_SHOP_BODEGA"},
+      {"id": "bar", "match": {"prefix": "F01_retail_bar_"}, "cell": "CELL_SHOP_BAR"},
+      {"id": "model_laundry", "match": {"prefix": "F01_retail_shop_model_laundry_"}, "cell": "CELL_SHOP_MODEL_LAUNDRY"},
+      {"id": "shoe_rebuilding", "match": {"prefix": "F01_retail_shop_shoe_rebuilding_"}, "cell": "CELL_SHOP_SHOE_REBUILDING"},
+      {"id": "keys_cut", "match": {"prefix": "F01_retail_shop_keys_cut_"}, "cell": "CELL_SHOP_KEYS_CUT"},
+      {"id": "hardware_paint", "match": {"prefix": "F01_retail_shop_hardware_paint_"}, "cell": "CELL_SHOP_HARDWARE_PAINT"},
+      {"id": "funeral_parlour", "match": {"prefix": "F01_retail_shop_funeral_parlour_"}, "cell": "CELL_SHOP_FUNERAL_PARLOUR"},
+      {"id": "photo_supplies", "match": {"prefix": "F01_retail_shop_photo_supplies_"}, "cell": "CELL_SHOP_PHOTO_SUPPLIES"},
+      {"id": "radio_service", "match": {"prefix": "F01_retail_shop_radio_service_"}, "cell": "CELL_SHOP_RADIO_SERVICE"},
+      {"id": "pawnbroker", "match": {"prefix": "F01_retail_shop_pawnbroker_"}, "cell": "CELL_SHOP_PAWNBROKER"},
+      {"id": "news_cigars", "match": {"prefix": "F01_retail_shop_news_cigars_"}, "cell": "CELL_SHOP_NEWS_CIGARS"},
+      {"id": "otis_son", "match": {"prefix": "F01_retail_shop_otis___son_"}, "cell": "CELL_SHOP_OTIS_SON"},
+      {"id": "luncheonette", "match": {"prefix": "F01_retail_shop_luncheonette_"}, "cell": "CELL_SHOP_LUNCHEONETTE"},
+      {"id": "site", "match": {"prefix": "F01_retail_site_"}, "cell": "CELL_SITE_STREET_DEDICATED"},
+      {"id": "transit", "match": {"prefix": "F01_transit_shelter_"}, "cell": "CELL_SITE_STREET_DEDICATED"},
+      {"id": "welded_or_unseparated_remainder", "match": {"fallback": true}, "cell": "CELL_LEGACY_MIXED"}
+    ],
+    "invariants": {
+      "each_original_node_mesh_primitive_exactly_once": true,
+      "primitive_spatial_split_forbidden": true,
+      "legacy_mixed_must_remain_one_cell": true,
+      "expected_total_nodes": 531
+    }
+  },
+  "source_record_expectations": {
+    "furniture": 4415,
+    "markers": 188,
+    "walls": 42,
+    "rooms": 16,
+    "ceilings": 26,
+    "vents": 3,
+    "sockets": 30,
+    "site_lights": 565,
+    "slabs": 1,
+    "anonymous_identity_debt": ["walls", "site_lights", "slabs"],
+    "welded_records": {
+      "total": 1757,
+      "assembly_records": 625,
+      "simple_box_records": 1132,
+      "relationship_to_legacy_primitives": "Broad source furniture batching is demonstrated, but no one-to-one mapping to every lineage-unresolved legacy primitive is claimed."
+    },
+    "lineage_unresolved_legacy_primitives": 134
+  },
+  "shared_boundaries": [
+    {
+      "id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+      "owner": "CELL_ORISON_FACADE_SHELL",
+      "counterpart": "CELL_SITE_STREET_COMMON",
+      "source_plan_y": -10.0,
+      "known_contact": "pavement reaches -9.98 and deliberately overlaps the wall by 0.02 m"
+    },
+    {
+      "id": "SEAM_STREET_PASSAGE_PORTAL",
+      "owner": "CELL_SITE_STREET_COMMON",
+      "dependent_cell": "CELL_PASSAGE",
+      "gltf_z": 28.316,
+      "known_contact": "Passage floor overlaps street ground by 0.004 m; legacy proxy is canonically street-resident even though its source batch begins passage_proxy."
+    },
+    {
+      "id": "SEAM_PASSAGE_SHOP_AISLES",
+      "owner": "CELL_PASSAGE",
+      "counterpart": "CELL_SHOP_*",
+      "source_plan_x": [11.0, 17.0],
+      "known_contact": "Passage owns common aisle, openings and party-wall structure; each shop owns only its inward threshold/storefront volume."
+    },
+    {
+      "id": "SEAM_BODEGA_STREET",
+      "owner": "CELL_SITE_STREET_COMMON",
+      "counterpart": "CELL_SHOP_BODEGA",
+      "source_plan_y": -12.0,
+      "known_contact": "Bodega floor and pavement vertical faces touch at elevation zero and require bidirectional collision probes."
+    },
+    {
+      "id": "SEAM_SHELL_INTERIOR",
+      "owner": "CELL_ORISON_FACADE_SHELL",
+      "counterpart": "CELL_ORISON_F01_INTERIOR",
+      "known_contact": "glazing, sash, trim, wainscot and AO emissions currently batch internal and perimeter walls together"
+    }
+  ],
+  "capture_views": [
+    {
+      "id": "orison_shell_street",
+      "seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+      "eye": [0.0, 2.05, 18.0],
+      "target": [0.0, 1.45, 9.7],
+      "fov_degrees": 64.0
+    },
+    {
+      "id": "street_passage_portal",
+      "seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+      "eye": [9.0, 2.05, 21.0],
+      "target": [14.0, 1.55, 31.0],
+      "fov_degrees": 62.0
+    },
+    {
+      "id": "passage_west_shop_aisle",
+      "seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+      "eye": [14.2, 2.05, 45.0],
+      "target": [9.6, 1.45, 45.0],
+      "fov_degrees": 62.0
+    },
+    {
+      "id": "bodega_street_threshold",
+      "seam_id": "SEAM_BODEGA_STREET",
+      "eye": [12.0, 2.05, 18.0],
+      "target": [17.4, 1.35, 10.5],
+      "fov_degrees": 62.0
+    }
+  ],
+  "collision_probes": [
+    {"id": "orison_north_floor", "seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET", "from": [0.0, 2.0, 9.96], "to": [0.0, -1.0, 9.96], "expect": "hit"},
+    {"id": "street_south_floor", "seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET", "from": [0.0, 2.0, 10.02], "to": [0.0, -1.0, 10.02], "expect": "hit"},
+    {"id": "street_portal_floor", "seam_id": "SEAM_STREET_PASSAGE_PORTAL", "from": [14.0, 2.0, 28.314], "to": [14.0, -1.0, 28.314], "expect": "hit"},
+    {"id": "passage_throat_floor", "seam_id": "SEAM_STREET_PASSAGE_PORTAL", "from": [14.0, 2.0, 28.318], "to": [14.0, -1.0, 28.318], "expect": "hit"},
+    {"id": "passage_aisle_west", "seam_id": "SEAM_PASSAGE_SHOP_AISLES", "from": [11.02, 2.0, 45.0], "to": [11.02, -1.0, 45.0], "expect": "hit"},
+    {"id": "west_shop_floor", "seam_id": "SEAM_PASSAGE_SHOP_AISLES", "from": [10.98, 2.0, 45.0], "to": [10.98, -1.0, 45.0], "expect": "hit"},
+    {"id": "bodega_floor", "seam_id": "SEAM_BODEGA_STREET", "from": [17.4, 2.0, 13.08], "to": [17.4, -1.0, 13.08], "expect": "hit"},
+    {"id": "bodega_pavement", "seam_id": "SEAM_BODEGA_STREET", "from": [17.4, 2.0, 13.12], "to": [17.4, -1.0, 13.12], "expect": "hit"}
+  ],
+  "compatibility": {
+    "preserve_exact": ["F01_DOOR_06", "F01_BODEGA_DOOR", "F01_BAR_DOOR", "PASSAGE_PORTAL_LT_W", "PASSAGE_PORTAL_LT_E", "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES"],
+    "preserve_prefixes": ["SITE_SHOP_DOOR_", "SITE_SHOP_HOURS_", "SITE_SHOP_SIGN_", "SITE_SHOP_LT_", "SITE_SHOP_IN"],
+    "passage_proxy_owner": "CELL_SITE_STREET_COMMON",
+    "mesh_alias_policy": "A production provenance split must emit a durable legacy-node-to-cell-node alias map; semantic gameplay identities remain unchanged.",
+    "saved_world_coordinates_forbidden": true
+  },
+  "known_runtime_consumers_requiring_cut_work": [
+    "BuildingRoot currently loads floor_01 as one PackedScene and uses one persistent floor_nodes.F01 host",
+    "BuildingRoot facade visibility lookup scans direct children and is not cell-wrapper safe",
+    "BuildingRoot indexes Passage, late-F01 and street-core content by monolithic subtree/spatial assumptions and applies whole-F01 visibility",
+    "OrisonDetailPass mounts lobby and service actors under floor_nodes.F01; these require the persistent geometry-free F01 composition host",
+    "VantryPointNetwork parents F01 point batches and the Teresa shutter to the F01 node; these require the persistent host or semantic owner registry",
+    "ResidentNav validates collision against the complete loaded world rather than an active residency set",
+    "ExteriorDetailPass adds persistent F01 site visuals and collision outside the imported cell graph",
+    "OrisonV2ExteriorCell is surface/semantic-data-driven and independent of floor_01 residency; the real cut must not absorb or duplicate it"
+  ],
+  "authorization_rule": "No real export cut may be authorized unless a disposable provenance-aware rebuild resolves CELL_LEGACY_MIXED into the 17 target cells, proves canonical geometry equivalence, and passes every named seam and runtime-consumer test."
+}

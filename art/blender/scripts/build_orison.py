@@ -4685,5 +4685,6 @@ def build():
     print("saved", BLEND_OUT)
 
 
-if __name__ == "__main__" or True:
+if (__name__ == "__main__"
+        or os.environ.get("ORISON_DEFINITIONS_ONLY") != "1"):
     build()

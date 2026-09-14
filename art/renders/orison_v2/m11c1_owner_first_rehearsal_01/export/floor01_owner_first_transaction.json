@@ -1,0 +1,182 @@
+{
+  "schema": "orison.floor01.owner-first-transaction.v1",
+  "status": "PASS",
+  "run_id": "M11C1-12b0189ee7fe5afb6190447a",
+  "disposable_root": "C:\\PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt",
+  "generated_last": true,
+  "all_artifacts_bound": true,
+  "json_artifact_closure_verified": true,
+  "candidate": {
+    "descriptor_path": "C:\\PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt\\candidate\\floor_01_owner_first_candidate.gltf",
+    "descriptor_sha256": "0dc4a4bbc615c26ec18fa1cf706391905e4ed221230e105495dcd3f409c73f73",
+    "binary_path": "C:\\PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt\\candidate\\floor_01_owner_first_candidate.bin",
+    "binary_sha256": "ba9ddab8bdcf92e2de7fe68a7a8b2994dc4dcd82a1332305ad9fff629c3167a5",
+    "generated_lineage_path": "C:\\PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt\\candidate\\generated_owner_lineage.json",
+    "generated_lineage_sha256": "9a9806043a38fca80d4403cad27fda1255a930f725e2612fe9d5cedbe3f7ba46"
+  },
+  "artifacts": {
+    "receipts/floor01_owner_first_lineage.json": {
+      "relative_path": "receipts/floor01_owner_first_lineage.json",
+      "sha256": "6c9e571665167fc1c000eb4d72045df72b93e57055f33c3942476b145798e0f3",
+      "schema": "orison.floor01.owner-first-lineage.v1",
+      "status": "PASS"
+    },
+    "receipts/floor01_owner_first_equivalence.json": {
+      "relative_path": "receipts/floor01_owner_first_equivalence.json",
+      "sha256": "e7d0fddadff7dd7ad6294d28d25ba50afeef3b0e3f51a5733620874d6969251e",
+      "schema": "orison.floor01.owner-first-equivalence.v1",
+      "status": "PASS"
+    },
+    "receipts/floor01_owner_first_recomposition.json": {
+      "relative_path": "receipts/floor01_owner_first_recomposition.json",
+      "sha256": "59ba87f3f667efc888b253f78a98eb325a5b1d076525d72936ae732b3f113df4",
+      "schema": "orison.m11c0.floor01-recomposition.v1",
+      "status": "PASS"
+    },
+    "receipts/floor01_owner_first_export.json": {
+      "relative_path": "receipts/floor01_owner_first_export.json",
+      "sha256": "a75bdf4db0f7364c3eef8f7e80ab5bb4aa8b2732aa1c673c1fd5b5a7b10e889e",
+      "schema": "orison.floor01.owner-first-export.v1",
+      "status": "PASS"
+    },
+    "owner_first_partition_manifest.json": {
+      "relative_path": "owner_first_partition_manifest.json",
+      "sha256": "6db7f9e097921725e59adece79c31e0ffbf4676e67f10d1378c81e0e183dee8c",
+      "schema": "orison.floor01.owner-first-partition.v1",
+      "status": "PASS"
+    },
+    "candidate/blender_generation_process.json": {
+      "relative_path": "candidate/blender_generation_process.json",
+      "sha256": "eb08a394e2de21145ad1fb8d848ac893fa77f68c1c2a757e033a48658bc5633f",
+      "schema": "orison.floor01.owner-first-blender-process.v1",
+      "status": "PASS"
+    },
+    "receipts/protected_assets.json": {
+      "relative_path": "receipts/protected_assets.json",
+      "sha256": "89605e136860306e6815ffb7baef1db3c34fbd688eb80000f60fd972684ba2a4",
+      "schema": "orison.floor01.owner-first-protection.v1",
+      "status": "PASS"
+    }
+  },
+  "cells": [
+    {
+      "id": "CELL_ORISON_F01_INTERIOR",
+      "gltf_path": "cells/orison_f01_interior.gltf",
+      "gltf_sha256": "4a0e8b32312c30cd3bad72a4b51fabc5ac105952446449e4b82f3a53442fc774",
+      "bin_path": "cells/orison_f01_interior.bin",
+      "bin_sha256": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012"
+    },
+    {
+      "id": "CELL_ORISON_FACADE_SHELL",
+      "gltf_path": "cells/orison_facade_shell.gltf",
+      "gltf_sha256": "0c717cce96d1badb772f98e6b19908600b41da4d2dee30f907509bf87fcc83ab",
+      "bin_path": "cells/orison_facade_shell.bin",
+      "bin_sha256": "e5666a66f32f7e86fbe30c404b20bf1be3f7d1fbd369e314f7c7d89089be777b"
+    },
+    {
+      "id": "CELL_SITE_STREET_COMMON",
+      "gltf_path": "cells/site_street_common.gltf",
+      "gltf_sha256": "3858b8856383bbd4e7bc77964811f9ee4f55659c81e8c61b090401925efbc0af",
+      "bin_path": "cells/site_street_common.bin",
+      "bin_sha256": "4b8d4a73f088df1b067f850689c2bc436517ef3e13e2e98e18a90a90b51cafa9"
+    },
+    {
+      "id": "CELL_PASSAGE",
+      "gltf_path": "cells/passage.gltf",
+      "gltf_sha256": "8dd556dee7ffc2764935264569384250e956b1ab2ae6e5c228f8fefd2ec84b37",
+      "bin_path": "cells/passage.bin",
+      "bin_sha256": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36"
+    },
+    {
+      "id": "CELL_SHOP_BAR",
+      "gltf_path": "cells/shop_bar.gltf",
+      "gltf_sha256": "e390e716b6fdfa55e061dcba8b9aad58624b5af980fbbf3ed1b32e072b0441e3",
+      "bin_path": "cells/shop_bar.bin",
+      "bin_sha256": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f"
+    },
+    {
+      "id": "CELL_SHOP_BODEGA",
+      "gltf_path": "cells/shop_bodega.gltf",
+      "gltf_sha256": "a9468561f499243881a5a4bf095017f3abe613a33625e62dbd4d4d262be2123a",
+      "bin_path": "cells/shop_bodega.bin",
+      "bin_sha256": "639c74a18a499d042af8a44f6a11b70fc739e5ba81382a1769788990b4fa67aa"
+    },
+    {
+      "id": "CELL_SHOP_MODEL_LAUNDRY",
+      "gltf_path": "cells/shop_model_laundry.gltf",
+      "gltf_sha256": "dda720ce29287f67f8bd26fa24e1b40e97d45705811b3d1a45bd72ad0cfdd0b8",
+      "bin_path": "cells/shop_model_laundry.bin",
+      "bin_sha256": "3147958516513b9d8ac0bed0150eff8037b0e6e0371a1c737ab61175bfc960f4"
+    },
+    {
+      "id": "CELL_SHOP_SHOE_REBUILDING",
+      "gltf_path": "cells/shop_shoe_rebuilding.gltf",
+      "gltf_sha256": "d537d42d0b272ff638b9b0f322fff0860aa1284876a5ebe611d6e3344ef6c110",
+      "bin_path": "cells/shop_shoe_rebuilding.bin",
+      "bin_sha256": "a8c0cd8fa55990d23b8658168ee39b8218d2202305ea3aea1ae30bdb52b75918"
+    },
+    {
+      "id": "CELL_SHOP_KEYS_CUT",
+      "gltf_path": "cells/shop_keys_cut.gltf",
+      "gltf_sha256": "284803501800896c2f84d81482ddbd7e5c8f116a944310466c50c3f765a7aa25",
+      "bin_path": "cells/shop_keys_cut.bin",
+      "bin_sha256": "115f13475d0874826a975abba23ec20abed310e27b5e2d73e26f30ceb502097f"
+    },
+    {
+      "id": "CELL_SHOP_HARDWARE_PAINT",
+      "gltf_path": "cells/shop_hardware_paint.gltf",
+      "gltf_sha256": "ec640e4c130a2d7d7caf427dac3a2302254144190002554b3cc31369417c80ce",
+      "bin_path": "cells/shop_hardware_paint.bin",
+      "bin_sha256": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb"
+    },
+    {
+      "id": "CELL_SHOP_FUNERAL_PARLOUR",
+      "gltf_path": "cells/shop_funeral_parlour.gltf",
+      "gltf_sha256": "285edf43966b9970296ed07e891260c761811d6119065eb5f55fc9c8c85a8990",
+      "bin_path": "cells/shop_funeral_parlour.bin",
+      "bin_sha256": "2aba70fa1cf9027b4725edef8e1f598b3d274e7e839a80ea502d62c9332721f4"
+    },
+    {
+      "id": "CELL_SHOP_PHOTO_SUPPLIES",
+      "gltf_path": "cells/shop_photo_supplies.gltf",
+      "gltf_sha256": "e1cb78f99f466922fb65073247ada1cde419286ce7ff3a2eaa3d90ae8fed59d2",
+      "bin_path": "cells/shop_photo_supplies.bin",
+      "bin_sha256": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705"
+    },
+    {
+      "id": "CELL_SHOP_RADIO_SERVICE",
+      "gltf_path": "cells/shop_radio_service.gltf",
+      "gltf_sha256": "ead690f7a12ea38b60ad91f239d271d3b4ed3840d3ef02058677fcb1c6bba2ed",
+      "bin_path": "cells/shop_radio_service.bin",
+      "bin_sha256": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6"
+    },
+    {
+      "id": "CELL_SHOP_PAWNBROKER",
+      "gltf_path": "cells/shop_pawnbroker.gltf",
+      "gltf_sha256": "04708aa3440d237b89cd229b1b302d84833e6d9c4f3a189ef1ddb7a561f2d54c",
+      "bin_path": "cells/shop_pawnbroker.bin",
+      "bin_sha256": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff"
+    },
+    {
+      "id": "CELL_SHOP_NEWS_CIGARS",
+      "gltf_path": "cells/shop_news_cigars.gltf",
+      "gltf_sha256": "57515b62f9255acd3977d996fd998f8233c223dcc9b4762b3eea811be12099c6",
+      "bin_path": "cells/shop_news_cigars.bin",
+      "bin_sha256": "a5f02344357a93404ff20ded11527b5c04e7a90b56d25fafbd5cb0f34338b926"
+    },
+    {
+      "id": "CELL_SHOP_OTIS_SON",
+      "gltf_path": "cells/shop_otis_son.gltf",
+      "gltf_sha256": "eb13be9a7a078e932ceddf584782dc2183a126a8b1022c826952b53e73b4827c",
+      "bin_path": "cells/shop_otis_son.bin",
+      "bin_sha256": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a"
+    },
+    {
+      "id": "CELL_SHOP_LUNCHEONETTE",
+      "gltf_path": "cells/shop_luncheonette.gltf",
+      "gltf_sha256": "150cc92ea0e6b0272bb2079a8f3df3f703791fab9cf07175aab68189259f86b8",
+      "bin_path": "cells/shop_luncheonette.bin",
+      "bin_sha256": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274"
+    }
+  ]
+}

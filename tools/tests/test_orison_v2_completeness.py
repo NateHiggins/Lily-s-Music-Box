@@ -449,6 +449,180 @@ class DomesticMinimumWordSetTests(unittest.TestCase):
             self.assertIn("No entry purpose", record["notes"])
 
 
+class ServiceRouteConnectionTests(unittest.TestCase):
+    """A service route is the typed direct hall/core transfer."""
+
+    @staticmethod
+    def add_f02_decoy_crossing(data, direct=False):
+        data["spaces"] += [
+            {"id": "F02_SERVICE_HALL", "level": "F02",
+             "class": "service", "rect": [20, 0, 24, 3],
+             "purpose": "staff and maintenance route"},
+            {"id": "F02_SERVICE_CROSSING", "level": "F02",
+             "class": "service", "rect": [20, -2, 24, 0],
+             "purpose": "controlled public threshold across the service "
+                        "spine"},
+            {"id": "F02_SERVICE_CORE", "level": "F02", "class": "core",
+             "rect": [24, 0, 27, 3],
+             "purpose": "service lift and stair"},
+        ]
+        data["openings"] += [
+            {"id": "F02_HALL_CROSSING", "level": "F02",
+             "connects": ["F02_SERVICE_HALL", "F02_SERVICE_CROSSING"]},
+            {"id": "F02_CROSSING_CORE", "level": "F02",
+             "connects": ["F02_SERVICE_CROSSING", "F02_SERVICE_CORE"]},
+        ]
+        if direct:
+            data["openings"].append(
+                {"id": "F02_SERVICE_HALL_CORE_OPENING", "level": "F02",
+                 "center": [24, 1.5], "width": 1.2, "height": 2.4,
+                 "axis": "z", "shared_wall_owner": "F02_SERVICE_CORE",
+                 "connects": ["F02_SERVICE_HALL", "F02_SERVICE_CORE"]})
+
+    def test_decoy_crossing_path_does_not_satisfy_service_route(self):
+        with TempRepo() as root:
+            edit_v2(root, self.add_f02_decoy_crossing)
+            _, payload, _ = run_payload(root)
+            record = req(payload, "circ.F02.service_route")
+            self.assertEqual(record["status"], "SHELL_ONLY")
+            self.assertEqual(record["scope"]["space"],
+                             "F02_SERVICE_HALL")
+            self.assertNotIn("F02_SERVICE_CROSSING",
+                             record["scope"].values())
+            self.assertIn("No direct door or cased opening",
+                          record["notes"])
+
+    def test_direct_hall_core_edge_promotes_shell_to_programmed(self):
+        with TempRepo() as root:
+            edit_v2(root, self.add_f02_decoy_crossing)
+            _, before, _ = run_payload(root)
+            self.assertEqual(req(before, "circ.F02.service_route")["status"],
+                             "SHELL_ONLY")
+
+            def add_direct(data):
+                data["openings"].append(
+                    {"id": "F02_SERVICE_HALL_CORE_OPENING",
+                     "level": "F02",
+                     "center": [24, 1.5], "width": 1.2,
+                     "height": 2.4, "axis": "z",
+                     "shared_wall_owner": "F02_SERVICE_CORE",
+                     "connects": ["F02_SERVICE_HALL",
+                                  "F02_SERVICE_CORE"]})
+
+            edit_v2(root, add_direct)
+            _, after, _ = run_payload(root)
+            record = req(after, "circ.F02.service_route")
+            self.assertEqual(record["status"], "PROGRAMMED")
+            self.assertEqual(record["scope"]["connection"],
+                             "F02_SERVICE_HALL_CORE_OPENING")
+
+    def test_geometryless_direct_record_remains_shell_only(self):
+        with TempRepo() as root:
+            edit_v2(root, lambda data:
+                    self.add_f02_decoy_crossing(data, direct=True))
+
+            def strip_geometry(data):
+                edge = next(row for row in data["openings"]
+                            if row["id"] ==
+                            "F02_SERVICE_HALL_CORE_OPENING")
+                for key in ("center", "width", "height", "axis"):
+                    edge.pop(key)
+
+            edit_v2(root, strip_geometry)
+            _, payload, _ = run_payload(root)
+            record = req(payload, "circ.F02.service_route")
+            self.assertEqual(record["status"], "SHELL_ONLY")
+            self.assertNotIn("connection", record["scope"])
+
+    def test_cardinal_door_yaw_derives_shared_boundary_axis(self):
+        with TempRepo() as root:
+            edit_v2(root, self.add_f02_decoy_crossing)
+
+            def add_door(data):
+                data["doors"].append(
+                    {"id": "F02_SERVICE_HALL_CORE_DOOR",
+                     "level": "F02", "center": [24, 1.5],
+                     "width": 0.91, "height": 2.13,
+                     "yaw": 1.5707963,
+                     "connects": ["F02_SERVICE_HALL",
+                                  "F02_SERVICE_CORE"]})
+
+            edit_v2(root, add_door)
+            _, payload, _ = run_payload(root)
+            record = req(payload, "circ.F02.service_route")
+            self.assertEqual(record["status"], "PROGRAMMED")
+            self.assertEqual(record["scope"]["connection"],
+                             "F02_SERVICE_HALL_CORE_DOOR")
+
+    def test_axisless_yaw_opening_cannot_masquerade_as_a_door(self):
+        with TempRepo() as root:
+            edit_v2(root, lambda data:
+                    self.add_f02_decoy_crossing(data, direct=True))
+
+            def replace_axis_with_yaw(data):
+                edge = next(row for row in data["openings"]
+                            if row["id"] ==
+                            "F02_SERVICE_HALL_CORE_OPENING")
+                edge.pop("axis")
+                edge["yaw"] = 1.5707963
+
+            edit_v2(root, replace_axis_with_yaw)
+            _, payload, _ = run_payload(root)
+            record = req(payload, "circ.F02.service_route")
+            self.assertEqual(record["status"], "SHELL_ONLY")
+            self.assertNotIn("connection", record["scope"])
+
+    def test_direct_route_preserves_exact_spatial_evidence_tier(self):
+        with TempRepo() as root:
+            edit_v2(root, lambda data:
+                    self.add_f02_decoy_crossing(data, direct=True))
+            (root / "design" /
+             "ORISON_V2_MINI_SERVICE_ROUTE_CHECKPOINT_2026-08-28.md"
+             ).write_text(
+                "# Synthetic service route checkpoint\n\nBuilt "
+                "`F02_SERVICE_HALL`, `F02_SERVICE_CORE` and "
+                "`F02_SERVICE_HALL_CORE_OPENING`.\n", encoding="utf-8")
+            _, payload, _ = run_payload(root)
+            record = req(payload, "circ.F02.service_route")
+            self.assertEqual(record["status"], "SPATIALLY_PROVEN")
+
+    def test_endpoint_only_evidence_cannot_promote_an_unproved_edge(self):
+        with TempRepo() as root:
+            edit_v2(root, lambda data:
+                    self.add_f02_decoy_crossing(data, direct=True))
+            (root / "design" /
+             "ORISON_V2_MINI_ENDPOINTS_CHECKPOINT_2026-08-28.md"
+             ).write_text(
+                "# Synthetic endpoint-only checkpoint\n\nBuilt and traversed "
+                "`F02_SERVICE_HALL` and `F02_SERVICE_CORE`.\n",
+                encoding="utf-8")
+            _, payload, _ = run_payload(root)
+            record = req(payload, "circ.F02.service_route")
+            self.assertEqual(record["status"], "PROGRAMMED")
+
+    def test_f03_style_core_without_lateral_hall_is_absent(self):
+        with TempRepo() as root:
+            def add_bare_core(data):
+                data["levels"].append({"id": "F03", "y": 6.4})
+                data["spaces"].append(
+                    {"id": "F03_SERVICE_CORE", "level": "F03",
+                     "class": "core", "rect": [24, 0, 27, 3],
+                     "purpose": "intermediate service lift and stair "
+                                "transfer"})
+                data["stairs"].append(
+                    {"id": "SERVICE_F02_F03", "kind": "u",
+                     "from": "F02", "to": "F03",
+                     "origin": [25, 1], "width": 1.2})
+
+            edit_v2(root, add_bare_core)
+            _, payload, _ = run_payload(root)
+            self.assertEqual(req(payload, "circ.F03.service_core")["status"],
+                             "PROGRAMMED")
+            route = req(payload, "circ.F03.service_route")
+            self.assertEqual(route["status"], "ABSENT")
+            self.assertIn("No class=service lateral hall", route["notes"])
+
+
 class ScopeAndModeTests(unittest.TestCase):
     def test_clean_scope_unit_2a(self):
         code, payload, _ = run_payload(MINI_REPO, "--unit", "2A")

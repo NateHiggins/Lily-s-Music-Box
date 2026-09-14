@@ -197,6 +197,39 @@ class ScanTests(unittest.TestCase):
                     token="F01_GHOST_ROOM")
         self.assertEqual(len(stale), 1)
 
+    def test_floor01_cell_registry_ownership_is_definition_not_dependency(self):
+        with TempRepo() as root:
+            registry = root / "game/data/floor_01_cell_registry.json"
+            registry.write_text(json.dumps({
+                "schema": audit.FLOOR01_CELL_REGISTRY_SCHEMA,
+                "floor_id": "F01",
+                "persistent_host": {"id": "F01"},
+                "cells": [{
+                    "id": "CELL_MINI",
+                    "semantic_owners": ["F01_LOBBY"],
+                    "compatibility_aliases": ["F01_LOBBY"],
+                }],
+                "semantic_owner_index": {"F01_LOBBY": "CELL_MINI"},
+                "compatibility_alias_index": {"F01_LOBBY": [{
+                    "cell_id": "CELL_MINI", "node_index": 0,
+                }]},
+                "facade_sharing": [{"id": "F01_STREET_FACADE"}],
+                # A value outside the ruled definition subtrees remains a
+                # real dependency and proves this is not a whole-file skip.
+                "unexpected_fallback_room": "F01_A_MAIN",
+            }, sort_keys=True), encoding="utf-8")
+            _, rows = scan(root)
+            owned = rec(rows, file="game/data/floor_01_cell_registry.json",
+                        token="F01_LOBBY")
+            fallback = rec(rows, file="game/data/floor_01_cell_registry.json",
+                           token="F01_A_MAIN")
+            floor = rec(rows, file="game/data/floor_01_cell_registry.json",
+                        token="F01")
+            self.assertEqual(owned, [])
+            self.assertEqual(floor, [])
+            self.assertEqual(len(fallback), 1)
+            self.assertIn("DATA_FOREIGN_KEY", fallback[0]["authority"])
+
     def test_debug_file_gains_debug_only(self):
         hits = [r for r in self.records
                 if r["file"] == "game/scripts/ui/thing_debug.gd"]
@@ -506,8 +539,9 @@ class ProductionSmokeTests(unittest.TestCase):
     def test_floor_asset_path_contract(self):
         record = self._one(
             kind="asset_path", token="res://assets/building/floor_01.gltf",
-            file="game/scripts/building/building_root.gd")
+            file="game/scripts/building/floor01_cell_registry.gd")
         self.assertEqual(record["disposition"], "PRESERVE_OR_ALIAS")
+        self.assertIn("RUNTIME_LOOKUP", record["authority"])
 
     def test_organism_ledger_manual_contract(self):
         record = self._one(kind="manual_contract",

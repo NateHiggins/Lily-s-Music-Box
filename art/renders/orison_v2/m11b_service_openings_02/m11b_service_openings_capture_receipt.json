@@ -1,0 +1,1076 @@
+{
+	"camera_provenance": {
+		"body_height_m": 1.524,
+		"body_radius_m": 0.33,
+		"camera_child": "PlayerController-created Camera3D",
+		"capture_only_camera": false,
+		"capture_only_geometry": false,
+		"capture_only_lights": false,
+		"class": "playable",
+		"developer_overlay": false,
+		"labels_arrows_and_debug_envelopes": "hidden",
+		"later_station_teleports": 0,
+		"one_initial_core_side_placement_per_floor": true,
+		"owner": "production PlayerController",
+		"review_controller_cameras": "disabled before tree entry",
+		"standing_eye_m": 1.41
+	},
+	"compositions": [
+		{
+			"anchor_envelope_construction_disabled": true,
+			"capture_camera_owner": "M11BProductionPlayer",
+			"capture_camera_path": "@Camera3D@534",
+			"capture_only_camera": false,
+			"capture_only_geometry": false,
+			"capture_only_lights": false,
+			"derived_initial_placement_supported": true,
+			"floor": "F02",
+			"hidden_canvas_layers": 4,
+			"hidden_label_3d": 0,
+			"hidden_schema_envelopes_and_landing_cues": 78,
+			"initial_placement": [
+				10.4499998092651,
+				3.20000004768372,
+				1.75
+			],
+			"initial_placement_count": 1,
+			"initial_placement_side": "core",
+			"production_camera_current_after_tree_entry": true,
+			"production_player_added_before_tree_entry": true,
+			"production_player_class": "CharacterBody3D",
+			"production_player_script": "res://scripts/player/player_controller.gd",
+			"review_camera_current_after_tree_entry": false,
+			"review_player_camera_disabled_before_tree_entry": true,
+			"review_scene": "res://scenes/building/orison_v2_f02_review.tscn",
+			"review_sun_preserved": true,
+			"review_world_environment_preserved": true,
+			"scene_census_before_cue_hiding": {
+				"cameras": 2,
+				"canvas_layers": 4,
+				"collision_objects": 529,
+				"collision_shapes": 529,
+				"current_cameras": 1,
+				"enabled_collision_shapes": 529,
+				"label_3d": 0,
+				"lights": 4,
+				"mesh_instances": 958,
+				"node_3d": 2225,
+				"nodes": 2281,
+				"readability_cues": 0,
+				"visible_canvas_layers": 4,
+				"visible_label_3d": 0,
+				"visible_lights": 4,
+				"visible_mesh_instances": 958,
+				"visible_readability_cues": 0
+			},
+			"scene_census_packet_state": {
+				"cameras": 2,
+				"canvas_layers": 4,
+				"collision_objects": 529,
+				"collision_shapes": 529,
+				"current_cameras": 1,
+				"enabled_collision_shapes": 529,
+				"label_3d": 0,
+				"lights": 4,
+				"mesh_instances": 958,
+				"node_3d": 2225,
+				"nodes": 2281,
+				"readability_cues": 82,
+				"visible_canvas_layers": 0,
+				"visible_label_3d": 0,
+				"visible_lights": 4,
+				"visible_mesh_instances": 880,
+				"visible_readability_cues": 0
+			}
+		},
+		{
+			"anchor_envelope_construction_disabled": true,
+			"capture_camera_owner": "M11BProductionPlayer",
+			"capture_camera_path": "@Camera3D@1096",
+			"capture_only_camera": false,
+			"capture_only_geometry": false,
+			"capture_only_lights": false,
+			"derived_initial_placement_supported": true,
+			"floor": "F04",
+			"hidden_canvas_layers": 4,
+			"hidden_label_3d": 0,
+			"hidden_schema_envelopes_and_landing_cues": 78,
+			"initial_placement": [
+				10.4499998092651,
+				9.60000038146973,
+				4.47000026702881
+			],
+			"initial_placement_count": 1,
+			"initial_placement_side": "core",
+			"production_camera_current_after_tree_entry": true,
+			"production_player_added_before_tree_entry": true,
+			"production_player_class": "CharacterBody3D",
+			"production_player_script": "res://scripts/player/player_controller.gd",
+			"review_camera_current_after_tree_entry": false,
+			"review_player_camera_disabled_before_tree_entry": true,
+			"review_scene": "res://scenes/building/orison_v2_f04_review.tscn",
+			"review_sun_preserved": true,
+			"review_world_environment_preserved": true,
+			"scene_census_before_cue_hiding": {
+				"cameras": 2,
+				"canvas_layers": 4,
+				"collision_objects": 529,
+				"collision_shapes": 529,
+				"current_cameras": 1,
+				"enabled_collision_shapes": 529,
+				"label_3d": 0,
+				"lights": 4,
+				"mesh_instances": 958,
+				"node_3d": 2225,
+				"nodes": 2281,
+				"readability_cues": 0,
+				"visible_canvas_layers": 4,
+				"visible_label_3d": 0,
+				"visible_lights": 4,
+				"visible_mesh_instances": 958,
+				"visible_readability_cues": 0
+			},
+			"scene_census_packet_state": {
+				"cameras": 2,
+				"canvas_layers": 4,
+				"collision_objects": 529,
+				"collision_shapes": 529,
+				"current_cameras": 1,
+				"enabled_collision_shapes": 529,
+				"label_3d": 0,
+				"lights": 4,
+				"mesh_instances": 958,
+				"node_3d": 2225,
+				"nodes": 2281,
+				"readability_cues": 82,
+				"visible_canvas_layers": 0,
+				"visible_label_3d": 0,
+				"visible_lights": 4,
+				"visible_mesh_instances": 880,
+				"visible_readability_cues": 0
+			}
+		}
+	],
+	"determinism": {
+		"engine_time_scale": 1.0,
+		"random_seed": 1102,
+		"reality_state": "fresh in-memory campaign fixture"
+	},
+	"expected_files": [
+		"01_f02_core_side_approach.png",
+		"02_f02_hall_side_return.png",
+		"03_f04_core_side_approach.png",
+		"04_f04_hall_side_return.png"
+	],
+	"failures": [],
+	"frames": [
+		{
+			"body_height_m": 1.524,
+			"body_radius_m": 0.33,
+			"camera_child": "@Camera3D@534",
+			"camera_class": "playable",
+			"camera_current": true,
+			"camera_owner_class": "PlayerController",
+			"capture": "PASS",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"dimensions": [
+				1600,
+				900
+			],
+			"dimensions_ok": true,
+			"eye": [
+				10.4499998092651,
+				4.6100001335144,
+				1.75
+			],
+			"file": "01_f02_core_side_approach.png",
+			"floor": "F02",
+			"forward": [
+				-0.547869205474854,
+				-0.0239354446530342,
+				0.836221516132355
+			],
+			"fov_degrees": 76.0,
+			"label": "01_f02_core_side_approach",
+			"luminance": {
+				"fraction_below_16": 0.614375,
+				"maximum_fraction_below_16": 0.72,
+				"mean_luma_255": 23.3065612861853,
+				"minimum_mean_luma_255": 18.0,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"metrics": {
+				"cpu_process_median_ms": 38.53,
+				"draw_calls_median": 801.0,
+				"gpu_median_ms": 0.791999995708466,
+				"gpu_samples_observed": 8,
+				"gpu_timing_trustworthy": true,
+				"physics_median_ms": 1.855,
+				"renderer": "forward_plus",
+				"samples": 8
+			},
+			"noclip": false,
+			"opening_id": "F02_SERVICE_HALL_CORE_OPENING",
+			"player_origin": [
+				10.4499998092651,
+				3.20000004768372,
+				1.75
+			],
+			"renderer": "forward_plus",
+			"review_camera_current": false,
+			"sha256": "a4fd73b220ed8d7b5fa28b906c7088b3941a027806f5584ea4e1342e3dc19fc4",
+			"standing_eye_m": 1.41,
+			"station_owner": "F02_SERVICE_CORE",
+			"supporting_floor": true,
+			"target": [
+				8.51355266571045,
+				4.52540016174316,
+				4.7056303024292
+			],
+			"view": "core_side_approach",
+			"visible_canvas_layers": 0,
+			"visible_label_3d": 0,
+			"visible_readability_cues": 0
+		},
+		{
+			"body_height_m": 1.524,
+			"body_radius_m": 0.33,
+			"camera_child": "@Camera3D@534",
+			"camera_class": "playable",
+			"camera_current": true,
+			"camera_owner_class": "PlayerController",
+			"capture": "PASS",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"dimensions": [
+				1600,
+				900
+			],
+			"dimensions_ok": true,
+			"eye": [
+				8.91242218017578,
+				4.61094045639038,
+				2.26488280296326
+			],
+			"file": "02_f02_hall_side_return.png",
+			"floor": "F02",
+			"forward": [
+				0.53172492980957,
+				-0.034136138856411,
+				0.846228897571564
+			],
+			"fov_degrees": 76.0,
+			"label": "02_f02_hall_side_return",
+			"luminance": {
+				"fraction_below_16": 0.606180555555556,
+				"maximum_fraction_below_16": 0.72,
+				"mean_luma_255": 30.5589326087632,
+				"minimum_mean_luma_255": 18.0,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"metrics": {
+				"cpu_process_median_ms": 69.17,
+				"draw_calls_median": 506.0,
+				"gpu_median_ms": 0.792999982833862,
+				"gpu_samples_observed": 8,
+				"gpu_timing_trustworthy": true,
+				"physics_median_ms": 0.245,
+				"renderer": "forward_plus",
+				"samples": 8
+			},
+			"noclip": false,
+			"opening_id": "F02_SERVICE_HALL_CORE_OPENING",
+			"player_origin": [
+				8.91242218017578,
+				3.20094037055969,
+				2.26488280296326
+			],
+			"renderer": "forward_plus",
+			"review_camera_current": false,
+			"sha256": "dbf41652e486f98f48612d897ca793cf6196b69735d5c94f115bc85eeddeb937",
+			"standing_eye_m": 1.41,
+			"station_owner": "F02_SERVICE_HALL",
+			"supporting_floor": true,
+			"target": [
+				10.2448492050171,
+				4.52540016174316,
+				4.38541126251221
+			],
+			"view": "hall_side_return",
+			"visible_canvas_layers": 0,
+			"visible_label_3d": 0,
+			"visible_readability_cues": 0
+		},
+		{
+			"body_height_m": 1.524,
+			"body_radius_m": 0.33,
+			"camera_child": "@Camera3D@1096",
+			"camera_class": "playable",
+			"camera_current": true,
+			"camera_owner_class": "PlayerController",
+			"capture": "PASS",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"dimensions": [
+				1600,
+				900
+			],
+			"dimensions_ok": true,
+			"eye": [
+				10.4499998092651,
+				11.0100002288818,
+				4.47000026702881
+			],
+			"file": "03_f04_core_side_approach.png",
+			"floor": "F04",
+			"forward": [
+				-0.598803699016571,
+				-0.0249772779643536,
+				-0.800506293773651
+			],
+			"fov_degrees": 76.0,
+			"label": "03_f04_core_side_approach",
+			"luminance": {
+				"fraction_below_16": 0.509861111111111,
+				"maximum_fraction_below_16": 0.72,
+				"mean_luma_255": 39.6839334994651,
+				"minimum_mean_luma_255": 18.0,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"metrics": {
+				"cpu_process_median_ms": 5.774,
+				"draw_calls_median": 1319.0,
+				"gpu_median_ms": 0.852999985218048,
+				"gpu_samples_observed": 8,
+				"gpu_timing_trustworthy": true,
+				"physics_median_ms": 176.13,
+				"renderer": "forward_plus",
+				"samples": 8
+			},
+			"noclip": false,
+			"opening_id": "F04_SERVICE_HALL_CORE_OPENING",
+			"player_origin": [
+				10.4499998092651,
+				9.60000038146973,
+				4.47000026702881
+			],
+			"renderer": "forward_plus",
+			"review_camera_current": false,
+			"sha256": "4d17c6ea7d67d5efe781f87bd20b206ce6ca7db983a640c8eef8dac8faa7e0fb",
+			"standing_eye_m": 1.41,
+			"station_owner": "F04_SERVICE_CORE",
+			"supporting_floor": true,
+			"target": [
+				8.4218168258667,
+				10.9254007339478,
+				1.75863909721375
+			],
+			"view": "core_side_approach",
+			"visible_canvas_layers": 0,
+			"visible_label_3d": 0,
+			"visible_readability_cues": 0
+		},
+		{
+			"body_height_m": 1.524,
+			"body_radius_m": 0.33,
+			"camera_child": "@Camera3D@1096",
+			"camera_class": "playable",
+			"camera_current": true,
+			"camera_owner_class": "PlayerController",
+			"capture": "PASS",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"dimensions": [
+				1600,
+				900
+			],
+			"dimensions_ok": true,
+			"eye": [
+				8.91216564178467,
+				11.0109415054321,
+				2.28848075866699
+			],
+			"file": "04_f04_hall_side_return.png",
+			"floor": "F04",
+			"forward": [
+				0.541648149490356,
+				-0.0344076231122017,
+				0.83990079164505
+			],
+			"fov_degrees": 76.0,
+			"label": "04_f04_hall_side_return",
+			"luminance": {
+				"fraction_below_16": 0.581388888888889,
+				"maximum_fraction_below_16": 0.72,
+				"mean_luma_255": 37.2779143673838,
+				"minimum_mean_luma_255": 18.0,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"metrics": {
+				"cpu_process_median_ms": 1.817,
+				"draw_calls_median": 242.0,
+				"gpu_median_ms": 0.695999979972839,
+				"gpu_samples_observed": 8,
+				"gpu_timing_trustworthy": true,
+				"physics_median_ms": 0.21,
+				"renderer": "forward_plus",
+				"samples": 8
+			},
+			"noclip": false,
+			"opening_id": "F04_SERVICE_HALL_CORE_OPENING",
+			"player_origin": [
+				8.91216564178467,
+				9.60094165802002,
+				2.28848075866699
+			],
+			"renderer": "forward_plus",
+			"review_camera_current": false,
+			"sha256": "36883da61769870da0777d4f93da387fb0d09b92bef0c41c2778e0b6f1212055",
+			"standing_eye_m": 1.41,
+			"station_owner": "F04_SERVICE_HALL",
+			"supporting_floor": true,
+			"target": [
+				10.2587566375732,
+				10.9254007339478,
+				4.37655782699585
+			],
+			"view": "hall_side_return",
+			"visible_canvas_layers": 0,
+			"visible_label_3d": 0,
+			"visible_readability_cues": 0
+		}
+	],
+	"human_acceptance": "PENDING",
+	"object_counts": {
+		"after_all_teardown": {
+			"nodes": 35,
+			"objects": 1660,
+			"orphan_nodes": 0,
+			"resources": 34
+		},
+		"orphan_delta": 0,
+		"startup": {
+			"nodes": 35,
+			"objects": 1643,
+			"orphan_nodes": 0,
+			"resources": 34
+		}
+	},
+	"production_source_only": true,
+	"renderer": "forward_plus",
+	"resolution": [
+		1600,
+		900
+	],
+	"schema_and_boundary_proofs": {
+		"F02": {
+			"authority": "positions recomputed from this floor's opening, two endpoint spaces, level, and service-landing records",
+			"boundary_axis": "z",
+			"boundary_finish": 9.25,
+			"boundary_fixed": 9.5,
+			"boundary_fully_contains_opening": true,
+			"boundary_start": 0.3,
+			"capsule_clearance_ok": true,
+			"connects": [
+				"F02_SERVICE_HALL",
+				"F02_SERVICE_CORE"
+			],
+			"core_class": "core",
+			"core_id": "F02_SERVICE_CORE",
+			"core_position": [
+				10.4499998092651,
+				3.20000004768372,
+				1.75
+			],
+			"core_rect": [
+				9.5,
+				0.3,
+				13.2,
+				10.2
+			],
+			"core_threshold": [
+				10.1000003814697,
+				3.20000004768372,
+				3.20000004768372
+			],
+			"floor": "F02",
+			"floor_y": 3.2,
+			"hall_class": "service",
+			"hall_id": "F02_SERVICE_HALL",
+			"hall_rect": [
+				8.3,
+				-2.65,
+				9.5,
+				9.25
+			],
+			"hall_threshold": [
+				8.89999961853027,
+				3.20000004768372,
+				3.20000004768372
+			],
+			"hall_view_direction": [
+				0.0,
+				0.0,
+				-1.0
+			],
+			"hall_view_position": [
+				8.89999961853027,
+				3.20000004768372,
+				2.15000009536743
+			],
+			"hall_view_tangent_distance": 1.05,
+			"head_margin_over_capsule_m": 0.876,
+			"landing_platform_id": "F02_SERVICE_LANDING",
+			"landing_platform_rect": [
+				9.5,
+				0.3,
+				13.2,
+				5.0
+			],
+			"normal_into_hall": [
+				-1.0,
+				0.0,
+				0.0
+			],
+			"opening_axis": "z",
+			"opening_center": [
+				9.5,
+				3.20000004768372,
+				3.20000004768372
+			],
+			"opening_center_record": [
+				9.5,
+				3.2
+			],
+			"opening_height": 2.4,
+			"opening_id": "F02_SERVICE_HALL_CORE_OPENING",
+			"opening_interval_finish": 3.8,
+			"opening_interval_start": 2.6,
+			"opening_level": "F02",
+			"opening_width": 1.2,
+			"shared_wall_owner": "F02_SERVICE_CORE",
+			"tangent_into_longer_hall_continuation": [
+				0.0,
+				0.0,
+				1.0
+			],
+			"width_margin_over_capsule_m": 0.54
+		},
+		"F04": {
+			"authority": "positions recomputed from this floor's opening, two endpoint spaces, level, and service-landing records",
+			"boundary_axis": "z",
+			"boundary_finish": 9.25,
+			"boundary_fixed": 9.5,
+			"boundary_fully_contains_opening": true,
+			"boundary_start": 0.3,
+			"capsule_clearance_ok": true,
+			"connects": [
+				"F04_SERVICE_HALL",
+				"F04_SERVICE_CORE"
+			],
+			"core_class": "core",
+			"core_id": "F04_SERVICE_CORE",
+			"core_position": [
+				10.4499998092651,
+				9.60000038146973,
+				4.47000026702881
+			],
+			"core_rect": [
+				9.5,
+				0.3,
+				13.2,
+				10.2
+			],
+			"core_threshold": [
+				10.1000003814697,
+				9.60000038146973,
+				3.20000004768372
+			],
+			"floor": "F04",
+			"floor_y": 9.6,
+			"hall_class": "service",
+			"hall_id": "F04_SERVICE_HALL",
+			"hall_rect": [
+				8.3,
+				-9.25,
+				9.5,
+				9.25
+			],
+			"hall_threshold": [
+				8.89999961853027,
+				9.60000038146973,
+				3.20000004768372
+			],
+			"hall_view_direction": [
+				0.0,
+				0.0,
+				-1.0
+			],
+			"hall_view_position": [
+				8.89999961853027,
+				9.60000038146973,
+				2.15000009536743
+			],
+			"hall_view_tangent_distance": 1.05,
+			"head_margin_over_capsule_m": 0.876,
+			"landing_platform_id": "F04_SERVICE_LANDING",
+			"landing_platform_rect": [
+				9.5,
+				0.3,
+				13.2,
+				5.0
+			],
+			"normal_into_hall": [
+				-1.0,
+				0.0,
+				0.0
+			],
+			"opening_axis": "z",
+			"opening_center": [
+				9.5,
+				9.60000038146973,
+				3.20000004768372
+			],
+			"opening_center_record": [
+				9.5,
+				3.2
+			],
+			"opening_height": 2.4,
+			"opening_id": "F04_SERVICE_HALL_CORE_OPENING",
+			"opening_interval_finish": 3.8,
+			"opening_interval_start": 2.6,
+			"opening_level": "F04",
+			"opening_width": 1.2,
+			"shared_wall_owner": "F04_SERVICE_CORE",
+			"tangent_into_longer_hall_continuation": [
+				0.0,
+				0.0,
+				-1.0
+			],
+			"width_margin_over_capsule_m": 0.54
+		}
+	},
+	"schema_version": 1,
+	"scope": "F02/F04 service hall to service core openings",
+	"source_hashes": {
+		"capture_harness_sha256": "f4f09b025069471ba639e6b3d504218030eab49e171588bc0f82a0274c3f9e80",
+		"f02_review_scene_sha256": "19299e796415022aa2107ebf88762b7e8320cf7ecc1d3c842149061566023910",
+		"f04_review_scene_sha256": "dfdc127b8eef418cc924ffcf5ccd81a957b9c8894d1cbd4b94d9921d46102d35",
+		"layout_sha256": "976d835de56863e58866275b9b8c01373e10002f3e1d8c84e1ea262370128795"
+	},
+	"status": "PASS",
+	"task": "ORISON-V2-M11B",
+	"teardown": [
+		{
+			"after": {
+				"nodes": 35,
+				"objects": 1660,
+				"orphan_nodes": 0,
+				"resources": 34
+			},
+			"before": {
+				"nodes": 2321,
+				"objects": 5523,
+				"orphan_nodes": 0,
+				"resources": 37
+			},
+			"blockout_released": true,
+			"floor": "F02",
+			"method": "queue_free committed review composition root",
+			"production_camera_released": true,
+			"production_player_released": true,
+			"review_camera_released": true,
+			"review_player_released": true,
+			"review_root_released": true
+		},
+		{
+			"after": {
+				"nodes": 35,
+				"objects": 1660,
+				"orphan_nodes": 0,
+				"resources": 34
+			},
+			"before": {
+				"nodes": 2321,
+				"objects": 5523,
+				"orphan_nodes": 0,
+				"resources": 37
+			},
+			"blockout_released": true,
+			"floor": "F04",
+			"method": "queue_free committed review composition root",
+			"production_camera_released": true,
+			"production_player_released": true,
+			"review_camera_released": true,
+			"review_player_released": true,
+			"review_root_released": true
+		}
+	],
+	"traversal": [
+		{
+			"autopilot_only": true,
+			"collision_enabled_fraction": 1.0,
+			"crossed_expected_opening_plane": true,
+			"direction": "F02_CORE_TO_HALL",
+			"elapsed_ms": 1103.901,
+			"finish": [
+				8.91242218017578,
+				3.20094037055969,
+				2.26488280296326
+			],
+			"floor": "F02",
+			"from_side": "core",
+			"grounded_fraction": 1.0,
+			"intermediate_teleports": 0,
+			"legs": [
+				{
+					"end": [
+						9.00918579101563,
+						3.20094037055969,
+						3.15966773033142
+					],
+					"index": 0,
+					"physics_frames": 52,
+					"planned_distance_m": 2.12249875068665,
+					"remaining_m": 0.116397231817245,
+					"start": [
+						10.4499998092651,
+						3.20000004768372,
+						1.75
+					],
+					"status": "PASS",
+					"target": [
+						8.89999961853027,
+						3.20000004768372,
+						3.20000004768372
+					]
+				},
+				{
+					"end": [
+						8.91242218017578,
+						3.20094037055969,
+						2.26488280296326
+					],
+					"index": 1,
+					"physics_frames": 18,
+					"planned_distance_m": 1.01555418968201,
+					"remaining_m": 0.115552395582199,
+					"start": [
+						9.00918579101563,
+						3.20094037055969,
+						3.15966773033142
+					],
+					"status": "PASS",
+					"target": [
+						8.89999961853027,
+						3.20000004768372,
+						2.15000009536743
+					]
+				}
+			],
+			"maximum_vertical_drift_m": 0.000940322875976563,
+			"noclip": false,
+			"opening_id": "F02_SERVICE_HALL_CORE_OPENING",
+			"opening_plane_signed_finish_m": 0.587577819824219,
+			"opening_plane_signed_start_m": -0.949999809265137,
+			"physics_frames": 70,
+			"player_controller_physics": true,
+			"start": [
+				10.4499998092651,
+				3.20000004768372,
+				1.75
+			],
+			"status": "PASS",
+			"test_only_collision_removal": false,
+			"to_side": "hall"
+		},
+		{
+			"autopilot_only": true,
+			"collision_enabled_fraction": 1.0,
+			"crossed_expected_opening_plane": true,
+			"direction": "F02_HALL_TO_CORE",
+			"elapsed_ms": 1050.65,
+			"finish": [
+				10.4172792434692,
+				3.20094037055969,
+				1.85338711738586
+			],
+			"floor": "F02",
+			"from_side": "hall",
+			"grounded_fraction": 1.0,
+			"intermediate_teleports": 0,
+			"legs": [
+				{
+					"end": [
+						8.90179538726807,
+						3.20094037055969,
+						3.06481337547302
+					],
+					"index": 0,
+					"physics_frames": 17,
+					"planned_distance_m": 0.935199737548828,
+					"remaining_m": 0.135198593139648,
+					"start": [
+						8.91242218017578,
+						3.20094037055969,
+						2.26488280296326
+					],
+					"status": "PASS",
+					"target": [
+						8.89999961853027,
+						3.20000004768372,
+						3.20000004768372
+					]
+				},
+				{
+					"end": [
+						9.99485492706299,
+						3.20094037055969,
+						3.18813729286194
+					],
+					"index": 1,
+					"physics_frames": 22,
+					"planned_distance_m": 1.20580697059631,
+					"remaining_m": 0.105812527239323,
+					"start": [
+						8.90179538726807,
+						3.20094037055969,
+						3.06481337547302
+					],
+					"status": "PASS",
+					"target": [
+						10.1000003814697,
+						3.20000004768372,
+						3.20000004768372
+					]
+				},
+				{
+					"end": [
+						10.4172792434692,
+						3.20094037055969,
+						1.85338711738586
+					],
+					"index": 2,
+					"physics_frames": 28,
+					"planned_distance_m": 1.50844156742096,
+					"remaining_m": 0.10844137519598,
+					"start": [
+						9.99485492706299,
+						3.20094037055969,
+						3.18813729286194
+					],
+					"status": "PASS",
+					"target": [
+						10.4499998092651,
+						3.20000004768372,
+						1.75
+					]
+				}
+			],
+			"maximum_vertical_drift_m": 0.000940322875976563,
+			"noclip": false,
+			"opening_id": "F02_SERVICE_HALL_CORE_OPENING",
+			"opening_plane_signed_finish_m": -0.917279243469238,
+			"opening_plane_signed_start_m": 0.587577819824219,
+			"physics_frames": 67,
+			"player_controller_physics": true,
+			"start": [
+				8.91242218017578,
+				3.20094037055969,
+				2.26488280296326
+			],
+			"status": "PASS",
+			"test_only_collision_removal": false,
+			"to_side": "core"
+		},
+		{
+			"autopilot_only": true,
+			"collision_enabled_fraction": 1.0,
+			"crossed_expected_opening_plane": true,
+			"direction": "F04_CORE_TO_HALL",
+			"elapsed_ms": 1048.043,
+			"finish": [
+				8.91216564178467,
+				9.60094165802002,
+				2.28848075866699
+			],
+			"floor": "F04",
+			"from_side": "core",
+			"grounded_fraction": 1.0,
+			"intermediate_teleports": 0,
+			"legs": [
+				{
+					"end": [
+						8.99531269073486,
+						9.60094165802002,
+						3.23483514785767
+					],
+					"index": 0,
+					"physics_frames": 48,
+					"planned_distance_m": 2.00384664535522,
+					"remaining_m": 0.101479388773441,
+					"start": [
+						10.4499998092651,
+						9.60000038146973,
+						4.47000026702881
+					],
+					"status": "PASS",
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						3.20000004768372
+					]
+				},
+				{
+					"end": [
+						8.91216564178467,
+						9.60094165802002,
+						2.28848075866699
+					],
+					"index": 1,
+					"physics_frames": 19,
+					"planned_distance_m": 1.08901405334473,
+					"remaining_m": 0.139014050364494,
+					"start": [
+						8.99531269073486,
+						9.60094165802002,
+						3.23483514785767
+					],
+					"status": "PASS",
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						2.15000009536743
+					]
+				}
+			],
+			"maximum_vertical_drift_m": 0.000941276550292969,
+			"noclip": false,
+			"opening_id": "F04_SERVICE_HALL_CORE_OPENING",
+			"opening_plane_signed_finish_m": 0.587834358215332,
+			"opening_plane_signed_start_m": -0.949999809265137,
+			"physics_frames": 67,
+			"player_controller_physics": true,
+			"start": [
+				10.4499998092651,
+				9.60000038146973,
+				4.47000026702881
+			],
+			"status": "PASS",
+			"test_only_collision_removal": false,
+			"to_side": "hall"
+		},
+		{
+			"autopilot_only": true,
+			"collision_enabled_fraction": 1.0,
+			"crossed_expected_opening_plane": true,
+			"direction": "F04_HALL_TO_CORE",
+			"elapsed_ms": 1010.815,
+			"finish": [
+				10.4141025543213,
+				9.60094165802002,
+				4.36865568161011
+			],
+			"floor": "F04",
+			"from_side": "hall",
+			"grounded_fraction": 1.0,
+			"intermediate_teleports": 0,
+			"legs": [
+				{
+					"end": [
+						8.90148830413818,
+						9.60094165802002,
+						3.08841133117676
+					],
+					"index": 0,
+					"physics_frames": 17,
+					"planned_distance_m": 0.911600470542908,
+					"remaining_m": 0.111598648130894,
+					"start": [
+						8.91216564178467,
+						9.60094165802002,
+						2.28848075866699
+					],
+					"status": "PASS",
+					"target": [
+						8.89999961853027,
+						9.60000038146973,
+						3.20000004768372
+					]
+				},
+				{
+					"end": [
+						9.996750831604,
+						9.60094165802002,
+						3.19038701057434
+					],
+					"index": 1,
+					"physics_frames": 22,
+					"planned_distance_m": 1.20369565486908,
+					"remaining_m": 0.103696092963219,
+					"start": [
+						8.90148830413818,
+						9.60094165802002,
+						3.08841133117676
+					],
+					"status": "PASS",
+					"target": [
+						10.1000003814697,
+						9.60000038146973,
+						3.20000004768372
+					]
+				},
+				{
+					"end": [
+						10.4141025543213,
+						9.60094165802002,
+						4.36865568161011
+					],
+					"index": 2,
+					"physics_frames": 25,
+					"planned_distance_m": 1.35751414299011,
+					"remaining_m": 0.10751436650753,
+					"start": [
+						9.996750831604,
+						9.60094165802002,
+						3.19038701057434
+					],
+					"status": "PASS",
+					"target": [
+						10.4499998092651,
+						9.60000038146973,
+						4.47000026702881
+					]
+				}
+			],
+			"maximum_vertical_drift_m": 0.000941276550292969,
+			"noclip": false,
+			"opening_id": "F04_SERVICE_HALL_CORE_OPENING",
+			"opening_plane_signed_finish_m": -0.914102554321289,
+			"opening_plane_signed_start_m": 0.587834358215332,
+			"physics_frames": 64,
+			"player_controller_physics": true,
+			"start": [
+				8.91216564178467,
+				9.60094165802002,
+				2.28848075866699
+			],
+			"status": "PASS",
+			"test_only_collision_removal": false,
+			"to_side": "core"
+		}
+	]
+}

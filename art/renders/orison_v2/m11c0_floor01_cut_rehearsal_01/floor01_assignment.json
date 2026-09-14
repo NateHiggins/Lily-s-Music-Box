@@ -1,0 +1,6342 @@
+{
+  "schema": "orison.m11c0.floor01-assignment.v1",
+  "status": "PASS",
+  "authority": "safe_current_partition only",
+  "target_partition_consumed": false,
+  "whole_node_only": true,
+  "spatial_primitive_splitting": false,
+  "cells": [
+    {
+      "id": "CELL_LEGACY_MIXED",
+      "slug": "legacy_mixed",
+      "node_count": 134,
+      "node_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        498,
+        499,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521,
+        522,
+        523,
+        524,
+        525,
+        526,
+        527,
+        528,
+        529,
+        530
+      ]
+    },
+    {
+      "id": "CELL_SITE_STREET_DEDICATED",
+      "slug": "site_street_dedicated",
+      "node_count": 8,
+      "node_indices": [
+        494,
+        495,
+        496,
+        497,
+        511,
+        512,
+        513,
+        514
+      ]
+    },
+    {
+      "id": "CELL_PASSAGE_PORTAL_PROXY",
+      "slug": "passage_portal_proxy",
+      "node_count": 12,
+      "node_indices": [
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163
+      ]
+    },
+    {
+      "id": "CELL_PASSAGE_SHELL",
+      "slug": "passage_shell",
+      "node_count": 20,
+      "node_indices": [
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183
+      ]
+    },
+    {
+      "id": "CELL_SHOP_BAR",
+      "slug": "shop_bar",
+      "node_count": 31,
+      "node_indices": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ]
+    },
+    {
+      "id": "CELL_SHOP_BODEGA",
+      "slug": "shop_bodega",
+      "node_count": 16,
+      "node_indices": [
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151
+      ]
+    },
+    {
+      "id": "CELL_SHOP_MODEL_LAUNDRY",
+      "slug": "shop_model_laundry",
+      "node_count": 32,
+      "node_indices": [
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313
+      ]
+    },
+    {
+      "id": "CELL_SHOP_SHOE_REBUILDING",
+      "slug": "shop_shoe_rebuilding",
+      "node_count": 20,
+      "node_indices": [
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493
+      ]
+    },
+    {
+      "id": "CELL_SHOP_KEYS_CUT",
+      "slug": "shop_keys_cut",
+      "node_count": 20,
+      "node_indices": [
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247
+      ]
+    },
+    {
+      "id": "CELL_SHOP_HARDWARE_PAINT",
+      "slug": "shop_hardware_paint",
+      "node_count": 21,
+      "node_indices": [
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227
+      ]
+    },
+    {
+      "id": "CELL_SHOP_FUNERAL_PARLOUR",
+      "slug": "shop_funeral_parlour",
+      "node_count": 23,
+      "node_indices": [
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206
+      ]
+    },
+    {
+      "id": "CELL_SHOP_PHOTO_SUPPLIES",
+      "slug": "shop_photo_supplies",
+      "node_count": 34,
+      "node_indices": [
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438
+      ]
+    },
+    {
+      "id": "CELL_SHOP_RADIO_SERVICE",
+      "slug": "shop_radio_service",
+      "node_count": 35,
+      "node_indices": [
+        439,
+        440,
+        441,
+        442,
+        443,
+        444,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471,
+        472,
+        473
+      ]
+    },
+    {
+      "id": "CELL_SHOP_PAWNBROKER",
+      "slug": "shop_pawnbroker",
+      "node_count": 34,
+      "node_indices": [
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        398,
+        399,
+        400,
+        401,
+        402,
+        403,
+        404
+      ]
+    },
+    {
+      "id": "CELL_SHOP_NEWS_CIGARS",
+      "slug": "shop_news_cigars",
+      "node_count": 27,
+      "node_indices": [
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340
+      ]
+    },
+    {
+      "id": "CELL_SHOP_OTIS_SON",
+      "slug": "shop_otis___son",
+      "node_count": 30,
+      "node_indices": [
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370
+      ]
+    },
+    {
+      "id": "CELL_SHOP_LUNCHEONETTE",
+      "slug": "shop_luncheonette",
+      "node_count": 34,
+      "node_indices": [
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "passage_proxy",
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "mode": "prefix",
+      "value": "F01_retail_passage_proxy_",
+      "order": 0
+    },
+    {
+      "id": "passage_shell",
+      "cell": "CELL_PASSAGE_SHELL",
+      "mode": "prefix",
+      "value": "F01_retail_passage_shell_",
+      "order": 1
+    },
+    {
+      "id": "bodega",
+      "cell": "CELL_SHOP_BODEGA",
+      "mode": "prefix",
+      "value": "F01_retail_bod_",
+      "order": 2
+    },
+    {
+      "id": "bar",
+      "cell": "CELL_SHOP_BAR",
+      "mode": "prefix",
+      "value": "F01_retail_bar_",
+      "order": 3
+    },
+    {
+      "id": "model_laundry",
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "mode": "prefix",
+      "value": "F01_retail_shop_model_laundry_",
+      "order": 4
+    },
+    {
+      "id": "shoe_rebuilding",
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "mode": "prefix",
+      "value": "F01_retail_shop_shoe_rebuilding_",
+      "order": 5
+    },
+    {
+      "id": "keys_cut",
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "mode": "prefix",
+      "value": "F01_retail_shop_keys_cut_",
+      "order": 6
+    },
+    {
+      "id": "hardware_paint",
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "mode": "prefix",
+      "value": "F01_retail_shop_hardware_paint_",
+      "order": 7
+    },
+    {
+      "id": "funeral_parlour",
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "mode": "prefix",
+      "value": "F01_retail_shop_funeral_parlour_",
+      "order": 8
+    },
+    {
+      "id": "photo_supplies",
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "mode": "prefix",
+      "value": "F01_retail_shop_photo_supplies_",
+      "order": 9
+    },
+    {
+      "id": "radio_service",
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "mode": "prefix",
+      "value": "F01_retail_shop_radio_service_",
+      "order": 10
+    },
+    {
+      "id": "pawnbroker",
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "mode": "prefix",
+      "value": "F01_retail_shop_pawnbroker_",
+      "order": 11
+    },
+    {
+      "id": "news_cigars",
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "mode": "prefix",
+      "value": "F01_retail_shop_news_cigars_",
+      "order": 12
+    },
+    {
+      "id": "otis_son",
+      "cell": "CELL_SHOP_OTIS_SON",
+      "mode": "prefix",
+      "value": "F01_retail_shop_otis___son_",
+      "order": 13
+    },
+    {
+      "id": "luncheonette",
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "mode": "prefix",
+      "value": "F01_retail_shop_luncheonette_",
+      "order": 14
+    },
+    {
+      "id": "site",
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "mode": "prefix",
+      "value": "F01_retail_site_",
+      "order": 15
+    },
+    {
+      "id": "transit",
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "mode": "prefix",
+      "value": "F01_transit_shelter_",
+      "order": 16
+    },
+    {
+      "id": "welded_or_unseparated_remainder",
+      "cell": "CELL_LEGACY_MIXED",
+      "mode": "fallback",
+      "value": true,
+      "order": 17
+    }
+  ],
+  "assignments": [
+    {
+      "node_index": 0,
+      "node": "F01_ceiling_plaster",
+      "mesh_index": 0,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 1,
+      "node": "F01_ceiling_plaster_stained",
+      "mesh_index": 1,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 2,
+      "node": "F01_ceiling_tin_ceiling",
+      "mesh_index": 2,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 3,
+      "node": "F01_facade_rainwater",
+      "mesh_index": 3,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 4,
+      "node": "F01_finish_f01_w00",
+      "mesh_index": 4,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 5,
+      "node": "F01_finish_f01_w01",
+      "mesh_index": 5,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 6,
+      "node": "F01_finish_f01_w02",
+      "mesh_index": 6,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 7,
+      "node": "F01_finish_f01_w03",
+      "mesh_index": 7,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 8,
+      "node": "F01_finish_f01_w04",
+      "mesh_index": 8,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 9,
+      "node": "F01_finish_f01_w05",
+      "mesh_index": 9,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 10,
+      "node": "F01_finish_f01_w06",
+      "mesh_index": 10,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 11,
+      "node": "F01_finish_f01_w07",
+      "mesh_index": 11,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 12,
+      "node": "F01_finish_f01_w08",
+      "mesh_index": 12,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 13,
+      "node": "F01_finish_f01_w09",
+      "mesh_index": 13,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 14,
+      "node": "F01_floors_ceramic",
+      "mesh_index": 14,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 15,
+      "node": "F01_floors_concrete",
+      "mesh_index": 15,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 16,
+      "node": "F01_floors_floor_oak",
+      "mesh_index": 16,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 17,
+      "node": "F01_floors_terrazzo",
+      "mesh_index": 17,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 18,
+      "node": "F01_furnish_bakelite",
+      "mesh_index": 18,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 19,
+      "node": "F01_furnish_bakelite_black",
+      "mesh_index": 19,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 20,
+      "node": "F01_furnish_book_brown",
+      "mesh_index": 20,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 21,
+      "node": "F01_furnish_book_burgundy",
+      "mesh_index": 21,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 22,
+      "node": "F01_furnish_book_green",
+      "mesh_index": 22,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 23,
+      "node": "F01_furnish_book_navy",
+      "mesh_index": 23,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 24,
+      "node": "F01_furnish_book_ochre",
+      "mesh_index": 24,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 25,
+      "node": "F01_furnish_book_teal",
+      "mesh_index": 25,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 26,
+      "node": "F01_furnish_brass",
+      "mesh_index": 26,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 27,
+      "node": "F01_furnish_brass_bright",
+      "mesh_index": 27,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 28,
+      "node": "F01_furnish_brass_dull",
+      "mesh_index": 28,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 29,
+      "node": "F01_furnish_brass_mesh",
+      "mesh_index": 29,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 30,
+      "node": "F01_furnish_bronze",
+      "mesh_index": 30,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 31,
+      "node": "F01_furnish_cast_iron",
+      "mesh_index": 31,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 32,
+      "node": "F01_furnish_ceramic",
+      "mesh_index": 32,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 33,
+      "node": "F01_furnish_chrome",
+      "mesh_index": 33,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 34,
+      "node": "F01_furnish_concrete",
+      "mesh_index": 34,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 35,
+      "node": "F01_furnish_countertop",
+      "mesh_index": 35,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 36,
+      "node": "F01_furnish_enamel",
+      "mesh_index": 36,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 37,
+      "node": "F01_furnish_fabric_cool",
+      "mesh_index": 37,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 38,
+      "node": "F01_furnish_fabric_green",
+      "mesh_index": 38,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 39,
+      "node": "F01_furnish_fabric_warm",
+      "mesh_index": 39,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 40,
+      "node": "F01_furnish_felt_violet",
+      "mesh_index": 40,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 41,
+      "node": "F01_furnish_floor_oak",
+      "mesh_index": 41,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 42,
+      "node": "F01_furnish_fx_shadow",
+      "mesh_index": 42,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 43,
+      "node": "F01_furnish_glassish",
+      "mesh_index": 43,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 44,
+      "node": "F01_furnish_handrail_wood",
+      "mesh_index": 44,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 45,
+      "node": "F01_furnish_hull-colonly",
+      "mesh_index": 45,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 46,
+      "node": "F01_furnish_lacquer_red",
+      "mesh_index": 46,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 47,
+      "node": "F01_furnish_linen",
+      "mesh_index": 47,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 48,
+      "node": "F01_furnish_metal",
+      "mesh_index": 48,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 49,
+      "node": "F01_furnish_milk_glass",
+      "mesh_index": 49,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 50,
+      "node": "F01_furnish_nickel_plated",
+      "mesh_index": 50,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 51,
+      "node": "F01_furnish_oak_quartered",
+      "mesh_index": 51,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 52,
+      "node": "F01_furnish_paper",
+      "mesh_index": 52,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 53,
+      "node": "F01_furnish_plant",
+      "mesh_index": 53,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 54,
+      "node": "F01_furnish_plywood",
+      "mesh_index": 54,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 55,
+      "node": "F01_furnish_porcelain",
+      "mesh_index": 55,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 56,
+      "node": "F01_furnish_rubber_aged",
+      "mesh_index": 56,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 57,
+      "node": "F01_furnish_rug_warm",
+      "mesh_index": 57,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 58,
+      "node": "F01_furnish_safety_orange",
+      "mesh_index": 58,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 59,
+      "node": "F01_furnish_screen",
+      "mesh_index": 59,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 60,
+      "node": "F01_furnish_soil",
+      "mesh_index": 60,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 61,
+      "node": "F01_furnish_soot",
+      "mesh_index": 61,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 62,
+      "node": "F01_furnish_stairwell_teal",
+      "mesh_index": 62,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 63,
+      "node": "F01_furnish_terracotta",
+      "mesh_index": 63,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 64,
+      "node": "F01_furnish_timber",
+      "mesh_index": 64,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 65,
+      "node": "F01_furnish_trim",
+      "mesh_index": 65,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 66,
+      "node": "F01_furnish_vinyl_oxblood",
+      "mesh_index": 66,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 67,
+      "node": "F01_furnish_wood_dark",
+      "mesh_index": 67,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 68,
+      "node": "F01_furniture_art",
+      "mesh_index": 68,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 69,
+      "node": "F01_furniture_asphalt-col",
+      "mesh_index": 69,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 70,
+      "node": "F01_furniture_blind_slat",
+      "mesh_index": 70,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 71,
+      "node": "F01_furniture_blind_slat-col",
+      "mesh_index": 71,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 72,
+      "node": "F01_furniture_brass-col",
+      "mesh_index": 72,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 73,
+      "node": "F01_furniture_brass_dull-col",
+      "mesh_index": 73,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 74,
+      "node": "F01_furniture_brass_mesh-col",
+      "mesh_index": 74,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 75,
+      "node": "F01_furniture_brick_patched-col",
+      "mesh_index": 75,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 76,
+      "node": "F01_furniture_bronze-col",
+      "mesh_index": 76,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 77,
+      "node": "F01_furniture_ceramic-col",
+      "mesh_index": 77,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 78,
+      "node": "F01_furniture_chrome-col",
+      "mesh_index": 78,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 79,
+      "node": "F01_furniture_common_brick-col",
+      "mesh_index": 79,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 80,
+      "node": "F01_furniture_concrete-col",
+      "mesh_index": 80,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 81,
+      "node": "F01_furniture_fabric_cool-col",
+      "mesh_index": 81,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 82,
+      "node": "F01_furniture_face_brick-col",
+      "mesh_index": 82,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 83,
+      "node": "F01_furniture_fx_damp-col",
+      "mesh_index": 83,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 84,
+      "node": "F01_furniture_fx_drip-col",
+      "mesh_index": 84,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 85,
+      "node": "F01_furniture_glassish-col",
+      "mesh_index": 85,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 86,
+      "node": "F01_furniture_indicator_enamel-col",
+      "mesh_index": 86,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 87,
+      "node": "F01_furniture_lacquer_red-col",
+      "mesh_index": 87,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 88,
+      "node": "F01_furniture_leaf_fall-col",
+      "mesh_index": 88,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 89,
+      "node": "F01_furniture_limestone-col",
+      "mesh_index": 89,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 90,
+      "node": "F01_furniture_linen-col",
+      "mesh_index": 90,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 91,
+      "node": "F01_furniture_linoleum-col",
+      "mesh_index": 91,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 92,
+      "node": "F01_furniture_metal-col",
+      "mesh_index": 92,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 93,
+      "node": "F01_furniture_puddle-col",
+      "mesh_index": 93,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 94,
+      "node": "F01_furniture_rug_warm-col",
+      "mesh_index": 94,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 95,
+      "node": "F01_furniture_sidewalk_grout-col",
+      "mesh_index": 95,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 96,
+      "node": "F01_furniture_sidewalk_haunted",
+      "mesh_index": 96,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 97,
+      "node": "F01_furniture_sidewalk_kerb-col",
+      "mesh_index": 97,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 98,
+      "node": "F01_furniture_soot-col",
+      "mesh_index": 98,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 99,
+      "node": "F01_furniture_timber-col",
+      "mesh_index": 99,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 100,
+      "node": "F01_furniture_trim-col",
+      "mesh_index": 100,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 101,
+      "node": "F01_furniture_wet_asphalt-col",
+      "mesh_index": 101,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 102,
+      "node": "F01_furniture_wood_dark-col",
+      "mesh_index": 102,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 103,
+      "node": "F01_fx_ao_decal",
+      "mesh_index": 103,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 104,
+      "node": "F01_glazing-col",
+      "mesh_index": 104,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 105,
+      "node": "F01_retail_bar_bakelite-col",
+      "mesh_index": 105,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 106,
+      "node": "F01_retail_bar_bakelite_black-col",
+      "mesh_index": 106,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 107,
+      "node": "F01_retail_bar_bar_wall-col",
+      "mesh_index": 107,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 108,
+      "node": "F01_retail_bar_bar_wall_red-col",
+      "mesh_index": 108,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 109,
+      "node": "F01_retail_bar_brass-col",
+      "mesh_index": 109,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 110,
+      "node": "F01_retail_bar_cast_iron-col",
+      "mesh_index": 110,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 111,
+      "node": "F01_retail_bar_chrome-col",
+      "mesh_index": 111,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 112,
+      "node": "F01_retail_bar_common_brick-col",
+      "mesh_index": 112,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 113,
+      "node": "F01_retail_bar_concrete-col",
+      "mesh_index": 113,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 114,
+      "node": "F01_retail_bar_countertop-col",
+      "mesh_index": 114,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 115,
+      "node": "F01_retail_bar_enamel-col",
+      "mesh_index": 115,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 116,
+      "node": "F01_retail_bar_fabric_green-col",
+      "mesh_index": 116,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 117,
+      "node": "F01_retail_bar_fabric_warm-col",
+      "mesh_index": 117,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 118,
+      "node": "F01_retail_bar_felt_violet-col",
+      "mesh_index": 118,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 119,
+      "node": "F01_retail_bar_glassish-col",
+      "mesh_index": 119,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 120,
+      "node": "F01_retail_bar_lacquer_red-col",
+      "mesh_index": 120,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 121,
+      "node": "F01_retail_bar_limestone-col",
+      "mesh_index": 121,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 122,
+      "node": "F01_retail_bar_linen-col",
+      "mesh_index": 122,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 123,
+      "node": "F01_retail_bar_metal-col",
+      "mesh_index": 123,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 124,
+      "node": "F01_retail_bar_mirror_aged-col",
+      "mesh_index": 124,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 125,
+      "node": "F01_retail_bar_oak_quartered-col",
+      "mesh_index": 125,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 126,
+      "node": "F01_retail_bar_paper-col",
+      "mesh_index": 126,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 127,
+      "node": "F01_retail_bar_plaster_stained-col",
+      "mesh_index": 127,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 128,
+      "node": "F01_retail_bar_quarry_tile-col",
+      "mesh_index": 128,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 129,
+      "node": "F01_retail_bar_rug_warm-col",
+      "mesh_index": 129,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 130,
+      "node": "F01_retail_bar_soot-col",
+      "mesh_index": 130,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 131,
+      "node": "F01_retail_bar_stairwell_teal-col",
+      "mesh_index": 131,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 132,
+      "node": "F01_retail_bar_terracotta-col",
+      "mesh_index": 132,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 133,
+      "node": "F01_retail_bar_timber-col",
+      "mesh_index": 133,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 134,
+      "node": "F01_retail_bar_wallpaper_old-col",
+      "mesh_index": 134,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 135,
+      "node": "F01_retail_bar_wood_dark-col",
+      "mesh_index": 135,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BAR",
+      "rule": "bar"
+    },
+    {
+      "node_index": 136,
+      "node": "F01_retail_bod_awning_vinyl-col",
+      "mesh_index": 136,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 137,
+      "node": "F01_retail_bod_bakelite-col",
+      "mesh_index": 137,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 138,
+      "node": "F01_retail_bod_brass-col",
+      "mesh_index": 138,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 139,
+      "node": "F01_retail_bod_chrome-col",
+      "mesh_index": 139,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 140,
+      "node": "F01_retail_bod_countertop-col",
+      "mesh_index": 140,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 141,
+      "node": "F01_retail_bod_enamel-col",
+      "mesh_index": 141,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 142,
+      "node": "F01_retail_bod_fabric_green-col",
+      "mesh_index": 142,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 143,
+      "node": "F01_retail_bod_glassish-col",
+      "mesh_index": 143,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 144,
+      "node": "F01_retail_bod_linoleum-col",
+      "mesh_index": 144,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 145,
+      "node": "F01_retail_bod_metal-col",
+      "mesh_index": 145,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 146,
+      "node": "F01_retail_bod_paper-col",
+      "mesh_index": 146,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 147,
+      "node": "F01_retail_bod_plaster-col",
+      "mesh_index": 147,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 148,
+      "node": "F01_retail_bod_plaster_stained-col",
+      "mesh_index": 148,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 149,
+      "node": "F01_retail_bod_safety_orange-col",
+      "mesh_index": 149,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 150,
+      "node": "F01_retail_bod_terracotta-col",
+      "mesh_index": 150,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 151,
+      "node": "F01_retail_bod_wood_dark-col",
+      "mesh_index": 151,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_BODEGA",
+      "rule": "bodega"
+    },
+    {
+      "node_index": 152,
+      "node": "F01_retail_passage_proxy_common_brick-col",
+      "mesh_index": 152,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 153,
+      "node": "F01_retail_passage_proxy_gateway_cast_iron",
+      "mesh_index": 153,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 154,
+      "node": "F01_retail_passage_proxy_gateway_cast_iron-col",
+      "mesh_index": 154,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 155,
+      "node": "F01_retail_passage_proxy_gateway_common_brick-col",
+      "mesh_index": 155,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 156,
+      "node": "F01_retail_passage_proxy_gateway_face_brick-col",
+      "mesh_index": 156,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 157,
+      "node": "F01_retail_passage_proxy_gateway_glassish-col",
+      "mesh_index": 157,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 158,
+      "node": "F01_retail_passage_proxy_gateway_limestone-col",
+      "mesh_index": 158,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 159,
+      "node": "F01_retail_passage_proxy_gateway_soot-col",
+      "mesh_index": 159,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 160,
+      "node": "F01_retail_passage_proxy_gateway_subway_tile-col",
+      "mesh_index": 160,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 161,
+      "node": "F01_retail_passage_proxy_glassish-col",
+      "mesh_index": 161,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 162,
+      "node": "F01_retail_passage_proxy_limestone-col",
+      "mesh_index": 162,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 163,
+      "node": "F01_retail_passage_proxy_metal-col",
+      "mesh_index": 163,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_PORTAL_PROXY",
+      "rule": "passage_proxy"
+    },
+    {
+      "node_index": 164,
+      "node": "F01_retail_passage_shell_bakelite_black-col",
+      "mesh_index": 164,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 165,
+      "node": "F01_retail_passage_shell_brass_dull",
+      "mesh_index": 165,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 166,
+      "node": "F01_retail_passage_shell_brass_dull-col",
+      "mesh_index": 166,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 167,
+      "node": "F01_retail_passage_shell_cast_iron",
+      "mesh_index": 167,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 168,
+      "node": "F01_retail_passage_shell_cast_iron-col",
+      "mesh_index": 168,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 169,
+      "node": "F01_retail_passage_shell_common_brick-col",
+      "mesh_index": 169,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 170,
+      "node": "F01_retail_passage_shell_concrete-col",
+      "mesh_index": 170,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 171,
+      "node": "F01_retail_passage_shell_glassish-col",
+      "mesh_index": 171,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 172,
+      "node": "F01_retail_passage_shell_limestone-col",
+      "mesh_index": 172,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 173,
+      "node": "F01_retail_passage_shell_metal",
+      "mesh_index": 173,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 174,
+      "node": "F01_retail_passage_shell_milk_glass-col",
+      "mesh_index": 174,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 175,
+      "node": "F01_retail_passage_shell_paper-col",
+      "mesh_index": 175,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 176,
+      "node": "F01_retail_passage_shell_plaster-col",
+      "mesh_index": 176,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 177,
+      "node": "F01_retail_passage_shell_plaster_stained-col",
+      "mesh_index": 177,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 178,
+      "node": "F01_retail_passage_shell_soot-col",
+      "mesh_index": 178,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 179,
+      "node": "F01_retail_passage_shell_terrazzo",
+      "mesh_index": 179,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 180,
+      "node": "F01_retail_passage_shell_terrazzo-col",
+      "mesh_index": 180,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 181,
+      "node": "F01_retail_passage_shell_terrazzo_dark",
+      "mesh_index": 181,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 182,
+      "node": "F01_retail_passage_shell_trim-col",
+      "mesh_index": 182,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 183,
+      "node": "F01_retail_passage_shell_wood_dark-col",
+      "mesh_index": 183,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_PASSAGE_SHELL",
+      "rule": "passage_shell"
+    },
+    {
+      "node_index": 184,
+      "node": "F01_retail_shop_funeral_parlour_awning_vinyl-col",
+      "mesh_index": 184,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 185,
+      "node": "F01_retail_shop_funeral_parlour_brass_bright-col",
+      "mesh_index": 185,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 186,
+      "node": "F01_retail_shop_funeral_parlour_brass_dull-col",
+      "mesh_index": 186,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 187,
+      "node": "F01_retail_shop_funeral_parlour_bronze-col",
+      "mesh_index": 187,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 188,
+      "node": "F01_retail_shop_funeral_parlour_concrete-col",
+      "mesh_index": 188,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 189,
+      "node": "F01_retail_shop_funeral_parlour_floor_oak-col",
+      "mesh_index": 189,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 190,
+      "node": "F01_retail_shop_funeral_parlour_glassish-col",
+      "mesh_index": 190,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 191,
+      "node": "F01_retail_shop_funeral_parlour_limestone-col",
+      "mesh_index": 191,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 192,
+      "node": "F01_retail_shop_funeral_parlour_linen-col",
+      "mesh_index": 192,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 193,
+      "node": "F01_retail_shop_funeral_parlour_metal-col",
+      "mesh_index": 193,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 194,
+      "node": "F01_retail_shop_funeral_parlour_milk_glass-col",
+      "mesh_index": 194,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 195,
+      "node": "F01_retail_shop_funeral_parlour_oak_quartered-col",
+      "mesh_index": 195,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 196,
+      "node": "F01_retail_shop_funeral_parlour_paper-col",
+      "mesh_index": 196,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 197,
+      "node": "F01_retail_shop_funeral_parlour_plant-col",
+      "mesh_index": 197,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 198,
+      "node": "F01_retail_shop_funeral_parlour_plaster-col",
+      "mesh_index": 198,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 199,
+      "node": "F01_retail_shop_funeral_parlour_plaster_stained-col",
+      "mesh_index": 199,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 200,
+      "node": "F01_retail_shop_funeral_parlour_plywood-col",
+      "mesh_index": 200,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 201,
+      "node": "F01_retail_shop_funeral_parlour_soot-col",
+      "mesh_index": 201,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 202,
+      "node": "F01_retail_shop_funeral_parlour_tin_ceiling-col",
+      "mesh_index": 202,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 203,
+      "node": "F01_retail_shop_funeral_parlour_trim-col",
+      "mesh_index": 203,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 204,
+      "node": "F01_retail_shop_funeral_parlour_vinyl_oxblood-col",
+      "mesh_index": 204,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 205,
+      "node": "F01_retail_shop_funeral_parlour_wainscot-col",
+      "mesh_index": 205,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 206,
+      "node": "F01_retail_shop_funeral_parlour_wood_dark-col",
+      "mesh_index": 206,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_FUNERAL_PARLOUR",
+      "rule": "funeral_parlour"
+    },
+    {
+      "node_index": 207,
+      "node": "F01_retail_shop_hardware_paint_book_teal-col",
+      "mesh_index": 207,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 208,
+      "node": "F01_retail_shop_hardware_paint_brass_bright-col",
+      "mesh_index": 208,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 209,
+      "node": "F01_retail_shop_hardware_paint_brass_dull-col",
+      "mesh_index": 209,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 210,
+      "node": "F01_retail_shop_hardware_paint_cast_iron-col",
+      "mesh_index": 210,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 211,
+      "node": "F01_retail_shop_hardware_paint_concrete-col",
+      "mesh_index": 211,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 212,
+      "node": "F01_retail_shop_hardware_paint_countertop-col",
+      "mesh_index": 212,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 213,
+      "node": "F01_retail_shop_hardware_paint_fabric_green-col",
+      "mesh_index": 213,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 214,
+      "node": "F01_retail_shop_hardware_paint_glassish-col",
+      "mesh_index": 214,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 215,
+      "node": "F01_retail_shop_hardware_paint_lacquer_red-col",
+      "mesh_index": 215,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 216,
+      "node": "F01_retail_shop_hardware_paint_metal-col",
+      "mesh_index": 216,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 217,
+      "node": "F01_retail_shop_hardware_paint_oak_quartered-col",
+      "mesh_index": 217,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 218,
+      "node": "F01_retail_shop_hardware_paint_paper-col",
+      "mesh_index": 218,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 219,
+      "node": "F01_retail_shop_hardware_paint_plaster-col",
+      "mesh_index": 219,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 220,
+      "node": "F01_retail_shop_hardware_paint_plaster_stained-col",
+      "mesh_index": 220,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 221,
+      "node": "F01_retail_shop_hardware_paint_plywood-col",
+      "mesh_index": 221,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 222,
+      "node": "F01_retail_shop_hardware_paint_safety_orange-col",
+      "mesh_index": 222,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 223,
+      "node": "F01_retail_shop_hardware_paint_soot-col",
+      "mesh_index": 223,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 224,
+      "node": "F01_retail_shop_hardware_paint_timber-col",
+      "mesh_index": 224,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 225,
+      "node": "F01_retail_shop_hardware_paint_trim-col",
+      "mesh_index": 225,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 226,
+      "node": "F01_retail_shop_hardware_paint_wainscot-col",
+      "mesh_index": 226,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 227,
+      "node": "F01_retail_shop_hardware_paint_wood_dark-col",
+      "mesh_index": 227,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_HARDWARE_PAINT",
+      "rule": "hardware_paint"
+    },
+    {
+      "node_index": 228,
+      "node": "F01_retail_shop_keys_cut_brass-col",
+      "mesh_index": 228,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 229,
+      "node": "F01_retail_shop_keys_cut_brass_bright-col",
+      "mesh_index": 229,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 230,
+      "node": "F01_retail_shop_keys_cut_brass_dull-col",
+      "mesh_index": 230,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 231,
+      "node": "F01_retail_shop_keys_cut_cast_iron-col",
+      "mesh_index": 231,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 232,
+      "node": "F01_retail_shop_keys_cut_chrome-col",
+      "mesh_index": 232,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 233,
+      "node": "F01_retail_shop_keys_cut_common_brick-col",
+      "mesh_index": 233,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 234,
+      "node": "F01_retail_shop_keys_cut_concrete-col",
+      "mesh_index": 234,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 235,
+      "node": "F01_retail_shop_keys_cut_countertop-col",
+      "mesh_index": 235,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 236,
+      "node": "F01_retail_shop_keys_cut_glassish-col",
+      "mesh_index": 236,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 237,
+      "node": "F01_retail_shop_keys_cut_linen-col",
+      "mesh_index": 237,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 238,
+      "node": "F01_retail_shop_keys_cut_metal-col",
+      "mesh_index": 238,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 239,
+      "node": "F01_retail_shop_keys_cut_paper-col",
+      "mesh_index": 239,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 240,
+      "node": "F01_retail_shop_keys_cut_plaster-col",
+      "mesh_index": 240,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 241,
+      "node": "F01_retail_shop_keys_cut_plaster_stained-col",
+      "mesh_index": 241,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 242,
+      "node": "F01_retail_shop_keys_cut_plywood-col",
+      "mesh_index": 242,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 243,
+      "node": "F01_retail_shop_keys_cut_timber-col",
+      "mesh_index": 243,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 244,
+      "node": "F01_retail_shop_keys_cut_trim-col",
+      "mesh_index": 244,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 245,
+      "node": "F01_retail_shop_keys_cut_vinyl_oxblood-col",
+      "mesh_index": 245,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 246,
+      "node": "F01_retail_shop_keys_cut_wainscot-col",
+      "mesh_index": 246,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 247,
+      "node": "F01_retail_shop_keys_cut_wood_dark-col",
+      "mesh_index": 247,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_KEYS_CUT",
+      "rule": "keys_cut"
+    },
+    {
+      "node_index": 248,
+      "node": "F01_retail_shop_luncheonette_awning_vinyl-col",
+      "mesh_index": 248,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 249,
+      "node": "F01_retail_shop_luncheonette_bakelite",
+      "mesh_index": 249,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 250,
+      "node": "F01_retail_shop_luncheonette_bakelite_black",
+      "mesh_index": 250,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 251,
+      "node": "F01_retail_shop_luncheonette_bakelite_black-col",
+      "mesh_index": 251,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 252,
+      "node": "F01_retail_shop_luncheonette_brass",
+      "mesh_index": 252,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 253,
+      "node": "F01_retail_shop_luncheonette_brass_bright-col",
+      "mesh_index": 253,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 254,
+      "node": "F01_retail_shop_luncheonette_brass_dull-col",
+      "mesh_index": 254,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 255,
+      "node": "F01_retail_shop_luncheonette_cast_iron-col",
+      "mesh_index": 255,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 256,
+      "node": "F01_retail_shop_luncheonette_chrome-col",
+      "mesh_index": 256,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 257,
+      "node": "F01_retail_shop_luncheonette_concrete-col",
+      "mesh_index": 257,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 258,
+      "node": "F01_retail_shop_luncheonette_countertop-col",
+      "mesh_index": 258,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 259,
+      "node": "F01_retail_shop_luncheonette_enamel",
+      "mesh_index": 259,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 260,
+      "node": "F01_retail_shop_luncheonette_enamel-col",
+      "mesh_index": 260,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 261,
+      "node": "F01_retail_shop_luncheonette_fabric_cool",
+      "mesh_index": 261,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 262,
+      "node": "F01_retail_shop_luncheonette_fx_shadow",
+      "mesh_index": 262,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 263,
+      "node": "F01_retail_shop_luncheonette_glassish-col",
+      "mesh_index": 263,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 264,
+      "node": "F01_retail_shop_luncheonette_hull-colonly",
+      "mesh_index": 264,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 265,
+      "node": "F01_retail_shop_luncheonette_lacquer_red-col",
+      "mesh_index": 265,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 266,
+      "node": "F01_retail_shop_luncheonette_marble_lobby-col",
+      "mesh_index": 266,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 267,
+      "node": "F01_retail_shop_luncheonette_metal-col",
+      "mesh_index": 267,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 268,
+      "node": "F01_retail_shop_luncheonette_milk_glass",
+      "mesh_index": 268,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 269,
+      "node": "F01_retail_shop_luncheonette_nickel_plated-col",
+      "mesh_index": 269,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 270,
+      "node": "F01_retail_shop_luncheonette_paper-col",
+      "mesh_index": 270,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 271,
+      "node": "F01_retail_shop_luncheonette_plaster-col",
+      "mesh_index": 271,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 272,
+      "node": "F01_retail_shop_luncheonette_plaster_stained-col",
+      "mesh_index": 272,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 273,
+      "node": "F01_retail_shop_luncheonette_screen",
+      "mesh_index": 273,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 274,
+      "node": "F01_retail_shop_luncheonette_terracotta",
+      "mesh_index": 274,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 275,
+      "node": "F01_retail_shop_luncheonette_terrazzo-col",
+      "mesh_index": 275,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 276,
+      "node": "F01_retail_shop_luncheonette_timber-col",
+      "mesh_index": 276,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 277,
+      "node": "F01_retail_shop_luncheonette_tin_ceiling-col",
+      "mesh_index": 277,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 278,
+      "node": "F01_retail_shop_luncheonette_trim-col",
+      "mesh_index": 278,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 279,
+      "node": "F01_retail_shop_luncheonette_vinyl_oxblood-col",
+      "mesh_index": 279,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 280,
+      "node": "F01_retail_shop_luncheonette_wainscot-col",
+      "mesh_index": 280,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 281,
+      "node": "F01_retail_shop_luncheonette_wood_dark-col",
+      "mesh_index": 281,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_LUNCHEONETTE",
+      "rule": "luncheonette"
+    },
+    {
+      "node_index": 282,
+      "node": "F01_retail_shop_model_laundry_awning_vinyl-col",
+      "mesh_index": 282,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 283,
+      "node": "F01_retail_shop_model_laundry_bakelite",
+      "mesh_index": 283,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 284,
+      "node": "F01_retail_shop_model_laundry_bakelite_black",
+      "mesh_index": 284,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 285,
+      "node": "F01_retail_shop_model_laundry_book_teal-col",
+      "mesh_index": 285,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 286,
+      "node": "F01_retail_shop_model_laundry_brass",
+      "mesh_index": 286,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 287,
+      "node": "F01_retail_shop_model_laundry_brass_bright-col",
+      "mesh_index": 287,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 288,
+      "node": "F01_retail_shop_model_laundry_brass_dull-col",
+      "mesh_index": 288,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 289,
+      "node": "F01_retail_shop_model_laundry_cast_iron-col",
+      "mesh_index": 289,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 290,
+      "node": "F01_retail_shop_model_laundry_chrome-col",
+      "mesh_index": 290,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 291,
+      "node": "F01_retail_shop_model_laundry_concrete-col",
+      "mesh_index": 291,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 292,
+      "node": "F01_retail_shop_model_laundry_countertop-col",
+      "mesh_index": 292,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 293,
+      "node": "F01_retail_shop_model_laundry_enamel",
+      "mesh_index": 293,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 294,
+      "node": "F01_retail_shop_model_laundry_fx_shadow",
+      "mesh_index": 294,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 295,
+      "node": "F01_retail_shop_model_laundry_glassish-col",
+      "mesh_index": 295,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 296,
+      "node": "F01_retail_shop_model_laundry_hull-colonly",
+      "mesh_index": 296,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 297,
+      "node": "F01_retail_shop_model_laundry_linen-col",
+      "mesh_index": 297,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 298,
+      "node": "F01_retail_shop_model_laundry_metal",
+      "mesh_index": 298,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 299,
+      "node": "F01_retail_shop_model_laundry_metal-col",
+      "mesh_index": 299,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 300,
+      "node": "F01_retail_shop_model_laundry_milk_glass",
+      "mesh_index": 300,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 301,
+      "node": "F01_retail_shop_model_laundry_paper-col",
+      "mesh_index": 301,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 302,
+      "node": "F01_retail_shop_model_laundry_plaster-col",
+      "mesh_index": 302,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 303,
+      "node": "F01_retail_shop_model_laundry_plaster_stained-col",
+      "mesh_index": 303,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 304,
+      "node": "F01_retail_shop_model_laundry_plywood-col",
+      "mesh_index": 304,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 305,
+      "node": "F01_retail_shop_model_laundry_quarry_tile-col",
+      "mesh_index": 305,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 306,
+      "node": "F01_retail_shop_model_laundry_rubber_aged-col",
+      "mesh_index": 306,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 307,
+      "node": "F01_retail_shop_model_laundry_screen",
+      "mesh_index": 307,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 308,
+      "node": "F01_retail_shop_model_laundry_terracotta",
+      "mesh_index": 308,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 309,
+      "node": "F01_retail_shop_model_laundry_timber-col",
+      "mesh_index": 309,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 310,
+      "node": "F01_retail_shop_model_laundry_trim-col",
+      "mesh_index": 310,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 311,
+      "node": "F01_retail_shop_model_laundry_wainscot-col",
+      "mesh_index": 311,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 312,
+      "node": "F01_retail_shop_model_laundry_wood_dark-col",
+      "mesh_index": 312,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 313,
+      "node": "F01_retail_shop_model_laundry_zinc_liner-col",
+      "mesh_index": 313,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_MODEL_LAUNDRY",
+      "rule": "model_laundry"
+    },
+    {
+      "node_index": 314,
+      "node": "F01_retail_shop_news_cigars_bakelite",
+      "mesh_index": 314,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 315,
+      "node": "F01_retail_shop_news_cigars_bakelite_black",
+      "mesh_index": 315,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 316,
+      "node": "F01_retail_shop_news_cigars_bakelite_black-col",
+      "mesh_index": 316,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 317,
+      "node": "F01_retail_shop_news_cigars_brass",
+      "mesh_index": 317,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 318,
+      "node": "F01_retail_shop_news_cigars_brass_bright-col",
+      "mesh_index": 318,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 319,
+      "node": "F01_retail_shop_news_cigars_brass_dull-col",
+      "mesh_index": 319,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 320,
+      "node": "F01_retail_shop_news_cigars_concrete-col",
+      "mesh_index": 320,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 321,
+      "node": "F01_retail_shop_news_cigars_countertop-col",
+      "mesh_index": 321,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 322,
+      "node": "F01_retail_shop_news_cigars_enamel",
+      "mesh_index": 322,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 323,
+      "node": "F01_retail_shop_news_cigars_fx_shadow",
+      "mesh_index": 323,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 324,
+      "node": "F01_retail_shop_news_cigars_glassish-col",
+      "mesh_index": 324,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 325,
+      "node": "F01_retail_shop_news_cigars_hull-colonly",
+      "mesh_index": 325,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 326,
+      "node": "F01_retail_shop_news_cigars_linoleum-col",
+      "mesh_index": 326,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 327,
+      "node": "F01_retail_shop_news_cigars_metal",
+      "mesh_index": 327,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 328,
+      "node": "F01_retail_shop_news_cigars_metal-col",
+      "mesh_index": 328,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 329,
+      "node": "F01_retail_shop_news_cigars_milk_glass",
+      "mesh_index": 329,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 330,
+      "node": "F01_retail_shop_news_cigars_paper-col",
+      "mesh_index": 330,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 331,
+      "node": "F01_retail_shop_news_cigars_plaster-col",
+      "mesh_index": 331,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 332,
+      "node": "F01_retail_shop_news_cigars_plaster_stained-col",
+      "mesh_index": 332,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 333,
+      "node": "F01_retail_shop_news_cigars_safety_orange-col",
+      "mesh_index": 333,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 334,
+      "node": "F01_retail_shop_news_cigars_screen",
+      "mesh_index": 334,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 335,
+      "node": "F01_retail_shop_news_cigars_soot-col",
+      "mesh_index": 335,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 336,
+      "node": "F01_retail_shop_news_cigars_terracotta",
+      "mesh_index": 336,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 337,
+      "node": "F01_retail_shop_news_cigars_timber-col",
+      "mesh_index": 337,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 338,
+      "node": "F01_retail_shop_news_cigars_trim-col",
+      "mesh_index": 338,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 339,
+      "node": "F01_retail_shop_news_cigars_wainscot-col",
+      "mesh_index": 339,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 340,
+      "node": "F01_retail_shop_news_cigars_wood_dark-col",
+      "mesh_index": 340,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_NEWS_CIGARS",
+      "rule": "news_cigars"
+    },
+    {
+      "node_index": 341,
+      "node": "F01_retail_shop_otis___son_awning_vinyl-col",
+      "mesh_index": 341,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 342,
+      "node": "F01_retail_shop_otis___son_bakelite_black-col",
+      "mesh_index": 342,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 343,
+      "node": "F01_retail_shop_otis___son_book_ochre-col",
+      "mesh_index": 343,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 344,
+      "node": "F01_retail_shop_otis___son_book_teal-col",
+      "mesh_index": 344,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 345,
+      "node": "F01_retail_shop_otis___son_brass_bright-col",
+      "mesh_index": 345,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 346,
+      "node": "F01_retail_shop_otis___son_brass_dull-col",
+      "mesh_index": 346,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 347,
+      "node": "F01_retail_shop_otis___son_bronze-col",
+      "mesh_index": 347,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 348,
+      "node": "F01_retail_shop_otis___son_chrome-col",
+      "mesh_index": 348,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 349,
+      "node": "F01_retail_shop_otis___son_concrete-col",
+      "mesh_index": 349,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 350,
+      "node": "F01_retail_shop_otis___son_countertop-col",
+      "mesh_index": 350,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 351,
+      "node": "F01_retail_shop_otis___son_fabric_green-col",
+      "mesh_index": 351,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 352,
+      "node": "F01_retail_shop_otis___son_glassish-col",
+      "mesh_index": 352,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 353,
+      "node": "F01_retail_shop_otis___son_lacquer_red-col",
+      "mesh_index": 353,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 354,
+      "node": "F01_retail_shop_otis___son_limestone-col",
+      "mesh_index": 354,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 355,
+      "node": "F01_retail_shop_otis___son_marble_lobby-col",
+      "mesh_index": 355,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 356,
+      "node": "F01_retail_shop_otis___son_metal-col",
+      "mesh_index": 356,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 357,
+      "node": "F01_retail_shop_otis___son_milk_glass-col",
+      "mesh_index": 357,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 358,
+      "node": "F01_retail_shop_otis___son_oak_quartered-col",
+      "mesh_index": 358,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 359,
+      "node": "F01_retail_shop_otis___son_paper-col",
+      "mesh_index": 359,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 360,
+      "node": "F01_retail_shop_otis___son_plaster-col",
+      "mesh_index": 360,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 361,
+      "node": "F01_retail_shop_otis___son_plaster_stained-col",
+      "mesh_index": 361,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 362,
+      "node": "F01_retail_shop_otis___son_plywood-col",
+      "mesh_index": 362,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 363,
+      "node": "F01_retail_shop_otis___son_porcelain-col",
+      "mesh_index": 363,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 364,
+      "node": "F01_retail_shop_otis___son_terrazzo-col",
+      "mesh_index": 364,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 365,
+      "node": "F01_retail_shop_otis___son_timber-col",
+      "mesh_index": 365,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 366,
+      "node": "F01_retail_shop_otis___son_tin_ceiling-col",
+      "mesh_index": 366,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 367,
+      "node": "F01_retail_shop_otis___son_trim-col",
+      "mesh_index": 367,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 368,
+      "node": "F01_retail_shop_otis___son_vinyl_oxblood-col",
+      "mesh_index": 368,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 369,
+      "node": "F01_retail_shop_otis___son_wainscot-col",
+      "mesh_index": 369,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 370,
+      "node": "F01_retail_shop_otis___son_wood_dark-col",
+      "mesh_index": 370,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_OTIS_SON",
+      "rule": "otis_son"
+    },
+    {
+      "node_index": 371,
+      "node": "F01_retail_shop_pawnbroker_bakelite",
+      "mesh_index": 371,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 372,
+      "node": "F01_retail_shop_pawnbroker_bakelite_black",
+      "mesh_index": 372,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 373,
+      "node": "F01_retail_shop_pawnbroker_bakelite_black-col",
+      "mesh_index": 373,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 374,
+      "node": "F01_retail_shop_pawnbroker_brass",
+      "mesh_index": 374,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 375,
+      "node": "F01_retail_shop_pawnbroker_brass_bright-col",
+      "mesh_index": 375,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 376,
+      "node": "F01_retail_shop_pawnbroker_brass_dull-col",
+      "mesh_index": 376,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 377,
+      "node": "F01_retail_shop_pawnbroker_brass_mesh-col",
+      "mesh_index": 377,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 378,
+      "node": "F01_retail_shop_pawnbroker_bronze-col",
+      "mesh_index": 378,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 379,
+      "node": "F01_retail_shop_pawnbroker_cast_iron-col",
+      "mesh_index": 379,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 380,
+      "node": "F01_retail_shop_pawnbroker_common_brick-col",
+      "mesh_index": 380,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 381,
+      "node": "F01_retail_shop_pawnbroker_concrete-col",
+      "mesh_index": 381,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 382,
+      "node": "F01_retail_shop_pawnbroker_countertop-col",
+      "mesh_index": 382,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 383,
+      "node": "F01_retail_shop_pawnbroker_enamel",
+      "mesh_index": 383,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 384,
+      "node": "F01_retail_shop_pawnbroker_enamel-col",
+      "mesh_index": 384,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 385,
+      "node": "F01_retail_shop_pawnbroker_fabric_cool",
+      "mesh_index": 385,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 386,
+      "node": "F01_retail_shop_pawnbroker_fabric_warm-col",
+      "mesh_index": 386,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 387,
+      "node": "F01_retail_shop_pawnbroker_floor_oak-col",
+      "mesh_index": 387,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 388,
+      "node": "F01_retail_shop_pawnbroker_fx_shadow",
+      "mesh_index": 388,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 389,
+      "node": "F01_retail_shop_pawnbroker_glassish-col",
+      "mesh_index": 389,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 390,
+      "node": "F01_retail_shop_pawnbroker_hull-colonly",
+      "mesh_index": 390,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 391,
+      "node": "F01_retail_shop_pawnbroker_linen-col",
+      "mesh_index": 391,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 392,
+      "node": "F01_retail_shop_pawnbroker_metal-col",
+      "mesh_index": 392,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 393,
+      "node": "F01_retail_shop_pawnbroker_milk_glass",
+      "mesh_index": 393,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 394,
+      "node": "F01_retail_shop_pawnbroker_paper-col",
+      "mesh_index": 394,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 395,
+      "node": "F01_retail_shop_pawnbroker_plaster-col",
+      "mesh_index": 395,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 396,
+      "node": "F01_retail_shop_pawnbroker_plaster_stained-col",
+      "mesh_index": 396,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 397,
+      "node": "F01_retail_shop_pawnbroker_plywood-col",
+      "mesh_index": 397,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 398,
+      "node": "F01_retail_shop_pawnbroker_screen",
+      "mesh_index": 398,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 399,
+      "node": "F01_retail_shop_pawnbroker_terracotta",
+      "mesh_index": 399,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 400,
+      "node": "F01_retail_shop_pawnbroker_timber-col",
+      "mesh_index": 400,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 401,
+      "node": "F01_retail_shop_pawnbroker_tin_ceiling-col",
+      "mesh_index": 401,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 402,
+      "node": "F01_retail_shop_pawnbroker_trim-col",
+      "mesh_index": 402,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 403,
+      "node": "F01_retail_shop_pawnbroker_wainscot-col",
+      "mesh_index": 403,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 404,
+      "node": "F01_retail_shop_pawnbroker_wood_dark-col",
+      "mesh_index": 404,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PAWNBROKER",
+      "rule": "pawnbroker"
+    },
+    {
+      "node_index": 405,
+      "node": "F01_retail_shop_photo_supplies_awning_vinyl-col",
+      "mesh_index": 405,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 406,
+      "node": "F01_retail_shop_photo_supplies_bakelite",
+      "mesh_index": 406,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 407,
+      "node": "F01_retail_shop_photo_supplies_bakelite_black",
+      "mesh_index": 407,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 408,
+      "node": "F01_retail_shop_photo_supplies_bakelite_black-col",
+      "mesh_index": 408,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 409,
+      "node": "F01_retail_shop_photo_supplies_book_ochre-col",
+      "mesh_index": 409,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 410,
+      "node": "F01_retail_shop_photo_supplies_book_teal-col",
+      "mesh_index": 410,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 411,
+      "node": "F01_retail_shop_photo_supplies_brass",
+      "mesh_index": 411,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 412,
+      "node": "F01_retail_shop_photo_supplies_brass_bright-col",
+      "mesh_index": 412,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 413,
+      "node": "F01_retail_shop_photo_supplies_brass_dull-col",
+      "mesh_index": 413,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 414,
+      "node": "F01_retail_shop_photo_supplies_cast_iron-col",
+      "mesh_index": 414,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 415,
+      "node": "F01_retail_shop_photo_supplies_chrome",
+      "mesh_index": 415,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 416,
+      "node": "F01_retail_shop_photo_supplies_concrete-col",
+      "mesh_index": 416,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 417,
+      "node": "F01_retail_shop_photo_supplies_enamel",
+      "mesh_index": 417,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 418,
+      "node": "F01_retail_shop_photo_supplies_enamel-col",
+      "mesh_index": 418,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 419,
+      "node": "F01_retail_shop_photo_supplies_felt_violet-col",
+      "mesh_index": 419,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 420,
+      "node": "F01_retail_shop_photo_supplies_fx_shadow",
+      "mesh_index": 420,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 421,
+      "node": "F01_retail_shop_photo_supplies_glassish-col",
+      "mesh_index": 421,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 422,
+      "node": "F01_retail_shop_photo_supplies_hull-colonly",
+      "mesh_index": 422,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 423,
+      "node": "F01_retail_shop_photo_supplies_lacquer_red-col",
+      "mesh_index": 423,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 424,
+      "node": "F01_retail_shop_photo_supplies_linoleum-col",
+      "mesh_index": 424,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 425,
+      "node": "F01_retail_shop_photo_supplies_metal-col",
+      "mesh_index": 425,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 426,
+      "node": "F01_retail_shop_photo_supplies_milk_glass",
+      "mesh_index": 426,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 427,
+      "node": "F01_retail_shop_photo_supplies_nickel_plated-col",
+      "mesh_index": 427,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 428,
+      "node": "F01_retail_shop_photo_supplies_paper-col",
+      "mesh_index": 428,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 429,
+      "node": "F01_retail_shop_photo_supplies_plaster-col",
+      "mesh_index": 429,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 430,
+      "node": "F01_retail_shop_photo_supplies_plaster_stained-col",
+      "mesh_index": 430,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 431,
+      "node": "F01_retail_shop_photo_supplies_plywood-col",
+      "mesh_index": 431,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 432,
+      "node": "F01_retail_shop_photo_supplies_screen",
+      "mesh_index": 432,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 433,
+      "node": "F01_retail_shop_photo_supplies_terracotta",
+      "mesh_index": 433,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 434,
+      "node": "F01_retail_shop_photo_supplies_timber-col",
+      "mesh_index": 434,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 435,
+      "node": "F01_retail_shop_photo_supplies_tin_ceiling-col",
+      "mesh_index": 435,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 436,
+      "node": "F01_retail_shop_photo_supplies_trim-col",
+      "mesh_index": 436,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 437,
+      "node": "F01_retail_shop_photo_supplies_wainscot-col",
+      "mesh_index": 437,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 438,
+      "node": "F01_retail_shop_photo_supplies_wood_dark-col",
+      "mesh_index": 438,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_PHOTO_SUPPLIES",
+      "rule": "photo_supplies"
+    },
+    {
+      "node_index": 439,
+      "node": "F01_retail_shop_radio_service_appliance-col",
+      "mesh_index": 439,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 440,
+      "node": "F01_retail_shop_radio_service_awning_vinyl-col",
+      "mesh_index": 440,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 441,
+      "node": "F01_retail_shop_radio_service_bakelite",
+      "mesh_index": 441,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 442,
+      "node": "F01_retail_shop_radio_service_bakelite_black",
+      "mesh_index": 442,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 443,
+      "node": "F01_retail_shop_radio_service_bakelite_black-col",
+      "mesh_index": 443,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 444,
+      "node": "F01_retail_shop_radio_service_brass",
+      "mesh_index": 444,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 445,
+      "node": "F01_retail_shop_radio_service_brass_bright-col",
+      "mesh_index": 445,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 446,
+      "node": "F01_retail_shop_radio_service_brass_dull-col",
+      "mesh_index": 446,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 447,
+      "node": "F01_retail_shop_radio_service_cast_iron-col",
+      "mesh_index": 447,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 448,
+      "node": "F01_retail_shop_radio_service_chrome",
+      "mesh_index": 448,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 449,
+      "node": "F01_retail_shop_radio_service_concrete-col",
+      "mesh_index": 449,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 450,
+      "node": "F01_retail_shop_radio_service_copper_aged-col",
+      "mesh_index": 450,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 451,
+      "node": "F01_retail_shop_radio_service_countertop-col",
+      "mesh_index": 451,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 452,
+      "node": "F01_retail_shop_radio_service_enamel",
+      "mesh_index": 452,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 453,
+      "node": "F01_retail_shop_radio_service_fabric_warm-col",
+      "mesh_index": 453,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 454,
+      "node": "F01_retail_shop_radio_service_fx_shadow",
+      "mesh_index": 454,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 455,
+      "node": "F01_retail_shop_radio_service_glassish-col",
+      "mesh_index": 455,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 456,
+      "node": "F01_retail_shop_radio_service_hull-colonly",
+      "mesh_index": 456,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 457,
+      "node": "F01_retail_shop_radio_service_linoleum-col",
+      "mesh_index": 457,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 458,
+      "node": "F01_retail_shop_radio_service_metal-col",
+      "mesh_index": 458,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 459,
+      "node": "F01_retail_shop_radio_service_milk_glass",
+      "mesh_index": 459,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 460,
+      "node": "F01_retail_shop_radio_service_milk_glass-col",
+      "mesh_index": 460,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 461,
+      "node": "F01_retail_shop_radio_service_nickel_plated-col",
+      "mesh_index": 461,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 462,
+      "node": "F01_retail_shop_radio_service_paper-col",
+      "mesh_index": 462,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 463,
+      "node": "F01_retail_shop_radio_service_plaster-col",
+      "mesh_index": 463,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 464,
+      "node": "F01_retail_shop_radio_service_plaster_stained-col",
+      "mesh_index": 464,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 465,
+      "node": "F01_retail_shop_radio_service_plywood-col",
+      "mesh_index": 465,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 466,
+      "node": "F01_retail_shop_radio_service_screen",
+      "mesh_index": 466,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 467,
+      "node": "F01_retail_shop_radio_service_screen-col",
+      "mesh_index": 467,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 468,
+      "node": "F01_retail_shop_radio_service_stairwell_teal-col",
+      "mesh_index": 468,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 469,
+      "node": "F01_retail_shop_radio_service_terracotta",
+      "mesh_index": 469,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 470,
+      "node": "F01_retail_shop_radio_service_timber-col",
+      "mesh_index": 470,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 471,
+      "node": "F01_retail_shop_radio_service_trim-col",
+      "mesh_index": 471,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 472,
+      "node": "F01_retail_shop_radio_service_wainscot-col",
+      "mesh_index": 472,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 473,
+      "node": "F01_retail_shop_radio_service_wood_dark-col",
+      "mesh_index": 473,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_RADIO_SERVICE",
+      "rule": "radio_service"
+    },
+    {
+      "node_index": 474,
+      "node": "F01_retail_shop_shoe_rebuilding_brass_bright-col",
+      "mesh_index": 474,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 475,
+      "node": "F01_retail_shop_shoe_rebuilding_brass_dull-col",
+      "mesh_index": 475,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 476,
+      "node": "F01_retail_shop_shoe_rebuilding_cast_iron-col",
+      "mesh_index": 476,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 477,
+      "node": "F01_retail_shop_shoe_rebuilding_concrete-col",
+      "mesh_index": 477,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 478,
+      "node": "F01_retail_shop_shoe_rebuilding_countertop-col",
+      "mesh_index": 478,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 479,
+      "node": "F01_retail_shop_shoe_rebuilding_floor_oak-col",
+      "mesh_index": 479,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 480,
+      "node": "F01_retail_shop_shoe_rebuilding_glassish-col",
+      "mesh_index": 480,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 481,
+      "node": "F01_retail_shop_shoe_rebuilding_lacquer_red-col",
+      "mesh_index": 481,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 482,
+      "node": "F01_retail_shop_shoe_rebuilding_metal-col",
+      "mesh_index": 482,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 483,
+      "node": "F01_retail_shop_shoe_rebuilding_paper-col",
+      "mesh_index": 483,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 484,
+      "node": "F01_retail_shop_shoe_rebuilding_plaster-col",
+      "mesh_index": 484,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 485,
+      "node": "F01_retail_shop_shoe_rebuilding_plaster_stained-col",
+      "mesh_index": 485,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 486,
+      "node": "F01_retail_shop_shoe_rebuilding_plywood-col",
+      "mesh_index": 486,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 487,
+      "node": "F01_retail_shop_shoe_rebuilding_rubber_aged-col",
+      "mesh_index": 487,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 488,
+      "node": "F01_retail_shop_shoe_rebuilding_soot-col",
+      "mesh_index": 488,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 489,
+      "node": "F01_retail_shop_shoe_rebuilding_timber-col",
+      "mesh_index": 489,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 490,
+      "node": "F01_retail_shop_shoe_rebuilding_trim-col",
+      "mesh_index": 490,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 491,
+      "node": "F01_retail_shop_shoe_rebuilding_vinyl_oxblood-col",
+      "mesh_index": 491,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 492,
+      "node": "F01_retail_shop_shoe_rebuilding_wainscot-col",
+      "mesh_index": 492,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 493,
+      "node": "F01_retail_shop_shoe_rebuilding_wood_dark-col",
+      "mesh_index": 493,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SHOP_SHOE_REBUILDING",
+      "rule": "shoe_rebuilding"
+    },
+    {
+      "node_index": 494,
+      "node": "F01_retail_site_metal-col",
+      "mesh_index": 494,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "rule": "site"
+    },
+    {
+      "node_index": 495,
+      "node": "F01_retail_site_plywood-col",
+      "mesh_index": 495,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "rule": "site"
+    },
+    {
+      "node_index": 496,
+      "node": "F01_retail_site_road_paint-col",
+      "mesh_index": 496,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "rule": "site"
+    },
+    {
+      "node_index": 497,
+      "node": "F01_retail_site_soot-col",
+      "mesh_index": 497,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "rule": "site"
+    },
+    {
+      "node_index": 498,
+      "node": "F01_sash-col",
+      "mesh_index": 498,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 499,
+      "node": "F01_slabs-col",
+      "mesh_index": 499,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 500,
+      "node": "F01_stairs",
+      "mesh_index": 500,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 501,
+      "node": "F01_stairs_bal",
+      "mesh_index": 501,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 502,
+      "node": "F01_stairs_brass",
+      "mesh_index": 502,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 503,
+      "node": "F01_stairs_guard-colonly",
+      "mesh_index": 503,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 504,
+      "node": "F01_stairs_iron",
+      "mesh_index": 504,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 505,
+      "node": "F01_stairs_landing",
+      "mesh_index": 505,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 506,
+      "node": "F01_stairs_rail",
+      "mesh_index": 506,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 507,
+      "node": "F01_stairs_ramp-colonly",
+      "mesh_index": 507,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 508,
+      "node": "F01_stairs_soffit_failed",
+      "mesh_index": 508,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 509,
+      "node": "F01_stairs_treads",
+      "mesh_index": 509,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 510,
+      "node": "F01_stone_trim-col",
+      "mesh_index": 510,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 511,
+      "node": "F01_transit_shelter_cast_iron-col",
+      "mesh_index": 511,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "rule": "transit"
+    },
+    {
+      "node_index": 512,
+      "node": "F01_transit_shelter_glassish-col",
+      "mesh_index": 512,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "rule": "transit"
+    },
+    {
+      "node_index": 513,
+      "node": "F01_transit_shelter_timber-col",
+      "mesh_index": 513,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "rule": "transit"
+    },
+    {
+      "node_index": 514,
+      "node": "F01_transit_shelter_zinc_liner-col",
+      "mesh_index": 514,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_SITE_STREET_DEDICATED",
+      "rule": "transit"
+    },
+    {
+      "node_index": 515,
+      "node": "F01_trim",
+      "mesh_index": 515,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 516,
+      "node": "F01_vent_register_screws",
+      "mesh_index": 516,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 517,
+      "node": "F01_vent_register_throat",
+      "mesh_index": 517,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 518,
+      "node": "F01_vent_register_trim",
+      "mesh_index": 518,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 519,
+      "node": "F01_wainscot_marble_lobby",
+      "mesh_index": 519,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 520,
+      "node": "F01_wainscot_subway_tile",
+      "mesh_index": 520,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 521,
+      "node": "F01_wainscot_wainscot",
+      "mesh_index": 521,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 522,
+      "node": "F01_walls-col",
+      "mesh_index": 522,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 523,
+      "node": "F01_walls_cbrick-col",
+      "mesh_index": 523,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 524,
+      "node": "F01_walls_conc-col",
+      "mesh_index": 524,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 525,
+      "node": "F01_walls_fbrick-col",
+      "mesh_index": 525,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 526,
+      "node": "F01_wear_ceiling_fx_drip",
+      "mesh_index": 526,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 527,
+      "node": "F01_wear_fx_drip",
+      "mesh_index": 527,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 528,
+      "node": "F01_wear_fx_grease",
+      "mesh_index": 528,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 529,
+      "node": "F01_wear_fx_scuff",
+      "mesh_index": 529,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    },
+    {
+      "node_index": 530,
+      "node": "F01_wear_fx_traffic",
+      "mesh_index": 530,
+      "primitive_indices": [
+        0
+      ],
+      "cell": "CELL_LEGACY_MIXED",
+      "rule": "welded_or_unseparated_remainder"
+    }
+  ],
+  "ambiguous": [],
+  "unassigned": [],
+  "duplicate_assignments": [],
+  "ownership_totals": {
+    "source_nodes": 531,
+    "assigned_nodes": 531,
+    "source_meshes": 531,
+    "assigned_meshes": 531,
+    "source_primitives": 531,
+    "assigned_primitives": 531,
+    "all_exactly_once": true
+  },
+  "legacy_mixed": {
+    "required": true,
+    "cell": "CELL_LEGACY_MIXED",
+    "node_count": 134,
+    "node_names": [
+      "F01_ceiling_plaster",
+      "F01_ceiling_plaster_stained",
+      "F01_ceiling_tin_ceiling",
+      "F01_facade_rainwater",
+      "F01_finish_f01_w00",
+      "F01_finish_f01_w01",
+      "F01_finish_f01_w02",
+      "F01_finish_f01_w03",
+      "F01_finish_f01_w04",
+      "F01_finish_f01_w05",
+      "F01_finish_f01_w06",
+      "F01_finish_f01_w07",
+      "F01_finish_f01_w08",
+      "F01_finish_f01_w09",
+      "F01_floors_ceramic",
+      "F01_floors_concrete",
+      "F01_floors_floor_oak",
+      "F01_floors_terrazzo",
+      "F01_furnish_bakelite",
+      "F01_furnish_bakelite_black",
+      "F01_furnish_book_brown",
+      "F01_furnish_book_burgundy",
+      "F01_furnish_book_green",
+      "F01_furnish_book_navy",
+      "F01_furnish_book_ochre",
+      "F01_furnish_book_teal",
+      "F01_furnish_brass",
+      "F01_furnish_brass_bright",
+      "F01_furnish_brass_dull",
+      "F01_furnish_brass_mesh",
+      "F01_furnish_bronze",
+      "F01_furnish_cast_iron",
+      "F01_furnish_ceramic",
+      "F01_furnish_chrome",
+      "F01_furnish_concrete",
+      "F01_furnish_countertop",
+      "F01_furnish_enamel",
+      "F01_furnish_fabric_cool",
+      "F01_furnish_fabric_green",
+      "F01_furnish_fabric_warm",
+      "F01_furnish_felt_violet",
+      "F01_furnish_floor_oak",
+      "F01_furnish_fx_shadow",
+      "F01_furnish_glassish",
+      "F01_furnish_handrail_wood",
+      "F01_furnish_hull-colonly",
+      "F01_furnish_lacquer_red",
+      "F01_furnish_linen",
+      "F01_furnish_metal",
+      "F01_furnish_milk_glass",
+      "F01_furnish_nickel_plated",
+      "F01_furnish_oak_quartered",
+      "F01_furnish_paper",
+      "F01_furnish_plant",
+      "F01_furnish_plywood",
+      "F01_furnish_porcelain",
+      "F01_furnish_rubber_aged",
+      "F01_furnish_rug_warm",
+      "F01_furnish_safety_orange",
+      "F01_furnish_screen",
+      "F01_furnish_soil",
+      "F01_furnish_soot",
+      "F01_furnish_stairwell_teal",
+      "F01_furnish_terracotta",
+      "F01_furnish_timber",
+      "F01_furnish_trim",
+      "F01_furnish_vinyl_oxblood",
+      "F01_furnish_wood_dark",
+      "F01_furniture_art",
+      "F01_furniture_asphalt-col",
+      "F01_furniture_blind_slat",
+      "F01_furniture_blind_slat-col",
+      "F01_furniture_brass-col",
+      "F01_furniture_brass_dull-col",
+      "F01_furniture_brass_mesh-col",
+      "F01_furniture_brick_patched-col",
+      "F01_furniture_bronze-col",
+      "F01_furniture_ceramic-col",
+      "F01_furniture_chrome-col",
+      "F01_furniture_common_brick-col",
+      "F01_furniture_concrete-col",
+      "F01_furniture_fabric_cool-col",
+      "F01_furniture_face_brick-col",
+      "F01_furniture_fx_damp-col",
+      "F01_furniture_fx_drip-col",
+      "F01_furniture_glassish-col",
+      "F01_furniture_indicator_enamel-col",
+      "F01_furniture_lacquer_red-col",
+      "F01_furniture_leaf_fall-col",
+      "F01_furniture_limestone-col",
+      "F01_furniture_linen-col",
+      "F01_furniture_linoleum-col",
+      "F01_furniture_metal-col",
+      "F01_furniture_puddle-col",
+      "F01_furniture_rug_warm-col",
+      "F01_furniture_sidewalk_grout-col",
+      "F01_furniture_sidewalk_haunted",
+      "F01_furniture_sidewalk_kerb-col",
+      "F01_furniture_soot-col",
+      "F01_furniture_timber-col",
+      "F01_furniture_trim-col",
+      "F01_furniture_wet_asphalt-col",
+      "F01_furniture_wood_dark-col",
+      "F01_fx_ao_decal",
+      "F01_glazing-col",
+      "F01_sash-col",
+      "F01_slabs-col",
+      "F01_stairs",
+      "F01_stairs_bal",
+      "F01_stairs_brass",
+      "F01_stairs_guard-colonly",
+      "F01_stairs_iron",
+      "F01_stairs_landing",
+      "F01_stairs_rail",
+      "F01_stairs_ramp-colonly",
+      "F01_stairs_soffit_failed",
+      "F01_stairs_treads",
+      "F01_stone_trim-col",
+      "F01_trim",
+      "F01_vent_register_screws",
+      "F01_vent_register_throat",
+      "F01_vent_register_trim",
+      "F01_wainscot_marble_lobby",
+      "F01_wainscot_subway_tile",
+      "F01_wainscot_wainscot",
+      "F01_walls-col",
+      "F01_walls_cbrick-col",
+      "F01_walls_conc-col",
+      "F01_walls_fbrick-col",
+      "F01_wear_ceiling_fx_drip",
+      "F01_wear_fx_drip",
+      "F01_wear_fx_grease",
+      "F01_wear_fx_scuff",
+      "F01_wear_fx_traffic"
+    ],
+    "welded_prefix_node_count": 85,
+    "welded_prefix_node_names": [
+      "F01_furnish_bakelite",
+      "F01_furnish_bakelite_black",
+      "F01_furnish_book_brown",
+      "F01_furnish_book_burgundy",
+      "F01_furnish_book_green",
+      "F01_furnish_book_navy",
+      "F01_furnish_book_ochre",
+      "F01_furnish_book_teal",
+      "F01_furnish_brass",
+      "F01_furnish_brass_bright",
+      "F01_furnish_brass_dull",
+      "F01_furnish_brass_mesh",
+      "F01_furnish_bronze",
+      "F01_furnish_cast_iron",
+      "F01_furnish_ceramic",
+      "F01_furnish_chrome",
+      "F01_furnish_concrete",
+      "F01_furnish_countertop",
+      "F01_furnish_enamel",
+      "F01_furnish_fabric_cool",
+      "F01_furnish_fabric_green",
+      "F01_furnish_fabric_warm",
+      "F01_furnish_felt_violet",
+      "F01_furnish_floor_oak",
+      "F01_furnish_fx_shadow",
+      "F01_furnish_glassish",
+      "F01_furnish_handrail_wood",
+      "F01_furnish_hull-colonly",
+      "F01_furnish_lacquer_red",
+      "F01_furnish_linen",
+      "F01_furnish_metal",
+      "F01_furnish_milk_glass",
+      "F01_furnish_nickel_plated",
+      "F01_furnish_oak_quartered",
+      "F01_furnish_paper",
+      "F01_furnish_plant",
+      "F01_furnish_plywood",
+      "F01_furnish_porcelain",
+      "F01_furnish_rubber_aged",
+      "F01_furnish_rug_warm",
+      "F01_furnish_safety_orange",
+      "F01_furnish_screen",
+      "F01_furnish_soil",
+      "F01_furnish_soot",
+      "F01_furnish_stairwell_teal",
+      "F01_furnish_terracotta",
+      "F01_furnish_timber",
+      "F01_furnish_trim",
+      "F01_furnish_vinyl_oxblood",
+      "F01_furnish_wood_dark",
+      "F01_furniture_art",
+      "F01_furniture_asphalt-col",
+      "F01_furniture_blind_slat",
+      "F01_furniture_blind_slat-col",
+      "F01_furniture_brass-col",
+      "F01_furniture_brass_dull-col",
+      "F01_furniture_brass_mesh-col",
+      "F01_furniture_brick_patched-col",
+      "F01_furniture_bronze-col",
+      "F01_furniture_ceramic-col",
+      "F01_furniture_chrome-col",
+      "F01_furniture_common_brick-col",
+      "F01_furniture_concrete-col",
+      "F01_furniture_fabric_cool-col",
+      "F01_furniture_face_brick-col",
+      "F01_furniture_fx_damp-col",
+      "F01_furniture_fx_drip-col",
+      "F01_furniture_glassish-col",
+      "F01_furniture_indicator_enamel-col",
+      "F01_furniture_lacquer_red-col",
+      "F01_furniture_leaf_fall-col",
+      "F01_furniture_limestone-col",
+      "F01_furniture_linen-col",
+      "F01_furniture_linoleum-col",
+      "F01_furniture_metal-col",
+      "F01_furniture_puddle-col",
+      "F01_furniture_rug_warm-col",
+      "F01_furniture_sidewalk_grout-col",
+      "F01_furniture_sidewalk_haunted",
+      "F01_furniture_sidewalk_kerb-col",
+      "F01_furniture_soot-col",
+      "F01_furniture_timber-col",
+      "F01_furniture_trim-col",
+      "F01_furniture_wet_asphalt-col",
+      "F01_furniture_wood_dark-col"
+    ],
+    "reason": "whole-node rehearsal refuses spatial primitive splitting"
+  }
+}

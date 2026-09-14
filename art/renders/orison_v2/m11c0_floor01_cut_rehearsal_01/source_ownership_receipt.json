@@ -1,0 +1,114 @@
+{
+  "schema": "orison.m11c0.floor01-source-ownership-compact.v1",
+  "status": "PASS",
+  "read_only": true,
+  "producer": {
+    "path": "tools/audit_orison_floor01_source_ownership.py",
+    "tool_version": 1,
+    "full_receipt_command": "python tools/audit_orison_floor01_source_ownership.py --json"
+  },
+  "inputs": {
+    "layout": "art/data/building_layout.json",
+    "layout_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "gltf": "game/assets/building/floor_01.gltf",
+    "gltf_sha256": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1"
+  },
+  "partition": {
+    "cell_count": 17,
+    "assignment_count": 5286,
+    "exact_once": true,
+    "assignment_receipt": {
+      "row_order": "partition.assignments emission order",
+      "canonicalization": "json.dumps(rows, sort_keys=True, separators=(',', ':'), ensure_ascii=False)",
+      "canonical_bytes": 1737062,
+      "canonical_sha256": "4f758413b49680bd43d7a9e1804366a0dd14dc37ad5bca1874fa0c6abeecffb6"
+    },
+    "counts_by_cell": {
+      "ORISON_F01_INTERIOR": 465,
+      "ORISON_F01_FACADE_SHELL": 41,
+      "SITE_STREET_COMMON": 2192,
+      "PASSAGE": 494,
+      "SHOP_BAR": 375,
+      "SHOP_BODEGA": 161,
+      "SHOP_MODEL_LAUNDRY": 166,
+      "SHOP_SHOE_REBUILDING": 109,
+      "SHOP_KEYS_CUT": 188,
+      "SHOP_HARDWARE_PAINT": 231,
+      "SHOP_FUNERAL_PARLOUR": 122,
+      "SHOP_PHOTO_SUPPLIES": 127,
+      "SHOP_RADIO_SERVICE": 101,
+      "SHOP_PAWNBROKER": 123,
+      "SHOP_NEWS_CIGARS": 85,
+      "SHOP_OTIS___SON": 190,
+      "SHOP_LUNCHEONETTE": 116
+    },
+    "source_totals": {
+      "furniture": 4415,
+      "markers": 188,
+      "walls": 42,
+      "rooms": 16,
+      "ceilings": 26,
+      "vent_registers": 3,
+      "sockets": 30,
+      "site_lights": 565,
+      "slabs": 1
+    },
+    "identity_debt": {
+      "status": "UNRESOLVED_SOURCE_IDENTITY_DEBT",
+      "durable_source_identity": false,
+      "anonymous_record_count": 608,
+      "counts": {
+        "site_lights": 565,
+        "slabs": 1,
+        "walls": 42
+      },
+      "canonical_receipt_sha256": "dd015ddd23378ba1db173817bba1c74876dc668e2352397ca36d7fe7e26b55d2",
+      "note": "Canonical hashes are rehearsal locators, not authored IDs."
+    },
+    "ambiguity": {
+      "code": "SITE_LIGHTS_OVERLAP_PASSAGE_SHELL_ENVELOPE",
+      "status": "UNRESOLVED",
+      "record_count": 3,
+      "source_locators": [
+        "floors[F01].site_lights[89]",
+        "floors[F01].site_lights[90]",
+        "floors[F01].site_lights[91]"
+      ],
+      "runtime_ruling": "SITE_STREET_COMMON owns the portal plane; overlap alone does not prove Passage ownership."
+    }
+  },
+  "protected_legacy_gltf": {
+    "nodes": 531,
+    "meshes": 531,
+    "primitives": 531,
+    "accessors": 1740,
+    "buffer_views": 1740,
+    "materials": 104,
+    "explicit_cell_nodes": 397,
+    "lineage_unresolved_nodes": 134,
+    "legacy_mixed_provenance_resolved": false
+  },
+  "drift": {
+    "source_totals": {},
+    "gltf_topology": {}
+  },
+  "unresolved_findings": [
+    {
+      "code": "ANONYMOUS_SOURCE_IDENTITIES",
+      "classification": "IDENTITY_DEBT",
+      "blocking_for_exact_production_split": true,
+      "count": 608
+    },
+    {
+      "code": "LEGACY_MIXED_GLTF_PROVENANCE",
+      "classification": "UNRESOLVED",
+      "blocking_for_exact_protected_gltf_partition": true,
+      "count": 134
+    },
+    {
+      "code": "SITE_LIGHTS_OVERLAP_PASSAGE_SHELL_ENVELOPE",
+      "classification": "UNRESOLVED",
+      "count": 3
+    }
+  ]
+}

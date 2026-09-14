@@ -1,0 +1,3385 @@
+{
+	"capture_boundary": {
+		"capture_collision_changes": false,
+		"harness_added_collision": false,
+		"harness_added_geometry": false,
+		"harness_added_labels_arrows_or_seam_covers": false,
+		"harness_added_lights": false,
+		"harness_added_world_environment": false,
+		"matched_camera_source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+		"noclip": false,
+		"production_player_and_camera": true,
+		"production_root_through_selector": true,
+		"production_time_mode": "12:30",
+		"route_coordinate_source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+		"route_initial_placement_count": 1,
+		"route_intermediate_transform_writes": 0,
+		"time_frozen_through_production_clock_interface": true
+	},
+	"capture_harness_sha256": "44d94c27374a25c04eba7109341b476a0ec672963fdc5c97daa9b28ed49d0dd5",
+	"capture_phase": "legacy_route_control",
+	"failures": [],
+	"input_provenance": {
+		"capture_views": 5,
+		"embedded_camera_or_route_coordinates": false,
+		"normalized_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+		"path": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+		"production_layout_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+		"seams": 5,
+		"vertical_route_authority": "res://data/building_layout.json"
+	},
+	"legacy_route_control": {
+		"expected_frame_count": 9,
+		"frame_count": 9,
+		"frames": [
+			{
+				"camera_eye": [
+					0.0,
+					1.43218743801117,
+					8.94999980926514
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "orison_interior_looking_to_street",
+				"look_target": [
+					0.0,
+					1.49000000953674,
+					11.25
+				],
+				"noclip": false,
+				"player_feet": [
+					0.0,
+					0.0221874974668026,
+					8.94999980926514
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/01_orison_interior_looking_to_street.png",
+				"png_sha256": "7976cb199eb499a544bfc72561eb5aa85ee2c4bd03648138d10c364b5a10540d",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.348819444444444,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 22.8089347202142,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			},
+			{
+				"camera_eye": [
+					0.0,
+					1.44826102256775,
+					11.1508264541626
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "street_looking_to_bodega",
+				"look_target": [
+					18.6499996185303,
+					1.49000000953674,
+					13.1000003814697
+				],
+				"noclip": false,
+				"player_feet": [
+					0.0,
+					0.0382610559463501,
+					11.1508264541626
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/02_street_looking_to_bodega.png",
+				"png_sha256": "54d4b2fb901b9019f9ef57698644bd77bcebff6441b453ec1298578ebd2b5cf5",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.153194444444444,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 58.032713828851,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			},
+			{
+				"camera_eye": [
+					18.6390590667725,
+					1.45967268943787,
+					10.7771711349487
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "bodega_interior_looking_to_street",
+				"look_target": [
+					18.6499996185303,
+					1.49000000953674,
+					13.1000003814697
+				],
+				"noclip": false,
+				"player_feet": [
+					18.6390590667725,
+					0.0496726855635643,
+					10.7771711349487
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/03_bodega_interior_looking_to_street.png",
+				"png_sha256": "d523e6d1a8e950a4f4dfd23517af61d3af85ef83df0682c25195c860e50a45e2",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.294305555555556,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 51.1572498382718,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			},
+			{
+				"camera_eye": [
+					13.9974517822266,
+					1.42071902751923,
+					29.9933471679688
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "passage_looking_to_shop_aisles",
+				"look_target": [
+					12.2399997711182,
+					1.49000000953674,
+					43.8250007629395
+				],
+				"noclip": false,
+				"player_feet": [
+					13.9974517822266,
+					0.0107190366834402,
+					29.9933471679688
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/04_passage_looking_to_shop_aisles.png",
+				"png_sha256": "8a7a3608cef0c92c34efa0b7886d8ee1e72f184750138a0d22a44591a544395f",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.0966666666666667,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 40.30495754522,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			},
+			{
+				"camera_eye": [
+					15.8228931427002,
+					1.42093336582184,
+					43.3192024230957
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "passage_after_all_shop_fronts",
+				"look_target": [
+					14.0,
+					1.49000000953674,
+					27.2000007629395
+				],
+				"noclip": false,
+				"player_feet": [
+					15.8228931427002,
+					0.0109334513545036,
+					43.3192024230957
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/05_passage_after_all_shop_fronts.png",
+				"png_sha256": "6f05ce350608bc3974d5b8f55596b6a24d265522fddf4de8ba723476e3ac1a13",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.13,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 41.4633370771539,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			},
+			{
+				"camera_eye": [
+					0.0706674605607986,
+					1.44880294799805,
+					11.3501882553101
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "street_return_looking_to_orison",
+				"look_target": [
+					0.0,
+					1.49000000953674,
+					8.94999980926514
+				],
+				"noclip": false,
+				"player_feet": [
+					0.0706674605607986,
+					0.0388030000030994,
+					11.3501882553101
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/06_street_return_looking_to_orison.png",
+				"png_sha256": "fbeb9cfe1de7b1addab9612c4867984b864e0bc474f49c8d7eb04a6c708e81a0",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.154513888888889,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 59.6002658038008,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			},
+			{
+				"camera_eye": [
+					0.00295903952792287,
+					1.43287825584412,
+					9.05050277709961
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "orison_return_complete",
+				"look_target": [
+					0.0,
+					1.49000000953674,
+					11.25
+				],
+				"noclip": false,
+				"player_feet": [
+					0.00295903952792287,
+					0.0228783171623945,
+					9.05050277709961
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/07_orison_return_complete.png",
+				"png_sha256": "eab5a3baa134428102e8b9de0f495ac22795c6938c7a9043b54016968623a280",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.100972222222222,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 71.8417531329145,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			},
+			{
+				"camera_eye": [
+					-1.13534832000732,
+					4.6109356880188,
+					4.8701958656311
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "f02_public_hall_arrival",
+				"look_target": [
+					0.0,
+					4.69000005722046,
+					2.59999990463257
+				],
+				"noclip": false,
+				"player_feet": [
+					-1.13534832000732,
+					3.20093560218811,
+					4.8701958656311
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/08_f02_public_hall_arrival.png",
+				"png_sha256": "d38ef12054fd7d09ce8f36d8325dd9eefa0468c4e2387a1dd0f72deca976f1e4",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.111666666666667,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 39.3117772834255,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			},
+			{
+				"camera_eye": [
+					-1.1418389081955,
+					1.41069257259369,
+					4.86755084991455
+				],
+				"dimensions": [
+					1600,
+					900
+				],
+				"grounded": true,
+				"label": "f01_public_hall_return",
+				"look_target": [
+					0.0,
+					1.49000000953674,
+					2.59999990463257
+				],
+				"noclip": false,
+				"player_feet": [
+					-1.1418389081955,
+					0.000692520872689784,
+					4.86755084991455
+				],
+				"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/09_f01_public_hall_return.png",
+				"png_sha256": "a8c3e95b9141e41d7fa8e9f660032e26786881afa1fd52893a2a7d11ca682383",
+				"production_player_camera": true,
+				"readability": {
+					"fraction_below_16": 0.0865277777777778,
+					"maximum_fraction_below_16": 0.92,
+					"mean_luma_255": 44.7612976975395,
+					"minimum_mean_luma_255": 8.0,
+					"passed": true
+				},
+				"status": "PASS"
+			}
+		],
+		"initial_placement_count": 1,
+		"initial_simulation_facts": {
+			"campaign_clock": {
+				"elapsed_minutes": 0.0,
+				"epoch_date": "TEST_INJECTED",
+				"start_doy": 243,
+				"start_minute_of_day": 750,
+				"start_weekday": "mon"
+			},
+			"core_loop": {
+				"active_job_id": "",
+				"boundary": "wake_complete",
+				"conversation_complete": false,
+				"conversation_requested": false,
+				"dream_pending": false,
+				"safe_return_anchor": "F04_B_BED"
+			},
+			"first_shift": {
+				"filing": "fault_corrected",
+				"phase": "complete",
+				"report_id": "vantry_chirp_2a"
+			},
+			"intro_complete": true
+		},
+		"initial_simulation_facts_sha256": "7e9f1f5f73bc23cebc4da6e5725f4dc27224905e759ed789d4e752a7f02bca5b",
+		"interactions": [
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "F01_DOOR_06",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 472.202,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "F01_BODEGA_DOOR",
+				"interaction_called": false,
+				"leaf_state_after": "open",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 0,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.0,
+				"physical_settle_wall_ms": 0.0,
+				"public_interact": true,
+				"was_open": true
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+				"interaction_called": false,
+				"leaf_state_after": "open",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 0,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.0,
+				"physical_settle_wall_ms": 0.0,
+				"public_interact": true,
+				"was_open": true
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 594.752,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_KEYS_CUT",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 594.583,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 596.072,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 594.465,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 594.097,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 592.155,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_PAWNBROKER",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 594.711,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": true,
+				"identity": "SITE_SHOP_DOOR_NEWS_CIGARS",
+				"interaction_called": true,
+				"leaf_state_after": "locked",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": false,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 595.256,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_OTIS___SON",
+				"interaction_called": true,
+				"leaf_state_after": "closed",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 36,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.6,
+				"physical_settle_wall_ms": 593.199,
+				"public_interact": true,
+				"was_open": false
+			},
+			{
+				"all_name_matches": 1,
+				"expected_locked": false,
+				"identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+				"interaction_called": false,
+				"leaf_state_after": "open",
+				"matching_interactable_count": 1,
+				"ok": true,
+				"open_after": true,
+				"physical_settle_physics_frames": 0,
+				"physical_settle_required_seconds": 0.6,
+				"physical_settle_simulated_seconds": 0.0,
+				"physical_settle_wall_ms": 0.0,
+				"public_interact": true,
+				"was_open": true
+			}
+		],
+		"intermediate_transform_writes": 0,
+		"legs": [
+			{
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "orison_to_street",
+				"noclip": false,
+				"physics_frames": 44,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							0.0,
+							0.0382610559463501,
+							11.1508264541626
+						],
+						"frames": 44,
+						"reached": true,
+						"target": [
+							0.0,
+							0.0799999982118607,
+							11.25
+						]
+					}
+				]
+			},
+			{
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "street_to_bodega_threshold",
+				"noclip": false,
+				"physics_frames": 375,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							18.5384960174561,
+							0.0108224395662546,
+							13.0746812820435
+						],
+						"frames": 375,
+						"reached": true,
+						"target": [
+							18.6499996185303,
+							0.0799999982118607,
+							13.1000003814697
+						]
+					}
+				]
+			},
+			{
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "enter_bodega",
+				"noclip": false,
+				"physics_frames": 46,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							18.6390590667725,
+							0.0509370379149914,
+							10.7771711349487
+						],
+						"frames": 46,
+						"reached": true,
+						"target": [
+							18.6499996185303,
+							0.0799999982118607,
+							10.6499996185303
+						]
+					}
+				]
+			},
+			{
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "leave_bodega",
+				"noclip": false,
+				"physics_frames": 45,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							18.6494216918945,
+							0.0110008111223578,
+							12.9773187637329
+						],
+						"frames": 45,
+						"reached": true,
+						"target": [
+							18.6499996185303,
+							0.0799999982118607,
+							13.1000003814697
+						]
+					}
+				]
+			},
+			{
+				"authority": "immutable M11C1 semantic seam endpoints",
+				"endpoint_coordinates_recorded": false,
+				"id": "bodega_to_passage_portal",
+				"reached": true,
+				"source_contract": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+				"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+				"subleg_count": 2,
+				"sublegs": [
+					{
+						"authority_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"authority_sha256": "8300e36fa592bd87f8d1da36f7d6e20757aed4c517f081db3ce5c65cdecc51c0",
+						"endpoint_coordinates_recorded": false,
+						"endpoint_role": "start",
+						"endpoint_sha256": "e703bf885b03c2815bdb2817496c84d5d2547973b780319b2a403dd0102bd95c",
+						"index": 0,
+						"movement": {
+							"collision_layer": 1,
+							"collision_mask": 1,
+							"coordinate_fields_omitted": true,
+							"grounded_fraction": 1.0,
+							"noclip": false,
+							"physics_frames": 373,
+							"reached": true
+						},
+						"reached": true,
+						"relationship": "reverse of passed Orison-to-bodega connector",
+						"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+						"traversal_id": "ORISON_STREET_BIDIRECTIONAL"
+					},
+					{
+						"authority_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"authority_sha256": "eb4b3ecc5325877d5abd094b641465574a3dc5604a1e366d73b220d679235eb5",
+						"endpoint_coordinates_recorded": false,
+						"endpoint_role": "start",
+						"endpoint_sha256": "1cf1ffb705bcf23e6ba5cede06552b6fa8eae04b4360cb1d983a71100bc708f5",
+						"index": 1,
+						"movement": {
+							"collision_layer": 1,
+							"collision_mask": 1,
+							"coordinate_fields_omitted": true,
+							"grounded_fraction": 0.935334872979215,
+							"noclip": false,
+							"physics_frames": 433,
+							"reached": true
+						},
+						"reached": true,
+						"relationship": "Passage exterior approach",
+						"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+						"traversal_id": "STREET_PASSAGE_BIDIRECTIONAL"
+					}
+				]
+			},
+			{
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "street_to_passage",
+				"noclip": false,
+				"physics_frames": 58,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							13.9974517822266,
+							0.0107190366834402,
+							29.9933471679688
+						],
+						"frames": 58,
+						"reached": true,
+						"target": [
+							14.0,
+							0.0799999982118607,
+							30.1000003814697
+						]
+					}
+				]
+			},
+			{
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "passage_to_street",
+				"noclip": false,
+				"physics_frames": 323,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							14.013729095459,
+							0.0109334513545036,
+							27.3213996887207
+						],
+						"frames": 323,
+						"reached": true,
+						"target": [
+							14.0,
+							0.0799999982118607,
+							27.2000007629395
+						]
+					}
+				]
+			},
+			{
+				"authority": "immutable M11C1 semantic seam endpoints",
+				"endpoint_coordinates_recorded": false,
+				"id": "street_return_to_orison",
+				"reached": true,
+				"source_contract": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+				"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+				"subleg_count": 1,
+				"sublegs": [
+					{
+						"authority_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"authority_sha256": "8300e36fa592bd87f8d1da36f7d6e20757aed4c517f081db3ce5c65cdecc51c0",
+						"endpoint_coordinates_recorded": false,
+						"endpoint_role": "start",
+						"endpoint_sha256": "e703bf885b03c2815bdb2817496c84d5d2547973b780319b2a403dd0102bd95c",
+						"index": 0,
+						"movement": {
+							"collision_layer": 1,
+							"collision_mask": 1,
+							"coordinate_fields_omitted": true,
+							"grounded_fraction": 0.974178403755869,
+							"noclip": false,
+							"physics_frames": 426,
+							"reached": true
+						},
+						"reached": true,
+						"relationship": "Passage return to Orison exterior",
+						"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+						"traversal_id": "ORISON_STREET_BIDIRECTIONAL"
+					}
+				]
+			},
+			{
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "street_to_orison",
+				"noclip": false,
+				"physics_frames": 47,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							0.00295903952792287,
+							0.0228783171623945,
+							9.05050277709961
+						],
+						"frames": 47,
+						"reached": true,
+						"target": [
+							0.0,
+							0.0799999982118607,
+							8.94999980926514
+						]
+					}
+				]
+			}
+		],
+		"lifecycle_boundary": {
+			"live_root_public_teardown_receipt": "m11c2_production_matrix_receipt.json",
+			"one_complete_root_per_process": true,
+			"render_nodes_or_provider_not_mutated_after_capture": true,
+			"root_remains_live_until_process_exit": true
+		},
+		"literal_route_sequence": "Orison interior -> street -> bodega -> Passage/shops -> Orison -> F02 -> F01 hall",
+		"mode": "legacy_monolith",
+		"noclip": false,
+		"production_player": true,
+		"production_root_through_selector": true,
+		"route_end_simulation_facts": {
+			"campaign_clock": {
+				"elapsed_minutes": 0.0,
+				"epoch_date": "TEST_INJECTED",
+				"start_doy": 243,
+				"start_minute_of_day": 750,
+				"start_weekday": "mon"
+			},
+			"core_loop": {
+				"active_job_id": "",
+				"boundary": "wake_complete",
+				"conversation_complete": false,
+				"conversation_requested": false,
+				"dream_pending": false,
+				"safe_return_anchor": "F04_B_BED"
+			},
+			"first_shift": {
+				"filing": "fault_corrected",
+				"phase": "complete",
+				"report_id": "vantry_chirp_2a"
+			},
+			"intro_complete": true
+		},
+		"route_end_simulation_facts_sha256": "aefc4e2b644ca5bf16d80e22b15eee8577692bcb3084c9af0b49a23b2692b9f9",
+		"semantic_seam_chains": [
+			{
+				"authority": "immutable M11C1 semantic seam endpoints",
+				"endpoint_coordinates_recorded": false,
+				"id": "bodega_to_passage_portal",
+				"reached": true,
+				"source_contract": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+				"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+				"subleg_count": 2,
+				"sublegs": [
+					{
+						"authority_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"authority_sha256": "8300e36fa592bd87f8d1da36f7d6e20757aed4c517f081db3ce5c65cdecc51c0",
+						"endpoint_coordinates_recorded": false,
+						"endpoint_role": "start",
+						"endpoint_sha256": "e703bf885b03c2815bdb2817496c84d5d2547973b780319b2a403dd0102bd95c",
+						"index": 0,
+						"movement": {
+							"collision_layer": 1,
+							"collision_mask": 1,
+							"coordinate_fields_omitted": true,
+							"grounded_fraction": 1.0,
+							"noclip": false,
+							"physics_frames": 373,
+							"reached": true
+						},
+						"reached": true,
+						"relationship": "reverse of passed Orison-to-bodega connector",
+						"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+						"traversal_id": "ORISON_STREET_BIDIRECTIONAL"
+					},
+					{
+						"authority_id": "SEAM_STREET_PASSAGE_PORTAL",
+						"authority_sha256": "eb4b3ecc5325877d5abd094b641465574a3dc5604a1e366d73b220d679235eb5",
+						"endpoint_coordinates_recorded": false,
+						"endpoint_role": "start",
+						"endpoint_sha256": "1cf1ffb705bcf23e6ba5cede06552b6fa8eae04b4360cb1d983a71100bc708f5",
+						"index": 1,
+						"movement": {
+							"collision_layer": 1,
+							"collision_mask": 1,
+							"coordinate_fields_omitted": true,
+							"grounded_fraction": 0.935334872979215,
+							"noclip": false,
+							"physics_frames": 433,
+							"reached": true
+						},
+						"reached": true,
+						"relationship": "Passage exterior approach",
+						"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+						"traversal_id": "STREET_PASSAGE_BIDIRECTIONAL"
+					}
+				]
+			},
+			{
+				"authority": "immutable M11C1 semantic seam endpoints",
+				"endpoint_coordinates_recorded": false,
+				"id": "street_return_to_orison",
+				"reached": true,
+				"source_contract": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+				"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+				"subleg_count": 1,
+				"sublegs": [
+					{
+						"authority_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+						"authority_sha256": "8300e36fa592bd87f8d1da36f7d6e20757aed4c517f081db3ce5c65cdecc51c0",
+						"endpoint_coordinates_recorded": false,
+						"endpoint_role": "start",
+						"endpoint_sha256": "e703bf885b03c2815bdb2817496c84d5d2547973b780319b2a403dd0102bd95c",
+						"index": 0,
+						"movement": {
+							"collision_layer": 1,
+							"collision_mask": 1,
+							"coordinate_fields_omitted": true,
+							"grounded_fraction": 0.974178403755869,
+							"noclip": false,
+							"physics_frames": 426,
+							"reached": true
+						},
+						"reached": true,
+						"relationship": "Passage return to Orison exterior",
+						"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+						"traversal_id": "ORISON_STREET_BIDIRECTIONAL"
+					}
+				]
+			}
+		],
+		"shop_results": [
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_MODEL_LAUNDRY",
+					"noclip": false,
+					"physics_frames": 278,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								12.2516689300537,
+								0.0107190366834402,
+								43.7331657409668
+							],
+							"frames": 278,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								43.8250007629395
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_MODEL_LAUNDRY",
+					"noclip": false,
+					"physics_frames": 40,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_MODEL_LAUNDRY",
+						"noclip": false,
+						"physics_frames": 36,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									12.1467943191528,
+									0.0107190366834402,
+									43.9140396118164
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									43.914249420166
+								]
+							},
+							{
+								"finish": [
+									12.1467943191528,
+									0.0107190366834402,
+									43.9140396118164
+								],
+								"frames": 0,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									43.8250007629395
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								12.2452383041382,
+								0.0107190366834402,
+								43.8329582214355
+							],
+							"frames": 2,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								43.914249420166
+							]
+						},
+						{
+							"finish": [
+								10.3467884063721,
+								0.0107190366834402,
+								43.9099235534668
+							],
+							"frames": 38,
+							"reached": true,
+							"target": [
+								10.2399997711182,
+								0.0799999982118607,
+								43.914249420166
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+					"half_width_m": 0.475,
+					"hinge_jamb": "negative_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "8bf139982ad64e509067ec26f68664dd6aa6f5eb44b6ebae02a9e9a77269b944",
+					"source_traversal_id": "PASSAGE_MODEL_LAUNDRY_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+					"interaction_called": false,
+					"leaf_state_after": "open",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 0,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.0,
+					"physical_settle_wall_ms": 0.0,
+					"public_interact": true,
+					"was_open": true
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_SHOE_REBUILDING",
+					"noclip": false,
+					"physics_frames": 108,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								12.23668384552,
+								0.0107440464198589,
+								49.3118133544922
+							],
+							"frames": 108,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								49.4249992370605
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_SHOE_REBUILDING",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_SHOE_REBUILDING",
+					"noclip": false,
+					"physics_frames": 52,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_SHOE_REBUILDING",
+						"noclip": false,
+						"physics_frames": 36,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									12.1554956436157,
+									0.0107833165675402,
+									49.5140113830566
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									49.5142478942871
+								]
+							},
+							{
+								"finish": [
+									12.1554956436157,
+									0.0107833165675402,
+									49.5140113830566
+								],
+								"frames": 0,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									49.4249992370605
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								12.30348777771,
+								0.0107833165675402,
+								49.4210510253906
+							],
+							"frames": 13,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								49.5142478942871
+							]
+						},
+						{
+							"finish": [
+								10.3554887771606,
+								0.0107833165675402,
+								49.5090293884277
+							],
+							"frames": 39,
+							"reached": true,
+							"target": [
+								10.2399997711182,
+								0.0799999982118607,
+								49.5142478942871
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+					"half_width_m": 0.475,
+					"hinge_jamb": "negative_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "b303b91d3dcbb6a1f4c9b6cd8b89f3a87cdca1e2f7f44b5d8811bd1abd8b24ab",
+					"source_traversal_id": "PASSAGE_SHOE_REBUILDING_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+					"interaction_called": true,
+					"leaf_state_after": "closed",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 594.752,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_KEYS_CUT",
+					"noclip": false,
+					"physics_frames": 68,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								12.2373018264771,
+								0.0107833165675402,
+								52.9129219055176
+							],
+							"frames": 68,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								53.0250015258789
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_KEYS_CUT",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_KEYS_CUT",
+					"noclip": false,
+					"physics_frames": 52,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_KEYS_CUT",
+						"noclip": false,
+						"physics_frames": 36,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									12.1474637985229,
+									0.0109334392473102,
+									53.1140365600586
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									53.1142501831055
+								]
+							},
+							{
+								"finish": [
+									12.1474637985229,
+									0.0109334392473102,
+									53.1140365600586
+								],
+								"frames": 0,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									53.0250015258789
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								12.2958650588989,
+								0.0109334392473102,
+								53.0313339233398
+							],
+							"frames": 13,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								53.1142501831055
+							]
+						},
+						{
+							"finish": [
+								10.3474569320679,
+								0.0109334392473102,
+								53.1099128723145
+							],
+							"frames": 39,
+							"reached": true,
+							"target": [
+								10.2399997711182,
+								0.0799999982118607,
+								53.1142501831055
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_KEYS_CUT",
+					"half_width_m": 0.475,
+					"hinge_jamb": "negative_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "fece167c0ca7edff3efd238baa672fc3fea021d32f225a20d69febe30e33b48c",
+					"source_traversal_id": "PASSAGE_KEYS_CUT_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_KEYS_CUT",
+					"interaction_called": true,
+					"leaf_state_after": "closed",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 594.583,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_HARDWARE_PAINT",
+					"noclip": false,
+					"physics_frames": 104,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								12.2380504608154,
+								0.0109334392473102,
+								58.3131637573242
+							],
+							"frames": 104,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								58.4249992370605
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_HARDWARE_PAINT",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_HARDWARE_PAINT",
+					"noclip": false,
+					"physics_frames": 52,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_HARDWARE_PAINT",
+						"noclip": false,
+						"physics_frames": 37,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									12.1450681686401,
+									0.0109334411099553,
+									58.5140419006348
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									58.5142478942871
+								]
+							},
+							{
+								"finish": [
+									12.1815366744995,
+									0.0109334411099553,
+									58.4798355102539
+								],
+								"frames": 1,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									58.4249992370605
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								12.2936182022095,
+								0.0109334411099553,
+								58.4347991943359
+							],
+							"frames": 13,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								58.5142478942871
+							]
+						},
+						{
+							"finish": [
+								10.3450613021851,
+								0.0109334411099553,
+								58.5101852416992
+							],
+							"frames": 39,
+							"reached": true,
+							"target": [
+								10.2399997711182,
+								0.0799999982118607,
+								58.5142478942871
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+					"half_width_m": 0.475,
+					"hinge_jamb": "negative_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "1af94d1b9ee7c7ccde90ff9785a5f9bebf2f52f0b1b1442724d04ed56997f8b7",
+					"source_traversal_id": "PASSAGE_HARDWARE_PAINT_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+					"interaction_called": true,
+					"leaf_state_after": "closed",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 596.072,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_FUNERAL_PARLOUR",
+					"noclip": false,
+					"physics_frames": 89,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								12.2377967834473,
+								0.0109405862167478,
+								62.9284820556641
+							],
+							"frames": 89,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								63.0250015258789
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_FUNERAL_PARLOUR",
+					"noclip": false,
+					"physics_frames": 51,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_FUNERAL_PARLOUR",
+						"noclip": false,
+						"physics_frames": 36,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									12.1480264663696,
+									0.0102593926712871,
+									63.1140441894531
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									63.1142501831055
+								]
+							},
+							{
+								"finish": [
+									12.1480264663696,
+									0.0102593926712871,
+									63.1140441894531
+								],
+								"frames": 0,
+								"reached": true,
+								"target": [
+									12.2399997711182,
+									0.0799999982118607,
+									63.0250015258789
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								12.2964668273926,
+								0.0102593926712871,
+								63.0322151184082
+							],
+							"frames": 12,
+							"reached": true,
+							"target": [
+								12.2399997711182,
+								0.0799999982118607,
+								63.1142501831055
+							]
+						},
+						{
+							"finish": [
+								10.3480205535889,
+								0.0102593926712871,
+								63.1099395751953
+							],
+							"frames": 39,
+							"reached": true,
+							"target": [
+								10.2399997711182,
+								0.0799999982118607,
+								63.1142501831055
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+					"half_width_m": 0.475,
+					"hinge_jamb": "negative_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "d2871e008674baff6b0f2204a0288f63527fb4d7325df96aaf1bbefbf0cd670f",
+					"source_traversal_id": "PASSAGE_FUNERAL_PARLOUR_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+					"interaction_called": true,
+					"leaf_state_after": "closed",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 594.465,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_PHOTO_SUPPLIES",
+					"noclip": false,
+					"physics_frames": 70,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								15.6454334259033,
+								0.0102593926712871,
+								62.9794120788574
+							],
+							"frames": 70,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								62.9749984741211
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_PHOTO_SUPPLIES",
+					"noclip": false,
+					"physics_frames": 48,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_PHOTO_SUPPLIES",
+						"noclip": false,
+						"physics_frames": 36,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									15.848180770874,
+									0.010943048633635,
+									62.8859024047852
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									62.8857498168945
+								]
+							},
+							{
+								"finish": [
+									15.848180770874,
+									0.010943048633635,
+									62.8859024047852
+								],
+								"frames": 0,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									62.9749984741211
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								15.6989994049072,
+								0.010943048633635,
+								62.945484161377
+							],
+							"frames": 9,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								62.8857498168945
+							]
+						},
+						{
+							"finish": [
+								17.648157119751,
+								0.010943048633635,
+								62.888988494873
+							],
+							"frames": 39,
+							"reached": true,
+							"target": [
+								17.7600002288818,
+								0.0799999982118607,
+								62.8857498168945
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+					"half_width_m": 0.475,
+					"hinge_jamb": "positive_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "8af72264ad2c224e017912daff4b44cede56682058f4ee0f4539c5fe6f008f4e",
+					"source_traversal_id": "PASSAGE_PHOTO_SUPPLIES_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+					"interaction_called": true,
+					"leaf_state_after": "closed",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 594.097,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_RADIO_SERVICE",
+					"noclip": false,
+					"physics_frames": 124,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								15.7615575790405,
+								0.010943048633635,
+								56.6864700317383
+							],
+							"frames": 124,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								56.5750007629395
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_RADIO_SERVICE",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_RADIO_SERVICE",
+					"noclip": false,
+					"physics_frames": 52,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_RADIO_SERVICE",
+						"noclip": false,
+						"physics_frames": 37,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									15.8566122055054,
+									0.0109334327280521,
+									56.4859466552734
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									56.4857521057129
+								]
+							},
+							{
+								"finish": [
+									15.8198480606079,
+									0.0109334327280521,
+									56.5198364257813
+								],
+								"frames": 1,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									56.5750007629395
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								15.7079563140869,
+								0.0109334327280521,
+								56.5627937316895
+							],
+							"frames": 13,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								56.4857521057129
+							]
+						},
+						{
+							"finish": [
+								17.656587600708,
+								0.0109334327280521,
+								56.489631652832
+							],
+							"frames": 39,
+							"reached": true,
+							"target": [
+								17.7600002288818,
+								0.0799999982118607,
+								56.4857521057129
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+					"half_width_m": 0.475,
+					"hinge_jamb": "positive_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "1d4f2283a2edfe475bf84b378e2cd476262a51d8e1ccd8010152d8a9f5d1c8e5",
+					"source_traversal_id": "PASSAGE_RADIO_SERVICE_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+					"interaction_called": true,
+					"leaf_state_after": "closed",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 592.155,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_PAWNBROKER",
+					"noclip": false,
+					"physics_frames": 89,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								15.7617568969727,
+								0.0109334466978908,
+								52.0741729736328
+							],
+							"frames": 89,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								51.9749984741211
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_PAWNBROKER",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_PAWNBROKER",
+					"noclip": false,
+					"physics_frames": 51,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_PAWNBROKER",
+						"noclip": false,
+						"physics_frames": 36,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									15.8490524291992,
+									0.0108212847262621,
+									51.8859710693359
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									51.8857498168945
+								]
+							},
+							{
+								"finish": [
+									15.8490524291992,
+									0.0108212847262621,
+									51.8859710693359
+								],
+								"frames": 0,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									51.9749984741211
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								15.7007694244385,
+								0.00995675288140774,
+								51.9729499816895
+							],
+							"frames": 12,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								51.8857498168945
+							]
+						},
+						{
+							"finish": [
+								17.6490287780762,
+								0.0108212847262621,
+								51.8904495239258
+							],
+							"frames": 39,
+							"reached": true,
+							"target": [
+								17.7600002288818,
+								0.0799999982118607,
+								51.8857498168945
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_PAWNBROKER",
+					"half_width_m": 0.475,
+					"hinge_jamb": "positive_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "d50c9828e61c44f26017f69dad002f7558788bb8db43a346058a5d929eff36a0",
+					"source_traversal_id": "PASSAGE_PAWNBROKER_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_PAWNBROKER",
+					"interaction_called": true,
+					"leaf_state_after": "closed",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 594.711,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_NEWS_CIGARS",
+					"noclip": false,
+					"physics_frames": 36,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								15.7652626037598,
+								0.0108212847262621,
+								50.0879211425781
+							],
+							"frames": 36,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								49.9749984741211
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_NEWS_CIGARS",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"correctly_blocked": true,
+					"expected_blocked": true,
+					"grounded_fraction": 1.0,
+					"id": "locked_CELL_SHOP_NEWS_CIGARS",
+					"noclip": false,
+					"physics_frames": 180,
+					"reached": false,
+					"waypoints": [
+						{
+							"finish": [
+								16.3077545166016,
+								0.00995675660669804,
+								50.0572052001953
+							],
+							"frames": 180,
+							"reached": false,
+							"target": [
+								17.7600002288818,
+								0.0799999982118607,
+								49.9749984741211
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": false,
+					"reason": "locked_non_crossable"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": true,
+					"identity": "SITE_SHOP_DOOR_NEWS_CIGARS",
+					"interaction_called": true,
+					"leaf_state_after": "locked",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": false,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 595.256,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_OTIS_SON",
+					"noclip": false,
+					"physics_frames": 92,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								15.7732782363892,
+								0.0108212884515524,
+								45.4885101318359
+							],
+							"frames": 92,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								45.375
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_OTIS_SON",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_OTIS_SON",
+					"noclip": false,
+					"physics_frames": 53,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_OTIS_SON",
+						"noclip": false,
+						"physics_frames": 36,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									15.8523721694946,
+									0.0109334513545036,
+									45.2859573364258
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									45.2857513427734
+								]
+							},
+							{
+								"finish": [
+									15.8523721694946,
+									0.0109334513545036,
+									45.2859573364258
+								],
+								"frames": 0,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									45.375
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								15.7039346694946,
+								0.0109334513545036,
+								45.3680191040039
+							],
+							"frames": 14,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								45.2857513427734
+							]
+						},
+						{
+							"finish": [
+								17.6523475646973,
+								0.0109334513545036,
+								45.2900619506836
+							],
+							"frames": 39,
+							"reached": true,
+							"target": [
+								17.7600002288818,
+								0.0799999982118607,
+								45.2857513427734
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_OTIS___SON",
+					"half_width_m": 0.475,
+					"hinge_jamb": "positive_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "7c654f0d237600384d54301a522c3b22d7b1b4ff87e4163b623e8abc850dc94e",
+					"source_traversal_id": "PASSAGE_OTIS___SON_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_OTIS___SON",
+					"interaction_called": true,
+					"leaf_state_after": "closed",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 36,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.6,
+					"physical_settle_wall_ms": 593.199,
+					"public_interact": true,
+					"was_open": false
+				}
+			},
+			{
+				"approach": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "approach_CELL_SHOP_LUNCHEONETTE",
+					"noclip": false,
+					"physics_frames": 36,
+					"reached": true,
+					"waypoints": [
+						{
+							"finish": [
+								15.7654647827148,
+								0.0109334513545036,
+								43.4880447387695
+							],
+							"frames": 36,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								43.375
+							]
+						}
+					]
+				},
+				"cell_id": "CELL_SHOP_LUNCHEONETTE",
+				"crossing": {
+					"collision_layer": 1,
+					"collision_mask": 1,
+					"expected_blocked": false,
+					"grounded_fraction": 1.0,
+					"id": "enter_CELL_SHOP_LUNCHEONETTE",
+					"noclip": false,
+					"physics_frames": 40,
+					"reached": true,
+					"return": {
+						"collision_layer": 1,
+						"collision_mask": 1,
+						"expected_blocked": false,
+						"grounded_fraction": 1.0,
+						"id": "return_CELL_SHOP_LUNCHEONETTE",
+						"noclip": false,
+						"physics_frames": 37,
+						"reached": true,
+						"waypoints": [
+							{
+								"finish": [
+									15.8602952957153,
+									0.0109334513545036,
+									43.2860221862793
+								],
+								"frames": 36,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									43.2857513427734
+								]
+							},
+							{
+								"finish": [
+									15.8228931427002,
+									0.0109334513545036,
+									43.3192024230957
+								],
+								"frames": 1,
+								"reached": true,
+								"target": [
+									15.7600002288818,
+									0.0799999982118607,
+									43.375
+								]
+							}
+						]
+					},
+					"waypoints": [
+						{
+							"finish": [
+								15.7627639770508,
+								0.0109334513545036,
+								43.3880844116211
+							],
+							"frames": 2,
+							"reached": true,
+							"target": [
+								15.7600002288818,
+								0.0799999982118607,
+								43.2857513427734
+							]
+						},
+						{
+							"finish": [
+								17.660270690918,
+								0.0109334513545036,
+								43.2908592224121
+							],
+							"frames": 38,
+							"reached": true,
+							"target": [
+								17.7600002288818,
+								0.0799999982118607,
+								43.2857513427734
+							]
+						}
+					]
+				},
+				"derived_crossing": {
+					"applicable": true,
+					"authority": "opening_bounds plus resolved production DoorProp pivot",
+					"capsule_radius_m": 0.33,
+					"coordinate_fields_omitted": true,
+					"door_identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+					"half_width_m": 0.475,
+					"hinge_jamb": "positive_right_axis",
+					"lateral_offset_m": 0.08925,
+					"minimum_side_clearance_m": 0.04,
+					"provider_identity_read": false,
+					"retained_clearance_fraction": 0.85,
+					"shop_identity_branch": false,
+					"source_record_sha256": "a8b7b855e7edaa76068ecfa0aa800470fe039d9abba977fb6d164eb581383964",
+					"source_traversal_id": "PASSAGE_LUNCHEONETTE_BIDIRECTIONAL"
+				},
+				"interaction": {
+					"all_name_matches": 1,
+					"expected_locked": false,
+					"identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+					"interaction_called": false,
+					"leaf_state_after": "open",
+					"matching_interactable_count": 1,
+					"ok": true,
+					"open_after": true,
+					"physical_settle_physics_frames": 0,
+					"physical_settle_required_seconds": 0.6,
+					"physical_settle_simulated_seconds": 0.0,
+					"physical_settle_wall_ms": 0.0,
+					"public_interact": true,
+					"was_open": true
+				}
+			}
+		],
+		"source_contract": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+		"source_contract_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+		"status": "PASS",
+		"teleports": 0,
+		"vertical_core": {
+			"ascent": {
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "f01_to_f02_public_stair",
+				"noclip": false,
+				"physics_frames": 367,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							-2.29412293434143,
+							0.14436274766922,
+							1.28266870975494
+						],
+						"frames": 22,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.239999994635582,
+							1.13555550575256
+						]
+					},
+					{
+						"finish": [
+							-2.30590057373047,
+							0.336550325155258,
+							0.932866811752319
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.400000005960464,
+							0.811111092567444
+						]
+					},
+					{
+						"finish": [
+							-2.30865669250488,
+							0.500612854957581,
+							0.632879376411438
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.560000002384186,
+							0.486666679382324
+						]
+					},
+					{
+						"finish": [
+							-2.30965566635132,
+							0.692800402641296,
+							0.282880753278732
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.719999969005585,
+							0.162222221493721
+						]
+					},
+					{
+						"finish": [
+							-2.30988740921021,
+							0.856862664222717,
+							-0.0171191468834877
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.879999995231628,
+							-0.162222221493721
+						]
+					},
+					{
+						"finish": [
+							-2.30997109413147,
+							1.04904973506927,
+							-0.36711910367012
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.03999996185303,
+							-0.486666679382324
+						]
+					},
+					{
+						"finish": [
+							-2.30999064445496,
+							1.21311187744141,
+							-0.667119145393372
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.20000004768372,
+							-0.811111092567444
+						]
+					},
+					{
+						"finish": [
+							-2.30999732017517,
+							1.40373647212982,
+							-1.01711916923523
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.36000001430511,
+							-1.13555550575256
+						]
+					},
+					{
+						"finish": [
+							-2.30999898910522,
+							1.56779861450195,
+							-1.31711888313293
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.51999998092651,
+							-1.46000003814697
+						]
+					},
+					{
+						"finish": [
+							-2.30999970436096,
+							1.60061097145081,
+							-2.16712212562561
+						],
+						"frames": 17,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.67999994754791,
+							-2.30999994277954
+						]
+					},
+					{
+						"finish": [
+							2.18785047531128,
+							1.60061097145081,
+							-2.30622243881226
+						],
+						"frames": 90,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							1.67999994754791,
+							-2.30999994277954
+						]
+					},
+					{
+						"finish": [
+							2.2878565788269,
+							1.60061097145081,
+							-1.61340284347534
+						],
+						"frames": 14,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							1.67999994754791,
+							-1.46000003814697
+						]
+					},
+					{
+						"finish": [
+							2.30405831336975,
+							1.75529825687408,
+							-1.26377785205841
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							1.8400000333786,
+							-1.13555550575256
+						]
+					},
+					{
+						"finish": [
+							2.30799579620361,
+							1.91936075687408,
+							-0.963803827762604
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.0,
+							-0.811111092567444
+						]
+					},
+					{
+						"finish": [
+							2.30946612358093,
+							2.10998582839966,
+							-0.61380672454834
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.16000008583069,
+							-0.486666679382324
+						]
+					},
+					{
+						"finish": [
+							2.30982089042664,
+							2.27561092376709,
+							-0.31380695104599
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.3199999332428,
+							-0.162222221493721
+						]
+					},
+					{
+						"finish": [
+							2.30995273590088,
+							2.46623587608337,
+							0.0361930429935455
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.48000001907349,
+							0.162222221493721
+						]
+					},
+					{
+						"finish": [
+							2.30998420715332,
+							2.63186097145081,
+							0.336193084716797
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.64000010490417,
+							0.486666679382324
+						]
+					},
+					{
+						"finish": [
+							2.3099958896637,
+							2.82248592376709,
+							0.6861931681633
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.79999995231628,
+							0.811111092567444
+						]
+					},
+					{
+						"finish": [
+							2.30999875068665,
+							2.98811101913452,
+							0.986193239688873
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.96000003814697,
+							1.13555550575256
+						]
+					},
+					{
+						"finish": [
+							2.30999970436096,
+							3.17717337608337,
+							1.33619296550751
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							3.11999988555908,
+							1.46000003814697
+						]
+					},
+					{
+						"finish": [
+							0.149180799722672,
+							3.20093560218811,
+							2.27037000656128
+						],
+						"frames": 55,
+						"reached": true,
+						"target": [
+							0.0,
+							3.27999997138977,
+							2.30999994277954
+						]
+					},
+					{
+						"finish": [
+							0.0461028963327408,
+							3.20093560218811,
+							2.498131275177
+						],
+						"frames": 5,
+						"reached": true,
+						"target": [
+							0.0,
+							3.27999997138977,
+							2.59999990463257
+						]
+					},
+					{
+						"finish": [
+							-1.13534832000732,
+							3.20093560218811,
+							4.8701958656311
+						],
+						"frames": 53,
+						"reached": true,
+						"target": [
+							-1.20000004768372,
+							3.27999997138977,
+							5.0
+						]
+					}
+				]
+			},
+			"connector": {
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "lobby_to_public_core",
+				"noclip": false,
+				"physics_frames": 179,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							-1.1643807888031,
+							0.000612692907452583,
+							5.11993551254272
+						],
+						"frames": 83,
+						"reached": true,
+						"target": [
+							-1.20000004768372,
+							0.0799999982118607,
+							5.0
+						]
+					},
+					{
+						"finish": [
+							-0.0528285503387451,
+							0.000612692907452583,
+							2.71433043479919
+						],
+						"frames": 53,
+						"reached": true,
+						"target": [
+							0.0,
+							0.0799999982118607,
+							2.59999990463257
+						]
+					},
+					{
+						"finish": [
+							-2.17609143257141,
+							0.000612692907452583,
+							2.37631750106812
+						],
+						"frames": 43,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.0799999982118607,
+							2.35500001907349
+						]
+					}
+				]
+			},
+			"derived_without_embedded_coordinates": true,
+			"descent": {
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "f02_to_f01_public_stair",
+				"noclip": false,
+				"physics_frames": 360,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							-1.13534832000732,
+							3.20093560218811,
+							4.8701958656311
+						],
+						"frames": 0,
+						"reached": true,
+						"target": [
+							-1.20000004768372,
+							3.27999997138977,
+							5.0
+						]
+					},
+					{
+						"finish": [
+							-0.061846986413002,
+							3.20093560218811,
+							2.72366642951965
+						],
+						"frames": 49,
+						"reached": true,
+						"target": [
+							0.0,
+							3.27999997138977,
+							2.59999990463257
+						]
+					},
+					{
+						"finish": [
+							-0.017487233504653,
+							3.20093560218811,
+							2.42696404457092
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							0.0,
+							3.27999997138977,
+							2.30999994277954
+						]
+					},
+					{
+						"finish": [
+							2.18392992019653,
+							3.20094013214111,
+							1.54544746875763
+						],
+						"frames": 49,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							3.11999988555908,
+							1.46000003814697
+						]
+					},
+					{
+						"finish": [
+							2.272212266922,
+							3.13785409927368,
+							1.2584148645401
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.96000003814697,
+							1.13555550575256
+						]
+					},
+					{
+						"finish": [
+							2.29751348495483,
+							2.97144794464111,
+							0.958918750286102
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.79999995231628,
+							0.811111092567444
+						]
+					},
+					{
+						"finish": [
+							2.30680990219116,
+							2.78004169464111,
+							0.6073157787323
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.64000010490417,
+							0.486666679382324
+						]
+					},
+					{
+						"finish": [
+							2.30896019935608,
+							2.61597919464111,
+							0.307271242141724
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.48000001907349,
+							0.162222221493721
+						]
+					},
+					{
+						"finish": [
+							2.30973529815674,
+							2.42457294464111,
+							-0.0427278876304626
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.3199999332428,
+							-0.162222221493721
+						]
+					},
+					{
+						"finish": [
+							2.30991411209106,
+							2.26051044464111,
+							-0.342727869749069
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.16000008583069,
+							-0.486666679382324
+						]
+					},
+					{
+						"finish": [
+							2.30997848510742,
+							2.06676054000854,
+							-0.693979680538177
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							2.0,
+							-0.811111092567444
+						]
+					},
+					{
+						"finish": [
+							2.30999279022217,
+							1.90269804000854,
+							-0.994256973266602
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							1.8400000333786,
+							-1.13555550575256
+						]
+					},
+					{
+						"finish": [
+							2.30999803543091,
+							1.71129179000854,
+							-1.34425663948059
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							1.67999994754791,
+							-1.46000003814697
+						]
+					},
+					{
+						"finish": [
+							2.30999970436096,
+							1.59918236732483,
+							-2.19425582885742
+						],
+						"frames": 17,
+						"reached": true,
+						"target": [
+							2.30999994277954,
+							1.67999994754791,
+							-2.30999994277954
+						]
+					},
+					{
+						"finish": [
+							-2.1885998249054,
+							1.59918236732483,
+							-2.30695843696594
+						],
+						"frames": 90,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.67999994754791,
+							-2.30999994277954
+						]
+					},
+					{
+						"finish": [
+							-2.2879204750061,
+							1.60072100162506,
+							-1.6140398979187
+						],
+						"frames": 14,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.51999998092651,
+							-1.46000003814697
+						]
+					},
+					{
+						"finish": [
+							-2.30406045913696,
+							1.53997886180878,
+							-1.26427340507507
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.36000001430511,
+							-1.13555550575256
+						]
+					},
+					{
+						"finish": [
+							-2.30799317359924,
+							1.37591636180878,
+							-0.964219152927399
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.20000004768372,
+							-0.811111092567444
+						]
+					},
+					{
+						"finish": [
+							-2.30946373939514,
+							1.18451011180878,
+							-0.614222407341003
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							1.03999996185303,
+							-0.486666679382324
+						]
+					},
+					{
+						"finish": [
+							-2.30981993675232,
+							1.02044761180878,
+							-0.314222633838654
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.879999995231628,
+							-0.162222221493721
+						]
+					},
+					{
+						"finish": [
+							-2.30995202064514,
+							0.829041361808777,
+							0.035777360200882
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.719999969005585,
+							0.162222221493721
+						]
+					},
+					{
+						"finish": [
+							-2.30998396873474,
+							0.662635087966919,
+							0.336880713701248
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.560000002384186,
+							0.486666679382324
+						]
+					},
+					{
+						"finish": [
+							-2.30999565124512,
+							0.471228837966919,
+							0.686959624290466
+						],
+						"frames": 7,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.400000005960464,
+							0.811111092567444
+						]
+					},
+					{
+						"finish": [
+							-2.30999851226807,
+							0.307166337966919,
+							0.98695969581604
+						],
+						"frames": 6,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.239999994635582,
+							1.13555550575256
+						]
+					},
+					{
+						"finish": [
+							-2.30999970436096,
+							-0.0010367869399488,
+							2.23695850372314
+						],
+						"frames": 25,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.0799999982118607,
+							2.35500001907349
+						]
+					}
+				]
+			},
+			"elevator_f01_f02_contract": true,
+			"frames": [
+				{
+					"camera_eye": [
+						-1.13534832000732,
+						4.6109356880188,
+						4.8701958656311
+					],
+					"dimensions": [
+						1600,
+						900
+					],
+					"grounded": true,
+					"label": "f02_public_hall_arrival",
+					"look_target": [
+						0.0,
+						4.69000005722046,
+						2.59999990463257
+					],
+					"noclip": false,
+					"player_feet": [
+						-1.13534832000732,
+						3.20093560218811,
+						4.8701958656311
+					],
+					"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/08_f02_public_hall_arrival.png",
+					"png_sha256": "d38ef12054fd7d09ce8f36d8325dd9eefa0468c4e2387a1dd0f72deca976f1e4",
+					"production_player_camera": true,
+					"readability": {
+						"fraction_below_16": 0.111666666666667,
+						"maximum_fraction_below_16": 0.92,
+						"mean_luma_255": 39.3117772834255,
+						"minimum_mean_luma_255": 8.0,
+						"passed": true
+					},
+					"status": "PASS"
+				},
+				{
+					"camera_eye": [
+						-1.1418389081955,
+						1.41069257259369,
+						4.86755084991455
+					],
+					"dimensions": [
+						1600,
+						900
+					],
+					"grounded": true,
+					"label": "f01_public_hall_return",
+					"look_target": [
+						0.0,
+						1.49000000953674,
+						2.59999990463257
+					],
+					"noclip": false,
+					"player_feet": [
+						-1.1418389081955,
+						0.000692520872689784,
+						4.86755084991455
+					],
+					"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/legacy_monolith_route_control/09_f01_public_hall_return.png",
+					"png_sha256": "a8c3e95b9141e41d7fa8e9f660032e26786881afa1fd52893a2a7d11ca682383",
+					"production_player_camera": true,
+					"readability": {
+						"fraction_below_16": 0.0865277777777778,
+						"maximum_fraction_below_16": 0.92,
+						"mean_luma_255": 44.7612976975395,
+						"minimum_mean_luma_255": 8.0,
+						"passed": true
+					},
+					"status": "PASS"
+				}
+			],
+			"initial_placement_or_teleport": false,
+			"return_to_hall": {
+				"collision_layer": 1,
+				"collision_mask": 1,
+				"expected_blocked": false,
+				"grounded_fraction": 1.0,
+				"id": "public_core_to_f01_hall",
+				"noclip": false,
+				"physics_frames": 94,
+				"reached": true,
+				"waypoints": [
+					{
+						"finish": [
+							-2.30999970436096,
+							-0.0010367869399488,
+							2.23695850372314
+						],
+						"frames": 0,
+						"reached": true,
+						"target": [
+							-2.30999994277954,
+							0.0799999982118607,
+							2.35500001907349
+						]
+					},
+					{
+						"finish": [
+							-0.136681139469147,
+							0.000692520872689784,
+							2.57851886749268
+						],
+						"frames": 44,
+						"reached": true,
+						"target": [
+							0.0,
+							0.0799999982118607,
+							2.59999990463257
+						]
+					},
+					{
+						"finish": [
+							-1.1418389081955,
+							0.000692520872689784,
+							4.86755084991455
+						],
+						"frames": 50,
+						"reached": true,
+						"target": [
+							-1.20000004768372,
+							0.0799999982118607,
+							5.0
+						]
+					}
+				]
+			},
+			"source": "res://data/building_layout.json",
+			"source_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+			"status": "PASS"
+		}
+	},
+	"lifecycle": {},
+	"matched_modes": {},
+	"matched_pairs": [],
+	"owner_first_route": {},
+	"process_isolation": {
+		"capture_process_performs_provider_teardown": false,
+		"capture_process_performs_render_node_mutation": false,
+		"one_complete_production_root_per_process": true,
+		"process_exit_owns_root_release": true,
+		"public_live_root_teardown_proven_by": "m11c2_production_matrix_receipt.json",
+		"reason": "Forward+ complete-root replacement is isolated from visual proof",
+		"required": true
+	},
+	"schema": "orison.m11c2.production-matched-capture.v1",
+	"status": "PASS",
+	"task": "ORISON-V2-M11C2"
+}

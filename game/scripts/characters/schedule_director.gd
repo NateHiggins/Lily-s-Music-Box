@@ -204,6 +204,79 @@ func resolve(slug: String, day: String, minute: float, doy: int,
 	return best
 
 
+## Pure, geometry-free facts for a place between two elapsed campaign minutes.
+## Shop simulation consumes this result instead of duplicating timetable
+## selection or inferring demand from elapsed time. Each resolved visit is
+## emitted once at the start of its authored block.
+func place_activity_facts(place: String, from_elapsed_minute: float,
+		to_elapsed_minute: float, clock: CampaignClock) -> Dictionary:
+	if place.is_empty() or data.is_empty() or clock == null \
+			or from_elapsed_minute < 0.0 \
+			or to_elapsed_minute < from_elapsed_minute:
+		return {}
+	var epoch: Dictionary = clock.day_info_at(0.0)
+	if not bool(epoch.get("valid", false)):
+		return {}
+	var epoch_minute := int(epoch.get("minute_of_day", -1))
+	if epoch_minute < 0:
+		return {}
+	var first_day := int(floor((float(epoch_minute) \
+			+ from_elapsed_minute) / 1440.0))
+	var last_day := int(floor((float(epoch_minute) \
+			+ to_elapsed_minute) / 1440.0))
+	var visits: Array[Dictionary] = []
+	for day_offset: int in range(first_day, last_day + 1):
+		var day_start_elapsed := float(day_offset * 1440 - epoch_minute)
+		for raw_slug: Variant in data.get("residents", {}):
+			var slug := str(raw_slug)
+			var spec: Dictionary = data.residents[raw_slug]
+			var starts := {}
+			for block: Variant in spec.get("blocks", []):
+				if block is Dictionary:
+					starts[int((block as Dictionary).get("start_min", -1))] = true
+			for special: Variant in spec.get("special_days", []):
+				if special is not Dictionary:
+					continue
+				for block: Variant in (special as Dictionary).get("blocks", []):
+					if block is Dictionary:
+						starts[int((block as Dictionary).get(
+								"start_min", -1))] = true
+			for raw_start: Variant in starts:
+				var start_minute := int(raw_start)
+				if start_minute < 0 or start_minute >= 1440:
+					continue
+				var at_elapsed := day_start_elapsed + float(start_minute)
+				if at_elapsed <= from_elapsed_minute \
+						or at_elapsed > to_elapsed_minute or at_elapsed < 0.0:
+					continue
+				var info := clock.day_info_at(at_elapsed)
+				if not bool(info.get("valid", false)):
+					continue
+				var block := resolve(slug, str(info.get("day", "")),
+						float(start_minute), int(info.get("doy", 0)),
+						bool(info.get("first_sat", false)))
+				if str(block.get("place", "")) != place \
+						or int(block.get("start_min", -1)) != start_minute:
+					continue
+				visits.append({
+					"resident_id": slug,
+					"activity": str(block.get("activity", "visit")),
+					"at_minute": at_elapsed,
+					"minute_of_day": start_minute,
+				})
+	visits.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		if not is_equal_approx(float(a.at_minute), float(b.at_minute)):
+			return float(a.at_minute) < float(b.at_minute)
+		return str(a.resident_id) < str(b.resident_id))
+	return {
+		"authority": "ScheduleDirector",
+		"place": place,
+		"from_minute": from_elapsed_minute,
+		"to_minute": to_elapsed_minute,
+		"visits": visits,
+	}
+
+
 func _covers(block: Dictionary, minute: int) -> bool:
 	return int(block.get("start_min", 0)) <= minute \
 			and minute < int(block.get("end_min", 0))

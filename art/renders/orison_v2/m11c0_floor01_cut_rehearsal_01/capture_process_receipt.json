@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://harness_main.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06",
+  "run_directory": "C:\\PleaseRemainOnTheLine-v2-m11c0-output-20260831\\cut_06\\captures\\attempt_10",
+  "started_utc": "2026-08-31T05:45:02.9524375Z",
+  "elapsed_seconds": 36.647,
+  "timeout_seconds": 60,
+  "resolution": "1600x900",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 8,
+  "actual_frames": 8,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_attempt_10_20260831T054502952Z.log",
+  "filtered_process_output": [
+    "M11C0 FLOOR01 CAPTURE: PASS"
+  ],
+  "files": [
+    {
+      "name": "01_orison_shell_street_original.png",
+      "bytes": 2126641,
+      "sha256": "a09f1ab024917b7902e2ff05db03f3b98a790e77f61aa3ce8fefe5296e48764e"
+    },
+    {
+      "name": "01_orison_shell_street_recomposed.png",
+      "bytes": 2126641,
+      "sha256": "a09f1ab024917b7902e2ff05db03f3b98a790e77f61aa3ce8fefe5296e48764e"
+    },
+    {
+      "name": "02_street_passage_portal_original.png",
+      "bytes": 2292760,
+      "sha256": "998e79c0b3781afde65ef63ea2d56b7c81c4249dac0b6d981599a1db972fa2aa"
+    },
+    {
+      "name": "02_street_passage_portal_recomposed.png",
+      "bytes": 2292760,
+      "sha256": "998e79c0b3781afde65ef63ea2d56b7c81c4249dac0b6d981599a1db972fa2aa"
+    },
+    {
+      "name": "03_passage_west_shop_aisle_original.png",
+      "bytes": 1675561,
+      "sha256": "9a5f82ca3d2f7694a8fa21404d28696441de3986956136f9782d863c40c42dda"
+    },
+    {
+      "name": "03_passage_west_shop_aisle_recomposed.png",
+      "bytes": 1675561,
+      "sha256": "9a5f82ca3d2f7694a8fa21404d28696441de3986956136f9782d863c40c42dda"
+    },
+    {
+      "name": "04_bodega_street_threshold_original.png",
+      "bytes": 2059833,
+      "sha256": "5f37acffcde4eff517c657574fa23ac63ae0e81659db8963bc791a94ef182db4"
+    },
+    {
+      "name": "04_bodega_street_threshold_recomposed.png",
+      "bytes": 2059881,
+      "sha256": "03990145f3e02a109bd90a80e563c85b065e9098bb00b4b2c55a11ce2660f08c"
+    }
+  ]
+}

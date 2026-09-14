@@ -1,0 +1,2525 @@
+{
+	"authority": "disposable_harness_only",
+	"blockers": [],
+	"capture_boundary": {
+		"authored_initial_capture_placement_count_per_frame": 1,
+		"harness_added_collision": false,
+		"harness_added_geometry": false,
+		"harness_added_labels_or_arrows": false,
+		"harness_added_light_implementation": false,
+		"hidden_off_floor_geometry_free_consumer_hosts_included": true,
+		"hidden_off_floor_production_detail_objects_included": true,
+		"navigation_seam_proof_delegated_to_runtime_receipt": true,
+		"noclip": false,
+		"off_floor_target_cell_geometry_included": false,
+		"production_detail_passes_included": true,
+		"production_m11a_environment_resource_included": true,
+		"production_marker_door_geometry_included": true,
+		"production_player_camera": true,
+		"production_player_flashlight_included": true
+	},
+	"cold_process_delta": {
+		"nodes": 0,
+		"objects": 69,
+		"orphan_nodes": 0,
+		"resources": 23
+	},
+	"cold_to_warmed_delta": {
+		"nodes": 0,
+		"objects": 69,
+		"orphan_nodes": 0,
+		"resources": 23
+	},
+	"failures": [],
+	"final_counts": {
+		"nodes": 36,
+		"objects": 1752,
+		"orphan_nodes": 0,
+		"resources": 100
+	},
+	"frame_count": 5,
+	"frames": [
+		{
+			"cache_growth_allowed": false,
+			"camera": {
+				"eye": [
+					0.0,
+					1.87033319473267,
+					18.0
+				],
+				"fov_degrees": 64.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					0.0,
+					1.45,
+					9.7
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "AnimatableBody3D",
+				"first_hit_distance_m": 8.15744113922119,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 8.31063652038574,
+				"visible_fraction": 0.981566348042203
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": 129,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [
+					645268506734
+				],
+				"released_audio_sources": [
+					{
+						"identity": "F01_DOOR_06",
+						"released_voice_count": 0
+					}
+				],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "orison_shell_street",
+			"metrics": {
+				"aabb_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"aabb_min": [
+					-112.0,
+					-1.84999990463257,
+					-66.0
+				],
+				"aabb_valid": true,
+				"collision_objects": 125,
+				"collision_shapes": 130,
+				"lights": 1,
+				"mesh_instances": 875,
+				"mesh_surfaces": 875,
+				"nodes": 1482,
+				"triangles": 222702,
+				"vertices": 314680
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 615,
+				"gpu_ms": 0.0149999996647239,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 20.465,
+				"process_ms": 2923.987,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 615,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_ORISON_F01_INTERIOR",
+					"CELL_ORISON_FACADE_SHELL",
+					"CELL_SITE_STREET_COMMON"
+				],
+				"root": "M11C1Capture/orison_shell_street",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 256436,
+				"vram_bytes": 2204525360,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "C:\\PleaseRemainOnTheLine-v2-m11c1-runtime-scratch\\materialized-eighth-06\\m11c1_captures/orison_shell_street.png",
+			"png_sha256": "cb96ad76878df6b8caabd6ec832dfef5a975b2235539d9dfb4a49c08785334c1",
+			"positive_process_count_diagnostics": [
+				"objects",
+				"resources"
+			],
+			"production_presentation": {
+				"executions": [
+					{
+						"deferred_dependency": {
+							"identity": "ROOF_DOOR_01",
+							"production_warning_expected": true,
+							"reason": "floor01 target-cell capture does not mount protected roof geometry",
+							"status": "EXPECTED_UNEXERCISED_OFF_SLICE"
+						},
+						"domestic_radio_contract_executed": true,
+						"domestic_radio_counts": {
+							"radios": 18,
+							"units": 18
+						},
+						"domestic_radio_failures": [],
+						"floor_nodes": [
+							"B1",
+							"F01",
+							"F02",
+							"F03",
+							"F04",
+							"F05",
+							"F06",
+							"ROOF"
+						],
+						"hidden_production_detail_objects_included": true,
+						"layout_scope": "unchanged building-wide authoring record; target geometry remains F01-only",
+						"nested_failure_gate": true,
+						"off_floor_hosts_hidden": true,
+						"off_floor_target_cell_geometry_mounted": false,
+						"production_class": "OrisonDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 26,
+							"details": 197,
+							"domestic_radios": {
+								"failures": [],
+								"radios": 18,
+								"units": 18
+							}
+						},
+						"status": "PASS_WITH_OFF_SLICE_DEPENDENCY"
+					},
+					{
+						"production_class": "ExteriorDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 11,
+							"details": 381,
+							"puddles": 8
+						},
+						"status": "PASS"
+					},
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					570307909583,
+					570291132364
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						614599756381,
+						630001242626,
+						643053914118
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.803055555555556,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 11.3801274325907,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": true,
+			"residency_set": [
+				"CELL_ORISON_F01_INTERIOR",
+				"CELL_ORISON_FACADE_SHELL",
+				"CELL_SITE_STREET_COMMON"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [
+					{
+						"door_kind": "landmark_entry",
+						"floor_tracking": "F01",
+						"identity": "F01_DOOR_06",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_ORISON_FACADE_SHELL",
+						"passage_runtime_group": false,
+						"production_class": "LandmarkEntryDoor",
+						"source_id": "F01_DOOR_06",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					}
+				],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		},
+		{
+			"cache_growth_allowed": false,
+			"camera": {
+				"eye": [
+					9.0,
+					1.90027761459351,
+					21.0
+				],
+				"fov_degrees": 62.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					14.0,
+					1.55,
+					31.0
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "StaticBody3D",
+				"first_hit_distance_m": 8.25625801086426,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 11.1858253479004,
+				"visible_fraction": 0.738100028748793
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": -88,
+				"orphan_nodes": 0,
+				"resources": -4
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [],
+				"released_audio_sources": [],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "street_passage_portal",
+			"metrics": {
+				"aabb_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"aabb_min": [
+					-112.0,
+					-1.3400000333786,
+					-66.0
+				],
+				"aabb_valid": true,
+				"collision_objects": 68,
+				"collision_shapes": 73,
+				"lights": 1,
+				"mesh_instances": 98,
+				"mesh_surfaces": 98,
+				"nodes": 326,
+				"triangles": 44564,
+				"vertices": 86497
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 103,
+				"gpu_ms": 0.0189999993890524,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 14.403,
+				"process_ms": 1519.616,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 103,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_SITE_STREET_COMMON",
+					"CELL_PASSAGE"
+				],
+				"root": "M11C1Capture/street_passage_portal",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 105564,
+				"vram_bytes": 1865585808,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "C:\\PleaseRemainOnTheLine-v2-m11c1-runtime-scratch\\materialized-eighth-06\\m11c1_captures/street_passage_portal.png",
+			"png_sha256": "af977982c5e5ca5786a912404e05597825a5e0341880ee4586a7381bba33fdc8",
+			"positive_process_count_diagnostics": [],
+			"production_presentation": {
+				"executions": [
+					{
+						"production_class": "ExteriorDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 11,
+							"details": 381,
+							"puddles": 8
+						},
+						"status": "PASS"
+					},
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					715632154570,
+					715615377150
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						737425757940,
+						749052368642
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.671527777777778,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 15.5311677825585,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": true,
+			"residency_set": [
+				"CELL_SITE_STREET_COMMON",
+				"CELL_PASSAGE"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		},
+		{
+			"cache_growth_allowed": false,
+			"camera": {
+				"eye": [
+					14.1999998092651,
+					1.92749989032745,
+					49.4249992370605
+				],
+				"fov_degrees": 62.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					11.34,
+					1.05,
+					49.425
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "AnimatableBody3D",
+				"first_hit_distance_m": 2.96857643127441,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 2.99158883094788,
+				"visible_fraction": 0.992307632841987
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": -36,
+				"orphan_nodes": 0,
+				"resources": 0
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [
+					852634898771,
+					853473760757,
+					854312620264,
+					855151481194,
+					855990341969,
+					856829201656,
+					857668062039,
+					858506922791,
+					859345783545,
+					860184646380,
+					861023504416
+				],
+				"released_audio_sources": [
+					{
+						"identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_KEYS_CUT",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_PAWNBROKER",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_NEWS_CIGARS",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_OTIS___SON",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+						"released_voice_count": 0
+					}
+				],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "passage_west_shop_aisle",
+			"metrics": {
+				"aabb_max": [
+					27.4300003051758,
+					12.1000003814697,
+					64.8499984741211
+				],
+				"aabb_min": [
+					0.569999992847443,
+					-0.0500000007450581,
+					28.3159999847412
+				],
+				"aabb_valid": true,
+				"collision_objects": 294,
+				"collision_shapes": 294,
+				"lights": 1,
+				"mesh_instances": 390,
+				"mesh_surfaces": 390,
+				"nodes": 1075,
+				"triangles": 45004,
+				"vertices": 72590
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 204,
+				"gpu_ms": 0.0189999993890524,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 3.38,
+				"process_ms": 2047.207,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 204,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_PASSAGE",
+					"CELL_SHOP_MODEL_LAUNDRY",
+					"CELL_SHOP_SHOE_REBUILDING",
+					"CELL_SHOP_KEYS_CUT",
+					"CELL_SHOP_HARDWARE_PAINT",
+					"CELL_SHOP_FUNERAL_PARLOUR",
+					"CELL_SHOP_PHOTO_SUPPLIES",
+					"CELL_SHOP_RADIO_SERVICE",
+					"CELL_SHOP_PAWNBROKER",
+					"CELL_SHOP_NEWS_CIGARS",
+					"CELL_SHOP_OTIS_SON",
+					"CELL_SHOP_LUNCHEONETTE"
+				],
+				"root": "M11C1Capture/passage_west_shop_aisle",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 22878,
+				"vram_bytes": 1999843088,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "C:\\PleaseRemainOnTheLine-v2-m11c1-runtime-scratch\\materialized-eighth-06\\m11c1_captures/passage_west_shop_aisle.png",
+			"png_sha256": "4be5417b2017774fe74f018bb0b2eb7d61d98ad16b57a2a91db4da8ba6d018ac",
+			"positive_process_count_diagnostics": [],
+			"production_presentation": {
+				"executions": [
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					760779642619,
+					760762864468
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						775543592680,
+						791565832104,
+						797504966952,
+						801195953217,
+						806967315929,
+						813023891497,
+						820657526628,
+						828576371655,
+						835186594848,
+						839615780519,
+						845823349419,
+						851192056493
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.64625,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 16.2747173155607,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": true,
+			"residency_set": [
+				"CELL_PASSAGE",
+				"CELL_SHOP_MODEL_LAUNDRY",
+				"CELL_SHOP_SHOE_REBUILDING",
+				"CELL_SHOP_KEYS_CUT",
+				"CELL_SHOP_HARDWARE_PAINT",
+				"CELL_SHOP_FUNERAL_PARLOUR",
+				"CELL_SHOP_PHOTO_SUPPLIES",
+				"CELL_SHOP_RADIO_SERVICE",
+				"CELL_SHOP_PAWNBROKER",
+				"CELL_SHOP_NEWS_CIGARS",
+				"CELL_SHOP_OTIS_SON",
+				"CELL_SHOP_LUNCHEONETTE"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+						"leaf_state": "open",
+						"owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_KEYS_CUT",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_KEYS_CUT",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_KEYS_CUT",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_RADIO_SERVICE",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_PAWNBROKER",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_PAWNBROKER",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_PAWNBROKER",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_NEWS_CIGARS",
+						"leaf_state": "locked",
+						"owner_cell": "CELL_SHOP_NEWS_CIGARS",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_NEWS_CIGARS",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_OTIS___SON",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_OTIS_SON",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_OTIS___SON",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+						"leaf_state": "open",
+						"owner_cell": "CELL_SHOP_LUNCHEONETTE",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_LUNCHEONETTE",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					}
+				],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		},
+		{
+			"cache_growth_allowed": false,
+			"camera": {
+				"eye": [
+					12.0,
+					1.92749989032745,
+					18.0
+				],
+				"fov_degrees": 62.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					17.4,
+					1.35,
+					10.5
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "StaticBody3D",
+				"first_hit_distance_m": 7.45720958709717,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 9.25977897644043,
+				"visible_fraction": 0.80533343247938
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": 42,
+				"orphan_nodes": 0,
+				"resources": 0
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [
+					905483131049
+				],
+				"released_audio_sources": [
+					{
+						"identity": "F01_BODEGA_DOOR",
+						"released_voice_count": 0
+					}
+				],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "bodega_street_threshold",
+			"metrics": {
+				"aabb_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"aabb_min": [
+					-112.0,
+					-1.3400000333786,
+					-66.0
+				],
+				"aabb_valid": true,
+				"collision_objects": 60,
+				"collision_shapes": 65,
+				"lights": 1,
+				"mesh_instances": 93,
+				"mesh_surfaces": 93,
+				"nodes": 307,
+				"triangles": 37164,
+				"vertices": 70850
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 112,
+				"gpu_ms": 0.0179999992251396,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 1.069,
+				"process_ms": 1757.152,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 112,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_SITE_STREET_COMMON",
+					"CELL_SHOP_BODEGA"
+				],
+				"root": "M11C1Capture/bodega_street_threshold",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 99368,
+				"vram_bytes": 1928774992,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "C:\\PleaseRemainOnTheLine-v2-m11c1-runtime-scratch\\materialized-eighth-06\\m11c1_captures/bodega_street_threshold.png",
+			"png_sha256": "4fb18fcf4ce15f73f706995fbb46b5053b00260bdb9740429fd94d7f0988260e",
+			"positive_process_count_diagnostics": [
+				"objects"
+			],
+			"production_presentation": {
+				"executions": [
+					{
+						"production_class": "ExteriorDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 11,
+							"details": 381,
+							"puddles": 8
+						},
+						"status": "PASS"
+					},
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					868187376425,
+					868170599208
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						889980980006,
+						904510049640
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.850069444444444,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 10.1052962401109,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": true,
+			"residency_set": [
+				"CELL_SITE_STREET_COMMON",
+				"CELL_SHOP_BODEGA"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_BODEGA_STREET",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "F01_BODEGA_DOOR",
+						"leaf_state": "open",
+						"owner_cell": "CELL_SHOP_BODEGA",
+						"passage_runtime_group": false,
+						"production_class": "DoorProp",
+						"source_id": "F01_BODEGA_DOOR",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					}
+				],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		},
+		{
+			"cache_growth_allowed": false,
+			"camera": {
+				"eye": [
+					0.0,
+					1.43256449699402,
+					8.25
+				],
+				"fov_degrees": 64.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					0.0,
+					1.2,
+					9.795
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "AnimatableBody3D",
+				"first_hit_distance_m": 1.55633854866028,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 1.56240558624268,
+				"visible_fraction": 0.996116861309369
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": -36,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [
+					977222502668
+				],
+				"released_audio_sources": [
+					{
+						"identity": "F01_DOOR_06",
+						"released_voice_count": 0
+					}
+				],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "facade_shell_interior",
+			"metrics": {
+				"aabb_max": [
+					15.4580001831055,
+					22.6550006866455,
+					11.9250001907349
+				],
+				"aabb_min": [
+					-15.4580001831055,
+					-1.84999990463257,
+					-11.5080003738403
+				],
+				"aabb_valid": true,
+				"collision_objects": 84,
+				"collision_shapes": 84,
+				"lights": 1,
+				"mesh_instances": 808,
+				"mesh_surfaces": 808,
+				"nodes": 1305,
+				"triangles": 189058,
+				"vertices": 249365
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 93,
+				"gpu_ms": 0.0179999992251396,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 19.343,
+				"process_ms": 2407.094,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 93,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_ORISON_FACADE_SHELL",
+					"CELL_ORISON_F01_INTERIOR"
+				],
+				"root": "M11C1Capture/facade_shell_interior",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 104944,
+				"vram_bytes": 2099321744,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "C:\\PleaseRemainOnTheLine-v2-m11c1-runtime-scratch\\materialized-eighth-06\\m11c1_captures/facade_shell_interior.png",
+			"png_sha256": "30921110533d32ec5d5ab65a04c7b05b67ad84d07a0ce24939fa4da16bc8a144",
+			"positive_process_count_diagnostics": [
+				"resources"
+			],
+			"production_presentation": {
+				"executions": [
+					{
+						"deferred_dependency": {
+							"identity": "ROOF_DOOR_01",
+							"production_warning_expected": true,
+							"reason": "floor01 target-cell capture does not mount protected roof geometry",
+							"status": "EXPECTED_UNEXERCISED_OFF_SLICE"
+						},
+						"domestic_radio_contract_executed": true,
+						"domestic_radio_counts": {
+							"radios": 18,
+							"units": 18
+						},
+						"domestic_radio_failures": [],
+						"floor_nodes": [
+							"B1",
+							"F01",
+							"F02",
+							"F03",
+							"F04",
+							"F05",
+							"F06",
+							"ROOF"
+						],
+						"hidden_production_detail_objects_included": true,
+						"layout_scope": "unchanged building-wide authoring record; target geometry remains F01-only",
+						"nested_failure_gate": true,
+						"off_floor_hosts_hidden": true,
+						"off_floor_target_cell_geometry_mounted": false,
+						"production_class": "OrisonDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 26,
+							"details": 197,
+							"domestic_radios": {
+								"failures": [],
+								"radios": 18,
+								"units": 18
+							}
+						},
+						"status": "PASS_WITH_OFF_SLICE_DEPENDENCY"
+					},
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					916639978905,
+					916623202495
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						935782783166,
+						975293123580
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.559166666666667,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 18.0970116424606,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": true,
+			"residency_set": [
+				"CELL_ORISON_FACADE_SHELL",
+				"CELL_ORISON_F01_INTERIOR"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_SHELL_INTERIOR",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [
+					{
+						"door_kind": "landmark_entry",
+						"floor_tracking": "F01",
+						"identity": "F01_DOOR_06",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_ORISON_FACADE_SHELL",
+						"passage_runtime_group": false,
+						"production_class": "LandmarkEntryDoor",
+						"source_id": "F01_DOOR_06",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					}
+				],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		}
+	],
+	"input_provenance": {
+		"config": "C:\\PleaseRemainOnTheLine-v2-m11c1-runtime-scratch\\materialized-eighth-06\\m11c1_runtime_config.json",
+		"config_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+		"equivalence_sha256": "e7d0fddadff7dd7ad6294d28d25ba50afeef3b0e3f51a5733620874d6969251e",
+		"lineage_sha256": "6c9e571665167fc1c000eb4d72045df72b93e57055f33c3942476b145798e0f3",
+		"partition_sha256": "6db7f9e097921725e59adece79c31e0ffbf4676e67f10d1378c81e0e183dee8c"
+	},
+	"lifecycle_delta_from_warmed_baseline": {
+		"nodes": 0,
+		"objects": 0,
+		"orphan_nodes": 0,
+		"resources": 0
+	},
+	"process_start": {
+		"nodes": 36,
+		"objects": 1683,
+		"orphan_nodes": 0,
+		"resources": 77
+	},
+	"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+	"renderer": "forward_plus",
+	"required_dangerous_seam_count": 5,
+	"root": "M11C1OwnerFirstHarness/Capture",
+	"schema": "orison.m11c1.target-cell-dangerous-seam-capture.v1",
+	"simulation_state": "real target cells and marker consumers; camera-only harness",
+	"status": "PASS",
+	"warm_control": [
+		{
+			"cache_growth_allowed": true,
+			"camera": {
+				"eye": [
+					0.0,
+					1.6797776222229,
+					18.0
+				],
+				"fov_degrees": 64.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					0.0,
+					1.45,
+					9.7
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "AnimatableBody3D",
+				"first_hit_distance_m": 8.15012168884277,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 8.30317974090576,
+				"visible_fraction": 0.981566332797911
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": 68,
+				"orphan_nodes": 0,
+				"resources": 17
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [
+					158611802746
+				],
+				"released_audio_sources": [
+					{
+						"identity": "F01_DOOR_06",
+						"released_voice_count": 0
+					}
+				],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "orison_shell_street",
+			"metrics": {
+				"aabb_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"aabb_min": [
+					-112.0,
+					-1.84999990463257,
+					-66.0
+				],
+				"aabb_valid": true,
+				"collision_objects": 125,
+				"collision_shapes": 130,
+				"lights": 1,
+				"mesh_instances": 875,
+				"mesh_surfaces": 875,
+				"nodes": 1482,
+				"triangles": 222702,
+				"vertices": 314680
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 614,
+				"gpu_ms": null,
+				"gpu_timing_trustworthy": false,
+				"gpu_unavailable_reason": "headless or renderer returned no measured time",
+				"physics_process_ms": 49.337,
+				"process_ms": 205.211,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 614,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_ORISON_F01_INTERIOR",
+					"CELL_ORISON_FACADE_SHELL",
+					"CELL_SITE_STREET_COMMON"
+				],
+				"root": "M11C1Capture/orison_shell_street",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 254588,
+				"vram_bytes": 2154597808,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "",
+			"png_sha256": "",
+			"positive_process_count_diagnostics": [
+				"objects",
+				"resources"
+			],
+			"production_presentation": {
+				"executions": [
+					{
+						"deferred_dependency": {
+							"identity": "ROOF_DOOR_01",
+							"production_warning_expected": true,
+							"reason": "floor01 target-cell capture does not mount protected roof geometry",
+							"status": "EXPECTED_UNEXERCISED_OFF_SLICE"
+						},
+						"domestic_radio_contract_executed": true,
+						"domestic_radio_counts": {
+							"radios": 18,
+							"units": 18
+						},
+						"domestic_radio_failures": [],
+						"floor_nodes": [
+							"B1",
+							"F01",
+							"F02",
+							"F03",
+							"F04",
+							"F05",
+							"F06",
+							"ROOF"
+						],
+						"hidden_production_detail_objects_included": true,
+						"layout_scope": "unchanged building-wide authoring record; target geometry remains F01-only",
+						"nested_failure_gate": true,
+						"off_floor_hosts_hidden": true,
+						"off_floor_target_cell_geometry_mounted": false,
+						"production_class": "OrisonDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 26,
+							"details": 197,
+							"domestic_radios": {
+								"failures": [],
+								"radios": 18,
+								"units": 18
+							}
+						},
+						"status": "PASS_WITH_OFF_SLICE_DEPENDENCY"
+					},
+					{
+						"production_class": "ExteriorDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 11,
+							"details": 381,
+							"puddles": 8
+						},
+						"status": "PASS"
+					},
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					83634423384,
+					83617646166
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						127926273626,
+						143344535762,
+						156397209972
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.807986111111111,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 11.1326217188397,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": false,
+			"residency_set": [
+				"CELL_ORISON_F01_INTERIOR",
+				"CELL_ORISON_FACADE_SHELL",
+				"CELL_SITE_STREET_COMMON"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [
+					{
+						"door_kind": "landmark_entry",
+						"floor_tracking": "F01",
+						"identity": "F01_DOOR_06",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_ORISON_FACADE_SHELL",
+						"passage_runtime_group": false,
+						"production_class": "LandmarkEntryDoor",
+						"source_id": "F01_DOOR_06",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					}
+				],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		},
+		{
+			"cache_growth_allowed": true,
+			"camera": {
+				"eye": [
+					9.0,
+					1.92749989032745,
+					21.0
+				],
+				"fov_degrees": 62.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					14.0,
+					1.55,
+					31.0
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "StaticBody3D",
+				"first_hit_distance_m": 8.25691223144531,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 11.1867113113403,
+				"visible_fraction": 0.738100054756487
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": 9,
+				"orphan_nodes": 0,
+				"resources": 0
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [],
+				"released_audio_sources": [],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "street_passage_portal",
+			"metrics": {
+				"aabb_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"aabb_min": [
+					-112.0,
+					-1.3400000333786,
+					-66.0
+				],
+				"aabb_valid": true,
+				"collision_objects": 68,
+				"collision_shapes": 73,
+				"lights": 1,
+				"mesh_instances": 98,
+				"mesh_surfaces": 98,
+				"nodes": 326,
+				"triangles": 44564,
+				"vertices": 86497
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 103,
+				"gpu_ms": 0.00499999988824129,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 13.533,
+				"process_ms": 1436.836,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 103,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_SITE_STREET_COMMON",
+					"CELL_PASSAGE"
+				],
+				"root": "M11C1Capture/street_passage_portal",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 105564,
+				"vram_bytes": 1855460112,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "",
+			"png_sha256": "",
+			"positive_process_count_diagnostics": [
+				"objects"
+			],
+			"production_presentation": {
+				"executions": [
+					{
+						"production_class": "ExteriorDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 11,
+							"details": 381,
+							"puddles": 8
+						},
+						"status": "PASS"
+					},
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					245031241300,
+					245014465734
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						266824848584,
+						278451458798
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.669930555555556,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 15.4660143953098,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": false,
+			"residency_set": [
+				"CELL_SITE_STREET_COMMON",
+				"CELL_PASSAGE"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		},
+		{
+			"cache_growth_allowed": true,
+			"camera": {
+				"eye": [
+					14.1999998092651,
+					1.92749989032745,
+					49.4249992370605
+				],
+				"fov_degrees": 62.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					11.34,
+					1.05,
+					49.425
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "AnimatableBody3D",
+				"first_hit_distance_m": 2.96857643127441,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 2.99158883094788,
+				"visible_fraction": 0.992307632841987
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": 45,
+				"orphan_nodes": 0,
+				"resources": 6
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [
+					381950103960,
+					384449909183,
+					385288770029,
+					386127630876,
+					386966491723,
+					387805352567,
+					388644213414,
+					389483074877,
+					390321936463,
+					391160797320,
+					391999658168
+				],
+				"released_audio_sources": [
+					{
+						"identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_KEYS_CUT",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_PAWNBROKER",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_NEWS_CIGARS",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_OTIS___SON",
+						"released_voice_count": 0
+					},
+					{
+						"identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+						"released_voice_count": 0
+					}
+				],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "passage_west_shop_aisle",
+			"metrics": {
+				"aabb_max": [
+					27.4300003051758,
+					12.1000003814697,
+					64.8499984741211
+				],
+				"aabb_min": [
+					0.569999992847443,
+					-0.0500000007450581,
+					28.3159999847412
+				],
+				"aabb_valid": true,
+				"collision_objects": 294,
+				"collision_shapes": 294,
+				"lights": 1,
+				"mesh_instances": 390,
+				"mesh_surfaces": 390,
+				"nodes": 1075,
+				"triangles": 45004,
+				"vertices": 72590
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 204,
+				"gpu_ms": 0.00600000005215406,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 3.558,
+				"process_ms": 1966.861,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 204,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_PASSAGE",
+					"CELL_SHOP_MODEL_LAUNDRY",
+					"CELL_SHOP_SHOE_REBUILDING",
+					"CELL_SHOP_KEYS_CUT",
+					"CELL_SHOP_HARDWARE_PAINT",
+					"CELL_SHOP_FUNERAL_PARLOUR",
+					"CELL_SHOP_PHOTO_SUPPLIES",
+					"CELL_SHOP_RADIO_SERVICE",
+					"CELL_SHOP_PAWNBROKER",
+					"CELL_SHOP_NEWS_CIGARS",
+					"CELL_SHOP_OTIS_SON",
+					"CELL_SHOP_LUNCHEONETTE"
+				],
+				"root": "M11C1Capture/passage_west_shop_aisle",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 22878,
+				"vram_bytes": 1999843088,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "",
+			"png_sha256": "",
+			"positive_process_count_diagnostics": [
+				"objects",
+				"resources"
+			],
+			"production_presentation": {
+				"executions": [
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					290094844945,
+					290078067758
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						304858795052,
+						320881038779,
+						326820172788,
+						330511159984,
+						336282522523,
+						342339098210,
+						349972731702,
+						357891575015,
+						364501798506,
+						368930983745,
+						375138553832,
+						380507263168
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.645833333333333,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 16.2906596768644,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": false,
+			"residency_set": [
+				"CELL_PASSAGE",
+				"CELL_SHOP_MODEL_LAUNDRY",
+				"CELL_SHOP_SHOE_REBUILDING",
+				"CELL_SHOP_KEYS_CUT",
+				"CELL_SHOP_HARDWARE_PAINT",
+				"CELL_SHOP_FUNERAL_PARLOUR",
+				"CELL_SHOP_PHOTO_SUPPLIES",
+				"CELL_SHOP_RADIO_SERVICE",
+				"CELL_SHOP_PAWNBROKER",
+				"CELL_SHOP_NEWS_CIGARS",
+				"CELL_SHOP_OTIS_SON",
+				"CELL_SHOP_LUNCHEONETTE"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+						"leaf_state": "open",
+						"owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_SHOE_REBUILDING",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_KEYS_CUT",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_KEYS_CUT",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_KEYS_CUT",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_HARDWARE_PAINT",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_RADIO_SERVICE",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_RADIO_SERVICE",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_PAWNBROKER",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_PAWNBROKER",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_PAWNBROKER",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_NEWS_CIGARS",
+						"leaf_state": "locked",
+						"owner_cell": "CELL_SHOP_NEWS_CIGARS",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_NEWS_CIGARS",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_OTIS___SON",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_SHOP_OTIS_SON",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_OTIS___SON",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					},
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "SITE_SHOP_DOOR_LUNCHEONETTE",
+						"leaf_state": "open",
+						"owner_cell": "CELL_SHOP_LUNCHEONETTE",
+						"passage_runtime_group": true,
+						"production_class": "DoorProp",
+						"source_id": "SITE_SHOP_DOOR_LUNCHEONETTE",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					}
+				],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		},
+		{
+			"cache_growth_allowed": true,
+			"camera": {
+				"eye": [
+					12.0,
+					1.92749989032745,
+					18.0
+				],
+				"fov_degrees": 62.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					17.4,
+					1.35,
+					10.5
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "StaticBody3D",
+				"first_hit_distance_m": 7.45720958709717,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 9.25977897644043,
+				"visible_fraction": 0.80533343247938
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": -50,
+				"orphan_nodes": 0,
+				"resources": 0
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [
+					436375392411
+				],
+				"released_audio_sources": [
+					{
+						"identity": "F01_BODEGA_DOOR",
+						"released_voice_count": 0
+					}
+				],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "bodega_street_threshold",
+			"metrics": {
+				"aabb_max": [
+					108.0,
+					53.5852279663086,
+					102.199996948242
+				],
+				"aabb_min": [
+					-112.0,
+					-1.3400000333786,
+					-66.0
+				],
+				"aabb_valid": true,
+				"collision_objects": 60,
+				"collision_shapes": 65,
+				"lights": 1,
+				"mesh_instances": 93,
+				"mesh_surfaces": 93,
+				"nodes": 307,
+				"triangles": 37164,
+				"vertices": 70850
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 112,
+				"gpu_ms": 0.0120000001043081,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 7.911,
+				"process_ms": 1725.004,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 112,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_SITE_STREET_COMMON",
+					"CELL_SHOP_BODEGA"
+				],
+				"root": "M11C1Capture/bodega_street_threshold",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 99368,
+				"vram_bytes": 1928774992,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "",
+			"png_sha256": "",
+			"positive_process_count_diagnostics": [],
+			"production_presentation": {
+				"executions": [
+					{
+						"production_class": "ExteriorDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 11,
+							"details": 381,
+							"puddles": 8
+						},
+						"status": "PASS"
+					},
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					399079640263,
+					399062862218
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						420873243012,
+						435402313947
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.850069444444444,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 10.0977632970861,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": false,
+			"residency_set": [
+				"CELL_SITE_STREET_COMMON",
+				"CELL_SHOP_BODEGA"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_BODEGA_STREET",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [
+					{
+						"door_kind": "storefront",
+						"floor_tracking": "F01",
+						"identity": "F01_BODEGA_DOOR",
+						"leaf_state": "open",
+						"owner_cell": "CELL_SHOP_BODEGA",
+						"passage_runtime_group": false,
+						"production_class": "DoorProp",
+						"source_id": "F01_BODEGA_DOOR",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					}
+				],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		},
+		{
+			"cache_growth_allowed": true,
+			"camera": {
+				"eye": [
+					0.0,
+					1.43256449699402,
+					8.25
+				],
+				"fov_degrees": 64.0,
+				"initial_placement_count": 1,
+				"noclip": false,
+				"production_class": "PlayerController/Camera3D",
+				"source": "explicit M11C1 runtime config",
+				"target": [
+					0.0,
+					1.2,
+					9.795
+				]
+			},
+			"camera_occlusion": {
+				"first_hit_class": "AnimatableBody3D",
+				"first_hit_distance_m": 1.55633854866028,
+				"minimum_visible_fraction": 0.65,
+				"passed": true,
+				"target_distance_m": 1.56240558624268,
+				"visible_fraction": 0.996116861309369
+			},
+			"delta": {
+				"nodes": 0,
+				"objects": 8,
+				"orphan_nodes": 0,
+				"resources": 4
+			},
+			"dimensions": [
+				1600,
+				900
+			],
+			"door_teardown": {
+				"adapter_scope": "exact marker DoorProp construction/group seam only",
+				"api": "M11C1MarkerConsumerAdapter.public_teardown",
+				"building_root_execution": false,
+				"production_door_script_modified": false,
+				"queued_instance_ids": [
+					505984061330
+				],
+				"released_audio_sources": [
+					{
+						"identity": "F01_DOOR_06",
+						"released_voice_count": 0
+					}
+				],
+				"retained_strong_references": 0,
+				"spatial_inference": false
+			},
+			"frame_local_retention_gate": {
+				"node_or_orphan_growth": false,
+				"object_resource_churn_diagnostic_only": true,
+				"object_resource_retention_gate": "matched warmed five-view final delta",
+				"owned_adapter_weakref_released": true,
+				"owned_player_weakref_released": true
+			},
+			"id": "facade_shell_interior",
+			"metrics": {
+				"aabb_max": [
+					15.4580001831055,
+					22.6550006866455,
+					11.9250001907349
+				],
+				"aabb_min": [
+					-15.4580001831055,
+					-1.84999990463257,
+					-11.5080003738403
+				],
+				"aabb_valid": true,
+				"collision_objects": 84,
+				"collision_shapes": 84,
+				"lights": 1,
+				"mesh_instances": 808,
+				"mesh_surfaces": 808,
+				"nodes": 1305,
+				"triangles": 189058,
+				"vertices": 249365
+			},
+			"owner_released": true,
+			"performance": {
+				"display_server": "Windows",
+				"draw_calls": 93,
+				"gpu_ms": 0.0189999993890524,
+				"gpu_timing_trustworthy": true,
+				"gpu_unavailable_reason": "",
+				"physics_process_ms": 19.218,
+				"process_ms": 2408.918,
+				"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+				"render_objects": 93,
+				"renderer": "forward_plus",
+				"residency_set": [
+					"CELL_ORISON_FACADE_SHELL",
+					"CELL_ORISON_F01_INTERIOR"
+				],
+				"root": "M11C1Capture/facade_shell_interior",
+				"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+				"visible_primitives": 104944,
+				"vram_bytes": 2099321744,
+				"vram_trustworthy": true,
+				"vram_unavailable_reason": ""
+			},
+			"player_released": true,
+			"png": "",
+			"png_sha256": "",
+			"positive_process_count_diagnostics": [
+				"objects",
+				"resources"
+			],
+			"production_presentation": {
+				"executions": [
+					{
+						"deferred_dependency": {
+							"identity": "ROOF_DOOR_01",
+							"production_warning_expected": true,
+							"reason": "floor01 target-cell capture does not mount protected roof geometry",
+							"status": "EXPECTED_UNEXERCISED_OFF_SLICE"
+						},
+						"domestic_radio_contract_executed": true,
+						"domestic_radio_counts": {
+							"radios": 18,
+							"units": 18
+						},
+						"domestic_radio_failures": [],
+						"floor_nodes": [
+							"B1",
+							"F01",
+							"F02",
+							"F03",
+							"F04",
+							"F05",
+							"F06",
+							"ROOF"
+						],
+						"hidden_production_detail_objects_included": true,
+						"layout_scope": "unchanged building-wide authoring record; target geometry remains F01-only",
+						"nested_failure_gate": true,
+						"off_floor_hosts_hidden": true,
+						"off_floor_target_cell_geometry_mounted": false,
+						"production_class": "OrisonDetailPass",
+						"public_api": "build",
+						"result": {
+							"decals": 26,
+							"details": 197,
+							"domestic_radios": {
+								"failures": [],
+								"radios": 18,
+								"units": 18
+							}
+						},
+						"status": "PASS_WITH_OFF_SLICE_DEPENDENCY"
+					},
+					{
+						"collision_extracted": false,
+						"geometry_extracted": false,
+						"production_source_scene": "res://scenes/building/orison_v2_exterior_cell.tscn",
+						"production_source_sha256": "f24584c08c313e35e3251311785b5e57c68556c2cf5b48a9e1eadfa7a2914db7",
+						"resource_class": "Environment",
+						"status": "PASS"
+					}
+				],
+				"status": "PASS"
+			},
+			"profile": "forward_plus/Windows/NVIDIA GeForce RTX 4080",
+			"public_teardown": {
+				"api": "M11C1ConsumerAdaptation.public_teardown",
+				"forced_object_deletion": false,
+				"production_redirected": false,
+				"queued_instance_ids": [
+					445401532832,
+					445384755720
+				],
+				"registry": {
+					"api": "M11C1CellRegistry.public_teardown",
+					"forced_object_deletion": false,
+					"node_name_reach_ins": false,
+					"queued_instance_ids": [
+						464544337764,
+						504054681653
+					],
+					"retained_strong_references": 0,
+					"spatial_inference": false
+				},
+				"retained_strong_references": 0
+			},
+			"readability": {
+				"fraction_below_16": 0.559375,
+				"maximum_fraction_below_16": 0.92,
+				"mean_luma_255": 18.0878344887847,
+				"minimum_mean_luma_255": 8.0,
+				"passed": true,
+				"sample_dimensions": [
+					160,
+					90
+				]
+			},
+			"recorded_packet_frame": false,
+			"residency_set": [
+				"CELL_ORISON_FACADE_SHELL",
+				"CELL_ORISON_F01_INTERIOR"
+			],
+			"root": "M11C1Capture/TargetCells",
+			"seam_id": "SEAM_SHELL_INTERIOR",
+			"simulation_state": "target cells + real marker doors/details + production PlayerController camera",
+			"source_owned_doors": {
+				"doors": [
+					{
+						"door_kind": "landmark_entry",
+						"floor_tracking": "F01",
+						"identity": "F01_DOOR_06",
+						"leaf_state": "closed",
+						"owner_cell": "CELL_ORISON_FACADE_SHELL",
+						"passage_runtime_group": false,
+						"production_class": "LandmarkEntryDoor",
+						"source_id": "F01_DOOR_06",
+						"source_selection": "exact durable marker identity",
+						"spatial_inference": false
+					}
+				],
+				"failures": [],
+				"status": "PASS"
+			},
+			"status": "PASS"
+		}
+	],
+	"warmed_baseline": {
+		"nodes": 36,
+		"objects": 1752,
+		"orphan_nodes": 0,
+		"resources": 100
+	}
+}

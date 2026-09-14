@@ -86,11 +86,11 @@ func debug_start_dream_sequence() -> bool:
 func _restore_world() -> void:
 	match dream_director.phase():
 		"entered", "active":
-			_replace_world("dream")
-			dream_director.notify_dream_world_active()
+			if _replace_world("dream"):
+				dream_director.notify_dream_world_active()
 		"return_pending":
-			_replace_world("waking")
-			dream_director.complete_return()
+			if _replace_world("waking"):
+				dream_director.complete_return()
 		_:
 			_replace_world("waking")
 
@@ -107,27 +107,27 @@ func _on_world_swap_requested(kind: String) -> void:
 func _apply_world_swap(kind: String) -> void:
 	_swap_queued = false
 	if kind == "dream":
-		_replace_world("dream")
-		dream_director.notify_dream_world_active()
+		if _replace_world("dream"):
+			dream_director.notify_dream_world_active()
 	elif kind == "waking":
-		_replace_world("waking")
-		dream_director.complete_return()
+		if _replace_world("waking"):
+			dream_director.complete_return()
 
 
-func _replace_world(kind: String) -> void:
-	if active_world != null and is_instance_valid(active_world):
-		if active_kind == "waking":
-			sleep_pressure.detach_waking_services()
-			core_loop.detach_world()
-		world_slot.remove_child(active_world)
-		active_world.free()
-	active_world = null
-	active_kind = ""
+func _replace_world(kind: String) -> bool:
+	if kind not in ["dream", "waking"]:
+		push_error("campaign world kind is invalid: %s" % kind)
+		return false
 	var path := dream_scene_path if kind == "dream" else _selected_waking_path()
 	var packed := load(path) as PackedScene
 	if packed == null:
 		push_error("campaign world scene missing: %s" % path)
-		return
+		return false
+	var teardown := teardown_active_world()
+	if not bool(teardown.get("ok", false)):
+		push_error("campaign world replacement teardown failed: %s" %
+				JSON.stringify(teardown))
+		return false
 	var next := packed.instantiate()
 	if kind == "dream" and next.has_method("configure_dream"):
 		next.call("configure_dream", dream_director.context())
@@ -136,6 +136,68 @@ func _replace_world(kind: String) -> void:
 	active_kind = kind
 	assert(world_slot.get_child_count() == 1)
 	world_changed.emit(kind, next)
+	return true
+
+
+## Public scene-replacement boundary. A waking world first releases its
+## independently addressable geometry through the provider's own API; only
+## then are gameplay services detached and the complete world queued for the
+## next safe deletion boundary. Provider identity remains session-only.
+func teardown_active_world() -> Dictionary:
+	if active_world == null or not is_instance_valid(active_world):
+		active_world = null
+		active_kind = ""
+		return {"ok": true, "api": "CampaignShell.teardown_active_world",
+			"had_world": false, "geometry_teardown": {},
+			"world_queued_for_deletion": false,
+			"retained_instances": 0, "retained_resources": 0,
+			"retained_strong_references": 0}
+	var retiring := active_world
+	var retiring_kind := active_kind
+	var geometry_teardown := {"ok": true,
+			"reason": "active world has no independent F01 geometry provider"}
+	var geometry_required := retiring_kind == "waking" \
+			and retiring.has_method("teardown_floor01_geometry")
+	if geometry_required:
+		geometry_teardown = retiring.call("teardown_floor01_geometry") \
+				as Dictionary
+		if not bool(geometry_teardown.get("ok", false)):
+			return {"ok": false,
+				"api": "CampaignShell.teardown_active_world",
+				"had_world": true, "retiring_kind": retiring_kind,
+				"geometry_teardown_required": true,
+				"geometry_teardown": geometry_teardown,
+				"world_queued_for_deletion": false,
+				"retained_instances": int(geometry_teardown.get(
+						"retained_instances", -1)),
+				"retained_resources": int(geometry_teardown.get(
+						"retained_resources", -1)),
+				"retained_strong_references": int(geometry_teardown.get(
+						"retained_strong_references", -1))}
+	if retiring_kind == "waking":
+		sleep_pressure.detach_waking_services()
+		core_loop.detach_world()
+	# Queue first so the SceneTree owns deferred deletion even after the world
+	# is removed from the one-child slot. This never synchronously frees a live
+	# renderer/light graph.
+	retiring.queue_free()
+	if retiring.get_parent() == world_slot:
+		world_slot.remove_child(retiring)
+	active_world = null
+	active_kind = ""
+	return {"ok": true, "api": "CampaignShell.teardown_active_world",
+		"had_world": true, "retiring_kind": retiring_kind,
+		"geometry_teardown_required": geometry_required,
+		"geometry_teardown": geometry_teardown,
+		"world_queued_for_deletion": retiring.is_queued_for_deletion(),
+		"retained_instances": int(geometry_teardown.get(
+				"retained_instances", 0)),
+		"retained_resources": int(geometry_teardown.get(
+				"retained_resources", 0)),
+		"retained_strong_references": int(geometry_teardown.get(
+				"retained_strong_references", 0)),
+		"synchronous_world_free": false,
+		"selector_or_save_authority_changed": false}
 
 func _selected_waking_path() -> String:
 	return waking_scene_path if not waking_scene_path.is_empty() \

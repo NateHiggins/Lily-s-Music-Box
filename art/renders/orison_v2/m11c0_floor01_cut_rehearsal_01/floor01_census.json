@@ -1,0 +1,34 @@
+{
+  "schema": "orison.m11c0.floor01-census.v1",
+  "status": "PASS",
+  "source": {
+    "gltf": "C:\\PleaseRemainOnTheLine-v2-m11c0-floor01-cut-rehearsal\\game\\assets\\building\\floor_01.gltf",
+    "bin": "C:\\PleaseRemainOnTheLine-v2-m11c0-floor01-cut-rehearsal\\game\\assets\\building\\floor_01.bin",
+    "gltf_bytes": 682906,
+    "bin_bytes": 12020428,
+    "hashes_before": {
+      "gltf": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+      "bin": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477"
+    },
+    "hashes_after": {
+      "gltf": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+      "bin": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477"
+    },
+    "protected_unchanged": true
+  },
+  "counts": {
+    "nodes": 531,
+    "meshes": 531,
+    "primitives": 531,
+    "accessors": 1740,
+    "buffer_views": 1740,
+    "materials": 104,
+    "textures": 304,
+    "images": 304,
+    "samplers": 1,
+    "collision_tagged_nodes": 380,
+    "bin_bytes": 12020428,
+    "buffer_gaps": [],
+    "buffer_gap_bytes": 0
+  }
+}

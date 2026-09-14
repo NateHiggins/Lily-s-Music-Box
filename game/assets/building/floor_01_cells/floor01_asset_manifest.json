@@ -1,0 +1,2097 @@
+{
+  "authoritative_inputs": {
+    "exterior_regions": "22b6c0415e720d0df5c601dcafa7d430fad0f523f264eb4b8cab0f98a4812448",
+    "generator": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "generator_adapter": "f1db11edad77a85871599f42ae6b43a7ebebd788dd67fdf0901418db711c0f27",
+    "layout": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "ownership": "be6e37716a83fd615d733475aed642b9e66f13a12c803b55bdd87035e302755e",
+    "production_exporter": "af5300afd524fb0d9132c31989b9657f267a753449942dd41c309efa6d71366b",
+    "runtime_layout_mirror": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c"
+  },
+  "canonical_equivalence": {
+    "generated_contributions": 9820,
+    "generated_sources": 3,
+    "output_primitives": 609,
+    "output_triangles": 183726,
+    "source_records": 5286,
+    "status": "PASS",
+    "unexplained_differences": []
+  },
+  "cell_count": 17,
+  "cells": [
+    {
+      "bin_bytes": 5041436,
+      "bin_path": "game/assets/building/floor_01_cells/orison_f01_interior.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.bin",
+      "bin_sha256": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012",
+      "bounds_union": [
+        [
+          -13.970000267028809,
+          -0.1899999976158142,
+          -9.970000267028809
+        ],
+        [
+          13.970000267028809,
+          4.159999847412109,
+          9.970000267028809
+        ]
+      ],
+      "collision_object_count": 18,
+      "gltf_bytes": 168259,
+      "gltf_path": "game/assets/building/floor_01_cells/orison_f01_interior.gltf",
+      "gltf_sha256": "bc6ff5536e374be8385232b65c0404014d5970c9a27f016c0a301d01748c48e4",
+      "id": "CELL_ORISON_F01_INTERIOR",
+      "mesh_count": 80,
+      "node_count": 80,
+      "primitive_count": 80,
+      "resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf",
+      "slug": "orison_f01_interior",
+      "triangle_count": 78846,
+      "vertex_count": 143116
+    },
+    {
+      "bin_bytes": 1239972,
+      "bin_path": "game/assets/building/floor_01_cells/orison_facade_shell.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.bin",
+      "bin_sha256": "e5666a66f32f7e86fbe30c404b20bf1be3f7d1fbd369e314f7c7d89089be777b",
+      "bounds_union": [
+        [
+          -15.458000183105469,
+          0.0,
+          -11.508000373840332
+        ],
+        [
+          15.458000183105469,
+          19.215587615966797,
+          11.925000190734863
+        ]
+      ],
+      "collision_object_count": 10,
+      "gltf_bytes": 66765,
+      "gltf_path": "game/assets/building/floor_01_cells/orison_facade_shell.gltf",
+      "gltf_sha256": "c47a6eeefe146ff9bebb6d09a8ae5d24f6beb6f9a69a15a4f79b2b8e9c2314c8",
+      "id": "CELL_ORISON_FACADE_SHELL",
+      "mesh_count": 31,
+      "node_count": 31,
+      "primitive_count": 31,
+      "resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf",
+      "slug": "orison_facade_shell",
+      "triangle_count": 18422,
+      "vertex_count": 35334
+    },
+    {
+      "bin_bytes": 2288868,
+      "bin_path": "game/assets/building/floor_01_cells/site_street_common.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/site_street_common.bin",
+      "bin_sha256": "4b8d4a73f088df1b067f850689c2bc436517ef3e13e2e98e18a90a90b51cafa9",
+      "bounds_union": [
+        [
+          -112.0,
+          -1.340000033378601,
+          -66.0
+        ],
+        [
+          108.0,
+          53.585227966308594,
+          102.19999694824219
+        ]
+      ],
+      "collision_object_count": 40,
+      "gltf_bytes": 99719,
+      "gltf_path": "game/assets/building/floor_01_cells/site_street_common.gltf",
+      "gltf_sha256": "102693f5e35816da2650f81065219a19daa9a77a96b4c9b232a6fcdf4c04a6a2",
+      "id": "CELL_SITE_STREET_COMMON",
+      "mesh_count": 51,
+      "node_count": 51,
+      "primitive_count": 51,
+      "resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf",
+      "slug": "site_street_common",
+      "triangle_count": 33634,
+      "vertex_count": 65295
+    },
+    {
+      "bin_bytes": 741472,
+      "bin_path": "game/assets/building/floor_01_cells/passage.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/passage.bin",
+      "bin_sha256": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36",
+      "bounds_union": [
+        [
+          0.5699999928474426,
+          -0.05000000074505806,
+          28.31599998474121
+        ],
+        [
+          27.43000030517578,
+          12.100000381469727,
+          64.8499984741211
+        ]
+      ],
+      "collision_object_count": 26,
+      "gltf_bytes": 60429,
+      "gltf_path": "game/assets/building/floor_01_cells/passage.gltf",
+      "gltf_sha256": "143d159a55e1bebdf1507b0ea2e515ccd763bf2b47770cdd11bb0349cf0f9907",
+      "id": "CELL_PASSAGE",
+      "mesh_count": 31,
+      "node_count": 31,
+      "primitive_count": 31,
+      "resource_path": "res://assets/building/floor_01_cells/passage.gltf",
+      "slug": "passage",
+      "triangle_count": 10920,
+      "vertex_count": 21182
+    },
+    {
+      "bin_bytes": 1255696,
+      "bin_path": "game/assets/building/floor_01_cells/shop_bar.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_bar.bin",
+      "bin_sha256": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
+      "bounds_union": [
+        [
+          -12.0,
+          -2.9000000953674316,
+          28.299999237060547
+        ],
+        [
+          6.400000095367432,
+          3.549999952316284,
+          38.20000076293945
+        ]
+      ],
+      "collision_object_count": 33,
+      "gltf_bytes": 149853,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_bar.gltf",
+      "gltf_sha256": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+      "id": "CELL_SHOP_BAR",
+      "mesh_count": 72,
+      "node_count": 72,
+      "primitive_count": 72,
+      "resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf",
+      "slug": "shop_bar",
+      "triangle_count": 19036,
+      "vertex_count": 35786
+    },
+    {
+      "bin_bytes": 156300,
+      "bin_path": "game/assets/building/floor_01_cells/shop_bodega.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_bodega.bin",
+      "bin_sha256": "639c74a18a499d042af8a44f6a11b70fc739e5ba81382a1769788990b4fa67aa",
+      "bounds_union": [
+        [
+          15.199999809265137,
+          0.0,
+          1.2999999523162842
+        ],
+        [
+          19.600000381469727,
+          3.549999952316284,
+          13.100000381469727
+        ]
+      ],
+      "collision_object_count": 17,
+      "gltf_bytes": 52019,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_bodega.gltf",
+      "gltf_sha256": "98c241f535cf369f6c5302b704d334c423d51dfe24f545d827a3ecb49c45c68f",
+      "id": "CELL_SHOP_BODEGA",
+      "mesh_count": 23,
+      "node_count": 23,
+      "primitive_count": 23,
+      "resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf",
+      "slug": "shop_bodega",
+      "triangle_count": 2296,
+      "vertex_count": 4533
+    },
+    {
+      "bin_bytes": 155284,
+      "bin_path": "game/assets/building/floor_01_cells/shop_model_laundry.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.bin",
+      "bin_sha256": "3147958516513b9d8ac0bed0150eff8037b0e6e0371a1c737ab61175bfc960f4",
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          39.13999938964844
+        ],
+        [
+          12.600000381469727,
+          4.199999809265137,
+          44.86000061035156
+        ]
+      ],
+      "collision_object_count": 23,
+      "gltf_bytes": 76460,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_model_laundry.gltf",
+      "gltf_sha256": "0e8fff621511552fc51b7aa9b5d5fb9ed5ec89e976fc9bfd077dbbd986437af8",
+      "id": "CELL_SHOP_MODEL_LAUNDRY",
+      "mesh_count": 33,
+      "node_count": 33,
+      "primitive_count": 33,
+      "resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+      "slug": "shop_model_laundry",
+      "triangle_count": 2300,
+      "vertex_count": 4478
+    },
+    {
+      "bin_bytes": 84308,
+      "bin_path": "game/assets/building/floor_01_cells/shop_shoe_rebuilding.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.bin",
+      "bin_sha256": "a8c0cd8fa55990d23b8658168ee39b8218d2202305ea3aea1ae30bdb52b75918",
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          44.7400016784668
+        ],
+        [
+          12.600000381469727,
+          4.199999809265137,
+          50.459999084472656
+        ]
+      ],
+      "collision_object_count": 20,
+      "gltf_bytes": 50571,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+      "gltf_sha256": "7c5e3a4aff034e7533fed0c157ca4da7ad264d4d7632d9ff91fbd4622f7dc8d6",
+      "id": "CELL_SHOP_SHOE_REBUILDING",
+      "mesh_count": 21,
+      "node_count": 21,
+      "primitive_count": 21,
+      "resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+      "slug": "shop_shoe_rebuilding",
+      "triangle_count": 1226,
+      "vertex_count": 2452
+    },
+    {
+      "bin_bytes": 150596,
+      "bin_path": "game/assets/building/floor_01_cells/shop_keys_cut.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.bin",
+      "bin_sha256": "115f13475d0874826a975abba23ec20abed310e27b5e2d73e26f30ceb502097f",
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          50.34000015258789
+        ],
+        [
+          12.319999694824219,
+          4.199999809265137,
+          54.060001373291016
+        ]
+      ],
+      "collision_object_count": 20,
+      "gltf_bytes": 50215,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_keys_cut.gltf",
+      "gltf_sha256": "e9654a3ffc0f08c3c048afbecbca468857a1ab6b6a210b088e478d9f15efa2be",
+      "id": "CELL_SHOP_KEYS_CUT",
+      "mesh_count": 21,
+      "node_count": 21,
+      "primitive_count": 21,
+      "resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+      "slug": "shop_keys_cut",
+      "triangle_count": 2174,
+      "vertex_count": 4348
+    },
+    {
+      "bin_bytes": 185660,
+      "bin_path": "game/assets/building/floor_01_cells/shop_hardware_paint.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.bin",
+      "bin_sha256": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb",
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          53.939998626708984
+        ],
+        [
+          12.319999694824219,
+          4.199999809265137,
+          59.459999084472656
+        ]
+      ],
+      "collision_object_count": 21,
+      "gltf_bytes": 53565,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_hardware_paint.gltf",
+      "gltf_sha256": "c4c7573c3dbec95bec3b1c30a3858915f21cd1e0953ca77b10705a0fefc37fec",
+      "id": "CELL_SHOP_HARDWARE_PAINT",
+      "mesh_count": 22,
+      "node_count": 22,
+      "primitive_count": 22,
+      "resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+      "slug": "shop_hardware_paint",
+      "triangle_count": 2678,
+      "vertex_count": 5356
+    },
+    {
+      "bin_bytes": 93812,
+      "bin_path": "game/assets/building/floor_01_cells/shop_funeral_parlour.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.bin",
+      "bin_sha256": "2aba70fa1cf9027b4725edef8e1f598b3d274e7e839a80ea502d62c9332721f4",
+      "bounds_union": [
+        [
+          1.1799999475479126,
+          -0.05000000074505806,
+          59.34000015258789
+        ],
+        [
+          12.600000381469727,
+          4.199999809265137,
+          64.05999755859375
+        ]
+      ],
+      "collision_object_count": 23,
+      "gltf_bytes": 57090,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+      "gltf_sha256": "156126eccebb5136d505943080fd8ec7d25ec84880f3ab82d9e865cb0e238be8",
+      "id": "CELL_SHOP_FUNERAL_PARLOUR",
+      "mesh_count": 24,
+      "node_count": 24,
+      "primitive_count": 24,
+      "resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+      "slug": "shop_funeral_parlour",
+      "triangle_count": 1370,
+      "vertex_count": 2740
+    },
+    {
+      "bin_bytes": 119212,
+      "bin_path": "game/assets/building/floor_01_cells/shop_photo_supplies.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.bin",
+      "bin_sha256": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+      "bounds_union": [
+        [
+          15.399999618530273,
+          -0.05000000074505806,
+          58.7400016784668
+        ],
+        [
+          27.059999465942383,
+          4.199999809265137,
+          64.5
+        ]
+      ],
+      "collision_object_count": 25,
+      "gltf_bytes": 79883,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_photo_supplies.gltf",
+      "gltf_sha256": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+      "id": "CELL_SHOP_PHOTO_SUPPLIES",
+      "mesh_count": 35,
+      "node_count": 35,
+      "primitive_count": 35,
+      "resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf",
+      "slug": "shop_photo_supplies",
+      "triangle_count": 1832,
+      "vertex_count": 3542
+    },
+    {
+      "bin_bytes": 101236,
+      "bin_path": "game/assets/building/floor_01_cells/shop_radio_service.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_radio_service.bin",
+      "bin_sha256": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+      "bounds_union": [
+        [
+          15.420000076293945,
+          -0.05000000074505806,
+          55.540000915527344
+        ],
+        [
+          26.81999969482422,
+          4.199999809265137,
+          58.86000061035156
+        ]
+      ],
+      "collision_object_count": 26,
+      "gltf_bytes": 81449,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_radio_service.gltf",
+      "gltf_sha256": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+      "id": "CELL_SHOP_RADIO_SERVICE",
+      "mesh_count": 36,
+      "node_count": 36,
+      "primitive_count": 36,
+      "resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf",
+      "slug": "shop_radio_service",
+      "triangle_count": 1532,
+      "vertex_count": 2942
+    },
+    {
+      "bin_bytes": 121252,
+      "bin_path": "game/assets/building/floor_01_cells/shop_pawnbroker.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.bin",
+      "bin_sha256": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff",
+      "bounds_union": [
+        [
+          15.680000305175781,
+          -0.05000000074505806,
+          50.939998626708984
+        ],
+        [
+          27.059999465942383,
+          4.199999809265137,
+          55.65999984741211
+        ]
+      ],
+      "collision_object_count": 25,
+      "gltf_bytes": 79375,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_pawnbroker.gltf",
+      "gltf_sha256": "7c8a009e1a5cefeb2767bd83b58a8b6fae400b248049f484032bd6480a84d6b2",
+      "id": "CELL_SHOP_PAWNBROKER",
+      "mesh_count": 35,
+      "node_count": 35,
+      "primitive_count": 35,
+      "resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf",
+      "slug": "shop_pawnbroker",
+      "triangle_count": 1820,
+      "vertex_count": 3518
+    },
+    {
+      "bin_bytes": 88804,
+      "bin_path": "game/assets/building/floor_01_cells/shop_news_cigars.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.bin",
+      "bin_sha256": "a5f02344357a93404ff20ded11527b5c04e7a90b56d25fafbd5cb0f34338b926",
+      "bounds_union": [
+        [
+          15.680000305175781,
+          -0.05000000074505806,
+          48.63999938964844
+        ],
+        [
+          26.81999969482422,
+          4.199999809265137,
+          51.5
+        ]
+      ],
+      "collision_object_count": 18,
+      "gltf_bytes": 63946,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_news_cigars.gltf",
+      "gltf_sha256": "2504ef7ff2283a7f32a8cae426dfdf1a70760e5d7719a32cf63daad9e50a8871",
+      "id": "CELL_SHOP_NEWS_CIGARS",
+      "mesh_count": 28,
+      "node_count": 28,
+      "primitive_count": 28,
+      "resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf",
+      "slug": "shop_news_cigars",
+      "triangle_count": 1340,
+      "vertex_count": 2558
+    },
+    {
+      "bin_bytes": 149276,
+      "bin_path": "game/assets/building/floor_01_cells/shop_otis_son.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_otis_son.bin",
+      "bin_sha256": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
+      "bounds_union": [
+        [
+          15.420000076293945,
+          -0.05000000074505806,
+          44.34000015258789
+        ],
+        [
+          27.059999465942383,
+          4.199999809265137,
+          48.7599983215332
+        ]
+      ],
+      "collision_object_count": 30,
+      "gltf_bytes": 72634,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_otis_son.gltf",
+      "gltf_sha256": "352a40ef1a5a5196d4945349d410dc023d17e11629e11b22d36bb3a68c5e2c61",
+      "id": "CELL_SHOP_OTIS_SON",
+      "mesh_count": 31,
+      "node_count": 31,
+      "primitive_count": 31,
+      "resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+      "slug": "shop_otis_son",
+      "triangle_count": 2186,
+      "vertex_count": 4372
+    },
+    {
+      "bin_bytes": 137364,
+      "bin_path": "game/assets/building/floor_01_cells/shop_luncheonette.bin",
+      "bin_resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.bin",
+      "bin_sha256": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
+      "bounds_union": [
+        [
+          15.399999618530273,
+          -0.05000000074505806,
+          39.13999938964844
+        ],
+        [
+          27.059999465942383,
+          4.199999809265137,
+          44.900001525878906
+        ]
+      ],
+      "collision_object_count": 25,
+      "gltf_bytes": 80173,
+      "gltf_path": "game/assets/building/floor_01_cells/shop_luncheonette.gltf",
+      "gltf_sha256": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
+      "id": "CELL_SHOP_LUNCHEONETTE",
+      "mesh_count": 35,
+      "node_count": 35,
+      "primitive_count": 35,
+      "resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+      "slug": "shop_luncheonette",
+      "triangle_count": 2114,
+      "vertex_count": 3984
+    }
+  ],
+  "floor_id": "F01",
+  "generated_manifests": {
+    "compatibility_aliases": {
+      "path": "game/assets/building/floor_01_cells/floor01_compatibility_aliases.json",
+      "sha256": "ef2c3bf206e57118065de0696de5ebcdd3684c2e51619d0b6386e0a33557ca9a"
+    },
+    "lineage": {
+      "path": "art/data/m11c2/floor01_owner_first_lineage.json",
+      "sha256": "95a9bb0cdead05075f079e5e9bc94c5324408f1ec60b24a435f0d622d8c0b172"
+    }
+  },
+  "legacy_mixed_cell_present": false,
+  "owner_before_material": true,
+  "production_asset": true,
+  "protected_hashes": {
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "game/assets/building/floor_01.bin": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+    "game/assets/building/floor_01.gltf": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89",
+    "game/assets/building/floor_02.bin": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e",
+    "game/assets/building/floor_02.gltf": "de62d5bec6190d87413d5b6dc21feb9810b3fc9dba326fe75f793236639dfa33",
+    "game/assets/building/floor_03.bin": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8",
+    "game/assets/building/floor_03.gltf": "b47e6553fe86b23743d01415b8f8269074420ca0c9c12f9b8d50bf86aeceabb6",
+    "game/assets/building/floor_04.bin": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266",
+    "game/assets/building/floor_04.gltf": "33996b679c680effc8946f305a2d3d412bcf470fd1fcbce839e5456246fa96f0",
+    "game/assets/building/floor_05.bin": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8",
+    "game/assets/building/floor_05.gltf": "8459d034d554893b3a8d0b02b5841b2c3e4d9c9339b0fdcc9db64bacad213d5a",
+    "game/assets/building/floor_06.bin": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f",
+    "game/assets/building/floor_06.gltf": "5a4ca0026535b03eb60c5a4bbbbf5176c4115aa119a31784521d9054ef6e70cc",
+    "game/assets/building/floor_b1.bin": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449",
+    "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
+    "game/assets/building/roof.bin": "9a91886cc50bc555c72487709720b682514fc3c8a60034510ecff2f861d20d46",
+    "game/assets/building/roof.gltf": "459f700f7d75c5789730c0e06ce22ac96f506c47a1cbd101a74cf810cb27e391",
+    "game/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "game/scripts/building/building_root_selector.gd": "d7aff8b7c598af55cef9243b184f7df9cc6b8ff234daa61fc19c01e9709f37c8"
+  },
+  "rollback_monolith_loaded_simultaneously": false,
+  "rollback_monolith_retained": true,
+  "schema": "orison.floor01.production-cell-assets.v1",
+  "spatial_inference_used": false,
+  "status": "PASS",
+  "texture_binding_count": 304,
+  "texture_bindings": [
+    {
+      "bytes": 1879284,
+      "resource_path": "res://assets/building/textures/T_ai_materials_appliance_b_albedo.png",
+      "sha256": "dd1f4b4270f4817de20a10879da9090fcb0835227d0d724e108edb8cbe693a2c"
+    },
+    {
+      "bytes": 824169,
+      "resource_path": "res://assets/building/textures/T_ai_materials_appliance_b_normal.png",
+      "sha256": "622d8620c9d706814be5de544a6697c80509faf87af24b641a1779b9cdad2a41"
+    },
+    {
+      "bytes": 203103,
+      "resource_path": "res://assets/building/textures/T_ai_materials_appliance_b_rough.png",
+      "sha256": "f0a38884d820e44675a08fb0abcdda601eb8f0a5581ee864474f1131c4a513e6"
+    },
+    {
+      "bytes": 1548238,
+      "resource_path": "res://assets/building/textures/T_ai_materials_art_albedo.png",
+      "sha256": "054a43a07b81356de168df6e008b8e7de5a7cd8d3a7b8c0a4f1fa51ffe0c459e"
+    },
+    {
+      "bytes": 640261,
+      "resource_path": "res://assets/building/textures/T_ai_materials_art_normal.png",
+      "sha256": "5830b325bfab8223bd939ab5b6ebbf7435bbbb42f54c54e33d274503a74ca89c"
+    },
+    {
+      "bytes": 153437,
+      "resource_path": "res://assets/building/textures/T_ai_materials_art_rough.png",
+      "sha256": "4d563e45075be995660b5037ac6293be39c88450fcf5db4b531e5c40e7dd9502"
+    },
+    {
+      "bytes": 2429093,
+      "resource_path": "res://assets/building/textures/T_ai_materials_asphalt_b_albedo.png",
+      "sha256": "984edd28e3b5023ea9cadbf29d59e88983e590cb520be34ef77ee8eb9b8e5349"
+    },
+    {
+      "bytes": 1404331,
+      "resource_path": "res://assets/building/textures/T_ai_materials_asphalt_b_normal.png",
+      "sha256": "eb5a108218d4707b6bc7d3273c4823da7d7f490248ce26984fb4fb37a571b72c"
+    },
+    {
+      "bytes": 181812,
+      "resource_path": "res://assets/building/textures/T_ai_materials_asphalt_b_rough.png",
+      "sha256": "75d00a23a3aecc08fa29a819ea58949b12c187d0a6c388596b7c56d4a979bb0e"
+    },
+    {
+      "bytes": 1426405,
+      "resource_path": "res://assets/building/textures/T_ai_materials_awning_vinyl_albedo.png",
+      "sha256": "9c51107132cb0ad807812cd4786b666c50470e88174534b7e8f07ffbb2d602f3"
+    },
+    {
+      "bytes": 722098,
+      "resource_path": "res://assets/building/textures/T_ai_materials_awning_vinyl_normal.png",
+      "sha256": "a0435f3fded31aae71fd8e512558f1205dcd75c45d2ac9f71b9f7c149fcc1ff3"
+    },
+    {
+      "bytes": 115756,
+      "resource_path": "res://assets/building/textures/T_ai_materials_awning_vinyl_rough.png",
+      "sha256": "d36788bc8e296971744077f081d596f910e0fbe3e78283a954ea4ce3ed6b99ab"
+    },
+    {
+      "bytes": 1450766,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bakelite_b_albedo.png",
+      "sha256": "c6b7229abf6770227aa4c0d4dd2bb92eb0897741733020be2790be5d04e24b2c"
+    },
+    {
+      "bytes": 658727,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bakelite_b_normal.png",
+      "sha256": "cd8ea306e798addd3c2763ba9a14d4f8a56fe486b0a2261cec5e90b3f8930942"
+    },
+    {
+      "bytes": 134552,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bakelite_b_rough.png",
+      "sha256": "1354a0b2adcedae42bfb095b965f8f9a29655a769815879709bcb545bb306b2b"
+    },
+    {
+      "bytes": 201322,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png",
+      "sha256": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898"
+    },
+    {
+      "bytes": 57693,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bakelite_black_normal.png",
+      "sha256": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded"
+    },
+    {
+      "bytes": 37868,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bakelite_black_rough.png",
+      "sha256": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3"
+    },
+    {
+      "bytes": 2016179,
+      "resource_path": "res://assets/building/textures/T_ai_materials_baluster_b_albedo.png",
+      "sha256": "3d39f0685ad2f254f1654213efaa45573fb596bb2f198489a555e0df9e253092"
+    },
+    {
+      "bytes": 855447,
+      "resource_path": "res://assets/building/textures/T_ai_materials_baluster_b_normal.png",
+      "sha256": "0ce4dd7a901d895b7c548c719ccb31347e79f68f87d95cebe435537eac5cea55"
+    },
+    {
+      "bytes": 180036,
+      "resource_path": "res://assets/building/textures/T_ai_materials_baluster_b_rough.png",
+      "sha256": "494796a7d48c38a6612414c83020564d089344f68ac48a30bbc2ccbb93722dbb"
+    },
+    {
+      "bytes": 1285333,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bar_wall_b_albedo.png",
+      "sha256": "d6a5be39a11852ebcec16ac464057afbef94453de8d9e6bfe1a89b5d0001eb1c"
+    },
+    {
+      "bytes": 650514,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bar_wall_b_normal.png",
+      "sha256": "e6c225a0622cab4613ae5970f911e7a0376d98ccb6858230ddc2d1d33117ed04"
+    },
+    {
+      "bytes": 104210,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bar_wall_b_rough.png",
+      "sha256": "cdd9b827632b0e2c93619d650b7de66aa76f7201469d3371a40f3089e79baaf8"
+    },
+    {
+      "bytes": 1551173,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bar_wall_red_b_albedo.png",
+      "sha256": "51effa4fabf694373395a801257ad9f72a1154bca764e9a20a7e724eb138e455"
+    },
+    {
+      "bytes": 759971,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bar_wall_red_b_normal.png",
+      "sha256": "304f9f15cc97761a11c7de173f7646f5cc284464d7617a05004cd53917950584"
+    },
+    {
+      "bytes": 131547,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bar_wall_red_b_rough.png",
+      "sha256": "abc8942ebc80292da23283e873777d9211352998cdb914dbb14ef29b72438493"
+    },
+    {
+      "bytes": 2221644,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_albedo.png",
+      "sha256": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9"
+    },
+    {
+      "bytes": 2254732,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png",
+      "sha256": "7396468765c58d9c718399f17ae33a16109e8e2097ed456cdacfd62d9cb5fe79"
+    },
+    {
+      "bytes": 871827,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_b_normal.png",
+      "sha256": "f6a65f8ae4f65f5222d69378d55e218c2fc07ee7858ed7d8ab6306cd79673fac"
+    },
+    {
+      "bytes": 228139,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_b_rough.png",
+      "sha256": "d8b7865ed3c52fbf111696f73bbfc59121baaed1f509b2e7a55e97669226cf0c"
+    },
+    {
+      "bytes": 261734,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png",
+      "sha256": "d34cce25b7b06c59f06c918060974312a9fabd2d6857789180590a87581e9b71"
+    },
+    {
+      "bytes": 81325,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_bright_normal.png",
+      "sha256": "2246f9e34c07518f94d1d8dfb4f374c86f4834b8fb22a55a0a83f308464be6f7"
+    },
+    {
+      "bytes": 66931,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_bright_rough.png",
+      "sha256": "3b0680da5091da03b8212ecbf287c12934f4d248e82380ed45d101c6f0dd1fa1"
+    },
+    {
+      "bytes": 221869,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_mesh_albedo.png",
+      "sha256": "028870c51a301aae725e85a96aba0f64f8bdc85e29d64a4fca9406ba5eef089b"
+    },
+    {
+      "bytes": 115410,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_mesh_normal.png",
+      "sha256": "ffa3452fa9e62d83138a2c22e79cd3b811886800face31861409f7b2450d9def"
+    },
+    {
+      "bytes": 68415,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_mesh_rough.png",
+      "sha256": "7ed0cf343d586a266eba266d98896b7eb4e6004487f822f59995e03304b9659a"
+    },
+    {
+      "bytes": 895232,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_normal.png",
+      "sha256": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa"
+    },
+    {
+      "bytes": 237594,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brass_rough.png",
+      "sha256": "96160db7aae734e36f3c42abddc3795995e9d8ea8f7739a1eaa432f5d63fc54d"
+    },
+    {
+      "bytes": 2142492,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brick_patched_b_albedo.png",
+      "sha256": "f2865ea5a11896ce14087ea28682742593b5da413b6af0cd39d90adaf318b892"
+    },
+    {
+      "bytes": 1414822,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brick_patched_b_normal.png",
+      "sha256": "40da277283fb88d735bc908ca85ec5e2f4d89b17c7df5e0cb7be199129ece70f"
+    },
+    {
+      "bytes": 172115,
+      "resource_path": "res://assets/building/textures/T_ai_materials_brick_patched_b_rough.png",
+      "sha256": "c9f0ad9695e89d4288a2ac134530267a9807062fadb63b6630679116acce6286"
+    },
+    {
+      "bytes": 243819,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bronze_albedo.png",
+      "sha256": "de9b91776f62e52e70e36f1733d2147b5f96a327745d2f661382e688a381602c"
+    },
+    {
+      "bytes": 105821,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bronze_normal.png",
+      "sha256": "c235d1e0e1e10456d9b934be79e42d2293cb43a90e5aa5026b9e0ce294ff3ca3"
+    },
+    {
+      "bytes": 64923,
+      "resource_path": "res://assets/building/textures/T_ai_materials_bronze_rough.png",
+      "sha256": "336b7648b51e3124c6ba8c55a6def99ce263c8ab60d0f858148dedfabebd35a8"
+    },
+    {
+      "bytes": 2517306,
+      "resource_path": "res://assets/building/textures/T_ai_materials_cast_iron_b_albedo.png",
+      "sha256": "e29e8af9ae49ffe16ba718373dea8c95af5f81f621cb756dcab2e37694989ebf"
+    },
+    {
+      "bytes": 1304808,
+      "resource_path": "res://assets/building/textures/T_ai_materials_cast_iron_b_normal.png",
+      "sha256": "ded797b5a2b7272ede7113ef85a5a51ef70777a7fe73d1e28328c94b064bcee2"
+    },
+    {
+      "bytes": 251980,
+      "resource_path": "res://assets/building/textures/T_ai_materials_cast_iron_b_rough.png",
+      "sha256": "1fa3ea924061c69986f76ac01058b9bc17501305ae3d6eac0bff517f52c35d39"
+    },
+    {
+      "bytes": 563976,
+      "resource_path": "res://assets/building/textures/T_ai_materials_ceramic_b_albedo.png",
+      "sha256": "90399420e312fb509fac7c8287c8e42855e255b11226b4fe42ec67b817282b53"
+    },
+    {
+      "bytes": 383765,
+      "resource_path": "res://assets/building/textures/T_ai_materials_ceramic_b_normal.png",
+      "sha256": "326bd38659be17a490066e867093efcd1fbbe286625b665d79dac281ed148742"
+    },
+    {
+      "bytes": 156182,
+      "resource_path": "res://assets/building/textures/T_ai_materials_ceramic_b_rough.png",
+      "sha256": "1558197811bde36319be4db6d30920e33b771519524be01bb1a62ff84af9b081"
+    },
+    {
+      "bytes": 1931967,
+      "resource_path": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png",
+      "sha256": "52818b170ec1f66bc9b2d99fa16305a5937491999af53bbe6d723e85fe84d19b"
+    },
+    {
+      "bytes": 842738,
+      "resource_path": "res://assets/building/textures/T_ai_materials_chrome_b_normal.png",
+      "sha256": "dbf7855df40bd0986a80ba2568ccd944a6db0e9400b5c89dab4e6d78ff8d6812"
+    },
+    {
+      "bytes": 163437,
+      "resource_path": "res://assets/building/textures/T_ai_materials_chrome_b_rough.png",
+      "sha256": "075253b5fc73139d265a9ee592ff30db94db7866e157a01cba8cfda4073c948f"
+    },
+    {
+      "bytes": 2142492,
+      "resource_path": "res://assets/building/textures/T_ai_materials_common_brick_b_albedo.png",
+      "sha256": "f2865ea5a11896ce14087ea28682742593b5da413b6af0cd39d90adaf318b892"
+    },
+    {
+      "bytes": 1414822,
+      "resource_path": "res://assets/building/textures/T_ai_materials_common_brick_b_normal.png",
+      "sha256": "40da277283fb88d735bc908ca85ec5e2f4d89b17c7df5e0cb7be199129ece70f"
+    },
+    {
+      "bytes": 172115,
+      "resource_path": "res://assets/building/textures/T_ai_materials_common_brick_b_rough.png",
+      "sha256": "c9f0ad9695e89d4288a2ac134530267a9807062fadb63b6630679116acce6286"
+    },
+    {
+      "bytes": 1853299,
+      "resource_path": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png",
+      "sha256": "cbc821955c9a24a35068b8f36eeeda3ee3c5d86e229bdb755c06006c0b576a89"
+    },
+    {
+      "bytes": 929902,
+      "resource_path": "res://assets/building/textures/T_ai_materials_concrete_b_normal.png",
+      "sha256": "9e7148661933b30a708b68e58903cc6ae809f5ef85e1c816270d67bf5def36d3"
+    },
+    {
+      "bytes": 138095,
+      "resource_path": "res://assets/building/textures/T_ai_materials_concrete_b_rough.png",
+      "sha256": "9201295275e0ffd0f785a520579333194ef90368ad73b9a0fa02a86f9e58d164"
+    },
+    {
+      "bytes": 1923107,
+      "resource_path": "res://assets/building/textures/T_ai_materials_copper_aged_albedo.png",
+      "sha256": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272"
+    },
+    {
+      "bytes": 730352,
+      "resource_path": "res://assets/building/textures/T_ai_materials_copper_aged_normal.png",
+      "sha256": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de"
+    },
+    {
+      "bytes": 137635,
+      "resource_path": "res://assets/building/textures/T_ai_materials_copper_aged_rough.png",
+      "sha256": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79"
+    },
+    {
+      "bytes": 1586598,
+      "resource_path": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png",
+      "sha256": "4eda532d4505f6142c763273391609e0c62144816d464adb1d688b272d87fe39"
+    },
+    {
+      "bytes": 580301,
+      "resource_path": "res://assets/building/textures/T_ai_materials_countertop_b_normal.png",
+      "sha256": "74e5bd880ac2771681f3dad39151283b9341b44d8d0c2421e221478652a8e540"
+    },
+    {
+      "bytes": 151939,
+      "resource_path": "res://assets/building/textures/T_ai_materials_countertop_b_rough.png",
+      "sha256": "8d3eafa9a0a0af5f7bcd6bd0f7951a05e4fbe18d50d550e32be09c0109b39035"
+    },
+    {
+      "bytes": 2035595,
+      "resource_path": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png",
+      "sha256": "e630f3697fdb8b91928e6587fdf85d969dcbeefe95985ca35243cabd5b00022f"
+    },
+    {
+      "bytes": 961639,
+      "resource_path": "res://assets/building/textures/T_ai_materials_enamel_b_normal.png",
+      "sha256": "167b2236c1b175da053dc0e7445a394b95add74da2c1e1c80aa8fa0a50a74063"
+    },
+    {
+      "bytes": 205771,
+      "resource_path": "res://assets/building/textures/T_ai_materials_enamel_b_rough.png",
+      "sha256": "7ccff5f5a38ebac117104a98593f2b4925f6fdf3a3fa8c9b5d38d7c61adc96ca"
+    },
+    {
+      "bytes": 2364708,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_cool_b_albedo.png",
+      "sha256": "9b9ec8eecf2805b104adbc69db57689fe3046ba1360a76b5851f52631d9b2b2e"
+    },
+    {
+      "bytes": 1134953,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_cool_b_normal.png",
+      "sha256": "65a7e4658f126100db65fa05ce9dc8899ca13d271a0f0859a6641fd0e1ba791f"
+    },
+    {
+      "bytes": 159033,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_cool_b_rough.png",
+      "sha256": "6baf891f6afd1358f7c3b0fc06a965a9b03df167ea283f64e59371d690d4a20f"
+    },
+    {
+      "bytes": 2044290,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_green_b_albedo.png",
+      "sha256": "210286be9c96e86bff01c87d9127883f826ca411694aa91874a0108ee51dadcd"
+    },
+    {
+      "bytes": 968949,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_green_b_normal.png",
+      "sha256": "0eefc73f6aeb5cbdad6431b2653dc8376ee53bfc3b02da9ac98a874a713d5bc4"
+    },
+    {
+      "bytes": 142686,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_green_b_rough.png",
+      "sha256": "e23a0cd2795195aede629328a74807b07bdf0e2dcb9c0f0d68c73910c2cccd74"
+    },
+    {
+      "bytes": 2126593,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_warm_b_albedo.png",
+      "sha256": "484a90a02635618082aa1444afd2e27ff0a3853a890800163a7303c7a3c38dcf"
+    },
+    {
+      "bytes": 911061,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_warm_b_normal.png",
+      "sha256": "7f28053f076dd6df5f55714546af9909eff321fbebef7d5a45d32d54ddbfa437"
+    },
+    {
+      "bytes": 108922,
+      "resource_path": "res://assets/building/textures/T_ai_materials_fabric_warm_b_rough.png",
+      "sha256": "97740a9982409865fb64e2023ce2ef4d4f21ef5792c77ac8724537b2b5f0fd58"
+    },
+    {
+      "bytes": 1817688,
+      "resource_path": "res://assets/building/textures/T_ai_materials_face_brick_b_albedo.png",
+      "sha256": "3f8c10e23b32d6dcab541af68a437696b6390af7fbe1322d27e14f4580aed5d6"
+    },
+    {
+      "bytes": 1232528,
+      "resource_path": "res://assets/building/textures/T_ai_materials_face_brick_b_normal.png",
+      "sha256": "81106855b105a2baa639be9440c49c7fc228458dac89c6e27ad2bc2b73f0d685"
+    },
+    {
+      "bytes": 139542,
+      "resource_path": "res://assets/building/textures/T_ai_materials_face_brick_b_rough.png",
+      "sha256": "b33eeefb2cb266fd361ae180f6ed660436c8ca872313d959f60830e3a00ef29f"
+    },
+    {
+      "bytes": 1857297,
+      "resource_path": "res://assets/building/textures/T_ai_materials_felt_violet_b_albedo.png",
+      "sha256": "b06a0256dcc8b425a46a8827523c700334f2089ad7ccf34f98894fda35d69553"
+    },
+    {
+      "bytes": 725381,
+      "resource_path": "res://assets/building/textures/T_ai_materials_felt_violet_b_normal.png",
+      "sha256": "e8fb511d1b46a9874bf5f1901498d40f0797310914b2c46606216ab6ba5461a5"
+    },
+    {
+      "bytes": 61594,
+      "resource_path": "res://assets/building/textures/T_ai_materials_felt_violet_b_rough.png",
+      "sha256": "491e961f2007bd6d3702b28d0ce1bc84b0463849c9c2bf118f7196220790c4ea"
+    },
+    {
+      "bytes": 1563418,
+      "resource_path": "res://assets/building/textures/T_ai_materials_floor_oak_b_albedo.png",
+      "sha256": "bd2dfa9200f1d9261515006679ef401d6192e42f0a633ce4ee21d5a8ec83c68b"
+    },
+    {
+      "bytes": 807005,
+      "resource_path": "res://assets/building/textures/T_ai_materials_floor_oak_b_normal.png",
+      "sha256": "c2ea681ade9db651d9f7e89bf36f5664de02527b60b6017ecd102801cafcbed9"
+    },
+    {
+      "bytes": 158357,
+      "resource_path": "res://assets/building/textures/T_ai_materials_floor_oak_b_rough.png",
+      "sha256": "45cd63cbac4d20e499fdde57c9acca7753016a8cd0f59b3f4ff6e2a57f39bd9c"
+    },
+    {
+      "bytes": 1592071,
+      "resource_path": "res://assets/building/textures/T_ai_materials_handrail_wood_b_albedo.png",
+      "sha256": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec"
+    },
+    {
+      "bytes": 555539,
+      "resource_path": "res://assets/building/textures/T_ai_materials_handrail_wood_b_normal.png",
+      "sha256": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68"
+    },
+    {
+      "bytes": 132362,
+      "resource_path": "res://assets/building/textures/T_ai_materials_handrail_wood_b_rough.png",
+      "sha256": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73"
+    },
+    {
+      "bytes": 160719,
+      "resource_path": "res://assets/building/textures/T_ai_materials_indicator_enamel_albedo.png",
+      "sha256": "64bfd4a979e1cf5ca37f116c83e4b187d25dbd56d3e18cbb82e496c0ec8cd32d"
+    },
+    {
+      "bytes": 55487,
+      "resource_path": "res://assets/building/textures/T_ai_materials_indicator_enamel_normal.png",
+      "sha256": "f3034797fc658673767625552c3c607b63b3b041cc34b95f89730365138fd850"
+    },
+    {
+      "bytes": 26259,
+      "resource_path": "res://assets/building/textures/T_ai_materials_indicator_enamel_rough.png",
+      "sha256": "5c5fd3837456c45f683d4e35cc5bf4e335749940107a361886dcd691173ada29"
+    },
+    {
+      "bytes": 1234591,
+      "resource_path": "res://assets/building/textures/T_ai_materials_lacquer_red_b_albedo.png",
+      "sha256": "1d700ff53ee72a209364926b2e3562967304dacff8f786bc6fc6f23b0322ace3"
+    },
+    {
+      "bytes": 686451,
+      "resource_path": "res://assets/building/textures/T_ai_materials_lacquer_red_b_normal.png",
+      "sha256": "1104195b3d6694c6b1dfd6558d944e2bd127c8120f34ca766cdd126ac364b079"
+    },
+    {
+      "bytes": 121358,
+      "resource_path": "res://assets/building/textures/T_ai_materials_lacquer_red_b_rough.png",
+      "sha256": "740a6524e66baf2d6ff290b7d36d9cf55fefa25defd1d1fd385a0bf3b3eed204"
+    },
+    {
+      "bytes": 2053265,
+      "resource_path": "res://assets/building/textures/T_ai_materials_leaf_fall_b_albedo.png",
+      "sha256": "a359fd7f8f4399de57bad1a5bcd2d1eea1ed6cc3cf9d1c9561d7263ac2aab286"
+    },
+    {
+      "bytes": 974887,
+      "resource_path": "res://assets/building/textures/T_ai_materials_leaf_fall_b_normal.png",
+      "sha256": "2ffc66718f3e460b02b570cee3742885df154413db66cda17393c782c1382f21"
+    },
+    {
+      "bytes": 198432,
+      "resource_path": "res://assets/building/textures/T_ai_materials_leaf_fall_b_rough.png",
+      "sha256": "dbdb479f0165fd4db06fbab41bad1ecb12c090f8fff99ed907118d7dcd48d2c0"
+    },
+    {
+      "bytes": 1784119,
+      "resource_path": "res://assets/building/textures/T_ai_materials_limestone_b_albedo.png",
+      "sha256": "295ec390745c0b47e9bfac80099737c79a683b053b38264bad34b13c02975d76"
+    },
+    {
+      "bytes": 795374,
+      "resource_path": "res://assets/building/textures/T_ai_materials_limestone_b_normal.png",
+      "sha256": "e749716315fa6ecb160142bf47d29a7893f9f76346e402562206032af808c18f"
+    },
+    {
+      "bytes": 128406,
+      "resource_path": "res://assets/building/textures/T_ai_materials_limestone_b_rough.png",
+      "sha256": "67923e23188a8aafcfebea0b1c8bd9878b7fb9f572209d5bee2bca344e86d730"
+    },
+    {
+      "bytes": 1788623,
+      "resource_path": "res://assets/building/textures/T_ai_materials_linen_b_albedo.png",
+      "sha256": "1333b538c75bb8588f89d044ef154529f711eaedb752131a478bb1ab18baad96"
+    },
+    {
+      "bytes": 744515,
+      "resource_path": "res://assets/building/textures/T_ai_materials_linen_b_normal.png",
+      "sha256": "691f0fe20ea29533d2ea39131694c7b07d8960f71d3a02c1457b985f42e8ef91"
+    },
+    {
+      "bytes": 74128,
+      "resource_path": "res://assets/building/textures/T_ai_materials_linen_b_rough.png",
+      "sha256": "2cf793bc24e69c58841599208f653e7c0a4c51f917277b2d06618f092ba738a1"
+    },
+    {
+      "bytes": 1678773,
+      "resource_path": "res://assets/building/textures/T_ai_materials_linoleum_b_albedo.png",
+      "sha256": "8554589b70fe70f45d3047707ef40dc81d83ac1e13c135338769217c44f67e45"
+    },
+    {
+      "bytes": 610385,
+      "resource_path": "res://assets/building/textures/T_ai_materials_linoleum_b_normal.png",
+      "sha256": "89a79f367c5af0f31a05f60fc650f59b0fa49d93b71f3df28c83ec0613dd1bb2"
+    },
+    {
+      "bytes": 147763,
+      "resource_path": "res://assets/building/textures/T_ai_materials_linoleum_b_rough.png",
+      "sha256": "fffc88b001a0062cac98ab26b1a8a83353f83672464bf97f5e0b23801a428e72"
+    },
+    {
+      "bytes": 659383,
+      "resource_path": "res://assets/building/textures/T_ai_materials_marble_lobby_b_albedo.png",
+      "sha256": "5e133dc36851f6b2a334d6f2470240d14e3be636d651db03bef5b211e8dbf190"
+    },
+    {
+      "bytes": 341195,
+      "resource_path": "res://assets/building/textures/T_ai_materials_marble_lobby_b_normal.png",
+      "sha256": "46aac270087a1a77779c7ddb06a5735f7bcecb4c21912cb9d31e66fce278b28a"
+    },
+    {
+      "bytes": 101670,
+      "resource_path": "res://assets/building/textures/T_ai_materials_marble_lobby_b_rough.png",
+      "sha256": "a395d4d9d21b8d05a49aa2bb82b11c128049d9798eef03cbc1480012b2e7c299"
+    },
+    {
+      "bytes": 1722318,
+      "resource_path": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png",
+      "sha256": "fba2fee71543d6dfcbbce474a9dec39c5ea9f6b02f1db6752909fac875a7caeb"
+    },
+    {
+      "bytes": 630098,
+      "resource_path": "res://assets/building/textures/T_ai_materials_metal_b_normal.png",
+      "sha256": "59c6323194f1146e567e786d25971bcfc68782a21ef412a8e12105278baab380"
+    },
+    {
+      "bytes": 174599,
+      "resource_path": "res://assets/building/textures/T_ai_materials_metal_b_rough.png",
+      "sha256": "fcbc3ee2dd0dffe0d7016e0485aca66dcb75b18f994de0620c33830c9ee5cf1f"
+    },
+    {
+      "bytes": 114303,
+      "resource_path": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png",
+      "sha256": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1"
+    },
+    {
+      "bytes": 32089,
+      "resource_path": "res://assets/building/textures/T_ai_materials_milk_glass_normal.png",
+      "sha256": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286"
+    },
+    {
+      "bytes": 21352,
+      "resource_path": "res://assets/building/textures/T_ai_materials_milk_glass_rough.png",
+      "sha256": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d"
+    },
+    {
+      "bytes": 1822449,
+      "resource_path": "res://assets/building/textures/T_ai_materials_mirror_aged_albedo.png",
+      "sha256": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7"
+    },
+    {
+      "bytes": 475130,
+      "resource_path": "res://assets/building/textures/T_ai_materials_mirror_aged_normal.png",
+      "sha256": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53"
+    },
+    {
+      "bytes": 117870,
+      "resource_path": "res://assets/building/textures/T_ai_materials_mirror_aged_rough.png",
+      "sha256": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198"
+    },
+    {
+      "bytes": 2204256,
+      "resource_path": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+      "sha256": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148"
+    },
+    {
+      "bytes": 820861,
+      "resource_path": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+      "sha256": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b"
+    },
+    {
+      "bytes": 175853,
+      "resource_path": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png",
+      "sha256": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7"
+    },
+    {
+      "bytes": 201777,
+      "resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png",
+      "sha256": "911ce83872ab46bec22456b651b3806f8b5c2ac452fdd6f0766bc747ca6f72e5"
+    },
+    {
+      "bytes": 78451,
+      "resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_normal.png",
+      "sha256": "7b518ee49df1fd91af6a6803941f15abb69864f9746c50e74efc7c4c6106718d"
+    },
+    {
+      "bytes": 48849,
+      "resource_path": "res://assets/building/textures/T_ai_materials_oak_quartered_rough.png",
+      "sha256": "a4b6124c52bd78cd119b2112c206d5fb876e9c95a5b262abe35a3a1116662093"
+    },
+    {
+      "bytes": 1459247,
+      "resource_path": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png",
+      "sha256": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61"
+    },
+    {
+      "bytes": 544676,
+      "resource_path": "res://assets/building/textures/T_ai_materials_paper_b_normal.png",
+      "sha256": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a"
+    },
+    {
+      "bytes": 95016,
+      "resource_path": "res://assets/building/textures/T_ai_materials_paper_b_rough.png",
+      "sha256": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af"
+    },
+    {
+      "bytes": 1512055,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plant_b_albedo.png",
+      "sha256": "97a8055069a3fef322f4cca6b9fb2189eab10c3b367efc9c9dbec16531e2108e"
+    },
+    {
+      "bytes": 820223,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plant_b_normal.png",
+      "sha256": "eedcb1fbb83c364e6ee0d5fe4f7441d727b1b781a161076402fb36bc88bca818"
+    },
+    {
+      "bytes": 147777,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plant_b_rough.png",
+      "sha256": "dcb25fca0f414bb39dcec0b1247d416a8a80f215436e8c55a267b0bc274aee62"
+    },
+    {
+      "bytes": 1529733,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png",
+      "sha256": "6c044b23aabf6defe33b5317a8f737e57de2a44395c7d4e1016ca3cf48acfec0"
+    },
+    {
+      "bytes": 582861,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plaster_b_normal.png",
+      "sha256": "2cb0ac73f37d8be32e06cf65756129e502e9cfe16e37fe46d22bc512495e8464"
+    },
+    {
+      "bytes": 89817,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plaster_b_rough.png",
+      "sha256": "02eed19150cffc6836c6f8103f5754368abe0767e5bf8059da932cb41dfc1f5e"
+    },
+    {
+      "bytes": 1673228,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png",
+      "sha256": "9d34977c45ecce8a702eb3b570d78d3fed422d62eea51765a116fa110b1cf15c"
+    },
+    {
+      "bytes": 610294,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plaster_stained_b_normal.png",
+      "sha256": "2b6b43966dcf955c87d9fa194e36e03759ddbe39039988e71fb16d9cf48d87a3"
+    },
+    {
+      "bytes": 110447,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plaster_stained_b_rough.png",
+      "sha256": "abf6150987dfd7c21c488cf9afcd0e27a30489ccdf3ac4d9890c290e622bbc4f"
+    },
+    {
+      "bytes": 1397372,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png",
+      "sha256": "36882fc86ea733afa983931e35117300f415e824b9e0dcea8551fa6aa7067cd6"
+    },
+    {
+      "bytes": 750724,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plywood_b_normal.png",
+      "sha256": "6f1fe61fcadf8edd594c5fd42bf110a4411d50dcf8cdd94acbb656288bd90216"
+    },
+    {
+      "bytes": 127759,
+      "resource_path": "res://assets/building/textures/T_ai_materials_plywood_b_rough.png",
+      "sha256": "12becd9c689d93afdddc1975366fc5ad51df774c0dfe8b2a0d6587642cc9b499"
+    },
+    {
+      "bytes": 1379090,
+      "resource_path": "res://assets/building/textures/T_ai_materials_porcelain_b_albedo.png",
+      "sha256": "31a14b3ce0efee7f7e2849cc27fc4e054a77891f4853985f104e484accb7092c"
+    },
+    {
+      "bytes": 664734,
+      "resource_path": "res://assets/building/textures/T_ai_materials_porcelain_b_normal.png",
+      "sha256": "a14ddcca31bfbf03e0e08142eee1bb773e33058a870bcd4d0ff91448035b8733"
+    },
+    {
+      "bytes": 141683,
+      "resource_path": "res://assets/building/textures/T_ai_materials_porcelain_b_rough.png",
+      "sha256": "a9147417289f7d3bef9503ad4d60da6cc4d18e6f40748c70074b57faef9e347a"
+    },
+    {
+      "bytes": 1721429,
+      "resource_path": "res://assets/building/textures/T_ai_materials_puddle_b_albedo.png",
+      "sha256": "11d1dcf5755b0badb391d6efe946b343cabe85138774d655b095c55397ba9e8c"
+    },
+    {
+      "bytes": 419523,
+      "resource_path": "res://assets/building/textures/T_ai_materials_puddle_b_normal.png",
+      "sha256": "a5e5adecfeda6a0dae6f5e2e1dfbec58a85ad80d9730cc1f4a8dbf38e6e6be0d"
+    },
+    {
+      "bytes": 81794,
+      "resource_path": "res://assets/building/textures/T_ai_materials_puddle_b_rough.png",
+      "sha256": "e167a982dc09aa6fb6faf214012adaa2f40eb7467e68a424ed9a367314b0ab7b"
+    },
+    {
+      "bytes": 1531429,
+      "resource_path": "res://assets/building/textures/T_ai_materials_quarry_tile_b_albedo.png",
+      "sha256": "9b10b46cff73b918417e24ad1e01891f25bfc6924fc1df82e65f8ff5a57e6b0f"
+    },
+    {
+      "bytes": 916128,
+      "resource_path": "res://assets/building/textures/T_ai_materials_quarry_tile_b_normal.png",
+      "sha256": "d49534b6d1889909623a790f40c69ef2267dbede9888a9452e5ed926ebe4736e"
+    },
+    {
+      "bytes": 115621,
+      "resource_path": "res://assets/building/textures/T_ai_materials_quarry_tile_b_rough.png",
+      "sha256": "32495063172177be6dfff7d34146e046bf719d015eb180bc400361653fd6ca86"
+    },
+    {
+      "bytes": 1916888,
+      "resource_path": "res://assets/building/textures/T_ai_materials_rubber_aged_albedo.png",
+      "sha256": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab"
+    },
+    {
+      "bytes": 753707,
+      "resource_path": "res://assets/building/textures/T_ai_materials_rubber_aged_normal.png",
+      "sha256": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b"
+    },
+    {
+      "bytes": 136716,
+      "resource_path": "res://assets/building/textures/T_ai_materials_rubber_aged_rough.png",
+      "sha256": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c"
+    },
+    {
+      "bytes": 2326618,
+      "resource_path": "res://assets/building/textures/T_ai_materials_rug_warm_b_albedo.png",
+      "sha256": "2f79ac5a7a6a8ca1d6b526e862239c7039833502dd7b1a41c9ec527fe05c2afc"
+    },
+    {
+      "bytes": 1082507,
+      "resource_path": "res://assets/building/textures/T_ai_materials_rug_warm_b_normal.png",
+      "sha256": "32774a5cf3d894c7ac5e4ca81ff6fbc2930b610b38bb6ee9d0d753ce92153583"
+    },
+    {
+      "bytes": 159884,
+      "resource_path": "res://assets/building/textures/T_ai_materials_rug_warm_b_rough.png",
+      "sha256": "33b0beb921caf9f62517a53f7dd52f0c71494fcf9eced56703f500a64846ac75"
+    },
+    {
+      "bytes": 1407452,
+      "resource_path": "res://assets/building/textures/T_ai_materials_safety_orange_b_albedo.png",
+      "sha256": "6c7399002a8eb8c1e063dcbdbf40e212f34b0fc2fd89a4be3d802b4d1ef2bcf3"
+    },
+    {
+      "bytes": 692942,
+      "resource_path": "res://assets/building/textures/T_ai_materials_safety_orange_b_normal.png",
+      "sha256": "3f479cf659db7d2f649cea9cda40b07ff41d1b0c31e71ead813c8dd3417ab646"
+    },
+    {
+      "bytes": 129452,
+      "resource_path": "res://assets/building/textures/T_ai_materials_safety_orange_b_rough.png",
+      "sha256": "84d796bdc582b05a2647d8a7ee8162d2f40cb93772aa949c0766e4a9132f6c44"
+    },
+    {
+      "bytes": 1194045,
+      "resource_path": "res://assets/building/textures/T_ai_materials_sidewalk_grout_b_albedo.png",
+      "sha256": "b994f585f53b1382685b54a6eec4e73164dd3297b602dbfc2a163be1f3eff60d"
+    },
+    {
+      "bytes": 560827,
+      "resource_path": "res://assets/building/textures/T_ai_materials_sidewalk_grout_b_normal.png",
+      "sha256": "f0d42f1722348cd0bf5dc9eddc949fa6bd76652029f1dc007c5cf90e9ed76cb7"
+    },
+    {
+      "bytes": 111010,
+      "resource_path": "res://assets/building/textures/T_ai_materials_sidewalk_grout_b_rough.png",
+      "sha256": "6d56169de2cc6d96dd02209bddc63eb764b85cc06153ed58c85f5183d1ea84a0"
+    },
+    {
+      "bytes": 2238009,
+      "resource_path": "res://assets/building/textures/T_ai_materials_sidewalk_haunted_b_albedo.png",
+      "sha256": "177e3baa88d114b15d98a6f98de5be9c2be6945f9d73e29d69aedfa970653ae8"
+    },
+    {
+      "bytes": 1009186,
+      "resource_path": "res://assets/building/textures/T_ai_materials_sidewalk_haunted_b_normal.png",
+      "sha256": "2287e575bf227befee6367b3baf590cc44cb91f9a255e9e2a068807bf687706c"
+    },
+    {
+      "bytes": 128537,
+      "resource_path": "res://assets/building/textures/T_ai_materials_sidewalk_haunted_b_rough.png",
+      "sha256": "8fd1ef34751638428dc115345fa34a4afa70ce9881905ada18a3e78ca241a854"
+    },
+    {
+      "bytes": 1869687,
+      "resource_path": "res://assets/building/textures/T_ai_materials_slab_b_albedo.png",
+      "sha256": "622ba09621966b9f298118402eaca83880aa1251dcb3fa7debb0c25c267946fb"
+    },
+    {
+      "bytes": 932494,
+      "resource_path": "res://assets/building/textures/T_ai_materials_slab_b_normal.png",
+      "sha256": "46f698fc84ca96b73cfbdb4c0063a176f8f4fcdc7c245257f17bb38a76c420c5"
+    },
+    {
+      "bytes": 138590,
+      "resource_path": "res://assets/building/textures/T_ai_materials_slab_b_rough.png",
+      "sha256": "6c1da2dc3ff6da83713cc0618e77d242c2fcf5a1189a32eef051c698a56446b0"
+    },
+    {
+      "bytes": 2409356,
+      "resource_path": "res://assets/building/textures/T_ai_materials_soil_b_albedo.png",
+      "sha256": "c6eaefba26d031fc966ee7f37d6bdf85a3117f7c99e5b3b14b3f87165399e828"
+    },
+    {
+      "bytes": 1249311,
+      "resource_path": "res://assets/building/textures/T_ai_materials_soil_b_normal.png",
+      "sha256": "06d088352f95de311a74b2b4f29a5a9fbf1949121c25c39a57ce4856251997f8"
+    },
+    {
+      "bytes": 174114,
+      "resource_path": "res://assets/building/textures/T_ai_materials_soil_b_rough.png",
+      "sha256": "dec00fcc885156e0840b2b6e54f9d5bc2ee7b5b5a457f9b5bd712d1b4c969549"
+    },
+    {
+      "bytes": 1999769,
+      "resource_path": "res://assets/building/textures/T_ai_materials_soot_b_albedo.png",
+      "sha256": "cb5bc82e203c284d2e9d759efdb3ef33e4a545dd9cd475fa9edb3ba50b50c945"
+    },
+    {
+      "bytes": 946597,
+      "resource_path": "res://assets/building/textures/T_ai_materials_soot_b_normal.png",
+      "sha256": "6c588de9d7cab4120b8748dea60d22cf82ef3d00b340a02d7fab176ecba3ef50"
+    },
+    {
+      "bytes": 120729,
+      "resource_path": "res://assets/building/textures/T_ai_materials_soot_b_rough.png",
+      "sha256": "88764d617de96951230fe0083d5c81404fc0b3e3286719161dd863d8a7d6c581"
+    },
+    {
+      "bytes": 1847606,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stair_b_albedo.png",
+      "sha256": "ce3d53a2b20862653ef725276ce3692bb1485f18cfd05671bccbdea7006c7944"
+    },
+    {
+      "bytes": 945253,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stair_b_normal.png",
+      "sha256": "11d0a8f2872ea3fcae47384974ccbfe49b771067a62266e6e9f6db3cc1bdfc38"
+    },
+    {
+      "bytes": 195504,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stair_b_rough.png",
+      "sha256": "9d6a4b3c4568a77a4d289ed81149bc462cded9bfc0e7b50410ae679f352a4331"
+    },
+    {
+      "bytes": 1636542,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stair_treads_albedo.png",
+      "sha256": "549ca2090c426b212875d5cd0ed11d631ca451c9af1fd1e0f9044f453c4b866d"
+    },
+    {
+      "bytes": 808725,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stair_treads_normal.png",
+      "sha256": "ba275c8519571128fe2d2c8f8c04bc85932f2c3f7acadb847ed9086a016a0cf4"
+    },
+    {
+      "bytes": 170926,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stair_treads_rough.png",
+      "sha256": "5c4b65787d16f443fa3fdd8e01aa00ba3fb707ea6f5809cddd14a9e0e2a15ee0"
+    },
+    {
+      "bytes": 1849183,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stairwell_teal_b_albedo.png",
+      "sha256": "c15ec22bd60b53dec42a568fb9d66e3a7801f25a825bd7254a6f92be8274f92a"
+    },
+    {
+      "bytes": 1132007,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stairwell_teal_b_normal.png",
+      "sha256": "608e406c64c27e609835bd1be76c4bcaa71b542b8ee4acd94c37e260693cab41"
+    },
+    {
+      "bytes": 190543,
+      "resource_path": "res://assets/building/textures/T_ai_materials_stairwell_teal_b_rough.png",
+      "sha256": "b45c80c934bee39664c3dce74fdaf818dcf679df559c6ea7486309a25ece2fbf"
+    },
+    {
+      "bytes": 1791216,
+      "resource_path": "res://assets/building/textures/T_ai_materials_subway_tile_b_albedo.png",
+      "sha256": "74cd72a02cb79e647dd399c4f23293858902a5958dc4c2176e99795e0bb6effd"
+    },
+    {
+      "bytes": 1109684,
+      "resource_path": "res://assets/building/textures/T_ai_materials_subway_tile_b_normal.png",
+      "sha256": "19a9896011af52c5ec0b385e6fe1c3bade5cd2acc19c5cb37b4b5fcbbb7b65eb"
+    },
+    {
+      "bytes": 188444,
+      "resource_path": "res://assets/building/textures/T_ai_materials_subway_tile_b_rough.png",
+      "sha256": "3fc383260719315db37cc9d1b30bbde33fedac831fbd32987fdda7dbd0dddaf3"
+    },
+    {
+      "bytes": 1863582,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terracotta_b_albedo.png",
+      "sha256": "7f62991bec9ef5c45c28d8e298714efc83665f66d47ec738e9056d3ad2f57f1c"
+    },
+    {
+      "bytes": 762861,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terracotta_b_normal.png",
+      "sha256": "ed06025fa4a1ffe8a94b9943a9e8f6651d80705b1b4bf113fa64517318963b20"
+    },
+    {
+      "bytes": 127270,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terracotta_b_rough.png",
+      "sha256": "70acf0329c7e8cd84c7e3e571c6a67411e613ae93ed257585805c27149f985bc"
+    },
+    {
+      "bytes": 2173738,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_albedo.png",
+      "sha256": "5bb7170dfea6c99706376da7c83aa43d5d7d5138dc92879a98988ac64fc48c71"
+    },
+    {
+      "bytes": 2030992,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_b_albedo.png",
+      "sha256": "5114646805f159b9591f24f34dbca42b774fc43d95e2cc5fa0936e32e4a7f4c8"
+    },
+    {
+      "bytes": 903485,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_b_normal.png",
+      "sha256": "9fa61e085c49fd9144512b0649e48daa8c0c6b3363d8fe51c64e277f8f43757a"
+    },
+    {
+      "bytes": 218136,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_b_rough.png",
+      "sha256": "e5c5c4c5361ce571ff013f4a06456edc73296ceee75cf6adcbe16a5a282eb30a"
+    },
+    {
+      "bytes": 225545,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_dark_albedo.png",
+      "sha256": "e7d196c50c3ae325bf8aac89139b2569613009b4272e9046d87d404dd325e316"
+    },
+    {
+      "bytes": 92723,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_dark_normal.png",
+      "sha256": "83da81d2226acb3960e346a09d726db2fccee60263ba737205d3181cf726deb5"
+    },
+    {
+      "bytes": 64919,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_dark_rough.png",
+      "sha256": "c741cdd536217f9a97fefb7bd462612e43f7045a3c94e82bd81e4a340ff8c9f8"
+    },
+    {
+      "bytes": 930025,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_normal.png",
+      "sha256": "35bf5dc8a9f7f013bc79921e1fec3050b8e946edc5c427ae7f4c6cc2d1e0b3c3"
+    },
+    {
+      "bytes": 223632,
+      "resource_path": "res://assets/building/textures/T_ai_materials_terrazzo_rough.png",
+      "sha256": "c49569f7652f949dd10d870870c01d7fcf393ff4aa7d1abd3798e9b087862db5"
+    },
+    {
+      "bytes": 2023560,
+      "resource_path": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png",
+      "sha256": "69706e04ebe42d6742d39e61c1f3e1c7e9342cc2d8e2ea1b9f3c47e216226a28"
+    },
+    {
+      "bytes": 1139661,
+      "resource_path": "res://assets/building/textures/T_ai_materials_timber_b_normal.png",
+      "sha256": "7b731a372f2ad886bb074465e951de9eee7c8012e469248e7933f7db179f588c"
+    },
+    {
+      "bytes": 169163,
+      "resource_path": "res://assets/building/textures/T_ai_materials_timber_b_rough.png",
+      "sha256": "1f860992bbfde1477a0051ead61abde1f360d6c867531ed0361e228b1034696c"
+    },
+    {
+      "bytes": 1412662,
+      "resource_path": "res://assets/building/textures/T_ai_materials_tin_ceiling_b_albedo.png",
+      "sha256": "86af45a9b5d2c250f86907e0debcbb94cc736086c3d5d4996183c54c48a52f2d"
+    },
+    {
+      "bytes": 1075479,
+      "resource_path": "res://assets/building/textures/T_ai_materials_tin_ceiling_b_normal.png",
+      "sha256": "76ab57d06cfdf94359913f16d050eb3f0c72a18d3872bceb9806c6bb35a514d1"
+    },
+    {
+      "bytes": 161506,
+      "resource_path": "res://assets/building/textures/T_ai_materials_tin_ceiling_b_rough.png",
+      "sha256": "a852f02be7f7e122f0f3b384226b0a1671177b06c79a667828632d52b7861fb5"
+    },
+    {
+      "bytes": 2016179,
+      "resource_path": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png",
+      "sha256": "3d39f0685ad2f254f1654213efaa45573fb596bb2f198489a555e0df9e253092"
+    },
+    {
+      "bytes": 855447,
+      "resource_path": "res://assets/building/textures/T_ai_materials_trim_b_normal.png",
+      "sha256": "0ce4dd7a901d895b7c548c719ccb31347e79f68f87d95cebe435537eac5cea55"
+    },
+    {
+      "bytes": 180036,
+      "resource_path": "res://assets/building/textures/T_ai_materials_trim_b_rough.png",
+      "sha256": "494796a7d48c38a6612414c83020564d089344f68ac48a30bbc2ccbb93722dbb"
+    },
+    {
+      "bytes": 2055215,
+      "resource_path": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png",
+      "sha256": "b49268c6181b07a09a46f5aa44cb19a4b3d15eba7875beb990307be518db4fde"
+    },
+    {
+      "bytes": 935728,
+      "resource_path": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_normal.png",
+      "sha256": "afb2e8fa929114445585cd517ec829591d5b1603eb7b32f43c57a00295dabe5e"
+    },
+    {
+      "bytes": 183266,
+      "resource_path": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_rough.png",
+      "sha256": "1190fc5c1d5e1c8ecc7465e1ca40e1f71a4d9fb6e15c647b2b0f3d71ed100d7f"
+    },
+    {
+      "bytes": 1724766,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png",
+      "sha256": "cf16e286c3db480e674e8599bfd7ab285b3ed1fb4e5e0f7cfb770b101f904b01"
+    },
+    {
+      "bytes": 1006821,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wainscot_b_normal.png",
+      "sha256": "53d829e0faec151d222535f19c8f84cbadcff845288d840caae7d4408b3026c9"
+    },
+    {
+      "bytes": 138434,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wainscot_b_rough.png",
+      "sha256": "15f90b6f788331da77d9e0d150b48386d4fe8c953b4c2ba593f62c567a13b2e7"
+    },
+    {
+      "bytes": 1758149,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wet_asphalt_b_albedo.png",
+      "sha256": "540333d10c606ef02f3824743f2a0f510dab43ff4bc1f3a4d67e3f6a373ad3d7"
+    },
+    {
+      "bytes": 657045,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wet_asphalt_b_normal.png",
+      "sha256": "f2711a1ba78ba5b34265f7b3353070ed3107170c3bbeb92f1f2a21cc61dd6669"
+    },
+    {
+      "bytes": 131098,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wet_asphalt_b_rough.png",
+      "sha256": "8f850d3b4b7f3b18331012ab7af09aed0e3044f773655d7211cf17702355660c"
+    },
+    {
+      "bytes": 1592071,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png",
+      "sha256": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec"
+    },
+    {
+      "bytes": 555539,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wood_dark_b_normal.png",
+      "sha256": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68"
+    },
+    {
+      "bytes": 132362,
+      "resource_path": "res://assets/building/textures/T_ai_materials_wood_dark_b_rough.png",
+      "sha256": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73"
+    },
+    {
+      "bytes": 2065298,
+      "resource_path": "res://assets/building/textures/T_ai_materials_zinc_liner_albedo.png",
+      "sha256": "7660d3b67d0cc6b12d94cb176c6c1716ade45ebfaa7cbe9bf0e49da586f49a42"
+    },
+    {
+      "bytes": 826451,
+      "resource_path": "res://assets/building/textures/T_ai_materials_zinc_liner_normal.png",
+      "sha256": "ed2ddaf99ba6a66691221350263721a4d848688456ea94f4e8fc6dcb1b6e5864"
+    },
+    {
+      "bytes": 143691,
+      "resource_path": "res://assets/building/textures/T_ai_materials_zinc_liner_rough.png",
+      "sha256": "dc57fdcacb5854aa29200ab92ecc107daa06d145052e61ebcea59a78e38b0e94"
+    },
+    {
+      "bytes": 296,
+      "resource_path": "res://assets/building/textures/T_fx_fx_ao.png",
+      "sha256": "6a0c81a8a498b8dcee7bf012d17f49576994f749f8a7f68351681a7f77f1594f"
+    },
+    {
+      "bytes": 2804024,
+      "resource_path": "res://assets/building/textures/T_fx_fx_ceiling_soffit_failed.png",
+      "sha256": "7884ce1ad132e47c7896f5f2fa1fd8a42e86d7efb68ee1677610911fa37217af"
+    },
+    {
+      "bytes": 1264032,
+      "resource_path": "res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_normal.png",
+      "sha256": "650f09e337e2493033cabeb467494deac68b7625fdb9402040796941fc7b0a26"
+    },
+    {
+      "bytes": 474654,
+      "resource_path": "res://assets/building/textures/T_fx_fx_ceiling_soffit_failed_rough.png",
+      "sha256": "6d87160d535e91f3050cdc9ccf1757f79ffb8f94d54dc13897450cc9bf972685"
+    },
+    {
+      "bytes": 120080,
+      "resource_path": "res://assets/building/textures/T_fx_fx_damp.png",
+      "sha256": "6d3ed9ac4cb08a03f7c1d4088a514e42767389820c56b7858113e37547c36471"
+    },
+    {
+      "bytes": 54160,
+      "resource_path": "res://assets/building/textures/T_fx_fx_damp_normal.png",
+      "sha256": "e0aa549f565ce484a4036be30063ef2f28d6a67a598af77a01d3006bd744904e"
+    },
+    {
+      "bytes": 76644,
+      "resource_path": "res://assets/building/textures/T_fx_fx_damp_rough.png",
+      "sha256": "f7af96e695babe0d4c4ab0237878cd862b9f87bba3f0d849f0368076520702f5"
+    },
+    {
+      "bytes": 39797,
+      "resource_path": "res://assets/building/textures/T_fx_fx_drip.png",
+      "sha256": "4f7bdf9dce3cf258f351c772075851e5538b2cbc6212c57515e9b3b083033268"
+    },
+    {
+      "bytes": 53828,
+      "resource_path": "res://assets/building/textures/T_fx_fx_drip_normal.png",
+      "sha256": "9968e4f1f02782fee81aa2d213af1ef309042c52be740854e75af8a8543a3541"
+    },
+    {
+      "bytes": 36941,
+      "resource_path": "res://assets/building/textures/T_fx_fx_drip_rough.png",
+      "sha256": "e391ccdd7592cd46f10ec0d56ac0123fefe9164f4f8bb8daf08eae462b0f667f"
+    },
+    {
+      "bytes": 109017,
+      "resource_path": "res://assets/building/textures/T_fx_fx_grease.png",
+      "sha256": "3c2147c82dc9805de007d4e1246a9ba4a1868cc32cdd4b702a5fca231b79a0a3"
+    },
+    {
+      "bytes": 52375,
+      "resource_path": "res://assets/building/textures/T_fx_fx_grease_normal.png",
+      "sha256": "969919498d09bf03c2b7b83c0534cb169e2e3afbc4c50612cfe1a0171d795edb"
+    },
+    {
+      "bytes": 88926,
+      "resource_path": "res://assets/building/textures/T_fx_fx_grease_rough.png",
+      "sha256": "5f92a43a56892af8bee50ce54ef6c6040d84a16252cc1f6076b8ad03fc9a88a4"
+    },
+    {
+      "bytes": 63201,
+      "resource_path": "res://assets/building/textures/T_fx_fx_scuff.png",
+      "sha256": "9b3105bf06a3ff5c18c59c340234f8b9dae86a736bec7a1d194e694e09945829"
+    },
+    {
+      "bytes": 108238,
+      "resource_path": "res://assets/building/textures/T_fx_fx_scuff_normal.png",
+      "sha256": "1dc026feafae790f9a92f3b28976be103e053a5d23cd20de8631799664150ff1"
+    },
+    {
+      "bytes": 63965,
+      "resource_path": "res://assets/building/textures/T_fx_fx_scuff_rough.png",
+      "sha256": "8c7a62d2e2f2d95fb483521650af2b0ee2baf23f3044be2c84142622abca45d1"
+    },
+    {
+      "bytes": 29827,
+      "resource_path": "res://assets/building/textures/T_fx_fx_shadow.png",
+      "sha256": "4fbe140766797f7cd2ca83d69fc72f69a6d0c022af9a0515daef96d46abe80b1"
+    },
+    {
+      "bytes": 52212,
+      "resource_path": "res://assets/building/textures/T_fx_fx_traffic.png",
+      "sha256": "7d89d1a0d9e2217a1e5ed1e5c687b57705d5006056d0c75a485b5c5becbe7e42"
+    },
+    {
+      "bytes": 40015,
+      "resource_path": "res://assets/building/textures/T_fx_fx_traffic_normal.png",
+      "sha256": "69cc8270370cc9f3b86806fb8af13f2f31fb4518f1fcde15f52d96d867560d6b"
+    },
+    {
+      "bytes": 70017,
+      "resource_path": "res://assets/building/textures/T_fx_fx_traffic_rough.png",
+      "sha256": "05eb9b280eac6826dc09f321ea641502b2a634f0e2e68a241397a52cd36e0af5"
+    },
+    {
+      "bytes": 230829,
+      "resource_path": "res://assets/building/textures/T_generated_blind_slat_albedo.png",
+      "sha256": "36f9f6784b24e1deb29d4948bebad774650a5be1c1338b6350dddfacdd299d1c"
+    },
+    {
+      "bytes": 32519,
+      "resource_path": "res://assets/building/textures/T_generated_blind_slat_normal.png",
+      "sha256": "b039c3d4a5a086de4a8ea3c70bdcead4b99b832446398191c5ac110ba6061456"
+    },
+    {
+      "bytes": 249732,
+      "resource_path": "res://assets/building/textures/T_generated_blind_slat_rough.png",
+      "sha256": "00870b0ff2d971ecd9bfc50ef39b69810b53caab5864fba1ede0ef202ad7d634"
+    },
+    {
+      "bytes": 473408,
+      "resource_path": "res://assets/building/textures/T_generated_road_paint_albedo.png",
+      "sha256": "d50930f9861247ac1f70a3b0b37b14c6241143d6a06e5665d94c9cd962f9f6bd"
+    },
+    {
+      "bytes": 697679,
+      "resource_path": "res://assets/building/textures/T_generated_road_paint_normal.png",
+      "sha256": "95a3325485a2c592305a4d00b2d2a4b503e048722b8f736fd8589791c95a1858"
+    },
+    {
+      "bytes": 314111,
+      "resource_path": "res://assets/building/textures/T_generated_road_paint_rough.png",
+      "sha256": "013737fad11895b01a900b268ba40a0140f436c852f24399e2d86c07c6fc2481"
+    },
+    {
+      "bytes": 303454,
+      "resource_path": "res://assets/building/textures/T_generated_sash_albedo.png",
+      "sha256": "9bf2da21607cd709a287095270bd3a33771377064436ab694e5a1c0a77d5d8a6"
+    },
+    {
+      "bytes": 45474,
+      "resource_path": "res://assets/building/textures/T_generated_sash_normal.png",
+      "sha256": "e8aa15293c8ed40a1651a4649ab42d7d84d7207b55f6a99832106a5bf439d913"
+    },
+    {
+      "bytes": 250509,
+      "resource_path": "res://assets/building/textures/T_generated_sash_rough.png",
+      "sha256": "00c3d19d9821c57a048b74bac23bf934411f8779b5eff32f51468b9efb7d3fb4"
+    },
+    {
+      "bytes": 91530,
+      "resource_path": "res://assets/building/textures/T_glass_normal.png",
+      "sha256": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67"
+    },
+    {
+      "bytes": 53704,
+      "resource_path": "res://assets/building/textures/T_glass_rough.png",
+      "sha256": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e"
+    },
+    {
+      "bytes": 1647644,
+      "resource_path": "res://assets/building/textures/T_library_architectural_haunted_wallpaper_albedo.png",
+      "sha256": "48f67cce28079cce48bf4c6d4ca38b65c7c938a34fc0bd367fd8817778afdfa7"
+    },
+    {
+      "bytes": 451,
+      "resource_path": "res://assets/building/textures/T_library_architectural_haunted_wallpaper_normal.png",
+      "sha256": "e9c69a6f3e4245d539aad40405d45f4f0a796b5ac31dd2da67189996a46b7f10"
+    },
+    {
+      "bytes": 539892,
+      "resource_path": "res://assets/building/textures/T_library_architectural_haunted_wallpaper_rough.png",
+      "sha256": "156e909bd5021ef265e4e5034213626ff81a87ba0304ece09679a0c6a65ea4ba"
+    },
+    {
+      "bytes": 361143,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_brown_albedo.png",
+      "sha256": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e"
+    },
+    {
+      "bytes": 1878,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_brown_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    {
+      "bytes": 4589,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_brown_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+    },
+    {
+      "bytes": 341735,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_burgundy_albedo.png",
+      "sha256": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9"
+    },
+    {
+      "bytes": 1878,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_burgundy_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    {
+      "bytes": 4589,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_burgundy_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+    },
+    {
+      "bytes": 338482,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_green_albedo.png",
+      "sha256": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f"
+    },
+    {
+      "bytes": 1878,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_green_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    {
+      "bytes": 4589,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_green_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+    },
+    {
+      "bytes": 332849,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_navy_albedo.png",
+      "sha256": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1"
+    },
+    {
+      "bytes": 1878,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_navy_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    {
+      "bytes": 4589,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_navy_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+    },
+    {
+      "bytes": 352992,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_ochre_albedo.png",
+      "sha256": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983"
+    },
+    {
+      "bytes": 1878,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_ochre_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    {
+      "bytes": 4589,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_ochre_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+    },
+    {
+      "bytes": 366126,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_teal_albedo.png",
+      "sha256": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef"
+    },
+    {
+      "bytes": 1878,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_teal_normal.png",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    {
+      "bytes": 4589,
+      "resource_path": "res://assets/building/textures/T_library_furniture_book_teal_rough.png",
+      "sha256": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345"
+    },
+    {
+      "bytes": 440797,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w00_albedo.png",
+      "sha256": "55435102f9205324a0156a7c3725df7ed93cd481f425a8651317076f2981f026"
+    },
+    {
+      "bytes": 316366,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w00_normal.png",
+      "sha256": "cea754ffc1d41b8aee1bdf27de8f0ab6e569664740ca357b8899a57923de4143"
+    },
+    {
+      "bytes": 120664,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w00_roughness.png",
+      "sha256": "0c40b71469f6e3de756f172140146edd8b8a3a187091950138facb1cec3841fd"
+    },
+    {
+      "bytes": 351351,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w01_albedo.png",
+      "sha256": "784450e29f9fdc502521afd002e7a534f515fcb93430c46d71cefb2e9678080f"
+    },
+    {
+      "bytes": 291122,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w01_normal.png",
+      "sha256": "3a02f8ecbef06478e493833f49b30363250cc153889d3411dd102086696246f0"
+    },
+    {
+      "bytes": 96133,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w01_roughness.png",
+      "sha256": "9c6b3a20d36ac7920fc903154f0a8a8dc483aa6588dab744cd6a394fbd4314e3"
+    },
+    {
+      "bytes": 305970,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w02_albedo.png",
+      "sha256": "9814f1088f954304041391fd89ce4f9932e221685cc185a22b7e8cdb0dce2756"
+    },
+    {
+      "bytes": 234942,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w02_normal.png",
+      "sha256": "c382bae01f879d8509ea709329f47ff06a8a6ede414c671196dda825ba1e8db5"
+    },
+    {
+      "bytes": 80255,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w02_roughness.png",
+      "sha256": "e6bf9a12e9ed77adc46d6e01c43373d1aa776dd24b688eee2d551c5aed0b7141"
+    },
+    {
+      "bytes": 403208,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w03_albedo.png",
+      "sha256": "cad07bcb5c46e6be7d023b114b3d2fdb3f819118dd1078e1b2b776e012479853"
+    },
+    {
+      "bytes": 310224,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w03_normal.png",
+      "sha256": "2e8769501b8ff8820ad1d92fb2bb6ef7cf45aaa07e3540625fcd38f8bbb9e1c4"
+    },
+    {
+      "bytes": 107337,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w03_roughness.png",
+      "sha256": "a71a19b56c7673563798b54f17fa46aa3e44ab5a9e719da5429d443e06a61b8a"
+    },
+    {
+      "bytes": 438906,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w04_albedo.png",
+      "sha256": "cd77afbb7b2d28d689450b12c4309082a7ed9167670f192fe178eaf8b693b1d4"
+    },
+    {
+      "bytes": 400219,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w04_normal.png",
+      "sha256": "50db766ac1e4c861130f30f53a36bca711bb4db8e5fd527a35b451083c17f1d4"
+    },
+    {
+      "bytes": 105925,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w04_roughness.png",
+      "sha256": "53e4719ca6add240d5db253fbb8fc994adb8c94704f2b1cbf526b6afb5d4c8f9"
+    },
+    {
+      "bytes": 385983,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w05_albedo.png",
+      "sha256": "5262725922f3fd87c8ce535566de31d00a248c591b4629b065e3e693f43f2707"
+    },
+    {
+      "bytes": 269605,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w05_normal.png",
+      "sha256": "2e537692108abab84f0bd10d725532783c28b7a7bcf512f9580c0daeed509178"
+    },
+    {
+      "bytes": 115822,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w05_roughness.png",
+      "sha256": "612ce8428670fb64fd1a69c42fee7997602ff82f5bac1837bd414165fa2cb5d3"
+    },
+    {
+      "bytes": 450414,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w06_albedo.png",
+      "sha256": "44b094fee9fa851b37589b797a8862293b824b76e0f9def48884a3a7482d3590"
+    },
+    {
+      "bytes": 296066,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w06_normal.png",
+      "sha256": "65784773da5308fd45b7a641d25877c277d0e9b782e69f24bdba4872f4cf2bf8"
+    },
+    {
+      "bytes": 113005,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w06_roughness.png",
+      "sha256": "613908e9c85f8c5fe5f192e8e44c481409fd853304a263b210ee247210157c5c"
+    },
+    {
+      "bytes": 426745,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w07_albedo.png",
+      "sha256": "ad533f9df53302de56d9aec13b2c6480044fae8635154b7547b8b6305c482159"
+    },
+    {
+      "bytes": 319423,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w07_normal.png",
+      "sha256": "e6505eccbdb3a3b431da872643fd0fe4d7c08579e6dcb18f58b5cf054dac6c66"
+    },
+    {
+      "bytes": 108479,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w07_roughness.png",
+      "sha256": "69ff7d3f6f913af3987e1898d4e338bf1f8170a4134869f877ad52a8d788a210"
+    },
+    {
+      "bytes": 611827,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w08_albedo.png",
+      "sha256": "c389ccea8fa71222559b8be8b80a33fb09c3e4ef702bb44d9b1c2a077eab54a8"
+    },
+    {
+      "bytes": 451672,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w08_normal.png",
+      "sha256": "b949de5864c67724b2683609802ec2432e182c41189c02380363657c830cf81f"
+    },
+    {
+      "bytes": 161948,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w08_roughness.png",
+      "sha256": "9f801a3730293fe564254b5ece2778a8b32d85ac843a752775d3177a0ade549b"
+    },
+    {
+      "bytes": 611562,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w09_albedo.png",
+      "sha256": "c900b4b9ff12fc089856d1f24beae546b19bb54ccc9fa7f9f9ae4ce846d40337"
+    },
+    {
+      "bytes": 425027,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w09_normal.png",
+      "sha256": "18474afa1f9dd38d9a595c18d142d7c7ba8ff37c47b6a2fc18970cda370074a3"
+    },
+    {
+      "bytes": 169996,
+      "resource_path": "res://assets/building/textures/T_wallfinish_f01_w09_roughness.png",
+      "sha256": "cb552087afbd0aa5b439811951637f6b9e299cae99aecb1874059751ae57f2fd"
+    }
+  ],
+  "unresolved_lineage_records": []
+}

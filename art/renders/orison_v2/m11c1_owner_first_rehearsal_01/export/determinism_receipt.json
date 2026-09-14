@@ -1,0 +1,47 @@
+{
+  "schema": "orison.m11c1.owner-first-determinism.v1",
+  "milestone": "ORISON-V2-M11C1",
+  "status": "PASS",
+  "comparison_runs": [
+    {
+      "run_id": "M11C1-12b0189ee7fe5afb6190447a",
+      "disposable_root": "C:\\PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt"
+    },
+    {
+      "run_id": "M11C1-188dfcd4f2cac73a54dfafae",
+      "disposable_root": "C:\\PleaseRemainOnTheLine-v2-m11c1-export-ninth-determinism-control"
+    }
+  ],
+  "gltf_bin_comparison": {
+    "file_count": 36,
+    "mismatch_count": 0,
+    "scope": "candidate GLTF/BIN plus 17 cell GLTF/BIN pairs",
+    "canonical_manifest_encoding": "UTF-8; relative_path<TAB>sha256 rows joined by LF with no trailing LF",
+    "canonical_manifest_sha256": "6c6ace7f97966bfbfc74b561273ef2bbe25d71b0052e75dc571762f4171985a9"
+  },
+  "candidate": {
+    "gltf_sha256": "0dc4a4bbc615c26ec18fa1cf706391905e4ed221230e105495dcd3f409c73f73",
+    "bin_sha256": "ba9ddab8bdcf92e2de7fe68a7a8b2994dc4dcd82a1332305ad9fff629c3167a5"
+  },
+  "complete_lineage_manifest": {
+    "source": "floor01_owner_first_lineage.json",
+    "run_specific_wrapper_fields": [
+      "run_id",
+      "disposable_root"
+    ],
+    "canonical_payload_encoding": "sorted-key compact UTF-8 JSON after removing only the two named run-specific wrapper fields",
+    "canonical_payload_bytes": 11405150,
+    "canonical_payload_sha256": "3af6cdaa912ddb10af8efc604bb789bd53bc516b9fe733b2928513f0bc33c5bd",
+    "payload_match": true
+  },
+  "generated_source_range_manifest": {
+    "source": "generated_owner_lineage.json",
+    "run_specific_wrapper_field": "producer",
+    "canonical_payload_encoding": "sorted-key compact UTF-8 JSON after removing only producer process/path provenance",
+    "canonical_payload_bytes": 5305757,
+    "canonical_payload_sha256": "be9b2d22db0faf329633572ad5e7bddda77e65e4858c29af4bac801ea9824f59",
+    "payload_match": true
+  },
+  "production_mutation": false,
+  "protected_assets_unchanged_in_both_runs": true
+}

@@ -1,0 +1,2089 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+  PASS  M11C1 seam/traversal config matches its immutable normalized hash
+  PASS  M11C1 seam/traversal config parses
+  PASS  production layout parses read-only
+  PASS  M11C1 contract supplies exactly five dangerous seams
+  PASS  M11C1 contract supplies exactly five matched cameras
+  PASS  M11C1 contract supplies the reviewed seventeen-cell set
+  PASS  production Floor01GeometryConfiguration loads
+  PASS  BuildingRootSelector default remains v1
+  PASS  explicit v1 selector resolves the production BuildingRoot
+[RENDER] forward_plus
+[F01 REGISTRY] legacy_monolith configure index_ms=1.041 registry_manifest_read_parse_ms=2.452 registry_manifest_validate_ms=3.601 total_ms=7.102
+[F01 REGISTRY] legacy_monolith mount FULL_RECOMPOSITION attach_ms=0.768 cell_count=0.0 instantiate_ms=14.961 load_ms=2399.446 total_ms=2415.297
+[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 527 left flat
+[SURFACE] 1003 surfaces layered (677 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1609 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[STREET] 109 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (936 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[HARUKIYA] CLOSED, 18 fixtures
+[M11C2-WARMUP] legacy_monolith components={"authorities_survive_geometry_teardown":true,"contract":true,"lifecycle_delta_clean":true,"production_cut_resources_released":true,"public_interaction_prompt":true,"public_teardown_receipt_zero":true,"route":true,"tracked_weakrefs_released":true} contract_failures=[]
+[M11C2-SERVICE] legacy_monolith {"after":{"clock_order_id":"WO-CLOCK-001","clock_order_status":"active","first_shift_phase":"complete","has_open_work":true,"maintenance_jobs":{"job_ids":["vantry_chirp_2a"],"jobs":{"vantry_chirp_2a":{"evidence":[],"origin":"reported","repair_note":"M11C2 parity boundary","repair_quality":"good","stage":"closed"}}},"open_work":{"aggregate_has_open_work":true,"durable_owner":"RealityState via WorkOrders public status/serialization","open_maintenance_job_ids":[],"open_simple_order_ids":["WO-CLOCK-001"]},"previous_job_stage":"closed","service_job_stage":"missing","service_round_incoming_call":true},"before":{"clock_order_id":"WO-CLOCK-001","clock_order_status":"active","first_shift_phase":"complete","has_open_work":true,"maintenance_jobs":{"job_ids":[],"jobs":{}},"open_work":{"aggregate_has_open_work":true,"durable_owner":"RealityState via WorkOrders public status/serialization","open_maintenance_job_ids":[],"open_simple_order_ids":["WO-CLOCK-001"]},"previous_job_stage":"missing","service_job_stage":"missing","service_round_incoming_call":false},"exact_expected_open_work":true,"first_shift_phase":"complete","has_open_work":true,"ok":true,"open_work":{"aggregate_has_open_work":true,"durable_owner":"RealityState via WorkOrders public status/serialization","open_maintenance_job_ids":[],"open_simple_order_ids":["WO-CLOCK-001"]},"previous_job":{"evidence":[],"origin":"reported","repair_note":"M11C2 parity boundary","repair_quality":"good","stage":"closed"},"production_clock_order":{"id":"WO-CLOCK-001","status":"active"},"public_core_loop_offer_surface":true,"public_service_round_surface":true,"public_work_orders_surface":true,"service_job":{"evidence":[],"origin":"","repair_note":"","repair_quality":"","stage":"missing"},"service_round_incoming_call":true,"transitions_applied_this_root":[{"accepted":true,"action":"CoreLoopDirector.offer_opening_report","from":"missing","to":"issued"},{"accepted":true,"action":"WorkOrders.acknowledge_job","from":"issued","to":"acknowledged"},{"accepted":true,"action":"WorkOrders.diagnose_job","from":"acknowledged","to":"diagnosed"},{"accepted":true,"action":"WorkOrders.mark_job_awaiting_part","from":"diagnosed","to":"awaiting_part"},{"accepted":true,"action":"WorkOrders.mark_job_repairable","from":"awaiting_part","to":"repairable"},{"accepted":true,"action":"WorkOrders.record_job_repair","from":"repairable","to":"repaired"},{"accepted":true,"action":"WorkOrders.close_job","from":"repaired","to":"closed"}]}
+[M11C2-CONSUMERS] legacy_monolith {"accessibility":true,"acoustic":true,"details":true,"first_shift":true,"resident_nav":true,"service_round":true,"vantry":true}
+  PASS  legacy_monolith production warmup
+[RENDER] forward_plus
+[F01 REGISTRY] owner_first_cells configure alias_target_check_ms=2.478 asset_manifest_parse_ms=1.344 asset_manifest_sha256_ms=0.390 bound_files_total_ms=113.180 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=38.008 cell_descriptor_parse_ms=22.788 compatibility_aliases_parse_ms=2.297 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.532 index_ms=1.048 lineage_parsed=false lineage_sha256_ms=36.924 registry_manifest_read_parse_ms=2.595 registry_manifest_validate_ms=3.648 total_ms=120.483
+[F01 REGISTRY] owner_first_cells mount FULL_RECOMPOSITION attach_ms=0.897 cell_count=17.0 instantiate_ms=14.521 load_ms=2208.792 total_ms=2225.401
+[PASSAGE] 315 interior, 31 shell and 239 foreign owner-cell draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 923 left flat
+[SURFACE] 1054 surfaces layered (999 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1662 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (1258 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[M11C2-WARMUP] owner_first_cells components={"authorities_survive_geometry_teardown":true,"contract":true,"lifecycle_delta_clean":true,"production_cut_resources_released":true,"public_interaction_prompt":true,"public_teardown_receipt_zero":true,"route":true,"tracked_weakrefs_released":true} contract_failures=[]
+[M11C2-SERVICE] owner_first_cells {"after":{"clock_order_id":"WO-CLOCK-001","clock_order_status":"active","first_shift_phase":"complete","has_open_work":true,"maintenance_jobs":{"job_ids":["vantry_chirp_2a"],"jobs":{"vantry_chirp_2a":{"evidence":[],"origin":"reported","repair_note":"M11C2 parity boundary","repair_quality":"good","stage":"closed"}}},"open_work":{"aggregate_has_open_work":true,"durable_owner":"RealityState via WorkOrders public status/serialization","open_maintenance_job_ids":[],"open_simple_order_ids":["WO-CLOCK-001"]},"previous_job_stage":"closed","service_job_stage":"missing","service_round_incoming_call":true},"before":{"clock_order_id":"WO-CLOCK-001","clock_order_status":"active","first_shift_phase":"complete","has_open_work":true,"maintenance_jobs":{"job_ids":[],"jobs":{}},"open_work":{"aggregate_has_open_work":true,"durable_owner":"RealityState via WorkOrders public status/serialization","open_maintenance_job_ids":[],"open_simple_order_ids":["WO-CLOCK-001"]},"previous_job_stage":"missing","service_job_stage":"missing","service_round_incoming_call":false},"exact_expected_open_work":true,"first_shift_phase":"complete","has_open_work":true,"ok":true,"open_work":{"aggregate_has_open_work":true,"durable_owner":"RealityState via WorkOrders public status/serialization","open_maintenance_job_ids":[],"open_simple_order_ids":["WO-CLOCK-001"]},"previous_job":{"evidence":[],"origin":"reported","repair_note":"M11C2 parity boundary","repair_quality":"good","stage":"closed"},"production_clock_order":{"id":"WO-CLOCK-001","status":"active"},"public_core_loop_offer_surface":true,"public_service_round_surface":true,"public_work_orders_surface":true,"service_job":{"evidence":[],"origin":"","repair_note":"","repair_quality":"","stage":"missing"},"service_round_incoming_call":true,"transitions_applied_this_root":[{"accepted":true,"action":"CoreLoopDirector.offer_opening_report","from":"missing","to":"issued"},{"accepted":true,"action":"WorkOrders.acknowledge_job","from":"issued","to":"acknowledged"},{"accepted":true,"action":"WorkOrders.diagnose_job","from":"acknowledged","to":"diagnosed"},{"accepted":true,"action":"WorkOrders.mark_job_awaiting_part","from":"diagnosed","to":"awaiting_part"},{"accepted":true,"action":"WorkOrders.mark_job_repairable","from":"awaiting_part","to":"repairable"},{"accepted":true,"action":"WorkOrders.record_job_repair","from":"repairable","to":"repaired"},{"accepted":true,"action":"WorkOrders.close_job","from":"repaired","to":"closed"}]}
+[M11C2-CONSUMERS] owner_first_cells {"accessibility":true,"acoustic":true,"details":true,"first_shift":true,"resident_nav":true,"service_round":true,"vantry":true}
+  PASS  owner_first_cells production warmup
+  PASS  independent M11A production scene warmup
+[RENDER] forward_plus
+[F01 REGISTRY] legacy_monolith configure index_ms=0.966 registry_manifest_read_parse_ms=2.598 registry_manifest_validate_ms=4.128 total_ms=7.700
+[F01 REGISTRY] legacy_monolith mount FULL_RECOMPOSITION attach_ms=0.771 cell_count=0.0 instantiate_ms=12.645 load_ms=2191.737 total_ms=2205.289
+[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 527 left flat
+[SURFACE] 1003 surfaces layered (677 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1609 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (936 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[STREET] 4 enclosed F01 draws indexed
+[SANITY] teresa_call_bells rung 1 (pressure 0.15, 1 acts)
+[SURFACE] 3947 prop draws layered in triplanar mode (937 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 689 materials
+[ENCROACH] living field on F04 binds 539 materials
+[ENCROACH] living field on F06 binds 493 materials
+[ENCROACH] living field on F05 binds 518 materials
+[ENCROACH] living field on F03 binds 528 materials
+[M11C2-ROUTE] orison_to_street reached=true samples=44 grounded=1.0000 finish=[0.0, 0.03826105594635, 11.1508264541626]
+[M11C2-ROUTE] street_to_bodega_start reached=true samples=374 grounded=1.0000 finish=[18.5384960174561, 0.01082243956625, 13.0746812820435]
+[M11C2-ROUTE] bodega_enter reached=true samples=46 grounded=1.0000 finish=[18.6390590667725, 0.04967268556356, 10.7771711349487]
+[M11C2-ROUTE] bodega_return reached=true samples=44 grounded=1.0000 finish=[18.6494216918945, 0.01100081112236, 12.9773187637329]
+[M11C2-ROUTE] bodega_to_passage_start_01 reached=true samples=373 grounded=1.0000 finish=[0.11799304187298, 0.03875450417399, 11.2604484558105]
+[STREET] shoved by a coal_lorry
+[SANITY] cam_tilted_room rung 1 (pressure 0.15, 1 acts)
+[INCIDENTS] Lena Ortiz reports Mina Vale's organism in 2B (225 voxels): ORG-2B-001
+[M11C2-ROUTE] bodega_to_passage_start_02 reached=true samples=549 grounded=0.9490 finish=[13.9803762435913, 0.0093283392489, 27.0956707000732]
+[PASSAGE] root sweep: 0 interior, 0 foreign draws, 15 foreign lights registered
+[SURFACE] 3947 prop draws layered in triplanar mode (937 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 808 materials
+[ENCROACH] living field on F04 binds 665 materials
+[ENCROACH] living field on F06 binds 608 materials
+[ENCROACH] living field on F05 binds 645 materials
+[ENCROACH] living field on F03 binds 649 materials
+[M11C2-ROUTE] passage_enter reached=true samples=58 grounded=1.0000 finish=[13.9993181228638, 0.01076383795589, 29.9956436157227]
+[M11C2-ROUTE] PASSAGE_MODEL_LAUNDRY_BIDIRECTIONAL_connector reached=true samples=277 grounded=1.0000 finish=[12.2515058517456, 0.01076383795589, 43.7345581054688]
+[M11C2-ROUTE] PASSAGE_MODEL_LAUNDRY_BIDIRECTIONAL_enter reached=true samples=40 grounded=1.0000 finish=[10.3466310501099, 0.01076383795589, 43.9100036621094]
+[M11C2-ROUTE] PASSAGE_MODEL_LAUNDRY_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[12.1466369628906, 0.01076383795589, 43.9140396118164]
+[M11C2-ROUTE] PASSAGE_SHOE_REBUILDING_BIDIRECTIONAL_connector reached=true samples=108 grounded=1.0000 finish=[12.23668384552, 0.01074625644833, 49.3118171691895]
+[SANITY] unwitnessed (1 in a row)
+[M11C2-ROUTE] PASSAGE_SHOE_REBUILDING_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[10.3480186462402, 0.0099664721638, 49.5098457336426]
+[SANITY] evelyn_paper_jam rung 2 (pressure 0.29, 2 acts)
+[M11C2-ROUTE] PASSAGE_SHOE_REBUILDING_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[12.148024559021, 0.0099664721638, 49.5140342712402]
+[M11C2-ROUTE] PASSAGE_KEYS_CUT_BIDIRECTIONAL_connector reached=true samples=68 grounded=1.0000 finish=[12.2370634078979, 0.0099664721638, 52.9129447937012]
+[M11C2-ROUTE] PASSAGE_KEYS_CUT_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[10.346658706665, 0.01093822717667, 53.1100120544434]
+[M11C2-ROUTE] PASSAGE_KEYS_CUT_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[12.1466655731201, 0.01093822717667, 53.1140403747559]
+[M11C2-ROUTE] PASSAGE_HARDWARE_PAINT_BIDIRECTIONAL_connector reached=true samples=104 grounded=1.0000 finish=[12.2380342483521, 0.01093822717667, 58.3131675720215]
+[M11C2-ROUTE] PASSAGE_HARDWARE_PAINT_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[10.3410778045654, 0.01093345042318, 58.5106163024902]
+[M11C2-ROUTE] PASSAGE_HARDWARE_PAINT_BIDIRECTIONAL_return reached=true samples=37 grounded=1.0000 finish=[12.1782426834106, 0.01093345042318, 58.4806022644043]
+[M11C2-ROUTE] PASSAGE_FUNERAL_PARLOUR_BIDIRECTIONAL_connector reached=true samples=89 grounded=1.0000 finish=[12.2378149032593, 0.01094078179449, 62.9292984008789]
+[M11C2-ROUTE] PASSAGE_FUNERAL_PARLOUR_BIDIRECTIONAL_enter reached=true samples=51 grounded=1.0000 finish=[10.3468437194824, 0.01025943644345, 63.1100921630859]
+[M11C2-ROUTE] PASSAGE_FUNERAL_PARLOUR_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[12.1468496322632, 0.01025943644345, 63.1140480041504]
+[M11C2-ROUTE] PASSAGE_PHOTO_SUPPLIES_BIDIRECTIONAL_connector reached=true samples=70 grounded=1.0000 finish=[15.6442556381226, 0.01025943644345, 62.9794578552246]
+[M11C2-ROUTE] PASSAGE_PHOTO_SUPPLIES_BIDIRECTIONAL_enter reached=true samples=48 grounded=1.0000 finish=[17.6427249908447, 0.01086593233049, 62.8895034790039]
+[SANITY] unwitnessed (2 in a row)
+[M11C2-ROUTE] PASSAGE_PHOTO_SUPPLIES_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[15.8427486419678, 0.01086593233049, 62.8859176635742]
+[M11C2-ROUTE] PASSAGE_RADIO_SERVICE_BIDIRECTIONAL_connector reached=true samples=124 grounded=1.0000 finish=[15.7614622116089, 0.01086593233049, 56.6864852905273]
+[M11C2-ROUTE] PASSAGE_RADIO_SERVICE_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[17.6603965759277, 0.0109363719821, 56.4892311096191]
+[M11C2-ROUTE] PASSAGE_RADIO_SERVICE_BIDIRECTIONAL_return reached=true samples=37 grounded=1.0000 finish=[15.8230142593384, 0.0109363719821, 56.5191116333008]
+[M11C2-ROUTE] PASSAGE_PAWNBROKER_BIDIRECTIONAL_connector reached=true samples=89 grounded=1.0000 finish=[15.7617301940918, 0.01093345414847, 52.0726661682129]
+[SANITY] teresa_call_bells rung 3 (pressure 0.43, 3 acts)
+[M11C2-ROUTE] PASSAGE_PAWNBROKER_BIDIRECTIONAL_enter reached=true samples=51 grounded=1.0000 finish=[17.6516761779785, 0.00996352080256, 51.8900947570801]
+[M11C2-ROUTE] PASSAGE_PAWNBROKER_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[15.8517026901245, 0.00996352080256, 51.8859634399414]
+[M11C2-ROUTE] PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE_connector reached=true samples=36 grounded=1.0000 finish=[15.7654256820679, 0.00996352080256, 50.0880508422852]
+[M11C2-ROUTE] PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE_enter reached=false samples=180 grounded=1.0000 finish=[16.3076190948486, 0.00996352080256, 50.0573081970215]
+[M11C2-ROUTE-COLLISIONS] PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE_enter [{"collider_class":"StaticBody3D","collider_name":"StaticBody3D","collider_path":"/root/OrisonV2M11C2ProductionMatrix/OrisonRoot/F01/Floor01GeometryProvider/LegacyMonolith/F01_retail_passage_shell_terrazzo-col/StaticBody3D","first_normal":[0.0,1.0,0.0],"first_position":[15.8153457641602,0.00999999977648258,50.0852203369141],"last_normal":[0.0,1.0,0.0],"last_position":[16.2646217346191,0.00999999977648258,50.0597457885742],"sample_count":10},{"collider_class":"AnimatableBody3D","collider_name":"HingedLeaf","collider_path":"/root/OrisonV2M11C2ProductionMatrix/OrisonRoot/SITE_SHOP_DOOR_NEWS_CIGARS/HingedLeaf","first_normal":[-1.0,0.0,0.0],"first_position":[16.6380004882813,1.20482218265533,50.0572929382324],"last_normal":[-1.0,0.0,0.0],"last_position":[16.6380004882813,1.20482218265533,50.0572547912598],"sample_count":170}]
+[M11C2-ROUTE] PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE_locked_return reached=true samples=9 grounded=1.0000 finish=[15.862621307373, 0.01082213874906, 49.9904251098633]
+[M11C2-ROUTE] PASSAGE_OTIS___SON_BIDIRECTIONAL_connector reached=true samples=90 grounded=1.0000 finish=[15.7625913619995, 0.01082213874906, 45.4915237426758]
+[M11C2-ROUTE] PASSAGE_OTIS___SON_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[17.645191192627, 0.01093333214521, 45.290885925293]
+[M11C2-ROUTE] PASSAGE_OTIS___SON_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[15.84521484375, 0.01093333214521, 45.2859840393066]
+[M11C2-ROUTE] PASSAGE_LUNCHEONETTE_BIDIRECTIONAL_connector reached=true samples=36 grounded=1.0000 finish=[15.7650299072266, 0.01093333214521, 43.4877967834473]
+[M11C2-ROUTE] PASSAGE_LUNCHEONETTE_BIDIRECTIONAL_enter reached=true samples=40 grounded=1.0000 finish=[17.6600475311279, 0.01093333214521, 43.2908554077148]
+[M11C2-ROUTE] PASSAGE_LUNCHEONETTE_BIDIRECTIONAL_return reached=true samples=37 grounded=1.0000 finish=[15.8227062225342, 0.01093333214521, 43.3192443847656]
+[INCIDENTS] condition in 2B: fridge (/root/OrisonV2M11C2ProductionMatrix/OrisonRoot/F02_2B_FRIDGE_01) held
+[SANITY] unwitnessed (3 in a row)
+[M11C2-ROUTE] passage_to_portal reached=true samples=265 grounded=1.0000 finish=[14.0129222869873, 0.01093333214521, 30.1937160491943]
+[PASSAGE] late sweep: 0 interior, 1448 foreign, 3 shared late-built F01 draws registered
+[SURFACE] 3947 prop draws layered in triplanar mode (937 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 927 materials
+[ENCROACH] living field on F04 binds 791 materials
+[ENCROACH] living field on F06 binds 723 materials
+[ENCROACH] living field on F05 binds 772 materials
+[ENCROACH] living field on F03 binds 770 materials
+[M11C2-ROUTE] passage_to_street reached=true samples=58 grounded=1.0000 finish=[14.0004053115845, 0.01093333214521, 27.2937602996826]
+[M11C2-ROUTE] street_to_orison_01 reached=true samples=424 grounded=0.9292 finish=[0.05875797569752, 0.03815235570073, 11.3173322677612]
+[M11C2-ROUTE] street_to_interior reached=true samples=45 grounded=1.0000 finish=[0.00291709695011, 0.02278131619096, 9.06752586364746]
+[M11C2-ROUTE] lobby_to_public_core reached=true samples=178 grounded=1.0000 finish=[-2.17898559570313, 0.00051569042262, 2.37656617164612]
+[M11C2-ROUTE] f01_to_f02_public_stair reached=true samples=367 grounded=1.0000 finish=[-1.13534736633301, 3.20093560218811, 4.87019395828247]
+[SANITY] rhea_bad_karaoke rung 3 (pressure 0.57, 3 acts)
+[M11C2-ROUTE] f02_to_f01_public_stair reached=true samples=359 grounded=1.0000 finish=[-2.30999970436096, -0.00103678693995, 2.2369589805603]
+[M11C2-ROUTE] public_core_to_f01_hall reached=true samples=94 grounded=1.0000 finish=[-1.1418389081955, 0.00069252087269, 4.86755084991455]
+[M11C2-CYCLE] legacy_monolith/cycle_1 components={"authorities_survive_geometry_teardown":true,"contract":true,"lifecycle_delta_clean":true,"production_cut_resources_released":true,"public_interaction_prompt":true,"public_teardown_receipt_zero":true,"route":true,"tracked_weakrefs_released":true} route=PASS
+  PASS  legacy_monolith cycle_1 complete production cycle
+[RENDER] forward_plus
+[F01 REGISTRY] owner_first_cells configure alias_target_check_ms=3.409 asset_manifest_parse_ms=1.458 asset_manifest_sha256_ms=0.418 bound_files_total_ms=116.271 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=38.915 cell_descriptor_parse_ms=22.535 compatibility_aliases_parse_ms=2.351 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.538 index_ms=1.106 lineage_parsed=false lineage_sha256_ms=37.480 registry_manifest_read_parse_ms=2.683 registry_manifest_validate_ms=3.624 total_ms=123.696
+[F01 REGISTRY] owner_first_cells mount FULL_RECOMPOSITION attach_ms=1.114 cell_count=17.0 instantiate_ms=14.855 load_ms=2236.302 total_ms=2253.525
+[PASSAGE] 315 interior, 31 shell and 239 foreign owner-cell draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 923 left flat
+[SURFACE] 1054 surfaces layered (999 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1662 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (1258 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[STREET] 4 enclosed F01 draws indexed
+[SURFACE] 3947 prop draws layered in triplanar mode (1259 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 689 materials
+[ENCROACH] living field on F04 binds 539 materials
+[ENCROACH] living field on F06 binds 493 materials
+[ENCROACH] living field on F05 binds 518 materials
+[ENCROACH] living field on F03 binds 528 materials
+[M11C2-ROUTE] orison_to_street reached=true samples=44 grounded=1.0000 finish=[0.0, 0.03826105594635, 11.1508264541626]
+[SANITY] teresa_call_bells rung 1 (pressure 0.15, 1 acts)
+[M11C2-ROUTE] street_to_bodega_start reached=true samples=374 grounded=1.0000 finish=[18.5384960174561, 0.01082243490964, 13.0746812820435]
+[M11C2-ROUTE] bodega_enter reached=true samples=46 grounded=1.0000 finish=[18.6390590667725, 0.04967268556356, 10.7771711349487]
+[M11C2-ROUTE] bodega_return reached=true samples=44 grounded=1.0000 finish=[18.6494216918945, 0.01100081112236, 12.9773187637329]
+[SANITY] evelyn_paper_jam rung 1 (pressure 0.15, 1 acts)
+[M11C2-ROUTE] bodega_to_passage_start_01 reached=true samples=373 grounded=1.0000 finish=[0.11799304187298, 0.03875450417399, 11.2604484558105]
+[STREET] shoved by a milk_float
+[M11C2-ROUTE] bodega_to_passage_start_02 reached=true samples=477 grounded=0.9413 finish=[13.9673261642456, 0.01062662526965, 27.0825939178467]
+[ELEVATOR] F01 -> F04 (8.0s)
+[PASSAGE] root sweep: 0 interior, 0 foreign draws, 15 foreign lights registered
+[SURFACE] 3947 prop draws layered in triplanar mode (1259 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 808 materials
+[ENCROACH] living field on F04 binds 665 materials
+[ENCROACH] living field on F06 binds 608 materials
+[ENCROACH] living field on F05 binds 645 materials
+[ENCROACH] living field on F03 binds 649 materials
+[M11C2-ROUTE] passage_enter reached=true samples=58 grounded=1.0000 finish=[13.9987277984619, 0.01062662526965, 29.9824390411377]
+[INCIDENTS] Lena Ortiz reports Mina Vale's organism in 2B (225 voxels): ORG-2B-001
+[INCIDENTS] condition in 2B: fridge (/root/OrisonV2M11C2ProductionMatrix/OrisonRoot/F02_2B_FRIDGE_01) held
+[SANITY] teresa_call_bells rung 1 (pressure 0.15, 1 acts)
+[M11C2-ROUTE] PASSAGE_MODEL_LAUNDRY_BIDIRECTIONAL_connector reached=true samples=277 grounded=1.0000 finish=[12.2530546188354, 0.01062662526965, 43.7222557067871]
+[M11C2-ROUTE] PASSAGE_MODEL_LAUNDRY_BIDIRECTIONAL_enter reached=true samples=40 grounded=1.0000 finish=[10.348256111145, 0.01062662526965, 43.9092750549316]
+[M11C2-ROUTE] PASSAGE_MODEL_LAUNDRY_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[12.1482620239258, 0.01062662526965, 43.9140090942383]
+[M11C2-ROUTE] PASSAGE_SHOE_REBUILDING_BIDIRECTIONAL_connector reached=true samples=108 grounded=1.0000 finish=[12.2366819381714, 0.01074649486691, 49.3117637634277]
+[ELEVATOR] F04 -> F01 (8.0s)
+[M11C2-ROUTE] PASSAGE_SHOE_REBUILDING_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[10.3468503952026, 0.01092338748276, 49.5099868774414]
+[M11C2-ROUTE] PASSAGE_SHOE_REBUILDING_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[12.1468572616577, 0.01092338748276, 49.5140380859375]
+[M11C2-ROUTE] PASSAGE_KEYS_CUT_BIDIRECTIONAL_connector reached=true samples=68 grounded=1.0000 finish=[12.2370271682739, 0.01092338748276, 52.9129486083984]
+[M11C2-ROUTE] PASSAGE_KEYS_CUT_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[10.3502292633057, 0.01086013857275, 53.1096153259277]
+[M11C2-ROUTE] PASSAGE_KEYS_CUT_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[12.1500787734985, 0.00966880936176, 53.1140289306641]
+[M11C2-ROUTE] PASSAGE_HARDWARE_PAINT_BIDIRECTIONAL_connector reached=true samples=104 grounded=1.0000 finish=[12.2381057739258, 0.00966880936176, 58.3131484985352]
+[M11C2-ROUTE] PASSAGE_HARDWARE_PAINT_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[10.3413944244385, 0.01093351282179, 58.5105819702148]
+[M11C2-ROUTE] PASSAGE_HARDWARE_PAINT_BIDIRECTIONAL_return reached=true samples=37 grounded=1.0000 finish=[12.178505897522, 0.01093351282179, 58.480541229248]
+[SANITY] juno_feedback_tetris rung 1 (pressure 0.15, 2 acts)
+[M11C2-ROUTE] PASSAGE_FUNERAL_PARLOUR_BIDIRECTIONAL_connector reached=true samples=89 grounded=1.0000 finish=[12.237813949585, 0.01094083115458, 62.9292411804199]
+[ELEVATOR] F01 -> F04 (8.0s)
+[M11C2-ROUTE] PASSAGE_FUNERAL_PARLOUR_BIDIRECTIONAL_enter reached=true samples=51 grounded=1.0000 finish=[10.3469829559326, 0.01025943737477, 63.1100730895996]
+[M11C2-ROUTE] PASSAGE_FUNERAL_PARLOUR_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[12.1469888687134, 0.01025943737477, 63.1140480041504]
+[M11C2-ROUTE] PASSAGE_PHOTO_SUPPLIES_BIDIRECTIONAL_connector reached=true samples=70 grounded=1.0000 finish=[15.6443948745728, 0.01025943737477, 62.9794502258301]
+[M11C2-ROUTE] PASSAGE_PHOTO_SUPPLIES_BIDIRECTIONAL_enter reached=true samples=48 grounded=1.0000 finish=[17.6477279663086, 0.01085118111223, 62.8890190124512]
+[M11C2-ROUTE] PASSAGE_PHOTO_SUPPLIES_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[15.8477516174316, 0.01085118111223, 62.8858985900879]
+[M11C2-ROUTE] PASSAGE_RADIO_SERVICE_BIDIRECTIONAL_connector reached=true samples=124 grounded=1.0000 finish=[15.7615489959717, 0.01085118111223, 56.686466217041]
+[M11C2-ROUTE] PASSAGE_RADIO_SERVICE_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[17.6549873352051, 0.01093342993408, 56.4898147583008]
+[M11C2-ROUTE] PASSAGE_RADIO_SERVICE_BIDIRECTIONAL_return reached=true samples=37 grounded=1.0000 finish=[15.8185291290283, 0.01093342993408, 56.520149230957]
+[ELEVATOR] F04 -> F01 (8.0s)
+[M11C2-ROUTE] PASSAGE_PAWNBROKER_BIDIRECTIONAL_connector reached=true samples=89 grounded=1.0000 finish=[15.7617616653442, 0.01093833241612, 52.0747718811035]
+[SANITY] teresa_call_bells rung 1 (pressure 0.15, 1 acts)
+[M11C2-ROUTE] PASSAGE_PAWNBROKER_BIDIRECTIONAL_enter reached=true samples=51 grounded=1.0000 finish=[17.6493911743164, 0.0108606275171, 51.8903999328613]
+[M11C2-ROUTE] PASSAGE_PAWNBROKER_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[15.8494148254395, 0.0108606275171, 51.8859710693359]
+[M11C2-ROUTE] PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE_connector reached=true samples=36 grounded=1.0000 finish=[15.7652835845947, 0.0108606275171, 50.0879211425781]
+[M11C2-ROUTE] PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE_enter reached=false samples=180 grounded=1.0000 finish=[16.3077774047852, 0.00996183976531, 50.0572052001953]
+[M11C2-ROUTE-COLLISIONS] PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE_enter [{"collider_class":"StaticBody3D","collider_name":"StaticBody3D","collider_path":"/root/OrisonV2M11C2ProductionMatrix/OrisonRoot/F01/Floor01GeometryProvider/CELL_PASSAGE/passage/F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col/StaticBody3D","first_normal":[0.0,1.0,0.0],"first_position":[15.815203666687,0.00999999977648258,50.0850944519043],"last_normal":[0.0,1.0,0.0],"last_position":[16.2644882202148,0.00999999977648258,50.0596542358398],"sample_count":10},{"collider_class":"AnimatableBody3D","collider_name":"HingedLeaf","collider_path":"/root/OrisonV2M11C2ProductionMatrix/OrisonRoot/SITE_SHOP_DOOR_NEWS_CIGARS/HingedLeaf","first_normal":[-1.0,0.0,0.0],"first_position":[16.6380004882813,1.20493841171265,50.057186126709],"last_normal":[-1.0,0.0,0.0],"last_position":[16.6380004882813,1.20482194423676,50.0571517944336],"sample_count":170}]
+[M11C2-ROUTE] PASSAGE_NEWS_CIGARS_LOCKED_SERVICE_FRONTAGE_locked_return reached=true samples=9 grounded=1.0000 finish=[15.8627624511719, 0.01082193572074, 49.990421295166]
+[M11C2-ROUTE] PASSAGE_OTIS___SON_BIDIRECTIONAL_connector reached=true samples=90 grounded=1.0000 finish=[15.7625951766968, 0.01082193572074, 45.4915199279785]
+[M11C2-ROUTE] PASSAGE_OTIS___SON_BIDIRECTIONAL_enter reached=true samples=52 grounded=1.0000 finish=[17.6407318115234, 0.01093343365937, 45.291431427002]
+[M11C2-ROUTE] PASSAGE_OTIS___SON_BIDIRECTIONAL_return reached=true samples=36 grounded=1.0000 finish=[15.8407554626465, 0.01093343365937, 45.2859954833984]
+[M11C2-ROUTE] PASSAGE_LUNCHEONETTE_BIDIRECTIONAL_connector reached=true samples=36 grounded=1.0000 finish=[15.7647552490234, 0.01093343365937, 43.4875335693359]
+[M11C2-ROUTE] PASSAGE_LUNCHEONETTE_BIDIRECTIONAL_enter reached=true samples=40 grounded=1.0000 finish=[17.6599102020264, 0.01093343365937, 43.2908554077148]
+[SANITY] evelyn_paper_jam rung 1 (pressure 0.15, 1 acts)
+[M11C2-ROUTE] PASSAGE_LUNCHEONETTE_BIDIRECTIONAL_return reached=true samples=37 grounded=1.0000 finish=[15.8225917816162, 0.01093343365937, 43.3192710876465]
+[M11C2-ROUTE] passage_to_portal reached=true samples=265 grounded=1.0000 finish=[14.0129241943359, 0.01093343365937, 30.1937427520752]
+[PASSAGE] late sweep: 0 interior, 1448 foreign, 4 shared late-built F01 draws registered
+[SURFACE] 3947 prop draws layered in triplanar mode (1259 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 927 materials
+[ENCROACH] living field on F04 binds 791 materials
+[ENCROACH] living field on F06 binds 723 materials
+[ENCROACH] living field on F05 binds 772 materials
+[ENCROACH] living field on F03 binds 770 materials
+[M11C2-ROUTE] passage_to_street reached=true samples=58 grounded=1.0000 finish=[14.0004053115845, 0.01093343365937, 27.2937870025635]
+[STREET] shoved by a motor_car
+[M11C2-ROUTE] street_to_orison_01 reached=true samples=456 grounded=0.9737 finish=[0.06982284784317, 0.03812514618039, 11.3202438354492]
+[SANITY] unwitnessed (1 in a row)
+[M11C2-ROUTE] street_to_interior reached=true samples=45 grounded=1.0000 finish=[0.00355442380533, 0.02279044874012, 9.07066059112549]
+[M11C2-ROUTE] lobby_to_public_core reached=true samples=178 grounded=1.0000 finish=[-2.17955422401428, 0.00052482378669, 2.37661623954773]
+[SANITY] peter_form_corridor rung 2 (pressure 0.29, 1 acts)
+[M11C2-ROUTE] f01_to_f02_public_stair reached=true samples=367 grounded=1.0000 finish=[-1.13534712791443, 3.20093560218811, 4.87019348144531]
+[M11C2-ROUTE] f02_to_f01_public_stair reached=true samples=359 grounded=1.0000 finish=[-2.30999970436096, 0.00013508787379, 2.23695921897888]
+[M11C2-ROUTE] public_core_to_f01_hall reached=true samples=94 grounded=1.0000 finish=[-1.14183878898621, 0.00013508787379, 4.86755180358887]
+[M11C2-CYCLE] owner_first_cells/cycle_1 components={"authorities_survive_geometry_teardown":true,"contract":true,"lifecycle_delta_clean":true,"production_cut_resources_released":true,"public_interaction_prompt":true,"public_teardown_receipt_zero":true,"route":true,"tracked_weakrefs_released":true} route=PASS
+  PASS  owner_first_cells cycle_1 complete production cycle
+[RENDER] forward_plus
+[F01 REGISTRY] owner_first_cells configure alias_target_check_ms=2.450 asset_manifest_parse_ms=1.310 asset_manifest_sha256_ms=0.422 bound_files_total_ms=113.692 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=37.836 cell_descriptor_parse_ms=22.600 compatibility_aliases_parse_ms=2.470 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.553 index_ms=1.131 lineage_parsed=false lineage_sha256_ms=37.331 registry_manifest_read_parse_ms=2.741 registry_manifest_validate_ms=3.734 total_ms=121.310
+[F01 REGISTRY] owner_first_cells mount FULL_RECOMPOSITION attach_ms=1.229 cell_count=17.0 instantiate_ms=20.393 load_ms=2241.011 total_ms=2264.091
+[PASSAGE] 315 interior, 31 shell and 239 foreign owner-cell draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 923 left flat
+[SURFACE] 1054 surfaces layered (999 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1662 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (1258 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[M11C2-CYCLE] owner_first_cells/cycle_2 components={"authorities_survive_geometry_teardown":true,"contract":true,"lifecycle_delta_clean":true,"production_cut_resources_released":true,"public_interaction_prompt":true,"public_teardown_receipt_zero":true,"route":true,"tracked_weakrefs_released":true} route=NOT_RUN_SECOND_CYCLE
+  PASS  owner_first_cells cycle_2 complete production cycle
+[RENDER] forward_plus
+[F01 REGISTRY] legacy_monolith configure index_ms=0.961 registry_manifest_read_parse_ms=2.680 registry_manifest_validate_ms=3.580 total_ms=7.230
+[F01 REGISTRY] legacy_monolith mount FULL_RECOMPOSITION attach_ms=1.428 cell_count=0.0 instantiate_ms=12.944 load_ms=2206.099 total_ms=2220.596
+[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 527 left flat
+[SURFACE] 1003 surfaces layered (677 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1609 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (936 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[M11C2-CYCLE] legacy_monolith/cycle_2 components={"authorities_survive_geometry_teardown":true,"contract":true,"lifecycle_delta_clean":true,"production_cut_resources_released":true,"public_interaction_prompt":true,"public_teardown_receipt_zero":true,"route":true,"tracked_weakrefs_released":true} route=NOT_RUN_SECOND_CYCLE
+  PASS  legacy_monolith cycle_2 complete production cycle
+  PASS  legacy_monolith independent M11A lifecycle
+  PASS  owner_first_cells independent M11A lifecycle
+  PASS  M11A independent lifecycle is mode-independent and normalized-equal
+  PASS  M11A MatLib dependencies reuse the exact warmed resources in both modes
+[RENDER] forward_plus
+[F01 REGISTRY] legacy_monolith configure index_ms=0.961 registry_manifest_read_parse_ms=2.902 registry_manifest_validate_ms=3.566 total_ms=7.438
+[F01 REGISTRY] legacy_monolith mount FULL_RECOMPOSITION attach_ms=0.803 cell_count=0.0 instantiate_ms=13.575 load_ms=2206.836 total_ms=2221.352
+[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 527 left flat
+[SURFACE] 1003 surfaces layered (677 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1609 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (936 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[RENDER] forward_plus
+[F01 REGISTRY] legacy_monolith configure index_ms=0.982 registry_manifest_read_parse_ms=2.712 registry_manifest_validate_ms=4.333 total_ms=8.034
+[F01 REGISTRY] legacy_monolith mount FULL_RECOMPOSITION attach_ms=0.714 cell_count=0.0 instantiate_ms=14.118 load_ms=2232.029 total_ms=2246.986
+[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 527 left flat
+[SURFACE] 1003 surfaces layered (677 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1609 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3947 prop draws layered in triplanar mode (937 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 571 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 367 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+  PASS  legacy_monolith_to_legacy_monolith save/destroy/CampaignShell reconstruction
+[RENDER] forward_plus
+[F01 REGISTRY] owner_first_cells configure alias_target_check_ms=2.444 asset_manifest_parse_ms=1.429 asset_manifest_sha256_ms=0.391 bound_files_total_ms=122.754 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=40.608 cell_descriptor_parse_ms=24.384 compatibility_aliases_parse_ms=2.468 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.544 index_ms=1.681 lineage_parsed=false lineage_sha256_ms=40.003 registry_manifest_read_parse_ms=2.820 registry_manifest_validate_ms=3.762 total_ms=131.033
+[F01 REGISTRY] owner_first_cells mount FULL_RECOMPOSITION attach_ms=0.943 cell_count=17.0 instantiate_ms=13.805 load_ms=2237.789 total_ms=2253.719
+[PASSAGE] 315 interior, 31 shell and 239 foreign owner-cell draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 923 left flat
+[SURFACE] 1054 surfaces layered (999 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1662 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (1258 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[RENDER] forward_plus
+[F01 REGISTRY] owner_first_cells configure alias_target_check_ms=2.415 asset_manifest_parse_ms=1.447 asset_manifest_sha256_ms=0.380 bound_files_total_ms=112.037 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=36.470 cell_descriptor_parse_ms=21.242 compatibility_aliases_parse_ms=2.788 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.536 index_ms=1.038 lineage_parsed=false lineage_sha256_ms=38.017 registry_manifest_read_parse_ms=2.712 registry_manifest_validate_ms=3.578 total_ms=119.374
+[F01 REGISTRY] owner_first_cells mount FULL_RECOMPOSITION attach_ms=1.023 cell_count=17.0 instantiate_ms=14.515 load_ms=2224.057 total_ms=2240.845
+[PASSAGE] 315 interior, 31 shell and 239 foreign owner-cell draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 923 left flat
+[SURFACE] 1054 surfaces layered (999 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1662 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3947 prop draws layered in triplanar mode (1259 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 571 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 367 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+  PASS  owner_first_cells_to_owner_first_cells save/destroy/CampaignShell reconstruction
+[RENDER] forward_plus
+[F01 REGISTRY] legacy_monolith configure index_ms=0.971 registry_manifest_read_parse_ms=2.608 registry_manifest_validate_ms=3.597 total_ms=7.183
+[F01 REGISTRY] legacy_monolith mount FULL_RECOMPOSITION attach_ms=0.894 cell_count=0.0 instantiate_ms=13.688 load_ms=2216.098 total_ms=2230.819
+[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 527 left flat
+[SURFACE] 1003 surfaces layered (677 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1609 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (936 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[RENDER] forward_plus
+[F01 REGISTRY] owner_first_cells configure alias_target_check_ms=2.416 asset_manifest_parse_ms=1.348 asset_manifest_sha256_ms=0.364 bound_files_total_ms=112.130 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=35.906 cell_descriptor_parse_ms=21.768 compatibility_aliases_parse_ms=2.943 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.532 index_ms=1.076 lineage_parsed=false lineage_sha256_ms=38.358 registry_manifest_read_parse_ms=2.695 registry_manifest_validate_ms=3.513 total_ms=119.424
+[F01 REGISTRY] owner_first_cells mount FULL_RECOMPOSITION attach_ms=1.004 cell_count=17.0 instantiate_ms=13.970 load_ms=2223.459 total_ms=2239.635
+[PASSAGE] 315 interior, 31 shell and 239 foreign owner-cell draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 923 left flat
+[SURFACE] 1054 surfaces layered (999 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1662 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3947 prop draws layered in triplanar mode (1259 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 571 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 367 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+  PASS  legacy_monolith_to_owner_first_cells save/destroy/CampaignShell reconstruction
+[RENDER] forward_plus
+[F01 REGISTRY] owner_first_cells configure alias_target_check_ms=2.380 asset_manifest_parse_ms=1.512 asset_manifest_sha256_ms=0.405 bound_files_total_ms=113.223 cell_asset_files_hashed=34.0 cell_asset_sha256_ms=36.920 cell_descriptor_parse_ms=22.162 compatibility_aliases_parse_ms=2.562 compatibility_aliases_parsed=true compatibility_aliases_sha256_ms=0.545 index_ms=1.459 lineage_parsed=false lineage_sha256_ms=38.344 registry_manifest_read_parse_ms=3.326 registry_manifest_validate_ms=3.852 total_ms=121.871
+[F01 REGISTRY] owner_first_cells mount FULL_RECOMPOSITION attach_ms=1.087 cell_count=17.0 instantiate_ms=14.372 load_ms=2235.666 total_ms=2252.356
+[PASSAGE] 315 interior, 31 shell and 239 foreign owner-cell draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 923 left flat
+[SURFACE] 1054 surfaces layered (999 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1662 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3946 prop draws layered in triplanar mode (1258 materials)
+[ENCROACH] 938 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 568 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 368 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+[RENDER] forward_plus
+[F01 REGISTRY] legacy_monolith configure index_ms=0.988 registry_manifest_read_parse_ms=2.588 registry_manifest_validate_ms=4.021 total_ms=7.605
+[F01 REGISTRY] legacy_monolith mount FULL_RECOMPOSITION attach_ms=1.061 cell_count=0.0 instantiate_ms=12.756 load_ms=2176.136 total_ms=2190.076
+[PASSAGE] 304 interior, 20 shell and 186 foreign F01 draws indexed
+[VANTRY] 119 points, 7 floor batches, 3 static draws/floor
+[HEIGHTMAP] 39 materials given parallax, 527 left flat
+[SURFACE] 1003 surfaces layered (677 materials)
+[BUILDING] 7 resident stories rehung off a bathroom wall
+[DOMESTIC RADIO] 18 receivers across 18 occupied units; 0 unresolved
+[DOOR GLOW] 107 closed doors, 9 leaking light (skipped: { "no_circulation": 86, "asleep": 12 })
+[STATION] 37 clips, 6 machines (5 projectors, 1 sets), all dark
+[ARCADE] 10 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market), STEP SEQUENCE (variety_hour), NIGHT MAIL (aviation_hour), COUNTY LEAGUE (sporting_wire), THE THOUSAND (motor_racing), TOWER OF ASH (adventure_serial), OUTER RIM (night_sky), DO NOT ANSWER (mystery_serial), OVERTIME (sporting_wire)
+[ARCADE] all of them are running arcade_pit
+[BUILDING] 488 functional props spawned
+[FURNITURE INTERACTION] 72 baked mechanisms restored
+[BUILDING] exterior finish: 381 batched details, 11 decals, 8 puddles
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[BUILDING] 18 residents spawned (18 rigged, 0 sprite fallbacks)
+[NAV] 4 schedule anchors installed in PASSAGE
+[NAV] 336 nodes across 8 floors; 7 stair links; elevator linked; 57 wall-crossing edges rejected; 323 safe links restored
+[ROUTINES] evelyn_marsh: 48 clips
+[ROUTINES] evelyn_marsh upgraded to a mesh
+[MOVES] personal library: res://assets/characters/teresa_vale/teresa_vale_moves.glb
+[ROUTINES] teresa_vale: 49 clips
+[ROUTINES] teresa_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+[ROUTINES] mina_vale: 49 clips
+[ROUTINES] mina_vale upgraded to a mesh
+[MOVES] personal library: res://assets/characters/lena_ortiz/lena_ortiz_moves.glb
+[ROUTINES] lena_ortiz: 49 clips
+[ROUTINES] lena_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/juno_kells/juno_kells_moves.glb
+[ROUTINES] juno_kells: 49 clips
+[ROUTINES] juno_kells upgraded to a mesh
+[MOVES] personal library: res://assets/characters/malcolm_reed/malcolm_reed_moves.glb
+[ROUTINES] malcolm_reed: 49 clips
+[ROUTINES] malcolm_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/omar_bell/omar_bell_moves.glb
+[ROUTINES] omar_bell: 49 clips
+[ROUTINES] omar_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/rhea_sato/rhea_sato_moves.glb
+[ROUTINES] rhea_sato: 49 clips
+[ROUTINES] rhea_sato upgraded to a mesh
+[MOVES] personal library: res://assets/characters/peter_wren/peter_wren_moves.glb
+[ROUTINES] peter_wren: 49 clips
+[ROUTINES] peter_wren upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cam_ortiz/cam_ortiz_moves.glb
+[ROUTINES] cam_ortiz: 49 clips
+[ROUTINES] cam_ortiz upgraded to a mesh
+[MOVES] personal library: res://assets/characters/noel_price/noel_price_moves.glb
+[ROUTINES] noel_price: 49 clips
+[ROUTINES] noel_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/transient_guests/transient_guests_moves.glb
+[ROUTINES] transient_guests: 49 clips
+[ROUTINES] transient_guests upgraded to a mesh
+[MOVES] personal library: res://assets/characters/nadia_quell/nadia_quell_moves.glb
+[ROUTINES] nadia_quell: 49 clips
+[ROUTINES] nadia_quell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/cal_dwyer/cal_dwyer_moves.glb
+[ROUTINES] cal_dwyer: 49 clips
+[ROUTINES] cal_dwyer upgraded to a mesh
+[MOVES] personal library: res://assets/characters/iris_bell/iris_bell_moves.glb
+[ROUTINES] iris_bell: 49 clips
+[ROUTINES] iris_bell upgraded to a mesh
+[MOVES] personal library: res://assets/characters/sacha_reed/sacha_reed_moves.glb
+[ROUTINES] sacha_reed: 49 clips
+[ROUTINES] sacha_reed upgraded to a mesh
+[MOVES] personal library: res://assets/characters/jonah_price/jonah_price_moves.glb
+[ROUTINES] jonah_price: 49 clips
+[ROUTINES] jonah_price upgraded to a mesh
+[MOVES] personal library: res://assets/characters/mae_kessler/mae_kessler_moves.glb
+[ROUTINES] mae_kessler: 49 clips
+[ROUTINES] mae_kessler upgraded to a mesh
+[ROUTINES] 18 residents with somewhere to be
+[SWITCHES] 157 fixtures wired across 119 rooms, 87 exterior
+[SWITCHES] 215 live plates
+[MOON] 70 windowed rooms
+[BUILDING] 18 apartment reality controllers ready
+[WAYFINDING] 17 brass unit numbers, 7 directories, 8 fire signs, 1 spine plates, 6 stair pairs, 6 landing plates
+[BUILDING] 62 reality-affected props placed
+[WITNESS] 18 clocks and 20 other domestic anomalies placed and rigged
+[ENCROACH] living field on F02 binds 78 materials
+[ENCROACH] living field on F04 binds 83 materials
+[ENCROACH] living field on F06 binds 81 materials
+[ENCROACH] living field on F05 binds 86 materials
+[ENCROACH] living field on F03 binds 89 materials
+[ENCROACH] 22 finish surfaces across 6 case flats, 6 beachheads
+[INCIDENTS] 15 flats on 5 living storeys can report
+[BUILDING] 20 character memory artworks placed
+[BUILDING] 20 character-specific wall artworks placed
+[BUILDING] 8 hallway artworks placed
+[BUILDING] 7 stair-landing pieces hung
+[BUILDING] found art: 17 walls, 7 print props, 1 billboards
+[BUILDING] front-door exterior light and signage placed
+[BUILDING] maintenance headquarters ready: 18 trophy slots, 6 gear tiers
+[LIGHT RIG] budgets resolved: 64 active / 5 shadow
+[SCHEDULE] director live: 18 residents on the clock
+[HARUKIYA] 9 interactables placed
+[BUILDING] Orison assembled: 8 floors, 565 windows lit, 292 railing details, player in lobby
+[BUILDING] 197 low-overhead environment details and 26 story decals
+[BUILDING] 64 atmospheric evidence decals
+[PASSAGE] late sweep: 117 interior, 758 foreign, 2 shared late-built F01 draws registered
+[PASSAGE] root sweep: 17 interior, 973 foreign draws, 37 foreign lights registered
+[STREET] 1609 enclosed F01 draws indexed
+[LIGHTING] 254 sources active in system; 254 full personalities; profiles steady/breathe/mains/beat/dropout=[55, 54, 49, 45, 51]
+[HARUKIYA] CLOSED, 18 fixtures
+[STREET] 105 enclosed F01 draws indexed
+[SURFACE] 3947 prop draws layered in triplanar mode (937 materials)
+[ENCROACH] 939 prop draws reached across 6 case flats
+[ENCROACH] living field on F02 binds 571 materials
+[ENCROACH] living field on F04 binds 413 materials
+[ENCROACH] living field on F06 binds 378 materials
+[ENCROACH] living field on F05 binds 391 materials
+[ENCROACH] living field on F03 binds 407 materials
+[NAV] collision audit: 367 edges cut by real geometry, 71 island nodes relinked, 0 stair legs obstructed
+  PASS  owner_first_cells_to_legacy_monolith save/destroy/CampaignShell reconstruction
+  PASS  legacy monolith and owner-first cells expose the same semantic world
+  PASS  warmed matrix retains no production nodes or orphans
+ORISON V2 M11C2 PRODUCTION MATRIX: PASS checks=26 failures=0

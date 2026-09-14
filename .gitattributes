@@ -1,0 +1,8 @@
+# Hash-bound production artifacts of the M11C2 owner-first floor-01 cut.
+# Floor01CellRegistry verifies the SHA-256 of every file below at boot against
+# the checked-in manifests, and tools/m11c2_floor01_production checks them
+# byte-for-byte. core.autocrlf must never rewrite their line endings on
+# checkout (M11C2-CLOSE, 2026-09-13).
+game/assets/building/floor_01_cells/** -text
+game/data/floor_01_cell_registry.json -text
+art/data/m11c2/** -text

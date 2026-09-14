@@ -40,21 +40,21 @@ func _ready() -> void:
 	# and sash meeting rail with them.
 	var envelope: Array = []
 	for batch in ["F01_glazing", "F01_stone_trim"]:
-		var node: Node = root.floor_nodes["F01"].get_node_or_null(batch)
+		var batch_geometry := _facade_alias_geometry(root, batch)
 		_check("%s is a real draw to argue about" % batch,
-				node is GeometryInstance3D)
-		if node is GeometryInstance3D:
-			envelope.append(node)
+				not batch_geometry.is_empty())
+		envelope.append_array(batch_geometry)
 	_check("the ground floor's glass and joinery are never enclosed content",
-			envelope.size() == 2 and _none_indexed(envelope, core))
+			not envelope.is_empty() and _none_indexed(envelope, core))
 	# And they survive only because they are named. The core envelope is the
 	# STREET REGION, 15.2 x 11.2, and the building stands inside it, so the
 	# geometric test on its own still calls both batches enclosed. Deleting
 	# the protection because "nothing indexes them anyway" puts the owner's
 	# raw holes in the brick straight back.
-	_check("the containment test alone would still swallow both batches",
-			envelope.size() == 2 and envelope.all(func(node):
-				return root._fully_in_street_core(node)))
+	var explicitly_protected: Dictionary = root._street_core_protected_geometry()
+	_check("the facade owner explicitly protects every glass/joinery fragment",
+			not envelope.is_empty() and envelope.all(func(node):
+				return explicitly_protected.has(node.get_instance_id())))
 	# A multimesh or particle node reports an EMPTY aabb here, and an empty box
 	# at the origin passes any containment test that spans the origin. That is
 	# how the street-end hoardings at |x| ~ 20 m came to be indexed as enclosed
@@ -100,7 +100,7 @@ func _ready() -> void:
 			and _all_nonzero(neon_geometry)
 			and _all_nonzero(bar_front_geometry))
 	_check("the windows keep their glass and joinery from the carriageway",
-			envelope.size() == 2 and _all_nonzero(envelope))
+			not envelope.is_empty() and _all_nonzero(envelope))
 	_check("the street-end works are lit from the carriageway",
 			not street_end.is_empty() and _all_nonzero(street_end))
 
@@ -149,6 +149,21 @@ func _geometry_under(owner: Node) -> Array:
 		return out
 	_collect(owner, out)
 	return out
+
+
+func _facade_alias_geometry(root: Node, alias_identity: String) -> Array:
+	var out: Array = []
+	var registry: Node = root.floor01_geometry_registry() \
+			if root.has_method("floor01_geometry_registry") else null
+	if registry != null and bool(registry.call("is_owner_first")):
+		for alias_node in registry.call("resolve_compatibility_alias", alias_identity):
+			if str(registry.call("owner_cell_for_node", alias_node)) \
+					== "CELL_ORISON_FACADE_SHELL":
+				out.append_array(_geometry_under(alias_node))
+		return out
+	var legacy: Node = root.floor_nodes["F01"].find_child(
+			alias_identity, true, false)
+	return _geometry_under(legacy)
 
 
 func _collect(node: Node, out: Array) -> void:

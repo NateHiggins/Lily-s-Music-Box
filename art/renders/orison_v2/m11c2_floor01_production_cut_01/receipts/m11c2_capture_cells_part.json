@@ -1,0 +1,3286 @@
+{
+	"capture_boundary": {
+		"capture_collision_changes": false,
+		"harness_added_collision": false,
+		"harness_added_geometry": false,
+		"harness_added_labels_arrows_or_seam_covers": false,
+		"harness_added_lights": false,
+		"harness_added_world_environment": false,
+		"matched_camera_source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+		"noclip": false,
+		"production_player_and_camera": true,
+		"production_root_through_selector": true,
+		"production_time_mode": "12:30",
+		"route_coordinate_source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+		"route_initial_placement_count": 1,
+		"route_intermediate_transform_writes": 0,
+		"time_frozen_through_production_clock_interface": true
+	},
+	"capture_harness_sha256": "44d94c27374a25c04eba7109341b476a0ec672963fdc5c97daa9b28ed49d0dd5",
+	"capture_phase": "owner_first_cells",
+	"failures": [],
+	"input_provenance": {
+		"capture_views": 5,
+		"embedded_camera_or_route_coordinates": false,
+		"normalized_sha256": "98b57247de62133d270b155bd9b0d8b21c533290887a7ee46bb2012f62918fd7",
+		"path": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+		"production_layout_sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+		"seams": 5,
+		"vertical_route_authority": "res://data/building_layout.json"
+	},
+	"lifecycle": {},
+	"matched_modes": {
+		"owner_first_cells": {
+			"capture_end_simulation_facts": {
+				"campaign_clock": {
+					"elapsed_minutes": 0.0,
+					"epoch_date": "TEST_INJECTED",
+					"start_doy": 243,
+					"start_minute_of_day": 750,
+					"start_weekday": "mon"
+				},
+				"core_loop": {
+					"active_job_id": "",
+					"boundary": "wake_complete",
+					"conversation_complete": false,
+					"conversation_requested": false,
+					"dream_pending": false,
+					"safe_return_anchor": "F04_B_BED"
+				},
+				"first_shift": {
+					"filing": "fault_corrected",
+					"phase": "complete",
+					"report_id": "vantry_chirp_2a"
+				},
+				"intro_complete": true
+			},
+			"capture_end_simulation_facts_sha256": "aefc4e2b644ca5bf16d80e22b15eee8577692bcb3084c9af0b49a23b2692b9f9",
+			"frame_count": 5,
+			"frames": [
+				{
+					"camera": {
+						"eye": [
+							0.0,
+							1.390052318573,
+							18.0
+						],
+						"fov_degrees": 64.0,
+						"production_class": "PlayerController/Camera3D",
+						"source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+						"target": [
+							0.0,
+							1.45,
+							9.7
+						]
+					},
+					"camera_occlusion": {
+						"first_hit_class": "AnimatableBody3D",
+						"first_hit_distance_m": 8.14721298217773,
+						"minimum_visible_fraction": 0.65,
+						"passed": true,
+						"target_distance_m": 8.30021667480469,
+						"visible_fraction": 0.981566301384469
+					},
+					"dimensions": [
+						1600,
+						900
+					],
+					"ground_contact": {
+						"collider_class": "StaticBody3D",
+						"collider_name": "StaticBody3D",
+						"hit": true,
+						"normal": [
+							0.0,
+							1.0,
+							0.0
+						],
+						"position": [
+							0.0,
+							-0.0199999958276749,
+							18.0
+						]
+					},
+					"harness_added_scene_content": false,
+					"id": "orison_shell_street",
+					"initial_capture_placement_count": 1,
+					"mode": "owner_first_cells",
+					"performance": {
+						"display_server": "Windows",
+						"draw_calls": 16008,
+						"gpu_ms": 6.80600023269653,
+						"gpu_timing_trustworthy": true,
+						"gpu_unavailable_reason": "",
+						"physics_process_ms": 1.911,
+						"process_ms": 29.83,
+						"render_objects": 16008,
+						"renderer": "forward_plus",
+						"visible_primitives": 10966889,
+						"vram_bytes": 5616180080,
+						"vram_trustworthy": true,
+						"vram_unavailable_reason": ""
+					},
+					"player_feet": [
+						0.0,
+						-0.0199476033449173,
+						18.0
+					],
+					"player_grounded": true,
+					"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/owner_first_cells/01_orison_shell_street_owner_first_cells.png",
+					"png_sha256": "d6bf6c9216f365f21b7d66fedce97107d1426c7272acc03cb0009b61d00b81a2",
+					"production_geometry_receipt": {
+						"configuration": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"ok": true,
+							"save_authority": false,
+							"semantic_owner_count": 189
+						},
+						"host": "F01",
+						"host_geometry_free": true,
+						"mode": "owner_first_cells",
+						"mount": {
+							"legacy_monolith_loaded": false,
+							"loads": [
+								{
+									"cell_id": "CELL_ORISON_F01_INTERIOR",
+									"instance_id": 239310211750,
+									"instantiate_ms": 0.956,
+									"load_ms": 1640.835,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf"
+								},
+								{
+									"cell_id": "CELL_ORISON_FACADE_SHELL",
+									"instance_id": 253671508810,
+									"instantiate_ms": 1.63,
+									"load_ms": 313.688,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf"
+								},
+								{
+									"cell_id": "CELL_SITE_STREET_COMMON",
+									"instance_id": 269324651600,
+									"instantiate_ms": 3.796,
+									"load_ms": 407.926,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf"
+								},
+								{
+									"cell_id": "CELL_PASSAGE",
+									"instance_id": 275716771115,
+									"instantiate_ms": 0.995,
+									"load_ms": 15.246,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BAR",
+									"instance_id": 293332848348,
+									"instantiate_ms": 0.94,
+									"load_ms": 471.167,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BODEGA",
+									"instance_id": 297460043623,
+									"instantiate_ms": 0.528,
+									"load_ms": 37.846,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+									"instance_id": 302426099765,
+									"instantiate_ms": 0.584,
+									"load_ms": 3.177,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_SHOE_REBUILDING",
+									"instance_id": 306100310207,
+									"instantiate_ms": 0.449,
+									"load_ms": 2.409,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_KEYS_CUT",
+									"instance_id": 309774520657,
+									"instantiate_ms": 0.687,
+									"load_ms": 2.756,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_HARDWARE_PAINT",
+									"instance_id": 313616503274,
+									"instantiate_ms": 0.699,
+									"load_ms": 3.166,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+									"instance_id": 317794030225,
+									"instantiate_ms": 0.438,
+									"load_ms": 2.435,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+									"instance_id": 323028521833,
+									"instantiate_ms": 0.48,
+									"load_ms": 2.97,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_RADIO_SERVICE",
+									"instance_id": 330158838853,
+									"instantiate_ms": 0.45,
+									"load_ms": 88.8,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PAWNBROKER",
+									"instance_id": 335393330459,
+									"instantiate_ms": 0.474,
+									"load_ms": 3.072,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_NEWS_CIGARS",
+									"instance_id": 339453416893,
+									"instantiate_ms": 0.314,
+									"load_ms": 2.434,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_OTIS_SON",
+									"instance_id": 344805349008,
+									"instantiate_ms": 0.731,
+									"load_ms": 3.278,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_LUNCHEONETTE",
+									"instance_id": 350039840616,
+									"instantiate_ms": 0.456,
+									"load_ms": 3.304,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf"
+								}
+							],
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"owner_first_cells_loaded": true,
+							"requested_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"residency_id": "FULL_RECOMPOSITION",
+							"simultaneous_composition": false
+						},
+						"ok": true,
+						"persistent_gameplay_authority": true,
+						"registry": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"configured": true,
+							"last_error": "",
+							"legacy_monolith_mounted": false,
+							"legacy_monolith_path": "res://assets/building/floor_01.gltf",
+							"lifecycle": {
+								"CELL_ORISON_F01_INTERIOR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 239310211750,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_ORISON_FACADE_SHELL": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 253671508810,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_PASSAGE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 275716771115,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BAR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 293332848348,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BODEGA": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 297460043623,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_FUNERAL_PARLOUR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 317794030225,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_HARDWARE_PAINT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 313616503274,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_KEYS_CUT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 309774520657,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_LUNCHEONETTE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 350039840616,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_MODEL_LAUNDRY": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 302426099765,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_NEWS_CIGARS": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 339453416893,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_OTIS_SON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 344805349008,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PAWNBROKER": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 335393330459,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PHOTO_SUPPLIES": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 323028521833,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_RADIO_SERVICE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 330158838853,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_SHOE_REBUILDING": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 306100310207,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SITE_STREET_COMMON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 269324651600,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf",
+									"state": "RESIDENT"
+								}
+							},
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"retired": false,
+							"save_authority": false,
+							"semantic_owner_count": 189,
+							"session_only": true,
+							"simultaneous_composition": false
+						},
+						"save_authority": false,
+						"stage": "ready"
+					},
+					"production_root": "res://scenes/building/orison_root.tscn",
+					"readability": {
+						"fraction_below_16": 0.707708333333333,
+						"maximum_fraction_below_16": 0.92,
+						"mean_luma_255": 19.0920085999119,
+						"minimum_mean_luma_255": 8.0,
+						"passed": true
+					},
+					"requested_camera_eye": [
+						0.0,
+						2.05,
+						18.0
+					],
+					"seam_id": "SEAM_ORISON_SOUTH_SHELL_STREET",
+					"status": "PASS",
+					"tree_metrics": {
+						"aabb_max": [
+							119.938362121582,
+							119.999969482422,
+							119.938362121582
+						],
+						"aabb_min": [
+							-119.938346862793,
+							-120.0,
+							-119.938346862793
+						],
+						"aabb_valid": true,
+						"collision_objects": 1660,
+						"collision_shapes": 1682,
+						"lights": 661,
+						"mesh_instances": 9692,
+						"mesh_surfaces": 9686,
+						"nodes": 18510,
+						"triangles": 5412631,
+						"vertices": 4460065
+					}
+				},
+				{
+					"camera": {
+						"eye": [
+							9.0,
+							1.39028632640839,
+							21.0
+						],
+						"fov_degrees": 62.0,
+						"production_class": "PlayerController/Camera3D",
+						"source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+						"target": [
+							14.0,
+							1.55,
+							31.0
+						]
+					},
+					"camera_occlusion": {
+						"first_hit_class": "StaticBody3D",
+						"first_hit_distance_m": 8.25305080413818,
+						"minimum_visible_fraction": 0.65,
+						"passed": true,
+						"target_distance_m": 11.1814804077148,
+						"visible_fraction": 0.738100010303095
+					},
+					"dimensions": [
+						1600,
+						900
+					],
+					"ground_contact": {
+						"collider_class": "StaticBody3D",
+						"collider_name": "StaticBody3D",
+						"hit": true,
+						"normal": [
+							0.0,
+							1.0,
+							0.0
+						],
+						"position": [
+							9.0,
+							-0.0199999958276749,
+							21.0
+						]
+					},
+					"harness_added_scene_content": false,
+					"id": "street_passage_portal",
+					"initial_capture_placement_count": 1,
+					"mode": "owner_first_cells",
+					"performance": {
+						"display_server": "Windows",
+						"draw_calls": 471,
+						"gpu_ms": 4.40000009536743,
+						"gpu_timing_trustworthy": true,
+						"gpu_unavailable_reason": "",
+						"physics_process_ms": 0.987,
+						"process_ms": 1985.958,
+						"render_objects": 471,
+						"renderer": "forward_plus",
+						"visible_primitives": 646464,
+						"vram_bytes": 5665522032,
+						"vram_trustworthy": true,
+						"vram_unavailable_reason": ""
+					},
+					"player_feet": [
+						9.0,
+						-0.0197136625647545,
+						21.0
+					],
+					"player_grounded": true,
+					"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/owner_first_cells/02_street_passage_portal_owner_first_cells.png",
+					"png_sha256": "37b680424df6fe09ac4649e51da07b4ad2b4f5691fed0aa1c6a1c7a32b85925b",
+					"production_geometry_receipt": {
+						"configuration": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"ok": true,
+							"save_authority": false,
+							"semantic_owner_count": 189
+						},
+						"host": "F01",
+						"host_geometry_free": true,
+						"mode": "owner_first_cells",
+						"mount": {
+							"legacy_monolith_loaded": false,
+							"loads": [
+								{
+									"cell_id": "CELL_ORISON_F01_INTERIOR",
+									"instance_id": 239310211750,
+									"instantiate_ms": 0.956,
+									"load_ms": 1640.835,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf"
+								},
+								{
+									"cell_id": "CELL_ORISON_FACADE_SHELL",
+									"instance_id": 253671508810,
+									"instantiate_ms": 1.63,
+									"load_ms": 313.688,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf"
+								},
+								{
+									"cell_id": "CELL_SITE_STREET_COMMON",
+									"instance_id": 269324651600,
+									"instantiate_ms": 3.796,
+									"load_ms": 407.926,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf"
+								},
+								{
+									"cell_id": "CELL_PASSAGE",
+									"instance_id": 275716771115,
+									"instantiate_ms": 0.995,
+									"load_ms": 15.246,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BAR",
+									"instance_id": 293332848348,
+									"instantiate_ms": 0.94,
+									"load_ms": 471.167,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BODEGA",
+									"instance_id": 297460043623,
+									"instantiate_ms": 0.528,
+									"load_ms": 37.846,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+									"instance_id": 302426099765,
+									"instantiate_ms": 0.584,
+									"load_ms": 3.177,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_SHOE_REBUILDING",
+									"instance_id": 306100310207,
+									"instantiate_ms": 0.449,
+									"load_ms": 2.409,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_KEYS_CUT",
+									"instance_id": 309774520657,
+									"instantiate_ms": 0.687,
+									"load_ms": 2.756,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_HARDWARE_PAINT",
+									"instance_id": 313616503274,
+									"instantiate_ms": 0.699,
+									"load_ms": 3.166,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+									"instance_id": 317794030225,
+									"instantiate_ms": 0.438,
+									"load_ms": 2.435,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+									"instance_id": 323028521833,
+									"instantiate_ms": 0.48,
+									"load_ms": 2.97,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_RADIO_SERVICE",
+									"instance_id": 330158838853,
+									"instantiate_ms": 0.45,
+									"load_ms": 88.8,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PAWNBROKER",
+									"instance_id": 335393330459,
+									"instantiate_ms": 0.474,
+									"load_ms": 3.072,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_NEWS_CIGARS",
+									"instance_id": 339453416893,
+									"instantiate_ms": 0.314,
+									"load_ms": 2.434,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_OTIS_SON",
+									"instance_id": 344805349008,
+									"instantiate_ms": 0.731,
+									"load_ms": 3.278,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_LUNCHEONETTE",
+									"instance_id": 350039840616,
+									"instantiate_ms": 0.456,
+									"load_ms": 3.304,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf"
+								}
+							],
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"owner_first_cells_loaded": true,
+							"requested_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"residency_id": "FULL_RECOMPOSITION",
+							"simultaneous_composition": false
+						},
+						"ok": true,
+						"persistent_gameplay_authority": true,
+						"registry": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"configured": true,
+							"last_error": "",
+							"legacy_monolith_mounted": false,
+							"legacy_monolith_path": "res://assets/building/floor_01.gltf",
+							"lifecycle": {
+								"CELL_ORISON_F01_INTERIOR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 239310211750,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_ORISON_FACADE_SHELL": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 253671508810,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_PASSAGE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 275716771115,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BAR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 293332848348,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BODEGA": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 297460043623,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_FUNERAL_PARLOUR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 317794030225,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_HARDWARE_PAINT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 313616503274,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_KEYS_CUT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 309774520657,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_LUNCHEONETTE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 350039840616,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_MODEL_LAUNDRY": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 302426099765,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_NEWS_CIGARS": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 339453416893,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_OTIS_SON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 344805349008,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PAWNBROKER": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 335393330459,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PHOTO_SUPPLIES": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 323028521833,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_RADIO_SERVICE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 330158838853,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_SHOE_REBUILDING": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 306100310207,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SITE_STREET_COMMON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 269324651600,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf",
+									"state": "RESIDENT"
+								}
+							},
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"retired": false,
+							"save_authority": false,
+							"semantic_owner_count": 189,
+							"session_only": true,
+							"simultaneous_composition": false
+						},
+						"save_authority": false,
+						"stage": "ready"
+					},
+					"production_root": "res://scenes/building/orison_root.tscn",
+					"readability": {
+						"fraction_below_16": 0.762291666666667,
+						"maximum_fraction_below_16": 0.92,
+						"mean_luma_255": 15.5603016874276,
+						"minimum_mean_luma_255": 8.0,
+						"passed": true
+					},
+					"requested_camera_eye": [
+						9.0,
+						2.05,
+						21.0
+					],
+					"seam_id": "SEAM_STREET_PASSAGE_PORTAL",
+					"status": "PASS",
+					"tree_metrics": {
+						"aabb_max": [
+							119.938362121582,
+							119.999969482422,
+							119.938362121582
+						],
+						"aabb_min": [
+							-119.938346862793,
+							-120.0,
+							-119.938346862793
+						],
+						"aabb_valid": true,
+						"collision_objects": 1660,
+						"collision_shapes": 1682,
+						"lights": 661,
+						"mesh_instances": 9692,
+						"mesh_surfaces": 9686,
+						"nodes": 18510,
+						"triangles": 5412631,
+						"vertices": 4460065
+					}
+				},
+				{
+					"camera": {
+						"eye": [
+							14.1999998092651,
+							1.41987979412079,
+							49.4249992370605
+						],
+						"fov_degrees": 62.0,
+						"production_class": "PlayerController/Camera3D",
+						"source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+						"target": [
+							11.34,
+							1.05,
+							49.425
+						]
+					},
+					"camera_occlusion": {
+						"first_hit_class": "AnimatableBody3D",
+						"first_hit_distance_m": 2.8616349697113,
+						"minimum_visible_fraction": 0.65,
+						"passed": true,
+						"target_distance_m": 2.88381838798523,
+						"visible_fraction": 0.992307622988206
+					},
+					"dimensions": [
+						1600,
+						900
+					],
+					"ground_contact": {
+						"collider_class": "StaticBody3D",
+						"collider_name": "StaticBody3D",
+						"hit": true,
+						"normal": [
+							0.0,
+							1.0,
+							0.0
+						],
+						"position": [
+							14.1999998092651,
+							0.00999999791383743,
+							49.4249992370605
+						]
+					},
+					"harness_added_scene_content": false,
+					"id": "passage_west_shop_aisle",
+					"initial_capture_placement_count": 1,
+					"mode": "owner_first_cells",
+					"performance": {
+						"display_server": "Windows",
+						"draw_calls": 2642,
+						"gpu_ms": 6.33400011062622,
+						"gpu_timing_trustworthy": true,
+						"gpu_unavailable_reason": "",
+						"physics_process_ms": 1.078,
+						"process_ms": 19.498,
+						"render_objects": 3014,
+						"renderer": "forward_plus",
+						"visible_primitives": 1051032,
+						"vram_bytes": 5827913616,
+						"vram_trustworthy": true,
+						"vram_unavailable_reason": ""
+					},
+					"player_feet": [
+						14.1999998092651,
+						0.00987987779080868,
+						49.4249992370605
+					],
+					"player_grounded": true,
+					"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/owner_first_cells/03_passage_west_shop_aisle_owner_first_cells.png",
+					"png_sha256": "465d08b97973c04836a42662fa21ff8c26c03120a78a81e53a4b13d756e2817a",
+					"production_geometry_receipt": {
+						"configuration": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"ok": true,
+							"save_authority": false,
+							"semantic_owner_count": 189
+						},
+						"host": "F01",
+						"host_geometry_free": true,
+						"mode": "owner_first_cells",
+						"mount": {
+							"legacy_monolith_loaded": false,
+							"loads": [
+								{
+									"cell_id": "CELL_ORISON_F01_INTERIOR",
+									"instance_id": 239310211750,
+									"instantiate_ms": 0.956,
+									"load_ms": 1640.835,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf"
+								},
+								{
+									"cell_id": "CELL_ORISON_FACADE_SHELL",
+									"instance_id": 253671508810,
+									"instantiate_ms": 1.63,
+									"load_ms": 313.688,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf"
+								},
+								{
+									"cell_id": "CELL_SITE_STREET_COMMON",
+									"instance_id": 269324651600,
+									"instantiate_ms": 3.796,
+									"load_ms": 407.926,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf"
+								},
+								{
+									"cell_id": "CELL_PASSAGE",
+									"instance_id": 275716771115,
+									"instantiate_ms": 0.995,
+									"load_ms": 15.246,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BAR",
+									"instance_id": 293332848348,
+									"instantiate_ms": 0.94,
+									"load_ms": 471.167,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BODEGA",
+									"instance_id": 297460043623,
+									"instantiate_ms": 0.528,
+									"load_ms": 37.846,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+									"instance_id": 302426099765,
+									"instantiate_ms": 0.584,
+									"load_ms": 3.177,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_SHOE_REBUILDING",
+									"instance_id": 306100310207,
+									"instantiate_ms": 0.449,
+									"load_ms": 2.409,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_KEYS_CUT",
+									"instance_id": 309774520657,
+									"instantiate_ms": 0.687,
+									"load_ms": 2.756,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_HARDWARE_PAINT",
+									"instance_id": 313616503274,
+									"instantiate_ms": 0.699,
+									"load_ms": 3.166,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+									"instance_id": 317794030225,
+									"instantiate_ms": 0.438,
+									"load_ms": 2.435,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+									"instance_id": 323028521833,
+									"instantiate_ms": 0.48,
+									"load_ms": 2.97,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_RADIO_SERVICE",
+									"instance_id": 330158838853,
+									"instantiate_ms": 0.45,
+									"load_ms": 88.8,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PAWNBROKER",
+									"instance_id": 335393330459,
+									"instantiate_ms": 0.474,
+									"load_ms": 3.072,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_NEWS_CIGARS",
+									"instance_id": 339453416893,
+									"instantiate_ms": 0.314,
+									"load_ms": 2.434,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_OTIS_SON",
+									"instance_id": 344805349008,
+									"instantiate_ms": 0.731,
+									"load_ms": 3.278,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_LUNCHEONETTE",
+									"instance_id": 350039840616,
+									"instantiate_ms": 0.456,
+									"load_ms": 3.304,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf"
+								}
+							],
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"owner_first_cells_loaded": true,
+							"requested_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"residency_id": "FULL_RECOMPOSITION",
+							"simultaneous_composition": false
+						},
+						"ok": true,
+						"persistent_gameplay_authority": true,
+						"registry": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"configured": true,
+							"last_error": "",
+							"legacy_monolith_mounted": false,
+							"legacy_monolith_path": "res://assets/building/floor_01.gltf",
+							"lifecycle": {
+								"CELL_ORISON_F01_INTERIOR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 239310211750,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_ORISON_FACADE_SHELL": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 253671508810,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_PASSAGE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 275716771115,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BAR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 293332848348,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BODEGA": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 297460043623,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_FUNERAL_PARLOUR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 317794030225,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_HARDWARE_PAINT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 313616503274,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_KEYS_CUT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 309774520657,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_LUNCHEONETTE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 350039840616,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_MODEL_LAUNDRY": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 302426099765,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_NEWS_CIGARS": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 339453416893,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_OTIS_SON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 344805349008,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PAWNBROKER": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 335393330459,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PHOTO_SUPPLIES": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 323028521833,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_RADIO_SERVICE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 330158838853,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_SHOE_REBUILDING": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 306100310207,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SITE_STREET_COMMON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 269324651600,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf",
+									"state": "RESIDENT"
+								}
+							},
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"retired": false,
+							"save_authority": false,
+							"semantic_owner_count": 189,
+							"session_only": true,
+							"simultaneous_composition": false
+						},
+						"save_authority": false,
+						"stage": "ready"
+					},
+					"production_root": "res://scenes/building/orison_root.tscn",
+					"readability": {
+						"fraction_below_16": 0.188958333333333,
+						"maximum_fraction_below_16": 0.92,
+						"mean_luma_255": 35.3401772692745,
+						"minimum_mean_luma_255": 8.0,
+						"passed": true
+					},
+					"requested_camera_eye": [
+						14.2,
+						2.05,
+						49.425
+					],
+					"seam_id": "SEAM_PASSAGE_SHOP_AISLES",
+					"status": "PASS",
+					"tree_metrics": {
+						"aabb_max": [
+							119.938362121582,
+							119.999969482422,
+							119.938362121582
+						],
+						"aabb_min": [
+							-119.938346862793,
+							-120.0,
+							-119.938346862793
+						],
+						"aabb_valid": true,
+						"collision_objects": 1924,
+						"collision_shapes": 1952,
+						"lights": 673,
+						"mesh_instances": 10304,
+						"mesh_surfaces": 10447,
+						"nodes": 20934,
+						"triangles": 5451143,
+						"vertices": 4501677
+					}
+				},
+				{
+					"camera": {
+						"eye": [
+							12.0,
+							1.3898184299469,
+							18.0
+						],
+						"fov_degrees": 62.0,
+						"production_class": "PlayerController/Camera3D",
+						"source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+						"target": [
+							17.4,
+							1.35,
+							10.5
+						]
+					},
+					"camera_occlusion": {
+						"first_hit_class": "StaticBody3D",
+						"first_hit_distance_m": 7.44276189804077,
+						"minimum_visible_fraction": 0.65,
+						"passed": true,
+						"target_distance_m": 9.2418384552002,
+						"visible_fraction": 0.805333477112758
+					},
+					"dimensions": [
+						1600,
+						900
+					],
+					"ground_contact": {
+						"collider_class": "StaticBody3D",
+						"collider_name": "StaticBody3D",
+						"hit": true,
+						"normal": [
+							0.0,
+							1.0,
+							0.0
+						],
+						"position": [
+							12.0,
+							-0.0200000032782555,
+							18.0
+						]
+					},
+					"harness_added_scene_content": false,
+					"id": "bodega_street_threshold",
+					"initial_capture_placement_count": 1,
+					"mode": "owner_first_cells",
+					"performance": {
+						"display_server": "Windows",
+						"draw_calls": 7019,
+						"gpu_ms": 6.6230001449585,
+						"gpu_timing_trustworthy": true,
+						"gpu_unavailable_reason": "",
+						"physics_process_ms": 1.086,
+						"process_ms": 18.723,
+						"render_objects": 7019,
+						"renderer": "forward_plus",
+						"visible_primitives": 6978946,
+						"vram_bytes": 5834205072,
+						"vram_trustworthy": true,
+						"vram_unavailable_reason": ""
+					},
+					"player_feet": [
+						12.0,
+						-0.0201815441250801,
+						18.0
+					],
+					"player_grounded": true,
+					"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/owner_first_cells/04_bodega_street_threshold_owner_first_cells.png",
+					"png_sha256": "3581cae2a19ca9f226dccd5846c114a66ffd663b0a1383781254df5bef294614",
+					"production_geometry_receipt": {
+						"configuration": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"ok": true,
+							"save_authority": false,
+							"semantic_owner_count": 189
+						},
+						"host": "F01",
+						"host_geometry_free": true,
+						"mode": "owner_first_cells",
+						"mount": {
+							"legacy_monolith_loaded": false,
+							"loads": [
+								{
+									"cell_id": "CELL_ORISON_F01_INTERIOR",
+									"instance_id": 239310211750,
+									"instantiate_ms": 0.956,
+									"load_ms": 1640.835,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf"
+								},
+								{
+									"cell_id": "CELL_ORISON_FACADE_SHELL",
+									"instance_id": 253671508810,
+									"instantiate_ms": 1.63,
+									"load_ms": 313.688,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf"
+								},
+								{
+									"cell_id": "CELL_SITE_STREET_COMMON",
+									"instance_id": 269324651600,
+									"instantiate_ms": 3.796,
+									"load_ms": 407.926,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf"
+								},
+								{
+									"cell_id": "CELL_PASSAGE",
+									"instance_id": 275716771115,
+									"instantiate_ms": 0.995,
+									"load_ms": 15.246,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BAR",
+									"instance_id": 293332848348,
+									"instantiate_ms": 0.94,
+									"load_ms": 471.167,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BODEGA",
+									"instance_id": 297460043623,
+									"instantiate_ms": 0.528,
+									"load_ms": 37.846,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+									"instance_id": 302426099765,
+									"instantiate_ms": 0.584,
+									"load_ms": 3.177,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_SHOE_REBUILDING",
+									"instance_id": 306100310207,
+									"instantiate_ms": 0.449,
+									"load_ms": 2.409,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_KEYS_CUT",
+									"instance_id": 309774520657,
+									"instantiate_ms": 0.687,
+									"load_ms": 2.756,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_HARDWARE_PAINT",
+									"instance_id": 313616503274,
+									"instantiate_ms": 0.699,
+									"load_ms": 3.166,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+									"instance_id": 317794030225,
+									"instantiate_ms": 0.438,
+									"load_ms": 2.435,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+									"instance_id": 323028521833,
+									"instantiate_ms": 0.48,
+									"load_ms": 2.97,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_RADIO_SERVICE",
+									"instance_id": 330158838853,
+									"instantiate_ms": 0.45,
+									"load_ms": 88.8,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PAWNBROKER",
+									"instance_id": 335393330459,
+									"instantiate_ms": 0.474,
+									"load_ms": 3.072,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_NEWS_CIGARS",
+									"instance_id": 339453416893,
+									"instantiate_ms": 0.314,
+									"load_ms": 2.434,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_OTIS_SON",
+									"instance_id": 344805349008,
+									"instantiate_ms": 0.731,
+									"load_ms": 3.278,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_LUNCHEONETTE",
+									"instance_id": 350039840616,
+									"instantiate_ms": 0.456,
+									"load_ms": 3.304,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf"
+								}
+							],
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"owner_first_cells_loaded": true,
+							"requested_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"residency_id": "FULL_RECOMPOSITION",
+							"simultaneous_composition": false
+						},
+						"ok": true,
+						"persistent_gameplay_authority": true,
+						"registry": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"configured": true,
+							"last_error": "",
+							"legacy_monolith_mounted": false,
+							"legacy_monolith_path": "res://assets/building/floor_01.gltf",
+							"lifecycle": {
+								"CELL_ORISON_F01_INTERIOR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 239310211750,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_ORISON_FACADE_SHELL": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 253671508810,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_PASSAGE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 275716771115,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BAR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 293332848348,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BODEGA": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 297460043623,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_FUNERAL_PARLOUR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 317794030225,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_HARDWARE_PAINT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 313616503274,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_KEYS_CUT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 309774520657,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_LUNCHEONETTE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 350039840616,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_MODEL_LAUNDRY": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 302426099765,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_NEWS_CIGARS": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 339453416893,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_OTIS_SON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 344805349008,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PAWNBROKER": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 335393330459,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PHOTO_SUPPLIES": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 323028521833,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_RADIO_SERVICE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 330158838853,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_SHOE_REBUILDING": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 306100310207,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SITE_STREET_COMMON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 269324651600,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf",
+									"state": "RESIDENT"
+								}
+							},
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"retired": false,
+							"save_authority": false,
+							"semantic_owner_count": 189,
+							"session_only": true,
+							"simultaneous_composition": false
+						},
+						"save_authority": false,
+						"stage": "ready"
+					},
+					"production_root": "res://scenes/building/orison_root.tscn",
+					"readability": {
+						"fraction_below_16": 0.562291666666667,
+						"maximum_fraction_below_16": 0.92,
+						"mean_luma_255": 19.4468991589084,
+						"minimum_mean_luma_255": 8.0,
+						"passed": true
+					},
+					"requested_camera_eye": [
+						12.0,
+						2.05,
+						18.0
+					],
+					"seam_id": "SEAM_BODEGA_STREET",
+					"status": "PASS",
+					"tree_metrics": {
+						"aabb_max": [
+							119.938362121582,
+							119.999969482422,
+							119.938362121582
+						],
+						"aabb_min": [
+							-119.938346862793,
+							-120.0,
+							-119.938346862793
+						],
+						"aabb_valid": true,
+						"collision_objects": 1924,
+						"collision_shapes": 1952,
+						"lights": 673,
+						"mesh_instances": 10304,
+						"mesh_surfaces": 10447,
+						"nodes": 20931,
+						"triangles": 5451143,
+						"vertices": 4501677
+					}
+				},
+				{
+					"camera": {
+						"eye": [
+							0.0,
+							1.43256449699402,
+							8.25
+						],
+						"fov_degrees": 64.0,
+						"production_class": "PlayerController/Camera3D",
+						"source": "res://../art/renders/orison_v2/m11c1_owner_first_rehearsal_01/runtime/m11c1_runtime_config.json",
+						"target": [
+							0.0,
+							1.2,
+							9.795
+						]
+					},
+					"camera_occlusion": {
+						"first_hit_class": "AnimatableBody3D",
+						"first_hit_distance_m": 1.55633854866028,
+						"minimum_visible_fraction": 0.65,
+						"passed": true,
+						"target_distance_m": 1.56240558624268,
+						"visible_fraction": 0.996116861309369
+					},
+					"dimensions": [
+						1600,
+						900
+					],
+					"ground_contact": {
+						"collider_class": "StaticBody3D",
+						"collider_name": "StaticBody3D",
+						"hit": true,
+						"normal": [
+							0.0,
+							1.0,
+							0.0
+						],
+						"position": [
+							0.0,
+							0.0219999998807907,
+							8.25
+						]
+					},
+					"harness_added_scene_content": false,
+					"id": "facade_shell_interior",
+					"initial_capture_placement_count": 1,
+					"mode": "owner_first_cells",
+					"performance": {
+						"display_server": "Windows",
+						"draw_calls": 3376,
+						"gpu_ms": 11.0150003433228,
+						"gpu_timing_trustworthy": true,
+						"gpu_unavailable_reason": "",
+						"physics_process_ms": 48.777,
+						"process_ms": 2159.517,
+						"render_objects": 3407,
+						"renderer": "forward_plus",
+						"visible_primitives": 3890458,
+						"vram_bytes": 5834493232,
+						"vram_trustworthy": true,
+						"vram_unavailable_reason": ""
+					},
+					"player_feet": [
+						0.0,
+						0.0225645285099745,
+						8.25
+					],
+					"player_grounded": true,
+					"png": "C:\\PleaseRemainOnTheLine-v2-m11c2-real-floor01-cut\\art\\renders\\orison_v2\\m11c2_floor01_production_cut_01\\visual\\final/owner_first_cells/05_facade_shell_interior_owner_first_cells.png",
+					"png_sha256": "feb0a7230292dabeeee398d43d01fb0bd24ed8058e04a8b7087f9cafee2cf5fd",
+					"production_geometry_receipt": {
+						"configuration": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"ok": true,
+							"save_authority": false,
+							"semantic_owner_count": 189
+						},
+						"host": "F01",
+						"host_geometry_free": true,
+						"mode": "owner_first_cells",
+						"mount": {
+							"legacy_monolith_loaded": false,
+							"loads": [
+								{
+									"cell_id": "CELL_ORISON_F01_INTERIOR",
+									"instance_id": 239310211750,
+									"instantiate_ms": 0.956,
+									"load_ms": 1640.835,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf"
+								},
+								{
+									"cell_id": "CELL_ORISON_FACADE_SHELL",
+									"instance_id": 253671508810,
+									"instantiate_ms": 1.63,
+									"load_ms": 313.688,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf"
+								},
+								{
+									"cell_id": "CELL_SITE_STREET_COMMON",
+									"instance_id": 269324651600,
+									"instantiate_ms": 3.796,
+									"load_ms": 407.926,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf"
+								},
+								{
+									"cell_id": "CELL_PASSAGE",
+									"instance_id": 275716771115,
+									"instantiate_ms": 0.995,
+									"load_ms": 15.246,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BAR",
+									"instance_id": 293332848348,
+									"instantiate_ms": 0.94,
+									"load_ms": 471.167,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_BODEGA",
+									"instance_id": 297460043623,
+									"instantiate_ms": 0.528,
+									"load_ms": 37.846,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_MODEL_LAUNDRY",
+									"instance_id": 302426099765,
+									"instantiate_ms": 0.584,
+									"load_ms": 3.177,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_SHOE_REBUILDING",
+									"instance_id": 306100310207,
+									"instantiate_ms": 0.449,
+									"load_ms": 2.409,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_KEYS_CUT",
+									"instance_id": 309774520657,
+									"instantiate_ms": 0.687,
+									"load_ms": 2.756,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_HARDWARE_PAINT",
+									"instance_id": 313616503274,
+									"instantiate_ms": 0.699,
+									"load_ms": 3.166,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_FUNERAL_PARLOUR",
+									"instance_id": 317794030225,
+									"instantiate_ms": 0.438,
+									"load_ms": 2.435,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PHOTO_SUPPLIES",
+									"instance_id": 323028521833,
+									"instantiate_ms": 0.48,
+									"load_ms": 2.97,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_RADIO_SERVICE",
+									"instance_id": 330158838853,
+									"instantiate_ms": 0.45,
+									"load_ms": 88.8,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_PAWNBROKER",
+									"instance_id": 335393330459,
+									"instantiate_ms": 0.474,
+									"load_ms": 3.072,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_NEWS_CIGARS",
+									"instance_id": 339453416893,
+									"instantiate_ms": 0.314,
+									"load_ms": 2.434,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_OTIS_SON",
+									"instance_id": 344805349008,
+									"instantiate_ms": 0.731,
+									"load_ms": 3.278,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf"
+								},
+								{
+									"cell_id": "CELL_SHOP_LUNCHEONETTE",
+									"instance_id": 350039840616,
+									"instantiate_ms": 0.456,
+									"load_ms": 3.304,
+									"ok": true,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf"
+								}
+							],
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"owner_first_cells_loaded": true,
+							"requested_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"residency_id": "FULL_RECOMPOSITION",
+							"simultaneous_composition": false
+						},
+						"ok": true,
+						"persistent_gameplay_authority": true,
+						"registry": {
+							"cell_count": 17,
+							"compatibility_alias_count": 531,
+							"configured": true,
+							"last_error": "",
+							"legacy_monolith_mounted": false,
+							"legacy_monolith_path": "res://assets/building/floor_01.gltf",
+							"lifecycle": {
+								"CELL_ORISON_F01_INTERIOR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 239310211750,
+									"resource_path": "res://assets/building/floor_01_cells/orison_f01_interior.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_ORISON_FACADE_SHELL": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 253671508810,
+									"resource_path": "res://assets/building/floor_01_cells/orison_facade_shell.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_PASSAGE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 275716771115,
+									"resource_path": "res://assets/building/floor_01_cells/passage.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BAR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 293332848348,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bar.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_BODEGA": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 297460043623,
+									"resource_path": "res://assets/building/floor_01_cells/shop_bodega.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_FUNERAL_PARLOUR": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 317794030225,
+									"resource_path": "res://assets/building/floor_01_cells/shop_funeral_parlour.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_HARDWARE_PAINT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 313616503274,
+									"resource_path": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_KEYS_CUT": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 309774520657,
+									"resource_path": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_LUNCHEONETTE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 350039840616,
+									"resource_path": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_MODEL_LAUNDRY": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 302426099765,
+									"resource_path": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_NEWS_CIGARS": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 339453416893,
+									"resource_path": "res://assets/building/floor_01_cells/shop_news_cigars.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_OTIS_SON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 344805349008,
+									"resource_path": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PAWNBROKER": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 335393330459,
+									"resource_path": "res://assets/building/floor_01_cells/shop_pawnbroker.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_PHOTO_SUPPLIES": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 323028521833,
+									"resource_path": "res://assets/building/floor_01_cells/shop_photo_supplies.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_RADIO_SERVICE": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 330158838853,
+									"resource_path": "res://assets/building/floor_01_cells/shop_radio_service.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SHOP_SHOE_REBUILDING": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 306100310207,
+									"resource_path": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+									"state": "RESIDENT"
+								},
+								"CELL_SITE_STREET_COMMON": {
+									"declared": {
+										"allowed_transitions": [
+											"UNLOADED_TO_LOADING",
+											"LOADING_TO_RESIDENT",
+											"RESIDENT_TO_UNLOADING",
+											"UNLOADING_TO_UNLOADED"
+										],
+										"initial_state": "UNLOADED",
+										"persistent_gameplay_authority": false,
+										"teardown_api_required": true,
+										"unload_destroys_durable_authority": false
+									},
+									"instance_id": 269324651600,
+									"resource_path": "res://assets/building/floor_01_cells/site_street_common.gltf",
+									"state": "RESIDENT"
+								}
+							},
+							"manifest_path": "res://data/floor_01_cell_registry.json",
+							"mode": "owner_first_cells",
+							"mounted_cell_ids": [
+								"CELL_ORISON_F01_INTERIOR",
+								"CELL_ORISON_FACADE_SHELL",
+								"CELL_SITE_STREET_COMMON",
+								"CELL_PASSAGE",
+								"CELL_SHOP_BAR",
+								"CELL_SHOP_BODEGA",
+								"CELL_SHOP_MODEL_LAUNDRY",
+								"CELL_SHOP_SHOE_REBUILDING",
+								"CELL_SHOP_KEYS_CUT",
+								"CELL_SHOP_HARDWARE_PAINT",
+								"CELL_SHOP_FUNERAL_PARLOUR",
+								"CELL_SHOP_PHOTO_SUPPLIES",
+								"CELL_SHOP_RADIO_SERVICE",
+								"CELL_SHOP_PAWNBROKER",
+								"CELL_SHOP_NEWS_CIGARS",
+								"CELL_SHOP_OTIS_SON",
+								"CELL_SHOP_LUNCHEONETTE"
+							],
+							"ok": true,
+							"retired": false,
+							"save_authority": false,
+							"semantic_owner_count": 189,
+							"session_only": true,
+							"simultaneous_composition": false
+						},
+						"save_authority": false,
+						"stage": "ready"
+					},
+					"production_root": "res://scenes/building/orison_root.tscn",
+					"readability": {
+						"fraction_below_16": 0.232916666666667,
+						"maximum_fraction_below_16": 0.92,
+						"mean_luma_255": 32.579664277754,
+						"minimum_mean_luma_255": 8.0,
+						"passed": true
+					},
+					"requested_camera_eye": [
+						0.0,
+						1.41,
+						8.25
+					],
+					"seam_id": "SEAM_SHELL_INTERIOR",
+					"status": "PASS",
+					"tree_metrics": {
+						"aabb_max": [
+							119.938362121582,
+							119.999969482422,
+							119.938362121582
+						],
+						"aabb_min": [
+							-119.938346862793,
+							-120.0,
+							-119.938346862793
+						],
+						"aabb_valid": true,
+						"collision_objects": 1924,
+						"collision_shapes": 1952,
+						"lights": 673,
+						"mesh_instances": 10304,
+						"mesh_surfaces": 10447,
+						"nodes": 20931,
+						"triangles": 5451143,
+						"vertices": 4501677
+					}
+				}
+			],
+			"lifecycle_boundary": {
+				"live_root_public_teardown_receipt": "m11c2_production_matrix_receipt.json",
+				"one_complete_root_per_process": true,
+				"render_nodes_or_provider_not_mutated_after_capture": true,
+				"root_remains_live_until_process_exit": true
+			},
+			"mode": "owner_first_cells",
+			"selector_id": "v1",
+			"selector_path": "res://scenes/building/orison_root.tscn",
+			"simulation_facts": {
+				"campaign_clock": {
+					"elapsed_minutes": 0.0,
+					"epoch_date": "TEST_INJECTED",
+					"start_doy": 243,
+					"start_minute_of_day": 750,
+					"start_weekday": "mon"
+				},
+				"core_loop": {
+					"active_job_id": "",
+					"boundary": "wake_complete",
+					"conversation_complete": false,
+					"conversation_requested": false,
+					"dream_pending": false,
+					"safe_return_anchor": "F04_B_BED"
+				},
+				"first_shift": {
+					"filing": "fault_corrected",
+					"phase": "complete",
+					"report_id": "vantry_chirp_2a"
+				},
+				"intro_complete": true
+			},
+			"simulation_facts_sha256": "7e9f1f5f73bc23cebc4da6e5725f4dc27224905e759ed789d4e752a7f02bca5b",
+			"status": "PASS"
+		}
+	},
+	"matched_pairs": [],
+	"owner_first_route": {},
+	"process_isolation": {
+		"capture_process_performs_provider_teardown": false,
+		"capture_process_performs_render_node_mutation": false,
+		"one_complete_production_root_per_process": true,
+		"process_exit_owns_root_release": true,
+		"public_live_root_teardown_proven_by": "m11c2_production_matrix_receipt.json",
+		"reason": "Forward+ complete-root replacement is isolated from visual proof",
+		"required": true
+	},
+	"schema": "orison.m11c2.production-matched-capture.v1",
+	"status": "PASS",
+	"task": "ORISON-V2-M11C2"
+}
