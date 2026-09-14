@@ -204,6 +204,29 @@ ServiceWireResponseTest, which reads a property main removed on
 2026-08-27 and then hangs to a 124. GoldenLoopTest's two failing checks
 stay parked on the owner's beat-4 decision.
 
+## 10. Merge record (2026-09-14)
+
+The owner chose decision 1. Management merged, in a clean worktree on
+main, first **be81264** (M11D, merge commit 7644dcf) and then **89df0e0**
+(the M11 chain, merge commit **6b5dc29**), both with --no-ff, no
+conflicts, 32 commits over c2dc017.
+
+Verified on the merged main before push: completeness exit 2 with
+0 / 1 / 84 / 45 / 100 / 102 (ABSENT 51, HUMAN_ACCEPTED 1, PROGRAMMED 42,
+RUNTIME_PROVEN 34, SHELL_ONLY 2, SPATIALLY_PROVEN 20), one stale id
+(**B1_PUBLIC_LANDING_E**); spatial 0 clean; systemic 0; period 0; reader 1
+at 1,302; carrier audit legacy_uncovered 0 (the two FORBIDDEN rows are the
+known clock_prop item); all 22 tool suites pass; protected 17/17
+byte-identical to the M11C2 prewrite baseline; selector v1; registry
+default owner_first_cells with 17 cells. Godot, after a double import of
+the fresh merge worktree: OrisonV2BlockoutTest PASS and
+orison_v2_m11c2_floor01_registry_test PASS (0 failures). That last run is
+also the fresh-checkout Godot proof section 9 could not obtain.
+
+Known red on merged main, unchanged and owned elsewhere: GoldenLoopTest
+(two objective checks, beat-4 decision) and ServiceWireResponseTest
+(M11E). M12A is now unblocked.
+
 ## 7. Report format required from the developer
 
     REPORT - <task id> - <date>
