@@ -272,6 +272,11 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household accessories refused: %s" % [accessories.errors])
 		return
+	var bookshelves := preload("res://scripts/building/orison_v2_bookshelves.gd").new()
+	if not bookshelves.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: bookshelves refused: %s" % [bookshelves.errors])
+		return
 	mirror_renderer = PlanarMirrorRenderer.new()
 	add_child(mirror_renderer)
 	mirror_renderer.setup(player.camera)
@@ -411,7 +416,7 @@ func _compose_call_station(terminal: SignalTerminalProp) -> bool:
 ## provider means "assume home" (npc_observation_ledger.gd:107-110): every
 ## resident is treated as standing in their own flat at the instant of
 ## every visible event. Lena could therefore earn a durable
-## `in_home_sight` belief — committed with provenance, deduped forever —
+## `in_home_sight` belief â€” committed with provenance, deduped forever â€”
 ## while her own timetable had her out on a corridor round. The ledger's
 ## contract is that nothing else may author NPC knowledge; assume-home
 ## quietly authored it.

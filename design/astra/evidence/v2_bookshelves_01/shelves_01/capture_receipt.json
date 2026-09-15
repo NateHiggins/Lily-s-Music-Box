@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2BookshelvesShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-astra\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01",
+  "started_utc": "2026-09-15T12:51:47.8678614Z",
+  "elapsed_seconds": 26.684,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 8,
+  "actual_frames": 8,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_shelves_01_20260915T125147867Z.log",
+  "filtered_process_output": [
+    "[PASSAGE HOURS] OPEN; 10 grilles folded",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters",
+    "[V2 BOOKSHELVES CAPTURE] 1/8 label=F02_2A_BOOKSHELF_01 elapsed=10.737 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01/F02_2A_BOOKSHELF_01.png",
+    "[V2 BOOKSHELVES CAPTURE] 2/8 label=F03_3A_BOOKSHELF_01 elapsed=12.573 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01/F03_3A_BOOKSHELF_01.png",
+    "[V2 BOOKSHELVES CAPTURE] 3/8 label=F04_4A_BOOKSHELF_01 elapsed=14.396 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01/F04_4A_BOOKSHELF_01.png",
+    "[V2 BOOKSHELVES CAPTURE] 4/8 label=F05_5A_BOOKSHELF_01 elapsed=16.308 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01/F05_5A_BOOKSHELF_01.png",
+    "[V2 BOOKSHELVES CAPTURE] 5/8 label=F05_5C_BOOKSHELF_01 elapsed=18.138 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01/F05_5C_BOOKSHELF_01.png",
+    "[V2 BOOKSHELVES CAPTURE] 6/8 label=F06_6A_BOOKSHELF_01 elapsed=20.017 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01/F06_6A_BOOKSHELF_01.png",
+    "[V2 BOOKSHELVES CAPTURE] 7/8 label=F06_6B_BOOKSHELF_01 elapsed=21.851 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01/F06_6B_BOOKSHELF_01.png",
+    "[V2 BOOKSHELVES CAPTURE] 8/8 label=F06_6C_BOOKSHELF_01 elapsed=23.665 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_bookshelves_01\\shelves_01/F06_6C_BOOKSHELF_01.png",
+    "[V2 BOOKSHELVES] RESULT: PASS captures=8 expected=8 elapsed=23.671"
+  ],
+  "files": [
+    {
+      "name": "F02_2A_BOOKSHELF_01.png",
+      "bytes": 912063,
+      "sha256": "aab99360a1307b170a28927192b7dd1e81169a940486527fcbaf09da12f2ebe2"
+    },
+    {
+      "name": "F03_3A_BOOKSHELF_01.png",
+      "bytes": 905026,
+      "sha256": "fd45a58a21fd19d4d1613bf71f44358b05e173df8226bae5e234f6d31b93ee07"
+    },
+    {
+      "name": "F04_4A_BOOKSHELF_01.png",
+      "bytes": 846581,
+      "sha256": "d747b388d74e8c64b37e1a23c6926607ff5256b77780a05c3f70d76084d1dfb9"
+    },
+    {
+      "name": "F05_5A_BOOKSHELF_01.png",
+      "bytes": 847471,
+      "sha256": "d48dce327607bfafd49e9405abd0a2effdc889baa6ca550b4348b04f34d065d3"
+    },
+    {
+      "name": "F05_5C_BOOKSHELF_01.png",
+      "bytes": 1095762,
+      "sha256": "cc7d9c552d1803d5e4a69836e5d8c7603550aef08d48a9427e0e0fb23b373000"
+    },
+    {
+      "name": "F06_6A_BOOKSHELF_01.png",
+      "bytes": 738639,
+      "sha256": "2d75f0aa746023ee01ad97c7abe0ae94a1e92a515d8e178f6881e483ac107c34"
+    },
+    {
+      "name": "F06_6B_BOOKSHELF_01.png",
+      "bytes": 850658,
+      "sha256": "485abb17928ee1377b5b7c9fab7e3ac0f02b837ea48b6087aa299b9cbcf525dd"
+    },
+    {
+      "name": "F06_6C_BOOKSHELF_01.png",
+      "bytes": 955453,
+      "sha256": "34fbd0dc7b6244ec8caac02fa794a76a104ecdf5cf865cbfb9d40e265b4173da"
+    }
+  ]
+}

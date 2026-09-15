@@ -131,6 +131,11 @@ def obstacles(layout,furniture):
         for r in load('game/data/orison_v2/bath_details.json')['props']:
             a=anchors[r['support']]
             result.append((r['id'],a['level'],volume(r['bounds'],a)))
+    # Native resident bookcases use reserved full lift-door clearance.
+    if (ROOT/'game/data/orison_v2/bookshelves.json').exists():
+        for r in load('game/data/orison_v2/bookshelves.json')['shelves']:
+            a=anchors[r['id']]
+            result.append((r['id'],a['level'],volume(r['bounds'],a)))
     # Solid service chases occupy every storey they cross, including their
     # full height. Include them for every category using this shared census.
     for riser in layout.get("risers",[]):

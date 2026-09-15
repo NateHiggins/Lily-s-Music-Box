@@ -36,7 +36,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 116, "81 circuits, eleven ordinary valves and twenty-four cabinet doors")
+	check(defaults.records.size() == 124, "81 circuits, eleven ordinary valves twenty-four cabinet doors and eight book orders")
 	check(not defaults.records.has("F02_B_RADIATOR_01"), "Lena's case keeps sole restoration authority")
 	check(not RealityState.data.has(Owner.KEY), "binding fresh defaults does not write a save")
 	await get_tree().physics_frame
@@ -48,6 +48,10 @@ func exercise() -> void:
 			"radiator": prop.call("set_supply_position", .35, 0.0)
 			"prep": prop.call("interact", world.player)
 			"mirror": prop.call("set_door_open", true)
+			"books":
+				prop.get("sorter").touch(0)
+				prop.get("sorter").touch(record.value.size()-1)
+				prop.call("rebuild_books")
 	# Direct light changes have no interaction event; snapshot_preparing must
 	# still capture them on the actual save path, without recursively committing.
 	var wanted: Dictionary = owner.snapshot()
@@ -72,13 +76,13 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 116 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 124 settings restore onto new physical owners")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)
 	var expanded := wanted.duplicate(true)
 	for identity: String in wanted.records:
-		if identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
+		if wanted.records[identity].kind == "books" or identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
 			legacy.records.erase(identity)
 			expanded.records[identity] = defaults.records[identity].duplicate(true)
 	check(legacy.records.size() == 56, "legacy roster contains only the original household controls")
@@ -122,6 +126,14 @@ func exercise() -> void:
 	var raw_transform := wanted.duplicate(true)
 	raw_transform.records["2A_prep_cabinet"].position = [0,0,0]
 	invalids.append(raw_transform)
+	var shelf_id := "F06_6C_BOOKSHELF_01"
+	for bad_order: Variant in [true, [], ["foreign_book"], wanted.records[shelf_id].value.slice(1), wanted.records[shelf_id].value + [wanted.records[shelf_id].value[0]]]:
+		var bad := wanted.duplicate(true)
+		bad.records[shelf_id].value = bad_order
+		invalids.append(bad)
+	var duplicate := wanted.duplicate(true)
+	duplicate.records[shelf_id].value[0] = duplicate.records[shelf_id].value[1]
+	invalids.append(duplicate)
 	for invalid: Variant in invalids:
 		check(not owner.validate(invalid, kinds), "malformed control payload rejected")
 	# A corrupt sibling must never partially apply otherwise valid records.

@@ -30,11 +30,14 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	for record: Dictionary in heating.installed:
 		# Lena's packing/situation owner retains sole custody of the 2B valve.
 		if record.unit != "2B": _kinds[str(record.id)] = "radiator"
+	var shelves: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/bookshelves.json"))
+	for record: Dictionary in shelves.shelves: _kinds[str(record.id)] = "books"
 	for identity: String in _kinds:
 		var prop: Node = adapter.resolve(identity)
 		var kind: String = _kinds[identity]
 		if (kind == "light" and not prop is LightFixtureProp) \
 				or (kind == "radiator" and not prop is RadiatorProp) \
+				or (kind == "books" and (not prop is BookshelfProp or not prop.has_method("restore_order"))) \
 				or (kind in ["prep", "mirror"] and (prop == null or not prop.has_method("restore_open_state"))):
 			errors.append("missing household control: " + identity)
 			return false
@@ -56,6 +59,8 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 			_connect(_subjects[identity], "supply_changed", _on_valve_changed)
 		elif _kinds[identity] in ["prep", "mirror"]:
 			_connect(_subjects[identity], "open_state_changed", _on_cabinet_changed)
+		elif _kinds[identity] == "books":
+			_connect(_subjects[identity], "order_changed", _commit_change)
 	return true
 
 func _connect(owner: Object, event: String, callback: Callable) -> void:
@@ -87,9 +92,21 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 			if typeof(setting) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(setting)) \
 					or float(setting) < 0.0 or float(setting) > 1.0:
 				errors.append("invalid saved radiator position")
+		elif record.kind == "books":
+			if not _valid_book_order(str(identity), setting): errors.append("saved books must be the resident library permutation")
 		elif setting is not bool:
 			errors.append("household switch/door value must be boolean")
 	return errors.is_empty()
+
+func _valid_book_order(identity: String, value: Variant) -> bool:
+	if value is not Array or not _defaults.get("records", {}).has(identity): return false
+	var expected: Array = _defaults.records[identity].value
+	if value.size() != expected.size(): return false
+	var seen := {}
+	for book: Variant in value:
+		if book is not String or not expected.has(book) or seen.has(book): return false
+		seen[book] = true
+	return true
 
 func snapshot() -> Dictionary:
 	var records := {}
@@ -103,6 +120,7 @@ func snapshot() -> Dictionary:
 			"radiator": setting = prop.get("supply_position")
 			"prep": setting = prop.get("opened")
 			"mirror": setting = prop.call("is_door_open")
+			"books": setting = prop.get("sorter").order.duplicate()
 		records[identity] = {"kind":kind, "value":setting}
 	return {"schema_version":1, "records":records}
 
@@ -114,6 +132,7 @@ func _restore(saved: Dictionary) -> void:
 		match record.kind:
 			"light": prop.call("set_powered", record.value)
 			"radiator": prop.call("set_supply_position", float(record.value), 0.0)
+			"books": prop.call("restore_order", record.value)
 			_: prop.call("restore_open_state", record.value)
 	_last_saved = saved.duplicate(true)
 	_restoring = false

@@ -534,5 +534,15 @@
     "checks": "Four-corner/board contact, overlap and door-sweep checks. 18332-check full apartment regression passes; fourteen production support-group views inspected.",
     "next": "Wall storage/bookshelves and remaining resident equipment/media. Continue remaining residential/shared/service programs, physical utilities and migration.",
     "limits": "Four homes currently share dining surfaces for resident work objects; separate equipment/workroom programs remain. Faint solvent glass and strong highlights/shadow transitions remain art review items. V2 incomplete; V1 default; S2J open."
+  },
+  "v2_resident_bookshelves": {
+    "status": "CATEGORY_INTEGRATED_SCOPED_RUNTIME_PASS",
+    "base_head": "1ddf9d7",
+    "packet": "evidence/v2_bookshelves_01/README.md",
+    "receipt": "evidence/v2_bookshelves_01/receipt.json",
+    "scope": "All eight authored resident bookcases, 16 semantic anchors, native sorting and lifting sectional glass. Resident library permutations join the existing household save owner, now 124 settings.",
+    "checks": "18550 checks across save/reconstruction, bookshelf interaction and apartment regression; zero final failures and empty final stderr. Eight production captures inspected.",
+    "next": "Remaining upper resident equipment/media and wall work; remaining residential/shared/service programs, physical utilities and migration.",
+    "limits": "Sacha book spines and other dark case interiors remain lighting review. No continuous played-route/full-performance/human acceptance. V2 incomplete; V1 default; S2J open."
   }
 }
