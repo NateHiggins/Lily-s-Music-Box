@@ -21,8 +21,10 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	var lighting: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/room_lighting.json"))
 	for record: Dictionary in lighting.fixtures:
 		if record.kind != "lamp": _kinds[str(record.id)] = "light"
+	var furniture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_furniture.json"))
+	for record: Dictionary in furniture.furniture:
+		if record.kind == "prep_cabinet": _kinds[str(record.id)] = "prep"
 	for unit_id: String in UNITS:
-		_kinds[unit_id + "_prep_cabinet"] = "prep"
 		_kinds["F0"+unit_id[0]+"_"+unit_id+"_MIRROR_01"] = "mirror"
 		# Lena's packing/situation owner already restores the 2B apparatus.
 		# Never layer a second saved valve setting over that case authority.

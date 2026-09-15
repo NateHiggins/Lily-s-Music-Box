@@ -36,7 +36,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 98, "81 circuits, five ordinary valves and twelve cabinet doors")
+	check(defaults.records.size() == 104, "81 circuits, five ordinary valves and eighteen cabinet doors")
 	check(not defaults.records.has("F02_B_RADIATOR_01"), "Lena's case keeps sole restoration authority")
 	check(not RealityState.data.has(Owner.KEY), "binding fresh defaults does not write a save")
 	await get_tree().physics_frame
@@ -72,15 +72,16 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 98 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 104 settings restore onto new physical owners")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)
 	var expanded := wanted.duplicate(true)
 	for identity: String in wanted.records:
-		if identity.begins_with("F05_") or identity.begins_with("F06_"):
+		if identity.begins_with("F05_") or identity.begins_with("F06_") or identity[0] in ["5", "6"]:
 			legacy.records.erase(identity)
 			expanded.records[identity] = defaults.records[identity].duplicate(true)
+	check(legacy.records.size() == 56, "legacy roster contains only the original household controls")
 	RealityState.data[Owner.KEY] = legacy
 	RealityState.state_changed.emit()
 	check(owner.snapshot() == expanded, "pre-upper save restores lower facts and defaults new circuits")
@@ -130,8 +131,9 @@ func exercise() -> void:
 	check(owner.snapshot() == defaults, "valid mid-session load recovers from blocked payload")
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	for unit_id: String in Owner.UNITS:
-		var cabinet: Node = world.adapter.resolve(unit_id + "_prep_cabinet")
+	for identity: String in defaults.records:
+		if defaults.records[identity].kind != "prep": continue
+		var cabinet: Node = world.adapter.resolve(identity)
 		check((cabinet.get("_slide") as Node3D).transform.is_equal_approx(Transform3D.IDENTITY),
 			"mid-session load returns the entire panel to its closed transform")
 	var before: Dictionary = RealityState.data[Owner.KEY].duplicate(true)

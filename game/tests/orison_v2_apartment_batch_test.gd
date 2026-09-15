@@ -413,7 +413,7 @@ func _check_wall_extensions() -> void:
 
 func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 	# Includes Mae's upper-floor glass coffee table as well as the lower homes.
-	var expected := {"cupboard":6, "coffee":3, "pinboard":2, "toolboard":1, "crate":1}
+	var expected := {"cupboard":12, "coffee":3, "pinboard":2, "toolboard":1, "crate":1}
 	var seen := {"cupboard":0, "coffee":0, "pinboard":0, "toolboard":0, "crate":0}
 	var cupboards: Array[String] = []
 	var timber_surfaces := 0
@@ -431,7 +431,7 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 		if record.kind == "cupboard":
 			cupboards.append(str(record.id).left(2))
 			var local: Vector3 = world.adapter.root.to_local(body.global_position)
-			var floor := 3.2 if str(record.id).begins_with("2") else 6.4 if str(record.id).begins_with("3") else 9.6
+			var floor := 3.2 * (int(str(record.id).left(1)) - 1)
 			check(is_equal_approx(local.y - floor, 1.65), "wall cupboard mounted above standing capsule")
 			if shapes.size() == 1:
 				var shape := shapes[0] as CollisionShape3D
@@ -463,7 +463,7 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 								"wood uses its own canonical texture: " + key)
 	check(seen == expected, "complete storage/table/board category roster")
 	cupboards.sort()
-	check(cupboards == ["2A", "2B", "3A", "3B", "4A", "4B"], "one kitchen wall cupboard per detailed apartment")
+	check(cupboards == ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"], "one kitchen wall cupboard per detailed apartment")
 	check(timber_surfaces == 4 and plywood_surfaces == 1 and glass_surfaces == 3,
 			"new wood and glass surface bindings covered")
 

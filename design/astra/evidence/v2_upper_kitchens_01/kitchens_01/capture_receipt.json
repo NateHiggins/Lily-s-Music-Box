@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2UpperKitchenShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-astra\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01",
+  "started_utc": "2026-09-15T12:11:57.4552293Z",
+  "elapsed_seconds": 30.232,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 12,
+  "actual_frames": 12,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_kitchens_01_20260915T121157455Z.log",
+  "filtered_process_output": [
+    "[PASSAGE HOURS] OPEN; 10 grilles folded",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters",
+    "[V2 UPPER KITCHENS CAPTURE] 1/12 label=5A_closed elapsed=10.182 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/5A_closed.png",
+    "[V2 UPPER KITCHENS CAPTURE] 2/12 label=5A_open elapsed=11.777 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/5A_open.png",
+    "[V2 UPPER KITCHENS CAPTURE] 3/12 label=5B_closed elapsed=13.307 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/5B_closed.png",
+    "[V2 UPPER KITCHENS CAPTURE] 4/12 label=5B_open elapsed=14.871 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/5B_open.png",
+    "[V2 UPPER KITCHENS CAPTURE] 5/12 label=5C_closed elapsed=16.426 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/5C_closed.png",
+    "[V2 UPPER KITCHENS CAPTURE] 6/12 label=5C_open elapsed=17.985 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/5C_open.png",
+    "[V2 UPPER KITCHENS CAPTURE] 7/12 label=6A_closed elapsed=19.546 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/6A_closed.png",
+    "[V2 UPPER KITCHENS CAPTURE] 8/12 label=6A_open elapsed=21.104 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/6A_open.png",
+    "[V2 UPPER KITCHENS CAPTURE] 9/12 label=6B_closed elapsed=22.660 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/6B_closed.png",
+    "[V2 UPPER KITCHENS CAPTURE] 10/12 label=6B_open elapsed=24.202 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/6B_open.png",
+    "[V2 UPPER KITCHENS CAPTURE] 11/12 label=6C_closed elapsed=25.770 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/6C_closed.png",
+    "[V2 UPPER KITCHENS CAPTURE] 12/12 label=6C_open elapsed=27.329 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_kitchens_01\\kitchens_01/6C_open.png",
+    "[V2 UPPER KITCHENS] RESULT: PASS captures=12 expected=12 elapsed=27.332"
+  ],
+  "files": [
+    {
+      "name": "5A_closed.png",
+      "bytes": 1086117,
+      "sha256": "a085c79a457b8163d7b8d7639754042b278fefb3b10bbade8c2b8e4af65527b0"
+    },
+    {
+      "name": "5A_open.png",
+      "bytes": 1085999,
+      "sha256": "b4a2d88d61a0a76786db9547e2e36254a0eaf3dd5e422728c63a1dbf990df32a"
+    },
+    {
+      "name": "5B_closed.png",
+      "bytes": 1014678,
+      "sha256": "d963c0e66573a44f113548c37bf6c6ae8b5751aae1094a9758d489b99191ab6f"
+    },
+    {
+      "name": "5B_open.png",
+      "bytes": 1028086,
+      "sha256": "1dbdc4558a3e0aeff5240ee82f11dcb30bede5890fdf4dfe94c9489e9f18b629"
+    },
+    {
+      "name": "5C_closed.png",
+      "bytes": 1140432,
+      "sha256": "399f2efa100d103bbdbf16d438561386b46bfe0175804ba1ab496034a31093df"
+    },
+    {
+      "name": "5C_open.png",
+      "bytes": 1122144,
+      "sha256": "169a0308ee4a22186821174f5ac83b00dbfe843c6caa393bacbe0d794ebf21e5"
+    },
+    {
+      "name": "6A_closed.png",
+      "bytes": 967897,
+      "sha256": "2e46292d9667c31b2f7628ec3cbb5942bb49494593ec17d311e0db00fde1f301"
+    },
+    {
+      "name": "6A_open.png",
+      "bytes": 964446,
+      "sha256": "d5209faa65f1c9b738c29f654b53e98ec695f557097d07e459ecc24ed0034384"
+    },
+    {
+      "name": "6B_closed.png",
+      "bytes": 1044516,
+      "sha256": "f6f781c1354006d5fb320663196cc3767dc90e12b11a7c7c24adf3e71b41acfa"
+    },
+    {
+      "name": "6B_open.png",
+      "bytes": 1066749,
+      "sha256": "44d3a9cf03e2794b29d2e6ab4426b7473a7f500a18c09b373efc8f7f7a88f0ba"
+    },
+    {
+      "name": "6C_closed.png",
+      "bytes": 1104885,
+      "sha256": "e569a6b3e4054b985baf042517888a2bc7c807ac2bc717f969097eaba75340c5"
+    },
+    {
+      "name": "6C_open.png",
+      "bytes": 1110601,
+      "sha256": "c4b7617cd46588984bd4c06a8bffe6f21ae612a8322925532bb668742e7fba3e"
+    }
+  ]
+}
