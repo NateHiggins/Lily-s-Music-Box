@@ -2,7 +2,9 @@ extends RefCounted
 ## Validate the whole batch before any construction. Existing sinks/cabinets
 ## own these children, so transforms and retirement follow their real support.
 const PATH := "res://data/orison_v2/household_accessories.json"
-const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B"]
+const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"]
+const TOASTER_UNITS := ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "6A", "6B", "6C"]
+const MIRROR_OFFSETS := {"2A":.242, "2B":.202, "3A":.242, "3B":.392, "4A":.202, "4B":.222, "5A":.232, "5B":.292, "5C":.222, "6A":.232, "6B":.292, "6C":.222}
 const Toaster := preload("res://scripts/building/orison_v2_toaster.gd")
 const Cabinet := preload("res://scripts/building/orison_v2_medicine_cabinet.gd")
 var errors: Array[String] = []
@@ -50,6 +52,8 @@ func validate(source: Variant, adapter: Variant) -> bool:
 			continue
 		var unit_id := str(record.unit)
 		var is_toaster: bool = record.kind == "toaster"
+		if is_toaster and unit_id not in TOASTER_UNITS:
+			errors.append("household has no authored toaster")
 		var identity := "F0" + unit_id[0] + "_" + unit_id + ("_TOASTER_01" if is_toaster else "_MIRROR_01")
 		if unit_id == "4B" and is_toaster: identity = "F04_B_TOASTER_01"
 		var support := unit_id + "_prep_cabinet" if is_toaster else "F0" + unit_id[0] + "_" + unit_id + "_SINK_01"
@@ -62,7 +66,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 				or adapter.resolve(identity) != null:
 			errors.append("missing accessory support or occupied identity")
 		var expected := [0.0, .9, 0.0] if is_toaster else [0.0, .04,
-				{"2A":.242, "2B":.202, "3A":.242, "3B":.392, "4A":.202, "4B":.222}[unit_id]]
+				MIRROR_OFFSETS[unit_id]]
 		var at: Variant = record.get("position")
 		if at is not Array or at.size() != 3:
 			errors.append("invalid accessory position")
@@ -73,10 +77,10 @@ func validate(source: Variant, adapter: Variant) -> bool:
 					errors.append("accessory must use its validated support contact")
 		if typeof(record.get("yaw")) not in [TYPE_INT, TYPE_FLOAT] or record.yaw != 0:
 			errors.append("accessory must face its validated clearance")
-		if not is_toaster and record.get("hinge_side") != ("left" if unit_id == "4B" else "right"):
+		if not is_toaster and record.get("hinge_side") != ("left" if unit_id in ["4B", "5C", "6C"] else "right"):
 			errors.append("cabinet must retain its authored hinge")
 		if is_toaster and record.get("tray_axis") != ("-x" if unit_id == "4B" else "-z"):
 			errors.append("toaster must retain its authored tray exit")
-	if seen.size() != 12 or source.accessories.size() != 12:
-		errors.append("incomplete six-home accessory roster")
+	if seen.size() != UNITS.size() + TOASTER_UNITS.size() or source.accessories.size() != UNITS.size() + TOASTER_UNITS.size():
+		errors.append("incomplete authored household accessory roster")
 	return errors.is_empty()

@@ -1,7 +1,7 @@
 extends "res://scripts/building/orison_v2_domestic_furniture.gd"
 ## Fixed dressing follows its physical support; it owns no input, save or light.
 const DETAIL_PATH := "res://data/orison_v2/bath_details.json"
-const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B"]
+const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"]
 const KINDS := ["soap_dish", "hand_towel", "toilet_roll"]
 
 func mount(adapter: Variant) -> bool:
@@ -78,6 +78,6 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		if shared.has(record.kind) and shared[record.kind] != record.get("surfaces"):
 			errors.append("shared bath geometry disagrees between homes")
 		shared[record.kind] = record.get("surfaces")
-	if seen.size() != 18 or source.props.size() != 18:
-		errors.append("incomplete six-home bath detail roster")
+	if seen.size() != UNITS.size() * KINDS.size() or source.props.size() != UNITS.size() * KINDS.size():
+		errors.append("incomplete developed-home bath detail roster")
 	return errors.is_empty()

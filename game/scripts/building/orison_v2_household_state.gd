@@ -2,7 +2,6 @@ extends Node
 ## Durable control settings by semantic ID. RealityState alone writes saves.
 ## No coordinates, animations, playing audio or transient service panels persist.
 const KEY := "v2_household_controls"
-const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B"]
 var errors: Array[String] = []
 var _subjects: Dictionary = {}
 var _kinds: Dictionary = {}
@@ -24,11 +23,13 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	var furniture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_furniture.json"))
 	for record: Dictionary in furniture.furniture:
 		if record.kind == "prep_cabinet": _kinds[str(record.id)] = "prep"
-	for unit_id: String in UNITS:
-		_kinds["F0"+unit_id[0]+"_"+unit_id+"_MIRROR_01"] = "mirror"
-		# Lena's packing/situation owner already restores the 2B apparatus.
-		# Never layer a second saved valve setting over that case authority.
-		if unit_id != "2B": _kinds["F0"+unit_id[0]+"_"+unit_id[1]+"_RADIATOR_01"] = "radiator"
+	var accessories: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/household_accessories.json"))
+	for record: Dictionary in accessories.accessories:
+		if record.kind == "mirror": _kinds[str(record.id)] = "mirror"
+	var heating: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/heating.json"))
+	for record: Dictionary in heating.installed:
+		# Lena's packing/situation owner retains sole custody of the 2B valve.
+		if record.unit != "2B": _kinds[str(record.id)] = "radiator"
 	for identity: String in _kinds:
 		var prop: Node = adapter.resolve(identity)
 		var kind: String = _kinds[identity]

@@ -1157,7 +1157,19 @@
     {"id":"6B_prep_cabinet_STANCE","level":"F06","space":"F06_B_KITCHEN","position":[-7.95,0,7.1],"yaw":1.5707963267948966,"kind":"clearance"},
     {"id":"6C_prep_cabinet","level":"F06","space":"F06_C_KITCHEN","position":[4.115,0,4.94],"yaw":-1.5707963267948966,"kind":"furniture"},
     {"id":"6C_k_wall_cupboard","level":"F06","space":"F06_C_KITCHEN","position":[4.17,1.65,4.94],"yaw":-1.5707963267948966,"kind":"furniture"},
-    {"id":"6C_prep_cabinet_STANCE","level":"F06","space":"F06_C_KITCHEN","position":[5.25,0,4.9],"yaw":1.5707963267948966,"kind":"clearance"}
+    {"id":"6C_prep_cabinet_STANCE","level":"F06","space":"F06_C_KITCHEN","position":[5.25,0,4.9],"yaw":1.5707963267948966,"kind":"clearance"},
+    {"id":"F05_A_RADIATOR_01","level":"F05","space":"F05_A_MAIN","position":[-13.7,0.75,-0.82],"yaw":0.0,"kind":"interaction"},
+    {"id":"F05_A_RADIATOR_STANCE","level":"F05","space":"F05_A_MAIN","position":[-13.7,0,-1.77],"yaw":3.141592653589793,"kind":"clearance"},
+    {"id":"F05_B_RADIATOR_01","level":"F05","space":"F05_B_MAIN","position":[-13.4,0.75,0.82],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F05_B_RADIATOR_STANCE","level":"F05","space":"F05_B_MAIN","position":[-13.4,0,1.77],"yaw":6.283185307179586,"kind":"clearance"},
+    {"id":"F05_C_RADIATOR_01","level":"F05","space":"F05_C_MAIN","position":[0.28,0.75,8.4],"yaw":1.5707963267948966,"kind":"interaction"},
+    {"id":"F05_C_RADIATOR_STANCE","level":"F05","space":"F05_C_MAIN","position":[-0.6699999999999999,0,8.4],"yaw":4.71238898038469,"kind":"clearance"},
+    {"id":"F06_A_RADIATOR_01","level":"F06","space":"F06_A_MAIN","position":[-13.7,0.75,-0.82],"yaw":0.0,"kind":"interaction"},
+    {"id":"F06_A_RADIATOR_STANCE","level":"F06","space":"F06_A_MAIN","position":[-13.7,0,-1.77],"yaw":3.141592653589793,"kind":"clearance"},
+    {"id":"F06_B_RADIATOR_01","level":"F06","space":"F06_B_MAIN","position":[-13.4,0.75,0.82],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F06_B_RADIATOR_STANCE","level":"F06","space":"F06_B_MAIN","position":[-13.4,0,1.77],"yaw":6.283185307179586,"kind":"clearance"},
+    {"id":"F06_C_RADIATOR_01","level":"F06","space":"F06_C_MAIN","position":[0.28,0.75,8.4],"yaw":1.5707963267948966,"kind":"interaction"},
+    {"id":"F06_C_RADIATOR_STANCE","level":"F06","space":"F06_C_MAIN","position":[-0.6699999999999999,0,8.4],"yaw":4.71238898038469,"kind":"clearance"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

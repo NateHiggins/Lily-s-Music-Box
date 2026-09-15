@@ -46,7 +46,7 @@ func _ready() -> void:
 			query.exclude = [world.player.get_rid()]
 			check(world.get_world_3d().direct_space_state.intersect_shape(query).is_empty(), "standing clearance: " + str(a.id))
 			count += 1
-		check(count == 134, "all new and existing upper approaches remain clear")
+		check(count == 140, "all new and existing upper approaches remain clear")
 		for probe: Dictionary in probes.kitchens:
 			var cabinet := world.adapter.resolve(probe.prep) as StaticBody3D
 			var cup := world.adapter.resolve(probe.cupboard) as StaticBody3D

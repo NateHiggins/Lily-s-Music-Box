@@ -31,7 +31,7 @@ func _ready() -> void:
 	for record: Dictionary in accessory_source.accessories:
 		if AcousticGraphData.nodes.has(record.id):
 			accessory_acoustics[record.id] = AcousticGraphData.nodes[record.id].duplicate(true)
-	for unit: String in ALL_DOMESTIC_UNITS:
+	for unit: String in preload("res://scripts/building/orison_v2_heating.gd").UNITS:
 		var identity := "F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"
 		heating_acoustics[identity] = AcousticGraphData.nodes[identity].duplicate(true)
 	for cycle in 2:
@@ -179,7 +179,7 @@ func _check_household_accessories(world: OrisonV2RuntimeRoot, refs: Array[WeakRe
 	refs.append(weakref(renderer))
 	await get_tree().process_frame
 	var views := renderer.find_children("*", "SubViewport", true, false)
-	check(views.size() == 1, "six mirrors share exactly one reflection viewport")
+	check(views.size() == 1, "twelve mirrors share exactly one reflection viewport")
 	if views.size() == 1: refs.append(weakref(views[0]))
 	var saved_camera := world.player.camera.global_transform
 	var saved_infection: float = Conductor.infection
@@ -849,7 +849,7 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 			radiator.apply_maintenance_result({"mechanism_patch":{"vent_grade":radiator.vent_grade,"supply_position":1.0}})
 			radiator.set_supply_open(false)
 			check(radiator.perform_physical_action("turn_valve").observation == "supply_open", "household valve reaches healthy detent")
-	check(count == 6, "complete developed-home heating category")
+	check(count == 12, "complete developed-home heating category")
 	check(JSON.stringify(world.maintenance_inventory.serialize()) == packing_before, "household actions cannot acquire or consume 2B packing")
 	var water := boiler.water_level
 	boiler.set_water_level(0)
@@ -876,7 +876,7 @@ func _check_bath_details(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> vo
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(loader.DETAIL_PATH))
 	var dry := SurfaceSourceAdapter.new()
 	var shared := {}
-	check(source.props.size() == 18, "six complete sets of bath details")
+	check(source.props.size() == 36, "twelve complete sets of bath details")
 	for record: Dictionary in source.props:
 		var support := world.adapter.resolve(str(record.support)) as Node3D
 		dry.supports[record.support] = support

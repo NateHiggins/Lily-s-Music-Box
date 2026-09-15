@@ -36,7 +36,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 104, "81 circuits, five ordinary valves and eighteen cabinet doors")
+	check(defaults.records.size() == 116, "81 circuits, eleven ordinary valves and twenty-four cabinet doors")
 	check(not defaults.records.has("F02_B_RADIATOR_01"), "Lena's case keeps sole restoration authority")
 	check(not RealityState.data.has(Owner.KEY), "binding fresh defaults does not write a save")
 	await get_tree().physics_frame
@@ -72,7 +72,7 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 104 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 116 settings restore onto new physical owners")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)
@@ -94,6 +94,9 @@ func exercise() -> void:
 		if wanted.records[identity].kind == "mirror":
 			var audio := prop.get("_squeak") as AudioStreamPlayer3D
 			check(not audio.playing, "restoring a cabinet does not replay its squeak")
+			var leaf := prop.get_node("CabinetDoor/CabinetLeafBody") as AnimatableBody3D
+			var physical: Transform3D = PhysicsServer3D.body_get_state(leaf.get_rid(), PhysicsServer3D.BODY_STATE_TRANSFORM)
+			check(physical.is_equal_approx(leaf.global_transform), "saved medicine-cabinet collider agrees with restored hinge")
 		elif wanted.records[identity].kind == "prep":
 			var panel := prop.get("_slide") as AnimatableBody3D
 			var expected := Transform3D(Basis.IDENTITY, Vector3(Prep.TRAVEL,0,0))
