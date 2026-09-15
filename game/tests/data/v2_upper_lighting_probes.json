@@ -1,0 +1,844 @@
+{
+  "rooms": [
+    {
+      "room": "F05_A_MAIN",
+      "fixture": "F05_A_MAIN_LT_PENDANT_SHADE",
+      "switch": "F05_A_MAIN_SWITCH",
+      "level": "F05",
+      "stance": [
+        -9.350000000000001,
+        -2.9
+      ],
+      "plate": [
+        -8.39,
+        -2.9
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 5.47,
+        "energy_scale": 1.62
+      }
+    },
+    {
+      "room": "F05_A_VESTIBULE",
+      "fixture": "F05_A_VESTIBULE_LT_FLUSH_DOME",
+      "switch": "F05_A_VESTIBULE_SWITCH",
+      "level": "F05",
+      "stance": [
+        -6.5,
+        -1.65
+      ],
+      "plate": [
+        -6.5,
+        -0.69
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "room": "F05_A_PRIVATE_HALL",
+      "fixture": "F05_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "switch": "F05_A_PRIVATE_HALL_SWITCH",
+      "level": "F05",
+      "stance": [
+        -7.5,
+        -7.8
+      ],
+      "plate": [
+        -7.5,
+        -8.76
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.64,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "room": "F05_A_BATH",
+      "fixture": "F05_A_BATH_LT_FLUSH_DOME",
+      "switch": "F05_A_BATH_SWITCH",
+      "level": "F05",
+      "stance": [
+        -6.3,
+        -9.899999999999999
+      ],
+      "plate": [
+        -6.3,
+        -8.94
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.01,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "room": "F05_A_BED",
+      "fixture": "F05_A_BED_LT_FLUSH_DOME",
+      "switch": "F05_A_BED_SWITCH",
+      "level": "F05",
+      "stance": [
+        -14.4,
+        -7.3999999999999995
+      ],
+      "plate": [
+        -14.4,
+        -6.4399999999999995
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.54,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "room": "F05_A_KITCHEN",
+      "fixture": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "switch": "F05_A_KITCHEN_SWITCH",
+      "level": "F05",
+      "stance": [
+        -9.6,
+        -7.3999999999999995
+      ],
+      "plate": [
+        -9.6,
+        -6.4399999999999995
+      ],
+      "yaw": 0.0,
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.89,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "room": "F05_A_STUDY",
+      "fixture": "F05_A_STUDY_LT_FLUSH_DOME",
+      "switch": "F05_A_STUDY_SWITCH",
+      "level": "F05",
+      "stance": [
+        -9.1,
+        -10.399999999999999
+      ],
+      "plate": [
+        -9.1,
+        -9.44
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.89,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "room": "F05_B_MAIN",
+      "fixture": "F05_B_MAIN_LT_PENDANT_SHADE",
+      "switch": "F05_B_MAIN_SWITCH",
+      "level": "F05",
+      "stance": [
+        -10.350000000000001,
+        1.1
+      ],
+      "plate": [
+        -9.39,
+        1.1
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 5.08,
+        "energy_scale": 0.81
+      }
+    },
+    {
+      "room": "F05_B_VESTIBULE",
+      "fixture": "F05_B_VESTIBULE_LT_FLUSH_DOME",
+      "switch": "F05_B_VESTIBULE_SWITCH",
+      "level": "F05",
+      "stance": [
+        -8.5,
+        2.0500000000000003
+      ],
+      "plate": [
+        -8.5,
+        3.0100000000000002
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.68,
+        "energy_scale": 0.6
+      }
+    },
+    {
+      "room": "F05_B_BATH",
+      "fixture": "F05_B_BATH_LT_FLUSH_DOME",
+      "switch": "F05_B_BATH_SWITCH",
+      "level": "F05",
+      "stance": [
+        -7.3,
+        4.15
+      ],
+      "plate": [
+        -7.3,
+        3.19
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.94,
+        "energy_scale": 0.6
+      }
+    },
+    {
+      "room": "F05_B_ALCOVE",
+      "fixture": "F05_B_ALCOVE_LT_FLUSH_DOME",
+      "switch": "F05_B_ALCOVE_SWITCH",
+      "level": "F05",
+      "stance": [
+        -12.25,
+        9.8
+      ],
+      "plate": [
+        -11.29,
+        9.8
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.26,
+        "energy_scale": 0.6
+      }
+    },
+    {
+      "room": "F05_B_PRIVATE_HALL",
+      "fixture": "F05_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "switch": "F05_B_PRIVATE_HALL_SWITCH",
+      "level": "F05",
+      "stance": [
+        -10.350000000000001,
+        9.4
+      ],
+      "plate": [
+        -9.39,
+        9.4
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.62,
+        "energy_scale": 0.6
+      }
+    },
+    {
+      "room": "F05_B_KITCHEN",
+      "fixture": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "switch": "F05_B_KITCHEN_SWITCH",
+      "level": "F05",
+      "stance": [
+        -8.25,
+        8.2
+      ],
+      "plate": [
+        -9.21,
+        8.2
+      ],
+      "yaw": -1.5707963267948966,
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 3.8,
+        "energy_scale": 0.81
+      }
+    },
+    {
+      "room": "F05_C_VESTIBULE",
+      "fixture": "F05_C_VESTIBULE_LT_FLUSH_DOME",
+      "switch": "F05_C_VESTIBULE_SWITCH",
+      "level": "F05",
+      "stance": [
+        -0.2,
+        4.9
+      ],
+      "plate": [
+        -0.2,
+        3.94
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.64,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "room": "F05_C_MAIN",
+      "fixture": "F05_C_MAIN_LT_PENDANT_SHADE",
+      "switch": "F05_C_MAIN_SWITCH",
+      "level": "F05",
+      "stance": [
+        -4.7,
+        7.3999999999999995
+      ],
+      "plate": [
+        -4.7,
+        6.4399999999999995
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 4.84,
+        "energy_scale": 1.76
+      }
+    },
+    {
+      "room": "F05_C_STUDIO",
+      "fixture": "F05_C_STUDIO_LT_FLUSH_DOME",
+      "switch": "F05_C_STUDIO_SWITCH",
+      "level": "F05",
+      "stance": [
+        -4.7,
+        5.3
+      ],
+      "plate": [
+        -4.7,
+        6.26
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "room": "F05_C_PRIVATE_HALL",
+      "fixture": "F05_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "switch": "F05_C_PRIVATE_HALL_SWITCH",
+      "level": "F05",
+      "stance": [
+        6.05,
+        7.3
+      ],
+      "plate": [
+        7.01,
+        7.3
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.18,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "room": "F05_C_BATH",
+      "fixture": "F05_C_BATH_LT_FLUSH_DOME",
+      "switch": "F05_C_BATH_SWITCH",
+      "level": "F05",
+      "stance": [
+        1.1,
+        5.3
+      ],
+      "plate": [
+        1.1,
+        6.26
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "room": "F05_C_KITCHEN",
+      "fixture": "F05_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "switch": "F05_C_KITCHEN_SWITCH",
+      "level": "F05",
+      "stance": [
+        4.4,
+        5.3
+      ],
+      "plate": [
+        4.4,
+        6.26
+      ],
+      "yaw": 0.0,
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "room": "F05_C_BED1",
+      "fixture": "F05_C_BED1_LT_FLUSH_DOME",
+      "switch": "F05_C_BED1_SWITCH",
+      "level": "F05",
+      "stance": [
+        3.0,
+        8.899999999999999
+      ],
+      "plate": [
+        3.0,
+        7.9399999999999995
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "room": "F05_C_BED2",
+      "fixture": "F05_C_BED2_LT_FLUSH_DOME",
+      "switch": "F05_C_BED2_SWITCH",
+      "level": "F05",
+      "stance": [
+        6.3,
+        8.899999999999999
+      ],
+      "plate": [
+        6.3,
+        7.9399999999999995
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "room": "F06_A_MAIN",
+      "fixture": "F06_A_MAIN_LT_PENDANT_SHADE",
+      "switch": "F06_A_MAIN_SWITCH",
+      "level": "F06",
+      "stance": [
+        -9.350000000000001,
+        -2.9
+      ],
+      "plate": [
+        -8.39,
+        -2.9
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 5.47,
+        "energy_scale": 0.74
+      }
+    },
+    {
+      "room": "F06_A_VESTIBULE",
+      "fixture": "F06_A_VESTIBULE_LT_FLUSH_DOME",
+      "switch": "F06_A_VESTIBULE_SWITCH",
+      "level": "F06",
+      "stance": [
+        -6.5,
+        -1.65
+      ],
+      "plate": [
+        -6.5,
+        -0.69
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "room": "F06_A_PRIVATE_HALL",
+      "fixture": "F06_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "switch": "F06_A_PRIVATE_HALL_SWITCH",
+      "level": "F06",
+      "stance": [
+        -7.5,
+        -7.8
+      ],
+      "plate": [
+        -7.5,
+        -8.76
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.64,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "room": "F06_A_BATH",
+      "fixture": "F06_A_BATH_LT_FLUSH_DOME",
+      "switch": "F06_A_BATH_SWITCH",
+      "level": "F06",
+      "stance": [
+        -6.3,
+        -9.899999999999999
+      ],
+      "plate": [
+        -6.3,
+        -8.94
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.01,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "room": "F06_A_BED",
+      "fixture": "F06_A_BED_LT_FLUSH_DOME",
+      "switch": "F06_A_BED_SWITCH",
+      "level": "F06",
+      "stance": [
+        -14.4,
+        -7.3999999999999995
+      ],
+      "plate": [
+        -14.4,
+        -6.4399999999999995
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.54,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "room": "F06_A_KITCHEN",
+      "fixture": "F06_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "switch": "F06_A_KITCHEN_SWITCH",
+      "level": "F06",
+      "stance": [
+        -9.6,
+        -7.3999999999999995
+      ],
+      "plate": [
+        -9.6,
+        -6.4399999999999995
+      ],
+      "yaw": 0.0,
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.89,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "room": "F06_A_STUDY",
+      "fixture": "F06_A_STUDY_LT_FLUSH_DOME",
+      "switch": "F06_A_STUDY_SWITCH",
+      "level": "F06",
+      "stance": [
+        -9.350000000000001,
+        -9.9
+      ],
+      "plate": [
+        -8.39,
+        -9.9
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.89,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "room": "F06_B_MAIN",
+      "fixture": "F06_B_MAIN_LT_PENDANT_SHADE",
+      "switch": "F06_B_MAIN_SWITCH",
+      "level": "F06",
+      "stance": [
+        -10.350000000000001,
+        1.1
+      ],
+      "plate": [
+        -9.39,
+        1.1
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 5.08,
+        "energy_scale": 0.97
+      }
+    },
+    {
+      "room": "F06_B_VESTIBULE",
+      "fixture": "F06_B_VESTIBULE_LT_FLUSH_DOME",
+      "switch": "F06_B_VESTIBULE_SWITCH",
+      "level": "F06",
+      "stance": [
+        -8.5,
+        2.0500000000000003
+      ],
+      "plate": [
+        -8.5,
+        3.0100000000000002
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.68,
+        "energy_scale": 0.72
+      }
+    },
+    {
+      "room": "F06_B_BATH",
+      "fixture": "F06_B_BATH_LT_FLUSH_DOME",
+      "switch": "F06_B_BATH_SWITCH",
+      "level": "F06",
+      "stance": [
+        -7.3,
+        4.15
+      ],
+      "plate": [
+        -7.3,
+        3.19
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.94,
+        "energy_scale": 0.72
+      }
+    },
+    {
+      "room": "F06_B_ALCOVE",
+      "fixture": "F06_B_ALCOVE_LT_FLUSH_DOME",
+      "switch": "F06_B_ALCOVE_SWITCH",
+      "level": "F06",
+      "stance": [
+        -12.25,
+        9.8
+      ],
+      "plate": [
+        -11.29,
+        9.8
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.26,
+        "energy_scale": 0.72
+      }
+    },
+    {
+      "room": "F06_B_PRIVATE_HALL",
+      "fixture": "F06_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "switch": "F06_B_PRIVATE_HALL_SWITCH",
+      "level": "F06",
+      "stance": [
+        -10.350000000000001,
+        9.4
+      ],
+      "plate": [
+        -9.39,
+        9.4
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.62,
+        "energy_scale": 0.72
+      }
+    },
+    {
+      "room": "F06_B_KITCHEN",
+      "fixture": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "switch": "F06_B_KITCHEN_SWITCH",
+      "level": "F06",
+      "stance": [
+        -8.25,
+        8.2
+      ],
+      "plate": [
+        -9.21,
+        8.2
+      ],
+      "yaw": -1.5707963267948966,
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 3.8,
+        "energy_scale": 0.97
+      }
+    },
+    {
+      "room": "F06_C_VESTIBULE",
+      "fixture": "F06_C_VESTIBULE_LT_FLUSH_DOME",
+      "switch": "F06_C_VESTIBULE_SWITCH",
+      "level": "F06",
+      "stance": [
+        -0.2,
+        4.9
+      ],
+      "plate": [
+        -0.2,
+        3.94
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.64,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "room": "F06_C_MAIN",
+      "fixture": "F06_C_MAIN_LT_PENDANT_SHADE",
+      "switch": "F06_C_MAIN_SWITCH",
+      "level": "F06",
+      "stance": [
+        -4.7,
+        7.3999999999999995
+      ],
+      "plate": [
+        -4.7,
+        6.4399999999999995
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 4.84,
+        "energy_scale": 1.22
+      }
+    },
+    {
+      "room": "F06_C_STUDIO",
+      "fixture": "F06_C_STUDIO_LT_FLUSH_DOME",
+      "switch": "F06_C_STUDIO_SWITCH",
+      "level": "F06",
+      "stance": [
+        -4.7,
+        5.3
+      ],
+      "plate": [
+        -4.7,
+        6.26
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "room": "F06_C_PRIVATE_HALL",
+      "fixture": "F06_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "switch": "F06_C_PRIVATE_HALL_SWITCH",
+      "level": "F06",
+      "stance": [
+        6.05,
+        7.3
+      ],
+      "plate": [
+        7.01,
+        7.3
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.18,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "room": "F06_C_BATH",
+      "fixture": "F06_C_BATH_LT_FLUSH_DOME",
+      "switch": "F06_C_BATH_SWITCH",
+      "level": "F06",
+      "stance": [
+        1.1,
+        5.3
+      ],
+      "plate": [
+        1.1,
+        6.26
+      ],
+      "yaw": 0.0,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "room": "F06_C_KITCHEN",
+      "fixture": "F06_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "switch": "F06_C_KITCHEN_SWITCH",
+      "level": "F06",
+      "stance": [
+        4.4,
+        5.3
+      ],
+      "plate": [
+        4.4,
+        6.26
+      ],
+      "yaw": 0.0,
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "room": "F06_C_BED1",
+      "fixture": "F06_C_BED1_LT_FLUSH_DOME",
+      "switch": "F06_C_BED1_SWITCH",
+      "level": "F06",
+      "stance": [
+        3.0,
+        8.899999999999999
+      ],
+      "plate": [
+        3.0,
+        7.9399999999999995
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "room": "F06_C_BED2",
+      "fixture": "F06_C_BED2_LT_FLUSH_DOME",
+      "switch": "F06_C_BED2_SWITCH",
+      "level": "F06",
+      "stance": [
+        6.3,
+        8.899999999999999
+      ],
+      "plate": [
+        6.3,
+        7.9399999999999995
+      ],
+      "yaw": 3.141592653589793,
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 0.99
+      }
+    }
+  ]
+}

@@ -36,7 +36,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 56, "39 circuits, five ordinary valves and twelve cabinet doors")
+	check(defaults.records.size() == 98, "81 circuits, five ordinary valves and twelve cabinet doors")
 	check(not defaults.records.has("F02_B_RADIATOR_01"), "Lena's case keeps sole restoration authority")
 	check(not RealityState.data.has(Owner.KEY), "binding fresh defaults does not write a save")
 	await get_tree().physics_frame
@@ -72,7 +72,22 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 56 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 98 settings restore onto new physical owners")
+	# Saves made before the upper circuits existed keep their lower-household
+	# facts. Newly installed circuits inherit fresh construction defaults.
+	var legacy := wanted.duplicate(true)
+	var expanded := wanted.duplicate(true)
+	for identity: String in wanted.records:
+		if identity.begins_with("F05_") or identity.begins_with("F06_"):
+			legacy.records.erase(identity)
+			expanded.records[identity] = defaults.records[identity].duplicate(true)
+	RealityState.data[Owner.KEY] = legacy
+	RealityState.state_changed.emit()
+	check(owner.snapshot() == expanded, "pre-upper save restores lower facts and defaults new circuits")
+	check(RealityState.data[Owner.KEY] == legacy, "loading old circuit roster does not eagerly rewrite saved facts")
+	RealityState.data[Owner.KEY] = wanted.duplicate(true)
+	RealityState.state_changed.emit()
+	check(owner.snapshot() == wanted, "complete circuit save can replace the legacy roster")
 	for identity: String in wanted.records:
 		var prop: Node = world.adapter.resolve(identity)
 		if wanted.records[identity].kind == "mirror":

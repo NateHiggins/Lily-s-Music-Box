@@ -1,0 +1,348 @@
+{
+  "status": "SOURCE_PASS",
+  "base": "e4a0964",
+  "fixtures_added": 42,
+  "switches_added": 42,
+  "anchors_added": 126,
+  "total_circuits": 81,
+  "rooms": [
+    {
+      "room": "F05_A_MAIN",
+      "wall_owners": [
+        "F05_A_MAIN:east"
+      ],
+      "route_points": 125,
+      "gain_source": "F05_A_MAIN_LT_PENDANT_SHADE"
+    },
+    {
+      "room": "F05_A_VESTIBULE",
+      "wall_owners": [
+        "F05_A_VESTIBULE:north"
+      ],
+      "route_points": 95,
+      "gain_source": "F05_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_A_PRIVATE_HALL",
+      "wall_owners": [
+        "F05_A_BATH:north"
+      ],
+      "route_points": 181,
+      "gain_source": "F05_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_A_BATH",
+      "wall_owners": [
+        "F05_A_BATH:north"
+      ],
+      "route_points": 214,
+      "gain_source": "F05_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_A_BED",
+      "wall_owners": [
+        "F05_A_BED:north"
+      ],
+      "route_points": 228,
+      "gain_source": "F05_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_A_KITCHEN",
+      "wall_owners": [
+        "F05_A_KITCHEN:north"
+      ],
+      "route_points": 194,
+      "gain_source": "F05_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_A_STUDY",
+      "wall_owners": [
+        "F05_A_KITCHEN:south"
+      ],
+      "route_points": 229,
+      "gain_source": "F05_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_B_MAIN",
+      "wall_owners": [
+        "F05_B_MAIN:east"
+      ],
+      "route_points": 135,
+      "gain_source": "F05_B_MAIN_LT_PENDANT_SHADE"
+    },
+    {
+      "room": "F05_B_VESTIBULE",
+      "wall_owners": [
+        "F05_B_BATH:south"
+      ],
+      "route_points": 108,
+      "gain_source": "F05_B_ALCOVE_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_B_BATH",
+      "wall_owners": [
+        "F05_B_BATH:south"
+      ],
+      "route_points": 129,
+      "gain_source": "F05_B_ALCOVE_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_B_ALCOVE",
+      "wall_owners": [
+        "F05_B_ALCOVE:east"
+      ],
+      "route_points": 278,
+      "gain_source": "F05_B_ALCOVE_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_B_PRIVATE_HALL",
+      "wall_owners": [
+        "F05_B_KITCHEN:west"
+      ],
+      "route_points": 248,
+      "gain_source": "F05_B_ALCOVE_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_B_KITCHEN",
+      "wall_owners": [
+        "F05_B_KITCHEN:west"
+      ],
+      "route_points": 270,
+      "gain_source": "F05_B_KITCHEN_LT_KITCHEN_LINEAR"
+    },
+    {
+      "room": "F05_C_VESTIBULE",
+      "wall_owners": [
+        "F05_PUBLIC_CORE:north"
+      ],
+      "route_points": 65,
+      "gain_source": "F05_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_C_MAIN",
+      "wall_owners": [
+        "F05_C_MAIN:south"
+      ],
+      "route_points": 123,
+      "gain_source": "F05_C_MAIN_LT_PENDANT_SHADE"
+    },
+    {
+      "room": "F05_C_STUDIO",
+      "wall_owners": [
+        "F05_C_MAIN:south"
+      ],
+      "route_points": 134,
+      "gain_source": "F05_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_C_PRIVATE_HALL",
+      "wall_owners": [
+        "F05_C_PRIVATE_HALL:east"
+      ],
+      "route_points": 151,
+      "gain_source": "F05_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_C_BATH",
+      "wall_owners": [
+        "F05_C_BATH:north"
+      ],
+      "route_points": 142,
+      "gain_source": "F05_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_C_KITCHEN",
+      "wall_owners": [
+        "F05_C_KITCHEN:north"
+      ],
+      "route_points": 175,
+      "gain_source": "F05_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_C_BED1",
+      "wall_owners": [
+        "F05_C_BED1:south"
+      ],
+      "route_points": 137,
+      "gain_source": "F05_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F05_C_BED2",
+      "wall_owners": [
+        "F05_C_BED2:south"
+      ],
+      "route_points": 170,
+      "gain_source": "F05_C_BED2_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_A_MAIN",
+      "wall_owners": [
+        "F06_A_MAIN:east"
+      ],
+      "route_points": 125,
+      "gain_source": "F06_A_MAIN_LT_PENDANT_SHADE"
+    },
+    {
+      "room": "F06_A_VESTIBULE",
+      "wall_owners": [
+        "F06_A_VESTIBULE:north"
+      ],
+      "route_points": 95,
+      "gain_source": "F06_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_A_PRIVATE_HALL",
+      "wall_owners": [
+        "F06_A_BATH:north"
+      ],
+      "route_points": 181,
+      "gain_source": "F06_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_A_BATH",
+      "wall_owners": [
+        "F06_A_BATH:north"
+      ],
+      "route_points": 214,
+      "gain_source": "F06_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_A_BED",
+      "wall_owners": [
+        "F06_A_BED:north"
+      ],
+      "route_points": 228,
+      "gain_source": "F06_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_A_KITCHEN",
+      "wall_owners": [
+        "F06_A_KITCHEN:north"
+      ],
+      "route_points": 194,
+      "gain_source": "F06_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_A_STUDY",
+      "wall_owners": [
+        "F06_A_BATH:west"
+      ],
+      "route_points": 221,
+      "gain_source": "F06_A_BED_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_B_MAIN",
+      "wall_owners": [
+        "F06_B_MAIN:east"
+      ],
+      "route_points": 135,
+      "gain_source": "F06_B_MAIN_LT_PENDANT_SHADE"
+    },
+    {
+      "room": "F06_B_VESTIBULE",
+      "wall_owners": [
+        "F06_B_BATH:south"
+      ],
+      "route_points": 108,
+      "gain_source": "F06_B_ALCOVE_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_B_BATH",
+      "wall_owners": [
+        "F06_B_BATH:south"
+      ],
+      "route_points": 129,
+      "gain_source": "F06_B_ALCOVE_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_B_ALCOVE",
+      "wall_owners": [
+        "F06_B_ALCOVE:east"
+      ],
+      "route_points": 278,
+      "gain_source": "F06_B_ALCOVE_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_B_PRIVATE_HALL",
+      "wall_owners": [
+        "F06_B_KITCHEN:west"
+      ],
+      "route_points": 248,
+      "gain_source": "F06_B_ALCOVE_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_B_KITCHEN",
+      "wall_owners": [
+        "F06_B_KITCHEN:west"
+      ],
+      "route_points": 270,
+      "gain_source": "F06_B_KITCHEN_LT_KITCHEN_LINEAR"
+    },
+    {
+      "room": "F06_C_VESTIBULE",
+      "wall_owners": [
+        "F06_PUBLIC_CORE:north"
+      ],
+      "route_points": 65,
+      "gain_source": "F06_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_C_MAIN",
+      "wall_owners": [
+        "F06_C_MAIN:south"
+      ],
+      "route_points": 123,
+      "gain_source": "F06_C_MAIN_LT_PENDANT_SHADE"
+    },
+    {
+      "room": "F06_C_STUDIO",
+      "wall_owners": [
+        "F06_C_MAIN:south"
+      ],
+      "route_points": 134,
+      "gain_source": "F06_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_C_PRIVATE_HALL",
+      "wall_owners": [
+        "F06_C_PRIVATE_HALL:east"
+      ],
+      "route_points": 151,
+      "gain_source": "F06_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_C_BATH",
+      "wall_owners": [
+        "F06_C_BATH:north"
+      ],
+      "route_points": 142,
+      "gain_source": "F06_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_C_KITCHEN",
+      "wall_owners": [
+        "F06_C_KITCHEN:north"
+      ],
+      "route_points": 175,
+      "gain_source": "F06_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_C_BED1",
+      "wall_owners": [
+        "F06_C_BED1:south"
+      ],
+      "route_points": 137,
+      "gain_source": "F06_C_BED1_LT_FLUSH_DOME"
+    },
+    {
+      "room": "F06_C_BED2",
+      "wall_owners": [
+        "F06_C_BED2:south"
+      ],
+      "route_points": 170,
+      "gain_source": "F06_C_BED2_LT_FLUSH_DOME"
+    }
+  ],
+  "routes": "routes.json",
+  "limits": "Source capsule routes with ordinary doors and wardrobes open; physical targeting and light appearance need Godot. No player traversal claim."
+}

@@ -89,7 +89,14 @@ func validate(source: Variant, adapter: Variant) -> bool:
 				var value: Variant = record.properties.get(key)
 				if typeof(value) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(value)) or float(value) <= 0.0:
 					errors.append("invalid fixture setting: " + key)
+	var controls: Dictionary = {}
 	for record: Dictionary in source.switches:
 		if not rooms.has(record.room):
 			errors.append("switch has no room fixtures")
+		if controls.has(record.room):
+			errors.append("room has duplicate circuit controls")
+		controls[record.room] = true
+	for room: String in rooms:
+		if not controls.has(room):
+			errors.append("room fixture has no circuit control: " + room)
 	return errors.is_empty()

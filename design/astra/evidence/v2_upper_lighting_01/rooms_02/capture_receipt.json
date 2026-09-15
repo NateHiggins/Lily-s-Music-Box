@@ -1,0 +1,116 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2UpperLightingShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-astra\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02",
+  "started_utc": "2026-09-15T11:32:49.1727403Z",
+  "elapsed_seconds": 35.214,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 15,
+  "actual_frames": 15,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_rooms_02_20260915T113249172Z.log",
+  "filtered_process_output": [
+    "[PASSAGE HOURS] OPEN; 10 grilles folded",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters",
+    "[V2 UPPER LIGHTING CAPTURE] 1/15 label=5a_drafting_off elapsed=9.595 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5a_drafting_off.png",
+    "[V2 UPPER LIGHTING CAPTURE] 2/15 label=5a_drafting_on elapsed=10.689 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5a_drafting_on.png",
+    "[V2 UPPER LIGHTING CAPTURE] 3/15 label=5a_drafting_lamp elapsed=11.735 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5a_drafting_lamp.png",
+    "[V2 UPPER LIGHTING CAPTURE] 4/15 label=5b_kitchen_off elapsed=14.733 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5b_kitchen_off.png",
+    "[V2 UPPER LIGHTING CAPTURE] 5/15 label=5b_kitchen_on elapsed=15.816 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5b_kitchen_on.png",
+    "[V2 UPPER LIGHTING CAPTURE] 6/15 label=5b_kitchen_lamp elapsed=16.875 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5b_kitchen_lamp.png",
+    "[V2 UPPER LIGHTING CAPTURE] 7/15 label=5c_bedroom_off elapsed=19.904 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5c_bedroom_off.png",
+    "[V2 UPPER LIGHTING CAPTURE] 8/15 label=5c_bedroom_on elapsed=20.992 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5c_bedroom_on.png",
+    "[V2 UPPER LIGHTING CAPTURE] 9/15 label=5c_bedroom_lamp elapsed=22.053 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/5c_bedroom_lamp.png",
+    "[V2 UPPER LIGHTING CAPTURE] 10/15 label=6a_workdesk_off elapsed=25.050 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/6a_workdesk_off.png",
+    "[V2 UPPER LIGHTING CAPTURE] 11/15 label=6a_workdesk_on elapsed=26.051 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/6a_workdesk_on.png",
+    "[V2 UPPER LIGHTING CAPTURE] 12/15 label=6a_workdesk_lamp elapsed=27.119 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/6a_workdesk_lamp.png",
+    "[V2 UPPER LIGHTING CAPTURE] 13/15 label=6c_sitting_off elapsed=30.147 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/6c_sitting_off.png",
+    "[V2 UPPER LIGHTING CAPTURE] 14/15 label=6c_sitting_on elapsed=31.213 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/6c_sitting_on.png",
+    "[V2 UPPER LIGHTING CAPTURE] 15/15 label=6c_sitting_lamp elapsed=32.293 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_lighting_01\\rooms_02/6c_sitting_lamp.png",
+    "[V2 UPPER LIGHTING] RESULT: PASS captures=15 expected=15 elapsed=32.296"
+  ],
+  "files": [
+    {
+      "name": "5a_drafting_lamp.png",
+      "bytes": 1074485,
+      "sha256": "d59a4eb059a085cee776dea7a24c82afe39c975f5f9fb4262ddd9f5e324f2269"
+    },
+    {
+      "name": "5a_drafting_off.png",
+      "bytes": 514125,
+      "sha256": "6e61ac141797d3ef1755eb6c5a1703b68cfc3ca0c41c6ffbf07519d3417ea64d"
+    },
+    {
+      "name": "5a_drafting_on.png",
+      "bytes": 1047521,
+      "sha256": "98c440ddc8923e5bbaf4eddf56c48f95f57155282ce14bde37629d16d36ac518"
+    },
+    {
+      "name": "5b_kitchen_lamp.png",
+      "bytes": 954886,
+      "sha256": "336b0101a1da41b5afec076b8403cc51922aaab8b0e3d7d89d6bfceb405cc31f"
+    },
+    {
+      "name": "5b_kitchen_off.png",
+      "bytes": 572846,
+      "sha256": "e68f95e8b2ed41c8a693689cc34a6621f970ace1ee253243106731acccc32b42"
+    },
+    {
+      "name": "5b_kitchen_on.png",
+      "bytes": 925009,
+      "sha256": "efdd02e432b28d6c68516c8a94b9f65a102451e498e7c60c3bcd7384673cb56c"
+    },
+    {
+      "name": "5c_bedroom_lamp.png",
+      "bytes": 981655,
+      "sha256": "42f736196f628df5c69ba6d4b17d25675dce55ec9d27342ffb1526315e903502"
+    },
+    {
+      "name": "5c_bedroom_off.png",
+      "bytes": 606271,
+      "sha256": "750605a1a4eefdff91d6393286cc0085bd511841059d155fd854f2e148a621b7"
+    },
+    {
+      "name": "5c_bedroom_on.png",
+      "bytes": 968392,
+      "sha256": "5ecfd8e32acfccf6a41999a01959530b4f072d427b17fa1876da61a929bb8b2f"
+    },
+    {
+      "name": "6a_workdesk_lamp.png",
+      "bytes": 1022847,
+      "sha256": "7173e36c5281ef23575389591ffff19b759db328cfeae83c7da1cd719eea83f8"
+    },
+    {
+      "name": "6a_workdesk_off.png",
+      "bytes": 631814,
+      "sha256": "991786527ad5c4be24b605c454e41faab4101a616c534c15649f6a324cb8bf6f"
+    },
+    {
+      "name": "6a_workdesk_on.png",
+      "bytes": 931881,
+      "sha256": "38cbbf7b6d3acb283ad1ae05df94cbb9119f6d5a38498db78d925d7152eb9d8a"
+    },
+    {
+      "name": "6c_sitting_lamp.png",
+      "bytes": 1100688,
+      "sha256": "f1a070c7d64b75aeca953545e54990ea480a7034426c06a076c325edc8475a8c"
+    },
+    {
+      "name": "6c_sitting_off.png",
+      "bytes": 604600,
+      "sha256": "7f2d9821a136b53c5e987419cc72d710131796051cd9eef9b013aa10183bd602"
+    },
+    {
+      "name": "6c_sitting_on.png",
+      "bytes": 1101594,
+      "sha256": "42b069600919a6dd292b783b9189540264aed267703050a9ffeb506c02ad58dc"
+    }
+  ]
+}
