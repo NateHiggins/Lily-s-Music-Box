@@ -308,7 +308,7 @@ func _check_apartment_doors(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) ->
 func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://data/orison_v2/domestic_surface_props.json"))
-	var counts := {"2A":0, "2B":0, "3A":0, "3B":0, "4A":0, "4B":0}
+	var counts := {"2A":0, "2B":0, "3A":0, "3B":0, "4A":0, "4B":0, "5A":0, "5B":0, "5C":0, "6A":0, "6B":0, "6C":0}
 	var dry_adapter := SurfaceSourceAdapter.new()
 	for record: Dictionary in source.props:
 		var support := world.adapter.resolve(record.support) as Node3D
@@ -326,7 +326,7 @@ func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 				"fixed dressing adds no interaction or collision owner: " + str(record.id))
 		check(prop.find_children("*", "MeshInstance3D", true, false).size() >= record.surfaces.size(),
 				"material surfaces mounted: " + str(record.id))
-	check(counts == {"2A":5, "2B":4, "3A":4, "3B":8, "4A":3, "4B":2}, "surface category roster across all apartments")
+	check(counts == {"2A":5, "2B":4, "3A":4, "3B":8, "4A":3, "4B":2, "5A":7, "5B":4, "5C":4, "6A":6, "6B":5, "6C":3}, "surface category roster across all apartments")
 	var loader := preload("res://scripts/building/orison_v2_surface_props.gd").new()
 	check(loader.validate(source, dry_adapter), "complete source accepts available supports")
 	var missing := source.duplicate(true)

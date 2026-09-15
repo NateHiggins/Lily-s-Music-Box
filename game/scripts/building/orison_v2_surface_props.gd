@@ -2,7 +2,7 @@ extends "res://scripts/building/orison_v2_domestic_furniture.gd"
 ## Small fixed objects belong to their supporting furniture/fixture. They add
 ## no collision or interaction owner and retire with that support.
 const SURFACE_PATH := "res://data/orison_v2/domestic_surface_props.json"
-const KINDS := ["mug", "dishrack", "papers", "headphones", "partstray", "jarrow", "bookpile", "cablecoil", "bottles"]
+const KINDS := ["mug", "dishrack", "papers", "headphones", "partstray", "jarrow", "bookpile", "cablecoil", "bottles", "sitemodel"]
 
 func mount(adapter: Variant) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(SURFACE_PATH))
@@ -28,7 +28,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 	for record: Variant in source.props:
 		if record is not Dictionary or record.get("id") is not String or record.id.is_empty() \
 				or record.get("kind") not in KINDS or record.get("support") is not String \
-				or record.get("unit") not in ["2A", "2B", "3A", "3B", "4A", "4B"]:
+				or record.get("unit") not in ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"]:
 			errors.append("invalid surface prop identity")
 			continue
 		if seen.has(record.id) or adapter == null:

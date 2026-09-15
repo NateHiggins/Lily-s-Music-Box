@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2UpperSurfaceShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-astra\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01",
+  "started_utc": "2026-09-15T12:36:47.5083722Z",
+  "elapsed_seconds": 30.28,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 14,
+  "actual_frames": 14,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_surfaces_01_20260915T123647508Z.log",
+  "filtered_process_output": [
+    "[PASSAGE HOURS] OPEN; 10 grilles folded",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters",
+    "[V2 UPPER SURFACES CAPTURE] 1/14 label=F05_5A_KITCHEN_SINK_01 elapsed=10.543 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/F05_5A_KITCHEN_SINK_01.png",
+    "[V2 UPPER SURFACES CAPTURE] 2/14 label=F05_5B_KITCHEN_SINK_01 elapsed=11.816 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/F05_5B_KITCHEN_SINK_01.png",
+    "[V2 UPPER SURFACES CAPTURE] 3/14 label=F05_5C_KITCHEN_SINK_01 elapsed=13.066 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/F05_5C_KITCHEN_SINK_01.png",
+    "[V2 UPPER SURFACES CAPTURE] 4/14 label=F06_6A_KITCHEN_SINK_01 elapsed=14.305 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/F06_6A_KITCHEN_SINK_01.png",
+    "[V2 UPPER SURFACES CAPTURE] 5/14 label=F06_6B_KITCHEN_SINK_01 elapsed=15.555 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/F06_6B_KITCHEN_SINK_01.png",
+    "[V2 UPPER SURFACES CAPTURE] 6/14 label=F06_6C_KITCHEN_SINK_01 elapsed=16.821 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/F06_6C_KITCHEN_SINK_01.png",
+    "[V2 UPPER SURFACES CAPTURE] 7/14 label=5A_modtable elapsed=18.044 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/5A_modtable.png",
+    "[V2 UPPER SURFACES CAPTURE] 8/14 label=5A_plantable elapsed=19.307 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/5A_plantable.png",
+    "[V2 UPPER SURFACES CAPTURE] 9/14 label=5A_planshelf elapsed=20.529 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/5A_planshelf.png",
+    "[V2 UPPER SURFACES CAPTURE] 10/14 label=5B_din_t elapsed=21.785 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/5B_din_t.png",
+    "[V2 UPPER SURFACES CAPTURE] 11/14 label=5C_din_t elapsed=23.021 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/5C_din_t.png",
+    "[V2 UPPER SURFACES CAPTURE] 12/14 label=6A_deskwall elapsed=24.270 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/6A_deskwall.png",
+    "[V2 UPPER SURFACES CAPTURE] 13/14 label=6B_din_t elapsed=25.552 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/6B_din_t.png",
+    "[V2 UPPER SURFACES CAPTURE] 14/14 label=6C_din_t elapsed=26.782 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_surface_props_01\\surfaces_01/6C_din_t.png",
+    "[V2 UPPER SURFACES] RESULT: PASS captures=14 expected=14 elapsed=26.785"
+  ],
+  "files": [
+    {
+      "name": "5A_modtable.png",
+      "bytes": 939324,
+      "sha256": "bea0307bc45b026d6a792b2eafd432c97b9c100918436e48038492f5a2ea1f72"
+    },
+    {
+      "name": "5A_planshelf.png",
+      "bytes": 960373,
+      "sha256": "ac25d5550002136dde2b56de71f9f60c6cee56a7ac2a0d0430d7193d55a1ecfa"
+    },
+    {
+      "name": "5A_plantable.png",
+      "bytes": 1039244,
+      "sha256": "748ddff0aa245dec48c5b0fd873608a15823651045d27075dc36e9d1822ef0b5"
+    },
+    {
+      "name": "5B_din_t.png",
+      "bytes": 947549,
+      "sha256": "9b09f38b6b00991f9949c73d584f9bae52ab258c2cdfa7f446c89007f295cc25"
+    },
+    {
+      "name": "5C_din_t.png",
+      "bytes": 960261,
+      "sha256": "de4bb5233896285e015b725cedff43dc9e17894055f87ad6bdf34945b9d9bfd6"
+    },
+    {
+      "name": "6A_deskwall.png",
+      "bytes": 901103,
+      "sha256": "277fae2a47dee66ee50cc5403958fd574596f7f289d6ce21c6cefdd523b19b2d"
+    },
+    {
+      "name": "6B_din_t.png",
+      "bytes": 1123803,
+      "sha256": "b23250a191157f0a2dd325979b4e21dbebdaf048df8581f97486d93b1aa1de88"
+    },
+    {
+      "name": "6C_din_t.png",
+      "bytes": 901728,
+      "sha256": "ffd834b0c626082992b28f29f090c0104bf29cd62af0bddcde4fb8b30909eabe"
+    },
+    {
+      "name": "F05_5A_KITCHEN_SINK_01.png",
+      "bytes": 1025861,
+      "sha256": "0c9e3355580fc43d090bc85fbff871e954b9541711a1101231b62741041447da"
+    },
+    {
+      "name": "F05_5B_KITCHEN_SINK_01.png",
+      "bytes": 1015644,
+      "sha256": "c5db47e1c90d46689c41b243f93141d5e9a4bfa81510db0dfcfb84cf6cb8a189"
+    },
+    {
+      "name": "F05_5C_KITCHEN_SINK_01.png",
+      "bytes": 1093126,
+      "sha256": "6eb483d2bffae428b498d256b773cc719cf033898938b8d9c139a85dff03c823"
+    },
+    {
+      "name": "F06_6A_KITCHEN_SINK_01.png",
+      "bytes": 951240,
+      "sha256": "2ef682f5079d7310e010c3272f71c141a2e22de9914b28ca6a3cbe2999ea16bb"
+    },
+    {
+      "name": "F06_6B_KITCHEN_SINK_01.png",
+      "bytes": 1058443,
+      "sha256": "7c630f051ed1d5b9134a64512ec2fd38f9bb30a5a0c169f87128c8e7b6de4a90"
+    },
+    {
+      "name": "F06_6C_KITCHEN_SINK_01.png",
+      "bytes": 1046464,
+      "sha256": "1d2ad367e4ba4121b224bd068096641226ec6b8d48df0fcc2a5fd98dcc75c36f"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "props": [
+    {
+      "id": "5A_k_kmug",
+      "unit": "5A",
+      "kind": "mug",
+      "support": "F05_5A_KITCHEN_SINK_01",
+      "room": "F05_A_KITCHEN"
+    },
+    {
+      "id": "5A_k_kdishrack",
+      "unit": "5A",
+      "kind": "dishrack",
+      "support": "F05_5A_KITCHEN_SINK_01",
+      "room": "F05_A_KITCHEN"
+    },
+    {
+      "id": "5B_k_kmug",
+      "unit": "5B",
+      "kind": "mug",
+      "support": "F05_5B_KITCHEN_SINK_01",
+      "room": "F05_B_KITCHEN"
+    },
+    {
+      "id": "5B_k_kdishrack",
+      "unit": "5B",
+      "kind": "dishrack",
+      "support": "F05_5B_KITCHEN_SINK_01",
+      "room": "F05_B_KITCHEN"
+    },
+    {
+      "id": "5C_k_kmug",
+      "unit": "5C",
+      "kind": "mug",
+      "support": "F05_5C_KITCHEN_SINK_01",
+      "room": "F05_C_KITCHEN"
+    },
+    {
+      "id": "5C_k_kdishrack",
+      "unit": "5C",
+      "kind": "dishrack",
+      "support": "F05_5C_KITCHEN_SINK_01",
+      "room": "F05_C_KITCHEN"
+    },
+    {
+      "id": "6A_k_kmug",
+      "unit": "6A",
+      "kind": "mug",
+      "support": "F06_6A_KITCHEN_SINK_01",
+      "room": "F06_A_KITCHEN"
+    },
+    {
+      "id": "6A_k_kdishrack",
+      "unit": "6A",
+      "kind": "dishrack",
+      "support": "F06_6A_KITCHEN_SINK_01",
+      "room": "F06_A_KITCHEN"
+    },
+    {
+      "id": "6B_k_kmug",
+      "unit": "6B",
+      "kind": "mug",
+      "support": "F06_6B_KITCHEN_SINK_01",
+      "room": "F06_B_KITCHEN"
+    },
+    {
+      "id": "6B_k_kdishrack",
+      "unit": "6B",
+      "kind": "dishrack",
+      "support": "F06_6B_KITCHEN_SINK_01",
+      "room": "F06_B_KITCHEN"
+    },
+    {
+      "id": "6C_k_kdishrack",
+      "unit": "6C",
+      "kind": "dishrack",
+      "support": "F06_6C_KITCHEN_SINK_01",
+      "room": "F06_C_KITCHEN"
+    },
+    {
+      "id": "5A_model",
+      "unit": "5A",
+      "kind": "sitemodel",
+      "support": "5A_modtable",
+      "room": "F05_A_STUDY"
+    },
+    {
+      "id": "5A_papers1",
+      "unit": "5A",
+      "kind": "papers",
+      "support": "5A_plantable",
+      "room": "F05_A_MAIN"
+    },
+    {
+      "id": "5A_papers2",
+      "unit": "5A",
+      "kind": "papers",
+      "support": "5A_plantable",
+      "room": "F05_A_MAIN"
+    },
+    {
+      "id": "5A_mug1",
+      "unit": "5A",
+      "kind": "mug",
+      "support": "5A_plantable",
+      "room": "F05_A_MAIN"
+    },
+    {
+      "id": "5A_mug2",
+      "unit": "5A",
+      "kind": "mug",
+      "support": "5A_planshelf",
+      "room": "F05_A_STUDY"
+    },
+    {
+      "id": "5B_story_headphones",
+      "unit": "5B",
+      "kind": "headphones",
+      "support": "5B_din_t",
+      "room": "F05_B_MAIN"
+    },
+    {
+      "id": "5B_story_lead",
+      "unit": "5B",
+      "kind": "cablecoil",
+      "support": "5B_din_t",
+      "room": "F05_B_MAIN"
+    },
+    {
+      "id": "5C_story_solvents",
+      "unit": "5C",
+      "kind": "bottles",
+      "support": "5C_din_t",
+      "room": "F05_C_MAIN"
+    },
+    {
+      "id": "5C_story_studies",
+      "unit": "5C",
+      "kind": "papers",
+      "support": "5C_din_t",
+      "room": "F05_C_MAIN"
+    },
+    {
+      "id": "6A_phones",
+      "unit": "6A",
+      "kind": "headphones",
+      "support": "6A_deskwall",
+      "room": "F06_A_STUDY"
+    },
+    {
+      "id": "6A_cans",
+      "unit": "6A",
+      "kind": "bottles",
+      "support": "6A_deskwall",
+      "room": "F06_A_STUDY"
+    },
+    {
+      "id": "6A_detail_capture_papers",
+      "unit": "6A",
+      "kind": "papers",
+      "support": "6A_deskwall",
+      "room": "F06_A_STUDY"
+    },
+    {
+      "id": "6A_detail_capture_mug",
+      "unit": "6A",
+      "kind": "mug",
+      "support": "6A_deskwall",
+      "room": "F06_A_STUDY"
+    },
+    {
+      "id": "6B_story_draft",
+      "unit": "6B",
+      "kind": "papers",
+      "support": "6B_din_t",
+      "room": "F06_B_MAIN"
+    },
+    {
+      "id": "6B_story_references",
+      "unit": "6B",
+      "kind": "bookpile",
+      "support": "6B_din_t",
+      "room": "F06_B_MAIN"
+    },
+    {
+      "id": "6B_story_cold_coffee",
+      "unit": "6B",
+      "kind": "mug",
+      "support": "6B_din_t",
+      "room": "F06_B_MAIN"
+    },
+    {
+      "id": "6C_story_oddments",
+      "unit": "6C",
+      "kind": "jarrow",
+      "support": "6C_din_t",
+      "room": "F06_C_MAIN"
+    },
+    {
+      "id": "6C_story_catalogues",
+      "unit": "6C",
+      "kind": "bookpile",
+      "support": "6C_din_t",
+      "room": "F06_C_MAIN"
+    }
+  ]
+}
