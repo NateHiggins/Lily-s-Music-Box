@@ -82,7 +82,10 @@ def check(layout,program,additional_solids=(),targets=()):
         for target in targets:
             if target['level']!=level:continue
             x,z=target['point'];goal=(round(x*10),round(z*10))
-            assert goal in reached and clear(x*10,z*10),('fixture stance unreachable',target['id'],target['point'])
+            assert goal in reached and clear(x*10,z*10),(
+                'fixture stance unreachable',target['id'],target['point'],
+                'point_clear',clear(x*10,z*10),'grid_clear',clear(*goal),
+                'nearest',min(reached,key=lambda n:math.dist(n,goal)))
             for t in [.25,.5,.75]:
                 assert clear(goal[0]+(x*10-goal[0])*t,goal[1]+(z*10-goal[1])*t),('stance final edge blocked',target['id'])
             points=[goal]

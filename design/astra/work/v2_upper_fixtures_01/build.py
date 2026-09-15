@@ -58,7 +58,7 @@ def write(path,value):
 
 def bounds(record):
     kind=record['kind']
-    if kind in ['toilet','counter']:return record['bounds']
+    if 'bounds' in record:return record['bounds']
     if kind=='shower':return [[-.3775,0,-.3775],[.3775,2.1,.3775]]
     if kind=='sink' and record['properties']['fixture']=='bath_sink':return [[-.33,0,-.26],[.33,1.2,.24]]
     if kind=='sink':return [[-.34,.7,-.26],[.76,1.25,.25]]
