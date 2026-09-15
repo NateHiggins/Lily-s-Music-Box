@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "status": "SCOPED_ENGINE_CHECKS_PASS",
+  "base_head": "e36fbcb38cabf4df4879521099b0307f47ec24ff",
+  "suites": [
+    {
+      "scene": "res://tests/OrisonV2UpperFloorsTest.tscn",
+      "renderer": "windowed Forward+",
+      "resolution": "960x540",
+      "checks": 666,
+      "failures": 0,
+      "stdout": "design/astra/work/v2_engine_resume_01/upper_floors_final.log",
+      "stdout_sha256": "481ef2cd594561d6186bf742e1c170c32cf0d1318324a87aa994648ca4136a4d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scene": "res://tests/OrisonV2UpperFixturesTest.tscn",
+      "renderer": "windowed Forward+",
+      "resolution": "960x540",
+      "checks": 410,
+      "failures": 0,
+      "stdout": "design/astra/work/v2_engine_resume_01/upper_fixtures_final.log",
+      "stdout_sha256": "dd31935609243edfbb6ecdb2299c133b002eee6ea6cbde20aa4c8b53c1aac434",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scene": "res://tests/OrisonV2UpperFurnitureTest.tscn",
+      "renderer": "windowed Forward+",
+      "resolution": "960x540",
+      "checks": 967,
+      "failures": 0,
+      "stdout": "design/astra/work/v2_engine_resume_01/upper_furniture_final.log",
+      "stdout_sha256": "cb172962876cba011f899aa4d054564371e9a5edf735757a0bdb7ea152d3090e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scene": "res://tests/OrisonV2HouseholdStateTest.tscn",
+      "renderer": "windowed Forward+",
+      "resolution": "960x540",
+      "checks": 54,
+      "failures": 0,
+      "stdout": "design/astra/work/v2_engine_resume_01/household_state_final.log",
+      "stdout_sha256": "f43848f9e055099d0613e676dc4b32ecdea253279d79656b2bacd284fbc05a14",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "scene": "res://tests/OrisonV2ApartmentBatchTest.tscn",
+      "renderer": "windowed Forward+",
+      "resolution": "960x540",
+      "checks": 10588,
+      "failures": 0,
+      "stdout": "design/astra/work/v2_engine_resume_01/apartment_batch_final.log",
+      "stdout_sha256": "eee4a6c1a8d03afc744bd941955ed6ad8efb599ca660944f1cfb94272c30c1f1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": 12685,
+  "capture_receipt": "upper_apartments_01/capture_receipt.json",
+  "final_source_sha256": {
+    "game/scripts/building/orison_v2_bath_details.gd": "75772689831fdc118abe96332d0c5f87ac1c573681ba67aeeb12c68c4743c270",
+    "game/scripts/building/orison_v2_domestic_doors.gd": "c30bd2ab5174f7e726c5cd58fc993facd3a7f16eeaaaf3895da5951f65be8597",
+    "game/scripts/building/orison_v2_household_state.gd": "2ed1d08f69096b6d942399be53f839415886b3ca56ad76a0e29af2cfc100e37f",
+    "game/scripts/building/orison_v2_prep_cabinet.gd": "d2d7ac4eedd77cd70845bc25ef0f0d7149382d75339772f913abf86c375d5477",
+    "game/tests/orison_v2_apartment_batch_test.gd": "500ef7598cd649e62348e509e818f45c467c0f69e6e77421bb7f4805dc30db92",
+    "game/tests/orison_v2_household_state_test.gd": "4844b6a415cba961d6d65cdbaa75f573793f5b57ca5b9b4125873ff53393e785",
+    "game/tests/orison_v2_upper_apartment_shot.gd": "f5eb6f4e7d628182b66e355d3f04ce75dbd10116d8b6b3908343c632fecd67e2",
+    "game/tests/orison_v2_upper_floors_test.gd": "533de2ddb1adb6d41c5eb797825c649ba8a7690eda176572ea80826871d765ce",
+    "game/tests/orison_v2_upper_fixtures_test.gd": "13c470ebdb6b915076038b6879245324369c72a136c16c0246db4f91fb28cc11",
+    "game/tests/orison_v2_upper_furniture_test.gd": "054d1dbcdf4573d6a26c915a66bf5acaee234212b6cabe56d8b0f4e6ddb30e68"
+  },
+  "unrelated_tracked_overlay": {
+    "game/scripts/dream/dream_exposure_field.gd": "9614f78deea7cb35d63bb188396cba36c3988e36ae3043149a32a0dbe9f30906"
+  },
+  "limits": "Bounded composition, interaction, save and teardown checks; five fixed-viewpoint captures. No played traversal, performance, listening, human acceptance or V2 completion claim. V1 remains default; S2J open."
+}

@@ -1,0 +1,30 @@
+ERROR: Node not found: "Collision/CollisionShape3D" (relative to "WallProbe_00").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] _check_wall_extensions (res://tests/orison_v2_apartment_batch_test.gd:367)
+       [1] _ready (res://tests/orison_v2_apartment_batch_test.gd:22)
+SCRIPT ERROR: Invalid access to property or key 'shape' on a base object of type 'null instance'.
+   at: _check_wall_extensions (res://tests/orison_v2_apartment_batch_test.gd:368)
+   GDScript backtrace (most recent call first):
+       [0] _check_wall_extensions (res://tests/orison_v2_apartment_batch_test.gd:368)
+       [1] _ready (res://tests/orison_v2_apartment_batch_test.gd:22)
+APARTMENT BATCH: complete storage/table/board category roster
+APARTMENT BATCH: new wood and glass surface bindings covered
+APARTMENT BATCH: complete storage/table/board category roster
+APARTMENT BATCH: new wood and glass surface bindings covered
+ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceSurfaceDataCacheE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceForwardClusteredE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: 1 RID of type "IndexArray" was leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8684)
+WARNING: 1 RID of type "IndexBuffer" was leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8684)
+WARNING: 2 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 12 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

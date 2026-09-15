@@ -364,8 +364,9 @@ func _check_wall_extensions() -> void:
 				check(low[along] >= float(extension.start) - .0001 \
 						and high[along] <= float(extension.end) + .0001,
 						"aperture clipping cannot extend partial wall past its endpoints")
-				var shape := mesh.get_node("Collision/CollisionShape3D") as CollisionShape3D
-				check((shape.shape as BoxShape3D).size.is_equal_approx(size),
+				var shapes := mesh.find_children("*", "CollisionShape3D", true, false)
+				check(shapes.size() == 1, "partial wall has exactly one collision shape")
+				check(shapes.size() == 1 and (shapes[0].shape as BoxShape3D).size.is_equal_approx(size),
 						"partial wall visual and collision dimensions agree")
 				for window: Dictionary in source.windows:
 					if window.space != space.id or window.axis != axis: continue
@@ -378,7 +379,7 @@ func _check_wall_extensions() -> void:
 							> maxf(low.y, float(window.sill)) + .0001
 					check(not (overlaps_width and overlaps_height), "window aperture remains free of wall geometry")
 			holder.free()
-	check(count == 23, "all original and expanded wall intervals have build coverage")
+	check(count == 41, "23 lower and 18 upper wall intervals have build coverage")
 	# Reject corrupt interval data before building any geometry.
 	for bad: Variant in [{"side":"east","start":-100.0,"end":0.0},
 			{"side":"east","start":NAN,"end":0.0}, {"side":"up","start":0.0,"end":1.0},
@@ -411,7 +412,8 @@ func _check_wall_extensions() -> void:
 	builder.free()
 
 func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
-	var expected := {"cupboard":6, "coffee":2, "pinboard":2, "toolboard":1, "crate":1}
+	# Includes Mae's upper-floor glass coffee table as well as the lower homes.
+	var expected := {"cupboard":6, "coffee":3, "pinboard":2, "toolboard":1, "crate":1}
 	var seen := {"cupboard":0, "coffee":0, "pinboard":0, "toolboard":0, "crate":0}
 	var cupboards: Array[String] = []
 	var timber_surfaces := 0
@@ -428,7 +430,7 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 		check(shapes.size() == 1, "bounded fixed furniture collision: " + str(record.id))
 		if record.kind == "cupboard":
 			cupboards.append(str(record.id).left(2))
-			var local := world.adapter.root.to_local(body.global_position)
+			var local: Vector3 = world.adapter.root.to_local(body.global_position)
 			var floor := 3.2 if str(record.id).begins_with("2") else 6.4 if str(record.id).begins_with("3") else 9.6
 			check(is_equal_approx(local.y - floor, 1.65), "wall cupboard mounted above standing capsule")
 			if shapes.size() == 1:
@@ -462,7 +464,7 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 	check(seen == expected, "complete storage/table/board category roster")
 	cupboards.sort()
 	check(cupboards == ["2A", "2B", "3A", "3B", "4A", "4B"], "one kitchen wall cupboard per detailed apartment")
-	check(timber_surfaces == 6 and plywood_surfaces == 1 and glass_surfaces == 2,
+	check(timber_surfaces == 4 and plywood_surfaces == 1 and glass_surfaces == 3,
 			"new wood and glass surface bindings covered")
 
 func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
@@ -586,9 +588,11 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		else: check(false, "preparation cabinet stance resolves")
 	check(cabinets.size() == 6 and panels.size() == 6, "complete six-kitchen preparation category")
 	for i in cabinets.size():
-		var state_before := JSON.stringify(RealityState.data)
+		var state_before: Dictionary = world.household_state.snapshot()
 		cabinets[i].call("interact", world.player)
-		check(JSON.stringify(RealityState.data) == state_before, "cabinet opening does not write campaign state")
+		state_before.records[cabinets[i].get("unit") + "_prep_cabinet"].value = true
+		check(RealityState.data[world.household_state.KEY] == state_before,
+			"cabinet opening persists only its own household control")
 		for j in cabinets.size():
 			check(bool(cabinets[j].get("opened")) == (j <= i), "cabinet switch has local household state")
 	await get_tree().create_timer(.36).timeout
@@ -601,9 +605,11 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 				cabinet.to_global(Vector3(-.19,.55,.24)), 1)
 		check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == cabinet,
 				"open shelf retains its physical back panel")
-		var state_before := JSON.stringify(RealityState.data)
+		var state_before: Dictionary = world.household_state.snapshot()
 		panel.call("interact", world.player)
-		check(JSON.stringify(RealityState.data) == state_before, "cabinet closing does not write campaign state")
+		state_before.records[cabinet.get("unit") + "_prep_cabinet"].value = false
+		check(RealityState.data[world.household_state.KEY] == state_before,
+			"cabinet closing persists only its own household control")
 	await get_tree().create_timer(.36).timeout
 	await get_tree().physics_frame
 	for cabinet in cabinets:
@@ -890,13 +896,20 @@ func _check_bath_details(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> vo
 				check(visual.mesh == shared[record.kind][i].mesh, "same bath geometry shares mesh resources across homes")
 		if not shared.has(record.kind): shared[record.kind] = visuals
 	check(loader.validate(source, dry), "complete bath roster accepts real supports")
+	var integer_origin := source.duplicate(true)
+	for record: Dictionary in integer_origin.props:
+		record.position = [0, 0, 0]
+		record.yaw = 0
+	check(loader.validate(integer_origin, dry), "integer and JSON float origins have the same contact")
 	check(not loader.validate(source, world.adapter), "duplicate bath mount refused")
-	for mutation: String in ["missing", "support", "offset", "bounds", "surface", "material"]:
+	for mutation: String in ["missing", "support", "offset", "yaw", "numeric_string", "bounds", "surface", "material"]:
 		var bad := source.duplicate(true)
 		match mutation:
 			"missing": bad.props.pop_back()
 			"support": bad.props[0].support = "2B_wc"
 			"offset": bad.props[0].position = [0,0,1]
+			"yaw": bad.props[0].yaw = .001
+			"numeric_string": bad.props[0].position = ["0", 0, 0]
 			"bounds": bad.props[0].bounds[1][0] = 2.0
 			"surface": bad.props[0].surfaces[0].vertices[0] = 5.0
 			"material": bad.props[0].surfaces[0].material = "missing_bath_finish"

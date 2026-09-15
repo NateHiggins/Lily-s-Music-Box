@@ -53,13 +53,15 @@ func exercise() -> void:
 	var wanted: Dictionary = owner.snapshot()
 	check(RealityState.save_game(), "household controls serialize through real save storage")
 	check(RealityState.data[Owner.KEY] == wanted, "snapshot includes every live control")
-	var owner_ref := weakref(owner)
+	var owner_ref: WeakRef = weakref(owner)
 	world.shutdown_for_tests()
 	world.free()
 	check(owner_ref.get_ref() == null, "first world's save owner is freed")
 	RealityState.reset_campaign_for_tests()
 	RealityState.load_game()
-	check(RealityState.data.get(Owner.KEY) == wanted, "control payload round-trips through disk")
+	# JSON represents the integer schema version as a float after parsing.
+	var serialized_wanted: Variant = JSON.parse_string(JSON.stringify(wanted, "", true, true))
+	check(RealityState.data.get(Owner.KEY) == serialized_wanted, "control payload round-trips through disk")
 	world = Runtime.instantiate() as OrisonV2RuntimeRoot
 	add_child(world)
 	check(not world.startup_failed, "saved household state reconstructs")
@@ -68,6 +70,8 @@ func exercise() -> void:
 		world.free()
 		return
 	owner = world.household_state
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	check(owner.snapshot() == wanted, "all 56 settings restore onto new physical owners")
 	for identity: String in wanted.records:
 		var prop: Node = world.adapter.resolve(identity)
@@ -75,9 +79,15 @@ func exercise() -> void:
 			var audio := prop.get("_squeak") as AudioStreamPlayer3D
 			check(not audio.playing, "restoring a cabinet does not replay its squeak")
 		elif wanted.records[identity].kind == "prep":
-			check(is_equal_approx((prop.get("_slide") as Node3D).position.x, Prep.TRAVEL), "saved kitchen panel is physically open")
+			var panel := prop.get("_slide") as AnimatableBody3D
+			var expected := Transform3D(Basis.IDENTITY, Vector3(Prep.TRAVEL,0,0))
+			check(panel.transform.is_equal_approx(expected), "saved kitchen panel restores its full local transform")
+			var physical: Transform3D = PhysicsServer3D.body_get_state(panel.get_rid(), PhysicsServer3D.BODY_STATE_TRANSFORM)
+			check(physical.is_equal_approx(panel.global_transform), "saved panel collision agrees with its visual")
 	var kinds: Dictionary = owner.get("_kinds")
-	var invalids: Array = [null, {"schema_version":2,"records":{}}, {"schema_version":true,"records":{}}]
+	var invalids: Array = [null, {"schema_version":2,"records":{}}, {"schema_version":true,"records":{}},
+		{"schema_version":"1","records":{}}, {"schema_version":NAN,"records":{}},
+		{"schema_version":1,"records":[],}, {"schema_version":1,"records":{"2A_prep_cabinet":{"kind":false,"value":true}}}]
 	var unknown := wanted.duplicate(true)
 	unknown.records["UNKNOWN"] = {"kind":"mirror","value":true}
 	invalids.append(unknown)
@@ -103,6 +113,12 @@ func exercise() -> void:
 	RealityState.data[Owner.KEY] = defaults.duplicate(true)
 	RealityState.state_changed.emit()
 	check(owner.snapshot() == defaults, "valid mid-session load recovers from blocked payload")
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	for unit_id: String in Owner.UNITS:
+		var cabinet: Node = world.adapter.resolve(unit_id + "_prep_cabinet")
+		check((cabinet.get("_slide") as Node3D).transform.is_equal_approx(Transform3D.IDENTITY),
+			"mid-session load returns the entire panel to its closed transform")
 	var before: Dictionary = RealityState.data[Owner.KEY].duplicate(true)
 	RealityState.save_write_blocked = true
 	(world.adapter.resolve("2A_prep_cabinet") as Node).call("interact", world.player)

@@ -64,17 +64,19 @@ func _saved_value() -> Variant:
 
 func validate(value: Variant, kinds: Dictionary) -> bool:
 	errors.clear()
-	if value is not Dictionary or value.size() != 2 or value.get("schema_version") != 1 \
+	if value is not Dictionary or value.size() != 2 \
 			or value.get("records") is not Dictionary:
 		errors.append("invalid household save schema")
 		return false
-	if typeof(value.schema_version) not in [TYPE_INT, TYPE_FLOAT]:
+	if typeof(value.get("schema_version")) not in [TYPE_INT, TYPE_FLOAT] \
+			or not is_finite(float(value.schema_version)) or float(value.schema_version) != 1.0:
 		errors.append("household save version must be numeric")
 		return false
 	for identity: Variant in value.records:
 		var record: Variant = value.records[identity]
 		if identity is not String or not kinds.has(identity) or record is not Dictionary \
-				or record.size() != 2 or record.get("kind") != kinds[identity]:
+				or record.size() != 2 or record.get("kind") is not String \
+				or record.kind != kinds[identity]:
 			errors.append("unknown or malformed household save identity")
 			continue
 		var setting: Variant = record.get("value")

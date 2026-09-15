@@ -50,8 +50,12 @@ func validate(source: Variant, adapter: Variant) -> bool:
 				or (record.kind != "toilet_roll" and (not owner is TapProp or owner.get("fixture") != "bath_sink")) \
 				or adapter.resolve(identity) != null:
 			errors.append("missing bath support or occupied detail identity")
-		if not _numbers(record.get("position"), 3) or record.position != [0,0,0] \
-				or not _numbers([record.get("yaw")], 1) or record.yaw != 0:
+		# JSON numbers are floats; Array equality also compares element types.
+		# Validate numeric values so a serialized zero origin is accepted.
+		if not _numbers(record.get("position"), 3) \
+				or float(record.position[0]) != 0.0 or float(record.position[1]) != 0.0 \
+				or float(record.position[2]) != 0.0 \
+				or not _numbers([record.get("yaw")], 1) or float(record.yaw) != 0.0:
 			errors.append("bath detail must use its support-local contact")
 		var before := errors.size()
 		_validate_surfaces(record.get("surfaces"))

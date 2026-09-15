@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2UpperApartmentShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-astra\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_engine_resume_01\\upper_apartments_01",
+  "started_utc": "2026-09-15T11:06:48.0249189Z",
+  "elapsed_seconds": 17.151,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 5,
+  "actual_frames": 5,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_upper_apartments_01_20260915T110648024Z.log",
+  "filtered_process_output": [
+    "[PASSAGE HOURS] OPEN; 10 grilles folded",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters",
+    "[V2 UPPER APARTMENTS CAPTURE] 1/5 label=5a_drafting elapsed=9.546 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_engine_resume_01\\upper_apartments_01/5a_drafting.png",
+    "[V2 UPPER APARTMENTS CAPTURE] 2/5 label=5b_kitchen elapsed=10.654 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_engine_resume_01\\upper_apartments_01/5b_kitchen.png",
+    "[V2 UPPER APARTMENTS CAPTURE] 3/5 label=5c_bedroom elapsed=11.703 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_engine_resume_01\\upper_apartments_01/5c_bedroom.png",
+    "[V2 UPPER APARTMENTS CAPTURE] 4/5 label=6a_workdesk elapsed=12.726 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_engine_resume_01\\upper_apartments_01/6a_workdesk.png",
+    "[V2 UPPER APARTMENTS CAPTURE] 5/5 label=6c_sitting elapsed=13.771 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_engine_resume_01\\upper_apartments_01/6c_sitting.png",
+    "[V2 UPPER APARTMENTS] RESULT: PASS captures=5 expected=5 elapsed=13.774"
+  ],
+  "files": [
+    {
+      "name": "5a_drafting.png",
+      "bytes": 586182,
+      "sha256": "f3389424e70d669bc271033c191c04403013c083dc6c3ec596e8b3b77b8be5f0"
+    },
+    {
+      "name": "5b_kitchen.png",
+      "bytes": 729992,
+      "sha256": "8d4dfd9e0bb477f3027490b48cc4fb4fd0b276804250baf0c1ea19759615448d"
+    },
+    {
+      "name": "5c_bedroom.png",
+      "bytes": 746292,
+      "sha256": "2d1dca52826105255b286800fddfb834ebe06f28d153117fb89a886ea261e205"
+    },
+    {
+      "name": "6a_workdesk.png",
+      "bytes": 752753,
+      "sha256": "31d9c47301333d2e1c4f86ac01dfaa15cfaac87891b837aacf5928189a557f1a"
+    },
+    {
+      "name": "6c_sitting.png",
+      "bytes": 674745,
+      "sha256": "062d799a954af5b7ed16479ebefaeb5d6e1145786f1b7f9554304d7f4e33236f"
+    }
+  ]
+}

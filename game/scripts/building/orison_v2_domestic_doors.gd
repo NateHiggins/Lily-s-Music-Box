@@ -53,7 +53,7 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 		door.width = float(record.width)
 		door.height = float(record.height)
 		door.door_kind = str(specs[identity].kind)
-		var right_hinge := record.hinge == "right"
+		var right_hinge: bool = str(record.hinge) == "right"
 		# DoorProp extends along local +X. A half-turn places a right-hung
 		# leaf across the same opening without negative physics scale.
 		# Reverse its local swing so the opening's authored side is retained.

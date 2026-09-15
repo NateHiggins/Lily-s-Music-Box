@@ -71,7 +71,12 @@ func interact(_actor: Node = null) -> Dictionary:
 func restore_open_state(value: bool) -> void:
 	if _motion != null and _motion.is_valid(): _motion.kill()
 	opened = value
-	_slide.position.x = TRAVEL if opened else 0.0
+	# Reconstruction is a teleport, not a physics animation. The synchronized
+	# body otherwise retains its pre-mount physics transform until the next tick.
+	_slide.sync_to_physics = false
+	_slide.transform = Transform3D(Basis.IDENTITY, Vector3(TRAVEL if opened else 0.0, 0.0, 0.0))
+	_slide.force_update_transform()
+	_slide.sync_to_physics = true
 
 func _exit_tree() -> void:
 	if _motion != null and _motion.is_valid(): _motion.kill()

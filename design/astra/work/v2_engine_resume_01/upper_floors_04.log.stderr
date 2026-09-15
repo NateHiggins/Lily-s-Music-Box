@@ -1,0 +1,14 @@
+ERROR: V2 lamp optical field: RenderingDevice required (Forward+ or Mobile)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _update_volume (res://scripts/building/orison_v2_lamp_atmosphere.gd:86)
+       [1] setup (res://scripts/building/orison_v2_lamp_atmosphere.gd:70)
+       [2] _ready (res://scripts/building/orison_v2_runtime_root.gd:135)
+       [3] _ready (res://tests/orison_v2_upper_floors_test.gd:21)
+ERROR: V2 lamp optical field: RenderingDevice required (Forward+ or Mobile)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _update_volume (res://scripts/building/orison_v2_lamp_atmosphere.gd:86)
+       [1] setup (res://scripts/building/orison_v2_lamp_atmosphere.gd:70)
+       [2] _ready (res://scripts/building/orison_v2_runtime_root.gd:135)
+       [3] _ready (res://tests/orison_v2_upper_floors_test.gd:21)
