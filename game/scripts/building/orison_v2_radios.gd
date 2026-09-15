@@ -1,14 +1,17 @@
 extends RefCounted
-## All six household receivers use the existing radio profiles and behavior.
+## Developed household receivers use the existing radio profiles and behavior.
 ## Furniture supports own their transforms and destruction.
 const PATH := "res://data/orison_v2/domestic_radios.json"
 const PROFILES := "res://data/domestic_radios.json"
 const Radio := preload("res://scripts/building/orison_v2_radio_prop.gd")
-const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B"]
+const UNITS := ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"]
 const PLACED_PROFILES := {
 	"2A": ["atwater_kent_44", "cone"], "2B": ["three_dial_battery", "cone"],
 	"3A": ["crystal_set", "headphones"], "3B": ["three_dial_battery", "horn"],
-	"4A": ["atwater_kent_44", "cone"], "4B": ["three_dial_battery", "cone"]
+	"4A": ["atwater_kent_44", "cone"], "4B": ["three_dial_battery", "cone"],
+	"5A": ["atwater_kent_44", "cone"], "5B": ["atwater_kent_44", "horn_and_cone"],
+	"5C": ["crystal_set", "headphones"], "6A": ["portable_four_valve", "lid_speaker"],
+	"6B": ["marconiphone_v2", "cone"], "6C": ["marconiphone_v2", "horn"]
 }
 var errors: Array[String] = []
 

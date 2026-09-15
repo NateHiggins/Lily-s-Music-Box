@@ -485,6 +485,9 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 		refs.append(weakref(radio))
 		check(radio.get_parent() == support, "radio lifetime belongs to furniture support")
 		check(radio.unit == record.unit and not radio.powered, "household identity preserved and starts silent")
+		var lo := Vector3(record.bounds[0][0],record.bounds[0][1],record.bounds[0][2])
+		var hi := Vector3(record.bounds[1][0],record.bounds[1][1],record.bounds[1][2])
+		check(AABB(lo,hi-lo).grow(.002).encloses(radio.call("_visual_bounds")), "receiver stays in reserved native clearance")
 		check(radio.find_children("*", "StaticBody3D", true, false).is_empty(), "receiver adds no movement blocker")
 		var area := radio.get_node_or_null("PrimaryInteraction") as Area3D
 		check(area != null, "receiver has physical interaction target")
@@ -506,16 +509,16 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 			refs.append(weakref(emitter))
 			check(not emitter.playing and emitter.stream != null, "programme is loaded but silent on entry")
 			check(emitter.bus == "Broadcast" and emitter.max_distance <= 5.5, "programme has bounded diegetic audio")
-		if record.unit == "3A":
+		if record.unit in ["3A", "5C"]:
 			check(radio.family == "crystal_set" and "headphones" in radio.interact_prompt(),
-					"Malcolm retains passive headphone listening")
+					"authored resident retains passive headphone listening")
 			check(emitter != null and is_equal_approx(emitter.max_distance, 1.6)
 					and is_equal_approx(float(radio.public_state().reach), 1.6), "headphone reach matches emitter")
 		if record.unit == "4A": check(radio.family == "atwater_kent_44", "Peter retains authored AC set")
 		for mesh: MeshInstance3D in radio.find_children("*", "MeshInstance3D", true, false):
 			var material := mesh.material_override as StandardMaterial3D
 			check(material != null and material.albedo_texture != null, "all receiver parts have texture-backed materials")
-	check(radios.size() == 6 and emitters.size() == 6, "all six households have complete receivers")
+	check(radios.size() == 12 and emitters.size() == 12, "all twelve developed households have complete receivers")
 	var loader := preload("res://scripts/building/orison_v2_radios.gd").new()
 	check(loader.validate(source, catalog, dry_adapter), "complete household source accepts supports")
 	check(not loader.validate(source, catalog, world.adapter), "duplicate radio installation is refused")
@@ -539,10 +542,12 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 	var reality_before := JSON.stringify(RealityState.data)
 	for i in radios.size():
 		radios[i].interact(world.player)
+		check(TelegramHud.card_from_interaction(radios[i], {}).get("condition") == "PLAYING", "wireless card reports active listening")
 		for j in radios.size(): check(radios[j].powered == (i == j), "one household switch cannot power another")
 		if i < emitters.size(): check(emitters[i].playing, "powered radio starts its programme")
 		radios[i].interact(world.player)
 		if i < emitters.size(): check(not emitters[i].playing, "radio switch returns programme to silence")
+		check(TelegramHud.card_from_interaction(radios[i], {}).get("condition") == "SILENT", "wireless card reports stopped listening")
 	check(JSON.stringify(RealityState.data) == reality_before, "local radio use leaves persistent campaign state untouched")
 	# Reconstruct/free with all programme decoders active. WeakRefs in the
 	# caller must retire together with the table and receiver owners.

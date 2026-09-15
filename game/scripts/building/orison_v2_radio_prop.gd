@@ -21,7 +21,8 @@ func _build_visual() -> void:
 		[CLOTH, "linen", Color.WHITE],
 		[PAPER, "paper", Color.WHITE],
 		[Color(.085,.09,.09), "cast_iron", Color.WHITE],
-		[Color(.36,.22,.10), "wood_dark", Color.WHITE]])
+		[Color(.36,.22,.10), "wood_dark", Color.WHITE],
+		[Color(.085,.055,.035), "linen", Color(.24,.16,.10)]])
 	if family == "atwater_kent_44":
 		# This family's first mesh is its pressed-metal chassis, while its
 		# knobs share the legacy black palette. Preserve that distinction.
@@ -37,10 +38,21 @@ func _build_visual() -> void:
 
 func interact_prompt() -> String:
 	if family == "crystal_set":
-		return "[E] Stop listening" if powered else "[E] Listen through Malcolm's headphones"
+		var resident := str(radio_profile.get("resident", unit)).split(" ")[0]
+		return "[E] Stop listening" if powered else "[E] Listen through %s's headphones" % resident
 	return super.interact_prompt()
 
 func public_state() -> Dictionary:
 	var result := super.public_state()
 	if family == "crystal_set": result.reach = 1.6
 	return result
+
+func service_wire_card() -> Dictionary:
+	var resident := str(radio_profile.get("resident", unit)).split(" ")[0]
+	var title := "Your wireless" if resident == "Player" else "%s's wireless" % resident
+	var body := "Wireless switched off."
+	if family == "crystal_set":
+		body = "Listening through the headphones." if powered else "Headphones set down."
+	elif powered:
+		body = "The wireless is playing."
+	return {"title":title,"body":body,"condition":"PLAYING" if powered else "SILENT","stamp":"WIRELESS"}
