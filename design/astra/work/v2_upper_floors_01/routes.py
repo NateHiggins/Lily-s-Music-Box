@@ -4,7 +4,7 @@ import math
 import build
 
 
-def check(layout,program):
+def check(layout,program,additional_solids=(),targets=()):
     walls=build.module('design/astra/work/v2_apartment_walls_batch_01/build.py','upper_route_walls')
     geo=build.module('design/astra/work/v2_apartment_doors_batch_01/check.py','upper_route_doors')
     edges=[w for w in walls.owned(layout) if w['level'] in ['F05','F06']]
@@ -17,6 +17,7 @@ def check(layout,program):
     for level in ['F05','F06']:
         for r in layout['risers']:
             if r.get('solid',True):solids.append((r['id'],level,r['rect']))
+    solids.extend(additional_solids)
     doors={d['id']:d for d in layout['doors'] if d['id'] in program['doors']}
     def leaf(identity,d,degrees):
         offset=geo.rotate([0,program['doors'][identity]['mount_offset']],d['yaw'])
@@ -77,10 +78,23 @@ def check(layout,program):
                 for a,b in zip(points,points[1:]):
                     for t in [.25,.5,.75]:assert clear(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t)
                 paths.append(dict(room=identity,points=[[x/10,z/10] for x,z in points]))
+        target_paths=[]
+        for target in targets:
+            if target['level']!=level:continue
+            x,z=target['point'];goal=(round(x*10),round(z*10))
+            assert goal in reached and clear(x*10,z*10),('fixture stance unreachable',target['id'],target['point'])
+            for t in [.25,.5,.75]:
+                assert clear(goal[0]+(x*10-goal[0])*t,goal[1]+(z*10-goal[1])*t),('stance final edge blocked',target['id'])
+            points=[goal]
+            while points[-1]!=start:points.append(previous[points[-1]])
+            points.reverse()
+            for a,b in zip(points,points[1:]):
+                for t in [.25,.5,.75]:assert clear(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t)
+            target_paths.append(dict(id=target['id'],points=[[x/10,z/10] for x,z in points]+[target['point']]))
         # Reach both established stair arrival lanes without crossing a void.
         for label,point in [('primary stair',[3.8,-2.6]),('service stair',[12.5,4.3])]:
             key=tuple(round(v*10) for v in point)
             assert key in reached,('upper stair landing disconnected',level,label)
-        results.append(dict(level=level,reachable_grid_points=len(reached),room_routes=paths))
+        results.append(dict(level=level,reachable_grid_points=len(reached),room_routes=paths,fixture_routes=target_paths))
     return dict(radius=.38,grid_step=.1,edge_sample_step=.025,leaf_sweep_poses=poses,floors=results,
                 limits='Plan clearance only, doors pre-opened except restricted entries. Does not prove operating stance, hardware rays, controller movement, stair climbing or engine physics.')

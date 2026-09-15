@@ -46,9 +46,11 @@ def main():
     protected += [p for p in baseline_paths if p.endswith('.json')]
     for path in protected:
         old=subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT)
-        if path=='game/data/orison_v2_blockout.json':
-            # Later floors may append records; this packet still protects
-            # every original record and non-table property exactly.
+        if path in ['game/data/orison_v2_blockout.json',
+                    'game/data/orison_v2/domestic_furniture.json',
+                    'game/data/orison_v2/domestic_fittings.json']:
+            # Later floors/categories may append records; this packet still
+            # protects every original record and non-table property exactly.
             previous=json.loads(old);current=load(path)
             for key,value in previous.items():
                 if isinstance(value,list):
