@@ -62,7 +62,15 @@ can sit beside it.
    bullets; effort; confidence). The critique is judgement; everything else
    here is measurement.
 
-5. **Score and brief.**
+5. **Check, score and brief.** `check` validates every critique against
+   `CRITIQUE_CONTRACT.md` and names the specimens still without one; the
+   scorer refuses nothing, so run the check first.
+
+   ```
+   python tools/prop_reference_tool.py check --index .../comparison_index.json --critiques .../critiques
+   ```
+
+   **Score and brief.**
 
    ```
    python tools/prop_reference_tool.py score --index .../comparison_index.json --critiques .../critiques --out .../ranking.json

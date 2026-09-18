@@ -255,5 +255,42 @@ class SheetAndBriefTests(unittest.TestCase):
         self.assertIn("INERT", text)
 
 
+class CritiqueValidationTests(unittest.TestCase):
+    def _good(self):
+        return {"specimen": "boiler", "axes": {a: 1 for a in priority.AXES}, "effort_hours": 4,
+                "confidence": "high", "summary": "Fine.", "modelling": ["x"], "texturing": []}
+
+    def test_good_critique_has_no_errors(self):
+        from tools.prop_reference.critiques import validate_critique
+        self.assertEqual(validate_critique(self._good(), {"boiler"}), [])
+
+    def test_each_contract_rule_is_enforced(self):
+        from tools.prop_reference.critiques import validate_critique
+        bad = self._good(); bad["axes"]["wear"] = 7
+        self.assertTrue(any("wear" in e for e in validate_critique(bad, {"boiler"})))
+        bad = self._good(); bad["axes"]["taste"] = 1
+        self.assertTrue(any("unknown axes" in e for e in validate_critique(bad, {"boiler"})))
+        bad = self._good(); bad["confidence"] = "sure"
+        self.assertTrue(any("confidence" in e for e in validate_critique(bad, {"boiler"})))
+        bad = self._good(); del bad["summary"]
+        self.assertTrue(any("missing summary" in e for e in validate_critique(bad, {"boiler"})))
+        self.assertTrue(any("not in the comparison index" in e
+                            for e in validate_critique(self._good(), {"kettle"})))
+        self.assertEqual(validate_critique("nope", set()), ["not a JSON object"])
+
+    def test_directory_report_flags_name_mismatch_and_bad_json(self):
+        from tools.prop_reference.critiques import validate_directory
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td)
+            (td / "boiler.json").write_text(json.dumps(self._good()), encoding="utf-8")
+            wrong = self._good(); wrong["specimen"] = "kettle"
+            (td / "toaster.json").write_text(json.dumps(wrong), encoding="utf-8")
+            (td / "broken.json").write_text("{", encoding="utf-8")
+            report = validate_directory(td, {"boiler", "toaster", "kettle"})
+            self.assertEqual(report["boiler.json"], [])
+            self.assertTrue(any("does not match" in e for e in report["toaster.json"]))
+            self.assertTrue(any("invalid JSON" in e for e in report["broken.json"]))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

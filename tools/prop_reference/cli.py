@@ -110,6 +110,25 @@ def cmd_score(args) -> int:
     return 0
 
 
+def cmd_check(args) -> int:
+    from .critiques import validate_directory
+    root = _repo(args)
+    index = mf.load_json(root / args.index)
+    known = {e["id"] for e in index["specimens"]}
+    report = validate_directory(root / args.critiques, known)
+    bad = {name: errs for name, errs in report.items() if errs}
+    covered = {name[:-5] for name in report} & known
+    print(f"[check] {len(report)} critique files, {len(bad)} invalid, "
+          f"{len(known) - len(covered)} specimens without a critique")
+    for name, errs in sorted(bad.items()):
+        for err in errs:
+            print(f"  {name}: {err}")
+    missing = sorted(known - covered)
+    if missing:
+        print("  missing: " + ", ".join(missing))
+    return 1 if bad else 0
+
+
 def cmd_brief(args) -> int:
     root = _repo(args)
     ranking = mf.load_json(root / args.ranking)
@@ -150,6 +169,11 @@ def main(argv=None) -> int:
     sc.add_argument("--critiques", required=True, help="directory of per-specimen critique JSON")
     sc.add_argument("--out", required=True)
     sc.set_defaults(func=cmd_score)
+
+    ck = sub.add_parser("check", help="validate critique files against the contract")
+    ck.add_argument("--index", required=True)
+    ck.add_argument("--critiques", required=True)
+    ck.set_defaults(func=cmd_check)
 
     br = sub.add_parser("brief", help="assemble the markdown brief from the ranking")
     br.add_argument("--ranking", required=True)
