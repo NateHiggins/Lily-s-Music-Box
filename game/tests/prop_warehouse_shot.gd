@@ -220,6 +220,17 @@ func _photograph(specimen: Node3D, all: Array[Node3D], labels: Array[Label3D],
 		other.visible = other == specimen
 	for label in labels:
 		label.visible = false
+	# Every cell's stub wall and soffit except this specimen's own: the camera
+	# stands up to a row back for a tall prop, which put the next row's wall
+	# between the lens and the front door on the first full pass.
+	var backers := get_tree().get_nodes_in_group("warehouse_backer")
+	for raw_backer in backers:
+		var backer := raw_backer as Node3D
+		if backer == null:
+			continue
+		var offset := backer.global_position - specimen.global_position
+		backer.visible = Vector2(offset.x, offset.z).length() \
+				< WarehouseScript.CELL * 0.6
 	_fill.visible = true
 
 	var centre := world_box.get_center()
@@ -245,6 +256,8 @@ func _photograph(specimen: Node3D, all: Array[Node3D], labels: Array[Label3D],
 		other.visible = true
 	for label in labels:
 		label.visible = true
+	for raw_backer in get_tree().get_nodes_in_group("warehouse_backer"):
+		(raw_backer as Node3D).visible = true
 	_fill.visible = false
 	return record
 
