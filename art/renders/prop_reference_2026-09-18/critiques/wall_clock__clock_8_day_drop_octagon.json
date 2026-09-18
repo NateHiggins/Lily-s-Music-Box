@@ -1,0 +1,46 @@
+{
+ "specimen": "wall_clock__clock_8_day_drop_octagon",
+ "axes": {
+  "object_class": 0,
+  "proportion": 2,
+  "silhouette": 1,
+  "detail": 3,
+  "material": 2,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 5,
+ "confidence": "high",
+ "summary": "The pendulum swings outside the case: PendulumRig sits at z 0.055 and the bob at z 0.053-0.065, in front of the drop's dark panel whose face is at z 0.050, with no glazed drop door, and the 0.318 m square dial glass sits over a 0.364 m round bezel so its corners lie on the oak while its edges fall inside the dial. Object class is right: an American eight-day drop-octagon with brass bezel, two winding arbors and a brass-bobbed pendulum, as the Schoolhouse Regulator and Seth Thomas references show.",
+ "modelling": [
+  "Glaze the drop: move the 0.165 x 0.238 x 0.010 DARK_WOOD panel (now at z 0.045, proud of the drop face at 0.039) to z -0.030 as a back board, move PendulumRig to z 0.005 so the 0.255 rod and 0.051 bob hang inside the 0.082 m case, and add a second optical QuadMesh 0.165 x 0.238 at z 0.040 as the drop-door glass; 1 quad added, panel moved.",
+  "Dial glass: the QuadMesh 0.318 square at z 0.082 has a 0.225 half-diagonal (over the rails at r 0.184-0.224) and a 0.159 half-edge (inside the 0.182 bezel). Use a CylinderMesh r 0.172 h 0.002, 16 segments, at z 0.060, seated in the bezel like the Virginia V Seth Thomas glass; same mesh count.",
+  "Drop height: the 0.225 x 0.335 drop plus the 0.243 corner radius make the clock 0.74 m tall; a 12-inch short-drop (Schoolhouse Regulator Pendulum Clock, Seth Thomas Clock) is 0.61-0.66. Shorten the drop to 0.225 x 0.260 (centre y -0.297) and the rod to 0.190 so the bob centres at y -0.395.",
+  "Head frame: rails 0.165 x 0.040 x 0.082 at r 0.204 leave 40 mm of wood outside the bezel; the references show 60-70 mm of moulded frame round the dial. Make the rails 0.165 x 0.060 x 0.082 at r 0.194 (outer edge unchanged at 0.224).",
+  "Second hand: a cheap eight-day drop octagon carries hour and minute only (Seth Thomas Clock, Old Pendulum clock); the Virginia V ship's clock has a subsidiary seconds bit, never a red centre-seconds. Drop the 0.136 x 0.004 red hand on this variant and point _perform_synced_event's 'advance a hand' verb at _minute (TAU/60 x accent) so the corrupted verb survives.",
+  "Spade hands: the 0.013 x 0.083 hour and 0.009 x 0.122 minute bars are plain sticks; add one 0.024 x 0.030 x 0.006 INK box at 0.7 of each length (2 boxes, inside the INK surface) for the spade.",
+  "Numerals and track: the dial has twelve INK boxes and nothing else. Build Roman numerals from INK strokes (about 34 boxes 0.004 x 0.022 x 0.003 at r 0.129) and a 60-mark minute track (0.002 x 0.006 x 0.003 at r 0.150); all merge into the existing INK surface, the ten-mesh cap is untouched, and no lettering goes into a texture plate."
+ ],
+ "texturing": [
+  "oak_quartered tint (0.76, 0.62, 0.46) at roughness 0.82 reads as fresh-sawn orange oak with heavy flake; a varnished 1890s-1910s case (all four references) is darker and glossier: tint (0.55, 0.40, 0.26), roughness 0.45.",
+  "paper dial (aged_paper albedo) tinted (0.92, 0.88, 0.78) reads clean cream; the second-hand dials in the Virginia V and Seth Thomas references are foxed and yellowed toward the rim: tint (0.84, 0.77, 0.60) at the same 0.68 roughness.",
+  "brass_dull bezel and bob tint (0.82, 0.72, 0.48) at roughness 0.62 is right for handled brass; keep.",
+  "Wear: nothing says second-hand: no darkened varnish where a hand opens the drop door, no dust line on the dial. Tint the drop box's own colour constant darker on wood_dark (0.50, 0.38, 0.28) so the lower case reads re-finished and mismatched, the way a cheap clock accumulates; no new key."
+ ],
+ "references_used": [
+  "File:Schoolhouse Regulator Pendulum Clock.jpg",
+  "File:Old Pendulum clock.jpg",
+  "File:Seth Thomas Clock.jpg",
+  "File:Virginia V (ship, 1922) engine room 10 - old Seth Thomas wall clock.jpg"
+ ],
+ "not_reopened": [
+  "4B's clock is a cheap second-hand eight-day American drop-octagon (HISTORICAL; CANONICAL), structural and off the electrical graph; nothing here rewires it.",
+  "Clear clock glass stays an optical runtime material; the disc changes the quad's shape, not its material, and no baked reflection is proposed.",
+  "No new material key and no texture batch: oak_quartered, wood_dark, brass_dull and paper already have runtime sets.",
+  "Every clock stays at or below ten meshes: the drop glass is the one added mesh and must be checked against the cap (numerals, track and spade tips merge into INK); if the cap bites, put the drop glass and dial glass in one ArrayMesh.",
+  "Exactly two wall_clock markers; the winding interaction and WindingReach at (-0.046, -0.040, 0.085) are untouched."
+ ],
+ "notes": [
+  "Off-topic reference ignored: Colgate Clock Jersey City (a giant advertising sign)."
+ ]
+}

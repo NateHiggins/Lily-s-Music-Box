@@ -1,0 +1,37 @@
+{
+ "specimen": "sconce_globe",
+ "axes": {
+  "object_class": 1,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 3,
+  "material": 3,
+  "wear": 2,
+  "mount": 0
+ },
+ "effort_hours": 2,
+ "confidence": "medium",
+ "summary": "No reference was available (no permissively licensed image was found for any query), so this is judged against the ruled description of a 1920s rented-bath bracket: a lacquered-brass 90 x 160 mm rectangular backplate and a bare 170 mm ball, with no pull chain, no fitter collar and no socket, where the real fitting is nickel or white porcelain with a small round plate, a neck holding the globe and a chain a hand reaches for. Object class is close (a wall bracket with an opal globe) but the brass finish and the tall plate read as a hallway sconce rather than a bath bracket; the tier is leave_alone, so the proportion bullets come first and the rest are recorded for the scorer.",
+ "modelling": [
+  "Globe: SphereMesh r 0.085 (170 mm) is the large end for a bath bracket; a 4-inch-fitter bath globe is 130-150 mm. r 0.070 at (0, 0.085, 0.105) also trims the projection from 0.20 to 0.175 m beside the 460 mm cabinet.",
+  "Backplate: the 0.09 x 0.16 x 0.025 box is a tall rectangle; the real plate is a small round or oval canopy. One CylinderMesh r 0.055 h 0.020 rotated X 90 at z -0.010 replaces it; same count.",
+  "Triangles: bulb_globe at default segmentation is 4,224 of the prop's 4,406 triangles, times 28 installs; radial_segments 24 and rings 12 (600 triangles) is enough for a 140 mm globe that glows.",
+  "Beyond the leave-alone tier: a fitter collar (CylinderMesh r 0.052 to 0.046 h 0.025 in the plate material) between the arm and the globe so the glass is held by its neck instead of floating on the arm tip, and a pull chain of six make_ring links r 0.004 (or one 0.003 x 0.12 cylinder) from the collar down to y -0.06; 2-7 primitives.",
+  "Arm: the 0.10 m tapered cylinder at 55 degrees is right for a short bracket arm; keep."
+ ],
+ "texturing": [
+  "The sconce parts take the brass row (aged brass albedo, metallic 0.85) and render as lacquered brass; the bathroom finish of the 1920s is nickel or white porcelain. Add a retexture row for this prop_type only, [Color(0.70, 0.70, 0.68), nickel_plated, Color.WHITE, 0.45] (runtime-staged), or [Color(0.90, 0.90, 0.86), porcelain_fixture, Color.WHITE, 0.30] for the landlord's cheap porcelain bracket, and paint the plate, arm and collar with that colour in _build_body.",
+  "Globe: bulb_globe is an unmaterialed sphere carrying only the emissive tone (1.0/0.88/0.72), so it renders as a flat white ping-pong ball; give it milk_glass (runtime-staged) under the emission, or enable rim on _bulb_mat, so the opal reads as glass that is thick at the edge and bright at the centre.",
+  "Wear: a sixteen-year fitting in a rented bath shows tarnish at the chain and a dust ring on the globe's top; with nickel, roughness 0.55 on the plate and 0.45 on the arm is the whole story. Factory-bright brass at metallic 0.85 is the current read."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Rule of Signal (brief section 2 / bible VIII): 1928 or older and cheap; nickel and porcelain are the period finishes and chromium is not proposed.",
+  "The 320 mm halo for *_LT_SCONCE beside the 460 mm medicine cabinet stands; the smaller globe reduces projection, but the WalkTest cabinet-leaf sweep must be re-run after any envelope change.",
+  "leave_alone tier: proportion fixes only per brief section 6; the chain, collar and finish bullets are recorded, not demanded."
+ ],
+ "notes": [
+  "The shed built only the default bath-bracket branch (WH_ naming never triggers F01_ENTRY_SCONCE); the entrance lantern was not reviewed.",
+  "The 0.55 m halo quad inflates the header size (0.55 x 0.55 x 0.22); the fitting itself is about 0.16 x 0.26 x 0.20."
+ ]
+}

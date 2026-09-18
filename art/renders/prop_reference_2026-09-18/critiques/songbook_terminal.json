@@ -1,0 +1,39 @@
+{
+ "specimen": "songbook_terminal",
+ "axes": {
+  "object_class": 0,
+  "proportion": 2,
+  "silhouette": 2,
+  "detail": 3,
+  "material": 4,
+  "wear": 3,
+  "mount": 2
+ },
+ "effort_hours": 4,
+ "confidence": "high",
+ "summary": "The recording cylinder is turned the wrong way: its axis runs front-to-back with the crank on its end face toward the viewer, so the horn points at the drum's flat end and the 0.075 m bristle enters that end face by 12 mm, whereas in the 1868 Koenig engraving the cylinder axis runs parallel to the horn, the bristle rests on the curved surface and crank and flywheel sit on the far end; with all 19 surfaces flat-coloured it reads as a small bucket aimed at a turntable stood on edge. It is the right object (barrel horn, membrane, bristle, sooted cylinder, lead screw, hand crank, no electricity).",
+ "modelling": [
+  "Cylinder: set _cylinder.rotation.z = 90 deg (axis along X, parallel to the horn and the lead screw), centre it at (0.185, 0.223, 0) so its top tangent meets the bristle tip at y 0.298, and move the 0.30 m axle, crank hub, arm and knob to the +X axle end at x 0.35; the crank orbit in _process() then rotates about X instead of Z.",
+  "Bearing stands: the axle floats 0.125 above the carriage rail with nothing holding it; add two IRON A-stands 0.03 x 0.11 x 0.06 at x 0.075 and 0.30 from the plinth top (y 0.115) to the axle, the cast frames M in the engraving.",
+  "Horn: 0.30 long with a 0.145 mouth radius reads as a bucket beside a 0.15 m drum; lengthen to 0.45 with mouth r 0.19, letting the mouth overhang the -X plinth end by 0.08 as the engraving's does, and set two iron cradles 0.02 x 0.05 x 0.12 under the hoops, since the horn currently floats 40 mm above the plinth.",
+  "Feet: two r 0.028 iron feet along X make a tipping plinth; either four at (+/-0.26, +/-0.13) or, since the ruling brackets it at FLR + 0.92 m, two 0.04 x 0.06 x 0.30 iron bracket arms under the plinth against the wall so it hangs the way the marker says.",
+  "Flywheel (leave_alone tier, optional): a torus r 0.11 tube 0.008 with six r 0.004 spokes on the axle behind the crank, the speed-steadier B in the engraving."
+ ],
+ "texturing": [
+  "The script never calls retexture(), so every surface is flat colour (horn samples (60,44,35), drum (25,24,22)); add the table [walnut to `wood_dark`, brass to `brass_dull` (the vertical throat and crank may take `brass_bright`), iron to `cast_iron`, soot to `soot`]; every key exists in MatLib.SETS, so no batch.",
+  "Diaphragm (0.72,0.68,0.58) and bristle (0.62,0.58,0.44) can stay flat at this size, but lower the diaphragm's roughness to 0.35 so the stretched skin reads as skin rather than card.",
+  "Seventy years second-hand: tint the walnut lip (0.66 x 0.022) 15% lighter for handling wear and the 0.10 x 0.035 maker's plate toward (0.40,0.33,0.18) so the brass reads tarnished, not new."
+ ],
+ "references_used": [
+  "File:Cours de physique de l ecole Polytechnique - ed 2 vol 2 1868 p509 - phonautograph.jpg",
+  "File:Phonautographic recording session - Scott 1857.jpg"
+ ],
+ "not_reopened": [
+  "ORISON_BIBLE III.2: the phonautograph replaces the karaoke box; it records and cannot play back; the horn and cylinder never emit audio.",
+  "The two audio layers are never collapsed; nightcore belongs to a recorded community version.",
+  "The stale karaoke-box paragraphs in the script header and the gen_layout.py comment are leftovers, not references.",
+  "No screen, keypad, coin slot, cable, microphone or glow; the cylinder and crank turn only while the Songbook panel is open.",
+  "Brief section 8 rulings (icebox/monitor-top mix, Vantry points) are untouched."
+ ],
+ "notes": "The 百代Jeunesse gramophone on the sheet is a playback machine, the thing the ruling says this is not, so it was not used."
+}

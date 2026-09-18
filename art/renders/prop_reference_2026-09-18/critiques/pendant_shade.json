@@ -1,0 +1,30 @@
+{
+ "specimen": "pendant_shade",
+ "axes": {
+  "object_class": 4,
+  "proportion": 2,
+  "silhouette": 4,
+  "detail": 4,
+  "material": 4,
+  "wear": 3,
+  "mount": 2
+ },
+ "effort_hours": 5,
+ "confidence": "medium",
+ "summary": "A fabric drum on a bare 6 mm cord is the post-war form the kind's own notes rule out; the landlord's 1927-28 parlour piece was a stamped-brass pan with small glass shades or an inverted opal bowl on three chains from a canopy, and none of that is built (no canopy, chains, hub, sockets or finial). No usable reference was on the sheet (a furnace plate, a door-hardware plate, an early-1800s painting and a Locarno hall), so this is scored against the real-object description; the era is wrong, the category (a ceiling pendant) is right.",
+ "modelling": [
+  "Cheapest correct form, the pan: canopy make_cyl r 0.06 -> 0.05 x 0.025 at y -0.012, stem make_cyl r 0.008 x 0.30 at y -0.165, pan make_cyl r 0.18 -> 0.17 x 0.025 at y -0.325 with rim make_ring r 0.18 tube 0.006, three sockets make_cyl r 0.018 x 0.05 at radius 0.12 and 120 degrees, three opal shades make_cyl r 0.055 -> 0.035 x 0.09 below them named bulb_shade_0..2, and a finial make_cyl r 0.02 -> 0.005 x 0.05 under the pan; about 12 primitives, drop 0.45 m.",
+  "Or the bowl pendant, reusing the chandelier branch's own code: canopy r 0.06 x 0.025, three chains of 7 make_ring links r 0.021 from the canopy edge to a hub at y -0.50, an inverted opal bowl of 4 stacked make_cyl bands from r 0.19 at the rim to r 0.02 at y -0.75 named bulb_bowl_0..3, and a brass finial; about 30 primitives, drop 0.78 m, the same as today's drum so no marker moves.",
+  "Either way delete the drum (make_cyl 0.19 -> 0.23 x 0.24), the 0.40 m opal disc and the 0.55 m cord; leave the bulb node at y -0.62 so light, halo and bounce positions are unchanged."
+ ],
+ "texturing": [
+  "Brass parts to 'brass_dull' (a horizontal pan at metallic 0.85 would read black under the brief's flat-metal warning), shades or bowl to the shared emissive opal with 'milk_glass' (staged) as unlit albedo; the 'linen' key and its 0.5 UV scale go with the drum.",
+  "The cord's flat (0.15, 0.14, 0.13) material disappears with it; chain links or stem take 'brass_dull', which removes two of the three flat-colour surfaces the census counts (flat_colour_share 0.6 today).",
+  "Wear: tarnish on the pan by the existing name seed (tint darkened 0.0-0.12) and, on a quarter of the 29 fixtures, one shade in a slightly different opal tint, the replaced-shade tell of a rented flat."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Rule of Signal: a light fixture carries no signal, so it is 1928 or older, cheap and probably second-hand; the drum is replaced by a period form, not refined into a later one.",
+  "Bible VIII.3: the building is electric throughout; the bullets keep an electric fitting."
+ ]
+}

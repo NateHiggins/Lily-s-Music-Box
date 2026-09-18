@@ -1,0 +1,45 @@
+{
+ "specimen": "arcade_cabinet__arcade_cabinet_2_1922",
+ "axes": {
+  "object_class": 4,
+  "proportion": 2,
+  "silhouette": 3,
+  "detail": 3,
+  "material": 5,
+  "wear": 4,
+  "mount": 1
+ },
+ "effort_hours": 6,
+ "confidence": "low",
+ "summary": "As with variant 1, nothing of this specimen is visible: bounds 406.48 x 4.00 x 44.68 m, 13166 triangles and 257 surfaces keyed fossil_bone, decaying_velvet, tarnished_brass, vault_plaster, worn_flagstone and candleflame are the booted arcade_pit world package (a different skin) parented under the prop, and all four bearings are empty grey. The axes are read from the script, the variant ruling and asm_arcade_cab, confidence low. The one thing most wrong is material: the assembly gives this 'chrome amusement' a chrome body, and chrome plating was barely commercial in 1927 and sits outside the VIII.4 family; the ruled real analogue is the coin-operated automatic phonograph cabinet (Mills Violano-Virtuoso, Gabel Automatic Entertainer, and the oak Concert Automatique on this sheet) in oak with nickel or dull brass trim and a glass window over the mechanism. The script's contribution - square scope quad at 1.02-1.38 m, emissive accent marquee at 1.56-1.70 m, claimed controls at 0.97 m - repeats the family's marquee and material faults.",
+ "modelling": [
+  "Harness first: exclude the Machine node and its booted world from the shed's bounds and census (or build the display unbooted) and re-shoot; there is no bearing to score until then.",
+  "Programme card, not marquee: the band is 1.56-1.70 m (0.14 m), so replace the 0.61 x 0.132 x 0.012 m emissive accent box with a brass_dull frame 0.46 x 0.12 x 0.02 m, a milk_glass QuadMesh 0.42 x 0.09 m and an indicator_enamel card 0.40 x 0.075 m (title 0.028 m cap height, second line 0.013 m), OmniLight behind the glass.",
+  "Circular bezel as geometry: one make_ring in nickel_plated (this is the nickel-trimmed variant), radius 0.18 m (face_size 0.36 / 2), tube 0.012 m, 30 mm proud of the bakelite surround.",
+  "Mechanism window: the phonograph class shows its works; add a glassish QuadMesh 0.44 x 0.16 m at 0.62-0.78 m on the front with a nickel_plated make_box frame 0.48 x 0.20 x 0.015 m, and behind it two bakelite_black cylinders r 0.05 x 0.10 m (a drive drum and a roll) so the window is not black - five primitives, and the only thing that makes this variant read as a music machine rather than a shorter copy of variant 0.",
+  "Assembly task, not this script's (flag for the Blender pass): asm_arcade_cab variant 2 body 'chrome' -> oak_quartered carcass 0.66 x 0.72 x 1.72 m with nickel_plated trim strips 0.02 m wide on the four front edges; remove the stick and three buttons; keep the brass coin door at 0.38-0.55 m and the feet.",
+  "Warehouse registration: stand-in carcass (wood_dark make_box 0.66 x 0.72 x 1.72 m plus milk_glass box 0.62 x 0.14 x 0.08 m at 1.56-1.70 m) so the live parts are judged in place."
+ ],
+ "texturing": [
+  "Name catalogue keys instead of raw Color across _build_claimed_controls: brass parts -> brass_dull, knobs and plates -> bakelite_black, wheel hub -> nickel_plated, lever knob -> indicator_enamel; the script currently names no key at all (14 Color literals).",
+  "Trim on this variant is nickel, not chrome: nickel_plated is ruled warm silver (0.70 metallic, 0.38 roughness) and already exists with a full runtime path from the tap_prop pass; use it for the bezel ring, window frame and coin-door rim.",
+  "Tube face: keep scope_screen.gdshader with the 1922 willemite green (0.34, 0.98, 0.56), mono 1.0.",
+  "Wear: rubbed nickel at the window frame's lower rail where hands rest (roughness 0.25 band 0.03 m tall), a 0.30 roughness step on the Bakelite knobs, dust on the card glass; no grime texture."
+ ],
+ "references_used": [
+  "File:Le Concert Automatique Francais, undated - Kanazawa Phonograph Museum - Kanazawa, Japan - DSC00985.jpg",
+  "File:Turning Technology into Furniture - Stove(1886), Radiola60 in Cab.(1927-28), Predicta TV(1958-60), RCA TV(1949), Edison Phonograph(1919), Sewing Machine(1950-55,1860-65) - Fully Furnished - Historic Furniture Exhibit - Henry Ford Museum.jpg",
+  "File:Televisore a valvole, bianco e nero, a consolle - Museo scienza tecnologia Milano 02239.jpg",
+  "File:Televisore a valvole, bianco e nero, midget - Museo scienza tecnologia Milano 02229 dia.jpg"
+ ],
+ "not_reopened": [
+  "Bible VIII.5.g: the amusement machines are receivers; there is no arcade.",
+  "Bible VIII.5.g: circular scope, long-persistence willemite green on the 1922 chassis; same signal on every cabinet.",
+  "Bible VIII.5.g / VIII.4: Bakelite, brass, oak, nickel guards, copper contacts; no chrome, aluminium, stainless or moulded colour - the reason the chrome body is scored, not a taste call.",
+  "Rule of Signal and VIII.5.h: the case is 1927-or-older second-hand furniture; the 1922 plate stays.",
+  "Script header ruling: carcass is the assembly's, silhouette is the layout variant's; the carcass bullets are filed as assembly tasks.",
+  "Placement rulings: F01 lobby row never restored, common-room copy stays removed; the Harukiya corner holds variants 0 and 1 only, so this variant has no installed copy and installed_count 0 is correct.",
+  "Brief section 8: fridges and Vantry points untouched.",
+  "The Concert Automatique is undated and the two Televisore are later objects; they were read for cabinet class and window placement only."
+ ]
+}

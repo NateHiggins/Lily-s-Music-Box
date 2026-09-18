@@ -1,0 +1,36 @@
+{
+ "specimen": "door__1928_apartment_entry",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 1,
+  "detail": 2,
+  "material": 2,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 4,
+ "confidence": "medium",
+ "summary": "The leaf is the right 1928 contractor two-field door at 0.91 x 2.13 m with the corridor security stack in place (closer, peephole, kick plate, knob on a long backplate, three jamb barrels), but the added cylinder deadbolt the variant calls for is not built, and the brass kick plate renders as the brightest, most patterned thing on the leaf instead of dull sheet polished only where shoes land. Object class is right; only the two peephole plates on the sheet are on-topic (the Bekescsaba facade, the 1904 and 1909 mansion interiors and the Lutyens gate are not), so the scores lean on the variant description and the script.",
+ "modelling": [
+  "Add the cylinder deadbolt the variant names and the script omits: one brass_dull cylinder r 0.016 x 0.006 proud of the outer face at (width - 0.085, 1.12, -0.025) and one thumbturn box 0.012 x 0.030 x 0.006 on the inner face at the same height (2 primitives).",
+  "Enlarge the peephole from a r 0.014 x 0.018 nub to a flanged viewer: add an outer flange cylinder r 0.018 x 0.004 at z -0.026 in front of the existing barrel so it reads as a brass eyepiece from the corridor at 1.49 m (1 primitive).",
+  "Give the closer a two-piece arm: keep the 0.33 x 0.018 x 0.018 main arm and add a 0.18 x 0.016 x 0.016 forearm box from its free end at y = height - 0.03 angled about 0.55 rad toward the frame head, so the arm folds the way a surface closer's does instead of running as one bar off the edge of the leaf (1 primitive).",
+  "Add hinge leaves so the three r 0.010 x 0.105 barrels read as mortised butts: one 0.025 x 0.105 x 0.003 brass_dull box on the leaf's hinge edge at x 0.012 beside each barrel (3 primitives on _body so they swing with the leaf)."
+ ],
+ "texturing": [
+  "Kick plate: keep brass_dull but drop the tint from (0.82, 0.74, 0.55) to about (0.62, 0.56, 0.42) and pass scale_mult 2.5 so the map's hatching stops tiling as a visible pattern across a 0.78 x 0.17 m plate.",
+  "Build the shoe crescent the script comment claims: one 0.30 x 0.05 x 0.001 box in 'brass' (metallic 0.85) laid over the kick plate at (width * 0.5 - 0.05, 0.10, -0.0335), the only polished brass on the door.",
+  "Wear where hands and shoes go: a 0.10 x 0.22 x 0.001 'fx_grease' decal box (staged in MatLib.SETS) centred on the backplate at 0.94 m and a 0.30 x 0.20 x 0.001 'soot' decal low on the lock stile at y 0.35, offset by finish_variant so the 23 entries are not identical; 'fx_scuff' is the better catalog key for the stile but is not in MatLib.SETS and would need GODOT_STAGE."
+ ],
+ "references_used": [
+  "File:Door ~ peep hole - Flickr - striatic.jpg",
+  "File:Peephole01.jpg"
+ ],
+ "not_reopened": [
+  "True scale against the 1.41 m eye line; door sizes must not change, and no bullet here changes a leaf dimension.",
+  "Subtype and finish are layout data, never inferred from width or lock state; the deadbolt bullet adds geometry only and leaves the lock-state rule alone.",
+  "The security stack (closer, peephole, kick plate, replacement lock) stays on corridor entries only.",
+  "No new material key and no texture prompt batch: trim, brass_dull, brass, cast_iron and the staged decal keys cover it."
+ ]
+}

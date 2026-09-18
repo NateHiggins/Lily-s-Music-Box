@@ -1,0 +1,40 @@
+{
+  "specimen": "exhaust_fan",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 2,
+    "detail": 3,
+    "material": 3,
+    "wear": 4,
+    "mount": 1
+  },
+  "effort_hours": 6,
+  "confidence": "medium",
+  "summary": "None of the four references on this sheet is usable - a Mughal hammam roof oculus, an attic floor ventilator and two aerial views of a wind tunnel - so this is judged against the real_object text and the notes; the biggest gap is that the external cast motor and belt guard, the parts that distinguish central plant from a decorative vent, render as one dark portrait rectangle on the +X face because the motor end cap is only 35 mm proud of the guard and shares its cast_iron texture, and the gravity louver is glued flush onto the service panel on the never-captured -Z face. The object class (ILG-pattern 1928 roof exhauster on a plenum) is ruled and respected.",
+  "modelling": [
+    "Motor: the r 0.105-0.12 x 0.33 cylinder centred at x 0.24 has 0.215 m of its length inside the plenum (x -0.29 to 0.29) and its end cap is swallowed by the 0.12 x 0.38 x 0.24 belt-guard box at x 0.25-0.37 (the side bearing shows one dark 0.24 x 0.38 rectangle). Move the motor fully outside to x 0.50 on two 0.03 x 0.10 x 0.20 iron bracket boxes and make the guard a 0.05 x 0.40 x 0.20 vertical box running from the motor pulley up to shaft height at y 0.70, so motor, guard and drive read as three things.",
+    "Louver and service panel overlap: the four 0.26 x 0.045 x 0.012 slats at x 0 +/- 0.13, y 0.425-0.575, z -0.322 sit 1.5 mm in front of the 0.31 x 0.30 panel at x -0.10 (x -0.255 to 0.055, face z -0.3145) in the same tint, so the louver cannot be seen even when the -Z face is rendered. Put the panel at x -0.20 (0.20 x 0.30) and the louver at x +0.13 in a 0.30 x 0.24 x 0.02 frame with 6 mm gaps between slats, or move the gravity shutter into the bell throat (four 0.24 slats at y 0.72-0.86) where a back-draft damper hangs on a vertical-discharge unit.",
+    "Plenum and curb are two plain boxes with no seams: add a 0.012 x 0.012 folded corner angle on the four plenum verticals, eight r 0.006 x 0.004 rivet heads per face edge (merged), and a 0.72 x 0.03 x 0.02 flashing lip where the plenum meets the curb - sheet metal reads through its seams.",
+    "Rain-cap braces are four 0.045 x 0.19 x 0.045 iron posts at r 0.25; period caps sit on flat strap legs bolted to the bell rim - replace with four 0.04 x 0.19 x 0.006 straps with a 0.03 x 0.03 x 0.006 gusset each.",
+    "The rotor has no shaft: add r 0.012 x 0.30 iron from the hub at y 0.70 down to y 0.40 so the belt drive has something to turn (the blades themselves stay invisible under the cap from every standing bearing, which is right)."
+  ],
+  "texturing": [
+    "trim at tint (0.39, 0.40, 0.38) renders as uniform matte khaki with no metal read; enameled sheet steel needs roughness 0.45 and a 10 % lighter tint on the top faces (cap disc, curb top) than on the verticals so the folded planes separate under flat light.",
+    "Wear is uniform across the stack and the four variants differ only in one tint. Add zones: cast_iron at tint 0.30 on the lower 0.10 m of the plenum (splash), a paler 0.25 x 0.30 patch of fresh paint beside the panel on -Z (repaint history), and a rust streak under the motor bracket (cast_iron tint 0.55, box 0.03 x 0.12 x 0.004) - without them the tints are not maintenance history.",
+    "cast_iron on the motor reads as the same grey speckle as the painted plenum; darken the motor tint to (0.28, 0.29, 0.27) and drop its albedo scale so the casting reads as a different substance from the sheet.",
+    "rubber_aged feet at tint (0.36, 0.34, 0.30) read as grey concrete; tint (0.24, 0.22, 0.20)."
+  ],
+  "references_used": [],
+  "not_reopened": [
+    "Shared central roof ventilator on a sheet-metal riser, not a private bathroom extractor; ILG 1908 line and Ilg 1906 patent US831284A construction; the spun-aluminium 1940s-50s form is excluded.",
+    "No new material key and no texture batch; variation by tint and hand/water/weather zones only.",
+    "Hood and body use painted 'trim', not 'metal' (measured render evidence on file).",
+    "The brass service plate is deliberately blank; no generated letters, numbers, badges or logos.",
+    "Four roof owners, one contractor's 1928 plant; service refused at the belt-guard anchor; the motor draws power, not signal."
+  ],
+  "notes": [
+    "Off-topic references ignored: Roof ventilator in Shahi Hammam (a masonry oculus), ATTIC OF ORIGINAL BUILDING, WOOD VENTILATOR IN FLOOR (a wooden floor grille), both Abe Silverstein Supersonic Wind Tunnel aerials.",
+    "The -Z face (service panel, brass plate, louver) is never captured by the four bearings; the louver/panel overlap is derived from the script and should be confirmed with a -Z render."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+ "specimen": "door__service_leaf",
+ "axes": {
+  "object_class": 1,
+  "proportion": 1,
+  "silhouette": 1,
+  "detail": 2,
+  "material": 2,
+  "wear": 4,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "A metal-skinned service leaf of the right size and thickness (0.96 x 2.10 x 0.052 m) with a physical Z-brace, but the skin is one smooth dark slab: the two tin-clad door plates on the sheet show a quilt of lapped tin plates with nailed seams hung on straps, and the script's 'riveted' straps carry no rivets. Object class is close (a metal service leaf); as built it reads as a galvanized sheet-and-batten door rather than kalamein or tin-clad, and it is factory clean where the variant asks for a hard-used boiler-room door.",
+ "modelling": [
+  "Rivets on the three straps: 7 per strap as cylinders r 0.007 x 0.004 (or SphereMesh r 0.007) spaced 0.12 m along each 0.065 m strap, proud of the strap face at z -0.046; 21 primitives, the one cue the variant names that is not built.",
+  "Plate seams for the tin-clad read: a lattice of thin boxes 0.010 wide x 0.003 proud on the front face, 2 vertical at x = width / 3 and 2 * width / 3 (height - 0.34 tall) and 4 horizontal every 0.42 m between the straps; 6 boxes that turn the slab into lapped sheet without a new map.",
+  "Strap hinges on service kinds in place of the three r 0.010 x 0.105 butt barrels: two 0.40 x 0.05 x 0.006 cast_iron straps on the front face at y 0.30 and height - 0.30 running from the hinge edge, each with a knuckle cylinder r 0.014 x 0.12 at the edge in _fixed; the references hang on straps, not mortised butts (4 primitives replacing 3).",
+  "Iron rather than brass fixed hardware: build the backplate and thumbturn of _build_knob_set in cast_iron for service kinds and keep brass_dull for the knob only, per the variant's 'iron rather than brass fixed hardware'."
+ ],
+ "texturing": [
+  "'metal' with tint (0.48, 0.50, 0.47) over the galvanized map at metallic 0.90 renders as dark grey-green; unpainted galvanized zinc is a light satin grey. Lift the tint to about (0.66, 0.68, 0.66) so the leaf reads as zinc under corridor light rather than painted olive.",
+  "Wear for a boiler-room and refuse-room door: a 0.30 x 0.25 x 0.001 'soot' decal at the foot of the leaf (y 0.15) and a 0.10 x 0.60 x 0.001 'fx_grease' run below the top strap, offset by finish_variant so the 23 leaves are not identical clean slabs; 'fx_drip' is the better catalog key for the run but is not in MatLib.SETS."
+ ],
+ "references_used": [
+  "File:The Architect and engineer of California and the Pacific Coast (1916) (14577058899).jpg",
+  "File:The Architect and engineer of California and the Pacific Coast (1917) (14779537594).jpg"
+ ],
+ "not_reopened": [
+  "Service leaves are metal-skinned with a physical Z-brace; no return to domestic panel moulding recoloured grey.",
+  "Finish variant 0 stays galvanized grey; variant 1 (the Harukiya) is chalky oxblood red and belongs to the exterior_service specimen.",
+  "Door sizes must not change; 0.96 x 2.10 x 0.052 m stays.",
+  "No new material key and no texture prompt batch; the seams and rivets are geometry over metal and cast_iron."
+ ]
+}

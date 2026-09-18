@@ -1,0 +1,39 @@
+{
+ "specimen": "wall_clock__clock_vantry_lobby_master",
+ "axes": {
+  "object_class": 1,
+  "proportion": 1,
+  "silhouette": 1,
+  "detail": 3,
+  "material": 3,
+  "wear": 1,
+  "mount": 0
+ },
+ "effort_hours": 4,
+ "confidence": "medium",
+ "summary": "No on-topic reference reached the sheet (it carries two St Pancras tower views, a hotel plate, an Underground roundel, a jukebox, the Colgate sign and the 4B drop-octagon photographs), so this is judged against the ruled description of a sealed IBM/Simplex-class secondary: the dial has twelve bar marks and no Arabic numerals or minute track, the sealed setting cover sits on the enamel dial at 6 o'clock inside the bezel instead of on the case, and the 0.404 m square glass has corners 5 cm outside the 0.47 m drum. Object class is nearly right, a phenolic drum with a screwed brass bezel and no winding holes, but the cream matte dial and the dial-mounted cover pull it toward a domestic clock.",
+ "modelling": [
+  "Setting cover: the 0.064 x 0.030 x 0.010 BRASS box at (0, -0.176, 0.063) is on the dial face inside the r 0.203 bezel. Move it to the drum's underside at (0, -0.235, -0.005) as 0.064 x 0.010 x 0.030 and run the rattle tween on position:y; it stays the one hand-testable part and now reads as a locked case cover.",
+  "Glass: the 0.404 QuadMesh at z 0.082 has a 0.286 half-diagonal, beyond the 0.235 drum radius. Use a CylinderMesh r 0.203 h 0.002, 24 segments, at z 0.058 inside the bezel; same mesh count.",
+  "Minute track and numerals: add 60 INK boxes 0.002 x 0.008 x 0.003 at r 0.190 (merged into INK) and twelve Arabic numerals as Label3D at r 0.150 with 0.045 m cap height if the family's ten-mesh cap counts MeshInstance3D only; otherwise build 1-12 from about 40 INK stroke boxes. The ruled dial is dominated by bold Arabic numerals and a full minute track for reading at distance.",
+  "Hands: minute 0.154 and second 0.172 stop short of the 0.166 marks on a 0.202 dial; institutional hands reach the track: minute 0.168 x 0.009, second 0.185 x 0.004 with a 0.03 x 0.03 x 0.006 counterweight box, hour 0.110 x 0.016.",
+  "Drum back: r 0.235 h 0.082 is a flat can; moulded secondary drums step into the back. One BAKELITE cylinder r 0.215 h 0.020 at z -0.063 behind the drum gives the moulding line; 1 primitive."
+ ],
+ "texturing": [
+  "enamel dial tint (0.80, 0.81, 0.77) at roughness 0.66 reads cream and matte; a vitreous enamel steel dial is white and glossy: tint (0.95, 0.95, 0.93), roughness 0.25.",
+  "brass_dull bezel tint (0.82, 0.72, 0.48) at roughness 0.62 shows the albedo's mottle as burl-wood figure on the 0.014 torus (visible in the high_quarter bearing); a machined bezel wants brass_bright (runtime-staged) at roughness 0.35, or nickel_plated to match the four screws.",
+  "bakelite_black drum tint (0.52, 0.46, 0.38) reads as good dark phenolic: keep.",
+  "Wear: service equipment stays clean and the fiction is permanent and authoritative, so the near-absence of wear is right; one darker tint on the cover box where it is handled is enough."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "The lobby master is a sealed Vantry house-time receiver on the signal trunk, licensed to 1967 by Divergence VIII.2: no winding holes, cannot be corrected by hand, four minutes fast; the cover move keeps it sealed.",
+  "Clear glass is an optical runtime material; the disc changes shape only.",
+  "No new material key and no texture batch: enamel, brass_dull, brass_bright, nickel_plated and bakelite_black have runtime sets.",
+  "Every clock at or below ten meshes; the Label3D numerals are conditional on how the cap counts and the INK-stroke alternative merges.",
+  "Exactly two wall_clock markers; brief section 2's signal rule licenses this clock alone to be ahead of 1928 and nothing proposed exceeds 1967."
+ ],
+ "notes": [
+  "All eight listed references were off-topic for this variant and none is named; the drop-octagon photographs belong to the 4B specimen."
+ ]
+}

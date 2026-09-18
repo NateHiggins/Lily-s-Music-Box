@@ -1,0 +1,41 @@
+{
+  "specimen": "mirror__medicine_cabinet_open",
+  "axes": {
+    "object_class": 0,
+    "proportion": 0,
+    "silhouette": 1,
+    "detail": 2,
+    "material": 3,
+    "wear": 3,
+    "mount": 1
+  },
+  "effort_hours": 4,
+  "confidence": "high",
+  "summary": "Open, the cavity reads correctly as a shallow enamel box with a leaf at 95 degrees, but the two plate-glass shelves render as opaque cream ledges and the 1D QUELL TONIC bottles wrap the entire larder label atlas around themselves, reading as red-and-green soup cans; the mirror face carries the same matte-stone read as the closed specimen. The object class is right.",
+  "modelling": [
+    "Shelves: each is a 0.405 x 0.008 x 0.070 alpha-0.34 box fronted by a 0.415 x 0.010 x 0.009 enamel lip, and the lip is what renders, so the shelves read as pressed steel. Drop the lip to 0.004 tall, push the glass 6 mm proud of it, and add four r 0.004 x 0.008 nickel clip cylinders per shelf (8 cylinders merged into the carcass) - the clips are the parts the real_object names.",
+    "Contents sit at z 0.005 +/- 0.010, the middle of a 95 mm cavity, and the 1D set (two 36 mm QUELL, one brown bottle) leaves both shelves reading bare from the front bearing; the inventory is ruled, but push the items to z +0.030 (back third, against the enamel back) and stand the tallest on the lower shelf so the cavity reads used.",
+    "The door back is one 0.448 x 0.598 x 0.012 enamel slab; a folded steel door back has a 12 mm turned edge - add a 0.012 x 0.598 x 0.010 and a 0.448 x 0.012 x 0.010 rim (4 boxes, merged into the door batch) inside the nickel frame.",
+    "Same hinge-knuckle, pull-knob and flange-roll changes as the closed specimen."
+  ],
+  "texturing": [
+    "QUELL TONIC bottles load FridgeProp.LABEL_SHEET with no uv1_scale/uv1_offset, so the whole atlas wraps once around each cylinder; crop to the QUELL cell with uv1_scale/uv1_offset as mail_bank_prop does for its cards, and confine the label to the middle 60 % of the bottle height with the amber alpha material above and below.",
+    "Amber alpha material (0.34, 0.20, 0.095, roughness 0.38) reads as an opaque brown rod in the high_quarter bearing; set alpha 0.75 and roughness 0.15 so the brown bottle reads as glass.",
+    "Shelf glass alpha material (0.67, 0.73, 0.72, alpha 0.34, roughness 0.16) needs its green edge: tint the 8 mm front face (0.45, 0.62, 0.55) - plate-glass edges are what say glass.",
+    "Same mirror_aged (roughness 0.12, metallic 0.85, edge-band clouding), nickel_plated (cooler tint, roughness 0.35) and enamel chip changes as the closed specimen."
+  ],
+  "references_used": [
+    "File:Building with assurance (1921) (14783717283).jpg",
+    "File:Building with assurance (1921) (14760678701).jpg",
+    "File:INTERIOR OF BATHROOM NUMBER TWO LOOKING BACK THROUGH OPEN DOOR TO BEDROOM NUMBER THREE. MIRRORED MEDICINE CABINET FLANKED BY 1-LIGHT OVER 1 LIGHT SASH WINDOWS IN GROUPED HAER CAL,26-JULA.V,1E-22.tif"
+  ],
+  "not_reopened": [
+    "Family geometry is fixed at 460 x 610 x 95 mm with a 95-degree opening; hinge axis at x +/-0.23, z -0.060; shelves at 1.40 m and 1.59 m.",
+    "KEPT inventories are explicit per unit: 1D holds two QUELL TONIC and one brown bottle; sealed and vacant flats are empty.",
+    "The cheap folded-enamel rectangle, not the bevelled-glass patent cabinet; mirror_aged static fallback with the planar renderer in production.",
+    "No lamp, socket or listening element; cabinets remain absent from the acoustic graph."
+  ],
+  "notes": [
+    "No reference on the sheet shows an open cabinet interior; the open pose was judged against the real_object text (clipped plate-glass shelves, enamel door back, amber bottles and paper-labelled tins) and the Morgan plate's shelf of bottles below the cabinet."
+  ]
+}

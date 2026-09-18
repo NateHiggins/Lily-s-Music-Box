@@ -1,0 +1,44 @@
+{
+  "specimen": "radiator__9_section_silver",
+  "axes": {
+    "object_class": 0,
+    "proportion": 2,
+    "silhouette": 2,
+    "detail": 2,
+    "material": 4,
+    "wear": 3,
+    "mount": 1
+  },
+  "effort_hours": 4,
+  "confidence": "high",
+  "summary": "Silver in name only: nothing in radiator_prop.gd reads `unit` LOBBY into a finish, the IRON_SILVER retexture row (0.62, 0.63, 0.65) is assigned to no mesh, and the nine castings carry the heat tint over the cast_iron plate exactly as the 1D body does, so the lobby radiator renders the same warm tan as the dark variant and reads as turned wood rather than landlord aluminium bronze over old japan. Object class is right and stays as ruled; against the Steam Radiator and Cast Iron Radiator Refurbishment photographs nine sections at 92 mm span 736 mm (about 866 over the 0.13 m toes) where a real three-column body is about 572, which also puts the feet 56 mm past the ruled 810 mm envelope, the spindle has no through-voids, and here the union nut does meet the end casting, by passing 33 mm into it rather than seating on a tapping.",
+  "modelling": [
+    "Pitch: SECTION_PITCH 0.092 to 0.064; nine sections then span 0.512 m, about 0.64 over the feet, back inside the ruled 810 mm envelope. Shrink the x radii in _cast_section_mesh from 0.032-0.046 to 0.022-0.032 so shoulders still touch; z radii and the 0.228 depth stay.",
+    "Through-voids: three lathed columns per section (r 0.020 at z -0.075, 0, +0.075, 0.42 m tall) under top and bottom header ellipsoids 0.064 x 0.05 x 0.228, five pieces in the one shared ArrayMesh, one MultiMesh draw as now.",
+    "Union: derive SUPPLY_X = -(half_width + 0.20) and the union at -(half_width + 0.06) from the section count and lengthen the branch to the fixed RISER_X; on nine sections the nut (x -0.43 to -0.38) currently overlaps the end casting (surface at -0.413) instead of seating on it, and on seven it floats 59 mm short.",
+    "Nipple joints: Ø 25 x 8 mm dark cylinders between adjacent sections at both header centres, 16 for nine sections, in the shared mesh.",
+    "The section count itself (nine) and the 0.67 m casting height are right for a lobby unit and stay."
+  ],
+  "texturing": [
+    "Wire the lobby finish: multiply the per-instance colour in _apply_visual_state by (0.62, 0.63, 0.65) when `unit` is LOBBY, with the heat contribution clamped to +0.15 luminance; keep cast_iron at roughness 0.72 so the silver reads as dull brush-marked bronze paint, never chrome. No new key, as ruled.",
+    "Earlier dark coat at chips: six 8 x 8 x 1 mm boxes on header edges and one foot toe tinted (0.18, 0.17, 0.16) through cast_iron, placed by hash(unit).",
+    "Painted-over fittings, per the variant note: for the LOBBY unit only, tint the valve bonnet, packing nut and air-vent brass_dull rows toward (0.60, 0.60, 0.58) so the landlord's silver runs over the brass as it did.",
+    "Feet (`iron` 0.20/0.205/0.20, flat #333433) and handwheel ((0.27, 0.23, 0.16), flat #453b29) miss every retexture row exactly as on the 7-section: build the feet in IRON_DARK and add a handwheel row to brass_dull (0.45, 0.38, 0.24).",
+    "Wear for a lobby: less rust, more scuffing. Shrink the two foot rust boxes to 0.05 x 0.004 x 0.08 and add a dust film on the top header (a per-vertex lightening of the top 30 mm toward (0.70, 0.70, 0.68)) and a scuffed toe on the aisle-side foot (tint band (0.50, 0.50, 0.48) on the toe box)."
+  ],
+  "references_used": [
+    "File:Steam Radiator.jpg",
+    "File:Cast Iron Radiator Refurbishment.jpg"
+  ],
+  "not_reopened": [
+    "One-pipe steam anatomy (HISTORICAL; CANONICAL): binary supply handwheel, far-end automatic air vent, pitch toward the supply.",
+    "Body class is American Radiator Company joined cast sections with rounded header shoulders and narrow column waists; the verifier's object-class correction stands and only execution is scored.",
+    "The building-owned riser stays at the marker's -X end at x -0.67.",
+    "Seven-, eight- and nine-section bodies stay within the 810 mm envelope; the pitch bullet exists to restore that, not to reopen it.",
+    "Materials reuse cast_iron, brass_dull, metal and wood_dark; dark enamel and landlord silver are deterministic per-household variation within cast_iron, not a new material family; every texturing bullet above stays inside that ruling.",
+    "radiator_prop is COMPLETE; proportion beats valve detail.",
+    "The two wall stand-offs are in the verified real_object and are not reopened.",
+    "Brief section 8 does not touch the radiator.",
+    "References not used: Ideal Fitter p269 (a text page), the 1861 Pascal ornate pedestal radiator (ruled out class), Heat radiator.jpg (post-1943 thermostatic valve), the Linz corridor, the Vichy grille and the 1908 piping diagram."
+  ]
+}

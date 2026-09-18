@@ -1,0 +1,43 @@
+{
+ "specimen": "kettle__aged_copper",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 2,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "Rhea's copper reads as copper but as one even orange-brown skin (three_quarter median sRGB (127,52,27)): no darker oxidised patches, no brighter hand-polish at the ears, lid rim and spout, and no dent, since the deterministic dent goes to 1D/4B/4C and not to the 3D variant shown, so a 'tarnished and handled' kettle reads freshly plated. Right object class; it shares the two-foot base, all-wood pentagon bail and kinked three-cone spout of the nickel variant, and the sheet's stovetop copper references carry the bail and spout form but not the electric fittings, so confidence is medium.",
+ "modelling": [
+  "Feet: the base carries two BAKELITE feet (x +/-0.046, r 0.010 to 0.012 x 0.014); a kettle stands on three, so place three at 120 deg on a 0.055 m radius.",
+  "Bail: five WOOD tubes (r 0.008) make an all-wood pentagon that reads angular from every bearing; build it as two body-finish wire arms r 0.005 rising from the ears to y 0.245 and one turned WOOD grip r 0.012 x 0.10 across the top at y 0.272, the Hotpoint pattern and the bail form in both NGA kettles.",
+  "Ears: the two r 0.010 x 0.025 ear cylinders use _body_color; make them BRASS so the brass ears contrast as duller yellow against the copper, as the variant notes require.",
+  "Spout: the three straight cones kink visibly at y 0.145 and 0.192; raise the tip from y 0.207 to 0.215 (level with the lid seat, so it pours) and add a fourth r 0.020 segment so the run reads as the curved gooseneck of the Croe and Cheney kettles.",
+  "Lid: the r 0.052 to 0.060 x 0.014 disc reads flat; add a SphereMesh cap r 0.052 scaled to 0.012 tall under the knob so it reads as the removable domed lid.",
+  "Positional wear that shares the body draw: a 0.020 r x 0.003 flattened patch on the spout root and on each ear, in copper_aged with the brighter 6C tint (0.82,0.60,0.38), so the high-touch areas read polished against the dull body for 3D and 4C."
+ ],
+ "texturing": [
+  "copper_aged is one uniform per-unit tint (3D 0.72,0.48,0.29); retexture the two lower body cylinders (y 0.045 and 0.1075) with a darker band (0.50,0.30,0.20) so oxidation sits low and grease-dark while shoulder and lid stay brighter, the Cheney kettle's pattern.",
+  "brass_dull on the whistle cap and chain sits close to the copper in hue; tint it (0.80,0.66,0.34) so the brass contrasts as duller yellow, per the variant notes.",
+  "bakelite_black tint (0.75,0.68,0.58) to (0.32,0.28,0.24) at roughness 0.45, as for the nickel variant, so the terminal and plug stop reading as grey stone."
+ ],
+ "references_used": [
+  "File:Eugene Croe, Copper Tea Kettle, c. 1939, NGA 27052.jpg",
+  "File:Clyde L. Cheney, Copper Tea Kettle, 1935-1942, NGA 27044.jpg"
+ ],
+ "not_reopened": [
+  "Body stays 180 mm across (museum 170) because 4B has 49.5 mm to its crosswise toaster.",
+  "Eight-mesh hard contract per kettle (48 total): every bullet above stays inside the StaticVessel, Lid or ChainedWhistleCap merges.",
+  "No new material or texture batch: nickel_plated, copper_aged, bakelite_black, rubber_aged, brass_dull, wood_dark and enamel only.",
+  "Six markers in 1A, 1D, 3D, 4B, 4C, 6C; nickel for 1A/1D/4B, copper for 3D/4C/6C; finish owned by the household.",
+  "Electric kettle and whistle are HISTORICAL (1917 Hotpoint, c.1925 GE, 1915/1921 patents); no divergence invented.",
+  "Teresa's (1D) wear is the interior mineral ring and squat knob, not exterior dirt.",
+  "F04_4C_KETTLE_01 stays bound to case 4519.",
+  "Mae's (6C) copper is deliberately maintained; the wear bullets apply to 3D and 4C, not to her tint."
+ ],
+ "notes": "Same shed facing convention as the nickel variant: the front bearing is the terminal side. Geometry bullets duplicate the nickel critique because both variants are one build; the material and wear axes differ because the finishes carry different fictions."
+}

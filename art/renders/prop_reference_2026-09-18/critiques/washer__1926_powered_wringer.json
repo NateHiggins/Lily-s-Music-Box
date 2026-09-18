@@ -1,0 +1,46 @@
+{
+  "specimen": "washer__1926_powered_wringer",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 1,
+    "detail": 2,
+    "material": 3,
+    "wear": 3,
+    "mount": 0
+  },
+  "effort_hours": 4,
+  "confidence": "high",
+  "summary": "The finish is the most wrong thing: the four 55 mm legs, the ring frame, the belt guard and the whole wringer head (cheeks, bar and post cap) are keyed ENAMEL and render cream-white, so the machine reads as a 1930s white-enamel Maytag like the Old Maytag and VA1 photographs on this sheet rather than the ruled 1926 galvanized-class Galloway with a black-japanned angle-iron stand and cast-iron wringer head; the zinc_liner tub is the right substance and stays. Object class is right: an open square tub on legs with daylight beneath, an underslung motor, a bottom gyrator and a swinging two-roll powered wringer with pressure screw and release bar, standing as the Antique Maytag Washing Machine reference stands; the detail gaps are a Ø 240 mm motor with no pulley or belt, box rim strips for a wired rolled rim, a drain pipe with no cock, and a machine that reads freshly painted for a landlord-supplied 1922-27 purchase.",
+  "modelling": [
+    "Motor: make_cyl(0.12, 0.12, 0.30) becomes make_cyl(0.085, 0.085, 0.22) (a fractional-hp frame is about Ø 170 x 220), plus a Ø 80 x 12 mm pulley disc on its end, a belt make_box(0.20, 0.004, 0.025) and a Ø 60 x 12 mm pulley under the gyrator hub: 3 primitives added, so 'belt-driven from below' is visible under the tub instead of asserted.",
+    "Tub rim: the four 0.70 x 0.035 x 0.04 rim strips become four Ø 25 mm cylinders make_cyl(0.0125, 0.0125, 0.70) at y 0.825, the wired rolled rim of a galvanized tub: same count.",
+    "Legs: 0.055 square to 0.040 square (angle-iron scale) with a Ø 40 x 15 mm cast foot make_cyl(0.020, 0.020, 0.015) under each: 4 primitives added.",
+    "Wringer head: two Ø 90 x 12 mm drive gears on the outer face of the post-side cheek and a Ø 30 mm drive-shaft cylinder up the post: 3 primitives; the two 0.44 m rolls, the brass screw, the 0.19 m wooden T-handle and the release bar are right and reach the hand.",
+    "Drain: the Ø 56 x 240 mm pipe has no cock; add a handle make_box(0.06, 0.012, 0.012) at its end and a hose make_cyl(0.010, 0.010, 0.25) dropping to the floor: 2 primitives."
+  ],
+  "texturing": [
+    "Frame and head: change the ENAMEL retexture row from 'enamel' to 'cast_iron' tinted (0.30, 0.29, 0.27) at 0.68 so the legs, ring frame, belt guard, cheeks and yoke bar read as black-japanned iron; the finish count stays at five and the 28-mesh two-washer budget is untouched.",
+    "Fill cocks: brass_dull at (0.78, 0.70, 0.49) reads as brown wood in the shed's flat light; use (0.82, 0.72, 0.48) at 0.72 as radiator_prop does.",
+    "Wear as ruled (patched galvanized, landlord-supplied): three solder patches make_box(0.08, 0.06, 0.002) in a lighter zinc tint (0.90, 0.90, 0.86) on the tub sides, four rust discs through cast_iron at (0.48, 0.20, 0.10) under the feet, a soap-scum line inside the tub (a 0.60 x 0.002 x 0.60 ring tinted (0.85, 0.82, 0.75) at y 0.80, seen when the lid is open), and a polished band 0.30 m long at the centre of each roll as a lighter rubber_aged tint: 9 primitives.",
+    "Lid: METAL to zinc_liner is right; the stamped grip in the lid's own finish stays as ruled."
+  ],
+  "references_used": [
+    "File:Antique Maytag Washing Machine.jpg",
+    "File:Maytag wringer washing machine VA1.jpg",
+    "File:Old Maytag wringer washing machine clothes washer.jpg",
+    "File:The Saturday evening post (1920) (14761946986).jpg"
+  ],
+  "not_reopened": [
+    "No aluminium: the tub and frame are patched galvanized steel, never Maytag's cast-aluminium Model 90 finish (VIII.4, VIII.5.d; FICTION RULING CANONICAL); the Maytag photographs were read for stance, wringer and control layout only.",
+    "No tumble dryer; the wash path is two wringer washers, two open rinse tubs and a ceiling pulley airer.",
+    "Front-loading drums, portholes and dials are rejected; the object is an open tub with a swinging powered wringer.",
+    "Broad galvanized faces use zinc_liner, not generic high-metallic steel (measured 60 to 68 median luminance).",
+    "rubber_aged is the roller material and its prompt is written.",
+    "The lid is hinged only for the maintenance API; the stamped grip is in the lid's own finish to save a draw.",
+    "Two washers stand 1.15 m apart north of the pier, bridge B1_WATER_MAIN and the electrical hub, never the steam header.",
+    "Static parts merge by material within the 28-mesh two-washer budget; only lid, gyrator, yoke, rollers, pressure screw and release stay rigged; every bullet above merges into an existing finish.",
+    "The 4C case beat predicts an icebox-latch sound, never a compressor.",
+    "References not used: the GEM cylinder machine is a different mechanism, the Pensacola window shows a wooden-tub machine, the Seven Springs laundromat is modern, and the 1914-18 photograph shows a hand mangle."
+  ]
+}

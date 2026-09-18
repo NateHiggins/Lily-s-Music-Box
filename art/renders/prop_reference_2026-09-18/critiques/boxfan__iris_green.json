@@ -1,0 +1,36 @@
+{
+ "specimen": "boxfan__iris_green",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 3,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 1,
+ "confidence": "high",
+ "summary": "The green reads as pale chalky sage (cast_iron tint 0.34/0.43/0.34 at roughness 0.60) where the ruled finish is dark green enamel with the guard and blades staying dark so the colour reads as paint on the same construction; the modelling faults are the shared ones as juno_black (floating handle, rectangular plinth, narrow flat blades, bare hub, low trunnions). Object class is right.",
+ "modelling": [
+  "As juno_black (shared script): handle onto the motor top, two-cylinder round base r 0.150 / 0.115, wider three-box blades, brass_dull hub badge r 0.028, trunnions raised to the 0.305 axis with two yoke uprights; this variant adds no geometry of its own."
+ ],
+ "texturing": [
+  "cast_iron body tint (0.34, 0.43, 0.34) reads as mint-sage primer; dark green enamel is tint (0.15, 0.25, 0.17) with roughness 0.40 passed as the fourth retexture element so it reads as gloss enamel over cast, not paint over paint.",
+  "metal guard tint (0.48, 0.47, 0.43) is right in hue for dull grey steel; keep the tint and drop roughness from 1.00 to 0.7 so the wire catches a highlight and the green body reads as a different construction from the guard, which is the variant's own distinguishing note.",
+  "Blades on bakelite_black tint (0.25, 0.21, 0.17) read correctly as dark phenolic; no change.",
+  "Wear as juno_black: nothing marks a second-hand fan; a darker lower-base colour constant on cast_iron, not a new key."
+ ],
+ "references_used": [
+  "File:Hardware merchandising March-June 1921 (1921) (14784650333).jpg"
+ ],
+ "not_reopened": [
+  "The 440 mm sweep stays; no bullet touches the cage diameter.",
+  "9 visible meshes per fan / 36 across the family; no new material key and no texture batch.",
+  "The fan carries no signal: nothing later than 1927.",
+  "Iris's fan in 5C always obeys its switch and cord; only 6A may break the physical contract."
+ ],
+ "notes": [
+  "Header metres 0.57 x 0.65 are loose (see juno_black); the geometry is identical across the four variants and was judged from the script."
+ ]
+}

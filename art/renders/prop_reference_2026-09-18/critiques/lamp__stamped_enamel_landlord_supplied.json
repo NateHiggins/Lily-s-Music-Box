@@ -1,0 +1,40 @@
+{
+ "specimen": "lamp__stamped_enamel_landlord_supplied",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 1,
+  "detail": 2,
+  "material": 3,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 2,
+ "confidence": "medium",
+ "summary": "The repaint the header promises ('did not go all the way into the crimp') is not there: base, arm and shade share one uniform pale-khaki `enamel` surface that renders far lighter than the (0.34, 0.37, 0.32) dark-green tint the retexture row asks for, and the one joint carries the bench lamp's machined nickel thumbscrew where a landlord's stamped-steel lamp has a stamped wing nut. The object class is right (a cheap one-joint Sears/Ward-class desk lamp, dia 0.164 base and 0.39 m overall inside the real 0.12-0.15 / 0.30-0.45 envelope); no usable reference was on the sheet (an X-ray tube stand and two churches), so this is judged against the variant text.",
+ "modelling": [
+  "Wing nut: replace the dia 0.025 x 0.014 nickel thumbscrew on the knuckle with a stamped wing nut - a dia 0.012 x 0.006 hex boss plus two 0.018 x 0.010 x 0.002 wings in the paint colour; the variant text says no knurled brass anywhere on this lamp.",
+  "Base: dia 0.164 to dia 0.14 (real 0.12-0.15) and give the top disc a rolled rim (torus r 0.068 tube 0.004) so it reads as pressed sheet rather than a turned block; a 0.003-thick felt disc underneath in `fabric_warm`.",
+  "Cord: extend the dia 0.0035 cord to the desk and 0.15 m across it (it stops 0.10 m above the desk) and add a 0.012 x 0.008 tape wrap 0.06 m below the socket - VIII.4's poor-flat wiring.",
+  "Shade rim: replace the flat grey (0.53, 0.53, 0.50) disc dia 0.182 x 0.006 with a rolled rim torus r 0.09 tube 0.003 in the paint colour, set 0.004 off-axis so the rim reads dented.",
+  "Optional gooseneck (the other Sears form): swap the single 0.34 m strut for six chained 0.06 m struts at 14, 20, 30, 45, 60 and 75 deg using the existing _strut helper; same one-joint silhouette count, more landlord."
+ ],
+ "texturing": [
+  "Two-tone repaint: split the single paint constant so retexture() sends base and arm to `enamel` tinted (0.34, 0.37, 0.32) (the super's green) and the shade's crimp band, the rim and the underside of the base to `enamel` tinted (0.10, 0.10, 0.09) (the original japanning the brush missed); the header's repaint is currently invisible because one colour goes to one row.",
+  "Check the tint path: the sheet shows a pale khaki where (0.34, 0.37, 0.32) multiplied into T_library_appliances_aged_enamel_worn_enamel_albedo should read dark green; confirm MatLib.get_mat multiplies the tint for the `enamel` set, or drop the tint to (0.20, 0.22, 0.19).",
+  "Flaked paint at the crimp: a 0.3-alpha `fx_scuff` ring on the shade rim and the base edge, and a rust tint (0.35, 0.22, 0.12) on the wing nut.",
+  "Cord: `rubber_aged` (catalog) instead of the shared cloth _CORD colour for this flat only - stiff rubber and tape is 4B's wiring under VIII.4."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "ORISON_BIBLE VIII.2 / VIII.6 Rule of Signal: 1927 or older, the cheap landlord's object; nothing above dates it later.",
+  "ORISON_BIBLE VIII.4: Bakelite socket; stiff rubber and tape for a poor flat, which the cord bullet follows.",
+  "Accord 9: dents, chipped japanning and a taped cord are the wear this lamp is owed; nothing gleams.",
+  "Script header: this is the fallback variant for an unmarked lamp and keeps its one joint and stamped shade; five silhouettes, one SpotLight3D each.",
+  "Brief section 2 true scale: the base shrink is toward the real dia 0.12-0.15."
+ ],
+ "notes": [
+  "This is the only lamp with a textured surface (1 of 7, the `enamel` retexture); the census reads 86% flat colour, 1692 triangles.",
+  "No reference on the sheet shows a stamped-steel desk lamp; confidence capped at medium."
+ ]
+}

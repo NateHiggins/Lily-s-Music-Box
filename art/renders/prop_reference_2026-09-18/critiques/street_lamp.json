@@ -1,0 +1,40 @@
+{
+ "specimen": "street_lamp",
+ "axes": {
+  "object_class": 4,
+  "proportion": 3,
+  "silhouette": 4,
+  "detail": 2,
+  "material": 3,
+  "wear": 2,
+  "mount": 3
+ },
+ "effort_hours": 3,
+ "confidence": "high",
+ "summary": "The one thing most wrong is the object: a 0.20-0.32 m conical shroud over a flat-bottomed 0.26 x 0.16 m amber lens with a sodium tone (1.0, 0.66, 0.28) is a cobra-head luminaire of the late 1950s, and both usable references on the sheet (the West 9th Street and Sixth Avenue bishop's crooks) show what lit a 1928 street - a globe hung below a spun-metal cap with a finial on a cast-iron crook arm, burning a warm-white tungsten series lamp. The object class is wrong by about thirty years and the queries file it as the owner's decision, so this critique measures the gap and gives the replacement's dimensions without ordering it; the head is also squat (0.32 wide x 0.26 tall against a Type 24 globe of roughly 0.32 x 0.50 m with its cap) and hangs on gen_layout's 4.6 m square mast with a 0.42 x 0.42 x 0.25 m box head, a mid-century silhouette that is site geometry, not this prop's. The frames are clear and the references are on-topic; the stained-glass window and the 1939 Packard on the sheet are off-topic and were not used.",
+ "modelling": [
+  "Owner decision, dimensioned so it can be taken: the 1928 head is a globe luminaire - a spun cap make_cyl r 0.17 m top / 0.10 m bottom x 0.10 m, a collar make_ring r 0.10 m tube 0.012 m, a hung globe SphereMesh r 0.155 m x 0.42 m tall (teardrop, as a hung globe pulls), a finial make_cyl r 0.02 -> 0.006 m x 0.06 m under it, and the bulb_core inside; five primitives replacing the shroud and lens, overall 0.34 x 0.58 m, which is the proportion a Type 24 acorn carries.",
+  "If the head stays as built (tier leave_alone: proportion only), fix the proportion alone: lift the shroud to r 0.12 -> 0.17 m x 0.14 m and deepen the lens to 0.26 x 0.30 m so the head is taller than it is wide; a 0.8 h:w luminaire reads as a downlight from three metres in every bearing.",
+  "Hanger: the head has nothing between it and the mast - add a make_cyl r 0.014 m x 0.12 m stem above the cap so the luminaire hangs from a fitter rather than sitting on the box head.",
+  "Site geometry, not this script's (flag for gen_layout._street_furniture): the 4.6 m square-section pole with its 0.42 x 0.42 x 0.25 m box head is the mid-century mast; the 1928 standard is a fluted cast-iron post 4.0-4.5 m with a ladder rest and a crook or scroll arm from which the globe hangs. Both references show the crook; nothing in this prop can supply it.",
+  "Ambient architecture with no E target (PROP_SET_INTERACTION_MATRIX): no interactive parts are missing; the detail gap is the finial, the collar and the fitter only."
+ ],
+ "texturing": [
+  "Tone: change the street_lamp TONE from sodium (1.0, 0.66, 0.28) to a tungsten series lamp (1.0, 0.84, 0.62) and the lens emission from (0.65, 0.27, 0.055) to (0.95, 0.80, 0.55); this keeps 'warmest thing outside' as the composition cue the exterior pass relies on without the 1932+ sodium colour. Also an owner call, since exterior_detail_pass.gd authors the composition.",
+  "Globe glass: stained_cracked_prismatic_glass.png with albedo (0.54, 0.38, 0.18) reads as a church window in the high_quarter bearing; an opal or Holophane globe is milk_glass (catalog key, runtime path exists) or a clear ribbed prismatic - use milk_glass at roughness 0.35 with emission, and keep one crack as a 0.25 alpha decal quad rather than a whole cracked-stained texture.",
+  "Cap: the shroud retextures to the galvanized_metal_worn albedo (metallic 0.9); a spun-steel or copper reflector cap on a city standard was painted - use metal with a dark green (0.16, 0.22, 0.17) or black albedo at roughness 0.6, matching the cast-iron post the references show.",
+  "Wear is the axis this head does best: weathered flicker on every head, the failing-ballast fault on F01_STREETLAMP_04 and the cracked lens all read as a lamp nobody has serviced; keep the flicker profiles, add a soot ring inside the cap's rim (0.02 m dark band) and let one of the five installed heads carry a chipped-paint cap so the five are not identical."
+ ],
+ "references_used": [
+  "File:Ornately-framed window (and air conditioners) and a Bishop's Crook lamppost West 9th Street, Greenwich Village, New York City (23163559466).jpg",
+  "File:NYC Manhattan 6th Avenue Bishop crook lamppost.jpg"
+ ],
+ "not_reopened": [
+  "Rule of Signal (PROP_ART_BRIEF section 2 / bible VIII): a street lamp carries no signal and must be 1928 or older; the sodium cobra head conflicts with this ruling and its resolution is the owner's - the critique measures the gap and does not order the replacement.",
+  "ORISON_STREET_BRIEF.md (night traffic readability): street lamps and the 16/16 lighting budget are unchanged; the exterior composition (street heads at 0.52 gain, entry sconce carrying the warmest pool) is authored art direction in exterior_detail_pass.gd and the tone bullet is offered to it, not applied over it.",
+  "PROP_SET_INTERACTION_MATRIX.md: street lamps are ambient architecture with no E target.",
+  "Tier leave_alone (PROP_ACTIVITIES): proportion fixes only; the globe rebuild is listed because the head is a different object (brief section 6), with the proportion-only alternative given beside it.",
+  "The mast, box head and lamp count belong to gen_layout._street_furniture; nothing here reopens them.",
+  "The two bishop's-crook photographs show modern reproduction Type 24 posts; they were used for the luminaire's form and proportion, not for finish."
+ ]
+}

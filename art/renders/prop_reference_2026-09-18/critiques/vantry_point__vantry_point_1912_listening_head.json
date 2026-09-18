@@ -1,0 +1,44 @@
+{
+  "specimen": "vantry_point__vantry_point_1912_listening_head",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 2,
+    "detail": 3,
+    "material": 3,
+    "wear": 3,
+    "mount": 0
+  },
+  "effort_hours": 5,
+  "confidence": "medium",
+  "summary": "Two of the four bearings (high_quarter, three_quarter) are blank because the shed's raised cameras look into the ceiling for this ceiling-mounted prop and no bearing looks up at the grille, so the ruled true-open radial face is unverifiable here - and the script says it is wrong: the twelve 62 mm spokes are all centred on the axis, forming a 62 mm asterisk with a 38 mm open annulus before the r 78 mm ring rather than twelve slots from hub to rim. The object is a ruled fiction (1912 listening head, no smoke detector) and the two solid-back transmitter photographs inform only the capsule; what the bearings do show reads as speckled stone and a woven rattan ring, not moulded phenolic and dull brass.",
+  "modelling": [
+    "Spokes: each 0.010 x 0.007 x 0.062 box is positioned at (0, -0.066, 0) and rotated i x 30 degrees about its own centre, so all twelve span r 0 to 0.031 and rotations 180 degrees apart coincide. Position each at (sin(a) x 0.049, -0.066, cos(a) x 0.049) so it spans r 0.018 (hub) to 0.080 (ring) - twelve distinct spokes and twelve real openings, no new mesh.",
+    "Capsule: the service pose drops the grille 50 mm to show a capsule with two terminals, but only the two r 0.010 posts exist over the flat r 0.072 bakelite step. Add a r 0.032 x 0.018 copper_aged drum at y -0.062 with a r 0.026 x 0.002 dark bakelite disc as its diaphragm face between the terminals - the solid-back transmitter in the museum photographs is that drum at about 90 mm; 60 mm suits a ceiling capsule.",
+    "Flex tail: one r 0.006 x 0.110 cylinder laid dead horizontal at y -0.006 from x 0.09 to 0.20 reads as a dowel in the front bearing; a cloth pair drooping from failed plaster is two r 0.004 cylinders 5 mm apart in two segments (0.06 m at -12 degrees, then 0.05 m at -35 degrees) with the r 0.003 copper end bent 42 degrees as now.",
+    "Failed plaster: nothing shows why a tail is exposed - add a 0.07 x 0.05 x 0.004 chipped patch beside the rim (the existing plaster key if it is in MatLib.SETS, else a bakelite tint of 1.8) with the flex emerging from it.",
+    "Three r 0.007 service screws sit on the underside of the second step at r 0.092 and, like the spokes, hub, terminals and telltale, are never in frame; the family needs a fifth shed bearing (low quarter, pitch +35 degrees) for ceiling props so the parts a hand reaches are captured at all."
+  ],
+  "texturing": [
+    "bakelite_black at tint (0.72, 0.65, 0.58), scale 0.42, roughness 0.48 renders as grey-brown speckled stone; moulded phenolic is smooth and semi-gloss - tint (0.45, 0.38, 0.33), roughness 0.22, scale 1.2 so the two steps read as one moulding.",
+    "brass_mesh is a woven-mesh albedo; on the solid torus, spokes and hub it reads as rattan basketry in the front and side bearings. Key the ring, spokes and hub to brass_dull (existing) at tint (0.62, 0.52, 0.34); brass_mesh belongs on a perforated plate, if one is ever added behind the spokes.",
+    "linen at tint (0.38, 0.30, 0.23) on the flex reads as tan wood; a braided cotton pair is (0.30, 0.26, 0.20) at roughness 1.0 with uv1_scale 6 on the cylinder so the weave reads as braid at 0.4 m.",
+    "Sixteen years of ceiling paint: a paint ridge (r 0.118 x 0.004 ring in the ceiling tint) where the roller stopped at the rim, and a 20 % darker tint on the lower step where soot and hands reach - the body is currently uniform."
+  ],
+  "references_used": [
+    "File:Microfono a carbone Solid back - Museo scienza tecnologia Milano 08284.jpg",
+    "File:Microfono a carbone Solid back - Museo scienza tecnologia Milano 08284 02.jpg"
+  ],
+  "not_reopened": [
+    "THERE ARE NO SMOKE DETECTORS: the ceiling device is a 1912 Vantry point on the house listening system; Bakelite, perforated, saucer-sized, brass grille, no battery.",
+    "Building-specific fictional hybrid of carbon transmitter and alarm-telegraph apparatus; queries inform surface and construction and never replace it with a real detector.",
+    "Signal function forty years early under VIII.2; the body stays 1912 materials - no LED, no plastic, no modern detector in brown paint.",
+    "230 mm saucer is deliberate; the grille must be true-open radial geometry (this critique makes the geometry actually radial rather than reopening the ruling).",
+    "No material work required: bakelite_black, brass_mesh, copper_aged, indicator_enamel, with linen on its older path - the brass_dull swap above is an existing key, not new material work.",
+    "Six-mesh movable owner; 119 quiet points as one MultiMesh per floor; ChirpHunt through WorkOrders owns the fault."
+  ],
+  "notes": [
+    "Off-topic references ignored: both Berliner Poulsen arc ship radiotelephone plates (a radio bench) and Bell telephone magazine (1933) (an operator with a headset).",
+    "Proportion 1 because the saucer, steps and ring match the ruled dimensions exactly; the museum drum is a different scale and was used only for the capsule form."
+  ]
+}

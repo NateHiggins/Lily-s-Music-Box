@@ -81,8 +81,33 @@ def render_brief(ranked: list[dict], title_date: str, preface: str = "") -> str:
             "",
             "**References used**",
             "",
-            _bullets([f"{r.get('title', '')} - {r.get('licence', '')} - {r.get('url', '')}"
-                      for r in row.get("references", [])]),
+            _references_used(row, c),
             "",
         ]
     return "\n".join(lines) + "\n"
+
+
+def _references_used(row: dict, critique: dict) -> str:
+    """Only the plates the critique relied on, with licence and Commons URL.
+
+    A sheet carries every plate the search returned, off-topic ones
+    included, so that the record is honest; the brief cites only what was
+    actually used and counts the rest, so a reader is not sent to a church
+    to look at a shop door.
+    """
+    on_sheet = {r.get("title", ""): r for r in row.get("references", [])}
+    used = [str(t) for t in (critique.get("references_used") or []) if str(t).strip()]
+    items = []
+    for title in used:
+        ref = on_sheet.get(title) or on_sheet.get("File:" + title) or {}
+        items.append(f"{title} - {ref.get('licence', 'licence not recorded')} - "
+                     f"{ref.get('url', 'not on this specimen’s sheet')}")
+    unused = len(on_sheet) - sum(1 for t in used if t in on_sheet or "File:" + t in on_sheet)
+    if not items:
+        note = ("no reference was relied on; the critique is from the script and the notes"
+                if not on_sheet else
+                f"none relied on; the {len(on_sheet)} plates on the sheet were off-topic")
+        return f"  - {note}"
+    if unused > 0:
+        items.append(f"({unused} other plate{'s' if unused != 1 else ''} on the sheet not relied on)")
+    return _bullets(items)

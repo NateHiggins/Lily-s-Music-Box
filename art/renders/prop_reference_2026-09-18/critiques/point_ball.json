@@ -1,0 +1,41 @@
+{
+ "specimen": "point_ball",
+ "axes": {
+  "object_class": 0,
+  "proportion": 2,
+  "silhouette": 2,
+  "detail": 3,
+  "material": 3,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 1,
+ "confidence": "medium",
+ "summary": "No reference was available for this specimen, so it is judged against the kind text: the worn dish is built backwards - a 20 x 4 x 20 mm darker slab stands proud of the top face like a lid where a used cube's open face is a shallow concave hollow - and there is no paper wrapper, no rounded corner and no dust on the rail. The object class is right (a blue cue-chalk cube left on the pool-table rail); the cube is 26 mm wide by 22 tall where a Spinks or Brunswick cube is about 22 mm and slightly taller than wide once the wrapper edge counts.",
+ "modelling": [
+  "Cube 0.026 x 0.022 x 0.026 to 0.022 x 0.024 x 0.022 m - a 22 mm cube plus the 2 mm the wrapper edge adds to height; the current block is wider than tall, the inverse of the real aspect.",
+  "Dish: delete the raised 0.020 x 0.004 x 0.020 cap and sink the wear instead - a 0.018 x 0.002 x 0.018 darker box set 1 mm into the top face (top at y 0.024, flush), or for one primitive more a recessed make_cyl 0.008 -> 0.004 x 0.003 cone so the hollow catches its own shadow.",
+  "Wrapper: a 0.0235 x 0.019 x 0.0235 m box in paper colour around the lower 19 mm, leaving 5 mm of blue exposed at the top; the open face is the working one.",
+  "Dust: a dia 0.06 x 0.001 disc decal on the rail cap around the cube at alpha 0.35 in the chalk blue - used chalk is never clean, and the cube alone at 22 mm does not read from standing height without it.",
+  "Corners: at this size accept the sharp cube; the crumbling edge is a texture job (below), not a primitive."
+ ],
+ "texturing": [
+  "Chalk body: matte - roughness 0.95, albedo (0.16, 0.30, 0.50); no catalog chalk key exists, so either a new key `cue_chalk` (a 128 px pressed-pigment plate) or the flat colour at roughness 0.95; the current roughness 0.6 gives it a plastic sheen in the three_quarter bearing.",
+  "Wrapper: `paper` (catalog, roughness 0.85) tinted (0.85, 0.82, 0.72) with a darker 3 mm band implying the printed label; no letters (house texture rule), so the maker's name stays unwritten.",
+  "Dish face: (0.10, 0.18, 0.32) at roughness 1.0 - the dished face is dust, not a glossy lid.",
+  "Rail dust decal: the chalk blue at alpha 0.35 in the fx family, like `fx_scuff`."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Point Ball's rules and the missing 8 are game-owned fiction (PROP_TRIVIA_RESEARCH R027; PROP_SET_INTERACTION_MATRIX): not touched.",
+  "The Harukiya felt is violet by authorship; the dust decal sits on the rail cap and does not touch the cloth colour.",
+  "Divergence rule (brief section 2 / bible VIII): Spinks or Brunswick-class period chalk only; no Master chalk (1930s) or modern branding.",
+  "The interactable stays the chalk, not the table (script header); the table is room geometry.",
+  "Brief section 8 rulings do not bear on this kind."
+ ],
+ "notes": [
+  "comparison_index.json records mount 'ceiling' for this kind; gen_layout.py places F01_BAR_POOL at FLR + 0.78 on the rail, so the placement is right and the index string is a manifest default. Mount is scored on the placement.",
+  "The high_quarter bearing is blank; front, side and three_quarter were judged. The side bearing's apparent float is tight framing on a 26 mm object, not a mount fault.",
+  "Census: 2 surfaces, 100% flat colour, 24 triangles."
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "specimen": "stove__1922_fired_enamel_gas_range",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 1,
+  "material": 1,
+  "wear": 2,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "The range is the right object and its ruled contract (0.64 x 0.60 footprint, grate top at 0.90, oven 0.44 x 0.34, five valves, shallow splash panel, no clock, no oven window) survives, but the shed photographed only its back and sides - every bearing looks at the +z splash-panel face while the door, broiler and valve rail sit at -z - and that back is open: no sheet-steel panel closes the carcass, so the oven liner's back and the five valve pointers show through a hollow cabinet on four round legs. Object class right; judged from the script, the notes' prior installed renders and the A-B and Reliable references rather than from the unseen front.",
+ "modelling": [
+  "Close the back: a 0.60 x 0.66 x 0.010 m IRON_DARK sheet at z +0.293 from y 0.19 to 0.85 between the two side slabs; even the cheap 1922 order was closed with plain japanned steel where it stood against the wall.",
+  "Angle-iron legs: replace each tapered dia 0.036-0.046 x 0.17 cylinder with an L of two 0.028 x 0.17 x 0.004 boxes at right angles (IRON), and make the two lower rails 0.020 x 0.020 boxes instead of r 0.011 tubes - the notes call the base angle-iron and a round tube reads as pipe.",
+  "Skin, not plinth: side slabs 0.065 to 0.020 m thick with a 0.020 x 0.020 IRON corner post behind each vertical edge, and the base slab 0.055 to 0.025, so the enamel reads as panels on a frame as the kind text describes.",
+  "Door hardware from the A-B photograph: two 0.045 x 0.012 x 0.006 hinge straps on the door's lower edge and a spring latch (a 0.030 x 0.015 x 0.010 BRASS_DULL box with a 0.020 lever) at the top centre - the parts a hand reaches after the bar handle.",
+  "Shed bearings: the warehouse's front camera looks at the +z face; give the single warehouse_variants() entry a 180 deg yaw, or fix the harness, because as it stands no run photographs the knobs and door the tier note names."
+ ],
+ "texturing": [
+  "Keep `enamel_appliance` (per-unit tint), `cast_iron` (two tones), `bakelite`, `brass_dull` and `fx_grease`; the substances read right where the bearings show them.",
+  "Edge chips: an `fx_scuff` strip at alpha 0.5, tinted (0.20, 0.19, 0.18), along the door's bottom edge and the shelf's front edge - chipped enamel edges are the one wear cue the A-B photograph shows that the range lacks.",
+  "Heat discolouration: tint the 0.006 IRON_DARK deck inlay toward (0.28, 0.22, 0.16) in a dia 0.14 ring around each burner, driven by the same unit grime seed, so the deck shows heat even on wiped 3D.",
+  "Legs and rails: `cast_iron` tinted japanned black (0.08, 0.08, 0.09) rather than the mid-grey (0.42, 0.40, 0.38) tint the carcass IRON row uses for everything."
+ ],
+ "references_used": [
+  "File:A-B Gas Range Battle Creek, Michigan in use by Ethel Leginska - LCCN2014715510 (cropped).jpg",
+  "File:Reliable gas stoves and ranges (1905) (14784625792).jpg"
+ ],
+ "not_reopened": [
+  "Rule of Signal (HISTORICAL; CANONICAL): a gas range on a pipe, never an electric cooker or emissive hotplate.",
+  "The inherited Chambers/Roper high back, clock and oven window stay gone; the splash panel stays shallow and the door panel stays pressed steel.",
+  "Footprint 0.64 x 0.60 and the 0.90 m bearing plane (2C tape boxes, 5B radios) (ADAPTATION).",
+  "stove_prop.gd is the sole owner of the range; asm_stove and ASM_FOOT['stove'] do not return.",
+  "Seventeen gas markers, none in 4B, only 2B ambient_lit; the random lit-at-boot beat stays gone.",
+  "Materials rulings: enamel and bakelite runtime sets, cast_iron at 0.35 metallic / 0.60 roughness, fx_grease as the existing alpha decal with depth pre-pass, no new generated plate.",
+  "The mesh-count sweep's optimization flag is not reopened here.",
+  "Brief section 8 rulings do not bear on this kind."
+ ],
+ "notes": [
+  "The A-B range in the Leginska photograph is an elevated-oven configuration, used here for enamel finish, door hardware and the wiped-white-with-black-trim wear, not for the layout; the 1905 Reliable manifold drawing was used for the open ring-and-spoke grates on a front rail.",
+  "The Protane 1928 advertisements show a clock high back the notes already ruled out and were not used; the Reliable water-heater page is off-topic.",
+  "Census: 47 surfaces, 83% textured, 30276 triangles; reviewed before and verified high in queries.json."
+ ]
+}

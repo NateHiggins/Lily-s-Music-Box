@@ -1,0 +1,44 @@
+{
+ "specimen": "bodega_signage",
+ "axes": {
+  "object_class": 5,
+  "proportion": 3,
+  "silhouette": 4,
+  "detail": 4,
+  "material": 5,
+  "wear": 4,
+  "mount": 2
+ },
+ "effort_hours": 8,
+ "confidence": "medium",
+ "summary": "Every component is the wrong decade: a backlit emissive vinyl valance 4.35 x 0.55 x 0.05 m (a 1970s-80s convention), an acrylic lightbox cabinet 0.15 x 1.50 x 0.60 m (acrylic sheet is 1933-36) and a fluorescent dropout faked in _process (the tube is 1938), where a 1928 corner grocer had a painted wooden fascia, a canvas awning with a painted scalloped valance, and an enamel or bulb-lit blade on an iron bracket lit from outside by gooseneck reflectors. The object class is wrong; only the front bearing rendered (high_quarter, side and three_quarter are blank at 4.4 m) and none of the sheet's three references is period or on-topic (a 2021 Buffalo lodge with a printed sign, a COVID paper notice, a Venezuelan shop gate), so this is judged from that one frame, the script and the kind text.",
+ "modelling": [
+  "Fascia: a 4.40 x 0.45 x 0.04 m `sign_board` box on the pier line above the transom (y +0.30 from the marker, z 0) carrying the two Label3D lines in sign-writer's serif capitals (keep HALF BAKED at 92 px; the sub-line becomes DELICATESSEN - GROCERIES - OPEN ALL NIGHT, the period phrasing); delete the emissive VINYL_YELLOW valance box and its two 0.05 x 0.55 x 1.02 side returns.",
+  "Awning valance as canvas: a 4.35 x 0.28 x 0.012 m strip hung from the awning slab's front edge (real valances are 0.20-0.35 m, not 0.55) with a scalloped bottom made of 14 half-discs r 0.15 along its lower edge, no emission; the shop name painted on it as a Label3D at 46 px; pipe frame of two dia 0.02 x 1.0 m galvanized arms from the pier to the front bar and a dia 0.06 roller tube along the fascia.",
+  "Blade sign: replace the 0.15 x 1.50 x 0.60 cabinet and its two 0.02 x 1.38 x 0.50 acrylic faces with one 0.03 x 0.90 x 0.60 m double-faced enamel panel at x -2.05 hung from a wrought-iron bracket - a 0.03 x 0.03 x 0.75 horizontal bar at y +0.88, a 0.02 x 0.02 x 0.55 diagonal brace back to the pier at 45 deg, two dia 0.006 hang rods; keep the existing four-line Label3D on each face.",
+  "Light from outside, the bar's own convention: three gooseneck reflector lamps at x -1.4, 0 and +1.4 on the fascia top plus one over the blade, each a dia 0.008 x 0.45 conduit arm and a dia 0.20 x 0.10 enamel cone with a dia 0.04 bulb_ sphere; replace the two unshadowed OmniLight3Ds with warm spots from those cones; delete the fluorescent dropout gate in _process() or re-author it as one dead bulb.",
+  "Supplier signs: two 0.40 x 0.60 x 0.01 m `indicator_enamel` panels flanking the door at y +0.9 as colour fields with a border only, no text in the plate.",
+  "Warehouse: add warehouse_variants() so the shed frames the 4.4 m fascia - three of four bearings are blank at this size and the scorer cannot see the object."
+ ],
+ "texturing": [
+  "Fascia: `sign_board` (catalog, roughness 0.72) tinted dark green (0.12, 0.22, 0.16) or oxblood, Label3D letters in cream and gold; no emissive material anywhere on the sign.",
+  "Canvas valance and awning skin: new key `canvas_duck` (the catalog's `awning_vinyl` is the wrong substance); until it exists use `linen` tinted (0.62, 0.58, 0.48) with a 0.4-alpha `fx_damp` water-stain band along the bottom 0.08 m.",
+  "Blade panel: `indicator_enamel` (catalog) tinted (0.94, 0.92, 0.86) with a 0.02 m black border and `fx_scuff` chips at the corners; bracket in `cast_iron` tinted black (0.08, 0.08, 0.09) with a rust streak below it via `fx_drip` tinted (0.35, 0.20, 0.10).",
+  "Gooseneck cones: `enamel` tinted dark green outside, `milk_glass` inside; conduit in `metal`.",
+  "Wear: sun-fade the valance's upper half 0.15 lighter than its lower, leave one reflector lamp dead (its bulb_ material unlit), and flake the fascia's lower edge with `fx_scuff` - Accord 9's ordinary decay, and the bodega stays less lit than the bar."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Rule of Signal (bible VIII.2, VIII.6): the sign is 1927-28 or older and the divergence is no licence for another anachronism; this critique's whole direction follows from it.",
+  "Harukiya Accord 9: the bodega must not be more lit than the bar; the gooseneck-lit painted board above is the bar sign's own pre-neon convention.",
+  "door_prop storefront ruling (HISTORICAL; CANONICAL): the oak carcass and clear plate glass stay; the fascia sits above the transom and conceals no interior.",
+  "ShopSignProp rule: lettering stays Label3D glyphs; no letters, numbers or logos in any generated plate named above.",
+  "The bodega's fiction (COMMERCIAL_DESTINATION_PLAN, schedule_director): all-night operation stands; only the hours wording is offered (OPEN ALL NIGHT).",
+  "Bible VIII.5: the name HALF BAKED is the shop's own voice and is not restyled; EST. 1928 is not borrowed.",
+  "Brief section 8 rulings do not bear on this kind."
+ ],
+ "notes": [
+  "The cream rectangle behind the valance in the front bearing is the shed's wall stand-in for a wall-mounted kind, not prop geometry.",
+  "Census: 84 triangles, 7 surfaces, 100% flat colour; the flat_colour_share understates the gap because two of the seven are emissive."
+ ]
+}

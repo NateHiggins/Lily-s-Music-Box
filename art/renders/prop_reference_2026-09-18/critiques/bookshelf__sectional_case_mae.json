@@ -1,0 +1,45 @@
+{
+  "specimen": "bookshelf__sectional_case_mae",
+  "axes": {
+    "object_class": 0,
+    "proportion": 2,
+    "silhouette": 2,
+    "detail": 2,
+    "material": 2,
+    "wear": 1,
+    "mount": 0
+  },
+  "effort_hours": 4,
+  "confidence": "high",
+  "summary": "The case reads as one glazed cabinet, not a stack of separate units: the 1908 and 1913 Globe-Wernicke plates show a thick double-board band at every section join, a moulded base and top, and a pull on each lift door, while ours has a single 26 mm shelf between 0.39 m tiers (taller than any Globe-Wernicke book unit) and doors with nothing to grip. The object class (dark mahogany lift-and-recede sectional) is right and the plinth, cap, glass tiers and brass plate are all in the right places.",
+  "modelling": [
+    "Read the stack as units: at the two inter-tier joins (y 0.53 and 0.92) replace the single 0.78 x 0.026 x 0.30 shelf with a 50 mm band (one box 0.78 x 0.050 x 0.30, or two 25 mm boards) standing 6 mm proud of the door plane, so the three sections read as three boxes as in the 1908 and 1913 advertisements; +0 meshes after merge.",
+    "Tier height: tiers are 0.39 / 0.39 / 0.34 m; Globe-Wernicke book units were 8.75-13.25 in (0.22-0.34 m). Either drop to three 0.34 m tiers (shelves at 0.14, 0.48, 0.82, 1.16, cap top at 1.25) or keep 1.34 m and add a fourth 0.30 m tier with its own lift door (one more SurfaceTool door, 8 meshes) - the reference stack is more, shorter sections.",
+    "Each lift door needs a pull: one brass_dull box 0.060 x 0.012 x 0.010 centred on the bottom rail (y = door_y - 0.145, z = door front + 0.005), plus two 0.006 x 0.30 x 0.004 sash-guide strips inside each side board beside the pane; the doors are currently four rails and a pane with nothing a hand would lift.",
+    "Books sink 23 mm into the shelf: _book_y = 0.91 while the y 0.92 shelf (0.026 thick) has its top face at 0.933; set _book_y = shelf_y + 0.013 so the spines stand on the board. The same derivation fixes the plain case (15 mm float) and the repaired case (26 mm float).",
+    "Plinth (0.86 x 0.10 x 0.34) and cap (0.86 x 0.085 x 0.34) are plain slabs; give the base a 12 mm set-back skirt (box 0.82 x 0.04 x 0.30 under a 0.86 x 0.06 x 0.34 top) and the cap a 15 mm overhanging moulding (box 0.90 x 0.025 x 0.36 on top) - the advertisements' base and top units are mouldings, 2 boxes merged."
+  ],
+  "texturing": [
+    "Door sash rails are flat vertex colour (0.40, 0.28, 0.15) on a vertex-coloured alpha material against a textured wood_dark carcass; in the front bearing they read as lighter tan frames. Sample the rendered carcass mean and set the rail colour to match (about 0.30, 0.20, 0.13), or give the rail quads UVs into the wood_dark albedo while keeping the 20 %-alpha pane in the same mesh (the 7-mesh cap forbids a separate opaque rail mesh).",
+    "wood_dark (walnut albedo) at tint (0.46, 0.39, 0.30), scale 1.2 renders as bold figured walnut; mahogany-finished birch or gum veneer is a straighter, redder, finer figure - tint toward (0.40, 0.24, 0.17) and raise the scale to 2.0 so the figure tightens; the key stays wood_dark per the ruling.",
+    "Cover palette: HSV saturation 0.38 and value 0.47-0.50 on the linen batch give pastel pink and lavender spines behind the top glass; 1920s cloth bindings are navy, maroon, bottle green, brown and black - draw hue from that set with value 0.22-0.36 and saturation 0.45-0.60, still as vertex colour on the shared linen batch.",
+    "Wear on a near-new sectional belongs only where fingers lift: a 0.10 m wide lightened band (vertex tint x1.10) at the centre of each bottom rail and on the brass_dull pull; leave the carcass and the maker's plate clean - the period note says this case could be nearly new."
+  ],
+  "references_used": [
+    "File:Globe-Wernicke elastic bookcases ad from The Bookman, May 1908.png",
+    "File:Globe Wernicke Sectional Bookcases, May 1913.jpg",
+    "File:Globe Wernicke - Individual libraries for new homes, 1911.jpg",
+    "File:Lincoln centennial number (1909) (14592696547).jpg"
+  ],
+  "not_reopened": [
+    "Sectionals read as dark mahogany through wood_dark; the quartered-oak map is reserved for the plain inherited case - no mahogany map is requested.",
+    "The sectional renders in 7 meshes: rails and pane stay one vertex-coloured mesh per tier rather than splitting the rails into an opaque textured mesh.",
+    "No new material keys and no texture prompt batch: oak_quartered, wood_dark, linen, paper and brass_dull only; the pane is runtime optical glass with no reflected room.",
+    "Sectional glass lifts into its own pocket above the section; the maker's plate is brass hardware, not generated lettering; Mae's 1912 prospectus stays behind the upper glass tier.",
+    "Books are two shared vertex-colour meshes; the active run tops out at 1.18 m."
+  ],
+  "notes": [
+    "Off-topic references ignored: American homes and gardens (1911) shows a dining room and stair; both Honor bilt modern homes (1921) plates show a built-in leaded-glass case and a house exterior.",
+    "The two empty lower tiers are library data (Mae's shelf holds seven titles), not a modelling defect; they do make the case read as a display cabinet in the front bearing."
+  ]
+}

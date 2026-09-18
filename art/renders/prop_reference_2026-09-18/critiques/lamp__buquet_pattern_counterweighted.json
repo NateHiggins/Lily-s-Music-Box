@@ -1,0 +1,41 @@
+{
+ "specimen": "lamp__buquet_pattern_counterweighted",
+ "axes": {
+  "object_class": 0,
+  "proportion": 3,
+  "silhouette": 3,
+  "detail": 4,
+  "material": 3,
+  "wear": 2,
+  "mount": 1
+ },
+ "effort_hours": 4,
+ "confidence": "medium",
+ "summary": "The counterweight - the mechanism the header says is worth showing - is a dia 0.052 x 0.052 cylinder centred at y 0.008, inside the dia 0.224 wooden base disc and 18 mm into the desk, and the second arm (0.30 m at -30 deg) folds back so the head sits over the base axis, so the cantilevered balance that reads across a room is absent and the lamp is another zig-zag stand; the arms at 0.34 and 0.30 m are a quarter to a third short of the real 0.45-0.50. The object class is right (a 1927 Buquet, the newest lamp allowed); no usable reference was on the sheet (an X-ray tube stand and two churches), so this is judged against the variant text.",
+ "modelling": [
+  "Put the hip where a Buquet's is: a dia 0.016 x 0.24 nickel column from the base collar up to a hip at y 0.28; run the first arm through the hip so 0.12 m of it continues past the pivot on the far side, and hang the dia 0.050 x 0.050 counterweight from that short end near (-0.11, 0.20, 0) - free, below and behind the hip, clear of the base top (y > 0.034) and of the desk.",
+  "Lengthen and re-aim the arms to the real 0.45-0.50 m each: first strut 0.46 m at +42 deg from the hip, second strut 0.46 m at +70 deg leaning the same way, giving a wrist near (0.74, 0.78, 0) and about 0.75 m of reach over the board; set _SPECS.architect_counterweight.reach to 0.72 (the spot already follows _head) and check the 5A drafting-table marker for clearance at that reach.",
+  "Ball joints as balls: a dia 0.026 nickel sphere at hip, elbow and wrist, each with a knurled locking collar (torus r 0.017 tube 0.004), in place of the two stacked cylinders (dia 0.038 x 0.026 and dia 0.026 x 0.034); a fourth dia 0.020 ball between the wrist and the shade so the cone swivels on its own.",
+  "Cord: from the socket along the arms as three cloth segments following the struts, down the column to the board, then 0.20 m across it - it currently hangs free and stops 0.36 m above the board.",
+  "Turn the base: keep dia 0.224 but add a cove (torus r 0.105 tube 0.006 at y 0.006) and an upper step dia 0.18 x 0.008 so it reads as turned wood rather than a slab."
+ ],
+ "texturing": [
+  "Base: `wood_dark` (catalog) tinted (0.12, 0.10, 0.09) at roughness 0.35 for the ebonised black lacquer the variant text calls for; the flat mid-brown (0.29, 0.20, 0.13) reads as raw pine.",
+  "Arms, balls, collars, counterweight and shade: `nickel_plated` (catalog) in place of the flat _NICKEL (0.72, 0.74, 0.76) at metallic 0.85-0.90; tint the collars 0.9 to show plating rubbed at the joints.",
+  "The scar: replace the grey 0.050 x 0.004 x 0.010 box floating beside the wrist with an `fx_scuff` decal 0.06 x 0.012 on the outer face of the second arm 0.05 m below the wrist, tinted (0.40, 0.36, 0.30) for brass showing through nickel - the mark of the arm hitting the board.",
+  "Cord in coloured silk braid: tint the shared _CORD brown to a deep red (0.40, 0.12, 0.10) in the `fabric_warm` family for this lamp only; VIII.4 makes cloth braid the good flat's status and 5A is a good flat."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "ORISON_BIBLE VIII.2 / VIII.6 Rule of Signal: Nadia's lamp is merely new (1927), never advanced.",
+  "ORISON_BIBLE VIII.4 no aluminium: nickel-plated brass on a weighted wooden base; the aluminium-shade Buquet does not return.",
+  "ORISON_BIBLE VIII.4: Bakelite socket and coloured silk braid in a good flat, which the cord bullet follows.",
+  "Accord 9: the scar where the arm hits the board stays; the bullet above makes it read, it does not remove it.",
+  "Script header and walk_test: five distinct silhouettes with one SpotLight3D each.",
+  "Brief section 2 true scale: 0.75 m of reach is the real object's; the 5A table clearance is checked, not the lamp shrunk."
+ ],
+ "notes": [
+  "The counterweight's lower 18 mm sits below y 0 (the desk plane), which is the reason mount is 1 rather than 0.",
+  "Census: 10 surfaces, 100% flat colour, 2544 triangles; no reference on the sheet shows a Buquet, so confidence is capped at medium."
+ ]
+}

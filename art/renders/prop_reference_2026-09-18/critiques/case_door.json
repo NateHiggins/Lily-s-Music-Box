@@ -1,0 +1,42 @@
+{
+ "specimen": "case_door",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 3,
+  "material": 2,
+  "wear": 3,
+  "mount": 2
+ },
+ "effort_hours": 4,
+ "confidence": "medium",
+ "summary": "The shed imaged an empty floor in all four bearings because case_door_prop.gd hides its leaf until reveal(), so this is judged from the script against the HABS closet doors and knobs: the two fields are 12 mm boxes standing 10 mm proud of a 50 mm slab and coloured like the casing, and the knob is a bare 28 mm brass cylinder with no backplate, keyhole, hinges, stop or saddle. The object class is right, an ordinary painted two-field contractor leaf, and it has to stay ordinary, which is exactly why the missing builders' hardware matters; confidence is medium because nothing was rendered.",
+ "modelling": [
+  "Build the leaf as stile-and-rail: two 0.11 x 2.04 x 0.044 stiles, top rail 0.11, lock rail 0.20 at y 0.95, bottom rail 0.22, with two 0.64 x 0.62 x 0.010 panels set 8 mm BACK from the face (7 boxes replacing 1 slab + 2 applied panels); leaf thickness 0.044 (1-3/4 in) rather than 0.05.",
+  "Knob: keep the r 0.028 knob but stand it on an r 0.012 x 0.06 shank over a 0.045 x 0.19 x 0.004 backplate with a 0.008 x 0.02 keyhole box 0.06 below the knob centre, as both Fort Sheridan HABS knobs show; or call DoorProp._build_knob_set() so it is indistinguishable from the floor's real leaves.",
+  "Hinges: three painted-over butt knuckles r 0.008 x 0.09 on the jamb side at y 0.25, 1.02 and 1.80 (DoorProp.butt_hinge() exists for this).",
+  "Stop and saddle: a 0.012 x 2.04 x 0.04 stop strip on each jamb's inner face and a 0.98 x 0.015 x 0.12 wood saddle at the floor.",
+  "Casing: the 0.06 jambs and 0.07 head read as a picture frame; widen to 0.10 with a 0.02 x 0.02 backband and 0.12 x 0.20 plinth blocks at the floor, the plain 1928 flat casing the real_object describes."
+ ],
+ "texturing": [
+  "The two panels take `trim` (T_library_architectural_painted_trim) on a `wood_dark` leaf; recessed fields belong to the leaf, so they take `wood_dark` with the slab's tint (0.40,0.31,0.24).",
+  "Knob `brass` (flagged P1 in AUDIT_TEXTURE_LANDING_REPORT, 0.50 m/tile) to `brass_dull` (0.30 metallic / 0.52 roughness), the internally consistent hand-hardware finish; backplate the same key.",
+  "Wear that says corridor: two 0.05 x 0.03 chip boxes in the `trim` tint at the lock-stile edge and a 0.30 x 0.08 `fx_scuff` band across the kick zone at y 0.05-0.13."
+ ],
+ "references_used": [
+  "File:DOOR KNOB TO FIRST FLOOR CLOSET DOOR - Fort Sheridan, Lieutenants' Quarters, 165 Scott Loop, Lake Forest, Lake County, IL HABS ILL,49-FTSH,1-4-9.tif",
+  "File:DOOR KNOB TO SECOND FLOOR BEDROOM DOOR - Fort Sheridan, Lieutenants' Quarters, 165 Scott Loop, Lake Forest, Lake County, IL HABS ILL,49-FTSH,1-4-8.tif",
+  "File:DETAIL OF FRONT SIDE OF CLOSET DOOR IN ROOM NO. 16 - Paymaster's Quarters, Harpers Ferry, Jefferson County, WV HABS WVA,19-HARF,14-7.tif",
+  "File:DETAIL OF BACK SIDE OF CLOSET DOOR IN ROOM NO 16 - Paymaster's Quarters, Harpers Ferry, Jefferson County, WV HABS WVA,19-HARF,14-8.tif",
+  "File:INTERIOR DOOR DETAIL - Harper House, Harpers Ferry, Jefferson County, WV HABS WVA,19-HARF,10-10.tif"
+ ],
+ "not_reopened": [
+  "PROP_ACTIVITIES section 6: case system, not gamified; it does not open and adds no key quest; interact() keeps the knob rattle and the service_door card.",
+  "door_prop rulings: 1928 contractor two-field joinery, nothing re-dated; the 23 service leaves are the galvanized Z-braced kind and this leaf is deliberately not one.",
+  "No new material key: trim, wood_dark and brass_dull already have runtime paths; the leaf stays wood_dark for consistency with the floor's residential leaves.",
+  "The generator sets it on the plaster face with no cut opening, so the casing sits proud rather than in a reveal; placement is the horror and the case's business, and the mount score records the gap without asking for a cut.",
+  "Brief section 8 rulings (icebox/monitor-top mix, Vantry points) are untouched."
+ ],
+ "notes": "has_geometry is true (240 tris counted) but the warehouse cannot show a leaf whose _leaf.visible is false until reveal(); a warehouse_variants() entry whose property calls reveal() would let the next sheet image it. The Funchal door (a modern painted-tile leaf) and the San Quentin room view were not used; the Interior Department door-pull pair was used only for backplate scale."
+}

@@ -1,0 +1,42 @@
+{
+  "specimen": "sink__lavatory_calm_fired_glaze",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 1,
+    "detail": 2,
+    "material": 1,
+    "wear": 3,
+    "mount": 0
+  },
+  "effort_hours": 3,
+  "confidence": "high",
+  "summary": "The most wrong thing is the exposed waste the ruling calls legible from the doorway: the Ø 36 mm nickel tailpiece at z -0.02 and the 0.075 m torus P-trap at (0, 0.40, 0.06) both sit inside the solid pedestal column, whose radius is 0.094 m at that height, so in every bearing the pedestal is a plain post with two brass-tan risers beside it and no trap or tailpiece renders, while the integral back is a 0.61 x 0.18 x 0.045 m slab set on the rear of a 0.66 m rim, 25 mm short of the rim at each end and with no cove into it, reading in the high quarter as a board propped on the basin. Object class is right: the compact enamelled apartment lavatory with pedestal, integral back, wall cross valves, bridge and swan spout of the Mott class, rim at 0.79 m, 0.61 m across, and the fired-glaze plate is the right substance; what is left is a nickel disc standing in for a rubber stopper and chain, cross arms 92 mm across where the 1908 pattern is 64, and a fixture that reads factory-new in a flat rented for sixteen years.",
+  "modelling": [
+    "Free the waste: narrow the pedestal column (make_cyl 0.085/0.11 radii, 0.49 m tall) to 0.060/0.075 above y 0.30 and move the tailpiece and trap to z -0.095 so the U hangs in front of the column as the ruling intends; or, if the pedestal is to conceal it as real pedestals do, delete the two hidden primitives (the 64 x 32 torus alone is about 4,000 of this prop's 12,636 triangles).",
+    "Widen the integral back box from 0.61 to 0.66 m (the rim's outer width, w*0.5 + 0.025 each side) and add one cove, a make_cyl(0.020, 0.020, 0.66) rotated 90 degrees about Z at y 0.79, z 0.18 in PORCELAIN, so the back meets the rim as one casting instead of a slab whose ends stop short of the torus.",
+    "Cross handles: the two arm boxes per valve are 0.092 m long; a 1908 Mott cross is 2.5 in, so 0.064 m; the Ø 68 mm escutcheon and Ø 46-54 mm stem can stay. Same change in _build_pair_taps serves the kitchen sink.",
+    "Stopper: the Ø 72 x 10 mm nickel disc is a pop-up plug; the catalog stopper is rubber on a bead chain. Keep the disc as the rigged Stopper node, add a make_cyl(0.0015, 0.0015, 0.16) chain from its edge to a Ø 10 mm chain stay on the back panel at (0.12, 0.83, 0.18): 2 primitives.",
+    "The two Ø 14 mm supply risers rise from y 0.03 to 0.76 and stop 20 mm under the panel with nothing at either end; add two angle stops make_cyl(0.012, 0.012, 0.030) at (±0.09, 0.40, 0.18) and two floor escutcheons make_cyl(0.020, 0.020, 0.004) at y 0.002: 4 primitives, all NICKEL so they merge into the existing nickel_plated draw."
+  ],
+  "texturing": [
+    "porcelain_fixture is right and stays: the close crop shows smooth warm ivory with no grain, exactly the ruled plate.",
+    "Wear that says sixteen years, since the 0.40 m plate is shared by 24 basins and must stay clean: a grey water-line ring, make_ring(0.20, 0.002) scaled to the bowl ellipse at y 0.755, in the existing MINERAL colour (0.79, 0.76, 0.65) left flat; one rim chip, a 12 x 8 x 1 mm box on the rolled rim front tinted through cast_iron at (0.33, 0.32, 0.29), placed by hash(unit) so 24 basins chip in 24 places.",
+    "Nickel worn to brass where hands go: tint only the four cross-arm boxes' nickel_plated row toward (0.80, 0.72, 0.55); the stems, escutcheons, bridge and spout keep the ruled warm-silver (0.93, 0.91, 0.84) tint.",
+    "The mineral film disc at (0.22, 0.805, -0.19) is the right thin film (0.8 mm) and the right placement under the ruling; leave it."
+  ],
+  "references_used": [
+    "File:Mott's Open Lavatory (NYPL b15260162-487472).jpg",
+    "File:Mott's Open Lavatory (NYPL b15260162-487473).jpg"
+  ],
+  "not_reopened": [
+    "HISTORICAL; CANONICAL: the bath basin is Mott's compact apartment-house enameled lavatory (plate 1053) with integral back/apron, compression taps, pedestal and exposed waste; the two Mott Open Lavatory plates on the sheet (410-G brackets, 411-G brass legs, 33 x 22 in marble slabs) were read for the trap, back and faucet class, not as a licence to swap the pedestal for legs.",
+    "The lavatory has one rolled rim over one continuous elliptical bowl; no second lower torus.",
+    "Valves are wall valves piercing the integral vertical back with visible escutcheons; valve mount z derives from the panel front via VALVE_SEAT_DZ.",
+    "porcelain_fixture covers the entire lavatory class; kitchen roll-rim sinks keep their own enamel.",
+    "nickel_plated is warm silver, not chrome; the risers reading tan in the flat shed light is that ruling.",
+    "Mineral bloom sits only at drains, rims and wet corners as a thin film, never tiled over dry vertical enamel.",
+    "Rule of Signal: the fixture carries no signal, stays 1927, second-hand, on water pipe; possession only retimes a valve.",
+    "The two Mott Cabinet Lavatory plates on the sheet are marble-top washstands with a mirror superstructure and were not used."
+  ]
+}

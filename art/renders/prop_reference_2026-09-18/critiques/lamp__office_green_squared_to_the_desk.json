@@ -1,0 +1,39 @@
+{
+ "specimen": "lamp__office_green_squared_to_the_desk",
+ "axes": {
+  "object_class": 0,
+  "proportion": 2,
+  "silhouette": 3,
+  "detail": 3,
+  "material": 4,
+  "wear": 4,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "Same fault as its Emeralite sibling: the shade is a closed flat-green box 0.20 x 0.062 x 0.105 m with no curve, end caps, white lining or glow, and the base at dia 0.156 m is 30% wider than a junior-size dia 0.12 while the 0.33 m overall is a tenth over the 0.28-0.30 m of a Verdelite or Greenalite. The object class is right (a rival-make green-glass bankers' lamp of the Emeralite class); the sheet's three references (a 1902 X-ray tube stand and two English churches) are off-topic, so this is judged against the variant text.",
+ "modelling": [
+  "Build the shade with the same half-cylinder helper as the Emeralite but squarer, which is the script's stated intent: a 0.20 m trough of dia 0.105 with a 150 deg arc and a 0.02 m flat crown so it keeps sharp corners while staying a glass trough open underneath; end caps r 0.0525 x 0.008 in brass at x +/-0.10.",
+  "Tilt knuckle dia 0.020 x 0.026 on the z axis at the stem top (y 0.265), shade tipped 12 deg toward the desk.",
+  "Base dia 0.156 (make_cyl 0.070/0.078) to dia 0.12 (0.055/0.06) as one plain disc 0.014 thick - several rival makes used a plain disc, not a step; stem 0.24 to 0.21 so the overall height lands at 0.29-0.30 m.",
+  "Pull-chain socket under the trough centre (collar dia 0.034 x 0.024, chain dia 0.002 x 0.05 with a bead); run the cord down the stem to the base and 0.12 m across the desk instead of stopping 0.09 m above it.",
+  "Move the SpotLight3D from the spec fallback (0.08, 0.33, 0), which sits in the top of the closed box (y 0.269-0.331), to y 0.26 under the open trough."
+ ],
+ "texturing": [
+  "Shade: share the new `cased_glass_green` key with the Emeralite (outer green, `milk_glass` inner, emission when on); the current flat (0.16, 0.34, 0.22) at roughness 0.18 is an opaque painted slab.",
+  "Brass: `brass` on the stem, `brass_dull` on the disc base top; the variant text allows a bronze or verdigris finish on rival makes, so tint the base recess toward (0.45, 0.50, 0.40) to separate it from the Emeralite's brighter brass.",
+  "Wear kept neater than the Emeralite because Mina squares everything: one `fx_scuff` under the base edge only, and a 0.3-alpha `fx_ao` dust band along the top of the shade rather than chips."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "ORISON_BIBLE VIII.2 / VIII.6 Rule of Signal: 1927 or older and second-hand.",
+  "ORISON_BIBLE VIII.4: Bakelite or porcelain socket, cloth-braided flex in 2A.",
+  "Accord 9: no gleam; the verdigris tint is decay, not spectacle.",
+  "Brief section 2 true scale: the base and height corrections move toward the real 0.28-0.30 m.",
+  "Script header: five distinct silhouettes, one SpotLight3D each; 'squarer and smaller' stays the distinction from the Emeralite."
+ ],
+ "notes": [
+  "No reference on the sheet shows a bankers' lamp; confidence capped at medium.",
+  "Census: 8 surfaces, 100% flat colour, 876 triangles."
+ ]
+}

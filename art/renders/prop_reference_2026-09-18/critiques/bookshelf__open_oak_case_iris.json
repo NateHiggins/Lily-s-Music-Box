@@ -1,0 +1,42 @@
+{
+  "specimen": "bookshelf__open_oak_case_iris",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 2,
+    "detail": 2,
+    "material": 2,
+    "wear": 3,
+    "mount": 1
+  },
+  "effort_hours": 3,
+  "confidence": "medium",
+  "summary": "No reference on this sheet shows an open oak case (the Globe-Wernicke plates are glazed sectionals and the Honor-Bilt living room is a built-in), so this is judged against the real_object text and the notes; the biggest gap is that the case reads as a flush, walnut-backed crate standing on its side boards, while the ruled unequal feet are buried inside it and the second-hand story (rubbed edges, a shim, golden-oak fleck) is not told. The object class (inherited open quartered-oak case) is right.",
+  "modelling": [
+    "The two 0.034 m side boards run the full 1.30 m to the floor, so the ruled unequal feet (0.08 / 0.075 m blocks at x +/-0.27) are hidden and pierce the y 0.045 bottom shelf by 20 mm (foot top 0.080, shelf top 0.060). Start the sides at y 0.08, raise the bottom shelf to y 0.095, and let the two feet carry the case; the 5 mm foot difference then gives the 0.5-degree lean the folded-paper shim is supposed to explain.",
+    "Add a front base rail 0.72 x 0.06 x 0.02 at y 0.11 between the feet and a top board 0.80 x 0.03 x 0.30 at y 1.285 overhanging the sides by 20 mm, so the silhouette has the plinth-and-top read of a factory case rather than a flush box; 2 boxes, merged.",
+    "Shelf pitch: tiers of 0.405 / 0.41 / 0.415 m leave 0.14 m of air above a 0.27 m book; 1900s-1910s factory cases ran 0.28-0.32 m tiers. Five shelves at 0.095, 0.40, 0.70, 1.00, 1.275 (one more 0.76 x 0.03 x 0.28 box) matches the shelf density of the built-in case in the Honor-Bilt living-room plate.",
+    "Books float 15 mm: _book_y = 0.89 while the y 0.86 shelf (0.03 thick) has its top face at 0.875; derive _book_y from the shelf surface.",
+    "The shim is the story: one paper box 0.06 x 0.005 x 0.05 under the shorter foot, visible from the front."
+  ],
+  "texturing": [
+    "The 12 mm back is wood_dark (walnut albedo) inside an oak_quartered case and reads as a dark walnut panel in the high_quarter bearing; real backs are thin poplar or pine boards. No softwood key is allowed for this family, so tint oak_quartered pale (0.72, 0.64, 0.50) at scale 0.6 for the back.",
+    "oak_quartered at tint (0.48, 0.40, 0.30), scale 1.1 renders as a red-brown speckle; golden-oak shellac is amber with pale ray-fleck ribbons - tint (0.62, 0.48, 0.28) and scale 1.6 so the fleck reads on the side boards at 3 m.",
+    "Cover palette: the pastel pink and mint spines on the linen batch read as modern paperbacks; set HSV value 0.22-0.36 and saturation 0.45-0.60 with hues from navy, maroon, green and brown, still as vertex colour.",
+    "Wear that says inherited: darken the front 40 mm of each shelf top and the top board's front edge by 15 % (four 0.72 x 0.004 x 0.04 strips in a second oak_quartered tint) and leave the sides clean - the case is currently factory-fresh."
+  ],
+  "references_used": [
+    "File:Honor bilt modern homes. (1921) (14763667892).jpg"
+  ],
+  "not_reopened": [
+    "The quartered-oak map is reserved for the plain inherited case; sectionals stay wood_dark.",
+    "No new material keys and no texture prompt batch - a pine or poplar back key would fix the back outright but is not requested.",
+    "Books are two shared vertex-colour meshes; the plain case renders in 4 meshes under the 64-mesh family cap.",
+    "Two block feet of unequal height with a folded-paper shim are the ruled story; this critique makes them visible rather than replacing them.",
+    "Markers are generator-authored on a solid living-room wall; the active run tops out at 1.18 m."
+  ],
+  "notes": [
+    "The Honor-Bilt living-room plate was used only for period shelf pitch and dark cloth spines; it shows a built-in leaded-glass case, not an open oak one.",
+    "Off-topic references ignored: both Globe-Wernicke plates (glazed sectionals), American homes and gardens (1911) (dining room and stair), Honor bilt (1921) (14763961585) (house exterior)."
+  ]
+}

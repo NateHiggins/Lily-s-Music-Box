@@ -1,0 +1,41 @@
+{
+ "specimen": "kettle__polished_nickel",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 3,
+  "wear": 2,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "Evelyn's 'kept bright' nickel renders as a chalky parchment barrel (body median sRGB (210,198,172) on the front bearing, no reflection): nickel_plated at 0.82 roughness cannot say the one thing this variant exists to say, mirror plate over brass, and the pale-tinted bakelite_black terminal and plug read as grey stone. The object class is right (c.1925 formed electric vessel with heating well, side terminal, cloth lead, bail and chained whistle); the sheet's only kettles are 1930s stovetop copper and the kind is unverified, so proportion was judged against the museum figures in the notes and confidence is medium.",
+ "modelling": [
+  "Feet: the base carries two BAKELITE feet (x +/-0.046, r 0.010 to 0.012 x 0.014); a kettle stands on three, so place three at 120 deg on a 0.055 m radius.",
+  "Bail: five WOOD tubes (r 0.008) make an all-wood pentagon that reads angular from every bearing; build it as two body-finish wire arms r 0.005 rising from the ears to y 0.245 and one turned WOOD grip r 0.012 x 0.10 across the top at y 0.272, the Hotpoint pattern and the bail form in both NGA kettles.",
+  "Ears: the two r 0.010 x 0.025 ear cylinders use _body_color; make them BRASS so 'brass ears' read yellower than the plate as the variant notes require.",
+  "Spout: the three straight cones kink visibly at y 0.145 and 0.192; raise the tip from y 0.207 to 0.215 (level with the lid seat, so it pours) and add a fourth r 0.020 segment so the run reads as the curved gooseneck of the Croe and Cheney kettles.",
+  "Lid: the r 0.052 to 0.060 x 0.014 disc reads flat; add a SphereMesh cap r 0.052 scaled to 0.012 tall under the knob so it reads as the removable domed lid."
+ ],
+ "texturing": [
+  "nickel_plated: for unit 1A set the material roughness to about 0.30 (metallic stays 0.70) so the bright plate shows soft warm reflections; the 0.82 the key ships with suits 1D's and 4B's dull kettles, not the polished one.",
+  "bakelite_black is tinted (0.75,0.68,0.58) for every unit but 1D, which turns the terminal block, pins and plug pale grey (front bearing median (92,88,85)); tint it (0.32,0.28,0.24) at roughness 0.45 so Bakelite reads black-brown with a slight sheen.",
+  "The two make_ring seams (y 0.075 and 0.196) share the body finish and vanish in the plate; tint them 10% darker so the rolled seams stay visible, as the variant notes ask."
+ ],
+ "references_used": [
+  "File:Eugene Croe, Copper Tea Kettle, c. 1939, NGA 27052.jpg",
+  "File:Clyde L. Cheney, Copper Tea Kettle, 1935-1942, NGA 27044.jpg"
+ ],
+ "not_reopened": [
+  "Body stays 180 mm across (museum 170) because 4B has 49.5 mm to its crosswise toaster.",
+  "Eight-mesh hard contract per kettle (48 total): every bullet above stays inside the StaticVessel, Lid or ChainedWhistleCap merges.",
+  "No new material or texture batch: nickel_plated, copper_aged, bakelite_black, rubber_aged, brass_dull, wood_dark and enamel only.",
+  "Six markers in 1A, 1D, 3D, 4B, 4C, 6C; nickel for 1A/1D/4B, copper for 3D/4C/6C; finish owned by the household.",
+  "Electric kettle and whistle are HISTORICAL (1917 Hotpoint, c.1925 GE, 1915/1921 patents); no divergence invented.",
+  "Teresa's (1D) wear is the interior mineral ring and squat knob, not exterior dirt.",
+  "F04_4C_KETTLE_01 stays bound to case 4519."
+ ],
+ "notes": "Shed convention: kettle_prop.gd has no warehouse_rotation_y(), so the front bearing shows the terminal side and hides the spout behind the body; the side bearing was used for spout, cap and chain. The Baltimore and Ohio kitchen-set advertisement and the 1921 yearbook drawing on the sheet show no kettle worth judging against."
+}

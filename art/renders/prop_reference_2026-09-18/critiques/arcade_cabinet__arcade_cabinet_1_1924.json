@@ -1,0 +1,44 @@
+{
+ "specimen": "arcade_cabinet__arcade_cabinet_1_1924",
+ "axes": {
+  "object_class": 4,
+  "proportion": 2,
+  "silhouette": 4,
+  "detail": 3,
+  "material": 4,
+  "wear": 4,
+  "mount": 1
+ },
+ "effort_hours": 6,
+ "confidence": "low",
+ "summary": "Nothing of this specimen can be seen: the index reports bounds of 402.48 x 4.00 x 44.65 m, 11854 triangles and 231 surfaces whose keys (graybox_wall, graybox_floor, board_concrete, safety_yellow, galvanised, sealed_screed, strip_light, wire_glass) are the compiled arcade_pit world package that ArcadeMachine booted under the prop node, so the census counted the level and all four bearings are empty grey frames of a 400 m box. The axes below are therefore read from the script, the variant ruling in queries.json and the asm_arcade_cab source, with confidence low: the one thing most wrong is the object class, because variant 1 is the finned late-80s cabinet (fabric_cool body, two terracotta fins 0.55-1.80 m, a milk_glass header 0.10 m wider than the body each side) that the period note calls the most anachronistic geometry in the family, and the script crowns it with a 0.61 x 0.21 m emissive accent marquee at 1.68-1.90 m. Re-render before scoring against these numbers.",
+ "modelling": [
+  "Harness first: exclude the Machine node (and its booted world) from the shed's bounds and census, or build the display with the machine unbooted (_process boots at LIVE_RANGE 9.0 m, which the inspection camera is always inside), then re-shoot; until then no bearing exists for this specimen.",
+  "Programme card, not marquee: the header band is 1.68-1.90 m (0.22 m), so replace the 0.61 x 0.207 x 0.012 m emissive accent box with a brass_dull frame 0.50 x 0.16 x 0.02 m holding a milk_glass QuadMesh 0.46 x 0.13 m over an indicator_enamel card 0.44 x 0.11 m (title 0.035 m cap height, station / manufacturer / received_from line 0.016 m), with the 0.85-energy OmniLight behind the glass.",
+  "Circular bezel as geometry: one make_ring in brass_dull, radius 0.205 m (face_size 0.41 / 2), tube 0.012 m, 30 mm proud of the assembly's bakelite surround at the 1.14-1.55 m band, so the blue-white 1924 tube reads as a round bezelled face and not a square.",
+  "Claimed controls for whatever card lands here: keep the deck at 1.06 m but give every layout its material keys (see texturing) and cap the primitive count at eight per layout; the twin-dial layout currently spends 30 primitives on two dials and reads as two sunbursts.",
+  "Assembly task, not this script's (flag for the Blender pass): asm_arcade_cab variant 1 must lose the two terracotta fins (0.03 x 0.62 x 1.25 m each flank), the stick and the three buttons, and swap the 'fabric_cool' body for oak_quartered with cast-iron or brass scroll trim; the ruled real analogue is the Mills / Caille / Watling oak-and-iron upright with a lit top glass, 0.66 w x 0.72 d x 1.90 h, carcass stopping at 1.68 m under a 0.22 m header no wider than the body plus 0.05 m each side.",
+  "Warehouse registration: as for variant 0, supply a stand-in carcass (wood_dark make_box 0.66 x 0.72 x 1.68 m plus a milk_glass box 0.76 x 0.22 x 0.16 m header) so the live parts are judged in place."
+ ],
+ "texturing": [
+  "Name catalogue keys instead of raw Color across _build_claimed_controls: plates, pointer, bell dome, key base and jacks -> brass_dull; knobs, ticks, tape head, patch bay -> bakelite_black; throw-lever knob (0.62, 0.16, 0.13) -> indicator_enamel red; wheel rim -> bakelite_black, hub -> nickel_plated. None of the current 14 Color literals maps to a key.",
+  "Header: milk_glass over indicator_enamel, lit warm (Color 1.0, 0.86, 0.66) - not the card's accent colour; the accent is the card's lettering only.",
+  "Tube face: keep scope_screen.gdshader with the 1924 blue-white phosphor (0.44, 0.86, 0.92) and mono 1.0; that part is right.",
+  "Wear: the carcass is twenty years old and serviced by four people (Accord 9) - a 0.30 roughness step on the Bakelite knobs, a rubbed bright arc on the dial plate, and dust on the card glass; no grime texture."
+ ],
+ "references_used": [
+  "File:Turning Technology into Furniture - Stove(1886), Radiola60 in Cab.(1927-28), Predicta TV(1958-60), RCA TV(1949), Edison Phonograph(1919), Sewing Machine(1950-55,1860-65) - Fully Furnished - Historic Furniture Exhibit - Henry Ford Museum.jpg",
+  "File:Televisore a valvole, bianco e nero, a consolle - Museo scienza tecnologia Milano 02239.jpg",
+  "File:Televisore a valvole, bianco e nero, midget - Museo scienza tecnologia Milano 02229 dia.jpg"
+ ],
+ "not_reopened": [
+  "Bible VIII.5.g: the amusement machines are receivers; there is no arcade and no video-game industry.",
+  "Bible VIII.5.g: circular scope, long-persistence phosphor, blue-white on the 1924 chassis; every cabinet receives the same signal and no card breaks character.",
+  "Bible VIII.5.g / VIII.4: Bakelite, brass, oak, cloth flex, valve rack behind a hinged door, wet cells; no aluminium, stainless, chrome or moulded colour.",
+  "Rule of Signal and VIII.5.h: signal parts forty years early, everything else 1928 or older second-hand; the 1924 chassis plate stays.",
+  "Script header ruling: carcass is the Blender assembly's, silhouette is the layout variant's; carcass changes are filed as an assembly task.",
+  "HARUKIYA_RECONSTRUCTION_BRIEF: this is the second cabinet in the entrance corner, frozen in that order; F01 lobby and common-room copies stay retired.",
+  "Brief section 8: fridges and Vantry points untouched.",
+  "The three sheet references show a 1927-28 Radiola console in an ensemble shot and two later Italian television consoles; the Mills / Caille upright the variant ruling names is on no sheet, so it was not cited."
+ ]
+}

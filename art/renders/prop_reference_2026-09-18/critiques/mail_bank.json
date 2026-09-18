@@ -1,0 +1,45 @@
+{
+  "specimen": "mail_bank",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 1,
+    "detail": 2,
+    "material": 3,
+    "wear": 3,
+    "mount": 0
+  },
+  "effort_hours": 5,
+  "confidence": "medium",
+  "summary": "The four references are Cutler chute receiving boxes and signs, not the Couch tenant bank, so they anchor only the bronze finish; against that finish the specimen is mostly a material gap - a flat orange-brown surround (flat:#78532f, although the ruling names oak_quartered for it), bright new-gold brass with two tints staggered by index, paper-white cards and flat black pockets - where the Cutler plate reads as dark patinated bronze polished only where hands go. The object class (Couch 1915 apartment-house bank as a 4 x 6 elevation of the building) is ruled and the geometry respects it.",
+  "modelling": [
+    "Surround is one 1.36 x 1.39 x 0.05 slab with no frame: a wood mounting frame reads through its rebate - add a 0.04 x 1.39 x 0.02 stile each side and a 1.36 x 0.04 x 0.02 rail top and bottom proud of the panel (4 boxes, merged), and step the array faceplate 6 mm below the frame face.",
+    "Card windows are quads on the leaf face inside a 0.155 x 0.048 x 0.004 frame; the real name window is glazed and recessed - sink the card 3 mm behind the frame and put a 0.142 x 0.038 x 0.002 alpha-0.25 glass box in front, so the window reads as glass rather than a paper sticker (same fix on the hinged 4B leaf).",
+    "The outgoing slot plate (0.30 x 0.10 at y 0.60) sits 0.32 m below the array with 0.38 m of blank surround under the grid; raise the surround bottom to y 0.75 (height 1.18) with the slot at y 0.82, or give the apron a purpose - the reference installations put the outgoing slot at the array's edge, not on a blank board.",
+    "Empty units are 0.268 x 0.09 x 0.018 near-black boxes at Z_BODY that read as holes; an inclined japanned pocket shows a sloping floor - tilt a 0.26 x 0.004 x 0.05 plate 20 degrees inside each of the six (6 boxes, merged) so the gaps read as pockets.",
+    "Lock cylinders are r 0.011 x 0.012 flat grey discs; add a 0.002 x 0.006 x 0.002 keyway box and a r 0.014 x 0.002 escutcheon ring on each - the lock is the one part every finger polishes."
+  ],
+  "texturing": [
+    "Surround: flat Color(0.47, 0.325, 0.185) at roughness 0.6 - key it to oak_quartered as the ruling already names, tint (0.55, 0.40, 0.24), so the frame reads as hardwood in the front and high_quarter bearings instead of painted board.",
+    "T_mailbank_brass at tints 1.0 / 0.72 renders as new gold; the Cutler plate is dark oxidised bronze with bright raised edges - set the base tint to (0.55, 0.42, 0.28) and the dark tint to (0.38, 0.28, 0.18) at metallic 0.55 as now, and assign the bright tint by position (lock rings, leaf bottom edges, the 4B leaf) rather than by atlas_index % 3, which produces a checkerboard, not touch wear.",
+    "Card material (white, roughness 0.42) is the brightest thing on the wall; cards under glass read (0.86, 0.84, 0.78) at roughness 0.15.",
+    "Empty pockets use three near-black flats (#0b0a08, #0f0d0a, #17130e); one tint of the brass texture at 0.18 gives them the japanned-steel sheen the reference shows in its recesses.",
+    "Header lettering stays (authored atlas); match its brass carrier plate to the darkened leaf tint so the plate does not float brighter than the array."
+  ],
+  "references_used": [
+    "File:Cutler mail chute letter box.JPG",
+    "File:Cutler Mail Chute Co.jpg",
+    "File:Disused Cutler mail chute in Clifton, NJ.JPG"
+  ],
+  "not_reopened": [
+    "S. H. Couch 1915 apartment-house bank: inclined pockets, horizontal leaves on a common concealed hinge, upper gravity delivery flap, glass window, keyed cylinder; Cutler's Model F is the chute receiving box, not the tenant compartments.",
+    "4 x 6 elevation of 310 x 140 mm cells, array 1.24 x 0.84 m, base 0.92 m, box 4B centred at 1.41 m, floor six at the top.",
+    "Units 1B, 1C, 2D, 3C, 5D and 6D remain literal dark gaps; carrier flaps belong to the shared faceplate; only 4B opens 95 degrees; the closed bank is capped at 13 meshes.",
+    "No new material key and no texture batch: oak_quartered, brass_dull, brass_bright and paper already serve; card and header atlases keep their lettering. (The catalogue's bronze key would match the reference finish outright but is outside the ruled set.)",
+    "Bank centre at Blender y = -7.88 with the post tray derived at +0.48."
+  ],
+  "notes": [
+    "The three Cutler references were used only for bronze patina, raised-edge polish and lock hardware; the sign on a Cutler mail chute (a paper collection notice) was ignored. No reference on the sheet shows a Couch tenant grid, so the grid itself is judged against the ruling text.",
+    "Index lists mount as floor; the prop is a wall-mounted surround built behind its own wall datum and the shed's inferred backing wall shows it correctly."
+  ]
+}

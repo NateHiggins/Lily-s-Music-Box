@@ -1,0 +1,41 @@
+{
+ "specimen": "flue_breast__sealed_1912_thimble",
+ "axes": {
+  "object_class": 0,
+  "proportion": 2,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 3,
+  "wear": 1,
+  "mount": 1
+ },
+ "effort_hours": 3,
+ "confidence": "high",
+ "summary": "The fitting projects 89 mm as a stack of three fat torus rings and from the side reads as cushions stuck to the wall, and its cast_iron tints (0.62-0.78) render pale bone: the 5C closure samples median sRGB (184,171,154) against the shed wall's (147,143,134), so the iron is lighter than the plaster and from the front the target reads as a plaster medallion. Smith's 1873 drawing shows the opposite: a thin flat flange at the plaster with sleeve and rings disappearing into the wall. The object class is right, a sealed ringed thimble on a chimney breast with soot bloom and cracks where heat met plaster.",
+ "modelling": [
+  "Rings: replace the three tori (tube r 0.010/0.010/0.008 at r 0.145/0.108/0.078) with flat annuli, three CylinderMesh discs r 0.155, 0.118 and 0.086, each 0.006 thick and stepped 5 mm apart, so they read as nested reducing rings rather than hoops.",
+  "Flange: add a flat faceplate disc r 0.160 x 0.004 at z -0.004 against the plaster and sit the throat (r 0.133 x 0.036) inside it at z -0.010 to -0.030 with the rings within the throat's depth; total projection drops from 0.089 to about 0.036 (Smith fig. 3: sleeve into the wall, flange B on the face). The masonry is Blender-owned, so the recess is faked inside the flange, not cut.",
+  "Fasteners: four IRON heads r 0.006 x 0.004 at r 0.145 on the flange at 45/135/225/315 deg; the notes describe them and the script never built them.",
+  "Closure: keep the r 0.072 x 0.012 disc and 0.052 x 0.018 finger pull but dome it 4 mm (SphereMesh r 0.072 scaled) so the seated cap carries a highlight edge for the ruled 3 mm knock rock.",
+  "Cracks: the four 0.063-0.086 m boxes stop at the halo rim and read as radial tick marks on the front bearing; start them at the flange rim (r 0.16) and shorten to 0.05-0.06 so they read as hairlines from the hot iron."
+ ],
+ "texturing": [
+  "cast_iron per-unit tints (2C 0.78, 3C 0.66, 4C 0.73, 6C 0.62, default 0.70) are far too light for iron; drop them to the 0.28-0.36 band (e.g. 5C (0.32,0.31,0.29), 2C (0.36,0.35,0.33)) so the fitting reads dark grey-black and keeps the ruled per-unit variation.",
+  "Halo: the 32-segment `soot` disc has a hard edge at 0.41 m (halo (61,57,54) straight to wall (147,143,134)); add an inner 0.34 m disc at tint 0.55 and lift the outer disc's tint to 0.80 so the bloom fades, two soot surfaces still merging to one draw.",
+  "Tint the outer ring 10% lighter (heat-greyed edge) and the closure 10% darker than the throat so the target reads as three separate castings rather than one moulded piece."
+ ],
+ "references_used": [
+  "File:H. Smith Stove-Pipe Thimbles - DPLA - 02f88352ad05b622a7ae573a9c9e0af8 (page 1).jpg",
+  "File:VIEW OF EAST WALL OF MIDDLE ROOM ON NORTH SIDE OF HOUSE (LABELLED DINING ROOM ON FLOOR PLAN); LOOKING EAST. STOVEPIPE HOLE CONNECTS TO CENTRAL CHIMNEY. - Mary Cecil Cantrill No. HABS KY,105-GEOTO,2-8.tif",
+  "File:View of Dogtrot, detail showing stove-pipe hole in Room 1, north wall - Korus Farmstead, Dogtrot, U.S. Highway 281 at Farm Road 536, Leming, Atascosa County, TX HABS TEX,7-LEM.V,1A-6.tif"
+ ],
+ "not_reopened": [
+  "310 mm sealed cast-iron thimble centred at 1.44 m; three visible meshes each, fifteen across the family (the flange, annuli and fasteners all merge into FixedThimble).",
+  "cast_iron and soot only, no new key or texture batch; every bullet above is a tint or placed geometry.",
+  "Knock evidence is the 3 mm lip rock plus 2 mm lateral slip; no larger displacement and no in-plane spin.",
+  "The masonry breast is Blender-owned and never acquires an opening verb; the sleeve cannot be cut into it.",
+  "Binding ids F02_FLUE_BREAST through F06_FLUE_BREAST unchanged; markers seat directly on CHIMNEY[1].",
+  "HISTORICAL; CANONICAL: no signal, ordinary 1912 fabric, not a decorative flue stopper."
+ ],
+ "notes": "Page 2 of the Smith patent is the blank verso and the Flue Stopper page is text; the blast-furnace HAER sheet is off-topic. The pale iron will read differently under room light than under the shed's flat light, but the notes' own warehouse mean of (110.6,110.2,110.3) is already the value of mid plaster, not iron."
+}

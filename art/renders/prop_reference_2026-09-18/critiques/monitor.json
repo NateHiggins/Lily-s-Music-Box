@@ -1,0 +1,42 @@
+{
+  "specimen": "monitor",
+  "axes": {
+    "object_class": 3,
+    "proportion": 4,
+    "silhouette": 4,
+    "detail": 3,
+    "material": 3,
+    "wear": 4,
+    "mount": 2
+  },
+  "effort_hours": 8,
+  "confidence": "high",
+  "summary": "It reads as a present-day flat panel on a pedestal stand with a gilt frame: a 0.10 m deep slab whose 0.39 x 0.25 m picture (about 18 in) covers three quarters of the face and stands 25 mm proud of it, on a 0.24 x 0.12 m central foot, where the RCA 630-TS on this sheet is a cabinet as deep as it is tall with a small round-cornered mask, a cloth grille beside it and a row of knobs below. The ruled object class (a 1946-1955 Bakelite tabletop valve receiver of the fiction, never a present-day flat display) is right in intent and in the bakelite_black and brass_dull keys, but the built shape is the excluded one, and the brass_dull bezel tinted 0.55/0.50/0.38 at scale 0.58 reads as burl veneer rather than stamped brass.",
+  "modelling": [
+    "Depth: add a tube housing behind the case, make_box(0.30, 0.28, 0.30) at x -0.20 (the case is 0.10 deep with its face at +0.05), or grow the case to 0.42 deep; either is 1 box and gives the side bearing the neck that makes a receiver.",
+    "Picture: shrink the plate from 0.39 x 0.25 to 0.26 x 0.195 m (about 12.8 in, still 'better than it should be' against the 10-in 630-TS) and sink it to x +0.041 so it sits 9 mm behind the bezel face instead of 25 mm in front of it. The mask outline (round per VIII.5.g or the present rounded rectangle) is unruled and is not decided here.",
+    "Bezel: the 0.46 x 0.30 x 0.018 brass plate becomes a frame of four boxes 0.018 thick around the 0.26 x 0.195 opening plus a 0.14 x 0.22 x 0.006 speaker-grille box to its right, as the 630-TS lays out: 5 boxes for 1.",
+    "Knobs: two Ø 48 mm at the lower corners become four Ø 36 mm make_cyl(0.018, 0.018, 0.022) in a row under the mask at x +0.056, y -0.15, z -0.10/-0.035/0.035/0.10 (on-off/volume, contrast, brightness, tuning); the tuning knob keeps its 38-degree verb and stays outside the merge.",
+    "Foot: replace the 0.24 x 0.055 x 0.12 central pedestal with four Ø 30 x 12 mm Bakelite feet make_cyl(0.015, 0.015, 0.012) under the case corners so it stands like a set on second-hand furniture, not a monitor on a stand: 4 cylinders for 1 box.",
+    "Service back and flex: make_box(0.50, 0.34, 0.006) behind the housing with four Ø 6 mm screw heads and six 0.20 x 0.008 x 0.002 slot boxes tinted darker (11 primitives), and a cloth flex make_cyl(0.004, 0.004, 0.30) leaving the lower back corner (1 primitive): VIII.4's slotted screwed-on back and braided flex."
+  ],
+  "texturing": [
+    "Bezel/frame: brass_dull at tint (0.55, 0.50, 0.38) and scale 0.58 mottles into tortoiseshell over a 0.46 x 0.30 plate; use (0.78, 0.68, 0.44) at scale 1.0 as tap_prop does, and the narrower frame shows less of the mottle.",
+    "Case: bakelite_black at 0.46/0.44/0.40 reads as dark grey plastic; VIII.4 Bakelite is warm brown-black chipped white at the edges, so tint (0.40, 0.34, 0.28) and add four 2 mm edge strips along the front top and side edges tinted (0.80, 0.78, 0.72): the chips.",
+    "Wear as ruled (twenty years old, repaired by four people): one mismatched knob tinted brown Bakelite (0.55, 0.35, 0.20), one replaced screw head on the back in nickel_plated, and one scuff on the top face as a 0.08 x 0.06 tint patch (0.52, 0.48, 0.42): 3 tints, so the set stops reading factory-fresh.",
+    "Screen: the found-art tile as albedo and emission and the green-teal (0.38, 0.62, 0.52) glow are the ruled picture and stay; the OmniLight pool moves with the recessed plate."
+  ],
+  "references_used": [
+    "File:RCA 630-TS Television.jpg",
+    "File:MoMI RCA TV.JPG"
+  ],
+  "not_reopened": [
+    "Monitor-family correction: the monitor kind owns exactly the five domestic picture receivers, one compact display per marker, never a pair and never a maintenance console; nothing above adds a control the 4B machine owns.",
+    "Rule of Signal (bible VIII.2): a picture receiver is forty years early and better made than it should be; it is never a 1928 mechanical Televisor nor a present-day flat display, which is the ruling this critique is enforcing, not reopening.",
+    "VIII.4 technology quirks: Bakelite, brass, cloth-braided flex, valves, service plates and screws, no aluminium or injection-moulded colour; every material above is one of these.",
+    "VIII.6 and Accord 9: the device is old, repaired and sits on second-hand furniture; the stand is the room's furniture, not the prop.",
+    "VIII.5.g: whether the domestic receiver's mask is round is unruled and must not be silently assumed either way; the picture bullet resizes the plate and leaves its outline as built.",
+    "Script-level ruling: E operates local tuning, never power; LINE LIVE stays.",
+    "The two USGS bee photographs on the sheet are off-topic and were not used; the shed's 'front' bearing shows the set edge-on because its face is local +X, which is staging and not scored."
+  ]
+}

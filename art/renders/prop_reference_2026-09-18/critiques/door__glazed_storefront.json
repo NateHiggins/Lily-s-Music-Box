@@ -1,0 +1,35 @@
+{
+ "specimen": "door__glazed_storefront",
+ "axes": {
+  "object_class": 0,
+  "proportion": 2,
+  "silhouette": 3,
+  "detail": 3,
+  "material": 2,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "high",
+ "summary": "The field below the mid rail is an open hole: the oak carcass has rails centred at 0.065, 0.78 and 2.035 m but the glass box spans only 0.83-1.95 m, so from 0.13 to 0.715 m the leaf is empty and the shed floor shows through it in the front and high-quarter bearings. Object class is right (a narrow oak carcass around a plate-glass light with a brass pull bar), the push bar the variant names is missing, and the fix for the hole is one box.",
+ "modelling": [
+  "Close the lower field: one oak_quartered box (width - 0.19) x 0.585 x 0.030 centred at (width * 0.5, 0.4225, 0) as a flush oak panel; or, if the shop is to be seen to the floor, extend the glass box to (width - 0.19) x 1.84 centred at y 1.065 and drop the 0.78 rail to y 0.40 as a deep bottom rail - either way one primitive edit closes the hole.",
+  "Add the push bar on each face: a horizontal brass cylinder r 0.012 x (width - 0.34) at y 1.00 at z +/-0.07 with two standoff cylinders r 0.012 x 0.065 at x 0.17 and width - 0.17 (6 primitives); today both faces carry only the vertical 0.34 m pull bar.",
+  "Make the bottom rail a shop rail: raise the y 0.065 rail from 0.13 to 0.25 tall (centre y 0.125) and add a brass_dull kick plate box (width - 0.19) x 0.15 x 0.004 on the outer face at y 0.11, the deep footworn rail every store door on the two street plates shows (1 edit, 1 primitive).",
+  "Add the lock cylinder: a brass_dull cylinder r 0.016 x 0.006 proud of the outer face at (width - 0.16, 0.92, -0.03) below the pull bar's lower standoff; a shop leaf that locks at night has a visible cylinder (1 primitive)."
+ ],
+ "texturing": [
+  "Glass: the flat alpha material at (0.16, 0.22, 0.20, 0.34) reads as murky teal film; plate glass is near-colourless with a faint green edge. Use albedo (0.80, 0.88, 0.84, 0.14) and roughness 0.06 so the interior stays visible and the pane reads as glass.",
+  "Brass bars: use 'brass' (metallic 0.85) rather than brass_dull for the vertical pull and the new push bars; these are the hand-polished vertical parts the brief reserves polished brass for, and the sheet's storefronts show bright bar hardware against dark frames.",
+  "Oak: keep oak_quartered at scale_mult 0.8 but tint the bottom rail darker, about (0.36, 0.25, 0.16), and lay a 0.30 x 0.20 x 0.001 'soot' decal at the foot of the lock stile so the varnish reads footworn where 13 shops' customers kick it."
+ ],
+ "references_used": [
+  "File:The Colonial Flats and Annex Jul 16.JPG",
+  "File:Delaware Avenue and Upper Street, Allentown, Buffalo, NY.jpg"
+ ],
+ "not_reopened": [
+  "Storefront leaves stay glazed with optical runtime glass so the shop interior is visible; no opaque leaf and no bitmap with a room baked in.",
+  "Door sizes must not change; 0.95 x 2.10 x 0.055 m stays.",
+  "No new material key: oak_quartered, brass_dull and brass cover it."
+ ]
+}

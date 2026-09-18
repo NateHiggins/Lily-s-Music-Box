@@ -1,0 +1,25 @@
+{
+ "specimen": "porch_deck",
+ "axes": {
+  "object_class": 0,
+  "proportion": 0,
+  "silhouette": 0,
+  "detail": 0,
+  "material": 0,
+  "wear": 0,
+  "mount": 0
+ },
+ "effort_hours": 0,
+ "confidence": "low",
+ "summary": "Not assessable in the shed. porch_deck_prop.gd builds no geometry: _build_visual creates two AudioStreamPlayer3D emitters (a creak and a board thud) and the script's only behaviour is a 25-60 s wind-creak loop and the accent-driven knock. The five decks the player sees are baked by the layout pass into the floor shells, so a modelling or texturing change to the deck is a gen_layout and Blender change, not a prop change, and the interaction matrix rules the decks ambient architecture with no per-deck verb.",
+ "modelling": [
+  "Nothing in this script. If the baked decks need work (the reference for a 1928 six-storey Queens walk-up is an iron fire escape with slatted balcony and drop ladder, not a timber deck; the notes record this as a ruled fiction choice), it is a gen_layout shell task and belongs in the floor-shell review, not here.",
+  "Warehouse registration: either supply a warehouse_variants() entry that instantiates a short stand-in deck section so the emitter's placement can be judged against the audible source, or exclude the kind from PROP_SCRIPTS inspection so the shed stops showing an empty plinth."
+ ],
+ "texturing": [],
+ "references_used": [],
+ "not_reopened": [
+  "PROP_SET_INTERACTION_MATRIX.md section 7: the five decks stay ambient architecture with no per-deck E verb.",
+  "building_root.gd OUTSIDE_HALF_X 14.2 / OUTSIDE_HALF_Z 10.2: the decks stay outside the masonry shell; do not move them inward."
+ ]
+}

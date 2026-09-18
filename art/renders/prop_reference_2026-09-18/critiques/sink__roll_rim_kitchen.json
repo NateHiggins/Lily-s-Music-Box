@@ -1,0 +1,43 @@
+{
+  "specimen": "sink__roll_rim_kitchen",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 1,
+    "detail": 2,
+    "material": 2,
+    "wear": 3,
+    "mount": 1
+  },
+  "effort_hours": 3,
+  "confidence": "high",
+  "summary": "The drainboard is the most wrong part: a level 0.42 x 0.46 x 0.026 m slab with seven 10 x 11 mm rib boxes and no raised edge, where the Gordon-Van Tine plate and the Mott catalog class show boards pitched to the bowl inside a continuous roll rim, so ours would shed water onto the floor and reads as a ribbed tray laid beside the sink; second is the wet-corner rust, a 3 mm-thick saturated flat-colour oval (#632e16, 62 x 105 mm) on the front rim that reads as a red sticker in the high quarter. Object class is right: a 0.61 x 0.46 x 0.15 m roll-rim enamelled trough with a 0.16 m integral back, wall cross valves, bridge and high gooseneck at 0.90 m; in the building the cabinet cut-out carries it as ruled, so the shed's basin floating at 0.75 m is staging rather than a defect, and only the missing catalog legs or hanger keep mount off zero.",
+  "modelling": [
+    "Pitch the drainboard: rotate the board box and its seven rib boxes 2 degrees about Z toward the bowl (a 15 mm fall over 0.42 m, the outer edge rising to y 0.912) and run the rim round it with three lip boxes matching _open_rect_basin's 35 mm lip: two of 0.42 x 0.025 x 0.035 along the long edges and one of 0.035 x 0.025 x 0.46 at the free end: 3 primitives.",
+    "Cross handles: the two 0.092 m arm boxes per valve shrink to 0.064 m (the 2.5 in Fuller cross); the Ø 68 mm escutcheon stays. One edit in _build_pair_taps serves the lavatory too.",
+    "Gooseneck: the five Ø 24 mm chords are a heavy pipe; a 1920s swing spout is Ø 16-19 mm tube on a Ø 30 mm swivel collar. Set the chord radius to 0.009 and add make_cyl(0.015, 0.015, 0.020) at the spout base (0, 1.01, 0.175): 1 primitive.",
+    "Warehouse only: the shed shows the basin at 0.75-1.23 m over nothing. If the shed needs a carrier, two catalog iron legs make_box(0.035, 0.75, 0.035) under the front corners in IRON (cast_iron) inside the warehouse_variants entry: 2 primitives; the building's carcass cut-out stays as ruled.",
+    "The compact 4B variant (0.50 x 0.38 m, no board) inherits every change above except the drainboard; keep its plate rack as ruled."
+  ],
+  "texturing": [
+    "Rust: add a RUST row to the retexture table so the wet-corner oval rides cast_iron tinted (0.48, 0.20, 0.10) as radiator_prop does, and drop its height from 0.003 to 0.0008 like the mineral film; the ruling keeps it at the wet corner only, and this keeps it there as a stain rather than a puck.",
+    "enamel (T_library_appliances_aged_enamel_worn) at tint (0.78, 0.80, 0.75) renders cream-yellow next to the ivory lavatory; a kitchen roll-rim sink is white enamel inside. Lift the enamel row's tint to (0.86, 0.87, 0.84); it is still the kitchen's own enamel job, not porcelain_fixture.",
+    "Wear by household: a dark scale ring make_ring(0.05, 0.003) around the drain disc in the MINERAL colour, and one chipped corner on the drainboard's outer edge (10 x 10 x 1 mm box tinted through cast_iron at (0.33, 0.32, 0.29)), both placed by hash(unit) so 19 kitchens do not share one stain.",
+    "The basin walls' outer faces render the same cream as the inside; the real casting is black-japanned outside. Installed, the carcass hides them, so this is warehouse-only and not worth a draw: leave it."
+  ],
+  "references_used": [
+    "File:Gordon-Van Tine homes (1921) (14802245763).jpg",
+    "File:Mott's Open Lavatory (NYPL b15260162-487472).jpg",
+    "File:Mott's Open Lavatory (NYPL b15260162-487473).jpg"
+  ],
+  "not_reopened": [
+    "HISTORICAL; CANONICAL: the kitchen fixture is Mott's smallest roll-rim enameled-iron sink (24 x 18 x 6 in) with integral back, hanger or legs, optional enamel drainboard and nickel-plated Fuller brass faucets.",
+    "Kitchen valve centre is 110 mm above the rim so the whole escutcheon sits on the 160 mm integral back; valves pierce the back, cross handles face the user.",
+    "Kitchen roll-rim sinks keep their own enamel job and do not inherit porcelain_fixture.",
+    "4B keeps its 0.50 x 0.38 m opening and separate nickel-wire plate rack; no attached drainboard there.",
+    "The generic kitchen and 4B carcasses are cut around the exact basin bounds; the basin sits in a real opening, so no legs or hanger are built for the installed fixture.",
+    "Mineral bloom and rust sit only at drains, rims and wet corners; scale is a thin film, not a thick puck.",
+    "nickel_plated is warm silver, not chrome.",
+    "The high_quarter bearing on this sheet is taken from the wall side (the integral back is nearest the camera), which is shed staging and not scored."
+  ]
+}

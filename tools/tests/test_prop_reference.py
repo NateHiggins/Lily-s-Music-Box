@@ -274,10 +274,11 @@ class SheetAndBriefTests(unittest.TestCase):
              "real_object": "a boiler", "references": [{"title": "File:B.jpg", "licence": "CC0", "url": "u"}],
              "score": {"priority": 9.0, "gap": 3.0, "review_discount": 1.0},
              "critique": {"summary": "Too small.", "modelling": ["add gauges"], "texturing": ["cast iron"],
-                          "effort_hours": 6, "confidence": "high"}},
+                          "effort_hours": 6, "confidence": "high", "references_used": ["File:B.jpg"]}},
             {"rank": 2, "kind": "darts", "label": "", "installed_count": 1, "tier": "leave_alone",
              "size_m": [0.5, 0.5, 0.1], "mount": "wall", "triangles": 5, "surfaces": 1, "flat_colour_share": 1.0,
-             "real_object": "", "references": [], "score": {"priority": 1.0, "gap": 0.0, "review_discount": 1.0},
+             "real_object": "", "references": [{"title": "File:Cow.jpg", "licence": "CC0", "url": "u2"}],
+             "score": {"priority": 1.0, "gap": 0.0, "review_discount": 1.0},
              "critique": {}},
             {"rank": 3, "kind": "porch_deck", "label": "porch_deck", "installed_count": 5, "tier": "leave_alone",
              "size_m": [0, 0, 0], "mount": "floor", "triangles": 0, "surfaces": 0, "flat_colour_share": 1.0,
@@ -291,6 +292,9 @@ class SheetAndBriefTests(unittest.TestCase):
         self.assertIn("add gauges", text)
         self.assertIn("No critique recorded", text)
         self.assertIn("INERT", text)
+        self.assertIn("File:B.jpg - CC0 - u", text)
+        self.assertIn("1 plates on the sheet were off-topic", text.replace("the 1 plates", "1 plates"))
+        self.assertNotIn("File:Cow.jpg - CC0", text)
         self.assertIn("## Not assessable in the shed", text)
         self.assertIn("Audio only", text)
         self.assertNotIn("### 3. porch_deck", text)

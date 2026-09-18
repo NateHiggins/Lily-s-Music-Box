@@ -1,0 +1,45 @@
+{
+  "specimen": "boiler",
+  "axes": {
+    "object_class": 0,
+    "proportion": 2,
+    "silhouette": 3,
+    "detail": 2,
+    "material": 3,
+    "wear": 4,
+    "mount": 2
+  },
+  "effort_hours": 10,
+  "confidence": "medium",
+  "summary": "All four bearings show the boiler's back and sides because the prop declares no warehouse_rotation_y and its tended face is local -Z: the fire and ash doors, water column, gauge, nameplate and every authored wear mark are never captured, and what is captured is a bright cream box with three dark stripes that reads as a jacketed cabinet, not the sooted, strapped canvas-over-asbestos plant beside the 1918 Mechanics of the Household boiler. The object class (Ideal-type hand-fired sectional steam boiler) is ruled and respected; this is execution, and two script-level defects - the Hartford loop buried inside the section block and the upper boss row rotated into rods that cross the gauge and nameplate - need a front render to confirm.",
+  "modelling": [
+    "Declare warehouse_rotation_y() -> PI as medicine_cabinet_prop and mail_bank_prop do, so the shed's front bearing shows the -Z door face; until then no before/after render of the doors, glass, gauge or nameplate exists.",
+    "Hartford loop is inside the body: the equalizer (r 0.038 x 0.72 at x -0.49, z 0.28), the return leg (r 0.038 x 0.48 along X at y 0.18, z 0.28) and the brass union (r 0.055 at x -0.49, y 0.77) all lie within the section block (x +/-0.5625, z +/-0.51) and jacket (x +/-0.6125). Move the equalizer to x -0.70, z 0.30 outside the jacket, bring the return leg out through the base at z 0.30, and keep the union at 0.77 m where a hand reaches it.",
+    "Section 'bosses' are rods: make_cyl r 0.045 x 0.225 rotated 90 degrees about Z has its axis along X, so the five at y 0.41 and the five at y 1.48 form two near-continuous rails across the front; the upper rail (z -0.48 to -0.57) crosses the gauge dial (z -0.546 to -0.584, x 0.218 to 0.402) and the nameplate (x -0.35 to -0.05, z -0.558 to -0.570). Rotate about X instead (0.06-thick discs facing -Z) and move the upper row to y 1.60 above the jacket.",
+    "Sections run across the width (five 0.205 x 1.28 x 1.02 boxes along X); the reference joins sections front-to-back so the seams and tie-rod nuts read on the sides and the front is one cast plate. In the 0.12 m band exposed under the jacket, cut the block as five 1.16 x 1.28 x 0.204 slabs along Z with 4 mm seams and put six r 0.012 nut heads on each side face at y 0.38.",
+    "Jacket is one 1.225 x 1.12 x 1.085 box with three 0.035 steel bands: add two raised canvas seams per face (0.006 x 1.12 x 0.006), a buckle on each band (brass_dull box 0.05 x 0.035 x 0.02 at x 0.61) so the straps hold something, and a fourth band at the jacket top edge.",
+    "Smoke hood is a 0.68 x 0.30 x 0.32 iron box; the real hood tapers into the breeching - one frustum r 0.28 to 0.17, h 0.22 along Z between the box and the collar."
+  ],
+  "texturing": [
+    "linen at tint (0.90, 0.84, 0.69) renders the jacket near white in every bearing; sixteen-year canvas over asbestos is grey-cream - tint (0.62, 0.58, 0.48), roughness 1.0.",
+    "All wear geometry is on the hidden -Z face (soot bloom, torn SOOT patch, mineral streak, ash apron, tag). The captured faces are factory-fresh: add a 0.22 x 0.18 soot patch on the +X side at (0.615, 0.90, 0.20), a fly-ash dusting under the hood (soot 0.68 x 0.06 x 0.30 on the jacket top at z 0.40), a rust wash (cast_iron tint 0.5) below each band end, and a drip stain under the safety-valve discharge.",
+    "Steel bands (metal key, tint 0.52, 0.50, 0.47) read as flat black stripes under shed light; tint (0.62, 0.58, 0.52) with roughness 0.55 so they read as strapping rather than painted lines.",
+    "cast_iron on the base, sections and hood reads as fine grey speckle like cast plaster; drop the albedo scale from 0.72 to 0.45 so the casting reads as a skin at 3 m and darken the hood tint 15 % - it carries the flue heat."
+  ],
+  "references_used": [
+    "File:Mechanics of the household; a course of study devoted to domestic machinery and household mechanical appliances (1918) (14779082252).jpg",
+    "File:Elevation of boiler backhead showing (left to right at top) steam pressure gauge, sight glass (indicates water level in boiler), manhole (for maintenance access to steam space), HAER VT,4-SHEL,1-14.tif"
+  ],
+  "not_reopened": [
+    "HISTORICAL; CANONICAL: American Radiator Ideal-type coal-rated cast-iron sectional steam boiler, jacketed, with exposed glass water gauge and isolating cocks.",
+    "Hand-fired coal plant never replaced by an oil burner; no stoker, no electric control; the activity is coal, draft, water and ash, never a pilot.",
+    "One plant only at B1_BOILER_01 facing the service aisle; the prop owns fittings up to the unions and the generator owns the ceiling header, return and rear breeching.",
+    "19 meshes with rigid assemblies merged by material; cast_iron, linen, metal, brass_dull, paper and soot only - a canvas/asbestos key would fix the jacket read directly but is not requested.",
+    "Under 2 m at its own fittings in the 2.72 m basement."
+  ],
+  "notes": [
+    "Mount 2 records that the hearth-seated floor stance is right while the shed copy faces away from every bearing; confirm the two script-derived collisions with a -Z render before acting on them.",
+    "Off-topic references ignored: Ideal Fitter p269 (a telegraph code page), Architect and engineer (1933) (a hand drawing), American engineer and railroad journal (1893) (a locomotive), Farm engines (1910) (a traction-engine plan). The Paasch 1890 marine section was not used. The HAER backhead was judged from the sheet thumbnail only (TIF).",
+    "Depth 1.845 m in the header is the ash apron (to z -0.865) plus the breeching collar (to z +0.98); the body itself is 1.16 x 1.02 x 1.62."
+  ]
+}

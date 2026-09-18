@@ -1,0 +1,43 @@
+{
+ "specimen": "lamp__friction_joint_the_bench_lamp",
+ "axes": {
+  "object_class": 0,
+  "proportion": 3,
+  "silhouette": 3,
+  "detail": 2,
+  "material": 3,
+  "wear": 4,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "The second arm folds back (0.28 m at -34 deg after 0.30 m at +26 deg) so the shade sits over its own foot - the wrist lands at x -0.025 and the head within 25 mm of the base axis - where an O.C. White or Faries bench lamp carries the head 0.5-0.9 m out over the work, which is the whole point of the object; the arms themselves are at the short end of the real 0.30-0.45 m. The object class is right (a knuckled cast-iron machine-arm bench lamp); the sheet's only usable reference is a 1902 X-ray tube stand showing the same thumb-screw collar clamps, so reach and finish are judged against the variant text.",
+ "modelling": [
+  "Re-pose the arms so the head reaches the work: first strut 0.36 m at +38 deg from the hip, second strut 0.34 m at +62 deg leaning the same way (not back), which puts the wrist near (0.52, 0.52, 0) and the head about 0.55 m out from the foot; set _SPECS.bench_friction.reach to 0.55 so the spec agrees with _head, and check the 3B marker's clearance to the bench edge at that reach.",
+  "Knurl the knuckles: replace each smooth dia 0.048 x 0.028 cylinder with a dia 0.044 core plus a torus ring r 0.024 tube 0.004 on each face, and give the dia 0.030 x 0.014 thumbscrew a T-bar (a 0.040 x 0.006 x 0.006 nickel box across its head) as the 1902 stand drawing shows - the bar is what the hand turns.",
+  "Add a ball joint at the shade: a dia 0.024 nickel sphere between the wrist and the cone so it can tip more than the current 8 deg; tip the shade 25-30 deg at the work.",
+  "White inside the cone: a second cone dia 0.056 -> 0.222 x 0.146 nested inside the shade with cull mode front so the interior reads white from below; the real spun shade is japanned outside and white inside.",
+  "Cord: run it along the arms as three dia 0.0035 segments following each strut, with a 0.010 x 0.012 tape wrap at each joint, then down the foot to the bench - it currently hangs free from the shade and stops 0.31 m above the bench.",
+  "Foot: dia 0.22 x 0.03 to dia 0.19 x 0.035 with a 0.02 chamfer step (real 0.15-0.20); the flat disc reads as a coaster rather than a cast foot."
+ ],
+ "texturing": [
+  "Foot and boss: `cast_iron` (catalog, metallic 0.35 / roughness 0.60) in place of the flat _IRON (0.19, 0.19, 0.20), tinted (0.16, 0.16, 0.17) for japanned black with the edge rubbed lighter.",
+  "Arms, knuckle bodies and screws: `nickel_plated` (catalog) instead of the flat _NICKEL (0.72, 0.74, 0.76) at metallic 0.70-0.80; tint the joint collars (0.55, 0.56, 0.58) where the plating is worn through by adjustment.",
+  "Shade: `enamel` tinted dark green (0.14, 0.20, 0.15) outside with the `milk_glass` inner cone; the flat (0.22, 0.23, 0.22) is neither japanned steel nor spun metal.",
+  "Wear for a repair bench: offset the rim ring 0.004 off-axis for a dent, an `fx_scuff` on the foot where the vice sits, and `fx_grease` fingerprints at the shade rim where it is grabbed hot."
+ ],
+ "references_used": [
+  "File:X-ray apparatus, miniature lamps and accessories (1902) (14571236898).jpg"
+ ],
+ "not_reopened": [
+  "ORISON_BIBLE VIII.2 / VIII.6 Rule of Signal: 1927 or older and second-hand; an O.C. White pattern (1894 on) is well inside.",
+  "ORISON_BIBLE VIII.4: Bakelite or porcelain socket; rubber or cloth cord taped at the joints in a repairer's flat.",
+  "Accord 9: worn nickel at the joints, not polished nickel; do not make the lamp gleam.",
+  "Script header: five distinct silhouettes with one SpotLight3D each; the knurled friction knuckle stays the character of this one.",
+  "Brief section 2 true scale: a 0.55 m reach is the real object's, so the 3B bench clearance is checked, not the lamp shrunk."
+ ],
+ "notes": [
+  "The X-ray plate is a tube stand, not a lamp; it was used only for the thumb-screw collar clamp and T-bar form. The two churches on the sheet are off-topic.",
+  "Census: 11 surfaces, 100% flat colour, 2532 triangles."
+ ]
+}
