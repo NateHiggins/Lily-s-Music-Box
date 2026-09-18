@@ -40,9 +40,16 @@ def cmd_fetch(args) -> int:
         if not qs:
             print(f"[fetch] {specimen}: no queries for kind {record.get('kind')!r}")
             continue
+        if args.sparse_only:
+            have = len(commons._existing_provenance(dest_root / specimen))
+            if have >= args.min_files:
+                continue
+        entry = (queries.get("kinds") or {}).get(record.get("kind"), {})
+        fallbacks = commons.fallback_queries(entry.get("display_name", ""), record.get("kind", ""))
         result = commons.fetch_specimen(specimen, qs, dest_root / specimen,
                                         per_query=args.per_query, limit=args.limit,
                                         width=args.width, max_files=args.max_files,
+                                        min_files=args.min_files, fallbacks=fallbacks,
                                         fetch_json=fetch_json)
         total += len(result.downloaded)
         print(f"[fetch] {specimen}: {len(result.downloaded)} kept, {len(result.refused)} refused, "
@@ -155,6 +162,10 @@ def main(argv=None) -> int:
     fetch.add_argument("--width", type=int, default=800)
     fetch.add_argument("--max-files", type=int, default=8,
                        help="stop once this many reference files exist for a specimen")
+    fetch.add_argument("--min-files", type=int, default=3,
+                       help="below this, derived plain fallback queries run after the authored ones")
+    fetch.add_argument("--sparse-only", action="store_true",
+                       help="only visit specimens that still have fewer than --min-files files")
     fetch.set_defaults(func=cmd_fetch)
 
     sh = sub.add_parser("sheets", help="contact sheets and comparison index")

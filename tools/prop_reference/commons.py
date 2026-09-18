@@ -166,6 +166,20 @@ def safe_name(text: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]+", "_", text).strip("_")[:120]
 
 
+def fallback_queries(display_name: str, kind: str) -> list[str]:
+    """Plain phrases for when the authored, specific queries find nothing.
+
+    Commons full-text search rewards the obvious noun. An authored phrase
+    such as "Hotpoint nickel plated electric kettle" can return zero files
+    while "electric kettle 1920s" returns a page of them. The fallbacks are
+    derived, not authored, and are recorded as fallbacks in provenance.
+    """
+    noun = re.sub(r"\(.*?\)", "", display_name or "").strip().lower()
+    noun = re.sub(r"[^a-z0-9 ]+", " ", noun)
+    noun = " ".join(noun.split()) or kind.replace("_", " ")
+    return [f"{noun} 1920s", f"{noun} advertisement", f"{noun} photograph", noun]
+
+
 @dataclass
 class SpecimenReferences:
     specimen: str
@@ -173,11 +187,13 @@ class SpecimenReferences:
     downloaded: list[dict] = field(default_factory=list)
     refused: list[dict] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    fallbacks_used: list[str] = field(default_factory=list)
 
 
 def fetch_specimen(specimen: str, queries: list[str], dest: Path, *,
                    per_query: int = 3, limit: int = 12, width: int = 800,
-                   max_files: int = 8,
+                   max_files: int = 8, min_files: int = 3,
+                   fallbacks: list[str] | None = None,
                    fetch_json: Callable[[str], dict] = default_fetch_json,
                    fetch_bytes: Callable[[str], bytes] = default_fetch_bytes,
                    ) -> SpecimenReferences:
@@ -195,9 +211,18 @@ def fetch_specimen(specimen: str, queries: list[str], dest: Path, *,
     existing = _existing_provenance(dest)
     for title in existing:
         seen.add(title)
-    for query in queries:
-        if len(existing) + len(result.downloaded) >= max_files:
+    # Authored queries first; the derived fallbacks only run if those left
+    # the specimen sparse, and are marked so a reader can tell them apart.
+    plan = [(query, False) for query in queries]
+    plan += [(query, True) for query in (fallbacks or [])]
+    for query, is_fallback in plan:
+        have = len(existing) + len(result.downloaded)
+        if have >= max_files:
             break
+        if is_fallback and have >= min_files:
+            break
+        if is_fallback:
+            result.fallbacks_used.append(query)
         try:
             payload = fetch_json(search_url(query, limit, width))
         except Exception as error:  # network is the one thing that may fail here
@@ -212,6 +237,7 @@ def fetch_specimen(specimen: str, queries: list[str], dest: Path, *,
             if len(existing) + len(result.downloaded) >= max_files:
                 break
             record = hit.to_record()
+            record["fallback_query"] = is_fallback
             file_name = f"{safe_name(hit.title.removeprefix('File:'))}"
             suffix = {"image/jpeg": ".jpg", "image/png": ".png",
                       "image/tiff": ".tif", "image/webp": ".webp"}.get(hit.mime, ".bin")
@@ -238,6 +264,7 @@ def fetch_specimen(specimen: str, queries: list[str], dest: Path, *,
         "downloaded": merged,
         "refused": result.refused,
         "errors": result.errors,
+        "fallbacks_used": result.fallbacks_used,
     }, indent=1, ensure_ascii=False), encoding="utf-8")
     result.downloaded = merged
     return result

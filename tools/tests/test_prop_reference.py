@@ -113,6 +113,33 @@ class FetchTests(unittest.TestCase):
                                             fetch_json=lambda u: payload, fetch_bytes=lambda u: b"x")
             self.assertEqual(len(result.downloaded), 4)
 
+
+    def test_fallback_queries_run_only_when_sparse_and_are_marked(self):
+        empty = {"query": {"pages": {}}}
+        full = {"query": {"pages": {str(i): _page(i, f"File:F{i}.jpg", "CC0", index=i) for i in range(1, 4)}}}
+        seen = []
+
+        def fake_json(url):
+            seen.append(url)
+            return full if "fallback" in url else empty
+
+        with tempfile.TemporaryDirectory() as td:
+            r = commons.fetch_specimen("s", ["authored phrase"], Path(td) / "s", per_query=3,
+                                       fallbacks=["fallback one", "fallback two"],
+                                       fetch_json=fake_json, fetch_bytes=lambda u: b"x")
+            self.assertEqual(r.fallbacks_used, ["fallback one"])
+            self.assertEqual(len(r.downloaded), 3)
+            self.assertTrue(all(d["fallback_query"] for d in r.downloaded))
+            self.assertEqual(len(seen), 2)
+            # Not sparse any more: a second run never reaches the fallbacks.
+            seen.clear()
+            r2 = commons.fetch_specimen("s", ["authored phrase"], Path(td) / "s", per_query=3,
+                                        fallbacks=["fallback one"], fetch_json=fake_json,
+                                        fetch_bytes=lambda u: b"x")
+            self.assertEqual(r2.fallbacks_used, [])
+        self.assertEqual(commons.fallback_queries("Electric kettle (nickel)", "kettle")[0], "electric kettle 1920s")
+        self.assertEqual(commons.fallback_queries("", "mail_bank")[-1], "mail bank")
+
     def test_network_error_is_recorded_not_raised(self):
         def boom(url):
             raise OSError("no route")
