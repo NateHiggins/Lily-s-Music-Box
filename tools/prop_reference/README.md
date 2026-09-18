@@ -76,7 +76,7 @@ can sit beside it.
    python tools/prop_reference_tool.py check --index .../comparison_index.json --critiques .../critiques
    ```
 
-   **Score and brief.**
+   Then score and render:
 
    ```
    python tools/prop_reference_tool.py score --index .../comparison_index.json --critiques .../critiques --out .../ranking.json
