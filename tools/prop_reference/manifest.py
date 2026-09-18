@@ -27,7 +27,44 @@ def load_manifest(path: Path) -> dict:
 
 
 def specimen_id(record: dict) -> str:
-    return re.sub(r"[^A-Za-z0-9_.-]+", "_", str(record.get("node", "")))
+    """Stable across shed re-layouts: kind plus the plinth label (the variant).
+
+    The shed's node index moves whenever any family earlier in the alphabet
+    gains or loses a variant, so keying reference folders by node name would
+    orphan every download the next time a prop grew a variant. Kind and label
+    are what a specimen *is*; the node name is only where it stood today.
+    """
+    kind = re.sub(r"[^A-Za-z0-9]+", "_", str(record.get("kind", ""))).strip("_")
+    label = str(record.get("label", "")).lower()
+    label = re.sub(r"^" + re.escape(kind.lower()) + r"\s*[/·-]\s*", "", label)
+    label = re.sub(r"[^a-z0-9]+", "_", label).strip("_")[:48]
+    if label == kind.lower():
+        label = ""  # "boiler" labelled "boiler" is one specimen, not "boiler__boiler"
+    if not kind:
+        return re.sub(r"[^A-Za-z0-9_.-]+", "_", str(record.get("node", "")))
+    return f"{kind}__{label}" if label else kind
+
+
+def assign_ids(specimens: list[dict]) -> list[str]:
+    """Ids for a whole manifest, collision-aware.
+
+    A family may register several variants under one plinth label (boxfan
+    does). The shed only tells us the label, so the second and later
+    specimens with the same id get a positional suffix in manifest order.
+    Positional is the honest fallback: it is stable for as long as the family
+    keeps its variant order, and it is visibly a fallback.
+    """
+    counts: collections.Counter = collections.Counter()
+    base = [specimen_id(record) for record in specimens]
+    totals = collections.Counter(base)
+    out: list[str] = []
+    for ident in base:
+        if totals[ident] > 1:
+            counts[ident] += 1
+            out.append(f"{ident}__{counts[ident]}")
+        else:
+            out.append(ident)
+    return out
 
 
 def installed_counts(layout_path: Path) -> collections.Counter:
@@ -93,13 +130,14 @@ def installed_factor(count: int) -> float:
     return 1.0 + math.log2(1 + max(0, count)) / 3.0
 
 
-def describe(record: dict, counts: collections.Counter, tiers: dict, queries: dict) -> dict:
+def describe(record: dict, counts: collections.Counter, tiers: dict, queries: dict,
+             ident: str | None = None) -> dict:
     kind = record.get("kind", "")
     size = record.get("bounds_size_m") or [0, 0, 0]
     materials = record.get("materials") or {}
     tier = tier_for(kind, tiers)
     return {
-        "id": specimen_id(record),
+        "id": ident or specimen_id(record),
         "kind": kind,
         "label": record.get("label", ""),
         "mount": record.get("mount", ""),

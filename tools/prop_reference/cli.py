@@ -23,17 +23,27 @@ def cmd_fetch(args) -> int:
     dest_root = root / args.fetched
     only = set(filter(None, (args.kinds or "").split(",")))
     total = 0
-    for record in data["specimens"]:
+    # Six door variants share the door kind's queries; ask Commons once per
+    # distinct search in a run and reuse the answer. Downloads are still per
+    # specimen, so each provenance record stays complete on its own.
+    memo: dict[str, dict] = {}
+
+    def fetch_json(url: str) -> dict:
+        if url not in memo:
+            memo[url] = commons.default_fetch_json(url)
+        return memo[url]
+
+    for record, specimen in zip(data["specimens"], mf.assign_ids(data["specimens"])):
         if only and record.get("kind") not in only:
             continue
-        specimen = mf.specimen_id(record)
         qs = mf.resolve_queries(record, queries)
         if not qs:
             print(f"[fetch] {specimen}: no queries for kind {record.get('kind')!r}")
             continue
         result = commons.fetch_specimen(specimen, qs, dest_root / specimen,
                                         per_query=args.per_query, limit=args.limit,
-                                        width=args.width)
+                                        width=args.width, max_files=args.max_files,
+                                        fetch_json=fetch_json)
         total += len(result.downloaded)
         print(f"[fetch] {specimen}: {len(result.downloaded)} kept, {len(result.refused)} refused, "
               f"{len(result.errors)} errors")
@@ -51,8 +61,8 @@ def cmd_sheets(args) -> int:
     fetched = root / args.fetched
     out_dir = root / args.out
     entries = []
-    for record in data["specimens"]:
-        facts = mf.describe(record, counts, tiers, queries)
+    for record, ident in zip(data["specimens"], mf.assign_ids(data["specimens"])):
+        facts = mf.describe(record, counts, tiers, queries, ident)
         our = []
         for bearing, rel in (record.get("frames") or {}).items():
             if not rel:
@@ -124,6 +134,8 @@ def main(argv=None) -> int:
     fetch.add_argument("--per-query", type=int, default=3)
     fetch.add_argument("--limit", type=int, default=12)
     fetch.add_argument("--width", type=int, default=800)
+    fetch.add_argument("--max-files", type=int, default=8,
+                       help="stop once this many reference files exist for a specimen")
     fetch.set_defaults(func=cmd_fetch)
 
     sh = sub.add_parser("sheets", help="contact sheets and comparison index")

@@ -104,6 +104,12 @@ func _ready() -> void:
 	_fill.omni_attenuation = 0.9
 	_fill.shadow_enabled = false
 	_fill.visible = false
+	# Off the lens axis, high and to the camera's left. A light on the axis
+	# reflects straight back into the lens off any glossy face - the first
+	# full run put a white hotspot in the middle of every clock dial - and a
+	# key from upper-left is also the convention the reference photographs
+	# were mostly taken under, which makes the comparison fairer.
+	_fill.position = Vector3(-1.1, 1.4, 0.3)
 	_camera.add_child(_fill)
 	_run()
 
@@ -119,8 +125,14 @@ func _run() -> void:
 	var only := _only_kinds()
 	var specimens: Array[Node3D] = []
 	for child in _warehouse.get_children():
-		if child is Node3D and String(child.name).begins_with("WH_"):
-			var kind := _kind_of(String(child.name))
+		# A prop is the scripted Node3D the shed added; the shell, plinths,
+		# soffits, lights and labels are plain engine nodes. Matching on the
+		# "WH_" name the shed assigns lost six specimens on the first full run,
+		# because a prop that names itself in _ready() (after its unit, its
+		# door kind) overwrites that name and vanishes from a name filter.
+		if child is Node3D and child.get_script() != null \
+				and not (child is Label3D) and not (child is Light3D):
+			var kind := _kind_of_prop(child as Node3D)
 			if only.is_empty() or kind in only:
 				specimens.append(child as Node3D)
 	if specimens.is_empty():
@@ -176,7 +188,7 @@ func _run() -> void:
 
 func _photograph(specimen: Node3D, all: Array[Node3D], labels: Array[Label3D],
 		bearing_limit: int) -> Dictionary:
-	var kind := _kind_of(String(specimen.name))
+	var kind := _kind_of_prop(specimen)
 	var local_box: AABB = _warehouse._content_bounds(specimen)
 	var world_box := AABB()
 	var has_box := local_box.size.length_squared() > 0.0
@@ -274,6 +286,25 @@ static func _kind_of(node_name: String) -> String:
 	var body := node_name.trim_prefix("WH_")
 	var cut := body.rfind("_")
 	return body.substr(0, cut) if cut > 0 else body
+
+
+## The kind a specimen was built as. The shed's name is authoritative when it
+## survived; a prop that renamed itself still carries prop_type when its
+## script serves several kinds, and otherwise its script maps back to exactly
+## one registry key.
+static func _kind_of_prop(prop: Node3D) -> String:
+	var node_name := String(prop.name)
+	if node_name.begins_with("WH_"):
+		return _kind_of(node_name)
+	if "prop_type" in prop:
+		var typed := String(prop.get("prop_type"))
+		if typed != "":
+			return typed
+	var script: Script = prop.get_script()
+	for kind in BuildingRootScript.PROP_SCRIPTS:
+		if BuildingRootScript.PROP_SCRIPTS[kind] == script:
+			return String(kind)
+	return "unknown:" + node_name
 
 
 ## The shed stands ceiling fixtures at SOFFIT_Y and wall fixtures at WALL_Y;

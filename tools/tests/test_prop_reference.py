@@ -105,6 +105,14 @@ class FetchTests(unittest.TestCase):
                                    fetch_bytes=lambda u: downloads.append(u) or b"x")
             self.assertEqual(downloads, [])
 
+
+    def test_max_files_caps_downloads_across_queries(self):
+        payload = {"query": {"pages": {str(i): _page(i, f"File:P{i}.jpg", "CC0", index=i) for i in range(1, 6)}}}
+        with tempfile.TemporaryDirectory() as td:
+            result = commons.fetch_specimen("s", ["q1", "q2"], Path(td) / "s", per_query=3, max_files=4,
+                                            fetch_json=lambda u: payload, fetch_bytes=lambda u: b"x")
+            self.assertEqual(len(result.downloaded), 4)
+
     def test_network_error_is_recorded_not_raised(self):
         def boom(url):
             raise OSError("no route")
@@ -144,6 +152,23 @@ class ManifestTests(unittest.TestCase):
         self.assertEqual(mf.resolve_queries(record, queries),
                          ["GE monitor top 1927", "shared", "icebox 1910s"])
         self.assertEqual(mf.resolve_queries({"kind": "nothing"}, queries), [])
+
+
+    def test_specimen_id_is_kind_and_label_not_node_index(self):
+        a = mf.specimen_id({"node": "WH_fridge_36", "kind": "fridge", "label": "fridge / 1927 monitor-top"})
+        b = mf.specimen_id({"node": "WH_fridge_41", "kind": "fridge", "label": "fridge / 1927 monitor-top"})
+        self.assertEqual(a, b)
+        self.assertEqual(a, "fridge__1927_monitor_top")
+        self.assertEqual(mf.specimen_id({"node": "WH_boiler_06", "kind": "boiler", "label": "boiler"}), "boiler")
+        self.assertEqual(mf.specimen_id({"node": "F01_DOOR_06", "kind": "landmark_entry",
+                                         "label": "landmark entry / the Orison front door"}),
+                         "landmark_entry__landmark_entry_the_orison_front_door")
+
+
+    def test_assign_ids_suffixes_only_collisions_in_manifest_order(self):
+        specimens = [{"kind": "boxfan", "label": "boxfan"}, {"kind": "boiler", "label": "boiler"},
+                     {"kind": "boxfan", "label": "boxfan"}]
+        self.assertEqual(mf.assign_ids(specimens), ["boxfan__1", "boiler", "boxfan__2"])
 
     def test_tiers_cover_every_registered_kind(self):
         tiers = mf.load_tiers()

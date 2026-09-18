@@ -177,6 +177,7 @@ class SpecimenReferences:
 
 def fetch_specimen(specimen: str, queries: list[str], dest: Path, *,
                    per_query: int = 3, limit: int = 12, width: int = 800,
+                   max_files: int = 8,
                    fetch_json: Callable[[str], dict] = default_fetch_json,
                    fetch_bytes: Callable[[str], bytes] = default_fetch_bytes,
                    ) -> SpecimenReferences:
@@ -184,7 +185,9 @@ def fetch_specimen(specimen: str, queries: list[str], dest: Path, *,
 
     Never overwrites a file it already wrote for the same Commons title, so a
     re-run only fills gaps. Refused hits are recorded with their reason so a
-    reviewer can see what the search found and why it was not used.
+    reviewer can see what the search found and why it was not used. Stops
+    after ``max_files`` files exist for the specimen; queries are ordered
+    most-specific first, so the cap keeps the best-targeted results.
     """
     dest.mkdir(parents=True, exist_ok=True)
     result = SpecimenReferences(specimen=specimen, queries=list(queries))
@@ -193,6 +196,8 @@ def fetch_specimen(specimen: str, queries: list[str], dest: Path, *,
     for title in existing:
         seen.add(title)
     for query in queries:
+        if len(existing) + len(result.downloaded) >= max_files:
+            break
         try:
             payload = fetch_json(search_url(query, limit, width))
         except Exception as error:  # network is the one thing that may fail here
@@ -204,6 +209,8 @@ def fetch_specimen(specimen: str, queries: list[str], dest: Path, *,
                 result.refused.append({"title": hit.title, "query": query,
                                        "reason": hit.refused_reason})
         for hit in choose(hits, per_query, seen):
+            if len(existing) + len(result.downloaded) >= max_files:
+                break
             record = hit.to_record()
             file_name = f"{safe_name(hit.title.removeprefix('File:'))}"
             suffix = {"image/jpeg": ".jpg", "image/png": ".png",

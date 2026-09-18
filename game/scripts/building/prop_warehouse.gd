@@ -107,6 +107,18 @@ func build(prop_scripts: Dictionary) -> int:
 		for key in variant.get("properties", {}):
 			if key in prop:
 				prop.set(key, variant.properties[key])
+		# Place BEFORE add_child as well, at the floor lift every prop gets by
+		# default. The layout positions a prop before it enters the tree, and
+		# some props rely on that: a door's leaf is an AnimatableBody3D with
+		# sync_to_physics, which does not follow a parent that moves after
+		# the body has entered the tree. Placing afterwards left every door
+		# frame on its plinth and every leaf at the shed origin - the
+		# reference pass photographed six frames and a heap of leaves. Wall
+		# and ceiling fixtures are re-lifted below once their bounds are
+		# known; none of them carries a physics body.
+		prop.position = at + Vector3(0, 0.12, 0)
+		prop.rotation.y = prop.warehouse_rotation_y() \
+				if prop.has_method("warehouse_rotation_y") else 0.0
 		add_child(prop)
 		# Stand it the way it hangs.
 		#
@@ -136,9 +148,8 @@ func build(prop_scripts: Dictionary) -> int:
 				# Builds upward from a floor datum but backward from a wall datum:
 				# the mail bank is the first example, not a named exception.
 				_stub_wall(at, true)
-		prop.position = at + Vector3(0, lift, 0)
-		prop.rotation.y = prop.warehouse_rotation_y() \
-				if prop.has_method("warehouse_rotation_y") else 0.0
+		if not is_equal_approx(lift, 0.12):
+			prop.position = at + Vector3(0, lift, 0)
 		_built += 1
 	print("[WAREHOUSE] %d prop displays from %d kinds, %d rows" % [
 			_built, kinds.size(), rows])
