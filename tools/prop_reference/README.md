@@ -46,7 +46,13 @@ can sit beside it.
 
    Queries come from `queries.json`, authored per kind and per variant from
    the prop script and `design/PROP_REFERENCE_NOTES.md`, then adversarially
-   checked against the geometry the script builds.
+   checked against the geometry the script builds. Commons full-text search
+   rewards plain nouns: when the authored phrases leave a specimen below
+   `--min-files`, derived fallbacks (noun, noun + 1920s, + advertisement,
+   + photograph) run and every file records whether a fallback found it.
+   `--sparse-only` revisits only the specimens still short; `--kinds` limits
+   a run to named kinds (clear a specimen's folder first if its queries
+   changed, because a re-run only fills gaps up to `--max-files`).
 
 3. **Sheets.** One contact sheet per specimen (ours above, references below,
    facts in the header) beside the references, plus 640 px JPEG copies of our
@@ -74,8 +80,11 @@ can sit beside it.
 
    ```
    python tools/prop_reference_tool.py score --index .../comparison_index.json --critiques .../critiques --out .../ranking.json
-   python tools/prop_reference_tool.py brief --ranking .../ranking.json --out design/PROP_MODELING_TEXTURING_BRIEF_<date>.md --date <date>
+   python tools/prop_reference_tool.py brief --ranking .../ranking.json --out design/PROP_MODELING_TEXTURING_BRIEF_<date>.md --date <date> --preface .../preface.md
    ```
+
+   `--preface` inserts a markdown file after the header: how the run was
+   made, what the instrument found, and the limits of the pass.
 
    Priority = tier weight x installed factor x measured gap, discounted for a
    family a completed review already served unless its gap is still large;
