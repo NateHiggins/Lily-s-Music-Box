@@ -42,6 +42,13 @@ const BEARINGS := [
 	{"name": "front", "azimuth": 0.0, "elevation": 6.0, "margin": 1.10},
 	{"name": "side", "azimuth": 90.0, "elevation": 6.0, "margin": 1.10},
 	{"name": "high_quarter", "azimuth": 35.0, "elevation": 48.0, "margin": 1.05},
+	# From behind. A prop whose tended face is authored at local -z and that
+	# declares no warehouse_rotation_y() shows the aisle its back: the first
+	# reference pass photographed the stove's splash panel four times and its
+	# doors and valves never. A fifth bearing makes a missing declaration cost
+	# a frame instead of the comparison. Wall and ceiling fixtures keep their
+	# backer in this frame, which is what a backer is for.
+	{"name": "back", "azimuth": 180.0, "elevation": 12.0, "margin": 1.10},
 ]
 
 var _warehouse: Node3D

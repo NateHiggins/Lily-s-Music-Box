@@ -10,8 +10,10 @@ in the modelling and the texturing of each prop.
 Props are built in GDScript from primitives and live in a dark building at
 night. The warehouse (`game/scripts/building/prop_warehouse.gd`) already puts
 one of everything on a labelled grid under flat light; `PropWarehouseShot`
-adds the discipline a comparison needs: each specimen alone in frame, from four
-fixed bearings, at a camera distance derived from its own bounds, so a kettle
+adds the discipline a comparison needs: each specimen alone in frame, from five
+fixed bearings (three-quarter, front, side, high three-quarter, and from behind,
+because a prop that declares no `warehouse_rotation_y()` may face away from the
+aisle), at a camera distance derived from its own bounds, so a kettle
 and a boiler fill the frame the same way and a reference photograph of either
 can sit beside it.
 
