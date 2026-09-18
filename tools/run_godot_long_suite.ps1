@@ -19,7 +19,13 @@ param(
     [Parameter(Mandatory = $true)][string]$Scene,
     [Parameter(Mandatory = $true)][string]$ProjectPath,
     [Parameter(Mandatory = $true)][string]$LogPath,
-    [int]$TimeoutSeconds = 1500
+    [int]$TimeoutSeconds = 1500,
+    # Same two switches as the serial runner. A screenshot pass over the whole
+    # prop shed (PropWarehouseShot: 50-odd specimens, four bearings each) is the
+    # second legitimate long suite, and it needs a real window: headless
+    # rendering never fires frame_post_draw, so it writes nothing and exits 0.
+    [switch]$Windowed,
+    [string]$ShotDir = ""
 )
 $ErrorActionPreference = "Stop"
 $mutex = [System.Threading.Mutex]::new($false, "Global\OrisonGodotSingleInstance")
@@ -38,8 +44,12 @@ try {
     $godot = (Get-Command Godot_v4.7.1-stable_win64_console.exe -ErrorAction Stop).Source
     $logParent = Split-Path -Parent $LogPath
     if ($logParent) { New-Item -ItemType Directory -Force -Path $logParent | Out-Null }
+    $arguments = @()
+    if (-not $Windowed) { $arguments += "--headless" }
+    $arguments += @("--path", $ProjectPath, $Scene)
+    if (-not [string]::IsNullOrWhiteSpace($ShotDir)) { $env:SHOT_DIR = $ShotDir }
     $started = Get-Date
-    $process = Start-Process -FilePath $godot -ArgumentList @("--headless", "--path", $ProjectPath, $Scene) `
+    $process = Start-Process -FilePath $godot -ArgumentList $arguments `
         -NoNewWindow -PassThru -RedirectStandardOutput $LogPath -RedirectStandardError "$LogPath.stderr"
     if (-not $process.WaitForExit($TimeoutSeconds * 1000)) {
         try { $process.Kill($true) } catch {}

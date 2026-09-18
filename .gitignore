@@ -118,3 +118,12 @@ phoneos/apps/*/res/
 # Local fingerprints for the incremental material ingester. Source mtimes are
 # intentionally machine-local; generated texture outputs remain versioned.
 art/textures/ai_materials/.ingest_state.json
+
+# Third-party reference imagery fetched by tools/prop_reference from Wikimedia
+# Commons for modelling comparison. Each file's URL, licence and author are
+# recorded in provenance.json beside it; that record is what the repository
+# keeps. The bytes are never shipped and never committed.
+art/reference/props/_fetched/
+# Full-resolution frames from PropWarehouseShot. The 640 px copies under the
+# review directory are the keepers; the originals regenerate in minutes.
+art/renders/prop_reference_*/full/
