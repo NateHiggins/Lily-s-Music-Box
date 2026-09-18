@@ -137,11 +137,20 @@ def parse_period(code, out, err):
 
 
 def parse_reader(code, out, err):
+    """Every non-excepted finding by name, baseline or not.
+
+    With a frozen baseline the audit's exit reflects NEW findings only; on a
+    tree that predates the baseline it reflects all of them.  Either way the
+    named set is complete, so a comparison finds new unread fields by name.
+    """
     data = _json(out)
-    base = data.get("baseline", {})
-    return {"counts": {"new": len(base.get("new", []))},
-            "defects": list(base.get("new", [])), "states": {},
-            "info": {"known": base.get("known"), "resolved": len(base.get("resolved", [])),
+    keys = sorted({"|".join([r["kind"], r["file"], r.get("field") or ""])
+                   for r in data.get("records", []) if not r.get("excepted")})
+    base = data.get("baseline")
+    return {"counts": {"unread": len(keys)}, "defects": keys, "states": {},
+            "info": {"baseline_used": base is not None,
+                     "new_vs_baseline": len(base.get("new", [])) if base else None,
+                     "resolved_vs_baseline": len(base.get("resolved", [])) if base else None,
                      "summary": data.get("summary", {})}}
 
 
@@ -179,7 +188,8 @@ GATES = [
      "parse": parse_systemic, "incomplete": set(), "error": {3, 4, 70}},
     {"id": "period", "argv": ["tools/audit_period_dates.py"],
      "parse": parse_period, "incomplete": set(), "error": {2}},
-    {"id": "reader", "argv": ["tools/audit_data_consumption.py", "--json", "--baseline"],
+    {"id": "reader", "argv": lambda root: ["tools/audit_data_consumption.py", "--json"] + (
+        ["--baseline"] if (root / "tools/data_consumption_baseline.json").is_file() else []),
      "parse": parse_reader, "incomplete": set(), "error": {4}},
     {"id": "carriers", "argv": ["tools/audit_interaction_prompt_carriers.py", "--json"],
      "parse": parse_carriers, "incomplete": set(), "error": {3, 70}},
@@ -207,7 +217,8 @@ def _git(root: Path, *args) -> str:
 def run_gate(root: Path, gate: dict, timeout: int) -> dict:
     started = time.monotonic()
     try:
-        proc = subprocess.run([sys.executable, *gate["argv"]], cwd=root, capture_output=True,
+        argv = gate["argv"](root) if callable(gate["argv"]) else gate["argv"]
+        proc = subprocess.run([sys.executable, *argv], cwd=root, capture_output=True,
                               text=True, encoding="utf-8", errors="replace", timeout=timeout)
         code, out, err, timed_out = proc.returncode, proc.stdout, proc.stderr, False
     except subprocess.TimeoutExpired as exc:
@@ -215,7 +226,8 @@ def run_gate(root: Path, gate: dict, timeout: int) -> dict:
         out = exc.stdout.decode("utf-8", "replace") if isinstance(exc.stdout, bytes) else (exc.stdout or "")
         err = exc.stderr.decode("utf-8", "replace") if isinstance(exc.stderr, bytes) else (exc.stderr or "")
     elapsed = round(time.monotonic() - started, 2)
-    row = {"id": gate["id"], "argv": gate["argv"], "exit": code, "timed_out": timed_out,
+    argv = gate["argv"](root) if callable(gate["argv"]) else gate["argv"]
+    row = {"id": gate["id"], "argv": argv, "exit": code, "timed_out": timed_out,
            "elapsed_s": elapsed,
            "stdout_sha256": hashlib.sha256(out.encode("utf-8")).hexdigest()}
     if timed_out:
@@ -337,7 +349,11 @@ def _headline(row: dict) -> str:
     if row["id"].startswith("test:"):
         return f"ran {info.get('ran')}, failed {row['counts'].get('failed', 0)}"
     if row["id"] == "reader":
-        return f"new {row['counts'].get('new', 0)}, known {info.get('known')}, resolved {info.get('resolved')}"
+        text = f"unread {row['counts'].get('unread', 0)}"
+        if info.get("baseline_used"):
+            text += (f"; vs frozen baseline: new {info.get('new_vs_baseline')}, "
+                     f"resolved {info.get('resolved_vs_baseline')}")
+        return text
     parts = [f"{k} {v}" for k, v in counts.items()]
     return ", ".join(parts) if parts else "no defects counted"
 

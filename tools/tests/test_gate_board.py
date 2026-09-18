@@ -39,10 +39,10 @@ class CompareTests(unittest.TestCase):
         self.assertTrue(any("PASS -> FAIL" in r for r in gb.compare(old, new)["regressions"]))
 
     def test_count_rise_and_new_named_defect_are_regressions(self):
-        old = board(row("reader", counts={"new": 0}))
-        new = board(row("reader", "FAIL", 1, {"new": 1}, ["FIELD_UNREAD|game/data/x.json|f"]))
+        old = board(row("reader", counts={"unread": 0}))
+        new = board(row("reader", "FAIL", 1, {"unread": 1}, ["FIELD_UNREAD|game/data/x.json|f"]))
         regs = gb.compare(old, new)["regressions"]
-        self.assertIn("reader: new 0 -> 1", regs)
+        self.assertIn("reader: unread 0 -> 1", regs)
         self.assertIn("reader: new defect FIELD_UNREAD|game/data/x.json|f", regs)
 
     def test_resolved_defect_is_an_improvement(self):
@@ -79,6 +79,18 @@ class CompareTests(unittest.TestCase):
 
 
 class ParserTests(unittest.TestCase):
+    def test_reader_names_every_unexcepted_finding_with_or_without_baseline(self):
+        import json as _json
+        out = _json.dumps({"records": [
+            {"kind": "FIELD_UNREAD", "file": "game/data/a.json", "field": "x", "excepted": False},
+            {"kind": "FILE_UNREAD", "file": "game/data/b.json", "excepted": False},
+            {"kind": "FIELD_UNREAD", "file": "game/data/a.json", "field": "y", "excepted": True}]})
+        parsed = gb.parse_reader(1, out, "")
+        self.assertEqual(parsed["defects"], ["FIELD_UNREAD|game/data/a.json|x",
+                                             "FILE_UNREAD|game/data/b.json|"])
+        self.assertEqual(parsed["counts"]["unread"], 2)
+        self.assertFalse(parsed["info"]["baseline_used"])
+
     def test_unittest_parser_reads_failures_and_names(self):
         err = ("FAIL: test_a (mod.Case.test_a)\n----\nRan 5 tests in 0.1s\n\n"
                "FAILED (failures=1, errors=2)\n")
