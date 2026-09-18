@@ -275,7 +275,8 @@ class SheetAndBriefTests(unittest.TestCase):
              "real_object": "", "references": [], "score": {"priority": 1.0, "gap": 0.0, "review_discount": 1.0},
              "critique": {}},
         ]
-        text = render_brief(ranked, "2026-09-18")
+        text = render_brief(ranked, "2026-09-18", preface="## Method" + chr(10) * 2 + "How it was made.")
+        self.assertLess(text.index("## Method"), text.index("## Priority table"))
         self.assertLess(text.index("### 1. boiler"), text.index("### 2. darts"))
         self.assertIn("add gauges", text)
         self.assertIn("No critique recorded", text)

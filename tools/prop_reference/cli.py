@@ -140,7 +140,8 @@ def cmd_brief(args) -> int:
     root = _repo(args)
     ranking = mf.load_json(root / args.ranking)
     from .brief import render_brief
-    text = render_brief(ranking["ranked"], title_date=args.date)
+    preface = (root / args.preface).read_text(encoding="utf-8") if args.preface else ""
+    text = render_brief(ranking["ranked"], title_date=args.date, preface=preface)
     out = root / args.out
     out.write_text(text, encoding="utf-8")
     print(f"[brief] {out} ({len(ranking['ranked'])} specimens)")
@@ -190,6 +191,7 @@ def main(argv=None) -> int:
     br.add_argument("--ranking", required=True)
     br.add_argument("--out", required=True)
     br.add_argument("--date", required=True)
+    br.add_argument("--preface", default="", help="markdown inserted after the header: method, findings, limits")
     br.set_defaults(func=cmd_brief)
 
     args = parser.parse_args(argv)
