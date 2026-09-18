@@ -19,6 +19,8 @@ from pathlib import Path
 
 TOOL_VERSION = 3
 DEFAULT_EXCEPTIONS = "tools/data_consumption_exceptions.json"
+DEFAULT_BASELINE = "tools/data_consumption_baseline.json"
+BASELINE_SCHEMA = "orison.data-consumption-baseline.v1"
 PATH_RE = re.compile(r"res://data/([A-Za-z0-9_./-]+\.json)")
 STRING_RE = re.compile(r"['\"]([A-Za-z_][A-Za-z0-9_]*)['\"]")
 DOT_RE = re.compile(r"\.(?P<key>[A-Za-z_][A-Za-z0-9_]*)\b")
@@ -490,36 +492,83 @@ def scan(root: Path, exception_path: Path):
     return records
 
 
+def record_key(record: dict) -> str:
+    """Stable identity of a finding: kind, file and (for fields) the path.
+
+    Occurrence counts and prose details are deliberately not part of the key,
+    so a baseline survives a reader being added elsewhere in the same file.
+    """
+    return "|".join([record["kind"], record["file"], record.get("field") or ""])
+
+
+def load_baseline(path: Path) -> set[str]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or data.get("schema") != BASELINE_SCHEMA or             not isinstance(data.get("records"), list):
+        raise ValueError(f"baseline {path} is not {BASELINE_SCHEMA}")
+    return {str(key) for key in data["records"]}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default=".")
     parser.add_argument("--exceptions", default=DEFAULT_EXCEPTIONS)
     parser.add_argument("--json", action="store_true")
+    parser.add_argument("--baseline", nargs="?", const=DEFAULT_BASELINE, default=None,
+                        help="report-and-fail only on findings absent from this "
+                             "frozen baseline (default %s); a baseline is a "
+                             "snapshot of known debt, never an exception" % DEFAULT_BASELINE)
+    parser.add_argument("--write-baseline", nargs="?", const=DEFAULT_BASELINE, default=None,
+                        help="freeze the current non-excepted findings and exit 0")
     args = parser.parse_args(argv)
     root = Path(args.root).resolve()
+
+    def rooted(value: str) -> Path:
+        path = Path(value)
+        return path if path.is_absolute() else root / path
+
     try:
-        exception_path = Path(args.exceptions)
-        if not exception_path.is_absolute():
-            exception_path = root / exception_path
-        records = scan(root, exception_path)
+        records = scan(root, rooted(args.exceptions))
+        baseline = load_baseline(rooted(args.baseline)) if args.baseline else None
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"MALFORMED: {exc}", file=sys.stderr)
         return 4
     blockers = [r for r in records if not r.get("excepted")]
+    if args.write_baseline:
+        target = rooted(args.write_baseline)
+        target.write_text(json.dumps({
+            "schema": BASELINE_SCHEMA, "tool_version": TOOL_VERSION,
+            "note": "Known unread data frozen as a snapshot so new work can be "
+                    "held to zero NEW findings. Triage is still owed; a key "
+                    "here is debt, not permission.",
+            "records": sorted({record_key(r) for r in blockers}),
+        }, indent=1) + "\n", encoding="utf-8", newline="\n")
+        print(f"wrote {len(blockers)} findings to {target}")
+        return 0
+    new = blockers if baseline is None else         [r for r in blockers if record_key(r) not in baseline]
+    resolved = [] if baseline is None else         sorted(baseline - {record_key(r) for r in blockers})
     payload = {"tool_version": TOOL_VERSION, "records": records,
                "summary": dict(Counter(r["kind"] for r in records)),
-               "blocking": len(blockers)}
+               "blocking": len(new)}
+    if baseline is not None:
+        payload["baseline"] = {"known": len(blockers) - len(new),
+                               "new": [record_key(r) for r in new],
+                               "resolved": resolved}
     if args.json:
         print(json.dumps(payload, indent=1, sort_keys=True))
     else:
         print("data consumption audit")
         for key, count in sorted(payload["summary"].items()):
             print(f"  {key}: {count}")
-        print(f"  blocking: {len(blockers)}")
-        for record in blockers[:80]:
+        if baseline is not None:
+            print(f"  known (in baseline): {len(blockers) - len(new)}")
+            print(f"  resolved since baseline: {len(resolved)}")
+            print(f"  NEW: {len(new)}")
+        else:
+            print(f"  blocking: {len(blockers)}")
+        for record in new[:80]:
             suffix = f":{record['field']}" if record.get("field") else ""
             print(f"  - {record['kind']} {record['file']}{suffix} ({record['detail']})")
-    return 1 if blockers else 0
+    return 1 if new else 0
 
 
 if __name__ == "__main__":
