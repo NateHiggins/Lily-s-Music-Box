@@ -230,7 +230,12 @@ class PriorityTests(unittest.TestCase):
         self.assertEqual(priority.score(self._facts(reviewed_before=True), large)["review_discount"], 1.0)
 
     def test_empty_prop_and_flat_colour_are_loud(self):
-        self.assertGreater(priority.score(self._facts(has_geometry=False), None)["priority"], 5.0)
+        empty = priority.score(self._facts(has_geometry=False), None)
+        self.assertTrue(empty["not_assessable"])
+        self.assertEqual(empty["priority"], 0.0)
+        ranked = priority.rank([self._facts(id="e", kind="e", has_geometry=False),
+                                self._facts(id="g", kind="g")], {})
+        self.assertEqual([r["id"] for r in ranked], ["g", "e"])
         self.assertGreater(priority.score(self._facts(flat_colour_share=1.0), None)["flat_bonus"], 0.0)
         self.assertEqual(priority.score(self._facts(flat_colour_share=0.3), None)["flat_bonus"], 0.0)
 
@@ -274,6 +279,11 @@ class SheetAndBriefTests(unittest.TestCase):
              "size_m": [0.5, 0.5, 0.1], "mount": "wall", "triangles": 5, "surfaces": 1, "flat_colour_share": 1.0,
              "real_object": "", "references": [], "score": {"priority": 1.0, "gap": 0.0, "review_discount": 1.0},
              "critique": {}},
+            {"rank": 3, "kind": "porch_deck", "label": "porch_deck", "installed_count": 5, "tier": "leave_alone",
+             "size_m": [0, 0, 0], "mount": "floor", "triangles": 0, "surfaces": 0, "flat_colour_share": 1.0,
+             "real_object": "", "references": [],
+             "score": {"priority": 0.0, "gap": 0.0, "review_discount": 1.0, "not_assessable": True},
+             "critique": {"summary": "Audio only; the deck is baked by the layout pass."}},
         ]
         text = render_brief(ranked, "2026-09-18", preface="## Method" + chr(10) * 2 + "How it was made.")
         self.assertLess(text.index("## Method"), text.index("## Priority table"))
@@ -281,6 +291,9 @@ class SheetAndBriefTests(unittest.TestCase):
         self.assertIn("add gauges", text)
         self.assertIn("No critique recorded", text)
         self.assertIn("INERT", text)
+        self.assertIn("## Not assessable in the shed", text)
+        self.assertIn("Audio only", text)
+        self.assertNotIn("### 3. porch_deck", text)
 
 
 class CritiqueValidationTests(unittest.TestCase):

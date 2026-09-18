@@ -38,14 +38,24 @@ def render_brief(ranked: list[dict], title_date: str, preface: str = "") -> str:
         "| # | priority | kind | variant | installed | tier | gap | flat colour | effort h |",
         "|---:|---:|---|---|---:|---|---:|---:|---:|",
     ]
-    for row in ranked:
+    assessable = [r for r in ranked if not r["score"].get("not_assessable")]
+    apart = [r for r in ranked if r["score"].get("not_assessable")]
+    for row in assessable:
         s = row["score"]
         c = row.get("critique") or {}
         lines.append(f"| {row['rank']} | {s['priority']:.2f} | {row['kind']} | {row['label']} | "
                      f"{row['installed_count']} | {row['tier']} | {s['gap']:.2f} | "
                      f"{int(round(100 * row['flat_colour_share']))}% | {c.get('effort_hours', '')} |")
+    if apart:
+        lines += ["", "## Not assessable in the shed", "",
+                  "These kinds drew nothing standalone: their visible geometry comes from the",
+                  "layout pass, not the script, so no comparison was possible. The finding is",
+                  "about their inspection registration, not their modelling.", ""]
+        for row in apart:
+            c = row.get("critique") or {}
+            lines.append(f"- **{row['kind']}** ({row['label']}): {c.get('summary', 'no critique recorded')}")
     lines += ["", "## Specimens, in priority order", ""]
-    for row in ranked:
+    for row in assessable:
         c = row.get("critique") or {}
         size = row.get("size_m") or [0, 0, 0]
         lines += [

@@ -44,11 +44,16 @@ def score(facts: dict, critique: dict | None) -> dict:
     # Wholly flat-coloured specimens are a texturing brief by construction.
     flat_bonus = 0.25 * flat if flat > 0.85 else 0.0
     value = base * discount + flat_bonus
-    if not facts.get("has_geometry", True):
-        value += 5.0  # drew nothing: the loudest possible finding
+    not_assessable = not facts.get("has_geometry", True)
+    if not_assessable:
+        # The shed drew nothing, so nothing here was compared to a reference.
+        # That is a finding about the shed's registration, not a modelling
+        # priority; the brief lists these apart rather than ranking them.
+        value = 0.0
     return {"priority": round(value, 3), "gap": round(g, 3), "tier_weight": tier_w,
             "installed_factor": round(inst, 3), "review_discount": discount,
-            "flat_bonus": round(flat_bonus, 3), "has_critique": critique is not None}
+            "flat_bonus": round(flat_bonus, 3), "has_critique": critique is not None,
+            "not_assessable": not_assessable}
 
 
 def rank(entries: list[dict], critiques: dict[str, dict]) -> list[dict]:
@@ -59,7 +64,7 @@ def rank(entries: list[dict], critiques: dict[str, dict]) -> list[dict]:
         row["critique"] = critique or {}
         row["score"] = score(facts, critique)
         ranked.append(row)
-    ranked.sort(key=lambda r: (-r["score"]["priority"], r["kind"], r["id"]))
+    ranked.sort(key=lambda r: (r["score"]["not_assessable"], -r["score"]["priority"], r["kind"], r["id"]))
     for i, row in enumerate(ranked, 1):
         row["rank"] = i
     return ranked
