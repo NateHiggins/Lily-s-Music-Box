@@ -13,6 +13,7 @@ from __future__ import annotations
 import io
 import json
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -133,19 +134,34 @@ def write_spatial_checkpoint(root: Path) -> None:
 
 
 def write_composition_proof(root: Path) -> None:
-    """Later runtime composition: structured claims + passing receipt."""
+    """Synthetic executed-contract receipt; never production runtime proof."""
     packet = root / "art/renders/orison_v2/mini_m08f_composition"
     packet.mkdir(parents=True, exist_ok=True)
+    source = root / "game/tests/mini_runtime_contract_test.gd"
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.write_text("# Synthetic audit fixture; not a production test.\n",
+                      encoding="utf-8")
     (packet / "runtime_authority_receipt.json").write_text(json.dumps({
-        "schema_version": 1,
+        "schema_version": 2,
+        "evidence_kind": "runtime_contract",
         "production_runtime": True,
         "selector": "v2",
-        "records": [
-            {"frame": "01_watchman", "prompt": "WATCHMAN AUTHORITY",
-             "save_phase": "acknowledged", "capture": "PASS"},
-            {"frame": "02_round", "prompt": "SERVICE ROUND CLOSED",
-             "save_phase": "closed", "capture": "PASS"},
-        ]}), encoding="utf-8")
+        "source": {"test_path": source.relative_to(root).as_posix(),
+                   "test_sha256": audit.sha256_file(source),
+                   "runtime_inputs_sha256": audit.runtime_inputs_sha256(root),
+                   "repository_head": "1" * 40},
+        "execution": {"completed": True, "exit_code": 0, "timed_out": False},
+        "contracts": {
+            "production_composition": {"executed": True, "status": "PASS",
+                "identities": ["F01_WATCHMAN_DETECTOR", "F01_NIGHT_REGISTER",
+                    "F01_SIGNAL_REGISTER", "F01_TOUR_KEY_GUARD",
+                    "F02_B_RADIATOR_01", "B1_BOILER_01"]},
+            "save_reconstruction": {"executed": True, "status": "PASS"},
+            "premature_action_denial": {"executed": True, "status": "PASS"},
+            "teardown": {"executed": True, "status": "PASS",
+                "measurement_scope": "runtime_owned", "retained_nodes": 0,
+                "retained_resources": 0, "retained_playbacks": 0},
+        }}), encoding="utf-8")
     rows = [
         ("Watchman detector", "WatchmanClockProp",
          "F01_WATCHMAN_DETECTOR", "FirstShiftDirector observes"),
@@ -943,6 +959,8 @@ class ChronologyTests(unittest.TestCase):
             write_composition_proof(root)
             record = self.ritual_status(root)
             self.assertEqual(record["status"], "RUNTIME_PROVEN")
+            self.assertIn("checkpoint:art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json",
+                          record["provenance"])
             self.assertNotIn("FIRST_SLICE_TECHNICAL",
                              record["blocking_scopes"])
 
@@ -972,13 +990,154 @@ class ChronologyTests(unittest.TestCase):
                        "mini_m08f_composition/"
                        "runtime_authority_receipt.json")
             data = json.loads(receipt.read_text(encoding="utf-8"))
-            data["records"][0]["capture"] = "FAIL"
+            data["contracts"]["save_reconstruction"]["status"] = "FAIL"
             receipt.write_text(json.dumps(data), encoding="utf-8")
             _c, payload, _ = run_payload(root)
             record = req(payload, "ritual.F01_NIGHT_REGISTER")
             self.assertNotEqual(record["status"], "RUNTIME_PROVEN")
             notes = {c["note"] for c in payload["evidence_conflicts"]}
             self.assertTrue(any("without a passing" in n for n in notes))
+
+    def test_legacy_capture_only_receipt_cannot_clear_runtime_gate(self):
+        """A successful screenshot set never executes the named contracts."""
+        with TempRepo() as root:
+            make_slice_complete(root)
+            receipt = (root / "art/renders/orison_v2/"
+                       "mini_m08f_composition/runtime_authority_receipt.json")
+            receipt.write_text(json.dumps({
+                "schema_version": 1, "production_runtime": True,
+                "selector": "v2", "records": [
+                    {"frame": "save_reconstruction_contract",
+                     "save_phase": "closed", "capture": "PASS"},
+                    {"frame": "premature_action_denied", "capture": "PASS"},
+                    {"frame": "teardown_0_retained", "capture": "PASS"},
+                ]}), encoding="utf-8")
+            result = subprocess.run(
+                [sys.executable, str(TOOLS_DIR / "audit_orison_v2_completeness.py"),
+                 "--root", str(root), "--json", "--blockers-for", "first-slice"],
+                text=True, capture_output=True, check=False)
+            self.assertEqual(result.returncode, 2, result.stdout)
+            payload = json.loads(result.stdout)
+            self.assertIn("ritual.F01_NIGHT_REGISTER",
+                          payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
+            self.assertNotIn("FIRST SLICE READY", payload.get("banner", ""))
+            _, text_output, _ = run_main("--root", str(root), "--blockers-for", "first-slice")
+            self.assertIn("runtime receipts rejected", text_output)
+            self.assertIn("capture-only receipts", text_output)
+            write_composition_proof(root)
+            corrected = subprocess.run(result.args, text=True, capture_output=True, check=False)
+            self.assertEqual(corrected.returncode, 0, corrected.stderr)
+            self.assertEqual(json.loads(corrected.stdout)["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"], [])
+
+    def test_runtime_receipt_rejects_unexecuted_stale_and_retained_contracts(self):
+        mutations = {
+            "unexecuted_save": lambda data: data["contracts"]["save_reconstruction"].update(executed=False),
+            "missing_denial": lambda data: data["contracts"].pop("premature_action_denial"),
+            "nonzero_exit": lambda data: data["execution"].update(exit_code=2),
+            "boolean_exit": lambda data: data["execution"].update(exit_code=False),
+            "incomplete": lambda data: data["execution"].update(completed=False),
+            "timeout": lambda data: data["execution"].update(timed_out=True),
+            "stale_source": lambda data: data["source"].update(test_sha256="0" * 64),
+            "external_source": lambda data: data["source"].update(test_path="../outside.gd"),
+            "unscoped_identity": lambda data: data["contracts"]["production_composition"]["identities"].remove("F01_NIGHT_REGISTER"),
+            "unmeasured_teardown": lambda data: data["contracts"]["teardown"].pop("retained_nodes"),
+            "retained_resource": lambda data: data["contracts"]["teardown"].update(retained_resources=1),
+            "retained_playback": lambda data: data["contracts"]["teardown"].update(retained_playbacks=1),
+        }
+        for name, mutate in mutations.items():
+            with self.subTest(name=name), TempRepo() as root:
+                make_slice_complete(root)
+                receipt = root / "art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json"
+                good = receipt.read_text(encoding="utf-8")
+                data = json.loads(good)
+                mutate(data)
+                receipt.write_text(json.dumps(data), encoding="utf-8")
+                code, payload, _ = run_payload(root, "--blockers-for", "first-slice")
+                self.assertEqual(code, 2)
+                self.assertIn("ritual.F01_NIGHT_REGISTER", payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
+                receipt.write_text(good, encoding="utf-8")
+                code, payload, _ = run_payload(root, "--blockers-for", "first-slice")
+                self.assertEqual(code, 0)
+                self.assertEqual(payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"], [])
+
+    def test_rejected_composition_preserves_the_exact_m08d_census(self):
+        with TempRepo() as root:
+            make_slice_complete(root)
+            receipt = root / "art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json"
+            before = audit.Evidence(audit.Inputs(root, audit.build_parser().parse_args([])),
+                                   audit.V2Model(json.loads((root / audit.DEFAULT_V2).read_text())))
+            receipt.write_text(json.dumps({"schema_version": 1}), encoding="utf-8")
+            after = audit.Evidence(audit.Inputs(root, audit.build_parser().parse_args([])),
+                                  audit.V2Model(json.loads((root / audit.DEFAULT_V2).read_text())))
+            census = lambda evidence: {token: [row for row in rows if row["channel"] == "census"]
+                                       for token, rows in evidence.by_token.items()
+                                       if any(row["channel"] == "census" for row in rows)}
+            self.assertTrue(census(before))
+            self.assertEqual(census(before), census(after))
+            self.assertTrue(set(census(after)) <= set(audit.M08D_PROVEN_PARITY_IDS))
+
+    def test_runtime_receipt_rejects_changed_production_with_unchanged_test(self):
+        with TempRepo() as root:
+            make_slice_complete(root)
+            test_source = root / "game/tests/mini_runtime_contract_test.gd"
+            test_digest = audit.sha256_file(test_source)
+            production = root / "game/scripts/building/building_root_selector.gd"
+            original = production.read_bytes()
+            production.write_bytes(original + b"\n# Runtime implementation changed.\n")
+            self.assertEqual(audit.sha256_file(test_source), test_digest)
+            code, payload, _ = run_payload(root, "--blockers-for", "first-slice")
+            self.assertEqual(code, 2)
+            self.assertIn("ritual.F01_NIGHT_REGISTER", payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
+            production.write_bytes(original)
+            self.assertEqual(run_payload(root, "--blockers-for", "first-slice")[0], 0)
+
+    def test_runtime_receipt_rejects_arbitrary_file_as_test_source(self):
+        with TempRepo() as root:
+            make_slice_complete(root)
+            receipt = root / "art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json"
+            original = receipt.read_text(encoding="utf-8")
+            data = json.loads(original)
+            arbitrary = root / "game/data/maintenance_jobs.json"
+            data["source"].update(test_path=arbitrary.relative_to(root).as_posix(),
+                                  test_sha256=audit.sha256_file(arbitrary))
+            receipt.write_text(json.dumps(data), encoding="utf-8")
+            self.assertEqual(run_payload(root, "--blockers-for", "first-slice")[0], 2)
+            receipt.write_text(original, encoding="utf-8")
+            self.assertEqual(run_payload(root, "--blockers-for", "first-slice")[0], 0)
+
+    def test_runtime_input_digest_covers_text_inputs_with_stable_order(self):
+        paths = ["game/scripts/nested/runtime.gd", "game/scenes/nested/root.tscn",
+                 "game/scenes/nested/material.tres", "game/data/nested/events.json",
+                 "game/project.godot"]
+        with tempfile.TemporaryDirectory() as temporary:
+            left, right = Path(temporary) / "left", Path(temporary) / "right"
+            for directory, order in ((left, paths), (right, list(reversed(paths)))):
+                for relative in order:
+                    path = directory / relative
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text("fixture text for " + relative, encoding="utf-8")
+            baseline = audit.runtime_inputs_sha256(left)
+            self.assertEqual(baseline, audit.runtime_inputs_sha256(right))
+            for relative in paths:
+                with self.subTest(input=relative):
+                    path = right / relative
+                    original = path.read_bytes()
+                    path.write_bytes(original + b"\nchanged")
+                    self.assertNotEqual(baseline, audit.runtime_inputs_sha256(right))
+                    path.unlink()
+                    self.assertNotEqual(baseline, audit.runtime_inputs_sha256(right))
+                    path.write_bytes(original)
+                    self.assertEqual(baseline, audit.runtime_inputs_sha256(right))
+            additional = right / "game/scripts/added.gd"
+            additional.write_text("new runtime input", encoding="utf-8")
+            self.assertNotEqual(baseline, audit.runtime_inputs_sha256(right))
+            additional.rename(right / "game/scripts/added.txt")
+            self.assertEqual(baseline, audit.runtime_inputs_sha256(right))
+            for excluded in ("game/tests/shot.gd", "game/assets/texture.png", "art/renders/capture.png"):
+                path = right / excluded
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"separately bound evidence")
+            self.assertEqual(baseline, audit.runtime_inputs_sha256(right))
 
     def test_test_or_scene_mentions_are_never_evidence(self):
         with TempRepo() as root:
@@ -1030,13 +1189,16 @@ class LiveRepoSmokeTests(unittest.TestCase):
         "contract.B1_BOILER_01", "contract.F02_B_RADIATOR_01",
         "job.lena_radiator_round_2b"}
 
-    def test_live_first_slice_is_ready_after_m08f(self):
-        # M08E built the spatial owners, M08E-A accepted them, M08F
-        # composed and proved the authorities: the first-slice gate is
-        # mechanically clean - and only that gate.
+    def test_live_first_slice_requires_executed_m08f_contracts(self):
+        # M08E spatial proof remains valid. The historical M08F capture
+        # receipt does not execute the runtime contracts it captions.
         first_slice = set(
             self.payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
-        self.assertEqual(first_slice, set())
+        self.assertEqual(first_slice, {
+            "ritual.F01_WATCHMAN_DETECTOR", "ritual.F01_NIGHT_REGISTER",
+            "ritual.F01_SIGNAL_REGISTER", "ritual.F01_TOUR_KEY_GUARD",
+            "contract.B1_BOILER_01", "contract.F02_B_RADIATOR_01",
+            "job.lena_radiator_round_2b"})
         self.assertEqual(self.code, 2)  # the building is still blocked
 
     def test_live_2b_entry_is_no_longer_a_false_absence(self):
@@ -1055,29 +1217,32 @@ class LiveRepoSmokeTests(unittest.TestCase):
         self.assertEqual(record["notes"], "")
         self.assertIn("F02_B_VESTIBULE", " ".join(record["provenance"]))
 
-    def test_live_first_slice_banner_exact(self):
+    def test_live_first_slice_does_not_claim_ready_from_captures(self):
         code, out, _ = run_main("--root", str(REPO_ROOT),
                                 "--blockers-for", "first-slice")
-        self.assertEqual(code, 0)
-        self.assertIn(
+        self.assertEqual(code, 2)
+        self.assertNotIn(
             "FIRST SLICE READY - PRODUCTION CUTOVER NOT IMPLIED.", out)
 
-    def test_live_runtime_proof_comes_from_m08f_claims(self):
-        # Rituals reach RUNTIME_PROVEN via the M08F composition table +
-        # passing runtime authority receipt - not via any historical
-        # mention.  The M08D mentions remain visible as conflicts.
+    def test_live_legacy_m08f_receipt_grants_no_runtime_proof(self):
+        # A composition table and successful captures retain spatial
+        # evidence; runtime claims require executed contracts.
         for rid in ("ritual.F01_NIGHT_REGISTER",
                     "ritual.F01_WATCHMAN_DETECTOR",
                     "contract.B1_BOILER_01",
                     "contract.F02_B_RADIATOR_01"):
             record = req(self.payload, rid)
-            self.assertEqual(record["status"], "RUNTIME_PROVEN", rid)
+            self.assertEqual(record["status"], "SPATIALLY_PROVEN", rid)
             self.assertTrue(
                 any("M08F_RUNTIME_COMPOSITION" in p
                     for p in record["provenance"]), record["provenance"])
         conflict_tokens = {c["token"]
                            for c in self.payload["evidence_conflicts"]}
         self.assertIn("F01_NIGHT_REGISTER", conflict_tokens)
+        rejected = self.payload["evidence_intake"]["rejected_runtime_receipts"]
+        self.assertTrue(any("m08f_runtime_composition_01" in row["file"] and
+                            any("capture-only" in reason for reason in row["reasons"])
+                            for row in rejected))
 
     def test_live_acceptance_grants_spatial_only(self):
         for rid in ("floor.B1", "unit.2B", "b1.boiler_room"):
@@ -1119,11 +1284,11 @@ class LiveRepoSmokeTests(unittest.TestCase):
         whole = req(self.payload, "human.whole_building_navigation")
         self.assertEqual(whole["status"], "ABSENT")
 
-    def test_live_queue_head_is_m10_never_m09(self):
+    def test_live_queue_requires_runtime_composition_before_m10(self):
         ids = [item["id"] for item in self.payload["queue"]]
-        self.assertEqual(ids[0], "M10-golden-shift-v2")
-        self.assertNotIn("M08E-f01-rituals-2b-b1", ids)
-        self.assertNotIn("M08F-runtime-composition-of-m08e", ids)
+        self.assertIn("M08F-runtime-composition-of-m08e", ids)
+        self.assertLess(ids.index("M08F-runtime-composition-of-m08e"),
+                        ids.index("M10-golden-shift-v2"))
         m09 = ids.index("M09-production-cutover-proposal")
         self.assertGreater(m09, ids.index("M11-structural-floors"))
         self.assertGreater(m09, ids.index(

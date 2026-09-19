@@ -159,8 +159,27 @@ RUNTIME_PROVEN → HUMAN_ACCEPTED`, with orthogonal flags
   runtime-composition checkpoint's structured claims — a composition
   table row carrying the identifier (``at `ID```), its production
   authority class, a durable/save owner and a teardown owner —
-  validated by that packet's passing `runtime_authority_receipt.json`
-  (`production_runtime: true`, `selector: "v2"`, every record PASS).
+  validated by that packet's **schema-2 `runtime_authority_receipt.json`**.
+- **A capture is not an execution (TOOL_VERSION 2, adopted 2026-09-16).**
+  A runtime authority receipt is admitted only when it declares
+  `schema_version: 2` and `evidence_kind: "runtime_contract"`, runs under
+  `production_runtime: true` with `selector: "v2"`, and records a
+  *completed* execution: integer `exit_code` 0 and `timed_out: false`. It
+  must name its own executing source — a real root-relative
+  `game/tests/*.gd` path whose committed SHA-256 still matches the tree —
+  and bind the runtime inputs it was measured against by
+  `runtime_inputs_sha256` over every `game/scripts`, `game/scenes`,
+  `game/data` and `project.godot` file, so that adding, removing or
+  editing any runtime input invalidates the proof rather than inheriting
+  it. Receipts that fail any of these are reported in the
+  `rejected_runtime_receipts` block of `--json` and promote nothing.
+  **No existing capture packet is upgraded to this contract.** The
+  schema-1 M08F receipt is capture-only: it carries no execution result,
+  no executing source and no input binding, so the six first-slice
+  identifiers it used to support are SPATIALLY_PROVEN until a real
+  contract runs. Reason: a capture receipt proves that frames were
+  rendered, which is a different fact from a contract having executed,
+  and one signal must never stand for two facts.
   Later human acceptance may raise an existing PROGRAMMED requirement
   to SPATIALLY_PROVEN via the curated `ACCEPTANCE_GRANTS` table (it
   never conjures absent geometry or runtime proof). Test files, scene

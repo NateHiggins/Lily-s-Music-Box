@@ -140,7 +140,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-TOOL_VERSION = 1
+TOOL_VERSION = 2
 
 DEFAULT_V1 = ("art/data/building_layout.json",
               "game/data/building_layout.json")
@@ -394,7 +394,10 @@ M08D_PROVEN_PARITY_IDS = [
 # M08D twelve-anchor census, or (b) a runtime-composition checkpoint's
 # structured claims (identifier + production authority + save/durable
 # owner + teardown owner in its composition table) validated by that
-# packet's passing runtime_authority_receipt.json.
+# packet's schema-2 runtime_authority_receipt.json: completed execution,
+# current test-source hash, explicit exercised identities, save/rebuild,
+# denial and measured teardown contracts. Schema-1 capture-only receipts
+# remain historical composition evidence; they cannot grant runtime proof.
 DOC_EPOCH_MARKERS = [
     ("SCHEMA_GENERATOR", 0), ("VERTICAL_CORE", 1), ("GRAYBOX", 2),
     ("M08E_A", 8), ("M08F", 9), ("M08E", 7), ("M08D", 6), ("M08C", 5),
@@ -552,6 +555,28 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+RUNTIME_INPUT_GLOBS = (
+    "game/scripts/**/*.gd", "game/scenes/**/*.tscn", "game/scenes/**/*.tres",
+    "game/data/**/*.json", "game/project.godot",
+)
+
+
+def runtime_inputs_sha256(root: Path) -> str:
+    """Bind runtime proof to text inputs, including file additions/removals.
+
+    Digest UTF-8 canonical JSON: sorted [relative_posix_path, file_sha256]
+    pairs with compact separators and no trailing newline. File hashes use
+    raw bytes. Texture/asset hashes remain separate visual evidence; this
+    digest does not claim to authenticate the appearance of the rendered game.
+    """
+    paths = {path for pattern in RUNTIME_INPUT_GLOBS
+             for path in root.glob(pattern) if path.is_file()}
+    manifest = sorted([path.relative_to(root).as_posix(), sha256_file(path)]
+                      for path in paths)
+    encoded = json.dumps(manifest, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
 def load_json(path: Path, what: str) -> dict:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -559,6 +584,81 @@ def load_json(path: Path, what: str) -> dict:
         raise AuditError(f"cannot read {what} {path}: {exc}")
     except json.JSONDecodeError as exc:
         raise AuditError(f"malformed {what} {path}: {exc}")
+
+
+def runtime_receipt_errors(data: dict, root: Path) -> list[str]:
+    """Admit executed runtime contracts, never captions or capture success.
+
+    The process wrapper owns the completion/exit result; the runtime test
+    owns executed checks and measured retention. No existing capture packet
+    is upgraded to this contract. Test and runtime-input hashes must match
+    the current tree; the recorded repository head is provenance, not a
+    substitute for those content checks.
+    """
+    if not isinstance(data, dict) or data.get("schema_version") != 2 or \
+            data.get("evidence_kind") != "runtime_contract":
+        return ["schema-2 runtime_contract required; capture-only receipts "
+                "do not execute runtime contracts"]
+    errors = []
+    if data.get("production_runtime") is not True or data.get("selector") != "v2":
+        errors.append("explicit production runtime under v2 required")
+    execution = data.get("execution", {})
+    if not isinstance(execution, dict) or \
+            execution.get("completed") is not True or \
+            type(execution.get("exit_code")) is not int or \
+            execution.get("exit_code") != 0 or \
+            execution.get("timed_out") is not False:
+        errors.append("completed execution with exit_code 0 and no timeout required")
+    source = data.get("source", {})
+    if not isinstance(source, dict):
+        source = {}
+    relative = source.get("test_path", "")
+    digest = source.get("test_sha256", "")
+    source_path = root / str(relative)
+    if not isinstance(relative, str) or not relative or \
+            Path(relative).is_absolute() or \
+            Path(relative).parts[:2] != ("game", "tests") or \
+            ".." in Path(relative).parts or Path(relative).suffix != ".gd" or \
+            not source_path.resolve().is_relative_to(root.resolve()) or \
+            not source_path.resolve().is_relative_to((root / "game/tests").resolve()) or \
+            not source_path.is_file() or \
+            not isinstance(digest, str) or \
+            not re.fullmatch(r"[0-9a-f]{64}", digest):
+        errors.append("actual root-relative game/tests .gd source and SHA-256 required")
+    elif sha256_file(source_path) != digest:
+        errors.append("test-source SHA-256 is stale")
+    if not isinstance(source.get("repository_head"), str) or not re.fullmatch(
+            r"[0-9a-f]{40}", source.get("repository_head", "")):
+        errors.append("recorded repository head required")
+    runtime_digest = source.get("runtime_inputs_sha256")
+    if not isinstance(runtime_digest, str) or not re.fullmatch(r"[0-9a-f]{64}", runtime_digest):
+        errors.append("source.runtime_inputs_sha256 required")
+    elif runtime_digest != runtime_inputs_sha256(root):
+        errors.append("runtime-input SHA-256 is stale")
+    contracts = data.get("contracts", {})
+    if not isinstance(contracts, dict):
+        contracts = {}
+    for name in ("production_composition", "save_reconstruction",
+                 "premature_action_denial", "teardown"):
+        contract = contracts.get(name, {})
+        if not isinstance(contract, dict) or contract.get("executed") is not True or \
+                contract.get("status") != "PASS":
+            errors.append(f"{name}: executed PASS required")
+    composition = contracts.get("production_composition", {})
+    identities = composition.get("identities", []) if isinstance(composition, dict) else []
+    if not isinstance(identities, list) or not identities or \
+            any(not isinstance(token, str) or not token for token in identities) or \
+            len(set(str(token) for token in identities)) != len(identities):
+        errors.append("production_composition: unique exercised identities required")
+    teardown = contracts.get("teardown", {})
+    if not isinstance(teardown, dict):
+        teardown = {}
+    if teardown.get("measurement_scope") != "runtime_owned":
+        errors.append("teardown: runtime_owned measurement scope required")
+    for key in ("retained_nodes", "retained_resources", "retained_playbacks"):
+        if type(teardown.get(key)) is not int or teardown.get(key) != 0:
+            errors.append(f"teardown: measured {key} must be zero")
+    return errors
 
 
 # ---------------------------------------------------------------------------
@@ -683,6 +783,7 @@ class Inputs:
 
         self.receipts = []
         self.runtime_receipts = []
+        self.rejected_runtime_receipts = []
         receipts_dir = root / RECEIPT_GLOB
         if receipts_dir.is_dir():
             for receipt in sorted(
@@ -694,16 +795,16 @@ class Inputs:
             for receipt in sorted(receipts_dir.glob(
                     "*/runtime_authority_receipt.json")):
                 data = load_json(receipt, "runtime authority receipt")
-                records = data.get("records", [])
-                valid = (data.get("production_runtime") is True and
-                         str(data.get("selector")) == "v2" and
-                         bool(records) and
-                         all(str(r.get("capture", "")).upper() == "PASS"
-                             for r in records))
-                if valid:
+                errors = runtime_receipt_errors(data, root)
+                if not errors:
                     data["_file"] = receipt.relative_to(root).as_posix()
                     data["_dir"] = receipt.parent.name
                     self.runtime_receipts.append(data)
+                    self._record(root / data["source"]["test_path"])
+                else:
+                    self.rejected_runtime_receipts.append({
+                        "file": receipt.relative_to(root).as_posix(),
+                        "reasons": errors})
                 self._record(receipt)
 
     def _record(self, path: Path) -> None:
@@ -978,26 +1079,29 @@ class Evidence:
 
             if composition:
                 packet_names = set(PACKET_DIR_RE.findall(text))
-                receipt_ok = any(
-                    r["_dir"] in packet_names
-                    for r in inputs.runtime_receipts)
                 for claim in parse_composition_claims(text):
                     token = claim["id"]
                     if token not in model.all_ids:
                         continue
+                    supporting_receipts = [
+                        r for r in inputs.runtime_receipts
+                        if r["_dir"] in packet_names and token in
+                        r["contracts"]["production_composition"]["identities"]]
+                    receipt_ok = bool(supporting_receipts)
                     if not receipt_ok:
                         self.conflicts.append({
                             "token": token, "source": rel,
                             "epoch": epoch, "negative_epoch": -1,
                             "note": "composition claim without a "
                                     "passing runtime authority "
-                                    "receipt"})
+                                    "receipt covering this identity"})
                         continue
                     self.by_token.setdefault(token, []).append(
                         {"tier": "RUNTIME_PROVEN", "source": rel,
                          "epoch": epoch, "channel": "claim",
                          "authority": claim["authority"],
-                         "owner": claim["owner"]})
+                         "owner": claim["owner"],
+                         "runtime_receipt": supporting_receipts[0]["_file"]})
 
         # Deduplicate stale/conflict rows.
         def dedupe(rows, keys):
@@ -1056,6 +1160,8 @@ class Evidence:
         sources = []
         for entry in self.by_token.get(token, []):
             sources.append(entry["source"])
+            if entry.get("runtime_receipt"):
+                sources.append(entry["runtime_receipt"])
             if best is None or RANK[entry["tier"]] > RANK[best]:
                 best = entry["tier"]
         return best, sorted(set(sources))
@@ -2227,7 +2333,7 @@ FINDING_LIST_LIMIT = 20
 
 
 def render_findings(payload: dict, emit) -> None:
-    """Name the two side-channel findings a builder has to act on.
+    """Name side-channel findings a builder has to act on.
 
     Both were counted in the summary and carried in --json but never
     named in the human-readable or markdown output, so a floor owner
@@ -2252,6 +2358,11 @@ def render_findings(payload: dict, emit) -> None:
                  f"({entry['source']})")
         if len(stale) > FINDING_LIST_LIMIT:
             emit(f"  ... {len(stale) - FINDING_LIST_LIMIT} more (--json)")
+    rejected = payload.get("evidence_intake", {}).get("rejected_runtime_receipts", [])
+    if rejected:
+        emit(f"runtime receipts rejected ({len(rejected)}):")
+        for entry in rejected[:FINDING_LIST_LIMIT]:
+            emit(f"  ! {entry['file']} - {'; '.join(entry['reasons'])}")
 
 
 def render_markdown(payload: dict) -> str:
@@ -2605,6 +2716,7 @@ def run(args) -> int:
         "evidence_intake": {
             "admitted": inputs.admitted_evidence,
             "not_evidence": inputs.non_evidence,
+            "rejected_runtime_receipts": inputs.rejected_runtime_receipts,
         },
         "provenance": inputs.provenance,
     }
