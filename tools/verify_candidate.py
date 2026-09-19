@@ -349,7 +349,7 @@ def main(argv=None) -> int:
     base_root = None
     try:
         dirty = [l for l in git("status", "--porcelain", cwd=cand_root).splitlines() if l.strip()]
-        cache = work / "boards" / f"{merge_base}.json"
+        cache = work / "boards" / f"{merge_base}.v{gate_board.TOOL_VERSION}.json"
         if cache.is_file():
             base_board = json.loads(cache.read_text(encoding="utf-8"))
         else:

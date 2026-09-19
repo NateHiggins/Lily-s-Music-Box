@@ -17,8 +17,9 @@ def row(gid, severity="PASS", exit_code=0, counts=None, defects=None, states=Non
             "states": states or {}, "info": info or {}}
 
 
-def board(*rows, commit="a" * 40):
+def board(*rows, commit="a" * 40, version=None):
     return {"schema": gb.BOARD_SCHEMA, "commit": commit, "tree": "t", "gates": list(rows),
+            "tool_version": gb.TOOL_VERSION if version is None else version,
             "status_order": gb._FALLBACK_STATUS_ORDER, "created_utc": "x", "dirty_paths": []}
 
 
@@ -72,6 +73,12 @@ class CompareTests(unittest.TestCase):
         old = board(row("test:test_x", info={"ran": 10}))
         new = board(row("test:test_x", info={"ran": 7}))
         self.assertIn("test:test_x: ran 10 -> 7 tests", gb.compare(old, new)["regressions"])
+
+    def test_boards_from_different_versions_are_not_compared(self):
+        result = gb.compare(board(version=1), board())
+        self.assertFalse(result["comparable"])
+        self.assertEqual(len(result["regressions"]), 1)
+        self.assertIn("different gate_board versions", result["regressions"][0])
 
     def test_new_gate_that_fails_regresses(self):
         new = board(row("test:test_new", "FAIL", 1))

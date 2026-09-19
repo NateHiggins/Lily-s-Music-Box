@@ -51,7 +51,9 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 BOARD_SCHEMA = "orison.gate-board.v1"
-TOOL_VERSION = 1
+# Bump whenever a parser's counts or defect names change meaning: boards from
+# different versions are not comparable and compare() refuses to pretend.
+TOOL_VERSION = 2
 SEVERITY = ["PASS", "INCOMPLETE", "FAIL", "ERROR"]
 # Ledger status ranks, read from the ledger itself when importable so this
 # board can never disagree with it; the literal is only a fallback.
@@ -288,6 +290,13 @@ def build_board(root: Path, include_tests: bool, only: list[str], jobs: int, tim
 # ---------------------------------------------------------------------------
 
 def compare(old: dict, new: dict) -> dict:
+    if old.get("tool_version") != new.get("tool_version"):
+        message = (f"boards come from different gate_board versions "
+                   f"({old.get('tool_version')} vs {new.get('tool_version')}); regenerate the "
+                   "baseline board with this version before comparing")
+        return {"from_commit": old.get("commit"), "to_commit": new.get("commit"),
+                "regressions": [message], "improvements": [], "changes": [],
+                "requirements_changed": [], "comparable": False}
     order = new.get("status_order") or _FALLBACK_STATUS_ORDER
     rank = {s: i for i, s in enumerate(order)}
     old_rows = {g["id"]: g for g in old.get("gates", [])}
@@ -345,7 +354,8 @@ def compare(old: dict, new: dict) -> dict:
                     improvements.append(line)
     return {"from_commit": old.get("commit"), "to_commit": new.get("commit"),
             "regressions": regressions, "improvements": improvements,
-            "changes": changes, "requirements_changed": requirements_changed}
+            "changes": changes, "requirements_changed": requirements_changed,
+            "comparable": True}
 
 
 # ---------------------------------------------------------------------------
