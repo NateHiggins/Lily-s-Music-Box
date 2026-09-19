@@ -31,6 +31,44 @@ class DataConsumptionTests(unittest.TestCase):
             '{"files":{},"fields":{}}', encoding="utf-8")
         return td, root
 
+    def test_baseline_fails_only_on_new_findings_and_reports_resolved(self):
+        td, root = self.fixture()
+        try:
+            import contextlib, io
+            quiet = contextlib.redirect_stdout(io.StringIO())
+            with quiet:
+                self.assertEqual(audit.main(["--root", str(root), "--write-baseline"]), 0)
+                self.assertEqual(audit.main(["--root", str(root), "--baseline"]), 0)
+            # A new unread field is new debt: the baseline does not excuse it.
+            (root / "game/data/live.json").write_text(
+                json.dumps({"used": 1, "dead": 2, "fresh": 3}), encoding="utf-8")
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                self.assertEqual(audit.main(["--root", str(root), "--baseline", "--json"]), 1)
+            report = json.loads(out.getvalue())["baseline"]
+            self.assertEqual(report["new"], ["FIELD_UNREAD|game/data/live.json|fresh"])
+            # Reading a known-dead field resolves it without failing the gate.
+            (root / "game/scripts/game/reader.gd").write_text(
+                'const P="res://data/live.json"\nfunc f(d): return d.used + d.dead + d.fresh\n',
+                encoding="utf-8")
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                self.assertEqual(audit.main(["--root", str(root), "--baseline", "--json"]), 0)
+            self.assertIn("FIELD_UNREAD|game/data/live.json|dead",
+                          json.loads(out.getvalue())["baseline"]["resolved"])
+        finally:
+            td.cleanup()
+
+    def test_malformed_baseline_is_a_usage_error(self):
+        td, root = self.fixture()
+        try:
+            (root / "tools/data_consumption_baseline.json").write_text('{"records": []}', encoding="utf-8")
+            import contextlib, io
+            with contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(audit.main(["--root", str(root), "--baseline"]), 4)
+        finally:
+            td.cleanup()
+
     def test_file_and_field_deadness_are_independent(self):
         td, root = self.fixture()
         try:

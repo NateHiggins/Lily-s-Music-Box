@@ -16,6 +16,8 @@ import shutil
 import sys
 import tempfile
 import unittest
+
+NL = chr(10)
 from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
 
@@ -1176,6 +1178,29 @@ class EvidenceIntakeTests(unittest.TestCase):
             self.assertEqual(code, 2)
             self.assertEqual(req(payload, self.SUBJECT)["status"],
                              "SPATIALLY_PROVEN")
+
+    def test_inert_header_refuses_a_marker_named_document(self):
+        """A checkpoint-named file that calls itself INERT is refused, and
+        the refusal says why; the same bytes without the header promote."""
+        name = "ORISON_V2_MINI_CORE_CHECKPOINT_2026-08-28.md"
+        with TempRepo() as root:
+            (root / "design" / name).write_text(
+                "# Note" + NL + NL + "Evidence class: **INERT - PROMOTES NOTHING**" + NL + NL
+                + self.BODY, encoding="utf-8")
+            _, payload, _ = run_payload(root)
+            self.assertEqual(req(payload, self.SUBJECT)["status"], "PROGRAMMED")
+            refused = {e["file"]: e["reason"]
+                       for e in payload["evidence_intake"]["not_evidence"]}
+            self.assertIn("INERT", refused["design/" + name])
+
+    def test_non_inert_header_does_not_refuse(self):
+        name = "ORISON_V2_MINI_CORE_CHECKPOINT_2026-08-28.md"
+        with TempRepo() as root:
+            (root / "design" / name).write_text(
+                "# Note" + NL + NL + "Evidence class: **TECHNICAL CHECKPOINT**" + NL + NL
+                + self.BODY, encoding="utf-8")
+            _, payload, _ = run_payload(root)
+            self.assertEqual(req(payload, self.SUBJECT)["status"], "SPATIALLY_PROVEN")
 
     def test_same_bytes_promote_or_not_by_document_class_alone(self):
         """The two cases above differ only in the filename."""

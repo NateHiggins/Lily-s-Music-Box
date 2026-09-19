@@ -68,6 +68,12 @@ $EXIT_LANE_BUSY = 73
 $EXIT_TIMEOUT = 124
 $EXIT_CANNOT_RUN = 78
 
+# Lane holder record and run receipts (see tools/lane_common.ps1).
+. (Join-Path $PSScriptRoot "lane_common.ps1")
+$timedOut = $false
+$launchedExit = $null
+$startedUtc = $null
+
 # Every Orison worktree shares this Windows named mutex. A second agent fails
 # closed before spawning Godot, and Windows releases ownership if the runner is
 # interrupted or crashes. The process census also protects against an editor or
@@ -100,6 +106,8 @@ try {
         $refusalCode = $EXIT_LANE_BUSY
         throw "LANE BUSY: Godot is already active ($summary); no process was started. Wait and retry, or close that window if it is an idle editor."
     }
+
+    Write-OrisonLaneHolder -Runner "serial" -Scene $Scene -Worktree (Split-Path $PSScriptRoot -Parent)
 
     if ([string]::IsNullOrWhiteSpace($ProjectPath)) {
         $ProjectPath = Join-Path (Split-Path $PSScriptRoot -Parent) "game"
@@ -135,7 +143,11 @@ try {
         # parse failure or timeout.
         $start.RedirectStandardOutput = $LogPath
         $start.RedirectStandardError = "$LogPath.stderr"
+        # A receipt from an earlier run at this path must not survive to
+        # describe this one's log.
+        Remove-Item -LiteralPath "$LogPath.receipt.json" -Force -ErrorAction SilentlyContinue
     }
+    $startedUtc = (Get-Date).ToUniversalTime()
     $process = Start-Process @start
     # Windows PowerShell 5.1 never populates ExitCode on a -PassThru process
     # unless its handle was touched before the wait; `exit $null` then reports
@@ -145,6 +157,7 @@ try {
 
     if (-not $process.WaitForExit($TimeoutSeconds * 1000)) {
         Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+        $timedOut = $true
         $sceneLabel = if ([string]::IsNullOrWhiteSpace($Scene)) {
             "the project's main scene"
         } else { $Scene }
@@ -162,6 +175,7 @@ try {
                } else { " Partial log: $LogPath" }))
     }
     $exitCode = $process.ExitCode
+    $launchedExit = $exitCode
     if ($null -eq $exitCode) {
         $refusalCode = $EXIT_CANNOT_RUN
         throw "CANNOT RUN: Godot's exit code was unavailable; refusing to report success."
@@ -176,7 +190,13 @@ finally {
     if ($process -and -not $process.HasExited) {
         Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
     }
+    if ($process -and $startedUtc) {
+        Write-OrisonRunReceipt -LogPath $LogPath -Scene $Scene -Runner "serial" `
+            -ProjectPath $ProjectPath -ExitCode $launchedExit -TimedOut $timedOut `
+            -StartedUtc $startedUtc -Windowed ([bool]$Windowed) -ShotDir $ShotDir
+    }
     if ($ownsMutex) {
+        Clear-OrisonLaneHolder
         $mutex.ReleaseMutex()
     }
     $mutex.Dispose()

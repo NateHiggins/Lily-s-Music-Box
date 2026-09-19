@@ -1,0 +1,105 @@
+{
+ "schema": "orison.rulings.v1",
+ "note": "An INDEX of standing rulings so briefs, critiques, queries and reviews can cite a stable id (RUL-nnn) instead of restating a sentence. It is not an authority: every entry names its source, and where the source and this index disagree the source wins (see DOCS.md precedence: the Bible, then its newest dated ruling). Astra's decision log (ASTRA-Dnnn, design/astra/DECISION_LOG.md on its canonical branch) stays Astra's record; entries here cite it. Add a ruling by appending; retire one by adding a later entry that lists it under supersedes, never by editing or deleting it. Checked by tools/check_rulings.py.",
+ "rulings": [
+  {
+   "id": "RUL-001",
+   "date": "2026-09-04",
+   "authority": "owner",
+   "summary": "Astra holds executive production authority for the v2 rebuild under the owner's mandate; its authority hierarchy (AUTH-04) orders the work: accepted M11 boundary, real F01 owner-first cut, exterior route, F03 vertical proof, structural breadth.",
+   "source": "branch:codex/astra-canonical-20260904:design/astra/OWNER_MANDATE.md",
+   "scope": ["governance", "v2"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-002",
+   "date": "2026-09-16",
+   "authority": "management",
+   "summary": "main is the single integration line. The Astra canonical line reconciles onto main; nothing is integrated into two lines at once. Owner may override.",
+   "source": "branch:claude/v2-ledger-runtime-contract:design/ORISON_V2_INTERIM_MANAGEMENT_EVALUATION_2026-09-16.md",
+   "scope": ["governance", "git"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-003",
+   "date": "2026-09-04",
+   "authority": "astra",
+   "summary": "Capture success cannot promote a runtime contract. The ledger grants RUNTIME_PROVEN only to a schema-2 runtime_contract receipt with completed execution, exit 0, current test-source and runtime-input hashes and executed contracts. Wrapper run receipts (suite_run) are not runtime contracts.",
+   "source": "ASTRA-D013; branch:claude/v2-ledger-runtime-contract:tools/audit_orison_v2_completeness.py",
+   "scope": ["evidence", "ledger"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-004",
+   "date": "2026-09-04",
+   "authority": "astra",
+   "summary": "The committed building selector stays v1 until an authorized cutover; cutover and rollback change only DEFAULT_ID.",
+   "source": "ASTRA-D002; game/scripts/building/building_root_selector.gd",
+   "scope": ["v2", "runtime"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-005",
+   "date": "2026-09-05",
+   "authority": "owner",
+   "summary": "The campaign opens on Saturday, November 10, 1928.",
+   "source": "ASTRA-D016; branch:codex/astra-canonical-20260904:design/ORISON_CAMPAIGN_CALENDAR_RULING_2026-09-05.md",
+   "scope": ["fiction", "calendar"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-006",
+   "date": "2026-09-18",
+   "authority": "owner",
+   "summary": "Props are regenerated in Blender at higher fidelity, taking the 2026-09-18 prop reference critiques as the specification. This supersedes only the PROP_ART_BRIEF section 3 line that props are GDScript primitives with no mesh import path. Prop scripts remain the owners of state, interaction, save and acoustic authority; only the visual build moves to a generated glTF with named parts. Generated glTF is never hand-edited.",
+   "source": "owner instruction in chat 2026-09-18; design/PROP_ART_BRIEF.md section 3; branch:claude/prop-reference-brief:design/PROP_MODELING_TEXTURING_BRIEF_2026-09-18.md",
+   "scope": ["art", "props"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-007",
+   "date": "2026-09-18",
+   "authority": "management",
+   "summary": "Third-party reference photographs inform form, proportion, part layout and finish only. They are never projected, baked, traced or used as texture sources, and their bytes are never committed or shipped; provenance is kept and they are cited by URL.",
+   "source": "branch:claude/prop-reference-brief:tools/prop_reference/README.md",
+   "scope": ["art", "licensing"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-008",
+   "date": "2026-09-18",
+   "authority": "practice",
+   "summary": "Generated textures carry no letters, numbers, words or logos; signage lettering is Label3D. New material keys go through MATERIAL_CATALOG in gen_layout.py and ingest_material_sources.py (SLOTS and GODOT_STAGE) or they stay flat colour.",
+   "source": "design/PROP_ART_BRIEF.md",
+   "scope": ["art", "textures"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-009",
+   "date": "2026-09-18",
+   "authority": "practice",
+   "summary": "Godot runs go through tools/run_godot_serial.ps1, tools/run_godot_long_suite.ps1 or tools/lane.ps1. The shared mutex and the Godot process census are never bypassed, and nobody closes another agent's or the owner's Godot process to free the lane.",
+   "source": "tools/run_godot_serial.ps1; tools/lane.ps1",
+   "scope": ["lane", "godot"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-010",
+   "date": "2026-09-18",
+   "authority": "practice",
+   "summary": "The working tree is shared by several agents. Stage named paths only, never git add -A or git add .; never use a bare git stash; restore Godot's line-ending-only .import churn before committing.",
+   "source": "AGENTS.md",
+   "scope": ["git"],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-011",
+   "date": "2026-09-18",
+   "authority": "practice",
+   "summary": "A design document states its class in an 'Evidence class:' header in its first 30 lines. The ledger admits by filename marker and refuses a marker-named document whose header says INERT; inert documents write space ids in bold, not backticks.",
+   "source": "tools/lint_design_doc.py; tools/audit_orison_v2_completeness.py",
+   "scope": ["evidence", "docs"],
+   "supersedes": []
+  }
+ ]
+}

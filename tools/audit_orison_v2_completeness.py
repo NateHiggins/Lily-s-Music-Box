@@ -455,6 +455,22 @@ def evidence_marker(name: str) -> str | None:
     return None
 
 
+# A document may also refuse admission in its own words.  The name is the
+# admission rule, but a document whose first lines declare
+# "Evidence class: ... INERT ..." has said it proves nothing; admitting it
+# because of a marker in its filename would let a rename turn a management
+# note into proof.  Refusal only: a header can never admit a document the
+# name does not.
+INERT_HEADER_RE = re.compile(r"^\s*(?:[-*]\s*)?Evidence class:.*\bINERT\b",
+                             re.IGNORECASE)
+INERT_HEADER_SCAN_LINES = 30
+
+
+def declares_inert(text: str) -> bool:
+    return any(INERT_HEADER_RE.match(line)
+               for line in text.splitlines()[:INERT_HEADER_SCAN_LINES])
+
+
 def non_evidence_reason(name: str) -> str:
     for marker, reason in NON_EVIDENCE_KINDS:
         if marker in name:
@@ -631,6 +647,13 @@ class Inputs:
                          "reason": non_evidence_reason(doc.name)})
                     continue
                 text = doc.read_text(encoding="utf-8", errors="replace")
+                if declares_inert(text):
+                    self.non_evidence.append(
+                        {"file": rel,
+                         "reason": f"filename marker {marker} contradicts "
+                                   "the document's own INERT evidence-class "
+                                   "header; refused"})
+                    continue
                 self.checkpoints.append((rel, text))
                 self.admitted_evidence.append(
                     {"file": rel, "marker": marker,
