@@ -106,3 +106,44 @@ can sit beside it.
   not say what looks wrong. The frames do.
 
 Tests: `python tools/tests/test_prop_reference.py` (no network).
+
+## Family review, before and after a rebuild
+
+Props are being regenerated in Blender family by family (RUL-006). Each
+family gets the same three steps, so the evidence for "this family is better"
+is a set of files rather than an impression.
+
+1. **Shoot before and after.** Same shed, same bearings, only the named
+   kinds photographed. A tag directory is never overwritten.
+
+   ```
+   python tools/prop_reference_tool.py shoot --kinds stove --out art/renders/stove_review --tag before
+   python tools/prop_reference_tool.py shoot --kinds stove --out art/renders/stove_review --tag after
+   ```
+
+2. **Pair them.** One sheet per specimen (before row over after row), a
+   pixel-change value per bearing, and the census before and after.
+
+   ```
+   python tools/prop_reference_tool.py pair --before art/renders/stove_review/before \
+       --after art/renders/stove_review/after --out art/renders/stove_review/pair
+   ```
+
+   Two shoots of an unchanged family measured at most 0.0004 per bearing on
+   2026-09-18, so the default flag threshold of 0.01 is far above the shed's
+   noise. Flags: `unchanged`, `census changed but no bearing shows it` (the
+   change is invisible from the shed: check the bearings and the registration),
+   `new specimen`, `specimen gone`, and a missing bearing on one side.
+
+3. **Re-score and diff.** Rewrite the family's critiques against the new
+   frames under `CRITIQUE_CONTRACT.md`, re-run `score`, then compare the two
+   runs axis by axis:
+
+   ```
+   python tools/prop_reference_tool.py diff --before art/renders/prop_reference_2026-09-18 \
+       --after art/renders/prop_reference_<new date> --kinds stove --out art/renders/stove_review/diff.md
+   ```
+
+The pixel change says something moved; only the critique says it moved
+closer to the real object. The installed before/after render under the
+building's own light is still required, because the shed is a lightbox.

@@ -148,6 +148,44 @@ def cmd_brief(args) -> int:
     return 0
 
 
+def cmd_shoot(args) -> int:
+    from .review import shoot
+    root = _repo(args)
+    kinds = [k.strip() for k in args.kinds.split(",") if k.strip()]
+    result = shoot(root, kinds, root / args.out, args.tag, lane_wait_s=args.lane_wait * 60)
+    print(f"[shoot] exit {result['exit']} -> {result['dir']}")
+    for line in result["tail"]:
+        print(f"  {line}")
+    return 0 if result["exit"] == 0 and result["manifest"] else 1
+
+
+def cmd_pair(args) -> int:
+    from .review import pair
+    root = _repo(args)
+    kinds = [k.strip() for k in args.kinds.split(",") if k.strip()] or None
+    report = pair(root / args.before, root / args.after, root / args.out, args.threshold, kinds)
+    flagged = [r for r in report["specimens"] if r["flags"] and r["flags"] != []]
+    print(f"[pair] {len(report['specimens'])} specimens -> {root / args.out / 'pair_report.md'}")
+    for row in report["specimens"]:
+        print(f"  {row['id']}: max change {row['max_change']} {'; '.join(row['flags'])}")
+    return 0
+
+
+def cmd_diff(args) -> int:
+    from .review import diff_runs, render_diff
+    root = _repo(args)
+    kinds = [k.strip() for k in args.kinds.split(",") if k.strip()] or None
+    report = diff_runs(root / args.before, root / args.after, kinds)
+    text = render_diff(report)
+    if args.out:
+        out = root / args.out
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(text, encoding="utf-8")
+        out.with_suffix(".json").write_text(json.dumps(report, indent=1) + "\n", encoding="utf-8")
+    print(text)
+    return 0
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-root", default=str(mf.REPO_ROOT))
@@ -193,6 +231,28 @@ def main(argv=None) -> int:
     br.add_argument("--date", required=True)
     br.add_argument("--preface", default="", help="markdown inserted after the header: method, findings, limits")
     br.set_defaults(func=cmd_brief)
+
+    so = sub.add_parser("shoot", help="photograph kinds in the shed for a before/after review")
+    so.add_argument("--kinds", required=True, help="comma-separated prop kinds")
+    so.add_argument("--out", required=True, help="repo-relative review dir, e.g. art/renders/stove_review")
+    so.add_argument("--tag", required=True, help="subdirectory, e.g. before or after; never overwritten")
+    so.add_argument("--lane-wait", type=int, default=30, help="minutes to wait for a busy lane")
+    so.set_defaults(func=cmd_shoot)
+
+    pa = sub.add_parser("pair", help="before/after sheets, pixel change and census deltas")
+    pa.add_argument("--before", required=True, help="repo-relative shoot dir with warehouse_manifest.json")
+    pa.add_argument("--after", required=True)
+    pa.add_argument("--out", required=True)
+    pa.add_argument("--kinds", default="")
+    pa.add_argument("--threshold", type=float, default=0.01)
+    pa.set_defaults(func=cmd_pair)
+
+    df = sub.add_parser("diff", help="compare two critique runs axis by axis")
+    df.add_argument("--before", required=True, help="run dir with ranking.json")
+    df.add_argument("--after", required=True)
+    df.add_argument("--kinds", default="")
+    df.add_argument("--out", default="", help="markdown output (a .json beside it)")
+    df.set_defaults(func=cmd_diff)
 
     args = parser.parse_args(argv)
     return args.func(args)
