@@ -1,0 +1,2879 @@
+{
+	"batches": [
+		{
+			"draw_slots": 9,
+			"kinds": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			],
+			"material_id": -9223371954847741757,
+			"mesh_instance_id": 82174806212
+		},
+		{
+			"draw_slots": 8,
+			"kinds": [
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15
+			],
+			"material_id": -9223371954579306294,
+			"mesh_instance_id": 82292246731
+		}
+	],
+	"captures": [
+		"hero_full_ensemble.png",
+		"organelle.png",
+		"hero_tip_close.png",
+		"placeholder_jewelfruit.png",
+		"placeholder_spiralings.png",
+		"placeholder_chandelettes.png",
+		"placeholder_bezel_beetles.png",
+		"placeholder_deep_koi.png",
+		"placeholder_parliaments.png",
+		"placeholder_gilders_buttons.png",
+		"placeholder_tessellates.png",
+		"placeholder_wine_anemones.png",
+		"placeholder_ribbonettes.png",
+		"placeholder_the_loupe.png",
+		"placeholder_dream_pursuer.png",
+		"placeholder_dream_hazards.png",
+		"placeholder_dream_surface_tissue.png",
+		"placeholder_case_incarnation_surfaces.png",
+		"zoo_overview.png"
+	],
+	"checks": [
+		{
+			"label": "non-DEBUG setup creates no zoo, organelle, hero or controller",
+			"passed": true
+		},
+		{
+			"label": "zoo constructs its real organ adapter and hero",
+			"passed": true
+		},
+		{
+			"label": "controller has eight authored records",
+			"passed": true
+		},
+		{
+			"label": "seam_grazer retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "crystal_listener retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "fold_crab retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "tardigrade retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "stentor retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "lacrymaria retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "vorticella retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "euplotes retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "one controller mesh owns one shared material",
+			"passed": true
+		},
+		{
+			"label": "both controller bindings use the exact world texture",
+			"passed": true
+		},
+		{
+			"label": "packed draw slots cover the eight live animals within capacity",
+			"passed": true
+		},
+		{
+			"label": "controller has eight authored records",
+			"passed": true
+		},
+		{
+			"label": "spirostomum retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "heliozoan retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "euglena retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "volvox retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "noctiluca retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "bacillaria retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "salpingoeca retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "mesodinium retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "one controller mesh owns one shared material",
+			"passed": true
+		},
+		{
+			"label": "both controller bindings use the exact world texture",
+			"passed": true
+		},
+		{
+			"label": "packed draw slots cover the eight live animals within capacity",
+			"passed": true
+		},
+		{
+			"label": "all sixteen enum kinds are unique animals and actual shader kind IDs",
+			"passed": true
+		},
+		{
+			"label": "sixteen animals use only two fauna meshes and two materials",
+			"passed": true
+		},
+		{
+			"label": "the one exposure texture is the existing RG8 world grid",
+			"passed": true
+		},
+		{
+			"label": "actual global viewing stand remains supported by the hall",
+			"passed": true
+		},
+		{
+			"label": "fifteen unique named placeholders exactly match the wider-life catalogue",
+			"passed": true
+		},
+		{
+			"label": "hero instantiates authored skinned geometry and the deform rig",
+			"passed": true
+		},
+		{
+			"label": "hero retains real eye and three lid bones",
+			"passed": true
+		},
+		{
+			"label": "real hero meshes use the production skin and skeleton without shadow casting",
+			"passed": true
+		},
+		{
+			"label": "eight seconds advance the real hero clock and bone poses",
+			"passed": true
+		},
+		{
+			"label": "the real LivingField advances steps and its clock",
+			"passed": true
+		},
+		{
+			"label": "organelle display has populated cells and actual surface tendrils",
+			"passed": true
+		},
+		{
+			"label": "architecture panel samples the actual populated RGBA8 LivingField",
+			"passed": true
+		},
+		{
+			"label": "translated tendril draw bounds contain actual live anchors and spine points",
+			"passed": true
+		},
+		{
+			"label": "six arranged margin archetypes remain live and advance with the controller",
+			"passed": true
+		},
+		{
+			"label": "the real palp renderer submits margin geometry",
+			"passed": true
+		},
+		{
+			"label": "translated palp draw bounds contain actual rendered anchors and tips",
+			"passed": true
+		},
+		{
+			"label": "the existing listener is the nearby wall recipient",
+			"passed": true
+		},
+		{
+			"label": "capture writes hero_full_ensemble.png",
+			"passed": true
+		},
+		{
+			"label": "paused organelle refuses a debug secretion without emitting a packet",
+			"passed": true
+		},
+		{
+			"label": "pause holds the hero clock, actual bone poses and LivingField clock/steps",
+			"passed": true
+		},
+		{
+			"label": "resume advances both real owners",
+			"passed": true
+		},
+		{
+			"label": "active debug pulse uses one real hero secretion and director packet",
+			"passed": true
+		},
+		{
+			"label": "organelle selection names the live display and frames it",
+			"passed": true
+		},
+		{
+			"label": "capture writes organelle.png",
+			"passed": true
+		},
+		{
+			"label": "hero close-up follows the actual moving tip",
+			"passed": true
+		},
+		{
+			"label": "capture writes hero_tip_close.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder jewelfruit selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder jewelfruit camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder jewelfruit centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_jewelfruit.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder spiralings selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder spiralings camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder spiralings centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_spiralings.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder chandelettes selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder chandelettes camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder chandelettes centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_chandelettes.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder bezel_beetles selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder bezel_beetles camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder bezel_beetles centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_bezel_beetles.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder deep_koi selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder deep_koi camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder deep_koi centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_deep_koi.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder parliaments selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder parliaments camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder parliaments centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_parliaments.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder gilders_buttons selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder gilders_buttons camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder gilders_buttons centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_gilders_buttons.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder tessellates selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder tessellates camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder tessellates centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_tessellates.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder wine_anemones selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder wine_anemones camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder wine_anemones centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_wine_anemones.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder ribbonettes selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder ribbonettes camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder ribbonettes centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_ribbonettes.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder the_loupe selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder the_loupe camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder the_loupe centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_the_loupe.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_pursuer selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_pursuer camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_pursuer centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_dream_pursuer.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_hazards selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_hazards camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_hazards centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_dream_hazards.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_surface_tissue selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_surface_tissue camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder dream_surface_tissue centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_dream_surface_tissue.png",
+			"passed": true
+		},
+		{
+			"label": "placeholder case_incarnation_surfaces selects its own labelled, described and framed bay",
+			"passed": true
+		},
+		{
+			"label": "placeholder case_incarnation_surfaces camera remains within the hall",
+			"passed": true
+		},
+		{
+			"label": "placeholder case_incarnation_surfaces centre sightline clears physical hall geometry",
+			"passed": true
+		},
+		{
+			"label": "capture writes placeholder_case_incarnation_surfaces.png",
+			"passed": true
+		},
+		{
+			"label": "sightline test detects a real inserted blocking body",
+			"passed": true
+		},
+		{
+			"label": "sightline clears when the same blocking body is removed",
+			"passed": true
+		},
+		{
+			"label": "species selection leaves placeholder mode",
+			"passed": true
+		},
+		{
+			"label": "capture writes zoo_overview.png",
+			"passed": true
+		},
+		{
+			"label": "controller has eight authored records",
+			"passed": true
+		},
+		{
+			"label": "seam_grazer retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "crystal_listener retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "fold_crab retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "tardigrade retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "stentor retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "lacrymaria retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "vorticella retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "euplotes retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "one controller mesh owns one shared material",
+			"passed": true
+		},
+		{
+			"label": "both controller bindings use the exact world texture",
+			"passed": true
+		},
+		{
+			"label": "packed draw slots cover the eight live animals within capacity",
+			"passed": true
+		},
+		{
+			"label": "controller has eight authored records",
+			"passed": true
+		},
+		{
+			"label": "spirostomum retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "heliozoan retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "euglena retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "volvox retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "noctiluca retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "bacillaria retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "salpingoeca retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "mesodinium retains its authored anatomy and long exhibit life",
+			"passed": true
+		},
+		{
+			"label": "one controller mesh owns one shared material",
+			"passed": true
+		},
+		{
+			"label": "both controller bindings use the exact world texture",
+			"passed": true
+		},
+		{
+			"label": "packed draw slots cover the eight live animals within capacity",
+			"passed": true
+		},
+		{
+			"label": "all sixteen enum kinds are unique animals and actual shader kind IDs",
+			"passed": true
+		},
+		{
+			"label": "sixteen animals use only two fauna meshes and two materials",
+			"passed": true
+		},
+		{
+			"label": "the one exposure texture is the existing RG8 world grid",
+			"passed": true
+		},
+		{
+			"label": "zoo, organelle and fauna owners are released",
+			"passed": true
+		},
+		{
+			"label": "retained fauna materials release their departed field",
+			"passed": true
+		},
+		{
+			"label": "retained architecture material releases the retired LivingField",
+			"passed": true
+		},
+		{
+			"label": "no runtime, script or shader error occurred during this diagnostic",
+			"passed": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": 0,
+	"final_hero": {
+		"bulge": 1.0,
+		"deform_bones": 28,
+		"eye_bone": 12,
+		"gripping": 0,
+		"grow": 1.0,
+		"has_target": true,
+		"lag_root": 0.0007,
+		"lag_tip": 0.0042,
+		"lid_bones": 3,
+		"lifecycle_births": 0,
+		"lifecycle_deaths": 0,
+		"lifecycle_generation": 0,
+		"lifecycle_reproduction": "quiescent",
+		"lifecycle_stage": 3,
+		"lifecycle_stage_name": "mature",
+		"lifecycle_stains": 0,
+		"materials": 109,
+		"meshes": 109,
+		"motion": 0.016,
+		"noticing_a_critter": true,
+		"nudged_critters": 0,
+		"palps_on_me": 6,
+		"reach_gain": 1.0,
+		"rider_motion": 0.0062,
+		"secretion_events": 1,
+		"secretion_phase": 0.591041111111111,
+		"skeleton": true,
+		"skinned": 109,
+		"slice_close": 0.0,
+		"startle": 0.0,
+		"state": "INTERACT_CRITTER",
+		"touching": false
+	},
+	"final_organelle": {
+		"active": true,
+		"architecture": {
+			"cells_pressurized": 0,
+			"last_at": "(inf, inf, inf)",
+			"last_received_at": -1.0,
+			"received": 0,
+			"sources_seen": 0
+		},
+		"debug_secretions": 1,
+		"display_palps": 6,
+		"initialized": true,
+		"living": {
+			"agents": 804,
+			"body_max": 0.970000028610229,
+			"floor_live": 33,
+			"lifecycle_stage": 3,
+			"lifecycle_stage_name": "mature",
+			"live_voxels": 42,
+			"nodes": 1,
+			"sources": 1,
+			"stained_voxels": 156,
+			"steps": 81,
+			"vascular_active_relays": 0,
+			"vascular_cells_pressurized": 0,
+			"vascular_last_at": "(inf, inf, inf)",
+			"vascular_last_strength": 0.0,
+			"vascular_relay_steps": 0,
+			"vascular_responses": 0,
+			"voxels": 448
+		},
+		"living_cells": 42,
+		"living_clock": 10.2000000000001,
+		"living_format": 5,
+		"living_steps": 81,
+		"nearby_critters": 1,
+		"paused": false,
+		"recipient_position": "(393.15, 1.45, -10.9)",
+		"scope": "debug arrangement; existing owners interpret live packets",
+		"signals": {
+			"by_function": {
+				"secrete": 1
+			},
+			"capacity": 32,
+			"emitted": 1,
+			"evicted": 0,
+			"live": 0
+		},
+		"tendrils": {
+			"live": 13,
+			"max": 24,
+			"spawned": 37
+		}
+	},
+	"final_stats": {
+		"active": true,
+		"controllers": 2,
+		"organelle": {
+			"active": true,
+			"architecture": {
+				"cells_pressurized": 0,
+				"last_at": "(inf, inf, inf)",
+				"last_received_at": -1.0,
+				"received": 0,
+				"sources_seen": 0
+			},
+			"debug_secretions": 1,
+			"display_palps": 6,
+			"initialized": true,
+			"living": {
+				"agents": 804,
+				"body_max": 0.970000028610229,
+				"floor_live": 33,
+				"lifecycle_stage": 3,
+				"lifecycle_stage_name": "mature",
+				"live_voxels": 42,
+				"nodes": 1,
+				"sources": 1,
+				"stained_voxels": 156,
+				"steps": 81,
+				"vascular_active_relays": 0,
+				"vascular_cells_pressurized": 0,
+				"vascular_last_at": "(inf, inf, inf)",
+				"vascular_last_strength": 0.0,
+				"vascular_relay_steps": 0,
+				"vascular_responses": 0,
+				"voxels": 448
+			},
+			"living_cells": 42,
+			"living_clock": 10.2000000000001,
+			"living_format": 5,
+			"living_steps": 81,
+			"nearby_critters": 1,
+			"paused": false,
+			"recipient_position": "(393.15, 1.45, -10.9)",
+			"scope": "debug arrangement; existing owners interpret live packets",
+			"signals": {
+				"by_function": {
+					"secrete": 1
+				},
+				"capacity": 32,
+				"emitted": 1,
+				"evicted": 0,
+				"live": 0
+			},
+			"tendrils": {
+				"live": 13,
+				"max": 24,
+				"spawned": 37
+			}
+		},
+		"paused": false,
+		"placeholder_bays": 15,
+		"species": 16,
+		"uploads": 87,
+		"voxel_fields": 1,
+		"voxel_textures": 1
+	},
+	"headless": false,
+	"hero_anatomy": {
+		"census": {
+			"bulge": 0.0,
+			"deform_bones": 28,
+			"eye_bone": 12,
+			"gripping": 0,
+			"grow": 0.0,
+			"has_target": false,
+			"lag_root": 0.0,
+			"lag_tip": 0.0,
+			"lid_bones": 3,
+			"lifecycle_births": 0,
+			"lifecycle_deaths": 0,
+			"lifecycle_generation": 0,
+			"lifecycle_reproduction": "quiescent",
+			"lifecycle_stage": 0,
+			"lifecycle_stage_name": "folded",
+			"lifecycle_stains": 0,
+			"materials": 109,
+			"meshes": 109,
+			"motion": 0.0,
+			"noticing_a_critter": false,
+			"nudged_critters": 0,
+			"palps_on_me": 0,
+			"reach_gain": 1.0,
+			"rider_motion": 0.0,
+			"secretion_events": 0,
+			"secretion_phase": -1.0,
+			"skeleton": true,
+			"skinned": 109,
+			"slice_close": 0.0,
+			"startle": 0.0,
+			"state": "MEMBRANE_BULGE",
+			"touching": false
+		},
+		"skinned_meshes": 109,
+		"triangles": 68219
+	},
+	"live_observation": {
+		"elapsed_seconds": 8.01150133333329,
+		"final": {
+			"active": true,
+			"architecture": {
+				"cells_pressurized": 0,
+				"last_at": "(inf, inf, inf)",
+				"last_received_at": -1.0,
+				"received": 0,
+				"sources_seen": 0
+			},
+			"debug_secretions": 0,
+			"display_palps": 6,
+			"hero_clock": 8.27483466666663,
+			"hero_pose": [
+				[
+					-0.707106709480286,
+					0.0,
+					0.0,
+					0.707106709480286
+				],
+				[
+					0.0091734379529953,
+					-0.000000000329272248356105,
+					-0.707047283649445,
+					0.70710676908493
+				],
+				[
+					-0.00222543114796281,
+					0.00000710670065018348,
+					0.00318464497104287,
+					0.999992370605469
+				],
+				[
+					-0.00480776745826006,
+					0.0000423209057771601,
+					0.00874752085655928,
+					0.999949932098389
+				],
+				[
+					-0.003855109680444,
+					0.0000478737456433009,
+					0.0122099779546261,
+					0.999917149543762
+				],
+				[
+					0.000547478906810284,
+					-0.00000546827914149617,
+					0.0117940008640289,
+					0.999929308891296
+				],
+				[
+					0.00514147151261568,
+					-0.0000451826381322462,
+					0.00889431871473789,
+					0.999946653842926
+				],
+				[
+					0.00829822197556496,
+					-0.000056291410146514,
+					0.0067999716848135,
+					0.999942302703857
+				],
+				[
+					0.0096884286031127,
+					-0.0000574720397708006,
+					0.00593450572341681,
+					0.999935388565063
+				],
+				[
+					0.00917042791843414,
+					-0.0000583131040912122,
+					0.00639653205871582,
+					0.999937176704407
+				],
+				[
+					0.0656873658299446,
+					-0.00000000263417820889345,
+					-0.704049229621887,
+					0.707106709480286
+				],
+				[
+					0.00681515503674746,
+					-0.0000543914211448282,
+					0.00813588686287403,
+					0.999942421913147
+				],
+				[
+					-0.0128720011562109,
+					-0.121458426117897,
+					-0.00157520873472095,
+					0.992511689662933
+				],
+				[
+					0.697388172149658,
+					0.0000000210734256711476,
+					0.11683239787817,
+					0.707106709480286
+				],
+				[
+					0.306882590055466,
+					-0.0000000105367119473954,
+					0.637042462825775,
+					0.70710676908493
+				],
+				[
+					0.70193213224411,
+					-0.00000000263417798684884,
+					0.0853888392448425,
+					0.70710676908493
+				],
+				[
+					0.311501741409302,
+					0.134527802467346,
+					-0.634796559810638,
+					0.694191813468933
+				],
+				[
+					-0.648784399032593,
+					0.0000000105367119473954,
+					-0.281209528446198,
+					0.70710676908493
+				],
+				[
+					0.00289897527545691,
+					-0.0000298485210805666,
+					0.0109586203470826,
+					0.99993360042572
+				],
+				[
+					-0.610310256481171,
+					0.0000000105367119473954,
+					-0.357101380825043,
+					0.70710676908493
+				],
+				[
+					-0.00212627230212092,
+					0.0000335329787048977,
+					0.0145479431375861,
+					0.999889016151428
+				],
+				[
+					-0.00768332928419113,
+					0.000144939578603953,
+					0.0184992719441652,
+					0.999796390533447
+				],
+				[
+					-0.0131338741630316,
+					0.000296180369332433,
+					0.0223653838038445,
+					0.999661028385162
+				],
+				[
+					-0.0178508907556534,
+					0.000460565439425409,
+					0.0257072113454342,
+					0.999508559703827
+				],
+				[
+					-0.0213015116751194,
+					0.000600639032199979,
+					0.0281663574278355,
+					0.999375522136688
+				],
+				[
+					-0.0237237028777599,
+					0.00071519787888974,
+					0.0306704249233007,
+					0.999247550964355
+				],
+				[
+					-0.025139644742012,
+					0.000800862035248429,
+					0.0335123389959335,
+					0.999121189117432
+				],
+				[
+					-0.0253761373460293,
+					0.000839136075228453,
+					0.0363573543727398,
+					0.999014139175415
+				],
+				[
+					-0.024478180333972,
+					0.000820308807305992,
+					0.0390232987701893,
+					0.998934507369995
+				],
+				[
+					-0.0226864144206047,
+					0.000747454294469208,
+					0.0414648503065109,
+					0.998878955841064
+				],
+				[
+					-0.0203920565545559,
+					0.000636202224995941,
+					0.0437420643866062,
+					0.998833298683167
+				],
+				[
+					-0.0180737338960171,
+					0.000511405058205128,
+					0.0459763184189796,
+					0.998778343200684
+				],
+				[
+					-0.0162247326225042,
+					0.000402827165089548,
+					0.0482996478676796,
+					0.998698472976685
+				],
+				[
+					-0.0152754848822951,
+					0.000340981438057497,
+					0.0508007518947124,
+					0.998590171337128
+				],
+				[
+					-0.015519973821938,
+					0.000352856033714488,
+					0.0534728616476059,
+					0.998448133468628
+				],
+				[
+					-0.0170565955340862,
+					0.000456229958217591,
+					0.0561722628772259,
+					0.998273313045502
+				],
+				[
+					-0.0197459161281586,
+					0.000651250884402543,
+					0.0585888773202896,
+					0.998083055019379
+				]
+			],
+			"hero_tip": [
+				393.178588867188,
+				1.37760937213898,
+				-10.369969367981
+			],
+			"initialized": true,
+			"living": {
+				"agents": 815,
+				"body_max": 1.0,
+				"floor_live": 46,
+				"lifecycle_stage": 3,
+				"lifecycle_stage_name": "mature",
+				"live_voxels": 77,
+				"nodes": 2,
+				"sources": 1,
+				"stained_voxels": 156,
+				"steps": 66,
+				"vascular_active_relays": 0,
+				"vascular_cells_pressurized": 0,
+				"vascular_last_at": "(inf, inf, inf)",
+				"vascular_last_strength": 0.0,
+				"vascular_relay_steps": 0,
+				"vascular_responses": 0,
+				"voxels": 448
+			},
+			"living_cells": 77,
+			"living_clock": 8.26666666666666,
+			"living_format": 5,
+			"living_steps": 66,
+			"margin_clock": 8.26666666666666,
+			"nearby_critters": 1,
+			"paused": false,
+			"recipient_position": "(393.15, 1.45, -10.9)",
+			"scope": "debug arrangement; existing owners interpret live packets",
+			"signals": {
+				"by_function": {},
+				"capacity": 32,
+				"emitted": 0,
+				"evicted": 0,
+				"live": 0
+			},
+			"tendrils": {
+				"live": 21,
+				"max": 24,
+				"spawned": 28
+			}
+		},
+		"frames": 399,
+		"initial": {
+			"active": true,
+			"architecture": {
+				"cells_pressurized": 0,
+				"last_at": "(inf, inf, inf)",
+				"last_received_at": -1.0,
+				"received": 0,
+				"sources_seen": 0
+			},
+			"debug_secretions": 0,
+			"display_palps": 6,
+			"hero_clock": 0.133333333333333,
+			"hero_pose": [
+				[
+					-0.70710676908493,
+					0.0,
+					0.0,
+					0.70710676908493
+				],
+				[
+					0.0091734379529953,
+					-0.000000000329272248356105,
+					-0.707047283649445,
+					0.70710676908493
+				],
+				[
+					-0.0015334120253101,
+					0.0000019480794435367,
+					0.00122686882968992,
+					0.999997913837433
+				],
+				[
+					-0.00621996494010091,
+					0.000031791965739103,
+					0.00491909123957157,
+					0.999968469142914
+				],
+				[
+					-0.0116842174902558,
+					0.000113014488306362,
+					0.00927380938082933,
+					0.999888777732849
+				],
+				[
+					-0.014070263132453,
+					0.000167502119438723,
+					0.0113670267164707,
+					0.999836385250092
+				],
+				[
+					-0.0118339406326413,
+					0.000123918347526342,
+					0.0099524799734354,
+					0.999880313873291
+				],
+				[
+					-0.0079277167096734,
+					0.0000615223252680153,
+					0.00733759952709079,
+					0.99994158744812
+				],
+				[
+					-0.00300634186714888,
+					0.0000128052597574424,
+					0.00400380464270711,
+					0.999987423419952
+				],
+				[
+					0.00238751620054245,
+					-0.000000844846397285437,
+					0.000330497918184847,
+					0.999996900558472
+				],
+				[
+					0.0656873658299446,
+					-0.00000000263417820889345,
+					-0.704049229621887,
+					0.707106709480286
+				],
+				[
+					0.00766747305169702,
+					0.0000270386408374179,
+					-0.00327173783443868,
+					0.999965190887451
+				],
+				[
+					0.11385115981102,
+					-0.0814983770251274,
+					-0.262527137994766,
+					0.954712271690369
+				],
+				[
+					0.697388172149658,
+					0.0000000210734256711476,
+					0.11683239787817,
+					0.707106709480286
+				],
+				[
+					0.306882590055466,
+					-0.0000000105367119473954,
+					0.637042462825775,
+					0.70710676908493
+				],
+				[
+					0.70193213224411,
+					-0.00000000263417798684884,
+					0.0853888392448425,
+					0.70710676908493
+				],
+				[
+					0.185041606426239,
+					0.0000000105367119473954,
+					-0.682465851306915,
+					0.70710676908493
+				],
+				[
+					-0.648784399032593,
+					0.0000000105367119473954,
+					-0.281209528446198,
+					0.70710676908493
+				],
+				[
+					0.0122625045478344,
+					0.0000852773882797919,
+					-0.00640465365722775,
+					0.99990439414978
+				],
+				[
+					-0.610310256481171,
+					0.0000000105367119473954,
+					-0.357101380825043,
+					0.70710676908493
+				],
+				[
+					0.0156813785433769,
+					0.000149796673213132,
+					-0.00872531067579985,
+					0.999838888645172
+				],
+				[
+					0.0175698976963758,
+					0.000193882049643435,
+					-0.00998673122376204,
+					0.999795854091644
+				],
+				[
+					0.0177508741617203,
+					0.000199487432837486,
+					-0.0100657884031534,
+					0.999791741371155
+				],
+				[
+					0.0162436440587044,
+					0.000164709766977467,
+					-0.00897670909762383,
+					0.999827742576599
+				],
+				[
+					0.0132605833932757,
+					0.000104124148492701,
+					-0.00686770025640726,
+					0.99988853931427
+				],
+				[
+					0.00919676292687655,
+					0.000036385183193488,
+					-0.00396928656846285,
+					0.999949812889099
+				],
+				[
+					0.00455368589609861,
+					-0.0000161584648594726,
+					-0.000618207617662847,
+					0.99998939037323
+				],
+				[
+					-0.000122636236483231,
+					-0.0000380995516024996,
+					0.00278837373480201,
+					0.999995350837708
+				],
+				[
+					-0.0043052420951426,
+					-0.0000302126609312836,
+					0.00586711848154664,
+					0.99997353553772
+				],
+				[
+					-0.00753659242764115,
+					-0.00000738226208341075,
+					0.00828005094081163,
+					0.999937295913696
+				],
+				[
+					-0.00948241166770458,
+					0.0000092216660050326,
+					0.00977782905101776,
+					0.999907255172729
+				],
+				[
+					-0.00997662357985973,
+					0.00000249942422669847,
+					0.0102298762649298,
+					0.9998978972435
+				],
+				[
+					-0.00904072634875774,
+					-0.0000325136934407055,
+					0.00963818654417992,
+					0.999912738800049
+				],
+				[
+					-0.00687825959175825,
+					-0.0000864382236613892,
+					0.00813387241214514,
+					0.999943256378174
+				],
+				[
+					-0.00384472287259996,
+					-0.000140007541631348,
+					0.00595671311020851,
+					0.999974846839905
+				],
+				[
+					-0.000396151241147891,
+					-0.000172919782926328,
+					0.00341992499306798,
+					0.999994039535522
+				],
+				[
+					0.0029794224537909,
+					-0.000172914224094711,
+					0.000864407164044678,
+					0.999995231628418
+				]
+			],
+			"hero_tip": [
+				392.768890380859,
+				1.492147564888,
+				-10.1676568984985
+			],
+			"initialized": true,
+			"living": {
+				"agents": 64,
+				"body_max": 0.970000028610229,
+				"floor_live": 0,
+				"lifecycle_stage": 3,
+				"lifecycle_stage_name": "mature",
+				"live_voxels": 12,
+				"nodes": 1,
+				"sources": 1,
+				"stained_voxels": 5,
+				"steps": 1,
+				"vascular_active_relays": 0,
+				"vascular_cells_pressurized": 0,
+				"vascular_last_at": "(inf, inf, inf)",
+				"vascular_last_strength": 0.0,
+				"vascular_relay_steps": 0,
+				"vascular_responses": 0,
+				"voxels": 448
+			},
+			"living_cells": 12,
+			"living_clock": 0.25,
+			"living_format": 5,
+			"living_steps": 1,
+			"margin_clock": 0.25,
+			"nearby_critters": 1,
+			"paused": false,
+			"recipient_position": "(393.15, 1.45, -10.9)",
+			"scope": "debug arrangement; existing owners interpret live packets",
+			"signals": {
+				"by_function": {},
+				"capacity": 32,
+				"emitted": 0,
+				"evicted": 0,
+				"live": 0
+			},
+			"tendrils": {
+				"live": 2,
+				"max": 24,
+				"spawned": 2
+			}
+		},
+		"pose_changed": true,
+		"tip_changed": true
+	},
+	"logs": {
+		"errors": [],
+		"stderr": [],
+		"warnings": []
+	},
+	"margin": {
+		"controller": {
+			"acts": {
+				"brace": 2,
+				"hover": 3,
+				"probe": 7,
+				"sample": 2,
+				"taste": 2,
+				"touch": 3,
+				"trace": 9,
+				"withdraw": 3
+			},
+			"born": 37,
+			"branches": 5,
+			"cilia_deploying": 0,
+			"ciliated": 2,
+			"completed": 0,
+			"completing": 0,
+			"cooperating": 7,
+			"feel_hero": 18,
+			"impressions": 0,
+			"joined_a_neighbour": 6,
+			"joined_hero": 1,
+			"kinds": {
+				"ciliated_whisker": 7,
+				"crystal_feeler": 2,
+				"flat_ribbon": 7,
+				"gold_finger": 1,
+				"soft_palp": 12,
+				"sucker_probe": 2
+			},
+			"lifecycle_stages": {
+				"bud": 1,
+				"exchange": 2,
+				"folded": 19,
+				"juvenile": 2,
+				"mature": 7
+			},
+			"live": 31,
+			"mechanical_received": 0,
+			"mechanical_receptors": 0,
+			"mechanical_responding": 0,
+			"pending_recruits": 0,
+			"photo_receptors": 0,
+			"photo_responding": 0,
+			"photoshocks": 0,
+			"remembered_deaths": 0,
+			"retired_slots": [
+				0,
+				0,
+				0
+			],
+			"tiers": [
+				6,
+				20,
+				0
+			],
+			"unfolding": 2,
+			"with_neighbours": 30
+		},
+		"kinds": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5
+		],
+		"renderer": {
+			"cilia_per_palp": 10,
+			"drawn": 31,
+			"ids": 31,
+			"indices": 57600,
+			"max": 40,
+			"stains": 0,
+			"surfaces": 1,
+			"vertices": 13720
+		}
+	},
+	"occlusion_control": {
+		"obstructed": {
+			"clear": false,
+			"collider": "/root/DreamZooWarehouseTest/SightlineNegativeControl",
+			"from": [
+				392.594268798828,
+				2.81720280647278,
+				-27.3249969482422
+			],
+			"hit": [
+				392.481658935547,
+				2.04866313934326,
+				-24.9624996185303
+			],
+			"to": [
+				392.350006103516,
+				1.14999997615814,
+				-22.2000007629395
+			]
+		},
+		"restored": {
+			"clear": true,
+			"collider": "",
+			"from": [
+				392.594268798828,
+				2.81720280647278,
+				-27.3249969482422
+			],
+			"hit": [],
+			"to": [
+				392.350006103516,
+				1.14999997615814,
+				-22.2000007629395
+			]
+		},
+		"scope": "physical centreline; not all-pixel visual occlusion proof"
+	},
+	"packed_kinds": [
+		3,
+		7,
+		2,
+		6,
+		5,
+		0,
+		1,
+		4,
+		11,
+		10,
+		15,
+		9,
+		14,
+		13,
+		8,
+		12
+	],
+	"palp_bounds": {
+		"bounded_draws": 31,
+		"identity_transform": true,
+		"live_geometry_inside": true,
+		"position": [
+			386.0,
+			-2.0,
+			-31.0
+		],
+		"raw_vertex_position": [
+			-1.0,
+			-1.0,
+			0.0
+		],
+		"raw_vertex_size": [
+			2.0,
+			2.0,
+			1.0
+		],
+		"size": [
+			28.0,
+			8.0,
+			42.0
+		],
+		"source": "ArrayMesh.custom_aabb"
+	},
+	"pause": {
+		"before": {
+			"active": true,
+			"architecture": {
+				"cells_pressurized": 0,
+				"last_at": "(inf, inf, inf)",
+				"last_received_at": -1.0,
+				"received": 0,
+				"sources_seen": 0
+			},
+			"debug_secretions": 0,
+			"display_palps": 6,
+			"hero_clock": 8.29483466666663,
+			"hero_pose": [
+				[
+					-0.707106709480286,
+					0.0,
+					0.0,
+					0.707106709480286
+				],
+				[
+					0.0091734379529953,
+					-0.000000000329272248356105,
+					-0.707047283649445,
+					0.70710676908493
+				],
+				[
+					-0.00230339961126447,
+					0.00000748967431718484,
+					0.0032434375025332,
+					0.9999920129776
+				],
+				[
+					-0.00509965745732188,
+					0.0000459823859273456,
+					0.00896516256034374,
+					0.999946594238281
+				],
+				[
+					-0.00436930963769555,
+					0.0000558410611120053,
+					0.0125922709703445,
+					0.999910235404968
+				],
+				[
+					-0.0000320394465234131,
+					0.00000143899364957178,
+					0.0122266821563244,
+					0.999924182891846
+				],
+				[
+					0.00469586858525872,
+					-0.0000427397681050934,
+					0.00923221185803413,
+					0.999945759773254
+				],
+				[
+					0.00804962776601315,
+					-0.0000561566012038384,
+					0.00699833501130342,
+					0.999942898750305
+				],
+				[
+					0.00966842658817768,
+					-0.000057715271395864,
+					0.00597109738737345,
+					0.999935388565063
+				],
+				[
+					0.00938469916582108,
+					-0.0000585324596613646,
+					0.00626725889742374,
+					0.999936103820801
+				],
+				[
+					0.0656873658299446,
+					-0.00000000263417820889345,
+					-0.704049229621887,
+					0.707106709480286
+				],
+				[
+					0.00724278064444661,
+					-0.0000559337495360523,
+					0.00785528589040041,
+					0.999941766262054
+				],
+				[
+					-0.0128720011562109,
+					-0.121458426117897,
+					-0.00157520873472095,
+					0.992511689662933
+				],
+				[
+					0.697388172149658,
+					0.0000000210734256711476,
+					0.11683239787817,
+					0.707106709480286
+				],
+				[
+					0.306882590055466,
+					-0.0000000105367119473954,
+					0.637042462825775,
+					0.70710676908493
+				],
+				[
+					0.70193213224411,
+					-0.00000000263417798684884,
+					0.0853888392448425,
+					0.70710676908493
+				],
+				[
+					0.239532589912415,
+					0.0570842027664185,
+					-0.665300011634827,
+					0.704798817634583
+				],
+				[
+					-0.648784399032593,
+					0.0000000105367119473954,
+					-0.281209528446198,
+					0.70710676908493
+				],
+				[
+					0.00349467759951949,
+					-0.0000350675254594535,
+					0.0105582997202873,
+					0.999936103820801
+				],
+				[
+					-0.610310256481171,
+					0.0000000105367119473954,
+					-0.357101380825043,
+					0.70710676908493
+				],
+				[
+					-0.00142716360278428,
+					0.0000226422689593164,
+					0.0140731018036604,
+					0.999897122383118
+				],
+				[
+					-0.00695762876421213,
+					0.000128095096442848,
+					0.0180036313831806,
+					0.999810695648193
+				],
+				[
+					-0.0124618988484144,
+					0.00027550762752071,
+					0.0219051111489534,
+					0.999679684638977
+				],
+				[
+					-0.0173073336482048,
+					0.000440257776062936,
+					0.0253345258533955,
+					0.99952757358551
+				],
+				[
+					-0.0209469404071569,
+					0.000585651083383709,
+					0.0279235802590847,
+					0.999389708042145
+				],
+				[
+					-0.0235976446419954,
+					0.00070932338712737,
+					0.0305851623415947,
+					0.99925309419632
+				],
+				[
+					-0.0252559203654528,
+					0.000806735770311207,
+					0.0335942320525646,
+					0.999115586280823
+				],
+				[
+					-0.0257211178541183,
+					0.000857689999975264,
+					0.0365968830883503,
+					0.998996734619141
+				],
+				[
+					-0.0250121541321278,
+					0.000850259908474982,
+					0.0393927246332169,
+					0.998906850814819
+				],
+				[
+					-0.0233479216694832,
+					0.000785532291047275,
+					0.0419212803244591,
+					0.998845815658569
+				],
+				[
+					-0.0211046319454908,
+					0.000677891774103045,
+					0.0442320182919502,
+					0.998797297477722
+				],
+				[
+					-0.0187547039240599,
+					0.00055180728668347,
+					0.0464420169591904,
+					0.998744368553162
+				],
+				[
+					-0.0167947933077812,
+					0.000437277602031827,
+					0.0486856624484062,
+					0.998671114444733
+				],
+				[
+					-0.0156681593507528,
+					0.000365326239261776,
+					0.0510605126619339,
+					0.998570561408997
+				],
+				[
+					-0.0156900435686111,
+					0.000363575905794278,
+					0.0535748116672039,
+					0.998439967632294
+				],
+				[
+					-0.016986234113574,
+					0.00045074665104039,
+					0.0561040192842484,
+					0.998278617858887
+				],
+				[
+					-0.0194480288773775,
+					0.000628661480732262,
+					0.058359619230032,
+					0.998102366924286
+				]
+			],
+			"hero_tip": [
+				393.179718017578,
+				1.37650120258331,
+				-10.3703603744507
+			],
+			"initialized": true,
+			"living": {
+				"agents": 815,
+				"body_max": 1.0,
+				"floor_live": 46,
+				"lifecycle_stage": 3,
+				"lifecycle_stage_name": "mature",
+				"live_voxels": 77,
+				"nodes": 2,
+				"sources": 1,
+				"stained_voxels": 156,
+				"steps": 66,
+				"vascular_active_relays": 0,
+				"vascular_cells_pressurized": 0,
+				"vascular_last_at": "(inf, inf, inf)",
+				"vascular_last_strength": 0.0,
+				"vascular_relay_steps": 0,
+				"vascular_responses": 0,
+				"voxels": 448
+			},
+			"living_cells": 77,
+			"living_clock": 8.26666666666666,
+			"living_format": 5,
+			"living_steps": 66,
+			"margin_clock": 8.26666666666666,
+			"nearby_critters": 1,
+			"paused": true,
+			"recipient_position": "(393.15, 1.45, -10.9)",
+			"scope": "debug arrangement; existing owners interpret live packets",
+			"signals": {
+				"by_function": {},
+				"capacity": 32,
+				"emitted": 0,
+				"evicted": 0,
+				"live": 0
+			},
+			"tendrils": {
+				"live": 21,
+				"max": 24,
+				"spawned": 28
+			}
+		},
+		"paused": {
+			"active": true,
+			"architecture": {
+				"cells_pressurized": 0,
+				"last_at": "(inf, inf, inf)",
+				"last_received_at": -1.0,
+				"received": 0,
+				"sources_seen": 0
+			},
+			"debug_secretions": 0,
+			"display_palps": 6,
+			"hero_clock": 8.29483466666663,
+			"hero_pose": [
+				[
+					-0.707106709480286,
+					0.0,
+					0.0,
+					0.707106709480286
+				],
+				[
+					0.0091734379529953,
+					-0.000000000329272248356105,
+					-0.707047283649445,
+					0.70710676908493
+				],
+				[
+					-0.00230339961126447,
+					0.00000748967431718484,
+					0.0032434375025332,
+					0.9999920129776
+				],
+				[
+					-0.00509965745732188,
+					0.0000459823859273456,
+					0.00896516256034374,
+					0.999946594238281
+				],
+				[
+					-0.00436930963769555,
+					0.0000558410611120053,
+					0.0125922709703445,
+					0.999910235404968
+				],
+				[
+					-0.0000320394465234131,
+					0.00000143899364957178,
+					0.0122266821563244,
+					0.999924182891846
+				],
+				[
+					0.00469586858525872,
+					-0.0000427397681050934,
+					0.00923221185803413,
+					0.999945759773254
+				],
+				[
+					0.00804962776601315,
+					-0.0000561566012038384,
+					0.00699833501130342,
+					0.999942898750305
+				],
+				[
+					0.00966842658817768,
+					-0.000057715271395864,
+					0.00597109738737345,
+					0.999935388565063
+				],
+				[
+					0.00938469916582108,
+					-0.0000585324596613646,
+					0.00626725889742374,
+					0.999936103820801
+				],
+				[
+					0.0656873658299446,
+					-0.00000000263417820889345,
+					-0.704049229621887,
+					0.707106709480286
+				],
+				[
+					0.00724278064444661,
+					-0.0000559337495360523,
+					0.00785528589040041,
+					0.999941766262054
+				],
+				[
+					-0.0128720011562109,
+					-0.121458426117897,
+					-0.00157520873472095,
+					0.992511689662933
+				],
+				[
+					0.697388172149658,
+					0.0000000210734256711476,
+					0.11683239787817,
+					0.707106709480286
+				],
+				[
+					0.306882590055466,
+					-0.0000000105367119473954,
+					0.637042462825775,
+					0.70710676908493
+				],
+				[
+					0.70193213224411,
+					-0.00000000263417798684884,
+					0.0853888392448425,
+					0.70710676908493
+				],
+				[
+					0.239532589912415,
+					0.0570842027664185,
+					-0.665300011634827,
+					0.704798817634583
+				],
+				[
+					-0.648784399032593,
+					0.0000000105367119473954,
+					-0.281209528446198,
+					0.70710676908493
+				],
+				[
+					0.00349467759951949,
+					-0.0000350675254594535,
+					0.0105582997202873,
+					0.999936103820801
+				],
+				[
+					-0.610310256481171,
+					0.0000000105367119473954,
+					-0.357101380825043,
+					0.70710676908493
+				],
+				[
+					-0.00142716360278428,
+					0.0000226422689593164,
+					0.0140731018036604,
+					0.999897122383118
+				],
+				[
+					-0.00695762876421213,
+					0.000128095096442848,
+					0.0180036313831806,
+					0.999810695648193
+				],
+				[
+					-0.0124618988484144,
+					0.00027550762752071,
+					0.0219051111489534,
+					0.999679684638977
+				],
+				[
+					-0.0173073336482048,
+					0.000440257776062936,
+					0.0253345258533955,
+					0.99952757358551
+				],
+				[
+					-0.0209469404071569,
+					0.000585651083383709,
+					0.0279235802590847,
+					0.999389708042145
+				],
+				[
+					-0.0235976446419954,
+					0.00070932338712737,
+					0.0305851623415947,
+					0.99925309419632
+				],
+				[
+					-0.0252559203654528,
+					0.000806735770311207,
+					0.0335942320525646,
+					0.999115586280823
+				],
+				[
+					-0.0257211178541183,
+					0.000857689999975264,
+					0.0365968830883503,
+					0.998996734619141
+				],
+				[
+					-0.0250121541321278,
+					0.000850259908474982,
+					0.0393927246332169,
+					0.998906850814819
+				],
+				[
+					-0.0233479216694832,
+					0.000785532291047275,
+					0.0419212803244591,
+					0.998845815658569
+				],
+				[
+					-0.0211046319454908,
+					0.000677891774103045,
+					0.0442320182919502,
+					0.998797297477722
+				],
+				[
+					-0.0187547039240599,
+					0.00055180728668347,
+					0.0464420169591904,
+					0.998744368553162
+				],
+				[
+					-0.0167947933077812,
+					0.000437277602031827,
+					0.0486856624484062,
+					0.998671114444733
+				],
+				[
+					-0.0156681593507528,
+					0.000365326239261776,
+					0.0510605126619339,
+					0.998570561408997
+				],
+				[
+					-0.0156900435686111,
+					0.000363575905794278,
+					0.0535748116672039,
+					0.998439967632294
+				],
+				[
+					-0.016986234113574,
+					0.00045074665104039,
+					0.0561040192842484,
+					0.998278617858887
+				],
+				[
+					-0.0194480288773775,
+					0.000628661480732262,
+					0.058359619230032,
+					0.998102366924286
+				]
+			],
+			"hero_tip": [
+				393.179718017578,
+				1.37650120258331,
+				-10.3703603744507
+			],
+			"initialized": true,
+			"living": {
+				"agents": 815,
+				"body_max": 1.0,
+				"floor_live": 46,
+				"lifecycle_stage": 3,
+				"lifecycle_stage_name": "mature",
+				"live_voxels": 77,
+				"nodes": 2,
+				"sources": 1,
+				"stained_voxels": 156,
+				"steps": 66,
+				"vascular_active_relays": 0,
+				"vascular_cells_pressurized": 0,
+				"vascular_last_at": "(inf, inf, inf)",
+				"vascular_last_strength": 0.0,
+				"vascular_relay_steps": 0,
+				"vascular_responses": 0,
+				"voxels": 448
+			},
+			"living_cells": 77,
+			"living_clock": 8.26666666666666,
+			"living_format": 5,
+			"living_steps": 66,
+			"margin_clock": 8.26666666666666,
+			"nearby_critters": 1,
+			"paused": true,
+			"recipient_position": "(393.15, 1.45, -10.9)",
+			"scope": "debug arrangement; existing owners interpret live packets",
+			"signals": {
+				"by_function": {},
+				"capacity": 32,
+				"emitted": 0,
+				"evicted": 0,
+				"live": 0
+			},
+			"tendrils": {
+				"live": 21,
+				"max": 24,
+				"spawned": 28
+			}
+		},
+		"resumed": {
+			"active": true,
+			"architecture": {
+				"cells_pressurized": 0,
+				"last_at": "(inf, inf, inf)",
+				"last_received_at": -1.0,
+				"received": 0,
+				"sources_seen": 0
+			},
+			"debug_secretions": 0,
+			"display_palps": 6,
+			"hero_clock": 8.79483466666662,
+			"hero_pose": [
+				[
+					-0.707106709480286,
+					0.0,
+					0.0,
+					0.707106709480286
+				],
+				[
+					0.0091734379529953,
+					-0.000000000329272248356105,
+					-0.707047283649445,
+					0.70710676908493
+				],
+				[
+					-0.00328849861398339,
+					0.0000132412387756631,
+					0.00402641808614135,
+					0.999986529350281
+				],
+				[
+					-0.0103136729449034,
+					0.000133145978907123,
+					0.0129040246829391,
+					0.999863564968109
+				],
+				[
+					-0.015869190916419,
+					0.000335600459948182,
+					0.0211157314479351,
+					0.999650657176971
+				],
+				[
+					-0.0159080196171999,
+					0.000381477701012045,
+					0.0238974019885063,
+					0.999586582183838
+				],
+				[
+					-0.0108714234083891,
+					0.00022617299691774,
+					0.0206504631787539,
+					0.999725937843323
+				],
+				[
+					-0.00513266818597913,
+					0.0000874276738613844,
+					0.0166988074779511,
+					0.999845623970032
+				],
+				[
+					0.000422313489252701,
+					-0.00000401760507884319,
+					0.0128651242703199,
+					0.999915719032288
+				],
+				[
+					0.00517755793407559,
+					-0.0000487484467157628,
+					0.00958048552274704,
+					0.999939858913422
+				],
+				[
+					0.0656873658299446,
+					-0.00000000263417820889345,
+					-0.704049229621887,
+					0.707106709480286
+				],
+				[
+					0.00860380101948977,
+					-0.000061790196923539,
+					0.00721531827002764,
+					0.999936521053314
+				],
+				[
+					-0.0128720011562109,
+					-0.121458426117897,
+					-0.00157520873472095,
+					0.992511689662933
+				],
+				[
+					0.697388172149658,
+					0.0000000210734256711476,
+					0.11683239787817,
+					0.707106709480286
+				],
+				[
+					0.306882590055466,
+					-0.0000000105367119473954,
+					0.637042462825775,
+					0.70710676908493
+				],
+				[
+					0.70193213224411,
+					-0.00000000263417798684884,
+					0.0853888392448425,
+					0.70710676908493
+				],
+				[
+					0.185041606426239,
+					0.0000000105367119473954,
+					-0.682465851306915,
+					0.70710676908493
+				],
+				[
+					-0.648784399032593,
+					0.0000000105367119473954,
+					-0.281209528446198,
+					0.70710676908493
+				],
+				[
+					0.0103183249011636,
+					-0.0000622712395852432,
+					0.00603746715933084,
+					0.99992835521698
+				],
+				[
+					-0.610310256481171,
+					0.0000000105367119473954,
+					-0.357101380825043,
+					0.70710676908493
+				],
+				[
+					0.0101285045966506,
+					-0.0000623288215138018,
+					0.00618171412497759,
+					0.999929189682007
+				],
+				[
+					0.00805417262017727,
+					-0.0000604167798883282,
+					0.00763416476547718,
+					0.999937415122986
+				],
+				[
+					0.00432643387466669,
+					-0.0000421258846472483,
+					0.0102330734953284,
+					0.999935984611511
+				],
+				[
+					-0.000636787852272391,
+					0.0000118109328468563,
+					0.0136859389021993,
+					0.999902963638306
+				],
+				[
+					-0.00628876592963934,
+					0.000114103240775876,
+					0.0176245644688606,
+					0.999821245670319
+				],
+				[
+					-0.0126311331987381,
+					0.000278260733466595,
+					0.0228109806776047,
+					0.999656558036804
+				],
+				[
+					-0.0192507281899452,
+					0.000522215617820621,
+					0.0292335283011198,
+					0.999384939670563
+				],
+				[
+					-0.0253877248615026,
+					0.000833048135973513,
+					0.036147203296423,
+					0.999022722244263
+				],
+				[
+					-0.0304166860878468,
+					0.00116703833919019,
+					0.0429012551903725,
+					0.998615503311157
+				],
+				[
+					-0.0338990762829781,
+					0.00146400765515864,
+					0.0489759668707848,
+					0.998222768306732
+				],
+				[
+					-0.0356155410408974,
+					0.00166708673350513,
+					0.0540050640702248,
+					0.997901201248169
+				],
+				[
+					-0.0355726704001427,
+					0.00173989625182003,
+					0.0577803775668144,
+					0.997690796852112
+				],
+				[
+					-0.0339862406253815,
+					0.00167574104852974,
+					0.0602397732436657,
+					0.997603833675385
+				],
+				[
+					-0.0312405899167061,
+					0.00149695796426386,
+					0.0614386722445488,
+					0.997620642185211
+				],
+				[
+					-0.0278293956071138,
+					0.00124641379807144,
+					0.0615095421671867,
+					0.997717499732971
+				],
+				[
+					-0.024283105507493,
+					0.000975247821770608,
+					0.0606110207736492,
+					0.997865200042725
+				],
+				[
+					-0.0210889838635921,
+					0.000730782572645694,
+					0.0588720813393593,
+					0.998039662837982
+				]
+			],
+			"hero_tip": [
+				393.242126464844,
+				1.29652035236359,
+				-10.4027376174927
+			],
+			"initialized": true,
+			"living": {
+				"agents": 812,
+				"body_max": 0.970000028610229,
+				"floor_live": 40,
+				"lifecycle_stage": 3,
+				"lifecycle_stage_name": "mature",
+				"live_voxels": 68,
+				"nodes": 2,
+				"sources": 1,
+				"stained_voxels": 156,
+				"steps": 70,
+				"vascular_active_relays": 0,
+				"vascular_cells_pressurized": 0,
+				"vascular_last_at": "(inf, inf, inf)",
+				"vascular_last_strength": 0.0,
+				"vascular_relay_steps": 0,
+				"vascular_responses": 0,
+				"voxels": 448
+			},
+			"living_cells": 68,
+			"living_clock": 8.78333333333335,
+			"living_format": 5,
+			"living_steps": 70,
+			"margin_clock": 8.78333333333335,
+			"nearby_critters": 1,
+			"paused": false,
+			"recipient_position": "(393.15, 1.45, -10.9)",
+			"scope": "debug arrangement; existing owners interpret live packets",
+			"signals": {
+				"by_function": {},
+				"capacity": 32,
+				"emitted": 0,
+				"evicted": 0,
+				"live": 0
+			},
+			"tendrils": {
+				"live": 20,
+				"max": 24,
+				"spawned": 32
+			}
+		}
+	},
+	"placeholder_ids": [
+		"jewelfruit",
+		"spiralings",
+		"chandelettes",
+		"bezel_beetles",
+		"deep_koi",
+		"parliaments",
+		"gilders_buttons",
+		"tessellates",
+		"wine_anemones",
+		"ribbonettes",
+		"the_loupe",
+		"dream_pursuer",
+		"dream_hazards",
+		"dream_surface_tissue",
+		"case_incarnation_surfaces"
+	],
+	"schema": "dream_zoo_warehouse_diagnostic.v1",
+	"scope": "Isolated DEBUG scene: sixteen existing specimens, authored hero rig/skin and eight seconds of actual pose motion, arranged live margin, LivingField/tendrils, pause/resume, fifteen placeholder selections and owner retirement. Captures are review material, not visual acceptance. No Blender source/export parity, all-organ interactions, full lifecycle, campaign runtime_contract or performance proof.",
+	"selections": [
+		{
+			"camera": [
+				402.794250488281,
+				2.81720280647278,
+				-15.3249950408936
+			],
+			"framed": true,
+			"id": "jewelfruit",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					402.794250488281,
+					2.81720280647278,
+					-15.3249950408936
+				],
+				"hit": [],
+				"to": [
+					402.549987792969,
+					1.14999997615814,
+					-10.1999998092651
+				]
+			},
+			"status": "DESIGNED — NOT IMPLEMENTED\nCanopy mineral fruit: a faceted stone held in a gold bezel. The brief proposes ripening rather than locomotion. This bay contains a labeled placeholder only.",
+			"title": "JEWELFRUIT"
+		},
+		{
+			"camera": [
+				407.894256591797,
+				2.81720280647278,
+				-15.3249950408936
+			],
+			"framed": true,
+			"id": "spiralings",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					407.894256591797,
+					2.81720280647278,
+					-15.3249950408936
+				],
+				"hit": [],
+				"to": [
+					407.649993896484,
+					1.14999997615814,
+					-10.1999998092651
+				]
+			},
+			"status": "DESIGNED — NOT IMPLEMENTED\nWall-crawling forms with a true spiral shell and an open keel through which the wall remains visible. This bay contains a labeled placeholder only.",
+			"title": "SPIRALINGS"
+		},
+		{
+			"camera": [
+				392.594268798828,
+				2.81720280647278,
+				-18.3249950408936
+			],
+			"framed": true,
+			"id": "chandelettes",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					392.594268798828,
+					2.81720280647278,
+					-18.3249950408936
+				],
+				"hit": [],
+				"to": [
+					392.350006103516,
+					1.14999997615814,
+					-13.1999998092651
+				]
+			},
+			"status": "DESIGNED — NOT IMPLEMENTED\nSlow lamp-orbiting forms with pendant-shaped abdomens, one stone and backlit membrane wings. This bay contains a labeled placeholder only.",
+			"title": "CHANDELETTES"
+		},
+		{
+			"camera": [
+				397.694274902344,
+				2.81720280647278,
+				-18.3249950408936
+			],
+			"framed": true,
+			"id": "bezel_beetles",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					397.694274902344,
+					2.81720280647278,
+					-18.3249950408936
+				],
+				"hit": [],
+				"to": [
+					397.450012207031,
+					1.14999997615814,
+					-13.1999998092651
+				]
+			},
+			"status": "DESIGNED — NOT IMPLEMENTED\nRolling mineral forms: a cut gem on prong legs, with stillness camouflage and a proposed impossible gem window. This bay contains a labeled placeholder only.",
+			"title": "BEZEL BEETLES"
+		},
+		{
+			"camera": [
+				402.794250488281,
+				2.81720280647278,
+				-18.3249950408936
+			],
+			"framed": true,
+			"id": "deep_koi",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					402.794250488281,
+					2.81720280647278,
+					-18.3249950408936
+				],
+				"hit": [],
+				"to": [
+					402.549987792969,
+					1.14999997615814,
+					-13.1999998092651
+				]
+			},
+			"status": "DESIGNED — NOT IMPLEMENTED\nSub-surface swimmers proposed as moving relief and absence, with a gold fin breach rather than a separate body mesh. This bay contains a labeled placeholder only.",
+			"title": "DEEP KOI"
+		},
+		{
+			"camera": [
+				407.894256591797,
+				2.81720280647278,
+				-18.3249950408936
+			],
+			"framed": true,
+			"id": "parliaments",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					407.894256591797,
+					2.81720280647278,
+					-18.3249950408936
+				],
+				"hit": [],
+				"to": [
+					407.649993896484,
+					1.14999997615814,
+					-13.1999998092651
+				]
+			},
+			"status": "DESIGNED — NOT IMPLEMENTED\nSynchronized vesica-shaped fragments with lapis edges imply a larger form through their shared motion. This bay contains a labeled placeholder only.",
+			"title": "PARLIAMENTS"
+		},
+		{
+			"camera": [
+				392.594268798828,
+				2.81720280647278,
+				-21.3249969482422
+			],
+			"framed": true,
+			"id": "gilders_buttons",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					392.594268798828,
+					2.81720280647278,
+					-21.3249969482422
+				],
+				"hit": [],
+				"to": [
+					392.350006103516,
+					1.14999997615814,
+					-16.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nEncrusting growth marks where the Dream body allocates resources. This is one of the five shared density-driven organelle families, not an independently simulated animal.",
+			"title": "GILDER'S BUTTONS — ALLOCATION"
+		},
+		{
+			"camera": [
+				397.694274902344,
+				2.81720280647278,
+				-21.3249969482422
+			],
+			"framed": true,
+			"id": "tessellates",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					397.694274902344,
+					2.81720280647278,
+					-21.3249969482422
+				],
+				"hit": [],
+				"to": [
+					397.450012207031,
+					1.14999997615814,
+					-16.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nTessellated mobile tissue takes up the body's allocation. The existing family belongs to the shared organelle density system; this display creates no individuals from it.",
+			"title": "TESSELLATES — UPTAKE"
+		},
+		{
+			"camera": [
+				402.794250488281,
+				2.81720280647278,
+				-21.3249969482422
+			],
+			"framed": true,
+			"id": "wine_anemones",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					402.794250488281,
+					2.81720280647278,
+					-21.3249969482422
+				],
+				"hit": [],
+				"to": [
+					402.549987792969,
+					1.14999997615814,
+					-16.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nJoint-bound curled growth reclaims matter within the Dream body. The existing family belongs to the shared organelle density system; this display creates no individuals from it.",
+			"title": "WINE ANEMONES — RECLAMATION"
+		},
+		{
+			"camera": [
+				407.894256591797,
+				2.81720280647278,
+				-21.3249969482422
+			],
+			"framed": true,
+			"id": "ribbonettes",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					407.894256591797,
+					2.81720280647278,
+					-21.3249969482422
+				],
+				"hit": [],
+				"to": [
+					407.649993896484,
+					1.14999997615814,
+					-16.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nRibbon-shaped tissue provides a signalling display across the Dream body. Its existing motion is not a claim that this bay runs a courtship or reproduction simulation.",
+			"title": "RIBBONETTES — SIGNALLING"
+		},
+		{
+			"camera": [
+				392.594268798828,
+				2.81720280647278,
+				-24.3249969482422
+			],
+			"framed": true,
+			"id": "the_loupe",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					392.594268798828,
+					2.81720280647278,
+					-24.3249969482422
+				],
+				"hit": [],
+				"to": [
+					392.350006103516,
+					1.14999997615814,
+					-19.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nThe observing lens is an organelle of inhibition: the body prunes surplus uptake. Its existing harmless presentation does not make this bay a predator encounter.",
+			"title": "THE LOUPE — INHIBITION"
+		},
+		{
+			"camera": [
+				397.694274902344,
+				2.81720280647278,
+				-24.3249969482422
+			],
+			"framed": true,
+			"id": "dream_pursuer",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					397.694274902344,
+					2.81720280647278,
+					-24.3249969482422
+				],
+				"hit": [],
+				"to": [
+					397.450012207031,
+					1.14999997615814,
+					-19.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nThe maze's pursuer and embrace belong to their encounter owners. The Tenant is not another zoo species, and this bay starts no pursuit or encounter.",
+			"title": "THE TENANT — MAZE ENCOUNTER"
+		},
+		{
+			"camera": [
+				402.794250488281,
+				2.81720280647278,
+				-24.3249969482422
+			],
+			"framed": true,
+			"id": "dream_hazards",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					402.794250488281,
+					2.81720280647278,
+					-24.3249969482422
+				],
+				"hit": [],
+				"to": [
+					402.549987792969,
+					1.14999997615814,
+					-19.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nExisting dream hazards and their tells belong to the maze encounter systems. This catalogue does not activate danger, damage or route gates.",
+			"title": "DREAM HAZARDS — ENCOUNTER SYSTEMS"
+		},
+		{
+			"camera": [
+				407.894256591797,
+				2.81720280647278,
+				-24.3249969482422
+			],
+			"framed": true,
+			"id": "dream_surface_tissue",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					407.894256591797,
+					2.81720280647278,
+					-24.3249969482422
+				],
+				"hit": [],
+				"to": [
+					407.649993896484,
+					1.14999997615814,
+					-19.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nThe Dream's existing surface treatments are tissue and material work. This reserved study is not a new organism or a claim that its full surface behavior is demonstrated here.",
+			"title": "DREAM SURFACE TISSUE — MATERIAL STUDY"
+		},
+		{
+			"camera": [
+				392.594268798828,
+				2.81720280647278,
+				-27.3249969482422
+			],
+			"framed": true,
+			"id": "case_incarnation_surfaces",
+			"inside": true,
+			"sightline": {
+				"clear": true,
+				"collider": "",
+				"from": [
+					392.594268798828,
+					2.81720280647278,
+					-27.3249969482422
+				],
+				"hit": [],
+				"to": [
+					392.350006103516,
+					1.14999997615814,
+					-22.2000007629395
+				]
+			},
+			"status": "PLACEHOLDER — existing work, not running in this bay\nSix existing case-specific surface treatments are reserved for a separate material study. They are not six animal species; surface work and temporal sensory behavior have different proof histories.",
+			"title": "SIX CASE INCARNATIONS — SURFACE STUDIES"
+		}
+	],
+	"tendril_bounds": {
+		"identity_transform": true,
+		"live_geometry_inside": true,
+		"live_slots": 21,
+		"position": [
+			386.0,
+			-2.0,
+			-31.0
+		],
+		"raw_vertex_position": [
+			-1.0,
+			-0.95105654001236,
+			0.0
+		],
+		"raw_vertex_size": [
+			2.0,
+			1.90211308002472,
+			1.0
+		],
+		"size": [
+			28.0,
+			8.0,
+			42.0
+		],
+		"source": "ArrayMesh.custom_aabb"
+	},
+	"texture_id": -9223371955921483611
+}

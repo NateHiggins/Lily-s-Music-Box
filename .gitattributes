@@ -32,3 +32,11 @@ art/data/orison_v2/heating_source.json -text
 art/data/orison_v2/household_accessories_source.json -text
 art/data/orison_v2/upper_floor_programs_source.json -text
 art/data/orison_v2/exterior/construction_shed_source.json -text
+
+# Exact recovered Blender authoring source; never normalize its bytes.
+art/blender/dream_tentacle.blend binary
+
+# Rescue diagnostics retain captured bytes and source hash contracts.
+art/renders/dream_zoo_warehouse_20260919/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+game/assets/dream/tentacle/dream_tentacle.glb binary
+game/assets/dream/tentacle/T_dream_hero_anatomy.png binary

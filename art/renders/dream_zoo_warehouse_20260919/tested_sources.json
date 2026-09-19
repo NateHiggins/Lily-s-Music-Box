@@ -1,0 +1,117 @@
+{
+  "schema": "dream_zoo_source_snapshot.v1",
+  "evidence_class": "INERT",
+  "tested_checkout": "C:\\ov\\astra-main-acdb4be",
+  "head_before_implementation": "67c59a301d4a19b208af857dea1079f8e3e31839",
+  "tree_state": "Modified production checkout; three native scenes ran against these named sources. Not a fresh committed candidate or runtime_contract.",
+  "sources": [
+    {
+      "path": "game/scripts/debug/dream_ecology_warehouse.gd",
+      "sha256": "31d2477b8c1fcb17519719d6f7c98ee403400465a3a71d1e277bc8ca1c45b1f1",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 24804
+    },
+    {
+      "path": "game/scripts/debug/dream_zoo_catalog.gd",
+      "sha256": "a2eb6c5fd0f8faa4b6b693b2dc930f0c449ea78a9f7ca74df40ed38a37a4fa2a",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 5406
+    },
+    {
+      "path": "game/scripts/debug/dream_organelle_exhibit.gd",
+      "sha256": "98b36d7a7ecd0ffc1ddfa3395c09cbf63487b7b9a1a2b97f9d7e45a8629c2c66",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 9925
+    },
+    {
+      "path": "game/tests/dream_zoo_warehouse_test.gd",
+      "sha256": "dacff5ce5ef7eb6ad6c0b8c116d17f51043073e0c54f4f28a7d43468d0b36914",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 22713
+    },
+    {
+      "path": "game/tests/DreamZooWarehouseTest.tscn",
+      "sha256": "f534262753f89f97a6432607653ccdc034ab00564d187324caf1a12e456ebee2",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 194
+    },
+    {
+      "path": "game/tests/dream_ecology_warehouse_test.gd",
+      "sha256": "d96eaf2cba15aa1584a453f35a2654a7b5132d3e4ff04bef6af25a74e17359a0",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 16406
+    },
+    {
+      "path": "game/tests/dream_ecology_entry_test.gd",
+      "sha256": "a1cc2c2870abee90d3badad78af2bec03766b5c37f6285f1b860c3837eefeb8a",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 4160
+    },
+    {
+      "path": "game/scripts/dream/entity/dream_hero_tentacle.gd",
+      "sha256": "924cab34a79358c5d93d4c564112bf365baa4cd7ee03fa53ae66764f14de01a5",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 54609
+    },
+    {
+      "path": "game/scripts/dream/margin/dream_margin_controller.gd",
+      "sha256": "e01eb2575d288996c587c495f6977d98d9ff31e34a8f956f2cc5fb9bc07f70b6",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 62702
+    },
+    {
+      "path": "game/scripts/dream/margin/dream_palp_renderer.gd",
+      "sha256": "79b5e56205d7a20fef917b5bd663cc1f7643e4868037e17541a2356609dc8f1f",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 15137
+    },
+    {
+      "path": "game/scripts/dream/field/dream_surface_tendrils.gd",
+      "sha256": "6ed73f3a7ddc273882f8224171ed8b6ad55a63933e404c09c84c628e09a2d0e7",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 10400
+    },
+    {
+      "path": "game/scripts/dream/dream_ecology_director.gd",
+      "sha256": "74590d307331941700bc387014688a723a72a446a38a2969704ab711dfe64f01",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 18464
+    },
+    {
+      "path": "game/scripts/reality/living_field.gd",
+      "sha256": "d0ce785a79fc7062b1a752f54e660595df5e4f928881111097772c13cf063aef",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 30887
+    },
+    {
+      "path": "game/scripts/reality/apartment_encroachment.gd",
+      "sha256": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 58304
+    },
+    {
+      "path": "game/scripts/dream/critters/dream_critter_controller.gd",
+      "sha256": "5b0a5b3c917f5f72dff31dfd0f5bffe702361e24c18049f491d7cc3feddc469b",
+      "hash_mode": "LF-normalized UTF8",
+      "bytes": 65655
+    },
+    {
+      "path": "game/assets/dream/tentacle/dream_tentacle.glb",
+      "sha256": "63decbd60800993fff876722717f6c81ce7b89e944911598c310af7c98629f93",
+      "hash_mode": "raw binary",
+      "bytes": 2451984
+    },
+    {
+      "path": "game/assets/dream/tentacle/T_dream_hero_anatomy.png",
+      "sha256": "952e884829e1c08e6709c0b7230dbf69a10d871101320040085b17f62db51019",
+      "hash_mode": "raw binary",
+      "bytes": 943749
+    },
+    {
+      "path": "art/blender/dream_tentacle.blend",
+      "sha256": "f090c7cbf569bbf9ac50fcbb2d53071ac5c9e74c0e1d49cbf577703f6c2cca33",
+      "hash_mode": "raw binary",
+      "bytes": 758368
+    }
+  ]
+}
