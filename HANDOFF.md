@@ -769,7 +769,11 @@ errors:
   or test, enforces the 60-second ceiling, and releases ownership on failure.
   A separate worktree does not create a separate engine lane. The `_console`
   build is the one that prints to stdout; the plain exe silently writes
-  nothing.
+  nothing. `tools/run_godot_long_suite.ps1` is the same lane with a 1,500 s
+  ceiling, and `pwsh -File tools/lane.ps1 status|run|batch` shows who holds
+  the lane and waits for it instead of failing with 73. Give every run a
+  `-LogPath`: the runner then writes `<log>.receipt.json`, which is what a
+  report cites (`tools/PIPELINE_TOOLS.md`).
 
 Conventions that bite if forgotten:
 - Meters, Blender axes (X east, Y north, Z up, street = −Y).
@@ -1168,7 +1172,9 @@ features additively, regenerate artifacts, and prove it with WalkTest.
 The engine is a separately scheduled exclusive resource: source and document
 work may proceed in parallel, but an agent must acquire the shared runner above
 for import, tests, editor or renders. If the runner refuses, keep working
-without Godot or hand off the engine lane; never bypass the mutex.
+without Godot, hand off the engine lane, or wait for it with
+`tools/lane.ps1`; never bypass the mutex. The standing rules for shared work
+are in `AGENTS.md`.
 
 **Never `git add -A`.** It is banned outright, not merely discouraged:
 the tree usually carries somebody else's uncommitted generated data,

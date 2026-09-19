@@ -140,6 +140,19 @@ Nothing below is blocked on effort; it is blocked on someone choosing.
   Pool and darts are 1927 pub games and survive untouched; the question is only
   whether anything *screen-shaped* may be a game, or whether every screen must
   be a received broadcast. Answer binds the bodega machine and everything after.
+- **D7** **Work that exists in no git ref** (found 2026-09-19): the main
+  checkout (on codex/dream-surface-s1) holds the F03 Omar checkpoint, the
+  dream maze layout, dream_tentacle.blend, ~230 renders and edits to the
+  building layout and generator; C:/PleaseRemainOnTheLine-s2 holds 8 modified
+  dream-voxel sources. A copy-only snapshot exists
+  (`.claude/worktree-archive/no-ref-snapshot-2026-09-19`); committing to a
+  branch is the owner's call. `design/REPO_HOUSEKEEPING_2026-09-19.md` §4.
+- **D8** **Stale-branch and session-worktree decisions** from the 2026-09-19
+  triage: delete the nine superseded/contained branches; tag d070076 before
+  deleting claude/dream-boundary-harness-fix (main cites it); push
+  codex/lamp-optical-voxel-field; keep or drop the two dry-run reports and
+  land the golden-shift report; archive-and-remove the three session-owned
+  worktrees (their archive copies are duplicates). Record §3 and §5.
 
 ## A — Arcade / the signal parlour
 
@@ -3751,3 +3764,10 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
 - **H3** `worldc clean --stale` has no test covering it.
 - **H13** **Logical placement audit.** Is each object placed correctly, and does it belong there. Convention traps are listed in the brief (door markers are the hinge jamb; pendant markers are ceiling anchors with a drop). Note placement cannot lean on the router to prove a route is clear — see R6, residents walk through furniture. Brief: `design/AUDIT_BRIEF.md`.
   - **H13-PRESENTATION — LIVE PRESENTATION AUDIT (INSTRUMENT BUILT AND FIRST RUN 2026-08-21; GENERATOR FIXES STILL WAIT).** `res://tests/PresentationAudit.tscn` boots production `BuildingRoot` with WalkTest's discipline and runs seven passes: live cross-class AABBs with an assembly whitelist (25 leads), authored-base support rays (16; every kitchen toaster base 215 mm inside the furniture hull), WalkTest's `[ART]` sweep verbatim, dressing-per-m² census with bottom decile (five zero-record rooms; 2D's bedroom), 1.4 m wall rays (5,783 rays, 0 see-through — lead closed), height-classified ceiling rays with the real `show_all_floors` toggle (the corridor 22% is the atrium light well plus one stray point per floor), and a windowed eight-station OrbitSweep (granted set direction-blind; 0/288 frames dropped a centre-in-view light — the "lights disappear with direction" lead is not gating, churn or culling). The 183-still harness rerun wrote 182 frames. Rows are in `design/walkthrough_punchlist.md` under 2026-08-21; proof, JSON and CSV at `art/renders/presentation_audit_h13/README.md`. The first generator fix landed the same day: `_toaster_marker`'s yaw-rotated offset stood every generated kitchen's toaster on its dishrack; it is in the run frame now, `_validate_kitchen_worktops` guards it, only the ten toaster markers moved (no GLB rebuild), and the re-audit is toaster-clean (support faults 16 → 6). The roof ventilator V-B, which the garden pass had buried in the east bed, now stands on open roof south of it (marker move). 2D/5D's empty rooms are the building's own vacancy rules; the 6A monitor overlaps are the prop's cable mesh through a 50 mm desk top. Remaining leads (bar speakers/songbook mounting, 4B closet/vestibule dressing) are taste calls for the walk, not generator defects.
+- **H22** **Reader-gate loader/consumer split.** The gate credits a field
+  only in a script that also names the data file, so a field read through a
+  loader's returned dictionary counts as unread (darts_panel.gd reads the
+  trivia card's "q" and "blurb"). Of 1,295 unread fields at 1c1c578, 662 are
+  named nowhere in production code and 633 are named only outside the loading
+  script; see `design/REPO_HOUSEKEEPING_2026-09-19.md` §6 for the sampled
+  estimate before changing the gate or the baseline.

@@ -136,6 +136,64 @@ main; "contained" means another kept branch holds every commit.
   AGENTS.md, the pipeline tools, the ledger, the rulings index and the prop
   brief; design/next_session_plan.md gained a 2026-09-19 pickup.
 
+## 6. How much of the reader-gate backlog is real
+
+The reader gate (tools/audit_data_consumption.py) credits a data field only
+when a production script that names the data file's res:// path also names
+the field. That is deliberate: a same-named key elsewhere must not pass for a
+reader. It also means a field read through a loader's returned dictionary, an
+autoload's API or a record id is reported unread.
+
+Of the 1,295 FIELD_UNREAD findings at 1c1c578:
+
+| class | findings |
+|---|---:|
+| field name appears nowhere in production code | 662 |
+| field name appears only in scripts other than the file's loader | 633 |
+
+A stratified sample of 40 from the second class (three from each of the ten
+largest files, ten from the rest) was traced through the actual data flow,
+then every verdict was re-checked by a skeptic told to refute real reads.
+No verdict was overturned.
+
+| verdict on the 40 | count |
+|---|---:|
+| real runtime read the gate misses | 22 |
+| the data file itself has no runtime reader | 10 |
+| same name, different data: truly unread | 8 |
+
+So roughly half of the second class, on the order of 250 to 440 findings, is
+the gate's blind spot rather than dead data. The first class was not sampled;
+it can contain the same blind spot where a record id is only ever read through
+a variable.
+
+The misses fall into three patterns, cheapest first:
+
+- **Record ids treated as fields.** Keys of id maps (prop_catalog kinds,
+  music_catalog residents and tracks, reality_cases ids, resident_schedules
+  residents, reality_rules ids, maintenance_activities ids) are looked up
+  through a variable. The gate already has a per-schema identity-map
+  declaration (DYNAMIC_MAP_PATHS_BY_SCHEMA); extending it to these files
+  removes the false positives without weakening the rule.
+- **A dictionary handed one hop to another script.** The loader passes the
+  parsed data or a sub-dictionary to a method of another class
+  (building_root.gd to WallArtLaw.legal_spot and SwitchSystem.build; the dream
+  profile to DreamHazardField and the room builder). Crediting reads through
+  that parameter needs parameter-flow tracing, not a file-level rule, or
+  unrelated same-named keys would pass too.
+- **An autoload API called with a literal key** (AudioPolicy with a cue id).
+
+The ten "no runtime reader" results name whole files: material_catalog.json
+and runtime_material_sets.json are shipped mirrors of build-time inputs
+(generate_runtime_materials.py reads the art/data twin and writes
+game/scripts/generated/material_sets.gd), and creature_index.json,
+house_english_lexicon.json, lobby_notices.json and resident_hero_models.json
+had no runtime loader for the sampled field. One sampled real read,
+building_layout.json wet_clearance, only relays the value into a meta that
+nothing reads. Recommendation: extend the identity-map declarations first,
+re-baseline, then decide whether the one-hop rule is worth building; do not
+treat the current 1,308 as a count of dead data. This is TASKS.md H22.
+
 One triage agent wrote temporary status listings to its own session
 scratchpad, outside the repository; no repository, ref or worktree was
 changed by the triage.

@@ -33,8 +33,10 @@ INCOMPLETE, the two clock "Hold E" prompts) are not regressions while they
 stay the same.
 
 The reader gate compares by name whether or not a tree has the frozen
-baseline `tools/data_consumption_baseline.json`. On main that baseline holds
-1,302 known findings. It is debt, not permission.
+baseline `tools/data_consumption_baseline.json`. It holds 1,308 known findings
+(2026-09-19: 1,302 at 6b5dc29, plus seven trivia-deck fields made visible when
+the file became strict JSON, minus its MALFORMED entry). It is debt, not
+permission.
 
 ## Run receipts
 
