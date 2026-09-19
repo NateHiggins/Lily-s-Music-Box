@@ -29,6 +29,17 @@
     "prior_brief": {
       "path": "C:/Users/nate_/OneDrive/Documents/New Game Plus/DREAM_CRITTER_BLENDER_REBUILD_2026-09-19_BRIEF.md",
       "note": "Complementary Blender proposal; not promoted by this map."
+    },
+    "inventory_report": {
+      "title": "The Dream’s Alien Life, and How to See It",
+      "date": "2026-09-19",
+      "access": "User-supplied report; compared with pinned local Git refs, no remote refresh.",
+      "main": "e8b83a3f7a9546fe02a0dea9312b9efd85975beb",
+      "accepted_voxel": "efc5d61f8fb20d2c5ec1cb81be91190715ee467f",
+      "s2_backup": "d8a57d0f0f4b8391149a563f6d367697a2faef7f",
+      "main_checkout_backup": "e06270f7b6266fb5d14b28ff1cea5d007b39aa33",
+      "lamp_optics": "4aa4585",
+      "prepared_branch_before_this_update": "aa505a3d30da3b310d41c5a47ac8304af6dddb94"
     }
   },
   "scope": {
@@ -1336,7 +1347,12 @@
       "behavior_and_interpretation_limits": [
         "Ledger row 7: a wall is misread as two faces of one membrane; preserve both-sides identity.",
         "Flatworm/tomography is primary. Euglena is only a comparative movement mechanism."
-      ]
+      ],
+      "work_priority": {
+        "rank": 14,
+        "group": "fictional_template",
+        "pilot": false
+      }
     },
     {
       "species_id": 1,
@@ -1403,7 +1419,12 @@
         "Ledger row 8: receiving is misread as being addressed; preserve receptor ownership.",
         "Radiolarian plus otolith/statocyst is primary; magnetosomes are an attachment analogy.",
         "Supports remain attached while the resonator rotates inside the still shell."
-      ]
+      ],
+      "work_priority": {
+        "rank": 15,
+        "group": "fictional_template",
+        "pilot": false
+      }
     },
     {
       "species_id": 2,
@@ -1457,7 +1478,12 @@
         "Ledger row 9: distance is negotiable; preserve fixed-endpoint shortening.",
         "Reference 43 was considered but not adopted: fossil reconstruction history does not establish reversible anatomy.",
         "Retain front mouth-limbs and mineral cups; add no transport-packet behavior."
-      ]
+      ],
+      "work_priority": {
+        "rank": 16,
+        "group": "fictional_template",
+        "pilot": false
+      }
     },
     {
       "species_id": 3,
@@ -1494,7 +1520,12 @@
         "Retain eight integrated lobopods, continuous cuticle and contained pharyngeal/gut anatomy.",
         "Cat scale and excess optical depth are fiction.",
         "Older ledger has no individual tardigrade entry."
-      ]
+      ],
+      "work_priority": {
+        "rank": 1,
+        "group": "directly_researched",
+        "pilot": true
+      }
     },
     {
       "species_id": 4,
@@ -1549,7 +1580,12 @@
         "Keep the current timed visual-habituation sequence; do not imply a repeated-stimulus receptor.",
         "Real habituation can alter response probability rather than contraction amplitude.",
         "Body, crown and interior share one deformation."
-      ]
+      ],
+      "work_priority": {
+        "rank": 5,
+        "group": "directly_researched",
+        "pilot": false
+      }
     },
     {
       "species_id": 5,
@@ -1598,7 +1634,12 @@
         "Continuous body-neck-head envelope and stored pleats are essential.",
         "Current reach, search phase and bias remain authoritative.",
         "Neither octopus hydrostats nor ribbon worms substitute for cellular origami."
-      ]
+      ],
+      "work_priority": {
+        "rank": 3,
+        "group": "directly_researched",
+        "pilot": true
+      }
     },
     {
       "species_id": 6,
@@ -1654,7 +1695,12 @@
         "Keep continuous sheath, fixed holdfast and shared bell/crown endpoint.",
         "Measure sheath contour and core shortening separately.",
         "Preserve fast withdrawal and slower recovery."
-      ]
+      ],
+      "work_priority": {
+        "rank": 2,
+        "group": "directly_researched",
+        "pilot": true
+      }
     },
     {
       "species_id": 7,
@@ -1702,7 +1748,12 @@
       "behavior_and_interpretation_limits": [
         "Document fourteen visible bundles mapped to eight current controls.",
         "Every terminal branch follows its insertion frame through stance and swing."
-      ]
+      ],
+      "work_priority": {
+        "rank": 7,
+        "group": "directly_researched",
+        "pilot": false
+      }
     },
     {
       "species_id": 8,
@@ -1751,7 +1802,12 @@
       "behavior_and_interpretation_limits": [
         "Preserve coupled shortening, widening and twist with interior containment.",
         "Cortical fishnet remains structural, not luminous exterior stripes."
-      ]
+      ],
+      "work_priority": {
+        "rank": 6,
+        "group": "directly_researched",
+        "pilot": false
+      }
     },
     {
       "species_id": 9,
@@ -1799,7 +1855,12 @@
       "behavior_and_interpretation_limits": [
         "Selected-ray retraction preserves root and sheath continuity.",
         "A transport knot is a proposed state-driven visual, not new prey simulation."
-      ]
+      ],
+      "work_priority": {
+        "rank": 9,
+        "group": "directly_researched",
+        "pilot": false
+      }
     },
     {
       "species_id": 10,
@@ -1842,7 +1903,12 @@
         "Preserve pellicle-driven traveling deformation and contained plastids.",
         "Visible eyespot does not imply implemented directional phototaxis.",
         "Comb rows are not a substitute for this flagellum."
-      ]
+      ],
+      "work_priority": {
+        "rank": 8,
+        "group": "directly_researched",
+        "pilot": false
+      }
     },
     {
       "species_id": 11,
@@ -1885,7 +1951,12 @@
         "Model a connected daughter sheet and real phialopore.",
         "Inversion is embryonic development; repeat exhibit loop is an abstraction.",
         "Parent and daughter poses retain existing state ownership."
-      ]
+      ],
+      "work_priority": {
+        "rank": 4,
+        "group": "directly_researched",
+        "pilot": true
+      }
     },
     {
       "species_id": 12,
@@ -1928,7 +1999,12 @@
         "Keep dominant clear vacuole and localized active periphery.",
         "Mechanical/debug state remains flash trigger; R/G changes optical appearance, not receptor ownership.",
         "Debug stimulus does not prove ordinary-play sensing."
-      ]
+      ],
+      "work_priority": {
+        "rank": 10,
+        "group": "directly_researched",
+        "pilot": false
+      }
     },
     {
       "species_id": 13,
@@ -1982,7 +2058,12 @@
       "behavior_and_interpretation_limits": [
         "Rigid frustules retain persistent neighbor overlap.",
         "Do not claim mechanical interlocking teeth are established biology."
-      ]
+      ],
+      "work_priority": {
+        "rank": 11,
+        "group": "directly_researched",
+        "pilot": false
+      }
     },
     {
       "species_id": 14,
@@ -2037,7 +2118,12 @@
         "Inward basal poles, common ECM and outward collars remain primary.",
         "Cyclic unfurling is authored presentation; no new bacterial receptor implied.",
         "Cells remain separate and joined through matrix."
-      ]
+      ],
+      "work_priority": {
+        "rank": 12,
+        "group": "directly_researched",
+        "pilot": false
+      }
     },
     {
       "species_id": 15,
@@ -2086,7 +2172,12 @@
         "Host and retained foreign compartments stay distinct and contained.",
         "Retained organelles are not daughter colonies.",
         "Do not add jumping behavior."
-      ]
+      ],
+      "work_priority": {
+        "rank": 13,
+        "group": "directly_researched",
+        "pilot": false
+      }
     }
   ],
   "contextual_reference_uses": [
@@ -2200,6 +2291,62 @@
     "supplemental_mechanism_source_count": 21,
     "unresolved_dossier_references": [],
     "unresolved_supplemental_references": [],
-    "remote_or_scientific_validation_claim": false
+    "remote_or_scientific_validation_claim": false,
+    "work_order": "16 unique IDs; first thirteen are 3–15; last three 0,1,2; pilots 3,6,5,11"
+  },
+  "work_order": {
+    "status": "planned; no rebuilt species assets delivered",
+    "rule": "Finish the thirteen directly researched organisms before the three fictional templates, which have researched analogies. Canonical runtime IDs remain unchanged.",
+    "species_ids": [
+      3,
+      6,
+      5,
+      11,
+      4,
+      8,
+      7,
+      10,
+      9,
+      12,
+      13,
+      14,
+      15,
+      0,
+      1,
+      2
+    ],
+    "pilots": [
+      3,
+      6,
+      5,
+      11
+    ],
+    "waves": [
+      [
+        4,
+        8
+      ],
+      [
+        7,
+        10,
+        9,
+        12
+      ],
+      [
+        13,
+        14,
+        15
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "first_checkpoint": [
+      3,
+      6
+    ],
+    "wider_zoo": "Rescue and debug display of existing hero/organelle assets is separate from this species regeneration queue. Designed families and other unexhibited groups receive labeled placeholders."
   }
 }

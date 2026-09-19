@@ -12,6 +12,8 @@ The revised direction is **living cloisonné with continuous anatomy**: aubergin
 
 The companion **design/astra/DREAM_CRITTER_REFERENCE_MAP_2026-09-19.json** is planning-only reference metadata: source roles, numbered dossier links, inherited licence notes, explicit limitations and supplemental mechanism papers for all sixteen. It is not read by the game or an implemented creature importer. Dossier numbers below are preserved; additional research does not renumber its sources.
 
+**Owner priority update, 2026-09-19:** incorporate the supplied *The Dream's Alien Life, and How to See It* inventory and complete the directly researched organisms before redesigning the other forms. Here that means the thirteen named biological specimens, species 03–15, with direct mechanism papers. The three fictional templates also have researched analogies, but follow those thirteen. New pilot order: **tardigrade → Vorticella → Lacrymaria → Volvox**. Fold crab is no longer an early pilot. Stable species IDs and existing behaviors do not change when work priority changes.
+
 ## 1. Assessment of the current animals
 
 Reviewed the sixteen-species [warehouse contact sheet](C:/ov/astra-ecology-20260919/DreamEcologyWarehouseTest_reviewed/contact_sheet.png), individual close-ups, species definitions, mesh construction, motion shaders and the existing Blender pipeline. The [warehouse handoff](C:/ov/astra-main-acdb4be/design/astra/DREAM_ECOLOGY_WAREHOUSE_2026-09-19.md) records the current debug integration and prior tests; this review does not rerun or upgrade those receipts.
@@ -28,6 +30,24 @@ The roster has useful behavioral identities, especially the planted crab, contra
 | Broad stripes originate in shader equations, including the voxel response, rather than a single texture. | Remove the band generators and their color/relief modulation together. Replacing an albedo image alone will not remove them. |
 
 The twelve newer forms are biologically inspired, but some presentations overstate the mechanism currently drawn: Volvox scales closed daughter spheres instead of inverting a sheet; Salpingoeca's unfurl state does not unfurl its geometry; Euplotes' terminal branches do not follow the same gait as their supporting limbs. Correct the visual realization while retaining the current state transitions.
+
+### Supplied zoo inventory and source recovery
+
+The September 19 owner-supplied inventory is a map of existing work, not a request to merge every backup. Local Git inspection pins main at **e8b83a3**, the accepted sixteen-species voxel branch at **efc5d61**, S2 backup at **d8a57d0**, main-checkout backup at **e06270f**, and lamp optics at **4aa4585**. The prepared warehouse selectively incorporated the accepted critter sources at **b98cecb2**; main still contains only the original three critter species. The full S2 presentation stack remains separate. Its tissue studies are not finished models for this roster, and S2J's failed material-identity gate is not superseded by later scoped motion acceptance.
+
+| Inventory | Use in this pass |
+|---|---|
+| Hero tentacle, six margin archetypes, branches/cilia, living architecture and organelle signaling | Recover the missing original Blender source and expose the existing ensemble in a dedicated debug warehouse station, as subsequently requested by the owner. Reuse anatomy/tooling; no new organ ruling. |
+| Sixteen current critters | Retain live warehouse behavior. Regenerate IDs 03–15 first in the exact order below; IDs 00–02 follow. |
+| Gilder's Button, Tessellate, Wine Anemone, Ribbonette, The Loupe | Existing separate DreamFaunaDirector families. Reserve labeled warehouse bays until their own runtime display is integrated. |
+| Pursuer and hazards | Existing maze-only encounter systems; labeled reserved bays, preserving their encounter ownership. |
+| Cellular moss/cilia/membranes and S2 surface tissue | Preserve accepted branch and later WIP provenance separately; reserve a surface-study bay rather than claim wholesale integration. |
+| Mina, Peter, Juno, Mae, Cal and Omar | Six surface incarnations on the same Dream body. One material-study reservation, never six invented species. |
+| Jewelfruit, Spiralings, Chandelettes, Bezel Beetles, Deep Koi, Parliaments | Designed but unbuilt. Explicit placeholder bays; defer modeling until after researched organisms. |
+
+The missing **art/blender/dream_tentacle.blend** is recoverable as an ordinary tracked Git blob from **e06270f7b6266fb5d14b28ff1cea5d007b39aa33**: blob **7c8a1cbfbb47237efd93072ff6b14e94e04d31fa**, **758,368 bytes**. Its builder, baker, shipped GLB and anatomy map match the current tracked assets. Recovery and successful loading must be recorded separately from regeneration parity, which requires export/bake comparison. The owner's subsequent rescue request authorizes recovering this specific source, not restoring the whole unrelated backup.
+
+Inspection remains through the shared lane, with explicit project, windowed mode, log and a fresh output directory. **DreamHeroSweep uses SWEEP_DIR**, while the lane's **-ShotDir sets SHOT_DIR**; set SWEEP_MODE separately. The modelled sweep also requires **DREAM_HERO=1**. Its critters mode samples an opportunistic population and aims for three species, so it is not the sixteen-species census. The warehouse is that census. DreamMicroorganismMotionShot covers twelve microorganisms, excluding tardigrade and the original three; its accepted motion packet does not certify all sixteen gameplay behaviors. Family shots cover the separate five-family director; DreamFaunaSkinShot is a studio comparison. Sweep missing-subject failures can print errors and still exit zero: inspect frame counts and diagnostic logs, and do not call them schema-2 runtime proof.
 
 ## 2. Art direction and reference method
 
@@ -110,7 +130,7 @@ The material allocations below are proposed within the shared palette, not micro
 
 **Rig:** hold the outer shell still while the existing spin parameter rotates the resonator. Keep supports visibly attached throughout the motion. **Proof:** freeze the body and track the internal mesh itself; lamp and mechanical pulses retain their current receptor ownership. Magnetosome membrane compartments and cytoskeletal organization are a reference for supported biological crystals; they do not establish an acoustic function. [Komeili et al.](https://pubmed.ncbi.nlm.nih.gov/16373532/)
 
-### 02 — Fold crab — pilot
+### 02 — Fold crab — after the researched organisms
 
 **Current defect:** armor, tubes and joint webs overlap; joint frames can change abruptly. **Lineage:** dossier D48/D68 supplies articulation detail, D15/D58 a geometric analogy, and D76 precious articulated material. The ledger's misreading treats distance as negotiable. **Build:** mineral cups and rigid plates over a continuous flexible mantle, with recessed joint membranes, explicit socket collars, tendon-like insertions and clearance for opposing plates. Front limbs retain their mouthpart identity. **Interior:** small actuation masses around joints and a compact feeding chamber, predominantly hidden by substantial opaque tissue.
 
@@ -128,7 +148,7 @@ The material allocations below are proposed within the shared palette, not micro
 
 **Rig:** drawstring-like shortening deforms body, crown and internal attachments together. Map the current timed visual-habituation state to pose response; it does not currently receive repeated mechanical stimuli. **Proof:** no crown separation, interior escape or disappearing oral cavity at maximum shortening. Longitudinal myonemes and cortical microtubules are the anatomical reference. Real individual habituation can involve step-like changes in response probability; the game's progressively reduced timed response remains an authored abstraction. [Ultrastructure](https://pmc.ncbi.nlm.nih.gov/articles/PMC2108994/), [habituation experiments](https://pmc.ncbi.nlm.nih.gov/articles/PMC9877177/)
 
-### 05 — Lacrymaria
+### 05 — Lacrymaria — pilot
 
 **Current defect:** a separate head and neck, with only seven longitudinal rings spanning extreme reach. **Build:** one continuous body–neck–head envelope with helical reserve pleats, a terminal feeding rim and adequate topology at both transitions. **Interior:** a slender continuous conduit and cortical support, with larger inclusions retained in the trunk.
 
@@ -225,19 +245,19 @@ Selected imagery was also viewed in its source pages during this continuation: [
 
 ## 4. Implementation sequence
 
-The following stages are ordered dependencies. Finish the four pilots through native rendering before detailing the remaining twelve. New tool names below are proposed deliverables, not commands that already exist.
+The following stages are ordered dependencies. Finish the four researched pilots through native rendering, then the other nine directly researched organisms, then the three fictional templates. Reuse existing hero/margin tooling when needed, but do not turn that reuse into an early redesign of the broader life inventory. New tool names below are proposed deliverables, not commands that already exist.
 
 ### Stage 1 — Freeze the comparison and create anatomical briefs
 
 Record current source hashes, species IDs/seeds, generated dimensions, allowed variation, law parameters and stimulus times. Capture a matched baseline in the existing warehouse with stable camera/light/field settings. Extend the capture manifest to include species, seed, pose/state, elapsed simulation time and RG8 conditions. A before/after comparison must replay the same state, not merely reuse a filename.
 
-Produce the sixteen sheets specified above: exterior/support/interior, neutral silhouette, rest/max-deformation views, shared-token material/roughness swatches and a short motion storyboard. The reference catalogue records the cited observation, its role, era/scale, deliberate alien extrapolation, rights status and unresolved gaps. Resolve exact plate/figure numbers before any whole-volume citation is used to establish a specific organ. This is where we settle anatomical count, especially Euplotes' visible cirri mapping.
+The sixteen specifications remain the final target. Author and review sheets for species 03–15 first: exterior/support/interior, neutral silhouette, rest/max-deformation views, shared-token material/roughness swatches and a short motion storyboard. The existing descriptions of species 00–02 remain deferred briefs during that pass. The reference catalogue records the cited observation, its role, era/scale, deliberate alien extrapolation, rights status and unresolved gaps. Resolve exact plate/figure numbers before any whole-volume citation is used to establish a specific organ. This is where we settle anatomical count, especially Euplotes' visible cirri mapping.
 
 **Deliverables:** reference manifest, baseline capture manifest, sixteen species sheets, and a behavior-to-rig mapping. **Gate:** every current species and law has a counterpart; no new ecology authority has been introduced.
 
 ### Stage 2 — Extract the existing Blender methods into creature tools
 
-Installed Blender was verified as **5.2.0 LTS, fbe6228777e7**. Pin that binary/build and exporter settings in generated manifests. Use an isolated short-path authoring checkout. Existing tentacle scripts have fixed hero output paths; their authoring .blend is absent from this production checkout. Do not run those generators in place to explore flags.
+Installed Blender was verified as **5.2.0 LTS, fbe6228777e7**. Pin that binary/build and exporter settings in generated manifests. Use an isolated short-path authoring checkout. Existing tentacle scripts have fixed hero output paths; their authoring .blend is absent from this production checkout, but the newly reported backup **e06270f** contains it. Recover that source only into isolated authoring work and verify its export/bake parity before treating it as a reproducible baseline. A backup's existence is not proof that the .blend regenerates the shipped GLB. Do not run those generators in place to explore flags.
 
 | Existing implementation | Reuse and required adaptation |
 |---|---|
@@ -255,9 +275,9 @@ Proposed modules: **build_dream_critter.py**, **check_dream_critter_anatomy.py**
 
 **Deliverables per species:** source .blend with high-detail sculpt, retopologized LOD meshes, rig, named corrective poses and bake setup; generated GLB reference asset; atlas maps; manifest with hashes, units, bounds, attachment graph and behavior mappings. **Gate:** the source can regenerate the same asset and its metadata; no hand-edited GLB or undocumented manual post-export step.
 
-### Stage 3 — Build and animate four representative pilots
+### Stage 3 — Build and animate four researched pilots
 
-Build **fold crab first**, then **Vorticella**, **tardigrade**, and **Volvox**. They cover planted articulation, stalk/crown attachment, a compressing hydrostat with internal organs, and a visible connected sheet undergoing inversion. Start with neutral grey, including interiors in a diagnostic cutaway; add sculpted detail only after deformation holds up.
+Build **tardigrade first**, then **Vorticella**, **Lacrymaria**, and **Volvox**. Tardigrade proves eight rooted limbs, contact-driven deformation and tun/internal compression. Vorticella proves one continuous stalk-to-bell frame and a shared crown attachment. Lacrymaria proves extreme extension through stored continuous membrane. Volvox proves a visible connected sheet with a real inversion opening. These four exercise the difficult renderer/rig requirements through organisms with direct research rather than beginning with the fictional crab. Start with neutral grey, including interiors in a diagnostic cutaway; add sculpted detail only after deformation holds up.
 
 Use bones for rigid/soft articulated support, curve cages for necks/stalks, and corrective shape keys for volume and folding. Geometry Nodes can distribute rooted cilia or colony cells, but generated geometry must carry stable anatomical IDs and be realized into exportable assets. Keep simulation caches as authoring aids; runtime needs deterministic exported deformation driven by current state.
 
@@ -300,15 +320,16 @@ Provisional geometry envelopes are **16–24k triangles for one inspected LOD0 s
 
 **Gate:** native geometry matches the reference renderer, internal depth reads in normal viewing, accepted behaviors/field ownership pass, and measured budgets are documented. The prepared external static-prop GLB contract rejects skins, animations and morph targets; borrow its validation methods into a separate creature contract instead of weakening it.
 
-### Stage 5 — Complete the remaining species in dependency order
+### Stage 5 — Finish the researched organisms before the other templates
 
-| Wave | Species | Reuse established by pilots |
+| Wave / exact order | Species | Reuse established by pilots |
 |---|---|---|
-| A: rooted and contractile | Stentor, Lacrymaria, Spirostomum | Shared oral-root transforms, continuous neck/stalk deformation, coordinated interior compression |
-| B: contact and sensing | Seam grazer, Crystal listener, Euplotes | Contact-driven support, attached sensory organs, rigid mineral/soft tissue interfaces |
-| C: distinct membrane and colony mechanics | Euglena, Heliozoan, Noctiluca, Bacillaria, Salpingoeca, Mesodinium | Contained organs, thin-shell optics, rooted appendages, stable cell/colony identities |
+| A: researched contraction | Stentor → Spirostomum | Shared oral-root transforms and coordinated cortex/interior contraction |
+| B: researched contact and active cortex | Euplotes → Euglena → Heliozoan → Noctiluca | Rooted cirri/rays/flagella, traveling deformation and localized optical signaling |
+| C: researched colonies and retained organs | Bacillaria → Salpingoeca → Mesodinium | Rigid neighbor overlap, cohesive matrix/collar polarity and contained foreign organelles |
+| D: only after all thirteen above | Seam grazer → Crystal listener → Fold crab | Transfer the validated anatomy/material/deformation methods to the fictional templates and their existing impossible laws |
 
-Each species passes grey anatomy and motion review, then material/internal-depth review, then native warehouse integration. Reuse tooling and tissue vocabulary while keeping its own silhouette, palette, roughness distribution and timing. Inspect the full roster after every wave so differences survive shared lighting.
+Each species passes grey anatomy and motion review, then material/internal-depth review, then native warehouse integration. Reuse tooling and tissue vocabulary while keeping its own silhouette, palette, roughness distribution and timing. Compare the completed researched sub-roster after each wave. Full sixteen-species redesign review follows completion of the researched group; necessary regression checks of existing behavior do not authorize early art expansion into the deferred group.
 
 ### Stage 6 — Review, regression checks and resumable delivery
 
@@ -343,4 +364,4 @@ All native Godot runs use the shared lane, with two imports for a fresh short-pa
 
 The pre-dossier planning pass inspected the complete current roster and source, verified installed Blender, checked existing dream material definitions, and examined the existing authoring/reference tool boundaries. Safe probes were Blender --version, dream material ingest --check and prop-reference help/pair help. The continuation ingested the dossier at its exact main revision, reconciled source roles and visual doctrine, created the sixteen-species reference map and viewed selected source images in place. It did not run new Blender builds or native Godot scenes. No current mesh, behavior or shader was changed by these planning artifacts, and no main merge or source-image import was performed.
 
-The first implementation checkpoint is concrete: **a stripe-free fold crab and Vorticella in neutral grey and the three native light states, exported from reproducible Blender sources, with attached roots and deformation parity between a reference skin renderer and the proposed batched renderer**. Tardigrade then proves organ containment and tissue opacity; Volvox proves a real visible inversion sheet. Full-roster regeneration begins only after those four answer the structural and rendering questions.
+The first implementation checkpoint is concrete: **a stripe-free tardigrade and Vorticella in neutral grey and the three native light states, exported from reproducible Blender sources, with attached roots, contained organs and deformation parity between a reference skin renderer and the proposed batched renderer**. Lacrymaria then proves stored membrane through extreme extension; Volvox proves a real visible inversion sheet. Complete the other nine directly researched organisms before the seam grazer, crystal listener and fold crab. The wider inventory remains context and reusable tooling, not an additional early modeling queue.
