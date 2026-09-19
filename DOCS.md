@@ -36,6 +36,11 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to know… | Read |
 |---|---|
 | What is true about this world | `design/ORISON_BIBLE.md` |
+| How to work in this repository: git in a shared tree, the Godot lane, what counts as proof | `AGENTS.md` (Claude reads it through `CLAUDE.md`) |
+| Whether a change made anything worse, and whether a branch is mergeable | `tools/PIPELINE_TOOLS.md`: gate board, run receipts, candidate verifier |
+| Where the v2 rebuild stands and what the ledger will accept as evidence | `python tools/audit_orison_v2_completeness.py`, `design/ORISON_V2_COMPLETENESS_LEDGER_GUIDE.md`, then the newest management record: `design/REPO_HOUSEKEEPING_2026-09-19.md` |
+| Which standing ruling a brief or review cites as RUL-nnn | `design/RULINGS.json` *(an index with sources; the Bible and the cited source win)* |
+| How each prop compares with the real object, and which to rebuild first | `design/PROP_MODELING_TEXTURING_BRIEF_2026-09-18.md`, then `tools/prop_reference/README.md` |
 | What the game loop is and which milestone comes next | `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`, then `design/next_session_plan.md` |
 | The final playable map: three zones, the Passage, measured perf baseline | `design/FINAL_MAP_REDESIGN_BRIEF.md` |
 | Why an object looks forty years early | Bible §VIII.2, the Rule of Signal |
@@ -109,7 +114,13 @@ and the reader has no way to tell which one is lying.
 
 ## Adding a document
 
-- **A rule** goes in the Bible as a dated ruling, not in a new file.
+- **A rule** goes in the Bible as a dated ruling, not in a new file. A
+  standing process ruling may also be indexed in `design/RULINGS.json` with
+  its source, so reviews can cite it by id; the index never replaces the
+  Bible.
+- **A design document** states its class in an `Evidence class:` header in
+  its first 30 lines; run `python tools/lint_design_doc.py <path>` before
+  committing it (`AGENTS.md`).
 - **A proposal** goes in `design/` ending `_BRIEF.md`, and says at the top that
   it is not canon.
 - **A task** goes in `TASKS.md` as one line. If it needs a paragraph, it needs a

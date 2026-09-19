@@ -1,5 +1,7 @@
 # ORISON-V2-M08E dimensioned schedule — 2026-08-28
 
+Evidence class: **INERT - CONSTRUCTION SCHEDULE (header added 2026-09-19; the ledger does not admit this document by name)**
+
 Status: construction basis authored before schema edits. Dimensions are clear plan dimensions in metres; the universal 0.66 m body, 0.90 × 0.90 m interaction stance, 0.90 m apartment route, 1.20 m public route, and 1.05 m service route remain controlling.
 
 ## F01 caretaker/watch station

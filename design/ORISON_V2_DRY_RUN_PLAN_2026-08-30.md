@@ -1,5 +1,7 @@
 # Orison v2 rebuild dry-run plan — 2026-08-30
 
+Evidence class: **INERT - PLAN (header added 2026-09-19; the ledger does not admit this document by name)**
+
 Status: **PREPARED, NOT EXECUTED**. This is a rehearsal plan, not spatial
 evidence, acceptance, or authorization to change the production selector. It is
 deliberately named as a plan so the completeness ledger refuses it as proof.

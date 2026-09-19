@@ -1,5 +1,7 @@
 # Orison v2 M08C consumer census — 2026-08-28
 
+Evidence class: **INERT - CENSUS (header added 2026-09-19; the ledger does not admit this document by name)**
+
 Scope: runtime initialization, save reconstruction, dream return, tests, and tooling. Searches covered `orison_root.tscn`, `building_layout.json`, semantic IDs, anonymous `bed`, acoustic positions, raw `Vector3`/`pos` records, and root/node-path assumptions.
 
 | Consumer family | Classification | Disposition |

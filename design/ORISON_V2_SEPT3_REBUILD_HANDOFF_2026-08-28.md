@@ -1,5 +1,7 @@
 # Orison rebuild — Sept 3 handoff pack
 
+Evidence class: **INERT - HANDOFF (header added 2026-09-19; the ledger does not admit this document by name)**
+
 **Rewritten 2026-08-29.** The owner issued a world-redesign directive
 that supersedes the building-only plan, and the work order below
 replaces the floor list this pack carried on Aug 28. Authoritative

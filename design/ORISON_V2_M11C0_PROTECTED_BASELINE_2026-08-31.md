@@ -1,5 +1,7 @@
 # ORISON-V2-M11C0 protected baseline — 2026-08-31
 
+Evidence class: **INERT - BASELINE RECORD (header added 2026-09-19; the ledger does not admit this document by name)**
+
 ## Repository state before the first M11C0 write
 
 - requested M11B base: **0ea23bfd1296a3779773886b1fc062f10288fa23**;

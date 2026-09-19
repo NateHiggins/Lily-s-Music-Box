@@ -1,5 +1,7 @@
 # Orison v2 runtime composition census — 2026-08-28
 
+Evidence class: **INERT - CENSUS (header added 2026-09-19; the ledger does not admit this document by name)**
+
 **Task:** DEV-COMP-1. **Lane:** runtime composition and tests only. No
 spatial schema, blockout JSON, floor geometry, scene geometry or
 checkpoint was created or modified. **Base commit:** `2cf7588`

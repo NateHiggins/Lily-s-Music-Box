@@ -1,5 +1,7 @@
 # ORISON-V2 — Pre-M09 Readiness Audit
 
+Evidence class: **INERT - AUDIT (header added 2026-09-19; the ledger does not admit this document by name)**
+
 Date: 2026-08-28
 
 Audited commit: `aa62f9e`

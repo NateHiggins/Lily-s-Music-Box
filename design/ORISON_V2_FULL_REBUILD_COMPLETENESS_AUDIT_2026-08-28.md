@@ -1,5 +1,7 @@
 # Orison v2 full-rebuild completeness audit — 2026-08-28
 
+Evidence class: **INERT - AUDIT (header added 2026-09-19; the ledger does not admit this document by name)**
+
 **Task:** ADMIN-ARCH2 (amended: scope-aware readiness policy). **Method:**
 deterministic read-only ledger (`tools/audit_orison_v2_completeness.py`)
 over the canonical program, the v1 inventory, the committed v2 schema, the

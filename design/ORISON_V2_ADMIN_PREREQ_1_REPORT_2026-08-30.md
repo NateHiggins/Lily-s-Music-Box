@@ -1,5 +1,7 @@
 # Orison v2 ADMIN-PREREQ-1 report — 2026-08-30
 
+Evidence class: **INERT - REPORT (header added 2026-09-19; the ledger does not admit this document by name)**
+
 ## Outcome
 
 All eleven dry-run prerequisites now have an implemented authority, instrument,

@@ -1,8 +1,36 @@
 # NEXT SESSION — START HERE
 
+Evidence class: **INERT - SESSION PLAN**
+
 *Rewritten 2026-08-17. The dream world was rebuilt from its foundations; read
 this and then `game/scripts/dream/dream_atlas.gd` top-to-bottom — its header is
 the design.*
+
+## 2026-09-19 pickup: the v2 rebuild and its tools
+
+Start here for building and v2 work; the dream-world history below is kept
+as record.
+
+- **Governance.** Astra holds executive authority under the owner's
+  2026-09-04 mandate (RUL-001); main is the one integration line (RUL-002).
+  Working rules are in `AGENTS.md`; the tools are in `tools/PIPELINE_TOOLS.md`.
+- **Where v2 stands.** Main is at 733c1e5 or later. The ledger reads first
+  slice 7, golden shift 8, structural 84, runtime 52, cutover 107,
+  retirement 109, after the runtime-contract ledger stopped counting
+  captures as runtime proof (RUL-003). Selector v1, protected 17/17.
+- **Queue** (serial; from `design/ORISON_V2_INTERIM_MANAGEMENT_EVALUATION_2026-09-16.md` section 5):
+  ASTRA-RECONCILE-1 onto current main, then V2-FIRST-SLICE-REEARN (one real
+  schema-2 runtime contract), M11E-HYGIENE, M12A-STREET-THRESHOLD,
+  M12B-F03-SERVICE-HALL. In parallel, the Blender prop regeneration (RUL-006)
+  in waves from `design/PROP_MODELING_TEXTURING_BRIEF_2026-09-18.md`; before
+  shoots of every family at 733c1e5 are in
+  `C:/PleaseRemainOnTheLine-propref/art/renders/prop_review/`.
+- **Every candidate** is checked with `python tools/verify_candidate.py <sha>`
+  before merge.
+- **Open owner decisions:** the one-canonical-line ruling, the beat-4 part
+  source, human review of the M11C2 seam packet, light_provenance prose, and
+  the branch and worktree decisions in `design/REPO_HOUSEKEEPING_2026-09-19.md`
+  sections 2 to 4 (including work in the main checkout that exists in no ref).
 
 ## 2026-08-20 supersession note
 

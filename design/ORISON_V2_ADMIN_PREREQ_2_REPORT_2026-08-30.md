@@ -1,5 +1,7 @@
 # Orison v2 ADMIN-PREREQ-2 report — 2026-08-30
 
+Evidence class: **INERT - REPORT (header added 2026-09-19; the ledger does not admit this document by name)**
+
 Status: **PASS — DRY RUN MAY RESTART AT PHASE 0**
 
 Base: current `origin/main` at

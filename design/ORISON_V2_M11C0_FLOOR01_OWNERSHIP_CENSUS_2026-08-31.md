@@ -1,5 +1,7 @@
 # ORISON-V2-M11C0 floor_01 ownership census — 2026-08-31
 
+Evidence class: **INERT - CENSUS (header added 2026-09-19; the ledger does not admit this document by name)**
+
 ## Disposition
 
 This is a read-only census of the protected **floor_01.gltf/.bin**, its

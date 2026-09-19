@@ -1,5 +1,7 @@
 # Golden-shift run — owner deferral, 2026-08-29
 
+Evidence class: **INERT - DEFERRAL DECISION (header added 2026-09-19; the ledger does not admit this document by name)**
+
 **Owner decision, verbatim:** "owner deprioritized the golden-shift
 run; geometry rebuild takes priority; K2 runs after the floors land."
 

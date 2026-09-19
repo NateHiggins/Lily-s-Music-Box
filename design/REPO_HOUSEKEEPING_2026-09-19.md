@@ -110,6 +110,32 @@ main; "contained" means another kept branch holds every commit.
 - **The dream-voxel line's newest work is uncommitted** in C:/PleaseRemainOnTheLine-s2.
 - **codex/lamp-optical-voxel-field is local only.**
 
+## 5. Later the same day
+
+- **Copy-only snapshot of the work that exists in no ref.** Every modified
+  tracked file and untracked non-.uid file in the main checkout (2,081 files,
+  803 MB, on codex/dream-surface-s1 at 89ab096), the dream-voxel worktree
+  (149 files, 58 MB, codex/dream-voxel-v1 at efc5d61) and the s1f worktree
+  (119 files, 23 MB) was copied to
+  C:/PleaseRemainOnTheLine/.claude/worktree-archive/no-ref-snapshot-2026-09-19/
+  with a sha256 manifest and a patch of the tracked changes, zero mismatches.
+  The source trees were not modified (the main checkout's status was
+  byte-identical before and after). This is insurance, not a substitute for
+  committing that work to a branch.
+- **The held session worktrees carry no unique archive data.** All files
+  under their own .claude/worktree-archive (34, 34 and 10) are byte-identical
+  to files in the main checkout's archive. Removing them now depends only on
+  whether their sessions should be archived.
+- **Before shoots of every prop family** at 733c1e5: 69 specimens, 336
+  frames, receipt binds, in
+  C:/PleaseRemainOnTheLine-propref/art/renders/prop_review/all_2026-09-19/before
+  (Wave A alone is also at .../wave_a_2026-09-19/before).
+- **Evidence-class headers** added to twelve non-evidence v2 documents and to
+  the session plan; the one Astra's branch also edits
+  (ORISON_V2_SHARED_FRAMES_RULING) was left alone. DOCS.md gained rows for
+  AGENTS.md, the pipeline tools, the ledger, the rulings index and the prop
+  brief; design/next_session_plan.md gained a 2026-09-19 pickup.
+
 One triage agent wrote temporary status listings to its own session
 scratchpad, outside the repository; no repository, ref or worktree was
 changed by the triage.
