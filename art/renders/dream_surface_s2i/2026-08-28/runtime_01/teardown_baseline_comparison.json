@@ -1,0 +1,20 @@
+{
+  "probe": "identical Orison root + temporary shadowed spotlight + ordered light shutdown + root teardown",
+  "godot": "4.7.1.stable Forward+",
+  "clean_main": {
+    "worktree": "C:/PleaseRemainOnTheLine-cleanmain-lifecycle",
+    "commit": "e89fa608874fe2b75ecd0f0b52ab84829c884d82",
+    "exit_code": 0,
+    "light_index_diagnostics": 1264,
+    "instance_set_scenario": 632,
+    "instance_set_base": 632
+  },
+  "s2_branch_without_hero_assets": {
+    "branch": "codex/dream-surface-s2d",
+    "exit_code": 0,
+    "light_index_diagnostics": 1264,
+    "instance_set_scenario": 632,
+    "instance_set_base": 632
+  },
+  "conclusion": "The renderer cleanup diagnostic reproduces identically without S2H/S2I and is not introduced or amplified by the hero presentation integration."
+}

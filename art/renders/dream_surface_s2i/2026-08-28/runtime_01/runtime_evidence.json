@@ -1,0 +1,225 @@
+{
+	"captures": {
+		"01_plasmodium_close_gameplay_contact": {
+			"active_lod": 2,
+			"cpu_frame_ms": 0.607,
+			"cpu_presentation_ms": 0.003,
+			"draw_calls": 10,
+			"gpu_frame_ms": 0.328000009059906,
+			"material_count": 1,
+			"triangles_by_lod": [
+				11656,
+				4455,
+				1883
+			]
+		},
+		"02_transport_close_low_lod_contact": {
+			"active_lod": 3,
+			"cpu_frame_ms": 0.593,
+			"cpu_presentation_ms": 0.012,
+			"draw_calls": 15,
+			"gpu_frame_ms": 0.312000006437302,
+			"material_count": 3,
+			"triangles_by_lod": [
+				54230,
+				20722,
+				8754,
+				2125
+			]
+		},
+		"03_intact_cellular_front_side_back": {
+			"active_lod": 2,
+			"cpu_frame_ms": 0.588,
+			"cpu_presentation_ms": 0.011,
+			"draw_calls": 23,
+			"gpu_frame_ms": 0.30799999833107,
+			"material_count": 4,
+			"triangles_by_lod": [
+				15445,
+				6577,
+				3410
+			]
+		},
+		"04_examination_cutaway_physiology": {
+			"active_lod": 0,
+			"cpu_frame_ms": 0.779,
+			"cpu_presentation_ms": 0.012,
+			"draw_calls": 23,
+			"gpu_frame_ms": 0.492000013589859,
+			"material_count": 4,
+			"triangles_by_lod": [
+				15445,
+				6577,
+				3410
+			]
+		},
+		"05_cellular_body_natural_orison": {
+			"active_lod": 1,
+			"cpu_frame_ms": 6.503,
+			"cpu_presentation_ms": 0.017,
+			"draw_calls": 1737,
+			"gpu_frame_ms": 4.12799978256226,
+			"material_count": 4,
+			"triangles_by_lod": [
+				15445,
+				6577,
+				3410
+			]
+		}
+	},
+	"lod_policy": {
+		"hysteresis_m": 0.65,
+		"interior_thresholds_m": [
+			6.0,
+			15.0
+		],
+		"mode": "exclusive hysteresis",
+		"plasmodium_thresholds_m": [
+			6.0,
+			15.0
+		],
+		"transparent_overlap": false,
+		"transport_thresholds_m": [
+			4.5,
+			10.0,
+			19.0
+		]
+	},
+	"material_architecture": {
+		"alpha_layers": 0,
+		"outer_tissue": "opaque depth-writing SSS/backlight",
+		"render_priority_overrides": 0,
+		"tangent_space_maps": 0
+	},
+	"renderer": "forward_plus",
+	"resolution": "1600x900",
+	"shader_status": "opaque_sss_warmed_without_shader_errors",
+	"task": "DREAM-SURFACE-S2I",
+	"teardown": {
+		"ordered_light_shutdown": true,
+		"presenter_retained": false,
+		"render_objects": 14
+	},
+	"threshold_samples": {
+		"0": [
+			{
+				"active_lod": 0,
+				"sample_distance_m": 5.27,
+				"threshold_m": 6.0,
+				"visible_lod_roots": [
+					0
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 6.73,
+				"threshold_m": 6.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 14.27,
+				"threshold_m": 15.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 2,
+				"sample_distance_m": 15.73,
+				"threshold_m": 15.0,
+				"visible_lod_roots": [
+					2
+				]
+			}
+		],
+		"1": [
+			{
+				"active_lod": 0,
+				"sample_distance_m": 3.77,
+				"threshold_m": 4.5,
+				"visible_lod_roots": [
+					0
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 5.23,
+				"threshold_m": 4.5,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 9.27,
+				"threshold_m": 10.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 2,
+				"sample_distance_m": 10.73,
+				"threshold_m": 10.0,
+				"visible_lod_roots": [
+					2
+				]
+			},
+			{
+				"active_lod": 2,
+				"sample_distance_m": 18.27,
+				"threshold_m": 19.0,
+				"visible_lod_roots": [
+					2
+				]
+			},
+			{
+				"active_lod": 3,
+				"sample_distance_m": 19.73,
+				"threshold_m": 19.0,
+				"visible_lod_roots": [
+					3
+				]
+			}
+		],
+		"2": [
+			{
+				"active_lod": 0,
+				"sample_distance_m": 5.27,
+				"threshold_m": 6.0,
+				"visible_lod_roots": [
+					0
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 6.73,
+				"threshold_m": 6.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 14.27,
+				"threshold_m": 15.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 2,
+				"sample_distance_m": 15.73,
+				"threshold_m": 15.0,
+				"visible_lod_roots": [
+					2
+				]
+			}
+		]
+	},
+	"vram_furnished_room_bytes": 5613366688,
+	"vram_hero_delta_bytes": 4929040
+}

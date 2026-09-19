@@ -232,17 +232,24 @@ void vertex() {
 	float a = u * 6.2831853;
 	float distal = smoothstep(0.42, 0.94, v);
 	if (cellular_modality == 0) { // tactile: broad pressure pad + papillae
-		r *= 1.0 + distal * 0.42 + pow(max(0.0, sin(a * 7.0 + v * 34.0)), 8.0) * 0.16;
+		p = mix(spine[0], p, .68);
+		r = max(r, base_radius*.34) * (1.0 + smoothstep(.42,.82,v)*.82);
+		r += base_radius*.18*pow(max(0.0,sin(a*5.0)),10.0)*smoothstep(.45,.82,v);
 	} else if (cellular_modality == 1) { // chemical: thin radial sampling frill
-		r *= 0.82 + distal * (0.28 + 0.38 * pow(abs(sin(a * 5.0)), 3.0));
+		float branch = pow(max(0.0,cos(a*3.0 + floor(v*5.0)*1.7)),8.0);
+		r *= .68 + branch*(.55 + distal*.90);
 	} else if (cellular_modality == 2) { // thermal: stacked transverse lamellae
-		r *= 0.88 + distal * (0.18 + 0.32 * pow(max(0.0, sin(v * 92.0)), 5.0));
+		float sail = pow(max(0.0,sin(v*25.0)),5.0);
+		r *= .62 + sail*(.65 + distal*.65);
 	} else if (cellular_modality == 3) { // vibration: taut parallel ridges
-		r *= 0.76 + 0.23 * pow(abs(cos(a * 4.0)), 10.0);
+		p = mix(spine[0],p,.78);
+		r = max(r,base_radius*.18) * (.45 + 2.8*exp(-pow((v-.62)/.18,2.0)));
 	} else if (cellular_modality == 4) { // optical: lens-bearing distal bulb
-		r *= 0.74 + 1.05 * exp(-pow((v - 0.84) / 0.105, 2.0));
+		float lenses = exp(-pow((v-.62)/.07,2.0))+exp(-pow((v-.76)/.065,2.0))+exp(-pow((v-.90)/.055,2.0));
+		r *= .48 + lenses*1.55;
 	} else { // electrical: six continuous conductive rails
-		r *= 0.82 + 0.34 * pow(max(0.0, cos(a * 6.0)), 12.0);
+		float comb = pow(max(0.0,cos(a*2.0)),16.0) * (.45+.55*pow(abs(sin(v*42.0)),3.0));
+		r *= .52 + comb*1.8;
 	}
 	if (cellular_modality == 1) { p += sd * sin(v * 18.0) * distal * .030; }
 	if (cellular_modality == 3) { r *= .48; p += bn * sin(v * 46.0) * .010; }
@@ -252,9 +259,11 @@ void vertex() {
 	float ang = a + pr.z + station_roll * smoothstep(0.05, 0.35, v)
 			+ ventral_roll * smoothstep(0.45, 0.8, v);
 	vec3 radial = sd * cos(ang) * (1.0 + pr.y) + bn * sin(ang) * (1.0 - pr.y);
-	if (cellular_modality == 0) { radial = sd * cos(ang) * 1.85 + bn * sin(ang) * .48; }
-	if (cellular_modality == 2) { radial *= .72 + .75 * pow(max(0.0,sin(v*48.0)),8.0); }
+	if (cellular_modality == 0) { radial = sd * cos(ang) * 1.75 + bn * sin(ang) * .52; }
+	if (cellular_modality == 2) { radial = sd*cos(ang)*2.15 + bn*sin(ang)*.16; }
+	if (cellular_modality == 3) { radial = sd*cos(ang)*2.5 + bn*sin(ang)*.10; }
 	if (cellular_modality == 4) { radial = sd * cos(ang) + bn * sin(ang); }
+	if (cellular_modality == 5) { radial = sd*cos(ang)*1.55 + bn*sin(ang)*.28; }
 	vec3 nrm = normalize(sd * cos(ang) * (1.0 - pr.y) + bn * sin(ang) * (1.0 + pr.y));
 	vec3 world = p + radial * r;
 	VERTEX = world;

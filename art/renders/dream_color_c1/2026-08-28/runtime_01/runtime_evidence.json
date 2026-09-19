@@ -1,0 +1,80 @@
+{
+	"accessibility": {
+		"bloom_required": false,
+		"grayscale_from_same_linear_capture": true,
+		"red_green_only_states": false
+	},
+	"architecture": {
+		"gpu_readback_for_gameplay": false,
+		"new_simulation_authority": false,
+		"per_frame_textures": false,
+		"transparent_lod_overlap": false,
+		"whole_shell_alpha": false
+	},
+	"captures": {
+		"01_unstained_baseline_material_sheet": {
+			"cpu_frame_ms": 0.78,
+			"draw_calls": 23,
+			"gpu_frame_ms": 0.493000000715256,
+			"presentation_cpu_ms": 0.0
+		},
+		"02_process_color_flow_one_organism": {
+			"cpu_frame_ms": 0.801,
+			"draw_calls": 10,
+			"gpu_frame_ms": 0.517000019550323,
+			"presentation_cpu_ms": 0.0
+		},
+		"03_primary_phenotypes_neutral": {
+			"cpu_frame_ms": 19.789,
+			"draw_calls": 10,
+			"gpu_frame_ms": 17.7779998779297,
+			"presentation_cpu_ms": 0.0
+		},
+		"04_primary_phenotypes_grayscale": {
+			"cpu_frame_ms": 1.555,
+			"draw_calls": 10,
+			"gpu_frame_ms": 1.27100002765656,
+			"presentation_cpu_ms": 0.0
+		},
+		"05_fold_crab_crystal_orientation": {
+			"cpu_frame_ms": 1.507,
+			"draw_calls": 10,
+			"gpu_frame_ms": 1.21200001239777,
+			"presentation_cpu_ms": 0.0
+		},
+		"06_filament_daylight_dream_metamerism": {
+			"cpu_frame_ms": 0.787,
+			"draw_calls": 23,
+			"gpu_frame_ms": 0.497000008821487,
+			"presentation_cpu_ms": 0.0
+		},
+		"07_active_disturbed_senescent_residue": {
+			"cpu_frame_ms": 0.8,
+			"draw_calls": 10,
+			"gpu_frame_ms": 0.515999972820282,
+			"presentation_cpu_ms": 0.0
+		},
+		"08_furnished_orison_ecology": {
+			"cpu_frame_ms": 5.813,
+			"draw_calls": 1788,
+			"gpu_frame_ms": 4.00099992752075,
+			"presentation_cpu_ms": 0.02
+		}
+	},
+	"draw_call_delta": "captured_per_artifact",
+	"material_delta": {
+		"bounded_instance_uniforms": 3,
+		"new_unique_per_instance": 0,
+		"shared_shader_resources": 2
+	},
+	"renderer": "forward_plus",
+	"resolution": "1600x900",
+	"task": "DREAM-COLOR-C1",
+	"teardown": {
+		"baseline_equivalent": true,
+		"clean_main_diagnostic_count": 1264,
+		"ordered_light_shutdown": true
+	},
+	"vram_furnished_room_delta_bytes": 5231270288,
+	"vram_isolated_hero_delta_bytes": 6178992
+}

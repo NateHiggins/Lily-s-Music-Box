@@ -1,0 +1,114 @@
+{
+	"01_plasmodium_neutral_oblique": {
+		"cpu_frame_ms_median": 0.808,
+		"cpu_presentation_ms": 0.007,
+		"draw_calls": 10,
+		"gpu_frame_ms_median": 0.519999980926514,
+		"instance_count": 3,
+		"lod_root_count": 3,
+		"material_count": 1,
+		"png": "C:\\PleaseRemainOnTheLine-s2\\art\\renders\\dream_surface_s2h\\2026-08-28\\runtime_01/01_plasmodium_neutral_oblique.png",
+		"triangles_by_lod": [
+			11656,
+			4455,
+			1883
+		]
+	},
+	"02_plasmodium_gameplay_distance": {
+		"cpu_frame_ms_median": 0.664,
+		"cpu_presentation_ms": 0.008,
+		"draw_calls": 11,
+		"gpu_frame_ms_median": 0.375,
+		"instance_count": 3,
+		"lod_root_count": 3,
+		"material_count": 1,
+		"png": "C:\\PleaseRemainOnTheLine-s2\\art\\renders\\dream_surface_s2h\\2026-08-28\\runtime_01/02_plasmodium_gameplay_distance.png",
+		"triangles_by_lod": [
+			11656,
+			4455,
+			1883
+		]
+	},
+	"03_transport_close_cargo_traversal": {
+		"cpu_frame_ms_median": 0.907,
+		"cpu_presentation_ms": 0.023,
+		"draw_calls": 21,
+		"gpu_frame_ms_median": 0.616999983787537,
+		"instance_count": 24,
+		"lod_root_count": 4,
+		"material_count": 3,
+		"png": "C:\\PleaseRemainOnTheLine-s2\\art\\renders\\dream_surface_s2h\\2026-08-28\\runtime_01/03_transport_close_cargo_traversal.png",
+		"triangles_by_lod": [
+			54250,
+			20742,
+			8774,
+			2144
+		]
+	},
+	"04_transport_production_distance": {
+		"cpu_frame_ms_median": 0.647,
+		"cpu_presentation_ms": 0.025,
+		"draw_calls": 15,
+		"gpu_frame_ms_median": 0.360000014305115,
+		"instance_count": 24,
+		"lod_root_count": 4,
+		"material_count": 3,
+		"png": "C:\\PleaseRemainOnTheLine-s2\\art\\renders\\dream_surface_s2h\\2026-08-28\\runtime_01/04_transport_production_distance.png",
+		"triangles_by_lod": [
+			54250,
+			20742,
+			8774,
+			2144
+		]
+	},
+	"05_cellular_interior_front_side_lit": {
+		"cpu_frame_ms_median": 0.857,
+		"cpu_presentation_ms": 0.027,
+		"draw_calls": 35,
+		"gpu_frame_ms_median": 0.569999992847443,
+		"instance_count": 42,
+		"lod_root_count": 3,
+		"material_count": 4,
+		"png": "C:\\PleaseRemainOnTheLine-s2\\art\\renders\\dream_surface_s2h\\2026-08-28\\runtime_01/05_cellular_interior_front_side_lit.png",
+		"triangles_by_lod": [
+			15445,
+			6577,
+			3410
+		]
+	},
+	"06_cellular_interior_backlit_orison_room": {
+		"cpu_frame_ms_median": 6.166,
+		"cpu_presentation_ms": 0.036,
+		"draw_calls": 1517,
+		"gpu_frame_ms_median": 4.59499979019165,
+		"instance_count": 42,
+		"lod_root_count": 3,
+		"material_count": 4,
+		"png": "C:\\PleaseRemainOnTheLine-s2\\art\\renders\\dream_surface_s2h\\2026-08-28\\runtime_01/06_cellular_interior_backlit_orison_room.png",
+		"triangles_by_lod": [
+			15445,
+			6577,
+			3410
+		]
+	},
+	"cold_startup_ms": 77.987,
+	"furnished_room_vram_delta_bytes": 5231644896,
+	"lod_transition": {
+		"fade_mode": "self_dither",
+		"margin_m": 0.7,
+		"overlap_verified": true
+	},
+	"renderer": "forward_plus",
+	"resolution": "(1600.0, 900.0)",
+	"shader_compilation_status": "warmed_without_rendering_errors",
+	"shader_warm_frames": 6,
+	"teardown_retention": {
+		"expected": false,
+		"retained_presenter": false
+	},
+	"vram_after_bytes": 5639194464,
+	"vram_after_heroes_bytes": 407549568,
+	"vram_before_bytes": 396064240,
+	"vram_delta_bytes": 11485328,
+	"warm_startup_ms": 3.929
+}

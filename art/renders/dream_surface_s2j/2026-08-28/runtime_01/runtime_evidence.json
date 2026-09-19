@@ -1,0 +1,203 @@
+{
+	"captures": {
+		"01_plasmodium_close_gameplay_contact": {
+			"active_lod": 0,
+			"cpu_frame_ms": 0.619,
+			"cpu_presentation_ms": 0.005,
+			"draw_calls": 10,
+			"gpu_frame_ms": 0.330000013113022,
+			"material_count": 1,
+			"triangles_by_lod": [
+				11656,
+				4455,
+				1883
+			]
+		},
+		"02_transport_close_production_contact": {
+			"active_lod": 0,
+			"cpu_frame_ms": 0.61,
+			"cpu_presentation_ms": 0.014,
+			"draw_calls": 15,
+			"gpu_frame_ms": 0.319000005722046,
+			"material_count": 3,
+			"triangles_by_lod": [
+				54230,
+				20722,
+				8754,
+				2125
+			]
+		},
+		"03_intact_cellular_front_side_back": {
+			"active_lod": 0,
+			"cpu_frame_ms": 0.616,
+			"cpu_presentation_ms": 0.011,
+			"draw_calls": 23,
+			"gpu_frame_ms": 0.33500000834465,
+			"material_count": 5,
+			"triangles_by_lod": [
+				15445,
+				6577,
+				3410
+			]
+		},
+		"04_examination_and_natural_orison": {
+			"active_lod": 1,
+			"cpu_frame_ms": 0.579,
+			"cpu_presentation_ms": 0.013,
+			"draw_calls": 15,
+			"gpu_frame_ms": 0.312999993562698,
+			"material_count": 5,
+			"triangles_by_lod": [
+				15445,
+				6577,
+				3410
+			]
+		}
+	},
+	"lod_policy": {
+		"hysteresis_m": 0.65,
+		"mode": "exclusive hysteresis",
+		"transparent_lod_overlap": false
+	},
+	"material_architecture": {
+		"bounded_window_materials": 1,
+		"opaque_depth_writing_roles": 5,
+		"overlapping_transparent_shells": 0,
+		"render_priority_overrides": 0,
+		"uv_or_tangent_dependency": false,
+		"window_count": 3,
+		"window_render_mode": "depth_prepass_alpha"
+	},
+	"renderer": "forward_plus",
+	"resolution": "1600x900",
+	"shader_status": "object_space_cellular_and_bounded_window_shaders_warmed",
+	"task": "DREAM-SURFACE-S2J",
+	"teardown": {
+		"baseline_equivalent": true,
+		"clean_main_diagnostic_count": 1264,
+		"ordered_light_shutdown": true,
+		"s2_without_heroes_diagnostic_count": 1264
+	},
+	"threshold_samples": {
+		"0": [
+			{
+				"active_lod": 0,
+				"sample_distance_m": 5.27,
+				"threshold_m": 6.0,
+				"visible_lod_roots": [
+					0
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 6.73,
+				"threshold_m": 6.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 14.27,
+				"threshold_m": 15.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 2,
+				"sample_distance_m": 15.73,
+				"threshold_m": 15.0,
+				"visible_lod_roots": [
+					2
+				]
+			}
+		],
+		"1": [
+			{
+				"active_lod": 0,
+				"sample_distance_m": 3.77,
+				"threshold_m": 4.5,
+				"visible_lod_roots": [
+					0
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 5.23,
+				"threshold_m": 4.5,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 9.27,
+				"threshold_m": 10.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 2,
+				"sample_distance_m": 10.73,
+				"threshold_m": 10.0,
+				"visible_lod_roots": [
+					2
+				]
+			},
+			{
+				"active_lod": 2,
+				"sample_distance_m": 18.27,
+				"threshold_m": 19.0,
+				"visible_lod_roots": [
+					2
+				]
+			},
+			{
+				"active_lod": 3,
+				"sample_distance_m": 19.73,
+				"threshold_m": 19.0,
+				"visible_lod_roots": [
+					3
+				]
+			}
+		],
+		"2": [
+			{
+				"active_lod": 0,
+				"sample_distance_m": 5.27,
+				"threshold_m": 6.0,
+				"visible_lod_roots": [
+					0
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 6.73,
+				"threshold_m": 6.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 1,
+				"sample_distance_m": 14.27,
+				"threshold_m": 15.0,
+				"visible_lod_roots": [
+					1
+				]
+			},
+			{
+				"active_lod": 2,
+				"sample_distance_m": 15.73,
+				"threshold_m": 15.0,
+				"visible_lod_roots": [
+					2
+				]
+			}
+		]
+	},
+	"vram_furnished_room_bytes": 5625950048,
+	"vram_hero_delta_bytes": 2333954800
+}

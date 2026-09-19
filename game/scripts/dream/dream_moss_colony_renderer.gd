@@ -88,9 +88,11 @@ func _build_materials() -> void:
 	_phenotype = PhenotypeScript.profile(PhenotypeScript.Kind.MOSS, int(colony.seed))
 	_heart_material = _cell_material(1.0)
 	_network_material = _cell_material(0.0)
+	_heart_material.set_shader_parameter("tissue_alpha", .92)
+	_network_material.set_shader_parameter("tissue_alpha", .98)
 	_cilia_material = ShaderMaterial.new()
 	_cilia_material.shader = CILIA_SHADER
-	_ether_material = _material(Color(0.46, 0.18, 0.68, 0.16), Color(0.20, 0.05, 0.36), 0.20, 0.16)
+	_ether_material = _material(Color(0.20, 0.52, 0.48, 0.44), Color(0.08, 0.24, 0.22), 0.26, 0.10)
 	_pulse_material = _cell_material(2.0)
 	_protein_material = _cell_material(2.0)
 
@@ -170,13 +172,7 @@ func _build_cilia() -> void:
 func _build_cilia_carpet() -> void:
 	_cilia_carpet = MultiMeshInstance3D.new()
 	_cilia_carpet.name = "CiliaryCarpet"
-	var ribbon := CylinderMesh.new()
-	ribbon.top_radius = 0.001
-	ribbon.bottom_radius = 0.0045
-	ribbon.height = 0.085
-	ribbon.radial_segments = 3
-	ribbon.rings = 1
-	ribbon.material = _cilia_material
+	var ribbon := _curved_cilia_cluster_mesh()
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.use_custom_data = true
@@ -317,9 +313,9 @@ func _animate_cilia() -> void:
 		var wave := sin(_clock * 3.1 + radius * 18.0 + angle * 2.0) * 0.30
 		var disturbed: float = float(colony.disturbance) * sin(float(i) * 2.31) * 0.55
 		var basis := Basis(Vector3.UP, angle + floor(angle / (PI * 0.5)) * 0.17 + wave + disturbed)
-		basis = basis.rotated(Vector3.RIGHT, 0.18 + wave * 0.22)
-		basis = basis.scaled(Vector3(0.72, 0.70 + 0.46 * _hash01(i * 43 + colony.seed), 0.72))
-		var at: Vector3 = Vector3(cos(angle), 0.0, sin(angle)) * radius + Vector3.UP * 0.043
+		basis = basis.rotated(Vector3.RIGHT, 0.06 + wave * 0.12)
+		basis = basis.scaled(Vector3(0.72, 0.62 + 0.38 * _hash01(i * 43 + colony.seed), 0.72))
+		var at: Vector3 = Vector3(cos(angle), 0.0, sin(angle)) * radius + Vector3.UP * 0.036
 		_cilia_carpet.multimesh.set_instance_transform(i, Transform3D(basis, at))
 		_cilia_carpet.multimesh.set_instance_custom_data(i, Color(u, v, float(i % 7) / 6.0, 1.0))
 
@@ -382,6 +378,17 @@ func _animate_ether() -> void:
 	for i in count:
 		var u := _hash01(i * 73 + colony.seed)
 		var v := _hash01(i * 151 + colony.seed * 3)
+		if i < 12:
+			# Suspended vesicles and contractile vacuoles share the existing
+			# bounded ether batch, but live beneath the translucent heart skin.
+			var inner_angle := u*TAU + _clock*(.04+.01*float(i%3))
+			var inner_radius := .04 + v*.16
+			var inner := Vector3(cos(inner_angle)*inner_radius,
+					.025 + .018*sin(_clock*.6+float(i)),sin(inner_angle)*inner_radius*.72)
+			var inner_size := 1.15 + float(i%4)*.38
+			_ether.multimesh.set_instance_transform(i,
+					Transform3D(Basis.IDENTITY.scaled(Vector3(inner_size,inner_size*(1.0+float(i%2)),inner_size)),inner))
+			continue
 		var angle := u * TAU + _clock * (0.07 + 0.02 * float(i % 4))
 		var radius := extent * (0.18 + 0.76 * v)
 		var at := Vector3(cos(angle) * radius,
@@ -439,35 +446,131 @@ func _rebuild_sheet() -> void:
 		return
 	var mesh := ImmediateMesh.new()
 	mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES, _network_material)
-	var lobes := 48
 	var phase_scale: float = [0.20, 0.28, 0.36, 0.45, 0.54, 0.64,
 		0.58, 0.50, 0.40, 0.30, 0.0][clampi(colony.phase, 0, 10)]
-	for i in lobes:
-		var a0 := TAU * float(i) / float(lobes)
-		var a1 := TAU * float(i + 1) / float(lobes)
-		var branch0 := 0.68 + 0.24 * _hash01(i * 97 + colony.seed)
-		var branch1 := 0.68 + 0.24 * _hash01((i + 1) * 97 + colony.seed)
-		if i % 11 == 0: branch0 *= 1.18
-		if (i + 1) % 11 == 0: branch1 *= 1.18
-		var r0 := phase_scale * branch0
-		var r1 := phase_scale * branch1
-		var inner0 := Vector3(cos(a0) * minf(0.20, r0 * 0.55), 0.048 + 0.009 * sin(a0 * 3.0), sin(a0) * minf(0.20, r0 * 0.55))
-		var inner1 := Vector3(cos(a1) * minf(0.20, r1 * 0.55), 0.048 + 0.009 * sin(a1 * 3.0), sin(a1) * minf(0.20, r1 * 0.55))
-		var outer0 := Vector3(cos(a0) * r0, 0.012 + 0.040 * branch0, sin(a0) * r0)
-		var outer1 := Vector3(cos(a1) * r1, 0.012 + 0.040 * branch1, sin(a1) * r1)
-		_add_sheet_tri(mesh, Vector3(0, 0.075, 0), inner0, inner1)
-		_add_sheet_tri(mesh, inner0, outer0, outer1)
-		_add_sheet_tri(mesh, inner0, outer1, inner1)
+	# One sampled implicit body forms every lobe and saddle.  This keeps the
+	# plasmodium watertight-looking: there are no stacked pads or intersection
+	# seams, while distal low fields naturally become thin pseudopod fans.
+	var lobes := [
+		[Vector3(-.03,.044,.01), Vector3(.25,.050,.21)],
+		[Vector3(.14,.036,.05), Vector3(.20,.036,.15)],
+		[Vector3(.31,.031,.11), Vector3(.24,.030,.14)],
+		[Vector3(.50,.022,.16), Vector3(.30,.018,.18)],
+		[Vector3(.66,.014,.12), Vector3(.25,.010,.23)],
+		[Vector3(-.16,.034,.10), Vector3(.20,.032,.14)],
+		[Vector3(-.32,.027,.21), Vector3(.25,.024,.16)],
+		[Vector3(-.49,.016,.34), Vector3(.28,.012,.22)],
+		[Vector3(-.04,.033,-.15), Vector3(.17,.030,.20)],
+		[Vector3(-.10,.024,-.33), Vector3(.20,.020,.25)],
+		[Vector3(.03,.014,-.52), Vector3(.30,.011,.22)],
+		[Vector3(.25,.019,-.20), Vector3(.19,.017,.14)],
+	]
+	_append_fused_plasmodium(mesh, lobes, phase_scale / .64)
 	mesh.surface_end()
 	_sheet.mesh = mesh
 
 
+func _append_fused_plasmodium(mesh: ImmediateMesh, lobes: Array, spread: float) -> void:
+	const CELLS := 54
+	const MIN_X := -0.78
+	const MAX_X := 0.88
+	const MIN_Z := -0.77
+	const MAX_Z := 0.55
+	for zi in CELLS:
+		for xi in CELLS:
+			var x0 := lerpf(MIN_X, MAX_X, float(xi) / CELLS)
+			var x1 := lerpf(MIN_X, MAX_X, float(xi + 1) / CELLS)
+			var z0 := lerpf(MIN_Z, MAX_Z, float(zi) / CELLS)
+			var z1 := lerpf(MIN_Z, MAX_Z, float(zi + 1) / CELLS)
+			var samples := [Vector2(x0,z0),Vector2(x1,z0),Vector2(x1,z1),Vector2(x0,z1)]
+			var fields: Array[float] = []
+			for sample in samples: fields.append(_plasmodium_field(sample,lobes,spread))
+			if fields.max() < .34: continue
+			var points: Array[Vector3] = []
+			for i in 4:
+				var edge := smoothstep(.34,.56,fields[i])
+				var height := .004 + edge * (.015 + minf(fields[i],1.45)*.026)
+				points.append(Vector3(samples[i].x,height,samples[i].y))
+			_add_sheet_tri(mesh,points[0],points[1],points[2])
+			_add_sheet_tri(mesh,points[0],points[2],points[3])
+
+
+func _plasmodium_field(point: Vector2, lobes: Array, spread: float) -> float:
+	var field := 0.0
+	for record in lobes:
+		var center: Vector3 = record[0] * Vector3(spread,1.0,spread)
+		var radii: Vector3 = record[1] * Vector3(spread,1.0,spread)
+		var dx := (point.x-center.x)/maxf(radii.x,.01)
+		var dz := (point.y-center.z)/maxf(radii.z,.01)
+		field += exp(-(dx*dx+dz*dz)*1.32)
+	return field
+
+
 func _add_sheet_tri(mesh: ImmediateMesh, a: Vector3, b: Vector3, c: Vector3) -> void:
 	var normal := (b - a).cross(c - a).normalized()
+	if normal.y < 0.0: normal = -normal
 	for point in [a, b, c]:
 		mesh.surface_set_normal(normal)
 		mesh.surface_set_uv(Vector2(point.x, point.z))
 		mesh.surface_add_vertex(point)
+
+
+func _append_sheet_ellipsoid(mesh: ImmediateMesh, center: Vector3, radii: Vector3,
+		sides: int, rings: int) -> void:
+	for ring in rings:
+		var v0 := float(ring) / float(rings)
+		var v1 := float(ring + 1) / float(rings)
+		var p0 := -PI * .5 + v0 * PI
+		var p1 := -PI * .5 + v1 * PI
+		for side_i in sides:
+			var u0 := float(side_i) / float(sides)
+			var u1 := float(side_i + 1) / float(sides)
+			var a0 := u0 * TAU
+			var a1 := u1 * TAU
+			var pa := center + Vector3(cos(p0)*cos(a0),sin(p0),cos(p0)*sin(a0))*radii
+			var pb := center + Vector3(cos(p0)*cos(a1),sin(p0),cos(p0)*sin(a1))*radii
+			var pc := center + Vector3(cos(p1)*cos(a1),sin(p1),cos(p1)*sin(a1))*radii
+			var pd := center + Vector3(cos(p1)*cos(a0),sin(p1),cos(p1)*sin(a0))*radii
+			_add_smooth_sheet_tri(mesh, pa, pb, pc, center, radii)
+			_add_smooth_sheet_tri(mesh, pa, pc, pd, center, radii)
+
+
+func _add_smooth_sheet_tri(mesh: ImmediateMesh, a: Vector3, b: Vector3, c: Vector3,
+		center: Vector3, radii: Vector3) -> void:
+	for point in [a,b,c]:
+		var local: Vector3 = point - center
+		mesh.surface_set_normal(Vector3(local.x/(radii.x*radii.x),
+				local.y/(radii.y*radii.y),local.z/(radii.z*radii.z)).normalized())
+		mesh.surface_set_uv(Vector2(point.x,point.z))
+		mesh.surface_add_vertex(point)
+
+
+func _curved_cilia_cluster_mesh() -> ImmediateMesh:
+	var mesh := ImmediateMesh.new()
+	mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES, _cilia_material)
+	for strand in 7:
+		var offset := (float(strand)-3.0)*.009
+		for segment in 5:
+			var t0 := float(segment)/5.0
+			var t1 := float(segment+1)/5.0
+			var strand_phase := (float(strand)-3.0)*.47
+			var y0 := t0*.062*(.88+float(strand%2)*.12)
+			var y1 := t1*.062*(.88+float(strand%2)*.12)
+			var w0 := lerpf(.0018,.00018,t0)
+			var w1 := lerpf(.0018,.00018,t1)
+			var c0 := Vector3(offset + sin(t0*1.7+strand_phase)*t0*.010,y0,sin(t0*PI+strand_phase)*.014)
+			var c1 := Vector3(offset + sin(t1*1.7+strand_phase)*t1*.010,y1,sin(t1*PI+strand_phase)*.014)
+			for record in [[c0-Vector3(w0,0,0),Vector2(0,t0)],
+					[c0+Vector3(w0,0,0),Vector2(1,t0)],
+					[c1+Vector3(w1,0,0),Vector2(1,t1)],
+					[c0-Vector3(w0,0,0),Vector2(0,t0)],
+					[c1+Vector3(w1,0,0),Vector2(1,t1)],
+					[c1-Vector3(w1,0,0),Vector2(0,t1)]]:
+				mesh.surface_set_normal(Vector3.FORWARD)
+				mesh.surface_set_uv(record[1])
+				mesh.surface_add_vertex(record[0])
+	mesh.surface_end()
+	return mesh
 
 
 func _append_branch(mesh: ImmediateMesh, a: Vector3, b: Vector3,

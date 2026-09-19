@@ -1,12 +1,12 @@
 shader_type spatial;
-render_mode cull_disabled, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, sss_mode_skin;
+render_mode cull_disabled, depth_prepass_alpha, diffuse_burley, specular_schlick_ggx, sss_mode_skin;
 
 #include "res://shaders/dream_cellular_surface.gdshaderinc"
 
-uniform vec3 membrane_dark : source_color = vec3(.12,.014,.15);
-uniform vec3 membrane_lit : source_color = vec3(.56,.07,.58);
-uniform vec3 cytoplasm_color : source_color = vec3(.92,.20,.72);
-uniform vec3 signal_color : source_color = vec3(.88,.50,1.0);
+uniform vec3 membrane_dark : source_color = vec3(.16,.155,.125);
+uniform vec3 membrane_lit : source_color = vec3(.53,.50,.40);
+uniform vec3 cytoplasm_color : source_color = vec3(.48,.41,.24);
+uniform vec3 signal_color : source_color = vec3(.58,.28,.065);
 uniform vec4 cellular_phenotype = vec4(.78,.48,.88,.42);
 uniform vec4 cellular_state_a = vec4(.5,0.,1.,0.);
 uniform vec4 cellular_state_b = vec4(0.,.5,0.,0.);
@@ -15,6 +15,8 @@ uniform float cellular_seed = 0.0;
 uniform float cellular_time = 0.0;
 uniform float membrane_role = 0.0; // 0 network, 1 heart, 2 cargo/protein
 uniform int optics_mode = 0; // 0 native, 1 phase, 2 DIC, 3 backlight, 4 fluorescence
+uniform bool cellular_grayscale = false;
+uniform float tissue_alpha : hint_range(0.35,1.0) = 1.0;
 
 varying vec3 cell_pos;
 varying vec3 cell_nrm;
@@ -51,25 +53,31 @@ void fragment() {
 	color += signal_color * (membrane.z * .22 + transport.x * .65 + transport.y * .18 + transport.z * .45);
 	color = mix(color, color * .28, vacuoles * (.48 + .30 * cellular_state_a.x));
 	color += cytoplasm_color * vesicles * .38 + signal_color * filaments * transport.x * .22;
-	color = mix(color, vec3(.12,.055,.075), cellular_state_c.x * .64 + cellular_state_c.y * .32);
+	color = mix(color, vec3(.34,.30,.20), cellular_state_c.x * .64 + cellular_state_c.y * .32);
 	if (optics_mode == 1) {
 		float phase_edge = pow(1.0 - abs(dot(normalize(cell_nrm), view)), 3.0);
-		color = mix(vec3(dot(color,vec3(.299,.587,.114))), vec3(.35,.20,.48), phase_edge * .55);
+		color = mix(vec3(dot(color,vec3(.299,.587,.114))), vec3(.46,.45,.38), phase_edge * .55);
 	} else if (optics_mode == 2) {
 		float shear = dot(normalize(cell_nrm), normalize(vec3(.72,.18,.66)));
-		color = vec3(.35) + vec3(.30,.20,.38) * shear + color * .42;
+		color = vec3(.35) + vec3(.18,.16,.10) * shear + color * .42;
 	} else if (optics_mode == 3) {
 		float absorption = clamp(vacuoles * .72 + filaments * .30 + thickness * .22,0.,1.);
-		color = mix(vec3(.62,.18,.32), vec3(.045,.004,.07), absorption);
+		color = mix(vec3(.48,.42,.28), vec3(.045,.050,.045), absorption);
 	} else if (optics_mode == 4) {
-		color = vec3(.008,.012,.018) + vec3(.15,.95,.68) * vesicles + vec3(.88,.12,1.) * transport.x;
+		color = vec3(.008,.012,.018) + vec3(.18,.34,.28) * vesicles + vec3(.25,.42,.52) * transport.x;
 	}
 	ALBEDO = color;
 	ROUGHNESS = clamp(.62 - membrane.z * .22 + cellular_state_c.x * .28, .20, .92);
 	METALLIC = .03 + transport.y * .10;
 	SSS_STRENGTH = clamp(.16 + membrane.w * .48 - cellular_state_c.x * .12,0.,.7);
 	EMISSION = signal_color * (membrane.z * .12 + transport.x * .30 + transport.z * .22) * (1.0 - cellular_state_c.y);
-	if (optics_mode == 3) { BACKLIGHT = vec3(.28,.035,.10) * (1.0 - vacuoles * .72); }
+	if (optics_mode == 3) { BACKLIGHT = vec3(.16,.13,.075) * (1.0 - vacuoles * .72); }
 	if (optics_mode == 4) { EMISSION += color * .72; }
-	ALPHA = 1.0;
+	if (cellular_grayscale) {
+		float gray = dot(ALBEDO,vec3(.299,.587,.114));
+		ALBEDO = vec3(gray);
+		EMISSION = vec3(dot(EMISSION,vec3(.299,.587,.114)));
+		METALLIC = 0.0;
+	}
+	ALPHA = tissue_alpha;
 }

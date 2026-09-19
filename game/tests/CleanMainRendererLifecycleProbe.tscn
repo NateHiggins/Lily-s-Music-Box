@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://tests/clean_main_renderer_lifecycle_probe.gd" type="Script" id="1"]
+
+[node name="CleanMainRendererLifecycleProbe" type="Node3D"]
+script = ExtResource("1")

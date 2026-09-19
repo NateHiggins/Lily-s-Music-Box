@@ -57,6 +57,9 @@ func _build_stage() -> void:
 
 func _run() -> void:
 	match OS.get_environment("S1F_MATRIX_MODE"):
+		"s2e_review": await _s2e_review()
+		"s2d_review": await _s2d_review()
+		"s2d_graybox": await _s2d_graybox()
 		"s2_review": await _s2_review()
 		"tentacles": await _tentacle_matrix()
 		"crystal": await _crystal_matrix()
@@ -64,6 +67,275 @@ func _run() -> void:
 	print("[S1F MATRIX] PASS %d -> %s" % [frames, out_dir])
 	await _teardown()
 	get_tree().quit(failures)
+
+
+func _s2e_review() -> void:
+	colony.register_route("feed_main","s2e",[Vector3.ZERO,Vector3(.15,0,.03),Vector3(.31,0,.10),Vector3(.50,0,.16),Vector3(.72,0,.11)])
+	colony.register_route("feed_split","s2e",[Vector3(.15,0,.03),Vector3(.23,0,-.09),Vector3(.08,0,-.29),Vector3(.04,0,-.55)])
+	colony.register_route("feed_loop","s2e",[Vector3(-.48,0,.34),Vector3(-.30,0,.19),Vector3(-.16,0,.08),Vector3(.02,0,.01),Vector3(.18,0,.08)])
+	await _stage_mature()
+	renderer._proteins.visible=false; renderer._ether.visible=false
+	renderer._cilia.visible=false; renderer._cilia_carpet.visible=false
+	renderer._heart.visible=false; renderer._network.visible=false
+	renderer._sheet.material_override=renderer._heart_material
+	_stage_fused_channels()
+	camera.position=Vector3(.94,.58,1.08); camera.look_at(Vector3(0,.035,0))
+	await _capture("01_fused_mature_moss_macro",24)
+	_stage_embedded_gate()
+	camera.position=Vector3(.34,.17,.43); camera.look_at(Vector3(0,.018,0))
+	await _capture("02_embedded_gate_directional_cargo",18)
+	_stage_organized_interior()
+	camera.position=Vector3(.04,.28,.67); camera.look_at(Vector3(0,.045,0))
+	await _capture("03_backlit_organized_internal_physiology",24)
+
+
+func _s2d_graybox() -> void:
+	_neutralize_stage()
+	for _i in 12: colony.spawn(Colony.OrganismClass.CILIUM, Vector3.ZERO)
+	colony.register_route("feeding_a", "gray", [Vector3.ZERO,Vector3(.22,0,.05),Vector3(.48,0,.16),Vector3(.72,0,.11)])
+	colony.register_route("feeding_b", "gray", [Vector3.ZERO,Vector3(-.20,0,.12),Vector3(-.46,0,.34)])
+	colony.register_route("feeding_c", "gray", [Vector3.ZERO,Vector3(-.05,0,-.27),Vector3(.04,0,-.55)])
+	await _stage_mature()
+	for material in [renderer._heart_material,renderer._network_material,renderer._protein_material]:
+		material.set_shader_parameter("cellular_grayscale",true)
+	renderer._cilia.visible=false; renderer._cilia_carpet.visible=false
+	renderer._proteins.visible=false; renderer._ether.visible=false
+	camera.position=Vector3(.92,.62,1.08); camera.look_at(Vector3(0,.045,0))
+	await _capture("01_moss_silhouette",20)
+	renderer._cilia_carpet.visible=true
+	camera.position=Vector3(.48,.22,.55); camera.look_at(Vector3(0,.055,0))
+	await _capture("02_cilia_silhouette",16)
+	renderer.visible=false
+	await _stage_modality_row()
+	camera.position=Vector3(0,1.55,2.40); camera.look_at(Vector3(0,.22,0))
+	await _capture("03_modality_silhouettes",20)
+
+
+func _s2d_review() -> void:
+	for _i in 12: colony.spawn(Colony.OrganismClass.CILIUM,Vector3.ZERO)
+	colony.register_route("feeding_a","review",[Vector3.ZERO,Vector3(.16,0,.03),Vector3(.31,0,.10),Vector3(.49,0,.16),Vector3(.72,0,.11)])
+	colony.register_route("feeding_b","review",[Vector3.ZERO,Vector3(-.16,0,.08),Vector3(-.30,0,.19),Vector3(-.48,0,.34)])
+	colony.register_route("feeding_c","review",[Vector3.ZERO,Vector3(-.03,0,-.15),Vector3(-.10,0,-.32),Vector3(.04,0,-.55)])
+	await _stage_mature()
+	renderer._proteins.visible=false; renderer._ether.visible=false
+	renderer._cilia.visible=false; renderer._cilia_carpet.visible=false
+	camera.position=Vector3(.92,.57,1.05); camera.look_at(Vector3(0,.045,0))
+	await _capture("01_mature_moss_macro",22)
+	renderer._cilia_carpet.visible=true
+	camera.position=Vector3(.46,.20,.52); camera.look_at(Vector3(0,.055,0))
+	await _capture("02_dense_cilia_macro",18)
+	_stage_gate_sequence()
+	camera.position=Vector3(.36,.29,.39); camera.look_at(Vector3(0,.075,0))
+	await _capture("03_membrane_gate_cargo_sequence",20)
+	renderer.visible=false
+	await _stage_modality_row()
+	camera.position=Vector3(0,1.55,2.40); camera.look_at(Vector3(0,.22,0))
+	await _capture("04_six_modalities_grayscale",22)
+	for tentacle in tentacles: tentacle.visible=false
+	renderer.set_process(true)
+	renderer.visible=true; renderer._heart.visible=true; renderer._sheet.visible=true
+	renderer._network.visible=true; renderer._proteins.visible=false
+	renderer._cilia.visible=false; renderer._cilia_carpet.visible=false; renderer._ether.visible=true
+	renderer._heart_material.set_shader_parameter("tissue_alpha",.52)
+	renderer._network_material.set_shader_parameter("tissue_alpha",.62)
+	renderer._network.position.y=-.028
+	_set_moss_optics(3)
+	for child in get_children():
+		if child is WorldEnvironment:
+			child.environment.ambient_light_energy=.20
+		elif child is Light3D:
+			child.light_energy=.42
+	for _i in 45: renderer._process(1.0/60.0)
+	camera.position=Vector3(.02,.31,.66); camera.look_at(Vector3(0,.045,0))
+	await _capture("05_backlit_internal_physiology",24)
+	_set_moss_optics(0)
+	await _capture_orison_room()
+
+
+func _stage_gate_sequence() -> void:
+	renderer.set_process(false)
+	renderer._cilia_carpet.visible=false; renderer._proteins.visible=true
+	renderer._ether.visible=true; renderer._network.visible=false; renderer._sheet.visible=false
+	renderer._proteins.multimesh.visible_instance_count=7
+	for i in 7:
+		var basis:=Basis.IDENTITY.scaled(Vector3.ONE*(2.8 if i==0 else .62))
+		var at:=Vector3(0,.085,0) if i==0 else Vector3(cos(float(i-1)*TAU/6.0)*.095,.078,sin(float(i-1)*TAU/6.0)*.095)
+		renderer._proteins.multimesh.set_instance_transform(i,Transform3D(basis,at))
+	renderer._ether.multimesh.visible_instance_count=9
+	for i in 9:
+		var progress:=float(i)/8.0
+		var at:=Vector3(lerpf(-.27,.27,progress),.105+.018*sin(progress*PI),.0)
+		var scale:=.28+.15*sin(progress*PI)
+		renderer._ether.multimesh.set_instance_transform(i,Transform3D(Basis.IDENTITY.scaled(Vector3.ONE*scale),at))
+
+
+func _clear_s2e_stage() -> void:
+	for child in get_children():
+		if child.is_in_group("s2e_stage"): child.queue_free()
+
+
+func _stage_material(color: Color, emission := Color.BLACK) -> StandardMaterial3D:
+	var material := StandardMaterial3D.new()
+	material.albedo_color=color; material.roughness=.48; material.metallic=.05
+	if color.a < .99:
+		material.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+		material.depth_draw_mode=BaseMaterial3D.DEPTH_DRAW_ALWAYS
+	if emission != Color.BLACK:
+		material.emission_enabled=true; material.emission=emission; material.emission_energy_multiplier=.7
+	return material
+
+
+func _stage_mesh(mesh: PrimitiveMesh, at: Vector3, material: Material, scale := Vector3.ONE) -> MeshInstance3D:
+	var node:=MeshInstance3D.new(); node.mesh=mesh; node.position=at; node.scale=scale
+	node.material_override=material; node.add_to_group("s2e_stage"); add_child(node)
+	return node
+
+
+func _stage_tube(a: Vector3,b: Vector3,radius: float,material: Material) -> MeshInstance3D:
+	var mesh:=CylinderMesh.new(); mesh.top_radius=radius*.72; mesh.bottom_radius=radius
+	mesh.height=a.distance_to(b); mesh.radial_segments=12; mesh.rings=2
+	var node:=_stage_mesh(mesh,(a+b)*.5,material)
+	var axis:=(b-a).normalized(); var side:=axis.cross(Vector3.FORWARD)
+	if side.length_squared()<.01: side=axis.cross(Vector3.RIGHT)
+	side=side.normalized(); node.basis=Basis(side,axis,side.cross(axis).normalized())
+	return node
+
+
+func _stage_embedded_gate() -> void:
+	_clear_s2e_stage(); renderer.set_process(false); renderer.visible=false
+	var tissue:=_stage_material(Color(.38,.16,.34,.58))
+	var protein:=_stage_material(Color(.58,.31,.56,1.0),Color(.12,.03,.10))
+	var cargo:=_stage_material(Color(.24,.70,.66,.92),Color(.10,.42,.38))
+	# A membrane slab makes the crossing depth explicit; the annular complex
+	# penetrates its full thickness and the raised collar seals tissue to protein.
+	var membrane:=CylinderMesh.new(); membrane.top_radius=.27; membrane.bottom_radius=.27
+	membrane.height=.055; membrane.radial_segments=48; membrane.rings=3
+	_stage_mesh(membrane,Vector3.ZERO,tissue,Vector3(1.35,1.0,.82))
+	var pore:=TorusMesh.new(); pore.inner_radius=.050; pore.outer_radius=.108
+	pore.rings=28; pore.ring_segments=16
+	_stage_mesh(pore,Vector3(0,.003,0),protein,Vector3(1.0,1.45,1.0))
+	var collar:=TorusMesh.new(); collar.inner_radius=.105; collar.outer_radius=.142
+	collar.rings=32; collar.ring_segments=12
+	_stage_mesh(collar,Vector3(0,.030,0),tissue,Vector3(1.0,.45,1.0))
+	# Receptor jaws identify the capture side without decorative satellite rings.
+	for sx in [-1.0,1.0]:
+		var jaw:=SphereMesh.new(); jaw.radius=.042; jaw.height=.075; jaw.radial_segments=16; jaw.rings=8
+		_stage_mesh(jaw,Vector3(sx*.073,.078,0),protein,Vector3(.78,1.0,1.15))
+	# Four ghosted time samples: outside, receptor capture, pore, cytosolic release.
+	var cargo_steps := [Vector3(-.16,.145,-.025),Vector3(-.060,.080,-.012),Vector3(0,.002,0),Vector3(.380,.015,.02)]
+	for i in cargo_steps.size():
+		var sphere:=SphereMesh.new(); sphere.radius=.027+float(i)*.002; sphere.height=sphere.radius*2.0
+		sphere.radial_segments=16; sphere.rings=8
+		_stage_mesh(sphere,cargo_steps[i],cargo,Vector3.ONE*(.78+float(i)*.09))
+		if i<cargo_steps.size()-1: _stage_tube(cargo_steps[i],cargo_steps[i+1],.005,cargo)
+
+
+func _stage_fused_channels() -> void:
+	_clear_s2e_stage()
+	var channel:=_stage_material(Color(.24,.57,.54,.72),Color(.03,.15,.14))
+	# A tapered anastomosing graph: the left fork rejoins near the heart, then
+	# divides again to feed two advancing fans. It sits barely under the skin.
+	var segments := [
+		[Vector3(-.55,.030,.31),Vector3(-.35,.035,.20),.011],
+		[Vector3(-.55,.028,.31),Vector3(-.32,.030,.08),.008],
+		[Vector3(-.35,.035,.20),Vector3(-.12,.040,.06),.014],
+		[Vector3(-.32,.030,.08),Vector3(-.12,.040,.06),.009],
+		[Vector3(-.12,.040,.06),Vector3(.12,.038,.04),.017],
+		[Vector3(.12,.038,.04),Vector3(.34,.028,.13),.013],
+		[Vector3(.34,.028,.13),Vector3(.66,.014,.12),.008],
+		[Vector3(.12,.038,.04),Vector3(.04,.026,-.20),.011],
+		[Vector3(.04,.026,-.20),Vector3(.04,.012,-.53),.006],
+		[Vector3(.34,.028,.13),Vector3(.28,.022,-.08),.007],
+		[Vector3(.28,.022,-.08),Vector3(.04,.026,-.20),.006]
+	]
+	for segment in segments:
+		var tube:=_stage_tube(segment[0],segment[1],segment[2],channel)
+		tube.position.y-=.014
+
+
+func _stage_organized_interior() -> void:
+	_clear_s2e_stage(); renderer.visible=true; renderer.set_process(false)
+	renderer._heart.visible=false; renderer._sheet.visible=true; renderer._network.visible=false
+	renderer._proteins.visible=false; renderer._ether.visible=false
+	renderer._cilia.visible=false; renderer._cilia_carpet.visible=false
+	renderer._network_material.set_shader_parameter("tissue_alpha",.30)
+	_set_moss_optics(3)
+	var nucleus_mat:=_stage_material(Color(.26,.52,.58,.92),Color(.06,.20,.22))
+	var vacuole_mat:=_stage_material(Color(.42,.64,.68,.52))
+	var channel_mat:=_stage_material(Color(.30,.72,.63,.78),Color(.05,.28,.22))
+	var fiber_mat:=_stage_material(Color(.72,.48,.56,.75))
+	var cargo_mat:=_stage_material(Color(.78,.78,.48,.96),Color(.36,.30,.08))
+	var nucleus:=SphereMesh.new(); nucleus.radius=.105; nucleus.height=.19; nucleus.radial_segments=24; nucleus.rings=12
+	_stage_mesh(nucleus,Vector3(-.08,.055,.00),nucleus_mat,Vector3(1.28,.88,.95))
+	for record in [[Vector3(.20,.040,.03),.060],[Vector3(-.27,.028,.12),.038],[Vector3(.08,.022,-.20),.046],[Vector3(.34,.018,.13),.027]]:
+		var vac:=SphereMesh.new(); vac.radius=record[1]; vac.height=record[1]*2.0; vac.radial_segments=18; vac.rings=9
+		_stage_mesh(vac,record[0],vacuole_mat,Vector3(1.18,.82,.94))
+	var routes := [[Vector3(-.43,.022,.20),Vector3(-.22,.030,.10),Vector3(.00,.026,.08),Vector3(.22,.020,.03),Vector3(.44,.012,.13)],
+		[Vector3(-.02,.024,.08),Vector3(.06,.018,-.10),Vector3(.10,.012,-.33)],
+		[Vector3(.17,.020,.04),Vector3(.29,.015,-.08),Vector3(.48,.010,-.13)]]
+	for route in routes:
+		for i in route.size()-1: _stage_tube(route[i],route[i+1],.012-float(i)*.0015,channel_mat)
+	for fiber in [[Vector3(-.48,.050,-.06),Vector3(.34,.045,-.22)],[Vector3(-.33,.035,.25),Vector3(.42,.032,.18)],[Vector3(-.18,.060,-.29),Vector3(.31,.052,.28)]]:
+		_stage_tube(fiber[0],fiber[1],.0035,fiber_mat)
+	# A bright cargo chain follows the main channel, with unequal spacing making
+	# its inward pulse direction readable in the still frame.
+	var cargo_points := [Vector3(-.38,.038,.18),Vector3(-.27,.041,.125),Vector3(-.13,.038,.09),Vector3(.04,.034,.072),Vector3(.24,.028,.045)]
+	for i in cargo_points.size():
+		var ves:=SphereMesh.new(); ves.radius=.012+float(i)*.0015; ves.height=ves.radius*2.0; ves.radial_segments=14; ves.rings=7
+		_stage_mesh(ves,cargo_points[i],cargo_mat)
+	for child in get_children():
+		if child is WorldEnvironment: child.environment.ambient_light_energy=.13
+		elif child is Light3D: child.light_energy=.34
+
+
+func _capture_orison_room() -> void:
+	# Production Orison geometry, furnishing, and normal building lights. The
+	# organism remains the same production renderer, simply staged on 2A's floor.
+	for child in get_children():
+		if child is WorldEnvironment:
+			child.environment=null
+		elif child is Light3D or (child is MeshInstance3D and child.mesh is PlaneMesh):
+			child.visible=false
+	renderer.visible=false
+	OS.set_environment("DAYNIGHT","0")
+	var orison=load("res://scenes/building/orison_root.tscn").instantiate()
+	add_child(orison)
+	await get_tree().create_timer(3.5).timeout
+	var room_at:=Vector3(-11.25,3.23,5.35)
+	var room_colony=Colony.new(); room_colony.configure(991,76123); room_colony.seed_at(room_at)
+	for _i in 10: room_colony.spawn(Colony.OrganismClass.CILIUM,room_at)
+	room_colony.phase=Colony.Phase.COMPLEX; room_colony.maturity=1.0; room_colony.extent=1.25
+	room_colony.ether_reserve=.88; room_colony.ether_production=.31; room_colony.connected_ether_volume=1.8; room_colony.stored_information=6.0
+	room_colony.register_route("room_feed_a","room",[room_at,room_at+Vector3(.25,0,.08),room_at+Vector3(.62,0,.15)])
+	room_colony.register_route("room_feed_b","room",[room_at,room_at+Vector3(-.20,0,.10),room_at+Vector3(-.48,0,.28)])
+	var room_renderer=Renderer.new(); add_child(room_renderer); room_renderer.setup(room_colony)
+	room_renderer.scale=Vector3.ONE*.62
+	room_renderer._cilia.visible=false
+	for _i in 45: room_renderer._process(1.0/60.0)
+	if orison.get("player") != null: orison.get("player").visible=false
+	_hide_capture_ui(orison)
+	camera.position=Vector3(-9.75,4.12,3.60); camera.look_at(room_at+Vector3(0,.10,0)); camera.make_current()
+	await _capture("06_colony_in_furnished_orison_room",30)
+
+
+func _hide_capture_ui(node: Node) -> void:
+	if node is CanvasLayer or node is Control:
+		node.visible=false
+	for child in node.get_children(): _hide_capture_ui(child)
+
+
+func _neutralize_stage() -> void:
+	for child in get_children():
+		if child is WorldEnvironment:
+			child.environment.background_color=Color(.08,.08,.08)
+			child.environment.ambient_light_color=Color(.55,.55,.55)
+			child.environment.ambient_light_energy=.75
+		elif child is Light3D:
+			child.light_color=Color.WHITE
+			child.light_energy=1.15
+		elif child is MeshInstance3D and child.mesh is PlaneMesh:
+			var gray:=StandardMaterial3D.new(); gray.albedo_color=Color(.22,.22,.22); gray.roughness=.9
+			child.material_override=gray
 
 
 func _s2_review() -> void:

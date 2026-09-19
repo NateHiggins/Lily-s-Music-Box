@@ -1,0 +1,62 @@
+{
+	"captures": {
+		"01_unstained_material_macro_slide": {
+			"cpu_frame_ms": 0.936,
+			"draw_calls": 22,
+			"gpu_frame_ms": 0.656000018119812,
+			"presentation_cpu_ms": 0.0
+		},
+		"02_four_state_internal_process": {
+			"cpu_frame_ms": 0.865,
+			"draw_calls": 23,
+			"gpu_frame_ms": 0.580999970436096,
+			"presentation_cpu_ms": 0.0
+		},
+		"03_locked_metameric_illumination": {
+			"cpu_frame_ms": 4.394,
+			"draw_calls": 23,
+			"gpu_frame_ms": 3.88899993896484,
+			"presentation_cpu_ms": 0.0
+		},
+		"04_structural_color_orientation": {
+			"cpu_frame_ms": 3.458,
+			"draw_calls": 13,
+			"gpu_frame_ms": 3.02900004386902,
+			"presentation_cpu_ms": 0.0
+		},
+		"05_furnished_room_focus": {
+			"cpu_frame_ms": 5.167,
+			"draw_calls": 835,
+			"gpu_frame_ms": 2.65400004386902,
+			"presentation_cpu_ms": 0.0
+		},
+		"05_senescence_and_furnished_inset": {
+			"cpu_frame_ms": 0.592,
+			"draw_calls": 15,
+			"gpu_frame_ms": 0.33899998664856,
+			"presentation_cpu_ms": 0.0
+		}
+	},
+	"lod": {
+		"exclusive_hysteresis_unchanged": true,
+		"geometry_unchanged": true,
+		"transparent_overlap": false
+	},
+	"materials": {
+		"alpha_materials": 0,
+		"depth_writing_closed_tissue": true,
+		"shared_count": 7,
+		"unique_per_instance": 0
+	},
+	"renderer": "forward_plus",
+	"resolution": "1600x900",
+	"shader_errors": 0,
+	"task": "DREAM-COLOR-C1B",
+	"teardown": {
+		"baseline_equivalent": true,
+		"clean_main_diagnostic_count": 1264,
+		"ordered_light_shutdown": true
+	},
+	"vram_furnished_room_bytes": 5622950672,
+	"vram_isolated_delta_bytes": 2330955424
+}

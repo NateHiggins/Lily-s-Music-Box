@@ -33,6 +33,7 @@ var last_deposition: Dictionary = {}
 var _bindings: Array[Dictionary] = []
 var _hidden_visuals: Array[Dictionary] = []
 var _renderers: Array = []
+var _critter_controllers: Array = []
 var _player_light_visible := false
 var _player_light_cull_mask := 0
 var _player_light_bound := false
@@ -64,6 +65,19 @@ func configure(player_node: Node3D, case_id: String, rect: Vector4,
 	print("[DREAM-VOXEL-V1] active case=%s room=%s renderers=%d field=%dx%dx%d RG8 @ %.1f Hz"
 			% [target_case, room_key, _renderers.size(), ExposureScript.GRID_XZ,
 			ExposureScript.GRID_XZ, ExposureScript.GRID_Y, UPDATE_HZ])
+
+
+## Critters keep their own presentation authority and one existing shared
+## material. This bridge supplies only the world field that the current room
+## already owns; it never creates an animal-local field, texture or material.
+func bind_critter_controller(controller) -> void:
+	if controller == null or not is_instance_valid(controller) \
+			or not controller.has_method("bind_voxel_optics"):
+		return
+	if not _critter_controllers.has(controller):
+		_critter_controllers.append(controller)
+	controller.bind_voxel_optics(texture, ExposureScript.EXTENT_M,
+			ExposureScript.HEIGHT_M)
 
 
 func _build_real_l1c() -> void:
@@ -308,6 +322,10 @@ func reconstruct_from_durable(saved: PackedByteArray) -> bool:
 	shared_material.set_shader_parameter("exposure_tex", replacement_texture)
 	field = replacement
 	texture = replacement_texture
+	for controller in _critter_controllers:
+		if is_instance_valid(controller):
+			controller.bind_voxel_optics(texture, ExposureScript.EXTENT_M,
+					ExposureScript.HEIGHT_M)
 	return true
 
 
@@ -331,7 +349,9 @@ func receipt() -> Dictionary:
 			"LampOpticalInstrument.light SpotLight3D",
 			"DreamVoxelLightPresenter.deposit_once()",
 			"DreamExposureField.add_lamp()", "DreamExposureField.upload()",
-			"dream_moss_voxel_light.gdshader exposure_at(world_position)"],
+			"dream_moss_voxel_light.gdshader exposure_at(world_position)",
+			"DreamCritterController.bind_voxel_optics()",
+			"dream_critter.gdshader critter_exposure_at(v_world)"],
 		"update_cadence_hz": UPDATE_HZ, "last_deposition": last_deposition,
 		"add_lamp_call_count": add_lamp_calls, "upload_call_count": upload_calls,
 		"upload_count": uploads_performed, "voxel_update_cpu_ms_mean": mean_cpu,
@@ -341,6 +361,7 @@ func receipt() -> Dictionary:
 		"shared_material_count": 1 if shared_material != null else 0,
 		"shared_texture_count": 1 if texture != null else 0,
 		"bound_organism_count": _renderers.size(), "bound_surface_count": _bindings.size(),
+		"bound_critter_controller_count": _critter_controllers.size(),
 		"per_organism_field": false, "per_organism_texture": false,
 		"per_organism_material": false, "gpu_readback_during_gameplay": false,
 		"substitute_scalar_drives_voxel_response": false,
@@ -366,6 +387,10 @@ func shutdown() -> Dictionary:
 			visual.visible = bool(row.get("visible", true))
 	_hidden_visuals.clear()
 	_renderers.clear()
+	for controller in _critter_controllers:
+		if is_instance_valid(controller) and controller.has_method("unbind_voxel_optics"):
+			controller.unbind_voxel_optics()
+	_critter_controllers.clear()
 	if shared_material != null:
 		shared_material.set_shader_parameter("exposure_tex", null)
 	if field != null and not room_key.is_empty():

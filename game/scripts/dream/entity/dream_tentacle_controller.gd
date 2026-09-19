@@ -118,6 +118,7 @@ var _field_pressure_clock := 0.0
 var exchange_flash := 0.0
 var _mesh: MeshInstance3D
 var _material: ShaderMaterial
+var _modality_apparatus: MultiMeshInstance3D
 var _light_eye: OmniLight3D
 var _light_gold: OmniLight3D
 var _light_contact: OmniLight3D
@@ -231,6 +232,7 @@ func bind_ecology(owner_colony, record: Dictionary, purpose: int) -> void:
 	ecology_purpose = purpose
 	ecology_purpose_name = owner_colony.CLASS_NAMES[purpose]
 	ecology_status = "exploring"
+	_build_modality_apparatus(ecology_purpose_name)
 	var organism_id := int(record.get("id", -1))
 	if organism_id >= 0 and not target_name.is_empty():
 		exploration_target_reserved = owner_colony.reserve_target(target_name,
@@ -645,6 +647,8 @@ func _viewer_pos() -> Vector3:
 
 
 func _push_uniforms() -> void:
+	if _modality_apparatus != null and rig != null:
+		_modality_apparatus.position = rig.point_at(.72)
 	_material.set_shader_parameter("spine", rig.pos)
 	_material.set_shader_parameter("side", rig.side)
 	_material.set_shader_parameter("spine_prev", _spine_prev)
@@ -687,6 +691,57 @@ func _push_uniforms() -> void:
 			phenotype.organization, phenotype.windows, phenotype.proteins, phenotype.refractive))
 	_material.set_shader_parameter("cellular_modality", modality)
 	_material.set_shader_parameter("cellular_time", clock)
+
+
+func _build_modality_apparatus(modality: String) -> void:
+	if _modality_apparatus != null:
+		_modality_apparatus.queue_free()
+	_modality_apparatus = MultiMeshInstance3D.new()
+	_modality_apparatus.name = "CellularSensoryApparatus_%s" % modality
+	var mesh: PrimitiveMesh
+	var transforms: Array[Transform3D] = []
+	match modality:
+		"palpator":
+			var capsule := CapsuleMesh.new(); capsule.radius=.028; capsule.height=.15; capsule.radial_segments=8; capsule.rings=3; mesh=capsule
+			for i in 5:
+				var x := (float(i)-2.0)*.052
+				transforms.append(Transform3D(Basis(Vector3.FORWARD,(float(i)-2.0)*.10),Vector3(x,.02,0)))
+		"sucker_sampler":
+			var lamella := QuadMesh.new(); lamella.size=Vector2(.20,.24); lamella.orientation=PlaneMesh.FACE_Z; mesh=lamella
+			for i in 7:
+				var angle := (float(i)-3.0)*.28
+				var basis := Basis(Vector3.UP,angle).scaled(Vector3(1.0,.55+float(i%2)*.35,1.0))
+				transforms.append(Transform3D(basis,Vector3(sin(angle)*.12,float(i%3)*.035,cos(angle)*.045)))
+		"manipulator":
+			var sail := QuadMesh.new(); sail.size=Vector2(.28,.24); sail.orientation=PlaneMesh.FACE_Z; mesh=sail
+			for i in 6:
+				transforms.append(Transform3D(Basis(Vector3.UP,(float(i)-2.5)*.08),Vector3((float(i)-2.5)*.055,0,float(i%2)*.025)))
+		"vibration_listener":
+			var drum := CylinderMesh.new(); drum.top_radius=.16; drum.bottom_radius=.16; drum.height=.012; drum.radial_segments=18; drum.rings=1; mesh=drum
+			for i in 3:
+				transforms.append(Transform3D(Basis(Vector3.FORWARD,PI*.5).scaled(Vector3(1.0-float(i)*.18,1.0-float(i)*.18,1.0)),Vector3(0,float(i)*.035,0)))
+		"ocular_examiner":
+			var lens := SphereMesh.new(); lens.radius=.052; lens.height=.104; lens.radial_segments=12; lens.rings=6; mesh=lens
+			for i in 7:
+				var angle := TAU*float(i)/7.0
+				transforms.append(Transform3D(Basis.IDENTITY,Vector3(cos(angle)*.105,sin(angle)*.075,0)))
+		"relay_tendril":
+			var tooth := BoxMesh.new(); tooth.size=Vector3(.018,.18,.055); mesh=tooth
+			for side in [-1.0,1.0]:
+				for i in 7:
+					transforms.append(Transform3D(Basis(Vector3.FORWARD,side*.16),Vector3(side*.075,(float(i)-3.0)*.045,0)))
+		_:
+			return
+	var wet := StandardMaterial3D.new()
+	wet.albedo_color=Color(.46,.49,.51)
+	wet.roughness=.28
+	wet.metallic=.0
+	mesh.material=wet
+	var mm := MultiMesh.new(); mm.transform_format=MultiMesh.TRANSFORM_3D
+	mm.instance_count=transforms.size(); mm.mesh=mesh
+	for i in transforms.size(): mm.set_instance_transform(i,transforms[i])
+	_modality_apparatus.multimesh=mm
+	add_child(_modality_apparatus)
 
 
 ## The light it throws (§19): from the eye, from the gold mid-length, and

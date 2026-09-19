@@ -1,0 +1,62 @@
+{
+	"captures": {
+		"01_transmitted_light_hero": {
+			"cpu_frame_ms": 0.841,
+			"draw_calls": 32,
+			"gpu_frame_ms": 0.550000011920929,
+			"presentation_cpu_ms": 0.023
+		},
+		"02_optical_parallax_triptych": {
+			"cpu_frame_ms": 0.836,
+			"draw_calls": 32,
+			"gpu_frame_ms": 0.546999990940094,
+			"presentation_cpu_ms": 0.02
+		},
+		"03_microscopy_lighting_quartet": {
+			"cpu_frame_ms": 0.836,
+			"draw_calls": 32,
+			"gpu_frame_ms": 0.550000011920929,
+			"presentation_cpu_ms": 0.021
+		},
+		"04_living_process_sequence": {
+			"cpu_frame_ms": 0.84,
+			"draw_calls": 32,
+			"gpu_frame_ms": 0.551999986171722,
+			"presentation_cpu_ms": 0.023
+		}
+	},
+	"geometry": {
+		"anatomy_depth_layers": true,
+		"cutaway_visible": false,
+		"embedded_gate": true,
+		"internal_geometry": "accepted S2G anatomy plus accepted transport LOD",
+		"multimesh_suspended_granules": 56,
+		"outer_membrane": "closed SphereMesh with bounded amoeboid vertex deformation",
+		"vacuoles": 3
+	},
+	"lod": {
+		"active_lod": 0,
+		"internal_lods_unchanged": true,
+		"triangles_by_lod": [
+			15445,
+			6577,
+			3410
+		]
+	},
+	"materials": {
+		"shared_count": 8,
+		"transparent_layers": 2,
+		"transparent_order": "opaque anatomy -> spatially heterogeneous cytoplasm -> thickness-varying membrane",
+		"uniform_whole_object_alpha": false,
+		"unique_per_instance": 0
+	},
+	"renderer": "forward_plus",
+	"resolution": "1600x900",
+	"shader_errors": 0,
+	"task": "DREAM-COLOR-C1B-CORRECTED",
+	"teardown": {
+		"baseline_equivalent": true,
+		"clean_main_diagnostic_count": 1264
+	},
+	"vram_delta_bytes": 4932736
+}

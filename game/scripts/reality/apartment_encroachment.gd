@@ -420,6 +420,10 @@ func _enable_voxel_light_presenter(player_node: Node3D) -> void:
 	add_child(voxel_light_presenter)
 	voxel_light_presenter.configure(player_node, target_case, unit.rect,
 			float(unit.floor_y), renderers)
+	# The same world-owned RG8 field now reaches the existing one-draw fauna
+	# material. No per-critter field, texture or presentation authority exists.
+	if critters != null:
+		voxel_light_presenter.bind_critter_controller(critters)
 
 
 ## The service round owns only its waking route and offers named beats. The
