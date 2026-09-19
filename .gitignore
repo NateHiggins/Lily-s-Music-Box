@@ -127,3 +127,7 @@ art/reference/props/_fetched/
 # Full-resolution frames from PropWarehouseShot. The 640 px copies under the
 # review directory are the keepers; the originals regenerate in minutes.
 art/renders/prop_reference_*/full/
+
+# Raw before/after shoots from tools/prop_reference_tool.py shoot (full-size
+# frames; pair sheets and reports are what get cited).
+art/renders/prop_review/
