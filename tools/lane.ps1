@@ -196,10 +196,10 @@ function Invoke-OneRun {
     $params = @{ ProjectPath = $project; LogPath = $Spec.log }
     if ($Spec.scene) { $params.Scene = $Spec.scene }
     if ($Spec.timeout) { $params.TimeoutSeconds = [int]$Spec.timeout }
+    if ($Spec.windowed) { $params.Windowed = $true }
+    if ($Spec.shot_dir) { $params.ShotDir = $Spec.shot_dir }
     if ($runnerName -eq "serial") {
         if ($Spec.extra_args) { $params.ExtraArgs = [string[]]$Spec.extra_args }
-        if ($Spec.windowed) { $params.Windowed = $true }
-        if ($Spec.shot_dir) { $params.ShotDir = $Spec.shot_dir }
     }
     elseif (-not $Spec.scene) {
         throw "the long runner needs a scene"

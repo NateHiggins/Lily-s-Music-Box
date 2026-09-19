@@ -21,10 +21,28 @@ param(
     [Parameter(Mandatory = $true)][string]$Scene,
     [Parameter(Mandatory = $true)][string]$ProjectPath,
     [Parameter(Mandatory = $true)][string]$LogPath,
-    [int]$TimeoutSeconds = 1500
+    [int]$TimeoutSeconds = 1500,
+    # Same two switches as the serial runner. A screenshot pass over the whole
+    # prop shed (PropWarehouseShot: 50-odd specimens, five bearings each) is the
+    # second legitimate long suite, and it needs a real window: headless
+    # rendering never fires frame_post_draw, so it writes nothing and exits 0.
+    [switch]$Windowed,
+    [string]$ShotDir = ""
 )
 $ErrorActionPreference = "Stop"
-. (Join-Path $PSScriptRoot "lane_common.ps1")
+# Lane holder record and run receipts. On a tree that predates them the
+# runner works exactly as before, without either.
+$laneCommon = Join-Path $PSScriptRoot "lane_common.ps1"
+if (Test-Path -LiteralPath $laneCommon) {
+    . $laneCommon
+}
+else {
+    function Write-OrisonLaneHolder { param($Runner, $Scene, $Worktree) }
+    function Clear-OrisonLaneHolder { }
+    function Write-OrisonRunReceipt { param($LogPath, $Scene, $Runner, $ProjectPath, $ExitCode,
+                                            $TimedOut, $StartedUtc, $Windowed, $ShotDir) }
+}
+$previousShotDir = $env:SHOT_DIR
 $mutex = [System.Threading.Mutex]::new($false, "Global\OrisonGodotSingleInstance")
 $owns = $false
 $exitCode = 1
@@ -46,9 +64,13 @@ try {
     $logParent = Split-Path -Parent $LogPath
     if ($logParent) { New-Item -ItemType Directory -Force -Path $logParent | Out-Null }
     Remove-Item -LiteralPath "$LogPath.receipt.json" -Force -ErrorAction SilentlyContinue
+    $arguments = @()
+    if (-not $Windowed) { $arguments += "--headless" }
+    $arguments += @("--path", $ProjectPath, $Scene)
+    if (-not [string]::IsNullOrWhiteSpace($ShotDir)) { $env:SHOT_DIR = $ShotDir }
     $started = Get-Date
     $startedUtc = $started.ToUniversalTime()
-    $process = Start-Process -FilePath $godot -ArgumentList @("--headless", "--path", $ProjectPath, $Scene) `
+    $process = Start-Process -FilePath $godot -ArgumentList $arguments `
         -NoNewWindow -PassThru -RedirectStandardOutput $LogPath -RedirectStandardError "$LogPath.stderr"
     $null = $process.Handle
     if (-not $process.WaitForExit($TimeoutSeconds * 1000)) {
@@ -70,10 +92,11 @@ catch [System.InvalidOperationException] {
     $exitCode = 73
 }
 finally {
+    $env:SHOT_DIR = $previousShotDir
     if ($process -and $startedUtc) {
         Write-OrisonRunReceipt -LogPath $LogPath -Scene $Scene -Runner "long" `
             -ProjectPath $ProjectPath -ExitCode $launchedExit -TimedOut $timedOut `
-            -StartedUtc $startedUtc -Windowed $false -ShotDir ""
+            -StartedUtc $startedUtc -Windowed ([bool]$Windowed) -ShotDir $ShotDir
     }
     if ($owns) {
         Clear-OrisonLaneHolder
