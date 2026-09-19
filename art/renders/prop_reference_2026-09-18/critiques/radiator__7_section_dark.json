@@ -1,0 +1,44 @@
+{
+  "specimen": "radiator__7_section_dark",
+  "axes": {
+    "object_class": 0,
+    "proportion": 2,
+    "silhouette": 2,
+    "detail": 2,
+    "material": 4,
+    "wear": 3,
+    "mount": 1
+  },
+  "effort_hours": 5,
+  "confidence": "high",
+  "summary": "The finish is the most wrong thing: the section MultiMesh takes its albedo from the heat tint in _apply_visual_state (cold 0.30/0.32/0.34 to hot 0.93/0.48/0.23, at 0.82 heat on the supply end in the default 'sounding' condition) multiplied over the cast_iron plate, and the IRON_DARK and IRON_SILVER retexture rows match no mesh, so this 'dark' 1D body renders the same warm tan as the silver lobby variant and reads as a row of turned wood balusters, not black-japanned iron. Object class is right and stays as ruled (an ARCO-class joined-section one-pipe steam radiator with bottom angle valve, union, rising stem and six-spoke wheel, far-end automatic vent and cast feet); the execution gaps against the Steam Radiator and Cast Iron Radiator Refurbishment photographs are the 92 mm pitch that makes seven sections 552 mm across where a real three-column body is about 445, a lathed spindle with no through-voids between its three columns, and a union nut that on this count ends at x -0.38 with the end casting's surface at -0.321, 59 mm of daylight visible in the front bearing between the supply and the body.",
+  "modelling": [
+    "Pitch: SECTION_PITCH 0.092 to 0.064 (2.5 in centres). Seven sections then span 0.384 m, about 0.51 over the feet; shrink the x radii in _cast_section_mesh from 0.032-0.046 to 0.022-0.032 so the shoulders still touch at the new pitch, and keep the z radii (0.082-0.114) so the body stays 0.228 deep.",
+    "Through-voids: replace the single ten-ring lathe with three lathed columns per section (r 0.020, at z -0.075, 0 and +0.075, 0.42 m tall between the headers) under one top and one bottom header ellipsoid of 0.064 x 0.05 x 0.228, all five pieces in the one shared ArrayMesh so the MultiMesh stays one draw. The daylight between columns is what both reference photographs show from the front and what makes a section read as a casting rather than a spindle.",
+    "Union gap: derive the valve and union from the body, SUPPLY_X = -(half_width + 0.20) and the union at -(half_width + 0.06), and lengthen the branch cylinder back to the fixed RISER_X (-0.67), so the brass nut seats on the end section's bottom tapping at seven, eight and nine sections; today it only reaches the nine-section body.",
+    "Nipple joints: one Ø 25 x 8 mm dark cylinder between adjacent sections at the top and bottom header centres (12 for seven sections, in the shared mesh or a second MultiMesh) so the sections read pushed together on nipples instead of standing separately on the floor.",
+    "Handwheel: the make_ring(0.062, 0.009) plus six Ø 11 mm spokes is right at Ø 124 mm; keep it, retexture it (below)."
+  ],
+  "texturing": [
+    "Wire the variant into the finish: choose a base tint from `unit` (1D and the flats: dark japan (0.18, 0.17, 0.16); LOBBY: silver (0.62, 0.63, 0.65)) and multiply it into the per-instance colour in _apply_visual_state, clamping the heat contribution to at most +0.15 luminance so heat reads as warmth on a black body rather than turning it orange. This stays inside cast_iron with no new key, as ruled.",
+    "Feet and dust shelf: the feet are built in `iron` (0.20, 0.205, 0.20), which fails is_equal_approx against IRON_DARK (0.16, 0.16, 0.17), so both foot cylinders and toe boxes stay flat #333433 (the census's two flat #333433 surfaces). Build them in IRON_DARK, or add an `iron` row, so they take cast_iron like the body.",
+    "Handwheel and hub in (0.27, 0.23, 0.16) match no row and stay flat #453b29: add a row to brass_dull tinted (0.45, 0.38, 0.24) at 0.72 (a dulled bronze wheel), the one part of this prop the player turns.",
+    "Wear as ruled for 1D: bare iron on the top header edges as a per-vertex colour array on the shared mesh (top 40 mm toward (0.45, 0.44, 0.42)); the foot rust box (0.105 x 0.006 x 0.17) already rides cast_iron at (0.48, 0.20, 0.10) but is a flat slab, so scale it to 0.06 x 0.004 x 0.10 and offset it toward the wall so it reads as bloom under a foot, not a mat."
+  ],
+  "references_used": [
+    "File:Steam Radiator.jpg",
+    "File:Cast Iron Radiator Refurbishment.jpg"
+  ],
+  "not_reopened": [
+    "One-pipe steam: the supply handwheel has two healthy endpoints; balance is vent rate, pitch and boiler cycle (HISTORICAL; CANONICAL).",
+    "Body class is American Radiator Company joined cast sections with rounded header shoulders and narrow column waists, never a row of independent pipes; the verifier's object-class correction stands and this critique scores execution of that class only.",
+    "The far-end vent is a period automatic air valve, not a thermostatic or manual bleed key; it is built at the far upper end on the room side as ruled.",
+    "The building-owned riser stays at the marker's -X end at x -0.67; it is not moved or mirrored here, only the prop-owned valve and union are asked to meet the body.",
+    "Seven-, eight- and nine-section bodies stay within the 810 mm envelope; the pitch change above keeps all three inside it.",
+    "Materials reuse cast_iron, brass_dull, metal and wood_dark; no new material key; dark enamel and landlord silver are variation within cast_iron.",
+    "radiator_prop is COMPLETE in the brief and notes; proportion (section count) beats valve detail, which is why pitch is the first bullet.",
+    "The two wall stand-off tubes behind the top header are in the verified real_object description and are not reopened.",
+    "Brief section 8 (fridges, Vantry points) does not touch the radiator.",
+    "References not used: Ideal Fitter p269 is a telegraph-code text page; the 1861 Pascal Iron Works plate is an ornate pedestal radiator the notes rule out; Heat radiator.jpg carries a post-1943 thermostatic valve the queries say to skip; the Linz corridor, the Vichy grille and the 1908 piping diagram do not show a body."
+  ]
+}

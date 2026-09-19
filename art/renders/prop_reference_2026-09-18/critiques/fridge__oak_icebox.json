@@ -1,0 +1,41 @@
+{
+ "specimen": "fridge__oak_icebox",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 3,
+  "detail": 2,
+  "material": 2,
+  "wear": 2,
+  "mount": 0
+ },
+ "effort_hours": 5,
+ "confidence": "medium",
+ "summary": "From three metres the icebox reads as one plain orange plank box: both leaves span the full 0.70 m carcass width with no stiles, lever latches or hinge plates showing, so nothing says 'cabinet with two doors' the way the North Star section and the Temperator box do. The object class is right (oak carcass, zinc chambers, small ice door over the food door, pull-out drip tray); confidence is medium because the shed's front bearing images the +Z back board (fridge_prop.gd has no warehouse_rotation_y()), so the door face was judged edge-on from the side bearing and from the script.",
+ "modelling": [
+  "Narrow both leaves from 0.70 m to 0.55 m (food door box 0.55 x 0.69 x 0.035, ice door 0.55 x 0.235 x 0.035) and move their hinge pins to x = 0.075 in door space, so the two 75 mm cheek edges read as face-frame stiles between the existing top and bottom front rails; the leaves currently overlay the cheeks and the whole front reads as one slab.",
+  "Replace the food door's 0.085 x 0.055 x 0.045 latch block and 0.18 m vertical bar pull with a cast lever latch: one 0.11 x 0.022 x 0.014 BRASS_DULL box pivoted on a 0.020 r x 0.006 rose at (ICE_W - 0.075, 0.60), tilted 20 deg; give the ice door the same lever at 0.08 m in place of its 0.12 m bar. Lever latches are the hardware the North Star engraving and every 1910s catalogue box show.",
+  "Hinges: the food door's two 0.014 r x 0.08 pins get a 0.02 x 0.08 x 0.004 BRASS_DULL leaf each on the door face; the ice door has no hinge pins at all, so add two pins plus leaves at y 1.00 and 1.17 on the hinge side.",
+  "Drip-tray front (0.52 x 0.11 at y 0.15) overlaps the lower front rail (y 0.1925-0.2475, same z band) by 12 mm; shorten the tray front to 0.09 tall (y 0.095-0.185) so the tray reads as its own drawer with a shadow line above it.",
+  "Leave the four 55 mm block feet and the recessed kick: Bohn-class boxes stood on blocks or short turned feet, and the 0.70 m width is ruled."
+ ],
+ "texturing": [
+  "oak_quartered renders on the side bearing at median sRGB (132,80,49): a saturated straight grain that reads as rough-sawn orange plank rather than a varnished quarter-sawn carcass with ray fleck. Pull the four _oak_tint() tones about 20% down in saturation (warmest to about 0.58,0.50,0.40) so the eleven-year-old finish reads golden-brown.",
+  "WATER_STAIN is a flat #301b0e box (one of the census's two flat surfaces on this variant); retexture it to the existing `plaster_stained` or `fx_drip` key with a dark tint so the stain under the tray has a feathered edge instead of a painted bar.",
+  "Hand wear at latches and pulls is ruled but not built: a 0.12 x 0.10 patch of oak_quartered tinted (0.45,0.38,0.30) around each lever on the leaf face puts sixteen years of hands where the hand goes."
+ ],
+ "references_used": [
+  "File:Sectional View of the North Star Refrigerator.png",
+  "File:Temperator refrigerator, 1920s (color corrected).jpg",
+  "File:Dr. Evans' How to keep well; (1917) (14583628198).jpg"
+ ],
+ "not_reopened": [
+  "0.70 m cabinet width (ADAPTATION: stove/fridge centres are 0.69 m apart) stays; the Bohn 0.99 m box is the price-class reference, not a target.",
+  "Rule of Signal: the icebox keeps no lamp, hum, relay, wire or electrical node; idle events stay drip and creak.",
+  "zinc_liner (0.12 metallic / 0.82 roughness) and brass_dull (0.30 / 0.52) were settled by measured render; no new material key is asked for.",
+  "The whole visible object stays in fridge_prop.gd; no Blender carcass builder.",
+  "Water staining concentrated below the tray, hand wear at latches and pulls only; no uniform dirt filter.",
+  "4B's icebox placement on the east kitchen wall (maintenance pose clears the entry sweep) is not a modelling matter."
+ ],
+ "notes": "Shed convention: the warehouse's front camera looks at local +Z and fridge_prop.gd does not override warehouse_rotation_y(), so the front and high_quarter bearings show the back board and the three_quarter shows cheek and back; flue_breast_prop.gd's PI override is the pattern to copy so the next sheet images the leaves, latches and tray. The Philadelphia baby-saving show, both Parc d'Egmont photographs, the Earl Carroll programme and the 1908 house are off-topic and were not used."
+}

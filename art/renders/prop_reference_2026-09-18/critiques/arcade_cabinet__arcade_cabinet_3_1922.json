@@ -1,0 +1,43 @@
+{
+ "specimen": "arcade_cabinet__arcade_cabinet_3_1922",
+ "axes": {
+  "object_class": 2,
+  "proportion": 2,
+  "silhouette": 3,
+  "detail": 2,
+  "material": 4,
+  "wear": 4,
+  "mount": 1
+ },
+ "effort_hours": 5,
+ "confidence": "low",
+ "summary": "The one thing most wrong is that the rake exists only in a comment: the assembly's 'steeply raked screen' is a vertical box and the script's 0.28 m quad at 0.84-1.12 m is vertical too, so the compact unit - whose ruled analogues are the counter-top Mutoscope / Exhibit Supply viewer and the 1928 televisor or oscillograph with a raked hood over a small round tube - reads as a short copy of the upright. The object class is otherwise the closest in the family: no marquee, the title screened on the bezel at 1.165 m in the accent colour, a 0.058 m tuning dial and a telegraph key on a brass base at the 0.80 m deck are all receiver furniture. Only the side bearing shows the specimen (front, high_quarter and three_quarter are filled by an untextured beige plane), and it shows the quad, label, dial and key floating with no carcass; the 686 triangles are 95 percent flat colour with no catalogue key.",
+ "modelling": [
+  "Raked viewing hood as geometry: add four bakelite_black make_box walls forming a hood 0.32 m wide, 0.30 m tall and 0.12 m deep in front of the glass band, with the top wall 0.06 m shorter than the bottom so the opening plane leans back 20 degrees, and set the quad's rotation.x to the same 20 degrees inside it; the assembly's vertical dark-glass box stays behind as the tube's housing. Five primitives, and the only change that makes variant 3 read as the raked box its own comment describes.",
+  "Round bezel: one make_ring in brass_dull, radius 0.14 m (face_size 0.28 / 2), tube 0.010 m, inside the hood opening, so the small round tube is a bezelled circle rather than a green disc in a square.",
+  "Bezel title: keep the screened label at sz1 + 0.045 (1.165 m) but give it a plate - an indicator_enamel make_box 0.30 x 0.04 x 0.003 m behind the Label3D - so the title is a fixed enamel strip on the bezel and not text floating 6 mm off the glass band.",
+  "Deck: the dial (plate r 0.058, 12 ticks, knob, pointer) and the key (base 0.055 x 0.010 x 0.085 m, lever, knob) are the right parts at 0.80 m; reduce the dial's ticks to an engraved arc (make_ring r 0.043, tube 0.002, bakelite_black) and add a 0.010 m brass_dull escutcheon at the knob foot - the side bearing shows the ticks as a sunburst.",
+  "Assembly task, not this script's (flag for the Blender pass): asm_arcade_cab variant 3 keeps the 'enamel' body only if it is dented tin enamel, removes the stick and three buttons from the 0.72-0.80 m wedge, and adds the raked hood profile to the carcass so the hull matches the prop's hood.",
+  "Warehouse registration: supply a stand-in carcass (make_box 0.60 x 0.60 x 1.45 m in enamel plus a bakelite_black box 0.54 x 0.36 x 0.02 m at 0.80-1.16 m) and re-frame; three of four bearings show shed furniture, not the prop."
+ ],
+ "texturing": [
+  "Name catalogue keys instead of raw Color: dial plate, pointer and key base -> brass_dull; knob, ticks, lever and key knob -> bakelite_black; hood -> bakelite_black; bezel ring -> brass_dull; title plate -> indicator_enamel. The census shows six flat colours and the shader, no key.",
+  "Tube face: keep scope_screen.gdshader with the 1922 willemite green (0.34, 0.98, 0.56), mono 1.0; the side bearing's green sliver is the right colour.",
+  "Enamel carcass (assembly): the 'enamel' key must read as chipped tin enamel over steel, not gloss appliance enamel - a roughness of 0.55 and a 0.10 chip mask at the deck edge; if the assembly cannot, prefer bakelite_black for the whole case per materials_expected.",
+  "Wear: a rubbed bright patch 0.05 x 0.03 m on the key base where the wrist rests, a 0.30 roughness step on the dial knob, and dust on the hood's lower sill; no grime texture."
+ ],
+ "references_used": [
+  "File:Televisore a valvole, bianco e nero, midget - Museo scienza tecnologia Milano 02229 dia.jpg",
+  "File:Televisore a valvole, bianco e nero, a consolle - Museo scienza tecnologia Milano 02239.jpg"
+ ],
+ "not_reopened": [
+  "Bible VIII.5.g: the amusement machines are receivers; the compact unit is a counter-height receiver, not a mini arcade cabinet.",
+  "Bible VIII.5.g: circular scope, willemite green on the 1922 chassis, long-persistence trail; the shader stays.",
+  "Bible VIII.5.g / VIII.4: Bakelite, brass, dull tin enamel; no chrome, aluminium, stainless or moulded colour.",
+  "Rule of Signal and VIII.5.h: the case is 1927-or-older; the 1922 plate stays.",
+  "Script header ruling: carcass is the assembly's, silhouette is the layout variant's; the hood is proposed as the prop's own geometry in front of the assembly's glass band so the assembly need not move first.",
+  "Placement rulings: no installed copy of this variant (installed_count 0 is correct); F01 row and common-room copy stay retired.",
+  "Brief section 8: fridges and Vantry points untouched.",
+  "The midget Televisore is a later tabletop set; it was read only for the small-screen-in-a-box silhouette with knobs below, which is the closest thing on the sheet to the ruled counter-top viewer."
+ ]
+}

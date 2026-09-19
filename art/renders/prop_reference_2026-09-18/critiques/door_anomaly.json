@@ -1,0 +1,37 @@
+{
+ "specimen": "door_anomaly",
+ "axes": {
+  "object_class": 0,
+  "proportion": 0,
+  "silhouette": 1,
+  "detail": 2,
+  "material": 3,
+  "wear": 0,
+  "mount": 1
+ },
+ "effort_hours": 2,
+ "confidence": "medium",
+ "summary": "The shed shows the seam at zero infection, three near-black 12 mm bars and a dot, and the one reference on the sheet (Building with assurance, 1921) is a house exterior, so silhouette and material are judged against the ruled description of a light-leak round a 3 ft x 7 ft entry leaf: the knob is a solid 40 mm ball (a 1920s Russwin/Corbin knob is 51-57 mm) carrying 4,224 of the prop's 4,260 triangles, and the U has no sill line where a real closed door leaks brightest. Object class is right by definition: a door-shaped hairline of light with a latch-side knob at 0.96 m, no leaf, no joinery.",
+ "modelling": [
+  "Knob: SphereMesh r 0.02 at Godot's default 64 radial segments x 32 rings is 4,224 triangles for a 40 mm dot seen from the 1.41 m eye line; set radial_segments 12 and rings 6 (168 triangles). The whole prop then costs about 200 triangles.",
+  "Knob size and reading: a 1920s knob on a long backplate is 51-57 mm, so r 0.027; and since the seam is leaked light rather than a fitting, a make_ring torus r 0.027 minor 0.006 (light round a rose) keeps the outline language better than a lit ball. 1 primitive either way.",
+  "Sill: the U is two 2.13 m uprights and a 0.91 m lintel, 12 mm square, and a closed door leaks brightest at the undercut. Add a fourth bar 0.91 x 0.012 x 0.012 at y 0.006 (1 box) if the intended reading is the door leak; leave it out only if the intended reading is the plastered-over doorway outline, which the real_object also allows, and record which.",
+  "Bar section: 12 mm square bars read as tubes; a hairline is 2-4 mm. Keep a 6 mm core (0.006 x H x 0.006) at full emission for legibility at three metres and let the bloom quads in the texturing bullets carry the width."
+ ],
+ "texturing": [
+  "No MatLib key by design (unshaded emission 0.34/0.90/0.83 over albedo 0.05/0.10/0.10); keep that. A uniform bar is a neon tube, not light through plaster: add a 60 mm-wide additive billboard strip behind each bar using the light_fixture_prop halo recipe (GradientTexture2D, BLEND_MODE_ADD, alpha 0.30 to 0.0) so the light spills onto the wall; 3-4 quads, no key.",
+  "Vary the leak along its length: a 1 x 64 GradientTexture2D in the emission slot that thins the uprights toward the head and brightens them toward the floor, matching how a real door gap reads; the teal-cyan stays as the signal-licensed colour.",
+  "Harness: at infection 0 the shed renders only the albedo; an imaging pass on this prop should force emission_energy_multiplier 1.4 (the manifest base) so the silhouette can be judged at all. The material axis here is scored from the script, not the frame."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "PROP_SET_INTERACTION_MATRIX.md line 62: the seam enters only while manifest; no prompt or card before that; never reveal the dream.",
+  "ORISON_BIBLE.md III: the Tenant has no true form; the seam must never become a figure or a face, so no bullet adds anything but the outline and its knob.",
+  "door_prop ruling (HISTORICAL; CANONICAL): the traced leaf is a painted stile-and-rail 3 ft x 7 ft entry with a knob on a long backplate; the 0.91 x 2.13 outline and the 0.96 m knob height are kept.",
+  "case_door_prop.gd header: the case door is real joinery and the seam is a light-leak; nothing here adds a leaf, jamb or reveal.",
+  "PROP_ART_BRIEF section 2: the seam carries the building's signal, which licenses the teal-cyan emission and nothing about the door shape."
+ ],
+ "notes": [
+  "Mount: the shed shows the U free-standing on the plinth; in situ it is set in the 4B wall at marker F04_B_DOOR_ANOMALY (yaw 0) with the bars centred on the wall plane, so half the 12 mm section is in the plaster, which reads as a seam. Mount 1 is for the shed's free-standing frame only."
+ ]
+}

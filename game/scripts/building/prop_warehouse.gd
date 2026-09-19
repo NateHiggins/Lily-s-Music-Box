@@ -107,6 +107,18 @@ func build(prop_scripts: Dictionary) -> int:
 		for key in variant.get("properties", {}):
 			if key in prop:
 				prop.set(key, variant.properties[key])
+		# Place BEFORE add_child as well, at the floor lift every prop gets by
+		# default. The layout positions a prop before it enters the tree, and
+		# some props rely on that: a door's leaf is an AnimatableBody3D with
+		# sync_to_physics, which does not follow a parent that moves after
+		# the body has entered the tree. Placing afterwards left every door
+		# frame on its plinth and every leaf at the shed origin - the
+		# reference pass photographed six frames and a heap of leaves. Wall
+		# and ceiling fixtures are re-lifted below once their bounds are
+		# known; none of them carries a physics body.
+		prop.position = at + Vector3(0, 0.12, 0)
+		prop.rotation.y = prop.warehouse_rotation_y() \
+				if prop.has_method("warehouse_rotation_y") else 0.0
 		add_child(prop)
 		# Stand it the way it hangs.
 		#
@@ -136,9 +148,8 @@ func build(prop_scripts: Dictionary) -> int:
 				# Builds upward from a floor datum but backward from a wall datum:
 				# the mail bank is the first example, not a named exception.
 				_stub_wall(at, true)
-		prop.position = at + Vector3(0, lift, 0)
-		prop.rotation.y = prop.warehouse_rotation_y() \
-				if prop.has_method("warehouse_rotation_y") else 0.0
+		if not is_equal_approx(lift, 0.12):
+			prop.position = at + Vector3(0, lift, 0)
 		_built += 1
 	print("[WAREHOUSE] %d prop displays from %d kinds, %d rows" % [
 			_built, kinds.size(), rows])
@@ -234,13 +245,21 @@ func _plinth(at: Vector3, label_text: String) -> void:
 	add_child(label)
 
 
-func _slab(size: Vector3, at: Vector3, mat: StandardMaterial3D) -> void:
+## `group` names the slab's role for whoever photographs the shed. The
+## per-cell backers (stub walls, soffits) belong to one display each: a
+## camera standing a row back to frame a tall prop is otherwise looking at
+## the next row's wall, which is what the reference pass first photographed
+## in place of the front door.
+func _slab(size: Vector3, at: Vector3, mat: StandardMaterial3D,
+		group := "") -> void:
 	var mi := MeshInstance3D.new()
 	var bm := BoxMesh.new()
 	bm.size = size
 	mi.mesh = bm
 	mi.material_override = mat
 	mi.position = at
+	if group != "":
+		mi.add_to_group(group)
 	add_child(mi)
 
 
@@ -285,7 +304,7 @@ func _soffit(at: Vector3) -> void:
 	m.albedo_color = Color(0.30, 0.30, 0.31)
 	m.roughness = 0.92
 	_slab(Vector3(CELL * 0.72, 0.10, CELL * 0.72),
-			at + Vector3(0, SOFFIT_Y + 0.05, 0), m)
+			at + Vector3(0, SOFFIT_Y + 0.05, 0), m, "warehouse_backer")
 
 
 ## A stub of wall for the things that hang off one. It stands at the back
@@ -295,4 +314,5 @@ func _stub_wall(at: Vector3, at_origin := false) -> void:
 	m.albedo_color = Color(0.34, 0.33, 0.31)
 	m.roughness = 0.90
 	_slab(Vector3(CELL * 0.72, 2.10, 0.10),
-			at + Vector3(0, 1.17, -0.08 if at_origin else -CELL * 0.31), m)
+			at + Vector3(0, 1.17, -0.08 if at_origin else -CELL * 0.31), m,
+			"warehouse_backer")

@@ -1,0 +1,33 @@
+{
+ "specimen": "door__cabinet_leaf",
+ "axes": {
+  "object_class": 0,
+  "proportion": 0,
+  "silhouette": 1,
+  "detail": 2,
+  "material": 1,
+  "wear": 3,
+  "mount": 2
+ },
+ "effort_hours": 1.5,
+ "confidence": "high",
+ "summary": "A 0.55 x 0.72 x 0.032 m painted cupboard leaf with one knob, the right thing at the right size, but the 'recessed panel' is built proud: the 0.006 m field box sits at z -0.020 on a slab whose face is at -0.016, so the panel stands 7 mm out from the frame, the opposite of the Hoosier and built-in cabinet doors on the sheet, and there are no hinges at all so it floats in the shed. Object class is right.",
+ "modelling": [
+  "Make the recess real: delete the proud field box and add four 'trim' frame boxes 0.060 wide x 0.006 thick at z -0.019 along the edges (two of (width - 0.015) x 0.060 and two of 0.060 x (height - 0.135)), so the frame stands 6 mm proud and the slab face is the recessed field; 4 primitives replacing 1, slab unchanged at 0.032.",
+  "Two small butt hinges on the hinge edge: brass_dull cylinders r 0.005 x 0.050 at (0, 0.10, -0.014) and (0, height - 0.10, -0.014) on _body (2 primitives); the variant lists small brass or steel butts and the shed shows a leaf with no way to hang.",
+  "The knob: keep r 0.014 x 0.026 but add a rose cylinder r 0.010 x 0.004 against the face so it reads as a turned brass knob on a shank rather than a peg (1 primitive)."
+ ],
+ "texturing": [
+  "Keep 'trim' at tint (0.70, 0.68, 0.61); once the recess is geometric the second tint (0.56, 0.54, 0.48) should become the same tint darkened 0.06 so the field reads as shadow, not a second paint.",
+  "Add the hand: a 0.10 x 0.10 x 0.001 'fx_grease' decal (staged) around the knob at (width - 0.055, height * 0.53) on the outer face; a kitchen cupboard door is grubbiest at the knob and this one is clean."
+ ],
+ "references_used": [
+  "File:Hoosier Cabinet in original condition.jpg",
+  "File:The Architect and engineer of California and the Pacific Coast (1917) (14595380310).jpg"
+ ],
+ "not_reopened": [
+  "Door sizes must not change; 0.55 x 0.72 x 0.032 m stays and the frame is added proud of the slab rather than by thinning it.",
+  "Cabinet leaves carry no lock, saddle or jamb barrels; the two small butts proposed sit on the leaf, not on a fixed jamb node.",
+  "No new material key."
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "specimen": "laundry_airer__laundry_rinse_tubs_pulley_airer",
+ "axes": {
+  "object_class": 1,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 3,
+  "material": 2,
+  "wear": 3,
+  "mount": 1
+ },
+ "effort_hours": 6,
+ "confidence": "high",
+ "summary": "The two ropes are merged into the rack and stop at the pulleys, so lowering the airer to 1.38 m opens 0.6 m of empty air under the ceiling tackle at 2.42 m and nothing ever runs to the pin-block on the wall, on the one prop whose tier is carried by that mechanism; the tubs are vertical-sided 28 mm crates where every set-tub plate on the sheet (the Mott/NYPL 1888 plates, the Otis House HABS laundry) shows steep-sided thin galvanised hoppers on a framed stand. Object class is right for the verified reading: rectangular galvanised-iron laundry set tubs with a lath pulley airer, not round bail-handled tubs.",
+ "modelling": [
+  "Rope: the two LINEN cylinders (r 0.009 h 0.43 at rack-local y 0.23) travel with PulleyAirer, so at the 1.38 m lowered height they end at 1.83 m below pulleys at 2.42 m. Put them in StaticRinseStand anchored at the pulleys and scale height with the tween (h 0.43 raised to 1.03 lowered), or split each into a fixed upper cylinder and a rack-side stub.",
+  "Run the rope to the cleat: there is no rope between the pulleys at x +/-0.52 and the pin-block at (0.72, 1.15, 0.26). Add a third pulley (r 0.055 h 0.045 plus its 0.12 x 0.07 x 0.16 bracket) at (0.72, 2.42, 0), two horizontal LINEN cylinders r 0.009 from each pulley to it (1.24 m and 0.20 m) and one vertical drop r 0.009 from (0.72, 2.42) to the pins at 1.24 m; 5 primitives in existing materials.",
+  "Pulleys: the two r 0.055 cylinders stand with a vertical axis, so each wheel lies flat and the rope rises into its underside. Rotate them 90 degrees about X so the rim faces the rope, and move them to x +/-0.56 over the rack ends.",
+  "Tub form: each shell is four 0.028 m boxes standing vertical on a 0.56 x 0.47 floor. The Mott plates show sides sloping so the bottom is about 60% of the 24 x 18 in top. Tilt the long-side boxes +/-14 degrees about X and the short sides -/+14 degrees about Z, shrink the floor to 0.42 x 0.30 and thin the sides to 0.006 (floor 0.012); same 5 boxes per tub.",
+  "Rim: replace the four 0.03 x 0.035 lip bars per tub with four cylinders r 0.010 (a wired rolled rim); same count, and the 28 mm slab edge that reads as slate goes away.",
+  "Stand: eight loose 0.045 legs with nothing between them; the Otis House tubs sit in a framed stand. Add two 1.24 x 0.045 x 0.045 WOOD stretchers at y 0.12, z +/-0.20, two 0.045 x 0.045 x 0.44 end rails and a 1.24 x 0.03 x 0.02 rail at y 0.42 under the rims; 5 boxes.",
+  "Drain: the BRASS tail (r 0.025 h 0.26 at y 0.31 along Z) floats 0.12 m below the tub floor at 0.4275 with no riser. Add a vertical BRASS cylinder r 0.020 h 0.12 at (cx, 0.37, 0.20) per tub (2 primitives) so the cock hangs off a pipe that leaves the tub.",
+  "Rack ends: the METAL end bars are 0.05 x 0.12 x 0.56 slabs; cast rack ends are plates about 10 mm thick. Make them 0.012 x 0.10 x 0.56.",
+  "Laundry: the three LINEN cards hang from under the laths as flat sheets. Fold each over its lath: two 0.018 boxes at z +/-0.032 from the lath centre with a 0.05 x 0.018 x 0.064 cap (9 boxes for 3 pieces) so wet cloth reads draped, not pegged.",
+  "Laths: 1.14 m against the 1.2-1.8 m real range; 1.30 m fits over the 1.24 m tub pair and keeps the 0.11 spacing. Optional: a pair of brass bibbs (r 0.008 h 0.06 rotated X 90) above each tub at y 0.90 on a 1.24 m supply rail, as the plates' 'faucet holes in back' and the Otis House back rail show, if the rinse tubs are meant to fill from the wall and not only from the wringer."
+ ],
+ "texturing": [
+  "zinc_liner on the tubs is ruled and stays; the gap is form (28 mm walls), not the response. Keep tint (0.80, 0.82, 0.80) at 0.72.",
+  "wood_dark (walnut albedo) tinted (0.74, 0.64, 0.50) makes pine laths and a deal stand read as dark furniture; lift the lath tint to (0.88, 0.80, 0.64) (unpainted pine or whitewash) with a second WOOD colour constant and leave the legs darker, so the two tints are two surfaces of the same key and no new key is needed.",
+  "Wear: the fiction rules a patched, mended, mismatched line and the tubs render as uniform clean zinc. Give the two tubs different tints (0.80/0.82/0.80 and 0.70/0.72/0.68) and add a 0.03 x 0.15 strip below each drain tinted (0.50, 0.32, 0.22) on zinc_liner as the rust weep (fx_drip is not in GODOT_STAGE, so no decal is available at runtime); a rust weep and a waterline band are the two marks every galvanised tub in the HABS photograph carries.",
+  "brass_dull on the cocks and pins and linen on the rope read right; leave them."
+ ],
+ "references_used": [
+  "File:Porcelain-Lined and Galvanized Iron Wash Tubs (NYPL b15260162-487530).tiff",
+  "File:Porcelain-Lined and Galvanized Iron Wash Tubs (NYPL b15260162-487529).tiff",
+  "File:Imperial' Porcelain Wash Tubs (NYPL b15260162-487525).jpg",
+  "File:Imperial' Porcelain Wash Tubs (NYPL b15260162-487527).tiff",
+  "File:LAUNDRY, WASH TUBS - Harrison Gray Otis House (second), 85 Mount Vernon Street, Boston, Suffolk County, MA HABS MASS,13-BOST,114-15.tif"
+ ],
+ "not_reopened": [
+  "No tumble dryer in the setting; the airer is the drying apparatus and the dryer marker does not return.",
+  "Tubs plus airer are one authored ensemble because the Matching game moves laundry through all three; every bullet keeps the single prop.",
+  "The broad galvanised faces keep the zinc_liner response (region medians 60 to 68 and 27 to 35 after the swap); no revert to generic metal.",
+  "FAST WalkTest asserts 6 meshes for the airer: every added primitive is in an existing colour so merge_static holds the count; the second WOOD tint adds a surface, not a mesh, and the test must be re-run and updated rather than silently reopened if it counts surfaces.",
+  "The airer runs through the laundry joists and the line never touches the steam header; the third pulley hangs from the same joist line.",
+  "Round tubs with bail handles and swaged rings were refuted by the verifier; the rectangular set-tub form stands and is what the plates show."
+ ],
+ "notes": [
+  "Mount: the pin-block floats at x 0.72 in the shed with no wall behind it; the tubs stand on their legs and the pulleys sit at ceiling height, which the shed cannot show. Mount 1 is for the free-floating block.",
+  "Off-topic references ignored: both Slate plumbing fixtures plates (a slate switchboard and a page of door hinges and pulls) and the Shaker washhouse boiling vats (round wooden tubs, the refuted form)."
+ ]
+}

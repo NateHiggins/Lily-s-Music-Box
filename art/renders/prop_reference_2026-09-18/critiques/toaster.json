@@ -1,0 +1,39 @@
+{
+ "specimen": "toaster",
+ "axes": {
+  "object_class": 0,
+  "proportion": 0,
+  "silhouette": 2,
+  "detail": 1,
+  "material": 3,
+  "wear": 1,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "The one reference on the sheet (Country Tea Room) is a house exterior, so the toaster is judged against the ruled Henry Ford 1-A-1 description: the body measures right (0.257 x 0.121 x 0.187) but its plated shell renders as chalky cream stone (nickel_plated at roughness 0.82 under a warm tint), and the pressed rounded top is stood in for by three stepped courses that read as a Deco ziggurat at room distance. Object class is right: single longitudinal 218 x 20 mm slot, end lever and notched timer stop, four feet, side louvers, braided cord and the ruled homemade crumb pan.",
+ "modelling": [
+  "Shoulder: the three course pairs (6 boxes at y 0.153/0.162/0.170) step like a ziggurat; the 1-A-1's shoulder is one pressed curve. Replace them with a CylinderMesh r 0.052 h 0.226 laid along X at (0, 0.148, 0), its lower half inside the 0.132-tall walls, and keep the four slot-lip boxes on top; 6 primitives become 1 and the 0.183 m top stays.",
+  "Ends: with the curved shoulder the end walls (0.006 x 0.132 x 0.109 at x +/-0.1215) need a matching cap: one CylinderMesh r 0.052 h 0.006 at each end (2 primitives), NICKEL.",
+  "Badge: an unlettered oval nickel plate 0.040 x 0.022 x 0.001 at (0.06, 0.110, -0.061) marks where the maker's badge sits without putting letters in a plate (1 box); low priority.",
+  "Everything a hand reaches exists: the 0.034 x 0.015 x 0.026 lever on its pin at +X, the timer post with five nickel notches at -X, the carrier plate and five rods in the slot, four 12 mm feet and the plug with two pins; no change."
+ ],
+ "texturing": [
+  "nickel_plated on the shell at the census roughness 0.82 with tint (0.94, 0.92, 0.86) reads as sandstone; polished nickel is warm grey and reflective on vertical faces (brief section 3: polished for vertical and hand-touched parts, dull only where horizontal). Pass roughness 0.40 for the four wall slabs and the shoulder, 0.75 for the base plate, and a neutral tint (0.90, 0.90, 0.88).",
+  "bakelite_black on the feet, lever, timer post and vent strips at 0.75 reads right, and the mica_heater cards show orange-brown through the slot: keep.",
+  "fabric_warm cord tint (0.62, 0.48, 0.40) reads as a red-brown braid; period braided cords were brown or black: (0.45, 0.36, 0.30).",
+  "Wear: a one-to-two-year-old aspirational machine should read new, so the near-absence of wear is nearly right; the two marks it would carry are heat-tint at the slot lip (tint the four lip boxes (0.86, 0.80, 0.70)) and a finger smudge by the lever (a 0.03 x 0.02 fx_grease strip at (0.118, 0.13, -0.061) at low alpha); the retrofit pan already carries its grease decal and the per-household crumbs."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "The object is the 1926 Waters-Genter Toastmaster 1-A-1, single slot, nickel plated (HISTORICAL; CANONICAL); the two-slot box with a rotary dial does not return.",
+  "The crumb pan is a visibly homemade superintendent retrofit with a mismatched pull (NECESSITY; CANONICAL); nothing here tidies it into a factory feature.",
+  "No signal: nickel not chrome, clockwork timer, mica and wire, cloth cord; nothing later than 1927 is proposed.",
+  "Henry Ford dimensions 0.257 x 0.121 x 0.187 with feet and plate inside that height; the curved shoulder keeps the 0.183 m top and does not inflate the body.",
+  "The two end controls keep distinct jobs and the carrier, lever, click, hum, heater glow and pop stay a complete cycle; only the resistance wire emits.",
+  "Fourteen instances, the 4B cross-counter orientation and the set_crumb_tray_open API are placement and activity rulings, not reviewed here."
+ ],
+ "notes": [
+  "The header 0.30 x 0.18 x 0.21 includes the lever at +X, the timer post at -X and the cord loop behind; the case itself matches the museum measurement."
+ ]
+}

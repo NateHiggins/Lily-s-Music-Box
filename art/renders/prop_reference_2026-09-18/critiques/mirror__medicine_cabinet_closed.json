@@ -1,0 +1,42 @@
+{
+  "specimen": "mirror__medicine_cabinet_closed",
+  "axes": {
+    "object_class": 0,
+    "proportion": 0,
+    "silhouette": 2,
+    "detail": 1,
+    "material": 3,
+    "wear": 3,
+    "mount": 1
+  },
+  "effort_hours": 3,
+  "confidence": "high",
+  "summary": "The mirror leaf is the whole read from three metres and it renders as a mottled grey-green slab - matte, no specular, with the nickel channel frame indistinguishable from the cream enamel flange - so the closed cabinet reads as a framed cork board rather than glass. The object class is right: 460 x 610 x 95 mm, two pin barrels, catch, pull, rolled flange and four screws match the ruled 1926 cheap enamel cabinet and the Morgan 1921 bathroom plate.",
+  "modelling": [
+    "Pull: the 0.025 x 0.030 x 0.018 nickel box at y -0.13 reads as a lug; the reference's pull is a small knob - cylinder r 0.008 x 0.014 on a r 0.005 x 0.006 stem (2 cylinders, merged into the door batch) at the same far_x.",
+    "Hinge barrels are r 0.008 x 0.070 cylinders sitting at z -0.001, flush with the door face; a butt-hinge barrel stands proud of the leaf edge. Move them to the hinge edge x +/- 0.004, z -0.012, and split each into two 0.033 knuckles with a 4 mm gap so the two hinges read at 3 m.",
+    "Flange: the 0.024 x 0.018 'rolled' flange is a square-edged box; a rolled edge reads through a 4 mm quarter-round - add make_cyl r 0.006 along each of the four flange edges (4 cylinders, merged), or keep the box and bevel it 3 mm.",
+    "Screw heads r 0.007 x 0.006 at the flange corners are fine in size; add a 0.001 x 0.008 x 0.001 slot box in the enamel tint on each so they read as screws rather than rivets."
+  ],
+  "texturing": [
+    "mirror_aged runs at roughness 0.45 / metallic 0.35 (tint 0.78, 0.79, 0.76, scale 0.60) and renders as matte stone; set roughness 0.12 and metallic 0.85 on the static fallback so flat shed light produces a specular sheen, and raise the albedo scale to 1.5 so the clouding is not one uniform mottle across the plate.",
+    "Regenerate the mirror_aged albedo (existing key, one-plate batch) with the clouding and black oxidation confined to a 60 mm edge band and a nearly clear centre; an evenly clouded plate is the uniformly grubby failure the wear axis names.",
+    "nickel_plated at tint (0.88, 0.86, 0.80), roughness 0.82 reads as cream enamel; tint cooler (0.80, 0.82, 0.84) with roughness 0.35 so the channel frame, barrels, catch and pull separate from the enamel flange in the front bearing.",
+    "enamel (aged appliance enamel albedo) is right for the carcass; add one chipped corner on the flange bottom-left (a 0.012 x 0.012 quad in a dark grey tint) so sixteen years of a rented bathroom read somewhere on the steel."
+  ],
+  "references_used": [
+    "File:Building with assurance (1921) (14783717283).jpg",
+    "File:Building with assurance (1921) (14760678701).jpg",
+    "File:INTERIOR OF BATHROOM NUMBER TWO LOOKING BACK THROUGH OPEN DOOR TO BEDROOM NUMBER THREE. MIRRORED MEDICINE CABINET FLANKED BY 1-LIGHT OVER 1 LIGHT SASH WINDOWS IN GROUPED HAER CAL,26-JULA.V,1E-22.tif"
+  ],
+  "not_reopened": [
+    "Family geometry is fixed at 460 x 610 x 95 mm with a 95-degree opening and hinge_side from the resident's view; both hands occur.",
+    "The cheap folded-enamel rectangle with visible pin hinges and friction catch, not the concealed-hinge bevelled Venetian-glass patent cabinet.",
+    "mirror_aged static fallback with PlanarMirrorRenderer borrowing one reflected camera in production; no baked room reflection.",
+    "No lamp, socket or listening element; cabinets remain absent from the acoustic graph; KEPT inventories are explicit per unit."
+  ],
+  "notes": [
+    "The Morgan 1921 plates show a wood-framed projecting cabinet, the luxury cousin of the ruled pressed-steel recess; they were used for the mirror-door proportion and pull, not the frame. The HAER photograph could only be judged from the sheet thumbnail (TIF). The FBI modern bathroom is off-topic and was ignored.",
+    "Depth 0.157 m in the shed is the flange-to-back extent of a recessed box shown without its wall; the index lists mount as floor but the prop is wall-recessed at 1.505 m centre."
+  ]
+}

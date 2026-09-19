@@ -1,0 +1,41 @@
+{
+ "specimen": "shower__curtain_drawn",
+ "axes": {
+  "object_class": 0,
+  "proportion": 2,
+  "silhouette": 1,
+  "detail": 1,
+  "material": 2,
+  "wear": 3,
+  "mount": 1
+ },
+ "effort_hours": 4,
+ "confidence": "medium",
+ "summary": "The one thing most wrong is the hem: the curtain drop is 1.62 m from a top at 1.965 m, so the hem hangs at 0.345 m, 0.225 m clear above the receptor's 0.12 m rim, and every bearing shows a curtained box hovering over a separate tray instead of duck falling inside the receptor as Mott plate 1034-A hangs it. The object class is right and ruled - 0.72 m enameled corner receptor, exposed nickel riser to 1.89 m, 0.17 m arm, 0.11-0.15 m rose, two cross valves at 0.98 m, ceiling U rod at 2.02 m with 22 mm rings and one continuous curtain. The sheet's only reference (a 1920 yearbook cartoon of three students) is off-topic and was not used; this critique is against the Mott plate description in queries.json and the tap_prop notes, so confidence is capped at medium.",
+ "modelling": [
+  "Lengthen the curtain: in _make_curtain_panel change the hem offset from -1.62 m to -1.88 m so the hem sits at 0.085 m, inside the receptor cavity below its 0.12 m rim; keep the rod footprint 0.68 x 0.64 m, which already sits inside the 0.72 m receptor in plan.",
+  "Hem and fold sampling: segments = max(8, folds * 4) gives 4 samples per 0.128 m wave, so the sine profile and the 12 mm hem ripple render as a saw-tooth in the side and high_quarter bearings; raise to folds * 12 (60 / 84 / 60 segments, about 1.6 k triangles for the three panels after the two-sided duplicate) and taper the wave amplitude from 0.020 m at the rings to 0.055 m at the hem so the cloth hangs from its rings instead of reading as corrugated panelling.",
+  "Rolled rim: the receptor's four 35 x 25 mm lip boxes read as a square-edged tray; replace them with four make_cyl edges r 0.018 m along the rim and four corner spheres r 0.018 m (8 primitives for 4) so the rim rolls as enameled iron does.",
+  "Rose face: the 55/75 mm inverted cylinder reads as a solid disc from below; add one 0.002 m nickel_plated disc r 0.052 m with the spray_holes drawn as 24 make_cyl r 0.0015 m dark stubs, or a 12-hole subset, so the rose is a rose.",
+  "Wall eyes: the two make_ring(0.030, 0.007) eyes at z 0.338 are 60 mm rings for a 9 mm rod; a period wall flange is a 32 mm escutcheon - drop to make_ring(0.016, 0.005) plus a 0.004 m disc r 0.020 against the wall.",
+  "Ceiling hangers: the rod is ruled ceiling-hung but has no ceiling attachment, so a 0.68 m front run of 9 mm tube cantilevers from two wall eyes; add two nickel_plated make_cyl drops r 0.004 m from the front corners (-0.34, 2.02, -0.32) and (0.34, 2.02, -0.32) up to the room ceiling (about 0.55 m in the standard flat), which is what keeps the front bar level in the Mott plate."
+ ],
+ "texturing": [
+  "Curtain colour: the shower_duck tint (0.90, 0.84, 0.67) over the library linen albedo renders a distinctly yellow-tan cloth in all four bearings; white rubberized cotton duck is off-white - move the runtime multiplier to (0.93, 0.91, 0.84) and keep the triplanar linen source, which is ruled.",
+  "Receptor enamel: the aged_enamel_worn albedo reads greenish-cream in the shed's flat light; keep the enamel key (ruled: receptors keep their own enamel job) but sample the installed 1A frame against the lavatory's porcelain_fixture and pull the tint toward neutral white (0.86, 0.86, 0.83) so it does not read as a different substance from the splash panel.",
+  "Curtain wear, the piece that says who owns it: a mildew band 0.06 m tall at the hem (alpha 0.25 grey-green quad along the front panel's foot), a water line at 0.30 m, and a hand-greyed leading edge 0.05 m wide at the front panel's rod-side end; the fixture is sixteen years installed and the curtain is the one part a tenant replaces, so per-unit variation belongs here rather than on the enamel.",
+  "Nickel: keep nickel_plated (ruled warm silver); add a verdigris ring r 0.036 m, 0.001 m thick, behind each valve escutcheon and at the riser's foot where the two metals meet, which is where sixteen years of water show on nickel over brass."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "HISTORICAL; CANONICAL: the shower is Mott plate 1034-A - 28-inch corner receptor, exposed tubular shower, separate valves, roughly 25-inch curtain ring, white duck curtain; the glass cubicle with mixer plate and lever stays deleted.",
+  "Rule of Signal: non-signal fixture, 1927, second-hand, on water pipe; possession may only retime a valve or admit a brief cold thread; network: water.",
+  "Curtain is a ceiling-hung U rod enclosing all three exposed edges with one continuous curtain; the front bar with five rigid boxes stays rejected.",
+  "Curtain material is the approved homogeneous library linen projected triplanar as shower_duck; linen_aged (banded fold) and a single stretched UV square (moire) stay rejected - only the tint multiplier is questioned above.",
+  "Shower receptors keep their own enamel job and do not inherit porcelain_fixture.",
+  "nickel_plated is warm silver, not modern blue chrome.",
+  "Valves are wall-mounted cross handles facing the user with escutcheons, derived from the splash panel front; no deck taps, no mixer.",
+  "Bathroom light switch plates sit at least 750 mm clear of the curtained shower envelope; lengthening the hem does not change the envelope's plan.",
+  "Marker kind remains shower with fixture 'shower'; 23 showers, zero obsolete assemblies."
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "specimen": "eye_pendant",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 1,
+    "detail": 2,
+    "material": 2,
+    "wear": 2,
+    "mount": 1
+  },
+  "effort_hours": 2,
+  "confidence": "medium",
+  "summary": "No usable reference: all four Commons pulls on this sheet are off-topic (a 1921 children's-book plate, a 2012 flower-show structure, a chewing-gum advertisement and a biscuit box), so this is judged against the kind description and the owner's atrium-tree direction at medium confidence. The globe itself is close, a Ø 230 x 270 mm opal egg the notes accept as a blown form; what is wrong is the joint and the stem: the Ø 60-104 x 28 mm brass calyx sits on the globe's top pole like a hat with no neck or collar under it, and the Ø 16 x 100 mm stalk above is a flat-colour rod (its 0.42/0.35/0.18 colour matches no retexture row) that ends in air 0.15 m above the calyx in the shed. Object class is right: an opal globe pendant on a brass fitter hung from composed brasswork, as ruled.",
+  "modelling": [
+    "Neck and collar: add an opal neck make_cyl(0.038, 0.042, 0.025) at y +0.045 on the globe's top and turn the calyx cone into a fitter collar make_cyl(0.048, 0.052, 0.030) at y +0.062 with three Ø 5 mm set-screw nubs make_cyl(0.0025, 0.0025, 0.008) set radially at 120 degrees: 5 primitives, so the globe is held at its neck as the notes require instead of capped.",
+    "Stalk: confirm the generator's 0.34 m drop stem meets the stalk top at +0.15; if it does not, lengthen the stalk to make_cyl(0.008, 0.008, 0.34) centred at y +0.22 so the eight court lanterns hang on visible brass and not on air, and finish it with a Ø 12 x 10 mm ferrule at the top: 1 primitive.",
+    "Globe: SphereMesh at 18 x 10 segments facets on a Ø 230 mm emissive surface seen from the stair; radial_segments 32, rings 16, eight instances."
+  ],
+  "texturing": [
+    "Stalk: add a retexture row for (0.42, 0.35, 0.18) to 'brass', or build the stalk in the brass constant (0.62, 0.55, 0.30), so stalk and calyx share the aged-brass plate; today the stalk is the census's flat #6b592e.",
+    "Globe: it is named bulb_fruit so it takes _bulb_mat (albedo 1.0/0.97/0.9, no texture). Give _bulb_mat the milk_glass albedo and normal (the key is in the catalog, GODOT_STAGE and MatLib.SETS), because the LightRig darkens the other storeys and the court shows all eight lanterns at once, so the unlit ones must read as opal glass rather than white plastic eggs.",
+    "Wear: a dust cap on the globe's upper third as a tint band toward (0.86, 0.85, 0.80) on the milk_glass, per lantern by hash(name); the calyx already carries aged brass and needs nothing."
+  ],
+  "references_used": [],
+  "not_reopened": [
+    "Rule of Signal (PROP_ART_BRIEF section 2 / bible VIII): 1928 or older.",
+    "Owner direction 2026-08-16 (gen_layout.py atrium_tree): one bracket per storey, eight lanterns, composed and alternating; the count and set-out are not reopened and the trunk's wander stays; the tree is world geometry and not part of this prop.",
+    "gen_layout.py _validate_placement: the eye pendant is not a ceiling kind; it hangs in the well. The index's 'wall' mount and the wall behind it in the shed are staging, and mount is scored 1 only because the fitting has nothing at the stalk top that meets the branch.",
+    "The four references on the sheet (King Cole 1921, RHS Chelsea 2012 structure, Juicy fruit, Maritani Fruit Biscuit) are off-topic and none was used."
+  ]
+}

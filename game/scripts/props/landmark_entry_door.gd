@@ -12,6 +12,14 @@ var _iron: StandardMaterial3D
 var _glass: StandardMaterial3D
 
 
+## One hero, one display. DoorProp's inspection variants (entry, interior,
+## service, storefront, cabinet) are the generic leaf's family; inheriting them
+## here made the shed build six copies of the front door under the generic
+## labels, and the reference pass photographed all six as if they were kinds.
+func warehouse_variants() -> Array[Dictionary]:
+	return [{"label": "landmark entry / the Orison front door"}]
+
+
 func _ready() -> void:
 	name = "F01_DOOR_06"
 	add_to_group("building_entry")

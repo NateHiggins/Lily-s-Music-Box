@@ -1,0 +1,40 @@
+{
+ "specimen": "neon_sign",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 1,
+  "detail": 2,
+  "material": 3,
+  "wear": 1,
+  "mount": 1
+ },
+ "effort_hours": 4,
+ "confidence": "medium",
+ "summary": "The tube is 44 mm across on six-sided cylinders in phosphor pink with a pale porcelain boot at every stroke end, about ten boots per letter where a real tube has two, so the letters read as pink pipe fittings rather than 12-18 mm clear glass carrying red-orange neon; the blade itself, its two arms, wall plates, lags, rust runs, transformer, conduit and LB condulet are the right hardware. Right object class, a bulb-bordered projecting electric sign re-lettered in neon, which is the honest 1928 reading; confidence is medium because the shed shows the 6.4 m blade edge-on in one bearing only, the other three frame empty air, and the sheet's usable references are a modern script fascia and a wrought-iron bracket sign.",
+ "modelling": [
+  "TUBE_R 0.022 to 0.008 (16 mm glass) and radial_segments 6 to 8; at 0.45 x 0.75 m glyph cells the strokes stay legible from the street and stop reading as pipe.",
+  "Boots: build two per letter (first stroke start, last stroke end) instead of two per stroke; ORISON drops from about 88 to 24 boot cylinders across both faces and the dark face stops being freckled with pale dots, which is what the front bearing shows even edge-on.",
+  "Corners: add a SphereMesh r TUBE_R at every stroke joint (about 24 per face for ORISON) so butt-jointed cylinders read as bent tube with painted-out crossovers.",
+  "Bulb border: the 19-per-edge run covers only the two vertical edges; add three bulbs on a 0.30 pitch along the top and bottom between z0 and z1 so the border runs the full perimeter, and replace `i % 9 != 4` with a fixed two dead lamps (the variant asks for one or two, not one in nine).",
+  "Tie rod: an r 0.012 rod from the blade's top outer corner (z1, +half_y) to a 0.12 x 0.12 wall plate 0.60 m above the upper arm; period blades are tied up to the wall as the Romsey bracket sign shows, not only braced below."
+ ],
+ "texturing": [
+  "Default tint (1.0,0.30,0.42) is 1933+ phosphor pink; 1928 tubing is clear glass with red-orange neon, so set the default to (1.0,0.28,0.10) and keep DRUGS cyan (close to argon-mercury blue) and HARUKIYA amber as yellow-tinted glass.",
+  "Dead tube (0.36 grey, roughness 0.42) is described as a phosphor coat; keep the grey but treat it as dust on clear glass at roughness 0.25 so the dead run still catches the border bulbs.",
+  "Cabinet near-black (0.055,0.055,0.062) at metallic 0.45 is flat colour (edge samples (62,62,63)); the `metal` key with a black-japan tint gives painted sheet steel a surface, and the two rust boxes at the wall plates could use `fx_drip` for a feathered run."
+ ],
+ "references_used": [
+  "File:Parkside Candies store Buffalo NY 2025-09-09 18-47-06.jpg",
+  "File:Sign for the Conservative Club, Romsey - geograph.org.uk - 1135253.jpg"
+ ],
+ "not_reopened": [
+  "The building's sign is a projecting blade perpendicular to the facade (the wall-parallel version was the fixed bug).",
+  "Inspection is observational only: no switch, surge or repair; source_ids == [\"R008\"]; exactly three signs, one vertical.",
+  "T7e per-letter static batching (285 to 51 draws) must survive: the boot, corner and border changes stay inside each letter holder or the cabinet merge.",
+  "TUBE_EMISSION 1.35 / GLOW_ENERGY 0.55 / range 3.6 m: a sign is a sign, not a streetlamp.",
+  "Accord 9: no additional neon signs; F01 checkpoint KEEP for the Orison and tenant signs.",
+  "Rule of Signal: 1928-or-older with no forty-year advance, hence a colour bullet rather than a new technology."
+ ],
+ "notes": "Only the ORISON blade is imaged because warehouse_variants() is not overridden; the DRUGS pan and the HARUKIYA amber sign are un-imaged and not critiqued here. The Milldale kettle sign, the Hawaii Electric Company ceremony photographs and the Montreal church are off-topic and were not used."
+}

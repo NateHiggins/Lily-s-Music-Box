@@ -1,0 +1,37 @@
+{
+ "specimen": "boxfan__sacha_nickel",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 4,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 2,
+ "confidence": "high",
+ "summary": "Both plated parts read as paint: the motor and base are the cast_iron albedo tinted putty-beige (0.63/0.62/0.57 at roughness 0.60) and the guard is worn galvanised metal at roughness 1.00 tinted khaki, so the one thing that distinguishes Sacha's dearer fan from the family, plated metal against paint, is absent from the frame. Object class is right; the modelling faults are the shared ones as juno_black.",
+ "modelling": [
+  "As juno_black (shared script): handle onto the motor top, two-cylinder round base, wider three-box blades, brass_dull hub badge, trunnions at the motor axis; no variant-specific geometry.",
+  "The attachment plug (0.055 x 0.033 x 0.070 bakelite_black block with two 0.007 x 0.012 x 0.030 brass_dull prongs) is right for a 1920s two-pin plug, and its exhibit pose at (0.29, 0.030, -0.16) prongs forward lies clear of the base; no change."
+ ],
+ "texturing": [
+  "Body: choose the key by variant, not only the tint. For sacha_nickel the BODY row becomes [BODY, nickel_plated, (0.80, 0.80, 0.78), 0.55]: worn dull plate on the can and base. nickel_plated is runtime-staged (toaster_prop and the lobby clock already draw it), so no new key.",
+  "Guard: [GUARD, nickel_plated, (0.96, 0.96, 0.94), 0.35], brighter and smoother than the motor as the variant states; the current metal row at roughness 1.00 / metallic 0.90 cannot read as bright plate under any tint.",
+  "Blades stay dark phenolic on bakelite_black (0.25, 0.21, 0.17): correct.",
+  "Wear: worn nickel is roughness, not colour; 0.55 on the motor against 0.35 on the guard says handled plate and untouched wire, which is all a second-hand plated fan needs."
+ ],
+ "references_used": [
+  "File:Hardware merchandising March-June 1921 (1921) (14784650333).jpg"
+ ],
+ "not_reopened": [
+  "Only 6A may break the physical contract (plug on the floor, rotor turning); the exhibit pose is authored evidence, not a modelling fault, and is untouched.",
+  "The 440 mm sweep stays; no bullet touches the cage diameter.",
+  "9 visible meshes per fan / 36 across the family: re-keying BODY and GUARD changes materials, not mesh count; no new material key and no texture batch.",
+  "The fan carries no signal: nothing later than 1927."
+ ],
+ "notes": [
+  "Header metres 0.59 x 0.66 are loose (see juno_black); geometry judged from the script."
+ ]
+}

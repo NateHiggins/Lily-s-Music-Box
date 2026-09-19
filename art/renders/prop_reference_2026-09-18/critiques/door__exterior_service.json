@@ -1,0 +1,31 @@
+{
+ "specimen": "door__exterior_service",
+ "axes": {
+  "object_class": 1,
+  "proportion": 1,
+  "silhouette": 1,
+  "detail": 2,
+  "material": 2,
+  "wear": 4,
+  "mount": 0
+ },
+ "effort_hours": 2,
+ "confidence": "medium",
+ "summary": "The same _build_service as the interior service leaf at 0.90 x 2.10 x 0.052 m and it inherits the same gaps: a smooth galvanized slab with three plain straps, no rivets, no plate seams and none of the 'battered, dented, hard-used' condition the variant asks of an areaway door. No usable reference was on the sheet (a 1935 tow truck, a Portsmouth boathouse, a 1909 streetcar and a garden gate), so this is scored against the variant description; the object class is close.",
+ "modelling": [
+  "The service leaf's rivet (21 primitives), seam (6 boxes) and strap-hinge (4 primitives) bullets apply here through the shared _build_service; fix them once.",
+  "Battering the flat slab cannot show: two dent boxes 0.18 x 0.10 x 0.004 in the leaf material set 2 mm into the face at (0.30, 0.55) and (0.62, 1.35) with rotation.z 0.15 and -0.25, and a bent lower corner box 0.10 x 0.10 x 0.006 at (width - 0.05, 0.05) rotated 0.12 rad on Z (3 primitives) so the rectangle breaks from 3 m.",
+  "A drip across the head: a 0.02 x 0.02 x width cast_iron box along the top of the front face at y height - 0.01, which an alley door has and a boiler-room door does not (1 primitive).",
+  "Hasp and staple: one 0.16 x 0.035 x 0.004 cast_iron box at (width - 0.20, 1.25, -0.03) with a r 0.012 x 0.02 cylinder staple (2 primitives); an areaway leaf is padlocked from outside."
+ ],
+ "texturing": [
+  "Variant 0: the galvanized tint (0.48, 0.50, 0.47) on 'metal' reads as dark grey-green; lift toward (0.66, 0.68, 0.66) as for the service leaf, and add weather with a 0.12 x 0.80 x 0.001 'fx_grease' run from each strap end and a 0.30 m 'soot' band across the foot ('fx_drip' and 'fx_damp' are the catalog keys for this but are not in MatLib.SETS).",
+  "Variant 1 (Harukiya): keep (0.44, 0.13, 0.11) but give it the chalk the ruling describes: a 0.40 x 0.30 x 0.001 decal at (0.45, 1.10) in 'metal' with a light tint where the enamel has worn through to grey steel; chalk is a surface, not a darker tint."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "The Harukiya's door is finish variant 1, battered painted red steel gone chalky, never bright pillarbox; variant 0 stays galvanized grey.",
+  "Door sizes must not change; 0.90 x 2.10 x 0.052 m stays.",
+  "No new material key and no texture prompt batch; wear is decals and geometry over metal and cast_iron."
+ ]
+}

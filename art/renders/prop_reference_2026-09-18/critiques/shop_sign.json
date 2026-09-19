@@ -1,0 +1,25 @@
+{
+ "specimen": "shop_sign",
+ "axes": {
+  "object_class": 0,
+  "proportion": 0,
+  "silhouette": 0,
+  "detail": 0,
+  "material": 0,
+  "wear": 0,
+  "mount": 0
+ },
+ "effort_hours": 0,
+ "confidence": "low",
+ "summary": "Not assessable in the shed. shop_sign_prop.gd hangs Label3D lettering (name, trade line, blade text, tint) on a fascia board, blade panel and awning valance that gen_layout's shopfront pass bakes into the ground-floor shell; standing alone on a plinth with no marker it has no board to letter and no text to set, so it drew nothing. The lettering itself is ruled Label3D, never a texture, so there is no texturing brief for this kind at all; what a reviewer could judge is glyph style, colour and layout against the eleven shopfronts in situ.",
+ "modelling": [
+  "Nothing in this script. The fascia (0.46 m), blade (0.08 x 1.02 x 0.72 m with a 0.05 m bracket) and 0.28 m valance are layout geometry; review them in the Passage shopfront pass with the eleven installed signs, where the reference plates of 1920s hand-painted shop parades apply.",
+  "Warehouse registration: give the kind a warehouse_variants() entry carrying a sample name, trade line and blade text over a stand-in fascia board, so the type hierarchy and letter colour can be judged under flat light; today the shed shows an empty plinth."
+ ],
+ "texturing": [],
+ "references_used": [],
+ "not_reopened": [
+  "Rule of Signal: a painted sign is 1928-or-older and second-hand grade; never neon, bulb-outlined or backlit.",
+  "Texture rule: no letters, numbers, words or logos in any generated plate; signage lettering is Label3D by rule."
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "specimen": "speaker",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 1,
+  "detail": 4,
+  "material": 2,
+  "wear": 4,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "high",
+ "summary": "The right class under the Rule of Signal, a 0.34 x 0.55 x 0.30 m veneer two-way the size of the Heresy on the sheet, but the drivers are built backwards: make_cyl puts r_top on +Y and the -90 degree X rotation sends +Y into the cabinet, so the 0.10 m woofer cone and the 0.052 m horn mouth both point away from the listener and the front bearing shows a black ring around a 28 mm nub and a 16 mm nub where a dished cone and a flaring horn should be, with the port as a raised puck. Object class is right; detail and salvage wear are the gaps.",
+ "modelling": [
+  "Flip the cone: make_cyl(0.028, 0.10, 0.05, Vector3(0, 0.36, 0.13)) with the same -90 rotation puts the 0.10 m rim at the baffle plane (z 0.155) and the apex 0.05 m inside; move the dust cap to (0, 0.36, 0.112) as r 0.026 -> 0.020 x 0.018 so it sits at the recessed apex (0 new primitives, 2 edits).",
+  "Flip the horn the same way: make_cyl(0.016, 0.052, 0.035, Vector3(0, 0.115, 0.138)) so the 0.052 m mouth is flush with the baffle and the throat recedes; or build the sectoral horn the Altec 604 plate shows from a make_box 0.12 x 0.05 x 0.03 mouth frame with a black make_box 0.10 x 0.035 x 0.001 throat plate behind it (2 primitives).",
+  "Port as a hole: replace the r 0.030 x 0.02 puck at z 0.152 with a black make_cyl r 0.030 x 0.06 sunk to z 0.12 and a make_ring r 0.030 tube 0.004 at the baffle plane in the baffle colour (2 primitives replacing 1).",
+  "Pegs: four grille-peg positions at the baffle corners (+/-0.13, 0.05) and (+/-0.13, 0.50), three built with the upper-right missing; today both pegs are on the left edge and the top one at y 0.55 straddles the cabinet's top edge (3 primitives).",
+  "Rear terminal plate: make_box 0.06 x 0.04 x 0.004 at (0, 0.10, -0.152) in the bakelite colour with two make_cyl r 0.005 x 0.008 screw terminals and a maker's label make_box 0.08 x 0.05 x 0.001 above it in 'paper' (4 primitives); the back is bare veneer today.",
+  "Optional, to match every monitor on the sheet: put the horn above the woofer (woofer centre y 0.20, horn y 0.43), the Heresy and 604 arrangement, instead of the inverted one the script chose."
+ ],
+ "texturing": [
+  "Surround: the flat (0.16, 0.15, 0.14) torus should be the pleated-paper or doped-cloth surround VIII.4 requires; add it to the retexture table as 'paper' tinted (0.30, 0.28, 0.25) and the dust cap as 'paper' tinted (0.45, 0.42, 0.38); with the cone flipped the 'paper' key finally shows.",
+  "Baffle: the (0.10, 0.095, 0.09) flat slab is black-painted hardboard; retexture to 'bakelite_black' (staged, roughness 0.28) or 'wood_dark' tinted (0.25, 0.24, 0.23) for grain, which with the port ring drops the flat share from 0.44 to under 0.2.",
+  "Salvage wear on the veneer: a 0.03 x 0.03 x 0.001 'soot' decal on the top face at (0.10, 0.551, 0.05) for the cigarette burn, a 0.09 x 0.09 x 0.001 ring decal in 'fx_grease' for the water ring, and a chipped-corner box 0.02 x 0.02 x 0.02 in the baffle colour let into the front top-left corner; the 'one missing grille peg' is the only wear cue built and it is not readable from the front ('fx_burn' and 'fx_drip' are the catalog keys for these but are not in MatLib.SETS)."
+ ],
+ "references_used": [
+  "File:Altec 604 Duplex Loudspeaker.jpg",
+  "File:Cutaway View Of Altec 604 Duplex Loudspeaker.jpg",
+  "File:Line Magnetic LM 218ia tube amplifier (22931532793).jpg"
+ ],
+ "not_reopened": [
+  "Rule of Signal (VIII.2): the reference class is a ~1960s moving-coil monitor; no bullet pulls the prop toward a 1928 cone or horn speaker.",
+  "VIII.4: Bakelite is the plastic, no aluminium, no stainless, no foam surround, cloth-braided flex and screw terminals; the terminal-plate and surround bullets follow it.",
+  "Accord 9: salvage grade, twenty years old and repaired by four people; the wear bullets serve it, nothing is made new.",
+  "The 2C and 3D pairs stay on the electrical network as authored; nothing here touches markers, the hiss bed or the knock emitter."
+ ]
+}

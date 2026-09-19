@@ -1,0 +1,31 @@
+{
+ "specimen": "door__1928_apartment_interior",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 1,
+  "detail": 1,
+  "material": 1,
+  "wear": 2,
+  "mount": 0
+ },
+ "effort_hours": 2,
+ "confidence": "medium",
+ "summary": "The closest of the family to its real object: a 0.81 x 2.03 m light-painted two-field leaf with a knob set, three barrels and none of the entry security hardware, as the variant asks; what remains is that the fields read as tinted rectangles because the recess is only 6 mm and the paint carries no use. No on-topic reference was available (the eight plates are a sash-and-door mill, two college halls, a Wright dining room, two city-hall entrances, a blot and a garden gate), so this is scored against the variant description and the notes.",
+ "modelling": [
+  "Deepen the field shadow line: move the field box from z +/-0.025 to z +/-0.019 (3 mm inside the 44 mm slab face) and thicken the stile and rail boxes from 0.018 to 0.024 so the moulding stands 10 mm proud of the field instead of 6 mm; same 20 primitives per leaf, only depths change.",
+  "Add hinge leaves on the hinge edge: one 0.025 x 0.105 x 0.003 brass_dull box at x 0.012 beside each of the three barrels, so the butts read as mortised hardware rather than three brass pegs on the jamb (3 primitives).",
+  "Add the lock face on the lock edge: a 0.025 x 0.20 x 0.002 brass_dull box at (width - 0.001, 0.94, 0), so the mortise lock reads when the leaf stands open, which is how most of the 55 interior leaves are met (1 primitive)."
+ ],
+ "texturing": [
+  "Keep 'trim' with the three light tints; once the recess is geometric, lift the field tint from tint.darkened(0.18) to darkened(0.08) so the field reads as the same paint in shade rather than a second colour.",
+  "Per-variant wear where hands go: a 0.14 x 0.22 x 0.001 'fx_grease' decal centred on the backplate at 0.94 m and a 0.20 x 0.12 x 0.001 'soot' decal at the bottom rail, y 0.10, offset by finish_variant; both keys are staged in MatLib.SETS."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Residential leaves share one economical 1928 two-field pattern; no five-panel or Curtis catalogue alternative is proposed.",
+  "Room leaves carry none of the entry security stack; no closer, peephole, kick plate or deadbolt is added here.",
+  "Door sizes must not change; 0.81 x 2.03 x 0.044 m stays.",
+  "No new material key and no texture prompt batch."
+ ]
+}

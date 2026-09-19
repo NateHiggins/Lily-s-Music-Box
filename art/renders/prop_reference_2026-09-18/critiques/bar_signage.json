@@ -1,0 +1,38 @@
+{
+ "specimen": "bar_signage",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 4,
+  "wear": 4,
+  "mount": 1
+ },
+ "effort_hours": 6,
+ "confidence": "medium",
+ "summary": "All 45 surfaces are flat colour and nothing has weathered: the sixteen-year board is a smooth slab the gooseneck wash lifts to a textureless (130,121,112), the kanji are crisp 12 mm slats with square ends, and the akachochin is a smooth orange capsule (255,152,85) with no ribs. The object class is right (painted kanban lit by two gooseneck reflectors, red chochin on a bracket arm, incandescent down-arrow with two dead bulbs), but no reference on this sheet shows any of the three sign types, a Tampa street postcard and three Tsingtau postcards, so this critique is against the real_object description and the Harukiya rulings only, with confidence held at medium.",
+ "modelling": [
+  "Kanji strokes are 0.045 tall x 0.012 deep boxes standing 32 mm proud with square ends; paint has no thickness. Drop stroke depth to 0.003, vary widths 0.035-0.060 per stroke in the KANJI tables, and add an r 0.020 sphere at each stroke start so ends swell like a brush; 春木屋 stays stroke-built because no CJK font ships.",
+  "Board 2.35 x 0.55 x 0.05 is one box with no fixings: build it as three 0.18 m planks with 3 mm gaps and back it with three 0.04 x 0.30 x 0.06 iron angle brackets carrying r 0.012 lag heads (Accord 11: every bracket has anchors, one painted over).",
+  "Goosenecks are a 0.12 stub plus a 0.36 straight arm plus a cone, an L not a gooseneck; give each arm a three-segment bend (0.12 + 0.20 + 0.14 cylinders at 0/40/80 deg) and enlarge the reflector mouth from r 0.095 to r 0.14 with a torus lip (tube 0.006), the 12-inch spun-steel shade of a 1920s fascia.",
+  "Chochin: CapsuleMesh r 0.20 h 0.60 is a pill; use a five-section CylinderMesh stack (r 0.16 to 0.20 to 0.16, 0.12 each) with twelve dark torus ribs (tube 0.003) at 0.05 pitch so the split-bamboo spiral reads, with flat ends under the two r 0.09 rims.",
+  "Arrow bulbs sit as bare r 0.026 spheres on the cabinet face; add a porcelain socket cylinder r 0.018 x 0.025 under each (the neon_sign_prop _bulb() pattern) and stand the bulbs 0.05 proud so the cabinet reads as a studded electric sign."
+ ],
+ "texturing": [
+  "Board TIMBER (0.15,0.115,0.085) to the catalog's `sign_board` key (already in MATERIAL_CATALOG; confirm it is in GODOT_STAGE and MatLib.SETS before naming it in retexture()) with a dark tint, and the kanji PAINT to a worn cream (0.70,0.66,0.56) at roughness 0.9 so the strokes read as sixteen-year-old sign paint, not fresh white.",
+  "Lantern body to the catalog's `chochin` key with emission kept, base colour (0.85,0.10,0.08) instead of the (0.72,0.14,0.08) that lights to orange (1.0,0.30,0.10), so it reads red against the teal stair per the CANONICAL composition.",
+  "Arrow cabinet and gooseneck steel to `metal` with a chipped dark-enamel tint, and two `fx_drip` rust runs (0.03 x 0.20) below the bracket lags; weathering follows the drip line and the lamp heat (Accord 12), not a filter."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Rule of Signal: board, gooseneck lamps, lantern and bulb arrow are 1928-or-older and second-hand; nothing here modernises them.",
+  "KARAOKE on the romaji line is licensed (karaoke is a signal machine, NYC ADAPTATION); not struck.",
+  "Ledger A0.4: the signboard and lantern are the Harukiya's own, brought and maintained; nothing removed or displaced.",
+  "Red lantern against the teal stair is Otomo's staircase composition (CANONICAL); the colour bullet moves it toward red, not away.",
+  "Accord 9: no tube neon on this frontage.",
+  "Accord 15: every lumen has a fixture; the two SpotLight3Ds and the lantern OmniLight3D stay attached to their shades and body.",
+  "Prohibition and a lit BAR sign on a 1928 Queens street is unruled in the design tree; flagged for brief section 9, not corrected here."
+ ],
+ "notes": "The board's flat TIMBER samples (130,121,112) on the front bearing under its own spots, which is the value a plaster wall would give; grain is what the wash needs to catch. The Tampa Franklin Street postcard shows 1920s street signage only at block distance and was not relied on; the three Tsingtau postcards (a residence, an archer, timber haulage) are off-topic."
+}

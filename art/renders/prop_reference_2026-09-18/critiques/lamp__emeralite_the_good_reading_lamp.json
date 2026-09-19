@@ -1,0 +1,39 @@
+{
+ "specimen": "lamp__emeralite_the_good_reading_lamp",
+ "axes": {
+  "object_class": 0,
+  "proportion": 3,
+  "silhouette": 3,
+  "detail": 3,
+  "material": 4,
+  "wear": 4,
+  "mount": 0
+ },
+ "effort_hours": 4,
+ "confidence": "medium",
+ "summary": "The shade is an opaque flat-green box 0.26 x 0.075 x 0.13 m with no curve, no end caps, no white underside and no light through it, so the one feature that identifies an Emeralite reads as a painted slab on a stick; the base at dia 0.19 m is a third wider than the real dia 0.14-0.15 and the overall 0.41 m is a fifth taller than the 0.33-0.36 m No. 8734. The object class is right (a 1916-1930s cased-glass bankers' lamp), but no usable reference was on the sheet (a 1922 portrait, a 1902 X-ray tube stand and a Norfolk church), so this is judged against the variant text in queries.json.",
+ "modelling": [
+  "Replace the 0.26 x 0.075 x 0.13 shade box with a half-cylinder trough: an ArrayMesh arc of dia 0.13 m, 0.26 m long, 12 segments over 180 deg, open underneath, axis along x at y 0.375; close the ends with two 0.008-thick brass half-discs (r 0.065) at x +/-0.13 for the cast end caps.",
+  "Add the tilt knuckle a real 8734 has: a dia 0.024 x 0.030 brass cylinder on the z axis at the stem top (y 0.34) joining stem to trough, and tip the trough 12 deg toward the reader.",
+  "Shrink the base from dia 0.19 (make_cyl 0.085/0.095) to dia 0.145 (0.065/0.0725) and add a second step dia 0.10 x 0.012 above it so it reads as the stepped 8734 base; shorten the stem from 0.30 to 0.26 so the overall height lands at 0.35-0.36 m.",
+  "Hang the pull-chain socket where it belongs: move the dia 0.034 x 0.024 bakelite collar to the trough's centre underside and add a dia 0.002 x 0.06 chain with a dia 0.006 bead; run the cord (dia 0.0035) from the socket down the stem, hugging it at z +0.013 for 0.30 m, to the base and 0.15 m across the desk - it currently stops 0.155 m above the desk in mid-air.",
+  "Move the SpotLight3D from (0.10, 0.40, 0), which is inside the closed shade box (y 0.3375-0.4125), to y 0.33 just under the open trough so a shadow-casting spot is not occluded by the shade's own faces."
+ ],
+ "texturing": [
+  "Shade: new key `cased_glass_green` (no catalog key fits; `glassish` and `milk_glass` are the wrong substance): outer albedo (0.10, 0.36, 0.22) roughness 0.15, a `milk_glass` inner face on the underside, and when the lamp is on an emission (0.35, 0.90, 0.50) x 0.6 on the outer and (1.0, 0.95, 0.80) x 1.2 on the inner, so the shade glows green through and throws white down; wire it through GODOT_STAGE and MatLib.SETS or it stays flat colour.",
+  "Brass: retexture the three _BRASS flat colours (0.62, 0.50, 0.24 at metallic 0.75-0.80) to `brass` on the vertical stem and end caps and `brass_dull` on the horizontal base top (brief section 3: flat metal reads black, horizontals carry oxide); in every bearing the current brass renders as saturated toy gold.",
+  "Wear for a 16-year-old house lamp carried down two flights: an `fx_scuff` decal dia 0.05 on the base rim where it is dragged, the stem tinted 0.85 between y 0.15 and 0.25 where hands have worn the lacquer, and one 3 mm notch in an end cap for the chipped glass edge."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "ORISON_BIBLE VIII.2 / VIII.6 Rule of Signal: 1927 or older and second-hand; the type is correct and stays.",
+  "ORISON_BIBLE VIII.4: the socket collar stays dark phenolic and the flex stays cloth-braided (the basement nook is house property, so the good-flat braid).",
+  "Accord 9: do not make any lamp gleam; the brass bullet above moves the finish toward oxide, not polish.",
+  "Brief section 2 true scale: the shrink to 0.35 m is toward real size, not away from it.",
+  "Script header and walk_test _lamp_family_checks: five distinct silhouettes with one downward SpotLight3D each; the sprung mid-century arm does not return."
+ ],
+ "notes": [
+  "All three references on the sheet are off-topic for this lamp: 'When winter comes to Main Street (1922)' is a portrait, the 1902 X-ray plate is a tube stand, and the third is a church exterior. Confidence is capped at medium for that reason.",
+  "Census: 9 surfaces, 100% flat colour, 1044 triangles."
+ ]
+}

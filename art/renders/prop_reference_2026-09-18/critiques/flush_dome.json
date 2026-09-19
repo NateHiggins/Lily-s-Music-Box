@@ -1,0 +1,32 @@
+{
+ "specimen": "flush_dome",
+ "axes": {
+  "object_class": 1,
+  "proportion": 3,
+  "silhouette": 3,
+  "detail": 3,
+  "material": 2,
+  "wear": 3,
+  "mount": 1
+ },
+ "effort_hours": 2,
+ "confidence": "medium",
+ "summary": "The retaining rim is built as a vertical hoop: make_ring lies flat in XZ and the script rotates it 90 degrees about X, so the front bearing shows a brass arch standing over the canopy and the side bearing a thin vertical stalk, a basket handle rather than a fitter ring; with a canopy that steps wider away from the ceiling (r 0.115 then r 0.135) over a 0.33 m bowl, the fixture reads as a lidded pot. No reference was available (no permissively licensed plate matched the queries), so this is scored against the real-object description and the in-script ruling; the object class is right, a flush opal fixture on brass.",
+ "modelling": [
+  "Delete the line rim.rotation_degrees = Vector3(90, 0, 0): the torus then lies flat at y -0.072 as a ring around the neck, which is what a fitter is (0 primitives, 1 line).",
+  "Re-proportion to a 4-inch fitter: canopy make_cyl r 0.065 -> 0.055 x 0.020 at y -0.010, collar r 0.052 x 0.030 at y -0.035, fitter ring make_ring r 0.058 tube 0.007 at y -0.055 with three thumb screws make_cyl r 0.004 x 0.010 at 120 degrees; today the 0.27 m canopy is 82 percent of the glass width where the real fitting is about half (5 primitives replacing 3).",
+  "Globe held by its neck: SphereMesh r 0.125, height 0.22, centred at y -0.175 so the neck passes through the ring and the glass hangs clear of the canopy; total drop 0.285 m, in the real 0.25-0.30 m for an 8-10 inch schoolhouse globe.",
+  "Shed registration, not a prop edit: the index mounts this kind on a wall and the bearings show it hung beside a wall plane, while the prop builds downward from y 0 as a ceiling fixture; if the warehouse mount table can take it, register flush_dome as ceiling so the bearings show it under a plane."
+ ],
+ "texturing": [
+  "'brass' at metallic 0.85 with the aged-brass map renders as polished gold under flat light; for a bedroom and corridor fitting of lacquered brass or brass-plated steel, retexture canopy and ring to 'brass_dull' (metallic 0.30) and keep 'brass' only for the thumb screws.",
+  "The bowl is the shared emissive material (flat (1.0, 0.97, 0.9) with emission), acceptable for opal; give its unlit albedo 'milk_glass' (staged) so a powered-off dome reads as white glass, not a cream plastic ball.",
+  "Wear: the 90 installed domes are identical; the per-name seed already drives tone and gain, so use it to darken the upper bowl tint by 0.00-0.08 for dust so the corridor's eight domes are not eight copies."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Rule of Signal: 1928 or older, the cheap catalogue version; the bullets describe an ordinary schoolhouse fitter.",
+  "In-script energy ruling: flush_dome runs at 1.9 and is a diffuse fitting, not a dim one; nothing here changes energy, range or tone.",
+  "Corridor domes stay 5.1 m apart with range 4.6 and the dark third between pools."
+ ]
+}

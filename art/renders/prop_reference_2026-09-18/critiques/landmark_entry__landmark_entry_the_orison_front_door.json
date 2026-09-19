@@ -1,0 +1,44 @@
+{
+ "specimen": "landmark_entry__landmark_entry_the_orison_front_door",
+ "axes": {
+  "object_class": 2,
+  "proportion": 2,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 4,
+  "wear": 3,
+  "mount": 1
+ },
+ "effort_hours": 8,
+ "confidence": "medium",
+ "summary": "The one thing most wrong is the leaf's face: HERO_ALBEDO is a photograph of a solid four-panel Eastlake door with incised panels, and the two 0.25 x 0.62 m green wired-glass panes at 1.61 m are laid over it with their 4 x 8 iron grids, so from the front and high_quarter bearings the glazing reads as green rectangles pasted on a painted Victorian panel door, about 15 percent glass where a 1928 New York entrance leaf (the Christadora House pair on this sheet is mostly glass in bronze frames) carried 40-60 percent. The object class is right in intent - a single 0.91 x 2.13 m stile-and-rail entrance leaf under a stepped head and transom with a Corbin-pattern long escutcheon, faceted knob, thumbpiece, covered keyhole, offset pull, letter slot, jamb bell and four ball-tip butts, all at plausible heights - but the script's narrated century of accretions (a 1970s iron panic bar, a welded-shut slot, a cracked stile held by a mending plate, bronze unpolished since the sixties) sits against the ruled 1928-new door. Three bearings show the interior face only; the side bearing is black (the camera sits inside the jamb box), so the exterior pull, slot and lettering were checked in the script, not a frame.",
+ "modelling": [
+  "Glazed upper fields as openings, not overlays: build the leaf as joinery instead of a slab plus photo - two stiles 0.105 x 2.09 x 0.045 m, a bottom rail 0.075 m tall at 0.12 m, a lock rail 0.14 m tall at 0.98 m, a top rail 0.075 m at 2.035 m, a centre mullion 0.06 m wide from 1.05 to 2.0 m, two raised lower panels 0.34 x 0.78 x 0.03 m, and two glass fields 0.34 x 0.90 m from 1.10 to 2.00 m with the slab cut away behind them so the lobby shows through (nine boxes plus two glass quads replace the 0.064 m slab, the two QuadMesh faces and the eight rail boxes). Glass share rises to about 33 percent of the leaf, the low end of the class.",
+  "Transom over the leaf, under the head: the 0.43 m transom box now sits at 2.255-2.685 m above the 0.07 m head slab, and its pane is only 0.85 x 0.28 m in a 0.055 m box, so the front bearing reads a dark signboard with a small window. Put a 0.91 x 0.40 m light directly on the 2.13 m head (transom_y = height + 0.20 + 0.06), full opening width, with the 8 x 3 wire grid, and move the stepped architrave head to 2.55-2.685 m above it as the Christadora surround places its lintel over the glass.",
+  "Lettering: the 'THE ORISON  ·  1928' Label3D at font 26 / pixel 0.00115 gives about 0.03 m capitals that no bearing can read at three metres; keep the text (ruled) but make it a bronze plate 0.60 x 0.10 x 0.006 m on the head with 0.075 m capitals (pixel_size 0.0032) - the Christadora lettering is carved at roughly 0.12 m.",
+  "Remove the 1970s exit device: the iron box 0.73 x 0.055 x 0.085 m at 0.94 m on the inside face is a later object on a door ruled 1928 or older. If an exit device is wanted, the 1908-pattern Von Duprin is a brass tube r 0.012 m x 0.70 m on two cast brackets 0.05 x 0.08 x 0.06 m; otherwise the inside carries the same escutcheon and knob only.",
+  "Remove the century-of-repair geometry on a new leaf: the tilted 0.013 x 0.46 m iron crack strip and 0.075 x 0.19 m brass mending plate at 0.49 m, and the 0.27 x 0.035 m iron weld bar over the letter slot. The 1912 fabric that may show age is the jamb and the saddle, not the 1928 leaf; keep the brass slot plate 0.34 x 0.105 m with a working flap (a second box 0.26 x 0.06 x 0.006 m hinged at its top edge).",
+  "Head: the 1.25 x 0.07 x 0.19 m upper slab reads as a shelf in the high_quarter bearing; step it as three boxes of 0.04 m rise each (widths 1.12 / 1.19 / 1.25 m) so the battered architrave reads as mouldings rather than one plank.",
+  "Harness: the side bearing is black because the camera lands inside the 0.10 x 2.33 x 0.15 m jamb box; offset the side camera 0.25 m outboard for this kind, and add an exterior bearing - the door's face, the pull and the slot are on the +Z side that no current bearing shows."
+ ],
+ "texturing": [
+  "Oak: drop HERO_ALBEDO (a photograph of the wrong door) and key the leaf, stiles, rails and jamb to oak_quartered (varnished quarter-sawn white oak, ruled materials_expected), with wood_dark for the jamb interior returns; the jamb's flat (0.085, 0.032, 0.021) reads as black plastic in every bearing. Both keys already have complete runtime paths from the door_prop pass.",
+  "Bronze hardware: the _brass StandardMaterial3D (0.48, 0.30, 0.105 at metallic 0.84 / roughness 0.39) renders as orange plastic in the shed's flat light; use the catalog key bronze for the escutcheon, rose, pull, slot plate and bell rosette, and brass_bright only for the knob crown and thumbpiece where hands land - the two spots the script already names as worn bright.",
+  "Bluestone saddle: it is built in _iron (0.075, 0.070, 0.064 at metallic 0.72), which is a black metal plate; bluestone is a matte blue-grey sandstone - use limestone tinted (0.42, 0.45, 0.48) at roughness 0.9, or new key bluestone, and keep the brass wear strip.",
+  "Glass: the transom and pane material (0.16, 0.22, 0.20, alpha 0.66) is opaque bottle green; wired plate glass is near-clear - alpha 0.30, albedo (0.80, 0.85, 0.82), roughness 0.08, so the lobby light reads through the door at night as the notes' b_16_street_level context expects.",
+  "Wear that says 1928-new in 1912 fabric: the saddle worn hollow at centre (a 0.02 m darker band across the middle 0.42 m), the jamb's lower 0.30 m scuffed to 0.9 roughness, and nothing on the leaf but the knob crown polished; strip the tarnish narrative from the escutcheon."
+ ],
+ "references_used": [
+  "File:Christadora House entrance.jpg",
+  "File:Christadora House entrance detail.jpg"
+ ],
+ "not_reopened": [
+  "The landmark entrance remains the 1928 reopening door; nothing is re-dated, the 1912 fabric is older, the address begins in 1928 and no door explains the missing years (PROP_REFERENCE_NOTES door_prop, CANONICAL).",
+  "Bible VIII.5.h: 'THE ORISON · 1928' is one of three licensed player-readable 1928 sites; the text is kept and only its size and substrate are questioned.",
+  "Reference families are fixed: Russwin and Corbin 1920s builders' hardware catalogues, Sweet's 1927, Building Technology Heritage Library joinery; the Christadora House photographs on the sheet were used only for a 1928 New York entrance's glass share and lettering scale.",
+  "Ordinary leaves are plainer and more uniform than the Vantry-era structure; this hero is the one ornamented leaf and stays so.",
+  "Doors remain plain Node3D actors batched through StaticMeshBatcher under the 600-mesh family cap (NECESSITY); the joinery rebuild above replaces meshes one for one and adds no draw call after merge.",
+  "Rule of Signal: a door carries no signal, so it is 1928 or older - the reason the 1970s exit device is scored as an object-class fault rather than a taste call.",
+  "The Koett House, Haddon Hall and 'The new New York' references on the sheet are a Covington house, an English manor and an elevated-railway drawing; the South Street Seaport HABS door is a nineteenth-century warehouse leaf. None was used."
+ ]
+}

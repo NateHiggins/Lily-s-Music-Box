@@ -1,0 +1,39 @@
+{
+ "specimen": "ceiling_light",
+ "axes": {
+  "object_class": 4,
+  "proportion": 1,
+  "silhouette": 5,
+  "detail": 5,
+  "material": 4,
+  "wear": 4,
+  "mount": 1
+ },
+ "effort_hours": 4,
+ "confidence": "high",
+ "summary": "The 4B main-room fixture is a single cream 0.30 x 0.10 x 0.30 m box with no canopy, ring, glass, socket or chain; against the shallow opal bowl on a brass fitter the real object describes, and the opal pendants in the two usable plates, it reads as a modern flush box, and when the OmniLight is budgeted away it is a bare box on the ceiling. The class is wrong as built, though the footprint (0.30 across, 0.10 deep) is exactly the bowl's.",
+ "modelling": [
+  "Replace the box with the bowl: one flattened SphereMesh r 0.155, height 0.20, centred at y -0.05 with cast_shadow off and named bulb_bowl so it takes an emissive opal material; the visible lower half gives a 0.31 m bowl 0.10 m deep, inside the real 25-36 x 8-12 cm (1 primitive, same footprint).",
+  "Brass fitter ring at the rim: make_ring r 0.150, tube 0.008 at y -0.055, left flat, plus three thumb screws make_cyl r 0.004 x 0.012 at 120 degrees on the ring's outer edge (4 primitives).",
+  "Canopy against the plaster: make_cyl r 0.065 -> 0.055 x 0.020 at y -0.010 (1 primitive), so the fixture meets the ceiling the way a flush bowl does instead of as a box edge.",
+  "Bead chain: make_cyl r 0.002 x 0.14 at (0.10, -0.17, 0) with a r 0.006 x 0.012 fob at its end, so the pull-chain socket the canonical quirk gives the fixture shows below the rim (2 primitives).",
+  "Bulb ghost: a make_cyl r 0.025 -> 0.030 x 0.06 inside the bowl at y -0.06 named bulb, emissive, so the tungsten silhouette shows through the opal as the distinguishing features ask (1 primitive)."
+ ],
+ "texturing": [
+  "Bowl: give it the emissive opal treatment light_fixture_prop uses for bulb_* nodes (albedo (1.0, 0.97, 0.9), emission = the fixture tone, energy multiplier 1.0-1.6 driven by _target_scale) instead of the flat vertex colour (0.95, 0.93, 0.85); 'milk_glass' is staged in MatLib.SETS for the unlit albedo.",
+  "Brass parts: retexture canopy, ring and screws to 'brass_dull' (metallic 0.30), the poor flat's lacquered fitting; 'brass' at 0.85 only if the owner wants the 1912 original to gleam, and 'trim' paint on the canopy is also period, since these were often painted over with the ceiling.",
+  "The script declares no material key at all (flat_colour_share 1.0); every surface above must go through retexture or a keyed material so the census stops reading this fixture as 100 percent flat."
+ ],
+ "references_used": [
+  "File:The lighting of printing plants - information compiled by A.D. Bell. (1920) (14597198867).jpg",
+  "File:Karmsund folkemuseum (Regional Museum) Haugesund Norway Interior Baderom fra 1920-åra, rør, varmtvannstank, tak, lampe (Bath room from the 1920s, ceiling, light bulb, piping) etc 2020-06-10 DSC00381.jpg"
+ ],
+ "not_reopened": [
+  "Rule of Signal: the fixture is 1928 or older and cheap; the bullets describe a catalogue opal bowl, not a later form.",
+  "The light_provenance.json maker and 'installed 19xx' strings are fiction; nothing here cites them or searches for them.",
+  "Bible VIII.4 materials: brass, glass and porcelain only; no aluminium, no stainless.",
+  "No new interaction on the fixture; the pull chain is geometry only and the switch stays wall-governed.",
+  "ceiling_light stays its own kind for the 4B living room and is not folded into flush_dome; every bullet lives in ceiling_light_prop.gd.",
+  "The saucer-sized Vantry point on the same ceiling is a separate prop and is not touched."
+ ]
+}

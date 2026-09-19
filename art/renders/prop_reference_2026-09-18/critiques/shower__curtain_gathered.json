@@ -1,0 +1,39 @@
+{
+ "specimen": "shower__curtain_gathered",
+ "axes": {
+  "object_class": 0,
+  "proportion": 2,
+  "silhouette": 2,
+  "detail": 1,
+  "material": 2,
+  "wear": 3,
+  "mount": 1
+ },
+ "effort_hours": 4,
+ "confidence": "medium",
+ "summary": "The one thing most wrong is the gathered stack: eight sine folds compressed into a 0.095 m run (x 0.245 to 0.34 at the right rear) with a uniform 0.040 m amplitude produce a flat-faced rectangular column about 0.10 x 0.10 x 1.62 m, and in the high_quarter and three_quarter bearings it reads as a square timber post standing in the receptor with a comb of seven rings on top, not as 1.96 m of duck bunched on its rings. The object class is right and ruled (Mott 1034-A receptor, exposed nickel riser, arm and rose, two cross valves, U rod), and with the curtain back the fixture's full silhouette reads correctly. The hem gap is the same as the drawn state (hem at 0.345 m, 0.225 m above the rim). The sheet's only reference is an off-topic 1920 yearbook cartoon, so this is judged against the plate description and the notes at medium confidence.",
+ "modelling": [
+  "Rebuild the stack as a bundle, not a plank: spread the eight folds over 0.16 m (x 0.18 to 0.34), taper the amplitude from 0.030 m at the rings to 0.075 m at the hem, and add a second sine at 3 folds with 0.025 m amplitude and a 0.4 phase offset so the plan outline is an irregular bulge widest at the foot; 8 folds x 12 segments = 96 segments, about 0.8 k triangles two-sided.",
+  "Ring cluster: seven 22 mm rings in 0.095 m overlap into a solid comb; place them over the 0.10 m rod length nearest the wall eye with alternating tilts of plus and minus 15 degrees about the rod axis so they read as rings bunched, and let the top 0.055 m of the bundle hang from them rather than starting flat at rod_y - 0.055.",
+  "Lengthen the drop from -1.62 m to -1.88 m in _make_curtain_panel so the bundle's foot is at 0.085 m inside the receptor's 0.12 m rim, as for the drawn state.",
+  "Interaction area: the open-state box 0.18 x 1.55 x 0.16 m at (0.29, 1.18, 0.25) should grow with the bundle to 0.22 x 1.55 x 0.20 m at (0.26, 1.18, 0.24) so the draw-again verb still lands on the cloth.",
+  "Rolled rim and rose face as in the drawn critique: four make_cyl r 0.018 m rim edges plus four corner spheres in place of the lip boxes; a 0.002 m perforated disc under the rose.",
+  "Ceiling hangers for the U rod's front corners (two nickel_plated make_cyl r 0.004 m drops to the ceiling), as in the drawn critique; with the curtain back the unsupported 0.68 m front run is the most visible part of the fixture."
+ ],
+ "texturing": [
+  "Curtain tint (0.90, 0.84, 0.67) reads yellow-tan; move to (0.93, 0.91, 0.84) over the ruled triplanar linen so the bundle reads as white duck.",
+  "Bundle shading: the stacked cloth is where the triplanar weave is densest and darkest; a 0.85 albedo multiplier on the gathered panel only (it is a separate MeshInstance3D, RubberizedDuck under CurtainGathered) keeps the shadowed folds from flattening to the same value as the open panel.",
+  "Receptor enamel toward neutral white (0.86, 0.86, 0.83) as in the drawn critique; the exposed receptor is the largest surface in this state.",
+  "Wear: with the curtain back the drain and wet corner are the whole story - the mineral film r 0.035-0.050 m and the rust bloom at (0.25, 0.125, -0.24) exist and read; add a 0.30 m water line inside the receptor walls (alpha 0.20 grey quad) and a scale ring r 0.045 m around the drain disc so the sixteen-year receptor does not read as newly set."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "HISTORICAL; CANONICAL: Mott plate 1034-A corner receptor, exposed tubular shower, separate valves, 25-inch curtain ring, white duck curtain; the glass cubicle stays deleted.",
+  "Rule of Signal: non-signal fixture, 1927, second-hand, on water pipe; possession may only retime a valve or admit a cold thread; network: water.",
+  "Curtain is a ceiling-hung U rod with one continuous curtain; the gathered state is a dense pleated stack that preserves the cloth volume - the bullets reshape the stack, they do not shrink it.",
+  "Curtain material is the approved triplanar library linen as shower_duck; linen_aged and the stretched UV square stay rejected.",
+  "Shower receptors keep their own enamel job; nickel_plated is warm silver; valves are wall-mounted cross handles from the splash panel front, no mixer.",
+  "The 750 mm switch clearance from the curtained envelope is unchanged by anything here.",
+  "Marker kind remains shower with fixture 'shower'; 23 showers, zero obsolete assemblies."
+ ]
+}

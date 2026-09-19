@@ -1,0 +1,47 @@
+{
+  "specimen": "signal_terminal",
+  "axes": {
+    "object_class": 0,
+    "proportion": 1,
+    "silhouette": 1,
+    "detail": 3,
+    "material": 3,
+    "wear": 3,
+    "mount": 0
+  },
+  "effort_hours": 5,
+  "confidence": "high",
+  "summary": "The front face is the most wrong thing: the 'brass edge strip' is built as a 0.018 x 0.225 x 0.94 m brass_dull box covering nearly the whole 1.02 x 0.27 m face, tinted 0.72/0.66/0.52, so the panel the meters, knobs and jacks sit on reads as mottled tortoiseshell where the Atwater Kent sets and the Western Electric boards on this sheet show a black panel with brass and nickel escutcheons, and the carcass wears the wood_dark walnut plate although the ruled cabinet is second-hand oak. Object class is right and stays as ruled, a machine of the fiction and not a computer: scope, two meters, three valves behind nickel rails, six jacks, amber annunciator and cradle are all there at plausible sizes; the gaps are that the 'three occupied' jack field has no plugs or cords, the scope is a flat emissive disc with no glass or graticule, the handset is a bar with two cups, and nothing on it looks twenty years old and repaired.",
+  "modelling": [
+    "Front panel: replace the 0.018 x 0.225 x 0.94 brass box with a bakelite_black panel of the same size and four brass_dull edge strips (two of 0.018 x 0.012 x 0.94, two of 0.018 x 0.225 x 0.012) around it: 5 boxes for 1, and the finish count stays at five.",
+    "Patch field: add three plugs make_cyl(0.011, 0.011, 0.040) at x +0.245 in jacks 1, 3 and 4, each with a three-chord cord loop (tube_between, r 0.003) dropping to a cord rail make_box(0.02, 0.02, 0.35) under the strip: 13 primitives. This is the physical route diagram the ruling says the player learns from the face, and today all six sockets are empty.",
+    "Scope: a glass cap (SphereMesh r 0.10 scaled to 0.02 in x, alpha 0.3) over the Ø 196 mm disc and a graticule of two 1 mm boxes 0.19 long in low emission (0.10, 0.30, 0.20): 3 primitives, so it reads as a tube face rather than a green button.",
+    "Handset: replace the 0.08 x 0.055 x 0.29 box with a handle make_cyl(0.015, 0.015, 0.22) between a Ø 55 x 30 mm transmitter cup and a Ø 50 x 25 mm receiver cap (the E1 pattern named in the period note): 3 primitives for 1; the two cradle cups stay.",
+    "Valves: a Bakelite base make_cyl(0.020, 0.020, 0.018) under each of the three envelopes (3 primitives), as on the breadboard receivers, where the glass sits in a base and not on bare oak.",
+    "Meters: a half make_ring(0.045, 0.002) tinted (0.85, 0.82, 0.72) behind each needle as the dial arc (2 primitives, no letters or numbers)."
+  ],
+  "texturing": [
+    "Cabinet: wood_dark (T_library_furniture_walnut) to oak_quartered (in the catalog, GODOT_STAGE and MatLib.SETS), tinted (0.62, 0.50, 0.34) at 0.65: one key change, and the ruled 'second-hand oak radio cabinet' is what renders.",
+    "Front panel: bakelite_black tinted (0.40, 0.34, 0.28), warm brown-black; the four edge strips keep brass_dull at (0.78, 0.68, 0.44) so the brass reads as brass on a narrow strip instead of veneer on a plate.",
+    "Valves: the envelopes are one solid amber alpha-0.72 material emitting (0.82, 0.25, 0.06) at 0.22 (0.64 on a surge), so they read as three neon tubes; a valve heater glows as a small orange point. Drop the envelope emission to 0.06 and put a 3 mm emissive filament box inside each: 3 primitives, one material change.",
+    "Wear as ruled (VIII.6, old and repaired): worn varnish on the cabinet's top front edge as a lighter tint band on oak_quartered (0.72, 0.62, 0.46), one meter bezel with a white-chipped corner (2 mm box tinted (0.80, 0.78, 0.72)), one replaced jack in nickel_plated among the five copper_aged ones, and a cloth cord on the handset (make_cyl 0.0025 r, fabric_warm): 4 items."
+  ],
+  "references_used": [
+    "File:Vintage Atwater Kent Model 40 Radio Receiver and Model L Horn Speaker, Circa 1920s (32974715560).jpg",
+    "File:Vintage Atwater Kent Breadboard Receivers, Model 10B (Top), Model 10C (Bottom), Circa 1924 (31715077946).jpg",
+    "File:First Neutrodyne radio receiver closeup.jpg",
+    "File:Western Electric 555 PBX switchboard - Telephone Museum - Waltham, Massachusetts -DSC08231.jpg"
+  ],
+  "not_reopened": [
+    "The marker id stays F04_B_MONITOR_01, a binding key for the call runner, acoustic graph, virus director and case origins.",
+    "It is a compact Vantry receiver/transmitter in a second-hand oak radio cabinet, not a modern computer; the five modern peripherals were removed and nothing above brings one back.",
+    "Signal-bearing parts are advanced; everything supporting them is ordinary 1928 workmanship (dull stamped brass, black Bakelite, nickel guards, copper contacts, carbon handset); the panel bullet moves the build toward that ruling.",
+    "Kind signal_terminal is unique to 4B; MonitorProp owns the five domestic receivers.",
+    "The physical face witnesses the four existing verbs (scope, meter pair, patch field, annunciator); verbs live in CallInterface and none is invented here, the plugs only make the ruled 'three occupied' visible.",
+    "Ten visible meshes under the fourteen-mesh cap, fixed geometry merged by five runtime-safe finishes: every bullet above merges into an existing finish or the live scope/valve/needle nodes, and oak_quartered replaces wood_dark one for one.",
+    "Cabinet 380 mm deep on the 580 mm desk to leave a wrist rest.",
+    "Call-interface palette follows the object.",
+    "Bible VIII.3, VIII.4, VIII.6 as listed in queries.json.",
+    "Brief section 8 (fridges, Vantry points) is not touched."
+  ]
+}

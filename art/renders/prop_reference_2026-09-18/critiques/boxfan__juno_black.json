@@ -1,0 +1,43 @@
+{
+ "specimen": "boxfan__juno_black",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 3,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 5,
+ "confidence": "high",
+ "summary": "The carrying handle floats: its three tubes run from y 0.492 to 0.545 at z 0.06, which is 90 mm above the motor top (y 0.40) and midway between the guard rings at z -0.105 and 0.115, so the loop hangs in air; and the fan stands on a rectangular two-step plinth where the one on-sheet reference, the 1921 Westinghouse advertisement, shows the round bell base of the ruled Westinghouse/Emerson class, while the black-japanned body renders as matte mid-grey. Object class is right: a 1920-27 portable cast-base fan with a 440 mm cage and a separate two-pin plug, not a postwar box fan.",
+ "modelling": [
+  "Handle: move the three BAKELITE tubes (r 0.009) from (+/-0.105, 0.492-0.545, 0.06) onto the can: legs (+/-0.055, 0.40 to 0.45, 0.035) and a 0.11 m crossbar at y 0.45, so the loop is cast onto the motor top; the one-line alternative is z 0.115 so the legs land on the rear ring. Same three primitives.",
+  "Base: the two boxes 0.31 x 0.045 x 0.23 and 0.24 x 0.035 x 0.17 make a rectangular plinth; the Westinghouse 1921 advertisement shows a round stepped bell. Swap for two cylinders, r 0.150 h 0.045 at y 0.023 and r 0.115 h 0.035 at y 0.052 (same primitive count), keeping the 0.18 m tapered neck above them.",
+  "Blades: each blade is two boxes 0.082 and 0.102 wide x 0.125 tall x 0.010, so four tips cover about 31% of the 1.32 m circumference at r 0.21; the advertisement's blades are broad, overlapping and round-shouldered (roughly 60% coverage). Widen to 0.110 and 0.150 and add a third 0.13 x 0.06 x 0.010 tip box per blade at radial 0.185 rotated a further 18 degrees about Z to round the shoulder: 4 boxes added inside the single rotor draw.",
+  "Guard badge: the six spokes meet at a bare hub on both cages. Add one brass_dull disc r 0.028 h 0.004 at (0, 0.305, -0.112) on the front guard, the cast maker's medallion the advertisement shows at the hub; 1 cylinder.",
+  "Yoke: the trunnion cylinders (r 0.030 h 0.035) sit at y 0.275, 30 mm below the 0.305 motor axis, and poke out of the can's underside from a flat 0.25 x 0.045 x 0.055 bar. Raise them to y 0.305 and add two BODY uprights 0.025 x 0.09 x 0.03 at x +/-0.115, y 0.26 so the yoke visibly rises round the can to the tilt axis; 2 boxes.",
+  "Motor can: r 0.082-0.095 (dia 0.19) is 43% of the 0.44 cage; the advertisement's can is about a third. r 0.072-0.080 at the same 0.17 m depth keeps the ruled motor depth and reads less like a drum."
+ ],
+ "texturing": [
+  "cast_iron body tint (0.31, 0.31, 0.29) at the key's roughness 0.60 reads as matte mid-grey; japanning is a glossy black lacquer. Tint (0.13, 0.13, 0.12) and pass roughness 0.35 as the fourth retexture element (clock_prop already uses that slot) so only the badge, handle and prongs read as bare metal, as the variant states.",
+  "metal guard (galvanized worn albedo) at roughness 1.00 / metallic 0.90 with tint (0.48, 0.47, 0.43) reads khaki; a black-painted steel guard 'slightly lighter than the body' is tint (0.24, 0.24, 0.23) at roughness 0.6.",
+  "Handle tubes keyed bakelite_black read as a plastic hoop; once on the can, key them with the body row (cast_iron, same tint) or metal for a plated steel handle.",
+  "Wear: nothing separates a second-hand japanned fan from a new one: no chipped lacquer on the base edge, no dust on the cage wire. Give the lower base step its own colour constant tinted (0.20, 0.19, 0.17) on cast_iron for the scuffed foot, no new key; all four fans currently share identical untouched surfaces, which the brief's 'wear that says who owns it' rule forbids."
+ ],
+ "references_used": [
+  "File:Hardware merchandising March-June 1921 (1921) (14784650333).jpg"
+ ],
+ "not_reopened": [
+  "The 440 mm sweep is honest and stays; the ruled fix was the missing base, motor depth and guard mass, and no bullet touches the cage diameter.",
+  "Tilt trunnions stay fixed, not animated; raising them to the motor axis promises no interaction.",
+  "9 visible meshes per fan / 36 across the family: every added primitive sits in an existing colour constant so merge_static holds the count; no new material key and no texture batch, and linen stays on its T_library_furniture_linen path.",
+  "The fan carries no signal: nothing later than 1927 and no oscillator gearbox is added.",
+  "Only 6A may break the physical contract; Juno's fan obeys its switch and cord."
+ ],
+ "notes": [
+  "The header metres are loose: four identical builds report 0.45 to 0.60 m wide and 0.61 to 0.67 m tall, so proportion was judged against the script's dimensions (base 0.31 x 0.23, neck 0.18, motor dia 0.19 x 0.17 deep, cage top at 0.53, handle at 0.554).",
+  "Off-topic references ignored: The literary digest (a Robbins & Myers factory drawing with no fan), Electrical news and engineering 1922 (a bowl heater and utility motors, no fan) and Bell telephone magazine 1922 (a man in an excavation)."
+ ]
+}

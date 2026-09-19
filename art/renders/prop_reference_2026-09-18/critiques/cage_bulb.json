@@ -1,0 +1,36 @@
+{
+  "specimen": "cage_bulb",
+  "axes": {
+    "object_class": 1,
+    "proportion": 3,
+    "silhouette": 3,
+    "detail": 3,
+    "material": 2,
+    "wear": 3,
+    "mount": 1
+  },
+  "effort_hours": 3,
+  "confidence": "medium",
+  "summary": "Proportion is the most wrong thing: the socket cap is a Ø 100-120 x 40 mm cylinder where a brass or porcelain drop socket is about Ø 36 x 60 mm, the lamp is a Ø 90 x 110 mm ellipsoid where a clear Mazda A-lamp is Ø 60 x 110 mm, and the guard is three Ø 150 mm great-circle tori meeting at the poles, a birdcage globe rather than the basket of 8-12 vertical wires under two or three hoops that the kind describes, so the three_quarter bearing reads as a small lantern with a glowing ball inside. No usable reference: the 1898 handbook pull is a cement-company trade mark and the 1920 pressroom photograph shows only drop-cord reflector pendants at distance, so this is judged against the kind description (unverified) at medium confidence; the object class is right, a drop-cord lamp holder with a wire guard on a cloth cord.",
+  "modelling": [
+    "Cap: replace make_cyl(0.05, 0.06, 0.04) at y -0.425 with a socket shell make_cyl(0.018, 0.018, 0.060) at y -0.450 and a cord-grip cap make_cyl(0.011, 0.011, 0.015) at y -0.412: 2 primitives for 1, and the fitting stops reading as a shade.",
+    "Lamp: SphereMesh r 0.045 h 0.11 becomes r 0.030 h 0.060 at y -0.515 with a neck make_cyl(0.012, 0.017, 0.035) at y -0.480 between shell and bulb: the pear read from three metres, 2 primitives for 1. Move the returned bulb position and the OmniLight to y -0.515 with it.",
+    "Guard: the three TorusMesh rings at 64 x 32 default segments are about 2,000 triangles each, most of this prop's 8,402. Replace them with a basket: hoops make_ring(0.048, 0.0015) at y -0.475, make_ring(0.052, 0.0015) at y -0.530 and make_ring(0.030, 0.0015) at y -0.580, plus eight make_cyl(0.0015, 0.0015, 0.115) wires at 45-degree steps tilted 12 degrees inward from the top hoop to the bottom: 11 primitives at 24 x 6 ring segments, about 900 triangles.",
+    "Cord: r 0.0025 to 0.004 (an 8 mm twisted cloth pair), and a Ø 60 x 15 mm ceiling receptacle make_cyl(0.030, 0.030, 0.015) at the anchor in the enamel colour (0.88, 0.86, 0.80): 1 primitive, only if the anchor is not already buried in ceiling geometry."
+  ],
+  "texturing": [
+    "Socket shell and cord-grip cap: build them in the brass colour (0.62, 0.55, 0.30) so the existing retexture row sends them to 'brass'; today the cap shares the guard's 'metal' and reads as the same dark galvanized steel as the wires.",
+    "Guard stays 'metal' (galvanized worn, metallic 0.9), the right substance for a Benjamin or Appleton wire guard; lift its tint from (0.46, 0.46, 0.50) to (0.60, 0.60, 0.58) so 1.5 mm wires do not go black against the lamp.",
+    "Lamp: keep the emissive envelope, the LightRig depends on it. A visible filament (two Ø 1 mm emissive tubes inside an alpha-0.25 glass sphere) is a new ad-hoc material and waits for the family to open.",
+    "Wear, restrained because it is 77 cellar fittings: a soot band on the socket shell's upper 15 mm (tint toward (0.30, 0.28, 0.26)) and rust at three hoop-to-wire welds (Ø 4 mm discs through cast_iron at (0.48, 0.20, 0.10)), placed by hash(name)."
+  ],
+  "references_used": [
+    "File:The lighting of printing plants - information compiled by A.D. Bell. (1920) (14597069778).jpg"
+  ],
+  "not_reopened": [
+    "Rule of Signal (PROP_ART_BRIEF section 2 / bible VIII): 1928 or older, cheap, probably second-hand; nothing above changes the object's era.",
+    "gen_layout.py ROOM_LIGHT: service kinds sit at 0.5-0.8 on the dim end of the circulation-dim / homes-warm inversion; energy 1.5 and range 5.5 are not touched here, only geometry and finish.",
+    "leave_alone tier (77 installed): the brief limits this family to proportion fixes, so the cap, lamp and guard diameters are the bullets; the basket restructure is written so it costs fewer triangles than the rings it replaces.",
+    "The Handbook for architects and builders (1898) pull is a Chicago Portland Cement Company trade mark and was ignored; the printing-plant photograph was used only for the drop-cord pendant class at distance."
+  ]
+}

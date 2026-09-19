@@ -1,0 +1,35 @@
+{
+ "specimen": "darts",
+ "axes": {
+  "object_class": 2,
+  "proportion": 2,
+  "silhouette": 3,
+  "detail": 3,
+  "material": 5,
+  "wear": 4,
+  "mount": 0
+ },
+ "effort_hours": 2,
+ "confidence": "medium",
+ "summary": "The one thing most wrong is the glass: the pot is an opaque 0.075 x 0.10 x 0.075 m box in pale grey-green (0.72, 0.76, 0.74) at roughness 0.18, and in every bearing it reads as a white ceramic cube, not a bar tumbler, while the three 8 mm square sticks and three flat 26 x 30 x 2 mm coloured plates read as pencils with paper flags rather than darts with feather flights. The object class - a pot of three mismatched house darts on the oche ledge - is the right thing and the mismatch is already there; the parts are the wrong shapes. The sheet's only reference (a 1937 Capitol milking contest) is off-topic and was not used, so this is judged against the real_object description at medium confidence; the tier is leave_alone, so the bullets are proportion fixes plus the one material change that turns the cube into a glass.",
+ "modelling": [
+  "Tumbler: replace the box with one make_cyl r 0.036 m top / 0.031 m bottom, 0.125 m tall (a 12-oz bar tumbler; 0.085 dia x 0.15 m if it is to read as a pint) on a 0.004 m base disc r 0.031 m - two primitives - and drop the darts' start height from y 0.12 to 0.085 so their points stand on the glass floor.",
+  "Darts at real length: each 0.14 m overall, not 0.16 - a barrel make_cyl r 0.006 m top / 0.0045 m bottom, 0.050 m long; a shaft r 0.0025 m, 0.055 m; a point r 0.0012 m, 0.028 m; nine primitives for three darts in place of three square sticks. Make one barrel wood (r 0.0065 m, fatter), one knurled brass (r 0.005 m), one wood, so the mismatch is in the hand and not only in the flight colour.",
+  "Flights: three vanes per dart instead of one flat plate - 0.012 x 0.032 x 0.001 m plates at 120 degrees around the shaft end, nine plates total, with one vane missing on one dart per distinguishing_features; keep the fan of -7 / -1 / +5 degrees, which already reads as three darts dropped in at different angles.",
+  "Keep the marker at floor +0.97 on the 0.92 m ledge and the 'tick' emitter; the pot's height change (0.10 to 0.125 m) does not move the interaction."
+ ],
+ "texturing": [
+  "Glass: the one material that changes the object - transparency alpha with albedo (0.85, 0.90, 0.88, 0.32), roughness 0.05, metallic 0.0, cull disabled; the catalog key glassish (the jukebox's mechanism window) is the nearest existing runtime path, otherwise new key bar_glass. The census is 100 percent flat colour and this surface is the reason.",
+  "Barrels: brass barrel -> brass_dull (hand-touched but horizontal in the glass, oxidised); wooden barrels -> wood_dark with a painted ring (0.004 m band in indicator_enamel red or green); points -> metal with roughness 0.6 for rusting steel.",
+  "Flights: turkey feather, not enamel - desaturate the three colours (c8352b, 2f8f86, e3b02f) by half and lift roughness to 0.9; one flight in plain grey-brown (0.45, 0.40, 0.33) is the cheapest way to say three different sets.",
+  "Wear: a chip at the rim (one 0.006 m notch cut as a second short cylinder subtract is not available - fake it with a 0.004 m dark wedge quad at the rim), a rust tint on two of three points, and a grey thumb-mark band 0.03 m tall on the glass at 0.06 m; the pot is cheap, second-hand and a bit broken by the divergence rule."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Brief section 2 / bible VIII: darts, board and glass carry no signal, so they are 1928 or older, cheap and second-hand; no bristle boards (1935+), tungsten, aluminium shafts or plastic flights are proposed.",
+  "Brief section 8: iceboxes vs monitor-tops and the Vantry point do not touch this prop.",
+  "Bible VII Harukiya Accords 9 and 10: ordinary decay outranks spectacle; the chip, rust and thumb-mark above are INFERRED/ADAPTATION, not canonical, and the Harukiya ledger does not yet file the darts.",
+  "The board is the seven-slice Rainbow Round board (trivia_darts.gd, darts_panel.gd, gen_layout.py), not a numbered 20-bed board; the interactable is the pot on the ledge; bull height 1.73 m and oche 2.37 m belong to gen_layout and are not this prop's.",
+  "Tier leave_alone (PROP_ACTIVITIES): proportion fixes only; the glass transparency is listed because an opaque cube is a different object, not a nicer version of this one (brief section 6)."
+ ]
+}

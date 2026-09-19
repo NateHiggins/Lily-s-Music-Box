@@ -38,12 +38,20 @@ var _possession_seconds := 0.0
 var _before_possession_step := 0
 
 
+## The shed reads {"label", "properties"}; the bare {"unit", "fan_variant"}
+## rows this used to return matched neither key, so the shed applied nothing,
+## labelled every plinth "boxfan" and built the default fan four times. The
+## family review that framed "all four" compared four identical fans.
 func warehouse_variants() -> Array[Dictionary]:
 	return [
-		{"unit": "2C", "fan_variant": "juno_black"},
-		{"unit": "5C", "fan_variant": "iris_green"},
-		{"unit": "6A", "fan_variant": "sacha_nickel"},
-		{"unit": "4B", "fan_variant": "landlord_plain"},
+		{"label": "boxfan / juno black",
+			"properties": {"unit": "2C", "fan_variant": "juno_black"}},
+		{"label": "boxfan / iris green",
+			"properties": {"unit": "5C", "fan_variant": "iris_green"}},
+		{"label": "boxfan / sacha nickel",
+			"properties": {"unit": "6A", "fan_variant": "sacha_nickel"}},
+		{"label": "boxfan / landlord plain",
+			"properties": {"unit": "4B", "fan_variant": "landlord_plain"}},
 	]
 
 

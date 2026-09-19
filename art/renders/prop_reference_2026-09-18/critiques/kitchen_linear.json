@@ -1,0 +1,38 @@
+{
+ "specimen": "kitchen_linear",
+ "axes": {
+  "object_class": 5,
+  "proportion": 4,
+  "silhouette": 5,
+  "detail": 4,
+  "material": 3,
+  "wear": 2,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "It is a fluorescent batten - a 720 x 50 x 130 mm enamel housing against the ceiling with a dia 40 x 620 mm glowing tube and a deeper 'fluorescent' dropout authored into flicker profile 4 for this kind alone - in a 1927-28 kitchen, ten years before the fluorescent tube and four before GE's Lumiline, where the real fitting was one Mazda lamp in a porcelain pull-chain receptacle or under a flat opal shade on a short brass stem. The object class is wrong, and the resolution (point fixture or least-wrong linear) is ruled the owner's; none of the sheet's four references shows a period kitchen ceiling fitting (a remodelled HAER kitchen with no fixture in frame, a Unity Temple sconce, a 1944 brochure, a modern Japanese kitchen), so this is judged against the kind text and the script.",
+ "modelling": [
+  "Option A, porcelain pull-chain receptacle with a bare Mazda lamp: a dia 0.10 x 0.045 `porcelain_fixture` cylinder against the ceiling, a dia 0.035 x 0.030 brass socket shell below it, a bulb_ sphere dia 0.06 (height 0.11, teardrop) centred at -0.11, and a dia 0.002 x 0.18 pull chain with a dia 0.008 bead hanging at x +0.03; OmniLight3D at -0.12.",
+  "Option B, flat opal kitchen shade on a stem: dia 0.12 x 0.03 brass canopy, dia 0.012 x 0.12 brass stem, a dia 0.06 fitter collar, and a bulb_ dish made of make_cyl 0.10 -> 0.14 x 0.06 with a dia 0.28 x 0.012 opal flat under it at -0.18; pull chain from the fitter; light at -0.16.",
+  "Option C, least-wrong linear if the owner keeps a bar (the 1931 Lumiline): delete the 0.72 x 0.05 x 0.13 box; two dia 0.05 x 0.03 `porcelain_fixture` disc holders 0.46 m apart on a 0.50 x 0.03 x 0.03 brass channel and a bulb_tube dia 0.03 x 0.45; light at -0.05.",
+  "Whichever is chosen, re-author _author_personality so profile 4's 0.11 dropout for this kind becomes the tungsten family's 0.065; the deeper dropout is the fluorescent tell.",
+  "Before touching the mesh: gen_layout.py also issues this kind as the bodega's lights (F01_BODEGA_LT_n) and the bar's can lights (F01_BAR_LT_CANn), ten installed in all; a kitchen receptacle may not suit those, so split the kind or give them their own _build_body branch first."
+ ],
+ "texturing": [
+  "Receptacle or disc holders: `porcelain_fixture` (catalog, roughness 0.16) tinted (0.95, 0.94, 0.90); socket shell and pull chain in `brass_dull`; the housing's `enamel` retexture goes away with the box.",
+  "Bulb: keep the bulb_ emissive material but warm the tone from the coolest interior (0.95, 0.93, 0.82) to the tungsten family used by flush_dome (1.0, 0.86, 0.66); a Mazda lamp is warm.",
+  "Opal shade (option B): `milk_glass` (catalog) with emission near 0.8x so the dish reads as glass rather than a white marker.",
+  "Wear per household, like the stove's grime seed: an `fx_grease` decal dia 0.08 at alpha 0.4 on the underside of the shade or receptacle in the flats that cook, and a chipped porcelain edge as a darker tint step on the rim."
+ ],
+ "references_used": [],
+ "not_reopened": [
+  "Rule of Signal (brief section 2 / bible VIII): the ruling the fluorescent form conflicts with; the resolution is the owner's, not this critique's, so the bullets above are dimensioned options and not a decision.",
+  "gen_layout.py ROOM_LIGHT: the kitchen's brightness class (1.35, the warm end of the inversion) does not change with the form; the OmniLight3D keeps its energy class and light_size 0.10.",
+  "Brief section 8 rulings do not bear on this kind."
+ ],
+ "notes": [
+  "comparison_index.json records mount 'wall' for this kind while the script and gen_layout's ceiling_kinds treat it as a ceiling fitting and the bearings show it flat against the ceiling; the mount axis is scored on the geometry, and the index string looks like a manifest default.",
+  "Census: 3 surfaces (1 enamel, 1 emissive, 1 flat), 182 triangles."
+ ]
+}

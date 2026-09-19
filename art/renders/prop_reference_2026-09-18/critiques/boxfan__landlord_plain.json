@@ -1,0 +1,37 @@
+{
+ "specimen": "boxfan__landlord_plain",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 2,
+  "wear": 3,
+  "mount": 0
+ },
+ "effort_hours": 1,
+ "confidence": "medium",
+ "summary": "The brown paint and the lighter warm blades read as intended, so this is the best-matched finish of the four; what is missing is the wear a furnished-flat fan handled by every tenant would carry, plus the shared faults as juno_black. Object class is right, but the sheet's only fan reference is a dearer Westinghouse and none of the Polar Cub / Star-Rite / Hunter class the variant names appears, hence medium confidence.",
+ "modelling": [
+  "As juno_black (shared script): handle onto the motor top, two-cylinder round base, wider three-box blades, hub badge, trunnions at the motor axis. For this variant keep the added badge a plain brass_dull disc and the tilt fixed: the cheapest model had no oscillator and a plain badge.",
+  "Optional character cut: the cheapest fixed-tilt household fans carried the smallest bases; make the two base cylinders r 0.135 / 0.100 against juno's 0.150 / 0.115 so the landlord's fan reads as the light one of the four, sweep unchanged."
+ ],
+ "texturing": [
+  "cast_iron tint (0.47, 0.39, 0.31) reads as brown paint over cast, correct in kind but slightly orange in the frame; (0.42, 0.35, 0.28) sits closer to bronze-brown paint. Keep roughness 0.60: cheap paint, not japan.",
+  "Blade tint (0.42, 0.29, 0.18) on bakelite_black reads as the lighter, warmer blade the variant asks for; no change.",
+  "metal guard tint (0.48, 0.47, 0.43) is plain unplated steel: correct; keep roughness at 0.8 so it stays duller than Iris's guard.",
+  "Wear is the gap: the landlord's fan should be the most worn of the four and renders as clean as Juno's. Tint the lower base step (0.30, 0.25, 0.20) for scuffed paint, and add a second BLADE colour constant tinted 10% darker on two of the four blades so the rotor reads re-painted; both stay inside cast_iron and bakelite_black, no new key."
+ ],
+ "references_used": [
+  "File:Hardware merchandising March-June 1921 (1921) (14784650333).jpg"
+ ],
+ "not_reopened": [
+  "The 440 mm sweep stays for all four; the optional smaller base does not touch the cage.",
+  "9 visible meshes per fan / 36 across the family; no new material key and no texture batch.",
+  "The landlord's fan in 4B always obeys its switch and cord; only 6A may break the physical contract.",
+  "The 4B marker's floor datum (gen_layout: clears the couch, selector legible from the main-room route) is a placement ruling and is not reviewed here."
+ ],
+ "notes": [
+  "Header metres 0.45 x 0.61 are the cage diameter and cage top exactly, so this frame happened to be measured tightly; the other three variants' larger figures are the same geometry."
+ ]
+}

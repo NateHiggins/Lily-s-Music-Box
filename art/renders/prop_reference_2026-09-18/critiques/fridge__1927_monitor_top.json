@@ -1,0 +1,40 @@
+{
+ "specimen": "fridge__1927_monitor_top",
+ "axes": {
+  "object_class": 0,
+  "proportion": 1,
+  "silhouette": 2,
+  "detail": 2,
+  "material": 2,
+  "wear": 1,
+  "mount": 0
+ },
+ "effort_hours": 4,
+ "confidence": "high",
+ "summary": "Cabinet and mechanism footprint match the 1929 Tallahassee machine, but the crown is a 0.17-to-0.075 m cone that reads as a pointed bell, the three copper hoops sit 70 mm apart like barrel bands instead of a wound coil, and the four legs are thin chrome rods where the DR-series stands on stout white-enamelled cast legs. It is the right object (1927-32 open-coil GE, one full-height door, long lever latch on the right, hinges on the left) and reads correctly as one to two years old.",
+ "modelling": [
+  "Replace the cap cone (_cyl_on r 0.075 top / 0.17 bottom, 0.075 tall at y 1.622) with a flat-topped crown: a CylinderMesh r 0.19 to 0.17 x 0.035 under a SphereMesh r 0.17 scaled to 0.05 tall, so the mechanism is a hat, not a bishop's mitre; the Tallahassee drum is flat-topped with a shallow dome.",
+  "Condenser: six COPPER torus rings (tube r 0.010) from y 1.375 to 1.550 on a 0.035 pitch instead of three on 0.070; they merge into the carcass draw so the cost is triangles only, and the ring stack starts reading as wound tubing.",
+  "Legs: replace the four r 0.018 to 0.014 x 0.17 CHROME cylinders with ENAMEL legs r 0.032 to 0.020 x 0.20 on a 0.045 r x 0.012 foot disc and raise the cabinet base to y 0.235; the real legs are white-enamelled cast steel, not plated wire.",
+  "Nameplate box 0.18 x 0.08 at y 1.28 is about twice the real GE plate; make it 0.09 x 0.032 and keep it centred on the rail above the door.",
+  "Door: give the leaf a 6 mm reveal (0.708 wide instead of MON_W, hinge pins on the jamb) so the side bearing shows a hung door rather than a flush face; the applied 0.59 x 0.90 x 0.014 panel can stay as the pressed-steel field."
+ ],
+ "texturing": [
+  "DARK (drum and cap) has no row in retexture() and is the census's two flat #1f1a16 surfaces; map it to the existing `cast_iron` key with tint (0.18,0.17,0.16) so the hermetic dome reads as black japanned iron with sheen instead of flat paint (the three_quarter bearing samples it at (52,46,41), textureless).",
+  "The enamel key at roughness 1.00 clips to (255,255,229) on the three_quarter bearing under flat light and reads as matte cream; on the monitor-top only, set the material roughness to about 0.35 (metallic 0) so the pressed-steel lacquer shows the soft reflections the Tallahassee and Weizmann cabinets show.",
+  "chrome (brushed_steel plate at m1.00 r1.00) reads as flat light grey on the latch bar and hinge pins; roughness 0.30 on those vertical parts only, since horizontal high-metallic surfaces read black under the brief's rule."
+ ],
+ "references_used": [
+  "File:1929 General Electric 'Monitor Top' Refrigerator, Tallahassee Automobile Museum.jpg",
+  "File:General Electric \"Monitor-Top\" refrigerator at Chaim Weizmann mansion.jpg"
+ ],
+ "not_reopened": [
+  "0.72 x 0.64 x 1.66 m per the Powerhouse record; the crown deliberately clears the 1.41 m eye line.",
+  "Broad low DR-series mechanism with visible aged copper (1927-32), never the narrow three-storey drum; the Hemingway House and Harvard sheets show 1930s enclosed tops and were not used for the crown.",
+  "Interior lamp 0.22 energy / 0.90 m range, liner only; no shadows.",
+  "Chips restricted to the latch strike and lower boot; no uniform wear on a one-to-two-year-old luxury.",
+  "Hum, relay click, thermostat, electrical node and infection edge belong to the monitor-top only.",
+  "copper_aged, brass_dull, enamel and chrome are the settled keys; no new material batch."
+ ],
+ "notes": "As with the icebox, the front and high_quarter bearings show the +Z back because fridge_prop.gd has no warehouse_rotation_y(); the crown and legs are fully visible from every bearing, so the axes above do not depend on the hidden face. The Temperator and North Star references belong to the icebox variant; the Earl Carroll programme and the 1908 house are off-topic."
+}

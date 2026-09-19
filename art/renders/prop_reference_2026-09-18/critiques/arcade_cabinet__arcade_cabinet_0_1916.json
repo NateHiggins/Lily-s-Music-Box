@@ -1,0 +1,44 @@
+{
+ "specimen": "arcade_cabinet__arcade_cabinet_0_1916",
+ "axes": {
+  "object_class": 3,
+  "proportion": 2,
+  "silhouette": 3,
+  "detail": 3,
+  "material": 4,
+  "wear": 4,
+  "mount": 1
+ },
+ "effort_hours": 6,
+ "confidence": "low",
+ "summary": "The one thing most wrong is the marquee: a 0.61 x 0.13 m emissive slab in the card's accent colour (#7a2018 here) carrying two fitted text lines is a backlit video-arcade header, where the ruling asks for an enamel-on-steel programme card behind milk glass in a lit brass frame, and everything the script builds is raw Color with no MATERIAL_CATALOG key. The object class is half right: the square quad with the shader's circular willemite-green aperture and the single brass tuning dial are receiver furniture, but they are hung on the Blender asm_arcade_cab carcass (body 'metal', stick and three buttons, docstring 'late-century cabinets') that ruling VIII.5.g has already condemned. Only the side bearing shows the specimen; front, high_quarter and three_quarter are filled by an untextured beige plane in the shed, and the shed shows the three live parts floating at 1.02, 1.10-1.48 and 1.67-1.81 m with no carcass under them, so silhouette and proportion are read from the script's bands and the Henry Ford Radiola 60, not from a frame.",
+ "modelling": [
+  "Programme card, not marquee: replace the 0.61 x 0.13 x 0.012 m emissive accent box at 1.67-1.81 m with a lit frame of three primitives - a brass_dull make_box frame 0.44 x 0.12 x 0.02 m, a milk_glass QuadMesh 0.40 x 0.09 m set 4 mm behind its front plane, and an indicator_enamel card plate 0.38 x 0.075 m behind the glass carrying the title line (0.030 m cap height) and the station / manufacturer / received_from line (0.014 m) - and move the 0.85-energy OmniLight behind the glass so the frame glows through milk glass rather than the whole panel emitting.",
+  "Circular bezel as geometry: add one make_ring in brass_dull, radius 0.19 m (face_size 0.38 / 2), tube 0.012 m, at the quad's position 30 mm proud of the assembly's bakelite surround, so the round tube face the shader discards to is a brass ring from three metres instead of a green disc inside a black 0.38 m square.",
+  "Tuning dial: keep the 0.062 m plate, twelve ticks, Bakelite knob and pointer (the one honest control, and correctly the default), but add an engraved scale arc - a second make_ring radius 0.046 m tube 0.002 m in bakelite_black on the plate - and a 0.010 m brass_dull escutcheon ring at the knob's foot; five primitives total for the dial instead of fifteen loose ticks that read as a sunburst in the side bearing.",
+  "Coin entry is in the assembly (brass box 0.18 x 0.17 m at 0.38-0.55 m) and stays there; the script should add nothing at the deck a hand would not reach on a receiver.",
+  "Assembly task, not this script's (flag for the Blender pass): asm_arcade_cab variant 0 gives this cabinet a 'metal' body, a bakelite_black control wedge with a stick and three buttons (one terracotta) and side louvres; the ruled carcass for variant 0 is a 0.66 x 0.72 x 1.83 m oak console (oak_quartered) with a bakelite_black bezel band 1.06-1.52 m, a hinged service door 0.40 x 0.55 m on the right flank at 0.45-1.00 m, and no stick or buttons. Remove the three buttons and the stick from the wedge.",
+  "Warehouse registration: give warehouse_variants() a stand-in carcass for the shed (one wood_dark make_box 0.66 x 0.72 x 1.83 m plus a bakelite_black box 0.60 x 0.42 x 0.02 m at the glass band) so the live parts can be judged against the case they sit in, and re-frame: three of four bearings here show shed furniture, not the prop."
+ ],
+ "texturing": [
+  "Name catalogue keys instead of raw Color: dial plate and pointer -> brass_dull (horizontal brass, per brief section 3 metallic 0.30), knob and ticks -> bakelite_black, card frame -> brass_dull, card glass -> milk_glass, card plate -> indicator_enamel. All five exist in MATERIAL_CATALOG; none reaches Godot unless also in ingest GODOT_STAGE and MatLib.SETS - check before naming.",
+  "Marquee light colour: the OmniLight and the card should be the warm 2700 K of a tungsten lamp behind milk glass (Color 1.0, 0.86, 0.66), not the card's accent colour; the accent belongs to the enamel card's lettering only.",
+  "Tube face: keep scope_screen.gdshader and the 1916 willemite phosphor (0.46, 0.95, 0.34); add a 0.02 m unlit glass rim inside the bezel by raising the shader's discard radius margin, so the phosphor does not run to the metal edge.",
+  "Wear (sixteen years, four repairers, Accord 9): none of the script's parts carries any - a chipped-white edge on the Bakelite knob, a dulled arc where a thumb rides the dial plate, and dust on the card glass are the three marks; do them as a 0.30 roughness step on the knob and a 0.12 alpha smudge quad 0.04 x 0.02 m on the glass, not a grime texture."
+ ],
+ "references_used": [
+  "File:Turning Technology into Furniture - Stove(1886), Radiola60 in Cab.(1927-28), Predicta TV(1958-60), RCA TV(1949), Edison Phonograph(1919), Sewing Machine(1950-55,1860-65) - Fully Furnished - Historic Furniture Exhibit - Henry Ford Museum.jpg",
+  "File:Televisore a valvole, bianco e nero, a consolle - Museo scienza tecnologia Milano 02239.jpg",
+  "File:Televisore a valvole, bianco e nero, midget - Museo scienza tecnologia Milano 02229 dia.jpg"
+ ],
+ "not_reopened": [
+  "Bible VIII.5.g: the amusement machines are receivers; there is no arcade. The critique asks for receiver furniture, not for a better arcade cabinet.",
+  "Bible VIII.5.g: the picture is a circular scope with long-persistence phosphor, willemite yellow-green on the 1916 chassis; the square quad with the shader's circular discard is kept.",
+  "Bible VIII.5.g / VIII.4: Bakelite carcass, brass bezel, cloth flex, valve rack behind a hinged service door, wet cells in the base; no aluminium, stainless or injection-moulded colour.",
+  "Rule of Signal: the scope and receiver are forty years early, the case is 1927-or-older second-hand furniture; the 1912-1924 chassis plates are not re-dated.",
+  "Script header ruling: the silhouette belongs to the layout's variant and the carcass to the Blender assembly; era drives only picture quality. Carcass changes are listed as an assembly task, not demanded of this script.",
+  "HARUKIYA_RECONSTRUCTION_BRIEF: variants 0 and 1 in the entrance corner, in that order, frozen; LOBBY_OBJECT_RETIREMENT_AUDIT: never restore the F01 row; the common-room copy stays removed.",
+  "Brief section 8: fridges are a mix, there are no smoke detectors - untouched here.",
+  "The two Televisore references are 1930s-1950s objects; they were read only for the scope-in-a-wooden-case silhouette, not as period evidence."
+ ]
+}

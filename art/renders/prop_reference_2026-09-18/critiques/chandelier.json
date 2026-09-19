@@ -1,0 +1,42 @@
+{
+ "specimen": "chandelier",
+ "axes": {
+  "object_class": 0,
+  "proportion": 3,
+  "silhouette": 1,
+  "detail": 1,
+  "material": 3,
+  "wear": 1,
+  "mount": 0
+ },
+ "effort_hours": 3,
+ "confidence": "medium",
+ "summary": "The bowl at dia 0.68 m is a third wider than the 350-500 mm opal bowls the 1920s catalogues sold, and because the candle ring sits at r 0.31 inside that bowl's radius the six candles vanish behind it from the lobby floor; the bowl bands share the flame lamps' 1.6x emission and sit inside a 1.2 m additive halo, so in every bearing the glass blows to white and never reads as opal. The object class is right (a Colonial Revival bowl-and-candle electrolier, canopy, three chains, crown, bobeches, straps and finial all present and intact per the in-script ruling); the two usable references (a French Art Deco hung bowl, the 1928 Orpheum candle chandelier) informed the glass and candle read, not the type.",
+ "modelling": [
+  "Scale the bowl to dia 0.48 m: multiply the five profile radii (0.340 down to 0.014) by 0.70, move the rim ring from r 0.345 to r 0.245 and the three straps' outer ends from r 0.330 to r 0.235, keep the band heights so the bowl still closes at -0.80; this also brings the bowl inside the r 0.31 candle ring so the candles show from below.",
+  "Halo quad from 1.2 to 0.7 m: the metalwork spans 0.62 m and the billboard inflates the reported bounds to 1.23 x 1.24 x 0.72 and swallows the candles in the three_quarter bearing.",
+  "Optional, leave-alone tier: a 12-lobe gadroon on the crown as twelve 0.020 x 0.014 x 0.010 bronze boxes around the -0.434 band; the crown is otherwise plain banding where the kind text expects cast ornament.",
+  "Nothing else: chains (7 links x 3), bobeches, 0.09 m candle tubes, flame lamps, three straps and the two-part finial are placed as the type is."
+ ],
+ "texturing": [
+  "Bowl: give the five bulb_bowl_ bands their own material from `milk_glass` (catalog) with emission near 0.8x instead of sharing _bulb_mat at 1.6x with the flames, so the turned profile reads as opal; the flames keep 1.6x.",
+  "Metal: `bronze` (catalog, metallic 0.75 / roughness 0.62) in place of `brass` for the crown, arms, straps, bobeches and finial - the kind text is bronze-finished spelter - keeping `brass` only for the chain links; the current aged_brass at metallic 0.85 renders as saturated yellow in flat shed light.",
+  "Patina in the recesses, per the in-script ruling that wear lives in the texture: tint the -0.470 lower crown ring and the collar's lower step to (0.55, 0.48, 0.32) so the antique finish sits where a duster does not reach.",
+  "Candle tubes: `enamel` tinted ivory (0.92, 0.88, 0.78) is close enough to celluloid; keep."
+ ],
+ "references_used": [
+  "File:French Art Deco Wrought Iron and Art Glass Chandelier-1.jpg",
+  "File:Chandelier at Orpheum Theatre, Seattle, ca 1928 (MOHAI 1293).jpg"
+ ],
+ "not_reopened": [
+  "In-script ruling (light_fixture_prop.gd chandelier branch): the fixture is NOT broken - no bent arm, no empty socket, no verdigris; every bullet above is proportion or texture.",
+  "Rule of Signal (brief section 2 / bible VIII): 1928 or older; the lobby's one deliberate spend.",
+  "gen_layout.py light_fixture_markers: exactly one chandelier, in F01_LOBBY, lobby standby 0.45.",
+  "Brief section 6: leave-alone tier gets proportion fixes; the gadroon bullet is marked optional for that reason."
+ ],
+ "notes": [
+  "The high_quarter bearing is blank (camera inside the ceiling slab); front, side and three_quarter were judged.",
+  "The Barbizon design drawing, the Castro sunburst and the two Minnesota Capitol sphere photographs are a different fixture type and were not used.",
+  "Census: 68 surfaces, 84% textured (aged_brass x50, worn_enamel x6, emissive x11), 37946 triangles."
+ ]
+}

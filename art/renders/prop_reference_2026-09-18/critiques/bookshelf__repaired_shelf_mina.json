@@ -1,0 +1,37 @@
+{
+  "specimen": "bookshelf__repaired_shelf_mina",
+  "axes": {
+    "object_class": 1,
+    "proportion": 1,
+    "silhouette": 3,
+    "detail": 3,
+    "material": 3,
+    "wear": 4,
+    "mount": 0
+  },
+  "effort_hours": 4,
+  "confidence": "medium",
+  "summary": "No reference on this sheet shows a home-made board-and-crate shelf, so this is judged against the real_object text and the notes; the case reads as a dark walnut factory bookcase with one short side, not softwood salvage, and its two brass 'brackets' are straps stuck across the front of the wrong shelf. The object class is nominally right, but nothing in the silhouette, material or wear yet says repaired.",
+  "modelling": [
+    "Brackets: the two brass_dull bars 0.022 x 0.16 x 0.018 at x +/-0.24, y 0.47, z +0.137 stand 12 mm proud of the shelf fronts and straddle the y 0.43 shelf, reading as straps. Make each an L-bracket (vertical leg 0.022 x 0.12 x 0.018 against the inside of the side board, horizontal leg 0.10 x 0.018 x 0.022 under the shelf) and put both under the active y 0.82 shelf where the books are; 4 boxes merged into the same 1 mesh.",
+    "The 27 mm oak side ends at y 1.165 and the top shelf starts at 1.1765, leaving an 11 mm unsupported gap that reads as a build error; fill it with a visible folded-paper shim (paper box 0.027 x 0.011 x 0.08) so the gap becomes a repair.",
+    "All boards agree in width and are full-depth slabs; make the salvage read: split the y 1.19 top shelf into two 0.105 m slats with a 25 mm gap (2 boxes), cut the y 0.08 bottom shelf 30 mm short at one end, and notch one side board with a 0.036 x 0.30 x 0.012 wane - crate stock is narrow and irregular.",
+    "Fasteners: eight r 0.004 x 0.002 nail heads (brass_dull) through the side boards at each shelf end, merged into the bracket mesh; a repaired shelf shows what holds it.",
+    "Books float 26 mm: _book_y = 0.86 while the y 0.82 shelf (0.027 thick) has its top face at 0.8335; derive _book_y from the shelf surface."
+  ],
+  "texturing": [
+    "Sides and all four shelves are wood_dark (walnut albedo) with only the short side in oak_quartered; the real object is pine and packing-case softwood with one oak board reused. Invert it: shelves and the 36 mm side in oak_quartered tinted pale grey-pine (0.70, 0.62, 0.48) at scale 0.6, one board left in wood_dark, so the case reads as mismatched salvage rather than a matched walnut set.",
+    "Wear is uniform and factory-fresh in every bearing; salvage needs darkened end grain (tint 0.7 on 4 mm end-cap strips), a paler scuffed front edge on the y 0.82 active shelf, and a grey water ring under the left front foot - all as second tints of the two allowed wood keys, no new map.",
+    "Cover palette: the pastel spines on the linen batch read as modern; set HSV value 0.22-0.36, saturation 0.45-0.60 with hues from navy, maroon, green and brown."
+  ],
+  "references_used": [],
+  "not_reopened": [
+    "No new material keys and no texture prompt batch; a pine or crate-softwood key would be the direct fix for the material axis and is not requested.",
+    "The repaired case renders in 5 meshes; books are two shared vertex-colour batches.",
+    "Malcolm repaired function and Mina squared the contents: shelves stay offset by 6-12 mm and land the active run at hand height, topping out at 1.18 m.",
+    "Markers are generator-authored on a solid living-room wall; Mina's three studio racks carry no books."
+  ],
+  "notes": [
+    "Every reference on the sheet is off-topic for this variant: two Globe-Wernicke sectional plates, a dining room and stair, a built-in living-room case and a house exterior."
+  ]
+}
