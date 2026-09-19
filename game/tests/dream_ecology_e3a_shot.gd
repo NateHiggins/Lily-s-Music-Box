@@ -111,6 +111,7 @@ func _examination() -> void:
 		["C07_return_deposit", 0.0, 0.0, 1.0]]
 	for row in states:
 		crab.unfold = row[1]; crab.manipulator_deploy = row[2]; crab.information_pulse = row[3]
+		crab.ecology_returning = String(row[0]) == "C07_return_deposit"
 		controller._push(); await _capture(row[0])
 
 

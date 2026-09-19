@@ -136,3 +136,39 @@ pos (5.12, -0.86, 33.53)  yaw 146.8  pitch -19.1
 looking at: OrisonRoot/F01/F01_retail_bar_stairwell_teal/StaticBody3D  @ world (4.22, -1.43, 34.90)  1.73 m away
 stand: @5.12_-0.86_33.53:146.8|-19.1
 note:
+
+## shot_024.png
+pos (-4.61, 1.42, 15.64)  yaw -126.5  pitch -21.0
+looking at: OrisonRoot/F01/F01_furniture_asphalt/StaticBody3D  @ world (-1.59, -0.02, 17.88)  4.02 m away
+stand: @-4.61_1.42_15.64:-126.5|-21.0
+note:
+
+## shot_025.png
+pos (-4.65, 1.42, 15.64)  yaw -97.7  pitch -8.2
+looking at: OrisonRoot/F01/F01_retail_site_linen/StaticBody3D  @ world (5.07, 0.01, 16.95)  9.91 m away
+stand: @-4.65_1.42_15.64:-97.7|-8.2
+note:
+
+## shot_026.png
+pos (7.29, 7.81, 4.46)  yaw 116.2  pitch 1.3
+looking at: OrisonRoot/F03/F03_walls/StaticBody3D  @ world (5.42, 7.86, 5.38)  2.08 m away
+stand: @7.29_7.81_4.46:116.2|1.3
+note:
+
+## shot_027.png
+pos (-10.89, 1.55, 14.83)  yaw -24.0  pitch 14.4
+looking at: OrisonRoot/F01/F01_walls_fbrick/StaticBody3D  @ world (-8.74, 2.91, 10.00)  5.46 m away
+stand: @-10.89_1.55_14.83:-24.0|14.4
+note:
+
+## shot_028.png
+pos (-9.45, 1.44, 11.15)  yaw -17.4  pitch 53.5
+looking at: OrisonRoot/F01/F01_walls_fbrick/StaticBody3D  @ world (-9.09, 3.07, 10.00)  2.03 m away
+stand: @-9.45_1.44_11.15:-17.4|53.5
+note:
+
+## shot_029.png
+pos (-8.43, 20.61, 1.65)  yaw 67.0  pitch -16.1
+looking at: OrisonRoot/ROOF/ROOF_furniture_soil/StaticBody3D  @ world (-11.58, 19.62, 0.31)  3.56 m away
+stand: @-8.43_20.61_1.65:67.0|-16.1
+note:

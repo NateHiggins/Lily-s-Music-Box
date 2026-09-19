@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "status": "BUSY_OR_TIMEOUT",
+  "scene": "res://tests/DreamMossLifecycleShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine\\art\\renders\\dream_ecology_e2\\2026-08-28\\lifecycle_01",
+  "started_utc": "2026-08-28T13:14:17.8984797Z",
+  "elapsed_seconds": 60.134,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 73,
+  "expected_frames": 13,
+  "actual_frames": 0,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_lifecycle_01_20260828T131417898Z.log",
+  "filtered_process_output": [
+    "Godot exceeded the 60-second ceiling and was terminated.",
+    "SCRIPT ERROR: Parse Error: Cannot infer the type of \"palp\" variable because the value doesn't have a set type.",
+    "SCRIPT ERROR: Parse Error: Cannot infer the type of \"listener\" variable because the value doesn't have a set type.",
+    "SCRIPT ERROR: Parse Error: Cannot infer the type of \"stranded\" variable because the value doesn't have a set type.",
+    "ERROR: Failed to load script \"res://tests/dream_moss_lifecycle_shot.gd\" with error \"Parse error\"."
+  ],
+  "files": []
+}

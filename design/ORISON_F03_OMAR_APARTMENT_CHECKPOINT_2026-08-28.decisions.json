@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "decisions": [
+    {"room": "F03_B_MAIN", "object": "3B_teardown_newspaper", "verdict": "ADD", "rationale": "Layer the sacrificial teardown on newspaper."},
+    {"room": "F03_B_MAIN", "object": "3B_teardown_chassis", "verdict": "ADD", "rationale": "Retain the opened appliance chassis."},
+    {"room": "F03_B_MAIN", "object": "3B_teardown_cover", "verdict": "ADD", "rationale": "Set the removed enamel cover beside the chassis."},
+    {"room": "F03_B_MAIN", "object": "3B_teardown_motor", "verdict": "ADD", "rationale": "Expose the sacrificial appliance motor."},
+    {"room": "F03_B_MAIN", "object": "3B_intake_bay", "verdict": "ADD", "rationale": "Create a shallow repair-intake bay."},
+    {"room": "F03_B_MAIN", "object": "3B_intake_label", "verdict": "ADD", "rationale": "Mark the repair-intake bay."},
+    {"room": "F03_B_MAIN", "object": "3B_outgoing_bay", "verdict": "ADD", "rationale": "Create a separate tested/outgoing bay."},
+    {"room": "F03_B_MAIN", "object": "3B_outgoing_label", "verdict": "ADD", "rationale": "Mark the tested/outgoing bay."},
+    {"room": "F03_B_MAIN", "object": "3B_extension_coil", "verdict": "ADD", "rationale": "Add the service extension coil."},
+    {"room": "F03_B_MAIN", "object": "3B_extension_lead", "verdict": "ADD", "rationale": "Route the extension lead beside the bench."},
+    {"room": "F03_B_KITCHEN", "object": "3B_fastener_drawer0", "verdict": "ADD", "rationale": "Add categorized fastener storage."},
+    {"room": "F03_B_KITCHEN", "object": "3B_fastener_drawer1", "verdict": "ADD", "rationale": "Add categorized fastener storage."},
+    {"room": "F03_B_KITCHEN", "object": "3B_fastener_drawer2", "verdict": "ADD", "rationale": "Add categorized fastener storage."},
+    {"room": "F03_B_KITCHEN", "object": "3B_fastener_drawer3", "verdict": "ADD", "rationale": "Add categorized fastener storage."},
+    {"room": "F03_B_KITCHEN", "object": "3B_fastener_label0", "verdict": "ADD", "rationale": "Pair a paper label with its drawer."},
+    {"room": "F03_B_KITCHEN", "object": "3B_fastener_label1", "verdict": "ADD", "rationale": "Pair a paper label with its drawer."},
+    {"room": "F03_B_KITCHEN", "object": "3B_fastener_label2", "verdict": "ADD", "rationale": "Pair a paper label with its drawer."},
+    {"room": "F03_B_KITCHEN", "object": "3B_fastener_label3", "verdict": "ADD", "rationale": "Pair a paper label with its drawer."}
+  ]
+}

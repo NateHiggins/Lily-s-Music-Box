@@ -1833,6 +1833,41 @@ def dress_unit(unit, stack, floor_id, z, furniture, markers,
         _asm(f, "3B_partscrate", "crate", x0 + 0.38, y0 + 0.30, 8,
              fill="metal")
         _asm(f, "3B_coil", "cablecoil", x0 + 2.72, y0 + 2.85, 70)
+        # The repair work has a direction. Shallow, wall-backed bays keep
+        # intake distinct from tested/outgoing pieces without stealing the
+        # entry-to-bath route or the service aisle south of the bench.
+        for suffix, py, mat in (("intake", y0 + 1.12, "metal"),
+                                ("outgoing", y0 + 2.18, "wood_dark")):
+            _furn_box(f, "3B_%s_bay" % suffix, x0 + 0.04, py,
+                      0.34, 0.84, 0.0, 0.82, mat, False)
+            _furn_box(f, "3B_%s_label" % suffix, x0 + 0.035, py + 0.23,
+                      0.025, 0.32, 0.87, 0.11, "paper", False)
+        # Four labelled fastener drawers sit below the archive shelves. Their
+        # shallow fronts describe storage rather than becoming floor clutter.
+        for i in range(4):
+            _furn_box(f, "3B_fastener_drawer%d" % i,
+                      x0 + 2.83 + (i % 2) * 1.10,
+                      y1 - 0.205, 0.92, 0.09,
+                      0.12 + (i // 2) * 0.29, 0.22, "metal", False)
+            _furn_box(f, "3B_fastener_label%d" % i,
+                      x0 + 3.22 + (i % 2) * 1.10,
+                      y1 - 0.152, 0.14, 0.025,
+                      0.17 + (i // 2) * 0.29, 0.07, "paper", False)
+        # Omar's sacrificial teardown is deliberately incomplete: chassis,
+        # lifted cover, motor and loose lead all remain on newspaper at the
+        # right end of the bench. It is the one repair he will not abandon.
+        _furn_box(f, "3B_teardown_newspaper", x0 + 2.52, y0 + 3.10,
+                  0.72, 0.56, 0.915, 0.008, "paper", False)
+        _furn_box(f, "3B_teardown_chassis", x0 + 2.62, y0 + 3.20,
+                  0.48, 0.34, 0.925, 0.16, "metal", False)
+        _furn_box(f, "3B_teardown_cover", x0 + 2.98, y0 + 3.48,
+                  0.38, 0.05, 0.925, 0.28, "enamel_workshop", False)
+        _furn_box(f, "3B_teardown_motor", x0 + 2.72, y0 + 3.29,
+                  0.16, 0.16, 1.09, 0.13, "bakelite", False)
+        _asm(f, "3B_extension_coil", "cablecoil", x0 + 1.00,
+             y0 + 2.72, 12, r=0.13)
+        _furn_box(f, "3B_extension_lead", x0 + 1.08, y0 + 2.78,
+                  1.15, 0.035, 0.012, 0.018, "bakelite", False)
     elif unit == "3D":  # Rhea: vocal booth and aligned playback
         _furn_box(f, "3D_booth_w", cx + 0.4, cy - 1.0, 0.1, 2.0, 0.0, 2.2,
                   "fabric_cool", False)

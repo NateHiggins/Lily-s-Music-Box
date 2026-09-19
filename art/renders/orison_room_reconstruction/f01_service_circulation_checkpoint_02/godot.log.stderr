@@ -1,0 +1,2313 @@
+WARNING: no legal wall for found piece cam_noel_witches
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)
+       [1] build (res://scripts/building/found_art_pass.gd:21)
+       [2] _ready (res://scripts/building/building_root.gd:514)
+       [3] _ready (res://tests/f01_service_circulation_shot.gd:18)
+ERROR: [ORISON-RR-F01-SERVICE CAPTURE FAIL] refusing to overwrite C:\PleaseRemainOnTheLine\art\renders\orison_room_reconstruction\f01_service_circulation_checkpoint_02/00_storage_south.png
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (res://tests/shot_harness.gd:158)
+       [1] _write_image (res://tests/shot_harness.gd:127)
+       [2] capture (res://tests/shot_harness.gd:75)
+ERROR: [ORISON-RR-F01-SERVICE CAPTURE FAIL] frame count 0 != expected 7
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (res://tests/shot_harness.gd:158)
+       [1] finish (res://tests/shot_harness.gd:94)
+       [2] _finish (res://tests/f01_service_circulation_shot.gd:74)
+       [3] _ready (res://tests/f01_service_circulation_shot.gd:53)
+       [4] capture (res://tests/shot_harness.gd:75)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)

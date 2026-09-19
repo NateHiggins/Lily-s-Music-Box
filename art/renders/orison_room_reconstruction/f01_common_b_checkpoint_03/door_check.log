@@ -1,0 +1,120 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+  [door check ok] AS FOUND the arm is off its spindle
+  [door check ok] and the regulating screw is home (0/5)
+  [door check ok] so the closer drives nothing
+  [door check ok] and would pass no liquid if it did
+  [door check ok] the closer is NOT ready
+  [door check ok] and it names both faults, in the order a hand fixes them
+  [door check ok] nobody has looked at it
+  [door check ok] it has published nothing
+  [door check ok] the leaf SHUTS BY HAND — true of every leaf in the building
+  [door check ok] AND IT DOES NOT CLOSE ITSELF. That is the whole increment.
+  [door check ok] a hand pushed the leaf open
+  [door check ok] and a hand pushed it shut again
+  [door check ok] THE CLOSER STILL DOES NOT CLOSE IT. A shut door is not evidence.
+  [door check ok] because nothing was ever let go of
+  [door check ok] and it REFUSES to test a leaf that is already shut
+  [door check ok] balking at the leaf, not at its own iron
+  [door check ok] a refused test publishes nothing
+  [door check ok] the arm CANNOT be shipped with the leaf free — the spring is live
+  [door check ok] and the refusal points at the catch, which is the fix
+  [door check ok] the arm stayed off
+  [door check ok] the regulating screw REFUSES while the arm is off its spindle
+  [door check ok] pointing at the arm
+  [door check ok] and the port did not move
+  [door check ok] throw the hold-open catch
+  [door check ok] NOW the arm ships onto its spindle
+  [door check ok] and the closer drives the leaf
+  [door check ok] but it is still not ready
+  [door check ok] the leaf is open
+  [door check ok] a test REFUSES while the catch is holding the leaf
+  [door check ok] because whatever happens next would be the catch's doing
+  [door check ok] and nothing was published
+  [door check ok] take the catch off
+  [door check ok] a test REFUSES before anyone has read the arm
+  [door check ok] read the arm
+  [door check ok] a test REFUSES on a LOCKED leaf
+  [door check ok] and says so
+  [door check ok] THE LEAF IS STILL LOCKED. A closer does not unlock anything.
+  [door check ok] and the closer did not move it either
+  [door check ok] nothing published
+  [door check ok] the leaf stands open, arm shipped, port home
+  [door check ok] the closer will not request a close it cannot finish
+  [door check ok] SO THE LEAF STANDS WHERE IT WAS. Nothing pretended.
+  [door check ok] and it published the attempt anyway
+  [door check ok] recorded as STOPPED SHORT, not as a close
+  [door check ok] and the record says the closer never asked
+  [door check ok] the apparatus's own state agrees
+  [door check ok] and it STILL does not claim to close itself
+  [door check ok] the refusal points at the regulating screw, which is the fix
+  [door check ok] the screw backed out to 3/5 and the port passes liquid
+  [door check ok] THE CLOSER IS READY
+  [door check ok] with nothing left against it
+  [door check ok] the leaf is still standing open
+  [door check ok] LET IT GO
+  [door check ok] AND IT CAME HOME ON ITS OWN.
+  [door check ok] NOW it closes itself, and only now
+  [door check ok] one record published (1)
+  [door check ok] the record says THE CLOSER asked, not a hand
+  [door check ok] and that the leaf reached closed
+  [door check ok] the record carries door_name
+  [door check ok] the record carries at_minute
+  [door check ok] the record carries arm_shipped
+  [door check ok] the record carries port_open
+  [door check ok] the record carries ready
+  [door check ok] the record carries requested_by_closer
+  [door check ok] the record carries reached_closed
+  [door check ok] the record carries stopped_short
+  [door check ok] and nothing else (8 fields)
+  [door check ok] THE RECORD DOES NOT MENTION THE LOCK. Locked is not closed.
+  [door check ok] screwing the port home takes readiness back
+  [door check ok] the closer proves a close
+  [door check ok] AND ITS WHOLE VOCABULARY AGAINST A DOOR IS `npc_set_open(false)`: ["npc_set_open(false)"]
+  [door check ok] and every refusal says NOTHING to the door at all: []
+  [door check ok] the leaf never moved for anything except the door's own tween
+  [door check ok] and `leaf_state` and `open` are exactly what DoorProp left them
+  [door check ok] the arm follows the leaf it watches (0.847 → 2.390 rad)
+  [door check ok] and the catch is thrown where a camera can see it
+  [door check ok] SR7-Q wrote no save key of its own
+  [door check ok] a half-done job is not the job as found
+  [door check ok] ABORT puts every owned fact back, byte for byte
+  [door check ok] and clears the refusal with it
+  [door check ok] and the door is untouched, because it was never this thing's
+  [door check ok] 5 refusals hold 5 DISTINCT poses
+  [door check ok] the arm refusal moves the iron
+  [door check ok] and the arm refusal puts EVERY part back where it was
+  [door check ok] the valve refusal moves the iron
+  [door check ok] and the valve refusal puts EVERY part back where it was
+  [door check ok] the hold refusal moves the iron
+  [door check ok] and the hold refusal puts EVERY part back where it was
+  [door check ok] the leaf refusal moves the iron
+  [door check ok] and the leaf refusal puts EVERY part back where it was
+  [door check ok] the lock refusal moves the iron
+  [door check ok] and the lock refusal puts EVERY part back where it was
+  [door check ok] the apparatus source is readable
+  [door check ok] no `timer` anywhere in the code: the facts are the iron
+  [door check ok] no `durability` anywhere in the code: the facts are the iron
+  [door check ok] no `wear` anywhere in the code: the facts are the iron
+  [door check ok] no `schedule` anywhere in the code: the facts are the iron
+  [door check ok] no `due_` anywhere in the code: the facts are the iron
+  [door check ok] no `osha` anywhere in the code: the facts are the iron
+  [door check ok] no `nfpa` anywhere in the code: the facts are the iron
+  [door check ok] no `randf` anywhere in the code: the facts are the iron
+  [door check ok] no `randi` anywhere in the code: the facts are the iron
+  [door check ok] the code never touches `leaf_state =`
+  [door check ok] the code never touches `leaf_state=`
+  [door check ok] the code never touches `set("leaf_state"`
+  [door check ok] the code never touches `set("open"`
+  [door check ok] the code never touches `.open =`
+  [door check ok] the code never touches `_body`
+  [door check ok] the code never touches `hingedleaf`
+  [door check ok] the code never touches `unlock`
+  [door check ok] the code never touches `animatablebody`
+  [door check ok] the code never touches `call("interact"`
+  [door check ok] the code never touches `.interact(`
+  [door check ok] the code never touches `_rattle`
+  [door check ok] and the one thing it does say to a door is `npc_set_open`
+  [door check ok] exactly once, in one place (1)
+DOOR CHECK TEST: PASS (116/116)

@@ -1,0 +1,741 @@
+{
+  "meta": {
+    "title": "Generated Orison dream maze control assembly",
+    "version": 1,
+    "seed": 0,
+    "units": "metres",
+    "source_catalog": "game/data/dream_module_catalog.json",
+    "control_positions_are_runtime_coordinates": false,
+    "assembly_sha256": "e0b8461695996f5cc101148dbed39928d853b47c634632b210bfb0d47ad25ac3"
+  },
+  "constants": {
+    "clear_ceiling_m": 3.015,
+    "connector_width_m": 0.91,
+    "connector_height_m": 2.13,
+    "player_capsule_diameter_m": 0.66,
+    "player_run_speed_mps": 4.6,
+    "minimum_connector_margin_m": 0.1,
+    "minimum_warning_s": 0.5,
+    "campaign_run_ceilings_s": [
+      28,
+      38,
+      50,
+      62,
+      76,
+      90
+    ]
+  },
+  "variants": {
+    "early_branch_handedness": {
+      "D02_DOGLEG_STAIR": "lower",
+      "D03_LIFT_VOID": "upper"
+    },
+    "late_branch_handedness": {
+      "D06_LAUNDRY_BOILER": "upper",
+      "D07_LIGHT_COURT_WALK": "lower"
+    },
+    "material_phase": 3
+  },
+  "modules": [
+    {
+      "id": "D00_4B_THRESHOLD",
+      "unlock_slot": 1,
+      "control_rect_m": [
+        0.0,
+        0.0,
+        2.2,
+        1.25
+      ],
+      "footprint_m": [
+        2.2,
+        1.25
+      ],
+      "connectors": [
+        {
+          "id": "entry",
+          "side": "west",
+          "offset_m": 0.625,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "none"
+        },
+        {
+          "id": "out",
+          "side": "east",
+          "offset_m": 0.625,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        }
+      ],
+      "hazards_mirrored": false
+    },
+    {
+      "id": "D01_F04_LONG_HALL",
+      "unlock_slot": 1,
+      "control_rect_m": [
+        4.0,
+        0.0,
+        23.3,
+        2.08
+      ],
+      "footprint_m": [
+        19.3,
+        2.08
+      ],
+      "connectors": [
+        {
+          "id": "in",
+          "side": "west",
+          "offset_m": 1.04,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "none"
+        },
+        {
+          "id": "stair_branch",
+          "side": "north",
+          "offset_m": 17.75,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "out",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "lift_branch",
+          "side": "south",
+          "offset_m": 17.75,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "out",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "return",
+          "side": "south",
+          "offset_m": 1.25,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        }
+      ],
+      "detail_repeat_count": 3,
+      "hazards_mirrored": true
+    },
+    {
+      "id": "D02_DOGLEG_STAIR",
+      "unlock_slot": 2,
+      "control_rect_m": [
+        28.0,
+        -14.0,
+        34.32,
+        -7.68
+      ],
+      "footprint_m": [
+        6.32,
+        6.32
+      ],
+      "connectors": [
+        {
+          "id": "in",
+          "side": "south",
+          "offset_m": 3.16,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "none"
+        },
+        {
+          "id": "out",
+          "side": "east",
+          "offset_m": 3.16,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "none"
+        }
+      ],
+      "hazards_mirrored": true
+    },
+    {
+      "id": "D03_LIFT_VOID",
+      "unlock_slot": 1,
+      "control_rect_m": [
+        28.0,
+        8.0,
+        32.1,
+        11.5
+      ],
+      "footprint_m": [
+        4.1,
+        3.5
+      ],
+      "connectors": [
+        {
+          "id": "in",
+          "side": "north",
+          "offset_m": 2.05,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "out",
+          "side": "east",
+          "offset_m": 1.75,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "none"
+        }
+      ],
+      "hazards_mirrored": false
+    },
+    {
+      "id": "D04_BATHROOM_PROCESSION",
+      "unlock_slot": 1,
+      "control_rect_m": [
+        39.0,
+        0.0,
+        48.6,
+        2.2
+      ],
+      "footprint_m": [
+        9.6,
+        2.2
+      ],
+      "connectors": [
+        {
+          "id": "stair_in",
+          "side": "west",
+          "offset_m": 1.65,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "lift_in",
+          "side": "west",
+          "offset_m": 0.55,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "out",
+          "side": "east",
+          "offset_m": 1.1,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "out",
+          "swing_depth_m": 0.91
+        }
+      ],
+      "hazards_mirrored": true
+    },
+    {
+      "id": "D05_SERVICE_RISER",
+      "unlock_slot": 1,
+      "control_rect_m": [
+        52.0,
+        0.0,
+        58.5,
+        2.08
+      ],
+      "footprint_m": [
+        6.5,
+        2.08
+      ],
+      "connectors": [
+        {
+          "id": "in",
+          "side": "west",
+          "offset_m": 1.04,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "none"
+        },
+        {
+          "id": "plant_branch",
+          "side": "north",
+          "offset_m": 5.4,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "out",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "court_branch",
+          "side": "south",
+          "offset_m": 5.4,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "out",
+          "swing_depth_m": 0.91
+        }
+      ],
+      "hazards_mirrored": true
+    },
+    {
+      "id": "D06_LAUNDRY_BOILER",
+      "unlock_slot": 3,
+      "control_rect_m": [
+        63.0,
+        8.0,
+        80.51,
+        16.14
+      ],
+      "footprint_m": [
+        17.51,
+        8.14
+      ],
+      "connectors": [
+        {
+          "id": "in",
+          "side": "south",
+          "offset_m": 8.755,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "out",
+          "side": "west",
+          "offset_m": 4.07,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "out",
+          "swing_depth_m": 0.91
+        }
+      ],
+      "hazards_mirrored": true
+    },
+    {
+      "id": "D07_LIGHT_COURT_WALK",
+      "unlock_slot": 4,
+      "control_rect_m": [
+        63.0,
+        -18.0,
+        69.32,
+        -11.68
+      ],
+      "footprint_m": [
+        6.32,
+        6.32
+      ],
+      "connectors": [
+        {
+          "id": "in",
+          "side": "north",
+          "offset_m": 3.16,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "none"
+        },
+        {
+          "id": "out",
+          "side": "west",
+          "offset_m": 3.16,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "none"
+        }
+      ],
+      "hazards_mirrored": true
+    },
+    {
+      "id": "D08_CASE_ECHO",
+      "unlock_slot": 5,
+      "control_rect_m": [
+        84.0,
+        0.0,
+        92.14,
+        5.8
+      ],
+      "footprint_m": [
+        8.14,
+        5.8
+      ],
+      "connectors": [
+        {
+          "id": "plant_in",
+          "side": "east",
+          "offset_m": 4.4,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "court_in",
+          "side": "east",
+          "offset_m": 1.4,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "out",
+          "side": "south",
+          "offset_m": 4.07,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "out",
+          "swing_depth_m": 0.91
+        }
+      ],
+      "hazards_mirrored": false
+    },
+    {
+      "id": "D09_RETURN_HALL",
+      "unlock_slot": 6,
+      "control_rect_m": [
+        85.0,
+        -14.0,
+        91.5,
+        -11.92
+      ],
+      "footprint_m": [
+        6.5,
+        2.08
+      ],
+      "connectors": [
+        {
+          "id": "in",
+          "side": "north",
+          "offset_m": 3.25,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "in",
+          "swing_depth_m": 0.91
+        },
+        {
+          "id": "return",
+          "side": "west",
+          "offset_m": 1.04,
+          "width_m": 0.91,
+          "height_m": 2.13,
+          "swing": "out",
+          "swing_depth_m": 0.91
+        }
+      ],
+      "hazards_mirrored": false
+    }
+  ],
+  "topology": [
+    {
+      "id": "E00",
+      "from": [
+        "D00_4B_THRESHOLD",
+        "out"
+      ],
+      "to": [
+        "D01_F04_LONG_HALL",
+        "in"
+      ],
+      "unlock_slot": 1
+    },
+    {
+      "id": "E01_STAIR",
+      "from": [
+        "D01_F04_LONG_HALL",
+        "stair_branch"
+      ],
+      "to": [
+        "D02_DOGLEG_STAIR",
+        "in"
+      ],
+      "unlock_slot": 2
+    },
+    {
+      "id": "E01_LIFT",
+      "from": [
+        "D01_F04_LONG_HALL",
+        "lift_branch"
+      ],
+      "to": [
+        "D03_LIFT_VOID",
+        "in"
+      ],
+      "unlock_slot": 1
+    },
+    {
+      "id": "E02",
+      "from": [
+        "D02_DOGLEG_STAIR",
+        "out"
+      ],
+      "to": [
+        "D04_BATHROOM_PROCESSION",
+        "stair_in"
+      ],
+      "unlock_slot": 2
+    },
+    {
+      "id": "E03",
+      "from": [
+        "D03_LIFT_VOID",
+        "out"
+      ],
+      "to": [
+        "D04_BATHROOM_PROCESSION",
+        "lift_in"
+      ],
+      "unlock_slot": 1
+    },
+    {
+      "id": "E04",
+      "from": [
+        "D04_BATHROOM_PROCESSION",
+        "out"
+      ],
+      "to": [
+        "D05_SERVICE_RISER",
+        "in"
+      ],
+      "unlock_slot": 1
+    },
+    {
+      "id": "E05_PLANT",
+      "from": [
+        "D05_SERVICE_RISER",
+        "plant_branch"
+      ],
+      "to": [
+        "D06_LAUNDRY_BOILER",
+        "in"
+      ],
+      "unlock_slot": 3
+    },
+    {
+      "id": "E05_COURT",
+      "from": [
+        "D05_SERVICE_RISER",
+        "court_branch"
+      ],
+      "to": [
+        "D07_LIGHT_COURT_WALK",
+        "in"
+      ],
+      "unlock_slot": 4
+    },
+    {
+      "id": "E06",
+      "from": [
+        "D06_LAUNDRY_BOILER",
+        "out"
+      ],
+      "to": [
+        "D08_CASE_ECHO",
+        "plant_in"
+      ],
+      "unlock_slot": 5
+    },
+    {
+      "id": "E07",
+      "from": [
+        "D07_LIGHT_COURT_WALK",
+        "out"
+      ],
+      "to": [
+        "D08_CASE_ECHO",
+        "court_in"
+      ],
+      "unlock_slot": 5
+    },
+    {
+      "id": "E08",
+      "from": [
+        "D08_CASE_ECHO",
+        "out"
+      ],
+      "to": [
+        "D09_RETURN_HALL",
+        "in"
+      ],
+      "unlock_slot": 6
+    },
+    {
+      "id": "E09_FOLD",
+      "from": [
+        "D09_RETURN_HALL",
+        "return"
+      ],
+      "to": [
+        "D01_F04_LONG_HALL",
+        "return"
+      ],
+      "unlock_slot": 6
+    }
+  ],
+  "hazards": [
+    {
+      "id": "hollow_runner",
+      "kind": "conditional",
+      "clearance_radius_m": 0.35,
+      "tell_radius_m": 4.6,
+      "minimum_warning_s": 0.75,
+      "module_id": "D01_F04_LONG_HALL",
+      "local_position_m": [
+        7.3,
+        1.04
+      ],
+      "control_position_m": [
+        11.3,
+        1.04
+      ]
+    },
+    {
+      "id": "open_lift_void",
+      "kind": "positional",
+      "clearance_radius_m": 0.45,
+      "tell_radius_m": 5.5,
+      "minimum_warning_s": 0.9,
+      "module_id": "D03_LIFT_VOID",
+      "local_position_m": [
+        1.55,
+        1.75
+      ],
+      "control_position_m": [
+        29.55,
+        9.75
+      ]
+    },
+    {
+      "id": "counterweight_passage",
+      "kind": "rhythmic",
+      "clearance_radius_m": 0.4,
+      "tell_radius_m": 4.6,
+      "minimum_warning_s": 0.75,
+      "module_id": "D03_LIFT_VOID",
+      "local_position_m": [
+        3.15,
+        1.75
+      ],
+      "control_position_m": [
+        31.15,
+        9.75
+      ]
+    },
+    {
+      "id": "vantry_signal_trunk",
+      "kind": "conditional",
+      "clearance_radius_m": 0.35,
+      "tell_radius_m": 5.5,
+      "minimum_warning_s": 0.9,
+      "module_id": "D05_SERVICE_RISER",
+      "local_position_m": [
+        3.25,
+        1.04
+      ],
+      "control_position_m": [
+        55.25,
+        1.04
+      ]
+    },
+    {
+      "id": "laundry_mangle_belt",
+      "kind": "triggered",
+      "clearance_radius_m": 0.45,
+      "tell_radius_m": 5.5,
+      "minimum_warning_s": 0.9,
+      "module_id": "D06_LAUNDRY_BOILER",
+      "local_position_m": [
+        13.51,
+        4.07
+      ],
+      "control_position_m": [
+        76.51,
+        12.07
+      ]
+    },
+    {
+      "id": "boiler_relief_sweep",
+      "kind": "rhythmic",
+      "clearance_radius_m": 0.45,
+      "tell_radius_m": 6.0,
+      "minimum_warning_s": 1.0,
+      "module_id": "D06_LAUNDRY_BOILER",
+      "local_position_m": [
+        4.01,
+        4.07
+      ],
+      "control_position_m": [
+        67.01,
+        12.07
+      ]
+    },
+    {
+      "id": "breathing_partition",
+      "kind": "positional_rhythmic",
+      "clearance_radius_m": 0.45,
+      "tell_radius_m": 5.5,
+      "minimum_warning_s": 0.9,
+      "module_id": "D07_LIGHT_COURT_WALK",
+      "local_position_m": [
+        3.16,
+        3.16
+      ],
+      "control_position_m": [
+        66.16,
+        -14.84
+      ]
+    },
+    {
+      "id": "fire_door_return",
+      "kind": "triggered",
+      "clearance_radius_m": 0.35,
+      "tell_radius_m": 4.6,
+      "minimum_warning_s": 0.75,
+      "module_id": "D09_RETURN_HALL",
+      "local_position_m": [
+        5.2,
+        1.04
+      ],
+      "control_position_m": [
+        90.2,
+        -12.96
+      ]
+    }
+  ],
+  "audit": {
+    "catalog": {
+      "module_count": 10,
+      "edge_count": 12,
+      "hazard_count": 8,
+      "source_check_count": 18,
+      "source_checks": [
+        "D00_4B_THRESHOLD:F04_B_VESTIBULE rect",
+        "D01_F04_LONG_HALL:F04_CORRIDOR rect",
+        "D02_DOGLEG_STAIR:atrium well/width",
+        "D03_LIFT_VOID:F04_HALL rect",
+        "D03_LIFT_VOID:elevator shaft/door",
+        "D04_BATHROOM_PROCESSION:F04_A_BATH rect",
+        "D04_BATHROOM_PROCESSION:F04_B_BATH rect",
+        "D04_BATHROOM_PROCESSION:F04_C_BATH rect",
+        "D04_BATHROOM_PROCESSION:F04_D_BATH rect",
+        "D05_SERVICE_RISER:F04_CORRIDOR rect",
+        "D06_LAUNDRY_BOILER:B1_LAUNDRY rect",
+        "D06_LAUNDRY_BOILER:B1_BOILER rect",
+        "D07_LIGHT_COURT_WALK:atrium well/width",
+        "D08_CASE_ECHO:F02_A_MAIN rect",
+        "D09_RETURN_HALL:F04_CORRIDOR rect",
+        "F04 clear ceiling",
+        "PlayerController capsule diameter",
+        "atrium riser <= player step proof"
+      ]
+    },
+    "seeds": {
+      "seeds_checked": 100,
+      "stable_rebuilds": 100,
+      "unique_structures": 100,
+      "first_seed": 0,
+      "last_seed": 99
+    },
+    "unresolved": 0
+  }
+}

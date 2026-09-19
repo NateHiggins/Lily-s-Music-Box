@@ -1,0 +1,85 @@
+{
+  "schema_version": 2,
+  "status": "BUSY_OR_TIMEOUT",
+  "scene": "res://tests/DreamMossLifecycleShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine\\art\\renders\\dream_ecology_e3\\2026-08-28\\probe_02",
+  "started_utc": "2026-08-28T13:58:49.5283195Z",
+  "elapsed_seconds": 60.108,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 73,
+  "expected_frames": 13,
+  "actual_frames": 7,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_probe_02_20260828T135849528Z.log",
+  "filtered_process_output": [
+    "Godot exceeded the 60-second ceiling and was terminated.",
+    "SCRIPT ERROR: Parse Error: Cannot infer the type of \"desired\" variable because the value doesn't have a set type.",
+    "SCRIPT ERROR: Parse Error: Cannot infer the type of \"socket\" variable because the value doesn't have a set type.",
+    "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+    "ERROR: Failed to load script \"res://tests/dream_moss_lifecycle_shot.gd\" with error \"Compilation failed\".",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'census' in base 'Nil'.",
+    "   at: _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "       [0] _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'census' in base 'Nil'.",
+    "   at: _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "       [0] _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'census' in base 'Nil'.",
+    "   at: _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "       [0] _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'census' in base 'Nil'.",
+    "   at: _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "       [0] _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'census' in base 'Nil'.",
+    "   at: _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "       [0] _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'census' in base 'Nil'.",
+    "   at: _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "       [0] _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'census' in base 'Nil'.",
+    "   at: _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "       [0] _capture (res://tests/dream_moss_lifecycle_shot.gd:226)",
+    "SCRIPT ERROR: Invalid access to property or key 'critters' on a base object of type 'Nil'.",
+    "       [1] _capture (res://tests/dream_moss_lifecycle_shot.gd:226)"
+  ],
+  "files": [
+    {
+      "name": "01_searching_pioneer_patch.png",
+      "bytes": 41276,
+      "sha256": "e88154ae4dbc8910bbfd5a65bf1e7ecae59d4ca953b2be27a3c0ffdd09ac5434"
+    },
+    {
+      "name": "02_committed_moss_seed.png",
+      "bytes": 41555,
+      "sha256": "b537cb2c8de1616396d49f0ebcd1cc212b66d038704054d94cd76aab505869b9"
+    },
+    {
+      "name": "03_cilia_tending.png",
+      "bytes": 44981,
+      "sha256": "3051592b82350a46a66bb5c7f026b9e9107277a50d70d7afabf9c8327a083cfc"
+    },
+    {
+      "name": "04_returned_information_pulse.png",
+      "bytes": 44881,
+      "sha256": "e40285efdbcb7cc81929f69b62a1c38b21e8a6d1584f57418f12f7da47f7637b"
+    },
+    {
+      "name": "05_branching_reinforced_network.png",
+      "bytes": 51450,
+      "sha256": "9fb0fa56fd86fffd7078e13a963df552f19b35e1129629ba8a42495b63095eb6"
+    },
+    {
+      "name": "06_specialized_tentacles.png",
+      "bytes": 97534,
+      "sha256": "c332343d040ed6d4ca2a0d6b62f678d0c88f6de2ab8026b9f31bc53a69dca089"
+    },
+    {
+      "name": "07_tentacle_returning_to_breathe.png",
+      "bytes": 92986,
+      "sha256": "fcdf1081f45c923b12530c7b945c96bd814a4d0cb1dfe903b9d1cbc2c51ae562"
+    }
+  ]
+}

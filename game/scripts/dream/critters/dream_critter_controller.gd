@@ -147,6 +147,9 @@ func _build_mesh() -> ArrayMesh:
 				MAX_FEELERS, FEELER_RINGS, FEELER_SEGS)
 		_append_tubes(verts, normals, uvs, uv2, indices, c, 10.0,
 				2, 7, LIMB_SEGS)
+		# Eight proximal membrane webs share the same cached socket rows and draw.
+		_append_tubes(verts, normals, uvs, uv2, indices, c, 13.0,
+				MAX_LIMBS, 6, LIMB_SEGS)
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = verts
@@ -412,7 +415,9 @@ func _apply_ecology_support(delta: float) -> void:
 			if target != Vector3.INF:
 				var distance := (critter.pos as Vector3).distance_to(target)
 				_turn_toward(critter, target - (critter.pos as Vector3), delta * 1.6)
-				critter.moving = distance > 0.18
+				# The tactile pair must be protected before weight transfer resumes.
+				critter.moving = distance > 0.18 \
+						and float(critter.get("manipulator_deploy", 0.0)) <= 0.05
 				if distance <= 0.22:
 					critter.ecology_examination_s = float(critter.ecology_examination_s) + delta
 					var repeat_count := int(critter.get("ecology_repeat_count", 0))
@@ -1157,6 +1162,12 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 				float(mechanical.get("carrier", 0)) / 3.0,
 				float(mechanical.get("age", 99.0)),
 				clampf(mech_dir.dot(f), -1.0, 1.0))
+		if plan > 1.5:
+			# Existing S1 state_b presentation channel: report/return, breathing,
+			# disturbance/recall. It mirrors authority; it never writes it.
+			_mechanical[i] = Vector4(float(c.get("information_pulse", 0.0)),
+					1.0 if bool(c.get("ecology_returning", false)) else 0.0,
+					0.0, 1.0 if bool(c.get("ecology_returning", false)) else 0.0)
 		_size[i] = Vector4(float(m.length), float(m.wide), float(m.tall),
 				float(int(m.seed) % 97) * 0.041)
 		_matter[i] = Vector4(float(m.gold), float(m.crystal), float(m.cilia),

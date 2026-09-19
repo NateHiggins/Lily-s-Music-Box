@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "claim_id": "F03_OMAR_SHOT",
+      "rooms": ["F03_B_MAIN", "F03_B_KITCHEN", "F03_B_ALCOVE", "F03_B_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f03_omar_checkpoint_03/scene_capture_receipt.json",
+      "artifact_kind": "path",
+      "expected_schema": "scene_capture_receipt.json",
+      "expected_scene": "ORISON-RR-F03-OMAR",
+      "expected_output_count": 7,
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F03_OMAR_IMPORT",
+      "rooms": ["F03_B_MAIN", "F03_B_KITCHEN", "F03_B_ALCOVE", "F03_B_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f03_omar_checkpoint_01/import.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F03_OMAR_LIGHTING",
+      "rooms": ["F03_B_MAIN", "F03_B_KITCHEN", "F03_B_ALCOVE", "F03_B_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f03_omar_checkpoint_03/lighting_audit.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F03_OMAR_WALK",
+      "rooms": ["F03_B_MAIN", "F03_B_KITCHEN", "F03_B_ALCOVE", "F03_B_BATH"],
+      "artifact": "art/renders/orison_room_reconstruction/f03_omar_checkpoint_03/walk_fast.log",
+      "artifact_kind": "path",
+      "claimed_recorded_result": "PASS",
+      "manual_visual_proof_required": false
+    },
+    {
+      "claim_id": "F03_OMAR_SERVICE_AISLE",
+      "rooms": ["F03_B_MAIN"],
+      "artifact_kind": "manual",
+      "manual_visual_proof_required": true
+    }
+  ]
+}
