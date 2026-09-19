@@ -1,5 +1,7 @@
 # Orison v2 M10 runway report — 2026-08-28
 
+Evidence class: **INERT - REPORT (landed 2026-09-19 from claude/golden-shift-v2-verify-c72c73 so main's citations resolve)**
+
 **Task:** DEV-M10-1 — prove the golden-shift run card is executable under
 explicit v2. **Role:** verification only. No gameplay was authored, no
 spatial schema or blockout was touched, and no human acceptance is claimed

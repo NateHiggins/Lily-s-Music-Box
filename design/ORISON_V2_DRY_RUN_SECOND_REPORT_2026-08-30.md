@@ -1,5 +1,7 @@
 # Orison v2 rebuild dry run, second report — 2026-08-30
 
+Evidence class: **INERT - REPORT (dry run two, landed 2026-09-19 as history; the v1 atrium object-count drop it records is still unexplained)**
+
 Pin: **5c1a96a8b397af71954edb233aed5953d7fbc5e0**
 
 Execution branch: **codex/v2-dry-run-2**

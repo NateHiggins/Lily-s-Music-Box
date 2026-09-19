@@ -1,5 +1,7 @@
 # Orison v2 rebuild dry-run report — 2026-08-30
 
+Evidence class: **INERT - REPORT (dry run one, landed 2026-09-19 as history; its boot and atrium figures are dated, not current)**
+
 Commit pin: `b070cb434924bd53ed80222312e0c1343496f5b5`
 
 Worktree: `C:\PleaseRemainOnTheLine-v2-dry-run-20260830`
