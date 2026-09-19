@@ -131,6 +131,24 @@ class ReconciledReviewTests(unittest.TestCase):
         rows = of_class(self.scan_source(source), "TIMER_IMPERSONATES_ACTOR")
         self.assertEqual([r["scope"] for r in rows], ["unrelated"])
 
+    def test_receiver_type_must_be_code_not_a_comment_or_literal(self):
+        declarations = [
+            ('var world: OrisonV2RuntimeRoot = Runtime.new()', False),
+            ('var world := Runtime.new() as OrisonV2RuntimeRoot', False),
+            ('var world = Runtime.new() as OrisonV2RuntimeRoot', True),
+            ('var world := foreign_owner # as OrisonV2RuntimeRoot', True),
+            ('var world := foreign_owner # : OrisonV2RuntimeRoot', True),
+            ('var world := "diagnostic as OrisonV2RuntimeRoot"', True),
+        ]
+        for declaration, expected in declarations:
+            with self.subTest(declaration=declaration):
+                source = ('extends Node\nfunc _ready():\n    ' + declaration + '\n'
+                          '    await get_tree().create_timer(.2).timeout\n'
+                          '    world.adapter.resolve("repair")\n')
+                findings = self.scan_source(source)
+                self.assertEqual(bool(of_class(findings, "TIMER_IMPERSONATES_ACTOR")), expected)
+                self.assertEqual(bool(of_class(findings, "TEST_AUTHORITY_SHORTCUT")), expected)
+
     def test_only_reached_inherited_input_driver_counts(self):
         parent = ("extends Node\nvar world: OrisonV2RuntimeRoot\n"
                   "func _ready():\n    call_deferred(\"_run\")\n"
@@ -168,6 +186,119 @@ class ReconciledReviewTests(unittest.TestCase):
             with self.subTest(path=path, source=text):
                 self.assertEqual(bool(of_class(self.scan_source(text, path),
                     "HOST_CLOCK_MUTATES_WORLD")), expected)
+
+    def test_inherited_input_requires_executable_calls_not_string_contents(self):
+        parent = ('extends Node\n'
+                  'func _ready():\n    call_deferred("_run")\n'
+                  'func _run():\n    await _route()\n'
+                  'func _route():\n    pass\n'
+                  'func _use():\n    Input.action_press("interact")\n'
+                  '    Input.action_release("interact")\n')
+        child = ('extends "res://tests/player_driver.gd"\n'
+                 'func _route():\n    situation.apply_condition()\n')
+        cases = [
+            ('    await _use()\n', False),
+            ('    call_deferred("_use")\n', False),
+            ("    call_deferred('_use')\n", False),
+            ('    print("_use()")\n', True),
+            ("    print('_use()')\n", True),
+            ('    print("""diagnostic\n_use()\n""")\n', True),
+            ("    print(\"call_deferred('_use')\")\n", True),
+            ('    # _use()\n', True),
+            ('    other.call_deferred("_use")\n', True),
+            ('    call_deferred("_use" + suffix)\n', True),
+        ]
+        for suffix, expected in cases:
+            with self.subTest(suffix=suffix):
+                findings = self.scan_source(child + suffix,
+                    parents={"game/tests/player_driver.gd": parent})
+                self.assertEqual(bool(of_class(findings, "TEST_AUTHORITY_SHORTCUT")), expected)
+        quoted_input = parent.replace(
+            'Input.action_press("interact")', 'print(\"Input.action_press(\")').replace(
+            'Input.action_release("interact")', 'print(\"Input.action_release(\")')
+        findings = self.scan_source(child + '    await _use()\n',
+            parents={"game/tests/player_driver.gd": quoted_input})
+        self.assertTrue(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+
+    def test_inherited_method_headers_inside_multiline_literals_do_not_count(self):
+        parent = ('extends Node\n'
+                  'func _ready():\n    call_deferred("_run")\n'
+                  'func _run():\n    await _route()\n'
+                  'func _route():\n    pass\n'
+                  'func _notes():\n    print("""example code\n'
+                  'func _use():\n    Input.action_press("interact")\n'
+                  '    Input.action_release("interact")\n""")\n'
+                  'func _use():\n    pass\n')
+        child = ('extends "res://tests/player_driver.gd"\n'
+                 'func _route():\n    situation.apply_condition()\n    await _use()\n')
+        findings = self.scan_source(child,
+            parents={"game/tests/player_driver.gd": parent})
+        self.assertTrue(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+        real_input = parent.replace('func _use():\n    pass\n',
+            'func _use():\n    Input.action_press("interact")\n'
+            '    Input.action_release("interact")\n')
+        findings = self.scan_source(child,
+            parents={"game/tests/player_driver.gd": real_input})
+        self.assertFalse(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+
+    def test_unreached_top_level_declarations_do_not_supply_inherited_input(self):
+        header = ('extends Node\nfunc _ready():\n    await _route()\n')
+        child = ('extends "res://tests/player_driver.gd"\n'
+                 'func _route():\n    situation.apply_condition()\n')
+        tails = [
+            ('class UnusedInput:\n    func _use():\n'
+             '        Input.action_press("interact")\n'
+             '        Input.action_release("interact")\n'),
+            ('var unused = func():\n    Input.action_press("interact")\n'
+             '    Input.action_release("interact")\n'),
+        ]
+        for tail in tails:
+            with self.subTest(tail=tail):
+                findings = self.scan_source(child,
+                    parents={"game/tests/player_driver.gd": header + tail})
+                self.assertTrue(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+        multiline = ('extends Node\nfunc _ready(\n    unused: Node = null\n) -> void:\n'
+                     '    await _route()\n    Input.action_press("interact")\n'
+                     '    Input.action_release("interact")\n')
+        findings = self.scan_source(child,
+            parents={"game/tests/player_driver.gd": multiline})
+        self.assertFalse(of_class(findings, "TEST_AUTHORITY_SHORTCUT"))
+
+    def test_printed_function_header_cannot_hide_artifact_extraction(self):
+        source = ('extends Node\nfunc _ready():\n    var report := {\n'
+                  '        "generated_utc": Time.get_datetime_string_from_system(true),\n'
+                  '    }\n    file.store_string(JSON.stringify(report))\n'
+                  '    print("""example code\nfunc unused():\n    pass\n""")\n')
+        rel = "game/tests/interaction_inventory.gd"
+        self.assertFalse(of_class(self.scan_source(source, rel), "HOST_CLOCK_MUTATES_WORLD"))
+        source += '    var field = "generated_" + "utc"\n    publish(report[field])\n'
+        self.assertTrue(of_class(self.scan_source(source, rel), "HOST_CLOCK_MUTATES_WORLD"))
+
+    def test_artifact_field_reads_require_literal_non_clock_keys(self):
+        source = ('extends Node\nfunc _ready():\n    var report := {\n'
+                  '        "generated_utc": Time.get_datetime_string_from_system(true),\n'
+                  '        "summary": {"count": 1},\n'
+                  '    }\n    file.store_string(JSON.stringify(report))\n')
+        cases = [
+            ('    print(report.summary.count)\n', False),
+            ('    print(report["summary"])\n', False),
+            ("    print(report['summary'])\n", False),
+            ('    print(report.get("summary", {}))\n', False),
+            ('    publish(report.generated_utc)\n', True),
+            ('    publish(report["generated_utc"])\n', True),
+            ('    publish(report.get("generated_utc"))\n', True),
+            ('    var field = "generated_" + "utc"\n    publish(report[field])\n', True),
+            ('    var field = "generated_" + "utc"\n    publish(report.get(field))\n', True),
+            ('    publish(report["generated_" + "utc"])\n', True),
+            ('    publish(report.get("generated_" + "utc"))\n', True),
+            ('    publish(report.values())\n', True),
+            ('    file.store_string(JSON.stringify(report)); publish(report[field])\n', True),
+        ]
+        for suffix, expected in cases:
+            with self.subTest(suffix=suffix):
+                findings = self.scan_source(source + suffix,
+                    "game/tests/interaction_inventory.gd")
+                self.assertEqual(bool(of_class(findings, "HOST_CLOCK_MUTATES_WORLD")), expected)
 
 
 class DetectionTests(unittest.TestCase):

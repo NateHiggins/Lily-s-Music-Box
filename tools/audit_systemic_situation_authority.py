@@ -444,7 +444,7 @@ def _test_ancestors(ctx: FileContext) -> list[FileContext]:
 def _runtime_receiver_is_typed(ctx: FileContext, scope: str, name: str) -> bool:
     """Only OrisonV2RuntimeRoot.adapter has the reviewed read-only resolve API."""
     escaped = re.escape(name)
-    body = ctx.function_body(scope)
+    body = _gd_function_bodies(ctx.text, code_only=True).get(scope, "")
     header = body.splitlines()[0] if body else ""
     parameter = re.search(r"\b" + escaped + r"\s*(?::\s*([\w]+))?\s*[,)]", header)
     if parameter:
@@ -455,7 +455,8 @@ def _runtime_receiver_is_typed(ctx: FileContext, scope: str, name: str) -> bool:
                    re.search(r":=.*\bas\s+OrisonV2RuntimeRoot\b", declaration)
                    for declaration in declarations)
     for source in [ctx] + _test_ancestors(ctx):
-        field = re.search(r"^var\s+" + escaped + r"\b[^\n]*", source.text, re.MULTILINE)
+        field = re.search(r"^var\s+" + escaped + r"\b[^\n]*",
+                          _gd_code_only(source.text), re.MULTILINE)
         if field:
             return bool(re.search(r":\s*OrisonV2RuntimeRoot\b", field.group(0)))
     return False
@@ -473,16 +474,77 @@ def _consequence_code(ctx: FileContext, scope: str, line: str) -> str:
                   else match.group(0), line)
 
 
+def _gd_code_only(text: str) -> str:
+    """Mask comments and quoted literals, preserving offsets and line breaks."""
+    masked = list(text)
+    index = 0
+    while index < len(text):
+        start = index
+        if text[index] == "#":
+            end = text.find("\n", index)
+            index = len(text) if end < 0 else end
+        elif text[index] in ('"', "'"):
+            quote = text[index]
+            delimiter = quote * 3 if text.startswith(quote * 3, index) else quote
+            index += len(delimiter)
+            while index < len(text):
+                if text[index] == "\\":
+                    index += 2
+                elif text.startswith(delimiter, index):
+                    index += len(delimiter)
+                    break
+                else:
+                    index += 1
+        else:
+            index += 1
+            continue
+        for offset in range(start, min(index, len(text))):
+            if masked[offset] != "\n":
+                masked[offset] = " "
+    return "".join(masked)
+
+
+def _gd_function_bodies(text: str, *, code_only: bool = False) -> dict[str, str]:
+    # Mask the whole source before finding scopes; a printed header is not code.
+    # A later class, field or other top-level statement also ends a function.
+    code = _gd_code_only(text)
+    source = code if code_only else text
+    bodies = {}
+    active = None
+    offset = depth = 0
+    continued = False
+    for line in code.splitlines(keepends=True):
+        top_level = bool(line.strip()) and not line[0].isspace()
+        if active and top_level and depth == 0 and not continued:
+            bodies[active[0]] = source[active[1]:offset]
+            active = None
+        if active is None and top_level:
+            header = re.match(r"(?:static[ \t]+)?func[ \t]+([A-Za-z_]\w*)", line)
+            if header:
+                active = (header.group(1), offset)
+                depth = 0
+        if active:
+            # Parenthesized or explicitly continued lines may begin at column
+            # zero in a real multiline header/body and remain in its scope.
+            depth += sum(line.count(char) for char in "([{")
+            depth -= sum(line.count(char) for char in ")]}")
+            continued = line.rstrip().endswith("\\")
+        offset += len(line)
+    if active:
+        bodies[active[0]] = source[active[1]:]
+    return bodies
+
+
 def _reaches_inherited_input(ctx: FileContext) -> bool:
     ancestors = _test_ancestors(ctx)
     if not ancestors:
         return False
     methods = {}
     for source in [ctx] + ancestors:
-        for name, _start, _end in source.functions:
+        for name, body in _gd_function_bodies(source.text).items():
             # Derived overrides win. An unused input helper in a base file
             # grants nothing; walk actual calls from engine test entrypoints.
-            methods.setdefault(name, source.function_body(name))
+            methods.setdefault(name, body)
     pending = [name for name in ("_ready", "_init") if name in methods]
     visited = set()
     while pending:
@@ -490,13 +552,19 @@ def _reaches_inherited_input(ctx: FileContext) -> bool:
         if name in visited:
             continue
         visited.add(name)
-        lines = [line.split("#", 1)[0] for line in methods[name].splitlines()[1:]]
-        body = "\n".join(lines)
-        if re.search(r"\bInput\.action_press\s*\(", body) and \
-                re.search(r"\bInput\.action_release\s*\(", body):
+        body = "\n".join(methods[name].splitlines()[1:])
+        code = _gd_code_only(body)
+        if re.search(r"(?<![.\w])Input\.action_press\s*\(", code) and \
+                re.search(r"(?<![.\w])Input\.action_release\s*\(", code):
             return True
-        calls = set(re.findall(r"(?<![.\w])([A-Za-z_]\w*)\s*\(", body))
-        calls.update(re.findall(r'\bcall_deferred\(\s*"([A-Za-z_]\w*)"', body))
+        calls = set(re.findall(r"(?<![.\w])([A-Za-z_]\w*)\s*\(", code))
+        # A real local deferred call names its target in one literal argument.
+        # Printed call syntax, another receiver and computed names grant nothing.
+        for deferred in re.finditer(r"(?<![.\w])(?:self\.)?call_deferred\s*\(", code):
+            target = re.match(r"\s*([\"'])([A-Za-z_]\w*)\1\s*(?=[,)])",
+                              body[deferred.end():])
+            if target:
+                calls.add(target.group(2))
         pending.extend(call for call in calls if call in methods and call not in visited)
     return False
 
@@ -515,7 +583,7 @@ def _artifact_timestamp_only(ctx: FileContext, scope: str, line: str) -> bool:
     if not re.fullmatch(r'\s*"' + field + r'"\s*:\s*'
             r'Time\.get_datetime_string_from_system\(true(?:,\s*true)?\),\s*', line):
         return False
-    body = ctx.function_body(scope)
+    body = _gd_function_bodies(ctx.text).get(scope, "")
     declaration = re.search(r"\bvar\s+" + variable + r"\s*:=\s*\{", body)
     field_at = body.find(line)
     if declaration is None or field_at < declaration.end():
@@ -526,22 +594,38 @@ def _artifact_timestamp_only(ctx: FileContext, scope: str, line: str) -> bool:
     sink = r"^\s*\w+\.store_string\(\s*JSON\.stringify\(\s*" + variable + r"\b"
     if not re.search(sink, body, re.MULTILINE):
         return False
-    for raw in body.splitlines():
-        code = raw.split("#", 1)[0]
-        identifiers = re.sub(r'"(?:[^"\\]|\\.)*"', '""', code)
-        if not re.search(r"\b" + variable + r"\b", identifiers):
+    # Check every occurrence separately: a valid serialization on a line must
+    # not excuse a second, dynamic extraction on that same line.
+    for raw, code in zip(body.splitlines(), _gd_code_only(body).splitlines()):
+        references = list(re.finditer(r"\b" + variable + r"\b", code))
+        if not references:
             continue
-        if re.search(r"\bvar\s+" + variable + r"\s*:=\s*\{", code) or re.search(sink, code):
-            continue
-        # Refuse aliases, unknown whole-object calls/returns, clock-field
-        # extraction or any world sink. Ordinary non-clock report fields may
-        # still be appended/printed as part of producing the artifact.
-        if re.search(r"RealityState|Campaign|record_fact|\breturn\b|commit|persist", code) or \
-                re.search(r"\b" + re.escape(field) + r"\b", code) or \
-                re.search(r"[=:]\s*" + variable + r"\b", code):
-            return False
-        if re.search(r"\b" + variable + r"\b(?!\s*[.\[])", code):
-            return False
+        declared = re.search(r"\bvar\s+(" + variable + r")\s*:=\s*\{", code)
+        serialized = re.search(sink, code)
+        for reference in references:
+            if declared and reference.span() == declared.span(1):
+                continue
+            if serialized and reference.end() == serialized.end():
+                continue
+            # Refuse whole-object aliases/returns and any world sink. A report
+            # lookup is safe only when its immediate key is a non-clock literal.
+            if re.search(r"RealityState|Campaign|record_fact|\breturn\b|commit|persist", code) or \
+                    re.search(r"[=:]\s*" + variable + r"\b", code):
+                return False
+            tail = raw[reference.end():]
+            member = re.match(r"\s*\.\s*([A-Za-z_]\w*)", tail)
+            literal = re.match(r"\s*\[\s*([\"'])([A-Za-z_]\w*)\1\s*\]", tail)
+            if member and member.group(1) == "get" and re.match(r"\s*\(", tail[member.end():]):
+                literal = re.match(r"\s*\.\s*get\s*\(\s*([\"'])([A-Za-z_]\w*)\1\s*(?=[,)])", tail)
+                member = None
+            if literal:
+                key = literal.group(2)
+            elif member and not re.match(r"\s*\(", tail[member.end():]):
+                key = member.group(1)
+            else:
+                return False
+            if key == field:
+                return False
     return True
 
 
