@@ -46,6 +46,7 @@ func _run() -> void:
 	_check("different endpoint height retains graph", not _direct(START, GOAL + Vector3.UP * 0.02))
 	_check("slab datum is not an actor foot offset", not _direct(START - Vector3.UP * 0.03, GOAL - Vector3.UP * 0.03))
 	_check("envelope contains production Body capsule", _contains_body_contract())
+	await _public_refusal_controls()
 
 	# This obstacle is off the centre shin/chest rays, but within the envelope.
 	var jamb := _box(viewport, "OffCentreJamb", Vector3(0, 0.8, 0.25), Vector3(0.08, 0.3, 0.08))
@@ -150,6 +151,63 @@ func _run() -> void:
 	get_tree().quit(failures)
 
 
+func _public_refusal_controls() -> void:
+	# Valid endpoints exercise route() itself. These would fail if route()
+	# unconditionally returned [from, to], regardless of its private predicate.
+	var far_start := Vector3(-0.7, 0.03, 0)
+	var far_goal := Vector3(0.7, 0.03, 0)
+	var long_path := nav.route(far_start, far_goal)
+	_check("public long route refuses shortcut while reaching valid goal", long_path.size() > 2
+		and long_path[0] == far_start and long_path[-1] == far_goal)
+	var entry: Dictionary = nav.floors.F01
+	var graph: AStar3D = entry.astar
+	var side_a := Vector3(-0.5, 0.0, 0.65)
+	var side_b := Vector3(0.5, 0.0, 0.65)
+	graph.add_point(11, side_a)
+	graph.add_point(12, side_b)
+	graph.connect_points(11, 12)
+	entry.points.append({"id": 11, "at": Vector2(side_a.x, -side_a.z), "tag": "fixture_detour"})
+	entry.points.append({"id": 12, "at": Vector2(side_b.x, -side_b.z), "tag": "fixture_detour"})
+	var blocker := _box(viewport, "PublicShortcutObstacle", Vector3(0, 0.8, 0), Vector3(0.15, 1.6, 0.15))
+	await _settle()
+	_check("public negative has blocked shortcut and valid alternate geometry",
+		not _public_capsule_clear(PackedVector3Array([START, GOAL])))
+	var path := nav.route(START, GOAL)
+	_check("public blocked-shortcut route uses graph and reaches valid goal", path.size() > 2
+		and path[0] == START and path[-1] == GOAL)
+	_check("public alternate route independently clears the full capsule", path.size() > 2 and _public_capsule_clear(path))
+	blocker.queue_free()
+	await _settle()
+	graph.remove_point(11)
+	graph.remove_point(12)
+	entry.points.pop_back()
+	entry.points.pop_back()
+
+
+func _public_capsule_clear(path: PackedVector3Array) -> bool:
+	var shape := CapsuleShape3D.new()
+	shape.radius = 0.33
+	shape.height = 1.65
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape
+	query.margin = 0.001
+	query.collide_with_areas = false
+	var space := viewport.find_world_3d().direct_space_state
+	for i in range(path.size() - 1):
+		var a := Vector3(path[i].x, 0.03, path[i].z)
+		var b := Vector3(path[i + 1].x, 0.03, path[i + 1].z)
+		query.motion = Vector3.ZERO
+		query.transform = Transform3D(Basis(), a + Vector3.UP * 0.825)
+		if not space.intersect_shape(query, 1).is_empty(): return false
+		query.transform.origin = b + Vector3.UP * 0.825
+		if not space.intersect_shape(query, 1).is_empty(): return false
+		query.transform.origin = a + Vector3.UP * 0.825
+		query.motion = b - a
+		var fractions := space.cast_motion(query)
+		if fractions.size() != 2 or fractions[0] < 1.0 or fractions[1] < 1.0: return false
+	return true
+
+
 func _layout() -> Dictionary:
 	return {"floors": [{"id": "F01", "z": 0.0,
 		"rooms": [{"id": "PUBLIC", "kind": "room", "rect": [-3.0, -3.0, 3.0, 3.0]}],
@@ -171,6 +229,12 @@ func _box(parent: Node, label: String, at: Vector3, size: Vector3) -> StaticBody
 
 
 func _direct(from: Vector3, to: Vector3) -> bool:
+	# Negative controls deliberately place endpoints in collision or remove
+	# the floor. Query shortcut admission there; a public route must remain
+	# loud when no physically valid endpoint can be attached. Positive cases
+	# still prove route() returns the exact requested two-point path.
+	if nav.has_method("_direct_segment_clear") and not nav._direct_segment_clear(nav.floors.F01, from, to):
+		return false
 	var path := nav.route(from, to)
 	return path.size() == 2 and path[0] == from and path[1] == to
 

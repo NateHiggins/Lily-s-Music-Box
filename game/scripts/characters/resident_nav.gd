@@ -49,6 +49,8 @@ var pruned_edges := 0
 var visibility_edges := 0
 var collision_cut := 0
 var collision_relinked := 0
+var collision_detour_nodes := 0
+var collision_detour_edges := 0
 var stair_blocked := 0
 var _unreachable_warned := {}
 var passage_anchors: Dictionary = {}
@@ -58,6 +60,13 @@ const DIRECT_RADIUS := 0.33
 const DIRECT_HEIGHT := 1.65
 var _validated_world: WeakRef
 var _direct_shape: CapsuleShape3D
+## Both resident constructors use this Body capsule. Portal/endpoint checks
+## need its actual width: a valid resident can stand beside a switch where
+## the separate conservative direct/detour envelope correctly refuses.
+const RESIDENT_BODY_RADIUS := 0.28
+const RESIDENT_BODY_HEIGHT := 1.55
+var _resident_shape: CapsuleShape3D
+var _managed_leaf_rids: Array[RID] = []
 
 
 # TASKS.md V3: the distinct (floor, from, to) route failures seen so far.
@@ -72,6 +81,7 @@ func unreachable_route_keys() -> Array:
 
 func build(layout: Dictionary) -> int:
 	_validated_world = null
+	_managed_leaf_rids.clear()
 	var total := 0
 	for fl in layout["floors"]:
 		var fid := str(fl["id"])
@@ -401,9 +411,8 @@ func floor_at(y: float) -> String:
 	return best
 
 
-## Same-floor route in world space, endpoints included. Falls back to a
-## straight line if either end finds no node — a resident must never be
-## stranded by a hole in the graph.
+## Same-floor route in world space, endpoints included. A validated floor
+## refuses disconnected endpoints rather than crossing a wall or collider.
 func route(from: Vector3, to: Vector3) -> PackedVector3Array:
 	var fid := floor_at(from.y)
 	if fid == "" or not floors.has(fid):
@@ -455,31 +464,49 @@ func _direct_segment_clear(entry: Dictionary, from: Vector3, to: Vector3) -> boo
 			or not _segment_clear(entry, from, to) \
 			or not _direct_slab_clear(entry, from, to):
 		return false
-	var space := world.direct_space_state
-	if _direct_shape == null:
-		_direct_shape = CapsuleShape3D.new()
-		_direct_shape.radius = DIRECT_RADIUS
-		_direct_shape.height = DIRECT_HEIGHT
+	return _capsule_segment_clear(entry, from, to, world.direct_space_state)
+
+
+## Shared capsule/support proof; callers own length and World3D admission.
+## Direct routes and room detours default to the conservative envelope with
+## no exclusions. Original portal/endpoint proof supplies the actual Body.
+func _capsule_segment_clear(entry: Dictionary, from: Vector3, to: Vector3,
+		space: PhysicsDirectSpaceState3D, floor_finish: bool = false,
+		body: CapsuleShape3D = null, exclusions: Array[RID] = []) -> bool:
+	var capsule := body
+	if capsule == null:
+		if _direct_shape == null:
+			_direct_shape = CapsuleShape3D.new()
+			_direct_shape.radius = DIRECT_RADIUS
+			_direct_shape.height = DIRECT_HEIGHT
+		capsule = _direct_shape
 	var query := PhysicsShapeQueryParameters3D.new()
-	query.shape = _direct_shape
+	query.shape = capsule
+	query.exclude = exclusions
 	query.collide_with_areas = false
 	query.margin = 0.001
-	query.transform = Transform3D(Basis(), from + Vector3.UP * DIRECT_HEIGHT * 0.5)
+	query.transform = Transform3D(Basis(), from + Vector3.UP * capsule.height * 0.5)
 	# cast_motion ignores initial overlap, so neither endpoint may overlap.
-	# No collider exclusions, including door leaves. Ordinary layer filtering
-	# still applies: resident Body nodes on layer zero are not crowd obstacles.
+	# Direct and detour callers supply no exclusions. Original portal checks
+	# may supply only cached NPC-owned DoorProp leaf bodies; fixed geometry
+	# and elevator panels are never excluded. Resident bodies use layer zero.
 	if not space.intersect_shape(query, 1).is_empty():
 		return false
-	query.transform.origin = to + Vector3.UP * DIRECT_HEIGHT * 0.5
+	query.transform.origin = to + Vector3.UP * capsule.height * 0.5
 	if not space.intersect_shape(query, 1).is_empty():
 		return false
-	query.transform.origin = from + Vector3.UP * DIRECT_HEIGHT * 0.5
+	query.transform.origin = from + Vector3.UP * capsule.height * 0.5
 	query.motion = to - from
 	var fractions := space.cast_motion(query)
 	if fractions.size() != 2 or fractions[0] < 1.0 or fractions[1] < 1.0:
 		return false
 	# Authored holes are excluded continuously below. Physical support is a
 	# separate sampled check: centre plus eight rim points at <= .20 m spacing.
+	# A graph body proof may cross a thin physical floor finish above the authored
+	# slab datum only while it remains strictly below the actual foot plane.
+	# The full capsule sweep above still rejects raised/penetrating surfaces;
+	# lower datum, normal, gaps, authored holes and rim checks stay unchanged.
+	# Direct-route callers retain their original +/-1cm datum policy.
 	var steps := maxi(1, ceili(from.distance_to(to) / 0.20))
 	for i in range(steps + 1):
 		var at := from.lerp(to, float(i) / float(steps))
@@ -487,14 +514,19 @@ func _direct_segment_clear(entry: Dictionary, from: Vector3, to: Vector3) -> boo
 			var offset := Vector3.ZERO
 			if spoke > 0:
 				var angle := TAU * float(spoke - 1) / 8.0
-				offset = Vector3(cos(angle), 0, sin(angle)) * DIRECT_RADIUS
+				offset = Vector3(cos(angle), 0, sin(angle)) * capsule.radius
 			var ray := PhysicsRayQueryParameters3D.create(
 					at + offset + Vector3.UP * 0.10,
 					at + offset - Vector3.UP * 0.10)
 			ray.hit_from_inside = true
+			ray.exclude = exclusions
 			var hit := space.intersect_ray(ray)
-			if hit.is_empty() or hit.normal.y < 0.99 \
-					or absf(float(hit.position.y) - float(entry.z)) > 0.01:
+			if hit.is_empty() or hit.normal.y < 0.99:
+				return false
+			var height := float(hit.position.y)
+			var finish_below_feet := floor_finish and height >= float(entry.z) \
+					and height < at.y - query.margin
+			if absf(height - float(entry.z)) > 0.01 and not finish_below_feet:
 				return false
 	return true
 
@@ -545,6 +577,7 @@ func _direct_hole_crossed(a: Vector2, b: Vector2, hole: Array) -> bool:
 
 func _exit_tree() -> void:
 	_validated_world = null
+	_managed_leaf_rids.clear()
 
 
 func _visible_candidates(entry: Dictionary, at: Vector3) -> Array:
@@ -552,15 +585,22 @@ func _visible_candidates(entry: Dictionary, at: Vector3) -> Array:
 	var candidates: Array = []
 	for id in astar.get_point_ids():
 		var point := astar.get_point_position(id)
-		if not _segment_clear(entry, at, point):
-			continue
-		candidates.append({"id": id,
-				"distance": at.distance_squared_to(point)})
+		if not _segment_clear(entry, at, point): continue
+		candidates.append({"id": id, "distance": at.distance_squared_to(point)})
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		return float(a.distance) < float(b.distance))
-	if candidates.size() > 16:
-		candidates.resize(16)
-	return candidates
+	var world: World3D = _validated_world.get_ref() if _validated_world != null else null
+	var physical := world != null and is_inside_tree() and world == get_viewport().find_world_3d()
+	var admitted: Array = []
+	for candidate: Dictionary in candidates:
+		var point := astar.get_point_position(int(candidate.id))
+		if entry.get("detour_ids", {}).has(candidate.id):
+			if not _detour_endpoint_clear(entry, at, point): continue
+		elif physical and not _resident_endpoint_clear(entry, at, point):
+			continue
+		admitted.append(candidate)
+		if admitted.size() == 16: break
+	return admitted
 
 
 func _connected_visible_pair(entry: Dictionary, from: Vector3,
@@ -634,20 +674,36 @@ func _add_safe_visibility_edges(entry: Dictionary) -> int:
 ## building has committed its shapes to the physics server.
 func validate_with_collision(world: World3D) -> void:
 	_validated_world = null
+	_managed_leaf_rids.clear()
 	if world == null:
 		return
+	var collision_started := Time.get_ticks_usec()
 	var space := world.direct_space_state
+	var live_world := is_inside_tree() and world == get_viewport().find_world_3d()
+	if live_world: _index_managed_leaves(world)
 	collision_cut = 0
 	collision_relinked = 0
+	collision_detour_nodes = 0
+	collision_detour_edges = 0
 	for fid in floors:
 		var entry: Dictionary = floors[fid]
 		var astar: AStar3D = entry.astar
+		var portals := {}
+		for point: Dictionary in entry.points:
+			var tag := str(point.tag)
+			if tag.begins_with("door:") or tag.begins_with("door_approach:") or tag == "opening":
+				portals[point.id] = true
 		for id in astar.get_point_ids():
 			for other in astar.get_point_connections(id):
 				if other <= id:
 					continue
-				if _ray_blocked(space, astar.get_point_position(id),
-						astar.get_point_position(other)):
+				var a := astar.get_point_position(id)
+				var b := astar.get_point_position(other)
+				var detours: Dictionary = entry.get("detour_ids", {})
+				if _ray_blocked(space, a, b) or ((detours.has(id) or detours.has(other))
+						and not _room_link_clear(entry, space, a, b)) \
+						or (live_world and (portals.has(id) or portals.has(other))
+						and not _resident_body_link_clear(entry, space, a, b)):
 					astar.disconnect_points(id, other)
 					collision_cut += 1
 		# A node that lost every edge would strand whoever stands nearest
@@ -667,17 +723,183 @@ func validate_with_collision(world: World3D) -> void:
 			for pair in scored:
 				if linked >= 2 or float(pair[0]) > 8.0 * 8.0:
 					break
-				if _ray_blocked(space, pos,
-						astar.get_point_position(int(pair[1]))):
+				var other := int(pair[1])
+				var target := astar.get_point_position(other)
+				var detours: Dictionary = entry.get("detour_ids", {})
+				if _ray_blocked(space, pos, target) or ((detours.has(id) or detours.has(other))
+						and not _room_link_clear(entry, space, pos, target)) \
+						or (live_world and not _resident_body_link_clear(entry, space, pos, target)):
 					continue
-				astar.connect_points(id, int(pair[1]))
+				astar.connect_points(id, other)
 				linked += 1
 				collision_relinked += 1
 	stair_blocked = _validate_stairs(space)
 	if is_inside_tree() and world == get_viewport().find_world_3d():
 		_validated_world = weakref(world)
+		var detour_started := Time.get_ticks_usec()
+		for fid in floors:
+			_repair_split_rooms(floors[fid], space)
+		print("[NAV] room detour validation: %.3f ms" % ((Time.get_ticks_usec() - detour_started) / 1000.0))
+	print("[NAV] full collision validation: %.3f ms" % ((Time.get_ticks_usec() - collision_started) / 1000.0))
+	print("[NAV] room detours: %d body-clear nodes, %d body-clear links"
+			% [collision_detour_nodes, collision_detour_edges])
 	print("[NAV] collision audit: %d edges cut by real geometry, %d island nodes relinked, %d stair legs obstructed"
 			% [collision_cut, collision_relinked, stair_blocked])
+
+
+## Collect only the moving leaf owned by DoorProp. Fixed frames and lift
+## panels cannot inherit a door exception merely by sharing a scene branch.
+## RID-only cache is rebuilt with validation and cleared on build/tree exit.
+func _index_managed_leaves(world: World3D) -> void:
+	var pending: Array[Node] = [get_viewport()]
+	while not pending.is_empty():
+		var node: Node = pending.pop_back()
+		var sub_view := node as SubViewport
+		if sub_view != null and sub_view != get_viewport() and sub_view.find_world_3d() != world: continue
+		var door := node as DoorProp
+		if door != null:
+			if is_instance_valid(door._body): _managed_leaf_rids.append(door._body.get_rid())
+			continue
+		for child in node.get_children(): pending.append(child)
+
+
+func _resident_body_clear(entry: Dictionary, space: PhysicsDirectSpaceState3D,
+		from: Vector3, to: Vector3) -> bool:
+	if not from.is_finite() or not to.is_finite() or absf(from.y - to.y) > 0.001: return false
+	if not _segment_clear(entry, from, to) or not _direct_slab_clear(entry, from, to): return false
+	if _resident_shape == null:
+		_resident_shape = CapsuleShape3D.new()
+		_resident_shape.radius = RESIDENT_BODY_RADIUS
+		_resident_shape.height = RESIDENT_BODY_HEIGHT
+	return _capsule_segment_clear(entry, from, to, space, true, _resident_shape, _managed_leaf_rids)
+
+
+func _resident_body_link_clear(entry: Dictionary, space: PhysicsDirectSpaceState3D,
+		from: Vector3, to: Vector3) -> bool:
+	var a := Vector3(from.x, float(entry.z) + 0.03, from.z)
+	var b := Vector3(to.x, float(entry.z) + 0.03, to.z)
+	return _resident_body_clear(entry, space, a, b)
+
+
+func _resident_endpoint_clear(entry: Dictionary, from: Vector3, point: Vector3) -> bool:
+	if _validated_world == null or not is_inside_tree(): return false
+	var world: World3D = _validated_world.get_ref()
+	if world == null or world != get_viewport().find_world_3d(): return false
+	return _resident_body_clear(entry, world.direct_space_state, from, Vector3(point.x, from.y, point.z))
+
+
+## Collision pruning can split a furnished room into two multi-node islands.
+## The zero-neighbour repair above cannot see that case. Try eight interior
+## samples derived from this room's rectangle, retaining only components that
+## actually bridge existing islands. Never restore the obstructed old edge.
+func _repair_split_rooms(entry: Dictionary, space: PhysicsDirectSpaceState3D) -> void:
+	var graph: AStar3D = entry.astar
+	for room: Dictionary in entry.rooms:
+		if str(room.kind) == "corridor": continue
+		var components := _graph_components(graph)
+		var here: Array[int] = []
+		var groups := {}
+		for id in graph.get_point_ids():
+			var at := graph.get_point_position(id)
+			var owner: Variant = _room_at(entry.rooms, Vector2(at.x, -at.z))
+			if owner == null or str(owner.id) != str(room.id): continue
+			here.append(id)
+			groups[components[id]] = true
+		if groups.size() < 2: continue
+		var trial := AStar3D.new()
+		for id in here: trial.add_point(id, graph.get_point_position(id))
+		# These trial-only links represent existing global connectivity. They
+		# are never copied to the production graph or used as movement edges.
+		var representative := {}
+		for id in here:
+			var group: int = components[id]
+			if representative.has(group): trial.connect_points(id, representative[group])
+			else: representative[group] = id
+		var added: Array[int] = []
+		var next_id := graph.get_available_point_id()
+		var rect: Array = room.rect
+		for u in [0.25, 0.5, 0.75]:
+			for v in [0.25, 0.5, 0.75]:
+				if u == 0.5 and v == 0.5: continue
+				var xy := Vector2(lerpf(float(rect[0]), float(rect[2]), u),
+						lerpf(float(rect[1]), float(rect[3]), v))
+				var owner: Variant = _room_at(entry.rooms, xy)
+				if owner == null or str(owner.id) != str(room.id): continue
+				var at := Vector3(xy.x, float(entry.z), -xy.y)
+				var duplicate := false
+				for existing in here:
+					if graph.get_point_position(existing).distance_squared_to(at) < 0.000001:
+						duplicate = true
+						break
+				if duplicate: continue
+				if not _room_link_clear(entry, space, at, at): continue
+				while graph.has_point(next_id) or trial.has_point(next_id): next_id += 1
+				trial.add_point(next_id, at)
+				added.append(next_id)
+				next_id += 1
+		var links: Array[Vector2i] = []
+		for id in added:
+			for other in trial.get_point_ids():
+				if other == id or (other in added and other < id): continue
+				if not _room_link_clear(entry, space, trial.get_point_position(id),
+						trial.get_point_position(other)): continue
+				trial.connect_points(id, other)
+				links.append(Vector2i(id, other))
+		var trial_components := _graph_components(trial)
+		var reached := {}
+		for id in here:
+			var group: int = trial_components[id]
+			if not reached.has(group): reached[group] = {}
+			reached[group][components[id]] = true
+		for id in added:
+			if reached.get(trial_components[id], {}).size() < 2: continue
+			var at := trial.get_point_position(id)
+			graph.add_point(id, at)
+			entry.points.append({"id": id, "at": Vector2(at.x, -at.z),
+					"tag": "room_detour:" + str(room.id)})
+			if not entry.has("detour_ids"): entry.detour_ids = {}
+			entry.detour_ids[id] = true
+			collision_detour_nodes += 1
+		for link in links:
+			if not graph.has_point(link.x) or not graph.has_point(link.y): continue
+			graph.connect_points(link.x, link.y)
+			collision_detour_edges += 1
+
+
+func _graph_components(graph: AStar3D) -> Dictionary:
+	var components := {}
+	for id in graph.get_point_ids():
+		if components.has(id): continue
+		var pending: Array[int] = [id]
+		components[id] = id
+		while not pending.is_empty():
+			var current: int = pending.pop_back()
+			for neighbour in graph.get_point_connections(current):
+				if components.has(neighbour): continue
+				components[neighbour] = id
+				pending.append(neighbour)
+	return components
+
+
+func _room_link_clear(entry: Dictionary, space: PhysicsDirectSpaceState3D,
+		from: Vector3, to: Vector3) -> bool:
+	# Graph points use slab height; ordinary resident locomotion keeps the
+	# actor's 3 cm foot offset. Limit links to the existing visibility radius.
+	if from.distance_squared_to(to) > 6.5 * 6.5: return false
+	var a := Vector3(from.x, float(entry.z) + 0.03, from.z)
+	var b := Vector3(to.x, float(entry.z) + 0.03, to.z)
+	return _segment_clear(entry, a, b) and _direct_slab_clear(entry, a, b) \
+			and _capsule_segment_clear(entry, a, b, space, true)
+
+
+func _detour_endpoint_clear(entry: Dictionary, from: Vector3, point: Vector3) -> bool:
+	if _validated_world == null or not is_inside_tree() or not from.is_finite() \
+			or not point.is_finite() or from.distance_squared_to(point) > 6.5 * 6.5: return false
+	var world: World3D = _validated_world.get_ref()
+	if world == null or world != get_viewport().find_world_3d(): return false
+	var to := Vector3(point.x, from.y, point.z)
+	return _direct_slab_clear(entry, from, to) \
+			and _capsule_segment_clear(entry, from, to, world.direct_space_state, true)
 
 
 ## Rays at shin and chest height, walked through excusable hits (door

@@ -238,3 +238,14 @@ REPORT - **ASTRA-RECONCILE-1** - 2026-09-19
 - Decision needed from owner: **none for continued local repair and implementation**. Merge/cutover/release acceptance has not been granted by these checks.
 
 **BLOCKED — 11 committed board regression entries remain explained and visible; F06 route repair and final committed native verification remain pending.**
+
+
+### Owner-requested pause checkpoint
+
+The owner requested a pause to conserve tokens. The local WIP commit containing **ASTRA_PAUSE_2026-09-19.md** preserves the navigation/body repair and current regression fixtures; it does not claim a fresh committed verifier or merge readiness. Main remains **acdb4be**, selector **v1**, with no protected-path changes. The native lane is free and agents have stopped.
+
+Room controls now pass **70/70**, public direct-route controls **37/37**, the existing 4D lift consumer **40/40**, and Passage **26** actual checks. The F06 route now clears the actual Body, fixed jambs and closed lift, but its real movement still fails **18/19**: Sacha overlaps **F06_DOOR_02/HingedLeaf** while its opening tween is moving at approximately **65.76 degrees**. Movement excludes zero colliders. The exact contact is retained in C:/ov/astra-r1-evidence/nav_detour_controls/portal_body/contact_diagnostic/f06/resident_f06_route.json. ResidentRoutines is unchanged; its passage-readiness repair is the first resume action. New fixture spatial rows remain pending; the earlier prepared insertion is stale. No fresh current spatial-board pass is claimed.
+
+The complete source/evidence bindings, independent-review limits, completed audio/save checkpoint, external inspection/provider preparation and ordered resume steps are in **ASTRA_PAUSE_2026-09-19.md**. Existing unrelated untracked generated UIDs and historical work remain preserved. No push or merge was performed.
+
+**BLOCKED — paused at owner request; actual F06 opening-leaf collision, fixture spatial review and final committed verification remain open.**
