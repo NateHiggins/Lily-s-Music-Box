@@ -64148,11 +64148,11 @@
     "warehouse_variants"
    ],
    "lines": [
-    43
+    48
    ],
    "count": 1,
    "context": [
-    "{\"unit\": \"2C\", \"fan_variant\": \"juno_black\"},"
+    "\"properties\": {\"unit\": \"2C\", \"fan_variant\": \"juno_black\"}},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -64178,11 +64178,11 @@
     "warehouse_variants"
    ],
    "lines": [
-    46
+    54
    ],
    "count": 1,
    "context": [
-    "{\"unit\": \"4B\", \"fan_variant\": \"landlord_plain\"},"
+    "\"properties\": {\"unit\": \"4B\", \"fan_variant\": \"landlord_plain\"}},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -64208,11 +64208,11 @@
     "warehouse_variants"
    ],
    "lines": [
-    44
+    50
    ],
    "count": 1,
    "context": [
-    "{\"unit\": \"5C\", \"fan_variant\": \"iris_green\"},"
+    "\"properties\": {\"unit\": \"5C\", \"fan_variant\": \"iris_green\"}},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -64239,12 +64239,12 @@
     "possess_fit"
    ],
    "lines": [
-    45,
-    277
+    52,
+    285
    ],
    "count": 2,
    "context": [
-    "{\"unit\": \"6A\", \"fan_variant\": \"sacha_nickel\"},",
+    "\"properties\": {\"unit\": \"6A\", \"fan_variant\": \"sacha_nickel\"}},",
     "if unit != \"6A\" or _possession_phase > 0:"
    ],
    "gameplay_binding": false,
@@ -65615,7 +65615,7 @@
     "_ready"
    ],
    "lines": [
-    16
+    24
    ],
    "count": 1,
    "context": [
@@ -100558,6 +100558,37 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f05dc98c087305d7",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/prop_warehouse_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    172
+   ],
+   "count": 1,
+   "context": [
+    "_camera.look_at(_warehouse.position + Vector3(0.0, 0.9, 0.0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
   },
