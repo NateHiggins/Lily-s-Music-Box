@@ -38,6 +38,8 @@ var _light_sliders: Dictionary = {}
 var _updating_light_controls := false
 var _selected_fixture: Node
 var _light_identity: Label
+var _ecology_active := false
+var _ecology_body_was_visible := false
 
 
 func setup(building_root: Node3D) -> void:
@@ -390,6 +392,7 @@ func _build_go() -> void:
 		if root == null or root.warehouse == null:
 			push_warning("[DEBUG] warehouse exists in DEBUG launches only")
 			return
+		root.warehouse.close_ecology()
 		var to: Vector3 = root.warehouse.viewing_stand()
 		if root.view_override:
 			root.view_override.global_position = to
@@ -397,7 +400,45 @@ func _build_go() -> void:
 			root.player.global_position = to
 			root.player.velocity = Vector3.ZERO
 		print("[DEBUG] warehouse: %d prop kinds" % root.warehouse._built))
+	_button(extra, "Dream ecology", _open_dream_ecology)
 	box.add_child(extra)
+
+
+func _open_dream_ecology() -> void:
+	if root == null or root.warehouse == null:
+		push_warning("[DEBUG] Dream ecology exists in DEBUG launches only")
+		return
+	var exhibit: Node3D = root.warehouse.open_ecology(root.player)
+	if exhibit == null:
+		return
+	if not exhibit.inspection_changed.is_connected(_on_ecology_inspection):
+		exhibit.inspection_changed.connect(_on_ecology_inspection)
+	_on_ecology_inspection(true)
+	# The bay has its own real floor beyond the prop shed. Register the actual
+	# global volume before moving the player, so the net cannot undo arrival.
+	if root.safety_net != null:
+		var zone: AABB = exhibit.hall_aabb()
+		if zone not in root.safety_net.exempt_zones:
+			root.safety_net.exempt_zones.append(zone)
+	var to: Vector3 = exhibit.viewing_stand()
+	if root.view_override:
+		root.view_override.global_position = to
+	if root.player:
+		root.player.global_position = to
+		root.player.velocity = Vector3.ZERO
+	print("[DEBUG] Dream ecology: live sixteen-species exhibit")
+
+
+func _on_ecology_inspection(is_active: bool) -> void:
+	if is_active == _ecology_active: return
+	_ecology_active = is_active
+	if is_active:
+		_ecology_body_was_visible = _body.visible
+		_body.visible = false
+		visible = false
+	else:
+		visible = true
+		_body.visible = _ecology_body_was_visible
 
 
 func _build_conductor() -> void:
@@ -715,6 +756,10 @@ func _slider(parent: Node, label_text: String, lo: float, hi: float,
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_panel"):
+		if _ecology_active:
+			root.warehouse.close_ecology()
+			get_viewport().set_input_as_handled()
+			return
 		_body.visible = not _body.visible
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("intro") and root and root.virus_director:

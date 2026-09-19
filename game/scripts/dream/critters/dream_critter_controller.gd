@@ -326,94 +326,150 @@ func _try_spawn() -> void:
 					birth_at)
 			if ecology_record.is_empty():
 				continue
-		var any := Vector3.UP if absf(nrm.y) < 0.9 else Vector3.RIGHT
-		critters.append({
-			"id": _next_id, "morph": m,
-			"pos": birth_at,
-			"up": nrm,
-			"fwd": any.cross(nrm).normalized(),
-			"age": 0.0, "life": _rng.randf_range(18.0, 40.0),
-			"gait": float(m.gait_phase),
-			"pause": 0.0,
-			"alive": 1.0,
-			# §24 — the seam grazer's law. Set when it is actually on
-			# something thin enough to be on both sides of.
-			"twin": false,
-			"twin_pos": Vector3.ZERO,
-			"twin_up": Vector3.UP,
-			"twin_fwd": Vector3.FORWARD,
-			# The listener's law: its resonator's own angle, which advances
-			# while the shell holding it does not turn at all.
-			"spin": 0.0,
-			"photo": MicroLightScript.state(),
-			"photo_side": 0.0,
-			"mechanical": MicroMechanicsScript.state(),
-			# The crab's law: which leg is currently shorter than the gap it
-			# spans, and by how much.
-			"fold_leg": -1,
-			"fold": 0.0,
-			"fold_clock": 0.0,
-			# The cat-sized tardigrade's tun is a real whole-body contraction,
-			# separate from the fold crab's single impossible limb event.
-			"tun": 0.0,
-			"tun_clock": _rng.randf_range(4.0, 8.0),
-			# Source-derived microorganism mechanics share these four bounded
-			# presentation values. They do not choose goals or write ecology.
-			"micro_phase": _rng.randf_range(0.0, TAU),
-			"micro_state": 0.0,
-			"micro_aux": _rng.randf(),
-			"micro_clock": _rng.randf_range(0.8, 4.0),
-			"leg_state": [],
-			"support_legs": 0,
-			"leg_root_gap_max": 0.0,
-			# §21 — what the margin is currently doing to it.
-			"following": -1,
-			"nudged": 0.0,
-			"feeding": false,
-			# §21 — the rest of what the margin is to an animal that lives in
-			# it: something to work over, something to get under, and something
-			# whose attention it can attract.
-			"grooming": false,
-			"hiding": false,
-			"announced": 0.0,
-			# §21's last three, which all need an animal to be able to stand
-			# on an APPENDAGE rather than on architecture.
-			"riding": -1,
-			"ride_t": 0.0,
-			"ride_cool": 0.0,
-			"bridged": false,
-			"rode_growing": false,
-			# §22 — what it is doing about the hero, if anything.
-			"hero_near": 0.0,
-			"toward_hero": false,
-			# §22 — sensory structures put out toward the hero. This is the
-			# critter's HALF OF A CONVERSATION: the hero's club touches it and
-			# it answers by unfolding, which is the whole of the beat.
-			"unfold": 0.0,
-			"attend_override": Vector3.INF,
-			"ecology_colony": colony,
-			"ecology_record": ecology_record,
-			"ecology_returning": false,
-			"ecology_ether_min": 1.0,
-			"ecology_target_id": "",
-			"ecology_target": Vector3.INF,
-			"ecology_examination_s": 0.0,
-			"ecology_reports": 0,
-			"ecology_last_target_id": "",
-			"ecology_repeat_count": 0,
-			"manipulator_deploy": 0.0,
-			"information_pulse": 0.0,
-			"signal_seen_born": -1.0,
-			"signal_seen_src": -2147483648,
-			"signal_presented_at": -1.0,
-			# Distance covered by its OWN locomotion, excluding being shoved
-			# or fleeing. §32's bias governs walking, so that is what has to
-			# be measured against it.
-			"walked": 0.0,
-		})
-		critter_born.emit(_next_id, String(m.species))
-		_next_id += 1
+		_spawn_specimen(m, birth_at, nrm, _rng.randf_range(18.0, 40.0),
+				colony, ecology_record)
 		return
+
+
+## Explicit debug population uses the ordinary morphology and birth record.
+## `at` is a world-space surface contact; the body is seated half its height
+## along `normal`, exactly as it is after an ordinary spawn ray hits.
+func debug_spawn_specimen(kind: int, seed: int, at: Vector3, normal: Vector3,
+		lifetime_s: float = 3600.0) -> Dictionary:
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG or kind < 0 or kind >= SpeciesScript.NAMES.size():
+		return {}
+	if material == null or not is_instance_valid(mesh_instance) or critters.size() >= MAX_LIVE:
+		return {}
+	if not at.is_finite() or not normal.is_finite() or not is_finite(lifetime_s) \
+			or lifetime_s <= 0.0:
+		return {}
+	var normal_length_squared := normal.length_squared()
+	if not is_finite(normal_length_squared) or normal_length_squared <= 0.000001:
+		return {}
+	var nrm := normal.normalized()
+	var m: Dictionary = GeneratorScript.generate(kind, seed)
+	var birth_at := at + nrm * float(m.tall) * 0.5
+	if not birth_at.is_finite():
+		return {}
+	return _spawn_specimen(m, birth_at, nrm, lifetime_s, null, {})
+
+
+## Separate exhibit groups may share one director without sharing identities.
+## Only an empty debug population can move its next identity forward.
+func debug_set_id_base(first_id: int) -> bool:
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG or not critters.is_empty() \
+			or first_id < _next_id:
+		return false
+	_next_id = first_id
+	return true
+
+
+## Clearing an exhibit is explicit; it does not rewind identities or alter
+## ordinary spawning. The next physics tick retains the production policy.
+func debug_clear_specimens() -> void:
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG:
+		return
+	var departed: Array = critters.duplicate()
+	critters.clear()
+	for c in departed:
+		critter_died.emit(int(c.id))
+	if material != null and is_instance_valid(mesh_instance):
+		_push()
+
+
+## Both admitted ecology births and explicit debug specimens enter here.
+## Keep the state fields and incidental RNG draw order shared.
+func _spawn_specimen(m: Dictionary, birth_at: Vector3, nrm: Vector3,
+		lifetime_s: float, colony, ecology_record: Dictionary) -> Dictionary:
+	var any := Vector3.UP if absf(nrm.y) < 0.9 else Vector3.RIGHT
+	var c: Dictionary = {
+		"id": _next_id, "morph": m,
+		"pos": birth_at,
+		"up": nrm,
+		"fwd": any.cross(nrm).normalized(),
+		"age": 0.0, "life": lifetime_s,
+		"gait": float(m.gait_phase),
+		"pause": 0.0,
+		"alive": 1.0,
+		# §24 — the seam grazer's law. Set when it is actually on
+		# something thin enough to be on both sides of.
+		"twin": false,
+		"twin_pos": Vector3.ZERO,
+		"twin_up": Vector3.UP,
+		"twin_fwd": Vector3.FORWARD,
+		# The listener's law: its resonator's own angle, which advances
+		# while the shell holding it does not turn at all.
+		"spin": 0.0,
+		"photo": MicroLightScript.state(),
+		"photo_side": 0.0,
+		"mechanical": MicroMechanicsScript.state(),
+		# The crab's law: which leg is currently shorter than the gap it
+		# spans, and by how much.
+		"fold_leg": -1,
+		"fold": 0.0,
+		"fold_clock": 0.0,
+		# The cat-sized tardigrade's tun is a real whole-body contraction,
+		# separate from the fold crab's single impossible limb event.
+		"tun": 0.0,
+		"tun_clock": _rng.randf_range(4.0, 8.0),
+		# Source-derived microorganism mechanics share these four bounded
+		# presentation values. They do not choose goals or write ecology.
+		"micro_phase": _rng.randf_range(0.0, TAU),
+		"micro_state": 0.0,
+		"micro_aux": _rng.randf(),
+		"micro_clock": _rng.randf_range(0.8, 4.0),
+		"leg_state": [],
+		"support_legs": 0,
+		"leg_root_gap_max": 0.0,
+		# §21 — what the margin is currently doing to it.
+		"following": -1,
+		"nudged": 0.0,
+		"feeding": false,
+		# §21 — the rest of what the margin is to an animal that lives in
+		# it: something to work over, something to get under, and something
+		# whose attention it can attract.
+		"grooming": false,
+		"hiding": false,
+		"announced": 0.0,
+		# §21's last three, which all need an animal to be able to stand
+		# on an APPENDAGE rather than on architecture.
+		"riding": -1,
+		"ride_t": 0.0,
+		"ride_cool": 0.0,
+		"bridged": false,
+		"rode_growing": false,
+		# §22 — what it is doing about the hero, if anything.
+		"hero_near": 0.0,
+		"toward_hero": false,
+		# §22 — sensory structures put out toward the hero. This is the
+		# critter's HALF OF A CONVERSATION: the hero's club touches it and
+		# it answers by unfolding, which is the whole of the beat.
+		"unfold": 0.0,
+		"attend_override": Vector3.INF,
+		"ecology_colony": colony,
+		"ecology_record": ecology_record,
+		"ecology_returning": false,
+		"ecology_ether_min": 1.0,
+		"ecology_target_id": "",
+		"ecology_target": Vector3.INF,
+		"ecology_examination_s": 0.0,
+		"ecology_reports": 0,
+		"ecology_last_target_id": "",
+		"ecology_repeat_count": 0,
+		"manipulator_deploy": 0.0,
+		"information_pulse": 0.0,
+		"signal_seen_born": -1.0,
+		"signal_seen_src": -2147483648,
+		"signal_presented_at": -1.0,
+		# Distance covered by its OWN locomotion, excluding being shoved
+		# or fleeing. §32's bias governs walking, so that is what has to
+		# be measured against it.
+		"walked": 0.0,
+	}
+	critters.append(c)
+	critter_born.emit(_next_id, String(m.species))
+	_next_id += 1
+	return c
 
 
 func _supporting_colony(at: Vector3):

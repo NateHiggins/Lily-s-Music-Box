@@ -83,7 +83,7 @@ The new nav fixtures' spatial-manifest rows remain **pending**. The older extern
 
 The seven-family door census, actual WaveA before frames and critique/reference review are retained externally. Actual legacy hero is.91×2.13, swing_out=true, finish2; V2 F01_DOOR_06 is a different1.10×2.13 blockout door. Preserve existing installed orientations, mechanics, household recipes and catalog-only materials. Finish whole families and installed/performance checks as requested.
 
-Accepted critter motion remains retained. Ordinary V2 ecology/voxel binding is still queued: legacy ApartmentEncroachment owns real floor-local RG8 exposure, V2 lacks that owner, and neither carried beam RGBA16F nor LivingField substitutes for it. S2J/L1D and wider acceptance remain unchanged.
+Accepted critter motion remains retained. Correction from the subsequent warehouse integration: ApartmentEncroachment has accepted critters and LivingField/DreamFieldController owners but no DreamExposureField owner. Ordinary V2 RG8 ownership/storey integration remains queued; neither carried beam RGBA16F nor LivingField substitutes for it. See **design/astra/DREAM_ECOLOGY_WAREHOUSE_2026-09-19.md** for the new live sixteen-species debug exhibit, native evidence and current continuation boundary. S2J/L1D and wider acceptance remain unchanged.
 
 Full task source: **C:/Users/nate_/.codex/attachments/70824682-0354-4e8b-8170-d647016d16bf/pasted-text.txt**. Its earlier authority attachments and mandate remain active. The original full request has already been read; do not redo completed reconciliation based on superseded prompt hashes.
 
