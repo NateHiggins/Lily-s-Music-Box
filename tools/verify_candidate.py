@@ -298,6 +298,7 @@ def render(result: dict) -> str:
     sections = [("Blocking reasons", result["blocking"]),
                 ("Needs human review (not blocking)", result["review"]),
                 ("Regressions", comp["regressions"]),
+                ("Accepted regressions", result.get("accepted_regressions", {}).get("lines", [])),
                 ("Improvements", comp["improvements"]),
                 ("Report claims contradicted", result.get("report_mismatches") or []),
                 ("Design doc lint", [f"{f['level']} {f['path']}: {f['message']}" for f in result["doc_lint"]]),
@@ -321,6 +322,10 @@ def main(argv=None) -> int:
     parser.add_argument("--work-dir", default="C:/ov")
     parser.add_argument("--out")
     parser.add_argument("--keep", action="store_true", help="keep the worktrees")
+    parser.add_argument("--accept-regression", action="append", default=[], metavar="TEXT",
+                        help="a regression line containing TEXT is accepted, not blocking "
+                             "(an owner-ruled recount such as a gate hardening); every "
+                             "acceptance is printed and recorded")
     parser.add_argument("--no-fetch", action="store_true")
     args = parser.parse_args(argv)
 
@@ -352,6 +357,7 @@ def main(argv=None) -> int:
         comparison = gate_board.compare(base_board, cand_board)
         changed = changed_files(merge_base, cand)
         gate_changes = [f"{r['status']} {r['path']}" for r in changed if GATE_PATH_RE.match(r["path"])]
+        blocking, review = [], []
         result = {
             "schema": VERIFY_SCHEMA,
             "created_utc": _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -382,10 +388,15 @@ def main(argv=None) -> int:
                 except json.JSONDecodeError as exc:
                     result["report_mismatches"] = [f"report sidecar is not JSON: {exc}"]
 
-        blocking, review = [], []
         if dirty:
             blocking.append(f"fresh checkout is dirty ({len(dirty)} paths), e.g. {dirty[0]}")
-        blocking += [f"regression: {r}" for r in comparison["regressions"]]
+        accepted = [r for r in comparison["regressions"]
+                    if any(text in r for text in args.accept_regression)]
+        blocking += [f"regression: {r}" for r in comparison["regressions"] if r not in accepted]
+        result["accepted_regressions"] = {"patterns": args.accept_regression, "lines": accepted}
+        if accepted:
+            review.append(f"{len(accepted)} regression(s) accepted by --accept-regression "
+                          f"{args.accept_regression}")
         if result["protected"]["status"] != "PASS":
             changed_protected = [f["path"] for f in result["protected"]["files"]
                                  if not f["unchanged_vs_merge_base"]]
