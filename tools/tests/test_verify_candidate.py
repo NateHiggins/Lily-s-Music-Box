@@ -71,6 +71,12 @@ class CompareReportTests(unittest.TestCase):
         found = vc.compare_report(report(last_line="MERGE-CANDIDATE deadbee"), observed())
         self.assertTrue(any("different commit" in m for m in found))
 
+    def test_sidecar_written_in_the_candidate_may_name_the_parent(self):
+        parent = "p" * 40
+        claim = report(head=parent, last_line=f"MERGE-CANDIDATE {parent[:7]}")
+        self.assertEqual(len(vc.compare_report(claim, observed())), 2)
+        self.assertEqual(vc.compare_report(claim, observed(candidate_aliases=[parent])), [])
+
     def test_protected_claim(self):
         found = vc.compare_report(report(), observed(protected={"matched": 16, "expected": 17}))
         self.assertTrue(any(m.startswith("protected") for m in found))

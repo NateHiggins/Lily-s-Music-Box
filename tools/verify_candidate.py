@@ -231,7 +231,11 @@ def compare_report(report: dict, observed: dict) -> list[str]:
         if key in report and report[key] != seen:
             mismatches.append(f"{label or key}: report says {report[key]!r}, observed {seen!r}")
 
-    claim("head", observed["candidate"])
+    # A sidecar committed in the candidate cannot name its own commit; when it
+    # was written in that commit, its parent is an equally honest "head".
+    aliases = [observed["candidate"]] + list(observed.get("candidate_aliases", []))
+    if "head" in report and report["head"] not in aliases:
+        mismatches.append(f"head: report says {report['head']!r}, observed {observed['candidate']!r}")
     claim("merge_base", observed["merge_base"])
     claim("selector", observed["selector"]["value"])
     claim("protected", f"{observed['protected']['matched']}/{observed['protected']['expected']}")
@@ -255,7 +259,7 @@ def compare_report(report: dict, observed: dict) -> list[str]:
         elif suites[scene] != exit_code:
             mismatches.append(f"suite {scene}: report says exit {exit_code}, observed {suites[scene]}")
     last = str(report.get("last_line", ""))
-    if last.startswith("MERGE-CANDIDATE") and observed["candidate"][:7] not in last:
+    if last.startswith("MERGE-CANDIDATE") and not any(a[:7] in last for a in aliases):
         mismatches.append(f"last_line names a different commit: {last!r}")
     return mismatches
 
@@ -382,6 +386,9 @@ def main(argv=None) -> int:
             if raw is None:
                 result["report_mismatches"] = [f"report sidecar {args.report} is not committed in the candidate"]
             else:
+                touched = git("diff", "--name-only", f"{cand}~1", cand, check=False).splitlines()
+                if args.report in touched:
+                    result["candidate_aliases"] = [git("rev-parse", f"{cand}~1")]
                 try:
                     result["report"] = json.loads(raw.decode("utf-8"))
                     result["report_mismatches"] = compare_report(result["report"], result)

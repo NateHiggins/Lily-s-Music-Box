@@ -166,6 +166,14 @@ def parse_carriers(code, out, err):
                      "legacy_covered": summary.get("legacy_covered")}}
 
 
+def parse_rulings(code, out, err):
+    data = _json(out)
+    return {"counts": {"errors": len(data.get("errors", [])),
+                       "warnings": len(data.get("warnings", []))},
+            "defects": list(data.get("errors", [])), "states": {},
+            "info": {"citations": sum(len(v) for v in data.get("citations", {}).values())}}
+
+
 def parse_unittest(code, out, err):
     text = err + out
     ran = re.findall(r"^Ran (\d+) tests?", text, re.MULTILINE)
@@ -193,6 +201,8 @@ GATES = [
      "parse": parse_reader, "incomplete": set(), "error": {4}},
     {"id": "carriers", "argv": ["tools/audit_interaction_prompt_carriers.py", "--json"],
      "parse": parse_carriers, "incomplete": set(), "error": {3, 70}},
+    {"id": "rulings", "argv": ["tools/check_rulings.py", "--json"],
+     "parse": parse_rulings, "incomplete": set(), "error": set(), "optional": True},
 ]
 
 
@@ -252,7 +262,10 @@ def run_gate(root: Path, gate: dict, timeout: int) -> dict:
 
 
 def build_board(root: Path, include_tests: bool, only: list[str], jobs: int, timeout: int) -> dict:
-    gates = list(GATES) + (test_gates(root) if include_tests else [])
+    # A gate whose tool a tree predates is skipped, not failed: absence of an
+    # optional instrument on an older branch is not a regression.
+    gates = [g for g in GATES if not g.get("optional") or (root / g["argv"][0]).is_file()]
+    gates += test_gates(root) if include_tests else []
     if only:
         gates = [g for g in gates if any(g["id"] == o or g["id"].startswith(o + ":") for o in only)]
     with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
