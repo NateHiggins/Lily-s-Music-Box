@@ -194,6 +194,54 @@ nothing reads. Recommendation: extend the identity-map declarations first,
 re-baseline, then decide whether the one-hop rule is worth building; do not
 treat the current 1,308 as a count of dead data. This is TASKS.md H22.
 
+## 7. Decisions carried out (owner delegated them, 2026-09-19)
+
+- **The work that existed in no ref now has one.** Committed through a
+  temporary index, so the source trees, their indexes and their checked-out
+  branches were not touched (hashes identical before and after), and pushed:
+  backup/main-checkout-wip-2026-09-19 (e06270f, on 89ab096; 13 modified and
+  1,762 untracked files, Codex's .codex_tmp scratch excluded) and
+  backup/dream-voxel-s2-wip-2026-09-19 (d8a57d0, on efc5d61; 8 modified and
+  141 untracked). These are backups, not integrations: the owning agent
+  should still commit its work properly and then the backup branches can go.
+  The snapshot's first pass had skipped one non-ASCII filename (a music file);
+  it was added, and the backup branches were built from NUL-separated paths.
+- **codex/lamp-optical-voxel-field was pushed** to origin; it was the only
+  copy of the lamp-optics line.
+- **Three reports landed on main as history** with INERT headers:
+  ORISON_V2_M10_RUNWAY_REPORT_2026-08-28 (closing main's two dangling
+  citations), ORISON_V2_DRY_RUN_REPORT_2026-08-30 and
+  ORISON_V2_DRY_RUN_SECOND_REPORT_2026-08-30. Kept, not dropped, because the
+  third dry-run report on main refers to them; their figures are marked as
+  dated.
+- **Fourteen branches deleted** after an annotated tag
+  archive/2026-09-19/<branch> was pushed for each head (restore with
+  `git branch <name> archive/2026-09-19/<name>`): claude/admin-int1-interaction-contract,
+  codex/integrate-admin-arch2, claude/dream12-cilia-4376ed,
+  claude/ethos-authority-audit, claude/ledger-evidence-intake,
+  claude/runner-exit-truth, codex/lamp-optics-l1, codex/dream-surface-s1e,
+  codex/dream-surface-s1f, codex/dream-surface-s2 (and its local twin s2d),
+  claude/dream-boundary-harness-fix, codex/orison-v2-dry-run-20260830 and
+  codex/v2-dry-run-2. The commit main cites as evidence is also tagged
+  archive/cited/d070076. Five of these existed only locally before; their
+  tags now put them on origin too.
+- **Eleven more worktrees removed** by the same archive-then-remove rule
+  (untracked and ignored non-cache files moved to
+  .claude/worktree-archive/sweep-2026-09-19/<name>/ with sha256; 78 files
+  under the held worktrees' own .claude/worktree-archive were byte-identical
+  to the main archive and were not duplicated). The four sessions whose
+  folders they were ("ORISON-V2-M11C2 floor_01 production cut closure",
+  "Room layout workbench", "Floor landing rehearsal for Orison v2",
+  "Mangement") were archived; they can be restored from the Archived list.
+- **Deliberately left:** the golden-shift worktree and its local branch,
+  because they are the working folder of the "Developer" session, which was
+  not part of the decision (its report is on main and its head is tagged);
+  codex/dream-surface-s1, because the owner's main checkout has it checked
+  out; codex/dream-voxel-v1 and codex/lamp-optical-voxel-field, which are
+  unique, active lines; the two external dry-run artifact directories outside
+  the repository.
+- Worktrees: 34 at the start of the day, 7 now.
+
 One triage agent wrote temporary status listings to its own session
 scratchpad, outside the repository; no repository, ref or worktree was
 changed by the triage.

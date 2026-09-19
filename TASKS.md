@@ -140,19 +140,13 @@ Nothing below is blocked on effort; it is blocked on someone choosing.
   Pool and darts are 1927 pub games and survive untouched; the question is only
   whether anything *screen-shaped* may be a game, or whether every screen must
   be a received broadcast. Answer binds the bodega machine and everything after.
-- **D7** **Work that exists in no git ref** (found 2026-09-19): the main
-  checkout (on codex/dream-surface-s1) holds the F03 Omar checkpoint, the
-  dream maze layout, dream_tentacle.blend, ~230 renders and edits to the
-  building layout and generator; C:/PleaseRemainOnTheLine-s2 holds 8 modified
-  dream-voxel sources. A copy-only snapshot exists
-  (`.claude/worktree-archive/no-ref-snapshot-2026-09-19`); committing to a
-  branch is the owner's call. `design/REPO_HOUSEKEEPING_2026-09-19.md` §4.
-- **D8** **Stale-branch and session-worktree decisions** from the 2026-09-19
-  triage: delete the nine superseded/contained branches; tag d070076 before
-  deleting claude/dream-boundary-harness-fix (main cites it); push
-  codex/lamp-optical-voxel-field; keep or drop the two dry-run reports and
-  land the golden-shift report; archive-and-remove the three session-owned
-  worktrees (their archive copies are duplicates). Record §3 and §5.
+- **D7** **Integrate the backed-up work** (2026-09-19): the main checkout's
+  and the dream-voxel worktree's uncommitted work is now safe on
+  backup/main-checkout-wip-2026-09-19 and backup/dream-voxel-s2-wip-2026-09-19,
+  but it is still not integrated anywhere. The agent that owns each should
+  commit it properly; then delete the backup branches. Also open: whether the
+  "Developer" session and its golden-shift worktree can be archived.
+  `design/REPO_HOUSEKEEPING_2026-09-19.md` §7.
 
 ## A — Arcade / the signal parlour
 
