@@ -1,5 +1,7 @@
 # Orison v2 completeness ledger — usage guide
 
+Evidence class: **INERT - TOOL GUIDE**
+
 **Tool:** `tools/audit_orison_v2_completeness.py` (read-only, standard
 library, no Godot/Blender/Git). **Tests:**
 `tools/tests/test_orison_v2_completeness.py` (42, fixture-backed).
