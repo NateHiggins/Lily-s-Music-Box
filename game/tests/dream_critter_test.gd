@@ -1,5 +1,5 @@
 extends Node
-## Ecology architecture §16, §17, §24, §38 — the first three species.
+## Ecology architecture §16, §17, §24, §38 — four authored species.
 ##     godot --headless --path game res://tests/DreamCritterTest.tscn
 var checks := 0
 var failures := 0
@@ -12,7 +12,8 @@ func _ready() -> void:
 func _run() -> void:
 	var S := DreamCritterSpecies
 	var G := DreamCritterGenerator
-	var kinds: Array = [S.Kind.SEAM_GRAZER, S.Kind.CRYSTAL_LISTENER, S.Kind.FOLD_CRAB]
+	var kinds: Array = [S.Kind.SEAM_GRAZER, S.Kind.CRYSTAL_LISTENER,
+			S.Kind.FOLD_CRAB, S.Kind.TARDIGRADE]
 
 	# --- §16: SPECIES IDENTITY COMES BEFORE VARIETY ----------------------
 	# Every individual a species can generate must still be that species. The
@@ -28,7 +29,7 @@ func _run() -> void:
 				violations += 1
 				if first_violation == "":
 					first_violation = "%s: %s" % [S.name_of(kind), bad]
-	_check("1200 individuals across 3 species, none violates its own species "
+	_check("1600 individuals across 4 species, none violates its own species "
 			+ "rules (%d violations%s)" % [violations,
 			"" if first_violation == "" else " — " + first_violation],
 			violations == 0)
@@ -48,7 +49,7 @@ func _run() -> void:
 	_check("ten of one species are individually distinguishable (max %.2f)"
 			% within_max, within_max > 0.5)
 
-	# --- and three species nobody should confuse -------------------------
+	# --- and four species nobody should confuse --------------------------
 	var between_min := 9.0
 	for a in kinds:
 		for b in kinds:
@@ -106,8 +107,22 @@ func _run() -> void:
 		laws[String(m.law)] = true
 		_check("%s carries a thesis and exactly one law" % S.name_of(kind),
 				String(m.thesis).length() > 20 and String(m.law).length() > 3)
-	_check("each species has its OWN law, not a shared effect (%d laws / 3)"
-			% laws.size(), laws.size() == 3)
+	_check("each species has its OWN law, not a shared effect (%d laws / 4)"
+			% laws.size(), laws.size() == 4)
+
+	# --- RESEARCHED CAT-SIZED TARDIGRADE IDENTITY ------------------------
+	var tardigrade_failures := 0
+	for i in 400:
+		var water_bear: Dictionary = G.generate(S.Kind.TARDIGRADE, 73000 + i * 19)
+		if int(water_bear.limbs) != 8 \
+				or int(water_bear.mouth_lamellae) != 6 \
+				or not bool(water_bear.double_claws) \
+				or String(water_bear.scale_class) != "cat_sized" \
+				or float(water_bear.length) < .50 or float(water_bear.length) > .75:
+			tardigrade_failures += 1
+	_check("400 tardigrades retain four lobopod pairs, circumoral anatomy, "
+			+ "double claws and cat scale (%d failures)" % tardigrade_failures,
+			tardigrade_failures == 0)
 
 	# --- §17: rare morphs exist and are actually rare --------------------
 	var rare := 0
@@ -150,8 +165,28 @@ func _in_world() -> void:
 				str(RealityCases.definitions[case_id].get("resident_id", "")))
 	var root: Node3D = load("res://scenes/building/orison_root.tscn").instantiate()
 	add_child(root)
-	await get_tree().create_timer(12.0).timeout
+	# Critters are now correctly gated behind the moss colony's COMPLEX phase.
+	# This legacy harness used to wait for ungated births, which can never
+	# satisfy the new production contract in its short fixed window. Arrange
+	# mature habitat explicitly; production ecology remains untouched.
+	await get_tree().process_frame
 	var enc: Node = root.get("apartment_encroachment")
+	if enc != null and enc.get("ecology") != null:
+		var ecology = enc.get("ecology")
+		for colony in ecology.moss_colonies.values():
+			colony.maturity = .82
+			colony.extent = 3.5
+			colony.ether_reserve = 1.0
+			colony.connected_ether_volume = 2.0
+			colony.stored_information = 2.2
+			colony.information_modalities = {"touch": true, "vibration": true,
+					"vision": true}
+			colony.spawn(colony.OrganismClass.CILIUM, colony.origin)
+			colony.register_route("critter_a", "one", [colony.origin])
+			colony.register_route("critter_b", "two", [colony.origin])
+			colony.routes["critter_a"].strength = .72
+			colony.routes["critter_b"].strength = .72
+	await get_tree().create_timer(12.0).timeout
 	var ctrl = enc.get("critters") if enc != null else null
 	_check("the encroachment owns a critter controller", ctrl != null)
 	if ctrl == null:
@@ -189,11 +224,32 @@ func _in_world() -> void:
 	# --- §24: THE LAWS ARE ENACTED, NOT DECLARED -------------------------
 	# A species whose impossible rule exists only in a dictionary is not yet
 	# a Dream animal. Each of these watches for the creature DOING the thing.
+	# Birth choice is intentionally stochastic and eight draws can omit one of
+	# four species. Re-author the first four *test subjects* in place so this law
+	# test measures every mechanism every run rather than the population lottery.
+	var arranged_kinds := [DreamCritterSpecies.Kind.SEAM_GRAZER,
+			DreamCritterSpecies.Kind.CRYSTAL_LISTENER,
+			DreamCritterSpecies.Kind.FOLD_CRAB,
+			DreamCritterSpecies.Kind.TARDIGRADE]
+	for arranged_i in mini(arranged_kinds.size(), ctrl.critters.size()):
+		var arranged: Dictionary = ctrl.critters[arranged_i]
+		arranged.morph = DreamCritterGenerator.generate(arranged_kinds[arranged_i],
+				0xC81700 + arranged_i)
+		arranged.spin = 0.0
+		arranged.fold_leg = 0
+		arranged.fold = 0.0
+		arranged.fold_clock = .88
+		arranged.tun = 0.0
+		arranged.tun_clock = .18
+		arranged.leg_state = []
+		arranged.pause = 1.0
+		arranged.moving = false
 	var twin_seen := false
 	var twin_gap := 0.0
 	var spin_start := {}
 	var spin_moved := 0.0
 	var fold_seen := false
+	var tun_seen := false
 	var fold_root_moved := 0.0
 	var fold_feet: Dictionary = {}
 	for c in ctrl.critters:
@@ -228,6 +284,8 @@ func _in_world() -> void:
 						fold_feet[key] = c.pos
 				else:
 					fold_feet.erase(key)
+			elif kind == DreamCritterSpecies.Kind.TARDIGRADE:
+				tun_seen = tun_seen or float(c.get("tun", 0.0)) > .25
 	print("[critter] laws: twin %s (gap %.3f m), spin advanced %.2f rad, "
 			% [twin_seen, twin_gap, spin_moved]
 			+ "leg folded %s (body moved %.3f m during it)"
@@ -242,6 +300,8 @@ func _in_world() -> void:
 	_check("fold crab: a leg went shorter than the gap it spans", fold_seen)
 	_check("and it did so without the animal moving (%.3f m)" % fold_root_moved,
 			fold_root_moved < 0.06)
+	_check("cat-sized tardigrade: the same body entered its bounded tun contraction",
+			tun_seen)
 	# --- §21: THE MARGIN IS HABITAT --------------------------------------
 	# "This turns the wall into a functioning biome." A biome is not two
 	# populations sharing a wall and ignoring each other.
