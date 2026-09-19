@@ -144,9 +144,20 @@ Nothing below is blocked on effort; it is blocked on someone choosing.
   and the dream-voxel worktree's uncommitted work is now safe on
   backup/main-checkout-wip-2026-09-19 and backup/dream-voxel-s2-wip-2026-09-19,
   but it is still not integrated anywhere. The agent that owns each should
-  commit it properly; then delete the backup branches. Also open: whether the
-  "Developer" session and its golden-shift worktree can be archived.
+  commit it properly; then delete the backup branches. The golden-shift
+  question is answered: the owner approved its cleanup 2026-09-19; both of
+  its branches are removed (head tagged archive/2026-09-19/...), and only the
+  worktree remains until the "Developer" session is archived.
   `design/REPO_HOUSEKEEPING_2026-09-19.md` §7.
+- **D9** **Should an absent resident be able to hear their own flat?**
+  (2026-09-19) The observation ledger gates in-flat SIGHT on presence
+  (`game/scripts/reality/npc_observation_ledger.gd:63`) but
+  `witness_audible_event` (:38) consults no presence at all, so the resident
+  of the sounding flat earns an `in_home_hearing` belief at a minute their own
+  timetable has them on the corridor. Pinned, not endorsed, by the KNOWN GAP
+  check in `game/tests/orison_v2_presence_ledger_test.gd`. Decide: gate
+  hearing on presence, rename the channel for an absent resident, or rule the
+  current behaviour correct. Ethos question, so the owner's.
 
 ## A — Arcade / the signal parlour
 
@@ -3765,3 +3776,19 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   named nowhere in production code and 633 are named only outside the loading
   script; see `design/REPO_HOUSEKEEPING_2026-09-19.md` §6 for the sampled
   estimate before changing the gate or the baseline.
+- **H23** **Capture receipts still conflate lane-busy and timeout.**
+  (2026-09-19) The serial runner now returns 73 lane busy, 124 ceiling kill,
+  78 could not run, but `tools/run_godot_capture.ps1:134` maps only 73, to
+  `BUSY_OR_TIMEOUT`; a 124 kill is recorded as `FAIL`, and 73 can no longer
+  mean timeout. Split the receipt status (e.g. BUSY / TIMEOUT / FAIL) and
+  retire the combined label. Changes capture-receipt vocabulary, so whoever
+  owns that schema should make the call; the comment at :93 already states
+  the current behaviour.
+- **H24** **GoldenLoopTest cannot run under explicit v2.**
+  (2026-09-19) `game/tests/golden_loop_test.gd:91` loads
+  `res://scenes/building/orison_root.tscn` literally instead of asking
+  `BuildingRootSelector`, so the only end-to-end eleven-beat harness is
+  v1-world evidence whatever the selector says (M10 runway report, gap G1).
+  It was also noted red on main during the M11C2 close. Route it through the
+  selector once v2 composes a part source, or retire it in favour of a
+  schema-2 runtime-contract suite.

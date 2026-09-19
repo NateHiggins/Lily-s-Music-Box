@@ -2,6 +2,25 @@
 
 Evidence class: **INERT - REPORT (landed 2026-09-19 from claude/golden-shift-v2-verify-c72c73 so main's citations resolve)**
 
+> **SUPERSEDED 2026-09-19 — do not act on this report's verdict.** Its
+> headline ("no automated gate stands between the owner and the chair")
+> rested on the ledger reading FIRST_SLICE_TECHNICAL 0 and GOLDEN_SHIFT_V2 1.
+> RUL-003 later stopped the ledger counting capture-only receipts as runtime
+> proof, and the M08F runtime authority receipt this report cites as
+> explicit-v2 proof is one of them. Re-measured on main at **acdb4be**:
+> first slice **7**, golden shift **8** — the four F01 rituals
+> (**F01_WATCHMAN_DETECTOR**, **F01_NIGHT_REGISTER**, **F01_SIGNAL_REGISTER**,
+> **F01_TOUR_KEY_GUARD**) and the **B1_BOILER_01** / **F02_B_RADIATOR_01**
+> contracts sit at SPATIALLY_PROVEN, **job.lena_radiator_round_2b** at
+> PROGRAMMED, plus the human **golden.eleven_beats**. The suites below did
+> pass as reported; they are not runtime proof under the current rule. The
+> re-earning work is V2-FIRST-SLICE-REEARN in `design/next_session_plan.md`.
+> Also moved on since: the Sept-3 pivot redirected spatial work to the
+> street/shop slice, so the NEEDS_SPATIAL items in gaps G2–G3 are now that
+> lane's to schedule, and the beat-4 part source (bodega or hardware/paint)
+> is an open owner decision. Gap G4 and G8 are fixed on main (b813b1a,
+> aeb9f9a). The body is kept unedited as the dated record.
+
 **Task:** DEV-M10-1 — prove the golden-shift run card is executable under
 explicit v2. **Role:** verification only. No gameplay was authored, no
 spatial schema or blockout was touched, and no human acceptance is claimed

@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param()
 
 $ErrorActionPreference = "Stop"
@@ -66,7 +66,7 @@ Assert-Contract ($preset.Contains('binary_format/embed_pck=false')) `
     "packager-required paired EXE/PCK export is explicit"
 
 $readme = Get-Content -LiteralPath (Join-Path $repoRoot `
-    "distribution\README_TESTER.txt") -Raw
+    "distribution\README_TESTER.txt") -Raw -Encoding UTF8
 foreach ($token in @("{{BUILD_NUMBER}}", "{{SHORT_SHA}}", "{{VERSION}}")) {
     Assert-Contract ($readme.Contains($token)) "tester readme carries $token"
 }
@@ -79,7 +79,7 @@ foreach ($contentNote in @(
         "tester readme discloses $contentNote"
 }
 $runbook = Get-Content -LiteralPath (Join-Path $repoRoot `
-    "design\FRIENDS_BUILD_DISTRIBUTION_RUNBOOK_2026-08-26.md") -Raw
+    "design\FRIENDS_BUILD_DISTRIBUTION_RUNBOOK_2026-08-26.md") -Raw -Encoding UTF8
 Assert-Contract ($runbook.Contains("distribution/README_TESTER.txt") -and
     $runbook.Contains("only tester-facing authority")) `
     "distribution runbook points to the canonical tester readme"
