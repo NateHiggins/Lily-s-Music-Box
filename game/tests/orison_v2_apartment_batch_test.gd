@@ -413,7 +413,7 @@ func _check_wall_extensions() -> void:
 
 func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 	# Includes Mae's upper-floor glass coffee table as well as the lower homes.
-	var expected := {"cupboard":12, "coffee":3, "pinboard":2, "toolboard":1, "crate":1}
+	var expected := {"cupboard":12, "coffee":3, "pinboard":5, "toolboard":1, "crate":2}
 	var seen := {"cupboard":0, "coffee":0, "pinboard":0, "toolboard":0, "crate":0}
 	var cupboards: Array[String] = []
 	var timber_surfaces := 0
@@ -464,7 +464,7 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 	check(seen == expected, "complete storage/table/board category roster")
 	cupboards.sort()
 	check(cupboards == ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"], "one kitchen wall cupboard per detailed apartment")
-	check(timber_surfaces == 4 and plywood_surfaces == 1 and glass_surfaces == 3,
+	check(timber_surfaces == 8 and plywood_surfaces == 1 and glass_surfaces == 3,
 			"new wood and glass surface bindings covered")
 
 func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
