@@ -1,0 +1,16 @@
+{
+  "actual_exit": 1,
+  "source_unchanged": true,
+  "diagnostic_gate": {
+    "exit": 1,
+    "reasons": [
+      "native/runner exit 1",
+      "suite PASS footer absent"
+    ],
+    "error_or_retention_lines": []
+  },
+  "summary_lines": [
+    "WORLD TIMESTAMPS: FAIL 61/76"
+  ],
+  "diagnostic_headers": []
+}

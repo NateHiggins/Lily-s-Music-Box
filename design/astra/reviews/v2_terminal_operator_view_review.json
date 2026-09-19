@@ -1,0 +1,267 @@
+{
+  "schema": "astra.v2-terminal-operator-view.review.v1",
+  "status": "ORDINARY_UNRESOLVED_DIAGNOSTIC_RED",
+  "reviewed_at_utc": "2026-09-05T11:36:34.799783+00:00",
+  "raw_run": "design/astra/evidence/vulkan_composed/runs/terminal_operator_view_v2_01",
+  "result_sha256": "3c89c4a8d8168984f9e5f7448c367398a5adfd4b459d5fe1fe072ab11cda683c",
+  "invocation_receipt": "design/astra/evidence/vulkan_composed/invocations/terminal_operator_view_v2_02/invocation.json",
+  "invocation_sha256": "e2f8d6f1ea38c0e289b16f8773d07fbc4fac50b360cdb8f25ae2de0a7cc179de",
+  "preserved_no_launch_refusal": "design/astra/evidence/vulkan_composed/invocations/terminal_operator_view_v2_01/preflight_refusal.json",
+  "runtime_invocation_count": 1,
+  "actual_engine_exit": 1,
+  "strict_gate_exit": 1,
+  "external_command_exit": 1,
+  "checks_total": 21,
+  "checks_passed": 19,
+  "exact_failed_labels": [
+    "V2 actual terminal front faces its authored operator",
+    "V2 composes a DeskZone bound to its actual call interface"
+  ],
+  "unique_ordered_labels_raw_json_and_footer_agree": true,
+  "complete_controls_and_two_captures_and_both_retirements": true,
+  "unchanged_gate_recomputation_equals_raw": true,
+  "artifact_hash_entries_verified": 16,
+  "actual_nonprofile_files_in_raw_run_including_result": 17,
+  "artifact_map_is_complete_except_self_result_receipt": true,
+  "artifact_count_qualification": "16 actual map entries, not the anticipated46: only the changed fixture is copied before/after now that foundation sources are committed. No missing map entry was synthesized.",
+  "source_file_count_before_after": 4045,
+  "source_maps_exactly_equal": true,
+  "before_after_diffs_equal": true,
+  "only_overlay_path": "game/tests/vulkan_composed_root_test.gd",
+  "candidate_fixture_sha256": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+  "original_restored_fixture_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+  "post_restore_game_tools_tracked_and_untracked_clean": true,
+  "final_process_census": [],
+  "engines_before_after_equal": true,
+  "raw_gate": {
+    "diagnostic_gate_exit": 1,
+    "reasons": [
+      "actual engine/runner exit 1",
+      "functional checks failed or missing"
+    ],
+    "unpair_errors": 0,
+    "soft_shadow_underflows": 0,
+    "non_inherited_error_headers": {},
+    "inherited_manifest_errors": [
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      }
+    ],
+    "warnings": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 39
+    },
+    "retention": [],
+    "functional_checks_meaningful": false,
+    "expected_unpair_red_observed": false,
+    "expected_viewport_guard_red_observed": false,
+    "execution_scope": "full",
+    "full_candidate_scope_completed": false,
+    "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+  },
+  "operator_diagnostics": {
+    "camera_position": [
+      -9.89999961853027,
+      11.0100002288818,
+      1.25
+    ],
+    "capture_anchor": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_MONITOR_STANCE",
+    "capture_anchor_position": [
+      -9.89999961853027,
+      9.60000038146973,
+      1.25
+    ],
+    "complete": true,
+    "desk_zones": [],
+    "face_dot_operator": -7.54979012640433e-08,
+    "face_minimum_dot": 0.5,
+    "kind": "v2_terminal_operator_view",
+    "operator_direction_world": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "operator_scope_sightline": {
+      "blocked": false,
+      "collide_with_areas": false,
+      "collide_with_bodies": true,
+      "collider_class": "",
+      "collider_path": "",
+      "excluded_player_rid_only": true,
+      "from": [
+        -9.89999961853027,
+        11.0100002288818,
+        1.25
+      ],
+      "hit_from_inside": true,
+      "hit_normal": [],
+      "hit_position": [],
+      "length_m": 1.23135089874268,
+      "scope": "physical obstruction only; SignalScope need not be a collider",
+      "to": [
+        -8.79500007629395,
+        10.5150003433228,
+        1.47399997711182
+      ]
+    },
+    "original_bedside_obstruction": {
+      "blocked": true,
+      "collide_with_areas": false,
+      "collide_with_bodies": true,
+      "collider_class": "StaticBody3D",
+      "collider_path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_PRIVATE_HALL/WallNorth_00/Collision",
+      "excluded_player_rid_only": true,
+      "from": [
+        -11.9499998092651,
+        11.0100002288818,
+        8.89999961853027
+      ],
+      "hit_from_inside": true,
+      "hit_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hit_position": [
+        -11.0098695755005,
+        10.9095039367676,
+        6.42000007629395
+      ],
+      "length_m": 8.18709945678711,
+      "scope": "physical obstruction only; SignalScope need not be a collider",
+      "to": [
+        -9.05000019073486,
+        10.7000007629395,
+        1.25
+      ]
+    },
+    "reservation_geometry": [
+      {
+        "albedo_alpha": 0.319999992847443,
+        "camera_cull_mask_overlap": true,
+        "camera_inside_world_bounds": false,
+        "collision_descendants": [],
+        "material_class": "StandardMaterial3D",
+        "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_TERMINAL_USE",
+        "position": [
+          -9.05000019073486,
+          10.0,
+          1.25
+        ],
+        "purpose": "terminal fixed-use reservation",
+        "transparency": 1,
+        "visible_in_tree": true,
+        "world_bounds_position": [
+          -9.44999980926514,
+          9.60000038146973,
+          0.850000023841858
+        ],
+        "world_bounds_size": [
+          0.799999237060547,
+          0.799999237060547,
+          0.799999952316284
+        ]
+      },
+      {
+        "albedo_alpha": 0.319999992847443,
+        "camera_cull_mask_overlap": true,
+        "camera_inside_world_bounds": false,
+        "collision_descendants": [],
+        "material_class": "StandardMaterial3D",
+        "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonV2Runtime/OrisonV2Blockout/F04_B_TERMINAL_STANCE",
+        "position": [
+          -9.89999961853027,
+          9.60999965667725,
+          1.25
+        ],
+        "purpose": "0.9 by 1.2 m terminal interaction stance",
+        "transparency": 1,
+        "visible_in_tree": true,
+        "world_bounds_position": [
+          -10.3499994277954,
+          9.59999942779541,
+          0.649999976158142
+        ],
+        "world_bounds_size": [
+          0.899999618530273,
+          0.0200004577636719,
+          1.20000004768372
+        ]
+      }
+    ],
+    "retained_bedside_position": [
+      -11.9499998092651,
+      9.60000038146973,
+      8.89999961853027
+    ],
+    "scope": "controlled operator capture and physics obstruction diagnostics; ray clearance is not interaction or readability proof",
+    "scope_position": [
+      -8.79500007629395,
+      10.5150003433228,
+      1.47399997711182
+    ],
+    "terminal_area_count": 0,
+    "terminal_front_world": [
+      7.54979012640433e-08,
+      0.0,
+      1.0
+    ],
+    "terminal_has_interact": false,
+    "terminal_position": [
+      -9.05000019073486,
+      10.3500003814697,
+      1.25
+    ],
+    "terminal_yaw_radians": -1.570796251297
+  },
+  "run_wrapper_elapsed_seconds": 6.235,
+  "external_command_elapsed_seconds": 13.917,
+  "performance_acceptance": false,
+  "assistant_visual_review": [
+    {
+      "file": "frames/v2_actual_f04_semantic_stance.png",
+      "sha256": "ac35ebb1b342c14716466eb51ef96d3840bbed84ee7a074264bc137b66abbdb1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "directly_inspected": true,
+      "assessment": "Terminal top and side mechanism are now visible from the operator anchor; instrument face/readout is not legible or properly presented. Scene is dark, and the held receiver occupies the lower right. Visible reservation geometry remains. Perceptual acceptance is red."
+    },
+    {
+      "file": "frames/v2_actual_f04_phone.png",
+      "sha256": "fb9f41f2a08c844914795a9d3e3c49b9c9bfa5f30188731bb36a4feb44e6556b",
+      "dimensions": [
+        320,
+        240
+      ],
+      "directly_inspected": true,
+      "assessment": "Phone view is brighter and shows the same top/side mechanism with reservation slabs; it does not reveal a readable operator-facing instrument. Perceptual acceptance is red."
+    }
+  ],
+  "scope_limits": [
+    "Controlled teleport, not traversal or body-clear stance admission.",
+    "Physical segment clearance is not visual visibility or ray interaction.",
+    "Desk owner absence is a gameplay accessibility defect; no call interaction was tested.",
+    "Assistant image review is not human owner acceptance.",
+    "Retained loader and RGB8 warning debt is not warning-free release.",
+    "Old refusal and raw runtime receipts are unchanged."
+  ]
+}

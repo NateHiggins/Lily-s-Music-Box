@@ -1,0 +1,15 @@
+{
+  "exit": 0,
+  "scope": "offline warning parser and retained omission controls only",
+  "source_sha256": "0d99a12d958fd2172d1f8643c9f033c3027ef3f4a494a3d6884abeb062114fc2",
+  "tests": [
+    {
+      "path": "test_haunt_control.py",
+      "sha256": "770862ed8364db362ae750a70dd813a6a007ec32133ec3df0f8cd94f1180f28e"
+    },
+    {
+      "path": "test_known_warning.py",
+      "sha256": "ca727c6018919d531d12b03d643e477d47fec1859cb8468f8496423bc925ee7d"
+    }
+  ]
+}

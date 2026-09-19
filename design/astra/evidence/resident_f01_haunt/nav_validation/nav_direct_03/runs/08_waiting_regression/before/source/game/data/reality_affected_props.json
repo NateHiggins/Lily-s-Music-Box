@@ -1,0 +1,160 @@
+{
+ "version": 1,
+ "expected_prop_count": 62,
+ "case_clusters": [
+  {
+   "case_id": "evelyn_paper_jam", "unit": "1A",
+   "props": [
+    {"id": "evelyn_graded_stack", "name": "Self-Grading Papers", "kind": "paper_stack", "u": 0.28, "v": 0.62, "surface": "table"},
+    {"id": "evelyn_red_pencil", "name": "Red Correction Pencil", "kind": "pencil", "u": 0.34, "v": 0.61, "surface": "table"},
+    {"id": "evelyn_school_bell", "name": "Retirement Desk Bell", "kind": "bell", "u": 0.40, "v": 0.60, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "teresa_call_bells", "unit": "1D",
+   "props": [
+    {"id": "teresa_call_bell", "name": "Disconnected Call Bell", "kind": "bell", "u": 0.30, "v": 0.62, "surface": "table"},
+    {"id": "teresa_thermos", "name": "Night-Shift Thermos", "kind": "thermos", "u": 0.38, "v": 0.61, "surface": "table"},
+    {"id": "teresa_pager", "name": "Expired Hospital Pager", "kind": "pager", "u": 0.46, "v": 0.61, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "mina_caption_crisis", "unit": "2A",
+   "props": [
+    {"id": "mina_caption_cards", "name": "Unassigned Caption Cards", "kind": "paper_stack", "u": 0.30, "v": 0.58, "surface": "table"},
+    {"id": "mina_style_guide", "name": "Personal Style Guide", "kind": "notebook", "u": 0.40, "v": 0.58, "surface": "table"},
+    {"id": "mina_redaction_pencil", "name": "Redaction Pencil", "kind": "pencil", "u": 0.48, "v": 0.58, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "lena_unraveling", "unit": "2B",
+   "props": [
+    {"id": "lena_sewing_machine", "name": "Boundary Stitcher", "kind": "sewing_machine", "u": 0.30, "v": 0.60, "surface": "table"},
+    {"id": "lena_thread_spools", "name": "Family Thread Spools", "kind": "spools", "u": 0.45, "v": 0.60, "surface": "table"},
+    {"id": "lena_shears", "name": "Heavy Fabric Shears", "kind": "shears", "u": 0.56, "v": 0.60, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "juno_feedback_tetris", "unit": "2C",
+   "props": [
+    {"id": "juno_field_recorder", "name": "Field Recorder", "kind": "recorder", "u": 0.28, "v": 0.58, "surface": "table"},
+    {"id": "juno_master_cassette", "name": "Uncredited Master", "kind": "cassette", "u": 0.40, "v": 0.58, "surface": "table"},
+    {"id": "juno_patch_cables", "name": "Open Channel Patch", "kind": "cable_bundle", "u": 0.52, "v": 0.58, "surface": "floor"}
+   ]
+  },
+  {
+   "case_id": "malcolm_memory_plants", "unit": "3A",
+   "props": [
+    {"id": "malcolm_memory_cutting", "name": "Last Conversation Cutting", "kind": "plant", "u": 0.26, "v": 0.66, "surface": "floor"},
+    {"id": "malcolm_empty_pot", "name": "Pot Marked KEEP", "kind": "plant_pot", "u": 0.40, "v": 0.66, "surface": "floor"},
+    {"id": "malcolm_pruners", "name": "Propagation Shears", "kind": "shears", "u": 0.52, "v": 0.64, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "omar_unrepairable", "unit": "3B",
+   "props": [
+    {"id": "omar_tool_case", "name": "Categorized Tool Case", "kind": "tool_case", "u": 0.26, "v": 0.62, "surface": "floor"},
+    {"id": "omar_wrong_toaster", "name": "Alternate-Timeline Toaster", "kind": "appliance", "u": 0.40, "v": 0.60, "surface": "table"},
+    {"id": "omar_unrepairable_tags", "name": "UNREPAIRABLE Tags", "kind": "tags", "u": 0.52, "v": 0.60, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "rhea_bad_karaoke", "unit": "3D",
+   "props": [
+    {"id": "rhea_tuning_fork", "name": "Control Tuning Fork", "kind": "tuning_fork", "u": 0.30, "v": 0.58, "surface": "table"},
+    {"id": "rhea_take_reel", "name": "Humiliation Session Reel", "kind": "tape_reel", "u": 0.43, "v": 0.58, "surface": "table"},
+    {"id": "rhea_pop_filter", "name": "Cracked Pop Filter", "kind": "microphone", "u": 0.58, "v": 0.58, "surface": "floor"}
+   ]
+  },
+  {
+   "case_id": "peter_form_corridor", "unit": "4A",
+   "props": [
+    {"id": "peter_infinite_forms", "name": "Self-Appending Forms", "kind": "paper_stack", "u": 0.28, "v": 0.60, "surface": "table"},
+    {"id": "peter_notary_stamp", "name": "Rolling Notary Seal", "kind": "stamp", "u": 0.42, "v": 0.60, "surface": "table"},
+    {"id": "peter_document_case", "name": "Disclosure Wallet", "kind": "briefcase", "u": 0.54, "v": 0.64, "surface": "floor"}
+   ]
+  },
+  {
+   "case_id": "cam_tilted_room", "unit": "4C",
+   "props": [
+    {"id": "cam_courier_helmet", "name": "Crash-Marked Helmet", "kind": "helmet", "u": 0.26, "v": 0.65, "surface": "table"},
+    {"id": "cam_rubber_wedges", "name": "Reality Furniture Wedges", "kind": "wedges", "u": 0.42, "v": 0.62, "surface": "floor"},
+    {"id": "cam_courier_bag", "name": "Overloaded Courier Bag", "kind": "bag", "u": 0.55, "v": 0.64, "surface": "floor"}
+   ]
+  },
+  {
+   "case_id": "noel_domestic_museum", "unit": "4C",
+   "props": [
+    {"id": "noel_artifact_box", "name": "Domestic Artifact Box", "kind": "artifact_box", "u": 0.64, "v": 0.44, "surface": "table"},
+    {"id": "noel_catalog_gloves", "name": "Cataloging Gloves", "kind": "gloves", "u": 0.74, "v": 0.44, "surface": "table"},
+    {"id": "noel_museum_label", "name": "Family Object Label", "kind": "tags", "u": 0.82, "v": 0.44, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "transient_infinite_checkout", "unit": "4D",
+   "props": [
+    {"id": "guest_mismatched_luggage", "name": "Mismatched Luggage", "kind": "luggage", "u": 0.28, "v": 0.64, "surface": "floor"},
+    {"id": "guest_keycards", "name": "Impossible Room Keycards", "kind": "keycards", "u": 0.44, "v": 0.58, "surface": "table"},
+    {"id": "guest_hotel_towel", "name": "Mysterious Hotel Towel", "kind": "folded_cloth", "u": 0.58, "v": 0.58, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "nadia_code_pinball", "unit": "5A",
+   "props": [
+    {"id": "nadia_contradictory_plans", "name": "Contradictory Floor Plans", "kind": "blueprints", "u": 0.27, "v": 0.60, "surface": "table"},
+    {"id": "nadia_scale_ruler", "name": "Non-Euclidean Scale", "kind": "ruler", "u": 0.43, "v": 0.60, "surface": "table"},
+    {"id": "nadia_violation_stamp", "name": "REPORT VIOLATION Stamp", "kind": "stamp", "u": 0.56, "v": 0.60, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "cal_memory_radio", "unit": "5B",
+   "props": [
+    {"id": "cal_bakelite_radio", "name": "Memory Receiver", "kind": "radio", "u": 0.28, "v": 0.58, "surface": "table"},
+    {"id": "cal_loop_antenna", "name": "Present-Tense Antenna", "kind": "antenna", "u": 0.43, "v": 0.60, "surface": "floor"},
+    {"id": "cal_voice_tapes", "name": "Family Voice Reels", "kind": "tape_reel", "u": 0.56, "v": 0.58, "surface": "table"}
+   ]
+  },
+  {
+   "case_id": "iris_runaway_paint", "unit": "5C",
+   "props": [
+    {"id": "iris_private_canvas", "name": "Private Bad Painting", "kind": "easel", "u": 0.28, "v": 0.64, "surface": "floor"},
+    {"id": "iris_stained_palette", "name": "Audience Palette", "kind": "palette", "u": 0.45, "v": 0.58, "surface": "table"},
+    {"id": "iris_wrong_paint", "name": "Deliberately Wrong Paint", "kind": "paint_cans", "u": 0.58, "v": 0.64, "surface": "floor"}
+   ]
+  },
+  {
+   "case_id": "sacha_camera_delay", "unit": "6A",
+   "props": [
+    {"id": "sacha_primary_camera", "name": "Primary Evidence Camera", "kind": "camera", "u": 0.27, "v": 0.58, "surface": "table"},
+    {"id": "sacha_delay_monitor", "name": "Unverified Capture Deck", "kind": "recorder", "u": 0.42, "v": 0.58, "surface": "table"},
+    {"id": "sacha_adapter_tangle", "name": "Proof Adapter Tangle", "kind": "cable_bundle", "u": 0.56, "v": 0.64, "surface": "floor"}
+   ]
+  },
+  {
+   "case_id": "jonah_sentence_insects", "unit": "6B",
+   "props": [
+    {"id": "jonah_unfinished_notebook", "name": "Unfinished Manuscript", "kind": "notebook", "u": 0.28, "v": 0.58, "surface": "table"},
+    {"id": "jonah_cold_mug", "name": "Perpetually Cold Mug", "kind": "mug", "u": 0.43, "v": 0.58, "surface": "table"},
+    {"id": "jonah_word_tiles", "name": "Escaped Word Tiles", "kind": "word_tiles", "u": 0.56, "v": 0.62, "surface": "floor"}
+   ]
+  },
+  {
+   "case_id": "mae_contradictory_antiques", "unit": "6C",
+   "props": [
+    {"id": "mae_numbered_box", "name": "Contradictory Antique Box", "kind": "antique_box", "u": 0.28, "v": 0.58, "surface": "table"},
+    {"id": "mae_white_gloves", "name": "Provenance Gloves", "kind": "gloves", "u": 0.43, "v": 0.58, "surface": "table"},
+    {"id": "mae_catalog_tags", "name": "TRUE / FELT TRUE Tags", "kind": "tags", "u": 0.56, "v": 0.58, "surface": "table"}
+   ]
+  }
+ ],
+ "shared_props": [
+  {"id": "lobby_work_order_board", "name": "Reality Work-Order Board", "kind": "work_order_board", "floor": "F01", "position": [-2.6, -7.6, 1.2]},
+  {"id": "elevator_reality_stabilizer", "name": "Reality Stabilizer Panel", "kind": "control_panel", "floor": "F01", "position": [2.8, -5.65, 1.15]},
+  {"id": "maintenance_service_cart", "name": "Reality Maintenance Cart", "kind": "service_cart", "floor": "F01", "position": [3.8, -7.7, 0.05]},
+  {"id": "maintenance_clipboard", "name": "Ontological Inspection Clipboard", "kind": "clipboard", "floor": "F01", "position": [3.8, -7.7, 0.92]},
+  {"id": "impossible_tape_measure", "name": "Impossible Tape Measure", "kind": "tape_measure", "floor": "F01", "position": [4.0, -7.7, 0.92]},
+  {"id": "storage_portal_tags", "name": "Elder-God Maintenance Tags", "kind": "portal_tags", "floor": "F04", "position": [-5.0, 0.8, 9.65]},
+  {"id": "storage_grief_crate", "name": "GRIEF — ASSORTED", "kind": "storage_crate", "floor": "F04", "position": [-5.4, 1.5, 9.65]},
+  {"id": "storage_shame_crate", "name": "SHAME, LOAD-BEARING", "kind": "storage_crate", "floor": "F04", "position": [-5.4, 2.2, 9.65]}
+ ]
+}

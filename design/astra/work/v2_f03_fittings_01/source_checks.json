@@ -1,0 +1,24 @@
+{
+  "status": "SOURCE_CHECKS_PASS_NATIVE_UNRUN",
+  "base_head": "5ecd79c938fbbab8b8143e22204eb9a4527e923a",
+  "native_godot_started": false,
+  "appliances": 5,
+  "checks": [
+    "original marker identities and settings",
+    "named anchor containment",
+    "closed footprints separated",
+    "standing capsules clear of closed footprints",
+    "finished wall clearance",
+    "existing acoustic identities",
+    "older layout records preserved except named aisle",
+    "GDScript syntax"
+  ],
+  "limits": "Declared footprints are conservative source estimates. Native mesh bounds, moving mechanisms, ray targeting, save/reconstruction and visual acceptance remain untested.",
+  "files": {
+    "game/data/orison_v2_blockout.json": "3111028e52be74c8bfbfa2316b7f7258e10ec507e8921a32640e76227308052b",
+    "game/data/orison_v2/domestic_fittings.json": "2de2beb28bdfb49e3f4876ad6197e819fdf987772d2a9294b9f57fbd164786ff",
+    "game/scripts/building/orison_v2_domestic_fittings.gd": "1ec6cac236c644c5dbf14124ef0e996abc1acd067cf125e91adc2913e1eb4acc",
+    "game/scripts/building/orison_v2_runtime_root.gd": "cd16c8c3fa9d39ae202a7e2cc6b115283d3392228763bbb29acb51ca1073da47",
+    "game/tests/orison_v2_connected_world_test.gd": "e72c920906da010b731810a13911dd1390db09aab007c79b1492173b1cbb78b5"
+  }
+}

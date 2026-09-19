@@ -1,0 +1,31 @@
+test_author_tool_refuses_to_remap_existing_durable_ids (__main__.RealCatalogTests.test_author_tool_refuses_to_remap_existing_durable_ids) ... ERROR: refusing to rewrite an existing ownership sidecar; preserve durable IDs with an explicit reviewed migration
+ok
+test_catalog_resolves_all_source_records_exactly_once (__main__.RealCatalogTests.test_catalog_resolves_all_source_records_exactly_once) ... ok
+test_catalog_uses_exact_17_cell_vocabulary (__main__.RealCatalogTests.test_catalog_uses_exact_17_cell_vocabulary) ... ok
+test_checked_in_sidecar_is_deterministic (__main__.RealCatalogTests.test_checked_in_sidecar_is_deterministic) ... ok
+test_exactly_608_anonymous_records_receive_explicit_non_hash_ids (__main__.RealCatalogTests.test_exactly_608_anonymous_records_receive_explicit_non_hash_ids) ... ok
+test_previously_named_records_preserve_authored_ids (__main__.RealCatalogTests.test_previously_named_records_preserve_authored_ids) ... ok
+test_protected_layout_hash_is_pinned (__main__.RealCatalogTests.test_protected_layout_hash_is_pinned) ... ok
+test_records_contain_no_geometry_or_position_ownership_inputs (__main__.RealCatalogTests.test_records_contain_no_geometry_or_position_ownership_inputs) ... ok
+test_shared_shopfront_stallboards_belong_to_passage_by_authored_id (__main__.RealCatalogTests.test_shared_shopfront_stallboards_belong_to_passage_by_authored_id) ... ok
+test_site_lights_have_durable_ids_and_site_authority (__main__.RealCatalogTests.test_site_lights_have_durable_ids_and_site_authority) ... ok
+test_slab_has_durable_id_and_building_authority (__main__.RealCatalogTests.test_slab_has_durable_id_and_building_authority) ... ok
+test_stable_exporter_api_returns_plain_locator_dictionary (__main__.RealCatalogTests.test_stable_exporter_api_returns_plain_locator_dictionary) ... ok
+test_three_passage_overlap_lights_are_explicit_non_spatial_rulings (__main__.RealCatalogTests.test_three_passage_overlap_lights_are_explicit_non_spatial_rulings) ... ok
+test_walls_have_durable_ids_and_explicit_authored_owners (__main__.RealCatalogTests.test_walls_have_durable_ids_and_explicit_authored_owners) ... ok
+test_duplicate_record_hash_is_refused (__main__.RefusalTests.test_duplicate_record_hash_is_refused) ... ok
+test_duplicate_source_id_is_refused (__main__.RefusalTests.test_duplicate_source_id_is_refused) ... ok
+test_malformed_owner_is_refused (__main__.RefusalTests.test_malformed_owner_is_refused) ... ok
+test_malformed_source_id_is_refused (__main__.RefusalTests.test_malformed_source_id_is_refused) ... ok
+test_missing_owner_is_refused (__main__.RefusalTests.test_missing_owner_is_refused) ... ok
+test_missing_passage_overlap_ruling_is_refused (__main__.RefusalTests.test_missing_passage_overlap_ruling_is_refused) ... ok
+test_missing_record_is_refused (__main__.RefusalTests.test_missing_record_is_refused) ... ok
+test_passage_overlap_spatial_ruling_is_refused (__main__.RefusalTests.test_passage_overlap_spatial_ruling_is_refused) ... ok
+test_spatial_or_other_extra_row_field_is_refused (__main__.RefusalTests.test_spatial_or_other_extra_row_field_is_refused) ... ok
+test_stale_or_reordered_source_record_is_refused (__main__.RefusalTests.test_stale_or_reordered_source_record_is_refused) ... ok
+test_unknown_owner_is_refused (__main__.RefusalTests.test_unknown_owner_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 1.652s
+
+OK

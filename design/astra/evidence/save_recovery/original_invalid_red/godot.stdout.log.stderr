@@ -1,0 +1,5 @@
+ERROR: Parse JSON failed. Error at line 0: Expected '}'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] load_game (res://scripts/game/reality_game_state.gd:151)
+       [1] _ready (res://tests/reality_invalid_load_control.gd:23)

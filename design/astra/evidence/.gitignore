@@ -1,0 +1,15 @@
+# Isolated Godot profiles are retained on disk. Hash-bound receipts and logs
+# live outside them and are staged explicitly.
+**/userdata*/
+historical_radio_notice/**/appdata/
+save_recovery/**/appdata/
+title_save_recovery/**/appdata/
+vulkan_layer_pairing/**/appdata/
+vulkan_composed_smoke/**/appdata/
+vulkan_composed/**/appdata/
+world_timestamps/**/appdata/
+hearing_presence/**/appdata/
+resident_lift_waiting/**/APPDATA/
+resident_f01_haunt/**/APPDATA/
+apartment_material_binding/**/appdata/
+runtime_userdata/

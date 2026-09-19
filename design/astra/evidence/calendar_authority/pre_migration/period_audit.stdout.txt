@@ -1,0 +1,15 @@
+PERIOD DATE INFO campaign calendar: authored 1928-11-10, fixed EST; one local hour/minute sample, no host calendar persistence
+PERIOD DATE INFO light provenance: authoring/runtime mirrors agree
+PERIOD DATE INFO fixture data: 191 parsed; 187 after 1928; contained as generated, debug-only, UNRULED flavour
+PERIOD DATE INFO year consumer: game/scripts/audio/music_director.gd:[371] [player_readable_catalogue]
+PERIOD DATE INFO year consumer: game/scripts/building/celestial_ephemeris.gd:[9] [astronomy_calculation_only]
+PERIOD DATE INFO year consumer: game/scripts/game/campaign_clock.gd:[62, 84, 135, 137, 176, 202, 235, 239, 266, 276, 291, 295, 351] [authored_campaign_calendar]
+PERIOD DATE INFO year consumer: game/scripts/minigames/shelf_sort.gd:[87] [player_readable_period_library]
+PERIOD DATE INFO year consumer: game/scripts/songbook/songbook_store.gd:[29] [local_filename_only]
+PERIOD DATE INFO year consumer: game/scripts/ui/bookshelf_panel.gd:[115] [player_readable_period_library]
+PERIOD DATE INFO PhoneOS date: authored campaign calendar and simulation time
+PERIOD DATE INFO period library: 30 player-readable years at or before cutoff
+PERIOD DATE FAIL host calendar/time is not authorized: game/scripts/phoneos/phone_camera.gd:105 (capture)
+PERIOD DATE FAIL unclassified structural year consumer: game/scripts/game/historical_radio_notice.gd:[50, 64, 73, 74]
+PERIOD DATE FAIL classified year consumer disappeared or stopped being detected: game/scripts/phoneos/phone_os.gd
+PERIOD DATE AUDIT: FAIL (3)

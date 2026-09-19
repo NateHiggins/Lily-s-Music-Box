@@ -1,0 +1,56 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "d7f9f8e",
+  "toasters": 6,
+  "medicine_cabinets": 6,
+  "reflection_viewports": 1,
+  "checks": {
+    "contact_points": 294,
+    "mechanism_poses": 582,
+    "sightline_samples": 1212,
+    "route_samples": 6864,
+    "domestic_door_sweeps": 25,
+    "backing": [
+      {
+        "id": "F02_2A_MIRROR_01",
+        "walls": [
+          "F02_A_MAIN:north"
+        ]
+      },
+      {
+        "id": "F02_2B_MIRROR_01",
+        "walls": [
+          "F02_B_BATH:east"
+        ]
+      },
+      {
+        "id": "F03_3A_MIRROR_01",
+        "walls": [
+          "F03_A_MAIN:north"
+        ]
+      },
+      {
+        "id": "F03_3B_MIRROR_01",
+        "walls": [
+          "F03_B_BATH:north",
+          "F03_B_PRIVATE_HALL:south"
+        ]
+      },
+      {
+        "id": "F04_4A_MIRROR_01",
+        "walls": [
+          "F04_A_BATH:east"
+        ]
+      },
+      {
+        "id": "F04_4B_MIRROR_01",
+        "walls": [
+          "F04_B_BATH:south",
+          "F04_B_MAIN:north"
+        ]
+      }
+    ]
+  },
+  "limits": "Native mechanisms and material bindings reused; no new electrical supply model. Source envelopes/contact/swing checks do not prove compiled execution, interaction rays, reflection appearance, voxel lighting, lifecycle, traversal or performance."
+}

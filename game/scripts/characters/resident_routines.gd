@@ -30,7 +30,7 @@ extends Node3D
 const WALK_SPEED := 1.05
 const RING_X := 4.38          # corridor ring, from the movement audit
 const RING_Z := 8.30
-const LIFT := Vector2(1.9, -5.6)      # Blender XY of the lift hall
+const LIFT_WAIT_CLEARANCE := 0.65    # public side: body radius + wall half-thickness + margin
 
 ## Where each resident goes when they are not at home, and why it is theirs.
 ## `at` is Blender XY; `z` names the storey.
@@ -59,7 +59,7 @@ const HAUNTS := {
 		"why": "the rear door, half out of the building already"},
 	"noel_price": {"at": Vector2(-2.2, 1.2), "floor": "F01",
 		"why": "the light court, where nothing can be handled"},
-	"transient_guests": {"at": Vector2(2.2, -6.2), "floor": "F01",
+	"transient_guests": {"at": Vector2(2.2, -8.3), "floor": "F01",
 		"why": "the vestibule, bags at their feet"},
 	"nadia_quell": {"at": Vector2(0.0, 5.0), "floor": "F06",
 		"why": "the top-floor utility room, checking egress"},
@@ -1006,9 +1006,14 @@ func _near_home(actor: Dictionary) -> Vector3:
 			_rng.randf_range(-1.6, 1.6))
 
 
-## The lift hall on whichever storey they are standing on.
+## The public landing on whichever storey they are standing on. The authored
+## elevator opens south (Blender -Y); the shaft centre is inside the car and
+## cannot be a waiting point before its closed landing doors open.
 func _lift_point(y: float) -> Vector3:
-	return GameBoot.b2g([LIFT.x, LIFT.y, y])
+	var shaft: Array = _layout["elevator"]["shaft"]
+	var center_x := (float(shaft[0]) + float(shaft[2])) * 0.5
+	var south_face := minf(float(shaft[1]), float(shaft[3]))
+	return GameBoot.b2g([center_x, south_face - LIFT_WAIT_CLEARANCE, y])
 
 
 ## Plan a route through the portal graph. Same-floor by contract; the lift

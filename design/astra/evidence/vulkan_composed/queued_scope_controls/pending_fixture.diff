@@ -1,0 +1,115 @@
+--- currently-live/game/tests/vulkan_composed_root_test.gd
++++ queued/game/tests/vulkan_composed_root_test.gd
+@@ -22,6 +22,8 @@
+ var output := ""
+ var selected := ""
+ var variant := ""
++var execution_scope := "full"
++var arcade_capture_machine_id := 0
+ var checks: Array = []
+ var captures: Array = []
+ var transitions: Array = []
+@@ -41,8 +43,14 @@
+ 	output = OS.get_environment("SHOT_DIR")
+ 	selected = OS.get_environment("ORISON_BUILDING_ROOT")
+ 	variant = OS.get_environment("VULKAN_COMPOSED_VARIANT")
++	execution_scope = OS.get_environment("VULKAN_COMPOSED_SCOPE")
++	if execution_scope.is_empty(): execution_scope = "full"
+ 	if output.is_empty() or selected not in ["v1", "v2"] or variant not in ["raw", "candidate", "omission", "viewport_omission"]:
+ 		push_error("VULKAN COMPOSED requires SHOT_DIR, selected root, and declared source variant")
++		get_tree().quit(2)
++		return
++	if execution_scope not in ["full", "root_retirement"] or (execution_scope != "full" and selected != "v1"):
++		push_error("VULKAN COMPOSED requires a valid explicit execution scope")
+ 		get_tree().quit(2)
+ 		return
+ 	if DirAccess.make_dir_recursive_absolute(output) != OK:
+@@ -135,16 +143,24 @@
+ 	await _render_frames(8)
+ 	_collect_arcade_masks(world)
+ 	_check("actual own-world arcade geometry exists after near-cabinet warmup", not arcade_masks.is_empty())
++	await _capture_actual_arcade("actual_arcade_before_passage", true)
+ 	# Both direct portal orders and return to the apartment corridor; each
+ 	# transition samples synchronous work AND the next four rendered frames.
+ 	for cycle in CYCLES:
+ 		for index in [0, 1, 0, 2, 3, 2]:
+ 			await _transition(STATIONS[index], cycle, false)
+ 	await _transition(STATIONS[4], CYCLES + 1, true)
++	# Returning through the actual distance gate refreshes this viewport. Merely
++	# reading it while far away could show its deliberately cached old texture.
++	await _render_frames(8)
+ 	_verify_arcade_return()
++	await _capture_actual_arcade("actual_arcade_after_passage", false)
+ 	await _mirror_consumer()
+ 	await _owned_blocker_controls()
+-	await _separate_world_control()
++	if execution_scope == "full":
++		await _separate_world_control()
++	else:
++		_phase("separate_world_case_explicitly_excluded")
+ 	world._apply_visibility(STATIONS[2].zone)
+ 	_check("real overlap restored exactly after all zone releases", overlap != null and overlap.layers == overlap_mask and not world._zone_layer_blocks.has(overlap.get_instance_id()))
+ 	_check("arcade own-world geometry never acquired building masks", _arcade_masks_match())
+@@ -430,8 +446,9 @@
+ 			continue
+ 		var current := _geometry(machine, true)
+ 		state.current_geometry_count = current.size()
++		var own_world: World3D = machine.find_world_3d()
+ 		for node in current:
+-			var isolated: bool = node.get_world_3d().scenario == machine.get_world_3d().scenario \
++			var isolated: bool = own_world != null and node.get_world_3d().scenario == own_world.scenario \
+ 				and node.get_world_3d().scenario != camera.get_world_3d().scenario \
+ 				and not world.street_core_nodes.has(node) and not world.passage_late_foreign_nodes.has(node) and not world.passage_late_interior_nodes.has(node)
+ 			var masks: Array = arcade_owners[machine_id].authored_masks
+@@ -477,6 +494,32 @@
+ 		returned += 1
+ 	_check("Harukiya return reaches actual arcade activation consumer", returned > 0)
+ 
++func _capture_actual_arcade(identity: String, choose: bool) -> void:
++	if choose:
++		# Stable authored path selection among machines the real cabinet owner
++		# has booted within its LIVE_RANGE. Never boot or force viewport updates.
++		var chosen_path := ""
++		for machine_id in arcade_owners:
++			var state := _arcade_owner_state(machine_id)
++			if state.get("booted") != true or state.get("live") != true: continue
++			if float(state.get("distance", INF)) >= float(state.get("live_range", 0)): continue
++			var path := str(state.get("machine_path", ""))
++			if chosen_path.is_empty() or path < chosen_path:
++				chosen_path = path
++				arcade_capture_machine_id = machine_id
++	var machine := instance_from_id(arcade_capture_machine_id) as ArcadeMachine
++	_check("actual cabinet capture owner exists " + identity, machine != null)
++	if machine == null: return
++	var state := _arcade_owner_state(arcade_capture_machine_id)
++	var own_world: World3D = machine.find_world_3d()
++	_check("actual cabinet capture is currently live " + identity, machine.is_booted() and state.get("live") == true
++		and machine.render_target_update_mode == SubViewport.UPDATE_ALWAYS and int(state.get("current_geometry_count", 0)) > 0)
++	_check("actual cabinet capture resolves its own world " + identity, own_world != null and own_world != camera.get_world_3d())
++	subviews.append({"kind": "actual_arcade_capture", "name": identity, "owner_state": state,
++		"scope": "real cabinet's raw game viewport after actual near-camera activation; no forced render or synthetic content"})
++	await _render_frames(2)
++	await _capture(identity, machine)
++
+ func _geometry(node: Node, include_subviews := false) -> Array:
+ 	var found: Array = []
+ 	if node is SubViewport and not include_subviews: return found
+@@ -524,7 +567,7 @@
+ func _write_progress(stage: String) -> void:
+ 	var file := FileAccess.open(output.path_join("progress.json"), FileAccess.WRITE)
+ 	if file != null:
+-		file.store_string(JSON.stringify({"stage": stage, "root": selected, "variant": variant, "checks": checks,
++		file.store_string(JSON.stringify({"stage": stage, "root": selected, "variant": variant, "execution_scope": execution_scope, "checks": checks,
+ 			"functional_failures": failed, "transitions": transitions, "populations": populations,
+ 			"captures": captures, "arcade_observations": arcade_observations,
+ 			"incomplete_run_not_final_proof": true}, "\t"))
+@@ -551,7 +594,8 @@
+ 	_check("actual selected world retired", world_weak == null or world_weak.get_ref() == null)
+ 	_phase("after_retirement")
+ 	arcade_masks.clear() # Only IDs/masks/RID values were retained, no World3D owner.
+-	var receipt := {"schema": "astra.vulkan_composed.probe.v1", "root": selected, "variant": variant,
++	var receipt := {"schema": "astra.vulkan_composed.probe.v2", "root": selected, "variant": variant, "execution_scope": execution_scope,
++		"separate_world_case_executed": selected == "v1" and execution_scope == "full",
+ 		"pid": OS.get_process_id(), "renderer": RenderingServer.get_current_rendering_method(),
+ 		"functional_failures": failed, "checks": checks, "captures": captures,
+ 		"transitions": transitions, "populations": populations, "subviews": subviews, "owned_controls": controls, "arcade_observations": arcade_observations,

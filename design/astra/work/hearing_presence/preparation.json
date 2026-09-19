@@ -1,0 +1,25 @@
+{
+  "status": "PREPARED_NOT_APPLIED_OR_RUN",
+  "review_corrections": [
+    "No artificial situation.offer: ledger-event proof asserts idle radiator situation initially and on actual root reload",
+    "Fixed absolute timestamp tolerance with one-minute drift rejection input"
+  ],
+  "files": [
+    {
+      "path": "game/scripts/reality/npc_observation_ledger.gd",
+      "sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+    },
+    {
+      "path": "game/tests/orison_v2_presence_ledger_test.gd",
+      "sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+    },
+    {
+      "path": "game/tests/npc_hearing_presence_test.gd",
+      "sha256": "2c62dbb3bf04c8e8c676b97555bc0fb4b07b35620d0d736c23778a1022df3122"
+    },
+    {
+      "path": "game/tests/NpcHearingPresenceTest.tscn",
+      "sha256": "bbeebe5ad3f91b73706cbb27a26dbac36d39eac3a06dee676fc35c26fffbc1d6"
+    }
+  ]
+}

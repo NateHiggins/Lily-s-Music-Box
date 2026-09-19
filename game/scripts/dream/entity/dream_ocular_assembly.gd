@@ -157,7 +157,7 @@ func _build_globe(s: float) -> void:
 	cap.radial_segments = 40
 	cap.rings = 24
 	cornea_material = ShaderMaterial.new()
-	cornea_material.shader = EyeShader
+	cornea_material.shader = preload("res://shaders/dream_cornea.gdshader")
 	cornea_material.set_shader_parameter("seed", s)
 	cornea_material.set_shader_parameter("is_cornea", true)
 	cornea = MeshInstance3D.new()
@@ -244,7 +244,7 @@ func _build_lids(s: float) -> void:
 		var kind := int(row[0])
 		var mesh := _lid_mesh(float(row[2]), float(row[3]), 0.16 if kind < 2 else 0.05)
 		var m := ShaderMaterial.new()
-		m.shader = LidShader
+		m.shader = preload("res://shaders/dream_eyelid_translucent.gdshader") if kind == 2 else LidShader
 		m.set_shader_parameter("lid_kind", kind)
 		m.set_shader_parameter("seed", s + float(row[5]))
 		var mi := MeshInstance3D.new()

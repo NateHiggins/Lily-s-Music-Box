@@ -1,0 +1,27 @@
+{
+  "evidence_kind": "legacy_scoped_test_summary",
+  "base": "3d615be",
+  "checks": 20438,
+  "captures": 14,
+  "runs": [
+    {
+      "log": "design/astra/work/v2_upper_equipment_01/equipment_01.log",
+      "checks": 307,
+      "stdout_sha256": "072f3ff30ed513fb15e5cce75034cea587c014dfe9b61655be634280b33a2f9e",
+      "stderr_bytes": 0
+    },
+    {
+      "log": "design/astra/work/v2_upper_equipment_01/apartments_01.log",
+      "checks": 19070,
+      "stdout_sha256": "18a47b3603f4a3dad46c658fc4917fbb154a7c2af695e27b4439c27bb6599782",
+      "stderr_bytes": 0
+    },
+    {
+      "log": "design/astra/work/v2_upper_equipment_01/kitchens_01.log",
+      "checks": 1061,
+      "stdout_sha256": "d9a18c3a148914093ecff4f89934d0a9e289a597882e2641d19eb603babd3375",
+      "stderr_bytes": 0
+    }
+  ],
+  "limits": "Not a runtime_contract; no ledger or human acceptance claim."
+}

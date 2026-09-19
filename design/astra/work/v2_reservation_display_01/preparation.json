@@ -1,0 +1,53 @@
+{
+  "schema": "astra.v2-reservation-display.preparation.v1",
+  "status": "PREPARED_OUTSIDE_GAME_AWAITING_REVIEW_AND_TERMINAL_SOURCE_HANDOFF",
+  "captured_head_historical": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+  "production_paths": [
+    "game/scripts/building/orison_v2_blockout.gd",
+    "game/scripts/building/orison_v2_runtime_root.gd"
+  ],
+  "required_original_sha256": {
+    "game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+    "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955"
+  },
+  "candidate_sha256": {
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc"
+  },
+  "runtime_base_provenance": "Sealed terminal candidate from work/v2_terminal_access_01/proposed, not the currently executing live variant. Exact03d source must be accepted and handed off before installation; otherwise rebase the one-line runtime hunk and rebind.",
+  "bound_reference_sha256": {
+    "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+    "game/scenes/building/orison_v2_blockout.tscn": "e0024040574ed0c07990a94561c8bdd79aa978ec34f7e3c87f81639bdb1b36b7",
+    "game/tests/orison_v2_m11b_service_openings_shot.gd": "a8956f5e7721d97ad07a2423f0073137ee81c7978b100faa21b72d3d2fafb684",
+    "game/tests/orison_v2_blockout_test.gd": "63a53e3cf023403107eaac5d3540fa03f8f8b97e125fbfe0864e437917398a66",
+    "design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md": "41c27169bd2ecc2187b5578475740ace40b058d6a20e522de05c00775a5558aa",
+    "design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md": "e3c707f5d414849279694ed24792eca84bd8efd26da0efade33d3bd577ce4cf3",
+    "design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md": "a2aafa185753feca0e7ffe6535eb37dd514eeed2cffc829916b883b63a764747",
+    "design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md": "7eb5aff929f0f03bf00c337f55766a69f8a102f442c0382e8ff177112ee78a7d"
+  },
+  "display_targets": {
+    "envelopes": 70,
+    "landing_clearances": 8,
+    "total": 78
+  },
+  "dedicated_review_default": true,
+  "production_override": false,
+  "ordinary_red_predictions_not_results": {
+    "runtime_false_assignment_omission": 78,
+    "envelope_visibility_assignment_omission": 70,
+    "landing_visibility_assignment_omission": 8,
+    "default_false_mutation_breaks_review": 78
+  },
+  "authority_conflict_found": false,
+  "authority_scope": "Existing source/capture contracts distinguish development reservations from actual consumers; no new carry/material/canon policy is introduced. Runtime and human acceptance still pending.",
+  "proof_plan": "README.md",
+  "files_sha256": {
+    "originals/game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+    "originals/game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+    "proposed/game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "proposed/game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc",
+    "README.md": "cdc6fc5dd499c926d60835a60911fe2f07934be891701be169f528d298398f40",
+    "reservation_display.patch": "402c8b25c2c5a0bdfe8a401f25e72a79675d7fc6181e39b2991f08d58a8beebb",
+    "static_source_validation.json": "3ca8f79dfeb033f27ee902ed2e0cfb51d693afec9bf97514344b9cc2d67a94e7"
+  }
+}

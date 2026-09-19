@@ -1,0 +1,329 @@
+--- a/game/scripts/characters/resident_routines.gd
++++ b/game/scripts/characters/resident_routines.gd
+@@ -59,7 +59,7 @@
+ 		"why": "the rear door, half out of the building already"},
+ 	"noel_price": {"at": Vector2(-2.2, 1.2), "floor": "F01",
+ 		"why": "the light court, where nothing can be handled"},
+-	"transient_guests": {"at": Vector2(2.2, -6.2), "floor": "F01",
++	"transient_guests": {"at": Vector2(2.2, -8.3), "floor": "F01",
+ 		"why": "the vestibule, bags at their feet"},
+ 	"nadia_quell": {"at": Vector2(0.0, 5.0), "floor": "F06",
+ 		"why": "the top-floor utility room, checking egress"},
+--- /dev/null
++++ b/game/tests/resident_f01_haunt_test.gd
+@@ -0,0 +1,306 @@
++extends Node3D
++## One real resident's lift/haunt/return lifecycle. No human-route acceptance.
++## Other actors are held; this owner receives actual physics-frame deltas.
++## Its walk-through body remains unchanged; independent physics queries test
++## the actual Body shape at the destination and along the public F01 leg.
++
++var world: Node3D
++var output := ""
++var checks: Array = []
++var evidence := {"transitions": []}
++var failures := 0
++
++
++func _ready() -> void:
++	output = OS.get_environment("SHOT_DIR")
++	if output.is_empty() or DirAccess.make_dir_recursive_absolute(output) != OK:
++		push_error("ResidentF01HauntTest requires a fresh writable SHOT_DIR")
++		get_tree().quit(2)
++		return
++	CampaignTime.set_frozen_for_tests(true)
++	OS.set_environment("SCHEDULE", "0")
++	RealityState.persistence_enabled = false
++	RealityState.reset_campaign_for_tests()
++	RealityState.data.intro_complete = true
++	RealityState.data.first_shift = {"phase": FirstShiftDirector.PHASE_COMPLETE}
++	_check("authored campaign clock is valid", CampaignClock.new().configure_date(1928, 11, 10, 180.0))
++	world = load("res://scenes/building/orison_root.tscn").instantiate()
++	add_child(world)
++	var routines: ResidentRoutines = world.resident_routines
++	_check("actual V1 routines nav and elevator exist", routines != null and routines.nav != null and routines.elevator != null)
++	if routines == null or routines.nav == null or routines.elevator == null:
++		await _finish()
++		return
++	routines.inspection_hold = true
++	world.player.set_physics_process(false)
++	world.player.set_process_unhandled_input(false)
++	await get_tree().create_timer(1.6).timeout
++	await get_tree().physics_frame
++	await get_tree().physics_frame
++	evidence["settle_scope"] = "Inherited 1.6s plus two physics frames after production collision validation; no complete-builder-ready claim"
++	await _run(routines)
++	routines = null
++	await _finish()
++
++
++func _run(routines: ResidentRoutines) -> void:
++	var actor: Dictionary = {}
++	for row in routines.actors:
++		if str(row.slug) == "transient_guests":
++			actor = row
++			break
++	_check("actual Transient Guests owner starts at its untouched 4D home", not actor.is_empty())
++	if actor.is_empty(): return
++	var node: Node3D = actor.node
++	var home: Vector3 = actor.home
++	var haunt: Vector3 = actor.haunt
++	var lift: OrisonElevator = routines.elevator
++	var nav: ResidentNav = routines.nav
++	_check("actual home and authored haunt match production resolver",
++		node.global_position.distance_to(home) < 0.001 and nav.floor_at(home.y) == "F04"
++		and haunt == routines._haunt_point("transient_guests"))
++	var body := node.get_node_or_null("Body") as StaticBody3D
++	var shape: CollisionShape3D
++	if body != null:
++		for child in body.get_children():
++			if child is CollisionShape3D and child.shape is CapsuleShape3D:
++				shape = child
++				break
++	_check("actual actor Body capsule is available", shape != null)
++	if shape == null: return
++	var capsule := shape.shape as CapsuleShape3D
++	var relative := node.global_transform.affine_inverse() * shape.global_transform
++	evidence["actual_body"] = {"node": str(shape.get_path()), "radius": capsule.radius,
++		"height": capsule.height, "relative_center": _v(relative.origin),
++		"collision_layer": body.collision_layer, "collision_mask": body.collision_mask,
++		"scope": "Query actual actor shape/transform; actor remains walk-through production scenery"}
++	_check("actual Body dimensions and origin are recorded without audit-shape substitution",
++		is_equal_approx(capsule.radius, 0.28) and is_equal_approx(capsule.height, 1.55)
++		and relative.origin.distance_to(Vector3(0, 0.775, 0)) < 0.001)
++	var lobby: Dictionary = {}
++	var floor_data: Dictionary = {}
++	for fl in world.layout.floors:
++		if str(fl.id) == "F01":
++			floor_data = fl
++			for room in fl.rooms:
++				if str(room.id) == "F01_LOBBY": lobby = room
++	_check("authored F01 lobby and slab are available", not lobby.is_empty() and not floor_data.is_empty())
++	if lobby.is_empty() or floor_data.is_empty(): return
++	var bounds: Array = lobby.rect
++	var shaft: Array = world.layout.elevator.shaft
++	var margin: float = capsule.radius + 0.05
++	var in_lobby := haunt.x - margin > float(bounds[0]) and haunt.x + margin < float(bounds[2]) \
++		and -haunt.z - margin > float(bounds[1]) and -haunt.z + margin < float(bounds[3])
++	var outside_shaft := haunt.x + margin < float(shaft[0]) or haunt.x - margin > float(shaft[2]) \
++		or -haunt.z + margin < float(shaft[1]) or -haunt.z - margin > float(shaft[3])
++	evidence["authored_destination"] = {"home": _v(home), "haunt": _v(haunt), "lobby_rect_blender": bounds,
++		"shaft_rect_blender": shaft, "slabs": floor_data.slabs, "body_margin": margin}
++	_check("whole destination body footprint fits the public F01 lobby", in_lobby)
++	_check("whole destination body footprint is outside the lift shaft", outside_shaft)
++	var slab_top: float = float(floor_data.slabs[0].z_top)
++	var destination_probe := _probe(haunt, shape.shape, relative, slab_top)
++	evidence["destination_before_trip"] = destination_probe
++	_check("destination has real F01 slab support at the authored floor height", bool(destination_probe.support_ok))
++	_check("actual Body shape clears all current destination colliders", (destination_probe.overlaps as Array).is_empty())
++	var safe_destination := in_lobby and outside_shaft and bool(destination_probe.support_ok) \
++		and (destination_probe.overlaps as Array).is_empty()
++	# Choose one initial seed whose normal outbound/return temperament choices
++	# both select the lift. No stage, timer, haunt or readiness override follows.
++	var rng := RandomNumberGenerator.new()
++	var seed_found := false
++	for choice in 128:
++		rng.seed = choice
++		var outbound_roll := rng.randf()
++		var dwell := rng.randf_range(40.0, 90.0)
++		var return_roll := rng.randf()
++		if outbound_roll > 0.5 and return_roll > 0.5 and dwell < 46.0:
++			routines._rng.seed = choice
++			evidence["initial_seed"] = choice
++			evidence["expected_normal_dwell_seconds"] = dwell
++			seed_found = true
++			break
++	_check("one deterministic normal intent seed covers both elevator choices", seed_found)
++	if not seed_found: return
++	routines._begin_trip(actor, false)
++	_check("normal intent chooses outbound elevator with F04 initially closed",
++		actor.stage == ResidentRoutines.Stage.TO_LIFT and actor.vertical_mode == "elevator"
++		and lift.current == "F01" and not lift.is_ready_at("F04"))
++	var began := Time.get_ticks_msec()
++	var boarded := false
++	while Time.get_ticks_msec() - began < 45000 and actor.stage == ResidentRoutines.Stage.TO_LIFT:
++		await get_tree().physics_frame
++		var ready_before := lift.is_ready_at("F04")
++		_tick(routines, actor)
++		if actor.stage == ResidentRoutines.Stage.RIDING:
++			boarded = true
++			_check("outbound boarding occurs only at the actually ready F04 landing", ready_before and not node.visible)
++	_check("actual home departure reaches and boards the lift", boarded)
++	if not boarded: return
++	var wait_f01: Vector3 = routines._lift_point(haunt.y)
++	_check("F01 landing really closed while car departed to F04", lift.landing_door_open_fraction("F01") < 0.01)
++	var f01_path: PackedVector3Array = nav.route(wait_f01, haunt)
++	evidence["closed_landing_public_leg"] = _route_evidence(nav, f01_path, "F01", shape.shape, relative)
++	var f01_clear := f01_path.size() > 1 and f01_path[-1].distance_to(haunt) < 0.001 \
++		and bool(evidence.closed_landing_public_leg.clear)
++	_check("public destination route and swept actual Body clear the closed lift landing", f01_clear)
++	began = Time.get_ticks_msec()
++	var arrived := false
++	while Time.get_ticks_msec() - began < 20000 and actor.stage == ResidentRoutines.Stage.RIDING:
++		await get_tree().physics_frame
++		var ready_before := lift.is_ready_at("F01")
++		_tick(routines, actor)
++		if actor.stage == ResidentRoutines.Stage.AT_HAUNT:
++			arrived = true
++			_check("actual F01 readiness alone releases the rider at its public landing",
++				ready_before and node.visible and node.global_position.distance_to(wait_f01) < 0.001)
++	_check("real lift arrival installs the authored destination path", arrived and actor.path.size() > 1
++		and actor.path[-1].distance_to(haunt) < 0.001)
++	if not arrived: return
++	evidence["destination_on_arrival"] = _probe(haunt, shape.shape, relative, slab_top)
++	_check("actual destination Body still clears after real car arrival", (evidence.destination_on_arrival.overlaps as Array).is_empty())
++	# An unsafe old authored target stays red. Never advance the fixture into
++	# its shaft or fabricate a dwell/return result after failed clearance.
++	if not safe_destination or not f01_clear or not (evidence.destination_on_arrival.overlaps as Array).is_empty():
++		evidence["stopped"] = "Real arrival observed; unsafe destination prevents dependent dwell/return proof"
++		return
++	var arrival_timer: float = actor.timer
++	_check("arrival draws the authored normal dwell interval", arrival_timer >= 40.0 and arrival_timer <= 90.0)
++	began = Time.get_ticks_msec()
++	while Time.get_ticks_msec() - began < 12000 and actor.stage == ResidentRoutines.Stage.AT_HAUNT and int(actor.leg) < actor.path.size():
++		await get_tree().physics_frame
++		_tick(routines, actor)
++	_check("production movement reaches the actual public haunt", actor.stage == ResidentRoutines.Stage.AT_HAUNT
++		and int(actor.leg) >= actor.path.size() and node.global_position.distance_to(haunt) < 0.17)
++	var dwell_start: Vector3 = node.global_position
++	var observed_dwell := 0.0
++	began = Time.get_ticks_msec()
++	while Time.get_ticks_msec() - began < 1000 and actor.stage == ResidentRoutines.Stage.AT_HAUNT:
++		await get_tree().physics_frame
++		observed_dwell += get_physics_process_delta_time()
++		_tick(routines, actor)
++	_check("resident actually dwells visibly at its reached public destination",
++		observed_dwell >= 0.5 and actor.stage == ResidentRoutines.Stage.AT_HAUNT and node.visible
++		and node.global_position.distance_to(dwell_start) < 0.01 and actor.timer < arrival_timer)
++	began = Time.get_ticks_msec()
++	while Time.get_ticks_msec() - began < 95000 and actor.stage == ResidentRoutines.Stage.AT_HAUNT:
++		await get_tree().physics_frame
++		_tick(routines, actor)
++	_check("unmodified dwell expiry starts the normal return elevator intent", actor.stage == ResidentRoutines.Stage.RETURNING
++		and actor.vertical_mode == "elevator" and str(actor.target_floor) == "F04")
++	if actor.stage != ResidentRoutines.Stage.RETURNING: return
++	evidence["public_return_leg"] = _route_evidence(nav, actor.path, "F01", shape.shape, relative)
++	_check("return leg preserves collision-clear public passage", bool(evidence.public_return_leg.clear))
++	var return_boarded := false
++	var returned := false
++	began = Time.get_ticks_msec()
++	while Time.get_ticks_msec() - began < 30000 and actor.stage == ResidentRoutines.Stage.RETURNING:
++		await get_tree().physics_frame
++		var visible_before: bool = node.visible
++		var source_ready := lift.is_ready_at("F01")
++		var home_ready := lift.is_ready_at("F04")
++		_tick(routines, actor)
++		if visible_before and not node.visible:
++			return_boarded = true
++			_check("return boarding requires the actually ready F01 cabin", source_ready)
++		if actor.stage == ResidentRoutines.Stage.HOME:
++			returned = true
++			_check("actual F04 return arrival releases resident at public landing", home_ready and node.visible
++				and node.global_position.distance_to(routines._lift_point(home.y)) < 0.001)
++	_check("real return ride completes without fallback or forced readiness", return_boarded and returned)
++	if not returned: return
++	began = Time.get_ticks_msec()
++	while Time.get_ticks_msec() - began < 30000 and actor.stage == ResidentRoutines.Stage.HOME and int(actor.leg) < actor.path.size():
++		await get_tree().physics_frame
++		_tick(routines, actor)
++	_check("returned owner follows its production route back to the same 4D home", actor.stage == ResidentRoutines.Stage.HOME
++		and int(actor.leg) >= actor.path.size() and node.global_position.distance_to(home) < 0.17)
++	_check("complete normal lifecycle records no unreachable routes", nav.unreachable_route_count() == 0)
++
++
++func _tick(routines: ResidentRoutines, actor: Dictionary) -> void:
++	var before: int = actor.stage
++	var visible_before: bool = actor.node.visible
++	routines._step(actor, get_physics_process_delta_time())
++	routines._keep_floor_parent(actor)
++	if before != int(actor.stage) or visible_before != bool(actor.node.visible):
++		evidence.transitions.append({"from": before, "to": actor.stage, "visible": actor.node.visible,
++			"at": _v(actor.node.global_position), "lift_current": routines.elevator.current,
++			"lift_state": routines.elevator.state, "elapsed_ticks_ms": Time.get_ticks_msec()})
++
++
++func _probe(at: Vector3, shape: Shape3D, relative: Transform3D, slab_top: float) -> Dictionary:
++	var query := PhysicsShapeQueryParameters3D.new()
++	query.shape = shape
++	query.transform = Transform3D(Basis(), at) * relative
++	query.collide_with_areas = false
++	var state := world.get_world_3d().direct_space_state
++	var overlaps: Array = []
++	for hit in state.intersect_shape(query): overlaps.append(str(hit.collider.get_path()))
++	var ray := PhysicsRayQueryParameters3D.create(at + Vector3(0, 0.5, 0), at - Vector3(0, 0.5, 0))
++	ray.collide_with_areas = false
++	var hit := state.intersect_ray(ray)
++	var support := {}
++	var support_ok := false
++	if not hit.is_empty():
++		support = {"collider": str(hit.collider.get_path()), "at": _v(hit.position), "normal": _v(hit.normal)}
++		support_ok = str(hit.collider.get_path()).contains("F01_slabs") and absf(hit.position.y - slab_top) < 0.005 \
++			and absf(at.y - hit.position.y - 0.03) < 0.005 and hit.normal.y > 0.9
++	return {"at": _v(at), "overlaps": overlaps, "support": support, "support_ok": support_ok}
++
++
++func _route_evidence(nav: ResidentNav, path: PackedVector3Array, floor_id: String, shape: Shape3D, relative: Transform3D) -> Dictionary:
++	var clear := path.size() > 1
++	var rows: Array = []
++	var state := world.get_world_3d().direct_space_state
++	for i in range(path.size() - 1):
++		# _follow preserves the actual owner's Y on ordinary floor routes.
++		# Graph node Y is a slab datum, not the actor's foot offset.
++		var from := Vector3(path[i].x, path[0].y, path[i].z)
++		var to := Vector3(path[i + 1].x, path[0].y, path[i + 1].z)
++		var query := PhysicsShapeQueryParameters3D.new()
++		query.shape = shape
++		query.transform = Transform3D(Basis(), from) * relative
++		query.motion = to - from
++		query.collide_with_areas = false
++		var start_overlaps: Array = []
++		for hit in state.intersect_shape(query): start_overlaps.append(str(hit.collider.get_path()))
++		var motion := state.cast_motion(query)
++		var wall_clear := nav._segment_clear(nav.floors[floor_id], path[i], path[i + 1])
++		var ray_clear := not nav._ray_blocked(state, path[i], path[i + 1])
++		var segment_clear := wall_clear and ray_clear and start_overlaps.is_empty() and motion.size() == 2 and motion[0] >= 0.9999
++		clear = clear and segment_clear
++		rows.append({"graph_from": _v(path[i]), "graph_to": _v(path[i + 1]),
++			"body_from": _v(from), "body_to": _v(to), "wall_clear": wall_clear,
++			"production_ray_clear": ray_clear, "initial_overlaps": start_overlaps, "motion_fractions": Array(motion)})
++	return {"clear": clear, "segments": rows}
++
++
++func _v(at: Vector3) -> Array:
++	return [at.x, at.y, at.z]
++
++
++func _check(label: String, passed: bool) -> void:
++	checks.append({"label": label, "passed": passed})
++	if not passed: failures += 1
++	print("[RESIDENT F01 HAUNT] %s %s" % ["PASS" if passed else "FAIL", label])
++
++
++func _finish() -> void:
++	var retired: WeakRef = weakref(world)
++	if is_instance_valid(world): world.queue_free()
++	world = null
++	for _i in 4: await get_tree().process_frame
++	await get_tree().create_timer(0.1).timeout
++	_check("actual V1 root retired", retired.get_ref() == null)
++	evidence["checks"] = checks
++	evidence["failures"] = failures
++	evidence["scope"] = "One deterministic actual resident owner, real elapsed physics-frame _step progression and actual lift readiness through arrival/dwell/return; independent actual-Body destination and F01 path queries. Other actor choices held, player held, clock frozen. No collision-bearing human traversal, all-resident or performance acceptance."
++	var file := FileAccess.open(output.path_join("resident_f01_haunt.json"), FileAccess.WRITE)
++	if file == null:
++		push_error("Resident F01 haunt receipt could not be written")
++		get_tree().quit(2)
++		return
++	file.store_string(JSON.stringify(evidence, "\t"))
++	file.close()
++	print("[RESIDENT F01 HAUNT] RESULT %d passed, %d failed" % [checks.size() - failures, failures])
++	get_tree().quit(0 if failures == 0 else 1)
+--- /dev/null
++++ b/game/tests/ResidentF01HauntTest.tscn
+@@ -0,0 +1,6 @@
++[gd_scene load_steps=2 format=3]
++
++[ext_resource type="Script" path="res://tests/resident_f01_haunt_test.gd" id="1"]
++
++[node name="ResidentF01HauntTest" type="Node3D"]
++script = ExtResource("1")

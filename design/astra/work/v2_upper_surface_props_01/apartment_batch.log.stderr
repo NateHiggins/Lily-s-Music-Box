@@ -1,0 +1,6 @@
+SCRIPT ERROR: Invalid access to property or key '5A' on a base object of type 'Dictionary'.
+   at: _check_surface_props (res://tests/orison_v2_apartment_batch_test.gd:317)
+   GDScript backtrace (most recent call first):
+       [0] _check_surface_props (res://tests/orison_v2_apartment_batch_test.gd:317)
+       [1] _ready (res://tests/orison_v2_apartment_batch_test.gd:52)
+       [2] _check_household_accessories (res://tests/orison_v2_apartment_batch_test.gd:228)

@@ -1,0 +1,38 @@
+{
+  "production_commit": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "parent": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "selected_audit": {
+    "audit_id": "orison_v2_completeness",
+    "path": "evidence/renderer_material_commit_audits_01/orison_v2_completeness.stdout.txt",
+    "receipt_path": "evidence/renderer_material_commit_audits_01/receipt.json",
+    "receipt_sha256": "e6bf834a3ff0848f0104031dbfe3451b7ae43b0c86948f4a5af6613948ff6e8d",
+    "repository_head": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+    "sha256": "eeefd38e403dfaad4424f638457a7b305c60b0213155cb77132a7038ae4e8c7e"
+  },
+  "audit_exits": {
+    "audio_emitters": 0,
+    "audio_emitters_selftest": 0,
+    "data_consumption": 1,
+    "data_consumption_selftest": 0,
+    "interaction_implementors": 0,
+    "interaction_implementors_selftest": 0,
+    "interaction_prompt_carriers": 0,
+    "interaction_prompt_carriers_selftest": 0,
+    "orison_spatial_dependencies": 0,
+    "orison_spatial_dependencies_selftest": 0,
+    "orison_v2_completeness": 2,
+    "orison_v2_completeness_selftest": 0,
+    "systemic_situation_authority": 0,
+    "systemic_situation_authority_selftest": 0
+  },
+  "stable_audit_input_count": 2328,
+  "committed_paths": 3786,
+  "production_owners": 2,
+  "fixtures": 14,
+  "protected_paths_unchanged": 17,
+  "all_committed_modes_blobs_verified": true,
+  "historical_receipts_rewritten": false,
+  "full_game_complete": false,
+  "human_or_release_acceptance": false,
+  "default_selector": "v1"
+}

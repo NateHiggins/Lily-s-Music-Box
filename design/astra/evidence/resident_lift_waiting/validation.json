@@ -1,0 +1,267 @@
+{
+  "schema": "astra.resident_lift_waiting.validation.v1",
+  "status": "SCOPED_RED_GREEN_VALIDATED",
+  "runs": [
+    {
+      "run": "baseline_diagnostic_01",
+      "result": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_01/result.json",
+      "result_sha256": "de43a011cb6e1b31f2b00c79794aab6387c4791824edf5390a789207147d7c81",
+      "native_or_runner_exit": 124,
+      "gate_exit": 1,
+      "source_unchanged": true,
+      "summary": [],
+      "passing_assertions": 0,
+      "seconds": 120.57504119999976,
+      "runtime_inputs_sha256": "412dd06c5e763a8279b3f1bc6dadde04c9a5f42b5fee2fb598e62f9d77abd306",
+      "all_game_files_sha256": "f4d405bd32864ba3ef79ea175cc26e62ace15d8f328f8d3f007bae8eb5ebd30a",
+      "test_sha256": "788b184d098b9090ba5ca18bfdd90a9b520443023df7add7e120621c19b96fb9",
+      "non_inherited_errors": {
+        "SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)": 1,
+        "ERROR: Failed to load script \"res://tests/resident_lift_waiting_test.gd\" with error \"Parse error\".": 1
+      },
+      "light_unpair": 0,
+      "softshadow_underflow": 0,
+      "retention": [],
+      "raw_stdout": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_01/godot.stdout.log",
+      "raw_stderr": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_01/godot.stdout.log.stderr",
+      "receipt": null,
+      "failed_assertions": []
+    },
+    {
+      "run": "baseline_diagnostic_02",
+      "result": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_02/result.json",
+      "result_sha256": "b0ac6f99bd5390ba8d06ba7186f0654c8382b6428f3c53bc9366574e0bd2379c",
+      "native_or_runner_exit": 1,
+      "gate_exit": 1,
+      "source_unchanged": true,
+      "summary": [
+        "[RESIDENT LIFT WAIT] RESULT 9 passed, 8 failed"
+      ],
+      "passing_assertions": 9,
+      "seconds": 59.314899400000286,
+      "runtime_inputs_sha256": "412dd06c5e763a8279b3f1bc6dadde04c9a5f42b5fee2fb598e62f9d77abd306",
+      "all_game_files_sha256": "17b8f4c781403f1149a6bfb81e43fa212d670f7c1a5a6e665ebea0456ac27abb",
+      "test_sha256": "9d569da62846ce585ae77bf12cae24765ed7bab5ff02463cb4acc0dd3670192a",
+      "non_inherited_errors": {
+        "ERROR: No wall-safe resident route on F04: (9.7428, 9.63, 3.205) -> (1.9, 9.63, 5.6)": 1,
+        "ERROR: No wall-safe resident route on F04: (1.9, 9.63, 5.6) -> (9.7428, 9.63, 3.205)": 1
+      },
+      "light_unpair": 0,
+      "softshadow_underflow": 0,
+      "retention": [],
+      "raw_stdout": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_02/godot.stdout.log",
+      "raw_stderr": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_02/godot.stdout.log.stderr",
+      "receipt": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_02/shots/resident_lift_waiting.json",
+      "failed_assertions": [
+        "waiting point preserves authored shaft center and current storey",
+        "waiting point is on public side with resident body and wall clearance",
+        "waiting point follows a different authored shaft instead of a copied location",
+        "4D outbound route reaches public waiting point",
+        "return route reaches the actual 4D home",
+        "outbound route passes unchanged production wall and collider checks",
+        "return route passes unchanged production wall and collider checks",
+        "resident at home neither requests lift nor boards prematurely"
+      ]
+    },
+    {
+      "run": "candidate_fix_01",
+      "result": "design/astra/evidence/resident_lift_waiting/candidate_fix_01/result.json",
+      "result_sha256": "281e8c1f03e08d9089331b562c7397b0ec2718494d3b0519ba5fcd043ab44fd9",
+      "native_or_runner_exit": 1,
+      "gate_exit": 1,
+      "source_unchanged": true,
+      "summary": [
+        "[RESIDENT LIFT WAIT] RESULT 22 passed, 5 failed"
+      ],
+      "passing_assertions": 22,
+      "seconds": 46.9840578000003,
+      "runtime_inputs_sha256": "aada46f927ae49e5489261eac57ab9f5d230af3675f40b67fb3ebb290a19bb11",
+      "all_game_files_sha256": "deacb747a9a21c05728e5f0c3421444c7c1f8a8e00b7b6ddb7abfdd349d1a4b8",
+      "test_sha256": "cb4ea3fad76fe4180b39b28746eeb8f2f9a95cbd34eaee3be33c2a58c8d7968d",
+      "non_inherited_errors": {
+        "ERROR: No wall-safe resident route on F04: (9.7428, 9.63, 3.205) -> (1.925, 9.63, 7.4)": 1,
+        "ERROR: No wall-safe resident route on F04: (1.925, 9.63, 7.4) -> (9.7428, 9.63, 3.205)": 1
+      },
+      "light_unpair": 0,
+      "softshadow_underflow": 0,
+      "retention": [],
+      "raw_stdout": "design/astra/evidence/resident_lift_waiting/candidate_fix_01/godot.stdout.log",
+      "raw_stderr": "design/astra/evidence/resident_lift_waiting/candidate_fix_01/godot.stdout.log.stderr",
+      "receipt": "design/astra/evidence/resident_lift_waiting/candidate_fix_01/shots/resident_lift_waiting.json",
+      "failed_assertions": [
+        "4D outbound route reaches public waiting point",
+        "return route reaches the actual 4D home",
+        "outbound route passes unchanged production wall and collider checks",
+        "return route passes unchanged production wall and collider checks",
+        "resident at home neither requests lift nor boards prematurely"
+      ]
+    },
+    {
+      "run": "candidate_approach_01",
+      "result": "design/astra/evidence/resident_lift_waiting/candidate_approach_01/result.json",
+      "result_sha256": "13b6b0ed0ad7a98a63153675e9e1399ed7f3eb946042f255bfb462a94fdf3821",
+      "native_or_runner_exit": 0,
+      "gate_exit": 0,
+      "source_unchanged": true,
+      "summary": [
+        "[RESIDENT LIFT WAIT] RESULT 40 passed, 0 failed"
+      ],
+      "passing_assertions": 40,
+      "seconds": 62.12159140000222,
+      "runtime_inputs_sha256": "13cd8bd5bd75dd341f31933287448d422c9f7dcc657bf38e70019524cc67832c",
+      "all_game_files_sha256": "5010e226088eb501c3e9e6fcb6f20e415e8f8e8bf2677cdbc90b4c43e075f0e8",
+      "test_sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+      "non_inherited_errors": {},
+      "light_unpair": 0,
+      "softshadow_underflow": 0,
+      "retention": [],
+      "raw_stdout": "design/astra/evidence/resident_lift_waiting/candidate_approach_01/godot.stdout.log",
+      "raw_stderr": "design/astra/evidence/resident_lift_waiting/candidate_approach_01/godot.stdout.log.stderr",
+      "receipt": "design/astra/evidence/resident_lift_waiting/candidate_approach_01/shots/resident_lift_waiting.json",
+      "failed_assertions": []
+    },
+    {
+      "run": "omit_portal_01",
+      "result": "design/astra/evidence/resident_lift_waiting/omit_portal_01/result.json",
+      "result_sha256": "6925e3fa6617e5749d34fcd8b06a38ff9956cd58113be52f1b0deec7cce7b9be",
+      "native_or_runner_exit": 1,
+      "gate_exit": 1,
+      "source_unchanged": true,
+      "summary": [
+        "[RESIDENT LIFT WAIT] RESULT 13 passed, 9 failed"
+      ],
+      "passing_assertions": 13,
+      "seconds": 57.3024099999966,
+      "runtime_inputs_sha256": "b781a9999677a2eaf3fce84d6f44c022506dc5cd31ef4560dc951df83d8fb5a6",
+      "all_game_files_sha256": "a0474f01b90422f7eedf4a10bf4036462dbe4f536d4ba477f68cc0f61e8c9627",
+      "test_sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+      "non_inherited_errors": {
+        "ERROR: No wall-safe resident route on F04: (9.7428, 9.63, 3.205) -> (1.925, 9.63, 7.4)": 1,
+        "ERROR: No wall-safe resident route on F04: (1.925, 9.63, 7.4) -> (9.7428, 9.63, 3.205)": 1
+      },
+      "light_unpair": 0,
+      "softshadow_underflow": 0,
+      "retention": [],
+      "raw_stdout": "design/astra/evidence/resident_lift_waiting/omit_portal_01/godot.stdout.log",
+      "raw_stderr": "design/astra/evidence/resident_lift_waiting/omit_portal_01/godot.stdout.log.stderr",
+      "receipt": "design/astra/evidence/resident_lift_waiting/omit_portal_01/shots/resident_lift_waiting.json",
+      "failed_assertions": [
+        "actual F04 entry graph point is aperture centre, not hinge",
+        "actual horizontal F04 door graph point is aperture centre",
+        "real4D aperture has two normal body approach points",
+        "portal conversion surface exists for independent orientation controls",
+        "4D outbound route reaches public waiting point",
+        "return route reaches the actual 4D home",
+        "outbound route passes unchanged production wall and collider checks",
+        "return route passes unchanged production wall and collider checks",
+        "resident at home neither requests lift nor boards prematurely"
+      ]
+    },
+    {
+      "run": "omit_wait_01",
+      "result": "design/astra/evidence/resident_lift_waiting/omit_wait_01/result.json",
+      "result_sha256": "1bbc55e20ba3f1c6d1693bac2453bb752e1511817b8a6fdc1f46ce9e9dced9f3",
+      "native_or_runner_exit": 1,
+      "gate_exit": 1,
+      "source_unchanged": true,
+      "summary": [
+        "[RESIDENT LIFT WAIT] RESULT 29 passed, 5 failed"
+      ],
+      "passing_assertions": 29,
+      "seconds": 46.697823500002414,
+      "runtime_inputs_sha256": "4ce83102ea2528493ef4a72b5d00ff38a511f38482779bf112a37acb82b35044",
+      "all_game_files_sha256": "a79372c4b0cb2ae39f89d1447b755ef04a0af43b34d113aef37da653174d508b",
+      "test_sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+      "non_inherited_errors": {},
+      "light_unpair": 0,
+      "softshadow_underflow": 0,
+      "retention": [],
+      "raw_stdout": "design/astra/evidence/resident_lift_waiting/omit_wait_01/godot.stdout.log",
+      "raw_stderr": "design/astra/evidence/resident_lift_waiting/omit_wait_01/godot.stdout.log.stderr",
+      "receipt": "design/astra/evidence/resident_lift_waiting/omit_wait_01/shots/resident_lift_waiting.json",
+      "failed_assertions": [
+        "waiting point preserves authored shaft center and current storey",
+        "waiting point is on public side with resident body and wall clearance",
+        "waiting point follows a different authored shaft instead of a copied location",
+        "outbound route passes unchanged production wall and collider checks",
+        "return route passes unchanged production wall and collider checks"
+      ]
+    },
+    {
+      "run": "candidate_restored_01",
+      "result": "design/astra/evidence/resident_lift_waiting/candidate_restored_01/result.json",
+      "result_sha256": "58bf34cfd05985c6655f684f831ca27bdb8aa08cc1ddb7896c573b71795b161f",
+      "native_or_runner_exit": 0,
+      "gate_exit": 0,
+      "source_unchanged": true,
+      "summary": [
+        "[RESIDENT LIFT WAIT] RESULT 40 passed, 0 failed"
+      ],
+      "passing_assertions": 40,
+      "seconds": 56.28921270000137,
+      "runtime_inputs_sha256": "13cd8bd5bd75dd341f31933287448d422c9f7dcc657bf38e70019524cc67832c",
+      "all_game_files_sha256": "5010e226088eb501c3e9e6fcb6f20e415e8f8e8bf2677cdbc90b4c43e075f0e8",
+      "test_sha256": "d8587a70e51db0399cbafb087db76180886ec06142f5ab26a03f15c20481bae0",
+      "non_inherited_errors": {},
+      "light_unpair": 0,
+      "softshadow_underflow": 0,
+      "retention": [],
+      "raw_stdout": "design/astra/evidence/resident_lift_waiting/candidate_restored_01/godot.stdout.log",
+      "raw_stderr": "design/astra/evidence/resident_lift_waiting/candidate_restored_01/godot.stdout.log.stderr",
+      "receipt": "design/astra/evidence/resident_lift_waiting/candidate_restored_01/shots/resident_lift_waiting.json",
+      "failed_assertions": []
+    },
+    {
+      "run": "existing_passage_nav_01",
+      "result": "design/astra/evidence/resident_lift_waiting/existing_passage_nav_01/result.json",
+      "result_sha256": "c416073fd728e009d578ddf48c0c1ef18309905b8a3e6b76e91f4605b21c1173",
+      "native_or_runner_exit": 0,
+      "gate_exit": 0,
+      "source_unchanged": true,
+      "summary": [
+        "[PASSAGE NAV] RESULT: PASS (0 failures)"
+      ],
+      "passing_assertions": 26,
+      "seconds": 46.99821630000224,
+      "runtime_inputs_sha256": "13cd8bd5bd75dd341f31933287448d422c9f7dcc657bf38e70019524cc67832c",
+      "all_game_files_sha256": "5010e226088eb501c3e9e6fcb6f20e415e8f8e8bf2677cdbc90b4c43e075f0e8",
+      "test_sha256": "82d80acee12da8c77a1238a6b54e8502053dbe52c85069baeaff43b607a17098",
+      "non_inherited_errors": {},
+      "light_unpair": 0,
+      "softshadow_underflow": 0,
+      "retention": [],
+      "raw_stdout": "design/astra/evidence/resident_lift_waiting/existing_passage_nav_01/godot.stdout.log",
+      "raw_stderr": "design/astra/evidence/resident_lift_waiting/existing_passage_nav_01/godot.stdout.log.stderr",
+      "receipt": null,
+      "failed_assertions": []
+    }
+  ],
+  "restoration": {
+    "path": "design/astra/evidence/resident_lift_waiting/omission_transaction_01/restoration.json",
+    "sha256": "b3a3793f6490068f1655f3a47a8f322b981b5a25a64bbe016291a8c6f634a6ef",
+    "exact": true
+  },
+  "source_at_release": {
+    "path": "design/astra/evidence/resident_lift_waiting/final_source_binding.json",
+    "sha256": "dffc255b85db86c4ddf26a15e33942c6d8132f0cb91be04ab7073ad74f7935f4"
+  },
+  "established_findings": [
+    "Generated door markers are hinges, not portal centres. Initial4D six-node component was disconnected by real jamb masonry.",
+    "Centre-only correction joined bath/office but sparse oblique corridor edges still hit real switch/masonry.",
+    "Matched aperture centres plus body-clear normal approaches retain authored walls and actual collision pruning and reconnect observed4D route.",
+    "The old wait target lies inside shaft; with portal fix retained its inside-shaft segment fails unchanged physical rays."
+  ],
+  "validated_scope": [
+    "Actual4D original spawn to public F04 waiting coordinate and reverse geometric path",
+    "All15 independent exterior anchor coordinates preserved; all4 orientation controls plus centered/unmatched controls",
+    "Real4D two approach capsule endpoints and waiting-point capsule; graph connections after unchanged collision audit",
+    "Production _follow advanced at fixed1/60 for logic only; actual elevator physics and source-ready boarding",
+    "Existing PassageNav26-check four-shop capsule route suite unchanged"
+  ],
+  "not_claimed": [
+    "Human walked traversal, whole4D route swept-body clearance, completed return/haunt/day lifecycle",
+    "Performance acceptance, richer Vulkan composed matrix acceptance, resolution of StreetCore>250 debt",
+    "Full authored Transient Guests vestibule arrival: its existing HAUNTS point also lies inside shaft and remains a separate known follow-up"
+  ],
+  "execution_context": "Fresh isolated APPDATA each run; same installed Vulkan Forward+ engine through unchanged serial runner; baseline01 is parser-only runner timeout124, not product execution; other recorded exits are actual process results. Historical source copies, failures and receipts are unchanged."
+}

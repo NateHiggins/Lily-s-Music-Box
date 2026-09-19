@@ -1,0 +1,37 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "0b3b240",
+  "sha256": {
+    "game/data/orison_v2/domestic_furniture.json": "1b7d7ea72b302e9295c860beb4cb8382d83c3327d8b09e6e589348c7bf695429",
+    "game/data/orison_v2/domestic_surface_props.json": "564676bba8e9af834d6637e0fa09e61d359b76773206b8b46c93388ffb05d0e4",
+    "game/data/orison_v2/domestic_radios.json": "04528157bd6b7c0a85b5ee0f68988013cb0123726086b449a08235192a70527b",
+    "game/data/orison_v2_blockout.json": "477ef06cb9168102ee28b2d8e38d66eec7e9977d4e47379c732c6e0910bacb5f",
+    "art/data/runtime_material_sets.json": "a38b92420989a537a2cb7366d11741c0801886b3af94270327dcb7dc05fa27ce",
+    "game/data/runtime_material_sets.json": "a38b92420989a537a2cb7366d11741c0801886b3af94270327dcb7dc05fa27ce",
+    "game/scripts/generated/material_sets.gd": "c4ca1cabf0f551e3919fd059fb76431829a99b8d141adbf9b7a356e73cdc2770"
+  },
+  "protected": [
+    "game/data/building_layout.json",
+    "game/data/domestic_radios.json",
+    "game/data/resident_schedules.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/scripts/props/domestic_radio_prop.gd",
+    "game/scripts/material_library.gd",
+    "game/project.godot"
+  ],
+  "old_furniture_preserved": 92,
+  "old_surface_props_preserved": 19,
+  "old_radios_preserved": 4,
+  "negative_controls_rejected": [
+    "plant_in_service_riser",
+    "floating_propagation_bottles",
+    "crystal_speaker_substitution"
+  ],
+  "old_and_new_stances_checked": 118,
+  "categories_passed": 11,
+  "regeneration": "BYTE_IDENTICAL",
+  "materials": "53 entries, 51 old entries and all visual locks preserved",
+  "limits": "Static geometry and source contract checks only; no engine compilation, physical interaction, audio perception, performance or visual acceptance."
+}

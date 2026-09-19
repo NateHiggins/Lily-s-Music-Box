@@ -1,0 +1,128 @@
+{
+  "schema": "astra.vulkan_composed.v2_candidate_review.v1",
+  "at_utc": "2026-09-05T10:53:21.629032+00:00",
+  "run": "candidate_v2_foundations_01",
+  "result_sha256": "fbaab7e734d559233f15b73cf53493b2c4d670356fb485c4f9f2df8e1e08161c",
+  "probe_sha256": "85a310325267c9e7c0f401cf649a82de3b625c9bf586718991e56319c279b4c2",
+  "plan_sha256": "c70b374be24588e5935966ba681e875be656c16e5c6afa2951c9d6c100aceab1",
+  "status": "structural_capture_and_retirement_checks_passed; perceptual_terminal_composition_failed",
+  "actual_engine_exit": 0,
+  "diagnostic_gate_exit": 0,
+  "pid": 33320,
+  "wrapper_elapsed_seconds": 6.209,
+  "root_reported_startup_ms": 1008.039,
+  "retirement_phase_interval_ms": 248.572,
+  "retirement_interval_scope": "Difference of explicit before_retirement/after_retirement tick markers, including declared waits; not per-frame performance benchmark",
+  "verified": {
+    "all_46_retained_artifact_hashes_and_census": true,
+    "all_32_copied_sources_match_recorded_maps": true,
+    "all_4045_before_after_source_entries_equal": true,
+    "head_before_after_equals_required_da68962": true,
+    "all_21_plan_source_bindings_match_recorded_applicable_maps_and_current_small_files": true,
+    "both_engine_manifests_equal_complete": true,
+    "wrapper_bindings_match_current_and_plan": true,
+    "existing_strict_gate_reproduces_exactly": true,
+    "all_14_exact_ordered_labels_pass": true,
+    "exact_complete_footer": true,
+    "two_capture_names_dimensions_and_files": true,
+    "both_real_retirement_assertions_pass_once": true,
+    "no_v1_transition_or_separate_world_claim": true,
+    "raw_stripped_error_headers_accounted_for": true
+  },
+  "final_live_owned_source_sha256": {
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  },
+  "engines": [
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef",
+      "bytes": 198152
+    },
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+      "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a",
+      "bytes": 178997256
+    }
+  ],
+  "diagnostics": {
+    "diagnostic_gate_exit": 0,
+    "reasons": [],
+    "unpair_errors": 0,
+    "soft_shadow_underflows": 0,
+    "non_inherited_error_headers": {},
+    "inherited_manifest_errors": [
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      }
+    ],
+    "warnings": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 39
+    },
+    "retention": [],
+    "functional_checks_meaningful": true,
+    "expected_unpair_red_observed": false,
+    "expected_viewport_guard_red_observed": false,
+    "execution_scope": "full",
+    "full_candidate_scope_completed": true,
+    "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+  },
+  "visual_review": {
+    "reviewers": [
+      "authority_debt direct two-image inspection via view_image",
+      "root independently directly inspected both PNGs"
+    ],
+    "image_count": 2,
+    "main_size": [
+      1280,
+      720
+    ],
+    "phone_size": [
+      320,
+      240
+    ],
+    "finding": "Failed perceptual terminal composition/readability. Main is a dark near-wall view with a flashlight spot, narrow white vertical plane and teal slab; phone shows the same walls and teal slab more brightly. Neither reviewer can identify or read a terminal face in either image.",
+    "capture_content_present": true,
+    "terminal_visual_proof": false,
+    "machine_vs_perceptual_scope": "The actual terminal object and semantic stance exist and structural/capture/retirement checks pass; those checks do not establish visible or legible terminal composition.",
+    "png_sha256": {
+      "v2_actual_f04_semantic_stance": "894f122fd0789e2bebf620da18d9d26407f6c66b126ab239d62311f6040565c3",
+      "v2_actual_f04_phone": "a8a0669e2c555aede7c884bffc7c8be9cea1bd8f56f719a09eb6123c7cf974b5"
+    },
+    "raw_capture_reviewed_flags_left_unchanged": true
+  },
+  "final_process_census": {
+    "GodotProcessCount": 0,
+    "Processes": []
+  },
+  "final_census_exit": 0,
+  "final_census_stderr": "",
+  "prelaunch_failure": "External extractor attempt01 exited1 on CRLF split before any wrapper/Godot run; preserved under v2_candidate_prelaunch_attempts. Exactly one actual engine run was executed.",
+  "production_or_tool_edits": false,
+  "no_runtime_rerun": true,
+  "limits": [
+    "No V1 zone/arcade/mirror coverage",
+    "No optimized-owner runtime or timing claim",
+    "No terminal visual proof",
+    "No traversal, title/Continue, default cutover, final art or release performance acceptance"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "repository_head": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+  "runs": [
+    {
+      "id": "constructor_alias_red",
+      "exit_code": 1,
+      "tests": 1,
+      "errors": 1,
+      "failures": 0
+    },
+    {
+      "id": "constructor_alias_green",
+      "exit_code": 0,
+      "tests": 1,
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "id": "data_consumption_audit",
+      "exit_code": 1
+    },
+    {
+      "id": "data_consumption_selftest",
+      "exit_code": 0
+    },
+    {
+      "id": "interaction_prompt_carriers_audit",
+      "exit_code": 0
+    },
+    {
+      "id": "interaction_prompt_carriers_selftest",
+      "exit_code": 0
+    },
+    {
+      "id": "interaction_implementors_audit",
+      "exit_code": 0
+    },
+    {
+      "id": "interaction_implementors_selftest",
+      "exit_code": 0
+    }
+  ],
+  "manifest_change": "One reviewed, same-node wireless-notice control; 85 existing rows value-identical. No forbidden-prompt baseline changed.",
+  "source_sha256": {
+    "tools\\audit_data_consumption.py": "486e3a529d4670124fdade62ef4c663b555affc791562a8d7dda088f64ea0076",
+    "tools\\interaction_implementor_manifest.json": "a352cd2ca9c8b2dff43c6162f5045876ff1dd542b552f28b2624979046cea3c1",
+    "tools\\tests\\test_data_consumption.py": "70d391fa4ca747208c853c59b745637a57444cb69c5d04d42823928a9753ab5e",
+    "tools\\tests\\test_interaction_prompt_carriers.py": "1fe5bb3f3f6bfe7793365d0e4c9ca142eb5b7b202c18d7d81c58683c2dfc4ee5",
+    "tools\\tests\\test_interaction_implementors.py": "b4e1a782f3a8f28d44b33895fe26cbe72f326f2614e4815aa9eb0687dfd0cb82"
+  }
+}

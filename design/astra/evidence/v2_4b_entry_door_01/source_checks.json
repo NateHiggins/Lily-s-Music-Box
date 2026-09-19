@@ -1,0 +1,35 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "base": "b7ef79b",
+  "prior_door_specs_preserved": 8,
+  "new_entry": {
+    "id": "F04_DOOR_03",
+    "level": "F04",
+    "center": [
+      -5.6,
+      0.0
+    ],
+    "width": 0.91,
+    "height": 2.13,
+    "yaw": 1.5707963,
+    "hinge": "left",
+    "swing": "north_wall",
+    "connects": [
+      "F04_WEST_HALL",
+      "F04_B_VESTIBULE"
+    ]
+  },
+  "protected_lf_sha256": {
+    "game/data/orison_v2_blockout.json": "a85078d78e5ecbe5f0deaec21acfc7544ace2b202ca910fa9ae0782b0153cf71",
+    "game/scripts/props/door_prop.gd": "c743765db9bb59bd07ca2c97e7ff0929792b31546f04b3035579fff473a1d7d0"
+  },
+  "sampled_collider_sweep_xz_bounds": [
+    -6.527278719348165,
+    -0.4462787078531554,
+    -5.577999988076271,
+    0.6073441044238697
+  ],
+  "sweep_estimate_stays_in_vestibule_or_threshold_thickness": true,
+  "godot": "NOT_RUN",
+  "physical_route": "PREPARED_NOT_RUN"
+}

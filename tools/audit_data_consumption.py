@@ -298,6 +298,20 @@ def _string_binding(rhs: str):
     return match.group("value") if match else None
 
 
+def binding_access_paths(rhs: str, aliases, constants):
+    """Only a direct state expression establishes a durable alias.
+
+    State passed to a constructor is read, but its returned value is not an
+    alias to that argument. General reads still use access_chains separately.
+    """
+    expression = rhs.strip()
+    direct = re.match(r"RealityState\.data\b", expression)
+    if not direct:
+        direct = any(re.match(rf"{re.escape(name)}\b", expression)
+                     for name in aliases)
+    return access_chains(expression, aliases, constants) if direct else []
+
+
 def _numeric_source_pass(text: str, root_aliases, member_aliases):
     class_constants, _numbers = source_constants(text)
     constants = class_constants.copy()
@@ -331,7 +345,7 @@ def _numeric_source_pass(text: str, root_aliases, member_aliases):
         binding = _binding(statement)
         if binding:
             name = binding.group("name")
-            bound_paths = access_chains(binding.group("rhs"), aliases, constants)
+            bound_paths = binding_access_paths(binding.group("rhs"), aliases, constants)
             string_value = _string_binding(binding.group("rhs"))
             if name in root_aliases:
                 aliases[name] = root_aliases[name]

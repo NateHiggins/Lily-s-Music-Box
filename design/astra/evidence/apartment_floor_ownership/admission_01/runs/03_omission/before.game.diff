@@ -1,0 +1,488 @@
+diff --git a/game/scripts/building/building_root.gd b/game/scripts/building/building_root.gd
+index 3d706fd..9b8282e 100644
+--- a/game/scripts/building/building_root.gd
++++ b/game/scripts/building/building_root.gd
+@@ -1878,6 +1878,9 @@ func _late_owner_is_dynamic(geometry: Node, floor: Node,
+ 		registered: Dictionary) -> bool:
+ 	var cursor: Node = geometry
+ 	while cursor != null and cursor != floor:
++		# A cabinet viewport owns its world; building zones must not index it.
++		if cursor is SubViewport:
++			return true
+ 		if registered.has(cursor.get_instance_id()):
+ 			return true
+ 		if String(cursor.name).begins_with("NPC_"):
+@@ -2860,11 +2863,26 @@ func _zone_toggle(node: Node3D, eligible: bool,
+ 	if blocks.is_empty():
+ 		_zone_layer_blocks.erase(id)
+ 		if passage_late_saved.has(id):
+-			vi.layers = passage_late_saved[id]
++			_set_zone_layer_mask(vi, int(passage_late_saved[id]))
+ 			passage_late_saved.erase(id)
+ 	else:
+ 		_zone_layer_blocks[id] = blocks
+-		vi.layers = 0
++		_set_zone_layer_mask(vi, 0)
++
++
++## Godot 4.7.1 Forward+ omits ordinary geometry unpairing before layer changes
++## (godotengine/godot#121989, fixed upstream by #122064). Rebind to the SAME
++## scenario while the old mask is intact; then apply the new mask. This never
++## writes Node3D.visible, so the owner/floor/zone visibility contract is retained.
++## The unchanged-mask guard avoids scenario work during repeated region scans.
++func _set_zone_layer_mask(vi: VisualInstance3D, target_layers: int) -> void:
++	if vi.layers == target_layers:
++		return
++	if vi is GeometryInstance3D and vi.is_inside_tree():
++		var world: World3D = vi.get_world_3d()
++		if world != null:
++			RenderingServer.instance_set_scenario(vi.get_instance(), world.scenario)
++	vi.layers = target_layers
+ 
+ 
+ ## RENDERER (owner ruling 2026-08-22: Forward+ is canonical; Compatibility
+diff --git a/game/scripts/reality/apartment_encroachment.gd b/game/scripts/reality/apartment_encroachment.gd
+index 1bdf824..22dbdc1 100644
+--- a/game/scripts/reality/apartment_encroachment.gd
++++ b/game/scripts/reality/apartment_encroachment.gd
+@@ -36,7 +36,7 @@ const DreamResidueScript := preload("res://scripts/dream/dream_residue.gd")
+ const DreamCritterScript := preload("res://scripts/dream/critters/dream_critter_controller.gd")
+ const DreamDirectorScript := preload("res://scripts/dream/dream_ecology_director.gd")
+ const DreamMossRendererScript := preload("res://scripts/dream/dream_moss_colony_renderer.gd")
+-## §31 — what keeps three independent systems from producing incoherent noise.
++## Â§31 â€” what keeps three independent systems from producing incoherent noise.
+ var ecology: DreamEcologyDirector = null
+ ## DO-3: the architecture reads its own addressed packets. The shared director
+ ## remains a bounded store and never routes or interprets them on its behalf.
+@@ -89,7 +89,7 @@ const RESIDUE := 0.2
+ ## Case -> unit and incarnation. The unit is where the resident lives; the
+ ## incarnation names the plate bundle the dream already ships for the case.
+ ## `grammar` is the shape the creep takes in the one surface's encroachment
+-## group (design/SIX_INCARNATIONS.md §a per case); the tints are the case's
++## group (design/SIX_INCARNATIONS.md Â§a per case); the tints are the case's
+ ## substance and its metal.
+ const CASES := {
+ 	"mina_caption_crisis": {"unit": "2A", "incarnation": "mina", "profile": "mina_release_print",
+@@ -118,13 +118,16 @@ var beachheads: Dictionary = {}
+ var intensities: Dictionary = {}
+ ## case_id -> {"rect": Vector4, "floor_y": float, "floor_node": Node}
+ var units: Dictionary = {}
++## The actual build provider includes storeys without a case. Node identity,
++## never a scene-name guess, keeps their descendants out of another floor.
++var _authored_floor_nodes: Dictionary = {}
+ ## case_id -> Array of {"mesh": MeshInstance3D, "material": ShaderMaterial, "shared": Material}
+ ## The props inside the flat that wear the layered surface, each given its
+ ## own copy with the case's states on it (owner ruling 2026-08-21: "it
+ ## should reach the props").
+ var prop_rows: Dictionary = {}
+ var props_reached := 0
+-## floor_id -> LivingField (design/LIVING_FIELD_BRIEF.md §5): ONE organism
++## floor_id -> LivingField (design/LIVING_FIELD_BRIEF.md Â§5): ONE organism
+ ## per storey with a source per case on it, sampled by every layered
+ ## surface on the storey. LIVING=0 disables. case_id -> source index.
+ var fields: Dictionary = {}
+@@ -134,7 +137,7 @@ var field_source: Dictionary = {}
+ var ecology_source: Dictionary = {}
+ var _cilia_sample_clock: Dictionary = {}
+ var moss_presentations: Dictionary = {}
+-## floor_id -> Array of OmniLight3D: the lights the organism throws (§5c).
++## floor_id -> Array of OmniLight3D: the lights the organism throws (Â§5c).
+ var field_lights: Dictionary = {}
+ ## Every surface material on a storey the field was bound to (for refresh).
+ var storey_materials: Dictionary = {}
+@@ -161,6 +164,7 @@ var _substance_keys: Dictionary = {}
+ 
+ 
+ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) -> int:
++	_authored_floor_nodes = floor_nodes.duplicate()
+ 	name = "ApartmentEncroachment"
+ 	enabled = OS.get_environment("ENCROACH") != "0"
+ 	_parse_forced(OS.get_environment("ENCROACH_FORCE"))
+@@ -191,6 +195,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 		var rows: Array = []
+ 		for node in floor_node.find_children("*", "MeshInstance3D", true, false):
+ 			var mi := node as MeshInstance3D
++			if not _living_candidate(mi, floor_node):
++				continue
+ 			if mi.mesh == null or not mi.name.contains("_finish_"):
+ 				continue
+ 			var aabb := _world_aabb(mi)
+@@ -203,6 +209,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 				if original == null or original.albedo_texture == null:
+ 					continue
+ 				var material := _material_for(original, plates, rect, floor_y)
++				# This unique case material is also retained by the finish refresh row.
++				material.set_meta("living_storey", floor_id)
+ 				material.set_shader_parameter("grammar", int(spec.get("grammar", 0)))
+ 				var ink: Color = spec.get("ink", Color(0.20, 0.19, 0.30))
+ 				var gilt: Color = spec.get("gilt", Color(0.86, 0.66, 0.30))
+@@ -258,7 +266,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 		if root_node != null and ("player" in root_node):
+ 			dream_field.player = root_node.player
+ 		# DF-13: the shelved procedural limb, at a tenth the size and a
+-		# hundred at a time — one body meeting our space in many places.
++		# hundred at a time â€” one body meeting our space in many places.
+ 		if OS.get_environment("DREAM_TENDRILS") != "0":
+ 			surface_tendrils = DreamTendrilScript.new()
+ 			add_child(surface_tendrils)
+@@ -268,7 +276,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 		add_child(residue)
+ 		residue.setup("residue".hash())
+ 		residue.field = dream_field
+-		# THE MARGIN (ecology architecture §4): the Dream field does not end
++		# THE MARGIN (ecology architecture Â§4): the Dream field does not end
+ 		# in a shader fade, it ends in appendages.
+ 		if OS.get_environment("DREAM_MARGIN") != "0":
+ 			margin = DreamMarginScript.new()
+@@ -277,7 +285,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 			palp_renderer = DreamPalpRendererScript.new()
+ 			add_child(palp_renderer)
+ 			palp_renderer.setup(margin)
+-		# THE CRITTERS (§14). They use the margin as habitat, so they come
++		# THE CRITTERS (Â§14). They use the margin as habitat, so they come
+ 		# after it.
+ 		if OS.get_environment("DREAM_CRITTERS") != "0":
+ 			critters = DreamCritterScript.new()
+@@ -285,7 +293,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 			critters.setup(dream_field, "critters".hash())
+ 			critters.margin = margin
+ 			critters.residue = residue
+-			# §10's ninth broadcast: the margin has to be able to feel them
++			# Â§10's ninth broadcast: the margin has to be able to feel them
+ 			# back, or "critter proximity" is a field nothing ever sets.
+ 			if margin != null:
+ 				margin.critters = critters
+@@ -323,14 +331,14 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 			var rn := get_parent()
+ 			if rn != null and ("player" in rn):
+ 				hero.watch = rn.player
+-			# §28: the hero gets the richest transformation.
++			# Â§28: the hero gets the richest transformation.
+ 			if residue != null:
+ 				hero.touched.connect(func(where: Vector3, nrm: Vector3):
+ 					residue.lay(where, nrm, 0.16, 1.0, 3.6))
+ 				hero.lifecycle_shed.connect(func(where: Vector3, nrm: Vector3,
+ 						generation: int, reproduction: int):
+ 					residue.lay_memory(where, nrm, generation, reproduction))
+-			# §11 — the hero joins the margin's society as a high-priority
++			# Â§11 â€” the hero joins the margin's society as a high-priority
+ 			# member, rather than being a special effect dropped into it.
+ 			if margin != null:
+ 				margin.hero = hero
+@@ -339,7 +347,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 				hero.critters = critters
+ 			if margin != null:
+ 				hero.margin = margin
+-		# §31 — the director sees all three levels, so it comes last.
++		# Â§31 â€” the director sees all three levels, so it comes last.
+ 		ecology = DreamDirectorScript.new()
+ 		add_child(ecology)
+ 		ecology.setup("ecology".hash())
+@@ -359,7 +367,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null)
+ 				add_child(renderer)
+ 				renderer.setup(colony)
+ 				moss_presentations[colony_id] = renderer
+-		# §13 — the player changing the world is what the ecology notices.
++		# Â§13 â€” the player changing the world is what the ecology notices.
+ 		# The director connects itself once the player exists; doing it here
+ 		# ran before the player was built and quietly connected nothing.
+ 		if margin != null:
+@@ -522,7 +530,7 @@ func _physics_process(delta: float) -> void:
+ 			_push_living_lifecycle(floor_id, field)
+ 			_place_lights(floor_id, field)
+ 			_tend_tentacles(floor_id, field, delta)
+-	# §14: the tentacle does not drive the field; they share clocks, so the
++	# Â§14: the tentacle does not drive the field; they share clocks, so the
+ 	# whole organism beats together.
+ 	if dream_field != null:
+ 		var pulse := 0.0
+@@ -606,7 +614,7 @@ func _cilia_sample_near_moss(floor_id: String, colony_id: int, colony) -> void:
+ 	_cilia_sample_clock[colony_id] = 4.0
+ 
+ 
+-## DO-3 — LIVING ARCHITECTURE INTERPRETS THE CILIA'S VASCULAR ANSWER.
++## DO-3 â€” LIVING ARCHITECTURE INTERPRETS THE CILIA'S VASCULAR ANSWER.
+ ##
+ ## Affinity remains receptor-side. A qualifying packet locally pressurizes the
+ ## one LivingField whose bounds contain it, through that field's nearest
+@@ -692,7 +700,7 @@ func _floor_of(case_id: String) -> String:
+ 	return floor_node.name if floor_node != null else ""
+ 
+ 
+-## §5c: up to three OmniLights per storey at the organism's strongest nodes,
++## Â§5c: up to three OmniLights per storey at the organism's strongest nodes,
+ ## in the source's ink, energy from the body. No shadows; range bounded.
+ func _place_lights(floor_id: String, field) -> void:
+ 	var lights: Array = field_lights.get(floor_id, [])
+@@ -727,38 +735,102 @@ func _palette() -> Array[Vector3]:
+ 	return out
+ 
+ 
+-## §5a: every layered material on the storey binds the storey's field —
++## Â§5a: every layered material on the storey binds the storey's field â€”
+ ## walls, finishes, floors, trims (surface overrides) and the props
+ ## (material overrides; shared MatLib materials get a per-storey copy).
+-func _bind_storey(floor_node: Node, floor_id: String, field) -> void:
+-	var bound: Array = storey_materials.get(floor_id, [])
++func _bind_storey(floor_node: Node, floor_id: String, _field) -> void:
++	# Seed only weak source aliases from the previous active set. The registry
++	# itself is rebuilt; replaced or detached draws cannot accumulate here.
++	var copies: Dictionary = {}
++	for previous in storey_materials.get(floor_id, []):
++		var material := previous as ShaderMaterial
++		if material == null or material.has_meta("encroachment_case") \
++				or str(material.get_meta("living_storey", "")) != floor_id:
++			continue
++		if not material.has_meta("living_source"):
++			continue
++		var source_ref := material.get_meta("living_source") as WeakRef
++		if source_ref != null and source_ref.get_ref() != null:
++			copies[source_ref.get_ref()] = material
++	if not storey_materials.has(floor_id):
++		storey_materials[floor_id] = []
++	else:
++		(storey_materials[floor_id] as Array).clear()
+ 	for node in floor_node.find_children("*", "MeshInstance3D", true, false):
+ 		var mi := node as MeshInstance3D
+-		if mi.mesh == null:
++		if not _living_candidate(mi, floor_node) or mi.mesh == null:
+ 			continue
+ 		var over := mi.material_override as ShaderMaterial
+-		if over != null and over.shader != null \
+-				and over.shader.resource_path.get_file().begins_with("orison_surface"):
+-			if not over.has_meta("living_storey"):
+-				over = over.duplicate() as ShaderMaterial
+-				over.set_meta("living_storey", floor_id)
+-				mi.material_override = over
++		if _is_living_surface(over):
++			over = _storey_material(over, floor_id, copies)
++			mi.material_override = over
+ 			_bind_living(over, floor_id)
+-			bound.append(over)
++			continue
++		# A full override hides the mesh's surface overrides.
++		if mi.material_override != null:
+ 			continue
+ 		for s in mi.mesh.get_surface_count():
+-			var m := mi.get_surface_override_material(s) as ShaderMaterial
+-			if m == null or m.shader == null \
+-					or not m.shader.resource_path.get_file().begins_with("orison_surface"):
++			var material := mi.get_surface_override_material(s) as ShaderMaterial
++			if not _is_living_surface(material):
+ 				continue
+-			if m.has_meta("living_storey") and str(m.get_meta("living_storey")) != floor_id:
+-				m = m.duplicate() as ShaderMaterial
+-				mi.set_surface_override_material(s, m)
+-			m.set_meta("living_storey", floor_id)
+-			_bind_living(m, floor_id)
+-			bound.append(m)
+-	storey_materials[floor_id] = bound
+-	print("[ENCROACH] living field on %s binds %d materials" % [floor_id, bound.size()])
++			# Preserve SurfacePass's first-owner cache reference (including its
++			# governor budget writes); only another storey needs a copy here.
++			if not material.has_meta("living_storey"):
++				material.set_meta("living_storey", floor_id)
++			material = _storey_material(material, floor_id, copies)
++			mi.set_surface_override_material(s, material)
++			_bind_living(material, floor_id)
++	# Case props can be direct children of BuildingRoot rather than the glTF
++	# storey. Keep their exact installed material in the same refresh owner.
++	for case_id in prop_rows:
++		if _floor_of(case_id) != floor_id:
++			continue
++		for row in prop_rows[case_id]:
++			var mi := row.mesh as MeshInstance3D
++			if not is_instance_valid(mi) or not _living_candidate(mi, get_parent()):
++				continue
++			var material := row.material as ShaderMaterial
++			if mi.material_override != material or not _is_living_surface(material):
++				continue
++			material = _storey_material(material, floor_id, copies)
++			mi.material_override = material
++			row.material = material
++			_bind_living(material, floor_id)
++	print("[ENCROACH] living field on %s binds %d materials" % [floor_id, storey_materials[floor_id].size()])
++
++
++func _storey_material(material: ShaderMaterial, floor_id: String, copies: Dictionary) -> ShaderMaterial:
++	if str(material.get_meta("living_storey", "")) == floor_id:
++		return material
++	if copies.has(material):
++		return copies[material] as ShaderMaterial
++	# Full overrides keep their existing per-storey copy policy; foreign
++	# owners must also be copied even when living_storey metadata exists.
++	var own := material.duplicate() as ShaderMaterial
++	own.set_meta("living_storey", floor_id)
++	own.set_meta("living_source", weakref(material))
++	copies[material] = own
++	return own
++
++
++static func _is_living_surface(material: ShaderMaterial) -> bool:
++	return material != null and material.shader != null \
++			and material.shader.resource_path.get_file().begins_with("orison_surface")
++
++
++static func _living_candidate(mi: MeshInstance3D, scope: Node) -> bool:
++	if not is_instance_valid(mi) or not is_instance_valid(scope):
++		return false
++	var cursor: Node = mi
++	while cursor != null:
++		if cursor.is_queued_for_deletion() or cursor is SubViewport or cursor is CharacterBody3D \
++				or cursor.is_in_group("resident_placeholders") or cursor.is_in_group("animated_residents") \
++				or str(cursor.name).begins_with("NPC_"):
++			return false
++		if cursor == scope:
++			return true
++		cursor = cursor.get_parent()
++	return false
+ 
+ 
+ func _bind_living(m: ShaderMaterial, floor_id: String) -> void:
+@@ -811,6 +883,7 @@ func reach_props(root: Node) -> int:
+ 	if not enabled:
+ 		return 0
+ 	props_reached = 0
++	var _floor_owners := _prop_floor_owners()
+ 	for case_id in units:
+ 		var unit: Dictionary = units[case_id]
+ 		var rect: Vector4 = unit.rect
+@@ -818,6 +891,8 @@ func reach_props(root: Node) -> int:
+ 		var rows: Array = []
+ 		for node in root.find_children("*", "MeshInstance3D", true, false):
+ 			var mi := node as MeshInstance3D
++			if not _living_candidate(mi, root):
++				continue
+ 			if mi.mesh == null or not (mi.material_override is ShaderMaterial):
+ 				continue
+ 			var shader_path := ""
+@@ -840,6 +915,7 @@ func reach_props(root: Node) -> int:
+ 			var shared: Material = mi.material_override
+ 			var own := (shared as ShaderMaterial).duplicate() as ShaderMaterial
+ 			own.set_meta("encroachment_case", case_id)
++			own.set_meta("living_storey", _floor_of(case_id))
+ 			own.set_meta("encroachment_shared", shared)
+ 			own.set_shader_parameter("mask_proc_scale", 2.4)
+ 			own.set_shader_parameter("mask2_threshold", Vector4(0.55, 0.58, 0.46, 0.55))
+@@ -863,8 +939,8 @@ func reach_props(root: Node) -> int:
+ 	# The tentacles may come out now: the objects they explore exist.
+ 	_tentacle_candidates.clear()
+ 	_props_ready = true
+-	# §5a: the organism goes anywhere on the storey, so every layered prop on
+-	# the storey binds its field — not only those inside a flat.
++	# Â§5a: the organism goes anywhere on the storey, so every layered prop on
++	# the storey binds its field â€” not only those inside a flat.
+ 	for floor_id in fields:
+ 		var unit_floor: Node = null
+ 		for case_id in units:
+@@ -876,6 +952,34 @@ func reach_props(root: Node) -> int:
+ 	return props_reached
+ 
+ 
++## Resolve all declared floor roots once per sweep. Manual method fixtures
++## already provide explicit floor_node identities in units; retain that seam
++## without requiring a fake BuildingRoot or inferring ownership from names.
++func _prop_floor_owners() -> Dictionary:
++	var owners := {}
++	for floor_node in _authored_floor_nodes.values():
++		if is_instance_valid(floor_node):
++			owners[floor_node] = true
++	for unit in units.values():
++		var floor_node: Node = unit.get("floor_node")
++		if is_instance_valid(floor_node):
++			owners[floor_node] = true
++	return owners
++
++
++## A descendant's real floor owns its admission even when its low geometry
++## overlaps the generous vertical envelope of the storey below. Root-level
++## props have no such provider: leave their existing world-AABB admission and
++## already-established case metadata rules intact.
++static func _prop_matches_floor(mi: MeshInstance3D, floor_node: Node, owners: Dictionary) -> bool:
++	var cursor: Node = mi
++	while cursor != null:
++		if owners.has(cursor):
++			return cursor == floor_node
++		cursor = cursor.get_parent()
++	return true
++
++
+ func _apply_prop_states(case_id: String, value: float) -> void:
+ 	if not prop_rows.has(case_id):
+ 		return
+diff --git a/game/tests/passage_visibility_test.gd b/game/tests/passage_visibility_test.gd
+index de26b56..2af6931 100644
+--- a/game/tests/passage_visibility_test.gd
++++ b/game/tests/passage_visibility_test.gd
+@@ -95,13 +95,16 @@ func _count_unclassified_visible(root: Node) -> int:
+ 
+ 
+ func _ready() -> void:
+-	# The 03:00 composition assertions require the canonical clock. Without
+-	# this pin the test follows the real wall clock and fails in the
+-	# 06:30-02:00 trading window — found 2026-08-16 when a green battery
+-	# went red between runs purely because the machine crossed 2 AM.
++	# DAYNIGHT=0 disables legacy dispatch; it no longer pins campaign time.
++	# The hours/owner composition assertions require an explicit frozen 03:00.
+ 	OS.set_environment("DAYNIGHT", "0")
+ 	RealityState.persistence_enabled = false
+ 	RealityState.reset_campaign_for_tests()
++	CampaignTime.set_frozen_for_tests(true)
++	var fixture_clock := CampaignClock.new()
++	var clock_pinned: bool = fixture_clock.configure_date(1928, 11, 10, 180.0)
++	_check("fixture owns an explicit frozen 03:00 campaign clock",
++			clock_pinned and is_equal_approx(fixture_clock.minute_of_day(), 180.0))
+ 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
+ 	add_child(root)
+ 	await get_tree().create_timer(1.6).timeout
+@@ -193,6 +196,15 @@ func _ready() -> void:
+ 	var late_foreign: Array = root.passage_late_foreign_nodes
+ 	var late_interior: Array = root.passage_late_interior_nodes
+ 	root._apply_visibility(Vector3(14.0, 1.0, 50.0))
++	var hidden_late: Array[Dictionary] = []
++	for geometry in late_interior:
++		if not (geometry.visible and _submits(geometry)):
++			hidden_late.append({"path": str(geometry.get_path()),
++					"visible": geometry.visible, "visible_in_tree": geometry.is_visible_in_tree(),
++					"layers": geometry.layers, "class": geometry.get_class(),
++					"groups": geometry.get_groups()})
++	print("[PASSAGE LATE POPULATION] clock=%s total=%d hidden=%s" % [
++			fixture_clock.datetime_string(), late_interior.size(), JSON.stringify(hidden_late)])
+ 	_check("late-built foreign F01 draws do not submit inside the hall",
+ 			late_foreign.size() > 300 and _all_hidden(late_foreign))
+ 	_check("every named late foreign owner is hidden inside the hall",
+diff --git a/game/tests/street_core_visibility_test.gd b/game/tests/street_core_visibility_test.gd
+index f5ad81f..a77c584 100644
+--- a/game/tests/street_core_visibility_test.gd
++++ b/game/tests/street_core_visibility_test.gd
+@@ -8,6 +8,13 @@ var _failed := 0
+ func _ready() -> void:
+ 	RealityState.persistence_enabled = false
+ 	RealityState.reset_campaign_for_tests()
++	# The geometry population contract was authored at the canonical 03:00.
++	# Pin the shared clock explicitly; rendering/dispatch flags do not set it.
++	CampaignTime.set_frozen_for_tests(true)
++	var fixture_clock := CampaignClock.new()
++	var clock_pinned: bool = fixture_clock.configure_date(1928, 11, 10, 180.0)
++	_check("fixture owns an explicit frozen 03:00 campaign clock",
++			clock_pinned and is_equal_approx(fixture_clock.minute_of_day(), 180.0))
+ 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
+ 	add_child(root)
+ 	await get_tree().create_timer(1.5).timeout
+@@ -16,6 +23,16 @@ func _ready() -> void:
+ 	_check("both enclosed F01 masses produce a material index", core.size() > 1300)
+ 	var harukiya_core: Array = core.filter(func(geometry):
+ 		return root._fully_in_harukiya_core(geometry))
++	print("[STREET CORE POPULATION] total=%d harukiya=%d clock=%s" % [
++			core.size(), harukiya_core.size(), fixture_clock.datetime_string()])
++	var harukiya_census: Array[Dictionary] = []
++	for geometry in root.find_children("*", "GeometryInstance3D", true, false):
++		if root._fully_in_harukiya_core(geometry):
++			harukiya_census.append({"path": str(geometry.get_path()),
++					"indexed": core.has(geometry), "class": geometry.get_class(),
++					"visible": geometry.visible, "layers": geometry.layers,
++					"world_aabb": str(root._measured_world_aabb(geometry))})
++	print("[HARUKIYA SOURCE CENSUS] ", JSON.stringify(harukiya_census))
+ 	_check("the ruled Harukiya prism contributes its own population",
+ 			harukiya_core.size() > 250)
+ 

@@ -1,0 +1,1390 @@
+[
+  {
+    "authoritative_owner": "Git / scoped receipts",
+    "automated_proof": {
+      "packet_selftests": "8 tests passed, 17 mutation fixtures rejected; actual validator CLI exits 1 then 0",
+      "receipt": "evidence/packet_validation.json",
+      "receipt_sha256": "265bd5f8dd9ac966572ff82609c6637e45541d2f0b39e756e93238b22c8c4fd9",
+      "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8"
+    },
+    "composed_runtime_proof": "No player-facing feature or new runtime proof is created by sanitation.",
+    "current_state": "Frozen repository truth and red-validated packet committed at ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
+    "dependencies": [],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Trust one canonical line and preserve recoverable work",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-SANITIZE-0",
+    "implementation_strategy": "Validate deterministic packet with red fixtures; commit named paths.",
+    "next_decisive_action": "Keep current audits and authored outcomes bound to explicit immutable evidence; preserve the sanitation packet.",
+    "open_defects": [
+      "Maintain frozen census separately from live evidence; no release claim."
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Canonical branch",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "release",
+    "severity": "BLOCKER",
+    "status": "INTEGRATED",
+    "subsystem": "repository"
+  },
+  {
+    "authoritative_owner": "Bodega source / OrisonV2Blockout",
+    "automated_proof": {
+      "accepted_boundary": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+      "completeness_exit": 2,
+      "completeness_selftest_exit": 0,
+      "latest_static_receipt": "evidence/final_repair_audits/receipt.json",
+      "merge_commit": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "runtime_revalidation": "SCOPED_PASS_WITH_REPAIRS",
+      "static_receipt": "evidence/m11b_audits/receipt.json",
+      "static_receipt_sha256": "0a74fcb9b6eed3a9c1f53e14acb32c6d2b41d5853129d3816c5a226714a89553"
+    },
+    "composed_runtime_proof": "evidence/m11b_runtime/receipt.json; evidence/audio_repair_runtime/final_review.json; evidence/audio_ownership/receipt.json. These prove scoped runtime behavior, not exterior selector integration or whole-world visual acceptance.",
+    "current_state": "Accepted boundary integrated; M11B75/M11A40, repaired M08F29 and actual fresh-profile matrix24 pass within their scoped contracts.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Keep accepted exterior/opening work on one verified development line",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-INTEGRATE-M11B",
+    "implementation_strategy": "Integrate only through a9e455b after sanitation and replay required tests.",
+    "next_decisive_action": "Reconstruct the quarantined F01 proposal from traceable dependencies in a clean implementation; preserve accepted review scope and v1 default.",
+    "open_defects": [
+      "Standalone exterior remains outside the production selector",
+      "No full-world or new human visual acceptance",
+      "Five existing v1 cam_noel_witches placement warnings remain"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Standalone OrisonV2ExteriorCell / F02-F04 reviews",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "merge_commit": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "source_boundary": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "early complete path",
+    "severity": "BLOCKER",
+    "status": "INTEGRATED",
+    "subsystem": "world substrate"
+  },
+  {
+    "authoritative_owner": "Owner registry / geometry provider",
+    "automated_proof": "evidence/f01_source_replay/installed_01/receipt.json binds four actual zero-exit commands: catalog, authorship --check, 25 ownership tests and 10 exporter tests. All ten source bytes and all 17 protected paths remained unchanged after testing. Existing refusal and payload-corruption controls are included; no new failure baseline. Fresh export A and B each have Blender/controller/outer exit 0; independent comparison exit 0. All 2,071 input path states are unchanged. Existing canonical payload checks pass in both runs; the independent checker confirms bytes, ownership and aliases. The instrument also passed ten offline process/refusal controls. See export_01/summary.json.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Clean C1 sources are installed and tested. Two fresh Blender/controller exports and the independent comparison pass with 17 cells, 5,286 source records, 609 primitives, 531 aliases and 189 semantic owners. All 36 geometry files are byte-identical between runs. Protected inputs are unchanged. The production provider is still absent; C1 human acceptance remains pending and dirty C2 work remains quarantined.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Traverse streamed F01 without lost fixture identity",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-F01-CUT",
+    "implementation_strategy": "Close clean lineage and reversible provider parity, full routes/save and two-cycle teardown.",
+    "next_decisive_action": "Build an explicit optional F01 provider against the current root, retaining a selectable legacy control, imported glTF ownership, complete aliases and current consumer classes. Prove actual-root composition and teardown before adding dynamic residency. Preserve v1 default and human-pending C1 scope.",
+    "open_defects": [
+      "No production owner-cell provider or complete alias consumer",
+      "Streaming, actual routes, persistence and root lifecycle remain unproven for this geometry cut",
+      "C1 human acceptance remains pending; dirty C2 consumers remain quarantined"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "BuildingRoot monolith",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md",
+        "work/f01_reconstruction_review/README.md",
+        "work/f01_reconstruction_review/source_inventory.json",
+        "work/f01_reconstruction_review/consumer_review.md",
+        "evidence/f01_source_replay/installed_01/receipt.json",
+        "evidence/f01_source_export/export_01/summary.json"
+      ]
+    },
+    "scope": "early complete path",
+    "severity": "BLOCKER",
+    "status": "PROGRAMMED",
+    "subsystem": "world substrate"
+  },
+  {
+    "authoritative_owner": "CampaignClock",
+    "automated_proof": "Existing calendar52/52, world-time27/27 and protected-bind controls retained. WorldTimestamp original51/76 native1; candidate/restored/final76/76 native0. Wrapped-time61/76 and late-sample75/76 omissions are intended reds with exact restoration. Final job and register153/153 regressions pass; calendar52/52 and save compatibility14/14 retained.",
+    "composed_runtime_proof": "Final title_save_recovery/runtime/matrix_calendar_final:30/30 exit0,92.851s; all four root directions preserve the exact epoch/start/elapsed clock and destination civil date. Actual Continue enters CampaignShell with a real player and matching clock/facts in both roots (5 checks each). Headless reconstruction/launch evidence, not walked input or full-game performance.",
+    "current_state": "Authored November 10, 1928 and single creation-time hour/minute sampling are integrated. Five world timestamp owners now use qualified campaign elapsed minutes; apartment hearing now respects home presence. These source-bound timestamp and apartment-hearing repairs are committed at 9c12f19cf468d81c76369aca8a4f545a2129240b.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Start at local time of day on an independent campaign date",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-CLOCK",
+    "implementation_strategy": "Prove host-date independence and correct elapsed-clock consumers with deterministic reload.",
+    "next_decisive_action": "Prove remaining embodied listening/reading and one coherent ordinary resident day across interruption/reload, preserving ambiguous legacy duration facts and the current authored time policy.",
+    "open_defects": [
+      "Fixed EST is the current authored policy; historical seasonal offset transitions are not modeled (scope limit, no host-DST fallback)",
+      "Legacy ambiguous duration facts still require authored recoverability; an old porter intent may hold indefinitely",
+      "Corridor/visited-flat/outdoor perception and actual historical-event learning remain unproven",
+      "No human schedule/calendar perceptual acceptance or complete-game performance proof",
+      "Complete dramatic-boundary and physical perception coverage remains open"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": "Focused process0.881s; composed matrix92.763s. These are fixture durations, not p95 frame/boot measurements."
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "CampaignTime, both building roots, ScheduleDirector, DayNightDirector, clock props, PhoneOS, songbook, Open Shift durations and observations.",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "reconstruction_commit": "9548301873807117a870aeb6e517173e81a4713f",
+      "repair_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md",
+        "reviews/campaign_calendar_integration.md",
+        "reviews/world_time_coherence.md",
+        "evidence/historical_radio_notice/protected_bind_green/run_receipt.json",
+        "evidence/world_time_coherence/receipt.json",
+        "evidence/title_save_recovery/runtime/matrix_calendar_final/receipt.json",
+        "evidence/title_save_recovery/runtime/actual_continue_v1_final/receipt.json",
+        "evidence/title_save_recovery/runtime/actual_continue_v2_final/receipt.json",
+        "evidence/world_timestamps/validation.json",
+        "reviews/world_timestamp_review.md",
+        "evidence/hearing_presence/validation.json",
+        "reviews/hearing_presence_review.md"
+      ],
+      "timestamp_provenance_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b"
+    },
+    "scope": "early complete path",
+    "severity": "RELEASE_CRITICAL",
+    "status": "INTEGRATED",
+    "subsystem": "simulation time"
+  },
+  {
+    "authoritative_owner": "RealityState",
+    "automated_proof": "Final storage195/195, compatibility14/14 and calendar52/52 exit0 clean. Original protection, malformed-entry, UTF-8, omitted-readback and future-fallback controls fail meaningfully; exact restores pass. Title123/123, existing title/audio and composed17/29 regressions pass.",
+    "composed_runtime_proof": "Actual Continue enters CampaignShell with a real player and preserved saved facts/calendar under V1 and V2 (5/5 each). Four-direction exact calendar matrix30/30. Four interruption/recovery cases span ten real processes; killed writer exit81 is deliberate, new readers exit0. Ten final title states captured and reviewed; no human input/listening acceptance.",
+    "current_state": "Checked temp/backup/journal recovery, byte readback and UTF-8/envelope validation integrated. Ordinary title Continue preserves the saved campaign; explicit New archives prior bytes and launches only after verified persistence.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Resume every dramatic boundary without loss or duplication",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-SAVE",
+    "implementation_strategy": "Retain one save owner and fixed sibling paths; complete domain validation and native durable replacement, then the full dramatic-boundary/packaging/human matrix.",
+    "next_decisive_action": "Validate remaining domain scalar/ID/deeper payloads through their existing owners and prove the complete dramatic-boundary route; establish native replacement and two-machine packaging before release.",
+    "open_defects": [
+      "No native atomic replacement or checked OS power-loss durability; verified backup/journal supplies bounded crash recovery",
+      "Single-process ownership only; no cross-process file lock",
+      "Absent/version-0 documents retain default-based migration policy",
+      "Domain scalar ranges, IDs, vocabulary, chronology and deeper nested payloads are not comprehensively checked before adoption",
+      "Complete eleven-boundary and sequence-breaking reconstruction route remains unproven",
+      "Human pointer/controller, listening, comprehension and two-machine install/recovery gates remain open"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": "Title handler process17.337s; actual V1/V2 Continue processes23.799s/3.369s with different content scopes; four-direction matrix92.851s; legacy composed saves1.699s/2.640s. These include fixture setup/teardown and are not boot or frame p95 measurements."
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "RealityState/RealitySaveStorage, production title and GameBoot, CampaignShell and reconstructed fact consumers.",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "repair_commit": "9548301873807117a870aeb6e517173e81a4713f",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md",
+        "reviews/save_recovery_review.md",
+        "reviews/save_recovery_implementation_review.md",
+        "reviews/title_save_recovery_visual_review.md",
+        "evidence/save_recovery/complete_recovery_green/receipt.json",
+        "evidence/save_recovery/process_restart_03/receipt.json",
+        "evidence/title_save_recovery/runtime/handlers_final/receipt.json",
+        "evidence/title_save_recovery/runtime/matrix_calendar_final/receipt.json",
+        "evidence/title_save_recovery/runtime/title_capture_final/receipt.json"
+      ]
+    },
+    "scope": "release",
+    "severity": "BLOCKER",
+    "status": "INTEGRATED",
+    "subsystem": "persistence"
+  },
+  {
+    "authoritative_owner": "OpenShiftSituation / NpcObservationLedger",
+    "automated_proof": "Hearing original8/13 native5 versus mistakenly configured expected6 remains red/mismatched. Corrected focused13/13 native0. Existing Open Shift authority passes21 raw checks and save matrix17/17; native/gates0.",
+    "composed_runtime_proof": "Revised composed fixture actually reloads state and constructs V2 and V1 roots, then reads the root-owned ledger: old ledger4 failures among23 checks, corrected23 passes, native/gate0. Situation remains unoffered at boundaries; supplied neutral events prove no retroactive hearing and later properly dated observation. Same-process scope; retained found-art warning.",
+    "current_state": "Both roots share campaign time and home presence. Sight and apartment hearing now refuse absent listeners; real-root belief reconstruction is tested. Four player dispositions still require complete lived-route proof.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Work, ignore, abandon and meddle create continuing actor behavior",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-OPENSHIFT",
+    "implementation_strategy": "Bind real presence; play four dispositions through reconstruction.",
+    "next_decisive_action": "Play the four work/ignore/abandon/meddle dispositions through real movement, observation, owned consequences and interruption; retain the bounded apartment-hearing proof.",
+    "open_defects": [
+      "Actual corridor/venue perception and complete work/ignore/abandon/meddle routes remain unproven",
+      "No human listening/input-only route or complete dramatic-boundary acceptance"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Both roots / WorkOrders",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "repair_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md",
+        "reviews/world_time_coherence.md",
+        "evidence/world_time_coherence/receipt.json",
+        "evidence/hearing_presence/validation.json",
+        "reviews/hearing_presence_review.md"
+      ],
+      "timestamp_provenance_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "apartment_hearing_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b"
+    },
+    "scope": "early complete path",
+    "severity": "RELEASE_CRITICAL",
+    "status": "INTEGRATED",
+    "subsystem": "causal world"
+  },
+  {
+    "authoritative_owner": "NpcObservationLedger / ResidentRoutines / ResidentNav",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Shared bounded perception/planner/executor incomplete",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Mina hears hammer, seeks player, interrupts and resumes with memory",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-AGENT-MINA",
+    "implementation_strategy": "Build shared perception and action execution; observe a complete day in life.",
+    "next_decisive_action": "Build shared perception and action execution; observe a complete day in life.",
+    "open_defects": [
+      "Shared bounded perception/planner/executor incomplete"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "AnimatedResident / NPCPlaceholder",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ],
+      "apartment_hearing_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b"
+    },
+    "scope": "early complete path",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "embodied cast"
+  },
+  {
+    "authoritative_owner": "Shared agent stack",
+    "automated_proof": "Direct-route original25/33/native8 and corrected33/33/native0; exact nav-call omission20/21/native1 and old-coordinate omission15/21/native1. Both restore to complete31/31 journeys. Existing waiting40/40 and Passage26/26 pass with assertions unchanged. Earlier fixture errors/timeouts and audit-capsule limits are retained.",
+    "composed_runtime_proof": "Three full31-check actual-V1 runs cover untouched4D home departure, real lift readiness, actual Body-clear public F01 route, reached destination, normal44.274-second dwell draw, expiry, real return readiness and same-home return, then root retirement. One _step per real physics frame; other resident choices/player held and campaign clock frozen. This retains the production layer-zero walk-through actor and hidden lift-rider abstraction. Wrapper/process duration is not a performance or physical player-traversal result. Known host-loader/RGB8/found-art diagnostics remain separately classified.",
+    "current_state": "Applied portal-centre and wall-normal approaches, public lift waiting, a public F01 destination and guarded short direct routes. One actual Transient Guests owner completes arrival/dwell/return in three source-bound V1 runs. The shared persistent ordinary-day agent outcome remains incomplete.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "A resident without a case lives an ordinary persistent day",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-AGENT-AMBIENT",
+    "implementation_strategy": "Prove second character from data with venue, social encounter, props, disturbance and reload.",
+    "next_decisive_action": "Extend one resident to a persistent ordinary day with located perception, venue and prop use, social encounter, interruption and reload; prove the shared framework with a second character from data.",
+    "open_defects": [
+      "No complete ordinary-day, venue/social, interruption, persistence or human embodiment acceptance",
+      "The existing graph fallback is not generally capsule-safe; the new short-leg admission adds no crowd avoidance and physical support is sampled",
+      "Production Body remains layer/mask0 and scripted walk-through movement; lift riders are hidden during the real readiness-controlled ride",
+      "Earlier waiting/approach audit capsule0.33/1.524/+0.80 is not actual Body0.28/1.55/+0.775 or uniformly conservative; the new direct envelope0.33/1.65/+0.825 has a separate containment proof"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "ResidentRoutines / AnimatedResident",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md",
+        "evidence/resident_lift_waiting/validation.json",
+        "evidence/resident_lift_waiting/final_source_binding.json",
+        "reviews/resident_lift_waiting_review.md",
+        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json",
+        "evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/01_original_focused/result.json",
+        "evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/02_candidate_focused/result.json",
+        "evidence/resident_f01_haunt/nav_validation/nav_direct_03/runs/03_candidate_lifecycle/result.json",
+        "evidence/resident_f01_haunt/nav_validation/nav_direct_03/aggregate.json"
+      ],
+      "apartment_hearing_commit": "9c12f19cf468d81c76369aca8a4f545a2129240b",
+      "navigation_commit": "da68962aaeaabf56851abb7190dda14d7ff5675f"
+    },
+    "scope": "full world",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "embodied cast"
+  },
+  {
+    "authoritative_owner": "RealityCaseManager / WorkOrders / DreamDirector",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Strongest authored case; composed release quality pending",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Optional Mina shift reaches dream, wake and continuing residue",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-MINA",
+    "implementation_strategy": "Play both starts, tactile repair, procurement, earned conversation, dream, wake and four dispositions.",
+    "next_decisive_action": "Play both starts, tactile repair, procurement, earned conversation, dream, wake and four dispositions.",
+    "open_defects": [
+      "Strongest authored case; composed release quality pending"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Mina situation / CampaignShell",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "early complete path",
+    "severity": "BLOCKER",
+    "status": "PROGRAMMED",
+    "subsystem": "campaign"
+  },
+  {
+    "authoritative_owner": "Bible / case authority",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "18 case-like records, only Mina enabled",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Ambient neighbors do not acquire counterfeit canonical cases",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-CASE-DATA",
+    "implementation_strategy": "Classify six canonical cases, ambient incidents, sanctioned expansion and retired prototypes.",
+    "next_decisive_action": "Classify six canonical cases, ambient incidents, sanctioned expansion and retired prototypes.",
+    "open_defects": [
+      "18 case-like records, only Mina enabled"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "reality_cases.json / RealityCaseManager",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full campaign",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "narrative authority"
+  },
+  {
+    "authoritative_owner": "DreamExposureField / ecology / lamp state",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Isolated acceptance; absent critter binding; failed C1 gates",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Actual lamp exposure reveals intact anatomy in a furnished Orison room",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-DREAM-LAMP",
+    "implementation_strategy": "Close source dependencies; prove lamp-write/material-read, save ownership and perception.",
+    "next_decisive_action": "Close source dependencies; prove lamp-write/material-read, save ownership and perception.",
+    "open_defects": [
+      "Isolated acceptance; absent critter binding; failed C1 gates"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "ApartmentEncroachment / cellular materials",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full campaign",
+    "severity": "RELEASE_CRITICAL",
+    "status": "QUARANTINED",
+    "subsystem": "supernatural ecology"
+  },
+  {
+    "authoritative_owner": "Ecology sensory/state owners",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Lifecycle parts exist; bounded sensing/decisions incomplete",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "A colony explores information-rich props and retreats leaving cleanable stain",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-ECOLOGY",
+    "implementation_strategy": "Prove stimulus-response decisions and physical retreat/stain before scaling organisms.",
+    "next_decisive_action": "Prove stimulus-response decisions and physical retreat/stain before scaling organisms.",
+    "open_defects": [
+      "Lifecycle parts exist; bounded sensing/decisions incomplete"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "LivingField / fauna presenters",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full world",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "supernatural ecology"
+  },
+  {
+    "authoritative_owner": "V2 authored geometry/material sources",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Current twelve-frame production composition inspection: FINAL0, REFINE5, SALVAGEABLE2, REPLACE5; dark blockout and apparatus readability remain substantial debt. The repaired V2 operator and phone captures now show the actual console front and support-desk prompt. Yellow/teal development reservation meshes, gray-box architecture and coarse handset remain visible; no visual or human acceptance follows from21/21 capture checks.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Every playable view reads as one occupied 1928 building",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-ART",
+    "implementation_strategy": "Audit FINAL/SALVAGEABLE/REFINE/REPLACE/MISSING; finish substrate then hero views.",
+    "next_decisive_action": "Hide only nonphysical reservation display in production V2 while preserving dedicated review geometry, then compare actual operator/phone/lobby/lift views and retain the input regression. Continue source-based world construction.",
+    "open_defects": [
+      "Prototype art; full eye-height verdict census absent"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Playable V2 cells under actual light",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md",
+        "reviews/m08f_composition_visual_review.md",
+        "reviews/v2_terminal_candidate_view_01.json"
+      ]
+    },
+    "scope": "full world",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "environment art"
+  },
+  {
+    "authoritative_owner": "PlayerController / prop authorities",
+    "automated_proof": "V2 original19/39; candidate39/39; orientation omission38/39; desk omission20/39; footprint omission38/39; restored candidate39/39. Both actor/camera ray origins independently match the authored operator after actual deferred arrival. All344 raw artifact entries verify; source restoration and domain retirement are recorded. The fifth run overlaps unrelated Godot processes and requires an additive actual restoration receipt; its concurrency context is preserved.",
+    "composed_runtime_proof": "Actual CampaignShell/V2, ordinary2.1m physics ray and prompt, real E entry/seated exit/reentry, real Escape event, reciprocal player/desk/call ownership, retained case and Telephone audio owner. Final candidate39/39 and separate actual operator/phone capture21/21. Controlled physics-disabled pose and compressed opener delay; no walked route, completed case, controller, physical handset or listening acceptance.",
+    "current_state": "The selected navigation_commit_audits_01 reports 86 implementors, 0 forbidden prompts, 0 uncovered legacy carriers, 184 covered legacy carriers and 2 ambiguous dynamic prompts. Live carrier violations were repaired with preserved source red/green proof. V2 terminal composition now turns the actual console toward its authored operator and mounts the existing DeskZone/CallInterface. Six actual39-check runs establish the input repair with selective orientation, desk and footprint negatives, followed by restored39/39. The source remains a working checkpoint until its named commit is recorded.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Tools answer contact, resistance, sound and interruption on both inputs",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-INTERACTION",
+    "implementation_strategy": "Complete remaining legacy/dynamic prompt migration and prove actual input routes; shared player/NPC stance/contact semantics.",
+    "next_decisive_action": "Complete remaining legacy/dynamic prompt migration and prove actual input routes; shared player/NPC stance/contact semantics.",
+    "open_defects": [
+      "184 covered legacy carriers and 2 ambiguous dynamic prompts remain for migration/review; actual input routes and shared player/NPC stance/contact semantics remain unproven."
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "PlayerController / V2 mounted DeskZone / existing CallInterface and Telephone owner; existing physical affordances",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md",
+        "reviews/v2_terminal_access_arrival_02_review.json",
+        "reviews/v2_terminal_candidate_view_01.json"
+      ]
+    },
+    "scope": "early complete path",
+    "severity": "RELEASE_CRITICAL",
+    "status": "INTEGRATED",
+    "subsystem": "interaction"
+  },
+  {
+    "authoritative_owner": "AcousticGraphData / AudioPolicy",
+    "automated_proof": "evidence/audio_red_green.json: 25 audit red/green pairs; evidence/audio_ownership/receipt.json: bounded NightRegister lifetime repair. Neither proves listening or complete acoustic coverage.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Static gate green; cue coverage is narrower than all sound",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Players and residents locate meaningful sources through shared acoustic truth",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-AUDIO",
+    "implementation_strategy": "Prove audit can fail; derive V2 graph; headphones and speakers listening tests.",
+    "next_decisive_action": "Prove audit can fail; derive V2 graph; headphones and speakers listening tests.",
+    "open_defects": [
+      "Static gate green; cue coverage is narrower than all sound"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Emitters / hearing / captions",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full world",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "audio"
+  },
+  {
+    "authoritative_owner": "Domain data owners",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "The selected navigation_commit_audits_01 reports 1311 findings: 1297 FIELD_UNREAD, 11 FILE_UNREAD, 2 DURABLE_NUMERIC_MONOTONIC_ONLY and 1 MALFORMED; build-time false positives still require consumer-family triage.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Authored fields drive perceptible behavior or honest deferred status",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-DATA",
+    "implementation_strategy": "Classify real consumers; never blanket-baseline or delete authored data.",
+    "next_decisive_action": "Classify real consumers; never blanket-baseline or delete authored data.",
+    "open_defects": [
+      "The selected navigation_commit_audits_01 reports 1311 findings: 1297 FIELD_UNREAD, 11 FILE_UNREAD, 2 DURABLE_NUMERIC_MONOTONIC_ONLY and 1 MALFORMED; build-time false positives still require consumer-family triage."
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Build generators / runtime readers",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full world",
+    "severity": "MAJOR",
+    "status": "PROGRAMMED",
+    "subsystem": "authored data"
+  },
+  {
+    "authoritative_owner": "Residency / domain simulation budgets",
+    "automated_proof": "Historical operation omission emits1174 unpair and2316 underflow diagnostics; exact restoration296/296 removes both. Guard-only viewport omission266/305 has39 intended arcade reds; restored305/305. Material36, wardrobe63 and rebased equivalence171 regressions pass with retained selective reds and source-bound restoration. Failed parse/ownership attempts remain preserved.",
+    "composed_runtime_proof": "Final current owner1a/cde44/base5ec:305/305,18 PNGs directly reviewed,36 main-loop transitions, actual shell/world retirement, native/gate0. Separate d67 instrumented run314/314 restores every recorded registry lifecycle target and retires case resources. V2 base14/14 releases both roots, with2 directly reviewed but unreadable terminal views. Retained loader/RGB8/found-art warnings; no human or release acceptance.",
+    "current_state": "Owner1a1b067f retains correct authored-floor admission and exact installed registries in all eight actual V1 observations; 314/314 and native/base/additive gates0. Rebasing one-census passes171/171 with14/16 selective reds and exact restoration; actual wardrobe regression63/63. Final base V1 passes305/305 with actual retirement and no pairing/retention errors. The private-viewport omission fails39 arcade checks and exact restoration passes305. V2 structural/render/retirement14 passes, but its bedside camera sees a wall instead of a readable terminal. The two production owners and fourteen fixtures are committed at 77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4; broader performance and V2 product work remain open. Later terminal evidence resolves the wrong-facing/missing-desk defect and uses the actual operator viewpoint; this is an input/display repair, not performance acceptance.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "The complete game holds frame pacing through seamless boundaries",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-PERF",
+    "implementation_strategy": "Profile content-equivalent roots and two cycles; full target-machine p95 and leak proof.",
+    "next_decisive_action": "Review the optional clean C1 F01 provider against actual current-root consumers and lifecycle; complete V2 reservation display cleanup. Continue content-equivalent residency and frame-budget work without treating sparse V2 or adaptive-quality deltas as release performance.",
+    "open_defects": [
+      "Final base V1 Street-to-Passage1195.793ms and reverse1182.595ms medians (n6 each) remain visible stalls; main-loop quality budget varies from1.0 to0.0.",
+      "Sole-source-change two-run medians fall1385.249 to1188.5935ms and1377.8 to1179.5735ms, but adaptive governor and some population rows differ; no isolated fixed-workload speedup claim.",
+      "No ordinary production carry path for case-tagged household props was found; future/debug Vantry relocation and transported-residue policy remain separately unspecified, not an established ordinary-play defect.",
+      "V2 operator now sees and can enter the terminal in focused tests; development reservation geometry and unfinished surroundings remain perceptual debt.",
+      "No-op native-call count remains explicitly unproved.",
+      "Harukiya >250 remains red despite247/247 measured indexing and36 source-eligible groups; historical264 discrepancy unresolved.",
+      "Full-game steady frame pacing, equal-quality workloads, target-machine performance and long-running ownership growth remain unproved.",
+      "Inherited loader diagnostics, RGB8 conversions and found-art placement warnings remain; dark venues, reflection bands and coarse apparatus need production art and human/listening review."
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": "Full V1 candidate Street-to-Passage median 622.336 ms and reverse 615.593 ms (six each). Matched root-retirement omission/restoration Street-to-Passage 755.713/617.063 ms; reverse 617.259/610.729 ms. Native logging confounds omission deltas. These synchronous transition measurements establish a current stall, not isolated helper overhead or shipping p95. Diagnostic phase probe: Street-to-Passage 618.869 ms total, encroachment callback 523.691 ms, surface plus callbacks 549.169 ms, late index 22.967 ms, Street index 29.589 ms. The callback timing includes nested work; it does not isolate duplicate-registration cost. Per-mask instrumentation adds overhead and supplies no shipping helper-overhead claim. Later failed ownership7c54c/full02 with typed material observerc2642de6: Street-to-Passage median1375.2615ms and reverse1370.949ms, n6 each. Material probes sit outside apply timers but change run context; this is neither an isolated dedup delta nor performance acceptance. Floor-admission2a4405 with complete d67 observer: Street-to-Passage1385.249ms and reverse1377.8ms (n6 each), native/base/additive gates0. This is the passing baseline for a matched one-census comparison; observer work remains outside apply timers. Final matched one-census1a/d67:1188.5935/1179.5735ms(n6), observed -14.20/-14.39 percent. Only owner source differs, but baseline budgets1.0x124/0.75x20 versus candidate1.0x113/0.75x25/0.5x6 and25/43 equal population rows prevent isolated speedup acceptance. Final base1a/5ec:1195.793/1182.595ms(n6), with adaptive budgets1.0 through0.0; these are visibility-call durations, not frame p95. V2 startup report1008.039ms/whole fixture6.209s is sparse-root context only."
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Composed CPU/GPU/physics/audio/agents",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md",
+        "reviews/vulkan_composed_smoke_review.md",
+        "reviews/vulkan_composed_diagnostic_review.md",
+        "reviews/harukiya_threshold_review.md",
+        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json",
+        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/frames/probe.json",
+        "evidence/vulkan_composed/pair_bookkeeping_sequences/foundations_pair_01/receipt.json",
+        "reviews/vulkan_composed_foundations_candidate_review.md",
+        "work/visibility_transition_profile/README.md",
+        "evidence/vulkan_composed/renderer_foundations_checkpoint.json",
+        "evidence/vulkan_composed/visibility_phase_census_summary.json",
+        "evidence/vulkan_composed/visibility_phase_census_material_identity.json",
+        "reviews/visibility_transition_profile_review.md",
+        "evidence/apartment_material_binding/validation.json",
+        "reviews/apartment_material_binding_review.md",
+        "evidence/composed_material_ownership/typed_baseline_review_02.json",
+        "evidence/composed_material_ownership/typed_baseline_additive_signed_ids_02.json",
+        "evidence/encroachment_sweep/equivalence_runtime/ownership_7c54c_01/aggregate.json",
+        "reviews/material_full02_binding_review.json",
+        "evidence/apartment_floor_ownership/admission_01/aggregate.json",
+        "evidence/apartment_floor_ownership/admission_01/postrun_validation.json",
+        "evidence/composed_material_ownership/floor_admission_inspection_01.json",
+        "evidence/composed_material_ownership/material_floor_admission_v1_full_01_additive_v2.json",
+        "reviews/material_floor_admission_composed_review.md",
+        "evidence/vulkan_composed/runs/material_one_census_v1_full_01/result.json",
+        "evidence/composed_material_ownership/material_one_census_v1_full_01_additive_v2.json",
+        "reviews/one_census_matched_execution_review.json",
+        "evidence/vulkan_composed/runs/candidate_v1_material_final_01/result.json",
+        "reviews/final_v1_material_execution_review.json",
+        "evidence/encroachment_sweep/equivalence_runtime/ownership_2a440_01/aggregate.json",
+        "evidence/vulkan_composed/viewport_guard_sequences/viewport_guard_final_01/validation.json",
+        "reviews/one_census_matched_execution_review.md",
+        "reviews/final_v1_material_execution_review.md",
+        "reviews/material_one_census_visual_review.md",
+        "reviews/carry_reparent_policy_review.md",
+        "reviews/viewport_guard_final_01_review.md",
+        "evidence/vulkan_composed/v2_candidate_reviews/candidate_v2_foundations_01/validation.json",
+        "work/renderer_material_checkpoint/landing_01/selection.json",
+        "work/renderer_material_checkpoint/staging_01/commit_verification.json",
+        "evidence/renderer_material_commit_audits_01/receipt.json",
+        "reviews/v2_terminal_access_arrival_02_review.json",
+        "reviews/v2_terminal_candidate_view_01.json"
+      ],
+      "renderer_material_commit": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4"
+    },
+    "scope": "release",
+    "severity": "BLOCKER",
+    "status": "PROGRAMMED",
+    "subsystem": "performance"
+  },
+  {
+    "authoritative_owner": "PlayerController / focus/cancel owners",
+    "automated_proof": "evidence/prompt_repair/receipt.json: three semantic prompt repairs, 28 selftests, baseline unchanged. Actual independent input routes remain unproven.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Human controller-only route pending",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Controller and keyboard/mouse independently finish waking and dream routes",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-INPUT",
+    "implementation_strategy": "Human route with keyboard/mouse physically unavailable; remap/focus/cancel validation.",
+    "next_decisive_action": "Human route with keyboard/mouse physically unavailable; remap/focus/cancel validation.",
+    "open_defects": [
+      "Human controller-only route pending"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Panels / menus / dream controls",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "release",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "input/accessibility"
+  },
+  {
+    "authoritative_owner": "Settings / captions / camera",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Coverage and public labels unverified",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Motion, flash, sound and text accommodations match their labels",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-ACCESS",
+    "implementation_strategy": "Validate every public claim; lived-experience review for narcolepsy remains a release gate.",
+    "next_decisive_action": "Validate every public claim; lived-experience review for narcolepsy remains a release gate.",
+    "open_defects": [
+      "Coverage and public labels unverified"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Weather/dream effects and UI",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "release",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "input/accessibility"
+  },
+  {
+    "authoritative_owner": "LiveWeatherService / dialogue broker",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Full network failure/consent paths unproven",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Weather and optional generation fall back into a complete local experience",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-NETWORK",
+    "implementation_strategy": "Test opt-in, timeout, malformed output, disconnect and reload without progression dependency.",
+    "next_decisive_action": "Test opt-in, timeout, malformed output, disconnect and reload without progression dependency.",
+    "open_defects": [
+      "Full network failure/consent paths unproven"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Authored Queens weather / local dialogue",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "release",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "privacy/offline"
+  },
+  {
+    "authoritative_owner": "Desktop export / save / license owners",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Base import exit0 has Unicode diagnostics",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Clean install boots, saves, recovers and exits without project errors",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-EXPORT",
+    "implementation_strategy": "Attribute errors, package/install/crash/corruption/rollback, then two representative machines.",
+    "next_decisive_action": "Attribute errors, package/install/crash/corruption/rollback, then two representative machines.",
+    "open_defects": [
+      "Base import exit0 has Unicode diagnostics"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Packaged title and campaign",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "release",
+    "severity": "BLOCKER",
+    "status": "PROGRAMMED",
+    "subsystem": "release"
+  },
+  {
+    "authoritative_owner": "BuildingRootSelector / owner",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "DEFAULT_ID=v1; whole-building blockers open",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "V2 becomes production through an accepted reversible selector change",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-CUTOVER",
+    "implementation_strategy": "Clean full cutover matrix, then present exact one-line flip for separate authorization.",
+    "next_decisive_action": "Clean full cutover matrix, then present exact one-line flip for separate authorization.",
+    "open_defects": [
+      "DEFAULT_ID=v1; whole-building blockers open"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Title / CampaignShell",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "release",
+    "severity": "BLOCKER",
+    "status": "ABSENT",
+    "subsystem": "release"
+  },
+  {
+    "authoritative_owner": "Owner / fresh players / reviewers",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Reviewer and ethical/accessibility playthrough pending",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Fresh players inhabit, infer, choose and recover without developer knowledge",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-REVIEW",
+    "implementation_strategy": "Prepare concrete composed candidate for perceptual, ethical and release review.",
+    "next_decisive_action": "Prepare concrete composed candidate for perceptual, ethical and release review.",
+    "open_defects": [
+      "Reviewer and ethical/accessibility playthrough pending"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Complete installed game",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "release",
+    "severity": "BLOCKER",
+    "status": "ABSENT",
+    "subsystem": "release"
+  },
+  {
+    "authoritative_owner": "Owner retirement ruling",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "v1 is required reference/current default",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Retire v1 after accepted V2 and proven rollback window",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-V1-RETIRE",
+    "implementation_strategy": "Keep v1 until explicit retirement authorization and completed rollback window.",
+    "next_decisive_action": "Keep v1 until explicit retirement authorization and completed rollback window.",
+    "open_defects": [
+      "v1 is required reference/current default"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Selector / packaged resources",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "release",
+    "severity": "BLOCKER",
+    "status": "ABSENT",
+    "subsystem": "retirement"
+  },
+  {
+    "authoritative_owner": "RealityCaseManager / shared agent stack",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Canonical authored case; release proof pending",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Peter has a distinct complete situation and dream",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-PETER",
+    "implementation_strategy": "Complete after Mina; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "next_decisive_action": "Complete after Mina; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "open_defects": [
+      "Canonical authored case; release proof pending"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Peter situation / CampaignShell",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full campaign",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "campaign"
+  },
+  {
+    "authoritative_owner": "RealityCaseManager / shared agent stack",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Canonical authored case; release proof pending",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Juno has a distinct complete situation and dream",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-JUNO",
+    "implementation_strategy": "Complete after Peter; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "next_decisive_action": "Complete after Peter; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "open_defects": [
+      "Canonical authored case; release proof pending"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Juno situation / CampaignShell",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full campaign",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "campaign"
+  },
+  {
+    "authoritative_owner": "RealityCaseManager / shared agent stack",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Canonical authored case; release proof pending",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Cal has a distinct complete situation and dream",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-CAL",
+    "implementation_strategy": "Complete after Juno; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "next_decisive_action": "Complete after Juno; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "open_defects": [
+      "Canonical authored case; release proof pending"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Cal situation / CampaignShell",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full campaign",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "campaign"
+  },
+  {
+    "authoritative_owner": "RealityCaseManager / shared agent stack",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Canonical authored case; release proof pending",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Omar has a distinct complete situation and dream",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-OMAR",
+    "implementation_strategy": "Complete after Cal; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "next_decisive_action": "Complete after Cal; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "open_defects": [
+      "Canonical authored case; release proof pending"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Omar situation / CampaignShell",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full campaign",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "campaign"
+  },
+  {
+    "authoritative_owner": "RealityCaseManager / shared agent stack",
+    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+    "current_state": "Canonical authored case; release proof pending",
+    "dependencies": [
+      "ASTRA-SANITIZE-0"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Mae has a distinct complete situation and dream",
+    "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+    "id": "ASTRA-MAE",
+    "implementation_strategy": "Complete after Omar; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "next_decisive_action": "Complete after Omar; prove reuse, open-shift dispositions, sequence breaking and residue.",
+    "open_defects": [
+      "Canonical authored case; release proof pending"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "Mae situation / CampaignShell",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "branch": "codex/astra-canonical-20260904",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "AUTHORITY_HIERARCHY.md",
+        "DEBT_DEDUPLICATION.md"
+      ]
+    },
+    "scope": "full campaign",
+    "severity": "RELEASE_CRITICAL",
+    "status": "PROGRAMMED",
+    "subsystem": "campaign"
+  },
+  {
+    "authoritative_owner": "M08F test fixture setup",
+    "automated_proof": {
+      "commit": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+      "exits": [
+        0,
+        0
+      ],
+      "m08f_checks": "29/29",
+      "m11a_checks": "40/40",
+      "matrix_receipt": "evidence/audio_repair_runtime/matrix_directory_green/verbose_launch/receipt.json",
+      "receipt": "evidence/harness_directory_repair/receipt.json"
+    },
+    "composed_runtime_proof": "Actual V2 M08F save/destroy/CampaignShell reconstruction and isolated M11A save reconstruction pass in separate fresh profiles; this does not close production save corruption/restart recovery.",
+    "current_state": "M08F, M11A and genuine two-root harnesses now create checked save parents; each passed in independently fresh profiles after preserved failures.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0",
+      "ASTRA-INTEGRATE-M11B"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "A fresh isolated test profile can execute M08F save/reconstruction without another suite preparing it",
+    "human_proof_required": "No new human acceptance is inferred. Audio changes require a composed listening check after the ownership contract is proven.",
+    "id": "ASTRA-BASE-M08F-FRESH-PROFILE",
+    "implementation_strategy": "Retain absent-parent red proof, make the fixture own directory creation, then replay independently in a fresh isolated profile.",
+    "next_decisive_action": "Maintain independent-profile runs; address production save/title recovery separately under ASTRA-SAVE.",
+    "open_defects": [
+      "This repairs harness setup; it does not implement atomic production saves or safe title-screen continuation"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "orison_v2_m08f_runtime_test.gd",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "evidence_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "sources": [
+        "reviews/baseline_runtime_diagnosis.md",
+        "evidence/base_runtime/receipt.json"
+      ]
+    },
+    "scope": "early complete path",
+    "severity": "MAJOR",
+    "status": "RUNTIME_PROVEN",
+    "subsystem": "runtime evidence"
+  },
+  {
+    "authoritative_owner": "NightRegisterProp / AudioPolicy source-owned slots",
+    "automated_proof": {
+      "late_callback": "red19/20 exit1 / green20/20 exit0",
+      "receipt": "evidence/audio_ownership/receipt.json",
+      "receipt_sha256": "c574ea4442aa516712485ff2f6b916aec3d270aca9e145991e7051547d6195eb",
+      "same_fixture_controls": "missing owner1 / missing pending-slot release1 / complete0"
+    },
+    "composed_runtime_proof": "Final M08F verbose exit0 and genuine fresh-profile matrix24 exit0; independent source-ownership controls retain live-neighbor playback. No sound is skipped or globally muted.",
+    "current_state": "NightRegister paper cue identified and repaired; pending playback and off-tree callbacks covered; final M08F29, owner20, NightRegister148 and matrix24 have no audio retention diagnostics.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0",
+      "ASTRA-INTEGRATE-M11B"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "Retired register sounds release their streams and decoders without silencing another live source",
+    "human_proof_required": "No new human acceptance is inferred. Audio changes require a composed listening check after the ownership contract is proven.",
+    "id": "ASTRA-BASE-M08F-RETENTION",
+    "implementation_strategy": "Isolate idle ServiceSet, register refusal, shared clip, actual printing and policy controls; prove weak-reference retirement over two cycles before repair.",
+    "next_decisive_action": "Perform composed listening and continue broader ownership/performance coverage without generalizing this bounded repair.",
+    "open_defects": [
+      "No new listening acceptance or whole-game lifetime certification",
+      "Other historical audio paths require their own ownership evidence"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "NightRegisterProp in composed roots and AudioPolicy.release_source",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "evidence_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "repair_commit": "ac40f163fc0be18bfd8cb5bb2ede2a6c4f5f3f54",
+      "sources": [
+        "reviews/baseline_runtime_diagnosis.md",
+        "evidence/base_runtime/receipt.json"
+      ]
+    },
+    "scope": "release",
+    "severity": "RELEASE_CRITICAL",
+    "status": "RUNTIME_PROVEN",
+    "subsystem": "audio lifetime"
+  },
+  {
+    "authoritative_owner": "M08F runtime and capture harness authors",
+    "automated_proof": {
+      "receipt": "evidence/capture_contract_source_binding/validation.json",
+      "receipt_sha256": "73f1db6160373ed270783b2ba2fe4760014a61ecaf77a16770942c87c71866e3",
+      "windowed_receipt": "evidence/capture_contract_runtime/receipt.json"
+    },
+    "composed_runtime_proof": "Twelve windowed composition images captured after correcting a typed-path parse error. They prove inspection capture only; loader/RGB8 diagnostics and visual debt are retained.",
+    "current_state": "Capture is explicitly inspection-only; 105 selftests and 23 CLI controls reject unsupported/stale runtime receipts; seven prior runtime claims are demoted.",
+    "dependencies": [
+      "ASTRA-SANITIZE-0",
+      "ASTRA-INTEGRATE-M11B"
+    ],
+    "desired_final_state": "RELEASE_PROVEN for this outcome and all applicable definition-of-done dimensions.",
+    "experiential_outcome": "A captured inspection cannot claim save, denial, traversal or retention proofs it did not execute",
+    "human_proof_required": "No new human acceptance is inferred. Audio changes require a composed listening check after the ownership contract is proven.",
+    "id": "ASTRA-M08F-EVIDENCE-INTEGRITY",
+    "implementation_strategy": "Add a fixture that rejects unsupported claims, distinguish inspection/capture from executable runtime checks, and require actual failure-sensitive save, denial and teardown evidence.",
+    "next_decisive_action": "Generate actual executed runtime-contract receipts for the seven open requirements, with source digests and measured ownership; improve failed inspection framing.",
+    "open_defects": [
+      "Seven runtime claims still need admissible execution receipts",
+      "Five inspection frames need replacement framing; none is FINAL",
+      "Windowed loader and RGB8 diagnostics remain"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+    "production_consumer": "M08F review packet / completeness evidence consumers",
+    "provenance": {
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "evidence_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "repair_commit": "fc359a687e069d0b2e2baa70d71c352da26fd87e",
+      "sources": [
+        "reviews/baseline_runtime_diagnosis.md",
+        "evidence/base_runtime/receipt.json"
+      ]
+    },
+    "scope": "release",
+    "severity": "RELEASE_CRITICAL",
+    "status": "INTEGRATED",
+    "subsystem": "runtime evidence"
+  },
+  {
+    "authoritative_owner": "CampaignClock / authored historical-event records / resident observation owners",
+    "automated_proof": "Notice17/17 exit0, including invalid time and neighbor audio ownership; exact owner-teardown omission16/17 exit1. See immutable notice aggregate and final source bindings.",
+    "composed_runtime_proof": "Three final actual V1 lobby images reviewed; physical paper and both service-wire phases readable after copy repair. Camera teleported, Dummy audio. Not walked-input, listening, resident learning, V2 or human acceptance.",
+    "current_state": "Owner-selected November 10, 1928; sourced November11 03:00EST frequency reallocation has a physical V1 lobby hand-copy and campaign-time inspection text.",
+    "dependencies": [
+      "ASTRA-CLOCK",
+      "ASTRA-AGENT-MINA",
+      "ASTRA-AUDIO"
+    ],
+    "desired_final_state": "Source-backed factual event records reach residents through actual radio, newspaper and observation consumers on CampaignClock, with persistent bounded knowledge and no host-clock or hidden-coordinator knowledge injection.",
+    "experiential_outcome": "Residents learn real 1928 events through radios, newspapers and observations governed by campaign time",
+    "human_proof_required": "Review historical accuracy and contextual/perceptual delivery without a tutorial or omniscient event announcement.",
+    "id": "ASTRA-HISTORICAL-TIMELINE",
+    "implementation_strategy": "Extend sourced historical records through real physical delivery and perception owners; preserve explicit instants and distinguish station frequencies from programme schedules.",
+    "next_decisive_action": "Provide the notice in the authored V2 world and prove one resident learns a sourced event through actual embodied reading or audible radio perception.",
+    "open_defects": [
+      "V2 physical notice consumer absent",
+      "Resident observation/learning delivery of the historical event absent",
+      "Authentic radio programming and audible broadcast delivery absent",
+      "Human historical and perceptual acceptance pending",
+      "Historical notice capture retains pairing BUG diagnostics; current uncommitted matched-lobby/full-V1 candidate removes that signature within scoped controls, with final integration/broader renderer acceptance still open"
+    ],
+    "performance": {
+      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+      "measured_result": null
+    },
+    "persistence_reconstruction": "Historical event availability and resident observations derive from saved CampaignClock and actual sources; reconstruct deterministically across midnight, saves, long absence and schedule-key mapping.",
+    "production_consumer": "V1 LobbyBulletinBoard named wireless-notice control and service-wire inspection copy via actual PlayerController interaction ray.",
+    "provenance": {
+      "authority": "Latest explicit owner reply: nov 10 is perfect. The date is selected, superseding the earlier proposal.",
+      "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+      "repair_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+      "research_sha256": "8cdee84857c9122e7eed6552e995ca1f5516a83d65fab4cf13e63b5939e26f29",
+      "sources": [
+        "OWNER_MANDATE.md",
+        "reviews/campaign_date_research.md",
+        "reviews/historical_notice_review.md",
+        "reviews/campaign_calendar_integration.md",
+        "evidence/historical_radio_notice/runtime_visual_validation.json",
+        "evidence/historical_radio_notice/canonical_runtime_bindings.json",
+        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json"
+      ]
+    },
+    "scope": "full world",
+    "severity": "MAJOR",
+    "status": "INTEGRATED",
+    "subsystem": "historical environment"
+  }
+]

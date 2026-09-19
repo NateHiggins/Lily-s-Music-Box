@@ -1,0 +1,12 @@
+HOUSEHOLD STATE: control payload round-trips through disk
+HOUSEHOLD STATE: saved kitchen panel is physically open
+HOUSEHOLD STATE: saved kitchen panel is physically open
+HOUSEHOLD STATE: saved kitchen panel is physically open
+HOUSEHOLD STATE: saved kitchen panel is physically open
+HOUSEHOLD STATE: saved kitchen panel is physically open
+HOUSEHOLD STATE: saved kitchen panel is physically open
+SCRIPT ERROR: Invalid operands 'bool' and 'int' in operator '!='.
+   at: validate (res://scripts/building/orison_v2_household_state.gd:67)
+   GDScript backtrace (most recent call first):
+       [0] validate (res://scripts/building/orison_v2_household_state.gd:67)
+       [1] exercise (res://tests/orison_v2_household_state_test.gd:97)

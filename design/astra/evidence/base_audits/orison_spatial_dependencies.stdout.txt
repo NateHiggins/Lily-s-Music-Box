@@ -1,0 +1,304 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 3634,
+  "by_tier": {
+   "data": 1741,
+   "production": 593,
+   "scene": 5,
+   "test": 1295
+  },
+  "by_kind": {
+   "asset_path": 239,
+   "floor_reference": 264,
+   "generated_name": 56,
+   "id_candidate": 44,
+   "id_reference": 1853,
+   "layout_load": 20,
+   "manual_contract": 13,
+   "node_path": 224,
+   "plan_coordinate": 67,
+   "runtime_id": 237,
+   "unit_reference": 496,
+   "vector3_coordinate": 121
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 1741,
+   "DEBUG_ONLY": 12,
+   "GENERATED_IDENTITY": 293,
+   "RUNTIME_LOOKUP": 483,
+   "SAVE_CONTRACT": 16,
+   "SCENE_NODE_PATH": 224,
+   "TEST_CONTRACT": 1295
+  },
+  "by_spatial": {
+   "ASSET_PATH": 239,
+   "CAMERA_STATION": 142,
+   "CONTAINMENT_ASSUMPTION": 10,
+   "DERIVED_LAYOUT_LOOKUP": 20,
+   "DISTANCE_THRESHOLD": 4,
+   "FLOOR_MEMBERSHIP": 276,
+   "RAW_GODOT_COORDINATE": 122,
+   "RAW_PLAN_COORDINATE": 70,
+   "ROOM_MEMBERSHIP": 501,
+   "SEMANTIC_ANCHOR": 2276,
+   "UNKNOWN_DYNAMIC": 45
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 87,
+   "OWNER_DECISION": 1,
+   "PRESERVE_OR_ALIAS": 2110,
+   "REGENERATE_CONSUMER": 79,
+   "REPLACE_WITH_NAMED_ANCHOR": 53,
+   "UNRESOLVED": 44,
+   "UPDATE_TEST_FIXTURE": 1260
+  },
+  "by_confidence": {
+   "HIGH": 319,
+   "LOW": 44,
+   "MEDIUM": 3271
+  }
+ },
+ "stats": {
+  "files_scanned": 741,
+  "vector3_total": 3418,
+  "vector3_stats_only": 3131,
+  "b2g_derived": 280,
+  "gd_strings_seen": 50045
+ },
+ "drift": {
+  "new_failing": [],
+  "new_reported": [
+   {
+    "key": "a0b18d63ef2f6f2b",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_DARKROOM_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[*]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "417700e99b3bbb4c",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_DOOR_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[0]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "bf7ef78825782717",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_HOURS_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[1]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "5d669341dd08dc21",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_IN0_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[*]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "b8b82e615d9da48a",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_IN1_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[*]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "2dd641cfc70af8ba",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_IN2_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[*]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "b38e758180ff37fc",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_LT_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[2]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "dc23d9ead40af475",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_%s.gltf",
+    "file": "game/tests/floor_residency_measurement.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_measure"
+    ],
+    "lines": [
+     31
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "stale_preserved": [],
+  "cleanup_opportunities": [],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "clean"
+}

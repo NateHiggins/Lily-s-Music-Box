@@ -1,0 +1,55 @@
+test_access_violation_never_validates_completed_red (test_gate.GateControls.test_access_violation_never_validates_completed_red) ... ok
+test_actual_arcade_capture_required (test_gate.GateControls.test_actual_arcade_capture_required) ... ok
+test_bad_probe_identity (test_gate.GateControls.test_bad_probe_identity) ... ok
+test_clean_parser_fixture (test_gate.GateControls.test_clean_parser_fixture) ... ok
+test_engine_binding (test_gate.GateControls.test_engine_binding) ... ok
+test_exact_retained_softshadow_nospace (test_gate.GateControls.test_exact_retained_softshadow_nospace) ... ok
+test_full_scope_cannot_omit_separate_world_case (test_gate.GateControls.test_full_scope_cannot_omit_separate_world_case) ... ok
+test_functional_failure (test_gate.GateControls.test_functional_failure) ... ok
+test_guard_only_red_is_failure_with_specific_observation (test_gate.GateControls.test_guard_only_red_is_failure_with_specific_observation) ... ok
+test_guard_red_rejects_route_and_native_errors (test_gate.GateControls.test_guard_red_rejects_route_and_native_errors) ... ok
+test_guard_red_rejects_source_change (test_gate.GateControls.test_guard_red_rejects_source_change) ... ok
+test_guard_red_rejects_unrelated_checks_or_missing_capture (test_gate.GateControls.test_guard_red_rejects_unrelated_checks_or_missing_capture) ... ok
+test_guard_red_requires_live_mask_change (test_gate.GateControls.test_guard_red_requires_live_mask_change) ... ok
+test_incomplete_retirement (test_gate.GateControls.test_incomplete_retirement) ... ok
+test_independent_underflow_prevents_intended_only_unpair_red (test_gate.GateControls.test_independent_underflow_prevents_intended_only_unpair_red) ... ok
+test_missing_capture (test_gate.GateControls.test_missing_capture) ... ok
+test_native_unpair_despite_engine_zero (test_gate.GateControls.test_native_unpair_despite_engine_zero) ... ok
+test_only_exact_inherited_manifest (test_gate.GateControls.test_only_exact_inherited_manifest) ... ok
+test_retention (test_gate.GateControls.test_retention) ... ok
+test_scoped_completed_unpair_control_stays_red (test_gate.GateControls.test_scoped_completed_unpair_control_stays_red) ... ok
+test_scoped_red_requires_declared_exclusion (test_gate.GateControls.test_scoped_red_requires_declared_exclusion) ... ok
+test_source_drift (test_gate.GateControls.test_source_drift) ... ok
+test_spaced_softshadow_separate (test_gate.GateControls.test_spaced_softshadow_separate) ... ok
+test_unknown_vulkan_error (test_gate.GateControls.test_unknown_vulkan_error) ... ok
+test_unrelated_failures_cannot_validate_omission_red (test_gate.GateControls.test_unrelated_failures_cannot_validate_omission_red) ... ok
+test_candidate_exact_bytes (test_variant_case.VariantControls.test_candidate_exact_bytes) ... ok
+test_duplicate_operation_fails_closed (test_variant_case.VariantControls.test_duplicate_operation_fails_closed) ... ok
+test_helper_control_keeps_guard (test_variant_case.VariantControls.test_helper_control_keeps_guard) ... ok
+test_mutated_guard_fails_closed (test_variant_case.VariantControls.test_mutated_guard_fails_closed) ... ok
+test_raw_keeps_guard_and_unrelated_bytes (test_variant_case.VariantControls.test_raw_keeps_guard_and_unrelated_bytes) ... ok
+test_viewport_control_only_guard (test_variant_case.VariantControls.test_viewport_control_only_guard) ... ok
+test_av_timeout_or_nonzero_never_validates (test_pair_bookkeeping.PairBookkeepingControls.test_av_timeout_or_nonzero_never_validates) ... ok
+test_both_signatures_required (test_pair_bookkeeping.PairBookkeepingControls.test_both_signatures_required) ... ok
+test_completed_matched_pair_remains_diagnostic_red (test_pair_bookkeeping.PairBookkeepingControls.test_completed_matched_pair_remains_diagnostic_red) ... ok
+test_cross_run_source_asset_and_engine_change_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_cross_run_source_asset_and_engine_change_rejected) ... ok
+test_exact_header_required_not_spaced_variant (test_pair_bookkeeping.PairBookkeepingControls.test_exact_header_required_not_spaced_variant) ... ok
+test_full_scope_cannot_claim_excluded_separate_world (test_pair_bookkeeping.PairBookkeepingControls.test_full_scope_cannot_claim_excluded_separate_world) ... ok
+test_incomplete_probe_capture_or_actual_retirement_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_incomplete_probe_capture_or_actual_retirement_rejected) ... ok
+test_missing_or_false_restoration_transaction_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_false_restoration_transaction_rejected) ... ok
+test_missing_or_wrong_function_line_or_file_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_missing_or_wrong_function_line_or_file_rejected) ... ok
+test_no_implicit_opt_in_or_unbound_source (test_pair_bookkeeping.PairBookkeepingControls.test_no_implicit_opt_in_or_unbound_source) ... ok
+test_one_unexpected_site_among_valid_sites_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_one_unexpected_site_among_valid_sites_rejected) ... ok
+test_per_run_observation_is_provisional_and_strict_unpair_stays_false (test_pair_bookkeeping.PairBookkeepingControls.test_per_run_observation_is_provisional_and_strict_unpair_stays_false) ... ok
+test_raw_other_root_or_extra_source_edit_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_raw_other_root_or_extra_source_edit_rejected) ... ok
+test_restored_native_failure_or_missing_probe_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_restored_native_failure_or_missing_probe_rejected) ... ok
+test_restored_unknown_failure_engine_or_scope_change_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_restored_unknown_failure_engine_or_scope_change_rejected) ... ok
+test_source_or_engine_drift_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_source_or_engine_drift_rejected) ... ok
+test_unpair_base_site_also_supported (test_pair_bookkeeping.PairBookkeepingControls.test_unpair_base_site_also_supported) ... ok
+test_unrelated_error_retention_and_indented_error_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_unrelated_error_retention_and_indented_error_rejected) ... ok
+test_wrapper_drift_or_wrong_order_rejected (test_pair_bookkeeping.PairBookkeepingControls.test_wrapper_drift_or_wrong_order_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 0.113s
+
+OK

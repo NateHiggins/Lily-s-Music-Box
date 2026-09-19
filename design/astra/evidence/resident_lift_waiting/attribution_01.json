@@ -1,0 +1,344 @@
+{
+  "scope": "Derived graph attribution; original proof files unchanged",
+  "receipt": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_02/shots/resident_lift_waiting.json",
+  "receipt_sha256": "c1af5cdf9475d05a0b1ee1fc1d3439e2d87cc384ca61069982afab42dc7f17c4",
+  "start_component_ids": [
+    13,
+    15,
+    34,
+    45,
+    46,
+    47
+  ],
+  "goal_node": {
+    "at": [
+      1.92499995231628,
+      9.60000038146973,
+      6.75
+    ],
+    "connections": [
+      22,
+      23,
+      24
+    ],
+    "id": 49,
+    "tag": "opening"
+  },
+  "removed_component_boundary_edges": [
+    {
+      "a": 14,
+      "b": 46,
+      "blocking_hits": [
+        {
+          "at": [
+            7.80999994277954,
+            9.95000076293945,
+            5.39499998092651
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 0.35
+        },
+        {
+          "at": [
+            7.80999994277954,
+            10.75,
+            5.39499998092651
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 1.15
+        }
+      ],
+      "from": [
+        6.6100001335144,
+        9.60000038146973,
+        4.98999977111816
+      ],
+      "to": [
+        7.80999994277954,
+        9.60000038146973,
+        5.39499998092651
+      ]
+    },
+    {
+      "a": 14,
+      "b": 34,
+      "blocking_hits": [
+        {
+          "at": [
+            6.32000017166138,
+            9.95000076293945,
+            4.71246099472046
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/Service_4D_wc",
+          "door_excused": false,
+          "height": 0.35
+        },
+        {
+          "at": [
+            5.42000007629395,
+            10.75,
+            3.85113286972046
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 1.15
+        }
+      ],
+      "from": [
+        6.6100001335144,
+        9.60000038146973,
+        4.98999977111816
+      ],
+      "to": [
+        5.32999992370605,
+        9.60000038146973,
+        3.76500010490417
+      ]
+    },
+    {
+      "a": 16,
+      "b": 47,
+      "blocking_hits": [
+        {
+          "at": [
+            6.20499992370605,
+            9.95000076293945,
+            2.83999991416931
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 0.35
+        },
+        {
+          "at": [
+            6.20499992370605,
+            10.75,
+            2.83999991416931
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 1.15
+        }
+      ],
+      "from": [
+        6.6100001335144,
+        9.60000038146973,
+        1.91999995708466
+      ],
+      "to": [
+        6.20499992370605,
+        9.60000038146973,
+        2.83999991416931
+      ]
+    },
+    {
+      "a": 18,
+      "b": 34,
+      "blocking_hits": [
+        {
+          "at": [
+            5.30800008773804,
+            9.95000076293945,
+            3.67781066894531
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+          "door_excused": true,
+          "height": 0.35
+        },
+        {
+          "at": [
+            5.32999992370605,
+            9.95000076293945,
+            3.76500010490417
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 0.35
+        },
+        {
+          "at": [
+            5.30800008773804,
+            10.75,
+            3.67781066894531
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+          "door_excused": true,
+          "height": 1.15
+        },
+        {
+          "at": [
+            5.32999992370605,
+            10.75,
+            3.76500010490417
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 1.15
+        }
+      ],
+      "from": [
+        4.38000011444092,
+        9.60000038146973,
+        0.0
+      ],
+      "to": [
+        5.32999992370605,
+        9.60000038146973,
+        3.76500010490417
+      ]
+    },
+    {
+      "a": 24,
+      "b": 34,
+      "blocking_hits": [
+        {
+          "at": [
+            5.23999977111816,
+            9.95000076293945,
+            4.19368553161621
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 0.35
+        },
+        {
+          "at": [
+            5.23999977111816,
+            10.75,
+            4.19368553161621
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 1.15
+        }
+      ],
+      "from": [
+        4.38000011444092,
+        9.60000038146973,
+        8.28999996185303
+      ],
+      "to": [
+        5.32999992370605,
+        9.60000038146973,
+        3.76500010490417
+      ]
+    },
+    {
+      "a": 25,
+      "b": 34,
+      "blocking_hits": [
+        {
+          "at": [
+            5.30800008773804,
+            9.95000076293945,
+            3.67781066894531
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+          "door_excused": true,
+          "height": 0.35
+        },
+        {
+          "at": [
+            5.32999992370605,
+            9.95000076293945,
+            3.76500010490417
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 0.35
+        },
+        {
+          "at": [
+            5.30800008773804,
+            10.75,
+            3.67781066894531
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+          "door_excused": true,
+          "height": 1.15
+        },
+        {
+          "at": [
+            5.32999992370605,
+            10.75,
+            3.76500010490417
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 1.15
+        }
+      ],
+      "from": [
+        4.38000011444092,
+        9.60000038146973,
+        0.0
+      ],
+      "to": [
+        5.32999992370605,
+        9.60000038146973,
+        3.76500010490417
+      ]
+    },
+    {
+      "a": 34,
+      "b": 35,
+      "blocking_hits": [
+        {
+          "at": [
+            5.32999992370605,
+            9.95000076293945,
+            3.75500011444092
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+          "door_excused": true,
+          "height": 0.35
+        },
+        {
+          "at": [
+            5.32999992370605,
+            9.95000076293945,
+            2.85500001907349
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 0.35
+        },
+        {
+          "at": [
+            5.32999992370605,
+            10.75,
+            3.75500011444092
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04_DOOR_05/HingedLeaf",
+          "door_excused": true,
+          "height": 1.15
+        },
+        {
+          "at": [
+            5.32999992370605,
+            10.75,
+            2.85500001907349
+          ],
+          "collider": "/root/ResidentLiftWaitingTest/OrisonRoot/F04/F04_walls/StaticBody3D",
+          "door_excused": false,
+          "height": 1.15
+        }
+      ],
+      "from": [
+        5.32999992370605,
+        9.60000038146973,
+        3.76500010490417
+      ],
+      "to": [
+        5.32999992370605,
+        9.60000038146973,
+        0.135000005364418
+      ]
+    }
+  ],
+  "established_cause": "Door marker hinge treated as portal centre; real jamb masonry correctly cuts route edges",
+  "rejected_hypothesis": "Closed elevator door disconnecting goal node; node49 still connects ring22/23/24",
+  "independent_defect": "Original lift waiting point lies inside shaft before arrival request"
+}

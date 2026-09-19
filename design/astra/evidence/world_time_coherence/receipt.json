@@ -1,0 +1,426 @@
+{
+  "schema": "astra.world_time.aggregate.v1",
+  "status": "GREEN_FOR_RECORDED_SCOPE_WITH_EXPLICIT_DEBT",
+  "source_head": "d729e4d8042c18a26920a8ce555ca6954651e257",
+  "final_tested_diff_sha256": "169b4ef30b5d30419ca0e7ef4410d6dac220b0799c263bbd68e6cc2ee054b31a",
+  "source_hashes": {
+    "game/project.godot": "37497964f47cfe67919ef51e55b2a5a53b12b5051f17eede37bbdf600c4c72b4",
+    "game/scripts/game/campaign_clock_driver.gd": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8",
+    "game/scripts/building/day_night_director.gd": "f8e2b2dae83ac53e05c471e19e0c4103274e2ebe88e24c39e237a357fba5abee",
+    "game/scripts/building/building_root.gd": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+    "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+    "game/scripts/characters/schedule_director.gd": "fe4e1597bbd91cf5cac3b5bb4b6ba4595f2051dc6ab4fffdc146f5ef00a0345e",
+    "game/scripts/game/open_shift_radiator_ecosystem.gd": "0fa6f58b6f5e083c95feda6d8f700c14f51cb8775e835a93d6829b5b4b7d4815",
+    "game/scripts/game/open_shift_situation.gd": "3feb4b48bbee13d21d40bb45f23b67a0a77eb8de48365bf00409053feaab4448",
+    "game/scripts/characters/porter_actor.gd": "0f36c72da299c5264a23967998e46001c17787a51462d3745d4c8dacca354f15",
+    "game/scripts/reality/npc_observation_ledger.gd": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+    "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+    "game/tests/WorldTimeCoherenceTest.tscn": "d503e95bcf568f91347e6850086c4869b2b45835c1b403931c0820048cdd1590",
+    "game/tests/world_time_coherence_test.gd": "c48a4d4df79aa5a35692477d918380772f721e0c2bb02776fe888641b85d8fec",
+    "game/tests/orison_v2_presence_ledger_test.gd": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+    "game/tests/orison_v2_two_root_matrix_test.gd": "90f3f6f55ee3a6e3660f49ce1e59c454a936239df81ca60ecf17e2badd816102",
+    "game/tests/open_shift_save_matrix_test.gd": "affb9e3d4295ce222c818b948c7f41ada5c568bbc23fa2f41072fa2f1b40ac5f",
+    "game/tests/schedule_live_probe.gd": "b95dbb20c1278a8ce36262f0139524b58b29a3af5102bf2df80af29250e49f0b"
+  },
+  "owned_runtime_sources_same_in_focused_and_final_matrix": true,
+  "source_composition": "Dirty composed worktree including root-owned CampaignClock/calendar and other agents historical/capture work; complete diff and hash snapshots retained per run. No commit or staging by this agent.",
+  "advance_owner": "CampaignTime autoload (CampaignClockDriver); exactly one advance per process frame with any eligible live building_root",
+  "pause_policy": "No eligible waking root, paused SceneTree, explicit CAMPAIGN_TIME_FREEZE=1, or deterministic set_frozen_for_tests prevents automatic advancement. Sky presentation hooks do not freeze this owner.",
+  "runtime_context": "Headless Godot 4.7.1, RTX 4080 / i7-13700KF. Process wall time only; no visual acceptance or performance release evidence.",
+  "isolation": "Unique task-local fresh APPDATA per run; harness creates checked save parent itself; no user profile saves accessed; unchanged tools/run_godot_serial.ps1; serial lane explicitly released to dream_forensics.",
+  "diagnostic_rulings": {
+    "focused_initial": "Two expected invalid-calendar refusal errors from deliberately corrupted calendar fixtures; no unclassified warnings/errors or retained resources.",
+    "two_root": "One expected invalid-selector warning; five existing no-legal-wall warnings for cam_noel_witches. No save warnings, engine errors, or object/resource retention diagnostics.",
+    "other_final_greens": "No diagnostic headers in retained stderr."
+  },
+  "known_limits_and_debt": [
+    "Exact calendar epoch/start/elapsed preservation through all four real-root directions remains unasserted by current 26-check matrix. Prepared patch is not applied or run.",
+    "Legacy wrapped timestamps retain original values and an unresolved historical-day annotation. No epoch/day is invented.",
+    "A legacy pending porter intent with ambiguous eligible/departed/arrived deadline can remain held indefinitely; explicit new observed-fact reanchoring is recoverability debt. Migration is not claimed fully playable.",
+    "Invalid calendar refuses world publication and composition; CampaignShell currently provides no player-facing recovery UI.",
+    "DAYNIGHT=0 still disables resident dispatch by legacy default when SCHEDULE is unspecified, preserving old harness behavior. It does not freeze CampaignTime or change minute_now queries.",
+    "Focused presence fixture retains the known absent-resident in_home_hearing gap; this change does not repair that observation capability.",
+    "M11A green concerns the first exterior cell only; no broad M11 route or human acceptance claim."
+  ],
+  "pending_matrix_patch": "design/astra/reviews/pending_two_root_calendar.json",
+  "cases": [
+    {
+      "case": "abandon",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/abandon/receipt.json",
+      "receipt_sha256": "d913c4b93143eb00f142443080bd70c1f013047a908d2deca456a14fcedf8a4d",
+      "actual_exit": 0,
+      "elapsed_seconds": 1.233,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "OPEN SHIFT ABANDON TEST: PASS"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "authority",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/authority/receipt.json",
+      "receipt_sha256": "84bbb6b65865bf04ff411c77d4c65b44b69a104ffab5293d74fd8f37d3d5a849",
+      "actual_exit": 0,
+      "elapsed_seconds": 1.236,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "OPEN SHIFT AUTHORITY TEST: PASS"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "focused_initial",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/focused_initial/receipt.json",
+      "receipt_sha256": "c2bbcf93162fea91efc76e965ff0ff7aceb3db699dc01b4de81ccd7319826314",
+      "actual_exit": 0,
+      "elapsed_seconds": 3.947,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "[WORLD TIME] PASS two-day duration retains all 2885 minutes",
+        "[WORLD TIME] PASS absolute event timestamp retains its day",
+        "[WORLD TIME] PASS attention duration does not wrap after midnight or a full day",
+        "[WORLD TIME] PASS Saturday20:00 campaign fixture configured",
+        "[WORLD TIME] PASS V2 presence uses campaign Saturday20:00 bar visit, not stale03:00 ecosystem",
+        "[WORLD TIME] PASS V2 presence distinguishes Sunday20:00 at home from Saturday bar visit",
+        "[WORLD TIME] PASS sky presentation override cannot change schedule minute",
+        "[WORLD TIME] PASS explicit schedule test minute remains available",
+        "[WORLD TIME] PASS legacy facts and original timestamps survive with unresolved-day annotation",
+        "[WORLD TIME] PASS ambiguous legacy offer cannot manufacture a neglect duration",
+        "[WORLD TIME] PASS new attested attention establishes a valid deadline without resetting old facts",
+        "[WORLD TIME] PASS observation history preserves unknown legacy days and dates new facts absolutely",
+        "[WORLD TIME] PASS unknown legacy porter deadline retains intent without inventing departure",
+        "[WORLD TIME] PASS migration save parent created by harness",
+        "[WORLD TIME] PASS legacy timestamp ambiguity survives real save/load without reset",
+        "[WORLD TIME] PASS no waking root means no automatic campaign advance",
+        "[WORLD TIME] PASS overlapping roots advance once despite presentation overrides",
+        "[WORLD TIME] PASS explicit campaign freeze stops automatic advancement",
+        "[WORLD TIME] PASS game pause freezes campaign advancement",
+        "[WORLD TIME] PASS deterministic test freeze hook is independent of presentation",
+        "[WORLD TIME] PASS invalid calendar refuses active world publication: orison_root.tscn",
+        "[WORLD TIME] PASS invalid calendar creates no ecosystem or knowledge: orison_root.tscn",
+        "[WORLD TIME] PASS invalid calendar refuses active world publication: orison_v2_runtime.tscn",
+        "[WORLD TIME] PASS invalid calendar creates no ecosystem or knowledge: orison_v2_runtime.tscn",
+        "[WORLD TIME] PASS real V2 root injects the absolute campaign clock into its ecosystem",
+        "[WORLD TIME] PASS real V2 root resolves Saturday evening presence from campaign time",
+        "[WORLD TIME] PASS real V2 situation retains multi-day duration on the shared provider",
+        "WORLD TIME COHERENCE: PASS 27/27"
+      ],
+      "diagnostic_headers": [
+        "ERROR: BuildingRoot requires a valid campaign calendar",
+        "ERROR: ORISON V2 RUNTIME: valid campaign calendar required"
+      ],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "27 focused checks: multi-day duration; deterministic advancement ownership; V2 schedule presence; conservative legacy annotations/save-load; actual V1/V2 invalid-calendar refusal; real V2 consumer binding"
+    },
+    {
+      "case": "ignore",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/ignore/receipt.json",
+      "receipt_sha256": "2c8c27a5a73f65514598949ff51f7b7b004b28b847214fa0a7d9f5d1056fd50e",
+      "actual_exit": 0,
+      "elapsed_seconds": 1.227,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "OPEN SHIFT IGNORE TEST: PASS"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "legacy_duration_exact_exit",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/legacy_duration_exact_exit/receipt.json",
+      "receipt_sha256": "d4401e8bfd5bb353f5b92b4e43d62531c9ff54a1f93e238effb8a7c70f5b5286",
+      "actual_exit": 3,
+      "elapsed_seconds": 1.433,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "[WORLD TIME] PASS preserved legacy source compiles for control",
+        "[WORLD TIME] FAIL two-day duration retains all 2885 minutes",
+        "[WORLD TIME] FAIL absolute event timestamp retains its day",
+        "[WORLD TIME] FAIL attention duration does not wrap after midnight or a full day",
+        "WORLD TIME COHERENCE: FAIL 1/4"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "EXPECTED_RED: preserved old source compiles; three duration/stamp assertions fail; child exit 3 preserved",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "legacy_duration_red",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/legacy_duration_red/receipt.json",
+      "receipt_sha256": "64328f081227ffa3f4507447ec5d294e88782ffad6051bf7f95bf62a05977ca2",
+      "actual_exit": 1,
+      "elapsed_seconds": 1.435,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "[WORLD TIME] PASS preserved legacy source compiles for control",
+        "[WORLD TIME] FAIL two-day duration retains all 2885 minutes",
+        "[WORLD TIME] FAIL absolute event timestamp retains its day",
+        "[WORLD TIME] FAIL attention duration does not wrap after midnight or a full day",
+        "WORLD TIME COHERENCE: FAIL 1/4"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "SUPERSEDED_INSTRUMENTATION: intended assertion failures retained; original PowerShell invocation normalized nonzero child status to 1; use exact-exit repeat",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "legacy_presence_exact_exit",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/legacy_presence_exact_exit/receipt.json",
+      "receipt_sha256": "5de1de5f2f104a774b8b025aa224fb96738c5c95b4dbcd255d49ddbb572e71c2",
+      "actual_exit": 1,
+      "elapsed_seconds": 1.52,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "[WORLD TIME] PASS preserved legacy source compiles for control",
+        "[WORLD TIME] PASS Saturday20:00 campaign fixture configured",
+        "[WORLD TIME] FAIL V2 presence uses campaign Saturday20:00 bar visit, not stale03:00 ecosystem",
+        "[WORLD TIME] PASS V2 presence distinguishes Sunday20:00 at home from Saturday bar visit",
+        "[WORLD TIME] PASS sky presentation override cannot change schedule minute",
+        "[WORLD TIME] PASS explicit schedule test minute remains available",
+        "WORLD TIME COHERENCE: FAIL 5/6"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "EXPECTED_RED: preserved old V2 source compiles; Saturday evening presence assertion fails; child exit 1 preserved",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "legacy_presence_red",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/legacy_presence_red/receipt.json",
+      "receipt_sha256": "a0ef7bf9a4c99983479fe08bb5fbb42fdfcdfe1ccbba9a4cda2a1f505952747b",
+      "actual_exit": 1,
+      "elapsed_seconds": 1.502,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "[WORLD TIME] PASS preserved legacy source compiles for control",
+        "[WORLD TIME] PASS Saturday20:00 campaign fixture configured",
+        "[WORLD TIME] FAIL V2 presence uses campaign Saturday20:00 bar visit, not stale03:00 ecosystem",
+        "[WORLD TIME] PASS V2 presence distinguishes Sunday20:00 at home from Saturday bar visit",
+        "[WORLD TIME] PASS sky presentation override cannot change schedule minute",
+        "[WORLD TIME] PASS explicit schedule test minute remains available",
+        "WORLD TIME COHERENCE: FAIL 5/6"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "SUPERSEDED_INSTRUMENTATION: intended assertion failure retained; original PowerShell invocation omitted explicit exit propagation; use exact-exit repeat",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "m08f",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/m08f/receipt.json",
+      "receipt_sha256": "2ecd3c64f09ee894edc1993a406da3575d8430afa0eef3ab0eaa950d18c75c26",
+      "actual_exit": 0,
+      "elapsed_seconds": 2.624,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "ORISON V2 M08F RUNTIME: PASS checks=29"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "29 checks of composed V2 runtime and lifecycle; no visual or performance claim"
+    },
+    {
+      "case": "m11a",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/m11a/receipt.json",
+      "receipt_sha256": "36774a7dc757b7d05f7bdbf480bcd376e79ca17d9e608407c49f88dcb580fe30",
+      "actual_exit": 0,
+      "elapsed_seconds": 21.5,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "ORISON V2 M11A FIRST EXTERIOR CELL: PASS checks=40"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "40 checks of first exterior cell; not whole exterior route acceptance"
+    },
+    {
+      "case": "presence",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/presence/receipt.json",
+      "receipt_sha256": "a2fd2e41636d46df99f8dbee2014b8ce7bfbb76c33e1a8f157dcdf2619fcc0c5",
+      "actual_exit": 1,
+      "elapsed_seconds": 0.78,
+      "source_unchanged_during_case": true,
+      "summary_lines": [],
+      "diagnostic_headers": [
+        "ERROR: Cannot open file 'res://tests/OrisonV2PresenceLedgerTest.tscn'.",
+        "ERROR: Failed loading resource: res://tests/OrisonV2PresenceLedgerTest.tscn.",
+        "ERROR: Failed loading scene: res://tests/OrisonV2PresenceLedgerTest.tscn."
+      ],
+      "ruling": "INVOCATION_ERROR: nonexistent mixed-case scene path; superseded by presence_actual_scene",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "presence_actual_scene",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/presence_actual_scene/receipt.json",
+      "receipt_sha256": "5eccc998451b252fe30281dc5212c65bbab9480450c8bbed0020eca8f91568e0",
+      "actual_exit": 0,
+      "elapsed_seconds": 2.275,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "ORISON V2 PRESENCE LEDGER: PASS checks=17"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "17 focused presence/ledger checks; its cross-root read helper reuses a save document and is not real-root reconstruction"
+    },
+    {
+      "case": "save_matrix",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/save_matrix/receipt.json",
+      "receipt_sha256": "7dc5d5aea91b7af16348e7894fdf4753ea401c9367a8478d83c1470eb4f259ac",
+      "actual_exit": 16,
+      "elapsed_seconds": 1.529,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "OPEN SHIFT SAVE MATRIX: 1/17 PASS"
+      ],
+      "diagnostic_headers": [
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  WORK survives v1 -> v1 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  WORK survives v2 -> v2 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  WORK survives v1 -> v2 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  WORK survives v2 -> v1 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  IGNORE survives v1 -> v1 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  IGNORE survives v2 -> v2 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  IGNORE survives v1 -> v2 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  IGNORE survives v2 -> v1 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  ABANDON survives v1 -> v1 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  ABANDON survives v2 -> v2 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  ABANDON survives v1 -> v2 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  ABANDON survives v2 -> v1 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  MEDDLE survives v1 -> v1 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  MEDDLE survives v2 -> v2 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  MEDDLE survives v1 -> v2 reconstruction",
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  MEDDLE survives v2 -> v1 reconstruction"
+      ],
+      "ruling": "RED_HARNESS: fresh-profile save parent missing; actual exit 16",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "save_matrix_directory_green",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/save_matrix_directory_green/receipt.json",
+      "receipt_sha256": "cb86a9318d01f126ae5bf8693d072900336d7d3f4867178ec9e5dd3f4d148504",
+      "actual_exit": 16,
+      "elapsed_seconds": 1.528,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "OPEN SHIFT SAVE MATRIX: 1/17 PASS"
+      ],
+      "diagnostic_headers": [
+        "ERROR:   FAIL  WORK survives v1 -> v1 reconstruction",
+        "ERROR:   FAIL  WORK survives v2 -> v2 reconstruction",
+        "ERROR:   FAIL  WORK survives v1 -> v2 reconstruction",
+        "ERROR:   FAIL  WORK survives v2 -> v1 reconstruction",
+        "ERROR:   FAIL  IGNORE survives v1 -> v1 reconstruction",
+        "ERROR:   FAIL  IGNORE survives v2 -> v2 reconstruction",
+        "ERROR:   FAIL  IGNORE survives v1 -> v2 reconstruction",
+        "ERROR:   FAIL  IGNORE survives v2 -> v1 reconstruction",
+        "ERROR:   FAIL  ABANDON survives v1 -> v1 reconstruction",
+        "ERROR:   FAIL  ABANDON survives v2 -> v2 reconstruction",
+        "ERROR:   FAIL  ABANDON survives v1 -> v2 reconstruction",
+        "ERROR:   FAIL  ABANDON survives v2 -> v1 reconstruction",
+        "ERROR:   FAIL  MEDDLE survives v1 -> v1 reconstruction",
+        "ERROR:   FAIL  MEDDLE survives v2 -> v2 reconstruction",
+        "ERROR:   FAIL  MEDDLE survives v1 -> v2 reconstruction",
+        "ERROR:   FAIL  MEDDLE survives v2 -> v1 reconstruction"
+      ],
+      "ruling": "PARTIAL_REPAIR_RED: checked directory creation removes all write warnings; JSON schema integer-versus-float equality still fails 16 assertions",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "save_matrix_final",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/save_matrix_final/receipt.json",
+      "receipt_sha256": "5e21d2e5aad1d6bd3e6b7ea7703e004e4fc4eab14fdc7ca5a281cec08b9cf9ba",
+      "actual_exit": 0,
+      "elapsed_seconds": 1.531,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "OPEN SHIFT SAVE MATRIX: 17/17 PASS"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "17 checks of isolated OpenShift semantic assembly/save-load; not actual root reconstruction"
+    },
+    {
+      "case": "save_matrix_schema_diagnostic",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/save_matrix_schema_diagnostic/receipt.json",
+      "receipt_sha256": "e351ae88acec676e224385ccf420dc7cf42d07d31f534b4e08a0efac4a527e20",
+      "actual_exit": 16,
+      "elapsed_seconds": 1.633,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "OPEN SHIFT SAVE MATRIX: 1/17 PASS"
+      ],
+      "diagnostic_headers": [
+        "ERROR:   FAIL  WORK survives v1 -> v1 reconstruction",
+        "ERROR:   FAIL  WORK survives v2 -> v2 reconstruction",
+        "ERROR:   FAIL  WORK survives v1 -> v2 reconstruction",
+        "ERROR:   FAIL  WORK survives v2 -> v1 reconstruction",
+        "ERROR:   FAIL  IGNORE survives v1 -> v1 reconstruction",
+        "ERROR:   FAIL  IGNORE survives v2 -> v2 reconstruction",
+        "ERROR:   FAIL  IGNORE survives v1 -> v2 reconstruction",
+        "ERROR:   FAIL  IGNORE survives v2 -> v1 reconstruction",
+        "ERROR:   FAIL  ABANDON survives v1 -> v1 reconstruction",
+        "ERROR:   FAIL  ABANDON survives v2 -> v2 reconstruction",
+        "ERROR:   FAIL  ABANDON survives v1 -> v2 reconstruction",
+        "ERROR:   FAIL  ABANDON survives v2 -> v1 reconstruction",
+        "ERROR:   FAIL  MEDDLE survives v1 -> v1 reconstruction",
+        "ERROR:   FAIL  MEDDLE survives v2 -> v2 reconstruction",
+        "ERROR:   FAIL  MEDDLE survives v1 -> v2 reconstruction",
+        "ERROR:   FAIL  MEDDLE survives v2 -> v1 reconstruction"
+      ],
+      "ruling": "DIAGNOSTIC_RED: exact JSON number-type mismatch printed; no production state loss established by that mismatch",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "situation",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/situation/receipt.json",
+      "receipt_sha256": "b32f9dcdfa881202a0a156b9945bc43b3ed7b02f7498116eeb4d37bf2c9f2971",
+      "actual_exit": 0,
+      "elapsed_seconds": 0.786,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "OPEN SHIFT SITUATION TEST: PASS"
+      ],
+      "diagnostic_headers": [],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "See exact scene assertions and raw retained outputs"
+    },
+    {
+      "case": "two_root",
+      "receipt": "design/astra/evidence/world_time_coherence/runtime/two_root/receipt.json",
+      "receipt_sha256": "5118d00593479799d345af057ef14f69f80dbd11ea17ffd29913b27117d5c922",
+      "actual_exit": 0,
+      "elapsed_seconds": 92.763,
+      "source_unchanged_during_case": true,
+      "summary_lines": [
+        "ORISON V2 TWO-ROOT MATRIX: PASS totals={ \"v1_to_v1\": 1, \"v2_to_v2\": 1, \"v1_to_v2\": 1, \"v2_to_v1\": 1 } checks=26"
+      ],
+      "diagnostic_headers": [
+        "WARNING: invalid ORISON_BUILDING_ROOT='invalid'; using committed v1 default",
+        "WARNING: no legal wall for found piece cam_noel_witches",
+        "WARNING: no legal wall for found piece cam_noel_witches",
+        "WARNING: no legal wall for found piece cam_noel_witches",
+        "WARNING: no legal wall for found piece cam_noel_witches",
+        "WARNING: no legal wall for found piece cam_noel_witches"
+      ],
+      "ruling": "GREEN_WITH_SCOPED_DIAGNOSTICS",
+      "scope": "26 checks: initial real V1/V2 provider/owner assertions and actual four-direction CampaignShell semantic reconstruction. Does not assert exact calendar facts in each direction."
+    }
+  ]
+}

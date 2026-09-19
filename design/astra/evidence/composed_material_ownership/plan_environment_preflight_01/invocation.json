@@ -1,0 +1,53 @@
+{
+  "status": "ENVIRONMENT_CHECK_ONLY_NO_ENGINE_NO_GAME_MUTATION",
+  "recorded_at_utc": "2026-09-05T09:24:01.965204+00:00",
+  "case": "baseline",
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\vulkan_composed\\run_case.py",
+    "v1",
+    "candidate",
+    "material_ownership_7c54_v1_full_01",
+    "--scope",
+    "full"
+  ],
+  "run_folder": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\material_ownership_7c54_v1_full_01",
+  "meaning": "candidate names renderer helper; material corruption is separately bound by owner hash",
+  "expected_owner_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "expected_fixture_sha256": "e132724ae67f1dc4056f9fa1c9b018706399a7c3500889af41d0e6dedeeb8991",
+  "environment": {
+    "inherited_material_environment": {
+      "ENCROACH": null,
+      "ENCROACH_FORCE": null,
+      "ENCROACH_DEBUG_VIEW": null,
+      "ENCROACH_DEBUG": null,
+      "LIVING": null,
+      "LIVING_ALL": null
+    },
+    "explicit_wrapper_material_environment": {
+      "ENCROACH": "1",
+      "ENCROACH_FORCE": "",
+      "ENCROACH_DEBUG_VIEW": "0",
+      "ENCROACH_DEBUG": "0",
+      "LIVING": "1",
+      "LIVING_ALL": "0"
+    },
+    "policy": "Reject nondefault inherited material/field controls before launch; never change runtime case facts or bypass fixture preconditions"
+  },
+  "projected_actual_child_environment": {
+    "ENCROACH": "1",
+    "ENCROACH_FORCE": "",
+    "ENCROACH_DEBUG_VIEW": "0",
+    "ENCROACH_DEBUG": "0",
+    "LIVING": "1",
+    "LIVING_ALL": "0",
+    "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\material_ownership_7c54_v1_full_01\\APPDATA",
+    "SHOT_DIR": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\material_ownership_7c54_v1_full_01\\frames",
+    "ORISON_BUILDING_ROOT": "v1",
+    "VULKAN_COMPOSED_VARIANT": "candidate",
+    "VULKAN_COMPOSED_SCOPE": "full",
+    "CAMPAIGN_TIME_FREEZE": "1",
+    "WEATHER_SEED": "19281110",
+    "TITLE_SCREEN_SILENT": "1"
+  }
+}

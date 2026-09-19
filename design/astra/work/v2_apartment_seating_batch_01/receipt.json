@@ -1,0 +1,218 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "new_furniture": [
+    {
+      "id": "2A_din_t",
+      "kind": "table_round",
+      "triangles": 372,
+      "rect": [
+        -14.350000000000001,
+        -3.25,
+        -13.25,
+        -2.1500000000000004
+      ]
+    },
+    {
+      "id": "2A_din_dc1",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        -15.0096782467748,
+        -2.9200000000000004,
+        -14.53,
+        -2.48
+      ]
+    },
+    {
+      "id": "2A_din_dc2",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        -13.92,
+        -1.97,
+        -13.479999999999999,
+        -1.4903217532251989
+      ]
+    },
+    {
+      "id": "2A_desk",
+      "kind": "desk",
+      "triangles": 120,
+      "rect": [
+        -14.45,
+        6.42,
+        -12.95,
+        7.08
+      ]
+    },
+    {
+      "id": "2A_desk_dkch",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        -13.92,
+        7.28,
+        -13.479999999999999,
+        7.759678246774802
+      ]
+    },
+    {
+      "id": "2B_din_t",
+      "kind": "table_rect",
+      "triangles": 504,
+      "rect": [
+        14.15,
+        -1.05,
+        15.35,
+        -0.25
+      ]
+    },
+    {
+      "id": "2B_din_dc1",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        13.4903217532252,
+        -0.87,
+        13.97,
+        -0.43000000000000005
+      ]
+    },
+    {
+      "id": "2B_din_dc2",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        14.53,
+        -1.8096782467748014,
+        14.97,
+        -1.33
+      ]
+    },
+    {
+      "id": "2B_fabric_worktable",
+      "kind": "table_rect",
+      "triangles": 504,
+      "rect": [
+        11.85,
+        -0.4,
+        13.450000000000001,
+        0.1
+      ]
+    },
+    {
+      "id": "2B_fabric_shelf_01",
+      "kind": "shelf",
+      "triangles": 236,
+      "rect": [
+        15.1,
+        -5.75,
+        15.4,
+        -4.75
+      ]
+    },
+    {
+      "id": "2B_fabric_shelf_02",
+      "kind": "shelf",
+      "triangles": 236,
+      "rect": [
+        15.1,
+        -8.75,
+        15.4,
+        -7.75
+      ]
+    },
+    {
+      "id": "3B_din_t",
+      "kind": "table_round",
+      "triangles": 372,
+      "rect": [
+        13.049999999999999,
+        -3.1500000000000004,
+        14.15,
+        -2.05
+      ]
+    },
+    {
+      "id": "3B_din_dc1",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        14.379999999999999,
+        -2.62,
+        14.8596782467748,
+        -2.1799999999999997
+      ]
+    },
+    {
+      "id": "3B_din_dc2",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        13.379999999999999,
+        -3.809678246774801,
+        13.82,
+        -3.3299999999999996
+      ]
+    },
+    {
+      "id": "3B_stool",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        14.83,
+        -1.27,
+        15.309678246774801,
+        -0.8300000000000001
+      ]
+    },
+    {
+      "id": "4B_meal_table",
+      "kind": "table_round",
+      "triangles": 372,
+      "rect": [
+        -15.15,
+        1.05,
+        -14.049999999999999,
+        2.1500000000000004
+      ]
+    },
+    {
+      "id": "4B_meal_chair_01",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        -13.870000000000001,
+        1.3800000000000001,
+        -13.3903217532252,
+        1.82
+      ]
+    },
+    {
+      "id": "4B_meal_chair_02",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        -14.82,
+        2.3299999999999996,
+        -14.379999999999999,
+        2.809678246774801
+      ]
+    },
+    {
+      "id": "4B_desk_chair",
+      "kind": "chair",
+      "triangles": 336,
+      "rect": [
+        -8.270000000000001,
+        2.3299999999999996,
+        -7.790321753225199,
+        2.77
+      ]
+    }
+  ],
+  "anchors_added": 27,
+  "route_samples": 2906,
+  "limits": "Fixed chairs and coarse furniture hulls; sitting, knee clearance, physics routes, materials and performance are not verified."
+}

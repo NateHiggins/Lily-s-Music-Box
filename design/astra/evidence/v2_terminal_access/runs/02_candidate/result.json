@@ -1,0 +1,250 @@
+{
+  "schema": "astra.v2-terminal-access.run.v1",
+  "phase": "02_candidate",
+  "before": {
+    "all_game_files_sha256": "e42b041bb56e7ab6a4510cd9fecd0510cd6787315107b8279f3df5b02af98d01",
+    "runtime_text_sha256": "d4c3fde8b840851b12c11bc09053843b83858f2289ecde8d480b6e41ce8daf97",
+    "copied_sources": {
+      "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+      "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+      "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+      "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+      "game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+      "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "game/scripts/call/call_interface.gd": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c",
+      "game/scripts/call/case_library.gd": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c",
+      "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+      "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+      "game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+      "game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+      "game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60",
+      "game/tests/orison_v2_terminal_access_test.gd": "74a2bd4ffddbdc6a6ae60184985ae3a07f0b8e90c40fdcc7f5727ff0ff4b024b"
+    },
+    "head_observed": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+    "instruments": {
+      "assess.py": "d7d9a7133d4e5fd98166564d20167117aaa18916b4472e3299e610711ffdbfd0",
+      "core.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+      "known_diagnostics.json": "838bcb65d975e791502fa77b95ebaf6e3de503aeebfca2a44a8b71f50347e7ee",
+      "package.json": "fbd62fb10629aaf31b7f386cca877752e7ffeb6811b29cf2560ae734e9c0446e",
+      "run.py": "14b60a7f90ffdab2b3cbf885c8a9bd8ed6f47c005a2d7989fcf852754785a9ee",
+      "runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+      "support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+      "test_assess.py": "9e9f32527c24c333ec87b1e340b2656b061aad36118132fcd2aad5c449e590e4",
+      "test_runner_contract.py": "c73d39fa44ed4629a386318571c71f99e2d9eb734b3d6003ea5ed7aa0d487f37",
+      "canonical_run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "terminal_preparation.json": "130164373d73079c3f01c97e924ec508e5a6ffd2c49ef5281ec8e4746645bd4f"
+    },
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "started_at_utc": "2026-09-05T12:29:28.598314+00:00",
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_terminal_access\\runs\\02_candidate\\APPDATA",
+  "cleared_environment_keys": [
+    "APPDATA"
+  ],
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/OrisonV2TerminalAccessTest.tscn",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_terminal_access\\runs\\02_candidate\\godot.stdout.log",
+    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_terminal_access\\runs\\02_candidate\\shots",
+    "TimeoutSeconds": 60,
+    "Windowed": true,
+    "ExtraArgs": [
+      "--verbose",
+      "--audio-driver",
+      "Dummy",
+      "--resolution",
+      "1280x720",
+      "--rendering-method",
+      "forward_plus",
+      "--rendering-driver",
+      "vulkan"
+    ]
+  },
+  "package_sha256": "fbd62fb10629aaf31b7f386cca877752e7ffeb6811b29cf2560ae734e9c0446e",
+  "after": {
+    "all_game_files_sha256": "e42b041bb56e7ab6a4510cd9fecd0510cd6787315107b8279f3df5b02af98d01",
+    "runtime_text_sha256": "d4c3fde8b840851b12c11bc09053843b83858f2289ecde8d480b6e41ce8daf97",
+    "copied_sources": {
+      "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+      "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+      "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+      "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+      "game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+      "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "game/scripts/call/call_interface.gd": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c",
+      "game/scripts/call/case_library.gd": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c",
+      "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+      "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+      "game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+      "game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+      "game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60",
+      "game/tests/orison_v2_terminal_access_test.gd": "74a2bd4ffddbdc6a6ae60184985ae3a07f0b8e90c40fdcc7f5727ff0ff4b024b"
+    },
+    "head_observed": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+    "instruments": {
+      "assess.py": "d7d9a7133d4e5fd98166564d20167117aaa18916b4472e3299e610711ffdbfd0",
+      "core.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+      "known_diagnostics.json": "838bcb65d975e791502fa77b95ebaf6e3de503aeebfca2a44a8b71f50347e7ee",
+      "package.json": "fbd62fb10629aaf31b7f386cca877752e7ffeb6811b29cf2560ae734e9c0446e",
+      "run.py": "14b60a7f90ffdab2b3cbf885c8a9bd8ed6f47c005a2d7989fcf852754785a9ee",
+      "runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+      "support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+      "test_assess.py": "9e9f32527c24c333ec87b1e340b2656b061aad36118132fcd2aad5c449e590e4",
+      "test_runner_contract.py": "c73d39fa44ed4629a386318571c71f99e2d9eb734b3d6003ea5ed7aa0d487f37",
+      "canonical_run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "terminal_preparation.json": "130164373d73079c3f01c97e924ec508e5a6ffd2c49ef5281ec8e4746645bd4f"
+    },
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "actual_runner_exit": 1,
+  "serial_process_seconds": 5.222115999997186,
+  "source_unchanged": true,
+  "pid_ancestry_verified": true,
+  "assessment": {
+    "diagnostic_gate_exit": 1,
+    "control_contract_exit": 1,
+    "ordinary_product_status": "FAILED",
+    "reasons": [
+      "failure_set_differs_from_exact_planned_variant",
+      "native_exit_differs_from_planned_variant"
+    ],
+    "failed_labels": [
+      "ordinary player ray acquires the actual desk Area",
+      "actual player prompt offers the support desk",
+      "real interact input acquires reciprocal seated ownership",
+      "real entry opens the call panel and starts the first case",
+      "real call owner updates the actual terminal stage",
+      "occupied line plays on the existing Telephone owner",
+      "entry does not teleport the authored operator",
+      "seated E releases player desk and call ownership",
+      "seated E hides the modal and stops the line",
+      "standing player can reacquire the same physical desk",
+      "ray reentry resumes the same live case and owner",
+      "actual Escape key releases reciprocal ownership",
+      "Escape restores world input and stops the line",
+      "exactly two real ray entries emitted desk interactions",
+      "opening sequence settles through its actual owner"
+    ],
+    "passed": 21,
+    "total": 36,
+    "known_diagnostic_debt": [
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+        "count": 2
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+        "count": 1
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+        "count": 1
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+        "count": 1
+      },
+      {
+        "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+        "count": 1
+      },
+      {
+        "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+        "count": 1
+      },
+      {
+        "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+        "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+        "count": 39
+      }
+    ],
+    "unknown_diagnostics": [],
+    "retention": [],
+    "negative_control_scope_only": false
+  },
+  "artifacts": {
+    "after.all_game_files.json": "d33ce2efaf94dc015b5ea2b15f160eaee5f2912be89681e06e469381bcc5c1c7",
+    "after.game.diff": "67f39f97501799e0d1a4e5875f0d9a5cd1771719e0aa9081346adbc7ad4f521b",
+    "after.runtime_text.json": "48135ec4fee29e6baac566da5d9b943499a0b0127039ebae93d523c6bde1c925",
+    "before.all_game_files.json": "d33ce2efaf94dc015b5ea2b15f160eaee5f2912be89681e06e469381bcc5c1c7",
+    "before.game.diff": "67f39f97501799e0d1a4e5875f0d9a5cd1771719e0aa9081346adbc7ad4f521b",
+    "before.runtime_text.json": "48135ec4fee29e6baac566da5d9b943499a0b0127039ebae93d523c6bde1c925",
+    "command.json": "ba8893c70ae7afe38042cc21223db650f6ee4de033c5e2897eb2c1a2a7cf621c",
+    "godot.stdout.log": "44e896d8687a9a29f6fa0e534a482d68f134a7af09f9841dadafe3c056be4d48",
+    "godot.stdout.log.stderr": "44634bafb94cd1ecd33ad5855e6e91ea1bb7edd28fbe01fa80deffaf595c3c8f",
+    "invocation.json": "1bb9121d9314b409a953a09fcce2fc275399bb0c3bfd8960930ab253ae1a8198",
+    "prelaunch_processes.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "process_observations.json": "d47401ea402ab988fc30ec88b1f4b9ee0cbdbdb64e061cf0a465ee2eb04318b8",
+    "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run_config.json": "084496351674046eaca5bd3af7978598e03f5bc95ddaa6998d233e6717203f26",
+    "instruments/assess.py": "d7d9a7133d4e5fd98166564d20167117aaa18916b4472e3299e610711ffdbfd0",
+    "instruments/canonical_run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "instruments/core.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+    "instruments/known_diagnostics.json": "838bcb65d975e791502fa77b95ebaf6e3de503aeebfca2a44a8b71f50347e7ee",
+    "instruments/package.json": "fbd62fb10629aaf31b7f386cca877752e7ffeb6811b29cf2560ae734e9c0446e",
+    "instruments/run.py": "14b60a7f90ffdab2b3cbf885c8a9bd8ed6f47c005a2d7989fcf852754785a9ee",
+    "instruments/runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+    "instruments/support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+    "instruments/terminal_preparation.json": "130164373d73079c3f01c97e924ec508e5a6ffd2c49ef5281ec8e4746645bd4f",
+    "instruments/test_assess.py": "9e9f32527c24c333ec87b1e340b2656b061aad36118132fcd2aad5c449e590e4",
+    "instruments/test_runner_contract.py": "c73d39fa44ed4629a386318571c71f99e2d9eb734b3d6003ea5ed7aa0d487f37",
+    "shots/terminal_access.json": "7340a4eec57ccf5ec3c6f8ce5847d2155f985d73c3e48cf2530ece0105fb2c00",
+    "after/source/game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "after/source/game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+    "after/source/game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60",
+    "after/source/game/tests/orison_v2_terminal_access_test.gd": "74a2bd4ffddbdc6a6ae60184985ae3a07f0b8e90c40fdcc7f5727ff0ff4b024b",
+    "after/source/game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "after/source/game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+    "after/source/game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+    "after/source/game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+    "after/source/game/scripts/call/call_interface.gd": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c",
+    "after/source/game/scripts/call/case_library.gd": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c",
+    "after/source/game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+    "after/source/game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+    "after/source/game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+    "after/source/game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+    "before/source/game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "before/source/game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+    "before/source/game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60",
+    "before/source/game/tests/orison_v2_terminal_access_test.gd": "74a2bd4ffddbdc6a6ae60184985ae3a07f0b8e90c40fdcc7f5727ff0ff4b024b",
+    "before/source/game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "before/source/game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+    "before/source/game/scripts/building/orison_v2_blockout.gd": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+    "before/source/game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+    "before/source/game/scripts/call/call_interface.gd": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c",
+    "before/source/game/scripts/call/case_library.gd": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c",
+    "before/source/game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+    "before/source/game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+    "before/source/game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+    "before/source/game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3"
+  }
+}

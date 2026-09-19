@@ -1,0 +1,25 @@
+{
+  "canonical_branch": "codex/astra-canonical-20260904",
+  "completeness_source": {
+    "audit_id": "orison_v2_completeness",
+    "path": "evidence/save_commit_audits/orison_v2_completeness.stdout.txt",
+    "receipt_path": "evidence/save_commit_audits/receipt.json",
+    "receipt_sha256": "de8568e3b74f14bc55f7855de39eaf61fdf82ca7c34522fefb55f31531c84e30",
+    "repository_head": "9548301873807117a870aeb6e517173e81a4713f",
+    "sha256": "eeefd38e403dfaad4424f638457a7b305c60b0213155cb77132a7038ae4e8c7e"
+  },
+  "frozen_sanitation_base": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+  "latest_accepted_landing": {
+    "commit": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+    "runtime_revalidation": "SCOPED_TESTS_PASS_AFTER_REPAIRS; no new human acceptance",
+    "source_boundary": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+    "status": "INTEGRATED"
+  },
+  "latest_calendar_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+  "latest_repair_commit": "9548301873807117a870aeb6e517173e81a4713f",
+  "latest_save_title_commit": "9548301873807117a870aeb6e517173e81a4713f",
+  "ledger_evidence_head": "9548301873807117a870aeb6e517173e81a4713f",
+  "policy": "Update the explicit source/head/hash binding when a new audit is selected. Never infer current state from a directory name, modification time, or the frozen sanitation matrix. Static source evidence does not grant new runtime or human acceptance.",
+  "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
+  "schema_version": 1
+}

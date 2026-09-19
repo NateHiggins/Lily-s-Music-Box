@@ -1,0 +1,69 @@
+{
+  "authority_source_sha256": "14bde540cb23cb9a66ee5b57b19aeb112ad3cce6dc442f700996be81eff150fb",
+  "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+  "changed_product_paths": [],
+  "current_audits": "design/astra/evidence/base_audits/receipt.json",
+  "documents": [
+    "design/astra/AUTHORITY_HIERARCHY.md",
+    "design/astra/DEBT_DEDUPLICATION.md"
+  ],
+  "findings": [
+    {
+      "id": "AUTH-CLOCK-DATE",
+      "owner": "CampaignClock",
+      "path": "game/scripts/game/campaign_clock.gd",
+      "line": 24,
+      "priority": "RELEASE_CRITICAL",
+      "status": "CONFIRMED_SOURCE_DEFECT",
+      "evidence": "_initialize_epoch_from_host reads and persists host date, weekday, and day-of-year; latest owner mandate permits only time-of-day initialization from host.",
+      "next_proof": "Hold local time constant across different host dates and require identical authored campaign date plus deterministic save/reconstruction."
+    },
+    {
+      "id": "AUTH-NPC-PRESENCE",
+      "owner": "NpcObservationLedger",
+      "path": "game/scripts/reality/npc_observation_ledger.gd",
+      "line": 107,
+      "priority": "RELEASE_CRITICAL",
+      "status": "CONFIRMED_SOURCE_GAP",
+      "evidence": "Production v1 default ecosystem setup creates ledger without presence provider; _is_present returns true. V2 already injects a timetable provider and is NOT missing that integration. V2 instead passes wrapped situation time of day as elapsed campaign time to day_info_at.",
+      "next_proof": "Absent resident does not learn a visible in-flat event, while an independently present witness learns with provenance; V2 presence uses coherent campaign calendar and situation time."
+    },
+    {
+      "id": "AUTH-SAVE-WRITE",
+      "owner": "RealityState",
+      "path": "game/scripts/game/reality_game_state.gd",
+      "line": 110,
+      "priority": "RELEASE_CRITICAL",
+      "status": "CONFIRMED_SOURCE_GAP",
+      "evidence": "Version 4 direct store_string path lacks required temp-write/rename, readback verification and file-boundary schema validation.",
+      "next_proof": "Injected failed writes and corrupted/future schemas preserve recoverability and refuse invalid overwrite; composed boundary reconstruction survives."
+    },
+    {
+      "id": "AUTH-DATA-SOURCE-CONSUMERS",
+      "owner": "Data consumption audit and asset authoring pipeline",
+      "priority": "MAJOR",
+      "status": "CONFIRMED_CLASSIFICATION_LIMIT",
+      "evidence": "FILE_UNREAD runtime-reader output includes hero and animation mappings actually read by convert_dump_characters.py and bake_model_moves.py. Material catalog has build-time readers. It cannot authorize deletion of these authoring inputs.",
+      "next_proof": "Trace exact source/mirror/generated-output/runtime chain and declare reviewed build-time consumption contracts before disposition."
+    }
+  ],
+  "main_ancestry_verified": [
+    {
+      "commit": "66355da16d6b5e74e7370dcfa731437fe606e212",
+      "description": "Corrected Open Shift authority",
+      "merge_base_is_ancestor_exit": 0
+    },
+    {
+      "commit": "5ed8bf3164785b2db2b4287b86bd44047e58cfca",
+      "description": "Radiator-specific human visual acceptance",
+      "merge_base_is_ancestor_exit": 0
+    },
+    {
+      "commit": "aeb9f9a1c97e3f3b01d086a354a985ef0725f086",
+      "description": "Runner exit truth",
+      "merge_base_is_ancestor_exit": 0
+    }
+  ],
+  "product_acceptance_granted": false,
+  "shared_checkout_modified": false
+}

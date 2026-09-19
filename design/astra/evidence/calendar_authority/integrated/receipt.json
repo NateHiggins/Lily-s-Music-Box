@@ -1,0 +1,129 @@
+{
+  "phase": "integrated",
+  "runs": {
+    "period_fixture_host_red": {
+      "exit_code": 1,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\calendar_period_control_b7w34ex6"
+      ]
+    },
+    "period_fixture_authored_green": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\calendar_period_control_b7w34ex6"
+      ]
+    },
+    "period_fixture_calendar_drift_red": {
+      "exit_code": 1,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\calendar_period_control_b7w34ex6"
+      ]
+    },
+    "systemic_fixture_host_red": {
+      "exit_code": 1,
+      "command": [
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\situation_authority_be6t49m_\\repo",
+        "--baseline",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\situation_authority_be6t49m_\\repo\\tools\\baseline.json",
+        "--domain",
+        "host-clock",
+        "--json"
+      ]
+    },
+    "systemic_fixture_authored_green": {
+      "exit_code": 0,
+      "command": [
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\situation_authority_be6t49m_\\repo",
+        "--baseline",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\situation_authority_be6t49m_\\repo\\tools\\baseline.json",
+        "--domain",
+        "host-clock",
+        "--json"
+      ]
+    },
+    "host_calendar_selftests": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_systemic_situation_authority.py",
+        "HostCalendarTests"
+      ]
+    },
+    "period_selftests": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_period_dates.py"
+      ]
+    },
+    "systemic_full_selftests": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_systemic_situation_authority.py"
+      ]
+    },
+    "systemic_audit": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_systemic_situation_authority.py",
+        "--json"
+      ]
+    },
+    "period_audit": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py"
+      ]
+    }
+  },
+  "input_sha256_before": {
+    "tools/audit_period_dates.py": "f57ee5d4c4a0fc43a2ca5bec4c970b9f1f1a430bfa13c6ba046d757efe3791fd",
+    "tools/audit_systemic_situation_authority.py": "e343f9082ebefbf97b6ccfaed666c3c9986be9bf8edd0cc97fe81f2c35e004d9",
+    "tools/tests/test_period_dates.py": "8848254c443ce5c9ffb109b31d8cda9985584ae29ecd66e984b56750c796ac74",
+    "tools/tests/test_systemic_situation_authority.py": "b69fb9005f476d10e60005226d062f236d813fdc0e570a193c665c11364f18d1",
+    "game/data/orison_v2_shared_frames.json": "5d9b98876b699d306a3ed47b9a796b03fb2f5a1ad65922b4237dc94b859c21a0",
+    "game/scripts/building/orison_v2_frame_contract.gd": "ae0604d2322c3acaa91b21739927db45a74c83cf10a06a8e3430c0e1d204ddae",
+    "game/tests/admin_prereq_contract_test.gd": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902",
+    "game/data/campaign_calendar.json": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a",
+    "game/scripts/game/campaign_clock.gd": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae",
+    "game/scripts/phoneos/phone_camera.gd": "ef6bd1cd6689f6d5b8c36fea84335a30fa046922622d59bc11a1aad3729dabd8",
+    "game/scripts/phoneos/phone_os.gd": "cb8f5ee2d8f26662cd2d36afb40cbd09891fdcf625e1218cc9fb29c21dee3340",
+    "game/scripts/songbook/songbook_store.gd": "9d988ddd08bd95a7c9b9b400c9c3108d90b12bba958fe5d403ec3be091289cfe",
+    "game/scripts/game/historical_radio_notice.gd": "70cce90eef2fdbc24e235edeb9abe24e5f64b2aec9d2dad52e2d09959eea1f6a",
+    "game/data/historical_radio_reallocation.json": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac",
+    "game/scripts/props/lobby_bulletin_board.gd": "d4961065434369455c056a95edd4dd4c95471e4ba824ddb488c81cd91ea4876f",
+    "game/scripts/reality/organism_incidents.gd": "420e13e8c0f1387ec1d1d319605e85a762524fdb4dfab63d371a6177b5a10758"
+  },
+  "production_baseline_sha256_unchanged": "b73b34ef40de16bfe0f76f3ccea79ec98a473fcbad53a0527f77b412d775a806",
+  "input_sha256_after": {
+    "tools/audit_period_dates.py": "f57ee5d4c4a0fc43a2ca5bec4c970b9f1f1a430bfa13c6ba046d757efe3791fd",
+    "tools/audit_systemic_situation_authority.py": "e343f9082ebefbf97b6ccfaed666c3c9986be9bf8edd0cc97fe81f2c35e004d9",
+    "tools/tests/test_period_dates.py": "8848254c443ce5c9ffb109b31d8cda9985584ae29ecd66e984b56750c796ac74",
+    "tools/tests/test_systemic_situation_authority.py": "b69fb9005f476d10e60005226d062f236d813fdc0e570a193c665c11364f18d1",
+    "game/data/orison_v2_shared_frames.json": "5d9b98876b699d306a3ed47b9a796b03fb2f5a1ad65922b4237dc94b859c21a0",
+    "game/scripts/building/orison_v2_frame_contract.gd": "ae0604d2322c3acaa91b21739927db45a74c83cf10a06a8e3430c0e1d204ddae",
+    "game/tests/admin_prereq_contract_test.gd": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902",
+    "game/data/campaign_calendar.json": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a",
+    "game/scripts/game/campaign_clock.gd": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae",
+    "game/scripts/phoneos/phone_camera.gd": "ef6bd1cd6689f6d5b8c36fea84335a30fa046922622d59bc11a1aad3729dabd8",
+    "game/scripts/phoneos/phone_os.gd": "cb8f5ee2d8f26662cd2d36afb40cbd09891fdcf625e1218cc9fb29c21dee3340",
+    "game/scripts/songbook/songbook_store.gd": "9d988ddd08bd95a7c9b9b400c9c3108d90b12bba958fe5d403ec3be091289cfe",
+    "game/scripts/game/historical_radio_notice.gd": "70cce90eef2fdbc24e235edeb9abe24e5f64b2aec9d2dad52e2d09959eea1f6a",
+    "game/data/historical_radio_reallocation.json": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac",
+    "game/scripts/props/lobby_bulletin_board.gd": "d4961065434369455c056a95edd4dd4c95471e4ba824ddb488c81cd91ea4876f",
+    "game/scripts/reality/organism_incidents.gd": "420e13e8c0f1387ec1d1d319605e85a762524fdb4dfab63d371a6177b5a10758"
+  },
+  "inputs_unchanged_during_run": true,
+  "frame_runtime_execution": "not run by this agent; root owns Godot lane"
+}

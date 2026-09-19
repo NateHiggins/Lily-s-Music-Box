@@ -38,6 +38,7 @@ const STAGGER_ROLL := 0.085
 
 var camera: Camera3D
 var flashlight: SpotLight3D
+var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
 var telegram_hud: TelegramHud
@@ -256,6 +257,14 @@ func _build_hud() -> void:
 	add_child(pause_services)
 	pause_services.call("bind_player", self)
 
+
+## Orient a reconstructed player toward an authored world-space return subject.
+func face_world_point(target: Vector3) -> void:
+	var direction := target - global_position
+	if not target.is_finite() or Vector2(direction.x, direction.z).length_squared() < .0001:
+		return
+	global_rotation = Vector3(0, atan2(-direction.x, -direction.z), 0)
+	camera.look_at(target)
 
 ## What the crosshair is looking at, refreshed for the prompt line.
 func _update_prompt() -> void:
@@ -579,6 +588,10 @@ func set_lamp_enabled(on: bool) -> void:
 		flashlight.light_projector = null
 	if carried_device and carried_device.has_method("set_lamp_enabled"):
 		carried_device.set_lamp_enabled(on)
+	if is_instance_valid(lamp_presentation):
+		lamp_presentation.set_powered(on)
+		if changed: _play_lamp_sound(on)
+		return
 	if not changed:
 		# A NO-OP MUST BE A NO-OP. This used to zero `_lamp_phase` and force
 		# `visible`, so any caller re-asserting the state the lamp was already
@@ -626,6 +639,9 @@ func set_lamp_enabled(on: bool) -> void:
 ## collapses, then falls dark down the same colour ramp it came up.
 func _advance_lamp(delta: float) -> void:
 	if flashlight == null:
+		return
+	if is_instance_valid(lamp_presentation):
+		lamp_presentation.advance_frame(delta)
 		return
 	if _lamp_phase <= 0.0:
 		if flashlight.visible != _lamp_on:
@@ -681,6 +697,9 @@ func lamp_is_enabled() -> bool:
 ## the moment its filament finishes coming up.
 func set_lamp_base_energy(value: float) -> void:
 	_lamp_base_energy = maxf(0.0, value)
+	if is_instance_valid(lamp_presentation):
+		lamp_presentation.apply_output()
+		return
 	if flashlight and _lamp_phase <= 0.0 and _lamp_on:
 		_apply_lamp_gutter()
 

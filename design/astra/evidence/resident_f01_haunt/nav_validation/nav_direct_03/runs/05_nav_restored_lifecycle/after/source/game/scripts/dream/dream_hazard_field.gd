@@ -1,0 +1,196 @@
+class_name DreamHazardField
+extends RefCounted
+## N7: the dream's hazards as one steppable owner.
+##
+## Shaped deliberately like DreamPursuer — `setup(...)` then
+## `advance_fixed(delta)` — so a test can drive it at a fixed rate and
+## get the same answer every time, which is how N3 and N6 got numbers
+## anybody could re-run.
+##
+## It owns three things the brief asks for and nothing else: which
+## hazards this case actually runs, the per-frame evaluation, and the
+## logs that make Gate C measurable rather than asserted. It does not own
+## geometry (the builder does), outcomes (DreamMazeRoot's one funnel
+## does), or presentation (the caption layer will).
+
+signal tell_started(hazard_id: String, bearing_deg: float, caption: String)
+signal hazard_contact(hazard_id: String, outcome: String)
+
+var hazards: Array[DreamHazard] = []
+var player: Node3D
+var elapsed_s := 0.0
+var lifecycle_stage := DreamOrganelleLifecycle.Stage.MATURE
+
+## Everything a player could have perceived, in order. The identification
+## harness is only ever allowed to read THIS -- never the plan, never a
+## socket, never a module id -- which is what makes the 80% bar a real
+## blind test instead of a lookup.
+var perception_log: Array[Dictionary] = []
+## Every contact, with its realised warning. One row per impact.
+var impact_log: Array[Dictionary] = []
+## Last sector stated per hazard, so a caption is repeated only when the
+## direction it names has actually changed.
+var _last_sector: Dictionary = {}
+
+
+## Applies one shared name to the already co-present hazards. No evaluation
+## runs here, so tells, contacts and perception logs remain untouched.
+func classify_lifecycle(run_elapsed_s: float, run_cap_s: float) -> int:
+	lifecycle_stage = DreamOrganelleLifecycle.bounded_run_stage(
+			run_elapsed_s, run_cap_s)
+	for hazard in hazards:
+		hazard.lifecycle_stage = lifecycle_stage
+	return lifecycle_stage
+
+
+func lifecycle_stage_name() -> String:
+	return DreamOrganelleLifecycle.stage_name(lifecycle_stage)
+
+
+## `profile_hazards` is the case's own block: an `allow` list and a
+## `tuning` dictionary. A socket with no allow entry is placed in the
+## world by the builder and simply never armed here — which is how the
+## slot-3 rhythmic counterweight sits in Mina's D03 without being one of
+## Mina's dangers.
+func setup(plan: Dictionary, profile_hazards: Dictionary,
+		target: Node3D) -> void:
+	player = target
+	hazards.clear()
+	perception_log.clear()
+	impact_log.clear()
+	_last_sector.clear()
+	elapsed_s = 0.0
+	var allow: Array = profile_hazards.get("allow", [])
+	var tuning: Dictionary = profile_hazards.get("tuning", {})
+	for record in plan.get("hazards", []):
+		# Arm and tune on the SOCKET, identify on the id. They are the same
+		# string on the chain path; the fractal can place one catalog socket
+		# in several live rooms at once, and the allowlist is written against
+		# the socket, not against the instance.
+		var socket := str(record.get("socket", record.get("id", "")))
+		if not allow.has(socket):
+			continue
+		var hazard := DreamHazard.new()
+		hazard.configure(record, tuning.get(socket, {}))
+		hazards.append(hazard)
+
+
+## Re-arm against a CHANGED pocket without restarting the run.
+##
+## setup() cannot be used for this. It zeroes elapsed_s and clears both logs,
+## and elapsed_s is the run clock every realised-warning number in Gate C is
+## measured against -- re-calling it whenever a room was built or freed would
+## silently reset the clock mid-passage and make the fairness evidence
+## meaningless. So this keeps the clock, keeps the logs, and keeps the LIVE
+## HAZARD OBJECTS for records that are still present, because a hazard that
+## has already started telling must go on telling rather than begin again the
+## moment the player crosses a threshold.
+func rearm(plan: Dictionary, profile_hazards: Dictionary) -> void:
+	var allow: Array = profile_hazards.get("allow", [])
+	var tuning: Dictionary = profile_hazards.get("tuning", {})
+	var wanted := {}
+	for record in plan.get("hazards", []):
+		var socket := str(record.get("socket", record.get("id", "")))
+		if allow.has(socket):
+			wanted[str(record.get("id", ""))] = record
+	var kept: Array[DreamHazard] = []
+	for hazard in hazards:
+		if wanted.has(hazard.id):
+			kept.append(hazard)
+			wanted.erase(hazard.id)
+	for hid in wanted:
+		var record: Dictionary = wanted[hid]
+		var hazard := DreamHazard.new()
+		hazard.configure(record, tuning.get(str(record.get("socket",
+				record.get("id", ""))), {}))
+		kept.append(hazard)
+	hazards = kept
+
+
+## One deterministic step. Returns "" or the outcome of the first hazard
+## to contact this frame; DreamMazeRoot decides what to do with it, and
+## its latch means a simultaneous capture cannot double-commit.
+func advance_fixed(delta: float) -> String:
+	if player == null:
+		return DreamHazard.NONE
+	elapsed_s += delta
+	var lamp_on: bool = player.has_method("lamp_is_enabled") \
+			and bool(player.call("lamp_is_enabled"))
+	var speed := 0.0
+	if player.has_method("planar_speed"):
+		speed = float(player.call("planar_speed"))
+	var fired := DreamHazard.NONE
+	for hazard in hazards:
+		var was_silent: bool = hazard.tell_started_s < 0.0
+		var result := hazard.evaluate(player.global_position, lamp_on,
+				speed, elapsed_s)
+		if hazard.tell_started_s >= 0.0 and not hazard.contacted:
+			var bearing := _bearing_to(hazard.position)
+			var sector := bearing_sector(bearing)
+			# A direction stated once goes stale the moment the player turns
+			# or walks past it. Re-state whenever the sector actually
+			# changes -- and only then, so the caption channel stays quiet
+			# enough to read.
+			if was_silent or sector != str(_last_sector.get(hazard.id, "")):
+				_last_sector[hazard.id] = sector
+				perception_log.append({
+					"at_s": elapsed_s,
+					"hazard_id": hazard.id,
+					"kind": hazard.kind,
+					"bearing_deg": bearing,
+					"sector": sector,
+					"caption": hazard.caption,
+					"lamp_on": lamp_on,
+					"first": was_silent,
+				})
+				tell_started.emit(hazard.id, bearing, hazard.caption)
+		if hazard.contacted and hazard.contact_s == elapsed_s:
+			impact_log.append(hazard.impact_record(lamp_on))
+			hazard_contact.emit(hazard.id, result)
+			if result != DreamHazard.NONE and fired == DreamHazard.NONE:
+				fired = result
+	return fired
+
+
+## Compass bearing from the player to a point, in degrees, 0 = the
+## player's forward. Presentation gets a SECTOR rather than a number,
+## because a caption that reads "4.2 m north-east" tells the player
+## something their ears could not have.
+func _bearing_to(point: Vector3) -> float:
+	if player == null:
+		return 0.0
+	var to := Vector3(point.x - player.global_position.x, 0.0,
+			point.z - player.global_position.z)
+	if to.length() < 0.0001:
+		return 0.0
+	var forward := -player.global_transform.basis.z
+	forward = Vector3(forward.x, 0.0, forward.z).normalized()
+	# NEGATED DELIBERATELY. Vector3.signed_angle_to about +Y is positive
+	# counter-clockwise seen from above, which is a turn to the player's
+	# LEFT. The sector table below reads clockwise from AHEAD, so without
+	# this flip a danger on the left is captioned RIGHT -- worse than no
+	# caption at all, and the reason this is measured rather than assumed.
+	var angle := -rad_to_deg(forward.signed_angle_to(to.normalized(),
+			Vector3.UP))
+	return fmod(angle + 360.0, 360.0)
+
+
+## Eight 45-degree sectors. Accessibility captions name one of these and
+## never a distance, so directional-caption mode conveys what the ear
+## conveys and nothing the eye could not have earned.
+static func bearing_sector(deg: float) -> String:
+	const NAMES := ["AHEAD", "AHEAD RIGHT", "RIGHT", "BEHIND RIGHT",
+			"BEHIND", "BEHIND LEFT", "LEFT", "AHEAD LEFT"]
+	var idx := int(floor(fmod(deg + 22.5 + 360.0, 360.0) / 45.0)) % 8
+	return NAMES[idx]
+
+
+## Did every impact get at least the warning its socket authored? This is
+## Gate C's fairness bar as a single answerable question.
+func unfair_impacts() -> Array[Dictionary]:
+	var bad: Array[Dictionary] = []
+	for row in impact_log:
+		var realised: float = float(row.get("realised_warning_s", -1.0))
+		if realised < float(row.get("minimum_warning_s", 0.0)):
+			bad.append(row)
+	return bad

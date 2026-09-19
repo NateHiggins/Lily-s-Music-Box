@@ -1,0 +1,61 @@
+# Campaign opening date research: Queens, 1928
+
+**Accepted after this research:** the owner chose Saturday, November 10,
+1928. See the [current calendar ruling](../../ORISON_CAMPAIGN_CALENDAR_RULING_2026-09-05.md).
+The recommendation-stage provenance and source-access limitations below
+are retained; acceptance of the date does not turn proposed scenes into
+authored events or unverified recordings into historical evidence.
+
+Research recommendation only. No campaign date is accepted by this document; no product code, creative canon, historical-event data or audio was changed. Prepared for the owner's request to integrate a real-world timeline. Source access checked 2026-09-05 UTC. Read alongside `clock_review.md` and the latest owner time ruling.
+
+**Recommend Saturday, November 10, 1928, at the player's once-sampled local time of day.** The following morning brings a documented change to the actual New York radio dial. Starting the day before gives every possible sampled start time a period of ordinary apartment life before that change, without forcing a 03:00 opening or replaying an event which already happened. The choice of November 10 is an editorial recommendation; the dated radio event is November 11.
+
+## Historical facts supporting the recommendation
+
+The Federal Radio Commission's October 25, 1928 transmittal makes the revised broadcast licenses effective **November 11 at 03:00 Eastern Standard Time**. Its station list puts WEAF at 660 kilocycles, WJZ at 760, WOR at 710, and WNYC/WMCA together at 570 with divided time. The transmittal and table are reproduced after the modern introduction in [The Great Frequency Move of 1928, PDF pp. 2–6](https://www.thebdr.net/wp-content/uploads/PDF/Profiles/Broadcast-History/the-great-frequency-move-of-1928.pdf). This is a transcription of a primary government document hosted by a radio-history publisher, not a direct government scan.
+
+A contemporary Associated Press dispatch datelined New York, November 10, describes WEAF moving from its old wavelength to 660, WJZ moving from 660 to 760, and WOR retaining 710. It appeared on the front page of [The Brunswick News, November 11, 1928, University of Georgia newspaper archive](https://gahistoricnewspapers.galileo.usg.edu/lccn/sn90052143/1928-11-11/ed-1/seq-1/ocr/). The indexed OCR was accessible; opening the page subsequently returned an access challenge. Its New York dateline and station details independently corroborate the revised table. WEAF's old 610 assignment is also in the June 30 station list, printed p. 90 of the [FRC Second Annual Report](https://www.worldradiohistory.com/Archive-Other-Documments/Radio-Service%20Bulletin/Annual-Reports/FRC-Annual-Report-1927-07-to-1928-09.pdf), visible in search-indexed text; the PDF host refused direct retrieval.
+
+[WNYC's own archive account, “The 1931 Files”](https://wnyc.org/story/1931-files/), independently dates WMCA's move to 570 and the resulting WNYC time-sharing to November 11, 1928. This is the station's retrospective account of its records. It provides a particularly domestic New York consequence: a familiar position on the dial could belong to different stations at different hours. The surviving recordings discussed there date from **1931**, so they cannot be presented as recordings of a November 1928 broadcast.
+
+November 11 was also the tenth anniversary of the 1918 Armistice. The Library of Congress catalogs Clifford Berryman's contemporary [“November 11, 1928” drawing](https://www.loc.gov/pictures/item/2016678674/), depicting commemorative remembrance. This supports the anniversary context, not a claim about a particular Queens ceremony, broadcast or sound at a particular hour. No such local ceremony was verified in this pass.
+
+## Three options compared
+
+Weekdays below were independently calculated with Python's Gregorian `datetime.date`; they are not inferred from a modern recurring calendar.
+
+| Proposed opening | Grounding and local connection | Editorial fit and limitation |
+| --- | --- | --- |
+| **Saturday, November 10** | Day before the verified November 11 03:00 EST radio reassignment; four days after the presidential election. | Best fit for signal uncertainty entering ordinary domestic routines. The change can arrive during play without changing the sampled start time. The date itself is our choice, not a historical inauguration of Orison. |
+| **Tuesday, November 6** | Presidential election day, recorded in the [Connecticut official election database and linked 1928 Statement of Vote](https://electionhistory.ct.gov/contest/20038). [National Archives electoral records](https://www.archives.gov/electoral-college/1928) identify Hoover and New York's Alfred E. Smith, record Hoover's victory, and show New York's 45 electoral votes for Hoover. | Stronger opening for disagreement, newspaper evidence and shared radio listening. Provides five calendar days before the frequency change. It demands more political characterization and period reporting than the immediate signal premise. Statewide returns do not prove how Queens or any fictional resident voted. |
+| **Saturday, January 21** | Widely documented Flushing–Main Street opening candidate, concretely in Queens. [New York Transit Museum's guide, p. 9](https://www.nytransitmuseum.org/wp-content/uploads/2024/10/Follow-the-Blue-Arrow-to-the-Worlds-Fair-Tour-Guide.pdf), independently confirms Main Street opened in January 1928. The contemporary January 22 [New York Times article record](https://web.archive.org/web/20220518040930/https://timesmachine.nytimes.com/timesmachine/1928/01/22/94122788.html?pdf_redirect=true&site=false) confirms an opening celebration and BMT/IRT service in its headline. | Best infrastructure alternative: changes to commuting, routes and neighborhood expectations. Exact January 21 date is strongly corroborated by secondary transit histories, but the primary article body remained subscription-blocked here; the official museum guide supports only the month. Close that narrow primary-source gap before implementing exact opening-hour content. It also puts the November signal event many months away. |
+
+November 11 itself is a defensible variant, but most sampled times would begin after 03:00. Choose it only if the desired opening is the **aftermath**, with historically consistent already-changed station assignments. Never rewind or repeat the real event merely because a new player arrived late.
+
+Al Smith's connection to Catholic and immigrant New York offers possible characterization, but it is not a shortcut to assigning resident beliefs by ethnicity or faith. The [National Archives' historical essay on Hoover](https://www.archives.gov/publications/prologue/2004/summer/hoover) discusses the campaign's anti-Catholic hostility and Smith's urban background; it is an authoritative secondary source, not proof of any particular Orison resident's experience. Hoover Library's [campaign collection finding aid](https://hoover.archives.gov/sites/default/files/research/collections/hooverpapers/09-ct-subject-web-1.0.pdf) identifies actual Smith speech material dated November 2 in Brooklyn and November 5 in New York City, plus radio-schedule material, if election detail is developed later. A finding-aid listing does not establish what a speech said or its exact broadcast hour.
+
+## Proposed apartment tells — fiction, not historical claims
+
+These are original implementation possibilities derived from the verified setting, not recovered accounts of real residents:
+
+- A penciled tuning card acquires corrections; someone insists the old mark still finds the expected voice. Another resident trusts the newspaper's replacement listing.
+- An ordinary complaint about losing a favorite station becomes a repair conversation. A working set, a badly tuned set and an anomalous voice should remain distinguishable possibilities.
+- A neighbor leaves a radio tuned while doing household work. After the date boundary, a different station identification occupies a familiar dial position; only a resident who heard it can remember it.
+- Armistice remembrance can produce a personal choice to lower a set, retain a photograph or avoid conversation. The horror should arise from Orison's violations of perception and continuity, not from turning war dead or religious observance into a supernatural punishment.
+- For the January alternative, new route information and changed commuting habits can reach the building through a newspaper or a resident's return. Do not invent audible Flushing trains under Orison without checking the building's fixed location and actual route geometry.
+
+Do not infer a citywide blackout, every station changing frequency, all sets failing simultaneously, continuous overnight programming, a specific November 10–11 weather report, a Queens parade, or authentic broadcast dialogue from the sources above. Frequencies and license effective times do not establish program schedules. Keep the authored supernatural WORS/1610 behavior separate from claims about real licensed stations.
+
+## Calendar and observation integration implications
+
+The owner requires the real local **time of day** to be sampled once, while the campaign date is independent. For a November 10 start, the November 11 03:00 event falls `1620 - start_minute_of_day` simulation minutes after creation: **181 through 1620 minutes** at minute resolution, or just over 3 through 27 hours. This is calculation, not a proposal to speed time up. The player's host date, host weekday and host timezone offset must not supply the fictional date. The historical event time belongs to New York's fictional civil calendar; the owner's sampled hour/minute remains the chosen opening hour/minute.
+
+**1928 is a leap year.** November 10 is Gregorian day 315, and November 11 day 316. Existing authored schedule date keys use a 365-day, non-leap index, where these are respectively 314 and 315. Keep civil calendar date/weekday distinct from that legacy schedule key; do not load Gregorian 315 into the old non-leap key and silently move residents' anniversaries. The actual runtime consumers and red-test proposal are recorded in `clock_review.md`.
+
+Historical events should be dated facts available through supported in-world media, with resident knowledge acquired through observation. A radio set being present is not proof that its resident heard the item. Save/reload must preserve the campaign instant and already-observed history; it must not reset the event when the room, root or quality setting changes. If a player misses the transition, later physical evidence or ordinary conversation can communicate its aftermath without replaying it. These are design recommendations awaiting integration with the accepted simulation contracts, not a new global plot-trigger system.
+
+The real-world event layer must be reconciled explicitly with the Bible's established alternate history and technology. The owner's request authorizes researching real events; it does not silently rewrite existing fictional causality. This recommendation intentionally leaves the campaign date, specific broadcasts and resident responses uncommitted.
+
+## Evidence limits
+
+Primary content was preferred: government license transmittal/table (transcription), contemporary AP report (indexed archival OCR), electoral records, and a dated original drawing. Retrospectives and finding aids are labeled above. World Radio History refused direct PDF fetch; the NYT primary body remained subscription-blocked; no blockade was bypassed. The precise radio date/time and New York assignments have independent corroboration. The precise January opening day remains the weaker primary-verification lane and is not needed for the recommended opening.

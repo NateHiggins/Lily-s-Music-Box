@@ -810,7 +810,11 @@ question and governs every date the building shows the player.)*
 apartment building. What it was, and what happened to it, is shrouded in
 darkness.**
 
-**IT IS 1928 WHEN THE GAME STARTS.** This supersedes the earlier pinning
+**THE GAME STARTS ON SATURDAY, NOVEMBER 10, 1928.** The owner accepted this
+calendar date on 2026-09-05; the local time of day is sampled once at campaign
+creation, then the simulation owns time. See the
+[campaign calendar ruling](ORISON_CAMPAIGN_CALENDAR_RULING_2026-09-05.md).
+The 1928 present supersedes the earlier pinning
 of the present to late 1927. Everywhere else in this document, and in the
 wardrobe bible, **"1927" is the VINTAGE of ordinary things, not the date
 on the calendar** — and it still gives the right answer, because the test

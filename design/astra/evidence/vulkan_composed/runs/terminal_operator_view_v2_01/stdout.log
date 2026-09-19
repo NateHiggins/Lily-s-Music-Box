@@ -1,0 +1,452 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Accessibility: AccessKit driver loaded.
+Accessibility: window 0 adapter created.
+Devices:
+  #0: NVIDIA NVIDIA GeForce RTX 4080 - Supported, Discrete
+Optional Vulkan device extension VK_EXT_fragment_density_map not found
+Optional Vulkan device extension VK_EXT_fragment_density_map2 not found
+Optional Vulkan device extension VK_QCOM_fragment_density_map_offset not found
+Optional Vulkan device extension VK_EXT_astc_decode_mode not found
+Optional Vulkan device extension VK_EXT_texture_compression_astc_hdr not found
+Optional Vulkan device extension VK_NV_ray_tracing_validation not found
+Optional Vulkan device extension VK_KHR_external_memory_fd not found
+Optional Vulkan device extension VK_EXT_debug_marker not found
+- Vulkan Fragment Shading Rate supported:
+  Pipeline fragment shading rate
+  Primitive fragment shading rate
+  Attachment fragment shading rate, min texel size: (16, 16), max texel size: (16, 16), max fragment size: (4, 4)
+- Vulkan Fragment Density Map not supported
+- Vulkan multiview supported:
+  max view count: 32
+  max instances: 134217727
+- Vulkan subgroup:
+  size: 32
+  min size: 32
+  max size: 32
+  stages: STAGE_VERTEX, STAGE_TESSELLATION_CONTROL, STAGE_TESSELLATION_EVALUATION, STAGE_GEOMETRY, STAGE_FRAGMENT, STAGE_COMPUTE, STAGE_RAYGEN_KHR, STAGE_ANY_HIT_KHR, STAGE_CLOSEST_HIT_KHR, STAGE_MISS_KHR, STAGE_INTERSECTION_KHR, STAGE_CALLABLE_KHR, STAGE_TASK_NV, STAGE_MESH_NV
+  supported ops: FEATURE_BASIC, FEATURE_VOTE, FEATURE_ARITHMETIC, FEATURE_BALLOT, FEATURE_SHUFFLE, FEATURE_SHUFFLE_RELATIVE, FEATURE_CLUSTERED, FEATURE_QUAD, FEATURE_PARTITIONED_NV
+  quad operations in all stages
+- Vulkan Acceleration Structure supported
+  min acceleration structure scratch offset alignment: 128
+- Vulkan Raytracing supported
+  shader group handle size: 32
+  shader group handle alignment: 32
+  shader group handle size aligned: 32
+  shader group base alignment: 64
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+Startup PSO cache (0.0 MiB)
+SDL: Init OK!
+Using "winink" pen tablet driver...
+Creating VMA small objects pool for memory type index 1
+Shader 'CanvasSdfShaderRD' (group 0) SHA256: 54b47da3ce58bfeb483acea9e9e45b5de11793d45b2a38279aa17b08296ef514
+Shader cache miss for CanvasSdfShaderRD/54b47da3ce58bfeb483acea9e9e45b5de11793d45b2a38279aa17b08296ef514/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SkeletonShaderRD' (group 0) SHA256: 08b4464d16133f4db97a8df4663b95b2b956ecd3e7addf44a16e644f488157c2
+Shader cache miss for SkeletonShaderRD/08b4464d16133f4db97a8df4663b95b2b956ecd3e7addf44a16e644f488157c2/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SortShaderRD' (group 0) SHA256: 8e4ebbbb19fcd734c6f15656afbe1bcd5eb3acdfdae9cab023ebd6f54c901ef8
+Shader cache miss for SortShaderRD/8e4ebbbb19fcd734c6f15656afbe1bcd5eb3acdfdae9cab023ebd6f54c901ef8/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ParticlesShaderRD' (group 0) SHA256: 8f4c25caa97a2f74d5fa5f299aabdd514f57d9737b8642ed65c20e846dad5db0
+Shader cache miss for ParticlesShaderRD/8f4c25caa97a2f74d5fa5f299aabdd514f57d9737b8642ed65c20e846dad5db0/07b5904b662900d90454c39c46885098de79aa4c
+Shader 'ParticlesCopyShaderRD' (group 0) SHA256: 688d10aec3c2e17e8c578ba3e2db1ea2f054eedd511b1e1647952c0acaeeab72
+Shader cache miss for ParticlesCopyShaderRD/688d10aec3c2e17e8c578ba3e2db1ea2f054eedd511b1e1647952c0acaeeab72/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'CanvasShaderRD' (group 0) SHA256: 1ac5f6c8d534ebab572b3f886e38134784245fbd5fa01c7cbb6cc452e5400080
+Shader cache miss for CanvasShaderRD/1ac5f6c8d534ebab572b3f886e38134784245fbd5fa01c7cbb6cc452e5400080/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'CanvasOcclusionShaderRD' (group 0) SHA256: 3b765d5624135f9fbf3199b6660b8387d5b904f48be0914a622e5da9b906b504
+Shader cache miss for CanvasOcclusionShaderRD/3b765d5624135f9fbf3199b6660b8387d5b904f48be0914a622e5da9b906b504/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader cache miss for CanvasShaderRD/1ac5f6c8d534ebab572b3f886e38134784245fbd5fa01c7cbb6cc452e5400080/89e0c5a264d1558e7bc2ca0dc3d0afd834fbe7b6
+Shader cache miss for CanvasShaderRD/1ac5f6c8d534ebab572b3f886e38134784245fbd5fa01c7cbb6cc452e5400080/8f9335de72e837eeead40640cc01fddc5baf5a7c
+Shader 'TexBlitShaderRD' (group 0) SHA256: ce377a6d54cd54d45abdd915ec4cf3877fef3cbace94de3df4ed73ec0124ea0c
+Shader cache miss for TexBlitShaderRD/ce377a6d54cd54d45abdd915ec4cf3877fef3cbace94de3df4ed73ec0124ea0c/1e8995c9eb0e9b0b053035999de68595c521a33e
+Shader 'ClusterRenderShaderRD' (group 0) SHA256: e1824bcfaf9ebab715957f09e04336284255c4a495944e7ca919e9c20509cf78
+Shader cache miss for ClusterRenderShaderRD/e1824bcfaf9ebab715957f09e04336284255c4a495944e7ca919e9c20509cf78/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ClusterStoreShaderRD' (group 0) SHA256: 552b8bd4a514bf18836a8f9d32f41185bdb0efa58da3d5b3e68a39d68f6cecfc
+Shader cache miss for ClusterStoreShaderRD/552b8bd4a514bf18836a8f9d32f41185bdb0efa58da3d5b3e68a39d68f6cecfc/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ClusterDebugShaderRD' (group 0) SHA256: 0825a26b8d0923d82c8881fc87e3d931ea89a116d0550106157b7033dfa382a7
+Shader cache miss for ClusterDebugShaderRD/0825a26b8d0923d82c8881fc87e3d931ea89a116d0550106157b7033dfa382a7/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SceneForwardClusteredShaderRD' (group 0) SHA256: 069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692
+Shader 'SceneForwardClusteredShaderRD' (group 1) SHA256: e6ddf6e05db4f231ee7be3016d02a9e703882c6b2e93191499ae729257086fbf
+Shader 'SceneForwardClusteredShaderRD' (group 2) SHA256: 03231cc5a2baf868ce6ae9ca41bb9f199e71fe058e538a5f5121bcec6a77e72d
+Shader 'SceneForwardClusteredShaderRD' (group 3) SHA256: e3d89c1bd8f3ff6a0fef46ab1650f9c56e7ec927639ae227579c7831b94bc4ae
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/b600e18e20b53d8932999d48838b29553c586934
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/347259af253e6bbec7ad5c69332af5ca731015aa
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/a784797763b72ce058effad41b273eb697df9814
+Shader 'BestFitNormalShaderRD' (group 0) SHA256: 522b47cc4c3c4b572bc28faadfdeea9c0a31b5381e4ea2e3406d0f6fda73d52b
+Shader cache miss for BestFitNormalShaderRD/522b47cc4c3c4b572bc28faadfdeea9c0a31b5381e4ea2e3406d0f6fda73d52b/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'IntegrateDfgShaderRD' (group 0) SHA256: 83448d29d7232c732c9d312b8e7faaa363fd72cf79165ec15256862089ebd46e
+Shader cache miss for IntegrateDfgShaderRD/83448d29d7232c732c9d312b8e7faaa363fd72cf79165ec15256862089ebd46e/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'TaaResolveShaderRD' (group 0) SHA256: c5152f5d8d5e919024126af06b7cf1a216b5184957e1946e198175642a86027f
+Shader cache miss for TaaResolveShaderRD/c5152f5d8d5e919024126af06b7cf1a216b5184957e1946e198175642a86027f/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'Fsr2DepthClipPassShaderRD' (group 0) SHA256: a20cc609c661dbc20c0e6a50851d7ef432d89eb01d24ccf77a8d354b1003b593
+Shader 'Fsr2ReconstructPreviousDepthPassShaderRD' (group 0) SHA256: cbbdd1c21ee3ee90d8d06a9dd43063e4947406284591dc52cda4af06f70cf4c5
+Shader 'Fsr2LockPassShaderRD' (group 0) SHA256: 995caf07233459282796e20cf661d1dff50d44e7f6b71a02f50ff28852375d11
+Shader 'Fsr2AccumulatePassShaderRD' (group 0) SHA256: 5d2518fa9d077ed7e9937130bcc8f122a0c112da50e4102e291ff2e2e3b3655a
+Shader 'Fsr2RcasPassShaderRD' (group 0) SHA256: 1a214ec56a6146372aa5be425b51e322c000385e510d969388b8a7b64e8633fe
+Shader 'Fsr2ComputeLuminancePyramidPassShaderRD' (group 0) SHA256: 858215f4d90283500ee2148c5aa0e0849b1581cc1eff4a636e59f7ab9c107253
+Shader 'Fsr2AutogenReactivePassShaderRD' (group 0) SHA256: 4c3e8464d1a8b62c5285265b7d298da6fd431f85d1353a00f4791bde194cda86
+Shader 'Fsr2TcrAutogenPassShaderRD' (group 0) SHA256: 6259947a4b72af42bd9446599035d159f6a0f4ad7816329d4ce18d50bf4ec655
+Shader 'SsEffectsDownsampleShaderRD' (group 0) SHA256: ccf4e10c5ab4528ecf8f9b97dbc17f491b409915c7c64f533bcc896c43acdfb0
+Shader cache miss for SsEffectsDownsampleShaderRD/ccf4e10c5ab4528ecf8f9b97dbc17f491b409915c7c64f533bcc896c43acdfb0/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SsilShaderRD' (group 0) SHA256: 2b3bf37ba8a45aa5cbc064da9031687142e6f007565f6dee75f83189a9edcfa3
+Shader cache miss for SsilShaderRD/2b3bf37ba8a45aa5cbc064da9031687142e6f007565f6dee75f83189a9edcfa3/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SsilImportanceMapShaderRD' (group 0) SHA256: 1c4d07be7a352b493a9afdef9363514c1f219eb178911ec18626ea542c3b1334
+Shader cache miss for SsilImportanceMapShaderRD/1c4d07be7a352b493a9afdef9363514c1f219eb178911ec18626ea542c3b1334/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SsilBlurShaderRD' (group 0) SHA256: ba99bf82030acafb5628e8fbd1e0a70fb6a1fa2af5283800a6585fa9c71317d5
+Shader cache miss for SsilBlurShaderRD/ba99bf82030acafb5628e8fbd1e0a70fb6a1fa2af5283800a6585fa9c71317d5/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SsilInterleaveShaderRD' (group 0) SHA256: e3b6eab6e5b68136736435a560115616f4074e0be5dca3e2242912a504320162
+Shader cache miss for SsilInterleaveShaderRD/e3b6eab6e5b68136736435a560115616f4074e0be5dca3e2242912a504320162/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SsaoShaderRD' (group 0) SHA256: 66a821ba71909db6948ec1aded9d3ee630866bfb4556c2e275650a1ba3b8f5e3
+Shader cache miss for SsaoShaderRD/66a821ba71909db6948ec1aded9d3ee630866bfb4556c2e275650a1ba3b8f5e3/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SsaoImportanceMapShaderRD' (group 0) SHA256: 8701d1e664bf71d29af6f5d0a42ba62d7efbdec7f5f82064ea3b0fe3eef94361
+Shader cache miss for SsaoImportanceMapShaderRD/8701d1e664bf71d29af6f5d0a42ba62d7efbdec7f5f82064ea3b0fe3eef94361/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SsaoBlurShaderRD' (group 0) SHA256: 75c97c3818b26631d447852881b25a2a80e6c894e956c009b714072cbd46c1ef
+Shader cache miss for SsaoBlurShaderRD/75c97c3818b26631d447852881b25a2a80e6c894e956c009b714072cbd46c1ef/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SsaoInterleaveShaderRD' (group 0) SHA256: bee8210303269b0457bb9b0180392661b1c86739a5b9b2efe8a252021fcca1f5
+Shader cache miss for SsaoInterleaveShaderRD/bee8210303269b0457bb9b0180392661b1c86739a5b9b2efe8a252021fcca1f5/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ScreenSpaceReflectionDownsampleShaderRD' (group 0) SHA256: ce68b2844d60e91b13d566f130e5e6be4924ecd57975c33ed49db903d1d10cdd
+Shader cache miss for ScreenSpaceReflectionDownsampleShaderRD/ce68b2844d60e91b13d566f130e5e6be4924ecd57975c33ed49db903d1d10cdd/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ScreenSpaceReflectionHizShaderRD' (group 0) SHA256: d816ec3b916a39c24ef8495a965202569a714911181fd70869fdc76e1647898d
+Shader cache miss for ScreenSpaceReflectionHizShaderRD/d816ec3b916a39c24ef8495a965202569a714911181fd70869fdc76e1647898d/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ScreenSpaceReflectionShaderRD' (group 0) SHA256: dd5e885eefeba0f65c2678de75b986844fb186f0d2a38e39381b435388d51dbb
+Shader cache miss for ScreenSpaceReflectionShaderRD/dd5e885eefeba0f65c2678de75b986844fb186f0d2a38e39381b435388d51dbb/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ScreenSpaceReflectionFilterShaderRD' (group 0) SHA256: adaaba74fde6be6ed9036c3b4e1988baef6dcb0a7cc9aa46eee0f81796fd1ee7
+Shader cache miss for ScreenSpaceReflectionFilterShaderRD/adaaba74fde6be6ed9036c3b4e1988baef6dcb0a7cc9aa46eee0f81796fd1ee7/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ScreenSpaceReflectionResolveShaderRD' (group 0) SHA256: 7179c7134fdf0cbefc7c3244957827cbec1fd0180b3dfa0ea580579b7b83a06c
+Shader cache miss for ScreenSpaceReflectionResolveShaderRD/7179c7134fdf0cbefc7c3244957827cbec1fd0180b3dfa0ea580579b7b83a06c/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SubsurfaceScatteringShaderRD' (group 0) SHA256: 7c8ee12c5109342b5667f38d6fda4ec1c20f0d014ad9690457e6f19d602b96d9
+Shader cache miss for SubsurfaceScatteringShaderRD/7c8ee12c5109342b5667f38d6fda4ec1c20f0d014ad9690457e6f19d602b96d9/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SkyShaderRD' (group 0) SHA256: 9be8c23dcd20154e4a1ab0bef919421f8c51853d47c2fe6dc91221f8cfc74997
+Shader cache miss for SkyShaderRD/9be8c23dcd20154e4a1ab0bef919421f8c51853d47c2fe6dc91221f8cfc74997/0fa1946a11e1cca806ebfe4b3b4ac7f723d8b701
+Shader cache miss for SkyShaderRD/9be8c23dcd20154e4a1ab0bef919421f8c51853d47c2fe6dc91221f8cfc74997/ff1961ca0c4c55a79eb12f819a7b6345801bbbaf
+Shader 'VoxelGiShaderRD' (group 0) SHA256: be32ca7811c1d8efa7aea8f6759edee078b2130e3ae5a44ffb2866906b7f344a
+Shader cache miss for VoxelGiShaderRD/be32ca7811c1d8efa7aea8f6759edee078b2130e3ae5a44ffb2866906b7f344a/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'VoxelGiDebugShaderRD' (group 0) SHA256: 9a34146b67b3016d20f7a43d89748fc6c5eb980a677a57e30e08f4db1bc9a2c6
+Shader cache miss for VoxelGiDebugShaderRD/9a34146b67b3016d20f7a43d89748fc6c5eb980a677a57e30e08f4db1bc9a2c6/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SdfgiPreprocessShaderRD' (group 0) SHA256: 1df3f43771989a4c102242eeab16de469b18c89bbd7ff3866c4fd78a99d2e961
+Shader cache miss for SdfgiPreprocessShaderRD/1df3f43771989a4c102242eeab16de469b18c89bbd7ff3866c4fd78a99d2e961/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SdfgiDirectLightShaderRD' (group 0) SHA256: 60b8f559824902a3ba6f601c82ba13bb027a01cf114421e8b3e7f1577251f982
+Shader cache miss for SdfgiDirectLightShaderRD/60b8f559824902a3ba6f601c82ba13bb027a01cf114421e8b3e7f1577251f982/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SdfgiIntegrateShaderRD' (group 0) SHA256: 8402e25fb473b17f05fd8134b61bac8272f9bb13ec37039e0f82a546918f3004
+Shader cache miss for SdfgiIntegrateShaderRD/8402e25fb473b17f05fd8134b61bac8272f9bb13ec37039e0f82a546918f3004/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'GiShaderRD' (group 0) SHA256: a60cccbead6fab980bf996289c17b9a77b68a540d44ab8a15ec477060a5862cf
+Shader 'GiShaderRD' (group 1) SHA256: 4b8662cdf9663cca618a7d8d793e816df7b2d7e775eefbb9eb5fbb0bdbe7d3d3
+Shader cache miss for GiShaderRD/a60cccbead6fab980bf996289c17b9a77b68a540d44ab8a15ec477060a5862cf/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader cache miss for GiShaderRD/4b8662cdf9663cca618a7d8d793e816df7b2d7e775eefbb9eb5fbb0bdbe7d3d3/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SdfgiDebugShaderRD' (group 0) SHA256: 6c94a7679fba279d983d32e141b6648229956762362a863275c13ba2608c7e4d
+Shader cache miss for SdfgiDebugShaderRD/6c94a7679fba279d983d32e141b6648229956762362a863275c13ba2608c7e4d/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SdfgiDebugProbesShaderRD' (group 0) SHA256: 9067100a09ae2d21f3f325a69e660546baba568b663847a9ba75cbdc3ea337ee
+Shader cache miss for SdfgiDebugProbesShaderRD/9067100a09ae2d21f3f325a69e660546baba568b663847a9ba75cbdc3ea337ee/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'VolumetricFogShaderRD' (group 0) SHA256: 4fcd7eea54024fa982593be8aed8c9df465d0c4f629d7d1d1dfdf887cdaca664
+Shader 'VolumetricFogShaderRD' (group 1) SHA256: ca7636fab5e9482809eef50fa6684b206f196dada5f05272cb6f04bab7b39ad4
+Shader 'VolumetricFogShaderRD' (group 2) SHA256: cb01070fac4570703f705033e78fe8f33ec0bc024a29f53170c0e593709e87ce
+Shader 'VolumetricFogShaderRD' (group 3) SHA256: c66c1f9d3ee29cfbd36a5292e40323598a914dddef06f93951451c87654fd3ca
+Shader cache miss for VolumetricFogShaderRD/cb01070fac4570703f705033e78fe8f33ec0bc024a29f53170c0e593709e87ce/3377d4ca9d0fc2e16f62596ee37d619e8e7e3f54
+Shader 'VolumetricFogProcessShaderRD' (group 0) SHA256: b3d8b51125b8cc82b65e91af793ad8427f49e486687dd0559cabc908674c4390
+Shader 'VolumetricFogProcessShaderRD' (group 1) SHA256: fb70f1d0cde8662299c3e8439861294b94192590612d199e70f0f2380126ce56
+Shader 'VolumetricFogProcessShaderRD' (group 2) SHA256: ea198e67c91d4d2ddf767049e2aede96f6c4a7ebb51ac9f6f9bbb89e28b083df
+Shader 'VolumetricFogProcessShaderRD' (group 3) SHA256: 89e722db621fadf587f712b1100bfe8ade1e7ad5051befa7e3c3bb7bae4a1c18
+Shader cache miss for VolumetricFogProcessShaderRD/ea198e67c91d4d2ddf767049e2aede96f6c4a7ebb51ac9f6f9bbb89e28b083df/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'BokehDofShaderRD' (group 0) SHA256: 07a1c984a30f7beb4c3290c8d0216119327b1f6eb8b36e5c96cfb751f30742e6
+Shader cache miss for BokehDofShaderRD/07a1c984a30f7beb4c3290c8d0216119327b1f6eb8b36e5c96cfb751f30742e6/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'CopyShaderRD' (group 0) SHA256: 23f6cf7986b46c68792dfd3f087267f14eebc49382f0c0fd265b45462b58afcf
+Shader cache miss for CopyShaderRD/23f6cf7986b46c68792dfd3f087267f14eebc49382f0c0fd265b45462b58afcf/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'CopyToFbShaderRD' (group 0) SHA256: d00e29e632391ed3791124b988da290d922da3d9e2083273523bd8173b24ff97
+Shader cache miss for CopyToFbShaderRD/d00e29e632391ed3791124b988da290d922da3d9e2083273523bd8173b24ff97/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'CubeToDpShaderRD' (group 0) SHA256: 9825f5ee942047b6912a1b6fe49935a8c928598f40d2cdfc64a0f61134deed27
+Shader cache miss for CubeToDpShaderRD/9825f5ee942047b6912a1b6fe49935a8c928598f40d2cdfc64a0f61134deed27/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'CubeToOctmapShaderRD' (group 0) SHA256: 8bf32929c5b41445f085dd302ccba233028481a94d43ce1b531bc8e2e66677a4
+Shader cache miss for CubeToOctmapShaderRD/8bf32929c5b41445f085dd302ccba233028481a94d43ce1b531bc8e2e66677a4/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'OctmapDownsamplerShaderRD' (group 0) SHA256: c79c7ea0ebc9a0833c5f465f1c555216a15727d2c4e3a227e9d5cd1e80f0669e
+Shader cache miss for OctmapDownsamplerShaderRD/c79c7ea0ebc9a0833c5f465f1c555216a15727d2c4e3a227e9d5cd1e80f0669e/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'OctmapFilterShaderRD' (group 0) SHA256: a511f5ad922f5d701a26f801b4f9c96406071103345fa83fd394f8954c1dd7ac
+Shader cache miss for OctmapFilterShaderRD/a511f5ad922f5d701a26f801b4f9c96406071103345fa83fd394f8954c1dd7ac/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'OctmapRoughnessShaderRD' (group 0) SHA256: 9f66b38742366834aef44d557fed0d0753432ffb2cf24eebb14792092fc26b83
+Shader cache miss for OctmapRoughnessShaderRD/9f66b38742366834aef44d557fed0d0753432ffb2cf24eebb14792092fc26b83/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Updated PSO cache (3.0 MiB)
+Shader 'SpecularMergeShaderRD' (group 0) SHA256: 38d1cf8969e8f223baa218cbcd7ad415e6e945247fdb8cefddabba66acaab0e4
+Shader cache miss for SpecularMergeShaderRD/38d1cf8969e8f223baa218cbcd7ad415e6e945247fdb8cefddabba66acaab0e4/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ShadowFrustumShaderRD' (group 0) SHA256: 7aba7a73f7499f30591bb36c54f106926052cdc0048232d9054de723408b1ea2
+Shader cache miss for ShadowFrustumShaderRD/7aba7a73f7499f30591bb36c54f106926052cdc0048232d9054de723408b1ea2/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'MotionVectorsShaderRD' (group 0) SHA256: 21fe2ffffa991405f5c0b4bb35dd8789b4049f8e56d80a5aa61aa8233992e3c1
+Shader cache miss for MotionVectorsShaderRD/21fe2ffffa991405f5c0b4bb35dd8789b4049f8e56d80a5aa61aa8233992e3c1/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'LuminanceReduceShaderRD' (group 0) SHA256: 926f3544c80af9c002aea2fe9f66f19b40ec81e54f627608fc28573493ac5edb
+Shader cache miss for LuminanceReduceShaderRD/926f3544c80af9c002aea2fe9f66f19b40ec81e54f627608fc28573493ac5edb/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SmaaEdgeDetectionShaderRD' (group 0) SHA256: 749ffc0281a6ab411cf5a66f2560a2f33f9a258f57c513c67047f363e5e7ab33
+Shader cache miss for SmaaEdgeDetectionShaderRD/749ffc0281a6ab411cf5a66f2560a2f33f9a258f57c513c67047f363e5e7ab33/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SmaaWeightCalculationShaderRD' (group 0) SHA256: 510ed0d4e978b1a21f4e459da4ee2516c38f4460931e2a5714dae17c8b5547c2
+Shader cache miss for SmaaWeightCalculationShaderRD/510ed0d4e978b1a21f4e459da4ee2516c38f4460931e2a5714dae17c8b5547c2/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'SmaaBlendingShaderRD' (group 0) SHA256: daa696d3938d7aadbc85111a68936e774199a2ded78d364782d43ef580b5296d
+Shader cache miss for SmaaBlendingShaderRD/daa696d3938d7aadbc85111a68936e774199a2ded78d364782d43ef580b5296d/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'TonemapShaderRD' (group 0) SHA256: 6d008fe28b8fd25f510d360d45c329659bbd6cc2a222dc519c18fea4a3c17a36
+Shader cache miss for TonemapShaderRD/6d008fe28b8fd25f510d360d45c329659bbd6cc2a222dc519c18fea4a3c17a36/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'VrsShaderRD' (group 0) SHA256: 9df305f4045418de07830cd11c3be6abf40ea73a66b1fc87b5e04821ac4f402c
+Shader cache miss for VrsShaderRD/9df305f4045418de07830cd11c3be6abf40ea73a66b1fc87b5e04821ac4f402c/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'FsrUpscaleShaderRD' (group 0) SHA256: de60781f9669b1455afc7507208cad7b3c71f8e59f4c894548899e482420e8dd
+Shader cache miss for FsrUpscaleShaderRD/de60781f9669b1455afc7507208cad7b3c71f8e59f4c894548899e482420e8dd/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'ResolveShaderRD' (group 0) SHA256: b92e1e567b3ce7b008af4819aa7a8f7848a6f4dd09e28737bcd07456b04c2c7e
+Shader cache miss for ResolveShaderRD/b92e1e567b3ce7b008af4819aa7a8f7848a6f4dd09e28737bcd07456b04c2c7e/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+Shader 'BlitShaderRD' (group 0) SHA256: 29b32016e1c23e0db5906fbe9b87108e39e7f5965c0016eb53fc5e1c03293243
+
+Shader cache miss for BlitShaderRD/29b32016e1c23e0db5906fbe9b87108e39e7f5965c0016eb53fc5e1c03293243/8305c75c1294a9f00656f0f14344bb8bedcfe4e7
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+Shader cache miss for CanvasShaderRD/1ac5f6c8d534ebab572b3f886e38134784245fbd5fa01c7cbb6cc452e5400080/c2f7efc3419efdd79fabd056897820a83f2ac2c9
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/VulkanComposedRootTest.tscn remapped: res://tests/VulkanComposedRootTest.tscn
+Loading resource: res://tests/vulkan_composed_root_test.gd remapped: res://tests/vulkan_composed_root_test.gd
+Loading resource: res://assets/ui/telegram/telegram_paper_stock_v1.png remapped: res://assets/ui/telegram/telegram_paper_stock_v1.png
+Loading resource: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex remapped: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex
+Completed load for: 'res://assets/ui/telegram/telegram_paper_stock_v1.png' remapped 'res://assets/ui/telegram/telegram_paper_stock_v1.png' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf
+Loading resource: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata remapped: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf
+Loading resource: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata remapped: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' at thread -1
+Loading resource: res://assets/audio/viral_seed.ogg remapped: res://assets/audio/viral_seed.ogg
+Loading resource: res://.godot/imported/viral_seed.ogg-befc5f05d706188204c710ae7bb333d9.oggvorbisstr remapped: res://.godot/imported/viral_seed.ogg-befc5f05d706188204c710ae7bb333d9.oggvorbisstr
+Completed load for: 'res://assets/audio/viral_seed.ogg' remapped 'res://assets/audio/viral_seed.ogg' at thread -1
+Loading resource: res://shaders/planar_mirror.gdshader remapped: res://shaders/planar_mirror.gdshader
+Completed load for: 'res://shaders/planar_mirror.gdshader' remapped 'res://shaders/planar_mirror.gdshader' at thread -1
+Completed load for: 'res://tests/vulkan_composed_root_test.gd' remapped 'res://tests/vulkan_composed_root_test.gd' at thread -1
+Completed load for: 'res://tests/VulkanComposedRootTest.tscn' remapped 'res://tests/VulkanComposedRootTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+[VULKAN COMPOSED] PASS campaign calendar seeded at authored 03:00 without host time
+[VULKAN COMPOSED] PASS Vulkan Forward+ is active
+[VULKAN COMPOSED PHASE] root_construct ticks_usec=1707616
+Shader cache miss for CanvasShaderRD/1ac5f6c8d534ebab572b3f886e38134784245fbd5fa01c7cbb6cc452e5400080/33fd386ffbe299f6cbb1d499f4824f1ef98f1150
+Loading resource: res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg remapped: res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg
+Loading resource: res://.godot/imported/mechanical_hum_loop.ogg-16d994b76a10c4bbddeae4185625eb8c.oggvorbisstr remapped: res://.godot/imported/mechanical_hum_loop.ogg-16d994b76a10c4bbddeae4185625eb8c.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/mechanical_hum_loop.ogg' at thread -1
+Loading resource: res://scenes/building/orison_v2_runtime.tscn remapped: res://scenes/building/orison_v2_runtime.tscn
+Loading resource: res://scripts/building/orison_v2_runtime_root.gd remapped: res://scripts/building/orison_v2_runtime_root.gd
+Loading resource: res://scenes/building/orison_v2_blockout.tscn remapped: res://scenes/building/orison_v2_blockout.tscn
+Loading resource: res://scripts/building/orison_v2_blockout.gd remapped: res://scripts/building/orison_v2_blockout.gd
+Completed load for: 'res://scripts/building/orison_v2_blockout.gd' remapped 'res://scripts/building/orison_v2_blockout.gd' at thread -1
+Completed load for: 'res://scenes/building/orison_v2_blockout.tscn' remapped 'res://scenes/building/orison_v2_blockout.tscn' at thread -1
+Completed load for: 'res://scripts/building/orison_v2_runtime_root.gd' remapped 'res://scripts/building/orison_v2_runtime_root.gd' at thread -1
+Completed load for: 'res://scenes/building/orison_v2_runtime.tscn' remapped 'res://scenes/building/orison_v2_runtime.tscn' at thread -1
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/9ae935cd107ff04dc4904f4d9a48208144d11fe5
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/b07e1a1cb8fbb2f4e7001c90360e03af72d705f0
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/ce284d0337c56daabe976677fc16a331307eeb05
+ORISON V2 BLOCKOUT: 50 spaces / 21 doors / 48 anchors
+Loading resource: res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png remapped: res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_bakelite_black_albedo.png-7d9915a4f20c2a48a3bbf6eef983ade1.ctex remapped: res://.godot/imported/T_ai_materials_bakelite_black_albedo.png-7d9915a4f20c2a48a3bbf6eef983ade1.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_bakelite_black_rough.png remapped: res://assets/building/textures/T_ai_materials_bakelite_black_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_bakelite_black_rough.png-25bb9c71631ef93ae27c874974165856.ctex remapped: res://.godot/imported/T_ai_materials_bakelite_black_rough.png-25bb9c71631ef93ae27c874974165856.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_bakelite_black_rough.png' remapped 'res://assets/building/textures/T_ai_materials_bakelite_black_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_bakelite_black_normal.png remapped: res://assets/building/textures/T_ai_materials_bakelite_black_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_bakelite_black_normal.png-f57083d47cf1ccd9352715d03c58d0a9.ctex remapped: res://.godot/imported/T_ai_materials_bakelite_black_normal.png-f57083d47cf1ccd9352715d03c58d0a9.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_bakelite_black_normal.png' remapped 'res://assets/building/textures/T_ai_materials_bakelite_black_normal.png' at thread -1
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/e00eb7713e31510a72f6374c30718fe108c8d108
+Loading resource: res://assets/building/textures/T_ai_materials_brass_mesh_albedo.png remapped: res://assets/building/textures/T_ai_materials_brass_mesh_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_mesh_albedo.png-c6e686cb0c9a5d6fd0e7711f79633540.ctex remapped: res://.godot/imported/T_ai_materials_brass_mesh_albedo.png-c6e686cb0c9a5d6fd0e7711f79633540.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_mesh_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_brass_mesh_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_brass_mesh_rough.png remapped: res://assets/building/textures/T_ai_materials_brass_mesh_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_mesh_rough.png-da4a57e83ece6ad8139c99e49634de6a.ctex remapped: res://.godot/imported/T_ai_materials_brass_mesh_rough.png-da4a57e83ece6ad8139c99e49634de6a.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_mesh_rough.png' remapped 'res://assets/building/textures/T_ai_materials_brass_mesh_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_brass_mesh_normal.png remapped: res://assets/building/textures/T_ai_materials_brass_mesh_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_mesh_normal.png-14a5899c95c8dd051fba5fe946de3dbf.ctex remapped: res://.godot/imported/T_ai_materials_brass_mesh_normal.png-14a5899c95c8dd051fba5fe946de3dbf.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_mesh_normal.png' remapped 'res://assets/building/textures/T_ai_materials_brass_mesh_normal.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_linen_albedo.png remapped: res://assets/building/textures/T_library_furniture_linen_albedo.png
+Loading resource: res://.godot/imported/T_library_furniture_linen_albedo.png-5db9f5a1934f31d2b298659aee188e18.ctex remapped: res://.godot/imported/T_library_furniture_linen_albedo.png-5db9f5a1934f31d2b298659aee188e18.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_linen_albedo.png' remapped 'res://assets/building/textures/T_library_furniture_linen_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_linen_rough.png remapped: res://assets/building/textures/T_library_furniture_linen_rough.png
+Loading resource: res://.godot/imported/T_library_furniture_linen_rough.png-78935a8eb3b841d9708cb704d43364ff.ctex remapped: res://.godot/imported/T_library_furniture_linen_rough.png-78935a8eb3b841d9708cb704d43364ff.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_linen_rough.png' remapped 'res://assets/building/textures/T_library_furniture_linen_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_linen_normal.png remapped: res://assets/building/textures/T_library_furniture_linen_normal.png
+Loading resource: res://.godot/imported/T_library_furniture_linen_normal.png-af81f5ff4c6ed27e88a7a06666829584.ctex remapped: res://.godot/imported/T_library_furniture_linen_normal.png-af81f5ff4c6ed27e88a7a06666829584.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_linen_normal.png' remapped 'res://assets/building/textures/T_library_furniture_linen_normal.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_copper_aged_albedo.png remapped: res://assets/building/textures/T_ai_materials_copper_aged_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_copper_aged_albedo.png-12131203a862c3eef154ff62c653650c.ctex remapped: res://.godot/imported/T_ai_materials_copper_aged_albedo.png-12131203a862c3eef154ff62c653650c.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_copper_aged_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_copper_aged_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_copper_aged_rough.png remapped: res://assets/building/textures/T_ai_materials_copper_aged_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_copper_aged_rough.png-57c4fbd07216e6a35e054e82bc4ee93d.ctex remapped: res://.godot/imported/T_ai_materials_copper_aged_rough.png-57c4fbd07216e6a35e054e82bc4ee93d.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_copper_aged_rough.png' remapped 'res://assets/building/textures/T_ai_materials_copper_aged_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_copper_aged_normal.png remapped: res://assets/building/textures/T_ai_materials_copper_aged_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_copper_aged_normal.png-84ca44fb676922a225473347f3b0fded.ctex remapped: res://.godot/imported/T_ai_materials_copper_aged_normal.png-84ca44fb676922a225473347f3b0fded.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_copper_aged_normal.png' remapped 'res://assets/building/textures/T_ai_materials_copper_aged_normal.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_indicator_enamel_albedo.png remapped: res://assets/building/textures/T_ai_materials_indicator_enamel_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_indicator_enamel_albedo.png-40900fe57bfb2590b507fecbe427ec4e.ctex remapped: res://.godot/imported/T_ai_materials_indicator_enamel_albedo.png-40900fe57bfb2590b507fecbe427ec4e.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_indicator_enamel_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_indicator_enamel_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_indicator_enamel_rough.png remapped: res://assets/building/textures/T_ai_materials_indicator_enamel_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_indicator_enamel_rough.png-7af5ab0518475e7fe6b57661c8df9479.ctex remapped: res://.godot/imported/T_ai_materials_indicator_enamel_rough.png-7af5ab0518475e7fe6b57661c8df9479.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_indicator_enamel_rough.png' remapped 'res://assets/building/textures/T_ai_materials_indicator_enamel_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_indicator_enamel_normal.png remapped: res://assets/building/textures/T_ai_materials_indicator_enamel_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_indicator_enamel_normal.png-6ef0fd147fe1d0bcbf5b046d278689fb.ctex remapped: res://.godot/imported/T_ai_materials_indicator_enamel_normal.png-6ef0fd147fe1d0bcbf5b046d278689fb.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_indicator_enamel_normal.png' remapped 'res://assets/building/textures/T_ai_materials_indicator_enamel_normal.png' at thread -1
+Loading resource: res://assets/building/textures/mailbank/T_mailbank_brass_albedo.png remapped: res://assets/building/textures/mailbank/T_mailbank_brass_albedo.png
+Loading resource: res://.godot/imported/T_mailbank_brass_albedo.png-2142dc3953217707fae96d1ab5cdd41d.ctex remapped: res://.godot/imported/T_mailbank_brass_albedo.png-2142dc3953217707fae96d1ab5cdd41d.ctex
+Completed load for: 'res://assets/building/textures/mailbank/T_mailbank_brass_albedo.png' remapped 'res://assets/building/textures/mailbank/T_mailbank_brass_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/mailbank/T_mailbank_brass_rough.png remapped: res://assets/building/textures/mailbank/T_mailbank_brass_rough.png
+Loading resource: res://.godot/imported/T_mailbank_brass_rough.png-d033f41385e15a8726aa7e6e3416e6cd.ctex remapped: res://.godot/imported/T_mailbank_brass_rough.png-d033f41385e15a8726aa7e6e3416e6cd.ctex
+Completed load for: 'res://assets/building/textures/mailbank/T_mailbank_brass_rough.png' remapped 'res://assets/building/textures/mailbank/T_mailbank_brass_rough.png' at thread -1
+Loading resource: res://assets/building/textures/mailbank/T_mailbank_header.png remapped: res://assets/building/textures/mailbank/T_mailbank_header.png
+Loading resource: res://.godot/imported/T_mailbank_header.png-109a1e3b1aa88fa9a6043ad8a67b8bb0.ctex remapped: res://.godot/imported/T_mailbank_header.png-109a1e3b1aa88fa9a6043ad8a67b8bb0.ctex
+Completed load for: 'res://assets/building/textures/mailbank/T_mailbank_header.png' remapped 'res://assets/building/textures/mailbank/T_mailbank_header.png' at thread -1
+Loading resource: res://assets/building/textures/mailbank/T_mailbank_cards.png remapped: res://assets/building/textures/mailbank/T_mailbank_cards.png
+Loading resource: res://.godot/imported/T_mailbank_cards.png-204f4958038d9befcc58fecf0e91adc3.ctex remapped: res://.godot/imported/T_mailbank_cards.png-204f4958038d9befcc58fecf0e91adc3.ctex
+Completed load for: 'res://assets/building/textures/mailbank/T_mailbank_cards.png' remapped 'res://assets/building/textures/mailbank/T_mailbank_cards.png' at thread -1
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/77e28fea868f1d640cf581ded2e966295b75d2d8
+Loading resource: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg remapped: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg
+Loading resource: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr remapped: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_cast_iron_albedo.png remapped: res://assets/building/textures/T_ai_materials_cast_iron_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_cast_iron_albedo.png-57e1e054c7e682f012f7d336fdfafae3.ctex remapped: res://.godot/imported/T_ai_materials_cast_iron_albedo.png-57e1e054c7e682f012f7d336fdfafae3.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_cast_iron_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_cast_iron_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_cast_iron_rough.png remapped: res://assets/building/textures/T_ai_materials_cast_iron_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_cast_iron_rough.png-b74900f724ba3730c064ef87fba03915.ctex remapped: res://.godot/imported/T_ai_materials_cast_iron_rough.png-b74900f724ba3730c064ef87fba03915.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_cast_iron_rough.png' remapped 'res://assets/building/textures/T_ai_materials_cast_iron_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_cast_iron_normal.png remapped: res://assets/building/textures/T_ai_materials_cast_iron_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_cast_iron_normal.png-ed572bca8a831db5f0b075724bdbe756.ctex remapped: res://.godot/imported/T_ai_materials_cast_iron_normal.png-ed572bca8a831db5f0b075724bdbe756.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_cast_iron_normal.png' remapped 'res://assets/building/textures/T_ai_materials_cast_iron_normal.png' at thread -1
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/1c6f17c1e748e816b1b50097eb51b11d06dc66c1
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/8a33e3448804a106dc84cf085356a6f6afc878ff
+Loading resource: res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png remapped: res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png
+Loading resource: res://.godot/imported/T_library_appliances_galvanized_metal_worn_metal_albedo.png-0e65725f039934d0e52144a560b63b64.ctex remapped: res://.godot/imported/T_library_appliances_galvanized_metal_worn_metal_albedo.png-0e65725f039934d0e52144a560b63b64.ctex
+Completed load for: 'res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png' remapped 'res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png remapped: res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png
+Loading resource: res://.godot/imported/T_library_appliances_galvanized_metal_worn_metal_rough.png-3ce7d1a7640581cc5ddd8c689701dd1d.ctex remapped: res://.godot/imported/T_library_appliances_galvanized_metal_worn_metal_rough.png-3ce7d1a7640581cc5ddd8c689701dd1d.ctex
+Completed load for: 'res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png' remapped 'res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_appliances_galvanized_metal_normal.png remapped: res://assets/building/textures/T_library_appliances_galvanized_metal_normal.png
+Loading resource: res://.godot/imported/T_library_appliances_galvanized_metal_normal.png-304b9a3634b3ee78f216e936acaadb71.ctex remapped: res://.godot/imported/T_library_appliances_galvanized_metal_normal.png-304b9a3634b3ee78f216e936acaadb71.ctex
+Completed load for: 'res://assets/building/textures/T_library_appliances_galvanized_metal_normal.png' remapped 'res://assets/building/textures/T_library_appliances_galvanized_metal_normal.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_brass_dull_albedo.png remapped: res://assets/building/textures/T_ai_materials_brass_dull_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_dull_albedo.png-e8b0b415c8630a055006aeb0757adc6f.ctex remapped: res://.godot/imported/T_ai_materials_brass_dull_albedo.png-e8b0b415c8630a055006aeb0757adc6f.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_dull_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_brass_dull_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_brass_dull_rough.png remapped: res://assets/building/textures/T_ai_materials_brass_dull_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_dull_rough.png-1660078479110e73cfb16b45fb078227.ctex remapped: res://.godot/imported/T_ai_materials_brass_dull_rough.png-1660078479110e73cfb16b45fb078227.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_dull_rough.png' remapped 'res://assets/building/textures/T_ai_materials_brass_dull_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_brass_dull_normal.png remapped: res://assets/building/textures/T_ai_materials_brass_dull_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_brass_dull_normal.png-3cb54c21bda657c056106237601c5117.ctex remapped: res://.godot/imported/T_ai_materials_brass_dull_normal.png-3cb54c21bda657c056106237601c5117.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_brass_dull_normal.png' remapped 'res://assets/building/textures/T_ai_materials_brass_dull_normal.png' at thread -1
+Loading resource: res://assets/audio/freesound/processed/events/radiator_whistle.ogg remapped: res://assets/audio/freesound/processed/events/radiator_whistle.ogg
+Loading resource: res://.godot/imported/radiator_whistle.ogg-3123443dfdfae1c6faad0154f9675c54.oggvorbisstr remapped: res://.godot/imported/radiator_whistle.ogg-3123443dfdfae1c6faad0154f9675c54.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/events/radiator_whistle.ogg' remapped 'res://assets/audio/freesound/processed/events/radiator_whistle.ogg' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png remapped: res://assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_soot_worn_soot_albedo.png-e4a5924385b9e7a0e69affd4b6ff667c.ctex remapped: res://.godot/imported/T_ai_materials_soot_worn_soot_albedo.png-e4a5924385b9e7a0e69affd4b6ff667c.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_soot_worn_soot_rough.png remapped: res://assets/building/textures/T_ai_materials_soot_worn_soot_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_soot_worn_soot_rough.png-d0f0b537724fc4c0b22d04bb08056193.ctex remapped: res://.godot/imported/T_ai_materials_soot_worn_soot_rough.png-d0f0b537724fc4c0b22d04bb08056193.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_soot_worn_soot_rough.png' remapped 'res://assets/building/textures/T_ai_materials_soot_worn_soot_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_soot_normal.png remapped: res://assets/building/textures/T_ai_materials_soot_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_soot_normal.png-7fe43d97ecb5c52915f6ce58f6a9d294.ctex remapped: res://.godot/imported/T_ai_materials_soot_normal.png-7fe43d97ecb5c52915f6ce58f6a9d294.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_soot_normal.png' remapped 'res://assets/building/textures/T_ai_materials_soot_normal.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_aged_paper_albedo.png remapped: res://assets/building/textures/T_library_furniture_aged_paper_albedo.png
+Loading resource: res://.godot/imported/T_library_furniture_aged_paper_albedo.png-47800aaa1e76686a6c8999b19e868e9d.s3tc.ctex remapped: res://.godot/imported/T_library_furniture_aged_paper_albedo.png-47800aaa1e76686a6c8999b19e868e9d.s3tc.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_aged_paper_albedo.png' remapped 'res://assets/building/textures/T_library_furniture_aged_paper_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_aged_paper_rough.png remapped: res://assets/building/textures/T_library_furniture_aged_paper_rough.png
+Loading resource: res://.godot/imported/T_library_furniture_aged_paper_rough.png-d3ba2c4cb9358bc849e4635d88c48402.s3tc.ctex remapped: res://.godot/imported/T_library_furniture_aged_paper_rough.png-d3ba2c4cb9358bc849e4635d88c48402.s3tc.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_aged_paper_rough.png' remapped 'res://assets/building/textures/T_library_furniture_aged_paper_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_aged_paper_normal.png remapped: res://assets/building/textures/T_library_furniture_aged_paper_normal.png
+Loading resource: res://.godot/imported/T_library_furniture_aged_paper_normal.png-ca70786f182c2b579a11006603977590.s3tc.ctex remapped: res://.godot/imported/T_library_furniture_aged_paper_normal.png-ca70786f182c2b579a11006603977590.s3tc.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_aged_paper_normal.png' remapped 'res://assets/building/textures/T_library_furniture_aged_paper_normal.png' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/building_thud.ogg remapped: res://assets/audio/freesound/processed/mechanical/building_thud.ogg
+Loading resource: res://.godot/imported/building_thud.ogg-b432e72d9b9718bff14d9dc0283ae814.oggvorbisstr remapped: res://.godot/imported/building_thud.ogg-b432e72d9b9718bff14d9dc0283ae814.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/building_thud.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/building_thud.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/timber_creak.ogg remapped: res://assets/audio/freesound/processed/mechanical/timber_creak.ogg
+Loading resource: res://.godot/imported/timber_creak.ogg-681095ada9a99fb7d42195d25947d161.oggvorbisstr remapped: res://.godot/imported/timber_creak.ogg-681095ada9a99fb7d42195d25947d161.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/timber_creak.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/timber_creak.ogg' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_walnut_albedo.png remapped: res://assets/building/textures/T_library_furniture_walnut_albedo.png
+Loading resource: res://.godot/imported/T_library_furniture_walnut_albedo.png-9d83e6768b0b08d28ab2f9a5e8fa017b.ctex remapped: res://.godot/imported/T_library_furniture_walnut_albedo.png-9d83e6768b0b08d28ab2f9a5e8fa017b.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_walnut_albedo.png' remapped 'res://assets/building/textures/T_library_furniture_walnut_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_walnut_rough.png remapped: res://assets/building/textures/T_library_furniture_walnut_rough.png
+Loading resource: res://.godot/imported/T_library_furniture_walnut_rough.png-9759cde251b5cc10585a4adbb6b9e116.ctex remapped: res://.godot/imported/T_library_furniture_walnut_rough.png-9759cde251b5cc10585a4adbb6b9e116.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_walnut_rough.png' remapped 'res://assets/building/textures/T_library_furniture_walnut_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_library_furniture_walnut_normal.png remapped: res://assets/building/textures/T_library_furniture_walnut_normal.png
+Loading resource: res://.godot/imported/T_library_furniture_walnut_normal.png-8dcc8541e83592102708038ba88600d5.ctex remapped: res://.godot/imported/T_library_furniture_walnut_normal.png-8dcc8541e83592102708038ba88600d5.ctex
+Completed load for: 'res://assets/building/textures/T_library_furniture_walnut_normal.png' remapped 'res://assets/building/textures/T_library_furniture_walnut_normal.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png remapped: res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png
+Loading resource: res://.godot/imported/T_ai_materials_nickel_plated_albedo.png-1cdc3be90d017453cd38c4307784907e.ctex remapped: res://.godot/imported/T_ai_materials_nickel_plated_albedo.png-1cdc3be90d017453cd38c4307784907e.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png' remapped 'res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_nickel_plated_rough.png remapped: res://assets/building/textures/T_ai_materials_nickel_plated_rough.png
+Loading resource: res://.godot/imported/T_ai_materials_nickel_plated_rough.png-7424ed96526f67ec95e9fd94aaeeab83.ctex remapped: res://.godot/imported/T_ai_materials_nickel_plated_rough.png-7424ed96526f67ec95e9fd94aaeeab83.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_nickel_plated_rough.png' remapped 'res://assets/building/textures/T_ai_materials_nickel_plated_rough.png' at thread -1
+Loading resource: res://assets/building/textures/T_ai_materials_nickel_plated_normal.png remapped: res://assets/building/textures/T_ai_materials_nickel_plated_normal.png
+Loading resource: res://.godot/imported/T_ai_materials_nickel_plated_normal.png-7d5daef5795cee1f492e39e2111bec14.ctex remapped: res://.godot/imported/T_ai_materials_nickel_plated_normal.png-7d5daef5795cee1f492e39e2111bec14.ctex
+Completed load for: 'res://assets/building/textures/T_ai_materials_nickel_plated_normal.png' remapped 'res://assets/building/textures/T_ai_materials_nickel_plated_normal.png' at thread -1
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/f9470bb28294bf26311caf56104540eda1625250
+Shader cache miss for CanvasShaderRD/1ac5f6c8d534ebab572b3f886e38134784245fbd5fa01c7cbb6cc452e5400080/b2346e9d1492d8c23cbfbcc756e52ca926791369
+Loading resource: res://assets/ui/phone/mask_clean.png remapped: res://assets/ui/phone/mask_clean.png
+Loading resource: res://.godot/imported/mask_clean.png-9754816ed019fdae3e3e5bb028d18c89.ctex remapped: res://.godot/imported/mask_clean.png-9754816ed019fdae3e3e5bb028d18c89.ctex
+Completed load for: 'res://assets/ui/phone/mask_clean.png' remapped 'res://assets/ui/phone/mask_clean.png' at thread -1
+Loading resource: res://assets/ui/phone/mask_cracked.png remapped: res://assets/ui/phone/mask_cracked.png
+Loading resource: res://.godot/imported/mask_cracked.png-183f1d84ab4944c64107e0f51581b7c2.ctex remapped: res://.godot/imported/mask_cracked.png-183f1d84ab4944c64107e0f51581b7c2.ctex
+Completed load for: 'res://assets/ui/phone/mask_cracked.png' remapped 'res://assets/ui/phone/mask_cracked.png' at thread -1
+Loading resource: res://assets/ui/phone/mask_haze.png remapped: res://assets/ui/phone/mask_haze.png
+Loading resource: res://.godot/imported/mask_haze.png-5f23b5b3aad4fa9fe7f497b52174a3ed.ctex remapped: res://.godot/imported/mask_haze.png-5f23b5b3aad4fa9fe7f497b52174a3ed.ctex
+Completed load for: 'res://assets/ui/phone/mask_haze.png' remapped 'res://assets/ui/phone/mask_haze.png' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/line_murmur_loop.ogg remapped: res://assets/audio/freesound/processed/mechanical/line_murmur_loop.ogg
+Loading resource: res://.godot/imported/line_murmur_loop.ogg-58dc2a86d2b9e887623cad7a05a443c3.oggvorbisstr remapped: res://.godot/imported/line_murmur_loop.ogg-58dc2a86d2b9e887623cad7a05a443c3.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/line_murmur_loop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/line_murmur_loop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/distant_breath.ogg remapped: res://assets/audio/freesound/processed/mechanical/distant_breath.ogg
+Loading resource: res://.godot/imported/distant_breath.ogg-af2a52e68bd22f8abb30fdf9517346e3.oggvorbisstr remapped: res://.godot/imported/distant_breath.ogg-af2a52e68bd22f8abb30fdf9517346e3.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/distant_breath.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/distant_breath.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/operator_whistle.ogg remapped: res://assets/audio/freesound/processed/mechanical/operator_whistle.ogg
+Loading resource: res://.godot/imported/operator_whistle.ogg-184bf106cc8a40bda770eae3695fc798.oggvorbisstr remapped: res://.godot/imported/operator_whistle.ogg-184bf106cc8a40bda770eae3695fc798.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/operator_whistle.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/operator_whistle.ogg' at thread -1
+[SCHEDULE] director inert: 18 residents on the clock
+[ORISON V2 RUNTIME] ready startup_ms=997.394
+[VULKAN COMPOSED] PASS CampaignShell composed the selected real root
+[VULKAN COMPOSED] PASS root startup succeeded
+[VULKAN COMPOSED] PASS real production player exists
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/e3d23b05e1d97d5849196fcb5c75fddbdfd03cfb
+Shader cache miss for SceneForwardClusteredShaderRD/069fad9662d1c110a7284347f6822a7ae0bb9be399f57215e33231e68a6e4692/b88a2331337bd29268df2d0b56927e62b8d861a8
+MultiUmaBuffer 'RENDER_LIST_OPAQUE' used a total of 0 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_ALPHA' used a total of 0 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_SECONDARY' used a total of 0 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+Updated PSO cache (6.1 MiB)
+[VULKAN COMPOSED] PASS V2 genuinely has no V1 zone APIs
+[VULKAN COMPOSED] PASS actual V2 production terminal is present
+[VULKAN COMPOSED] PASS profile photo directory is available
+[VULKAN COMPOSED] PASS production phone lens shares selected root world
+[VULKAN COMPOSED] PASS V2 F04 uses actual semantic stance
+[VULKAN COMPOSED] PASS V2 operator anchor resolves uniquely at its authored position
+[VULKAN COMPOSED] PASS V2 operator belongs to the authored terminal stance envelope
+[VULKAN COMPOSED] PASS V2 terminal resolves one actual SignalScope mesh
+[VULKAN COMPOSED] PASS V2 original bedside terminal view is blocked by actual physics geometry
+[VULKAN COMPOSED] PASS V2 operator camera has a clear physics segment to SignalScope
+[VULKAN COMPOSED] FAIL V2 actual terminal front faces its authored operator
+[VULKAN COMPOSED] FAIL V2 composes a DeskZone bound to its actual call interface
+[VULKAN COMPOSED] PASS capture written v2_actual_f04_semantic_stance
+[VULKAN COMPOSED] PASS capture written v2_actual_f04_phone
+[VULKAN COMPOSED PHASE] before_retirement ticks_usec=5216199
+[VULKAN COMPOSED] PASS actual shell retired
+[VULKAN COMPOSED] PASS actual selected world retired
+[VULKAN COMPOSED PHASE] after_retirement ticks_usec=5455065
+[VULKAN COMPOSED] checks=21 failures=2
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Freeing Default Tex_Blit Shader
+MultiUmaBuffer 'RENDER_LIST_OPAQUE' used a total of 3 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_MOTION' used a total of 0 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_ALPHA' used a total of 3 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_SECONDARY' used a total of 5 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'CANVAS_INSTANCE_DATA' used a total of 3 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+Accessibility: window 0 adapter destroyed.
+Updated PSO cache (6.8 MiB)

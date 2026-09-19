@@ -1,0 +1,48 @@
+{
+  "install": {
+    "game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+    "game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+    "game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+    "game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330"
+  },
+  "commands": [
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_2a440_01/execute.py",
+      "install",
+      "ownership_2a440_01"
+    ],
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_2a440_01/execute.py",
+      "candidate",
+      "ownership_2a440_01"
+    ],
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_2a440_01/execute.py",
+      "priority",
+      "ownership_2a440_01"
+    ],
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_2a440_01/execute.py",
+      "drop_late",
+      "ownership_2a440_01"
+    ],
+    [
+      "python",
+      "-B",
+      "design/astra/work/encroachment_sweep/equivalence_revisions/runtime_plan_2a440_01/execute.py",
+      "restored",
+      "ownership_2a440_01"
+    ]
+  ],
+  "engine_run": false
+}

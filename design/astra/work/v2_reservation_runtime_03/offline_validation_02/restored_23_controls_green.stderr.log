@@ -1,0 +1,28 @@
+test_candidate_omission_and_restore (test_assess.ReservationControls.test_candidate_omission_and_restore) ... ok
+test_deleted_target_wrong_bounds_and_collision_descendant_reject (test_assess.ReservationControls.test_deleted_target_wrong_bounds_and_collision_descendant_reject) ... ok
+test_missing_witness_and_retirement_reject (test_assess.ReservationControls.test_missing_witness_and_retirement_reject) ... ok
+test_non_target_display_and_collision_mask_change_reject (test_assess.ReservationControls.test_non_target_display_and_collision_mask_change_reject) ... ok
+test_partial_rows_or_footer_reject (test_assess.ReservationControls.test_partial_rows_or_footer_reject) ... ok
+test_terminal_phase_uses_unchanged_39_contract (test_assess.ReservationControls.test_terminal_phase_uses_unchanged_39_contract) ... ok
+test_unknown_errors_retention_source_pid_engine_and_timeout_reject (test_assess.ReservationControls.test_unknown_errors_retention_source_pid_engine_and_timeout_reject) ... ok
+test_visible_production_cannot_be_admitted_as_green (test_assess.ReservationControls.test_visible_production_cannot_be_admitted_as_green) ... ok
+test_180_second_cap_is_exact_in_actual_and_all_requests (test_runner_contract.RunnerControls.test_180_second_cap_is_exact_in_actual_and_all_requests) ... ok
+test_active_process_refuses_restoration_with_receipt (test_runner_contract.RunnerControls.test_active_process_refuses_restoration_with_receipt) ... ok
+test_all_four_requests_match_actual_windowed_parameters (test_runner_contract.RunnerControls.test_all_four_requests_match_actual_windowed_parameters) ... ok
+test_artifact_map_omission_and_mutated_log_refuse (test_runner_contract.RunnerControls.test_artifact_map_omission_and_mutated_log_refuse) ... ok
+test_capture_binding_uses_reviewed_candidate_and_existing_fixture (test_runner_contract.RunnerControls.test_capture_binding_uses_reviewed_candidate_and_existing_fixture) ... ok
+test_corrupt_preinstall_backup_is_rejected_with_receipt (test_runner_contract.RunnerControls.test_corrupt_preinstall_backup_is_rejected_with_receipt) ... ok
+test_failed_missing_and_active_process_restoration_refuse (test_runner_contract.RunnerControls.test_failed_missing_and_active_process_restoration_refuse) ... ok
+test_foreign_engine_that_disappears_still_blocks_progression (test_runner_contract.RunnerControls.test_foreign_engine_that_disappears_still_blocks_progression) ... ok
+test_foreign_owned_edit_is_preserved_with_refusal_receipt (test_runner_contract.RunnerControls.test_foreign_owned_edit_is_preserved_with_refusal_receipt) ... ok
+test_old_paths_headless_and_array_damage_refuse (test_runner_contract.RunnerControls.test_old_paths_headless_and_array_damage_refuse) ... ok
+test_owned_launcher_and_child_are_admitted (test_runner_contract.RunnerControls.test_owned_launcher_and_child_are_admitted) ... ok
+test_restoration_hash_failure_retains_receipt (test_runner_contract.RunnerControls.test_restoration_hash_failure_retains_receipt) ... ok
+test_restoration_write_failure_retains_receipt (test_runner_contract.RunnerControls.test_restoration_write_failure_retains_receipt) ... ok
+test_second_copy_failure_restores_both_originals_and_retains_receipt (test_runner_contract.RunnerControls.test_second_copy_failure_restores_both_originals_and_retains_receipt) ... ok
+test_success_restores_exact_candidate_and_receipt (test_runner_contract.RunnerControls.test_success_restores_exact_candidate_and_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.289s
+
+OK

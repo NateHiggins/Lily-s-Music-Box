@@ -1,0 +1,230 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2UpperServicesShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-astra\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01",
+  "started_utc": "2026-09-15T12:26:57.3289478Z",
+  "elapsed_seconds": 48.222,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 34,
+  "actual_frames": 34,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_services_01_20260915T122657328Z.log",
+  "filtered_process_output": [
+    "[PASSAGE HOURS] OPEN; 10 grilles folded",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters",
+    "[V2 UPPER SERVICES CAPTURE] 1/34 label=5A_toaster_installed elapsed=12.425 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5A_toaster_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 2/34 label=5A_mirror_closed elapsed=13.444 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5A_mirror_closed.png",
+    "[V2 UPPER SERVICES CAPTURE] 3/34 label=5A_mirror_open elapsed=14.504 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5A_mirror_open.png",
+    "[V2 UPPER SERVICES CAPTURE] 4/34 label=5B_mirror_closed elapsed=15.547 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5B_mirror_closed.png",
+    "[V2 UPPER SERVICES CAPTURE] 5/34 label=5B_mirror_open elapsed=16.613 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5B_mirror_open.png",
+    "[V2 UPPER SERVICES CAPTURE] 6/34 label=5C_mirror_closed elapsed=17.657 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5C_mirror_closed.png",
+    "[V2 UPPER SERVICES CAPTURE] 7/34 label=5C_mirror_open elapsed=18.709 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5C_mirror_open.png",
+    "[V2 UPPER SERVICES CAPTURE] 8/34 label=6A_toaster_installed elapsed=19.743 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6A_toaster_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 9/34 label=6A_mirror_closed elapsed=20.774 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6A_mirror_closed.png",
+    "[V2 UPPER SERVICES CAPTURE] 10/34 label=6A_mirror_open elapsed=21.837 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6A_mirror_open.png",
+    "[V2 UPPER SERVICES CAPTURE] 11/34 label=6B_toaster_installed elapsed=22.892 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6B_toaster_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 12/34 label=6B_mirror_closed elapsed=23.929 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6B_mirror_closed.png",
+    "[V2 UPPER SERVICES CAPTURE] 13/34 label=6B_mirror_open elapsed=24.973 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6B_mirror_open.png",
+    "[V2 UPPER SERVICES CAPTURE] 14/34 label=6C_toaster_installed elapsed=26.027 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6C_toaster_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 15/34 label=6C_mirror_closed elapsed=27.125 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6C_mirror_closed.png",
+    "[V2 UPPER SERVICES CAPTURE] 16/34 label=6C_mirror_open elapsed=28.203 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6C_mirror_open.png",
+    "[V2 UPPER SERVICES CAPTURE] 17/34 label=5A_radiator_installed elapsed=29.279 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5A_radiator_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 18/34 label=5B_radiator_installed elapsed=30.323 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5B_radiator_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 19/34 label=5C_radiator_installed elapsed=31.341 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5C_radiator_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 20/34 label=6A_radiator_installed elapsed=32.419 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6A_radiator_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 21/34 label=6B_radiator_installed elapsed=33.465 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6B_radiator_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 22/34 label=6C_radiator_installed elapsed=34.516 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6C_radiator_installed.png",
+    "[V2 UPPER SERVICES CAPTURE] 23/34 label=5A_sink_details elapsed=35.341 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5A_sink_details.png",
+    "[V2 UPPER SERVICES CAPTURE] 24/34 label=5A_toilet_roll elapsed=36.204 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5A_toilet_roll.png",
+    "[V2 UPPER SERVICES CAPTURE] 25/34 label=5B_sink_details elapsed=37.005 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5B_sink_details.png",
+    "[V2 UPPER SERVICES CAPTURE] 26/34 label=5B_toilet_roll elapsed=37.873 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5B_toilet_roll.png",
+    "[V2 UPPER SERVICES CAPTURE] 27/34 label=5C_sink_details elapsed=38.729 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5C_sink_details.png",
+    "[V2 UPPER SERVICES CAPTURE] 28/34 label=5C_toilet_roll elapsed=39.580 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/5C_toilet_roll.png",
+    "[V2 UPPER SERVICES CAPTURE] 29/34 label=6A_sink_details elapsed=40.419 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6A_sink_details.png",
+    "[V2 UPPER SERVICES CAPTURE] 30/34 label=6A_toilet_roll elapsed=41.280 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6A_toilet_roll.png",
+    "[V2 UPPER SERVICES CAPTURE] 31/34 label=6B_sink_details elapsed=42.130 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6B_sink_details.png",
+    "[V2 UPPER SERVICES CAPTURE] 32/34 label=6B_toilet_roll elapsed=42.979 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6B_toilet_roll.png",
+    "[V2 UPPER SERVICES CAPTURE] 33/34 label=6C_sink_details elapsed=43.829 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6C_sink_details.png",
+    "[V2 UPPER SERVICES CAPTURE] 34/34 label=6C_toilet_roll elapsed=44.688 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_services_01\\services_01/6C_toilet_roll.png",
+    "[V2 UPPER SERVICES] RESULT: PASS captures=34 expected=34 elapsed=44.691"
+  ],
+  "files": [
+    {
+      "name": "5A_mirror_closed.png",
+      "bytes": 1422842,
+      "sha256": "72a362f60a8795c7630d881080a8ffc07593cedaf49b39d8909d26b2084d7252"
+    },
+    {
+      "name": "5A_mirror_open.png",
+      "bytes": 1433236,
+      "sha256": "d85cd88646285a93db62696838641cbfaf2367fbcb08cfc6959e312c398803d5"
+    },
+    {
+      "name": "5A_radiator_installed.png",
+      "bytes": 899215,
+      "sha256": "baf2a79b79dc1d1c24b63c29e5352c31ae5cf0eaad0ad88b6a73fad8c47dee4d"
+    },
+    {
+      "name": "5A_sink_details.png",
+      "bytes": 1086050,
+      "sha256": "6be27afebb34fef28c13b212439c55e0f2ac11bb0f36d004e0c671435e7b5504"
+    },
+    {
+      "name": "5A_toaster_installed.png",
+      "bytes": 918253,
+      "sha256": "cc4447403e5e56500eefb4f0cebbdeca980a2d23f0da8a4e815d36705f28d43f"
+    },
+    {
+      "name": "5A_toilet_roll.png",
+      "bytes": 1148320,
+      "sha256": "f187251500525acb8577a8d61d610bcd77bd1626a52ac1f55346147e22c9ec52"
+    },
+    {
+      "name": "5B_mirror_closed.png",
+      "bytes": 1288833,
+      "sha256": "299f2fdc25f3d74382fd1f4a828fce58fc2364627a06fdb68b713309101770e6"
+    },
+    {
+      "name": "5B_mirror_open.png",
+      "bytes": 1274497,
+      "sha256": "ab6567deaa05cc9b4595bb28cb82c3d5f67b391e2bc0315628812e308c4e9665"
+    },
+    {
+      "name": "5B_radiator_installed.png",
+      "bytes": 815821,
+      "sha256": "52e0d13d0eaba07115d8926fd39fc3600756200cb99258e879730c738519cd8e"
+    },
+    {
+      "name": "5B_sink_details.png",
+      "bytes": 797294,
+      "sha256": "0f5e006f9dffb5824cf3a1af5a852d0ebcdcd4c6fd1b3b03f0a6b5989eb915c3"
+    },
+    {
+      "name": "5B_toilet_roll.png",
+      "bytes": 1013253,
+      "sha256": "dc6363339acf9b34f2cfd5623b719db2f235c6428d9454ae55553c1085b997e4"
+    },
+    {
+      "name": "5C_mirror_closed.png",
+      "bytes": 1351583,
+      "sha256": "5c217217d654837bca0efae7d17bbda27e5fd595115d1aa84dd2e8d9e5230d34"
+    },
+    {
+      "name": "5C_mirror_open.png",
+      "bytes": 1301771,
+      "sha256": "5c1871d4a17137c3097e809aa1d8597d0c11f9a82cdfaab001392b02ab94134f"
+    },
+    {
+      "name": "5C_radiator_installed.png",
+      "bytes": 944037,
+      "sha256": "a44b53fc9173f5d988adf68361ab34b619c049e80c31f43d55ca1ca5b962d74e"
+    },
+    {
+      "name": "5C_sink_details.png",
+      "bytes": 1069833,
+      "sha256": "abf3b5a0ce70d65ee31f5d111ec5ec18f1375ff07db2ea81a2d362cbaa4289eb"
+    },
+    {
+      "name": "5C_toilet_roll.png",
+      "bytes": 1082577,
+      "sha256": "10b0491577b3ae2d2f27e8256ca86f86b9b29598a336ac2f3eeefc52dc46b058"
+    },
+    {
+      "name": "6A_mirror_closed.png",
+      "bytes": 1310507,
+      "sha256": "7e298213053366d04c24902ff8f2b1161a5f7704f5798a48db0a7e4134aeb01a"
+    },
+    {
+      "name": "6A_mirror_open.png",
+      "bytes": 1304619,
+      "sha256": "3a0a9034c54e1e834f0237db54399a7e8a62fa9f0f2ca253c956dcf7365252c1"
+    },
+    {
+      "name": "6A_radiator_installed.png",
+      "bytes": 769104,
+      "sha256": "396ca33799b62b9767f95b408d9b695d8fbe3a08c195ccfb2141e1736c32026c"
+    },
+    {
+      "name": "6A_sink_details.png",
+      "bytes": 969345,
+      "sha256": "051b5f891cde46b9d5e2b08614c314de483d99771115244bc986b87341208d44"
+    },
+    {
+      "name": "6A_toaster_installed.png",
+      "bytes": 836809,
+      "sha256": "d89999f11b57c94d869805287548313410d0740e8594e79e8ca25c389c83af69"
+    },
+    {
+      "name": "6A_toilet_roll.png",
+      "bytes": 1028811,
+      "sha256": "ae46b791beb2a782b464f36a06894839250b20c86bcb4e8eabe259a849492664"
+    },
+    {
+      "name": "6B_mirror_closed.png",
+      "bytes": 1331521,
+      "sha256": "b36e7415ece1ded397a59d7018366b970ffc9e9d2cf92b13d20f16b6097d5d02"
+    },
+    {
+      "name": "6B_mirror_open.png",
+      "bytes": 1318348,
+      "sha256": "9cf01bc34c4abf22e9f2666b9f61a54519d79d1bd091ee1024d8d2a429ab0604"
+    },
+    {
+      "name": "6B_radiator_installed.png",
+      "bytes": 895588,
+      "sha256": "febf3436cf21f4718286685e260323217727daf9bd73f8ca50d03795108af327"
+    },
+    {
+      "name": "6B_sink_details.png",
+      "bytes": 951400,
+      "sha256": "d5e2a748f1d66748cd1bd881bbcb7923f575dad8b1aaafad48e91cab46b94856"
+    },
+    {
+      "name": "6B_toaster_installed.png",
+      "bytes": 895478,
+      "sha256": "73533c1d41eedeec4156f8e54866930c0d44396935a8660653e5da2fb0104154"
+    },
+    {
+      "name": "6B_toilet_roll.png",
+      "bytes": 1054213,
+      "sha256": "90a640d1c8ee39cfa95520f744f6feca365b94124407969243bea154fb1b0e33"
+    },
+    {
+      "name": "6C_mirror_closed.png",
+      "bytes": 1281470,
+      "sha256": "f0af5bccd709a77b585f4737f2baf1fd85f3f40cd95c0c2da9e67f15d5fdf02d"
+    },
+    {
+      "name": "6C_mirror_open.png",
+      "bytes": 1236711,
+      "sha256": "c4fe0b1ffeeae25fcdc7f2e4acff26fd7e0cf091acea65e5545f74da9011f123"
+    },
+    {
+      "name": "6C_radiator_installed.png",
+      "bytes": 876609,
+      "sha256": "87854235a214f9f39c7420291da61b4af75c77bdbc19e79ddbc2a068237c0c2e"
+    },
+    {
+      "name": "6C_sink_details.png",
+      "bytes": 1004456,
+      "sha256": "c75b83bdbf5eddfed02bb0c483d13a2a04d9c873bcdd2f16b0d22fbfa4e5128c"
+    },
+    {
+      "name": "6C_toaster_installed.png",
+      "bytes": 942874,
+      "sha256": "e8f9d56643ad524a2fb74761b308237e1cfbb7f3384616935e2815409472e229"
+    },
+    {
+      "name": "6C_toilet_roll.png",
+      "bytes": 1012282,
+      "sha256": "1d222f788ec941d1f3bbb9c8fecc84952300d196b45620a27e4096e52a852e07"
+    }
+  ]
+}

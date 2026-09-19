@@ -1,0 +1,8 @@
+SCRIPT ERROR: Invalid access to property or key 'stage' on a base object of type 'Dictionary'.
+   at: interact_with_resident (res://scripts/game/reality_case_manager.gd:154)
+   GDScript backtrace (most recent call first):
+       [0] interact_with_resident (res://scripts/game/reality_case_manager.gd:154)
+       [1] interact (res://scripts/characters/animated_resident.gd:206)
+       [2] _try_interact (res://scripts/player/player_controller.gd:1104)
+       [3] use_primary_interaction (res://scripts/player/player_controller.gd:939)
+       [4] _process (res://scripts/player/player_controller.gd:340)

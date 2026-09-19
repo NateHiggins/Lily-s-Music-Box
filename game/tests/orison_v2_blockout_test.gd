@@ -20,17 +20,17 @@ func _ready() -> void:
 	_check(layout.get("layout_id", "") == "orison_v2_h_plan_blockout_01",
 			"accepted H-plan identity is stable")
 	_check(layout.levels.size() == 5, "M08E slice declares B1 through F04 transfer levels")
-	_check(layout.spaces.size() == 50, "fifty programmed blockout spaces")
-	_check(layout.doors.size() == 21, "twenty-one complete route/service/privacy leaves")
-	_check(layout.openings.size() == 21, "twenty-one leafless circulation openings")
-	_check(layout.windows.size() == 19, "nineteen exterior-valid daylight openings")
-	_check(layout.envelopes.size() == 70, "seventy fixed-use and clearance reservations")
+	_check(layout.spaces.size() == 78, "78 programmed spaces including 3A and 4A")
+	_check(layout.doors.size() == 35, "35 route/service/privacy leaves including six detailed apartments")
+	_check(layout.openings.size() == 37, "37 leafless circulation openings")
+	_check(layout.windows.size() == 30, "30 exterior-valid daylight openings")
+	_check(layout.envelopes.size() == 74, "74 fixed-use and clearance reservations")
 	_check(layout.fixtures.size() == 15, "fifteen gray-box fixed-use masses")
-	_check(layout.platforms.size() == 24, "twenty-four explicit core landing platforms")
+	_check(layout.platforms.size() == 25, "25 core platforms including the F03 service entry")
 	_check(layout.lift_landings.size() == 8, "eight passenger/service lift landings")
 	_check(layout.stairs.size() == 7, "public/service U-stairs include B1-to-F01")
-	_check(layout.anchors.size() == 48, "forty-eight named gameplay/review anchors")
-	_check(layout.capsule_stations.size() == 11, "eleven declared F04 capsule stations")
+	_check(layout.anchors.size() == 383, "383 named gameplay/review anchors across the current category batches")
+	_check(layout.capsule_stations.size() == 35, "35 declared F03/F04 capsule stations")
 	_check(_f04_rooms_do_not_overlap(layout), "F04 apartment rooms do not overlap")
 	_check(_f04_shared_partitions_owned_once(layout),
 			"every F04 shared partition has exactly one wall owner")
@@ -180,9 +180,14 @@ func _ready() -> void:
 			_check(_capsule_clear(root, sample), "F02 0.66 m body clear at " + str(sample))
 		for station: Dictionary in layout.capsule_stations:
 			var p: Array = station.position
-			var station_sample := Vector3(float(p[0]), float(p[1]) + 9.6, float(p[2]))
+			var elevation := NAN
+			for level: Dictionary in layout.levels:
+				if str(level.id) == str(station.level): elevation = float(level.y)
+			_check(is_finite(elevation), "capsule station has a declared floor: " + str(station.id))
+			if not is_finite(elevation): continue
+			var station_sample := Vector3(float(p[0]), float(p[1]) + elevation, float(p[2]))
 			_check(_capsule_clear(root, station_sample),
-					"F04 0.66 m body clear at " + str(station.id))
+					"0.66 m body clear on authored floor at " + str(station.id))
 		root.queue_free()
 	var review := load(F01_REVIEW_PATH) as PackedScene
 	_check(review != null, "F01 controller review scene loads explicitly")

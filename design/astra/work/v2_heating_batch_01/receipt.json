@@ -1,0 +1,53 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "7c9a536",
+  "network_demands": 23,
+  "installed": [
+    {
+      "id": "F02_A_RADIATOR_01",
+      "unit": "2A",
+      "riser": "H-A",
+      "sections": 8
+    },
+    {
+      "id": "F02_B_RADIATOR_01",
+      "unit": "2B",
+      "riser": "H-B",
+      "sections": 10
+    },
+    {
+      "id": "F03_A_RADIATOR_01",
+      "unit": "3A",
+      "riser": "H-A",
+      "sections": 9
+    },
+    {
+      "id": "F03_B_RADIATOR_01",
+      "unit": "3B",
+      "riser": "H-B",
+      "sections": 7
+    },
+    {
+      "id": "F04_A_RADIATOR_01",
+      "unit": "4A",
+      "riser": "H-A",
+      "sections": 7
+    },
+    {
+      "id": "F04_B_RADIATOR_01",
+      "unit": "4B",
+      "riser": "H-B",
+      "sections": 8
+    }
+  ],
+  "new_emitters": 4,
+  "checks": {
+    "route_samples": 6864,
+    "door_sweeps": 25,
+    "stance_checks": 166,
+    "approach_samples": 138,
+    "valve_sightline_samples": 404
+  },
+  "limits": "Full roster preserves logical demand for seventeen unbuilt emitters. Six installed controls; no complete building claim. 2B ten-section accepted apparatus retained despite legacy nine-section marker. Source estimates only; physics, balance execution, listening, visuals, save and lifetime pending."
+}

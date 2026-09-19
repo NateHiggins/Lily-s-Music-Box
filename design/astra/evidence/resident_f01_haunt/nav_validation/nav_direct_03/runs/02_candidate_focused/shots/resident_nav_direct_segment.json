@@ -1,0 +1,138 @@
+{
+	"checks": [
+		{
+			"label": "before validation retains graph",
+			"passed": true
+		},
+		{
+			"label": "validated clear short segment uses exact endpoints",
+			"passed": true
+		},
+		{
+			"label": "reverse clear short segment uses exact endpoints",
+			"passed": true
+		},
+		{
+			"label": "length bound retains graph",
+			"passed": true
+		},
+		{
+			"label": "exact maximum length is admitted",
+			"passed": true
+		},
+		{
+			"label": "just beyond maximum length retains graph",
+			"passed": true
+		},
+		{
+			"label": "foot above upper bound retains graph",
+			"passed": true
+		},
+		{
+			"label": "authored outer slab rim prevents outward shortcut",
+			"passed": true
+		},
+		{
+			"label": "authored outer slab rim prevents reverse shortcut",
+			"passed": true
+		},
+		{
+			"label": "different endpoint height retains graph",
+			"passed": true
+		},
+		{
+			"label": "slab datum is not an actor foot offset",
+			"passed": true
+		},
+		{
+			"label": "envelope contains production Body capsule",
+			"passed": true
+		},
+		{
+			"label": "jamb control leaves centre ray clear",
+			"passed": true
+		},
+		{
+			"label": "new current-world side obstruction prevents shortcut",
+			"passed": true
+		},
+		{
+			"label": "removed side obstruction restores shortcut",
+			"passed": true
+		},
+		{
+			"label": "initial overlap prevents shortcut",
+			"passed": true
+		},
+		{
+			"label": "final overlap prevents reverse shortcut",
+			"passed": true
+		},
+		{
+			"label": "legacy graph rays excuse DoorProp control",
+			"passed": true
+		},
+		{
+			"label": "physical closed leaf prevents shortcut",
+			"passed": true
+		},
+		{
+			"label": "authored wall blocks shortcut without runtime wall",
+			"passed": true
+		},
+		{
+			"label": "narrow authored hole blocks complete segment",
+			"passed": true
+		},
+		{
+			"label": "off-centre authored hole blocks envelope footprint",
+			"passed": true
+		},
+		{
+			"label": "missing authored support retains graph",
+			"passed": true
+		},
+		{
+			"label": "missing physical floor prevents shortcut",
+			"passed": true
+		},
+		{
+			"label": "restored physical floor admits shortcut",
+			"passed": true
+		},
+		{
+			"label": "sampled runtime floor gap prevents shortcut",
+			"passed": true
+		},
+		{
+			"label": "build revokes direct admission",
+			"passed": true
+		},
+		{
+			"label": "fresh validation admits shortcut",
+			"passed": true
+		},
+		{
+			"label": "null revalidation revokes admission",
+			"passed": true
+		},
+		{
+			"label": "validation in another World3D cannot admit this route",
+			"passed": true
+		},
+		{
+			"label": "tree exit and different world revoke admission",
+			"passed": true
+		},
+		{
+			"label": "navigation does not retain retired World3D",
+			"passed": true
+		},
+		{
+			"label": "retired-world route retains graph",
+			"passed": true
+		}
+	],
+	"failures": 0,
+	"scope": "Synthetic short-segment collision/support/World3D admission controls; no actor travel, actual F01, visual or performance acceptance."
+}

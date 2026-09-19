@@ -1,0 +1,27 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "d7f9f8e",
+  "protected_files": 20,
+  "negative_controls": [
+    {
+      "control": "floating_toaster",
+      "rejected": "('countertop height', 'F02_2A_TOASTER_01')"
+    },
+    {
+      "control": "unsupported_toaster",
+      "rejected": "('unsupported toaster foot', 'F02_2A_TOASTER_01')"
+    },
+    {
+      "control": "cabinet_inside_wall",
+      "rejected": "('cabinet lacks continuous solid backing', 'F02_2A_MIRROR_01', [-7.596, 1.545, 3.1120000000000005])"
+    }
+  ],
+  "regeneration_sha256": [
+    "fd0301502d1f52a113500da8491df10c0c20462f4454b1eb782d6c74d86c434d",
+    "fd0301502d1f52a113500da8491df10c0c20462f4454b1eb782d6c74d86c434d"
+  ],
+  "category_checks": 13,
+  "syntax_parses": 6,
+  "pending": "Engine compilation, production rays/cycles, single reflection behavior, audio/acoustic restore, disposal, actual traversal, materials/voxel shadows and performance."
+}

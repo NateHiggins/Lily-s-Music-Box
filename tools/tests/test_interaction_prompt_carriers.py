@@ -256,6 +256,41 @@ class BaselineTests(unittest.TestCase):
 
 
 class CliTests(unittest.TestCase):
+    def test_keyboard_winding_fixture_fails_until_semantic_repair(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "root"
+            (root / "props").mkdir(parents=True)
+            clock = root / "props" / "clock_prop.gd"
+            baseline = Path(tmp) / "baseline.json"
+            source = (
+                "extends Node\n\nvar winding := false\n\n"
+                "func interact_prompt() -> String:\n"
+                "\tif winding:\n"
+                "\t\treturn \"Hold E — winding…\"\n"
+                "\treturn \"Hold E — wind the clock\"\n")
+            clock.write_text(source, encoding="utf-8")
+            code, report = run_json(root, baseline)
+            self.assertEqual(code, 1)
+            self.assertEqual(report["summary"]["forbidden"], 2)
+            self.assertEqual(
+                {f["literal"] for f in report["forbidden"]},
+                {"Hold E — winding…", "Hold E — wind the clock"})
+            self.assertTrue(all(
+                f["classification"] == "FORBIDDEN_KEYBOARD"
+                and f["file"] == "props/clock_prop.gd"
+                and f["method"] == "interact_prompt"
+                for f in report["forbidden"]))
+
+            clock.write_text(
+                source.replace("Hold E — winding…", "Winding the clock…")
+                      .replace("Hold E — wind the clock", "Wind the clock"),
+                encoding="utf-8")
+            code, report = run_json(root, baseline)
+            self.assertEqual(code, 0)
+            self.assertEqual(report["summary"]["forbidden"], 0)
+            self.assertEqual(report["summary"]["legacy_uncovered"], 0)
+            self.assertFalse(baseline.exists())
+
     def test_deterministic_json_output(self):
         with tempfile.TemporaryDirectory() as tmp:
             baseline = Path(tmp) / "b.json"
@@ -294,17 +329,13 @@ class ProductionSmokeTests(unittest.TestCase):
     def test_production_counts_match_interaction_contract(self):
         code, report = run_json(audit.DEFAULT_ROOT, audit.DEFAULT_BASELINE)
         summary = report["summary"]
-        # 67 interact_prompt + 18 control_prompt definers (contract
-        # census plus the f572896 radiator interaction surface).
-        self.assertEqual(summary["prompt_methods"], 85)
+        # 67 interact_prompt + 19 control_prompt definers: the authored
+        # wireless notice adds one semantic control to the lobby board.
+        self.assertEqual(summary["prompt_methods"], 86)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
-
-    def test_known_production_violation_is_reported_not_suppressed(self):
-        code, report = run_json(audit.DEFAULT_ROOT, audit.DEFAULT_BASELINE)
-        files = {f["file"] for f in report["forbidden"]}
-        self.assertIn("props/clock_prop.gd", files)
-        self.assertEqual(code, 1)
+        self.assertEqual(summary["forbidden"], 0)
+        self.assertEqual(code, 0)
 
 
 if __name__ == "__main__":

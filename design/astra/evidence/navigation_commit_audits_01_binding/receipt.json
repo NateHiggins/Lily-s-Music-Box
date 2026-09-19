@@ -1,0 +1,15 @@
+{
+  "head": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "tools/astra_run_audits.py",
+    "--out",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\navigation_commit_audits_01"
+  ],
+  "orchestrator_exit": 0,
+  "source_unchanged": true,
+  "input_count": 1627,
+  "scope": "Listed game/tool/art-data/design text and glTF inputs; this task evidence/reviews excluded. Native assets remain separate protected/source manifests. Static verdicts are in child receipt, not implied by orchestrator exit.",
+  "child_receipt": "design\\astra\\evidence\\navigation_commit_audits_01\\receipt.json",
+  "child_receipt_sha256": "6ec8e19a9a3399802fff8c79a48afbe695a5736070ae1e96b02a03498e84f431"
+}

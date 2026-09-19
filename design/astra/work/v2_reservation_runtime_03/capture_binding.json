@@ -1,0 +1,76 @@
+{
+  "schema": "astra.v2-reservation-display.capture-binding.v1",
+  "status": "PREPARED_INVOCATION_ONLY_NO_INSTALL_OR_ENGINE",
+  "requires_completed_phase": "04_terminal_regression",
+  "fixture_source": "design/astra/work/vulkan_composed/revisions/terminal_operator_view_01/proposed/game/tests/vulkan_composed_root_test.gd",
+  "fixture_install_target": "game/tests/vulkan_composed_root_test.gd",
+  "required_preinstall_fixture_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+  "fixture_candidate_sha256": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+  "restoration": "Exact5ec bytes restored in finally only after an empty Godot census; preserve refusal and recover additively if an unrelated engine appears. This binding never installs sources itself.",
+  "wrapper_argv": [
+    "python",
+    "design/astra/work/vulkan_composed/run_case.py",
+    "v2",
+    "candidate",
+    "reservation_operator_view_v2_01",
+    "--scope",
+    "full"
+  ],
+  "wrapper_sha256": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+  "gate_sha256": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+  "expected_sources_sha256": {
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc",
+    "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+    "game/tests/vulkan_composed_root_test.gd": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3"
+  },
+  "result": "design/astra/evidence/vulkan_composed/runs/reservation_operator_view_v2_01/result.json",
+  "expected_native_exit": 0,
+  "expected_base_gate_exit": 0,
+  "expected_checks": 21,
+  "expected_captures": {
+    "v2_actual_f04_semantic_stance": [
+      1280,
+      720
+    ],
+    "v2_actual_f04_phone": [
+      320,
+      240
+    ]
+  },
+  "expected_camera_origin": [
+    -9.9,
+    11.01,
+    1.25
+  ],
+  "expected_operator_position": [
+    -9.9,
+    9.6,
+    1.25
+  ],
+  "expected_hidden_reservations": [
+    "F04_B_TERMINAL_USE",
+    "F04_B_TERMINAL_STANCE"
+  ],
+  "scope": "Unchanged existing controlled operator/phone capture, with independently validated final pose and all21 checks. The unchanged39 terminal regression owns actual input and physical SignalScope front; capture is no traversal/input/performance proof. Actual pixels require direct review.",
+  "required_execution_head": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+  "matched_baseline": {
+    "result": "design/astra/evidence/vulkan_composed/runs/terminal_candidate_view_v2_01/result.json",
+    "result_sha256": "f6856b6bd3fca585a12123222c9fc9ba88698f923dd816124e34b6ddd40fe249",
+    "review": "design/astra/reviews/v2_terminal_candidate_view_01.json",
+    "review_sha256": "3a11228440443cc91524df8718e95138039afb5dc1810a2510178510ce3fd871",
+    "scope": "Completed accepted terminal-only21 capture; reuse these two reviewed PNGs, no additional unchanged baseline."
+  },
+  "lane_policy": {
+    "native_prelaunch": "Require empty native Godot census and separately drained Linux/container batch before source transition.",
+    "during_run": "Any sampled foreign native Godot PID is a lane-contract failure independent of functional/base gate; stop progression and preserve exact rows.",
+    "restoration": "Require empty current native census; exact5ec restore and immediate source hash verification, additive refusal if occupied or unrecognized source.",
+    "capture_acceptance": "No observed foreign engine overlap; record external invocation/source transitions, raw native outcome, actual21 labels/retirement and inspect both PNGs directly.",
+    "exclusive_performance_claim": false,
+    "sampling_limit": "Census observations cannot prove absence of unsampled or unlabelled external engine work."
+  }
+}

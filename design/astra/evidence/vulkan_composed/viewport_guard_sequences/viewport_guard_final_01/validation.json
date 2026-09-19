@@ -1,0 +1,187 @@
+{
+  "schema": "astra.vulkan_composed.viewport_guard_pair.v1",
+  "status": "MACHINE_CONTROL_EVIDENCE_COMPLETE_VISUAL_REVIEW_PENDING",
+  "reviewed_at_utc": "2026-09-05T10:23:33.454661+00:00",
+  "root": "v1",
+  "execution_scope": "full",
+  "head": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "omission": {
+    "run": "viewport_guard_final_01_omission",
+    "result_sha256": "b43dba106f421c7fea59e78f70d133d669782bf03b2d7e77ede9c2586974008d",
+    "actual_engine_exit": 1,
+    "diagnostic_gate_exit": 1,
+    "expected_viewport_guard_red_observed": true,
+    "checks": 305,
+    "passed": 266,
+    "failures": 39,
+    "failed_label_counts": {
+      "arcade lifecycle/isolation after street": 12,
+      "arcade lifecycle/isolation after passage": 7,
+      "arcade lifecycle/isolation after orison": 12,
+      "arcade lifecycle/isolation after f04": 6,
+      "arcade lifecycle/isolation after harukiya": 1,
+      "arcade own-world geometry never acquired building masks": 1
+    },
+    "pid": 14108,
+    "elapsed_seconds": 138.983,
+    "captures": 18,
+    "strict_gate_reproduced": true,
+    "artifacts_verified": 62,
+    "diagnostics": {
+      "diagnostic_gate_exit": 1,
+      "reasons": [
+        "actual engine/runner exit 1",
+        "functional checks failed or missing"
+      ],
+      "unpair_errors": 0,
+      "soft_shadow_underflows": 0,
+      "non_inherited_error_headers": {},
+      "inherited_manifest_errors": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+        }
+      ],
+      "warnings": {
+        "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+        "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1038,
+        "WARNING: no legal wall for found piece cam_noel_witches": 1
+      },
+      "retention": [],
+      "functional_checks_meaningful": false,
+      "expected_unpair_red_observed": false,
+      "expected_viewport_guard_red_observed": true,
+      "execution_scope": "full",
+      "full_candidate_scope_completed": false,
+      "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+    }
+  },
+  "restored": {
+    "run": "viewport_guard_final_01_restored",
+    "result_sha256": "f9594f8a04c6f7f5d2e0602ec9eef05a7fc0abbe23e2f20b898d7c28df6bddd1",
+    "actual_engine_exit": 0,
+    "diagnostic_gate_exit": 0,
+    "checks": 305,
+    "passed": 305,
+    "failures": 0,
+    "pid": 16100,
+    "elapsed_seconds": 93.435,
+    "captures": 18,
+    "strict_gate_reproduced": true,
+    "artifacts_verified": 62,
+    "diagnostics": {
+      "diagnostic_gate_exit": 0,
+      "reasons": [],
+      "unpair_errors": 0,
+      "soft_shadow_underflows": 0,
+      "non_inherited_error_headers": {},
+      "inherited_manifest_errors": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+        }
+      ],
+      "warnings": {
+        "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+        "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1038,
+        "WARNING: no legal wall for found piece cam_noel_witches": 1
+      },
+      "retention": [],
+      "functional_checks_meaningful": true,
+      "expected_unpair_red_observed": false,
+      "expected_viewport_guard_red_observed": false,
+      "execution_scope": "full",
+      "full_candidate_scope_completed": true,
+      "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+    }
+  },
+  "comparison": {
+    "ordered305labels_equal": true,
+    "measured_transitions_each": 36,
+    "full_separate_world_sequence_each": true,
+    "both_real_shell_and_world_retirement_each": true,
+    "non_root_source_maps_equal_before_and_after": true,
+    "source_entries_each": 4045,
+    "all_four_engine_manifests_equal": true,
+    "wrapper_inputs_equal": true,
+    "normal_material_environment_equal": true,
+    "transaction_sources_verified": {
+      "viewport_guard_final_01_omission": {
+        ".json": "14ac9b520fe46ce409e9b93d7667f79c5f588c419ccab221033219032fef16e2",
+        ".candidate.gd.txt": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+        ".selected.gd.txt": "5308026936229c5728ed93691c24f7f48afb45dc2810788869eca723fe13a665",
+        ".driver.py.txt": "2a0860954c1ee24762a095e53a2ff8a48763ce653b7b9086c185ccdbfc8a5e24"
+      },
+      "viewport_guard_final_01_restored": {
+        ".json": "ddcd4c5dcf3e70bec3a718c17e5d1239060fcc98144ad6579b619bd6b3acd1be",
+        ".candidate.gd.txt": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+        ".selected.gd.txt": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+        ".driver.py.txt": "2a0860954c1ee24762a095e53a2ff8a48763ce653b7b9086c185ccdbfc8a5e24"
+      }
+    },
+    "exact_restoration_each": true
+  },
+  "final_owned_sources": {
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/scripts/reality/apartment_encroachment.gd": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663"
+  },
+  "engine_manifests": [
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef",
+      "bytes": 198152
+    },
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+      "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a",
+      "bytes": 178997256
+    }
+  ],
+  "godot_processes_after": [],
+  "visual_review": {
+    "status": "PENDING_ROOT",
+    "png_count": 36,
+    "images_inspected_by_executor": false
+  },
+  "limits": [
+    "This pair is bound to owner2a440504 and base fixture5ec63. Later material optimization requires its own final-current green; do not relabel this pair.",
+    "Intentional red retains actual engine1/diagnostic1. It is not a clean run. All actual unknown errors and retention were rejected.",
+    "Known loader errors and RGB8/found-art warnings remain in raw streams; this is not quiet diagnostics or final art/human/release performance acceptance.",
+    "Same-private-scenario mask-corruption witnesses are repeated observations, not a count of unique geometries.",
+    "Read-only aggregate reuses existing load_run/validate_artifacts and strict gate; no runtime wrapper or production scope was changed."
+  ]
+}

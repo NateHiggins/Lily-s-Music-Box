@@ -1,0 +1,229 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/reality_save_recovery_test.tscn remapped: res://tests/reality_save_recovery_test.tscn
+Loading resource: res://tests/reality_save_recovery_test.gd remapped: res://tests/reality_save_recovery_test.gd
+Completed load for: 'res://tests/reality_save_recovery_test.gd' remapped 'res://tests/reality_save_recovery_test.gd' at thread -1
+Completed load for: 'res://tests/reality_save_recovery_test.tscn' remapped 'res://tests/reality_save_recovery_test.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+  PASS first-creation journal uses the exact SHA256 of an absent prior generation
+  PASS temp_write returns false
+  PASS temp_write retains the previous primary bytes
+  PASS temp_write fresh storage reader reconstructs previous facts
+  PASS temp_verify returns false
+  PASS temp_verify retains the previous primary bytes
+  PASS temp_verify fresh storage reader reconstructs previous facts
+  PASS backup_write returns false
+  PASS backup_write retains the previous primary bytes
+  PASS backup_write fresh storage reader reconstructs previous facts
+  PASS backup_verify returns false
+  PASS backup_verify retains the previous primary bytes
+  PASS backup_verify fresh storage reader reconstructs previous facts
+  PASS journal_write returns false
+  PASS journal_write retains the previous primary bytes
+  PASS journal_write fresh storage reader reconstructs previous facts
+  PASS journal_verify returns false
+  PASS journal_verify retains the previous primary bytes
+  PASS journal_verify fresh storage reader reconstructs previous facts
+  PASS promote returns false
+  PASS promote retains the previous primary bytes
+  PASS promote fresh storage reader reconstructs previous facts
+  PASS primary_verify returns false
+  PASS primary_verify retains the previous primary bytes
+  PASS primary_verify fresh storage reader reconstructs previous facts
+  PASS temp_write short write is rejected despite claimed operation success
+  PASS temp_write short write does not truncate primary
+  PASS backup_write short write is rejected despite claimed operation success
+  PASS backup_write short write does not truncate primary
+  PASS journal_write short write is rejected despite claimed operation success
+  PASS journal_write short write does not truncate primary
+  PASS Windows deletion gap failure reports failure and verified restoration
+  PASS restoration copies the previous generation without consuming backup
+  PASS rollback_temp_write holds writes
+  PASS rollback_temp_write keeps backup bytes
+  PASS rollback_temp_write a fresh reader obtains old complete facts
+  PASS rollback_promote holds writes
+  PASS rollback_promote keeps backup bytes
+  PASS rollback_promote a fresh reader obtains old complete facts
+  PASS rollback_verify holds writes
+  PASS rollback_verify keeps backup bytes
+  PASS rollback_verify a fresh reader obtains old complete facts
+  PASS cleanup failures do not deny a verified save
+  PASS valid primary wins stale cleanup debris
+  PASS changed primary stops promotion
+  PASS future bytes arriving before promotion remain untouched
+  PASS writer creates a missing parent directory
+  PASS nested path reads complete facts
+  PASS valid primary wins uncommitted temp and bad journal
+  PASS temp alone never becomes Continue
+  PASS second complete generation creates backup
+  PASS damaged primary recovers previous work, item, dream and clock facts
+  PASS damaged primary bytes survive recovery under their content hash
+  PASS prepare backup for future refusal
+  PASS future primary refuses before known-field validation or older backup selection
+  PASS future refusal preserves both generations
+  PASS unsupported primary clock refuses before older backup fallback
+  PASS unreadable primary is protected instead of treated as absent
+  PASS ambiguous journal cannot authorize backup promotion
+  PASS only absent primary and all absent sidecars are fresh
+  PASS invalid load blocks writing and Continue: {
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: null
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: []
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4.5}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":"4"}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4,"maintenance_jobs":[]}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4,"cases":{"a":17}}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4,"dreams_had":-1}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4,"intro_complete":"true"}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4,"campaign_clock":[]}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":99}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4,"work_orders":{"bad":[]}}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"maintenance_jobs":{"bad":[]},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"maintenance_items":{"bad":[]},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"open_shift_situations":{"bad":[]},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"shop_buckets":{"bad":[]},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"exterior_semantics":{"bad":[]},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"organism_incidents":{"bad":[]},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4,"waking_residues":{"bad":[]}}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"version":4,"work_orders":{"bad":false}}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"npc_observations":[],"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"night_register":[],"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"porter_actor":[],"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"npc_observations":{"mina":false},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"npc_observations":{"mina":[false]},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"night_register":{"lines":false},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS invalid load blocks writing and Continue: {"night_register":{"lines":[[]]},"version":4}
+  PASS commit and notice dismissal preserve invalid bytes and reason
+  PASS protected clock cannot initialize or sample even if a debug consumer binds
+  PASS second load retains protection and reason
+  PASS compatible unknown fields survive alongside additive known defaults
+  FAIL invalid UTF-8 sequence is protected before lossy string conversion: ff
+  FAIL ordinary commit preserves exact invalid UTF-8 bytes
+  FAIL invalid UTF-8 sequence is protected before lossy string conversion: c0af
+  FAIL ordinary commit preserves exact invalid UTF-8 bytes
+  FAIL invalid UTF-8 sequence is protected before lossy string conversion: e080af
+  FAIL ordinary commit preserves exact invalid UTF-8 bytes
+  FAIL invalid UTF-8 sequence is protected before lossy string conversion: eda080
+  FAIL ordinary commit preserves exact invalid UTF-8 bytes
+  FAIL invalid UTF-8 sequence is protected before lossy string conversion: f4908080
+  FAIL ordinary commit preserves exact invalid UTF-8 bytes
+  FAIL invalid UTF-8 sequence is protected before lossy string conversion: e282
+  FAIL ordinary commit preserves exact invalid UTF-8 bytes
+  FAIL invalid UTF-8 sequence is protected before lossy string conversion: 80
+  FAIL ordinary commit preserves exact invalid UTF-8 bytes
+  PASS valid multibyte Unicode remains readable
+  PASS ordinary save preserves valid Unicode text
+  PASS failed New returns false for GameBoot
+  PASS failed New samples once but publishes no candidate facts
+  PASS failed New preserves prior runtime data, future notice, latch and original primary
+  PASS failed New exposes a separate operation result
+  PASS explicit successful New commits replacement
+  PASS successful New samples once and publishes once
+  PASS successful New enables Continue and releases old protection
+  PASS original future bytes remain archived even when backup rotates later
+  PASS New uses the authored date and injected time of day
+  PASS ordinary Continue data load preserves clock bytes and does not sample
+[SAVE RECOVERY] FAIL 181/195
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

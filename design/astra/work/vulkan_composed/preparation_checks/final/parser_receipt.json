@@ -1,0 +1,25 @@
+{
+  "scope": "Python synthetic log/receipt controls only; no Godot or rendering proof",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "design\\astra\\work\\vulkan_composed",
+    "-p",
+    "test_gate.py",
+    "-v"
+  ],
+  "actual_exit": 0,
+  "elapsed_seconds": 0.0944,
+  "inputs_sha256": {
+    "gate.py": "9b8f9b90295157748eb9b9fd2798ade5ab024d46840d42a8ddf03d82a3090b48",
+    "test_gate.py": "9756cb77e2b66c03b297d02093b30e83235d2c6e8fa12d9a24f687b3aaece965"
+  },
+  "sources_unchanged": true,
+  "control_count": 14,
+  "previous_receipt": "../parser_receipt.json",
+  "added_control": "An omission source with unpair plus source drift or an unrelated error cannot validate expected red. Diagnostic gate remains1 for all red cases.",
+  "logged_at_utc": "2026-09-05T05:56:00.875010+00:00"
+}

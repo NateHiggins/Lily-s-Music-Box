@@ -1,0 +1,255 @@
+{
+  "schema": "astra.foundation-status-narrow-proposal.v1",
+  "prepared_utc": "2026-09-05T07:16:46.344558+00:00",
+  "scope": "Outside-canonical proposal only; no ledger/current-report edits, no engine or whole-tree hash",
+  "base_head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "paths": [
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "original_sha256": "956a9df229c3b0a59de1763a91e9f5e3699e97f91689b8d6291a5f0c46bfa12f",
+      "proposed_sha256": "4b936d38d3315a4d7299888b3aee5664d34f7147cd18fe6b30a6c66783cb58d3"
+    },
+    {
+      "path": "design/astra/LIVE_STATE.json",
+      "original_sha256": "f3bc0de4466860463e8f8d717c84fad16728d59d40af7c5a6da904aba7b5d0a7",
+      "proposed_sha256": "230e7f988ac0fd7cddedcae845f43bfdb4c9f72efd7887752895fe30994bd490"
+    },
+    {
+      "path": "design/astra/DECISION_LOG.md",
+      "original_sha256": "b14ad222c13cb04c41cb736acbe56ec4034a5de957e390eb896bd9486136f79f",
+      "proposed_sha256": "d14914b8c37ab4ffeeaafd09a9d2c8cca7e975e5338814829b1738662b21fc82"
+    },
+    {
+      "path": "design/astra/PLAYTEST_FINDINGS.md",
+      "original_sha256": "44e9f5eefa1212a5040550baec1485af392321e1b367682c05f9dcdae10b50bc",
+      "proposed_sha256": "f62e42e2efdd05c1431e7fc8e548ba5f09a1d2c813ecb48071c60992a4d469de"
+    },
+    {
+      "path": "design/astra/RISK_REGISTER.md",
+      "original_sha256": "8bb00d200667d919debf651d7ba5a39d8abc44a282a7a2c9f687a5189bf8c5c8",
+      "proposed_sha256": "15c1d52eecaea93efea54af9798a65641cf0acb1a07fa5769d22a7db722e16e8"
+    }
+  ],
+  "selected_obligation_field_updates": [
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-CLOCK",
+      "field": "current_state",
+      "old": "Authored Saturday November 10, 1928; one local hour/minute sample, persisted Gregorian simulation clock, both root providers and visible civil-time readers integrated.",
+      "new": "Authored November 10, 1928 and single creation-time hour/minute sampling are integrated. Five world timestamp owners now use qualified campaign elapsed minutes; apartment hearing now respects home presence. These latest source-bound repairs are applied, not yet committed."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-CLOCK",
+      "field": "automated_proof",
+      "old": "Calendar 52/52 exit0 (0.881s), protected-bind old source 51/52 exit1, midnight omission 49/50 exit1. World-time focused27/27; original duration and sight-presence controls fail. Raw exact-source receipts retained.",
+      "new": "Existing calendar52/52, world-time27/27 and protected-bind controls retained. WorldTimestamp original51/76 native1; candidate/restored/final76/76 native0. Wrapped-time61/76 and late-sample75/76 omissions are intended reds with exact restoration. Final job and register153/153 regressions pass; calendar52/52 and save compatibility14/14 retained."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-CLOCK",
+      "field": "next_decisive_action",
+      "old": "Replace remaining host Unix world timestamps with explicit campaign provenance; retain legacy ambiguity. Then prove resident perception and schedule delivery in the composed world.",
+      "new": "Prove remaining embodied listening/reading and one coherent ordinary resident day across interruption/reload, preserving ambiguous legacy duration facts and the current authored time policy."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-CLOCK",
+      "field": "open_defects",
+      "old": [
+        "WorkOrders, inventory, incident and NightRegister timestamp fields still use host Unix time",
+        "Fixed EST only; authored daylight-offset transitions absent",
+        "Legacy ambiguous duration facts require authored recoverability; an old porter intent may hold indefinitely",
+        "Absent-resident sight is gated; audible-event observation still ignores presence",
+        "No human schedule/calendar perceptual acceptance or complete game performance proof",
+        "Complete dramatic-boundary, human schedule and physical perception coverage remains open"
+      ],
+      "new": [
+        "Fixed EST is the current authored policy; historical seasonal offset transitions are not modeled (scope limit, no host-DST fallback)",
+        "Legacy ambiguous duration facts still require authored recoverability; an old porter intent may hold indefinitely",
+        "Corridor/visited-flat/outdoor perception and actual historical-event learning remain unproven",
+        "No human schedule/calendar perceptual acceptance or complete-game performance proof",
+        "Complete dramatic-boundary and physical perception coverage remains open"
+      ]
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-OPENSHIFT",
+      "field": "current_state",
+      "old": "Both roots now bind campaign-derived home presence and sight; apartment hearing still ignores absence. Four player dispositions need complete lived-route proof.",
+      "new": "Both roots share campaign time and home presence. Sight and apartment hearing now refuse absent listeners; real-root belief reconstruction is tested. Four player dispositions still require complete lived-route proof."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-OPENSHIFT",
+      "field": "automated_proof",
+      "old": "See exact base_audits exits; new outcome proof pending.",
+      "new": "Hearing original8/13 native5 versus mistakenly configured expected6 remains red/mismatched. Corrected focused13/13 native0. Existing Open Shift authority passes21 raw checks and save matrix17/17; native/gates0."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-OPENSHIFT",
+      "field": "composed_runtime_proof",
+      "old": "No new proof grants release status. See scoped source review and current runtime receipts.",
+      "new": "Revised composed fixture actually reloads state and constructs V2 and V1 roots, then reads the root-owned ledger: old ledger4 failures among23 checks, corrected23 passes, native/gate0. Situation remains unoffered at boundaries; supplied neutral events prove no retroactive hearing and later properly dated observation. Same-process scope; retained found-art warning."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-OPENSHIFT",
+      "field": "next_decisive_action",
+      "old": "Prove absent-listener hearing refusal and real two-root belief reconstruction, then play four dispositions through owned physical consequences.",
+      "new": "Play the four work/ignore/abandon/meddle dispositions through real movement, observation, owned consequences and interruption; retain the bounded apartment-hearing proof."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-OPENSHIFT",
+      "field": "open_defects",
+      "old": [
+        "Apartment hearing can assign knowledge to an absent resident; owner correction prepared, not executed",
+        "Actual corridor/venue perception and complete work/ignore/abandon/meddle routes remain unproven"
+      ],
+      "new": [
+        "Actual corridor/venue perception and complete work/ignore/abandon/meddle routes remain unproven",
+        "No human listening/input-only route or complete dramatic-boundary acceptance"
+      ]
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-AGENT-AMBIENT",
+      "field": "current_state",
+      "old": "Normal4D departure exposed a hinge/portal mismatch, missing normal approach points and an inside-shaft lift wait target; an uncommitted focused candidate is under omission control. Full ordinary-day proof remains absent.",
+      "new": "Applied navigation matches authored hinge markers to door openings, adds wall-normal approach points and uses a public lift waiting target. Focused candidate40/40 twice and independent omissions are complete. Full ordinary-day proof and the separate F01 haunt destination remain open."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-AGENT-AMBIENT",
+      "field": "automated_proof",
+      "old": "See exact base_audits exits; new outcome proof pending.",
+      "new": "Final candidate40/40 and restored40/40 native/gate0; portal omission13 passes/9 failures and wait omission29 passes/5 failures are retained. Existing PassageNav26/26 passes. All scoped input/engine/source bindings are retained."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-AGENT-AMBIENT",
+      "field": "composed_runtime_proof",
+      "old": "No new proof grants release status. See scoped source review and current runtime receipts.",
+      "new": "Actual4D spawn, collision-pruned forward/reverse graph, selected audit-shape endpoints and source-ready lift boarding are covered. Focused movement uses fixed1/60 _follow steps, not measured travel time or a completed return lifecycle. First full V1 renderer candidate305/305 has no resident-route error; that does not prove an ordinary day."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-AGENT-AMBIENT",
+      "field": "next_decisive_action",
+      "old": "Close actual4D lift route attribution and controls, then prove one ordinary resident day with real observation, props, interruption and reload.",
+      "new": "Correct the separately authored Transient Guests F01 haunt inside the shaft, prove actual-Body destination clearance and real arrival/dwell/return, then extend to one ordinary day with perception, props, interruption and reload."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-AGENT-AMBIENT",
+      "field": "open_defects",
+      "old": [
+        "Focused navigation candidate still needs final independent omission/reconstruction proof and committed binding",
+        "Profiles/routes lack complete day-in-life, physical embodiment and persistent venue/social proof"
+      ],
+      "new": [
+        "HAUNTS.transient_guests still places its F01 destination at Blender(2.2,-6.2), inside the lift shaft; separate actual arrival/lifecycle correction remains prepared only",
+        "Earlier approach/waiting fixture used an audit capsule0.33/1.524/+0.80, not the actual Body0.28/1.55/+0.775; do not call it uniformly conservative or full swept-body proof",
+        "Focused source changes remain uncommitted; no full-day, persistent venue/social or human physical embodiment acceptance"
+      ]
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-PERF",
+      "field": "current_state",
+      "old": "Same-scenario renderer workaround passes matched lobby; broader trials expose arcade viewport ownership and resident-route failures. Full frame target and matched broad cost proof remain open.",
+      "new": "First full applied V1 foundation candidate passes305/305, native/gate0, with zero unpair, shadow-underflow and retention diagnostics. Old mixed/crashing trials remain historical. Matched omission controls, broader scope and target-frame acceptance remain open."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-PERF",
+      "field": "automated_proof",
+      "old": "See exact base_audits exits; new outcome proof pending.",
+      "new": "candidate_v1_foundations_01 result binds full V1 scope, stable inputs and305/305 checks; source-only classifications, real arcade private-world isolation, both blocker-release orders and actual shell/world retirement pass. No-op native-call count is explicitly unproved."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-PERF",
+      "field": "composed_runtime_proof",
+      "old": "evidence/vulkan_composed_smoke/validation.json and evidence/vulkan_composed/runs retain actual failures. Broad raw crashes; helper-only candidate retires without pairing/retention diagnostics but fails arcade and route checks. No final candidate or performance acceptance.",
+      "new": "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json and frames/probe.json: full current V1, Forward+,80.919s whole process,305/305. Zero unpair/shadow-underflow/retention and no non-inherited error headers. Retains5 inherited loader errors,2 loader warnings,1038 RGB8 conversions and1 found-art warning. Teleported rendered transition smoke, not human route or performance acceptance."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-PERF",
+      "field": "next_decisive_action",
+      "old": "Finish independent ownership/navigation repairs, then rerun actual-root renderer controls and disclose completed-phase frame costs.",
+      "new": "Finish independently scoped pair/viewport omission sequences and applicable V2 composition, then compare completed-phase frame costs on matched content and inspect current captures. Preserve the Harukiya historical discrepancy."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-PERF",
+      "field": "open_defects",
+      "old": [
+        "Broader renderer/viewport candidate still needs stable-source ownership, transition and retirement controls",
+        "Harukiya old >250 gate remains red despite247/247 measured index coverage; exact historical difference unresolved",
+        "Partial-root historical timings incomparable; full target-machine frame pacing remains unproved"
+      ],
+      "new": [
+        "Current wider candidate source remains uncommitted; matched pair/viewport controls and applicable V2 scope must be bound before final ownership acceptance",
+        "No-op native-call count remains explicitly unproved",
+        "Harukiya old >250 remains red despite247/247 measured indexing and36 source-eligible exported groups; historical264 discrepancy unresolved",
+        "Partial-root and diagnostic transition timings do not prove steady target-machine frame pacing or full-game performance",
+        "Inherited loader/RGB8 diagnostics and found-art placement warning remain retained; no new human visual/listening acceptance"
+      ]
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-HISTORICAL-TIMELINE",
+      "field": "open_defects",
+      "old": [
+        "V2 physical notice consumer absent",
+        "Resident observation/learning delivery absent",
+        "Authentic radio programming and audible broadcast delivery absent",
+        "Human historical and perceptual acceptance pending",
+        "V1 Forward+ capture has unresolved shadow-count/light-unpair teardown BUG diagnostics"
+      ],
+      "new": [
+        "V2 physical notice consumer absent",
+        "Resident observation/learning delivery of the historical event absent",
+        "Authentic radio programming and audible broadcast delivery absent",
+        "Human historical and perceptual acceptance pending",
+        "Historical notice capture retains pairing BUG diagnostics; current uncommitted matched-lobby/full-V1 candidate removes that signature within scoped controls, with final integration/broader renderer acceptance still open"
+      ]
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-F01-CUT",
+      "field": "current_state",
+      "old": "C1 rehearsal; C2 dirty consumer",
+      "new": "C1 source/export reconstruction plan is ready with exact dependencies/protected hashes; no generator or provider was executed/adopted. C1 human acceptance remains pending and dirty C2 consumers remain quarantined."
+    },
+    {
+      "path": "design/astra/reviews/production_obligations.json",
+      "id": "ASTRA-F01-CUT",
+      "field": "next_decisive_action",
+      "old": "Close clean lineage and reversible provider parity, full routes/save and two-cycle teardown.",
+      "new": "Reconstruct the attributable clean C1 export with the protected17 guard, then implement an explicit off-by-default provider preserving all aliases/current consumers and prove actual-root lifecycle. Preserve v1 default and human-pending C1 scope."
+    }
+  ],
+  "evidence": {
+    "design/astra/evidence/world_timestamps/validation.json": "21b843db74ff18d28096144a221a0b1b99bf7f402090977a2c02fb7acf94f634",
+    "design/astra/evidence/hearing_presence/validation.json": "cf0442f56f8e0092e0088351cbe2cee32f4484acfa3b6da5417b9648f7afef7c",
+    "design/astra/evidence/resident_lift_waiting/validation.json": "1a9f0b0725c6fc41a540366dd8ecfa9235cd6182b3758aafd3e4a7045abf7596",
+    "design/astra/evidence/resident_lift_waiting/final_source_binding.json": "dffc255b85db86c4ddf26a15e33942c6d8132f0cb91be04ab7073ad74f7935f4",
+    "design/astra/reviews/resident_lift_waiting_review.md": "d110415ffcc61fd0a6446c9cda8bcd86e6967d2a5f552c9526bc2d2cdbe4e988",
+    "design/astra/evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json": "1dd7f238faaaf3a84e03a3d1f9113804ec32124b2ff549ce9648ca84041f0c9e",
+    "design/astra/evidence/vulkan_composed/runs/candidate_v1_foundations_01/frames/probe.json": "06101c440c8593815f3963332e0a208b7e6d637a63350100a8742ef9e9b7f313",
+    "design/astra/evidence/foundation_repairs_audits_01/receipt.json": "7a5fbf1d44b5aeb7541101355bd03eb820b429b6e051d5021463b9c45b07611c",
+    "design/astra/evidence/foundation_period_01/receipt.json": "10bcb24bee37be0e665ea0286f4282fa3678ef61af6faecefb2980f1c953ae6f"
+  },
+  "status_promotions": [],
+  "conditions": [
+    "Refresh against root current metadata and completed branch sequences before applying; this proposal freezes only first full V1 candidate evidence.",
+    "No proposed latest_repair_commit change: uncommitted source is not a commit.",
+    "Regenerate master ledger only after root selects evidence and accepts exact fields; no generated ledger files are included.",
+    "Do not transfer historical audit-capsule or same-process proof to actual-body/full-day/restart claims."
+  ]
+}

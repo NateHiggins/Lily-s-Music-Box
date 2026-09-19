@@ -1,0 +1,317 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/NightRegisterTest.tscn remapped: res://tests/NightRegisterTest.tscn
+Loading resource: res://tests/night_register_test.gd remapped: res://tests/night_register_test.gd
+Loading resource: res://assets/ui/telegram/telegram_paper_stock_v1.png remapped: res://assets/ui/telegram/telegram_paper_stock_v1.png
+Loading resource: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex remapped: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex
+Completed load for: 'res://assets/ui/telegram/telegram_paper_stock_v1.png' remapped 'res://assets/ui/telegram/telegram_paper_stock_v1.png' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf
+Loading resource: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata remapped: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf
+Loading resource: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata remapped: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' at thread -1
+Loading resource: res://assets/audio/viral_seed.ogg remapped: res://assets/audio/viral_seed.ogg
+Loading resource: res://.godot/imported/viral_seed.ogg-befc5f05d706188204c710ae7bb333d9.oggvorbisstr remapped: res://.godot/imported/viral_seed.ogg-befc5f05d706188204c710ae7bb333d9.oggvorbisstr
+Completed load for: 'res://assets/audio/viral_seed.ogg' remapped 'res://assets/audio/viral_seed.ogg' at thread -1
+Completed load for: 'res://tests/night_register_test.gd' remapped 'res://tests/night_register_test.gd' at thread -1
+Completed load for: 'res://tests/NightRegisterTest.tscn' remapped 'res://tests/NightRegisterTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+  [register ok] the board's authored order is 001 then 002, and only those two
+  [register ok] vantry_chirp_2a is a record the existing job library already holds
+  [register ok] lena_radiator_round_2b is a record the existing job library already holds
+  [register ok] and `closed` and `missing` are the only unpresentable stages
+  [register ok] with no job issued the spindle is empty
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] touching an empty spindle issues NOTHING
+  [register ok] and it says so rather than failing silently
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+  [register ok] once the spine issues the job, a slip appears on the spindle
+  [register ok] and the slip reads the library, holding no copy of its own
+  [register ok] taking the report acknowledges the EXISTING job
+  [register ok] and creates no second job record (1 before, 1 after)
+  [register ok] the slip is off the spindle and its torn stub is left on the spike
+  [register ok] filed again: the slip is back and the stub is gone
+  [register ok] taking it again cannot re-acknowledge or double-advance
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] REFUSAL: a key already signed out cannot be taken twice
+  [register ok] REFUSAL: a key already on its hook will not take a second copy
+  [register ok] REFUSAL: the report will not go back while a key is still out
+  [register ok] and it goes back the moment the key does
+  [register ok] REFUSAL: a spindle that already holds its slip gives you nothing
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] REFUSAL: a register with nothing to record will not be signed
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] REFUSAL: you cannot sign while the keys are still out
+  [register ok] REFUSAL: you cannot sign while the report is still in your hand
+  [register ok] REFUSAL: you cannot sign with the index on the blank
+  [register ok] and with all three answered, the same board signs
+  [register ok] REFUSAL: signing again files nothing and adds no line
+  [register ok] the apparatus has a desk and a check a refusal can visibly move
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] a hook refusal lifts THAT HOOK without waiting for a tick (rest 0.348, refused 0.400)
+  [register ok] and it leaves the desk exactly where it was
+  [register ok] the pose returns to rest when the refusal is cleared
+  [register ok] with the key back there is nothing left to sign for
+  [register ok] a book refusal moves THE DESK instead (rest 0.520, refused 0.180)
+  [register ok] THE THING THAT REFUSES IS THE THING THAT MOVES: two refusals in one condition are two different pictures
+  [register ok] and a refused signature still wrote nothing
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] route slip-apartment-plant is walkable end to end
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] route slip-plant-apartment is walkable end to end
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] route apartment-slip-plant is walkable end to end
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] route apartment-plant-slip is walkable end to end
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] route plant-slip-apartment is walkable end to end
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] route plant-apartment-slip is walkable end to end
+  [register ok] all six orders reach ONE identical condition (true|true|true)
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] the plant key alone is a legal condition
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] the apartment key alone is a legal condition
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+  [register ok] and the report with no key at all is a legal condition
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] a session can take the report and both keys
+  [register ok] ABORT puts both keys back on their hooks
+  [register ok] ABORT puts the report back on the spindle
+  [register ok] ABORT clears the refusal it was holding
+  [register ok] ABORT restores every fact the board had, exactly ()
+  [register ok] and an aborted session wrote nothing to the register
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] a signed round leaves one line and the index back on the blank
+  [register ok] mid-round: a conclusion is chosen and nothing is written
+  [register ok] a second round files a second line under a different conclusion
+  [register ok] ABORT puts the index back on the conclusion it was standing on
+  [register ok] ABORT rolls the written lines back to exactly what was there (1)
+  [register ok] ABORT restores the whole board byte-for-byte, words included ()
+  [register ok] abort does not roll back the SPINE, which owns its own lifecycle
+  [register ok] the plant hook is tagged for the five service closets
+  [register ok] the apartment hook is tagged for 2B's own entry, and only that
+  [register ok] the plant key's five doors are all genuinely locked (5/5)
+  [register ok] the apartment key's door is not locked at all (0/1)
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] taking and returning BOTH keys changes not one lock ()
+  [register ok] a hook always reads either its key or its numbered check
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] nothing has reached RealityState before the book is signed
+  [register ok] signing the register writes one line and reports EXACTLY once
+  [register ok] the published record carries the SELECTED conclusion
+  [register ok] the record still carries the hour, the job and the hooks
+  [register ok] the signed line persists under the board's own small state key
+  [register ok] the published receipt satisfies the director's guard verbatim
+  [register ok] a second ROUND is a second line, never an overwrite
+  [register ok] there are four conclusions and only four
+  [register ok] and they are the first-shift director's ids, verbatim
+  [register ok] the card has fault_corrected printed on it
+  [register ok] the card has disturbance_persists printed on it
+  [register ok] the card has no_fault_found printed on it
+  [register ok] the card has access_unsuccessful printed on it
+  [register ok] a fresh board has NO conclusion selected and reads as blank
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+  [register ok] the spine reached `repaired` under its own power
+  [register ok] AND THE INDEX HAS NOT MOVED. No stage picks a conclusion.
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] a REPAIRED job can be filed as 'disturbance persists'
+  [register ok] and the spine is not corrected, contradicted or advanced by it
+  [register ok] the same repaired job can equally be filed as 'fault corrected'
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] REFUSAL: "the walls were breathing" is not a conclusion this card can print
+  [register ok] REFUSAL: "haunted" is not a conclusion this card can print
+  [register ok] REFUSAL: "fault_Corrected" is not a conclusion this card can print
+  [register ok] REFUSAL: "disturbance persists" is not a conclusion this card can print
+  [register ok] REFUSAL: "5" is not a conclusion this card can print
+  [register ok] REFUSAL: "no_fault_found " is not a conclusion this card can print
+  [register ok] clearing the index back to blank is always allowed
+Loading resource: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg remapped: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg
+Loading resource: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr remapped: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' at thread -1
+  [register ok] the index cycles through exactly five stops and no more (5)
+  [register ok] and it never stands anywhere outside its five detents
+Loading resource: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg remapped: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg
+Loading resource: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr remapped: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' at thread -1
+  [register ok] fault_corrected is reached by 1 deliberate pushes of the index
+Loading resource: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg remapped: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg
+Loading resource: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr remapped: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' at thread -1
+  [register ok] disturbance_persists is reached by 2 deliberate pushes of the index
+Loading resource: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg remapped: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg
+Loading resource: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr remapped: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' at thread -1
+  [register ok] no_fault_found is reached by 3 deliberate pushes of the index
+Loading resource: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg remapped: res://assets/audio/freesound/processed/mechanical/metal_tick.ogg
+Loading resource: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr remapped: res://.godot/imported/metal_tick.ogg-b1c95a215b3a6ae349163e1f09294533.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/metal_tick.ogg' at thread -1
+  [register ok] access_unsuccessful is reached by 4 deliberate pushes of the index
+  [register ok] with neither report issued the spindle is empty
+Loading resource: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg remapped: res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg
+Loading resource: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr remapped: res://.godot/imported/pipe_knock.ogg-896a926570ba74a7f6738c1157bd70e5.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg' at thread -1
+  [register ok] and touching it issues NOTHING
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+  [register ok] once 001 is issued it is the paper on the spindle
+  [register ok] and the paper IDENTIFIES ITSELF: number, unit and symptom
+  [register ok] taking it acknowledges exactly 001, and says which it took
+  [register ok] no second job record was created (0)
+  [register ok] and the board is now LATCHED to the paper in your hand
+  [register ok] 002 issued mid-round does not touch the paper in hand
+  [register ok] the spine closed 001 under its own power
+  [register ok] EVEN WITH 001 CLOSED the open round keeps its own paper
+  [register ok] the round files under 001, the job it was actually taken for
+  [register ok] filing closed no job and advanced nothing
+  [register ok] with the round signed off, 002 comes up on the spindle
+  [register ok] and the new paper identifies ITSELF, not the old one
+  [register ok] 2A and 2B share not one printed line
+  [register ok] the paper carries its own printed identity (WORK ORDER 002 / BORROWED BREATH / UNIT 2B / Lena Ortiz reports that / the 2B radiator exhales / while the iron stays cold.)
+  [register ok] and that printing is live geometry in the tree, not a string
+  [register ok] the printing leaves the spindle with the paper
+  [register ok] the line already in the book still reads 001
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+  [register ok] a board rebuilt over the same save presents the same report
+  [register ok] and it comes up reading the line the book already holds
+  [register ok] the register persists NO report of its own: only signed lines
+  [register ok] 002 taken and acknowledged
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+  [register ok] after a reload mid-round the same report is still presented
+  [register ok] with both reports closed the spindle is empty again
+  [register ok] the board is not a work order owner: no issue path exists
+  [register ok] it writes no lock: `leaf_state` is only ever read
+  [register ok] the ONLY spine methods it can reach are job_stage and acknowledge_job (acknowledge_job, job_stage)
+  [register ok] no case state was created by anything on this board
+  [register ok] exactly five literal service points, one per thing you can touch
+  [register ok] the slip is ray-reachable and prompts for itself
+  [register ok] the hook_apartment is ray-reachable and prompts for itself
+  [register ok] the hook_plant is ray-reachable and prompts for itself
+  [register ok] the index is ray-reachable and prompts for itself
+  [register ok] the book is ray-reachable and prompts for itself
+  [register ok] the apparatus owns no light and no collision body but its reaches
+  [register ok] the apparatus shows its RegisterBoard
+  [register ok] the apparatus shows its RegisterShelf
+  [register ok] the apparatus shows its ReportSpindle
+  [register ok] the apparatus shows its ReportSlip
+  [register ok] the apparatus shows its ReportStub
+  [register ok] the apparatus shows its RegisterBook
+  [register ok] the apparatus shows its RegisterPage
+  [register ok] the apparatus shows its RegisterPen
+  [register ok] the apparatus shows its Key_apartment
+  [register ok] the apparatus shows its Key_plant
+  [register ok] the apparatus shows its Check_apartment
+  [register ok] the apparatus shows its Check_plant
+  [register ok] the apparatus shows its Tag_apartment
+  [register ok] the apparatus shows its Tag_plant
+  [register ok] the plant key is visibly the bigger key
+NIGHT REGISTER TEST: FAIL (145/148)
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

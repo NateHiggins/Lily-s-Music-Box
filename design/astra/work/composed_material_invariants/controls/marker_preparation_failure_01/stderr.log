@@ -1,0 +1,44 @@
+test_bound_source_and_single_line_omission (test_marker_omission.MarkerSourceControls.test_bound_source_and_single_line_omission) ... FAIL
+test_other_changes_or_wrong_baseline_rejected (test_marker_omission.MarkerSourceControls.test_other_changes_or_wrong_baseline_rejected) ... FAIL
+test_registry_and_prop_markers_remain (test_marker_omission.MarkerSourceControls.test_registry_and_prop_markers_remain) ... FAIL
+
+======================================================================
+FAIL: test_bound_source_and_single_line_omission (test_marker_omission.MarkerSourceControls.test_bound_source_and_single_line_omission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\composed_material_invariants\test_marker_omission.py", line 12, in test_bound_source_and_single_line_omission
+    changed = omit_build_marker(self.original)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\composed_material_invariants\marker_omission.py", line 27, in omit_build_marker
+    assert method.count(line) == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_other_changes_or_wrong_baseline_rejected (test_marker_omission.MarkerSourceControls.test_other_changes_or_wrong_baseline_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\composed_material_invariants\test_marker_omission.py", line 25, in test_other_changes_or_wrong_baseline_rejected
+    changed = omit_build_marker(self.original)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\composed_material_invariants\marker_omission.py", line 27, in omit_build_marker
+    assert method.count(line) == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_registry_and_prop_markers_remain (test_marker_omission.MarkerSourceControls.test_registry_and_prop_markers_remain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\composed_material_invariants\test_marker_omission.py", line 19, in test_registry_and_prop_markers_remain
+    changed = omit_build_marker(self.original)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\composed_material_invariants\marker_omission.py", line 27, in omit_build_marker
+    assert method.count(line) == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

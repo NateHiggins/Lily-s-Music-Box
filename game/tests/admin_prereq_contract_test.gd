@@ -42,6 +42,34 @@ func _test_frames() -> void:
 			frame.shop_id("BODEGA") == "SHOP_BODEGA")
 	_check("v2 exterior outputs are isolated from v1 authorities",
 			frame.exterior_home().begins_with("res://data/orison_v2/"))
+	var clock: Dictionary = frame.data.simulation_clock
+	var forbidden := {
+		"host_clock_allowed": true,
+		"creation_time_sample_allowed": false,
+		"creation_time_sampler": "CampaignClock._initialize_epoch_from_host",
+		"host_calendar_fields_allowed": true,
+		"start_weekday": "sample_host_once_at_campaign_creation",
+		"start_time": "force_03_00",
+		"subsequent_host_clock_reads_forbidden": false,
+		"calendar_authority": "host_calendar",
+		"calendar": "fixed_365_day_year",
+		"timezone": "host_timezone",
+		"utc_offset_minutes": 0,
+		"automatic_host_dst_allowed": true,
+		"elapsed_time": "wrapped_minute_of_day",
+		"civil_doy": "fixed_365",
+		"doy": "gregorian_day_of_year",
+		"leap_day_schedule_key": 60,
+		"first_sat": "first_saturday_of_year",
+		"calendar_year_days": 365,
+	}
+	for field: String in forbidden:
+		var changed := clock.duplicate(true)
+		changed[field] = forbidden[field]
+		var rejected := OrisonV2FrameContract.new()
+		rejected.validate_clock(changed)
+		_check("shared time contract rejects %s drift" % field,
+				not rejected.errors.is_empty())
 
 
 func _test_lineages() -> void:

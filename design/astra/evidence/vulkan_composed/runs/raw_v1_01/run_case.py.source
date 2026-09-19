@@ -1,0 +1,135 @@
+"""Run only after explicit lane handoff and fixture installation; never edits game."""
+from pathlib import Path
+import argparse
+import datetime
+import hashlib
+import json
+import os
+import re
+import shutil
+import subprocess
+import time
+from gate import classify
+
+BASE = Path(__file__).resolve().parent
+ROOT = BASE.parents[3]
+PWSH = Path(r'C:\Users\nate_\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.exe')
+SERIAL = ROOT / 'tools/run_godot_serial.ps1'
+
+
+def sha(path):
+    h = hashlib.sha256()
+    with path.open('rb') as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b''): h.update(chunk)
+    return h.hexdigest()
+
+
+def git(*args):
+    return subprocess.check_output(['git', '-C', str(ROOT), *args], stderr=subprocess.DEVNULL)
+
+
+def dump(path, value):
+    path.write_text(json.dumps(value, indent=2) + '\n', encoding='utf-8')
+
+
+def snapshot(out, label):
+    # Tracked and untracked game inputs, including binary art, are raw-hashed.
+    # .godot is excluded by Git; profile is outside game and never copied.
+    paths = sorted(set(git('ls-files', '-z', 'game', 'tools').decode().split('\0')
+                       + git('ls-files', '--others', '--exclude-standard', '-z', 'game', 'tools').decode().split('\0')) - {''})
+    files = {p: sha(ROOT / p) for p in paths if (ROOT / p).is_file()}
+    diff = git('diff', 'HEAD', '--binary', '--', 'game', 'tools')
+    (out / (label + '.diff')).write_bytes(diff)
+    changed = set(git('diff', 'HEAD', '--name-only', '--', 'game', 'tools').decode().splitlines()
+                  + git('ls-files', '--others', '--exclude-standard', 'game', 'tools').decode().splitlines())
+    for p in changed:
+        if not (ROOT / p).is_file(): continue
+        dest = out / (label + '_sources') / p
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / p, dest)
+    return {'head': git('rev-parse', 'HEAD').decode().strip(), 'files': files,
+            'diff_sha256': hashlib.sha256(diff).hexdigest()}
+
+
+def engine_manifest():
+    # Use the unchanged runner's PowerShell resolution, not Python which().
+    resolved = subprocess.check_output([str(PWSH), '-NoProfile', '-Command',
+        '(Get-Command Godot_v4.7.1-stable_win64_console.exe -ErrorAction Stop).Source'], cwd=ROOT, text=True).strip()
+    launcher = Path(resolved)
+    return [{'path': str(p), 'sha256': sha(p), 'bytes': p.stat().st_size}
+            for p in [launcher, launcher.with_name('Godot_v4.7.1-stable_win64.exe')] if p.is_file()]
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('root', choices=['v1', 'v2'])
+    parser.add_argument('variant', choices=['raw', 'candidate', 'omission'])
+    parser.add_argument('run_name')
+    args = parser.parse_args()
+    if not re.fullmatch(r'[A-Za-z0-9_-]+', args.run_name): parser.error('simple fresh run directory required')
+    fixture = ROOT / 'game/tests/vulkan_composed_root_test.gd'
+    if not fixture.is_file(): parser.error('prepared fixture has not been installed under live game')
+    helper_source = (ROOT / 'game/scripts/building/building_root.gd').read_text(encoding='utf-8')
+    has_helper = 'func _set_zone_layer_mask(' in helper_source
+    rebind = 'RenderingServer.instance_set_scenario(vi.get_instance(), world.scenario)'
+    source_variant_matches = ((not has_helper and rebind not in helper_source) if args.variant == 'raw'
+                              else (has_helper and helper_source.count(rebind) == (1 if args.variant == 'candidate' else 0)))
+    if not source_variant_matches: parser.error('declared variant does not match live helper operation; wrapper never edits source')
+    out = ROOT / 'design/astra/evidence/vulkan_composed/runs' / args.run_name
+    out.mkdir(parents=True, exist_ok=False)
+    profile, frames = out / 'APPDATA', out / 'frames'
+    profile.mkdir()
+    frames.mkdir()
+    env = os.environ.copy()
+    for key in list(env):
+        if key.startswith(('PERF_', 'SURFACE_')) or key in ['DAYNIGHT', 'DAYNIGHT_FORCE', 'SCHEDULE', 'SCHEDULE_MINUTE', 'SCHEDULE_DAY', 'SCHEDULE_DOY', 'ORISON_TITLE_DEBUG']:
+            env.pop(key)
+    env.update({'APPDATA': str(profile), 'SHOT_DIR': str(frames), 'ORISON_BUILDING_ROOT': args.root,
+                'VULKAN_COMPOSED_VARIANT': args.variant, 'CAMPAIGN_TIME_FREEZE': '1',
+                'WEATHER_SEED': '19281110', 'TITLE_SCREEN_SILENT': '1'})
+    quote = lambda p: "'" + str(p).replace("'", "''") + "'"
+    log = out / 'stdout.log'
+    command = (f'& {quote(SERIAL)} -ProjectPath {quote(ROOT / "game")} '
+               f'-Scene res://tests/VulkanComposedRootTest.tscn -LogPath {quote(log)} -TimeoutSeconds 180 -Windowed '
+               "-ExtraArgs @('--verbose', '--audio-driver', 'Dummy', '--resolution', '1280x720', '--rendering-method', 'forward_plus', '--rendering-driver', 'vulkan')\nexit $LASTEXITCODE\n")
+    (out / 'command.ps1').write_text(command, encoding='utf-8')
+    for p in [Path(__file__), BASE / 'gate.py', SERIAL]: shutil.copy2(p, out / (p.name + '.source'))
+    before_engine = engine_manifest()
+    before = snapshot(out, 'before')
+    inputs = {str(p): sha(p) for p in [Path(__file__), BASE / 'gate.py', SERIAL]}
+    started_at = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    start = time.perf_counter()
+    process = subprocess.run([str(PWSH), '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', str(out / 'command.ps1')],
+                             cwd=ROOT, env=env, capture_output=True)
+    elapsed = time.perf_counter() - start
+    (out / 'wrapper.stdout.log').write_bytes(process.stdout)
+    (out / 'wrapper.stderr.log').write_bytes(process.stderr)
+    after = snapshot(out, 'after')
+    after_engine = engine_manifest()
+    unchanged = before['files'] == after['files'] and all(sha(Path(p)) == h for p, h in inputs.items())
+    stdout = log.read_text(encoding='utf-8-sig', errors='replace') if log.is_file() else ''
+    err = Path(str(log) + '.stderr')
+    stderr = err.read_text(encoding='utf-8-sig', errors='replace') if err.is_file() else ''
+    probe_path = frames / 'probe.json'
+    probe_error = ''
+    try:
+        probe = json.loads(probe_path.read_text()) if probe_path.is_file() else None
+    except (ValueError, OSError) as error:
+        probe, probe_error = None, str(error)
+    gate = classify(process.returncode, stdout, stderr, probe, unchanged, len(before_engine) == 2 and before_engine == after_engine)
+    if probe and (probe.get('root') != args.root or probe.get('variant') != args.variant):
+        gate['reasons'].append('actual probe differs from requested root/variant')
+        gate['diagnostic_gate_exit'] = 1
+    result = {'schema': 'astra.vulkan_composed.run.v1', 'started_at_utc': started_at, 'root': args.root, 'variant': args.variant,
+              'actual_engine_exit': process.returncode, 'elapsed_seconds': round(elapsed, 3), 'gate': gate,
+              'source_unchanged': unchanged, 'probe_read_error': probe_error, 'before': before, 'after': after, 'engines_before': before_engine,
+              'engines_after': after_engine, 'wrapper_inputs': inputs, 'fresh_APPDATA': str(profile),
+              'hardware_context': 'Godot4.7.1 RTX4080/i7-13700KF; renderer asserted and full stderr retained',
+              'artifacts': {p.relative_to(out).as_posix(): sha(p) for p in out.rglob('*')
+                            if p.is_file() and 'APPDATA' not in p.relative_to(out).parts}}
+    dump(out / 'result.json', result)
+    print(json.dumps({'actual_engine_exit': process.returncode, 'elapsed_seconds': result['elapsed_seconds'], 'gate': gate}, indent=2))
+    return gate['diagnostic_gate_exit']
+
+
+if __name__ == '__main__': raise SystemExit(main())

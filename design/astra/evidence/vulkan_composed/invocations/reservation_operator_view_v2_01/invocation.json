@@ -1,0 +1,1855 @@
+{
+  "status": "EXACT_FIXTURE_RESTORED",
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-B",
+    "design/astra/work/vulkan_composed/run_case.py",
+    "v2",
+    "candidate",
+    "reservation_operator_view_v2_01",
+    "--scope",
+    "full"
+  ],
+  "input_proof_sha256": "efff65ca3149926c69b9e026130efef7bb1426a972a588406094ab065c74a00a",
+  "container_admission": {
+    "status": "DOCKER_AND_WSL_STOPPED",
+    "backend_processes": [],
+    "running_wsl_distributions": ""
+  },
+  "binding_sha256": "a4abe0b1cd26427a76b4d0060d906ca4d7e82bc7c16c4959505efa68202a8d17",
+  "orchestrator_sha256": "8c8f4b59d673befff32198de03276675105b72d850cb3324319324b164e8ac6e",
+  "source_before": {
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc",
+    "game/scripts/call/call_interface.gd": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c",
+    "game/scripts/call/case_library.gd": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c",
+    "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+    "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+    "game/scripts/game/first_shift_director.gd": "5c53680040277cb76539e1e7702a620333dc681f7a5f6a3103a7afb948f00bfd",
+    "game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+    "game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+    "game/tests/OrisonV2ReservationDisplayTest.tscn": "c9c2bbaafc8b5f430398bf02808ca623438cd63b421758dbb80a31743c99b721",
+    "game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60",
+    "game/tests/orison_v2_reservation_display_test.gd": "6a6527b9e6fd87ad8a06e28511831ee52f47c747fb273bf84d089cacc0c3ae6c",
+    "game/tests/orison_v2_terminal_access_test.gd": "800d7bf531758e2720d70d3167378c5bb77a90b0cb054ddad0347010feec47e3",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  },
+  "samples": [
+    {
+      "elapsed_seconds": 0.31300000000010186,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 4056,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        },
+        {
+          "ProcessId": 29652,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"(Get-Command Godot_v4.7.1-stable_win64_console.exe -ErrorAction Stop).Source\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 0.6410000000000764,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 30104,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 0.9690000000000509,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 6912,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 1.2970000000000255,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 1396,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 1.625,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 29928,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 1.9380000000001019,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 3520,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 2.2660000000000764,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 3280,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 2.594000000000051,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 11816,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 2.9060000000001764,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 8952,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 3.219000000000051,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 20556,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 3.563000000000102,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 9732,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 3.875,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 5588,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 4.203000000000202,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 5880,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 4.531000000000176,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 2828,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 4.859000000000151,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 9324,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 5.25,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 29800,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 5.625,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 29660,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 5.953000000000202,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 20572,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 6.266000000000076,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 2780,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 6.594000000000051,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 22044,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 6.9220000000000255,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 5236,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 7.266000000000076,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 25712,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 7.578000000000202,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 30112,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 7.953000000000202,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 27064,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 8.281000000000176,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 26176,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 8.609000000000151,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 11496,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 9.016000000000076,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 13816,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 9.359000000000151,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31000,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 9.688000000000102,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 16736,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 10.016000000000076,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 29800,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 10.344000000000051,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 31560,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed\\runs\\reservation_operator_view_v2_01\\command.ps1"
+        },
+        {
+          "ProcessId": 29352,
+          "ParentProcessId": 31560,
+          "Name": "Godot_v4.7.1-stable_win64_console.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe\" --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 31540,
+          "ParentProcessId": 29352,
+          "Name": "Godot_v4.7.1-stable_win64.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+        },
+        {
+          "ProcessId": 6220,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 10.719000000000051,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 12808,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 11.125,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 3552,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 11.469000000000051,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 10424,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 11.813000000000102,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 10124,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 12.125,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 22232,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 12.484000000000151,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 10828,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 12.844000000000051,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 25592,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 13.156000000000176,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 9128,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 13.469000000000051,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 29912,
+          "ParentProcessId": 19612,
+          "Name": "python.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -B design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full"
+        },
+        {
+          "ProcessId": 30240,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        },
+        {
+          "ProcessId": 27000,
+          "ParentProcessId": 29912,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"(Get-Command Godot_v4.7.1-stable_win64_console.exe -ErrorAction Stop).Source\""
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 13.813000000000102,
+      "processes": [
+        {
+          "ProcessId": 11852,
+          "ParentProcessId": 25276,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe"
+        },
+        {
+          "ProcessId": 7440,
+          "ParentProcessId": 18404,
+          "Name": "pwsh.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\npython -B design/astra/work/capture_v2_reservation_01.py\""
+        },
+        {
+          "ProcessId": 19612,
+          "ParentProcessId": 7440,
+          "Name": "python.exe",
+          "CommandLine": "\"C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -B design/astra/work/capture_v2_reservation_01.py"
+        },
+        {
+          "ProcessId": 11368,
+          "ParentProcessId": 19612,
+          "Name": "pwsh.exe",
+          "CommandLine": "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe -NoProfile -Command \"ConvertTo-Json -Compress -InputObject @(Get-CimInstance Win32_Process | Where-Object Name -Match 'Godot|Blender|^python|^pwsh|^powershell' | Select-Object ProcessId,ParentProcessId,Name,CommandLine)\""
+        }
+      ]
+    }
+  ],
+  "exclusive_performance_claim": false,
+  "started_at_utc": "2026-09-05T15:54:35.360721+00:00",
+  "external_wrapper_pid": 29912,
+  "actual_command_exit": 0,
+  "lane_contract": {
+    "foreign_processes": [],
+    "conflicting_pid_observations": [],
+    "actual_owned_engines": [
+      {
+        "ProcessId": 31540,
+        "ParentProcessId": 29352,
+        "Name": "Godot_v4.7.1-stable_win64.exe",
+        "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn"
+      }
+    ],
+    "lane_contract_exit": 0,
+    "scope": "Sampled native ancestry only; no absolute exclusivity or performance claim."
+  },
+  "result_sha256": "98a923b7b5438024641eb3924e098c85783f9181a95f741ea8d8798ca4ff092b",
+  "processes_before_restore": [],
+  "source_after": {
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "game/data/orison_v2_blockout.json": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+    "game/scripts/building/building_root_selector.gd": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802",
+    "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+    "game/scripts/building/orison_v2_blockout.gd": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2",
+    "game/scripts/building/orison_v2_runtime_root.gd": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc",
+    "game/scripts/call/call_interface.gd": "4e3b8667b1b6c88ec0812d0807e55048d4d70848d4175dc3c231d241d0152a7c",
+    "game/scripts/call/case_library.gd": "b3b5ad3295ecc393088b54b0059b2b7139d81926aaed167b3ba8af9f413da48c",
+    "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a",
+    "game/scripts/dream/campaign_shell.gd": "6d4e9d95e045795875d7e27ace4f968ec2fe82fa28fd38af607c8b703d16101f",
+    "game/scripts/game/first_shift_director.gd": "5c53680040277cb76539e1e7702a620333dc681f7a5f6a3103a7afb948f00bfd",
+    "game/scripts/player/player_controller.gd": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+    "game/scripts/props/signal_terminal_prop.gd": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+    "game/tests/OrisonV2ReservationDisplayTest.tscn": "c9c2bbaafc8b5f430398bf02808ca623438cd63b421758dbb80a31743c99b721",
+    "game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60",
+    "game/tests/orison_v2_reservation_display_test.gd": "6a6527b9e6fd87ad8a06e28511831ee52f47c747fb273bf84d089cacc0c3ae6c",
+    "game/tests/orison_v2_terminal_access_test.gd": "800d7bf531758e2720d70d3167378c5bb77a90b0cb054ddad0347010feec47e3",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  },
+  "ended_at_utc": "2026-09-05T15:54:49.512935+00:00"
+}

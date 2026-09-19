@@ -1,0 +1,169 @@
+{
+  "case": "static",
+  "created_utc": "2026-09-05T05:13:40.297017+00:00",
+  "command_file": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\static_01\\command.ps1",
+  "project": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\static_01\\project",
+  "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\static_01\\APPDATA",
+  "SHOT_DIR": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_layer_pairing\\runs\\static_01\\shots",
+  "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "wrapper_sha256": "58097c75749f662fa5e7b825551328e6f4feecffddf1936d68ea18b1040d88a3",
+  "source_sha256": "80dee2270d52087ab872343c75df59a7a30b6b15c74289856cfc5b30886d378d",
+  "prepared_only": false,
+  "started_utc": "2026-09-05T05:13:40.297017+00:00",
+  "engine_binaries_before": [
+    {
+      "path": "Godot_v4.7.1-stable_win64_console.exe",
+      "bytes": 198152,
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+    }
+  ],
+  "finished_utc": "2026-09-05T05:13:43.267056+00:00",
+  "wall_seconds": 2.92200000000048,
+  "runner_pid": 21156,
+  "engine_exit": 0,
+  "engine_binaries": [
+    {
+      "path": "Godot_v4.7.1-stable_win64_console.exe",
+      "bytes": 198152,
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+    }
+  ],
+  "godot_pid": 9612,
+  "renderer_adapter_lines": [
+    "Optional Vulkan device extension VK_EXT_fragment_density_map not found",
+    "Optional Vulkan device extension VK_EXT_fragment_density_map2 not found",
+    "Optional Vulkan device extension VK_QCOM_fragment_density_map_offset not found",
+    "Optional Vulkan device extension VK_EXT_astc_decode_mode not found",
+    "Optional Vulkan device extension VK_EXT_texture_compression_astc_hdr not found",
+    "Optional Vulkan device extension VK_NV_ray_tracing_validation not found",
+    "Optional Vulkan device extension VK_KHR_external_memory_fd not found",
+    "Optional Vulkan device extension VK_EXT_debug_marker not found",
+    "- Vulkan Fragment Shading Rate supported:",
+    "- Vulkan Fragment Density Map not supported",
+    "- Vulkan multiview supported:",
+    "- Vulkan subgroup:",
+    "- Vulkan Acceleration Structure supported",
+    "- Vulkan Raytracing supported",
+    "Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080",
+    "[PAIRING_CHECK] PASS actual Forward+ renderer"
+  ],
+  "artifacts": [
+    {
+      "path": "command.ps1",
+      "sha256": "3af26cc5f95091d1847c8c2f4abbc040f5c552b8a27263b9a1508ce0af3bb4e2",
+      "bytes": 624
+    },
+    {
+      "path": "godot.stdout.log",
+      "sha256": "0908b72f2a054fff11a43d7875d0c8388b5a1df27e4e5df6f5c5ddac22b2dc0b",
+      "bytes": 25080
+    },
+    {
+      "path": "godot.stdout.log.stderr",
+      "sha256": "85780ff49bba1024b9068a58d229b5c0071cbf22ac976e3ce547f4c1f95c0256",
+      "bytes": 2677
+    },
+    {
+      "path": "project/probe.gd",
+      "sha256": "25b455739e1b92022ece18805fc86272ad58c9661808aadc04d0d8418e0ea56c",
+      "bytes": 7255
+    },
+    {
+      "path": "project/probe.tscn",
+      "sha256": "254c01216bcd2758efe57552c1618f5d025ca516e3ff643f02aac04a8c186d55",
+      "bytes": 165
+    },
+    {
+      "path": "project/project.godot",
+      "sha256": "4b16defc972b78b8ae3f75808dcaa4b149cf0f421f863d36385fd0645c6b0b75",
+      "bytes": 527
+    },
+    {
+      "path": "project/zone_layer_gate.gd",
+      "sha256": "3ce8355dca3d5feaa0c8d9825949cccdfff8e1763c8035529670824b14eca337",
+      "bytes": 1008
+    },
+    {
+      "path": "run_case.source.py",
+      "sha256": "58097c75749f662fa5e7b825551328e6f4feecffddf1936d68ea18b1040d88a3",
+      "bytes": 11141
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "c4d4aca8fcb709a93d6536db5ccfbeadc8e630700e08b052b542e2cf4b681a91",
+      "bytes": 1137
+    },
+    {
+      "path": "run_godot_serial.source.ps1",
+      "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "bytes": 8191
+    },
+    {
+      "path": "runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner_pid.json",
+      "sha256": "8b96938e6a4d74fac494887ccc8cf71d8f0b5a0b99eb5cc01315e0c8e2085851",
+      "bytes": 76
+    },
+    {
+      "path": "shots/01_initial.png",
+      "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+      "bytes": 17329
+    },
+    {
+      "path": "shots/02_blocked.png",
+      "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+      "bytes": 17329
+    },
+    {
+      "path": "shots/03_restored.png",
+      "sha256": "091f16cb7a9067732c2bc45c74605356b8ed398a43975ef907d0a1cf0cf9517a",
+      "bytes": 17329
+    },
+    {
+      "path": "shots/04_light_deleted.png",
+      "sha256": "92cb5ffab68414ff056f1d92deb271997deb79987efd22839d521660bfe26230",
+      "bytes": 5909
+    },
+    {
+      "path": "shots/probe_receipt.json",
+      "sha256": "abcbcc044bcbf139d7d0fdf3611a240ae550a2f2f9d020fb05ef739dcd0f33af",
+      "bytes": 3449
+    },
+    {
+      "path": "source_after.json",
+      "sha256": "923243acb81ac109eba678375d7fae9309415813b45985fc18f4ca1f6247d6f5",
+      "bytes": 554
+    },
+    {
+      "path": "source_before.json",
+      "sha256": "923243acb81ac109eba678375d7fae9309415813b45985fc18f4ca1f6247d6f5",
+      "bytes": 554
+    }
+  ],
+  "gate": {
+    "diagnostic_gate_exit": 1,
+    "reasons": [
+      "source or serial runner changed during run"
+    ],
+    "pairing_diagnostics": 0,
+    "inherited_host_manifest_errors": 5,
+    "unexpected_error_headers": {},
+    "retention_diagnostics": [],
+    "all_diagnostic_headers": {
+      "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 5,
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2
+    },
+    "expected_diagnostic_result": "green",
+    "control_expectation_met": false
+  },
+  "visual_review": "pending manual inspection; no human acceptance implied"
+}

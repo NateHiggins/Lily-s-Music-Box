@@ -1,0 +1,38 @@
+{
+  "schema": "astra.v2-terminal-operator-view.invocation.v1",
+  "started_at_utc": "2026-09-05T11:32:55.504934+00:00",
+  "status": "ENDED_EXACT_ORIGINAL_RESTORED",
+  "orchestrator_sha256": "fefb05fd74eda214914b5b61b81117b919195874de9b34723d7e541f8da65af8",
+  "prior_offline_preflight": "A read-only hash lookup used the wrong building/apartment_encroachment.gd path and raised FileNotFoundError. No source was installed and no engine was launched. Correct owner is scripts/reality/apartment_encroachment.gd.",
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "design/astra/work/vulkan_composed/run_case.py",
+    "v2",
+    "candidate",
+    "terminal_operator_view_v2_01"
+  ],
+  "scope": "single ordinary diagnostic; predicted failures remain gate red; no acceptance exception",
+  "head_before": "77dc5f75cd7cb68be6d1f3d0be4f57ff1b06c3d4",
+  "source_before": {
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4"
+  },
+  "processes_before": [],
+  "prepared_receipt_sha256": "d65552f8006897b0645b715921779dcf248dd1982ed88a19b1cbd3f76ad43e52",
+  "installed_fixture_sha256": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+  "external_command_seconds": 13.917,
+  "external_command_exit": 1,
+  "processes_before_restore": [],
+  "fixture_before_restore_sha256": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+  "source_restored": {
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4"
+  },
+  "exact_original_restored": true,
+  "processes_after_restore": [],
+  "ended_at_utc": "2026-09-05T11:33:10.451703+00:00"
+}

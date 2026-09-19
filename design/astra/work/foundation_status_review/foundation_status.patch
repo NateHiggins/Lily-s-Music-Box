@@ -1,0 +1,337 @@
+--- a/design/astra/reviews/production_obligations.json
++++ b/design/astra/reviews/production_obligations.json
+@@ -94,7 +94,7 @@
+     "authoritative_owner": "Owner registry / geometry provider",
+     "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+     "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+-    "current_state": "C1 rehearsal; C2 dirty consumer",
++    "current_state": "C1 source/export reconstruction plan is ready with exact dependencies/protected hashes; no generator or provider was executed/adopted. C1 human acceptance remains pending and dirty C2 consumers remain quarantined.",
+     "dependencies": [
+       "ASTRA-SANITIZE-0"
+     ],
+@@ -103,7 +103,7 @@
+     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+     "id": "ASTRA-F01-CUT",
+     "implementation_strategy": "Close clean lineage and reversible provider parity, full routes/save and two-cycle teardown.",
+-    "next_decisive_action": "Close clean lineage and reversible provider parity, full routes/save and two-cycle teardown.",
++    "next_decisive_action": "Reconstruct the attributable clean C1 export with the protected17 guard, then implement an explicit off-by-default provider preserving all aliases/current consumers and prove actual-root lifecycle. Preserve v1 default and human-pending C1 scope.",
+     "open_defects": [
+       "C1 rehearsal; C2 dirty consumer"
+     ],
+@@ -119,7 +119,10 @@
+       "sources": [
+         "OWNER_MANDATE.md",
+         "AUTHORITY_HIERARCHY.md",
+-        "DEBT_DEDUPLICATION.md"
++        "DEBT_DEDUPLICATION.md",
++        "work/f01_reconstruction_review/README.md",
++        "work/f01_reconstruction_review/source_inventory.json",
++        "work/f01_reconstruction_review/consumer_review.md"
+       ]
+     },
+     "scope": "early complete path",
+@@ -129,9 +132,9 @@
+   },
+   {
+     "authoritative_owner": "CampaignClock",
+-    "automated_proof": "Calendar 52/52 exit0 (0.881s), protected-bind old source 51/52 exit1, midnight omission 49/50 exit1. World-time focused27/27; original duration and sight-presence controls fail. Raw exact-source receipts retained.",
++    "automated_proof": "Existing calendar52/52, world-time27/27 and protected-bind controls retained. WorldTimestamp original51/76 native1; candidate/restored/final76/76 native0. Wrapped-time61/76 and late-sample75/76 omissions are intended reds with exact restoration. Final job and register153/153 regressions pass; calendar52/52 and save compatibility14/14 retained.",
+     "composed_runtime_proof": "Final title_save_recovery/runtime/matrix_calendar_final:30/30 exit0,92.851s; all four root directions preserve the exact epoch/start/elapsed clock and destination civil date. Actual Continue enters CampaignShell with a real player and matching clock/facts in both roots (5 checks each). Headless reconstruction/launch evidence, not walked input or full-game performance.",
+-    "current_state": "Authored Saturday November 10, 1928; one local hour/minute sample, persisted Gregorian simulation clock, both root providers and visible civil-time readers integrated.",
++    "current_state": "Authored November 10, 1928 and single creation-time hour/minute sampling are integrated. Five world timestamp owners now use qualified campaign elapsed minutes; apartment hearing now respects home presence. These latest source-bound repairs are applied, not yet committed.",
+     "dependencies": [
+       "ASTRA-SANITIZE-0"
+     ],
+@@ -140,14 +143,13 @@
+     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+     "id": "ASTRA-CLOCK",
+     "implementation_strategy": "Prove host-date independence and correct elapsed-clock consumers with deterministic reload.",
+-    "next_decisive_action": "Replace remaining host Unix world timestamps with explicit campaign provenance; retain legacy ambiguity. Then prove resident perception and schedule delivery in the composed world.",
+-    "open_defects": [
+-      "WorkOrders, inventory, incident and NightRegister timestamp fields still use host Unix time",
+-      "Fixed EST only; authored daylight-offset transitions absent",
+-      "Legacy ambiguous duration facts require authored recoverability; an old porter intent may hold indefinitely",
+-      "Absent-resident sight is gated; audible-event observation still ignores presence",
+-      "No human schedule/calendar perceptual acceptance or complete game performance proof",
+-      "Complete dramatic-boundary, human schedule and physical perception coverage remains open"
++    "next_decisive_action": "Prove remaining embodied listening/reading and one coherent ordinary resident day across interruption/reload, preserving ambiguous legacy duration facts and the current authored time policy.",
++    "open_defects": [
++      "Fixed EST is the current authored policy; historical seasonal offset transitions are not modeled (scope limit, no host-DST fallback)",
++      "Legacy ambiguous duration facts still require authored recoverability; an old porter intent may hold indefinitely",
++      "Corridor/visited-flat/outdoor perception and actual historical-event learning remain unproven",
++      "No human schedule/calendar perceptual acceptance or complete-game performance proof",
++      "Complete dramatic-boundary and physical perception coverage remains open"
+     ],
+     "performance": {
+       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+@@ -170,7 +172,11 @@
+         "evidence/world_time_coherence/receipt.json",
+         "evidence/title_save_recovery/runtime/matrix_calendar_final/receipt.json",
+         "evidence/title_save_recovery/runtime/actual_continue_v1_final/receipt.json",
+-        "evidence/title_save_recovery/runtime/actual_continue_v2_final/receipt.json"
++        "evidence/title_save_recovery/runtime/actual_continue_v2_final/receipt.json",
++        "evidence/world_timestamps/validation.json",
++        "reviews/world_timestamp_review.md",
++        "evidence/hearing_presence/validation.json",
++        "reviews/hearing_presence_review.md"
+       ]
+     },
+     "scope": "early complete path",
+@@ -231,9 +237,9 @@
+   },
+   {
+     "authoritative_owner": "OpenShiftSituation / NpcObservationLedger",
+-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+-    "current_state": "Both roots now bind campaign-derived home presence and sight; apartment hearing still ignores absence. Four player dispositions need complete lived-route proof.",
++    "automated_proof": "Hearing original8/13 native5 versus mistakenly configured expected6 remains red/mismatched. Corrected focused13/13 native0. Existing Open Shift authority passes21 raw checks and save matrix17/17; native/gates0.",
++    "composed_runtime_proof": "Revised composed fixture actually reloads state and constructs V2 and V1 roots, then reads the root-owned ledger: old ledger4 failures among23 checks, corrected23 passes, native/gate0. Situation remains unoffered at boundaries; supplied neutral events prove no retroactive hearing and later properly dated observation. Same-process scope; retained found-art warning.",
++    "current_state": "Both roots share campaign time and home presence. Sight and apartment hearing now refuse absent listeners; real-root belief reconstruction is tested. Four player dispositions still require complete lived-route proof.",
+     "dependencies": [
+       "ASTRA-SANITIZE-0"
+     ],
+@@ -242,10 +248,10 @@
+     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+     "id": "ASTRA-OPENSHIFT",
+     "implementation_strategy": "Bind real presence; play four dispositions through reconstruction.",
+-    "next_decisive_action": "Prove absent-listener hearing refusal and real two-root belief reconstruction, then play four dispositions through owned physical consequences.",
+-    "open_defects": [
+-      "Apartment hearing can assign knowledge to an absent resident; owner correction prepared, not executed",
+-      "Actual corridor/venue perception and complete work/ignore/abandon/meddle routes remain unproven"
++    "next_decisive_action": "Play the four work/ignore/abandon/meddle dispositions through real movement, observation, owned consequences and interruption; retain the bounded apartment-hearing proof.",
++    "open_defects": [
++      "Actual corridor/venue perception and complete work/ignore/abandon/meddle routes remain unproven",
++      "No human listening/input-only route or complete dramatic-boundary acceptance"
+     ],
+     "performance": {
+       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+@@ -262,7 +268,9 @@
+         "AUTHORITY_HIERARCHY.md",
+         "DEBT_DEDUPLICATION.md",
+         "reviews/world_time_coherence.md",
+-        "evidence/world_time_coherence/receipt.json"
++        "evidence/world_time_coherence/receipt.json",
++        "evidence/hearing_presence/validation.json",
++        "reviews/hearing_presence_review.md"
+       ]
+     },
+     "scope": "early complete path",
+@@ -309,9 +317,9 @@
+   },
+   {
+     "authoritative_owner": "Shared agent stack",
+-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+-    "composed_runtime_proof": "No new proof grants release status. See scoped source review and current runtime receipts.",
+-    "current_state": "Normal4D departure exposed a hinge/portal mismatch, missing normal approach points and an inside-shaft lift wait target; an uncommitted focused candidate is under omission control. Full ordinary-day proof remains absent.",
++    "automated_proof": "Final candidate40/40 and restored40/40 native/gate0; portal omission13 passes/9 failures and wait omission29 passes/5 failures are retained. Existing PassageNav26/26 passes. All scoped input/engine/source bindings are retained.",
++    "composed_runtime_proof": "Actual4D spawn, collision-pruned forward/reverse graph, selected audit-shape endpoints and source-ready lift boarding are covered. Focused movement uses fixed1/60 _follow steps, not measured travel time or a completed return lifecycle. First full V1 renderer candidate305/305 has no resident-route error; that does not prove an ordinary day.",
++    "current_state": "Applied navigation matches authored hinge markers to door openings, adds wall-normal approach points and uses a public lift waiting target. Focused candidate40/40 twice and independent omissions are complete. Full ordinary-day proof and the separate F01 haunt destination remain open.",
+     "dependencies": [
+       "ASTRA-SANITIZE-0"
+     ],
+@@ -320,10 +328,11 @@
+     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+     "id": "ASTRA-AGENT-AMBIENT",
+     "implementation_strategy": "Prove second character from data with venue, social encounter, props, disturbance and reload.",
+-    "next_decisive_action": "Close actual4D lift route attribution and controls, then prove one ordinary resident day with real observation, props, interruption and reload.",
+-    "open_defects": [
+-      "Focused navigation candidate still needs final independent omission/reconstruction proof and committed binding",
+-      "Profiles/routes lack complete day-in-life, physical embodiment and persistent venue/social proof"
++    "next_decisive_action": "Correct the separately authored Transient Guests F01 haunt inside the shaft, prove actual-Body destination clearance and real arrival/dwell/return, then extend to one ordinary day with perception, props, interruption and reload.",
++    "open_defects": [
++      "HAUNTS.transient_guests still places its F01 destination at Blender(2.2,-6.2), inside the lift shaft; separate actual arrival/lifecycle correction remains prepared only",
++      "Earlier approach/waiting fixture used an audit capsule0.33/1.524/+0.80, not the actual Body0.28/1.55/+0.775; do not call it uniformly conservative or full swept-body proof",
++      "Focused source changes remain uncommitted; no full-day, persistent venue/social or human physical embodiment acceptance"
+     ],
+     "performance": {
+       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+@@ -337,7 +346,11 @@
+       "sources": [
+         "OWNER_MANDATE.md",
+         "AUTHORITY_HIERARCHY.md",
+-        "DEBT_DEDUPLICATION.md"
++        "DEBT_DEDUPLICATION.md",
++        "evidence/resident_lift_waiting/validation.json",
++        "evidence/resident_lift_waiting/final_source_binding.json",
++        "reviews/resident_lift_waiting_review.md",
++        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json"
+       ]
+     },
+     "scope": "full world",
+@@ -644,9 +657,9 @@
+   },
+   {
+     "authoritative_owner": "Residency / domain simulation budgets",
+-    "automated_proof": "See exact base_audits exits; new outcome proof pending.",
+-    "composed_runtime_proof": "evidence/vulkan_composed_smoke/validation.json and evidence/vulkan_composed/runs retain actual failures. Broad raw crashes; helper-only candidate retires without pairing/retention diagnostics but fails arcade and route checks. No final candidate or performance acceptance.",
+-    "current_state": "Same-scenario renderer workaround passes matched lobby; broader trials expose arcade viewport ownership and resident-route failures. Full frame target and matched broad cost proof remain open.",
++    "automated_proof": "candidate_v1_foundations_01 result binds full V1 scope, stable inputs and305/305 checks; source-only classifications, real arcade private-world isolation, both blocker-release orders and actual shell/world retirement pass. No-op native-call count is explicitly unproved.",
++    "composed_runtime_proof": "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json and frames/probe.json: full current V1, Forward+,80.919s whole process,305/305. Zero unpair/shadow-underflow/retention and no non-inherited error headers. Retains5 inherited loader errors,2 loader warnings,1038 RGB8 conversions and1 found-art warning. Teleported rendered transition smoke, not human route or performance acceptance.",
++    "current_state": "First full applied V1 foundation candidate passes305/305, native/gate0, with zero unpair, shadow-underflow and retention diagnostics. Old mixed/crashing trials remain historical. Matched omission controls, broader scope and target-frame acceptance remain open.",
+     "dependencies": [
+       "ASTRA-SANITIZE-0"
+     ],
+@@ -655,15 +668,17 @@
+     "human_proof_required": "Composed perceptual review; ethics/accessibility when applicable. No automatic acceptance.",
+     "id": "ASTRA-PERF",
+     "implementation_strategy": "Profile content-equivalent roots and two cycles; full target-machine p95 and leak proof.",
+-    "next_decisive_action": "Finish independent ownership/navigation repairs, then rerun actual-root renderer controls and disclose completed-phase frame costs.",
+-    "open_defects": [
+-      "Broader renderer/viewport candidate still needs stable-source ownership, transition and retirement controls",
+-      "Harukiya old >250 gate remains red despite247/247 measured index coverage; exact historical difference unresolved",
+-      "Partial-root historical timings incomparable; full target-machine frame pacing remains unproved"
+-    ],
+-    "performance": {
+-      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+-      "measured_result": null
++    "next_decisive_action": "Finish independently scoped pair/viewport omission sequences and applicable V2 composition, then compare completed-phase frame costs on matched content and inspect current captures. Preserve the Harukiya historical discrepancy.",
++    "open_defects": [
++      "Current wider candidate source remains uncommitted; matched pair/viewport controls and applicable V2 scope must be bound before final ownership acceptance",
++      "No-op native-call count remains explicitly unproved",
++      "Harukiya old >250 remains red despite247/247 measured indexing and36 source-eligible exported groups; historical264 discrepancy unresolved",
++      "Partial-root and diagnostic transition timings do not prove steady target-machine frame pacing or full-game performance",
++      "Inherited loader/RGB8 diagnostics and found-art placement warning remain retained; no new human visual/listening acceptance"
++    ],
++    "performance": {
++      "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
++      "measured_result": "First full V1 candidate process80.919s; rendered per-transition CPU/GPU/wait samples retained. These are diagnostic composition measurements, not accepted p95 steady-frame/boot targets."
+     },
+     "persistence_reconstruction": "Facts and semantic IDs survive save/destroy/reconstruct, interruption and tier transitions.",
+     "production_consumer": "Composed CPU/GPU/physics/audio/agents",
+@@ -676,7 +691,9 @@
+         "DEBT_DEDUPLICATION.md",
+         "reviews/vulkan_composed_smoke_review.md",
+         "reviews/vulkan_composed_diagnostic_review.md",
+-        "reviews/harukiya_threshold_review.md"
++        "reviews/harukiya_threshold_review.md",
++        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json",
++        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/frames/probe.json"
+       ]
+     },
+     "scope": "release",
+@@ -1281,10 +1298,10 @@
+     "next_decisive_action": "Provide the notice in the authored V2 world and prove one resident learns a sourced event through actual embodied reading or audible radio perception.",
+     "open_defects": [
+       "V2 physical notice consumer absent",
+-      "Resident observation/learning delivery absent",
++      "Resident observation/learning delivery of the historical event absent",
+       "Authentic radio programming and audible broadcast delivery absent",
+       "Human historical and perceptual acceptance pending",
+-      "V1 Forward+ capture has unresolved shadow-count/light-unpair teardown BUG diagnostics"
++      "Historical notice capture retains pairing BUG diagnostics; current uncommitted matched-lobby/full-V1 candidate removes that signature within scoped controls, with final integration/broader renderer acceptance still open"
+     ],
+     "performance": {
+       "budget": "Provisional p95 total<16.6ms,main<=8ms,physics<=2ms,GPU<14ms;boot<18s;zero second-cycle growth.",
+@@ -1303,7 +1320,8 @@
+         "reviews/historical_notice_review.md",
+         "reviews/campaign_calendar_integration.md",
+         "evidence/historical_radio_notice/runtime_visual_validation.json",
+-        "evidence/historical_radio_notice/canonical_runtime_bindings.json"
++        "evidence/historical_radio_notice/canonical_runtime_bindings.json",
++        "evidence/vulkan_composed/runs/candidate_v1_foundations_01/result.json"
+       ]
+     },
+     "scope": "full world",
+--- a/design/astra/LIVE_STATE.json
++++ b/design/astra/LIVE_STATE.json
+@@ -2,10 +2,10 @@
+   "canonical_branch": "codex/astra-canonical-20260904",
+   "completeness_source": {
+     "audit_id": "orison_v2_completeness",
+-    "path": "evidence/save_commit_audits/orison_v2_completeness.stdout.txt",
+-    "receipt_path": "evidence/save_commit_audits/receipt.json",
+-    "receipt_sha256": "de8568e3b74f14bc55f7855de39eaf61fdf82ca7c34522fefb55f31531c84e30",
+-    "repository_head": "9548301873807117a870aeb6e517173e81a4713f",
++    "path": "evidence/foundation_repairs_audits_01/orison_v2_completeness.stdout.txt",
++    "receipt_path": "evidence/foundation_repairs_audits_01/receipt.json",
++    "receipt_sha256": "7a5fbf1d44b5aeb7541101355bd03eb820b429b6e051d5021463b9c45b07611c",
++    "repository_head": "e72320288d256e4d20386e8f28c116fe962788fc",
+     "sha256": "eeefd38e403dfaad4424f638457a7b305c60b0213155cb77132a7038ae4e8c7e"
+   },
+   "frozen_sanitation_base": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+@@ -18,8 +18,8 @@
+   "latest_calendar_commit": "dd434b15ba6b13cb3951e6ef7e867f9054da2cff",
+   "latest_repair_commit": "9548301873807117a870aeb6e517173e81a4713f",
+   "latest_save_title_commit": "9548301873807117a870aeb6e517173e81a4713f",
+-  "ledger_evidence_head": "9548301873807117a870aeb6e517173e81a4713f",
+-  "policy": "Update the explicit source/head/hash binding when a new audit is selected. Never infer current state from a directory name, modification time, or the frozen sanitation matrix. Static source evidence does not grant new runtime or human acceptance.",
++  "ledger_evidence_head": "e72320288d256e4d20386e8f28c116fe962788fc",
++  "policy": "Update the explicit source/head/hash binding when a new audit is selected. Never infer current state from a directory name, modification time, or the frozen sanitation matrix. Static source evidence does not grant new runtime or human acceptance. The selected foundation audit ran against that HEAD plus the applied uncommitted source overlay; current runtime receipt source copies bind that overlay. latest_repair_commit remains the last actual production commit until root commits the new repair.",
+   "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
+   "schema_version": 1
+ }
+--- a/design/astra/DECISION_LOG.md
++++ b/design/astra/DECISION_LOG.md
+@@ -36,3 +36,11 @@
+ - ASTRA-D021: strengthen the existing host-clock scanner rather than add a second detector. Eight host Unix writes must be actionable; a prior DOCUMENT baseline entry cannot suppress the same finding after it becomes FIX. The unchanged-source original scan exits 0 and corrected scan exits 1. The production provenance repair is still pending; no baseline update or new exception conceals those writes.
+ 
+ - ASTRA-D022: preserve the Harukiya >250 failure while preparing independently source-bound authored-family and index coverage. All 247 measured eligible geometries and 36 eligible exported groups are indexed; the historical 264 difference is unproved. Any replacement instrument must earn owner-removal and indexing-omission reds and explicitly retain its limits; lowering the threshold or adding filler is not an acceptable repair.
++
++- ASTRA-D023: D021's pending world-stamp repair is now applied and source-bound: original51/76 red; candidate/restored/final76/76 green; wrapped-time and late-sampling controls stay red with exact restoration. Preserve legacy units and exact source archives; no new duration consequences or baseline update. Hearing now gates apartment listeners by home presence; original focused8/13 native5 versus expected6 remains an explicit invocation mismatch, while corrected13/13 and actual-two-root23 pass. These scoped repairs do not grant a complete ordinary-day or human listening outcome.
++
++- ASTRA-D024: the F04 cause is the authored hinge/portal mismatch plus missing wall-normal approaches, not closed-lift graph pruning. Final navigation40/40 twice and both independent omissions are complete; public waiting is separately proven. Preserve the audit-capsule identity correction: it is not the actual resident Body or uniformly conservative. The distinct F01 haunt still lies inside the shaft and needs actual arrival/dwell/return proof.
++
++- ASTRA-D025: preserve the old mixed renderer trials while recording the first full current V1 candidate305/305/native0/gate0. Its zero pairing/retention diagnostics and actual retirement are scoped progress beyond D020, not matched-control, performance or human acceptance. Five inherited loader errors, loader/RGB8 warnings and the found-art warning remain. Complete the independent pair/viewport controls and applicable V2 evidence before integration claims.
++
++- ASTRA-D026: select the completed foundation audit source explicitly in LIVE_STATE. Five safety audits and all seven selftests pass; completeness remains2 and data consumption1, with period audit/selftests0. Keep all real nonzero scope exits, no baseline rewrite, and the unchanged Harukiya >250 historical gate. No new release status follows from updated evidence.
+--- a/design/astra/PLAYTEST_FINDINGS.md
++++ b/design/astra/PLAYTEST_FINDINGS.md
+@@ -60,12 +60,13 @@
+   `evidence/vulkan_composed_smoke/validation.json` and `evidence/vulkan_composed/`.
+ - ARCADE-WORLD-BOUNDARY: actual Passage late indexing enters living cabinet
+   SubViewport worlds and changes their geometry masks. This occurs before their
+-  legitimate unload delay. A minimal viewport ancestry guard is applied as an
+-  uncommitted candidate; guard-omission and final composed proof remain pending.
++  legitimate unload delay. A minimal viewport ancestry guard is applied. The later full V1 candidate
++  passes305/305 including actual arcade isolation; its independent guard-omission
++  sequence and final integration remain separate requirements.
+ - RESIDENT-F04-ROUTE: the ordinary Transient Guests 4D spawn cannot find its
+-  departure route in both wider renderer trials. The current lift waiting target
+-  lies inside the shaft, but that alone does not establish the graph failure's
+-  cause. Actual collision-pruned endpoint/edge diagnostics are in progress.
++  departure route in both wider renderer trials. At that historical trial the lift waiting target also lay inside the shaft.
++  Later source-bound attribution/controls identified the hinge/approach defect
++  and repaired public waiting; see RESIDENT-NAV-CURRENT below.
+ - HARUKIYA-COVERAGE: the clock-pinned StreetCore fixture fails its old >250
+   count while indexing all 247 measured eligible geometries. All 36 independently
+   source-eligible exported groups are present. Historical owner records remain
+@@ -73,7 +74,8 @@
+   remains red and unmodified; see `reviews/harukiya_threshold_review.md`.
+ - HOST-STAMP-AUDIT: the old scanner exits 0 on eight host Unix world stamps;
+   the strengthened scanner exits 1 on those same stable inputs. Its 44 synthetic
+-  checks pass. The production timestamp correction remains prepared, unexecuted.
++  checks pass. That was the pre-repair scanner proof; the later production timestamp
++  correction is applied and runtime-validated under WORLD-STAMPS-CURRENT below.
+   Baseline bytes are unchanged. See
+   `work/save_recovery/unix_audit/live_evidence/before_timestamp_repair_01/receipt.json`.
+ - V1-COMPOSED-VISUAL: root additionally inspected the failed candidate's
+@@ -81,3 +83,8 @@
+   its arcade screens; Passage shop signs and continuous circulation are readable,
+   while the carried device obscures the lower-right view. These are composition
+   findings from a failed diagnostic run, not final art or human acceptance.
++
++- WORLD-STAMPS-CURRENT: five production owners now write qualified campaign elapsed minutes. Original51/76, wrapped61/76 and late-sample75/76 reds remain; candidate/restored/final76/76 pass. First job/native1 and register/native3 regressions are preserved; exact source-history and LF/CRLF fixture corrections then pass jobs and register153/153. Incident18/18 retains the found-art warning. See `evidence/world_timestamps/validation.json` and `reviews/world_timestamp_review.md`.
++- HEARING-CURRENT: absent apartment residents no longer gain hearing knowledge through an empty flat; present riser neighbors still hear and returning residents do not learn missed events. Original focused is8/13 with native5, mistakenly expected6; preserve the mismatch. Corrected13/13 and actual-two-root23 pass; authority and save matrix17/17 pass. Composed tests retain the found-art warning. This is same-process scoped perception/reconstruction, not human listening.
++- RESIDENT-NAV-CURRENT: final hinge/opening/normal-approach and public-wait fixes pass40/40 twice; both omissions fail and PassageNav26/26 passes. Earlier capsule queries used an audit shape, not the actual resident Body. F01 Transient Guests haunt remains inside the shaft, and full arrival/dwell/return is a separate prepared proof. See `reviews/resident_lift_waiting_review.md`.
++- V1-FOUNDATIONS-CURRENT: `candidate_v1_foundations_01` completes305/305 under actual full V1 Forward+, native0/gate0, stable source and actual shell/world retirement. Zero unpair/shadow-underflow/retention; retained5 inherited loader errors,2 loader warnings,1038 RGB8 warnings and1 found-art warning. Independent omission sequences and matched costs remain pending; no new human or performance acceptance and no Harukiya count closure.
+--- a/design/astra/RISK_REGISTER.md
++++ b/design/astra/RISK_REGISTER.md
+@@ -4,13 +4,13 @@
+ | --- | --- | --- | --- |
+ | Branch evidence mistaken for production | BLOCKER | M11A isolated, C1 rehearsal, C2 dirty | Exact adoption matrix and consumer-bound receipts |
+ | F01 consumer cut alters v1 before world cutover | BLOCKER | C2 dirty default OWNER_FIRST_CELLS despite root v1 | Separate provider parity/rollback and full source lineage |
+-| Host time remains in world timestamp fields | RELEASE_CRITICAL | Host civil-date import is fixed; inventory/orders/incidents/register still record host Unix timestamps | Explicit campaign timestamp provenance, legacy ambiguity preservation and exact restart proof |
+-| Incoherent NPC observation | RELEASE_CRITICAL | Both root presence queries now use campaign time; sight gating fixed, audible observations still ignore absence | Presence/provenance control at the existing observation owner; no hidden knowledge injection |
++| Legacy time and broader embodied delivery | RELEASE_CRITICAL | Five stamp owners now use qualified campaign minutes; old unqualified values and interrupted porter ambiguity remain | Preserve exact source history; prove remaining ordinary-day, dramatic-boundary and physical delivery scope |
++| Remaining embodied NPC observation | RELEASE_CRITICAL | Apartment sight/hearing presence and actual-root belief reconstruction pass; corridor/venue/historical-event perception remains unproved | Keep source-bound hearing controls and prove actual located listeners/observers without hidden knowledge |
+ | Remaining save durability and validation scope | BLOCKER | Checked recovery/readback and actual Continue integrated; native atomic durability, cross-process locking and comprehensive domain validation absent | Native replacement/OS failure proof; complete dramatic-boundary and two-machine reconstruction |
+ | Green exit hides diagnostics | BLOCKER | Import Unicode messages and historical ObjectDB residue | Raw stderr retained; attribute against untouched minimal control |
+-| Layer-change engine bookkeeping | RELEASE_CRITICAL | V1 teardown remains noisy; isolated unchanged-engine raw/omission cases reproduce unpair errors while engine exits 0 | Integrate only after production blocker ownership, transitions, retirement and frame-cost proof |
+-| Building zones mutate cabinet worlds | RELEASE_CRITICAL | Wider actual-root trial indexes living private viewport geometry and changes its masks | Ancestry boundary guard, guard-only omission red and actual arcade lifecycle proof |
+-| Resident departure cannot reach lift | RELEASE_CRITICAL | Both wider trials report an unreachable route from the normal 4D spawn; old wait target is inside the shaft | Actual collision graph attribution, public waiting clearance and readiness/boarding route proof |
++| Layer-change control and frame-cost scope | RELEASE_CRITICAL | Full current V1 candidate305/305 has zero pairing/retention; older raw/omission failures stay preserved | Complete independent pair/viewport sequences and applicable V2 proof; compare matched completed-phase costs before integration/performance acceptance |
++| Cabinet-world boundary integration | RELEASE_CRITICAL | Applied ancestry guard passes actual arcade isolation in full V1 candidate305/305; no dirty C2 adoption | Finish guard-only omission and exact restoration sequence; preserve effective private-world and owner lifecycle contracts |
++| Resident destination and body/lifecycle scope | RELEASE_CRITICAL | F04 portal/approach/public-wait controls pass40/40; separate F01 haunt remains inside shaft; earlier capsule was an audit shape | Prove actual-Body destination and real arrival/dwell/return, then ordinary-day/interruption/venue behavior |
+ | Raw count mistaken for authored coverage | MAJOR | Harukiya indexes 247/247 and all36 source-eligible exported groups while old >250 fails; historical difference unresolved | Independent owner/source coverage plus removal/omission controls; retain historical discrepancy |
+ | Reused generated assets lack closed provenance | BLOCKER | Missing S2H/voxel resources | Deterministic source/hash/consumer closure before salvage |
+ | False-positive data audit deletes authoring inputs | MAJOR | Character/material manifests have build readers | Explicit build/runtime provenance; family triage |

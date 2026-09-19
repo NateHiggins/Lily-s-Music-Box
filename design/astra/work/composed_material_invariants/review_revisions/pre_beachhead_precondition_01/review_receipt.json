@@ -1,0 +1,23 @@
+{
+  "recorded_at_utc": "2026-09-05T09:02:00.890521+00:00",
+  "status": "PRE_RUNTIME_DRAFT_REVIEW_REJECTIONS",
+  "findings": [
+    "Fixture Peter4B disagrees with actual4A canonical case and production owner",
+    "Force sequence crosses BEACHHEAD_AT0.3 and lacks safe initial-side precondition"
+  ],
+  "runtime": "NO_ENGINE_OR_LIVE_INSTALL",
+  "artifacts": {
+    "material_helpers.gdfragment": "565c5c90ca3c01ea966de182979c482fd979e8e559c49e7b7e9b894981938a4f",
+    "proposed/game/tests/vulkan_composed_root_test.gd": "8538b047f2ea2f07fc56c5c64696082161e48b5ce069d2c16bfc36ee3c869f8e",
+    "fixture.patch": "1cc5c493505eb1ba73e2fb850d3bc79a94a91ffdb8cd674b028f67b4a9d366f3",
+    "preparation.json": "b3133e78f557bf55d1eab865bd758d2f12a7e9773a395cb66946982e81670de6",
+    "preparation_receipt.json": "019cd3f606abe8d832347a70a3baf17d9853120ed0d875028be8e6acecbad249",
+    "material_gate.py": "3ada0ff0ef257779aeb281a6ea194a725a30d2603487d1cd0ebff6ffbd373ec5",
+    "test_material_gate.py": "fd053f3583af39c21101a3f63e36b3376dd6c43d5691a7b68170e7e63942c6cb",
+    "test_prepare.py": "4e7a950d38990f866c688493550bcba9c18e66362a85bfba46c10eedf0339f00",
+    "seal.py": "4b2d9d92f9db2fcc4b968b9009632045238c0dd13dc30c6f73c9ec9eef68142a",
+    "README.md": "8a3ebac9709a13e039bd097c03d1c93cc0ff63581071b190740a46bee0842f53",
+    "controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "controls.stderr.log": "3ef135cb8697eed794e44880aac1110066b832094c9fb8384e4f5840c0fde660"
+  }
+}

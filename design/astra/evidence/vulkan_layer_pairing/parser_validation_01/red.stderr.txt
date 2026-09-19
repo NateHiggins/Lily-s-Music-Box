@@ -1,0 +1,34 @@
+test_actual_omission_red_is_expected_control (test_gate.DiagnosticGateTests.test_actual_omission_red_is_expected_control) ... ok
+test_both_soft_shadow_spacing_forms_are_pairing_diagnostics (test_gate.DiagnosticGateTests.test_both_soft_shadow_spacing_forms_are_pairing_diagnostics) ... 
+  test_both_soft_shadow_spacing_forms_are_pairing_diagnostics (test_gate.DiagnosticGateTests.test_both_soft_shadow_spacing_forms_are_pairing_diagnostics) (error='ERROR: geom->softshadow_count==0 - BUG!\n') ... FAIL
+test_clean_candidate_can_be_green (test_gate.DiagnosticGateTests.test_clean_candidate_can_be_green) ... ok
+test_exit_zero_pairing_error_is_red (test_gate.DiagnosticGateTests.test_exit_zero_pairing_error_is_red) ... ok
+test_false_functional_check_and_missing_capture_fail (test_gate.DiagnosticGateTests.test_false_functional_check_and_missing_capture_fail) ... ok
+test_incomplete_engine_binding_has_its_own_failure (test_gate.DiagnosticGateTests.test_incomplete_engine_binding_has_its_own_failure) ... ok
+test_omission_clean_cannot_claim_reproduction (test_gate.DiagnosticGateTests.test_omission_clean_cannot_claim_reproduction) ... ok
+test_only_known_manifest_context_is_allowlisted (test_gate.DiagnosticGateTests.test_only_known_manifest_context_is_allowlisted) ... ok
+test_pairing_plus_unrelated_failure_is_not_valid_red_control (test_gate.DiagnosticGateTests.test_pairing_plus_unrelated_failure_is_not_valid_red_control) ... ok
+test_soft_shadow_plus_unrelated_error_is_not_valid_red_control (test_gate.DiagnosticGateTests.test_soft_shadow_plus_unrelated_error_is_not_valid_red_control) ... FAIL
+test_source_drift_engine_exit_and_retention_fail (test_gate.DiagnosticGateTests.test_source_drift_engine_exit_and_retention_fail) ... ok
+test_wrong_revision_or_missing_receipt_fail (test_gate.DiagnosticGateTests.test_wrong_revision_or_missing_receipt_fail) ... ok
+
+======================================================================
+FAIL: test_both_soft_shadow_spacing_forms_are_pairing_diagnostics (test_gate.DiagnosticGateTests.test_both_soft_shadow_spacing_forms_are_pairing_diagnostics) (error='ERROR: geom->softshadow_count==0 - BUG!\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_pairing\test_gate.py", line 88, in test_both_soft_shadow_spacing_forms_are_pairing_diagnostics
+    self.assertEqual(result["pairing_diagnostics"], 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_soft_shadow_plus_unrelated_error_is_not_valid_red_control (test_gate.DiagnosticGateTests.test_soft_shadow_plus_unrelated_error_is_not_valid_red_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\design\astra\work\vulkan_pairing\test_gate.py", line 96, in test_soft_shadow_plus_unrelated_error_is_not_valid_red_control
+    self.assertEqual(result["pairing_diagnostics"], 1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.021s
+
+FAILED (failures=2)

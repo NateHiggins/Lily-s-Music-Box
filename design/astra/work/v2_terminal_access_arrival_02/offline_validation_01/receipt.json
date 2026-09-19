@@ -1,0 +1,45 @@
+{
+  "schema": "astra.v2-terminal-access.arrival-offline.v1",
+  "status": "OFFLINE_RED_GREEN_ONLY_NO_GODOT",
+  "tests": 21,
+  "runs": [
+    {
+      "name": "origin_validator_omission_red",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-c",
+        "import sys,unittest;sys.path.insert(0,r'C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_terminal_access_arrival_02\\runtime');import assess,test_assess;assess.require_arrival_and_operator_origins=lambda diag,flags:None;suite=unittest.TestSuite([test_assess.AdmissionControls('test_each_ray_at_old_curb_rejects_even_with_true_claims')]);result=unittest.TextTestRunner(verbosity=2).run(suite);raise SystemExit(not result.wasSuccessful())"
+      ],
+      "actual_exit": 1,
+      "expected_exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "acd7c28bf76f5aec51e80ee43bb75bba12f83140474b83d2dabe38fb2c7876ab"
+    },
+    {
+      "name": "restored_controls_green",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\v2_terminal_access_arrival_02\\runtime",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bd32a68c9605db8576cb8a35e5f316f8878defc619fecdbbdb00779d1f206d14"
+    }
+  ],
+  "runtime_sources_sha256": {
+    "assess.py": "47e629894b3958cc4e5acb1a8a495924bf04c14121caceb46510f571dee29564",
+    "core.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+    "run.py": "e0452767738ab4885216b77d16ce7a220a6f189a2a7321f11e5d5fc45c5d8547",
+    "support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+    "test_assess.py": "60fab95adb076e322729c6c77585d28baac62f51afddf92e2e403df9fec0176d",
+    "test_runner_contract.py": "5fe669b2a5d19ee05d2b2f88e41f240f9c77a5aab5557d43dd7de5773359c505"
+  }
+}

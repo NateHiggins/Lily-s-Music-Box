@@ -1,0 +1,12 @@
+{
+  "status": "ROOT_OMISSION_VISUAL_REVIEW_RECORDED_RESTORED_VISUAL_PENDING",
+  "recorded_at_utc": "2026-09-05T10:25:16.963208+00:00",
+  "authority": "Root agent message following inspection of all18 omission PNGs",
+  "omission_pngs_inspected_by_root": 18,
+  "finding": "Both actual Operations cabinet captures remain populated, with modest camera/composition differences. They do not visibly show blanking at the same live mask-corruption observation.",
+  "capture_timing_scope": "The base fixture captures at warmup and post-return/reactivation, after six cycles; these are not screenshots synchronized to the recorded corrupt-mask instant.",
+  "functional_evidence": "6369 repeated recorded observations of still-booted geometry with changed mask and same private scenario; functional ownership causality, not unique geometry count or direct pixel-time proof.",
+  "restored_pngs_ready": 18,
+  "restored_visual_status": "Root inspection pending at note creation",
+  "additional_capture_or_source_change": "None requested or performed; parent confirms declared boundary contract does not require another capture."
+}

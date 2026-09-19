@@ -1,0 +1,27 @@
+{
+  "scope": "period source audit and synthetic controls; no runtime acceptance",
+  "runs": [
+    {
+      "id": "period",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py"
+      ],
+      "exit": 0
+    },
+    {
+      "id": "selftest",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_period_dates.py",
+        "-v"
+      ],
+      "exit": 0
+    }
+  ],
+  "source_sha256": {
+    "tools/audit_period_dates.py": "f57ee5d4c4a0fc43a2ca5bec4c970b9f1f1a430bfa13c6ba046d757efe3791fd",
+    "tools/audit_systemic_situation_authority.py": "635dbc83e1c7c2c398509f2c639f09850c542497623318b496960cab6ef60c9b",
+    "tools/tests/test_period_dates.py": "8848254c443ce5c9ffb109b31d8cda9985584ae29ecd66e984b56750c796ac74"
+  }
+}

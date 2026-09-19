@@ -1,0 +1,35 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "stands": 3,
+  "projectors": [
+    {
+      "unit": "2A",
+      "wall": "F02_A_MAIN",
+      "throw_m": 2.1000000000000005,
+      "image_height_m": 0.9660000000000003,
+      "source_rays": 9,
+      "operator_distance_m": 1.100727032465361
+    },
+    {
+      "unit": "3B",
+      "wall": "F03_B_MAIN",
+      "throw_m": 0.55,
+      "image_height_m": 0.5,
+      "source_rays": 9,
+      "operator_distance_m": 1.4227086841655248
+    },
+    {
+      "unit": "4B",
+      "wall": "F04_B_MAIN",
+      "throw_m": 1.7000000000000002,
+      "image_height_m": 0.7820000000000001,
+      "source_rays": 9,
+      "operator_distance_m": 1.0107423014794625
+    }
+  ],
+  "route_samples": 6864,
+  "approach_samples": 183,
+  "door_sweeps": 25,
+  "limits": "Sampled static placement and throw only; no Godot targeting, decoding, visuals, optical/occlusion, performance or lifecycle proof."
+}

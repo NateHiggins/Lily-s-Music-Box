@@ -1,0 +1,26 @@
+{
+  "scope": "negative control; restoration success is not a green runtime gate",
+  "control": "mid_report_late_sample",
+  "sources": [
+    {
+      "path": "game/scripts/reality/organism_incidents.gd",
+      "candidate_sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+      "control_sha256": "d0ceca4606f2fe60c4e43f1fb925f3f3f9b96cd19f959fb7df82ab1f8ea70f8d"
+    }
+  ],
+  "restored_exactly": true,
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\world_timestamps\\run_case.py",
+    "mid_report_late_sample_01",
+    "timestamps",
+    "--expected-exit",
+    "1",
+    "--timeout",
+    "120"
+  ],
+  "controller_child_exit": 1,
+  "intended_red": true,
+  "runtime_receipt": "design/astra/evidence/world_timestamps/mid_report_late_sample_01/receipt.json",
+  "runtime_receipt_sha256": "0ac9e94446e2c6a891ff24687dfb27d1a26d4819783b1f2fa4a4e84544580731"
+}

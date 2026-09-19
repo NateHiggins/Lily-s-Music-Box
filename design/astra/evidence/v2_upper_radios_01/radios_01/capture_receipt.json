@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2UpperRadiosShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-astra\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01",
+  "started_utc": "2026-09-15T12:59:44.7513798Z",
+  "elapsed_seconds": 35.716,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 12,
+  "actual_frames": 12,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_radios_01_20260915T125944751Z.log",
+  "filtered_process_output": [
+    "[PASSAGE HOURS] OPEN; 10 grilles folded",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters",
+    "[V2 UPPER RADIOS CAPTURE] 1/12 label=DomesticRadio_5A_room elapsed=10.746 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_5A_room.png",
+    "[V2 UPPER RADIOS CAPTURE] 2/12 label=DomesticRadio_5A_lamp elapsed=11.827 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_5A_lamp.png",
+    "[V2 UPPER RADIOS CAPTURE] 3/12 label=DomesticRadio_5B_room elapsed=15.000 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_5B_room.png",
+    "[V2 UPPER RADIOS CAPTURE] 4/12 label=DomesticRadio_5B_lamp elapsed=16.019 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_5B_lamp.png",
+    "[V2 UPPER RADIOS CAPTURE] 5/12 label=DomesticRadio_5C_room elapsed=19.186 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_5C_room.png",
+    "[V2 UPPER RADIOS CAPTURE] 6/12 label=DomesticRadio_5C_lamp elapsed=20.196 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_5C_lamp.png",
+    "[V2 UPPER RADIOS CAPTURE] 7/12 label=DomesticRadio_6A_room elapsed=23.338 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_6A_room.png",
+    "[V2 UPPER RADIOS CAPTURE] 8/12 label=DomesticRadio_6A_lamp elapsed=24.333 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_6A_lamp.png",
+    "[V2 UPPER RADIOS CAPTURE] 9/12 label=DomesticRadio_6B_room elapsed=27.542 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_6B_room.png",
+    "[V2 UPPER RADIOS CAPTURE] 10/12 label=DomesticRadio_6B_lamp elapsed=28.562 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_6B_lamp.png",
+    "[V2 UPPER RADIOS CAPTURE] 11/12 label=DomesticRadio_6C_room elapsed=31.741 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_6C_room.png",
+    "[V2 UPPER RADIOS CAPTURE] 12/12 label=DomesticRadio_6C_lamp elapsed=32.737 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_radios_01\\radios_01/DomesticRadio_6C_lamp.png",
+    "[V2 UPPER RADIOS] RESULT: PASS captures=12 expected=12 elapsed=32.741"
+  ],
+  "files": [
+    {
+      "name": "DomesticRadio_5A_lamp.png",
+      "bytes": 1180360,
+      "sha256": "a660341216ff832b8695c0fc39c943ca5661145b9f1c2af1b45576dac7402b26"
+    },
+    {
+      "name": "DomesticRadio_5A_room.png",
+      "bytes": 1140257,
+      "sha256": "40a5d14e0915f496fb133c1a5080d94ef1b115fa73405fa82f3e1af8642afca7"
+    },
+    {
+      "name": "DomesticRadio_5B_lamp.png",
+      "bytes": 1091296,
+      "sha256": "dfa368c96c49fb4eef2b99a544e036b0930ceffd67122933365e09950bd5e275"
+    },
+    {
+      "name": "DomesticRadio_5B_room.png",
+      "bytes": 969748,
+      "sha256": "c9a7cd392dc78324530f06a9fda5b46a619c65244d1280dbc6e8c2740645d725"
+    },
+    {
+      "name": "DomesticRadio_5C_lamp.png",
+      "bytes": 1181925,
+      "sha256": "1a4c8bec904183a4a2c0d1265a7dcb2633bd19cdb85c3d8dbd68f55a64dc9d5f"
+    },
+    {
+      "name": "DomesticRadio_5C_room.png",
+      "bytes": 1101960,
+      "sha256": "42c37b039b604b8cc63d3d38e5b7866298d793405d6a2ce04fbcc1e5da290890"
+    },
+    {
+      "name": "DomesticRadio_6A_lamp.png",
+      "bytes": 1022275,
+      "sha256": "805e426c19945245108de881052463aeabc4b877927ba35ea577b077fc170266"
+    },
+    {
+      "name": "DomesticRadio_6A_room.png",
+      "bytes": 920061,
+      "sha256": "947d8bb2d7d0398efb29f31525a22b95d7fc7947b3aa1a9578a022f976779865"
+    },
+    {
+      "name": "DomesticRadio_6B_lamp.png",
+      "bytes": 1170416,
+      "sha256": "0be82db6fca5801d51737be1ce8baffd7af5dcb35f9f710933662f55705d9b63"
+    },
+    {
+      "name": "DomesticRadio_6B_room.png",
+      "bytes": 1064294,
+      "sha256": "72351dd18808f8c7ac27437d4eab29f1ef498a47e9bf5ebd1181226b0c00d683"
+    },
+    {
+      "name": "DomesticRadio_6C_lamp.png",
+      "bytes": 1111077,
+      "sha256": "51d38f39c30f2393ec00e2b59d562827f2cc65da96d2f97d5f00c41070cf23e0"
+    },
+    {
+      "name": "DomesticRadio_6C_room.png",
+      "bytes": 1028570,
+      "sha256": "29ebaabe6a38bad22ad20a742b2ee9dbe0175cbe063d510af9d57137547eaefe"
+    }
+  ]
+}

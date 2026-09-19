@@ -1,0 +1,22 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "water_fixtures": [
+    "F03_3B_KITCHEN_SINK_01",
+    "F03_3B_SINK_01",
+    "F03_3B_SHOWER_01",
+    "F04_4B_SINK_01"
+  ],
+  "controller_instances_in_composition": 1,
+  "existing_owners_unchanged": {
+    "game/scripts/props/boiler_tend.gd": "5b45123567b398443dffbb4d806683bcf2f25653230a31501fc445a6a84e0c23",
+    "game/scripts/props/boiler_prop.gd": "d69cbaeff0e6fde4592e0e17caab58c17dd1923ffde48941ab2249182f15d06b",
+    "game/scripts/props/tap_prop.gd": "d4b59e25ce2773105b53a760d2378541d3ba0d15a2a678a1086bbd0150f07e70",
+    "game/scripts/props/heat_balance.gd": "ae67494107e377f68cf4314adc7d7e022f48f817c7fb6c627667e1007c894b09"
+  },
+  "limits": [
+    "No Godot launched",
+    "No runtime timing or lifecycle result",
+    "Radiator balance not connected",
+    "Plant/valve persistence not added"
+  ]
+}

@@ -1,0 +1,12 @@
+test_failure_keeps_scene_exit (__main__.Boundary.test_failure_keeps_scene_exit) ... ok
+test_invalid_parameter_refuses_absent_exit (__main__.Boundary.test_invalid_parameter_refuses_absent_exit) ... ok
+test_missing_exit_is_refused (__main__.Boundary.test_missing_exit_is_refused) ... ok
+test_nonterminating_error_keeps_declared_failure (__main__.Boundary.test_nonterminating_error_keeps_declared_failure) ... ok
+test_old_last_exit_cannot_supply_false_green (__main__.Boundary.test_old_last_exit_cannot_supply_false_green) ... ok
+test_success_keeps_zero (__main__.Boundary.test_success_keeps_zero) ... ok
+test_timeout_write_error_keeps_124 (__main__.Boundary.test_timeout_write_error_keeps_124) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 4.386s
+
+OK

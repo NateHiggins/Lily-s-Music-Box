@@ -1,0 +1,2 @@
+& 'C:\PleaseRemainOnTheLine-astra\tools\run_godot_serial.ps1' -ProjectPath 'C:\PleaseRemainOnTheLine-astra\game' -Scene 'res://tests/HistoricalRadioLobbyShot.tscn' -LogPath 'C:\PleaseRemainOnTheLine-astra\design\astra\evidence\historical_radio_notice\capture_02\godot.stdout.log' -TimeoutSeconds 60 -Windowed -ShotDir 'C:\PleaseRemainOnTheLine-astra\design\astra\evidence\historical_radio_notice\capture_02\shots' -ExtraArgs @('--verbose', '--audio-driver', 'Dummy', '--resolution', '1280x720')
+exit $LASTEXITCODE

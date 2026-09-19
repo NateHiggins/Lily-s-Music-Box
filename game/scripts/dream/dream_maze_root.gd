@@ -161,6 +161,7 @@ var _embrace_active := false
 ## Every Klimt material in the world, so the lamp can be pushed into all of
 ## them each frame. See _collect_molten_materials().
 var _molten_materials: Array[ShaderMaterial] = []
+var _optical_material_bridge: Node3D
 
 ## THE GOLD THAT STAYS. See dream_exposure_field.gd -- this is workstream A of
 ## the surface brief, and the reason it lives on the root rather than in the
@@ -1177,6 +1178,16 @@ func _collect_molten_materials() -> void:
 					DreamExposureField.EXTENT_M)
 			material.set_shader_parameter("exposure_height",
 					DreamExposureField.HEIGHT_M)
+
+	# The optical texture is instantaneous; the existing exposure texture
+	# remains the independent ecological history used by the same materials.
+	if RenderingServer.get_current_rendering_method() == "forward_plus" and player != null:
+		if not is_instance_valid(_optical_material_bridge):
+			_optical_material_bridge = preload("res://scripts/lamp/lamp_optical_material_bridge.gd").new()
+			_optical_material_bridge.name = "LampOpticalMaterials"
+			add_child(_optical_material_bridge)
+			_optical_material_bridge.setup(player)
+		_optical_material_bridge.set_materials(_molten_materials)
 
 
 ## THE LAMP WRITING INTO THE BUILDING, at a fixed rate.

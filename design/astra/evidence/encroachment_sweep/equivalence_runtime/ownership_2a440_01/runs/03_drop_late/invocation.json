@@ -1,0 +1,13 @@
+{
+  "runner": "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+  "parameters": {
+    "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+    "Scene": "res://tests/EncroachmentSweepEquivalenceTest.tscn",
+    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_2a440_01\\runs\\03_drop_late\\godot.stdout.log",
+    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\encroachment_sweep\\equivalence_runtime\\ownership_2a440_01\\runs\\03_drop_late\\shots",
+    "TimeoutSeconds": 60,
+    "ExtraArgs": [
+      "--verbose"
+    ]
+  }
+}

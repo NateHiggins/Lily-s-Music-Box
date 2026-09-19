@@ -1,0 +1,80 @@
+--- old-proposal/game/scripts/reality/organism_incidents.gd
++++ revised-proposal/game/scripts/reality/organism_incidents.gd
+@@ -254,6 +254,10 @@
+ func _report(unit: String, case_id: String, presence: Dictionary) -> void:
+ 	if not _clock.bind_state():
+ 		return
++	# Work-order commits/signals can protect the save before this report
++	# finishes. Keep the validated event time; later write refusal remains
++	# visible through RealityState and does not mean this report persisted.
++	var observed_minute := _clock.elapsed_minutes()
+ 	var flat: Dictionary = flats[unit]
+ 	var ledger: Dictionary = RealityState.data.organism_incidents
+ 	var n := int(ledger.get(unit, {}).get("count", 0)) + 1
+@@ -267,7 +271,7 @@
+ 	var at: Vector3 = presence.at
+ 	ledger[unit] = {
+ 		"count": n, "order_id": order_id, "case_id": case_id, "owner": owner,
+-		"reported_at": _clock.elapsed_minutes(), "reported_at_basis": TIMESTAMP_BASIS,
++		"reported_at": observed_minute, "reported_at_basis": TIMESTAMP_BASIS,
+ 		"condition": "", "prop": "",
+ 		"rolls": 0, "fixed": false, "closed": false, "at": [at.x, at.y, at.z],
+ 	}
+--- old-proposal/game/tests/world_timestamp_test.gd
++++ revised-proposal/game/tests/world_timestamp_test.gd
+@@ -35,6 +35,7 @@
+ 	_build_owners()
+ 	_new_events()
+ 	_legacy_events_and_adoption()
++	_mid_report_latch()
+ 	_protected_clock()
+ 	# Free observers before their owners; allow actual source-owned audio retirement.
+ 	building.free()
+@@ -199,6 +200,47 @@
+ 			"conflicting source history refuses retirement instead of overwriting either record")
+ 
+ 
++func _mid_report_latch() -> void:
++	# Signal-induced protection, not a claimed disk fault: the real issue commit
++	# succeeds, then its production order_issued signal raises the real save latch.
++	# Activation/report publication continue in memory while later writes refuse.
++	_check(clock.advance_to(7201.25) and RealityState.save_game(),
++			"mid-report fixture begins at a saved exact campaign minute")
++	var earlier: Dictionary = RealityState.data.organism_incidents["2C"].duplicate(true)
++	var reports_before: int = incidents.reports_filed
++	var latch := {"calls": 0, "primary_bytes": PackedByteArray(), "order_id": ""}
++	var on_issue := func(order_id: String, _order: Dictionary) -> void:
++		latch.calls += 1
++		latch.order_id = order_id
++		latch.primary_bytes = FileAccess.get_file_as_bytes(SAVE_PATH)
++		RealityState.block_invalid_campaign_clock("Fixture signal-induced mid-report protection")
++	work_orders.order_issued.connect(on_issue)
++	incidents._report("2C", "mina_caption_crisis", {"at": Vector3.ZERO, "count": 6})
++	work_orders.order_issued.disconnect(on_issue)
++	var report: Dictionary = RealityState.data.organism_incidents.get("2C", {})
++	_check(latch.calls == 1 and reports_before + 1 == incidents.reports_filed
++			and int(report.get("count", -1)) == int(earlier.count) + 1,
++			"real issue signal raises protection inside exactly one report callback")
++	_stamp(report, "reported_at", 7201.25)
++	_check(not clock.bind_state() and clock.elapsed_minutes() == 0.0 and samples == 1,
++			"post-issue clock is unavailable; observed report time did not use its zero fallback")
++	var outcome := RealityState.last_save_result()
++	_check(RealityState.save_write_blocked and not bool(outcome.get("ok", true))
++			and outcome.get("stage") == "write_latch" and outcome.get("protection_required") == true,
++			"continued in-memory report does not claim successful persistence")
++	_check(FileAccess.get_file_as_bytes(SAVE_PATH) == latch.primary_bytes,
++			"activation and report leave the primary at its last successful issue commit")
++	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
++	_check(saved is Dictionary and _equal(saved.get("organism_incidents", {}).get("2C", {}), earlier)
++			and saved.get("work_orders", {}).get(latch.order_id, {}).get("status") == "issued"
++			and work_orders.is_active(str(latch.order_id)),
++			"disk retains earlier incident plus issued order while runtime report is newer")
++	RealityState.load_game()
++	_check(RealityState.can_continue() and _equal(RealityState.data.organism_incidents.get("2C", {}), earlier)
++			and work_orders.status(str(latch.order_id)) == "issued" and clock.elapsed_minutes() == 7201.25,
++			"real reload adopts only completed saved facts and clears the injected latch")
++
++
+ func _protected_clock() -> void:
+ 	_check(work_orders.issue("guard_open", "GUARD", "Inspect."), "guard fixture has an open simple order")
+ 	RealityState.data.maintenance_jobs.erase(JOB)

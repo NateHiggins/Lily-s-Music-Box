@@ -1,0 +1,58 @@
+{
+  "status": "OFFLINE_CONTROLS_PASS_WITH_RETAINED_EXPECTED_GUARD_OMISSION_RED",
+  "at_utc": "2026-09-05T09:27:28.459784+00:00",
+  "engine_runs": 0,
+  "live_game_edits": 0,
+  "green": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\encroachment_sweep\\equivalence_revisions\\runtime_plan_01",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "actual_exit": 0,
+    "test_count": 25
+  },
+  "omission_red": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\encroachment_sweep\\equivalence_revisions\\runtime_plan_01\\offline_validation_01\\omitted_raw_assertion_guard",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "actual_exit": 1,
+    "test_count": 25,
+    "exact_failed_controls": [
+      "test_raw_pass_cannot_substitute_for_named_failure",
+      "test_removed_or_reordered_raw_assertion_rejected"
+    ],
+    "mutation": "Only companion raw assertion equality guard disabled in isolated copied instrument; sealed package/live source unchanged."
+  },
+  "artifacts": {
+    "offline_validation_01/controls.stderr.log": "a52a0f461c638173a20a886b44f0ac45aa0e1f4e3ae80586595242169ecf6473",
+    "offline_validation_01/controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "offline_validation_01/omission.stderr.log": "fa2b81609db13c36297c86390a7575d1b56b0fa9c7be5e9ff5e13c789abe338c",
+    "offline_validation_01/omission.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "offline_validation_01/omitted_raw_assertion_guard/assess.py": "ee0b1c8b21bb2ffd2e0e07473d0ce69dbc0f8d7b36f593c4484549eef421d373",
+    "offline_validation_01/omitted_raw_assertion_guard/execute.py": "af1d18ba316517433b5e4e03733c62299db0b020d5785d6d4146fbfe97620870",
+    "offline_validation_01/omitted_raw_assertion_guard/expected_check_contract.json": "2b89ea17c21be70493719bfe894447288a704c2c415d76b1440583767596e6b9",
+    "offline_validation_01/omitted_raw_assertion_guard/gate.py": "5dbd5edd9849c708bde8e3cc940fda39950ab3a98e68ab97773d89e125cedbfa",
+    "offline_validation_01/omitted_raw_assertion_guard/package.json": "85145b482a9f7a680909d83aa4ce1e09df9b86988db561da0b74a8fad7800190",
+    "offline_validation_01/omitted_raw_assertion_guard/runner_bridge.ps1": "bb727e17603f9f5fe9ec590817ae0fce7329e7f42304798d2249d12027ec8ad3",
+    "offline_validation_01/omitted_raw_assertion_guard/support.py": "1d360d64a3c0950e7a4176a24998c04c549be172864c740c3d7370515af0465d",
+    "offline_validation_01/omitted_raw_assertion_guard/test_gate.py": "a95aa6223ee1f75ce1a1d0210cb9cb8e123203abb234ccf776e4fbb2714c5aca",
+    "offline_validation_01/omitted_raw_assertion_guard/test_runtime_plan.py": "6b51ba303c17f6bcf8b4e486bb676c45c274bc2871e351cc72e4c26d8c2cc10a"
+  }
+}

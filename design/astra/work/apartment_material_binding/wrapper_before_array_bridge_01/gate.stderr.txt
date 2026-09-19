@@ -1,0 +1,21 @@
+test_child_argument_boundaries_and_verbose_value (test_gate.MaterialGateTests.test_child_argument_boundaries_and_verbose_value) ... ok
+test_child_runner_preserves_regular_nonzero_exit (test_gate.MaterialGateTests.test_child_runner_preserves_regular_nonzero_exit) ... ok
+test_child_runner_preserves_write_error_then_timeout_exit (test_gate.MaterialGateTests.test_child_runner_preserves_write_error_then_timeout_exit) ... ok
+test_complete_green (test_gate.MaterialGateTests.test_complete_green) ... ok
+test_count_drift_and_source_mutation (test_gate.MaterialGateTests.test_count_drift_and_source_mutation) ... ok
+test_diagnostics_invalidate_both_paths (test_gate.MaterialGateTests.test_diagnostics_invalidate_both_paths) ... ok
+test_expectation_cannot_change_diagnostic_result (test_gate.MaterialGateTests.test_expectation_cannot_change_diagnostic_result) ... ok
+test_green_is_not_an_accepted_expected_red (test_gate.MaterialGateTests.test_green_is_not_an_accepted_expected_red) ... ok
+test_invalid_child_invocation_stays_nonzero (test_gate.MaterialGateTests.test_invalid_child_invocation_stays_nonzero) ... ok
+test_missing_or_duplicate_footer (test_gate.MaterialGateTests.test_missing_or_duplicate_footer) ... ok
+test_native_exit_mismatch_is_not_intended_red (test_gate.MaterialGateTests.test_native_exit_mismatch_is_not_intended_red) ... ok
+test_red_cannot_pass_green_gate (test_gate.MaterialGateTests.test_red_cannot_pass_green_gate) ... ok
+test_runner_timeout_bounds (test_gate.MaterialGateTests.test_runner_timeout_bounds) ... ok
+test_shader_and_nested_include_sources_are_bound (test_gate.MaterialGateTests.test_shader_and_nested_include_sources_are_bound) ... ok
+test_specific_native_red (test_gate.MaterialGateTests.test_specific_native_red) ... ok
+test_timeout_and_lane_refusal_are_not_test_reds (test_gate.MaterialGateTests.test_timeout_and_lane_refusal_are_not_test_reds) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.696s
+
+OK

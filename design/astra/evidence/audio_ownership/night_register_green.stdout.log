@@ -1,0 +1,60 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/NightRegisterAudioLifecycleTest.tscn remapped: res://tests/NightRegisterAudioLifecycleTest.tscn
+Loading resource: res://tests/night_register_audio_lifecycle_test.gd remapped: res://tests/night_register_audio_lifecycle_test.gd
+Loading resource: res://assets/ui/telegram/telegram_paper_stock_v1.png remapped: res://assets/ui/telegram/telegram_paper_stock_v1.png
+Loading resource: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex remapped: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex
+Completed load for: 'res://assets/ui/telegram/telegram_paper_stock_v1.png' remapped 'res://assets/ui/telegram/telegram_paper_stock_v1.png' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf
+Loading resource: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata remapped: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf
+Loading resource: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata remapped: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' at thread -1
+Completed load for: 'res://tests/night_register_audio_lifecycle_test.gd' remapped 'res://tests/night_register_audio_lifecycle_test.gd' at thread -1
+Completed load for: 'res://tests/NightRegisterAudioLifecycleTest.tscn' remapped 'res://tests/NightRegisterAudioLifecycleTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+Loading resource: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg remapped: res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg
+Loading resource: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr remapped: res://.godot/imported/appliance_pop.ogg-4f80c379b9967c5c068128cb15ae7a4d.oggvorbisstr
+Completed load for: 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' remapped 'res://assets/audio/freesound/processed/mechanical/appliance_pop.ogg' at thread -1
+  PASS  cycle 0: real arriving reports start two owned voices
+  PASS  two registers share the recorded clip
+  PASS  retired register detaches its pooled stream
+  PASS  retiring one register leaves the other's playback running
+  FAIL  retired register releases its decoder while shared clip stays live
+  PASS  last register detaches its pooled stream
+  FAIL  last owner releases decoder and clip without global cache clearing
+  PASS  teardown preserves authoritative work facts
+  PASS  cycle 1: real arriving reports start two owned voices
+  PASS  two registers share the recorded clip
+  PASS  retired register detaches its pooled stream
+  PASS  retiring one register leaves the other's playback running
+  FAIL  retired register releases its decoder while shared clip stays live
+  PASS  last register detaches its pooled stream
+  FAIL  last owner releases decoder and clip without global cache clearing
+  PASS  teardown preserves authoritative work facts
+NIGHT REGISTER AUDIO LIFECYCLE: FAIL 12/16
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

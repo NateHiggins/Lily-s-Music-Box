@@ -1,0 +1,63 @@
+{
+  "diagnostic_gate_exit": 0,
+  "base_gate": {
+    "diagnostic_gate_exit": 0,
+    "reasons": [],
+    "unpair_errors": 0,
+    "soft_shadow_underflows": 0,
+    "non_inherited_error_headers": {},
+    "inherited_manifest_errors": [
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      }
+    ],
+    "warnings": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1038,
+      "WARNING: no legal wall for found piece cam_noel_witches": 1
+    },
+    "retention": [],
+    "functional_checks_meaningful": true,
+    "expected_unpair_red_observed": false,
+    "expected_viewport_guard_red_observed": false,
+    "execution_scope": "full",
+    "full_candidate_scope_completed": true,
+    "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+  },
+  "material_gate": {
+    "material_gate_exit": 0,
+    "reasons": [],
+    "applicable": true,
+    "scope": "real-build/installed-material observations outside measured intervals; existing native/capture gate remains required"
+  },
+  "artifact_binding_reasons": [],
+  "source_result_sha256": "a989c22dcab75312591058f50ba7d18ce2e9a073e254b0f929572f2a58ca452e",
+  "owner_sha256": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+  "fixture_sha256": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508",
+  "consumed_artifacts": {
+    "stdout.log": "2d7e10a03f0acb7ccc20900c01ec018ee52d8a770821b51adfb1595a83c34008",
+    "stdout.log.stderr": "2b564f6475a2a77aeb2dd0f750764e324480ef8cf635eb9c694dafe0995e3656",
+    "frames/probe.json": "3bb2eddcfbde22d15872fbee13a099b6bd9e85c95329bfccfff1441f10450214",
+    "before.diff": "c6a1641472dff1f773e0ef6946ec3aa999e3f28c17355e914cadc1aa00f6efcb",
+    "after.diff": "c6a1641472dff1f773e0ef6946ec3aa999e3f28c17355e914cadc1aa00f6efcb",
+    "gate.py.source": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264"
+  },
+  "scope": "additive material contract; preserves existing native/capture/root/source gates and their expected-red semantics"
+}

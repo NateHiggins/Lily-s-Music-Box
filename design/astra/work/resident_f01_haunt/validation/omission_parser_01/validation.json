@@ -1,0 +1,40 @@
+{
+  "scope": "Synthetic parser/selftest red/green only. No Godot execution or live source edits.",
+  "guard_omission": "Remove RETIRED from required actual lifecycle checks; unchanged negative retirement test must fail.",
+  "records": [
+    {
+      "name": "retirement_guard_omitted",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "design\\astra\\work\\resident_f01_haunt\\validation\\omission_parser_01\\red_source\\test_haunt_control.py"
+      ],
+      "actual_exit": 1,
+      "expected_exit": 1,
+      "matches": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8e1a9f4ab2c4d39b6abd0570354e71180cb7393710c16114104adba00a214a98"
+    },
+    {
+      "name": "restored_guards",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "design\\astra\\work\\resident_f01_haunt\\test_haunt_control.py"
+      ],
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "matches": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bb692762e628a4b7d6442936e5a28227f6b7d250c69dce237d30c58c99ca68c8"
+    }
+  ],
+  "sources": {
+    "haunt_control.py": "e181f00c23fdde43ed8072e18d6b6f82312d23904c8c1ebd0415580853eeb5ad",
+    "test_haunt_control.py": "770862ed8364db362ae750a70dd813a6a007ec32133ec3df0f8cd94f1180f28e",
+    "run_haunt.py": "3fc76b7d330ed08dd0504a476d08b91252790ae50e514a7b6f0522de27c5b1b2",
+    "run_omission.py": "92c1261335cb79a3ebd864c99d5912bdd11b83cbbbc602641799fb366536d82c"
+  },
+  "red_assessor_sha256": "c782fa9dbc2c55837f018e7318b8a9d1604b9c2b4e302198d236208fed39bbb9",
+  "restored_assessor_sha256": "e181f00c23fdde43ed8072e18d6b6f82312d23904c8c1ebd0415580853eeb5ad"
+}

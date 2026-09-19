@@ -1,0 +1,31 @@
+{
+  "name": "visibility_phase_census_01",
+  "scope": "one actual V1 root_retirement candidate; diagnostic phase attribution only",
+  "bindings": {
+    "game/scripts/building/building_root.gd": {
+      "original_sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+      "diagnostic_sha256": "0adce2e360bb8bd73294b7c0b1e4111c8b5a41cba5230483f9d3def7a7be0e32"
+    },
+    "game/tests/vulkan_composed_root_test.gd": {
+      "original_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+      "diagnostic_sha256": "92ec5234ad745379794bdcd326b7cb5d0c17bef647d97785f862c20aa0053ba2"
+    }
+  },
+  "parent_preparation_unchanged": true,
+  "engine_started": true,
+  "originals_restored_exactly": true,
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\vulkan_composed\\run_case.py",
+    "v1",
+    "candidate",
+    "visibility_phase_census_01",
+    "--scope",
+    "root_retirement"
+  ],
+  "child_diagnostic_exit": 0,
+  "restored_sha256": {
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+  }
+}

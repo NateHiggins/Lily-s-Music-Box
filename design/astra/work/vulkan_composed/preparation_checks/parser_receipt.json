@@ -1,0 +1,23 @@
+{
+  "scope": "Python synthetic log/receipt controls only; no Godot or rendering proof",
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "design\\astra\\work\\vulkan_composed",
+    "-p",
+    "test_gate.py",
+    "-v"
+  ],
+  "actual_exit": 0,
+  "elapsed_seconds": 0.1044,
+  "inputs_sha256": {
+    "gate.py": "f8b851318a448608bbb5afef7c9590cb348ba56764f83e02928c4873dae83a56",
+    "test_gate.py": "775dbd2eba26faeae90fc8a4e9fe1b891932acbefe6d3c344dee848b346e5fe3"
+  },
+  "sources_unchanged": true,
+  "negative_cases": "Exact/no-space and spaced underflow, unpair, unknown Vulkan error, inherited manifest impostor, missing image, false functional result, bad identity, incomplete retirement, engine binding/source drift, retention all must reject; clean synthetic baseline accepts. Fixtures are not image evidence.",
+  "logged_at_utc": "2026-09-05T05:53:43.187444+00:00"
+}

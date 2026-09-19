@@ -6,3 +6,6 @@
 game/assets/building/floor_01_cells/** -text
 game/data/floor_01_cell_registry.json -text
 art/data/m11c2/** -text
+
+# Preserve the generated glTF vertex/normal buffer byte-for-byte on Windows.
+game/assets/building/orison_v2/exterior/passage_gateway_subway.bin binary

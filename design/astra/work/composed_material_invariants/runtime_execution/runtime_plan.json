@@ -1,0 +1,84 @@
+{
+  "schema": "astra.composed_material_execution_plan.v1",
+  "status": "PREPARED_SERIAL_PLAN; root owns engine execution; no run outcome inferred",
+  "workspace": "C:/PleaseRemainOnTheLine-astra",
+  "root": "v1",
+  "renderer_variant": "candidate",
+  "renderer_variant_meaning": "Every planned run retains the current renderer helper and viewport boundary; material control is a separate owner-source mutation",
+  "source_operations": {
+    "fixture": {
+      "target": "game/tests/vulkan_composed_root_test.gd",
+      "original": "design/astra/work/composed_material_invariants/originals/game/tests/vulkan_composed_root_test.gd",
+      "original_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+      "candidate": "design/astra/work/composed_material_invariants/proposed/game/tests/vulkan_composed_root_test.gd",
+      "candidate_sha256": "e132724ae67f1dc4056f9fa1c9b018706399a7c3500889af41d0e6dedeeb8991"
+    },
+    "owner": {
+      "target": "game/scripts/reality/apartment_encroachment.gd",
+      "original": "design/astra/work/composed_material_invariants/controls/build_wrong_storey/originals/game/scripts/reality/apartment_encroachment.gd",
+      "original_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+      "control": "design/astra/work/composed_material_invariants/controls/build_wrong_storey/proposed/game/scripts/reality/apartment_encroachment.gd",
+      "control_sha256": "bbe60da38af51a77fe55129fb2bff9d86b65e67722f5da0b97cd07fa772c6d10",
+      "only_control_change": "The one build() finish living_storey seed uses explicit fixture sentinel F00 rather than floor_id",
+      "unrun_superseded_omission_sha256": "eb623645434945171f887f6e8a91aba0f0113280a392409d002a986131a98170"
+    },
+    "building_root_sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "unchanged_scene_sha256": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663"
+  },
+  "runner": {
+    "wrapper": "design/astra/work/vulkan_composed/run_case.py",
+    "wrapper_sha256": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "base_gate_sha256": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "serial_runner": "tools/run_godot_serial.ps1",
+    "serial_runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "timeout_seconds": 180,
+    "scene": "res://tests/VulkanComposedRootTest.tscn",
+    "mode": "Windowed Vulkan Forward+ 1280x720; verbose; Dummy audio; exact installed Godot4.7.1 launcher and GUI binaries bound by wrapper"
+  },
+  "environment": {
+    "launcher": "design/astra/work/composed_material_invariants/runtime_execution/invoke_wrapper.py",
+    "contract": "design/astra/work/composed_material_invariants/runtime_execution/environment_contract.py",
+    "explicit_material_defaults": {"ENCROACH": "1", "ENCROACH_FORCE": "", "ENCROACH_DEBUG_VIEW": "0", "ENCROACH_DEBUG": "0", "LIVING": "1", "LIVING_ALL": "0"},
+    "refusal": "Before launch reject inherited nondefault values or unknown ENCROACH variables; record parent selection; do not silently clear unsafe force, disable, debug or all-floor controls",
+    "fixture_guard": "Still independently checks actual effective/recorded case intensities and inactive beachheads before any force assignment; no runtime fact reset",
+    "actual_wrapper_behavior": "Copies environment; removes PERF_/SURFACE_ and named presentation/schedule/debug-title variables; sets fresh APPDATA/SHOT_DIR/root/scope/freeze/weather/title silence; does not clear ENCROACH or LIVING controls",
+    "proof": "Five pure controls evaluate only the exact hash-bound wrapper's three child-environment AST statements; hostile mina:0.8 survives the existing wrapper but is refused by the launcher",
+    "observed_dry_preflight": "design/astra/evidence/composed_material_ownership/plan_environment_preflight_01/invocation.json"
+  },
+  "sequence": [
+    {
+      "step": "initial_actual_build_green",
+      "requires": "Exclusive root lane, frozen all game/tools sources, exact5ec63 fixture and7c54 owner; fresh output folders",
+      "install": ["fixture only"],
+      "wrapper_argv": ["python", "design/astra/work/vulkan_composed/run_case.py", "v1", "candidate", "material_ownership_7c54_v1_full_01", "--scope", "full"],
+      "launcher_argv": ["python", "design/astra/work/composed_material_invariants/runtime_execution/invoke_wrapper.py", "baseline", "--execute", "--receipt-dir", "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/composed_material_ownership/initial_green_invocation_01"],
+      "expected": {"engine_exit": 0, "base_gate_exit": 0, "additive_gate_exit": 0, "checks": 314, "failures": 0, "captures": 18, "measured_transitions": 36, "material_observations": 8, "force_exercises": 2, "real_root_and_material_retirement": true},
+      "finally": "Restore exact5ec63 fixture after engine termination; owner stays7c54. Record independent restoration bytes/hashes outside immutable run.",
+      "next_boundary": "Inspect every actual material row, registry, precondition and all18PNG. Stop on any unexpected diagnostic, count, state or ownership failure. Initial green is mandatory before control."
+    },
+    {
+      "step": "wrong_storey_source_control",
+      "requires": "Initial green and actual row review explicitly completed; fresh source/lane handoff",
+      "install": ["same e132 fixture", "one-line7c54 to bbe60 wrong-storey owner control"],
+      "wrapper_argv": ["python", "design/astra/work/vulkan_composed/run_case.py", "v1", "candidate", "material_build_wrong_storey_01", "--scope", "root_retirement"],
+      "launcher_argv": ["python", "design/astra/work/composed_material_invariants/runtime_execution/invoke_wrapper.py", "wrong_storey", "--execute", "--receipt-dir", "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/composed_material_ownership/wrong_storey_invocation_01"],
+      "expected": {"engine_exit": 1, "base_gate_exit": 1, "additive_gate_exit": 1, "checks": 305, "aggregate_material_failures": 8, "original_assertion_failures": 0, "captures": 15, "measured_transitions": 36, "material_observations": 8, "real_root_and_material_retirement": true},
+      "red_contract": "Only the eight material observation assertions fail. Every six-case finish row shows the wrong marker and stale installed identity; immediate finish propagation fails. Registries/cache/private/actor ownership, safe threshold and complete before/after restoration remain correct. No unexplained errors, native pairing/underflow or retention. Raw gates stay1; separate inspected control verdict never rewrites them.",
+      "finally": "Restore owner exactly to7c54 after engine termination, even on failure. Keep e132 only for immediately authorized restored run; otherwise restore5ec63 too."
+    },
+    {
+      "step": "exact_restored_control_green",
+      "requires": "Exact owner restoration independently bound; same non-owner game/tools sources and same e132 fixture as completed control",
+      "wrapper_argv": ["python", "design/astra/work/vulkan_composed/run_case.py", "v1", "candidate", "material_build_wrong_storey_restored_01", "--scope", "root_retirement"],
+      "launcher_argv": ["python", "design/astra/work/composed_material_invariants/runtime_execution/invoke_wrapper.py", "restored", "--execute", "--receipt-dir", "C:/PleaseRemainOnTheLine-astra/design/astra/evidence/composed_material_ownership/wrong_storey_restored_invocation_01"],
+      "expected": {"engine_exit": 0, "base_gate_exit": 0, "additive_gate_exit": 0, "checks": 305, "failures": 0, "captures": 15, "measured_transitions": 36, "material_observations": 8, "real_root_and_material_retirement": true},
+      "finally": "Restore exact5ec63 fixture; keep owner7c54. No automatic one-census production change.",
+      "comparison_limit": "Only control/restored root_retirement phases are matched. Initial full run has three additional separate-world captures and is not an identical end-to-end timing comparison. No release performance claim."
+    }
+  ],
+  "full_capture_names": ["initial_street", "initial_passage", "initial_orison", "initial_f04", "initial_harukiya", "before_retirement_passage", "return_harukiya", "actual_f04_mirror", "actual_f04_reflection", "separate_world_initial", "separate_world_restored", "separate_world_blocked", "initial_street_phone", "initial_passage_phone", "initial_orison_phone", "before_retirement_passage_phone", "actual_arcade_before_passage", "actual_arcade_after_passage"],
+  "root_retirement_capture_exclusions": ["separate_world_initial", "separate_world_restored", "separate_world_blocked"],
+  "always_preserve": ["Raw run folder and profile", "actual stdout/stderr", "wrapper stdout/stderr", "command.ps1 and saved runner/gate sources", "before/after file manifests/diffs/source copies", "all PNG and partial/final probe JSON", "actual engine/runner exit even on timeout/AV", "outside-run invocation/source-operation/additive/visual/control receipts"],
+  "cleanup": "Never delete or overwrite raw runs. Source swaps verify exact expected live bytes and retain before/replacement bytes outside game. If an engine remains active, do not change live sources or kill another process; retain source freeze and report owned-process status. The unchanged serial runner alone handles its own180-second timeout. Refused/damaged/partial runs never become expected reds.",
+  "superseded_control": "The marker-absent omission eb623 is intentionally unrun. _bind_storey repairs a missing surface marker in place, so its old predicted identity failure is withdrawn; the F00 control is a separate foreign-owner corruption."
+}

@@ -1,0 +1,65 @@
+{
+  "mode": "first_retry",
+  "boundary": "",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\first_retry\\command.ps1"
+  ],
+  "runner_pid": 19724,
+  "started_utc": "2026-09-05T05:05:00.436498+00:00",
+  "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\save_recovery\\process_restart_03\\failed_first_new\\appdata",
+  "nonce": "d57614d2-4637-4a84-b204-3e967552cefa",
+  "runner_exit": 0,
+  "finished_utc": "2026-09-05T05:05:01.049411+00:00",
+  "diagnostic_headers": [],
+  "summary_lines": [
+    "[SAVE RESTART] PASS mode=first_retry failures=0"
+  ],
+  "report": {
+    "can_continue": true,
+    "failures": 0,
+    "last_save_result": {
+      "code": "",
+      "ok": true,
+      "protection_required": false,
+      "recovered": false,
+      "stage": "complete"
+    },
+    "load_status": {
+      "has_saved_campaign": true,
+      "reason": "",
+      "status": "loaded"
+    },
+    "mode": "first_retry",
+    "pid": 28772,
+    "projection": {
+      "clock": {
+        "calendar_mode": "gregorian",
+        "day_of_month": 10,
+        "elapsed_minutes": 0.0,
+        "epoch_date": "1928-11-10",
+        "month": 11,
+        "schema_version": 2,
+        "start_doy": 314,
+        "start_minute_of_day": 807,
+        "start_weekday": "sat",
+        "timezone": "America/New_York",
+        "utc_offset_minutes": -300,
+        "year": 1928
+      },
+      "dream": {},
+      "item": {},
+      "job": {},
+      "seed": "3fc39fe9e3b8e931",
+      "version": 4
+    },
+    "sample_counter_scope": "Callback installed in scene _ready; does not observe earlier autoload host sampling.",
+    "samples": 1,
+    "write_blocked": false
+  },
+  "passed": true
+}

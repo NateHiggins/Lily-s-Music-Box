@@ -2,8 +2,8 @@ extends Node
 ## Manual probe, not a suite: does the schedule move real bodies?
 ##
 ## Boots the whole building at 8x time under whatever SCHEDULE_DAY /
-## DAYNIGHT_FORCE the caller pins (canonical run: SCHEDULE=1
-## SCHEDULE_DAY=fri DAYNIGHT_FORCE=22:30 — the Friday Harukiya roster),
+## SCHEDULE_MINUTE the caller pins (canonical run: SCHEDULE=1
+## SCHEDULE_DAY=fri SCHEDULE_MINUTE=22:30 — the Friday Harukiya roster),
 ## then samples the cast for eight simulated minutes and reports who
 ## went where. PASS means at least two residents physically crossed to
 ## the bar and nobody's directive was left unserved for the whole run.

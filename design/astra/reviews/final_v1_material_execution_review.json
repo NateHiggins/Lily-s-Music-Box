@@ -1,0 +1,4191 @@
+{
+  "schema": "astra.final-v1-independent-review.v1",
+  "status": "FINAL_BASE_V1_CONTRACT_VERIFIED",
+  "run": "design\\astra\\evidence\\vulkan_composed\\runs\\candidate_v1_material_final_01",
+  "source_result_sha256": "94babcd295c78c1212b8eaddb5aef55aa4f7e54f86606ee5ebbc8a1e04b89f9d",
+  "reference": "design\\astra\\evidence\\vulkan_composed\\runs\\viewport_guard_final_01_restored",
+  "reference_result_sha256": "f9594f8a04c6f7f5d2e0602ec9eef05a7fc0abbe23e2f20b898d7c28df6bddd1",
+  "all_62_verified_artifacts": {
+    "after.diff": "0e48185b8a2e5419a1b34ea750777549686363dc613b6a53f210e167c9f9163b",
+    "before.diff": "0e48185b8a2e5419a1b34ea750777549686363dc613b6a53f210e167c9f9163b",
+    "command.ps1": "65c2b91692de016db20a123da708f8bbef94963b33656c2e802c3b2dfe8026aa",
+    "gate.py.source": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "run_case.py.source": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "run_godot_serial.ps1.source": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "stdout.log": "d6c98b9192263084fd7276f88edea951288de7dc7344570e82719dec38074f19",
+    "stdout.log.stderr": "1da49e72476d81c7bd421a39cc80c6e8b829d57761d875d73cacbb713c9ee479",
+    "wrapper.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "wrapper.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "frames/actual_arcade_after_passage.png": "07f404fb9e4db0f6b631d25412de24f25a1531d613ab78ad038069b9a491af91",
+    "frames/actual_arcade_before_passage.png": "01b62a1ea9bbd47210aabe60f2ba2b04a9379250dd2ff94439d4c4ca0fbd9111",
+    "frames/actual_f04_mirror.png": "3264e2b6880b375468af15c73ee4b2e715d8ad5abb9d8445d54b21d27651e62e",
+    "frames/actual_f04_reflection.png": "b2341f423e95bded9aade2add2a1a19a769520fe6428131ec882f8e1915448e9",
+    "frames/before_retirement_passage.png": "c5416a59f977033862ff7c6bfa0e98dbaf6dc15fa10707e9ce8d733f34a792cb",
+    "frames/before_retirement_passage_phone.png": "2eb3bfad432b0ceaaa71303c6e868565e90f1b84d533fb1358b59ec3d92a262c",
+    "frames/initial_f04.png": "31e41cdcc5c06f001695c810efdcb0c6c025ac281858a37df90504a0a4bc792f",
+    "frames/initial_harukiya.png": "0ba2cfc7e4446657055ea0fc66e454bdc697d0862093c5a3ffac7e006a463bbf",
+    "frames/initial_orison.png": "f0554b330ef3ea054df2931ec77f95fb6deb361eec3e53e13e9a3d7d9c23c1b8",
+    "frames/initial_orison_phone.png": "f983b569e135e791c32ce79b73253f4c8c70806134077826087df9182e4003ea",
+    "frames/initial_passage.png": "50de6f0cedaa006e5c7f5e3160238c7184a7a248f124eb1dba0294cfa01f1b67",
+    "frames/initial_passage_phone.png": "3c092107b51c25ed2570e0f68f256fc2abf5970782d83ee12e5584ca79273dae",
+    "frames/initial_street.png": "7a65da51d9301d3eed437188155a88d3fcd10606034c86cae79c82884fdd9bea",
+    "frames/initial_street_phone.png": "d4111e4961d0beac950dc6b58b22da1590ee85f7960a1bdac8c0f9b4871cab04",
+    "frames/probe.json": "9370822765666012f04d9eae5f2f48ff0a78133be5d22b4f0ed36bd6d4023808",
+    "frames/progress.json": "6941cd8dfd103d2f26f5d2bfef1f1f6f79bd6f8ae427c6cd1f76195fe98ed961",
+    "frames/return_harukiya.png": "85d4f0d432d3bd449b0b465179223a264fe569d1d6ce28947aab5a0fbc212b57",
+    "frames/separate_world_blocked.png": "1a86c8993123f9fdfc03928989db4499837304d5e48f4bf2011ef95699206b65",
+    "frames/separate_world_initial.png": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+    "frames/separate_world_restored.png": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+    "after_sources/game/tests/ApartmentMaterialBindingTest.tscn": "a3188f68815a952ad1abe55b1ead4b2e07d4de1675d94b2810eb8b5cbafb891f",
+    "after_sources/game/tests/apartment_material_binding_test.gd": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+    "after_sources/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "after_sources/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "after_sources/game/tests/passage_visibility_test.gd": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+    "after_sources/game/tests/street_core_visibility_test.gd": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+    "after_sources/game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "after_sources/game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "after_sources/game/tests/WardrobeFloorAdmissionTest.tscn": "31bd226c4d6c4c4e0a7070689fad3eefd1d944656c442c64e2b8d6fbd24c2846",
+    "after_sources/game/tests/wardrobe_floor_admission_test.gd": "8003596b3b6e0b39ab15cded32cff21aeeaf55202d2a971a75a8ebc299b184be",
+    "after_sources/game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "after_sources/game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "after_sources/game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+    "after_sources/game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+    "after_sources/game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+    "after_sources/game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330",
+    "before_sources/game/tests/ApartmentMaterialBindingTest.tscn": "a3188f68815a952ad1abe55b1ead4b2e07d4de1675d94b2810eb8b5cbafb891f",
+    "before_sources/game/tests/apartment_material_binding_test.gd": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+    "before_sources/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "before_sources/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "before_sources/game/tests/passage_visibility_test.gd": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+    "before_sources/game/tests/street_core_visibility_test.gd": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+    "before_sources/game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "before_sources/game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "before_sources/game/tests/WardrobeFloorAdmissionTest.tscn": "31bd226c4d6c4c4e0a7070689fad3eefd1d944656c442c64e2b8d6fbd24c2846",
+    "before_sources/game/tests/wardrobe_floor_admission_test.gd": "8003596b3b6e0b39ab15cded32cff21aeeaf55202d2a971a75a8ebc299b184be",
+    "before_sources/game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "before_sources/game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "before_sources/game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+    "before_sources/game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+    "before_sources/game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+    "before_sources/game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330"
+  },
+  "all_32_verified_source_copies": {
+    "before_sources/game/tests/ApartmentMaterialBindingTest.tscn": "a3188f68815a952ad1abe55b1ead4b2e07d4de1675d94b2810eb8b5cbafb891f",
+    "before_sources/game/tests/apartment_material_binding_test.gd": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+    "before_sources/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "before_sources/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "before_sources/game/tests/passage_visibility_test.gd": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+    "before_sources/game/tests/street_core_visibility_test.gd": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+    "before_sources/game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "before_sources/game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "before_sources/game/tests/WardrobeFloorAdmissionTest.tscn": "31bd226c4d6c4c4e0a7070689fad3eefd1d944656c442c64e2b8d6fbd24c2846",
+    "before_sources/game/tests/wardrobe_floor_admission_test.gd": "8003596b3b6e0b39ab15cded32cff21aeeaf55202d2a971a75a8ebc299b184be",
+    "before_sources/game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "before_sources/game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "before_sources/game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+    "before_sources/game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+    "before_sources/game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+    "before_sources/game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330",
+    "after_sources/game/tests/ApartmentMaterialBindingTest.tscn": "a3188f68815a952ad1abe55b1ead4b2e07d4de1675d94b2810eb8b5cbafb891f",
+    "after_sources/game/tests/apartment_material_binding_test.gd": "d4f92af3ca46b064df2fc07eb4751bd7b4b1f373f533dd0182b33d35e57b458a",
+    "after_sources/game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "after_sources/game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "after_sources/game/tests/passage_visibility_test.gd": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+    "after_sources/game/tests/street_core_visibility_test.gd": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+    "after_sources/game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "after_sources/game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "after_sources/game/tests/WardrobeFloorAdmissionTest.tscn": "31bd226c4d6c4c4e0a7070689fad3eefd1d944656c442c64e2b8d6fbd24c2846",
+    "after_sources/game/tests/wardrobe_floor_admission_test.gd": "8003596b3b6e0b39ab15cded32cff21aeeaf55202d2a971a75a8ebc299b184be",
+    "after_sources/game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "after_sources/game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "after_sources/game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+    "after_sources/game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+    "after_sources/game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+    "after_sources/game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330"
+  },
+  "exact_runtime_owners": {
+    "game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/tests/vulkan_composed_root_test.gd": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663"
+  },
+  "source_inventory_count": 4045,
+  "source_unchanged": true,
+  "source_map_change_since_reference": {
+    "game/scripts/reality/apartment_encroachment.gd": [
+      "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+      "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776"
+    ],
+    "game/tests/fixtures/encroachment_sweep/baseline.gd": [
+      "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+      "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c"
+    ],
+    "game/tests/fixtures/encroachment_sweep/candidate.gd": [
+      "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+      "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8"
+    ],
+    "game/tests/fixtures/encroachment_sweep/drop_late.gd": [
+      "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+      "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336"
+    ],
+    "game/tests/fixtures/encroachment_sweep/priority.gd": [
+      "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5",
+      "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330"
+    ]
+  },
+  "engines_equal_and_stable": [
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef",
+      "bytes": 198152
+    },
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+      "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a",
+      "bytes": 178997256
+    }
+  ],
+  "wrappers_equal": {
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\vulkan_composed\\run_case.py": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\vulkan_composed\\gate.py": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+    "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+  },
+  "ordered_305_labels": [
+    "campaign calendar seeded at authored 03:00 without host time",
+    "Vulkan Forward+ is active",
+    "CampaignShell composed the selected real root",
+    "root startup succeeded",
+    "real production player exists",
+    "actual V1 owns both production zone APIs",
+    "real StreetCore population is nonempty",
+    "real Passage late foreign population is nonempty",
+    "real measured STREET/PASSAGE overlap exists",
+    "real F04 terminal has registry ownership",
+    "F04 actor population exists independently of floor hierarchy",
+    "profile photo directory is available",
+    "production phone lens shares selected root world",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "capture written initial_street",
+    "capture written initial_street_phone",
+    "passage unchanged-region physics request is cached",
+    "PASSAGE retains F01 and hides F04 shell/actors",
+    "PASSAGE keeps real overlap blocked",
+    "passage repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after passage",
+    "capture written initial_passage",
+    "capture written initial_passage_phone",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "capture written initial_orison",
+    "capture written initial_orison_phone",
+    "f04 unchanged-region physics request is cached",
+    "F04 corridor restores actual F04 actor owners",
+    "F04 corridor does not force F01 actors visible",
+    "f04 repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after f04",
+    "capture written initial_f04",
+    "harukiya unchanged-region physics request is cached",
+    "Harukiya interior restores core gate",
+    "harukiya repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after harukiya",
+    "capture written initial_harukiya",
+    "actual own-world arcade geometry exists after near-cabinet warmup",
+    "actual cabinet capture owner exists actual_arcade_before_passage",
+    "actual cabinet capture is currently live actual_arcade_before_passage",
+    "actual cabinet capture resolves its own world actual_arcade_before_passage",
+    "capture written actual_arcade_before_passage",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "passage unchanged-region physics request is cached",
+    "PASSAGE retains F01 and hides F04 shell/actors",
+    "PASSAGE keeps real overlap blocked",
+    "passage repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after passage",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "f04 unchanged-region physics request is cached",
+    "F04 corridor restores actual F04 actor owners",
+    "F04 corridor does not force F01 actors visible",
+    "f04 repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after f04",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "passage unchanged-region physics request is cached",
+    "PASSAGE retains F01 and hides F04 shell/actors",
+    "PASSAGE keeps real overlap blocked",
+    "passage repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after passage",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "f04 unchanged-region physics request is cached",
+    "F04 corridor restores actual F04 actor owners",
+    "F04 corridor does not force F01 actors visible",
+    "f04 repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after f04",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "passage unchanged-region physics request is cached",
+    "PASSAGE retains F01 and hides F04 shell/actors",
+    "PASSAGE keeps real overlap blocked",
+    "passage repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after passage",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "f04 unchanged-region physics request is cached",
+    "F04 corridor restores actual F04 actor owners",
+    "F04 corridor does not force F01 actors visible",
+    "f04 repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after f04",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "passage unchanged-region physics request is cached",
+    "PASSAGE retains F01 and hides F04 shell/actors",
+    "PASSAGE keeps real overlap blocked",
+    "passage repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after passage",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "f04 unchanged-region physics request is cached",
+    "F04 corridor restores actual F04 actor owners",
+    "F04 corridor does not force F01 actors visible",
+    "f04 repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after f04",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "passage unchanged-region physics request is cached",
+    "PASSAGE retains F01 and hides F04 shell/actors",
+    "PASSAGE keeps real overlap blocked",
+    "passage repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after passage",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "f04 unchanged-region physics request is cached",
+    "F04 corridor restores actual F04 actor owners",
+    "F04 corridor does not force F01 actors visible",
+    "f04 repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after f04",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "passage unchanged-region physics request is cached",
+    "PASSAGE retains F01 and hides F04 shell/actors",
+    "PASSAGE keeps real overlap blocked",
+    "passage repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after passage",
+    "street unchanged-region physics request is cached",
+    "STREET suppresses every indexed core mask",
+    "STREET retains real F04 actor owners for facade views",
+    "street repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after street",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "f04 unchanged-region physics request is cached",
+    "F04 corridor restores actual F04 actor owners",
+    "F04 corridor does not force F01 actors visible",
+    "f04 repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after f04",
+    "orison unchanged-region physics request is cached",
+    "ORISON drains real overlap blockers",
+    "ORISON lobby hides F04 actor owners",
+    "orison repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after orison",
+    "harukiya unchanged-region physics request is cached",
+    "Harukiya interior restores core gate",
+    "harukiya repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after harukiya",
+    "capture written return_harukiya",
+    "return reactivates actual nearby arcade owner F01/Arcade_retail_bar_cab01",
+    "return reactivates actual nearby arcade owner F01/Arcade_retail_bar_cab02",
+    "Harukiya return reaches actual arcade activation consumer",
+    "actual cabinet capture owner exists actual_arcade_after_passage",
+    "actual cabinet capture is currently live actual_arcade_after_passage",
+    "actual cabinet capture resolves its own world actual_arcade_after_passage",
+    "capture written actual_arcade_after_passage",
+    "actual V1 planar mirror owner exists",
+    "actual F04 medicine cabinet exists",
+    "production mirror selects real cabinet",
+    "mirror borrows main world and excludes mirror layer",
+    "capture written actual_f04_mirror",
+    "capture written actual_f04_reflection",
+    "mask33 two independent blockers hide mask",
+    "mask33 first release cannot expose target",
+    "mask33 exact mask and owner visibility survive",
+    "mask33 released tables drain",
+    "mask33 two independent blockers hide mask",
+    "mask33 first release cannot expose target",
+    "mask33 exact mask and owner visibility survive",
+    "mask33 released tables drain",
+    "mask33 live owner change is not overwritten",
+    "own_hidden two independent blockers hide mask",
+    "own_hidden first release cannot expose target",
+    "own_hidden exact mask and owner visibility survive",
+    "own_hidden released tables drain",
+    "own_hidden two independent blockers hide mask",
+    "own_hidden first release cannot expose target",
+    "own_hidden exact mask and owner visibility survive",
+    "own_hidden released tables drain",
+    "own_hidden live owner change is not overwritten",
+    "parent_hidden two independent blockers hide mask",
+    "parent_hidden first release cannot expose target",
+    "parent_hidden exact mask and owner visibility survive",
+    "parent_hidden released tables drain",
+    "parent_hidden two independent blockers hide mask",
+    "parent_hidden first release cannot expose target",
+    "parent_hidden exact mask and owner visibility survive",
+    "parent_hidden released tables drain",
+    "parent_hidden live owner change is not overwritten",
+    "authored_zero two independent blockers hide mask",
+    "authored_zero first release cannot expose target",
+    "authored_zero exact mask and owner visibility survive",
+    "authored_zero released tables drain",
+    "authored_zero two independent blockers hide mask",
+    "authored_zero first release cannot expose target",
+    "authored_zero exact mask and owner visibility survive",
+    "authored_zero released tables drain",
+    "authored_zero live owner change is not overwritten",
+    "unrelated neighbor is untouched",
+    "owned viewport has separate actual scenario",
+    "capture written separate_world_initial",
+    "separate-world target actually renders initially",
+    "separate-world target restores mask and its own world",
+    "capture written separate_world_restored",
+    "separate-world target actually renders after restore",
+    "capture written separate_world_blocked",
+    "separate-world blocked target leaves image",
+    "owned viewport tables drained before free",
+    "real overlap restored exactly after all zone releases",
+    "arcade own-world geometry never acquired building masks",
+    "passage unchanged-region physics request is cached",
+    "PASSAGE retains F01 and hides F04 shell/actors",
+    "PASSAGE keeps real overlap blocked",
+    "passage repeated explicit no-op scans preserve tables and masks",
+    "arcade lifecycle/isolation after passage",
+    "capture written before_retirement_passage",
+    "capture written before_retirement_passage_phone",
+    "actual shell retired",
+    "actual selected world retired"
+  ],
+  "ordered_labels_sha256": "0fbaee8be85c138922c0452b1496cb7d892dc01ed15b804f57e0f8ffb8910fa7",
+  "ordered_reference_labels_equal": true,
+  "actual_engine_exit": 0,
+  "gate_replay_exactly_equals_recorded": true,
+  "raw_diagnostic_classification": {
+    "diagnostic_gate_exit": 0,
+    "reasons": [],
+    "unpair_errors": 0,
+    "soft_shadow_underflows": 0,
+    "non_inherited_error_headers": {},
+    "inherited_manifest_errors": [
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      }
+    ],
+    "warnings": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1038,
+      "WARNING: no legal wall for found piece cam_noel_witches": 1
+    },
+    "retention": [],
+    "functional_checks_meaningful": true,
+    "expected_unpair_red_observed": false,
+    "expected_viewport_guard_red_observed": false,
+    "execution_scope": "full",
+    "full_candidate_scope_completed": true,
+    "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+  },
+  "captures": [
+    {
+      "name": "initial_street",
+      "file": "frames/initial_street.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "7a65da51d9301d3eed437188155a88d3fcd10606034c86cae79c82884fdd9bea",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "initial_street_phone",
+      "file": "frames/initial_street_phone.png",
+      "dimensions": [
+        320,
+        240
+      ],
+      "sha256": "d4111e4961d0beac950dc6b58b22da1590ee85f7960a1bdac8c0f9b4871cab04",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "initial_passage",
+      "file": "frames/initial_passage.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "50de6f0cedaa006e5c7f5e3160238c7184a7a248f124eb1dba0294cfa01f1b67",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "initial_passage_phone",
+      "file": "frames/initial_passage_phone.png",
+      "dimensions": [
+        320,
+        240
+      ],
+      "sha256": "3c092107b51c25ed2570e0f68f256fc2abf5970782d83ee12e5584ca79273dae",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "initial_orison",
+      "file": "frames/initial_orison.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "f0554b330ef3ea054df2931ec77f95fb6deb361eec3e53e13e9a3d7d9c23c1b8",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "initial_orison_phone",
+      "file": "frames/initial_orison_phone.png",
+      "dimensions": [
+        320,
+        240
+      ],
+      "sha256": "f983b569e135e791c32ce79b73253f4c8c70806134077826087df9182e4003ea",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "initial_f04",
+      "file": "frames/initial_f04.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "31e41cdcc5c06f001695c810efdcb0c6c025ac281858a37df90504a0a4bc792f",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "initial_harukiya",
+      "file": "frames/initial_harukiya.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "0ba2cfc7e4446657055ea0fc66e454bdc697d0862093c5a3ffac7e006a463bbf",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "actual_arcade_before_passage",
+      "file": "frames/actual_arcade_before_passage.png",
+      "dimensions": [
+        480,
+        360
+      ],
+      "sha256": "01b62a1ea9bbd47210aabe60f2ba2b04a9379250dd2ff94439d4c4ca0fbd9111",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "return_harukiya",
+      "file": "frames/return_harukiya.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "85d4f0d432d3bd449b0b465179223a264fe569d1d6ce28947aab5a0fbc212b57",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "actual_arcade_after_passage",
+      "file": "frames/actual_arcade_after_passage.png",
+      "dimensions": [
+        480,
+        360
+      ],
+      "sha256": "07f404fb9e4db0f6b631d25412de24f25a1531d613ab78ad038069b9a491af91",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "actual_f04_mirror",
+      "file": "frames/actual_f04_mirror.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "3264e2b6880b375468af15c73ee4b2e715d8ad5abb9d8445d54b21d27651e62e",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "actual_f04_reflection",
+      "file": "frames/actual_f04_reflection.png",
+      "dimensions": [
+        384,
+        512
+      ],
+      "sha256": "b2341f423e95bded9aade2add2a1a19a769520fe6428131ec882f8e1915448e9",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "separate_world_initial",
+      "file": "frames/separate_world_initial.png",
+      "dimensions": [
+        320,
+        240
+      ],
+      "sha256": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "separate_world_restored",
+      "file": "frames/separate_world_restored.png",
+      "dimensions": [
+        320,
+        240
+      ],
+      "sha256": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "separate_world_blocked",
+      "file": "frames/separate_world_blocked.png",
+      "dimensions": [
+        320,
+        240
+      ],
+      "sha256": "1a86c8993123f9fdfc03928989db4499837304d5e48f4bf2011ef95699206b65",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "before_retirement_passage",
+      "file": "frames/before_retirement_passage.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "c5416a59f977033862ff7c6bfa0e98dbaf6dc15fa10707e9ce8d733f34a792cb",
+      "visual_review": "root-owned; not performed by this verifier"
+    },
+    {
+      "name": "before_retirement_passage_phone",
+      "file": "frames/before_retirement_passage_phone.png",
+      "dimensions": [
+        320,
+        240
+      ],
+      "sha256": "2eb3bfad432b0ceaaa71303c6e868565e90f1b84d533fb1358b59ec3d92a262c",
+      "visual_review": "root-owned; not performed by this verifier"
+    }
+  ],
+  "transition_phase_counts": {
+    "warmup": 5,
+    "six_cycle_loop": 36,
+    "post_loop_capture_return": 1,
+    "post_control_retirement_return": 1
+  },
+  "directional_apply_timings": [
+    {
+      "phase": "six_cycle_loop",
+      "direction": "harukiya -> street",
+      "n": 1,
+      "samples_ms": [
+        35.239
+      ],
+      "median_ms": 35.239,
+      "mean_ms": 35.239,
+      "min_ms": 35.239,
+      "max_ms": 35.239,
+      "p95_nearest_rank_ms": 35.239
+    },
+    {
+      "phase": "six_cycle_loop",
+      "direction": "street -> passage",
+      "n": 6,
+      "samples_ms": [
+        1193.564,
+        1190.399,
+        1221.209,
+        1198.021,
+        1202.257,
+        1189.583
+      ],
+      "median_ms": 1195.7925,
+      "mean_ms": 1199.1721666666667,
+      "min_ms": 1189.583,
+      "max_ms": 1221.209,
+      "p95_nearest_rank_ms": 1221.209
+    },
+    {
+      "phase": "six_cycle_loop",
+      "direction": "passage -> street",
+      "n": 6,
+      "samples_ms": [
+        1183.352,
+        1181.838,
+        1218.223,
+        1185.783,
+        1181.689,
+        1177.65
+      ],
+      "median_ms": 1182.595,
+      "mean_ms": 1188.0891666666666,
+      "min_ms": 1177.65,
+      "max_ms": 1218.223,
+      "p95_nearest_rank_ms": 1218.223
+    },
+    {
+      "phase": "six_cycle_loop",
+      "direction": "street -> orison",
+      "n": 6,
+      "samples_ms": [
+        41.213,
+        41.107,
+        39.951,
+        40.128,
+        39.848,
+        40.118
+      ],
+      "median_ms": 40.123000000000005,
+      "mean_ms": 40.39416666666666,
+      "min_ms": 39.848,
+      "max_ms": 41.213,
+      "p95_nearest_rank_ms": 41.213
+    },
+    {
+      "phase": "six_cycle_loop",
+      "direction": "orison -> f04",
+      "n": 6,
+      "samples_ms": [
+        4.529,
+        4.426,
+        4.134,
+        4.089,
+        4.531,
+        4.063
+      ],
+      "median_ms": 4.28,
+      "mean_ms": 4.295333333333334,
+      "min_ms": 4.063,
+      "max_ms": 4.531,
+      "p95_nearest_rank_ms": 4.531
+    },
+    {
+      "phase": "six_cycle_loop",
+      "direction": "f04 -> orison",
+      "n": 6,
+      "samples_ms": [
+        3.134,
+        3.122,
+        3.052,
+        3.213,
+        3.003,
+        3.13
+      ],
+      "median_ms": 3.126,
+      "mean_ms": 3.109,
+      "min_ms": 3.003,
+      "max_ms": 3.213,
+      "p95_nearest_rank_ms": 3.213
+    },
+    {
+      "phase": "six_cycle_loop",
+      "direction": "orison -> street",
+      "n": 5,
+      "samples_ms": [
+        35.877,
+        37.547,
+        37.155,
+        39.331,
+        36.191
+      ],
+      "median_ms": 37.155,
+      "mean_ms": 37.2202,
+      "min_ms": 35.877,
+      "max_ms": 39.331,
+      "p95_nearest_rank_ms": 39.331
+    },
+    {
+      "phase": "post_loop_capture_return",
+      "direction": "orison -> harukiya",
+      "n": 1,
+      "samples_ms": [
+        2.642
+      ],
+      "median_ms": 2.642,
+      "mean_ms": 2.642,
+      "min_ms": 2.642,
+      "max_ms": 2.642,
+      "p95_nearest_rank_ms": 2.642
+    },
+    {
+      "phase": "post_control_retirement_return",
+      "direction": "orison -> passage",
+      "n": 1,
+      "samples_ms": [
+        1153.806
+      ],
+      "median_ms": 1153.806,
+      "mean_ms": 1153.806,
+      "min_ms": 1153.806,
+      "max_ms": 1153.806,
+      "p95_nearest_rank_ms": 1153.806
+    }
+  ],
+  "raw_transition_samples": [
+    {
+      "index": 0,
+      "cycle": -1,
+      "phase": "warmup",
+      "direction": "None -> street",
+      "apply_ms": 34.073,
+      "separate_16_scan_ms": 2.999,
+      "frames": [
+        {
+          "draw_calls": 15479,
+          "objects": 15479,
+          "ordinal": 0,
+          "primitives": 15423309,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 0,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 9.88099956512451,
+          "viewport_gpu_ms": 11.7089996337891,
+          "wait_usec": 144861
+        },
+        {
+          "draw_calls": 15585,
+          "objects": 15585,
+          "ordinal": 1,
+          "primitives": 15514019,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 0,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 10.0240001678467,
+          "viewport_gpu_ms": 11.5290002822876,
+          "wait_usec": 37135
+        },
+        {
+          "draw_calls": 13701,
+          "objects": 13701,
+          "ordinal": 2,
+          "primitives": 11867235,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 0,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 9.75100040435791,
+          "viewport_gpu_ms": 10.8439998626709,
+          "wait_usec": 23060
+        },
+        {
+          "draw_calls": 13701,
+          "objects": 13701,
+          "ordinal": 3,
+          "primitives": 11867235,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 0,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.90100002288818,
+          "viewport_gpu_ms": 10.7810001373291,
+          "wait_usec": 18735
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "cycle": -1,
+      "phase": "warmup",
+      "direction": "street -> passage",
+      "apply_ms": 1177.797,
+      "separate_16_scan_ms": 2.936,
+      "frames": [
+        {
+          "draw_calls": 5818,
+          "objects": 6220,
+          "ordinal": 0,
+          "primitives": 3146436,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 0,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.92199993133545,
+          "viewport_gpu_ms": 9.3120002746582,
+          "wait_usec": 445580
+        },
+        {
+          "draw_calls": 4952,
+          "objects": 5360,
+          "ordinal": 1,
+          "primitives": 2135366,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 0,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.80700016021729,
+          "viewport_gpu_ms": 10.1929998397827,
+          "wait_usec": 33248
+        },
+        {
+          "draw_calls": 6075,
+          "objects": 6453,
+          "ordinal": 2,
+          "primitives": 3190898,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 0,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.76200008392334,
+          "viewport_gpu_ms": 23.5620002746582,
+          "wait_usec": 22427
+        },
+        {
+          "draw_calls": 3205,
+          "objects": 3577,
+          "ordinal": 3,
+          "primitives": 1065398,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 0,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.01699995994568,
+          "viewport_gpu_ms": 16.8169994354248,
+          "wait_usec": 26589
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "cycle": -1,
+      "phase": "warmup",
+      "direction": "passage -> orison",
+      "apply_ms": 1154.76,
+      "separate_16_scan_ms": 3.134,
+      "frames": [
+        {
+          "draw_calls": 20147,
+          "objects": 20147,
+          "ordinal": 0,
+          "primitives": 14400064,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 1,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.96399998664856,
+          "viewport_gpu_ms": 20.1219997406006,
+          "wait_usec": 92459
+        },
+        {
+          "draw_calls": 21163,
+          "objects": 21163,
+          "ordinal": 1,
+          "primitives": 14703904,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 1,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.88999998569489,
+          "viewport_gpu_ms": 17.1040000915527,
+          "wait_usec": 69474
+        },
+        {
+          "draw_calls": 21163,
+          "objects": 21163,
+          "ordinal": 2,
+          "primitives": 14703904,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 1,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 24.4740009307861,
+          "viewport_gpu_ms": 58.5940017700195,
+          "wait_usec": 71001
+        },
+        {
+          "draw_calls": 21163,
+          "objects": 21163,
+          "ordinal": 3,
+          "primitives": 14703904,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 1,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.80100011825562,
+          "viewport_gpu_ms": 58.9630012512207,
+          "wait_usec": 30874
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "cycle": -1,
+      "phase": "warmup",
+      "direction": "orison -> f04",
+      "apply_ms": 4.289,
+      "separate_16_scan_ms": 3.002,
+      "frames": [
+        {
+          "draw_calls": 8462,
+          "objects": 8462,
+          "ordinal": 0,
+          "primitives": 4892324,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 2,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.67600011825562,
+          "viewport_gpu_ms": 20.0659999847412,
+          "wait_usec": 26087
+        },
+        {
+          "draw_calls": 8462,
+          "objects": 8462,
+          "ordinal": 1,
+          "primitives": 4892324,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 2,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.05000019073486,
+          "viewport_gpu_ms": 6.19299983978271,
+          "wait_usec": 16210
+        },
+        {
+          "draw_calls": 13227,
+          "objects": 13227,
+          "ordinal": 2,
+          "primitives": 11491116,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 2,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 2.67300009727478,
+          "viewport_gpu_ms": 2.76500010490417,
+          "wait_usec": 18687
+        },
+        {
+          "draw_calls": 13242,
+          "objects": 13242,
+          "ordinal": 3,
+          "primitives": 11126207,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 2,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 2.19300007820129,
+          "viewport_gpu_ms": 2.74399995803833,
+          "wait_usec": 14441
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "cycle": -1,
+      "phase": "warmup",
+      "direction": "f04 -> harukiya",
+      "apply_ms": 2.921,
+      "separate_16_scan_ms": 2.927,
+      "frames": [
+        {
+          "draw_calls": 5207,
+          "objects": 5482,
+          "ordinal": 0,
+          "primitives": 6255485,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 2,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.41400003433228,
+          "viewport_gpu_ms": 5.74700021743774,
+          "wait_usec": 188443
+        },
+        {
+          "draw_calls": 3767,
+          "objects": 4045,
+          "ordinal": 1,
+          "primitives": 3798717,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 2,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.57599997520447,
+          "viewport_gpu_ms": 4.7649998664856,
+          "wait_usec": 17849
+        },
+        {
+          "draw_calls": 4822,
+          "objects": 5085,
+          "ordinal": 2,
+          "primitives": 5901493,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 2,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 2.82800006866455,
+          "viewport_gpu_ms": 4.82499980926514,
+          "wait_usec": 15347
+        },
+        {
+          "draw_calls": 2314,
+          "objects": 2573,
+          "ordinal": 3,
+          "primitives": 1697889,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 2,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.939000010490417,
+          "viewport_gpu_ms": 2.49200010299683,
+          "wait_usec": 10513
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "cycle": 0,
+      "phase": "six_cycle_loop",
+      "direction": "harukiya -> street",
+      "apply_ms": 35.239,
+      "separate_16_scan_ms": 2.98,
+      "frames": [
+        {
+          "draw_calls": 15579,
+          "objects": 15579,
+          "ordinal": 0,
+          "primitives": 15513807,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 3,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 2.03200006484985,
+          "viewport_gpu_ms": 3.82100009918213,
+          "wait_usec": 49585
+        },
+        {
+          "draw_calls": 13695,
+          "objects": 13695,
+          "ordinal": 1,
+          "primitives": 11867023,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 3,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.787999987602234,
+          "viewport_gpu_ms": 2.48900008201599,
+          "wait_usec": 26373
+        },
+        {
+          "draw_calls": 13695,
+          "objects": 13695,
+          "ordinal": 2,
+          "primitives": 11867023,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 3,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 9.0939998626709,
+          "viewport_gpu_ms": 6.4210000038147,
+          "wait_usec": 23048
+        },
+        {
+          "draw_calls": 13695,
+          "objects": 13695,
+          "ordinal": 3,
+          "primitives": 11867023,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 4,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.31199979782104,
+          "viewport_gpu_ms": 5.32200002670288,
+          "wait_usec": 24081
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "cycle": 0,
+      "phase": "six_cycle_loop",
+      "direction": "street -> passage",
+      "apply_ms": 1193.564,
+      "separate_16_scan_ms": 2.85,
+      "frames": [
+        {
+          "draw_calls": 6003,
+          "objects": 6387,
+          "ordinal": 0,
+          "primitives": 3191138,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 4,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.30900001525879,
+          "viewport_gpu_ms": 5.0939998626709,
+          "wait_usec": 55594
+        },
+        {
+          "draw_calls": 3457,
+          "objects": 3841,
+          "ordinal": 1,
+          "primitives": 1072114,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 4,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.30499982833862,
+          "viewport_gpu_ms": 5.08099985122681,
+          "wait_usec": 20316
+        },
+        {
+          "draw_calls": 3457,
+          "objects": 3841,
+          "ordinal": 2,
+          "primitives": 1072114,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 4,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.83200001716614,
+          "viewport_gpu_ms": 11.6730003356934,
+          "wait_usec": 12356
+        },
+        {
+          "draw_calls": 3457,
+          "objects": 3841,
+          "ordinal": 3,
+          "primitives": 1072114,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 4,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.930000007152557,
+          "viewport_gpu_ms": 8.44400024414063,
+          "wait_usec": 13658
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "cycle": 0,
+      "phase": "six_cycle_loop",
+      "direction": "passage -> street",
+      "apply_ms": 1183.352,
+      "separate_16_scan_ms": 2.995,
+      "frames": [
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 0,
+          "primitives": 15508279,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 4,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.791999995708466,
+          "viewport_gpu_ms": 9.5620002746582,
+          "wait_usec": 74277
+        },
+        {
+          "draw_calls": 15365,
+          "objects": 15365,
+          "ordinal": 1,
+          "primitives": 14853155,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 4,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.77700001001358,
+          "viewport_gpu_ms": 8.39799976348877,
+          "wait_usec": 85337
+        },
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 2,
+          "primitives": 15515595,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 5,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 9.07600021362305,
+          "viewport_gpu_ms": 68.0630035400391,
+          "wait_usec": 77879
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 3,
+          "primitives": 11868811,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 5,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.63700008392334,
+          "viewport_gpu_ms": 61.4259986877441,
+          "wait_usec": 78794
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "cycle": 0,
+      "phase": "six_cycle_loop",
+      "direction": "street -> orison",
+      "apply_ms": 41.213,
+      "separate_16_scan_ms": 2.995,
+      "frames": [
+        {
+          "draw_calls": 21155,
+          "objects": 21155,
+          "ordinal": 0,
+          "primitives": 14706710,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 5,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.93900012969971,
+          "viewport_gpu_ms": 63.3950004577637,
+          "wait_usec": 40364
+        },
+        {
+          "draw_calls": 21149,
+          "objects": 21149,
+          "ordinal": 1,
+          "primitives": 14706302,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 5,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.73799991607666,
+          "viewport_gpu_ms": 52.4370002746582,
+          "wait_usec": 24052
+        },
+        {
+          "draw_calls": 21149,
+          "objects": 21149,
+          "ordinal": 2,
+          "primitives": 14706302,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 5,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.8899998664856,
+          "viewport_gpu_ms": 6.65100002288818,
+          "wait_usec": 23697
+        },
+        {
+          "draw_calls": 21148,
+          "objects": 21148,
+          "ordinal": 3,
+          "primitives": 14706110,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 5,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.92399978637695,
+          "viewport_gpu_ms": 6.55000019073486,
+          "wait_usec": 19617
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "cycle": 0,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> f04",
+      "apply_ms": 4.529,
+      "separate_16_scan_ms": 2.898,
+      "frames": [
+        {
+          "draw_calls": 13517,
+          "objects": 13517,
+          "ordinal": 0,
+          "primitives": 11532113,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 5,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.64300012588501,
+          "viewport_gpu_ms": 6.07399988174438,
+          "wait_usec": 29919
+        },
+        {
+          "draw_calls": 12963,
+          "objects": 12963,
+          "ordinal": 1,
+          "primitives": 10716067,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.74399995803833,
+          "viewport_gpu_ms": 6.09899997711182,
+          "wait_usec": 25537
+        },
+        {
+          "draw_calls": 12963,
+          "objects": 12963,
+          "ordinal": 2,
+          "primitives": 10716067,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.39699983596802,
+          "viewport_gpu_ms": 4.79500007629395,
+          "wait_usec": 18576
+        },
+        {
+          "draw_calls": 12963,
+          "objects": 12963,
+          "ordinal": 3,
+          "primitives": 10716067,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.55800008773804,
+          "viewport_gpu_ms": 5.23699998855591,
+          "wait_usec": 14914
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "cycle": 0,
+      "phase": "six_cycle_loop",
+      "direction": "f04 -> orison",
+      "apply_ms": 3.134,
+      "separate_16_scan_ms": 3.016,
+      "frames": [
+        {
+          "draw_calls": 21150,
+          "objects": 21150,
+          "ordinal": 0,
+          "primitives": 14706082,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.29900002479553,
+          "viewport_gpu_ms": 5.21799993515015,
+          "wait_usec": 32492
+        },
+        {
+          "draw_calls": 21147,
+          "objects": 21147,
+          "ordinal": 1,
+          "primitives": 14706078,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.25,
+          "viewport_gpu_ms": 4.51399993896484,
+          "wait_usec": 27056
+        },
+        {
+          "draw_calls": 21147,
+          "objects": 21147,
+          "ordinal": 2,
+          "primitives": 14706078,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.92000007629395,
+          "viewport_gpu_ms": 5.86700010299683,
+          "wait_usec": 23428
+        },
+        {
+          "draw_calls": 21147,
+          "objects": 21147,
+          "ordinal": 3,
+          "primitives": 14706078,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.85099983215332,
+          "viewport_gpu_ms": 5.8600001335144,
+          "wait_usec": 19901
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "cycle": 1,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> street",
+      "apply_ms": 35.877,
+      "separate_16_scan_ms": 3.084,
+      "frames": [
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 0,
+          "primitives": 15515595,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.16599988937378,
+          "viewport_gpu_ms": 6.26100015640259,
+          "wait_usec": 51755
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 1,
+          "primitives": 11868811,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.76999998092651,
+          "viewport_gpu_ms": 6.28399991989136,
+          "wait_usec": 25328
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 2,
+          "primitives": 11868811,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 8.07600021362305,
+          "viewport_gpu_ms": 6.0479998588562,
+          "wait_usec": 22193
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 3,
+          "primitives": 11868811,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.25899982452393,
+          "viewport_gpu_ms": 4.75699996948242,
+          "wait_usec": 27106
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "cycle": 1,
+      "phase": "six_cycle_loop",
+      "direction": "street -> passage",
+      "apply_ms": 1190.399,
+      "separate_16_scan_ms": 2.85,
+      "frames": [
+        {
+          "draw_calls": 6037,
+          "objects": 6415,
+          "ordinal": 0,
+          "primitives": 3191770,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.52600002288818,
+          "viewport_gpu_ms": 4.79199981689453,
+          "wait_usec": 60032
+        },
+        {
+          "draw_calls": 3483,
+          "objects": 3867,
+          "ordinal": 1,
+          "primitives": 1072482,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.2519998550415,
+          "viewport_gpu_ms": 4.78800010681152,
+          "wait_usec": 27406
+        },
+        {
+          "draw_calls": 3495,
+          "objects": 3879,
+          "ordinal": 2,
+          "primitives": 1072626,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.81099998950958,
+          "viewport_gpu_ms": 14.543999671936,
+          "wait_usec": 12510
+        },
+        {
+          "draw_calls": 3495,
+          "objects": 3879,
+          "ordinal": 3,
+          "primitives": 1072626,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.843999981880188,
+          "viewport_gpu_ms": 8.50399971008301,
+          "wait_usec": 14121
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "cycle": 1,
+      "phase": "six_cycle_loop",
+      "direction": "passage -> street",
+      "apply_ms": 1181.838,
+      "separate_16_scan_ms": 3.028,
+      "frames": [
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 0,
+          "primitives": 15509875,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.814999997615814,
+          "viewport_gpu_ms": 10.0579996109009,
+          "wait_usec": 72360
+        },
+        {
+          "draw_calls": 15364,
+          "objects": 15364,
+          "ordinal": 1,
+          "primitives": 14854559,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 6,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.749000012874603,
+          "viewport_gpu_ms": 8.63500022888184,
+          "wait_usec": 87889
+        },
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 2,
+          "primitives": 15515595,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 7,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 8.52200031280518,
+          "viewport_gpu_ms": 69.927001953125,
+          "wait_usec": 81501
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 3,
+          "primitives": 11868811,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 7,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.53700017929077,
+          "viewport_gpu_ms": 66.8980026245117,
+          "wait_usec": 27604
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "cycle": 1,
+      "phase": "six_cycle_loop",
+      "direction": "street -> orison",
+      "apply_ms": 41.107,
+      "separate_16_scan_ms": 3.036,
+      "frames": [
+        {
+          "draw_calls": 21127,
+          "objects": 21127,
+          "ordinal": 0,
+          "primitives": 14786330,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 7,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 6.05200004577637,
+          "viewport_gpu_ms": 5.88199996948242,
+          "wait_usec": 45053
+        },
+        {
+          "draw_calls": 21125,
+          "objects": 21125,
+          "ordinal": 1,
+          "primitives": 14786306,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 7,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.25099992752075,
+          "viewport_gpu_ms": 5.55900001525879,
+          "wait_usec": 27211
+        },
+        {
+          "draw_calls": 21124,
+          "objects": 21124,
+          "ordinal": 2,
+          "primitives": 14786114,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 7,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.04199981689453,
+          "viewport_gpu_ms": 6.08500003814697,
+          "wait_usec": 24072
+        },
+        {
+          "draw_calls": 21124,
+          "objects": 21124,
+          "ordinal": 3,
+          "primitives": 14786114,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 7,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.85300016403198,
+          "viewport_gpu_ms": 6.06500005722046,
+          "wait_usec": 20319
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "cycle": 1,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> f04",
+      "apply_ms": 4.426,
+      "separate_16_scan_ms": 3.003,
+      "frames": [
+        {
+          "draw_calls": 13513,
+          "objects": 13513,
+          "ordinal": 0,
+          "primitives": 11531537,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.69299983978271,
+          "viewport_gpu_ms": 6.60500001907349,
+          "wait_usec": 42991
+        },
+        {
+          "draw_calls": 13513,
+          "objects": 13513,
+          "ordinal": 1,
+          "primitives": 11531537,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.00699996948242,
+          "viewport_gpu_ms": 6.57600021362305,
+          "wait_usec": 23755
+        },
+        {
+          "draw_calls": 13513,
+          "objects": 13513,
+          "ordinal": 2,
+          "primitives": 11531537,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.75500011444092,
+          "viewport_gpu_ms": 4.80200004577637,
+          "wait_usec": 19145
+        },
+        {
+          "draw_calls": 13513,
+          "objects": 13513,
+          "ordinal": 3,
+          "primitives": 11531537,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.62299990653992,
+          "viewport_gpu_ms": 4.81099987030029,
+          "wait_usec": 16061
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "cycle": 1,
+      "phase": "six_cycle_loop",
+      "direction": "f04 -> orison",
+      "apply_ms": 3.122,
+      "separate_16_scan_ms": 2.945,
+      "frames": [
+        {
+          "draw_calls": 21103,
+          "objects": 21103,
+          "ordinal": 0,
+          "primitives": 14784110,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.52500009536743,
+          "viewport_gpu_ms": 4.80100011825562,
+          "wait_usec": 39657
+        },
+        {
+          "draw_calls": 21101,
+          "objects": 21101,
+          "ordinal": 1,
+          "primitives": 14783798,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.41199994087219,
+          "viewport_gpu_ms": 4.81199979782104,
+          "wait_usec": 27808
+        },
+        {
+          "draw_calls": 21101,
+          "objects": 21101,
+          "ordinal": 2,
+          "primitives": 14783798,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.16699981689453,
+          "viewport_gpu_ms": 6.10900020599365,
+          "wait_usec": 22946
+        },
+        {
+          "draw_calls": 21101,
+          "objects": 21101,
+          "ordinal": 3,
+          "primitives": 14783798,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.30499982833862,
+          "viewport_gpu_ms": 6.05700016021729,
+          "wait_usec": 20128
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "cycle": 2,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> street",
+      "apply_ms": 37.547,
+      "separate_16_scan_ms": 2.991,
+      "frames": [
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 0,
+          "primitives": 15517191,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.88899993896484,
+          "viewport_gpu_ms": 5.85500001907349,
+          "wait_usec": 48495
+        },
+        {
+          "draw_calls": 13697,
+          "objects": 13697,
+          "ordinal": 1,
+          "primitives": 11870419,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.04500007629395,
+          "viewport_gpu_ms": 5.89300012588501,
+          "wait_usec": 22741
+        },
+        {
+          "draw_calls": 13698,
+          "objects": 13698,
+          "ordinal": 2,
+          "primitives": 11870611,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 8.44099998474121,
+          "viewport_gpu_ms": 5.64799976348877,
+          "wait_usec": 18507
+        },
+        {
+          "draw_calls": 13698,
+          "objects": 13698,
+          "ordinal": 3,
+          "primitives": 11870611,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.8769998550415,
+          "viewport_gpu_ms": 4.74300003051758,
+          "wait_usec": 18501
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "cycle": 2,
+      "phase": "six_cycle_loop",
+      "direction": "street -> passage",
+      "apply_ms": 1221.209,
+      "separate_16_scan_ms": 2.899,
+      "frames": [
+        {
+          "draw_calls": 6035,
+          "objects": 6483,
+          "ordinal": 0,
+          "primitives": 3195218,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.4520001411438,
+          "viewport_gpu_ms": 4.7480001449585,
+          "wait_usec": 59676
+        },
+        {
+          "draw_calls": 3489,
+          "objects": 3937,
+          "ordinal": 1,
+          "primitives": 1076194,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.48000001907349,
+          "viewport_gpu_ms": 4.75899982452393,
+          "wait_usec": 22831
+        },
+        {
+          "draw_calls": 3489,
+          "objects": 3937,
+          "ordinal": 2,
+          "primitives": 1076194,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.91600000858307,
+          "viewport_gpu_ms": 13.0380001068115,
+          "wait_usec": 12916
+        },
+        {
+          "draw_calls": 3489,
+          "objects": 3937,
+          "ordinal": 3,
+          "primitives": 1076086,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.837999999523163,
+          "viewport_gpu_ms": 9.98799991607666,
+          "wait_usec": 12545
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "cycle": 2,
+      "phase": "six_cycle_loop",
+      "direction": "passage -> street",
+      "apply_ms": 1218.223,
+      "separate_16_scan_ms": 3.001,
+      "frames": [
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 0,
+          "primitives": 15511471,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.936999976634979,
+          "viewport_gpu_ms": 8.45499992370605,
+          "wait_usec": 82980
+        },
+        {
+          "draw_calls": 15364,
+          "objects": 15364,
+          "ordinal": 1,
+          "primitives": 14856155,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.83899998664856,
+          "viewport_gpu_ms": 8.35799980163574,
+          "wait_usec": 36139
+        },
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 2,
+          "primitives": 15517191,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 8.50399971008301,
+          "viewport_gpu_ms": 26.7819995880127,
+          "wait_usec": 35563
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 3,
+          "primitives": 11870407,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.40700006484985,
+          "viewport_gpu_ms": 25.556999206543,
+          "wait_usec": 38622
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "cycle": 2,
+      "phase": "six_cycle_loop",
+      "direction": "street -> orison",
+      "apply_ms": 39.951,
+      "separate_16_scan_ms": 2.964,
+      "frames": [
+        {
+          "draw_calls": 21091,
+          "objects": 21091,
+          "ordinal": 0,
+          "primitives": 14698454,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 6.125,
+          "viewport_gpu_ms": 27.7450008392334,
+          "wait_usec": 44713
+        },
+        {
+          "draw_calls": 21091,
+          "objects": 21091,
+          "ordinal": 1,
+          "primitives": 14698454,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.7960000038147,
+          "viewport_gpu_ms": 23.6000003814697,
+          "wait_usec": 23960
+        },
+        {
+          "draw_calls": 21093,
+          "objects": 21093,
+          "ordinal": 2,
+          "primitives": 14698478,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.94399976730347,
+          "viewport_gpu_ms": 16.1000003814697,
+          "wait_usec": 22127
+        },
+        {
+          "draw_calls": 21094,
+          "objects": 21094,
+          "ordinal": 3,
+          "primitives": 14698490,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.73299980163574,
+          "viewport_gpu_ms": 17.0650005340576,
+          "wait_usec": 24930
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "cycle": 2,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> f04",
+      "apply_ms": 4.134,
+      "separate_16_scan_ms": 2.936,
+      "frames": [
+        {
+          "draw_calls": 13515,
+          "objects": 13515,
+          "ordinal": 0,
+          "primitives": 11531741,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 8,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.94899988174438,
+          "viewport_gpu_ms": 19.6660003662109,
+          "wait_usec": 33289
+        },
+        {
+          "draw_calls": 13237,
+          "objects": 13237,
+          "ordinal": 1,
+          "primitives": 11118193,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 9,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.46600008010864,
+          "viewport_gpu_ms": 19.7630004882813,
+          "wait_usec": 25000
+        },
+        {
+          "draw_calls": 13237,
+          "objects": 13237,
+          "ordinal": 2,
+          "primitives": 11118193,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 9,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.3899998664856,
+          "viewport_gpu_ms": 12.3240003585815,
+          "wait_usec": 18600
+        },
+        {
+          "draw_calls": 13237,
+          "objects": 13237,
+          "ordinal": 3,
+          "primitives": 11118193,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 9,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.37800002098084,
+          "viewport_gpu_ms": 11.4899997711182,
+          "wait_usec": 15403
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "cycle": 2,
+      "phase": "six_cycle_loop",
+      "direction": "f04 -> orison",
+      "apply_ms": 3.052,
+      "separate_16_scan_ms": 2.989,
+      "frames": [
+        {
+          "draw_calls": 21116,
+          "objects": 21116,
+          "ordinal": 0,
+          "primitives": 14703170,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 9,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.07299995422363,
+          "viewport_gpu_ms": 11.5120000839233,
+          "wait_usec": 86334
+        },
+        {
+          "draw_calls": 21117,
+          "objects": 21117,
+          "ordinal": 1,
+          "primitives": 14703170,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 9,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.11800003051758,
+          "viewport_gpu_ms": 11.5100002288818,
+          "wait_usec": 28923
+        },
+        {
+          "draw_calls": 21121,
+          "objects": 21121,
+          "ordinal": 2,
+          "primitives": 14703554,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 9,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.24300003051758,
+          "viewport_gpu_ms": 15.0539999008179,
+          "wait_usec": 22124
+        },
+        {
+          "draw_calls": 21120,
+          "objects": 21120,
+          "ordinal": 3,
+          "primitives": 14703542,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 9,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.1710000038147,
+          "viewport_gpu_ms": 16.0879993438721,
+          "wait_usec": 22197
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "cycle": 3,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> street",
+      "apply_ms": 37.155,
+      "separate_16_scan_ms": 3.023,
+      "frames": [
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 0,
+          "primitives": 15517191,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 9,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.83500003814697,
+          "viewport_gpu_ms": 15.8780002593994,
+          "wait_usec": 55942
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 1,
+          "primitives": 11870407,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 10,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.96500015258789,
+          "viewport_gpu_ms": 15.8649997711182,
+          "wait_usec": 30208
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 2,
+          "primitives": 11870407,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 10,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 8.57900047302246,
+          "viewport_gpu_ms": 13.7320003509521,
+          "wait_usec": 18952
+        },
+        {
+          "draw_calls": 13696,
+          "objects": 13696,
+          "ordinal": 3,
+          "primitives": 11870407,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 10,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.14300012588501,
+          "viewport_gpu_ms": 12.2760000228882,
+          "wait_usec": 19709
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "cycle": 3,
+      "phase": "six_cycle_loop",
+      "direction": "street -> passage",
+      "apply_ms": 1198.021,
+      "separate_16_scan_ms": 2.856,
+      "frames": [
+        {
+          "draw_calls": 6040,
+          "objects": 6488,
+          "ordinal": 0,
+          "primitives": 3194990,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 10,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.86700010299683,
+          "viewport_gpu_ms": 12.3730001449585,
+          "wait_usec": 58023
+        },
+        {
+          "draw_calls": 3482,
+          "objects": 3924,
+          "ordinal": 1,
+          "primitives": 1075642,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 10,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.8769998550415,
+          "viewport_gpu_ms": 12.3059997558594,
+          "wait_usec": 59695
+        },
+        {
+          "draw_calls": 3489,
+          "objects": 3931,
+          "ordinal": 2,
+          "primitives": 1075990,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 10,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.82500004768372,
+          "viewport_gpu_ms": 46.7179985046387,
+          "wait_usec": 44919
+        },
+        {
+          "draw_calls": 6035,
+          "objects": 6477,
+          "ordinal": 3,
+          "primitives": 3195014,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 10,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.934000015258789,
+          "viewport_gpu_ms": 33.189998626709,
+          "wait_usec": 44336
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "cycle": 3,
+      "phase": "six_cycle_loop",
+      "direction": "passage -> street",
+      "apply_ms": 1185.783,
+      "separate_16_scan_ms": 2.961,
+      "frames": [
+        {
+          "draw_calls": 15582,
+          "objects": 15582,
+          "ordinal": 0,
+          "primitives": 15513271,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.944000005722046,
+          "viewport_gpu_ms": 34.056999206543,
+          "wait_usec": 81458
+        },
+        {
+          "draw_calls": 15366,
+          "objects": 15366,
+          "ordinal": 1,
+          "primitives": 14857955,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.72500002384186,
+          "viewport_gpu_ms": 41.476001739502,
+          "wait_usec": 37623
+        },
+        {
+          "draw_calls": 15581,
+          "objects": 15581,
+          "ordinal": 2,
+          "primitives": 15518799,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 9.62199974060059,
+          "viewport_gpu_ms": 5.87599992752075,
+          "wait_usec": 29323
+        },
+        {
+          "draw_calls": 13697,
+          "objects": 13697,
+          "ordinal": 3,
+          "primitives": 11872015,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.86299991607666,
+          "viewport_gpu_ms": 5.43499994277954,
+          "wait_usec": 21968
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "cycle": 3,
+      "phase": "six_cycle_loop",
+      "direction": "street -> orison",
+      "apply_ms": 40.128,
+      "separate_16_scan_ms": 3.002,
+      "frames": [
+        {
+          "draw_calls": 21144,
+          "objects": 21144,
+          "ordinal": 0,
+          "primitives": 14705170,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 6.01100015640259,
+          "viewport_gpu_ms": 5.86299991607666,
+          "wait_usec": 49658
+        },
+        {
+          "draw_calls": 21146,
+          "objects": 21146,
+          "ordinal": 1,
+          "primitives": 14705194,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.08699989318848,
+          "viewport_gpu_ms": 5.00799989700317,
+          "wait_usec": 26797
+        },
+        {
+          "draw_calls": 21148,
+          "objects": 21148,
+          "ordinal": 2,
+          "primitives": 14705218,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.75600004196167,
+          "viewport_gpu_ms": 11.4829998016357,
+          "wait_usec": 29120
+        },
+        {
+          "draw_calls": 21150,
+          "objects": 21150,
+          "ordinal": 3,
+          "primitives": 14705242,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.60500001907349,
+          "viewport_gpu_ms": 11.1529998779297,
+          "wait_usec": 21996
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "cycle": 3,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> f04",
+      "apply_ms": 4.089,
+      "separate_16_scan_ms": 2.926,
+      "frames": [
+        {
+          "draw_calls": 13517,
+          "objects": 13517,
+          "ordinal": 0,
+          "primitives": 11532113,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.73600006103516,
+          "viewport_gpu_ms": 13.7510004043579,
+          "wait_usec": 35767
+        },
+        {
+          "draw_calls": 13239,
+          "objects": 13239,
+          "ordinal": 1,
+          "primitives": 11122117,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.79199981689453,
+          "viewport_gpu_ms": 14.1269998550415,
+          "wait_usec": 19567
+        },
+        {
+          "draw_calls": 13239,
+          "objects": 13239,
+          "ordinal": 2,
+          "primitives": 11122117,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.44999980926514,
+          "viewport_gpu_ms": 10.2720003128052,
+          "wait_usec": 16353
+        },
+        {
+          "draw_calls": 13239,
+          "objects": 13239,
+          "ordinal": 3,
+          "primitives": 11122117,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.75999999046326,
+          "viewport_gpu_ms": 10.503999710083,
+          "wait_usec": 15027
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "cycle": 3,
+      "phase": "six_cycle_loop",
+      "direction": "f04 -> orison",
+      "apply_ms": 3.213,
+      "separate_16_scan_ms": 3.004,
+      "frames": [
+        {
+          "draw_calls": 21159,
+          "objects": 21159,
+          "ordinal": 0,
+          "primitives": 14705878,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.48499989509583,
+          "viewport_gpu_ms": 11.5019998550415,
+          "wait_usec": 40214
+        },
+        {
+          "draw_calls": 21159,
+          "objects": 21159,
+          "ordinal": 1,
+          "primitives": 14705902,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.38199996948242,
+          "viewport_gpu_ms": 11.6429996490479,
+          "wait_usec": 25199
+        },
+        {
+          "draw_calls": 21159,
+          "objects": 21159,
+          "ordinal": 2,
+          "primitives": 14705902,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.11100006103516,
+          "viewport_gpu_ms": 13.6379995346069,
+          "wait_usec": 25484
+        },
+        {
+          "draw_calls": 21159,
+          "objects": 21159,
+          "ordinal": 3,
+          "primitives": 14705902,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.34600019454956,
+          "viewport_gpu_ms": 14.5450000762939,
+          "wait_usec": 20975
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "cycle": 4,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> street",
+      "apply_ms": 39.331,
+      "separate_16_scan_ms": 3.043,
+      "frames": [
+        {
+          "draw_calls": 15580,
+          "objects": 15580,
+          "ordinal": 0,
+          "primitives": 15518975,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 11,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.99399995803833,
+          "viewport_gpu_ms": 15.0559997558594,
+          "wait_usec": 56196
+        },
+        {
+          "draw_calls": 13695,
+          "objects": 13695,
+          "ordinal": 1,
+          "primitives": 11871999,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.93900012969971,
+          "viewport_gpu_ms": 14.9449996948242,
+          "wait_usec": 33424
+        },
+        {
+          "draw_calls": 13693,
+          "objects": 13693,
+          "ordinal": 2,
+          "primitives": 11871971,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 8.64799976348877,
+          "viewport_gpu_ms": 14.4429998397827,
+          "wait_usec": 22600
+        },
+        {
+          "draw_calls": 13693,
+          "objects": 13693,
+          "ordinal": 3,
+          "primitives": 11871971,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.22300004959106,
+          "viewport_gpu_ms": 12.8540000915527,
+          "wait_usec": 18819
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "cycle": 4,
+      "phase": "six_cycle_loop",
+      "direction": "street -> passage",
+      "apply_ms": 1202.257,
+      "separate_16_scan_ms": 2.934,
+      "frames": [
+        {
+          "draw_calls": 6029,
+          "objects": 6459,
+          "ordinal": 0,
+          "primitives": 3194462,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.29300022125244,
+          "viewport_gpu_ms": 13.7910003662109,
+          "wait_usec": 59366
+        },
+        {
+          "draw_calls": 3483,
+          "objects": 3913,
+          "ordinal": 1,
+          "primitives": 1075438,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.75899982452393,
+          "viewport_gpu_ms": 14.0979995727539,
+          "wait_usec": 48187
+        },
+        {
+          "draw_calls": 3483,
+          "objects": 3913,
+          "ordinal": 2,
+          "primitives": 1075438,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.89100003242493,
+          "viewport_gpu_ms": 40.2929992675781,
+          "wait_usec": 34115
+        },
+        {
+          "draw_calls": 6035,
+          "objects": 6471,
+          "ordinal": 3,
+          "primitives": 3194822,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.875,
+          "viewport_gpu_ms": 26.6180000305176,
+          "wait_usec": 35314
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "cycle": 4,
+      "phase": "six_cycle_loop",
+      "direction": "passage -> street",
+      "apply_ms": 1181.689,
+      "separate_16_scan_ms": 2.976,
+      "frames": [
+        {
+          "draw_calls": 15570,
+          "objects": 15570,
+          "ordinal": 0,
+          "primitives": 15506683,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.896000027656555,
+          "viewport_gpu_ms": 26.9020004272461,
+          "wait_usec": 74517
+        },
+        {
+          "draw_calls": 15354,
+          "objects": 15354,
+          "ordinal": 1,
+          "primitives": 14851367,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.76199996471405,
+          "viewport_gpu_ms": 41.1679992675781,
+          "wait_usec": 69877
+        },
+        {
+          "draw_calls": 15570,
+          "objects": 15570,
+          "ordinal": 2,
+          "primitives": 15512403,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 9.1560001373291,
+          "viewport_gpu_ms": 58.3849983215332,
+          "wait_usec": 66162
+        },
+        {
+          "draw_calls": 13688,
+          "objects": 13688,
+          "ordinal": 3,
+          "primitives": 11865823,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.36700010299683,
+          "viewport_gpu_ms": 54.4550018310547,
+          "wait_usec": 69932
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "cycle": 4,
+      "phase": "six_cycle_loop",
+      "direction": "street -> orison",
+      "apply_ms": 39.848,
+      "separate_16_scan_ms": 3.114,
+      "frames": [
+        {
+          "draw_calls": 21165,
+          "objects": 21165,
+          "ordinal": 0,
+          "primitives": 14751612,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 6.03399991989136,
+          "viewport_gpu_ms": 58.8779983520508,
+          "wait_usec": 43707
+        },
+        {
+          "draw_calls": 21173,
+          "objects": 21173,
+          "ordinal": 1,
+          "primitives": 14752068,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 6.14599990844727,
+          "viewport_gpu_ms": 47.2290000915527,
+          "wait_usec": 27779
+        },
+        {
+          "draw_calls": 21177,
+          "objects": 21177,
+          "ordinal": 2,
+          "primitives": 14782056,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.81500005722046,
+          "viewport_gpu_ms": 5.8899998664856,
+          "wait_usec": 21611
+        },
+        {
+          "draw_calls": 21177,
+          "objects": 21177,
+          "ordinal": 3,
+          "primitives": 14782056,
+          "surface_governor": {
+            "budget": 0.0,
+            "governed_steps": 12,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.72100019454956,
+          "viewport_gpu_ms": 5.46299982070923,
+          "wait_usec": 20315
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "cycle": 4,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> f04",
+      "apply_ms": 4.531,
+      "separate_16_scan_ms": 2.975,
+      "frames": [
+        {
+          "draw_calls": 13517,
+          "objects": 13517,
+          "ordinal": 0,
+          "primitives": 11532113,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 13,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.77299976348877,
+          "viewport_gpu_ms": 5.45599985122681,
+          "wait_usec": 43200
+        },
+        {
+          "draw_calls": 13517,
+          "objects": 13517,
+          "ordinal": 1,
+          "primitives": 11532113,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 13,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.00799989700317,
+          "viewport_gpu_ms": 5.46600008010864,
+          "wait_usec": 21438
+        },
+        {
+          "draw_calls": 13517,
+          "objects": 13517,
+          "ordinal": 2,
+          "primitives": 11532113,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 13,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.25500011444092,
+          "viewport_gpu_ms": 4.3270001411438,
+          "wait_usec": 17621
+        },
+        {
+          "draw_calls": 13517,
+          "objects": 13517,
+          "ordinal": 3,
+          "primitives": 11532113,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 13,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.45000004768372,
+          "viewport_gpu_ms": 4.33300018310547,
+          "wait_usec": 16756
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "cycle": 4,
+      "phase": "six_cycle_loop",
+      "direction": "f04 -> orison",
+      "apply_ms": 3.003,
+      "separate_16_scan_ms": 3.003,
+      "frames": [
+        {
+          "draw_calls": 21172,
+          "objects": 21223,
+          "ordinal": 0,
+          "primitives": 14751836,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 13,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.28299999237061,
+          "viewport_gpu_ms": 4.32200002670288,
+          "wait_usec": 67196
+        },
+        {
+          "draw_calls": 21174,
+          "objects": 21225,
+          "ordinal": 1,
+          "primitives": 14766854,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 13,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.61100006103516,
+          "viewport_gpu_ms": 4.33300018310547,
+          "wait_usec": 29200
+        },
+        {
+          "draw_calls": 21174,
+          "objects": 21225,
+          "ordinal": 2,
+          "primitives": 14766854,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 13,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.05499982833862,
+          "viewport_gpu_ms": 5.24399995803833,
+          "wait_usec": 24404
+        },
+        {
+          "draw_calls": 21174,
+          "objects": 21225,
+          "ordinal": 3,
+          "primitives": 14766854,
+          "surface_governor": {
+            "budget": 0.25,
+            "governed_steps": 13,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.68499994277954,
+          "viewport_gpu_ms": 5.74700021743774,
+          "wait_usec": 22407
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "cycle": 5,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> street",
+      "apply_ms": 36.191,
+      "separate_16_scan_ms": 3.075,
+      "frames": [
+        {
+          "draw_calls": 15576,
+          "objects": 15627,
+          "ordinal": 0,
+          "primitives": 15525027,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 14,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.63100004196167,
+          "viewport_gpu_ms": 5.75500011444092,
+          "wait_usec": 66076
+        },
+        {
+          "draw_calls": 13692,
+          "objects": 13743,
+          "ordinal": 1,
+          "primitives": 11878243,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 14,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.73000001907349,
+          "viewport_gpu_ms": 5.68699979782104,
+          "wait_usec": 30795
+        },
+        {
+          "draw_calls": 13692,
+          "objects": 13743,
+          "ordinal": 2,
+          "primitives": 11878243,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 14,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 8.30300045013428,
+          "viewport_gpu_ms": 5.84800004959106,
+          "wait_usec": 22850
+        },
+        {
+          "draw_calls": 15576,
+          "objects": 15627,
+          "ordinal": 3,
+          "primitives": 15525027,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 14,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.68699979782104,
+          "viewport_gpu_ms": 4.59499979019165,
+          "wait_usec": 29485
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "cycle": 5,
+      "phase": "six_cycle_loop",
+      "direction": "street -> passage",
+      "apply_ms": 1189.583,
+      "separate_16_scan_ms": 2.901,
+      "frames": [
+        {
+          "draw_calls": 6066,
+          "objects": 6343,
+          "ordinal": 0,
+          "primitives": 3195238,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 14,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.38399982452393,
+          "viewport_gpu_ms": 4.3899998664856,
+          "wait_usec": 63641
+        },
+        {
+          "draw_calls": 3520,
+          "objects": 3797,
+          "ordinal": 1,
+          "primitives": 1076214,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 14,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 6.11199998855591,
+          "viewport_gpu_ms": 5.15899991989136,
+          "wait_usec": 22908
+        },
+        {
+          "draw_calls": 3520,
+          "objects": 3797,
+          "ordinal": 2,
+          "primitives": 1076214,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 14,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.89999997615814,
+          "viewport_gpu_ms": 11.5799999237061,
+          "wait_usec": 11863
+        },
+        {
+          "draw_calls": 3520,
+          "objects": 3797,
+          "ordinal": 3,
+          "primitives": 1076214,
+          "surface_governor": {
+            "budget": 0.5,
+            "governed_steps": 14,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.819000005722046,
+          "viewport_gpu_ms": 7.94899988174438,
+          "wait_usec": 12974
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "cycle": 5,
+      "phase": "six_cycle_loop",
+      "direction": "passage -> street",
+      "apply_ms": 1177.65,
+      "separate_16_scan_ms": 2.948,
+      "frames": [
+        {
+          "draw_calls": 15581,
+          "objects": 15632,
+          "ordinal": 0,
+          "primitives": 15525387,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 15,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.790000021457672,
+          "viewport_gpu_ms": 9.47799968719482,
+          "wait_usec": 82132
+        },
+        {
+          "draw_calls": 15365,
+          "objects": 15416,
+          "ordinal": 1,
+          "primitives": 14869851,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 15,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.89300000667572,
+          "viewport_gpu_ms": 7.85200023651123,
+          "wait_usec": 84854
+        },
+        {
+          "draw_calls": 15587,
+          "objects": 15638,
+          "ordinal": 2,
+          "primitives": 15542981,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 15,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 9.51399993896484,
+          "viewport_gpu_ms": 67.4769973754883,
+          "wait_usec": 82007
+        },
+        {
+          "draw_calls": 13704,
+          "objects": 13755,
+          "ordinal": 3,
+          "primitives": 11896389,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 15,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.84499979019165,
+          "viewport_gpu_ms": 65.2979965209961,
+          "wait_usec": 77036
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "cycle": 5,
+      "phase": "six_cycle_loop",
+      "direction": "street -> orison",
+      "apply_ms": 40.118,
+      "separate_16_scan_ms": 3.055,
+      "frames": [
+        {
+          "draw_calls": 21186,
+          "objects": 21237,
+          "ordinal": 0,
+          "primitives": 14785720,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 15,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 6.30100011825562,
+          "viewport_gpu_ms": 59.6199989318848,
+          "wait_usec": 44723
+        },
+        {
+          "draw_calls": 21186,
+          "objects": 21237,
+          "ordinal": 1,
+          "primitives": 14785720,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.2519998550415,
+          "viewport_gpu_ms": 5.65799999237061,
+          "wait_usec": 29796
+        },
+        {
+          "draw_calls": 21185,
+          "objects": 21185,
+          "ordinal": 2,
+          "primitives": 14785616,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.0939998626709,
+          "viewport_gpu_ms": 6.06500005722046,
+          "wait_usec": 21465
+        },
+        {
+          "draw_calls": 21185,
+          "objects": 21185,
+          "ordinal": 3,
+          "primitives": 14785616,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.71700000762939,
+          "viewport_gpu_ms": 6.04400014877319,
+          "wait_usec": 20078
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "cycle": 5,
+      "phase": "six_cycle_loop",
+      "direction": "orison -> f04",
+      "apply_ms": 4.063,
+      "separate_16_scan_ms": 2.916,
+      "frames": [
+        {
+          "draw_calls": 13519,
+          "objects": 13519,
+          "ordinal": 0,
+          "primitives": 11532009,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.62400007247925,
+          "viewport_gpu_ms": 6.03700017929077,
+          "wait_usec": 37895
+        },
+        {
+          "draw_calls": 13519,
+          "objects": 13519,
+          "ordinal": 1,
+          "primitives": 11532009,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.73199987411499,
+          "viewport_gpu_ms": 6.06199979782104,
+          "wait_usec": 26827
+        },
+        {
+          "draw_calls": 12963,
+          "objects": 12963,
+          "ordinal": 2,
+          "primitives": 10708465,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.35900020599365,
+          "viewport_gpu_ms": 5.31500005722046,
+          "wait_usec": 28828
+        },
+        {
+          "draw_calls": 12963,
+          "objects": 12963,
+          "ordinal": 3,
+          "primitives": 10708465,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.70000004768372,
+          "viewport_gpu_ms": 5.77500009536743,
+          "wait_usec": 18130
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "cycle": 5,
+      "phase": "six_cycle_loop",
+      "direction": "f04 -> orison",
+      "apply_ms": 3.13,
+      "separate_16_scan_ms": 2.955,
+      "frames": [
+        {
+          "draw_calls": 21193,
+          "objects": 21193,
+          "ordinal": 0,
+          "primitives": 14789150,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.3199999332428,
+          "viewport_gpu_ms": 5.23299980163574,
+          "wait_usec": 43297
+        },
+        {
+          "draw_calls": 21197,
+          "objects": 21197,
+          "ordinal": 1,
+          "primitives": 14819162,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.25699996948242,
+          "viewport_gpu_ms": 4.77099990844727,
+          "wait_usec": 28635
+        },
+        {
+          "draw_calls": 21196,
+          "objects": 21196,
+          "ordinal": 2,
+          "primitives": 14818994,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.32399988174438,
+          "viewport_gpu_ms": 5.88199996948242,
+          "wait_usec": 22768
+        },
+        {
+          "draw_calls": 21196,
+          "objects": 21196,
+          "ordinal": 3,
+          "primitives": 14818994,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.97399997711182,
+          "viewport_gpu_ms": 6.26399993896484,
+          "wait_usec": 21107
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "cycle": 7,
+      "phase": "post_loop_capture_return",
+      "direction": "orison -> harukiya",
+      "apply_ms": 2.642,
+      "separate_16_scan_ms": 2.992,
+      "frames": [
+        {
+          "draw_calls": 5309,
+          "objects": 5584,
+          "ordinal": 0,
+          "primitives": 6303005,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 4.80499982833862,
+          "viewport_gpu_ms": 6.24499988555908,
+          "wait_usec": 185303
+        },
+        {
+          "draw_calls": 4944,
+          "objects": 5222,
+          "ordinal": 1,
+          "primitives": 5935633,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 5.06199979782104,
+          "viewport_gpu_ms": 6.26000022888184,
+          "wait_usec": 34825
+        },
+        {
+          "draw_calls": 2526,
+          "objects": 2789,
+          "ordinal": 2,
+          "primitives": 1720927,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 2.19300007820129,
+          "viewport_gpu_ms": 8.20300006866455,
+          "wait_usec": 13109
+        },
+        {
+          "draw_calls": 2328,
+          "objects": 2587,
+          "ordinal": 3,
+          "primitives": 1717867,
+          "surface_governor": {
+            "budget": 1.0,
+            "governed_steps": 16,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.79299998283386,
+          "viewport_gpu_ms": 7.38100004196167,
+          "wait_usec": 12547
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "cycle": 6,
+      "phase": "post_control_retirement_return",
+      "direction": "orison -> passage",
+      "apply_ms": 1153.806,
+      "separate_16_scan_ms": 2.958,
+      "frames": [
+        {
+          "draw_calls": 6067,
+          "objects": 6293,
+          "ordinal": 0,
+          "primitives": 3195050,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 19,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.47099995613098,
+          "viewport_gpu_ms": 5.59299993515015,
+          "wait_usec": 62647
+        },
+        {
+          "draw_calls": 3520,
+          "objects": 3746,
+          "ordinal": 1,
+          "primitives": 1076014,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 19,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 3.11700010299683,
+          "viewport_gpu_ms": 5.6269998550415,
+          "wait_usec": 22935
+        },
+        {
+          "draw_calls": 3520,
+          "objects": 3746,
+          "ordinal": 2,
+          "primitives": 1076014,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 19,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 1.95899999141693,
+          "viewport_gpu_ms": 4.39200019836426,
+          "wait_usec": 12802
+        },
+        {
+          "draw_calls": 3520,
+          "objects": 3746,
+          "ordinal": 3,
+          "primitives": 1076014,
+          "surface_governor": {
+            "budget": 0.75,
+            "governed_steps": 19,
+            "pinned": false,
+            "props_tier_on": true,
+            "queued_material_changes": 0
+          },
+          "viewport_cpu_ms": 0.876999974250793,
+          "viewport_gpu_ms": 3.02699995040894,
+          "wait_usec": 10386
+        }
+      ]
+    }
+  ],
+  "main_loop_governor_budget_frame_counts": {
+    "0.75": 29,
+    "1.0": 60,
+    "0.5": 15,
+    "0.25": 25,
+    "0.0": 15
+  },
+  "actual_root_retirement": {
+    "shell": true,
+    "selected_world": true,
+    "native_retention_diagnostics": []
+  },
+  "owned_controls": [
+    {
+      "authored_mask": 33,
+      "name": "mask33",
+      "two_release_orders": true
+    },
+    {
+      "authored_mask": 1,
+      "name": "own_hidden",
+      "two_release_orders": true
+    },
+    {
+      "authored_mask": 1,
+      "name": "parent_hidden",
+      "two_release_orders": true
+    },
+    {
+      "authored_mask": 0,
+      "name": "authored_zero",
+      "two_release_orders": true
+    }
+  ],
+  "subviews": [
+    {
+      "kind": "PhoneCamera",
+      "ownership": "fixture-mounted production implementation",
+      "shared_world": true
+    },
+    {
+      "geometry_count": 0,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/B1/Arcade_b1_laundry_cab/Machine"
+    },
+    {
+      "geometry_count": 204,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_retail_bar_cab01/Machine"
+    },
+    {
+      "geometry_count": 204,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_retail_bar_cab02/Machine"
+    },
+    {
+      "geometry_count": 205,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_storm_shopcab_model_laundry0/Machine"
+    },
+    {
+      "geometry_count": 0,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_storm_shopcab_photo_supplies0/Machine"
+    },
+    {
+      "geometry_count": 0,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_storm_shopcab_radio_service0/Machine"
+    },
+    {
+      "geometry_count": 203,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_storm_shopcab_pawnbroker0/Machine"
+    },
+    {
+      "geometry_count": 204,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_storm_shopcab_news_cigars0/Machine"
+    },
+    {
+      "geometry_count": 0,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_storm_shopcab_luncheonette0/Machine"
+    },
+    {
+      "geometry_count": 0,
+      "kind": "ArcadeMachine",
+      "own_world_3d": true,
+      "path": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F01/Arcade_storm_shopcab_luncheonette1/Machine"
+    },
+    {
+      "kind": "actual_arcade_capture",
+      "name": "actual_arcade_before_passage",
+      "owner_state": {
+        "away_seconds": 0.0,
+        "booted": true,
+        "current_geometry_count": 204,
+        "distance": 1.90732681751251,
+        "live": true,
+        "live_range": 9.0,
+        "machine_path": "F01/Arcade_retail_bar_cab01/Machine",
+        "own_world_3d": true,
+        "owner_path": "F01/Arcade_retail_bar_cab01",
+        "playing": false,
+        "unload_delay": 8.0,
+        "unload_range": 16.0,
+        "update_mode": 4
+      },
+      "scope": "real cabinet's raw game viewport after actual near-camera activation; no forced render or synthetic content"
+    },
+    {
+      "kind": "actual_arcade_capture",
+      "name": "actual_arcade_after_passage",
+      "owner_state": {
+        "away_seconds": 0.0,
+        "booted": true,
+        "current_geometry_count": 204,
+        "distance": 1.90732681751251,
+        "live": true,
+        "live_range": 9.0,
+        "machine_path": "F01/Arcade_retail_bar_cab01/Machine",
+        "own_world_3d": true,
+        "owner_path": "F01/Arcade_retail_bar_cab01",
+        "playing": false,
+        "unload_delay": 8.0,
+        "unload_range": 16.0,
+        "update_mode": 4
+      },
+      "scope": "real cabinet's raw game viewport after actual near-camera activation; no forced render or synthetic content"
+    },
+    {
+      "cabinet": "/root/VulkanComposedRootTest/@Node@6/WorldSlot/OrisonRoot/F04_4A_MIRROR_01",
+      "kind": "PlanarMirrorRenderer",
+      "ownership": "actual V1 root",
+      "shared_world": true
+    },
+    {
+      "kind": "owned separate World3D",
+      "not_actual_arcade_gameplay": true,
+      "orange_pixels": [
+        1936,
+        1936,
+        0
+      ],
+      "ownership": "synthetic explicit helper boundary",
+      "production_caller": "V1._zone_toggle"
+    }
+  ],
+  "all_arcade_observation_issues": [],
+  "scope_limits": [
+    "Base fixture has no material probe. This run proves neither all-registry lifecycle restoration nor per-material WeakRef retirement; those belong to separate d67 receipts.",
+    "Controlled actual-root teleport/render/ownership/retirement smoke, not player traversal, human visual acceptance or release performance.",
+    "Apply timings bracket synchronous visibility call, not whole frame time; sampled governor remains adaptive. Single-source single-run timings, no speedup comparison or confidence interval.",
+    "Five warmups and two one-off capture/retirement returns remain separate from the36 main transitions. Native no-op call count is not proven.",
+    "The reference differs at owner plus four inactive source fixtures; exact ordered labels establish contract continuity, not an isolated timing comparison."
+  ]
+}

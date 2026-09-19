@@ -1,0 +1,29 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base_head": "0211900e553d9cf3b4a2fef7bf1bd35235b8ca1f",
+  "protected_unchanged_from_head": [
+    "game/data/orison_v2/domestic_furniture.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/data/orison_v2/case_one_placement.json",
+    "game/data/orison_v2/mina_routine.json",
+    "game/project.godot",
+    "game/scripts/building/orison_v2_domestic_doors.gd"
+  ],
+  "layout_only_wall_extensions_changed": true,
+  "regeneration_byte_identical": {
+    "game/data/orison_v2_blockout.json": "eb8c79243c8065c00033d82828535a25d4b43c9ede623c1546ccd2a9c5ce9529",
+    "game/data/orison_v2/domestic_surface_props.json": "0d07ba16b5b41f3b3658d99e266e1da6359dc4acab905d6a1fd3404666063bdc",
+    "design/astra/work/v2_apartment_walls_batch_01/receipt.json": "63ae6e3e532584f75bacd8da3a9d1109efca6e3d23d4cd89e2e4c444cef42d41",
+    "design/astra/work/v2_surface_props_batch_01/receipt.json": "be4c8e6bc55830cd002f51b03433e562e8a824bbf6e44544098c18ef64f6ab0a"
+  },
+  "gdscript_syntax_parsed": [
+    "game/scripts/building/orison_v2_blockout.gd",
+    "game/scripts/building/orison_v2_domestic_furniture.gd",
+    "game/scripts/building/orison_v2_surface_props.gd",
+    "game/scripts/building/orison_v2_runtime_root.gd",
+    "game/tests/orison_v2_apartment_batch_test.gd"
+  ],
+  "limits": "Independent syntax parser only, not engine type checking. No physics, visual or runtime acceptance."
+}

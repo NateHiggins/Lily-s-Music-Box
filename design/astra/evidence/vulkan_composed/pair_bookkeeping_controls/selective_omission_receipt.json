@@ -1,0 +1,21 @@
+{
+  "scope": "In-memory selective assessor rejection omissions only; production files and assessor on disk unchanged; no engine",
+  "controls": [
+    {
+      "control": "site_check_omission",
+      "actual_exit": 1,
+      "expected_exit": 1,
+      "assertion_failures": 4
+    },
+    {
+      "control": "restoration_flag_omission",
+      "actual_exit": 1,
+      "expected_exit": 1,
+      "assertion_failures": 1
+    }
+  ],
+  "cwd": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\vulkan_composed",
+  "interpreter": "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "execution_form": "subprocess.run([interpreter, -c, exact contents of selective_omissions.py, control_name], cwd=work/vulkan_composed)",
+  "script_sha256": "0e7ecb0f162676a20789910b09255371fcab5bcb07b966e749786d259240bcba"
+}

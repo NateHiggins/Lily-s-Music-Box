@@ -1,0 +1,451 @@
+{
+  "godot": "NOT_RUN",
+  "units": [
+    {
+      "unit": "1A",
+      "role": "apartment",
+      "residents": [
+        "evelyn_marsh"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "1B",
+      "role": "shared/service",
+      "residents": [],
+      "rooms": [],
+      "status": "NON_RESIDENTIAL_SOURCE_ROLE",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "1C",
+      "role": "shared/service",
+      "residents": [],
+      "rooms": [],
+      "status": "NON_RESIDENTIAL_SOURCE_ROLE",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "1D",
+      "role": "apartment",
+      "residents": [
+        "teresa_vale"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "2A",
+      "role": "Mina Vale",
+      "residents": [
+        "mina_vale"
+      ],
+      "rooms": [
+        "F02_A_VESTIBULE",
+        "F02_A_MAIN",
+        "F02_A_KITCHEN",
+        "F02_A_PRIVATE_HALL",
+        "F02_A_BATH",
+        "F02_A_BED"
+      ],
+      "status": "DOMESTIC_CORE_IN_SOURCE",
+      "furniture": [
+        "2A_sofa",
+        "2A_wc",
+        "2A_bed0",
+        "2A_bed0_ns",
+        "2A_w0_wardrobe",
+        "2A_shelf0",
+        "2A_shelf1",
+        "2A_shelf2",
+        "2A_sink_support",
+        "2A_din_t",
+        "2A_din_dc1",
+        "2A_din_dc2",
+        "2A_desk",
+        "2A_desk_dkch",
+        "2A_k_wall_cupboard",
+        "2A_cof",
+        "2A_pinboard",
+        "2A_wireless_table",
+        "2A_prep_cabinet",
+        "2A_deck",
+        "2A_projector_stand"
+      ],
+      "fittings": [
+        "F02_2A_FRIDGE_01",
+        "F02_2A_SINK_01",
+        "F02_2A_KITCHEN_SINK_01",
+        "F02_2A_SHOWER_01",
+        "F02_2A_STOVE_01"
+      ]
+    },
+    {
+      "unit": "2B",
+      "role": "supporting",
+      "residents": [
+        "lena_ortiz"
+      ],
+      "rooms": [
+        "F02_B_VESTIBULE",
+        "F02_B_MAIN",
+        "F02_B_KITCHEN",
+        "F02_B_BED",
+        "F02_B_PRIVATE_HALL",
+        "F02_B_BATH"
+      ],
+      "status": "DOMESTIC_CORE_IN_SOURCE",
+      "furniture": [
+        "2B_wc",
+        "2B_abed",
+        "2B_aw_wardrobe",
+        "2B_sink_support",
+        "2B_din_t",
+        "2B_din_dc1",
+        "2B_din_dc2",
+        "2B_fabric_worktable",
+        "2B_fabric_shelf_01",
+        "2B_fabric_shelf_02",
+        "2B_k_wall_cupboard",
+        "2B_story_pattern_board",
+        "2B_wireless_table",
+        "2B_prep_cabinet"
+      ],
+      "fittings": [
+        "F02_2B_SINK_01",
+        "F02_2B_KITCHEN_SINK_01",
+        "F02_2B_SHOWER_01",
+        "F02_2B_STOVE_01",
+        "F02_2B_FRIDGE_01"
+      ]
+    },
+    {
+      "unit": "2C",
+      "role": "Juno Kells",
+      "residents": [
+        "juno_kells"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "2D",
+      "role": "sealed",
+      "residents": [],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "3A",
+      "role": "supporting",
+      "residents": [
+        "malcolm_reed"
+      ],
+      "rooms": [
+        "F03_A_VESTIBULE",
+        "F03_A_MAIN",
+        "F03_A_KITCHEN",
+        "F03_A_PRIVATE_HALL",
+        "F03_A_BATH",
+        "F03_A_BED"
+      ],
+      "status": "DOMESTIC_CORE_IN_SOURCE",
+      "furniture": [
+        "3A_wc",
+        "3A_bed0",
+        "3A_w0_wardrobe",
+        "3A_din_t",
+        "3A_din_dc1",
+        "3A_din_dc2",
+        "3A_sink_support",
+        "3A_prep_cabinet",
+        "3A_k_wall_cupboard",
+        "3A_bed0_ns",
+        "3A_potting_bench"
+      ],
+      "fittings": [
+        "F03_3A_FRIDGE_01",
+        "F03_3A_SINK_01",
+        "F03_3A_KITCHEN_SINK_01",
+        "F03_3A_SHOWER_01",
+        "F03_3A_STOVE_01"
+      ]
+    },
+    {
+      "unit": "3B",
+      "role": "Omar Bell",
+      "residents": [
+        "omar_bell"
+      ],
+      "rooms": [
+        "F03_B_VESTIBULE",
+        "F03_B_MAIN",
+        "F03_B_KITCHEN",
+        "F03_B_PRIVATE_HALL",
+        "F03_B_ALCOVE",
+        "F03_B_BATH"
+      ],
+      "status": "DOMESTIC_CORE_IN_SOURCE",
+      "furniture": [
+        "3B_abed",
+        "3B_workbench",
+        "3B_wc",
+        "3B_abed_ns",
+        "3B_aw_wardrobe",
+        "3B_tools0",
+        "3B_tools1",
+        "3B_din_t",
+        "3B_din_dc1",
+        "3B_din_dc2",
+        "3B_stool",
+        "3B_k_wall_cupboard",
+        "3B_toolboard",
+        "3B_partscrate",
+        "3B_wireless_table",
+        "3B_prep_cabinet",
+        "3B_radio",
+        "3B_projector_stand"
+      ],
+      "fittings": [
+        "F03_3B_KITCHEN_SINK_01",
+        "F03_3B_STOVE_01",
+        "F03_3B_FRIDGE_01",
+        "F03_3B_SINK_01",
+        "F03_3B_SHOWER_01"
+      ]
+    },
+    {
+      "unit": "3C",
+      "role": "vacant (damaged)",
+      "residents": [],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "3D",
+      "role": "Rhea Sato",
+      "residents": [
+        "rhea_sato"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "4A",
+      "role": "supporting",
+      "residents": [
+        "peter_wren"
+      ],
+      "rooms": [
+        "F04_A_VESTIBULE",
+        "F04_A_MAIN",
+        "F04_A_KITCHEN",
+        "F04_A_BED",
+        "F04_A_PRIVATE_HALL",
+        "F04_A_BATH"
+      ],
+      "status": "DOMESTIC_CORE_IN_SOURCE",
+      "furniture": [
+        "4A_wc",
+        "4A_bed0",
+        "4A_w0_wardrobe",
+        "4A_din_t",
+        "4A_din_dc1",
+        "4A_din_dc2",
+        "4A_sink_support",
+        "4A_prep_cabinet",
+        "4A_k_wall_cupboard",
+        "4A_bed0_ns",
+        "4A_writing_table"
+      ],
+      "fittings": [
+        "F04_4A_SINK_01",
+        "F04_4A_KITCHEN_SINK_01",
+        "F04_4A_SHOWER_01",
+        "F04_4A_STOVE_01",
+        "F04_4A_FRIDGE_01"
+      ]
+    },
+    {
+      "unit": "4B",
+      "role": "PLAYER",
+      "residents": [],
+      "rooms": [
+        "F04_B_VESTIBULE",
+        "F04_B_MAIN",
+        "F04_B_KITCHEN",
+        "F04_B_PRIVATE_HALL",
+        "F04_B_ALCOVE_APPROACH",
+        "F04_B_BATH",
+        "F04_B_CLOSET",
+        "F04_B_ALCOVE"
+      ],
+      "status": "DOMESTIC_CORE_IN_SOURCE",
+      "furniture": [
+        "4B_wake_bed",
+        "4B_wake_nightstand",
+        "4B_couch",
+        "4B_shelf",
+        "4B_wc",
+        "4B_terminal_desk",
+        "4B_sink_counter",
+        "4B_equipment_shelf",
+        "4B_meal_table",
+        "4B_meal_chair_01",
+        "4B_meal_chair_02",
+        "4B_desk_chair",
+        "4B_wall_cupboard",
+        "4B_coffee",
+        "4B_wireless_table",
+        "4B_prep_cabinet",
+        "4B_projector_stand"
+      ],
+      "fittings": [
+        "F04_4B_SHOWER_01",
+        "F04_4B_SINK_01",
+        "F04_B_STOVE_01",
+        "F04_B_FRIDGE_01",
+        "F04_4B_KITCHEN_SINK_01"
+      ]
+    },
+    {
+      "unit": "4C",
+      "role": "Cam Ortiz & Noel Price",
+      "residents": [
+        "cam_ortiz",
+        "noel_price"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "4D",
+      "role": "short-term rental",
+      "residents": [
+        "transient_guests"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "5A",
+      "role": "Nadia Quell",
+      "residents": [
+        "nadia_quell"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "5B",
+      "role": "supporting",
+      "residents": [
+        "cal_dwyer"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "5C",
+      "role": "supporting",
+      "residents": [
+        "iris_bell"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "5D",
+      "role": "vacant (fire damage)",
+      "residents": [],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "6A",
+      "role": "Sacha Reed",
+      "residents": [
+        "sacha_reed"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "6B",
+      "role": "supporting",
+      "residents": [
+        "jonah_price"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "6C",
+      "role": "supporting",
+      "residents": [
+        "mae_kessler"
+      ],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "6D",
+      "role": "landlord storage",
+      "residents": [],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    },
+    {
+      "unit": "B1",
+      "role": "residential",
+      "residents": [],
+      "rooms": [],
+      "status": "ROOM_PROGRAM_PENDING",
+      "furniture": [],
+      "fittings": []
+    }
+  ],
+  "residential_labels": 22,
+  "detailed_units": 6,
+  "remaining_residential_programs": 16,
+  "shared_labels": [
+    "1B",
+    "1C"
+  ],
+  "limits": "Unit labels include authored vacant/sealed/storage dispositions, not 22 occupied households. Source role coverage does not establish resident migration or completion."
+}

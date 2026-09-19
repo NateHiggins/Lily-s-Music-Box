@@ -69,6 +69,12 @@ func bind_wake(loop: CoreLoopDirector) -> void:
 
 
 func _on_wake_completed(_return_anchor_id: String) -> void:
+	record_waking_residue()
+	_apply_state(RealityState.case_state(CASE_ID))
+
+
+## The factual wake consequence does not require this legacy display to exist.
+static func record_waking_residue() -> void:
 	var state := RealityState.case_state(CASE_ID)
 	if not bool(state.get("resolved", false)):
 		return
@@ -79,7 +85,6 @@ func _on_wake_completed(_return_anchor_id: String) -> void:
 		"display_socket_id": RESIDUE_SOCKET_ID,
 		"text": "REFRIGERATOR",
 	})
-	_apply_state(state)
 
 
 func _on_reality_state_changed() -> void:

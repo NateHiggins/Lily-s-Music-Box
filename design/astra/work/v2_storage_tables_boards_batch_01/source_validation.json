@@ -1,0 +1,28 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base_head": "0a92e59",
+  "old_furniture_preserved": 47,
+  "anchors_added": 10,
+  "old_materials_preserved": 49,
+  "new_material_keys": [
+    "timber",
+    "plywood"
+  ],
+  "protected_json_unchanged": [
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/domestic_surface_props.json",
+    "game/data/orison_v2/room_lighting.json",
+    "game/data/orison_v2/case_one_placement.json",
+    "game/data/orison_v2/mina_routine.json"
+  ],
+  "regeneration_sha256": {
+    "game/data/orison_v2/domestic_furniture.json": "91c627688e7c534f678150a3b8c5bc67c78f5bce0bc744239df8b41a08b0fc3f",
+    "game/data/orison_v2_blockout.json": "7ae1a2237e56c8c7c65ae3981b9f7bea27413355b1458d1943fdb9534e499b35",
+    "art/data/runtime_material_sets.json": "0784d754a0d59c251179af4a59629413a2ab8a411d9fdb638caa8c4b41ca53b5",
+    "game/data/runtime_material_sets.json": "0784d754a0d59c251179af4a59629413a2ab8a411d9fdb638caa8c4b41ca53b5",
+    "game/scripts/generated/material_sets.gd": "851a92b757bfa0757f00c52b833b9719c7775107ed00aa99b97fdcb9833ae0a7",
+    "design/astra/work/v2_storage_tables_boards_batch_01/receipt.json": "f763d2aa07e65da6410c59456c48ca2e9de71d8cda1d30e11bc57f541061e7b6"
+  },
+  "limits": "Source preservation, bounds and reproducibility only; no engine or visual acceptance."
+}

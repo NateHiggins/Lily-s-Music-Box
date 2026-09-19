@@ -1,0 +1,79 @@
+{
+  "status": "PRESERVED_FAILED_OPERATOR_POSE_FIXTURE_REVISION_REQUIRED",
+  "head": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+  "runs": [
+    {
+      "phase": "01_original",
+      "result_sha256": "cade796dfca635613d70a5d317afd48a020bee6ed4280fe74f94e9fc521dd7b0",
+      "artifact_count": 55,
+      "native_exit": 1,
+      "diagnostic_gate_exit": 1,
+      "historical_control_contract_exit": 0,
+      "passed": 16,
+      "total": 36,
+      "front_dot": -7.54979012640433e-08,
+      "desk_count": 0,
+      "first_ray_from": [
+        -3.59999990463257,
+        1.50999999046326,
+        24.7199993133545
+      ],
+      "second_ray_from": [
+        -3.59999990463257,
+        1.50999999046326,
+        24.7199993133545
+      ],
+      "raw_receipt_integrity_verified": true,
+      "sources_and_engine_ancestry_verified": true,
+      "restored_owner_hashes": {
+        "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+        "game/scripts/call/desk_zone.gd": "294fa6275cc8355ed277f6a9be1b1293699e1680ab7189a04182861d0d06de2e"
+      }
+    },
+    {
+      "phase": "02_candidate",
+      "result_sha256": "c309babd17539cce6c129181ee25e75df16882fde002302960fe2b19c1093309",
+      "artifact_count": 55,
+      "native_exit": 1,
+      "diagnostic_gate_exit": 1,
+      "historical_control_contract_exit": 1,
+      "passed": 21,
+      "total": 36,
+      "front_dot": 1.0,
+      "desk_count": 1,
+      "first_ray_from": [
+        -3.59999990463257,
+        1.50999999046326,
+        24.7199993133545
+      ],
+      "second_ray_from": [
+        -3.59999990463257,
+        1.50999999046326,
+        24.7199993133545
+      ],
+      "raw_receipt_integrity_verified": true,
+      "sources_and_engine_ancestry_verified": true,
+      "restored_owner_hashes": {
+        "game/scripts/building/orison_v2_runtime_root.gd": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+        "game/scripts/call/desk_zone.gd": "294fa6275cc8355ed277f6a9be1b1293699e1680ab7189a04182861d0d06de2e"
+      }
+    }
+  ],
+  "cause": {
+    "path": "game/scripts/game/first_shift_director.gd",
+    "source_sha256": "5c53680040277cb76539e1e7702a620333dc681f7a5f6a3103a7afb948f00bfd",
+    "mechanism": "_ready defers _begin_if_needed. With intro_complete true, that callback calls _place_at_arrival unconditionally, after the fixture has placed the actor at the operator. Both rays therefore ran from the arrival curb.",
+    "actual_camera_origin": [
+      -3.6,
+      1.51,
+      24.72
+    ],
+    "intended_operator_camera_origin": [
+      -9.9,
+      11.01,
+      1.25
+    ]
+  },
+  "interpretation": "Original16/36 matched predicted failures but does not establish an operator-position negative control. Candidate21/36 proves terminal facing/DeskZone composition in this fixture; actual operator interaction is unproven. The ordinary gate remained red. No new product failure baseline is established.",
+  "next": "Fresh fixture/evidence revision must observe actual deferred arrival, then explicitly verify actor/camera operator placement and bind both ray origins before real input proof. Production fix is unchanged pending that proof."
+}

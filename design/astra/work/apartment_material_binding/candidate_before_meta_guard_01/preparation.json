@@ -1,0 +1,11 @@
+{
+  "schema": "astra.apartment_material_binding.preparation.v1",
+  "status": "outside_game_not_executed",
+  "production_path": "game/scripts/reality/apartment_encroachment.gd",
+  "original_sha256": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+  "proposed_sha256": "69e28e38740f122fe5bfd47b9f8bc6194fd5e52dda2eae085163deee30977860",
+  "patch_sha256": "1f5f192f7e33a14a9283479a5a3074f89f8228012a3510b925460123daa49059",
+  "scope": "registration/ownership only; no reach_props candidate collection or spatial preselection rewrite",
+  "engine_runs": 0,
+  "live_writes": 0
+}

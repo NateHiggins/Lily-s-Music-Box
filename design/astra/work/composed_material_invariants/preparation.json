@@ -1,0 +1,28 @@
+{
+  "status": "PREPARED_ONLY_NO_GAME_INSTALL_OR_ENGINE_RUN",
+  "original_fixture_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+  "proposed_fixture_sha256": "e132724ae67f1dc4056f9fa1c9b018706399a7c3500889af41d0e6dedeeb8991",
+  "helper_sha256": "efa7d3af56398ff11818040d9c26dc5edda8c013d13c51864d11dc2df76bae14",
+  "independent_unit_contract": {
+    "path": "game/data/reality_cases.json",
+    "sha256": "3442b0b1b3d01c24276fdf9259fd624d9ea555316ee21778f17e0207f3cae9b9",
+    "peter_form_corridor": "4A"
+  },
+  "ownership_revision_dependency": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "dependency_status": "focused clean candidate reported; final live handoff must be reverified",
+  "planned_observations": [
+    "before_measured",
+    "cycle_0",
+    "cycle_1",
+    "cycle_2",
+    "cycle_3",
+    "cycle_4",
+    "cycle_5",
+    "before_retirement"
+  ],
+  "original_assertions_and_timers": "retained; only five anchored insertions and appended helpers",
+  "game_changes": [
+    "game/tests/vulkan_composed_root_test.gd"
+  ],
+  "scene_file": "existing VulkanComposedRootTest.tscn unchanged"
+}

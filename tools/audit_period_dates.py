@@ -21,17 +21,39 @@ INSTALLATION_YEAR = re.compile(r"\binstalled\s+(\d{4})\b", re.IGNORECASE)
 EXPECTED_CONSUMERS = {
     "game/scripts/audio/music_director.gd": "player_readable_catalogue",
     "game/scripts/building/celestial_ephemeris.gd": "astronomy_calculation_only",
-    # Reads the host date ONCE, at campaign creation, to seed the campaign
-    # epoch; simulation time then advances from accumulated engine delta and
-    # never re-reads the wall clock. The year is never shown to a player --
-    # PhoneOS pins the displayed year to fictional 1928 -- so this is an
-    # epoch seed, not a period surface. Landed 5c1a96a (ADMIN-PREREQ-1).
-    "game/scripts/game/campaign_clock.gd": "campaign_epoch_seed_only",
+    # Authored Gregorian calendar; host hour/minute may be sampled once.
+    "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
+    "game/scripts/game/historical_radio_notice.gd": "observed_printed_historical_notice",
     "game/scripts/minigames/shelf_sort.gd": "player_readable_period_library",
     "game/scripts/songbook/songbook_store.gd": "local_filename_only",
     "game/scripts/ui/bookshelf_panel.gd": "player_readable_period_library",
 }
 FIXTURE_FIELD = "fixtures.*.provenance"
+
+
+def campaign_calendar_failures(calendar: dict[str, Any]) -> list[str]:
+    expected = {"schema_version": 1, "year": 1928, "month": 11, "day": 10,
+                "timezone": "America/New_York", "utc_offset_minutes": -300}
+    return [f"campaign calendar {field} must be {value!r}"
+            for field, value in expected.items()
+            if type(calendar.get(field)) is not type(value) or
+            calendar.get(field) != value]
+
+
+def campaign_host_clock_failures(repo: Path) -> list[str]:
+    # Reuse the same narrow sampler rule as the systemic authority audit.
+    from audit_systemic_situation_authority import FileContext, scan_file
+    failures = []
+    for path in sorted((repo / "game/scripts").rglob("*.gd")):
+        findings: list[dict] = []
+        rel = path.relative_to(repo).as_posix()
+        scan_file(FileContext(rel, path.read_text(encoding="utf-8")), findings)
+        for finding in findings:
+            if finding["class"] == "HOST_CLOCK_MUTATES_WORLD" and \
+                    finding["disposition"] == "FIX":
+                failures.append(f"host calendar/time is not authorized: "
+                                f"{rel}:{finding['line']} ({finding['scope']})")
+    return failures
 
 
 def load_object(path: Path) -> dict[str, Any]:
@@ -55,6 +77,12 @@ def consumer_paths(repo: Path) -> dict[str, list[int]]:
 def audit(repo: Path) -> tuple[list[str], list[str]]:
     failures: list[str] = []
     notes: list[str] = []
+
+    calendar = load_object(repo / "game/data/campaign_calendar.json")
+    failures.extend(campaign_calendar_failures(calendar))
+    failures.extend(campaign_host_clock_failures(repo))
+    notes.append("campaign calendar: authored 1928-11-10, fixed EST; "
+                 "one local hour/minute sample, no host calendar persistence")
 
     wire = load_object(repo / "game/data/prop_service_wire.json")
     try:
@@ -122,11 +150,11 @@ def audit(repo: Path) -> tuple[list[str], list[str]]:
         notes.append(f"year consumer: {path}:{found[path]} [{EXPECTED_CONSUMERS[path]}]")
 
     phone_source = (repo / "game/scripts/phoneos/phone_os.gd").read_text(encoding="utf-8")
-    if 'FICTIONAL_PRESENT_YEAR := "1928"' not in phone_source:
-        failures.append("PhoneOS does not pin its displayed date to fictional 1928")
-    if '_fictional_datetime(Time.get_datetime_string_from_system())' not in phone_source:
-        failures.append("PhoneOS date command can bypass the fictional-year guard")
-    notes.append("PhoneOS date: host month/day/time permitted; host year barred")
+    if re.search(r"Time\.get_(?:date|datetime|time)_[a-z_]*from_system\(", phone_source):
+        failures.append("PhoneOS date must use campaign time, not the host calendar")
+    if "CampaignClock" not in phone_source and "campaign_clock" not in phone_source:
+        failures.append("PhoneOS has no campaign-clock date consumer")
+    notes.append("PhoneOS date: authored campaign calendar and simulation time")
 
     library = load_object(repo / "game/data/library.json")
     books = library.get("books", [])

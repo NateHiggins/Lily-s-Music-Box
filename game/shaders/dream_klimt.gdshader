@@ -698,8 +698,9 @@ void fragment() {
 	vec2 irradiance_field = texture(exposure_tex, vec3(
 			v_world.x / exposure_extent, v_world.z / exposure_extent,
 			irradiance_y)).rg;
+	vec3 optical_spectrum;
 	vec4 irradiance = dream_irradiance(v_world, n, irradiance_field,
-			lamp_origin);
+			lamp_origin,optical_spectrum);
 	float heat = irradiance.w;
 	vec3 splash = lamp_splash;
 	heat = pow(heat, 1.7) * melt_amount;
@@ -1655,6 +1656,7 @@ void fragment() {
 		ALBEDO = mix(ALBEDO, gold_mid * 0.42, lc_scar * lc_stain * 0.42);
 		ROUGHNESS = mix(ROUGHNESS, 0.82, lc_stain * 0.72);
 	}
+	ALBEDO *= mix(vec3(1.0),optical_spectrum,clamp(irradiance.w,0.0,1.0));
 	if (surface_debug_view == 1) {
 		ALBEDO = vec3(architecture_mask);
 		EMISSION = vec3(architecture_mask) * 1.20;

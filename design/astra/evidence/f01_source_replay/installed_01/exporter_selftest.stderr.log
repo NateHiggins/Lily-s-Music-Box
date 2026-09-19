@@ -1,0 +1,15 @@
+test_decoded_vertex_triangle_material_and_alias_union_equivalence (__main__.PayloadEquivalenceTests.test_decoded_vertex_triangle_material_and_alias_union_equivalence) ... ok
+test_legacy_alias_spoof_is_refused (__main__.PayloadEquivalenceTests.test_legacy_alias_spoof_is_refused) ... ok
+test_payload_change_is_refused_even_when_counts_and_bounds_can_match (__main__.PayloadEquivalenceTests.test_payload_change_is_refused_even_when_counts_and_bounds_can_match) ... ok
+test_catalog_unknown_owner_is_refused (__main__.RefusalBoundaryTests.test_catalog_unknown_owner_is_refused) ... ok
+test_nested_adapter_binding_drift_is_refused (__main__.RefusalBoundaryTests.test_nested_adapter_binding_drift_is_refused) ... ok
+test_output_anywhere_inside_repo_is_refused (__main__.RefusalBoundaryTests.test_output_anywhere_inside_repo_is_refused) ... ok
+test_output_inside_protected_asset_directory_is_refused (__main__.RefusalBoundaryTests.test_output_inside_protected_asset_directory_is_refused) ... ok
+test_transaction_refuses_unbound_json_receipt (__main__.RefusalBoundaryTests.test_transaction_refuses_unbound_json_receipt) ... ok
+test_noncontiguous_triangle_range_is_refused (__main__.TriangleBindingTests.test_noncontiguous_triangle_range_is_refused) ... ok
+test_ranges_bind_to_distinct_decoded_post_export_slices (__main__.TriangleBindingTests.test_ranges_bind_to_distinct_decoded_post_export_slices) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.063s
+
+OK

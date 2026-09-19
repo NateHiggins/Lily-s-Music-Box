@@ -1,0 +1,62 @@
+{
+  "status": "SCOPED_RUNTIME_PASS",
+  "base": "e4a0964",
+  "fixtures_added": 42,
+  "switches_added": 42,
+  "anchors_added": 126,
+  "total_circuits": 81,
+  "total_saved_household_controls": 98,
+  "suites": [
+    {
+      "run": "runtime_final",
+      "checks": 8249,
+      "failures": 0,
+      "stdout_sha256": "ce8931be6d445ebb5447e4d4178d4ee27cc0b22860a7a6f0da2a2188a6b417f0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "household_state_final",
+      "checks": 57,
+      "failures": 0,
+      "stdout_sha256": "07d69645c264d2fe227574a07a45df098caad8f84565cfbf872707142b11abaa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "apartment_batch",
+      "checks": 17140,
+      "failures": 0,
+      "stdout_sha256": "ef2412b056e46b4c0fff9cdc3a318e480ae75d91608088b4bf0194584a0d0918",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checks": 25446,
+  "captures": 15,
+  "source_sha256": {
+    "game/data/orison_v2_blockout.json": "89af43398b1ff43e49edc72b6e52d60a59173c476eb7fcc02b8ad96bbdc95539",
+    "game/data/orison_v2/room_lighting.json": "e39f70ba434d3331fb4f839df3376a001e781a623094ef9227a33e5188ebceb0",
+    "game/tests/data/v2_upper_lighting_probes.json": "3c9740d029971290b9888a11ed5607b3e0c5de2fe80fa3fe89f43c412fb64c95",
+    "game/scripts/building/orison_v2_room_lighting.gd": "fb30eaee30ca5182b8399b4558e3ce84156d28579bfcb478f31eb3b415b0348a",
+    "game/tests/orison_v2_upper_lighting_test.gd": "0c06b313f4aa4092dc6abf3a0dec08d440cca3c3762020eea4d438fbfd6e5a5e",
+    "game/tests/orison_v2_upper_lighting_shot.gd": "09fa660088e746a73172ae52b01ce6c67b1efc79ae41f64f06022d4bbb7065d8",
+    "game/tests/orison_v2_household_state_test.gd": "04ab243241afb308e59dfbc17571402188ab2e632cf5dd7c801f9d35de365b29",
+    "game/tests/orison_v2_apartment_batch_test.gd": "500ef7598cd649e62348e509e818f45c467c0f69e6e77421bb7f4805dc30db92",
+    "design/astra/work/v2_upper_lighting_01/build.py": "07b37c784e0f6bcc62af495e8d063d16a047c090592f4f8512ad6bf9e965e75b",
+    "design/astra/work/v2_upper_lighting_01/check.py": "ee54b3f95ca3004779eb2aeb01c514e58a25f5af58d5b81d0761e82ff8971af5",
+    "design/astra/work/v2_upper_lighting_01/inspect.py": "2af4eb487a32ffe2eeb010f499ac51a4494ef7635a10f0e8f8cf8d95b68f4147"
+  },
+  "protected_files": [
+    "game/data/building_layout.json",
+    "game/data/runtime_material_sets.json",
+    "game/data/orison_v2/domestic_furniture.json",
+    "game/data/orison_v2/domestic_fittings.json",
+    "game/data/orison_v2/upper_floor_programs.json",
+    "game/scripts/building/orison_v2_runtime_root.gd",
+    "game/scripts/building/orison_v2_household_state.gd",
+    "game/scripts/building/building_root_selector.gd",
+    "game/scripts/props/light_fixture_prop.gd"
+  ],
+  "unrelated_tracked_overlay": {
+    "game/scripts/dream/dream_exposure_field.gd": "9614f78deea7cb35d63bb188396cba36c3988e36ae3043149a32a0dbe9f30906"
+  },
+  "limits": "Source routes, physical targeting, circuit behavior, storey gating, saved facts and teardown checked. Five rendered viewpoints. No complete-building, played-route, full-performance or human acceptance; V1 default and S2J open."
+}

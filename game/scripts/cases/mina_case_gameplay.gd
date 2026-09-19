@@ -61,7 +61,6 @@ var console: CaseInteractable
 var shift_clock: CaseInteractable
 var dialogue: CaseDialoguePanel
 var evidence_nodes: Array[CaseInteractable] = []
-var _choice_indices: Dictionary = {}
 var _feedback := ""
 var _visit_overlay: ColorRect
 var _visit_label: Label
@@ -76,6 +75,17 @@ func setup(objective_tracker: ObjectiveTracker,
 		work_orders.job_stage_changed.connect(_on_job_stage_changed)
 
 
+func bind_wake(loop: CoreLoopDirector) -> void:
+	if not loop.wake_completed.is_connected(_on_wake_completed):
+		loop.wake_completed.connect(_on_wake_completed)
+	if loop.boundary() == "wake_complete":
+		_on_wake_completed(CoreLoopDirector.RETURN_ANCHOR_ID)
+
+
+func _on_wake_completed(_return_anchor_id: String) -> void:
+	MinaCaptionManifestation.record_waking_residue()
+
+
 func _ready() -> void:
 	_build_apartment_targets()
 	_build_dialogue()
@@ -87,6 +97,22 @@ func _ready() -> void:
 	RealityState.state_changed.connect(_on_reality_state_changed)
 	_reconcile_physical_repair()
 	_refresh()
+
+## A composed world supplies all placements together; case state and callbacks
+## stay owned here. Legacy composition retains the original authored positions.
+func place_case_objects(placements: Dictionary) -> bool:
+	var objects := {"calibrator": console, "time_clock": shift_clock,
+		"letter": letter, "voice": _voice}
+	for i in EVIDENCE.size(): objects[EVIDENCE[i].id] = evidence_nodes[i]
+	if placements.size() != objects.size(): return false
+	for identity: String in objects:
+		if not is_instance_valid(objects[identity]) or placements.get(identity) is not Transform3D:
+			return false
+		var transform: Transform3D = placements[identity]
+		if not transform.is_finite() or is_zero_approx(transform.basis.determinant()): return false
+	for identity: String in objects:
+		(objects[identity] as Node3D).global_transform = placements[identity]
+	return true
 
 
 func _build_apartment_targets() -> void:
@@ -254,10 +280,10 @@ func _inspect(evidence_id: String) -> Dictionary:
 	var spec := _evidence_spec(evidence_id)
 	if spec.is_empty():
 		return {}
-	var key := "%d_%s" % [round, evidence_id]
-	var index: int = (int(_choice_indices.get(key, -1)) + 1) \
-			% spec.choices.size()
-	_choice_indices[key] = index
+	# The selected caption is already a durable case fact. Advancing from an
+	# unsaved local index restarted some choice cycles after reconstruction.
+	var selected_index: int = (spec.choices as Array).find(_selected_caption(state, evidence_id))
+	var index: int = (selected_index + 1) % spec.choices.size()
 	var selected: String = spec.choices[index]
 	var prefix := "caption_%d_%s=" % [round, evidence_id]
 	for marker in state.apartment_changes.duplicate():
@@ -282,6 +308,10 @@ func _use_calibrator() -> Dictionary:
 	if state.stage not in ["active", "reopened", "recognized", "resistant"]:
 		return _case_object_card("calibrator",
 				"CONTROL GUARDED / CURRENT STAGE REFUSED")
+	if int(state.get("repair_count", 0)) == 0:
+		_feedback = "The transmitter must be repaired before caption calibration."
+		_refresh()
+		return _case_object_card("calibrator", "TRANSMITTER REPAIR REQUIRED")
 	if _inspection_count(state) < EVIDENCE.size():
 		_feedback = "Calibration rejected: some captions claim more than is observable."
 		_refresh()
@@ -332,8 +362,10 @@ func _leave_quiet_beat() -> void:
 
 
 func _advance_visit() -> Dictionary:
+	if not CampaignClock.new().bind_state():
+		return _case_object_card("time_clock", "VISIT NOT ADVANCED / CLOCK UNAVAILABLE")
 	shift_clock.set_enabled(false)
-	_visit_label.text = "VISIT TWO  ·  11:43 PM\nSAME COMPLAINT, DIFFERENT WORDING"
+	_visit_label.text = "RETURNING FOR THE NEXT SHIFT"
 	var player := get_tree().get_first_node_in_group(
 			"player_controller") as PlayerController
 	if player:
@@ -342,7 +374,7 @@ func _advance_visit() -> Dictionary:
 	tween.tween_property(_visit_overlay, "color:a", 1.0, 0.45)
 	tween.parallel().tween_property(_visit_label, "modulate:a", 1.0, 0.45)
 	tween.tween_interval(1.15)
-	tween.tween_callback(func(): RealityCases.reopen_case(CASE_ID))
+	tween.tween_callback(_complete_visit_transition)
 	tween.tween_property(_visit_overlay, "color:a", 0.0, 0.65)
 	tween.parallel().tween_property(_visit_label, "modulate:a", 0.0, 0.45)
 	tween.tween_callback(func():
@@ -350,6 +382,26 @@ func _advance_visit() -> Dictionary:
 			player.call_locked = false)
 	return _case_object_card("time_clock",
 			"CARD STAMPED / VISIT BOUNDARY ACCEPTED")
+
+func _complete_visit_transition() -> void:
+	var state := RealityState.case_state(CASE_ID)
+	var clock := CampaignClock.new()
+	if state.is_empty() or state.get("resolved", false) or not state.get("recurrence_pending", false) \
+			or not clock.bind_state():
+		_refresh()
+		return
+	var remaining := 1423.0 - clock.minute_of_day()
+	if remaining <= 0.0: remaining += CampaignClock.MINUTES_PER_DAY
+	var target := clock.elapsed_minutes() + remaining
+	# This explicit montage advances the shared clock without a separate save.
+	# reopen_case commits the clock and recurrence together on this same call.
+	clock.advance_seconds(remaining * 60.0)
+	if absf(clock.elapsed_minutes() - target) > 0.00001:
+		_visit_label.text = "THE NEXT SHIFT COULD NOT BEGIN"
+		_refresh()
+		return
+	RealityCases.reopen_case(CASE_ID)
+	_visit_label.text = "VISIT TWO  ·  11:43 PM\nSAME COMPLAINT, DIFFERENT WORDING"
 
 
 func _case_object_card(object_id: String, condition: String) -> Dictionary:

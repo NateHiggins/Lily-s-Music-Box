@@ -1,0 +1,1677 @@
+{
+  "schema": "astra.world_timestamps.aggregate-validation.v1",
+  "status": "SCOPED_RUNTIME_EVIDENCE_VERIFIED",
+  "assembled_utc": "2026-09-05T07:06:46.873498+00:00",
+  "reviewed_head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "execution_attribution": "Root executed and preserved runtime runs; authority_debt verified raw results/hashes and assembled metadata without Godot. dream_forensics independently checked all hearing receipts.",
+  "production_integration_commit": null,
+  "production_integration_note": "Applied current sources are uncommitted at assembly; root owns later integration.",
+  "final_reviewed_runtime_reference": {
+    "receipt": "design/astra/evidence/world_timestamps/final_timestamps_01/receipt.json",
+    "receipt_sha256": "80ff6e5decbfbd7812ef487fbdea5f94737b7438b63270956691e46302b4b2ca",
+    "canonical_runtime_digest": "45dd96137ce2e8a517240c3c8959e6094fc0b4528388a3814427515ba1983d65",
+    "count": 1160,
+    "matches_live_at_completed_pre_profile_check": true,
+    "not_rehashed_during_renderer_profile": true
+  },
+  "final_owned_source_sha256": {
+    "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+    "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+    "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+    "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+    "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+    "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+    "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+    "game/tests/maintenance_job_test.gd": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757",
+    "game/tests/night_register_test.gd": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+  },
+  "runs": [
+    {
+      "name": "candidate_01",
+      "mode": "timestamps",
+      "receipt_path": "design/astra/evidence/world_timestamps/candidate_01/receipt.json",
+      "receipt_sha256": "7db9f0cadd6a77acdc289918a7bdfd9db4402f828a2237388cad78accd375b4d",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "WORLD TIMESTAMPS: PASS 76/76"
+      ],
+      "receipt_summary_lines_preserved": [
+        "WORLD TIMESTAMPS: PASS 76/76"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "19048a168c4259bdcb66c59a675dfd1788d44e8833618aa630964bf26ecb3ff9",
+        "godot.stdout.log": "56d442d7c0939110d82f4cff24548ac246b5f01a8a887563f74e531a4ef21692",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/candidate_01/source_before.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/candidate_01/source_after.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\candidate_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:44:31.700670+00:00",
+      "finished_utc": "2026-09-05T06:44:33.768676+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "final_jobs_01",
+      "mode": "jobs",
+      "receipt_path": "design/astra/evidence/world_timestamps/final_jobs_01/receipt.json",
+      "receipt_sha256": "a6857f4d704816eb283a7e621743a29351fc7142f912fce2032cff545d178a44",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "MAINTENANCE JOB TEST: PASS"
+      ],
+      "receipt_summary_lines_preserved": [
+        "MAINTENANCE JOB TEST: PASS"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "9fb4fcbd860ea1a150dfe045032845c6d88d2c9948f5909309380cb76183d715",
+        "godot.stdout.log": "4c40447f744b23e3f70ccc5f385189142738a6a0e41ac3fc975c007defc6a7f3",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 37,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/final_jobs_01/source_before.inputs.json",
+          "manifest_file_sha256": "c00c85eac8f2af69c0012a1ac87b77be115d158cdf747be18d46f0f2f37e8603",
+          "canonical_runtime_digest": "45dd96137ce2e8a517240c3c8959e6094fc0b4528388a3814427515ba1983d65",
+          "count": 1160,
+          "source_copies": {
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec",
+            "design/astra/work/world_timestamps/run_case.py": "9f10ee311231207df997107c2a6cb1b2b7d4f1baab4e6a09324e916193bcda3b",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/tests/MaintenanceJobTest.tscn": "b61d588bd08f229246f4d1917f92dd7890bec87366190d56fc7de4c90c402684",
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/maintenance_job_test.gd": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/final_jobs_01/source_after.inputs.json",
+          "manifest_file_sha256": "c00c85eac8f2af69c0012a1ac87b77be115d158cdf747be18d46f0f2f37e8603",
+          "canonical_runtime_digest": "45dd96137ce2e8a517240c3c8959e6094fc0b4528388a3814427515ba1983d65",
+          "count": 1160,
+          "source_copies": {
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec",
+            "design/astra/work/world_timestamps/run_case.py": "9f10ee311231207df997107c2a6cb1b2b7d4f1baab4e6a09324e916193bcda3b",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/tests/MaintenanceJobTest.tscn": "b61d588bd08f229246f4d1917f92dd7890bec87366190d56fc7de4c90c402684",
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/maintenance_job_test.gd": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\final_jobs_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:56:42.937791+00:00",
+      "finished_utc": "2026-09-05T06:56:44.272289+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "final_register_01",
+      "mode": "register",
+      "receipt_path": "design/astra/evidence/world_timestamps/final_register_01/receipt.json",
+      "receipt_sha256": "106e91e8e9bc03f8bf85b7409532d12f9b9d7b10639069228d2e6daa5b67cbe2",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "NIGHT REGISTER TEST: PASS (153/153)"
+      ],
+      "receipt_summary_lines_preserved": [
+        "NIGHT REGISTER TEST: PASS (153/153)"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "63ac7dd268a78723f19fa8417e4cfa0490efd50560cabca2263bd081987a4ab1",
+        "godot.stdout.log": "37521a670fcbd8a5defea225ae6f7f4c6a0f5058fdabc6adcd768c1df7381993",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 37,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/final_register_01/source_before.inputs.json",
+          "manifest_file_sha256": "c00c85eac8f2af69c0012a1ac87b77be115d158cdf747be18d46f0f2f37e8603",
+          "canonical_runtime_digest": "45dd96137ce2e8a517240c3c8959e6094fc0b4528388a3814427515ba1983d65",
+          "count": 1160,
+          "source_copies": {
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec",
+            "design/astra/work/world_timestamps/run_case.py": "9f10ee311231207df997107c2a6cb1b2b7d4f1baab4e6a09324e916193bcda3b",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/tests/NightRegisterTest.tscn": "ffef1493519089b7a8676f00053b847ec2e6f433888c7e5ad19b4b00a5b81700",
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/night_register_test.gd": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/final_register_01/source_after.inputs.json",
+          "manifest_file_sha256": "c00c85eac8f2af69c0012a1ac87b77be115d158cdf747be18d46f0f2f37e8603",
+          "canonical_runtime_digest": "45dd96137ce2e8a517240c3c8959e6094fc0b4528388a3814427515ba1983d65",
+          "count": 1160,
+          "source_copies": {
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec",
+            "design/astra/work/world_timestamps/run_case.py": "9f10ee311231207df997107c2a6cb1b2b7d4f1baab4e6a09324e916193bcda3b",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/tests/NightRegisterTest.tscn": "ffef1493519089b7a8676f00053b847ec2e6f433888c7e5ad19b4b00a5b81700",
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/night_register_test.gd": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\final_register_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:56:44.628038+00:00",
+      "finished_utc": "2026-09-05T06:56:46.283881+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "final_timestamps_01",
+      "mode": "timestamps",
+      "receipt_path": "design/astra/evidence/world_timestamps/final_timestamps_01/receipt.json",
+      "receipt_sha256": "80ff6e5decbfbd7812ef487fbdea5f94737b7438b63270956691e46302b4b2ca",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "WORLD TIMESTAMPS: PASS 76/76"
+      ],
+      "receipt_summary_lines_preserved": [
+        "WORLD TIMESTAMPS: PASS 76/76"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "d3be6c4df68ba957478e6c52e7f85512ebee6665b78b40f512f32487353ed172",
+        "godot.stdout.log": "56d442d7c0939110d82f4cff24548ac246b5f01a8a887563f74e531a4ef21692",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/final_timestamps_01/source_before.inputs.json",
+          "manifest_file_sha256": "c00c85eac8f2af69c0012a1ac87b77be115d158cdf747be18d46f0f2f37e8603",
+          "canonical_runtime_digest": "45dd96137ce2e8a517240c3c8959e6094fc0b4528388a3814427515ba1983d65",
+          "count": 1160,
+          "source_copies": {
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec",
+            "design/astra/work/world_timestamps/run_case.py": "9f10ee311231207df997107c2a6cb1b2b7d4f1baab4e6a09324e916193bcda3b",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/final_timestamps_01/source_after.inputs.json",
+          "manifest_file_sha256": "c00c85eac8f2af69c0012a1ac87b77be115d158cdf747be18d46f0f2f37e8603",
+          "canonical_runtime_digest": "45dd96137ce2e8a517240c3c8959e6094fc0b4528388a3814427515ba1983d65",
+          "count": 1160,
+          "source_copies": {
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec",
+            "design/astra/work/world_timestamps/run_case.py": "9f10ee311231207df997107c2a6cb1b2b7d4f1baab4e6a09324e916193bcda3b",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\final_timestamps_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:56:46.611011+00:00",
+      "finished_utc": "2026-09-05T06:56:48.630534+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "mid_report_late_sample_01",
+      "mode": "timestamps",
+      "receipt_path": "design/astra/evidence/world_timestamps/mid_report_late_sample_01/receipt.json",
+      "receipt_sha256": "0ac9e94446e2c6a891ff24687dfb27d1a26d4819783b1f2fa4a4e84544580731",
+      "recorded_native_or_runner_exit": 1,
+      "expected_exit": 1,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 1,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "WORLD TIMESTAMPS: FAIL 75/76"
+      ],
+      "receipt_summary_lines_preserved": [
+        "WORLD TIMESTAMPS: FAIL 75/76"
+      ],
+      "raw_failed_assertion_lines": [
+        "[WORLD TIMESTAMP FAIL] reported_at records exact campaign elapsed minutes with its own basis"
+      ],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "3f1ea44ddc50eb041947d2ff9868016e0956b9b4f6ca5ceda774f97ff2c5a136",
+        "godot.stdout.log": "848411c0295fe317a7b220f45b46dc8fb1a385032b72d69fd64da3756d213dd3",
+        "godot.stdout.log.stderr": "f3a1d4c2d7d03874728132b9008985355b8d091ab279a41130fddb177c34ea21",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/mid_report_late_sample_01/source_before.inputs.json",
+          "manifest_file_sha256": "f18acb0300d2d245aea0a09ef2531f241090973886f049377f98be04f72d2df0",
+          "canonical_runtime_digest": "6c6e2e03261f6ef20fd0ff1460dbe25b9a819b05986339afde1dc37b8c23f474",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "d0ceca4606f2fe60c4e43f1fb925f3f3f9b96cd19f959fb7df82ab1f8ea70f8d",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/mid_report_late_sample_01/source_after.inputs.json",
+          "manifest_file_sha256": "f18acb0300d2d245aea0a09ef2531f241090973886f049377f98be04f72d2df0",
+          "canonical_runtime_digest": "6c6e2e03261f6ef20fd0ff1460dbe25b9a819b05986339afde1dc37b8c23f474",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "d0ceca4606f2fe60c4e43f1fb925f3f3f9b96cd19f959fb7df82ab1f8ea70f8d",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/scripts/reality/organism_incidents.gd",
+          "recorded_sha256": "d0ceca4606f2fe60c4e43f1fb925f3f3f9b96cd19f959fb7df82ab1f8ea70f8d",
+          "final_reviewed_sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\mid_report_late_sample_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:45:05.521737+00:00",
+      "finished_utc": "2026-09-05T06:45:07.872466+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "original_source_01",
+      "mode": "timestamps",
+      "receipt_path": "design/astra/evidence/world_timestamps/original_source_01/receipt.json",
+      "receipt_sha256": "1003f2ce1ca254e1568b1d82dad4afb61f3b734677e153f7a849ac5eb04bdc98",
+      "recorded_native_or_runner_exit": 1,
+      "expected_exit": 1,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 1,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "WORLD TIMESTAMPS: FAIL 51/76"
+      ],
+      "receipt_summary_lines_preserved": [
+        "WORLD TIMESTAMPS: FAIL 51/76"
+      ],
+      "raw_failed_assertion_lines": [
+        "[WORLD TIMESTAMP FAIL] acquired_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] reported_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] consumed_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] acquired_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] closed_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] consumed_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] closed_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] adopted_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] adoption keeps the exact source record before the live legacy order is retired",
+        "[WORLD TIMESTAMP FAIL] adoption preserves original issuance units without inventing a new issue time",
+        "[WORLD TIMESTAMP FAIL] retirement archives the source even when the authored job already exists",
+        "[WORLD TIMESTAMP FAIL] conflicting source history refuses retirement instead of overwriting either record",
+        "[WORLD TIMESTAMP FAIL] reported_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] invalid clock cannot fabricate acquisition/consumption at elapsed zero",
+        "[WORLD TIMESTAMP FAIL] invalid clock cannot stamp a simple order",
+        "[WORLD TIMESTAMP FAIL] invalid clock cannot stamp issued or adopted jobs",
+        "[WORLD TIMESTAMP FAIL] invalid clock cannot sign a false timestamp",
+        "[WORLD TIMESTAMP FAIL] failed timestamped actions leave all four owners' durable facts unchanged",
+        "[WORLD TIMESTAMP FAIL] clock refusal preserves the saved bytes and never falls back to host sampling"
+      ],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "fb12ca61f2345bdce912a941b0483d6fe98ad9b47fa27f00d3d613325fb5d9ff",
+        "godot.stdout.log": "aec15c0eb3bc3d71f3ffc74dea8bdf42d042d788f12147260ee78864541d3528",
+        "godot.stdout.log.stderr": "ce9f824a97c2f005609f4ea11cebf5f802023f9de1a5cc642fb96204ed728663",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/original_source_01/source_before.inputs.json",
+          "manifest_file_sha256": "106fb5e6fa496faaa560915fefc5e8e327e3a056a7eca562e28fd161daad6c3a",
+          "canonical_runtime_digest": "d9e0fceef3f28f4d2f102001aa5147060bcbb616a60a61f62dfdc41ade9e63ec",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "217ad4cd3d3d9f2605411269d1741f919cfe389efbe361c7ffdbe10a45668393",
+            "game/scripts/game/maintenance_inventory.gd": "9d51fb4113460c21a64aae382fb938dccd35d001ca48283c279d8a93a56229ce",
+            "game/scripts/game/work_orders.gd": "262a96e28eeab68a5ab878c423e5b1bafd1a3edf31de5c2fb5f637931e17419e",
+            "game/scripts/props/night_register_prop.gd": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf",
+            "game/scripts/reality/organism_incidents.gd": "420e13e8c0f1387ec1d1d319605e85a762524fdb4dfab63d371a6177b5a10758",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/original_source_01/source_after.inputs.json",
+          "manifest_file_sha256": "106fb5e6fa496faaa560915fefc5e8e327e3a056a7eca562e28fd161daad6c3a",
+          "canonical_runtime_digest": "d9e0fceef3f28f4d2f102001aa5147060bcbb616a60a61f62dfdc41ade9e63ec",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "217ad4cd3d3d9f2605411269d1741f919cfe389efbe361c7ffdbe10a45668393",
+            "game/scripts/game/maintenance_inventory.gd": "9d51fb4113460c21a64aae382fb938dccd35d001ca48283c279d8a93a56229ce",
+            "game/scripts/game/work_orders.gd": "262a96e28eeab68a5ab878c423e5b1bafd1a3edf31de5c2fb5f637931e17419e",
+            "game/scripts/props/night_register_prop.gd": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf",
+            "game/scripts/reality/organism_incidents.gd": "420e13e8c0f1387ec1d1d319605e85a762524fdb4dfab63d371a6177b5a10758",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/game/chirp_hunt.gd",
+          "recorded_sha256": "217ad4cd3d3d9f2605411269d1741f919cfe389efbe361c7ffdbe10a45668393",
+          "final_reviewed_sha256": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28"
+        },
+        {
+          "path": "game/scripts/game/maintenance_inventory.gd",
+          "recorded_sha256": "9d51fb4113460c21a64aae382fb938dccd35d001ca48283c279d8a93a56229ce",
+          "final_reviewed_sha256": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f"
+        },
+        {
+          "path": "game/scripts/game/work_orders.gd",
+          "recorded_sha256": "262a96e28eeab68a5ab878c423e5b1bafd1a3edf31de5c2fb5f637931e17419e",
+          "final_reviewed_sha256": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57"
+        },
+        {
+          "path": "game/scripts/props/night_register_prop.gd",
+          "recorded_sha256": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf",
+          "final_reviewed_sha256": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e"
+        },
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/scripts/reality/organism_incidents.gd",
+          "recorded_sha256": "420e13e8c0f1387ec1d1d319605e85a762524fdb4dfab63d371a6177b5a10758",
+          "final_reviewed_sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\original_source_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:44:17.285976+00:00",
+      "finished_utc": "2026-09-05T06:44:19.457968+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "regression_calendar_01",
+      "mode": "calendar",
+      "receipt_path": "design/astra/evidence/world_timestamps/regression_calendar_01/receipt.json",
+      "receipt_sha256": "901ee5e954549895462ab76d5687c9c2a11e0ecc7823c0f1b54128d4115e692f",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "CAMPAIGN CALENDAR: PASS 52/52"
+      ],
+      "receipt_summary_lines_preserved": [
+        "CAMPAIGN CALENDAR: PASS 52/52"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "3e5b3568a6fe108e147a2b689da4329cb843b4a467fd6c2cd455589283072814",
+        "godot.stdout.log": "7c3cb19bd12b43d4fdb7bfddb22eefc4611f6326b37f87bf99ecf6ff9b941594",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_calendar_01/source_before.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_calendar_01/source_after.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\regression_calendar_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:46:28.627236+00:00",
+      "finished_utc": "2026-09-05T06:46:29.672352+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "regression_errand_01",
+      "mode": "errand",
+      "receipt_path": "design/astra/evidence/world_timestamps/regression_errand_01/receipt.json",
+      "receipt_sha256": "3105d5bf89da3e5125bc9987fdaf00486d01b2c8fd5bc2c62b592ddb80143475",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "MAINTENANCE ERRAND TEST: PASS"
+      ],
+      "receipt_summary_lines_preserved": [
+        "MAINTENANCE ERRAND TEST: PASS"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "2085f112298c9fb9b0d5ac74d83930251733606ce2e6e68744c204a229352a29",
+        "godot.stdout.log": "30030a5f763f79304610ceaf98b4ffd1ea804f551ce7dcf70f236bead56f801c",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_errand_01/source_before.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_errand_01/source_after.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\regression_errand_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:45:43.735109+00:00",
+      "finished_utc": "2026-09-05T06:45:44.832678+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "regression_incidents_01",
+      "mode": "incidents",
+      "receipt_path": "design/astra/evidence/world_timestamps/regression_incidents_01/receipt.json",
+      "receipt_sha256": "613fc6eb39e590758b2f255f4a490d7ae801f3c5a4920154e157a6c333402236",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "ORGANISM INCIDENTS TEST: PASS (18/18)"
+      ],
+      "receipt_summary_lines_preserved": [
+        "ORGANISM INCIDENTS TEST: PASS (18/18)"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [
+        "WARNING: no legal wall for found piece cam_noel_witches"
+      ],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "da6951a1f43fd2ccf6de2e96bc32926d064e91c66ee4fd61645358b40deeb4e0",
+        "godot.stdout.log": "1fbe56536993b8a2da6e53f79ead1a8ce04e96d457b1dbb903db10b57db03fdd",
+        "godot.stdout.log.stderr": "e170bb08ff5e784c91c3c5c39ba11f33849895edff9c567724d770fdfce975cc",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_incidents_01/source_before.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_incidents_01/source_after.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\regression_incidents_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:45:47.099893+00:00",
+      "finished_utc": "2026-09-05T06:46:28.234802+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "regression_jobs_01",
+      "mode": "jobs",
+      "receipt_path": "design/astra/evidence/world_timestamps/regression_jobs_01/receipt.json",
+      "receipt_sha256": "6c4af9e877d660bc4bac1601b2292fe885897a3b3d9a9c9e205135b2b1982ad2",
+      "recorded_native_or_runner_exit": 1,
+      "expected_exit": 0,
+      "expected_exit_matches": false,
+      "diagnostic_gate_exit": 1,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "MAINTENANCE JOB TEST: FAIL (1)"
+      ],
+      "receipt_summary_lines_preserved": [
+        "MAINTENANCE JOB TEST: FAIL (1)"
+      ],
+      "raw_failed_assertion_lines": [
+        "[JOB FAIL] migration never overwrites an existing authored job"
+      ],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "16a5194190575159d98a691d9e2c5a76437a1174ddb622494535e5ca632af57e",
+        "godot.stdout.log": "0ca7da6533b8a7e9a4abdf7b84d4b294221f391e014d11f176cdb92a91ab3d0e",
+        "godot.stdout.log.stderr": "4f2f36afdf79d6df1ea996619e2dc8441b5326eb9b651882fb8b87c08eecdbcc",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_jobs_01/source_before.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_jobs_01/source_after.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\regression_jobs_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:45:42.060383+00:00",
+      "finished_utc": "2026-09-05T06:45:43.424392+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "regression_register_01",
+      "mode": "register",
+      "receipt_path": "design/astra/evidence/world_timestamps/regression_register_01/receipt.json",
+      "receipt_sha256": "f07ba334b7b05cfc7c3109308da33bea1221f03770a1e5dd8bf5f471a1382e94",
+      "recorded_native_or_runner_exit": 3,
+      "expected_exit": 0,
+      "expected_exit_matches": false,
+      "diagnostic_gate_exit": 1,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "NIGHT REGISTER TEST: FAIL (145/148)"
+      ],
+      "receipt_summary_lines_preserved": [
+        "NIGHT REGISTER TEST: FAIL (145/148)"
+      ],
+      "raw_failed_assertion_lines": [
+        "[REGISTER FAIL] and records NOTHING beyond the claim and its circumstances (at_basis)",
+        "[REGISTER FAIL] and it never activates, resolves or reopens a case",
+        "[REGISTER FAIL] and it can neither issue, close nor repair anything"
+      ],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "191348cbfa77144fefd69c99f6aa9c38c0a13853691ffd6ae97cd0598203c3a3",
+        "godot.stdout.log": "a8a77e449ccb19407bc24db88e994f4ae85e793b01b9800c2740f52d5b55dcf1",
+        "godot.stdout.log.stderr": "fb1e2f9026b19a8be7cf5ad6aea746b96ebdc40ba0aebb96f841d2d53d167817",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_register_01/source_before.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_register_01/source_after.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\regression_register_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:45:45.133350+00:00",
+      "finished_utc": "2026-09-05T06:45:46.775252+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "regression_save_compat_01",
+      "mode": "save_compat",
+      "receipt_path": "design/astra/evidence/world_timestamps/regression_save_compat_01/receipt.json",
+      "receipt_sha256": "cd7e50322a0e42553f9172a71c97b0ca0d60d51424c5fe7de1fc8bc6beefd7d3",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "[SAVE COMPAT] PASS 14/14"
+      ],
+      "receipt_summary_lines_preserved": [
+        "[SAVE COMPAT] PASS 14/14"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "ee24468f0d6b0c5f04e6f3a86128eed84945120be2b462ab9b93a297f907bac7",
+        "godot.stdout.log": "1be3c0f3898f353e7091c9d03b0899b0a4ef6a079da56daf666f82b2a9e20af8",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_save_compat_01/source_before.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/regression_save_compat_01/source_after.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\regression_save_compat_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:46:29.990421+00:00",
+      "finished_utc": "2026-09-05T06:46:31.015217+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "restored_candidate_01",
+      "mode": "timestamps",
+      "receipt_path": "design/astra/evidence/world_timestamps/restored_candidate_01/receipt.json",
+      "receipt_sha256": "9852995a5800a15b067d482e81349b799bc74e96da3fd316faa30835d9b45177",
+      "recorded_native_or_runner_exit": 0,
+      "expected_exit": 0,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 0,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "WORLD TIMESTAMPS: PASS 76/76"
+      ],
+      "receipt_summary_lines_preserved": [
+        "WORLD TIMESTAMPS: PASS 76/76"
+      ],
+      "raw_failed_assertion_lines": [],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "bdf15d8038527822287eadf6a4d01409ea502111f5c8ee7e33712e66fc2580bd",
+        "godot.stdout.log": "56d442d7c0939110d82f4cff24548ac246b5f01a8a887563f74e531a4ef21692",
+        "godot.stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/restored_candidate_01/source_before.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/restored_candidate_01/source_after.inputs.json",
+          "manifest_file_sha256": "309e3c66ea4aaca49ad9248810cf8d052156afebe99993ecb44f50aefac44802",
+          "canonical_runtime_digest": "30bbf5135f1b806e732fa797aeafc14dfd947150dab455316e9c40c081f1dfc2",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+            "game/scripts/game/work_orders.gd": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+            "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+            "game/scripts/reality/organism_incidents.gd": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\restored_candidate_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:45:08.633205+00:00",
+      "finished_utc": "2026-09-05T06:45:10.902403+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    },
+    {
+      "name": "wrapped_minute_01",
+      "mode": "timestamps",
+      "receipt_path": "design/astra/evidence/world_timestamps/wrapped_minute_01/receipt.json",
+      "receipt_sha256": "a7dbfa5c46fe6211750a336374f2e1e4e2a8be342cb47156db352d697643df4e",
+      "recorded_native_or_runner_exit": 1,
+      "expected_exit": 1,
+      "expected_exit_matches": true,
+      "diagnostic_gate_exit": 1,
+      "gate_matches_independently_inspected_raw_results": true,
+      "raw_suite_result_lines": [
+        "WORLD TIMESTAMPS: FAIL 61/76"
+      ],
+      "receipt_summary_lines_preserved": [
+        "WORLD TIMESTAMPS: FAIL 61/76"
+      ],
+      "raw_failed_assertion_lines": [
+        "[WORLD TIMESTAMP FAIL] acquired_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] reported_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] consumed_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] acquired_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] closed_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] consumed_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] closed_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] adopted_at records exact campaign elapsed minutes with its own basis",
+        "[WORLD TIMESTAMP FAIL] reported_at records exact campaign elapsed minutes with its own basis"
+      ],
+      "raw_warning_headers": [],
+      "raw_error_or_retention_headers": [],
+      "engine_banner": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org",
+      "raw_artifact_hashes": {
+        "command.ps1": "b03ebe4959b7739450157d04d36834cae581026c5d81fe25e4131cd047ae310e",
+        "godot.stdout.log": "5393a286b61b99ff5f4ff98d4e8e8d6de3a8b2fd5df11848af9d1fa509ea5a94",
+        "godot.stdout.log.stderr": "09e0b5f2c64a514c6c37cb606086e88b0abdbfa6dd7c67e0a15cca4ec0c12f50",
+        "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runner_streams_empty": true,
+      "verified_artifact_count": 33,
+      "all_receipted_artifact_hashes_and_source_copies_verified_before_profiling": true,
+      "source_before_after_exact": true,
+      "snapshots": {
+        "source_before": {
+          "manifest_path": "design/astra/evidence/world_timestamps/wrapped_minute_01/source_before.inputs.json",
+          "manifest_file_sha256": "7cfe91e567a96fad5fa9029856b109a36b415cc8045e6937c130e10c56b09c64",
+          "canonical_runtime_digest": "1d52482952c91f0340140146aa5912683d9951b0098829a1bac1ad31d2f3c2ce",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "3c42f99cbd9b84fe18ade3577ab0a5438202d309523222ba2d03d5a72c7fd328",
+            "game/scripts/game/work_orders.gd": "5ac0b18642000cf8c0c264e1bcd674f3d7e8d5c5633fce5f42750f754591b02a",
+            "game/scripts/props/night_register_prop.gd": "5a8bef1b7ac6fc3b074867dc6c0cb64d37c3964bcc979211750815b61beb55f9",
+            "game/scripts/reality/organism_incidents.gd": "8eb61c19328164be4c3204fea0421ae000f1b66a35086b4755eb37f6afcf9bae",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        },
+        "source_after": {
+          "manifest_path": "design/astra/evidence/world_timestamps/wrapped_minute_01/source_after.inputs.json",
+          "manifest_file_sha256": "7cfe91e567a96fad5fa9029856b109a36b415cc8045e6937c130e10c56b09c64",
+          "canonical_runtime_digest": "1d52482952c91f0340140146aa5912683d9951b0098829a1bac1ad31d2f3c2ce",
+          "count": 1158,
+          "source_copies": {
+            "game/tests/WorldTimestampTest.tscn": "90888ad39a71324cfafcd6752d3e9ca099255768ad0ba8825350e45075171931",
+            "game/tests/world_timestamp_test.gd": "2325b58cf40b79bea683caabf468b507a41f79aeeb6c783fd6782733c5b3d262",
+            "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+            "game/scripts/game/maintenance_inventory.gd": "3c42f99cbd9b84fe18ade3577ab0a5438202d309523222ba2d03d5a72c7fd328",
+            "game/scripts/game/work_orders.gd": "5ac0b18642000cf8c0c264e1bcd674f3d7e8d5c5633fce5f42750f754591b02a",
+            "game/scripts/props/night_register_prop.gd": "5a8bef1b7ac6fc3b074867dc6c0cb64d37c3964bcc979211750815b61beb55f9",
+            "game/scripts/reality/organism_incidents.gd": "8eb61c19328164be4c3204fea0421ae000f1b66a35086b4755eb37f6afcf9bae",
+            "game/scripts/game/campaign_clock.gd": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+            "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+            "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+            "tools/run_godot_serial.ps1": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+            "design/astra/work/world_timestamps/run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2",
+            "design/astra/work/world_timestamps/gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec"
+          }
+        }
+      },
+      "differences_from_final_reviewed_runtime_manifest": [
+        {
+          "path": "game/scripts/game/maintenance_inventory.gd",
+          "recorded_sha256": "3c42f99cbd9b84fe18ade3577ab0a5438202d309523222ba2d03d5a72c7fd328",
+          "final_reviewed_sha256": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f"
+        },
+        {
+          "path": "game/scripts/game/work_orders.gd",
+          "recorded_sha256": "5ac0b18642000cf8c0c264e1bcd674f3d7e8d5c5633fce5f42750f754591b02a",
+          "final_reviewed_sha256": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57"
+        },
+        {
+          "path": "game/scripts/props/night_register_prop.gd",
+          "recorded_sha256": "5a8bef1b7ac6fc3b074867dc6c0cb64d37c3964bcc979211750815b61beb55f9",
+          "final_reviewed_sha256": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e"
+        },
+        {
+          "path": "game/scripts/reality/npc_observation_ledger.gd",
+          "recorded_sha256": "9264d35fc50e96d3511903530d4e393f763946163d9cd805bc72b908d58d3401",
+          "final_reviewed_sha256": "4d9f3affc5a714a2f1f40ea714079440f675ed7bd5ef3c20336524188747e1f1"
+        },
+        {
+          "path": "game/scripts/reality/organism_incidents.gd",
+          "recorded_sha256": "8eb61c19328164be4c3204fea0421ae000f1b66a35086b4755eb37f6afcf9bae",
+          "final_reviewed_sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87"
+        },
+        {
+          "path": "game/tests/maintenance_job_test.gd",
+          "recorded_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+          "final_reviewed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757"
+        },
+        {
+          "path": "game/tests/night_register_test.gd",
+          "recorded_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+          "final_reviewed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037"
+        },
+        {
+          "path": "game/tests/orison_v2_presence_ledger_test.gd",
+          "recorded_sha256": "163f5d07edf11b60c270644d7023f7207d673c0dbe1625bbd51edf5cf24e2268",
+          "final_reviewed_sha256": "c3e0155265c006410876c6ba95bae449cac6480dae528daac58854cfd2338d54"
+        }
+      ],
+      "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\world_timestamps\\wrapped_minute_01\\appdata",
+      "profile_existed_before_run": null,
+      "started_utc": "2026-09-05T06:45:02.485004+00:00",
+      "finished_utc": "2026-09-05T06:45:04.661351+00:00",
+      "scope": "recorded scene only; focused owner callback fixture is not a physical route or restart claim"
+    }
+  ],
+  "verification": {
+    "run_count": 14,
+    "receipted_artifact_count": 470,
+    "all_receipted_artifact_hashes_match": true,
+    "all_source_copies_match": true,
+    "all_runtime_manifest_digests_recomputed": true,
+    "all_in_run_sources_stable": true,
+    "all_raw_logs_independently_inspected": true,
+    "prior_receipts_modified": false,
+    "no_engine_or_generator_run_by_aggregator": true,
+    "method": "All raw artifact, source-copy and full-live comparison checks finished before root released the renderer profiling lane. Assembly reads only retained metadata and uses those completed checks; no whole-tree rehash during profiling."
+  },
+  "limits": [
+    "actual_exit is the preserved serial runner forwarded process exit, not a number inferred from assertions.",
+    "The raw engine banner is retained. Original run receipts do not hash executable binary bytes; this aggregate does not retroactively bind them.",
+    "Wrappers admit warnings generally, not through a strict allowlist. Only the named found-art warning appears in the reviewed raw runs.",
+    "Runtime manifests bind project/scripts/scenes/tests/data text inputs, not all binary assets. Older full digests remain distinct from the final reviewed source.",
+    "Focused owner/presence callbacks and same-process save/load are not human physical traversal, a full-day soak or separate-process restart proofs.",
+    "New per-field basis is campaign_elapsed_minutes. Unqualified legacy host values remain unchanged; no duration/expiry consequence or unit relabeling is added.",
+    "Adoption archives exact legacy_order/id and records adopted_at rather than fabricated issuance; conflicting history refuses retirement.",
+    "Incident omission raises a real persistence latch from the real order-issued callback; it is a callback-window simulation, not physical disk failure. Register building and incident survey presence are supplied fixture inputs.",
+    "Final timestamp/jobs/register full1160-input manifests matched live before profiling. Earlier errand/incidents/calendar/save-compatibility runs precede hearing and two fixture revisions; exact differences remain in each run.",
+    "Earlier save restart proof and deeper scalar/ID-validation debt retain their prior scope. Pure IDs and dream entropy exemptions are unchanged."
+  ],
+  "negative_controls": [
+    {
+      "receipt_path": "design/astra/work/world_timestamps/control_receipts/mid_report_late_sample_01/receipt.json",
+      "receipt_sha256": "77c6d044aea672740148d497b9947cf7d3649766a670a1abe418286c822c0517",
+      "runtime_receipt_sha256": "0ac9e94446e2c6a891ff24687dfb27d1a26d4819783b1f2fa4a4e84544580731",
+      "recorded_intended_red": true,
+      "recorded_restored_exactly": true,
+      "controller_child_exit": 1,
+      "control": "mid_report_late_sample",
+      "sources": [
+        {
+          "path": "game/scripts/reality/organism_incidents.gd",
+          "candidate_sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+          "control_sha256": "d0ceca4606f2fe60c4e43f1fb925f3f3f9b96cd19f959fb7df82ab1f8ea70f8d"
+        }
+      ],
+      "control_proposed_run_copies_restored_green_and_live_bytes_independently_checked": true,
+      "scope": "Intended red plus exact restoration is control success, not a green runtime result."
+    },
+    {
+      "receipt_path": "design/astra/work/world_timestamps/control_receipts/wrapped_minute_01/receipt.json",
+      "receipt_sha256": "2f8e3d5bfbec82e64ca0079daa88e3d47b6da2501d63e5e2b63e72acf76f610d",
+      "runtime_receipt_sha256": "a7dbfa5c46fe6211750a336374f2e1e4e2a8be342cb47156db352d697643df4e",
+      "recorded_intended_red": true,
+      "recorded_restored_exactly": true,
+      "controller_child_exit": 1,
+      "control": "wrapped_minute",
+      "sources": [
+        {
+          "path": "game/scripts/game/maintenance_inventory.gd",
+          "candidate_sha256": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+          "control_sha256": "3c42f99cbd9b84fe18ade3577ab0a5438202d309523222ba2d03d5a72c7fd328"
+        },
+        {
+          "path": "game/scripts/game/work_orders.gd",
+          "candidate_sha256": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+          "control_sha256": "5ac0b18642000cf8c0c264e1bcd674f3d7e8d5c5633fce5f42750f754591b02a"
+        },
+        {
+          "path": "game/scripts/props/night_register_prop.gd",
+          "candidate_sha256": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+          "control_sha256": "5a8bef1b7ac6fc3b074867dc6c0cb64d37c3964bcc979211750815b61beb55f9"
+        },
+        {
+          "path": "game/scripts/reality/organism_incidents.gd",
+          "candidate_sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+          "control_sha256": "8eb61c19328164be4c3204fea0421ae000f1b66a35086b4755eb37f6afcf9bae"
+        }
+      ],
+      "control_proposed_run_copies_restored_green_and_live_bytes_independently_checked": true,
+      "scope": "Intended red plus exact restoration is control success, not a green runtime result."
+    }
+  ],
+  "regression_fixture_revision": {
+    "source_binding_sha256": "e5f5cfc15f568e9b691928a5089875efd81fc863d23f8387f4b8ac6969e52afc",
+    "patch_sha256": "52e28f028c1b68771fa63ed0331eb78db95f18e9b09290b40d38ac4b01bb71de",
+    "paths": [
+      {
+        "path": "game/tests/maintenance_job_test.gd",
+        "original_sha256": "4ff5cd198d31611af35a43ee9a761c17f920f9cb0591ddef7184985e0deee6ad",
+        "proposed_sha256": "cf4cd1ec9c8c08fcb05eba0ee13faaa0205d12f170eb1f1ca92a5c0881b74757",
+        "retained_original_and_proposed_bytes_independently_verified": true,
+        "old_red_manifest_matches_original": true,
+        "final_green_manifest_and_live_match_proposed": true,
+        "old_red_receipt": "design/astra/evidence/world_timestamps/regression_jobs_01/receipt.json",
+        "final_green_receipt": "design/astra/evidence/world_timestamps/final_jobs_01/receipt.json"
+      },
+      {
+        "path": "game/tests/night_register_test.gd",
+        "original_sha256": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+        "proposed_sha256": "47b1e806b2906740c69853cd3eb3ebf7cf16dbaf8094b51cfaeb4e9c69f23037",
+        "retained_original_and_proposed_bytes_independently_verified": true,
+        "old_red_manifest_matches_original": true,
+        "final_green_manifest_and_live_match_proposed": true,
+        "old_red_receipt": "design/astra/evidence/world_timestamps/regression_register_01/receipt.json",
+        "final_green_receipt": "design/astra/evidence/world_timestamps/final_register_01/receipt.json"
+      }
+    ],
+    "reason": "Job fixture preserves complete conflicting source histories. Register adds only at_basis, checks its exact basis, and tests LF/CRLF whole-comment removal while retaining executable foreign-owner code. Original ownership predicates are unchanged.",
+    "early_capture_limit": "Early wrappers hash the complete runtime set but do not copy selected regression scene/script separately. Exact old fixture bytes retained in the revision package match those run manifests."
+  },
+  "diagnostic_parser_controls": {
+    "receipt_path": "design/astra/work/world_timestamps/parser_validation_01/receipt.json",
+    "receipt_sha256": "ae2073ecd401a7c25584eac7ad466df5caa72436e08f9fd4be074c94737bc597",
+    "recorded_exit": 0,
+    "raw_result": "Ran 3 tests; OK",
+    "raw_stderr_sha256": "7b7c8967f0090002349961b9fe9b84d0a9f643976e8d218f4a565c68c4fa6275",
+    "source_sha256": {
+      "design\\astra\\work\\world_timestamps\\gate.py": "d54f54665bb6a398ee192896791c0d31d4a60a8521c5b23195e6d0d8dce783ec",
+      "design\\astra\\work\\world_timestamps\\test_gate.py": "dc626ed55af6084d7aaa38bcaa7d47796d2351017c18b4ce79b8fcfc757d0afa",
+      "design\\astra\\work\\world_timestamps\\run_case.py": "2424ac5749145fdb7db6cf1f4bef2e0469aa36dbc85faa595dd848ed15e91ec2"
+    },
+    "wrapper_history": "Early2424ac... already uses strengthened gate. Final9f10ee... adds selected regression scene/script copies. Each runtime receipt retains its own wrapper version."
+  },
+  "result": {
+    "original": "51/76, native 1/gate 1, 25 raw failures",
+    "candidate_restored_final": "76/76 each, native 0/gate 0",
+    "wrapped": "61/76, native 1/gate 1, 15 value failures",
+    "late_sample": "75/76, native 1/gate 1, reported_at only",
+    "initial_regressions": "Jobs: 1 failure/native 1; Register: 145/148/native 3; unexpected reds preserved",
+    "final_regressions": "Jobs PASS; Register 153/153; errand PASS; incidents 18/18 with found-art warning; calendar 52/52; save compatibility 14/14; all listed greens native 0/gate 0"
+  },
+  "related_static_evidence": [
+    {
+      "receipt_path": "design/astra/evidence/foundation_repairs_audits_01/receipt.json",
+      "receipt_sha256": "7a5fbf1d44b5aeb7541101355bd03eb820b429b6e051d5021463b9c45b07611c",
+      "recorded_exits": {
+        "audio_emitters": 0,
+        "audio_emitters_selftest": 0,
+        "data_consumption": 1,
+        "data_consumption_selftest": 0,
+        "interaction_implementors": 0,
+        "interaction_implementors_selftest": 0,
+        "interaction_prompt_carriers": 0,
+        "interaction_prompt_carriers_selftest": 0,
+        "orison_spatial_dependencies": 0,
+        "orison_spatial_dependencies_selftest": 0,
+        "orison_v2_completeness": 2,
+        "orison_v2_completeness_selftest": 0,
+        "systemic_situation_authority": 0,
+        "systemic_situation_authority_selftest": 0
+      },
+      "scope": "Root-owned completed static audit inputs; referenced without rerunning or expanding runtime acceptance."
+    },
+    {
+      "receipt_path": "design/astra/evidence/foundation_period_01/receipt.json",
+      "receipt_sha256": "10bcb24bee37be0e665ea0286f4282fa3678ef61af6faecefb2980f1c953ae6f",
+      "recorded_exits": {
+        "period": 0,
+        "selftest": 0
+      },
+      "scope": "Root-owned completed static audit inputs; referenced without rerunning or expanding runtime acceptance."
+    }
+  ]
+}

@@ -132,6 +132,12 @@ func _replace_world(kind: String) -> bool:
 	if kind == "dream" and next.has_method("configure_dream"):
 		next.call("configure_dream", dream_director.context())
 	world_slot.add_child(next)
+	if next.get("startup_failed") == true:
+		# A failed root has no usable player/services. Do not publish it as
+		# an active world or acknowledge a Dream transition as completed.
+		world_slot.remove_child(next)
+		next.free()
+		return false
 	active_world = next
 	active_kind = kind
 	assert(world_slot.get_child_count() == 1)

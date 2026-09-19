@@ -1,0 +1,105 @@
+## A short public leg can be safer than detouring through a nearest portal.
+## This is a conservative envelope, not the actor's Body shape: its cap centres
+## at .33/1.32 with radius .33 contain Body's .28/1.27 with radius .28.
+## Longer, sloped, unvalidated or obstructed routes retain the existing graph.
+func _direct_segment_clear(entry: Dictionary, from: Vector3, to: Vector3) -> bool:
+	if not from.is_finite() or not to.is_finite() \
+			or absf(from.y - to.y) > 0.001 \
+			or from.distance_squared_to(to) > DIRECT_MAX_LENGTH * DIRECT_MAX_LENGTH \
+			or _validated_world == null or not is_inside_tree():
+		return false
+	var world: World3D = _validated_world.get_ref()
+	if world == null or world != get_viewport().find_world_3d() \
+			or not _segment_clear(entry, from, to) \
+			or not _direct_slab_clear(entry, from, to):
+		return false
+	var space := world.direct_space_state
+	if _direct_shape == null:
+		_direct_shape = CapsuleShape3D.new()
+		_direct_shape.radius = DIRECT_RADIUS
+		_direct_shape.height = DIRECT_HEIGHT
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = _direct_shape
+	query.collide_with_areas = false
+	query.margin = 0.001
+	query.transform = Transform3D(Basis(), from + Vector3.UP * DIRECT_HEIGHT * 0.5)
+	# cast_motion ignores initial overlap, so neither endpoint may overlap.
+	# No collider exclusions, including door leaves. Ordinary layer filtering
+	# still applies: resident Body nodes on layer zero are not crowd obstacles.
+	if not space.intersect_shape(query, 1).is_empty():
+		return false
+	query.transform.origin = to + Vector3.UP * DIRECT_HEIGHT * 0.5
+	if not space.intersect_shape(query, 1).is_empty():
+		return false
+	query.transform.origin = from + Vector3.UP * DIRECT_HEIGHT * 0.5
+	query.motion = to - from
+	var fractions := space.cast_motion(query)
+	if fractions.size() != 2 or fractions[0] < 1.0 or fractions[1] < 1.0:
+		return false
+	# Authored holes are excluded continuously below. Physical support is a
+	# separate sampled check: centre plus eight rim points at <= .20 m spacing.
+	var steps := maxi(1, ceili(from.distance_to(to) / 0.20))
+	for i in range(steps + 1):
+		var at := from.lerp(to, float(i) / float(steps))
+		for spoke in range(9):
+			var offset := Vector3.ZERO
+			if spoke > 0:
+				var angle := TAU * float(spoke - 1) / 8.0
+				offset = Vector3(cos(angle), 0, sin(angle)) * DIRECT_RADIUS
+			var ray := PhysicsRayQueryParameters3D.create(
+					at + offset + Vector3.UP * 0.10,
+					at + offset - Vector3.UP * 0.10)
+			ray.hit_from_inside = true
+			var hit := space.intersect_ray(ray)
+			if hit.is_empty() or hit.normal.y < 0.99 \
+					or absf(float(hit.position.y) - float(entry.z)) > 0.01:
+				return false
+	return true
+
+
+func _direct_slab_clear(entry: Dictionary, from: Vector3, to: Vector3) -> bool:
+	# The flat public leg keeps the actor's foot offset; it cannot bridge a step.
+	var clearance := from.y - float(entry.z)
+	if clearance < 0.015 or clearance > 0.08:
+		return false
+	var a := Vector2(from.x, -from.z)
+	var b := Vector2(to.x, -to.z)
+	for slab in entry.get("slabs", []):
+		if absf(float(slab.z_top) - float(entry.z)) > 0.001 \
+				or not _in_rect(slab.rect, a, -DIRECT_RADIUS) \
+				or not _in_rect(slab.rect, b, -DIRECT_RADIUS):
+			continue
+		var blocked := false
+		for hole in slab.get("holes", []):
+			if _direct_hole_crossed(a, b, hole):
+				blocked = true
+				break
+		if not blocked:
+			return true
+	return false
+
+
+func _direct_hole_crossed(a: Vector2, b: Vector2, hole: Array) -> bool:
+	# Clip against the radius-expanded hole rectangle, including its boundary.
+	# Checking the whole segment avoids stepping over a narrow authored opening.
+	var lo := Vector2(float(hole[0]), float(hole[1])) - Vector2.ONE * DIRECT_RADIUS
+	var hi := Vector2(float(hole[2]), float(hole[3])) + Vector2.ONE * DIRECT_RADIUS
+	var first := 0.0
+	var last := 1.0
+	for axis in range(2):
+		var delta: float = b[axis] - a[axis]
+		if absf(delta) < 0.000001:
+			if a[axis] < lo[axis] or a[axis] > hi[axis]:
+				return false
+			continue
+		var enter: float = (lo[axis] - a[axis]) / delta
+		var leave: float = (hi[axis] - a[axis]) / delta
+		first = maxf(first, minf(enter, leave))
+		last = minf(last, maxf(enter, leave))
+		if first > last:
+			return false
+	return true
+
+
+func _exit_tree() -> void:
+	_validated_world = null

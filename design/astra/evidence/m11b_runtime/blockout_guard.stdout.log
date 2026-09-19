@@ -1,0 +1,42 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 10 spaces / 4 doors / 9 anchors
+  PASS  clean fixture validates: []
+  PASS  clean fixture joins the selector group
+  PASS  clean fixture builds geometry
+ORISON V2 BLOCKOUT: 50 spaces / 21 doors / 48 anchors
+  PASS  production layout still validates: []
+  PASS  production layout joins the selector group
+  PASS  dangling stair level is refused with exactly one failure, got ["PRIMARY_B1_F01 stair from references missing level F07"]
+  PASS  stair failure names the stair, the field and the level: PRIMARY_B1_F01 stair from references missing level F07
+  PASS  overlap on F02 is refused with exactly one failure, got ["F02_HALL overlaps F02_A_MAIN on level F02 by 8.000 m2"]
+  PASS  overlap failure names both rooms and the level: F02_HALL overlaps F02_A_MAIN on level F02 by 8.000 m2
+  PASS  door to a missing space is refused with exactly one failure, got ["F02_DOOR_02 door connects references undeclared record F02_A_LOBBY"]
+  PASS  door failure names the leaf, the field and the target: F02_DOOR_02 door connects references undeclared record F02_A_LOBBY
+  PASS  opening to a missing space is refused with exactly one failure, got ["F01_LOBBY_OPENING opening connects references undeclared record NOWHERE"]
+  PASS  opening connects is checked
+  PASS  window on a missing space is refused with exactly one failure, got ["F01_LOBBY_WINDOW window space references undeclared record F01_GHOST"]
+  PASS  window space is checked
+  PASS  landing on a missing shaft is refused with exactly one failure, got ["F01_LIFT_LANDING lift landing shaft references undeclared record NO_SUCH_SHAFT"]
+  PASS  lift landing shaft is checked
+  PASS  route edge via nothing is refused with exactly one failure, got ["ROUTE_B1_F01 route edge via references undeclared record NO_SUCH_STAIR"]
+  PASS  route edge via is checked
+  PASS  service connection to nothing is refused with exactly one failure, got ["B1_BOILER_HEAT_FEED service connection to references undeclared record NO_SUCH_RISER"]
+  PASS  service connection endpoints are checked
+  PASS  door connected to a riser is refused with exactly one failure, got ["F02_DOOR_02 door connects must name a spaces record, but HEAT_STACK is declared in risers"]
+  PASS  a reference into the wrong table is refused
+  PASS  single-owner opening wrong owner is refused with exactly one failure, got ["F02_SERVICE_HALL_CORE_OPENING shared_wall_owner must name one connected space"]
+  PASS  single-owner opening refuses an owner outside its endpoints
+  PASS  single-owner opening off wall is refused with exactly one failure, got ["F02_SERVICE_HALL_CORE_OPENING is not on its endpoints\' shared wall"]
+  PASS  single-owner opening refuses an off-wall center
+  PASS  single-owner opening beyond span is refused with exactly one failure, got ["F04_SERVICE_HALL_CORE_OPENING does not lie entirely on the shared boundary"]
+  PASS  single-owner opening refuses a cut beyond the shared span
+  PASS  single-owner conflict is refused with exactly one failure, got ["F02_SERVICE_HALL_CORE_OPENING_02 conflicts with F02_SERVICE_HALL_CORE_OPENING shared-wall owner"]
+  PASS  one shared boundary refuses conflicting construction owners
+  PASS  single-owner decoy aperture is refused with exactly one failure, got ["F04_SERVICE_HALL_CORE_DECOY conflicts with F04_SERVICE_HALL_CORE_OPENING single-owner partition"]
+  PASS  single-owner partition refuses an unrelated aperture on its omitted wall
+  PASS  refused layout reports failures
+  PASS  refused layout builds no partial geometry
+  PASS  refused layout does not join the selector group
+ORISON V2 BLOCKOUT GUARD TEST: PASS (0 failure(s))

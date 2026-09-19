@@ -1,0 +1,369 @@
+{
+  "schema": "astra.v2-terminal-access.independent-review.v1",
+  "status": "SIX_ACTUAL_RUNS_VERIFY_FOCUSED_INPUT_REPAIR",
+  "reviewer_sha256": "0e0006f82f57b260958e7ceae520dfee757f1621f65c748ca6416ce680869db7",
+  "runs": [
+    {
+      "phase": "01_original",
+      "result_sha256": "89034f9c89e5c1cdd38e7bcd647d1b56c35b0a35f41f305658456523a282a636",
+      "probe_sha256": "4f770a8fe7ac17cfb165a840e065f4699cc0a310475c793aa49b1919871d68e9",
+      "restoration_sha256": "4e586c2348a67238b4173fad712d98acb2d3cb8b9e659638d442818a984e3de4",
+      "preserved_refusal_sha256": null,
+      "native_exit": 1,
+      "ordinary_gate_exit": 1,
+      "control_contract_exit": 0,
+      "passed": 19,
+      "total": 39,
+      "failed_labels": [
+        "actual scope front faces the operator",
+        "V2 owns exactly one actual DeskZone",
+        "desk reuses the sole production call owner",
+        "desk target uses the authored footprint and ordinary height",
+        "desk target is at the terminal use area on the operator floor",
+        "ordinary player ray acquires the actual desk Area",
+        "actual player prompt offers the support desk",
+        "real interact input acquires reciprocal seated ownership",
+        "real entry opens the call panel and starts the first case",
+        "real call owner updates the actual terminal stage",
+        "occupied line plays on the existing Telephone owner",
+        "entry does not teleport the authored operator",
+        "seated E releases player desk and call ownership",
+        "seated E hides the modal and stops the line",
+        "standing player can reacquire the same physical desk",
+        "ray reentry resumes the same live case and owner",
+        "actual Escape key releases reciprocal ownership",
+        "Escape restores world input and stops the line",
+        "exactly two real ray entries emitted desk interactions",
+        "opening sequence settles through its actual owner"
+      ],
+      "artifact_entries_verified": 57,
+      "known_diagnostic_debt": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+          "count": 2
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+          "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+          "count": 39
+        }
+      ]
+    },
+    {
+      "phase": "02_candidate",
+      "result_sha256": "51d8ff2c4112084ec4287ddd8e94f2d84beaabcf87ae31e9322ada542a3c7097",
+      "probe_sha256": "a5d3bc686da7c01859d544441d351e5d5654a1d9a6bc96b039fe75e56eb78aa3",
+      "restoration_sha256": "3e1abc7d2755f5c4579abf49762056983aba953e8647d93a615574f8ee50138c",
+      "preserved_refusal_sha256": null,
+      "native_exit": 0,
+      "ordinary_gate_exit": 0,
+      "control_contract_exit": 0,
+      "passed": 39,
+      "total": 39,
+      "failed_labels": [],
+      "artifact_entries_verified": 57,
+      "known_diagnostic_debt": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+          "count": 2
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+          "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+          "count": 39
+        }
+      ]
+    },
+    {
+      "phase": "03_orientation_omission",
+      "result_sha256": "9d58195176ef01dd0cd56f1d9a8ab33399cc8be76ac38cd35ab809dba25c383d",
+      "probe_sha256": "1bbbdf770db5bcb9bf70ca6e49f62567d2800855b600d518820dd982970ea12e",
+      "restoration_sha256": "9b97c658202c9e089f01aa6a016f6fc4de79843e8c3bad5a520363cd6f0b3db0",
+      "preserved_refusal_sha256": null,
+      "native_exit": 1,
+      "ordinary_gate_exit": 1,
+      "control_contract_exit": 0,
+      "passed": 38,
+      "total": 39,
+      "failed_labels": [
+        "actual scope front faces the operator"
+      ],
+      "artifact_entries_verified": 57,
+      "known_diagnostic_debt": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+          "count": 2
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+          "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+          "count": 39
+        }
+      ]
+    },
+    {
+      "phase": "04_desk_omission",
+      "result_sha256": "c84d9635d3492d7e7fddf5e308d1208c17e9eec3c0de63653eae06a640d98691",
+      "probe_sha256": "e3d279a6a1b32f688acfaa2c8238613a8f072bed42d43facf483cc90e8c7884e",
+      "restoration_sha256": "e996ed71d70b543ebba82a609d5f1cdf09c4693b6e864da319c4de46ee4af33b",
+      "preserved_refusal_sha256": null,
+      "native_exit": 1,
+      "ordinary_gate_exit": 1,
+      "control_contract_exit": 0,
+      "passed": 20,
+      "total": 39,
+      "failed_labels": [
+        "V2 owns exactly one actual DeskZone",
+        "desk reuses the sole production call owner",
+        "desk target uses the authored footprint and ordinary height",
+        "desk target is at the terminal use area on the operator floor",
+        "ordinary player ray acquires the actual desk Area",
+        "actual player prompt offers the support desk",
+        "real interact input acquires reciprocal seated ownership",
+        "real entry opens the call panel and starts the first case",
+        "real call owner updates the actual terminal stage",
+        "occupied line plays on the existing Telephone owner",
+        "entry does not teleport the authored operator",
+        "seated E releases player desk and call ownership",
+        "seated E hides the modal and stops the line",
+        "standing player can reacquire the same physical desk",
+        "ray reentry resumes the same live case and owner",
+        "actual Escape key releases reciprocal ownership",
+        "Escape restores world input and stops the line",
+        "exactly two real ray entries emitted desk interactions",
+        "opening sequence settles through its actual owner"
+      ],
+      "artifact_entries_verified": 57,
+      "known_diagnostic_debt": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+          "count": 2
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+          "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+          "count": 39
+        }
+      ]
+    },
+    {
+      "phase": "05_footprint_omission",
+      "result_sha256": "3fda50567e61c694ffc8a63913f9ff3b1f7767114179cfa06d343218652274ea",
+      "probe_sha256": "ae1ced662cec8dd7644cf2f4bbdb3a7d82f713c0bcb25a1782e4f9dafb7f0649",
+      "restoration_sha256": "1523e7823427605b6519262615075a3688598a3e84282b2343b5a6cc9efe3840",
+      "preserved_refusal_sha256": "3fe69fba1c56633e8928642d580e9d7ebc5ed1019f3c80da10041b08f13f0d35",
+      "native_exit": 1,
+      "ordinary_gate_exit": 1,
+      "control_contract_exit": 0,
+      "passed": 38,
+      "total": 39,
+      "failed_labels": [
+        "desk target uses the authored footprint and ordinary height"
+      ],
+      "artifact_entries_verified": 57,
+      "known_diagnostic_debt": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+          "count": 2
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+          "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+          "count": 39
+        }
+      ]
+    },
+    {
+      "phase": "06_restored_candidate",
+      "result_sha256": "a14e08df4e4ffb850e465484d2057bbe8c5a853b0c4028f1a1e08c7c0c07d26d",
+      "probe_sha256": "c652ad2ce7338c20d5cc24623d6963904978add65998c3410ded60b339878ce0",
+      "restoration_sha256": "e156c007d4b43dbeefe2af6e87cb9a184e1095961dba3041f968daf1ffc92631",
+      "preserved_refusal_sha256": null,
+      "native_exit": 0,
+      "ordinary_gate_exit": 0,
+      "control_contract_exit": 0,
+      "passed": 39,
+      "total": 39,
+      "failed_labels": [],
+      "artifact_entries_verified": 59,
+      "known_diagnostic_debt": [
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json",
+          "count": 2
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json",
+          "count": 1
+        },
+        {
+          "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.",
+          "count": 1
+        },
+        {
+          "header": "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+          "detail": "Removing layer VK_LAYER_OBS_HOOK (C:\\ProgramData\\obs-studio-hook\\obs-vulkan64.json) because it is a duplicate of VK_LAYER_OBS_HOOK (C:\\ProgramData\\lovense-obs-studio-hook\\obs-vulkan64.json)",
+          "count": 1
+        },
+        {
+          "header": "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.",
+          "detail": "at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)",
+          "count": 39
+        }
+      ]
+    }
+  ],
+  "stable_non_owner_inputs": 3909,
+  "candidate_sources": {
+    "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+    "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a"
+  },
+  "scope": "Actual CampaignShell/V2 at a controlled physics-disabled operator pose: ordinary ray, prompt, E entry/exit, reentry, Escape, call continuity, existing Telephone owner and world retirement.",
+  "limits": "No walked route, body clearance, completed case, controller, physical handset, audio listening, performance, visual or human acceptance. Five host Vulkan loader errors, two loader warnings and39 RGB8 conversion warnings remain in each run.",
+  "historical_failed_fixture_review": "reviews/v2_terminal_access_startup_review_01.json",
+  "prelaunch_refusal": "evidence/v2_terminal_access_invocations/arrival_02_footprint_busy_01.json",
+  "concurrent_process_context": "Foreign Godot processes joined during phase05 and blocked its first restoration. The actual focused input result is retained; exact source recovery and final39 pass followed under additive captured continuation. No exclusive hardware or timing claim is made for phase05.",
+  "recovery": "evidence/v2_terminal_access_invocations/arrival_02_postrun_recovery_01/recovery.json"
+}

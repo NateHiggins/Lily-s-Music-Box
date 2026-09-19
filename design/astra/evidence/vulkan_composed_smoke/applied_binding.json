@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-09-05T05:44:10.972449+00:00",
+  "head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "only_changed_game_tools_path": [
+    "game/scripts/building/building_root.gd"
+  ],
+  "actual_raw_sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+  "reviewed_LF_sha256": "66c7012e95729925db39915b8c742752ffb160ad50547fc346cb8443ed6cb967",
+  "live_CRLF_count": 2899,
+  "proposal_CRLF_count": 0,
+  "LF_normalized_bytes_equal": true,
+  "initial_exact_byte_assertion": "FAILED: AssertionError; Git apply normalized the LF proposal to CRLF checkout bytes. The normalized content is identical; actual bytes remain frozen for Godot runs.",
+  "applied_diff_sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7"
+}

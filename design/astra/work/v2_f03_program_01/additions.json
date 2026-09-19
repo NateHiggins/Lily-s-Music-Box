@@ -1,0 +1,718 @@
+{
+  "spaces": [
+    {
+      "id": "F03_LANDING",
+      "level": "F03",
+      "rect": [
+        -2.2,
+        -3.35,
+        1.45,
+        0.6
+      ],
+      "purpose": "floor and unit decision",
+      "class": "public",
+      "open_shell": true,
+      "no_floor": true,
+      "no_ceiling": true
+    },
+    {
+      "id": "F03_EAST_HALL",
+      "level": "F03",
+      "rect": [
+        5.4,
+        -3.85,
+        8.3,
+        -2.65
+      ],
+      "purpose": "public approach to Omar Bell at 3B",
+      "class": "public"
+    },
+    {
+      "id": "F03_SERVICE_CROSSING",
+      "level": "F03",
+      "rect": [
+        8.3,
+        -3.85,
+        9.5,
+        -2.65
+      ],
+      "purpose": "controlled public crossing of the service spine",
+      "class": "service"
+    },
+    {
+      "id": "F03_SERVICE_HALL",
+      "level": "F03",
+      "rect": [
+        7.1,
+        -2.65,
+        9.5,
+        9.25
+      ],
+      "purpose": "maintenance route with bypass and inspection clearance around continuous risers",
+      "class": "service"
+    },
+    {
+      "id": "F03_SERVICE_HALL_SOUTH",
+      "level": "F03",
+      "rect": [
+        8.3,
+        -9.25,
+        9.5,
+        -3.85
+      ],
+      "purpose": "kitchen service access without crossing sleeping rooms",
+      "class": "service"
+    },
+    {
+      "id": "F03_B_VESTIBULE",
+      "level": "F03",
+      "rect": [
+        9.5,
+        -3.85,
+        11.5,
+        -1.15
+      ],
+      "purpose": "3B privacy, coats and household distribution",
+      "class": "private"
+    },
+    {
+      "id": "F03_B_MAIN",
+      "level": "F03",
+      "rect": [
+        11.5,
+        -5.25,
+        15.65,
+        0.3
+      ],
+      "purpose": "Omar Bell living, meals and categorized repair work",
+      "class": "private",
+      "exterior_sides": [
+        "east"
+      ]
+    },
+    {
+      "id": "F03_B_KITCHEN",
+      "level": "F03",
+      "rect": [
+        9.5,
+        -8.05,
+        13.0,
+        -5.25
+      ],
+      "purpose": "cooking, washing and service access; no sleeping-room through route",
+      "class": "private"
+    },
+    {
+      "id": "F03_B_PRIVATE_HALL",
+      "level": "F03",
+      "rect": [
+        13.0,
+        -9.8,
+        15.65,
+        -5.25
+      ],
+      "purpose": "independent access to sleeping alcove and bathroom",
+      "class": "private"
+    },
+    {
+      "id": "F03_B_ALCOVE",
+      "level": "F03",
+      "rect": [
+        9.5,
+        -12.35,
+        13.0,
+        -8.05
+      ],
+      "purpose": "Omar sleeping and clothes storage; retained canonical alcove identity",
+      "class": "private",
+      "exterior_sides": [
+        "south"
+      ]
+    },
+    {
+      "id": "F03_B_BATH",
+      "level": "F03",
+      "rect": [
+        13.0,
+        -12.35,
+        15.65,
+        -9.8
+      ],
+      "purpose": "complete private bathing and sanitation",
+      "class": "wet",
+      "exterior_sides": [
+        "south",
+        "east"
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "F03_DOOR_03",
+      "level": "F03",
+      "center": [
+        9.5,
+        -3.25
+      ],
+      "width": 0.91,
+      "height": 2.13,
+      "yaw": 1.5707963,
+      "hinge": "left",
+      "swing": "in",
+      "connects": [
+        "F03_SERVICE_CROSSING",
+        "F03_B_VESTIBULE"
+      ]
+    },
+    {
+      "id": "F03_SERVICE_CORE_DOOR",
+      "level": "F03",
+      "center": [
+        9.5,
+        5.5
+      ],
+      "width": 0.91,
+      "height": 2.13,
+      "yaw": 1.5707963,
+      "hinge": "left",
+      "swing": "in",
+      "connects": [
+        "F03_SERVICE_HALL",
+        "F03_SERVICE_CORE"
+      ]
+    },
+    {
+      "id": "F03_B_SERVICE_DOOR",
+      "level": "F03",
+      "center": [
+        9.5,
+        -6.8
+      ],
+      "width": 0.91,
+      "height": 2.13,
+      "yaw": 1.5707963,
+      "hinge": "left",
+      "swing": "in",
+      "connects": [
+        "F03_SERVICE_HALL_SOUTH",
+        "F03_B_KITCHEN"
+      ]
+    },
+    {
+      "id": "F03_B_ALCOVE_DOOR",
+      "level": "F03",
+      "center": [
+        13.0,
+        -9.15
+      ],
+      "width": 0.81,
+      "height": 2.13,
+      "yaw": 1.5707963,
+      "hinge": "left",
+      "swing": "in",
+      "connects": [
+        "F03_B_PRIVATE_HALL",
+        "F03_B_ALCOVE"
+      ]
+    },
+    {
+      "id": "F03_B_BATH_DOOR",
+      "level": "F03",
+      "center": [
+        14.2,
+        -9.8
+      ],
+      "width": 0.81,
+      "height": 2.13,
+      "yaw": 0.0,
+      "hinge": "left",
+      "swing": "in",
+      "connects": [
+        "F03_B_PRIVATE_HALL",
+        "F03_B_BATH"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "F03_CORE_EAST_HALL_OPENING",
+      "level": "F03",
+      "center": [
+        5.4,
+        -3.25
+      ],
+      "width": 1.2,
+      "height": 2.4,
+      "axis": "z",
+      "connects": [
+        "F03_PUBLIC_CORE",
+        "F03_EAST_HALL"
+      ],
+      "shared_wall_owner": "F03_PUBLIC_CORE"
+    },
+    {
+      "id": "F03_EAST_CROSSING_OPENING",
+      "level": "F03",
+      "center": [
+        8.3,
+        -3.25
+      ],
+      "width": 1.2,
+      "height": 2.4,
+      "axis": "z",
+      "connects": [
+        "F03_EAST_HALL",
+        "F03_SERVICE_CROSSING"
+      ],
+      "shared_wall_owner": "F03_EAST_HALL"
+    },
+    {
+      "id": "F03_SERVICE_NORTH_OPENING",
+      "level": "F03",
+      "center": [
+        8.9,
+        -2.65
+      ],
+      "width": 1.2,
+      "height": 2.4,
+      "axis": "x",
+      "connects": [
+        "F03_SERVICE_CROSSING",
+        "F03_SERVICE_HALL"
+      ],
+      "shared_wall_owner": "F03_SERVICE_CROSSING"
+    },
+    {
+      "id": "F03_SERVICE_SOUTH_OPENING",
+      "level": "F03",
+      "center": [
+        8.9,
+        -3.85
+      ],
+      "width": 1.2,
+      "height": 2.4,
+      "axis": "x",
+      "connects": [
+        "F03_SERVICE_CROSSING",
+        "F03_SERVICE_HALL_SOUTH"
+      ],
+      "shared_wall_owner": "F03_SERVICE_CROSSING"
+    },
+    {
+      "id": "F03_B_MAIN_OPENING",
+      "level": "F03",
+      "center": [
+        11.5,
+        -2.5
+      ],
+      "width": 1.2,
+      "height": 2.4,
+      "axis": "z",
+      "connects": [
+        "F03_B_VESTIBULE",
+        "F03_B_MAIN"
+      ],
+      "shared_wall_owner": "F03_B_VESTIBULE"
+    },
+    {
+      "id": "F03_B_MAIN_HALL_OPENING",
+      "level": "F03",
+      "center": [
+        14.2,
+        -5.25
+      ],
+      "width": 1.2,
+      "height": 2.4,
+      "axis": "x",
+      "connects": [
+        "F03_B_MAIN",
+        "F03_B_PRIVATE_HALL"
+      ],
+      "shared_wall_owner": "F03_B_MAIN"
+    },
+    {
+      "id": "F03_B_KITCHEN_OPENING",
+      "level": "F03",
+      "center": [
+        13.0,
+        -6.8
+      ],
+      "width": 1.2,
+      "height": 2.4,
+      "axis": "z",
+      "connects": [
+        "F03_B_KITCHEN",
+        "F03_B_PRIVATE_HALL"
+      ],
+      "shared_wall_owner": "F03_B_KITCHEN"
+    }
+  ],
+  "windows": [
+    {
+      "id": "F03_B_MAIN_WINDOW_E",
+      "level": "F03",
+      "space": "F03_B_MAIN",
+      "center": [
+        15.65,
+        -1.8
+      ],
+      "axis": "z",
+      "width": 1.8,
+      "height": 1.7,
+      "sill": 0.75
+    },
+    {
+      "id": "F03_B_ALCOVE_WINDOW_S",
+      "level": "F03",
+      "space": "F03_B_ALCOVE",
+      "center": [
+        11.15,
+        -12.35
+      ],
+      "axis": "x",
+      "width": 1.5,
+      "height": 1.7,
+      "sill": 0.75
+    },
+    {
+      "id": "F03_B_BATH_WINDOW_E",
+      "level": "F03",
+      "space": "F03_B_BATH",
+      "center": [
+        15.65,
+        -11.1
+      ],
+      "axis": "z",
+      "width": 0.9,
+      "height": 1.0,
+      "sill": 1.25
+    }
+  ],
+  "anchors": [
+    {
+      "id": "F03_B_ENTRY_STANCE",
+      "level": "F03",
+      "space": "F03_SERVICE_CROSSING",
+      "position": [
+        8.95,
+        0,
+        -3.25
+      ],
+      "yaw": -1.5707963,
+      "kind": "clearance"
+    },
+    {
+      "id": "F03_B_REPAIR_STANCE",
+      "level": "F03",
+      "space": "F03_B_MAIN",
+      "position": [
+        13.65,
+        0,
+        -0.85
+      ],
+      "yaw": 0,
+      "kind": "clearance"
+    },
+    {
+      "id": "F03_B_RADIATOR_01",
+      "level": "F03",
+      "space": "F03_B_MAIN",
+      "position": [
+        15.4,
+        0.75,
+        -3.4
+      ],
+      "yaw": 1.5707963,
+      "kind": "interaction"
+    },
+    {
+      "id": "F03_B_RADIATOR_STANCE",
+      "level": "F03",
+      "space": "F03_B_MAIN",
+      "position": [
+        14.45,
+        0,
+        -3.4
+      ],
+      "yaw": -1.5707963,
+      "kind": "clearance"
+    },
+    {
+      "id": "F03_B_KITCHEN_SERVICE_STANCE",
+      "level": "F03",
+      "space": "F03_B_KITCHEN",
+      "position": [
+        10.2,
+        0,
+        -6.8
+      ],
+      "yaw": 1.5707963,
+      "kind": "clearance"
+    },
+    {
+      "id": "F03_SERVICE_TRANSFER_STANCE",
+      "level": "F03",
+      "space": "F03_SERVICE_HALL",
+      "position": [
+        8.9,
+        0,
+        5.5
+      ],
+      "yaw": -1.5707963,
+      "kind": "clearance"
+    }
+  ],
+  "capsule_stations": [
+    {
+      "id": "F03_CAPSULE_LANDING",
+      "level": "F03",
+      "position": [
+        -1.5,
+        0.85,
+        0
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_EAST_HALL",
+      "level": "F03",
+      "position": [
+        6.8,
+        0.85,
+        -3.25
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_CROSSING",
+      "level": "F03",
+      "position": [
+        8.9,
+        0.85,
+        -3.25
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_3B_ENTRY",
+      "level": "F03",
+      "position": [
+        10.4,
+        0.85,
+        -2.5
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_3B_MAIN",
+      "level": "F03",
+      "position": [
+        13.1,
+        0.85,
+        -2.5
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_3B_HALL",
+      "level": "F03",
+      "position": [
+        14.2,
+        0.85,
+        -6.3
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_3B_KITCHEN",
+      "level": "F03",
+      "position": [
+        11.4,
+        0.85,
+        -6.8
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_3B_ALCOVE",
+      "level": "F03",
+      "position": [
+        11.3,
+        0.85,
+        -9.15
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_3B_BATH",
+      "level": "F03",
+      "position": [
+        14.2,
+        0.85,
+        -10.6
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_SERVICE_RISER_BYPASS",
+      "level": "F03",
+      "position": [
+        7.7,
+        0.85,
+        0.5
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_SERVICE_HALL",
+      "level": "F03",
+      "position": [
+        8.9,
+        0.85,
+        5.5
+      ]
+    },
+    {
+      "id": "F03_CAPSULE_SERVICE_ENTRY",
+      "level": "F03",
+      "position": [
+        10.0,
+        0.85,
+        5.5
+      ]
+    }
+  ],
+  "route_edges": [
+    {
+      "id": "ROUTE_PRIMARY_F02_F03",
+      "from": "F02_PUBLIC_CORE",
+      "to": "F03_PUBLIC_CORE",
+      "via": "PRIMARY_F02_F03"
+    },
+    {
+      "id": "ROUTE_PRIMARY_F03_F04",
+      "from": "F03_PUBLIC_CORE",
+      "to": "F04_PUBLIC_CORE",
+      "via": "PRIMARY_F03_F04"
+    },
+    {
+      "id": "ROUTE_F03_CORE_EAST",
+      "from": "F03_PUBLIC_CORE",
+      "to": "F03_EAST_HALL",
+      "via": "F03_CORE_EAST_HALL_OPENING"
+    },
+    {
+      "id": "ROUTE_F03_EAST_CROSSING",
+      "from": "F03_EAST_HALL",
+      "to": "F03_SERVICE_CROSSING",
+      "via": "F03_EAST_CROSSING_OPENING"
+    },
+    {
+      "id": "ROUTE_F03_3B_ENTRY",
+      "from": "F03_SERVICE_CROSSING",
+      "to": "F03_B_VESTIBULE",
+      "via": "F03_DOOR_03"
+    },
+    {
+      "id": "ROUTE_F03_3B_MAIN",
+      "from": "F03_B_VESTIBULE",
+      "to": "F03_B_MAIN",
+      "via": "F03_B_MAIN_OPENING"
+    },
+    {
+      "id": "ROUTE_F03_SERVICE_NORTH",
+      "from": "F03_SERVICE_CROSSING",
+      "to": "F03_SERVICE_HALL",
+      "via": "F03_SERVICE_NORTH_OPENING"
+    },
+    {
+      "id": "ROUTE_F03_SERVICE_SOUTH",
+      "from": "F03_SERVICE_CROSSING",
+      "to": "F03_SERVICE_HALL_SOUTH",
+      "via": "F03_SERVICE_SOUTH_OPENING"
+    },
+    {
+      "id": "ROUTE_F03_SERVICE_CORE",
+      "from": "F03_SERVICE_HALL",
+      "to": "F03_SERVICE_CORE",
+      "via": "F03_SERVICE_CORE_DOOR"
+    },
+    {
+      "id": "ROUTE_F03_SERVICE_KITCHEN",
+      "from": "F03_SERVICE_HALL_SOUTH",
+      "to": "F03_B_KITCHEN",
+      "via": "F03_B_SERVICE_DOOR"
+    }
+  ],
+  "service_connections": [
+    {
+      "id": "F03_B_HEAT_BRANCH",
+      "from": "HEAT_STACK",
+      "to": "F03_B_RADIATOR_01",
+      "system": "heat"
+    },
+    {
+      "id": "F03_B_KITCHEN_EXHAUST",
+      "from": "F03_B_KITCHEN",
+      "to": "F03_SERVICE_CORE",
+      "system": "exhaust"
+    }
+  ],
+  "envelopes": [
+    {
+      "id": "F03_B_REPAIR_USE",
+      "level": "F03",
+      "rect": [
+        12.4,
+        -1.5,
+        14.8,
+        -0.2
+      ],
+      "height": 0.02,
+      "class": "clearance",
+      "purpose": "categorized repair work and seated approach"
+    },
+    {
+      "id": "F03_B_KITCHEN_WORK_AISLE",
+      "level": "F03",
+      "rect": [
+        10.55,
+        -7.8,
+        11.65,
+        -5.5
+      ],
+      "height": 0.02,
+      "class": "clearance",
+      "purpose": "1.10 m cooking work aisle"
+    },
+    {
+      "id": "F03_B_BATH_USE",
+      "level": "F03",
+      "rect": [
+        13.5,
+        -11.9,
+        14.6,
+        -10.1
+      ],
+      "height": 0.02,
+      "class": "clearance",
+      "purpose": "basin and bathing approach"
+    },
+    {
+      "id": "F03_B_SLEEP_USE",
+      "level": "F03",
+      "rect": [
+        9.95,
+        -11.8,
+        12.2,
+        -9.8
+      ],
+      "height": 0.02,
+      "class": "clearance",
+      "purpose": "sleep and bedside approach"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "F03_SERVICE_ENTRY_PLATFORM",
+      "level": "F03",
+      "rect": [
+        9.5,
+        5.0,
+        10.55,
+        6.05
+      ],
+      "class": "core"
+    }
+  ]
+}

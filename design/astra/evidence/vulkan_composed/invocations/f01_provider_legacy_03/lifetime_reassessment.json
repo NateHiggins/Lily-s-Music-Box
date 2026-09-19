@@ -1,0 +1,29 @@
+{
+  "status": "ADDITIVE_SAMPLE_LIFETIME_REASSESSMENT_PASS",
+  "original_invocation_sha256": "27c9de5c64b60e93f709eecaf2756bf582e6ceaee0f43d698a18b3f021dd6f34",
+  "result_sha256": "fa52e776a12810926b96515c54e7fd1627828fac4eed0f5f3fc732eba96e19c9",
+  "probe_sha256": "a5252fb2acbfe642c4968324de60237d7d2c45d175c0d0e0028df53aa86162b8",
+  "classifier_sha256": "116c3485eebaefbcb77d25ad35cb791cc85e945806bed74e854e17c7cd98d10a",
+  "lane": {
+    "foreign_engines": [],
+    "conflicting_pid_observations": [],
+    "missing_creation_times": [],
+    "wrapper_lifetimes": 1,
+    "actual_owned_engines": [
+      {
+        "ProcessId": 25636,
+        "ParentProcessId": 30748,
+        "Name": "Godot_v4.7.1-stable_win64.exe",
+        "CommandLine": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine-astra\\game --verbose --audio-driver Dummy --resolution 1280x720 --rendering-method forward_plus --rendering-driver vulkan res://tests/VulkanComposedRootTest.tscn",
+        "CreatedUtc": "2026-09-06T06:57:50.0162090Z"
+      }
+    ],
+    "contract_exit": 0,
+    "scope": "Sampled process-lifetime ancestry; no absolute exclusivity or performance acceptance."
+  },
+  "checks": 305,
+  "captures": 18,
+  "rerendered": false,
+  "original_failure_unchanged": true,
+  "reason": "Null CIM retirement fields are unknown, not a conflicting known process identity."
+}

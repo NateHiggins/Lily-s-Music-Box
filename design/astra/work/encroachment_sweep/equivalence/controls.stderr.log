@@ -1,0 +1,22 @@
+test_baseline_or_unrelated_failure_rejected (test_gate.GateControls.test_baseline_or_unrelated_failure_rejected) ... ok
+test_changed_or_missing_payload_rejected (test_gate.GateControls.test_changed_or_missing_payload_rejected) ... ok
+test_clean_synthetic_candidate (test_gate.GateControls.test_clean_synthetic_candidate) ... ok
+test_crash_incomplete_and_changed_source_rejected (test_gate.GateControls.test_crash_incomplete_and_changed_source_rejected) ... ok
+test_late_control_must_preserve_first_census (test_gate.GateControls.test_late_control_must_preserve_first_census) ... ok
+test_missing_counts_rejected_without_exception (test_gate.GateControls.test_missing_counts_rejected_without_exception) ... ok
+test_missing_one_order_failure_rejected (test_gate.GateControls.test_missing_one_order_failure_rejected) ... ok
+test_native_errors_never_expected (test_gate.GateControls.test_native_errors_never_expected) ... ok
+test_phase_or_footer_omission_rejected (test_gate.GateControls.test_phase_or_footer_omission_rejected) ... ok
+test_two_synthetic_selective_reds (test_gate.GateControls.test_two_synthetic_selective_reds) ... ok
+test_adapter_has_no_method_change (test_prepare.SourceControls.test_adapter_has_no_method_change) ... ok
+test_baseline_exact_reviewed_bytes (test_prepare.SourceControls.test_baseline_exact_reviewed_bytes) ... ok
+test_drift_rejected (test_prepare.SourceControls.test_drift_rejected) ... ok
+test_late_control_only_changes_census_lifetime (test_prepare.SourceControls.test_late_control_only_changes_census_lifetime) ... ok
+test_only_method_changed (test_prepare.SourceControls.test_only_method_changed) ... ok
+test_priority_control_only_changes_unclaimed_selection (test_prepare.SourceControls.test_priority_control_only_changes_unclaimed_selection) ... ok
+test_unknown_variant_rejected (test_prepare.SourceControls.test_unknown_variant_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.002s
+
+OK

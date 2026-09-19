@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "head_when_controls_started": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+  "source_provenance": "red_sources.json, archived source snapshots, and owner_controls_v2/owner_controls.json bind exact tested bytes. This was an uncommitted repair over the accepted merge.",
+  "runs": [
+    {
+      "case": "shared_raw",
+      "observed_runner_exit": 0,
+      "scope": "Two cycles: real service set idle plus watch-register refusal; no weak-reference retention or shutdown diagnostic.",
+      "files": {
+        "shared_raw.stdout.log": {
+          "sha256": "7f4093e0ce54200fb3d4621bca8b4c35901adeff1b84db5a6486945a8add0bcf",
+          "bytes": 7618
+        },
+        "shared_raw.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "printing_raw",
+      "observed_runner_exit": 0,
+      "scope": "Two cycles: real service-set feed interrupted during playback; no weak-reference retention or shutdown diagnostic.",
+      "files": {
+        "printing_raw.stdout.log": {
+          "sha256": "a0ec85c317444a7a25be939ad00d0f8eb37694cddaab383fb742160f99506112",
+          "bytes": 6530
+        },
+        "printing_raw.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "m08f_probe",
+      "observed_runner_exit": 0,
+      "scope": "INVALID INSTRUMENT: RefCounted playback incorrectly typed Resource; script errors make exit zero inadmissible.",
+      "files": {
+        "m08f_probe.stdout.log": {
+          "sha256": "1027864c94ed0028bf2c6fb3ac9bb07f203ef07dd445d0eff8b6b4cae16b935a",
+          "bytes": 46826
+        },
+        "m08f_probe.stdout.log.stderr": {
+          "sha256": "34729c4e05366d928ec7a8da55bca0036c23b6fcd02c63d6359aef1f73ccbf83",
+          "bytes": 6057
+        }
+      }
+    },
+    {
+      "case": "m08f_probe2",
+      "observed_runner_exit": 1,
+      "scope": "Valid weak-reference instrument identifies surviving NightRegister paper cue in AudioPolicy slot 0.",
+      "files": {
+        "m08f_probe2.stdout.log": {
+          "sha256": "0c80889de878253bda326d3585d658f058dd1621c6107f821321495158b6f1f3",
+          "bytes": 58247
+        },
+        "m08f_probe2.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "night_register_red",
+      "observed_runner_exit": 1,
+      "scope": "Original owner: eight failed lifetime checks across two cycles.",
+      "files": {
+        "night_register_red.stdout.log": {
+          "sha256": "5ba2497ae256d4fa8a02da56043a04eccbac3ae1b0c9051482f872498badf71c",
+          "bytes": 6143
+        },
+        "night_register_red.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "night_register_green",
+      "observed_runner_exit": 1,
+      "scope": "Owner-only repair detaches pool streams, but pending playback weak references survive.",
+      "files": {
+        "night_register_green.stdout.log": {
+          "sha256": "6331943c1435e0188fa0c9baa22692f00938b26ef77e4d152551079aa9af4ddb",
+          "bytes": 5595
+        },
+        "night_register_green.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "night_register_green2",
+      "observed_runner_exit": 1,
+      "scope": "Synchronous observation helpers do not change the pending-playback failure.",
+      "files": {
+        "night_register_green2.stdout.log": {
+          "sha256": "6331943c1435e0188fa0c9baa22692f00938b26ef77e4d152551079aa9af4ddb",
+          "bytes": 5595
+        },
+        "night_register_green2.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "night_register_green3",
+      "observed_runner_exit": 0,
+      "scope": "Owner and pooled-slot retirement pass eighteen checks; no diagnostics.",
+      "files": {
+        "night_register_green3.stdout.log": {
+          "sha256": "11c546e07c661e8782de2d65d8d83ae10a1304e3073c035f272c7a953f626115",
+          "bytes": 6256
+        },
+        "night_register_green3.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "m08f_green",
+      "observed_runner_exit": 0,
+      "scope": "Owner-only repair clears the original composed M08F shutdown defect; twenty-nine checks.",
+      "files": {
+        "m08f_green.stdout.log": {
+          "sha256": "dffb6c1d94413973872a72a37a808efce6a5460aaad70f2aa27e93f9728932b6",
+          "bytes": 46025
+        },
+        "m08f_green.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "off_tree_red",
+      "observed_runner_exit": 1,
+      "scope": "Late WorkOrders callback reacquires a detached owner's cue; nineteen of twenty checks pass and an off-tree transform error is retained.",
+      "files": {
+        "off_tree_red.stdout.log": {
+          "sha256": "c99a2894a452c1fa5cd85cd173e72eb9982119595cb7a3622b9b67ce8cae381a",
+          "bytes": 6932
+        },
+        "off_tree_red.stdout.log.stderr": {
+          "sha256": "2cbbc65bafc8de6a5b87599a3e0d7d4d4865d3d8503df9958f0b496409e2d769",
+          "bytes": 957
+        }
+      }
+    },
+    {
+      "case": "off_tree_green",
+      "observed_runner_exit": 0,
+      "scope": "Off-tree guard preserves the live neighbor and passes all twenty lifetime checks without diagnostics.",
+      "files": {
+        "off_tree_green.stdout.log": {
+          "sha256": "7c1be41385992d7e227735253fa1e7125b3ec56dd66feff313e747656f0ab662",
+          "bytes": 6932
+        },
+        "off_tree_green.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "night_suite_verbose",
+      "observed_runner_exit": 0,
+      "scope": "Original synchronous fixture exits after 148 checks with twenty-two Ogg objects and six resources still retained; functional exit is not a clean lifecycle result.",
+      "files": {
+        "night_suite_verbose.stdout.log": {
+          "sha256": "c556025fa6f26f8a8a94de84b80dd8377f3dd6b131640b3e34888c236b432d56",
+          "bytes": 19416
+        },
+        "night_suite_verbose.stdout.log.stderr": {
+          "sha256": "903be638f313f08205bd5bdd24de5b50b4a5582301f980b32940782a864c42bc",
+          "bytes": 217
+        }
+      }
+    },
+    {
+      "case": "night_suite_green",
+      "observed_runner_exit": 0,
+      "scope": "Explicit fixture retirement preserves all 148 assertions and clears every verbose shutdown diagnostic.",
+      "files": {
+        "night_suite_green.stdout.log": {
+          "sha256": "ae592f4b824ee67ec8c6e072dfad87b800b107198d1a4502e956be1e0bfcfbab",
+          "bytes": 37555
+        },
+        "night_suite_green.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    {
+      "case": "m08f_final_guard",
+      "observed_runner_exit": 0,
+      "scope": "Final production guard and pool implementation: twenty-nine composed checks and clean verbose shutdown.",
+      "files": {
+        "m08f_final_guard.stdout.log": {
+          "sha256": "a4ef0af844fa85c490322b8e16a76fbdc048c56912fda83f98680bd0aa029c44",
+          "bytes": 46574
+        },
+        "m08f_final_guard.stdout.log.stderr": {
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    }
+  ],
+  "final_same_fixture_controls": "owner_controls_v2/owner_controls.json",
+  "final_process_validation": "../audio_repair_runtime/receipt.json",
+  "final_matrix_validation": "../audio_repair_runtime/matrix_directory_green/verbose_launch/receipt.json",
+  "initial_control_runner_failure": "owner_controls.json records zero runs and source restoration. The first Python command did not launch Godot because PowerShell -File argument binding failed. The v2 runner uses explicit array binding and retains actual process results.",
+  "no_service_set_change": true,
+  "no_global_muting_or_skipped_interaction": true,
+  "scope_limit": "Headless memory/source lifetime evidence only; no listening or human visual acceptance.",
+  "engine_source": "https://raw.githubusercontent.com/godotengine/godot/a13da4feb/scene/3d/audio_stream_player_3d.cpp",
+  "engine_observation": "play stores setplayback; stop resets setplay and clears internal playbacks without unrefing setplayback. The normal physics start unrefs it only when setplay remains nonnegative. Destroying the retired pooled player releases this pending reference.",
+  "final_source_hashes": {
+    "game/scripts/audio/audio_policy.gd": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f",
+    "game/scripts/props/night_register_prop.gd": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf",
+    "game/tests/night_register_audio_lifecycle_test.gd": "fbc0199b5a9a992ffe80dff64461c8c706941121a82f37b94b81bad5970348dc",
+    "game/tests/night_register_test.gd": "07fb7ba4af91173b3c18c14e764fa6fc76b628e25a6ab6fbe46411b468c78d26",
+    "game/tests/orison_v2_m08f_runtime_test.gd": "ac7a13093c4931769668129aedf39a479e3490029dc8d9cd1c99761b88d7ed4d",
+    "game/tests/orison_v2_two_root_matrix_test.gd": "d6d17f3a54806bf15c5b876a87aee2fda49ffd331e0077deb31b7202e1a7a5d0"
+  }
+}

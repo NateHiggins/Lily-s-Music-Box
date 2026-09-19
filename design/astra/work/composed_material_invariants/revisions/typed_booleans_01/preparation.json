@@ -1,0 +1,63 @@
+{
+  "status": "PREPARED_ONLY_NO_LIVE_INSTALL_OR_ENGINE",
+  "original_fixture_sha256": "e132724ae67f1dc4056f9fa1c9b018706399a7c3500889af41d0e6dedeeb8991",
+  "fixture_sha256": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+  "original_helper_sha256": "efa7d3af56398ff11818040d9c26dc5edda8c013d13c51864d11dc2df76bae14",
+  "helper_sha256": "d74ee117adb0d5fa8c06815716f8ee54bca7a6975626ee3f2bf6b6898b1eb98b",
+  "only_change": "Explicit bool type on eight exact dynamic-expression local declarations; no assertion, environment, owner, state or timing behavior change",
+  "changed_declarations": [
+    {
+      "line": 711,
+      "name": "live",
+      "before": "\t\t\tvar live := world.is_ancestor_of(draw) and draw.mesh != null and slot >= 0 and slot < draw.mesh.get_surface_count() \\",
+      "after": "\t\t\tvar live: bool = world.is_ancestor_of(draw) and draw.mesh != null and slot >= 0 and slot < draw.mesh.get_surface_count() \\"
+    },
+    {
+      "line": 713,
+      "name": "guard_ok",
+      "before": "\t\t\tvar guard_ok := _material_boundary(draw).is_empty() and str(draw.name).contains(\"_finish_\") \\",
+      "after": "\t\t\tvar guard_ok: bool = _material_boundary(draw).is_empty() and str(draw.name).contains(\"_finish_\") \\"
+    },
+    {
+      "line": 715,
+      "name": "marker_ok",
+      "before": "\t\t\tvar marker_ok := str(material.get_meta(\"living_storey\", \"\")) == floor_id \\",
+      "after": "\t\t\tvar marker_ok: bool = str(material.get_meta(\"living_storey\", \"\")) == floor_id \\"
+    },
+    {
+      "line": 736,
+      "name": "marker_ok",
+      "before": "\t\t\tvar marker_ok := str(material.get_meta(\"encroachment_case\", \"\")) == case_id \\",
+      "after": "\t\t\tvar marker_ok: bool = str(material.get_meta(\"encroachment_case\", \"\")) == case_id \\"
+    },
+    {
+      "line": 738,
+      "name": "linked",
+      "before": "\t\t\tvar linked := material.has_meta(\"encroachment_shared\") and material.get_meta(\"encroachment_shared\") == row.shared",
+      "after": "\t\t\tvar linked: bool = material.has_meta(\"encroachment_shared\") and material.get_meta(\"encroachment_shared\") == row.shared"
+    },
+    {
+      "line": 773,
+      "name": "live",
+      "before": "\t\tvar live := is_instance_valid(draw) and world.is_ancestor_of(draw) and _material_boundary(draw).is_empty() \\",
+      "after": "\t\tvar live: bool = is_instance_valid(draw) and world.is_ancestor_of(draw) and _material_boundary(draw).is_empty() \\"
+    },
+    {
+      "line": 797,
+      "name": "contaminated",
+      "before": "\t\t\tvar contaminated := material.has_meta(\"living_storey\") or material.has_meta(\"encroachment_case\")",
+      "after": "\t\t\tvar contaminated: bool = material.has_meta(\"living_storey\") or material.has_meta(\"encroachment_case\")"
+    },
+    {
+      "line": 990,
+      "name": "live",
+      "before": "\t\tvar live := is_instance_valid(node) and world.is_ancestor_of(node) and _material_boundary(node).is_empty()",
+      "after": "\t\tvar live: bool = is_instance_valid(node) and world.is_ancestor_of(node) and _material_boundary(node).is_empty()"
+    }
+  ],
+  "source_red": "design/astra/evidence/vulkan_composed/runs/material_ownership_7c54_v1_full_01/stdout.log.stderr",
+  "red_scope": "Parser failed before actual build; final runner exit owned by root; no material/performance observation",
+  "runtime": "UNRUN",
+  "ownership_dependency": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "original_measured_fixture": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+}

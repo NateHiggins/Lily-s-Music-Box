@@ -419,6 +419,64 @@ class DriftTests(unittest.TestCase):
                 self.assertIn("refusing to write manifest", err)
                 self.assertFalse((root / target).exists())
 
+    def test_generated_name_relocation_requires_exact_review(self):
+        with TempRepo() as root:
+            source = root / "game/scripts/audio/audio_policy.gd"
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_text(
+                'extends Node\n\nfunc _build_voice_pool() -> void:\n'
+                '\tfor i in 16:\n'
+                '\t\tvar voice := AudioStreamPlayer3D.new()\n'
+                '\t\tvoice.name = "PolicyVoice%02d" % i\n',
+                encoding="utf-8")
+            manifest_path = write_manifest(root)
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            original = rec(manifest["records"], kind="generated_name",
+                           file="game/scripts/audio/audio_policy.gd")
+            self.assertEqual(len(original), 1)
+
+            source.write_text(
+                'extends Node\n\nfunc _make_voice(slot: int) -> void:\n'
+                '\tvar voice := AudioStreamPlayer3D.new()\n'
+                '\tvoice.name = "PolicyVoice%02d" % slot\n',
+                encoding="utf-8")
+            argv = ("--root", str(root), "--layout", MINI_LAYOUT,
+                    "--manifest", str(manifest_path), "--json")
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 1, out)
+            drift = json.loads(out)["drift"]
+            self.assertEqual(len(drift["new_failing"]), 1)
+            moved = drift["new_failing"][0]
+            self.assertEqual(moved["token"], "_make_voice")
+            self.assertIn(original[0], drift["cleanup_opportunities"])
+
+            # Review only this relocation, retaining the existing verdict.
+            migrated = dict(original[0])
+            locations = {"key", "token", "symbols", "lines", "context"}
+            for field in locations:
+                migrated[field] = moved[field]
+            self.assertEqual(migrated, moved)
+            manifest["records"] = [
+                migrated if r["key"] == original[0]["key"] else r
+                for r in manifest["records"]]
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 0, out)
+
+            # The reviewed helper does not license another generated family.
+            with source.open("a", encoding="utf-8") as stream:
+                stream.write(
+                    '\nfunc _make_unreviewed_voice(slot: int) -> void:\n'
+                    '\tvar voice := AudioStreamPlayer3D.new()\n'
+                    '\tvoice.name = "UnreviewedVoice%02d" % slot\n')
+            code, out, _ = run_main(*argv)
+            self.assertEqual(code, 1, out)
+            new = json.loads(out)["drift"]["new_failing"]
+            self.assertEqual(len(new), 1)
+            self.assertEqual(new[0]["token"], "_make_unreviewed_voice")
+            self.assertEqual(new[0]["context"],
+                             ['"UnreviewedVoice%02d" % slot'])
+
     def test_line_number_movement_is_not_drift(self):
         with TempRepo() as root:
             manifest = write_manifest(root)

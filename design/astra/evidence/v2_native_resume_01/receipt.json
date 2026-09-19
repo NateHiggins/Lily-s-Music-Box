@@ -1,0 +1,51 @@
+{
+  "base_head": "50884aed1c5f4006778faccc12f6ef93dd451741",
+  "status": "FOCUSED_NATIVE_PASS_VISUAL_REVIEW_FAIL_DEFAULT_UNCHANGED",
+  "godot": "4.7.1 stable",
+  "runner": "tools/run_godot_serial.ps1",
+  "files": {
+    "game/scripts/building/orison_v2_domestic_fittings.gd": "049e1e1aa2d8944b0a41d8ac282caf5afc0b79287547c7c9206d2e3e24abaf10",
+    "game/tests/orison_v2_connected_world_test.gd": "cd0be61b603c74328163960e72717739783f0fd0df90e4e696b6fa803eaaeca0",
+    "game/tests/orison_v2_shop_simulation_test.gd": "19d3a3a22b228a17d4bc7a32db54ba65a8fae759b8196799209b353b8a4e3805"
+  },
+  "results": {
+    "connected.log": "exit 1; 9 checks, 2 failures; drain-side rejection",
+    "connected_02.log": "exit 1; 197 checks, 2 failures; environment assertion and decoder leaks",
+    "connected_03.log": "exit 1; verbose diagnostic",
+    "connected_04.log": "exit 0; 197 checks, zero failures, empty stderr",
+    "shop_01.log": "exit 0; 19 checks, zero failures, empty stderr",
+    "rendered_01.log": "exit 0; 202 checks, zero failures, empty stderr",
+    "final_rendered.log": "exit 0; 212 checks, zero failures, empty stderr; binds after.json"
+  },
+  "source_note": "before.json was captured after adding persistence guards; after.json binds final rendered run. Earlier diagnostic runs do not have individual source seals.",
+  "scope": "Two composed V2 reconstructions, standing capsule/floor queries, direct WC/wardrobe actions, fitting validation and viewport environment ownership; shop simulation separately. Not a full walkthrough, controller targeting, disk-save or performance gate.",
+  "visual_review": "Five initial native views inspected and final kitchen rechecked. Geometry present, but bedroom, wardrobe and bathroom too dark; blockout finishes and missing bench dressing prevent visual acceptance.",
+  "evidence_sha256": {
+    "after.json": "4f9f94b07bb8f9427513350bd528a7d8fbe6b24c79116961dbc76f291cc62ea1",
+    "before.json": "1f2f37f5a76b2a664f7943f78a96c015565bd812b81dd816d06dc38b8b93db93",
+    "connected.log": "993a7eef62dc808496e3f5c6235602fd395d41a62ca3d3f1c1780ee9b8438d90",
+    "connected.log.stderr": "53461f08ddd7db955375a3ea256a9e49c48b8d937a9339db63f61a25c18acea8",
+    "connected_02.log": "d77ce98117438941f2af77c0cebb40c5c1e1ee9a696ea59f4a28c049fae49c61",
+    "connected_02.log.stderr": "e65591c229b6b98e8bf7ef0bf77a8cafbba673e970f1bdd4c85de9416bc5af32",
+    "connected_03.log": "cd1a46794e97a55d8bac9e92e92588ea4837c5da2f5b77b1346e01c338a3f38b",
+    "connected_03.log.stderr": "cb801a481efdf5abf285324b3841077dd25a45af3347eed6925996b3cb0b9520",
+    "connected_04.log": "addf90d9c9c02d196f3d12dcc4b9d5f5be1a3b5e826011cc4b45376417433eeb",
+    "connected_04.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final_rendered.log": "2e64d388c3858fb3c6c9de0d1fd30b3bfa6094eb2f04e396a4012d92359d730c",
+    "final_rendered.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rendered_01.log": "30bcf7342906317d153f07337ee6674078455ec3c44ff9ad74feee917d10b37b",
+    "rendered_01.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "shop_01.log": "0210283bc8a5493c43bf5d2929fb00e53a40a73094b2fa9464285dc5a112c1bc",
+    "shop_01.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final_views/3b_bath.png": "2fae3f532a5cefd6e9b5d8658bfa5e699ac357092be712da76a6a91a34d406b1",
+    "final_views/3b_kitchen.png": "286e6630901145a66e7bfd01a3a32491e5d5d14acf51a59c5f12e9e60de8de68",
+    "final_views/3b_sleep.png": "a53a0a2fb9f762143e6e812a9ac391b6286199a83cb0b6946ceed534f3b73089",
+    "final_views/3b_storage.png": "173a89a77baddd6a8fbf7b63fe18fd9220826f747bb561f78465be05a5797d08",
+    "final_views/3b_work.png": "dbc45a94caf2fe0fde9e696f6b39c6c41e172642375e2dbc46e98b75f82c0bd5",
+    "views/3b_bath.png": "929dbb1584ad20c7551e4dc6789e21c6023c2e161ee4a2e48e70cfb5187b70fe",
+    "views/3b_kitchen.png": "7020a1df095196c4ce5372f964229776cdab007676082208db424179d1cbace4",
+    "views/3b_sleep.png": "03d316b68796ed00a3197c57996e519c086c8c12f4ad631b8b754e72b73efe02",
+    "views/3b_storage.png": "f44d1250dcc599c2a688c977ecfa0f9e0bebf0ee32830909ad994296e994010a",
+    "views/3b_work.png": "3a8face525f305c4bcaced021775ac6bff9ab1805e78556245edd679c2404ef9"
+  }
+}

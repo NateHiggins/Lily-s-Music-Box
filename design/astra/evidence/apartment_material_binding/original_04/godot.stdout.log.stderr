@@ -1,0 +1,18 @@
+[BIND FAIL] initial registration is nonempty and unique
+[BIND FAIL] same installed material on two draws registers once
+[BIND FAIL] same cached full override reuses a floor copy
+[BIND FAIL] foreign storey full override is copied, not rebound
+[BIND FAIL] inactive surface beneath a full override is not registered
+[BIND FAIL] storey scan excludes cabinet world
+[BIND FAIL] storey scan excludes residents and player
+[BIND FAIL] twelve repeated storey sweeps preserve unique exact registry
+[BIND FAIL] late draw reuses the existing non-case floor copy
+[BIND FAIL] case rows include floor and root-level draws only
+[BIND FAIL] first reach retains exact installed floor prop row
+[BIND FAIL] global reach still excludes private and dynamic draws
+[BIND FAIL] first refresh immediately reaches installed floor prop
+[BIND FAIL] repeated reach preserves registry and installed identity
+[BIND FAIL] four real governor off/on cycles preserve live ownership and bound registry
+[BIND FAIL] replaced material no longer receives floor updates
+[BIND FAIL] retired root prop is removed from registry and case rows
+[BIND FAIL] field rebind keeps material identities while updating textures

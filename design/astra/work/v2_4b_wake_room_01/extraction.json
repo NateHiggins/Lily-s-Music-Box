@@ -1,0 +1,19 @@
+{
+  "source": "art/blender/scripts/build_orison.py",
+  "source_sha256": "3c3bbfa470c0470c26a919cc3c7a5182b0bc5128abe5f9a27addf0b88c9bfd11",
+  "selected": [
+    "MeshBuf pure methods",
+    "Frame",
+    "case_wood",
+    "asm_bed",
+    "asm_workbench",
+    "asm_toilet",
+    "asm_nightstand",
+    "asm_wardrobe",
+    "asm_shelf",
+    "hash_str",
+    "_jit"
+  ],
+  "omitted": "Baked contact shadow quads; native lighting owns shadows.",
+  "output_sha256": "6ba0f6358f64a48cc40cc804b261d0a41bf60e7a797f258ec4ee923a99490b94"
+}

@@ -1,0 +1,37 @@
+{
+  "base": "c604a9d",
+  "added_catalog_materials": [
+    "ceramic",
+    "concrete",
+    "floor_oak",
+    "plaster_stained",
+    "stair",
+    "subway_tile",
+    "terrazzo"
+  ],
+  "existing_runtime_materials_unchanged": true,
+  "runtime": {
+    "checks": 46,
+    "failures": []
+  },
+  "bindings": {
+    "families": [
+      "concrete",
+      "trim",
+      "plaster_stained",
+      "terrazzo",
+      "floor_oak",
+      "ceramic",
+      "subway_tile",
+      "wood_dark",
+      "glass",
+      "stair",
+      "metal"
+    ],
+    "mapped_meshes": 1057,
+    "maps_valid": true
+  },
+  "stderr_bytes": 0,
+  "visual_review": "Actual bed placeholder removed and window is now transparent. Wake image remains too dark to judge all material detail; real fixture diagnostic run was blocked by foreign Godot tests. No visual or performance acceptance claimed.",
+  "dream_traversal": "Still pending; user material correction prioritized."
+}

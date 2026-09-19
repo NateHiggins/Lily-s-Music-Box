@@ -1,0 +1,18 @@
+{
+  "status": "PREPARED_UNRUN_NO_LIVE_INSTALL",
+  "owner": "game/scripts/reality/apartment_encroachment.gd",
+  "baseline_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "omission_sha256": "eb623645434945171f887f6e8a91aba0f0113280a392409d002a986131a98170",
+  "only_change": "Remove the single living_storey metadata seed from real build() finish construction",
+  "structural_check": true,
+  "preserved": [
+    "ownership ancestry guard",
+    "in-place unique registry rebuild",
+    "case prop marker",
+    "nullable living_source guard",
+    "all runtime state callbacks",
+    "renderer helper and viewport boundary"
+  ],
+  "planned_expected_red": "Actual build publishes finish rows whose original resources lose installed identity/marker after storey refresh; all six cases observed; only named material assertion failures with complete unchanged native/capture/retirement proof.",
+  "control_limit": "Runtime red and exact restored green are required; this source preparation is not observed failure evidence."
+}

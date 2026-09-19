@@ -1,0 +1,16 @@
+{
+  "phase": "05_footprint_omission",
+  "process_census": [
+    {
+      "pid": 31476,
+      "parent_pid": 15756,
+      "executable": "Godot_v4.7.1-stable_win64_console.exe"
+    },
+    {
+      "pid": 33024,
+      "parent_pid": 31476,
+      "executable": "Godot_v4.7.1-stable_win64.exe"
+    }
+  ],
+  "status": "RESTORATION_REFUSED_ACTIVE_PROCESS"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "GATE_REVISION_VERIFIED_NO_ENGINE_NO_LIVE_GAME_CHANGE",
+  "preparation": {
+    "status": "PREPARED_GATE_ONLY_NO_ENGINE_OR_LIVE_GAME_CHANGE",
+    "original_gate_sha256": "be9a2f9aba3a3377332d1678ca01c095f9fcda46a1db9b51d540eb58ced7f4db",
+    "proposed_gate_sha256": "8e347a82e36b5ad8f43019ba18b32cba6cd2adf556baf60026218d95ed523d11",
+    "classifier_unchanged_sha256": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6",
+    "original_classification_sha256": "ade9e33ccba9261e74e98cc1d583480aa40f37fa463b66e31613a3ec6d6d0cc9",
+    "source_probe_sha256": "ca8994dc76f0b3a7c94757d2dce2fa44c438d08d404131e0c1d01bf8aae066af",
+    "actual_negative_material_id": -9223370061119417423,
+    "only_change": "Replace positive-only case material_id validity test with exact nonzero signed64 integer predicate; bool excluded; all ownership/native/state/retirement rules unchanged",
+    "actual_run_status": "Still eight material assertion failures; this correction must not turn the runtime red into green"
+  },
+  "pure_controls": {
+    "tests": 14,
+    "exit": 0
+  },
+  "classification_comparison": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "design\\astra\\work\\composed_material_invariants\\gate_revisions\\signed_ids_01\\proposed\\classify_result.py",
+      "design/astra/evidence/vulkan_composed/runs/material_ownership_7c54_v1_full_02/result.json",
+      "--owner-sha256",
+      "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+      "--fixture-sha256",
+      "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+      "--out",
+      "design/astra/evidence/composed_material_ownership/typed_baseline_additive_signed_ids_02.json"
+    ],
+    "actual_classifier_exit": 1,
+    "prior_reason_count": 7792,
+    "new_reason_count": 101,
+    "false_id_reasons_removed": 7691,
+    "all_other_reasons_identical": true
+  },
+  "classification": "design/astra/evidence/composed_material_ownership/typed_baseline_additive_signed_ids_02.json",
+  "classification_sha256": "da9af865effe036669da03c483899d0ce3388cd5750f69f3329cba5ea9fddc27",
+  "runtime_source_unchanged_by_review": true,
+  "artifacts": {
+    "classification.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "classification.stdout.log": "da9af865effe036669da03c483899d0ce3388cd5750f69f3329cba5ea9fddc27",
+    "classification_comparison.json": "dd14d80f33ff1adf406daad79bedaf7d399a1041f7e5aaf057a9fd9c951ffdcd",
+    "controls.stderr.log": "b95fcabfa11ad3ff7de073610d8ad2b96df8f9744b85cea8ec355fee4560e49a",
+    "controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gate.patch": "f1a1dcfa7be5132b94c422a8a1037fbf3b335c19404086dbfb3a78091f5096a5",
+    "preparation.json": "bd93cd6155321f5a9bc97a8c1c763cc5390e62bae8fea5f62b102c78e4d0470c",
+    "README.md": "0c5572fe1cecb78ce6ae40ffe19929abf9f88299c752326af0250fa059484ded",
+    "runtime_analysis.json": "081b99e705638ec5edfb8d8a66ef7a76a5ae2eb9b089bfea9bfad1329e5ce7d9",
+    "runtime_analysis.md": "1bb2d19b8b860ed895e3e2f80842c900203ae13c502ea648283af4fd17208f77",
+    "fixtures/actual_negative_finish_id.json": "36ab4230ba7a24fe3c3563efc39d06df82d4bd466e38c370e32e96521a4d26c9",
+    "originals/classify_result.py": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6",
+    "originals/material_gate.py": "be9a2f9aba3a3377332d1678ca01c095f9fcda46a1db9b51d540eb58ced7f4db",
+    "originals/test_material_gate.py": "15a1c976c746c11c6e08d66b8abeb8e9d758b811eae01c734eb858e254862b99",
+    "originals/typed_baseline_additive_02.json": "ade9e33ccba9261e74e98cc1d583480aa40f37fa463b66e31613a3ec6d6d0cc9",
+    "proposed/classify_result.py": "f2020a5873aa6225061d961fdd9fd987c37f1c6173316ba62071270f599384e6",
+    "proposed/material_gate.py": "8e347a82e36b5ad8f43019ba18b32cba6cd2adf556baf60026218d95ed523d11",
+    "proposed/test_material_gate.py": "15a1c976c746c11c6e08d66b8abeb8e9d758b811eae01c734eb858e254862b99",
+    "proposed/test_signed_ids.py": "a153a29a6eb773defdd992c7aa6ec0291dcf408b317539856ad848f8c14e42de",
+    "preparation_failures/registry_count_01/controls.stderr.log": "eb9c31228151c11b7e49b3a86891ca1ff3a646733b0a5a8b1e98f9c88b78d0dd",
+    "preparation_failures/registry_count_01/controls.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preparation_failures/registry_count_01/receipt.json": "052395428d01d7bc51a6ee5df3ecbce1ffdd7a09936a0976139ed0c89c0726d6",
+    "preparation_failures/registry_count_01/test_signed_ids.py": "55c2c49234eaa377829fa6f3548c198e6438abf45389b0d9833bdc8b369873f5"
+  }
+}

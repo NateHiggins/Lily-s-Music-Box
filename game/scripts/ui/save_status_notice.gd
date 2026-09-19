@@ -6,6 +6,7 @@ var panel: PanelContainer
 var title_label: Label
 var message_label: Label
 var dismiss_button: Button
+var _title_presenter: WeakRef
 
 
 func _ready() -> void:
@@ -52,12 +53,28 @@ func _build() -> void:
 
 
 func _present(notice: Dictionary) -> void:
+	if _title_presenter != null:
+		var presenter = _title_presenter.get_ref()
+		if is_instance_valid(presenter) and presenter.is_inside_tree():
+			panel.hide()
+			return
 	if notice.is_empty():
 		panel.hide()
 		return
 	title_label.text = str(notice.get("title", "SAVE NOTICE"))
 	message_label.text = str(notice.get("message", ""))
 	panel.show()
+
+
+func set_title_presenter(presenter: Node) -> void:
+	_title_presenter = weakref(presenter)
+	_present(RealityState.player_notice())
+
+
+func clear_title_presenter(presenter: Node) -> void:
+	if _title_presenter != null and _title_presenter.get_ref() == presenter:
+		_title_presenter = null
+		_present(RealityState.player_notice())
 
 
 func _dismiss() -> void:

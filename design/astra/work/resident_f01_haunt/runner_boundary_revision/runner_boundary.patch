@@ -1,0 +1,17 @@
+--- a/design/astra/work/resident_f01_haunt/run_haunt.py
++++ b/design/astra/work/resident_f01_haunt/run_haunt.py
+@@ -170,10 +170,12 @@
+     log = out / "godot.stdout.log"
+     command_file = out / "command.ps1"
+     q = parser_module.psquote
+-    command_file.write_text(f"$ErrorActionPreference = 'Stop'\n& {q(RUNNER)} -ProjectPath {q(ROOT / 'game')} -Scene {q(scene)} "
++    command_file.write_text(f"$ErrorActionPreference = 'Continue'\n$global:LASTEXITCODE = $null\n& {q(RUNNER)} -ProjectPath {q(ROOT / 'game')} -Scene {q(scene)} "
+         f"-LogPath {q(log)} -TimeoutSeconds 180 -Windowed -ShotDir {q(shots)} "
+         "-ExtraArgs @('--verbose', '--audio-driver', 'Dummy', '--resolution', '1280x720', "
+-        "'--rendering-method', 'forward_plus', '--rendering-driver', 'vulkan')\nexit $LASTEXITCODE\n", encoding="utf-8")
++        "'--rendering-method', 'forward_plus', '--rendering-driver', 'vulkan')\n"
++        "if ($null -eq $global:LASTEXITCODE) { Write-Error 'Serial runner returned without an exit code'; exit 125 }\n"
++        "exit $global:LASTEXITCODE\n", encoding="utf-8")
+     for source, name in [(Path(__file__), "run_haunt.source.py"), (PARSER_PATH, "pairing_parser.source.py"),
+                          (RUNNER, "run_godot_serial.source.ps1"),
+                          (Path(__file__).with_name("haunt_control.py"), "haunt_control.source.py")]: shutil.copy2(source, out / name)

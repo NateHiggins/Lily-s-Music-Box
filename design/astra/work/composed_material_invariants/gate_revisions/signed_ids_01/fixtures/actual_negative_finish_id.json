@@ -1,0 +1,15 @@
+{
+  "scope": "Exact runtime finish row; tests transplant only its ID into synthetic complete gate metadata to isolate ID validation",
+  "source_probe": "design\\astra\\evidence\\vulkan_composed\\runs\\material_ownership_7c54_v1_full_02\\frames\\probe.json",
+  "source_probe_sha256": "ca8994dc76f0b3a7c94757d2dce2fa44c438d08d404131e0c1d01bf8aae066af",
+  "stage": "before_measured",
+  "case": "cal_memory_radio",
+  "row": {
+    "guard_ok": true,
+    "live": true,
+    "marker_ok": true,
+    "material_id": -9223370061119417423,
+    "path": "F05/F05_finish_f05_w02",
+    "slot": 0
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "astra.v2-terminal-operator-view.static-validation.v1",
+  "status": "STATIC_ONLY_NO_ENGINE",
+  "candidate_fixture_sha256": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+  "original_fixture_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+  "raw_preserved_prefix_bytes": 20001,
+  "raw_preserved_suffix_bytes": 12445,
+  "raw_preserved_prefix_sha256": "3e07c4d5072ae4bae9c373bcd909787b1257a55fab7f2cec7959e59a0254b947",
+  "raw_preserved_suffix_sha256": "fda3bcc501e4b41fef673507b29b5babd2d0f4194f76cfd3c3cb58fc9142de79",
+  "all_changes_within_v2_block_and_three_new_v2_helpers": true,
+  "live_fixture_equals_original": true,
+  "scene_original_candidate_live_equal": true,
+  "bindings": {
+    "game/tests/vulkan_composed_root_test.gd": {
+      "expected_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+      "observed_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+      "matches": true
+    },
+    "game/tests/VulkanComposedRootTest.tscn": {
+      "expected_sha256": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+      "observed_sha256": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+      "matches": true
+    },
+    "game/scripts/props/signal_terminal_prop.gd": {
+      "expected_sha256": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+      "observed_sha256": "f355f1cec9cd080392181939fe4a0e218cc2f84179ccf4d9a8782d0cc8856ff3",
+      "matches": true
+    },
+    "game/scripts/props/functional_prop.gd": {
+      "expected_sha256": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca",
+      "observed_sha256": "f4b0b2798bf82f0cbdc6ee52a5fe6c9b23c9d77617e2727c16cb8f2c6c44b5ca",
+      "matches": true
+    },
+    "game/scripts/building/orison_v2_runtime_root.gd": {
+      "expected_sha256": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+      "observed_sha256": "68c3a920f7456185098fda4fe56ab14f650fb407d8b02f4e6c2c8b326b87a0bb",
+      "matches": true
+    },
+    "game/scripts/building/orison_v2_anchor_adapter.gd": {
+      "expected_sha256": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+      "observed_sha256": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+      "matches": true
+    },
+    "game/scripts/building/orison_v2_blockout.gd": {
+      "expected_sha256": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+      "observed_sha256": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+      "matches": true
+    },
+    "game/data/orison_v2_blockout.json": {
+      "expected_sha256": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+      "observed_sha256": "beb9f74154402e99a6d236affce07904feb855f2013988cc5d14641fd3d50568",
+      "matches": true
+    },
+    "game/scripts/call/desk_zone.gd": {
+      "expected_sha256": "294fa6275cc8355ed277f6a9be1b1293699e1680ab7189a04182861d0d06de2e",
+      "observed_sha256": "294fa6275cc8355ed277f6a9be1b1293699e1680ab7189a04182861d0d06de2e",
+      "matches": true
+    },
+    "game/scripts/player/player_controller.gd": {
+      "expected_sha256": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+      "observed_sha256": "6d9db29cbacfbb0cc46441ff1d829110fbdf73a006be45b14bc9b912da405859",
+      "matches": true
+    },
+    "design/astra/work/vulkan_composed/run_case.py": {
+      "expected_sha256": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+      "observed_sha256": "8cb42f642262ccf416f0993699d7a3dff7b8cd3fa42631f6a33c0a8d0d1c6ad9",
+      "matches": true
+    },
+    "design/astra/work/vulkan_composed/gate.py": {
+      "expected_sha256": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+      "observed_sha256": "2197f6ad6b9a13cf83c1d99313808b20b3a8be1472997d7e53d6ef61e035d264",
+      "matches": true
+    },
+    "tools/run_godot_serial.ps1": {
+      "expected_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "observed_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "matches": true
+    }
+  },
+  "new_check_labels_unique": true,
+  "new_engine_or_gate_exceptions": false,
+  "gdscript_parsed_by_engine": false
+}

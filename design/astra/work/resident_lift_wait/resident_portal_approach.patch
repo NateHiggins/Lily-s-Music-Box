@@ -1,0 +1,68 @@
+--- a/game/scripts/characters/resident_nav.gd
++++ b/game/scripts/characters/resident_nav.gd
+@@ -208,8 +208,8 @@
+ 	for m in fl.get("markers", []):
+ 		if str(m.get("kind", "")) != "door" or bool(m.get("cabinet", false)):
+ 			continue
+-		var p: Array = m["pos"]
+-		var at := Vector2(float(p[0]), float(p[1]))
++		var portal: Dictionary = _door_portal_spec(m, entry.walls)
++		var at: Vector2 = portal.point
+ 		var joins: Array = []
+ 		var void_hit := false
+ 		var joined := {}
+@@ -233,6 +233,13 @@
+ 			joins.append(room)
+ 		door_specs.append({"at": at, "id": str(m.get("id", "")),
+ 				"joins": joins, "void": void_hit})
++		# A centre alone still invites grazing diagonal paths from the sparse
++		# corridor ring. The final approach to each matched aperture is normal
++		# to its wall, with body clearance independent of room-sampling PROBE.
++		if portal.has("normal"):
++			for side in [-1.0, 1.0]:
++				add_node.call(at + Vector2(portal.normal) * float(portal.approach_distance) * side,
++						"door_approach:" + str(m.get("id", "")) + ":" + str(side))
+ 
+ 	if needs_implicit_ring and ring_ids.is_empty():
+ 		var lane_x := (5.33 + CORE_X) * 0.5
+@@ -308,6 +315,40 @@
+ 	visibility_edges += _add_safe_visibility_edges(entry)
+ 	floors[fid] = entry
+ 	return entry.points.size()
++
++
++## collect_door_markers stores each leaf's HINGE; DoorProp extends along
++## local +X. Match that hinge/width/orientation to an authored wall opening
++## before moving the navigation point to its centre. Separately authored
++## exterior/shop anchors and already-centred points keep their coordinates.
++func _door_portal_spec(marker: Dictionary, walls: Array) -> Dictionary:
++	var p: Array = marker["pos"]
++	var hinge := Vector2(float(p[0]), float(p[1]))
++	var width := float(marker.get("w", 0.81))
++	var angle := deg_to_rad(-float(marker.get("yaw_deg", 0.0)))
++	var center := hinge + Vector2(cos(angle), sin(angle)) * width * 0.5
++	for wall in walls:
++		var wa: Array = wall.a
++		var wb: Array = wall.b
++		var horizontal := absf(float(wb[1]) - float(wa[1])) < 0.001
++		var start := minf(float(wa[0]), float(wb[0])) if horizontal \
++				else minf(float(wa[1]), float(wb[1]))
++		var cross := float(wa[1]) if horizontal else float(wa[0])
++		for opening in wall.get("openings", []):
++			if str(opening.get("type", "")) != "door" or str(opening.get("leaf", "closed")) == "none" \
++					or absf(float(opening.get("w", 0.0)) - width) > 0.001:
++				continue
++			var along := start + float(opening.get("at", 0.0))
++			var aperture := Vector2(along, cross) if horizontal else Vector2(cross, along)
++			if hinge.distance_to(aperture) < 0.001:
++				return {"point": hinge}
++			if center.distance_to(aperture) < 0.001:
++				# Same resident radius used by PassageNav's capsule contract;
++				# wall half-thickness plus 8cm margin keeps endpoint bodies clear.
++				var clearance := float(wall.get("t", 0.18)) * 0.5 + 0.33 + 0.08
++				return {"point": aperture, "normal": Vector2(-sin(angle), cos(angle)),
++						"approach_distance": clearance}
++	return {"point": hinge}
+ 
+ 
+ func _room_at(rooms: Array, at: Vector2) -> Variant:

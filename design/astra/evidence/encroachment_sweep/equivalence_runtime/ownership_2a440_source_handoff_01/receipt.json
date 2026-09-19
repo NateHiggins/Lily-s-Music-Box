@@ -1,0 +1,33 @@
+{
+  "status": "AUTHORIZED_SIX_TESTS_INSTALLED_VERIFIED",
+  "before": {
+    "game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "game/tests/fixtures/encroachment_sweep/baseline.gd": "e7c458ee13ed562a2248401ed98f382c3bcbc92a6c17bec1cfaf54ffb1ce546a",
+    "game/tests/fixtures/encroachment_sweep/candidate.gd": "9be50214e1a7b5fbc4353c9c5da974ebbaa8f3ea61e58b445d52536d552affe8",
+    "game/tests/fixtures/encroachment_sweep/drop_late.gd": "2b28883d87e0599892b4bbf4bf4016b1a74b84307fe458f4de87433e0eccc01b",
+    "game/tests/fixtures/encroachment_sweep/priority.gd": "8cf544223eaa8addac4043aee7dceeed0cd4a3051b492fdf17825a748a4a4af5"
+  },
+  "expected_after": {
+    "game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+    "game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+    "game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+    "game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330"
+  },
+  "prelaunch_census": [],
+  "old_package_sha256": "b0f642b796db85d356e75b47065c8829d20eabb851490598a5b09585e94e354c",
+  "new_package_sha256": "581d257769535d35a27891722ea74fa75487ab567bae639c131f978b48c0f607",
+  "production_owner_before": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+  "scope": "Exactly six root-authorized owned test paths; sealed runtime controller unchanged.",
+  "after": {
+    "game/tests/EncroachmentSweepEquivalenceTest.tscn": "affac3fba7ae9f334c4bb0fb741e1bb908a5e4bad53ad7bc52c8673506b4133e",
+    "game/tests/encroachment_sweep_equivalence_test.gd": "f78b1d774405443e8e916698f2e92f8b18faae2f8f048a59d4af2d000b61fed8",
+    "game/tests/fixtures/encroachment_sweep/baseline.gd": "6d5f7a4f0b0acf45067d988872cf2600a1f1658ab9c9be32bac4f713f7d19d9c",
+    "game/tests/fixtures/encroachment_sweep/candidate.gd": "42f58eb5baea05aa1feb740c330aadd440fb0de8306d54d36bd1476989afadf8",
+    "game/tests/fixtures/encroachment_sweep/drop_late.gd": "96ddb59ac0c8f605d8bfc10be5263098345464fd73db099f2822031b0f232336",
+    "game/tests/fixtures/encroachment_sweep/priority.gd": "c087d59143bfb769255b894986317bfdfb6ff52cab5306e6abfa637454c2d330"
+  },
+  "production_owner_after": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca"
+}

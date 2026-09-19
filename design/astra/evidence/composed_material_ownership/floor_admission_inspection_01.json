@@ -1,0 +1,567 @@
+{
+  "status": "RAW_ARTIFACT_AND_OBSERVER_INSPECTION_VISUAL_REVIEW_SEPARATE",
+  "result_sha256": "a989c22dcab75312591058f50ba7d18ce2e9a073e254b0f929572f2a58ca452e",
+  "probe_sha256": "3bb2eddcfbde22d15872fbee13a099b6bd9e85c95329bfccfff1441f10450214",
+  "source_bindings": {
+    "game/scripts/reality/apartment_encroachment.gd": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "game/tests/vulkan_composed_root_test.gd": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508"
+  },
+  "artifact_count": 62,
+  "binding_issues": [],
+  "native_exit": 0,
+  "base_gate": {
+    "diagnostic_gate_exit": 0,
+    "reasons": [],
+    "unpair_errors": 0,
+    "soft_shadow_underflows": 0,
+    "non_inherited_error_headers": {},
+    "inherited_manifest_errors": [
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files (x86)\\Epic Games\\Launcher\\Portal\\Extras\\Overlay\\EOSOverlayVkLayer-Win64.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer32.json"
+      },
+      {
+        "header": "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+        "detail": "loader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\0.49.6\\resources\\app\\electron\\sdk\\lib\\LiveStudioVulkanLayer64.json"
+      }
+    ],
+    "warnings": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 1038,
+      "WARNING: no legal wall for found piece cam_noel_witches": 1
+    },
+    "retention": [],
+    "functional_checks_meaningful": true,
+    "expected_unpair_red_observed": false,
+    "expected_viewport_guard_red_observed": false,
+    "execution_scope": "full",
+    "full_candidate_scope_completed": true,
+    "native_phase_attribution": "stdout phase markers retained; separate stdout/stderr buffering does not establish exact native-error phase or causal ownership"
+  },
+  "checks": 314,
+  "passed": 314,
+  "failed_checks": [],
+  "material_observations": [
+    {
+      "stage": "before_measured",
+      "issues": [],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 2,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 405,
+          "unique": 405,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F03": {
+          "slots": 262,
+          "unique": 262,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F04": {
+          "slots": 251,
+          "unique": 251,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F05": {
+          "slots": 225,
+          "unique": 225,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F06": {
+          "slots": 231,
+          "unique": 231,
+          "invalid": 0,
+          "installed_exact": true
+        }
+      },
+      "refresh": {
+        "passed": true,
+        "mutated": true,
+        "comparison_contract": "independent_rows_and_all_registry_lifecycle_v2",
+        "case_rows_planned": 948,
+        "case_rows_evaluated": 948,
+        "case_comparisons_evaluated": 1896,
+        "case_materials_touched": 948,
+        "case_lifecycle_materials_evaluated": 948,
+        "registry_live_slots": 1374,
+        "registry_unique_materials": 1374,
+        "registry_lifecycle_materials_evaluated": 1374,
+        "registry_types_valid": true,
+        "registry_lifecycle_restored": true,
+        "lifecycle_restore_union_size": 1374,
+        "registry_restore_failures": [],
+        "facts_unchanged": true,
+        "same_frame_restored": true,
+        "force_restored": true,
+        "intensities_restored": true,
+        "precondition_passed": true,
+        "case_comparisons": {
+          "rows": 948,
+          "evaluated": 948,
+          "passed": 948,
+          "failed_rows": []
+        },
+        "case_lifecycle_comparisons": {
+          "rows": 948,
+          "evaluated": 948,
+          "passed": 948,
+          "failed_rows": []
+        },
+        "registry_lifecycle_comparisons": {
+          "rows": 1374,
+          "evaluated": 1374,
+          "passed": 1374,
+          "failed_rows": []
+        },
+        "full_registry_snapshot_equal": true
+      }
+    },
+    {
+      "stage": "cycle_0",
+      "issues": [],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 4,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 405,
+          "unique": 405,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F03": {
+          "slots": 262,
+          "unique": 262,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F04": {
+          "slots": 251,
+          "unique": 251,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F05": {
+          "slots": 225,
+          "unique": 225,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F06": {
+          "slots": 231,
+          "unique": 231,
+          "invalid": 0,
+          "installed_exact": true
+        }
+      }
+    },
+    {
+      "stage": "cycle_1",
+      "issues": [],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 4,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 405,
+          "unique": 405,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F03": {
+          "slots": 262,
+          "unique": 262,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F04": {
+          "slots": 251,
+          "unique": 251,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F05": {
+          "slots": 225,
+          "unique": 225,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F06": {
+          "slots": 231,
+          "unique": 231,
+          "invalid": 0,
+          "installed_exact": true
+        }
+      }
+    },
+    {
+      "stage": "cycle_2",
+      "issues": [],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 4,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 405,
+          "unique": 405,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F03": {
+          "slots": 262,
+          "unique": 262,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F04": {
+          "slots": 251,
+          "unique": 251,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F05": {
+          "slots": 225,
+          "unique": 225,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F06": {
+          "slots": 231,
+          "unique": 231,
+          "invalid": 0,
+          "installed_exact": true
+        }
+      }
+    },
+    {
+      "stage": "cycle_3",
+      "issues": [],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 6,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 405,
+          "unique": 405,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F03": {
+          "slots": 262,
+          "unique": 262,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F04": {
+          "slots": 251,
+          "unique": 251,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F05": {
+          "slots": 225,
+          "unique": 225,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F06": {
+          "slots": 231,
+          "unique": 231,
+          "invalid": 0,
+          "installed_exact": true
+        }
+      }
+    },
+    {
+      "stage": "cycle_4",
+      "issues": [],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 8,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 405,
+          "unique": 405,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F03": {
+          "slots": 262,
+          "unique": 262,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F04": {
+          "slots": 251,
+          "unique": 251,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F05": {
+          "slots": 225,
+          "unique": 225,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F06": {
+          "slots": 231,
+          "unique": 231,
+          "invalid": 0,
+          "installed_exact": true
+        }
+      }
+    },
+    {
+      "stage": "cycle_5",
+      "issues": [],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 8,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 405,
+          "unique": 405,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F03": {
+          "slots": 262,
+          "unique": 262,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F04": {
+          "slots": 251,
+          "unique": 251,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F05": {
+          "slots": 225,
+          "unique": 225,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F06": {
+          "slots": 231,
+          "unique": 231,
+          "invalid": 0,
+          "installed_exact": true
+        }
+      }
+    },
+    {
+      "stage": "before_retirement",
+      "issues": [],
+      "surface_governor": {
+        "budget": 1.0,
+        "governed_steps": 10,
+        "pinned": false,
+        "props_tier_on": true,
+        "queued_material_changes": 0
+      },
+      "registries": {
+        "F02": {
+          "slots": 409,
+          "unique": 409,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F03": {
+          "slots": 262,
+          "unique": 262,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F04": {
+          "slots": 250,
+          "unique": 250,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F05": {
+          "slots": 232,
+          "unique": 232,
+          "invalid": 0,
+          "installed_exact": true
+        },
+        "F06": {
+          "slots": 231,
+          "unique": 231,
+          "invalid": 0,
+          "installed_exact": true
+        }
+      },
+      "refresh": {
+        "passed": true,
+        "mutated": true,
+        "comparison_contract": "independent_rows_and_all_registry_lifecycle_v2",
+        "case_rows_planned": 958,
+        "case_rows_evaluated": 958,
+        "case_comparisons_evaluated": 1916,
+        "case_materials_touched": 958,
+        "case_lifecycle_materials_evaluated": 958,
+        "registry_live_slots": 1384,
+        "registry_unique_materials": 1384,
+        "registry_lifecycle_materials_evaluated": 1384,
+        "registry_types_valid": true,
+        "registry_lifecycle_restored": true,
+        "lifecycle_restore_union_size": 1384,
+        "registry_restore_failures": [],
+        "facts_unchanged": true,
+        "same_frame_restored": true,
+        "force_restored": true,
+        "intensities_restored": true,
+        "precondition_passed": true,
+        "case_comparisons": {
+          "rows": 958,
+          "evaluated": 958,
+          "passed": 958,
+          "failed_rows": []
+        },
+        "case_lifecycle_comparisons": {
+          "rows": 958,
+          "evaluated": 958,
+          "passed": 958,
+          "failed_rows": []
+        },
+        "registry_lifecycle_comparisons": {
+          "rows": 1384,
+          "evaluated": 1384,
+          "passed": 1384,
+          "failed_rows": []
+        },
+        "full_registry_snapshot_equal": true
+      }
+    }
+  ],
+  "material_retirement": {
+    "applicable": true,
+    "owned_case_materials_observed": 959,
+    "released": true,
+    "retained_material_ids": []
+  },
+  "transition_samples": {
+    "harukiya -> street": {
+      "n": 1,
+      "median_apply_ms": 35.857,
+      "min_apply_ms": 35.857,
+      "max_apply_ms": 35.857
+    },
+    "street -> passage": {
+      "n": 6,
+      "median_apply_ms": 1385.249,
+      "min_apply_ms": 1366.702,
+      "max_apply_ms": 1394.789
+    },
+    "passage -> street": {
+      "n": 6,
+      "median_apply_ms": 1377.8,
+      "min_apply_ms": 1358.139,
+      "max_apply_ms": 1388.411
+    },
+    "street -> orison": {
+      "n": 6,
+      "median_apply_ms": 40.382999999999996,
+      "min_apply_ms": 39.489,
+      "max_apply_ms": 41.272
+    },
+    "orison -> f04": {
+      "n": 6,
+      "median_apply_ms": 4.1135,
+      "min_apply_ms": 4.073,
+      "max_apply_ms": 4.688
+    },
+    "f04 -> orison": {
+      "n": 6,
+      "median_apply_ms": 2.9795,
+      "min_apply_ms": 2.923,
+      "max_apply_ms": 3.37
+    },
+    "orison -> street": {
+      "n": 5,
+      "median_apply_ms": 37.689,
+      "min_apply_ms": 36.776,
+      "max_apply_ms": 37.907
+    },
+    "orison -> harukiya": {
+      "n": 1,
+      "median_apply_ms": 2.549,
+      "min_apply_ms": 2.549,
+      "max_apply_ms": 2.549
+    },
+    "harukiya -> passage": {
+      "n": 1,
+      "median_apply_ms": 1688.082,
+      "min_apply_ms": 1688.082,
+      "max_apply_ms": 1688.082
+    }
+  },
+  "images": {
+    "actual_arcade_after_passage.png": "deab88dbde2d848c363543a0a5cf8e4670108899459ef04e4d22145eacb74dea",
+    "actual_arcade_before_passage.png": "a32b784e5934b4561ebcdcc4e281698092e9b9d7dbbcd50b2df43d2cb9de7d32",
+    "actual_f04_mirror.png": "a27a1e0ea7a2cc31433fae7630af5fa4e326d4fef911b60500bc6467f9b0bc3a",
+    "actual_f04_reflection.png": "3452e54de43bc5ff320874f645598c796168637164c0e4918e9fc850cc9fff73",
+    "before_retirement_passage.png": "84109a61bce7915d1b8703b15acdc8b75c9d157e414cd6e27199ea1abb1df7db",
+    "before_retirement_passage_phone.png": "57d2ffa736bc9e04d8b279df387aa172c3ffc112d9b2b14164ee7f4c917a1f92",
+    "initial_f04.png": "46356769742901ca52edd37a79eae1be665d7d0f8d00f431df8ebae899dacbf6",
+    "initial_harukiya.png": "d07690933563c2c51b06d9a06587f3db2734995618a8770a5153053c54884584",
+    "initial_orison.png": "c0dc58f7fc46f6338d7ef4a214ef68161a7a523e25b391555f5a79b347ea5ebe",
+    "initial_orison_phone.png": "aea824affd4ed9a36f2cb24484a364a4922b5522b6f86b4b773bcc0b3349af26",
+    "initial_passage.png": "6ab39bb1fd18ba2599dc6f06e52bf7a4b488422461a39674171c83e374d72a59",
+    "initial_passage_phone.png": "23b4799afd01ede309c914af2beca30b7760ed134e9c21b03fa61167e773bd33",
+    "initial_street.png": "c24f7b255644478bab337fa41db90cf7262e68ca456117c1a9a25e57ede78a43",
+    "initial_street_phone.png": "b12ce8bb60f66447f303524be9158d0ec00edad2c2872ea42df55efd9751bef2",
+    "return_harukiya.png": "d39ea7ddb4005c48b232f3a422bbd703e0ba6433b7094373f77c496a841530c1",
+    "separate_world_blocked.png": "1a86c8993123f9fdfc03928989db4499837304d5e48f4bf2011ef95699206b65",
+    "separate_world_initial.png": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab",
+    "separate_world_restored.png": "5c16752bb92e668f232b5ad50b765098498f85daa5b22cf01a941023477c1eab"
+  },
+  "scope": "Actual V1 authored build and teleported rendered transitions; no traversal, art/human or release performance acceptance. Compare optimization only against identical owner/observer context."
+}

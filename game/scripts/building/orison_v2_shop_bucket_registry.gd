@@ -148,6 +148,37 @@ func snapshot(shop_id: String = "") -> Dictionary:
 	return _state_for(wanted).duplicate(true)
 
 
+## Commit a complete simulation slice atomically. A malformed sibling must not
+## consume stock in the shops that happened to be visited earlier in the loop.
+## Each packet covers that shop's own saved interval; binding is unchanged.
+func advance_batch(packets: Dictionary) -> bool:
+	errors.clear()
+	if RealityState.save_write_blocked or _records.is_empty():
+		errors.append("shop simulation cannot write protected or unbound state")
+		return false
+	var existing: Variant = RealityState.data.get(STATE_KEY)
+	if existing is not Dictionary:
+		errors.append("shop simulation has no durable bucket collection")
+		return false
+	var replacement: Dictionary = (existing as Dictionary).duplicate(true)
+	for raw_id: Variant in packets:
+		var shop_id := str(raw_id)
+		var packet: Variant = packets[raw_id]
+		if not _records.has(shop_id) or packet is not Dictionary:
+			errors.append("shop simulation packet has no source-backed owner")
+			return false
+		var computation := advance_record(_state_for(shop_id),
+				float(packet.get("to_minute", -1.0)), packet, _records[shop_id])
+		if not bool(computation.get("ok", false)):
+			errors.append("%s: %s" % [shop_id, computation.get("error", "advance refused")])
+			return false
+		replacement[shop_id] = computation.state
+	if replacement != existing:
+		RealityState.data[STATE_KEY] = replacement
+		RealityState.commit()
+	return true
+
+
 func bound_shop_id() -> String:
 	return _bound_shop_id
 

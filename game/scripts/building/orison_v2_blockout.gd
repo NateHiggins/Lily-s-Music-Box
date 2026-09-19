@@ -5,7 +5,13 @@ extends Node3D
 @export_file("*.json") var layout_path := "res://data/orison_v2_blockout.json"
 @export var show_ceilings := true
 @export var show_clearance_anchors := true
+## Keep semantic bounds while production hides nonphysical reservation meshes.
+@export var show_reservation_volumes := true
 @export var hold_route_doors_open := true
+@export var production_materials := false
+var architectural_materials := preload("res://scripts/building/orison_v2_architectural_materials.gd").new()
+## A composed exterior may own an open review space's physical geometry.
+@export var space_geometry_exclusions: Array[String] = []
 
 var layout: Dictionary = {}
 var level_y: Dictionary = {}
@@ -20,6 +26,13 @@ func _ready() -> void:
 	if layout.is_empty():
 		return
 	_validate_layout()
+	for identity: String in space_geometry_exclusions:
+		var matches := 0
+		for space: Dictionary in layout.get("spaces", []):
+			if str(space.id) == identity and bool(space.get("open_shell", false)):
+				matches += 1
+		if matches != 1:
+			failures.append("geometry exclusion must name one open-shell space: " + identity)
 	if not failures.is_empty():
 		for failure in failures:
 			push_error("ORISON V2: " + failure)
@@ -89,6 +102,7 @@ func _validate_layout() -> void:
 			failures.append("invalid platform rect: " + str(platform.get("id", "?")))
 	_validate_references(ids)
 	_validate_room_overlaps()
+	_validate_wall_extensions()
 	_validate_single_owner_openings()
 	for required in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 			"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED",
@@ -345,6 +359,54 @@ func _valid_rect(value: Variant) -> bool:
 	return value is Array and value.size() == 4 \
 			and float(value[0]) < float(value[2]) and float(value[1]) < float(value[3])
 
+func _validate_wall_extensions() -> void:
+	var edges: Array[Dictionary] = []
+	for space: Dictionary in layout.get("spaces", []):
+		if not _valid_rect(space.get("rect", [])): continue
+		var extensions: Variant = space.get("wall_extensions", [])
+		if extensions is not Array:
+			failures.append(str(space.id) + " wall_extensions must be an array")
+			continue
+		if bool(space.get("open_shell", false)):
+			if not extensions.is_empty(): failures.append(str(space.id) + " open shell cannot own wall extensions")
+			continue
+		var sides: Array = space.get("wall_sides", ["south", "north", "west", "east"])
+		for side: String in sides:
+			var edge := _wall_edge(space.rect, side)
+			edges.append({"owner":space.id, "level":space.level, "axis":"z" if side in ["west","east"] else "x",
+					"fixed":edge.x, "start":edge.y, "end":edge.z, "extension":false})
+		for extension: Variant in extensions:
+			if extension is not Dictionary or extension.get("side") not in ["south","north","west","east"]:
+				failures.append(str(space.id) + " invalid wall extension side")
+				continue
+			var valid := true
+			for field in ["start", "end"]:
+				var value: Variant = extension.get(field)
+				if typeof(value) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(value)): valid = false
+			if not valid:
+				failures.append(str(space.id) + " invalid wall extension interval")
+				continue
+			var edge := _wall_edge(space.rect, str(extension.side))
+			if extension.side in sides or float(extension.start) < edge.y - .0001 or float(extension.end) > edge.z + .0001 \
+					or float(extension.end) <= float(extension.start):
+				failures.append(str(space.id) + " wall extension exceeds or duplicates its edge")
+				continue
+			edges.append({"owner":space.id, "level":space.level, "axis":"z" if extension.side in ["west","east"] else "x",
+					"fixed":edge.x, "start":extension.start, "end":extension.end, "extension":true})
+	for i in edges.size():
+		if not bool(edges[i].extension): continue
+		for j in edges.size():
+			if i == j or edges[i].level != edges[j].level or edges[i].axis != edges[j].axis \
+					or not is_equal_approx(float(edges[i].fixed), float(edges[j].fixed)): continue
+			if minf(float(edges[i].end),float(edges[j].end)) > maxf(float(edges[i].start),float(edges[j].start)) + .0001:
+				failures.append("%s wall extension overlaps wall owned by %s" % [edges[i].owner, edges[j].owner])
+
+func _wall_edge(rect: Array, side: String) -> Vector3:
+	if side == "west": return Vector3(rect[0],rect[1],rect[3])
+	if side == "east": return Vector3(rect[2],rect[1],rect[3])
+	if side == "south": return Vector3(rect[1],rect[0],rect[2])
+	return Vector3(rect[3],rect[0],rect[2])
+
 func _build_palette() -> void:
 	for key: String in layout.get("palette", {}):
 		var mat := StandardMaterial3D.new()
@@ -368,6 +430,9 @@ func _build_spaces() -> void:
 		parent.set_meta("purpose", str(space.get("purpose", "")))
 		parent.set_meta("room_id", str(space.id))
 		add_child(parent)
+		if str(space.id) in space_geometry_exclusions:
+			parent.set_meta("geometry_owned_by_exterior", true)
+			continue
 		if not bool(space.get("no_floor", false)):
 			_box(parent, "Floor", _rect_center(rect, y - slab_t * 0.5),
 					Vector3(_rect_w(rect), slab_t, _rect_d(rect)), cls, true)
@@ -377,6 +442,14 @@ func _build_spaces() -> void:
 		if not bool(space.get("open_shell", false)):
 			_build_space_outline(parent, str(space.id), rect, y, clear_h, cls,
 					space.get("wall_sides", ["south", "north", "west", "east"]))
+			for index in space.get("wall_extensions", []).size():
+				var extension: Dictionary = space.wall_extensions[index]
+				var side := str(extension.side)
+				var edge := _wall_edge(rect, side)
+				_wall_with_openings(parent, str(space.id), side.capitalize() + "Extension%02d" % index,
+						"z" if side in ["west","east"] else "x", edge.x,
+						float(extension.start), float(extension.end), y, clear_h,
+						float(layout.dimensions.partition_wall), cls)
 
 func _build_space_outline(parent: Node3D, space_id: String, rect: Array, y: float,
 		height: float, cls: String, sides: Array) -> void:
@@ -439,6 +512,10 @@ func _wall_with_openings(parent: Node3D, space_id: String, label: String,
 	for opening: Dictionary in openings:
 		var lo := maxf(start, float(opening.center) - float(opening.width) * 0.5)
 		var hi := minf(finish, float(opening.center) + float(opening.width) * 0.5)
+		# Partial edges share their owner's complete aperture roster. An opening
+		# outside this segment must not produce geometry past either endpoint.
+		if hi <= lo + 0.001:
+			continue
 		if lo > cursor + 0.001:
 			_wall_segment(parent, "Wall%s_%02d" % [label, part], axis, fixed,
 					cursor, lo, y, height, thickness, cls)
@@ -639,6 +716,7 @@ func _build_envelopes() -> void:
 				Vector3(_rect_w(rect), height, _rect_d(rect)),
 				str(envelope.get("class", "unresolved")), false)
 		node.set_meta("purpose", str(envelope.get("purpose", "")))
+		node.visible = show_reservation_volumes
 
 func _build_fixtures() -> void:
 	for fixture: Dictionary in layout.get("fixtures", []):
@@ -677,9 +755,10 @@ func _build_lift_landings() -> void:
 				Vector3(0.09, height, 0.10), "core", false)
 		_box(parent, "Head", Vector3(0.0, height + 0.045, 0.0),
 				Vector3(width + 0.18, 0.09, 0.10), "core", false)
-		_box(parent, "Clearance", Vector3(0.0, 0.01, float(landing.clear_depth) * 0.5),
+		var clearance := _box(parent, "Clearance", Vector3(0.0, 0.01, float(landing.clear_depth) * 0.5),
 				Vector3(maxf(width, 1.5), 0.02, float(landing.clear_depth)),
 				"clearance", false)
+		clearance.visible = show_reservation_volumes
 
 func _build_stairs() -> void:
 	for stair: Dictionary in layout.stairs:
@@ -701,12 +780,14 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 	var run := tread * count
 	var half_rise := rise * count
 	var guard_h := float(stair.guard_height)
+	# Bound each tread to one riser's thickness. Filling it down to base_y
+	# creates a false low ceiling beneath the next stacked flight.
 	for i in count:
 		var step_h := rise * (i + 1)
 		var z := z0 + tread * (i + 0.5)
 		_box(parent, "FlightA_Step%02d" % i,
-				Vector3(x0 + width * 0.5, base_y + step_h * 0.5, z),
-				Vector3(width, step_h, tread), "core", true)
+				Vector3(x0 + width * 0.5, base_y + step_h - rise * 0.5, z),
+				Vector3(width, rise, tread), "core", true)
 		_box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
@@ -731,8 +812,8 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 		var step_h := rise * (i + 1)
 		var z := north_start - tread * (i + 0.5)
 		_box(parent, "FlightB_Step%02d" % i,
-				Vector3(x_b + width * 0.5, base_y + half_rise + step_h * 0.5, z),
-				Vector3(width, step_h, tread), "core", true)
+				Vector3(x_b + width * 0.5, base_y + half_rise + step_h - rise * 0.5, z),
+				Vector3(width, rise, tread), "core", true)
 		_box(parent, "FlightB_Guard%02d" % i,
 				Vector3(x_b + width - 0.025,
 						base_y + half_rise + step_h + guard_h * 0.5, z),
@@ -785,6 +866,9 @@ func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 	mesh.size = size
 	mesh.material = materials.get(material_key, materials.get("unresolved"))
 	mesh_node.mesh = mesh
+	if production_materials and material_key not in ["clearance", "interaction", "unresolved"]:
+		mesh_node.material_override = architectural_materials.material_for(node_name,material_key)
+		mesh_node.set_meta("v2_material_key",architectural_materials.key_for(node_name,material_key))
 	mesh_node.position = at
 	parent.add_child(mesh_node)
 	if collision:

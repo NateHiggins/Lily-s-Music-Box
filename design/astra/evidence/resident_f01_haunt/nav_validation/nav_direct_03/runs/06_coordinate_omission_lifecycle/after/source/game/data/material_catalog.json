@@ -1,0 +1,991 @@
+{
+ "plaster": {
+  "base_color": [
+   0.62,
+   0.64,
+   0.58,
+   1.0
+  ],
+  "roughness": 0.8
+ },
+ "wallpaper_old": {
+  "base_color": [
+   0.56,
+   0.52,
+   0.37,
+   1.0
+  ],
+  "roughness": 0.9
+ },
+ "brick": {
+  "base_color": [
+   0.42,
+   0.27,
+   0.22,
+   1.0
+  ],
+  "roughness": 0.85
+ },
+ "concrete": {
+  "base_color": [
+   0.48,
+   0.48,
+   0.47,
+   1.0
+  ],
+  "roughness": 0.75
+ },
+ "sidewalk_haunted": {
+  "base_color": [
+   0.31,
+   0.3,
+   0.28,
+   1.0
+  ],
+  "roughness": 0.82
+ },
+ "sidewalk_grout": {
+  "base_color": [
+   0.075,
+   0.065,
+   0.055,
+   1.0
+  ],
+  "roughness": 0.93
+ },
+ "trim": {
+  "base_color": [
+   0.85,
+   0.83,
+   0.77,
+   1.0
+  ],
+  "roughness": 0.45
+ },
+ "sash": {
+  "base_color": [
+   0.82,
+   0.8,
+   0.745,
+   1.0
+  ],
+  "roughness": 0.42
+ },
+ "blind_slat": {
+  "base_color": [
+   0.855,
+   0.845,
+   0.805,
+   1.0
+  ],
+  "roughness": 0.3
+ },
+ "floor_oak": {
+  "base_color": [
+   0.45,
+   0.33,
+   0.22,
+   1.0
+  ],
+  "roughness": 0.55
+ },
+ "terrazzo": {
+  "base_color": [
+   0.72,
+   0.7,
+   0.66,
+   1.0
+  ],
+  "roughness": 0.4
+ },
+ "subway_tile": {
+  "base_color": [
+   0.88,
+   0.87,
+   0.83,
+   1.0
+  ],
+  "roughness": 0.28
+ },
+ "landing": {
+  "base_color": [
+   0.7,
+   0.68,
+   0.63,
+   1.0
+  ],
+  "roughness": 0.42
+ },
+ "cast_iron": {
+  "base_color": [
+   0.52,
+   0.5,
+   0.48,
+   1.0
+  ],
+  "roughness": 0.6,
+  "metallic": 0.35
+ },
+ "tin_ceiling": {
+  "base_color": [
+   0.82,
+   0.79,
+   0.72,
+   1.0
+  ],
+  "roughness": 0.45,
+  "metallic": 0.08
+ },
+ "marble_lobby": {
+  "base_color": [
+   0.86,
+   0.85,
+   0.82,
+   1.0
+  ],
+  "roughness": 0.3
+ },
+ "stair_treads": {
+  "base_color": [
+   0.82,
+   0.81,
+   0.79,
+   1.0
+  ],
+  "roughness": 0.42
+ },
+ "brass_dull": {
+  "base_color": [
+   0.62,
+   0.48,
+   0.22,
+   1.0
+  ],
+  "roughness": 0.52,
+  "metallic": 0.3
+ },
+ "nickel_plated": {
+  "base_color": [
+   0.72,
+   0.7,
+   0.66,
+   1.0
+  ],
+  "roughness": 0.38,
+  "metallic": 0.7
+ },
+ "mirror_aged": {
+  "base_color": [
+   0.68,
+   0.69,
+   0.67,
+   1.0
+  ],
+  "roughness": 0.45,
+  "metallic": 0.35
+ },
+ "mica_heater": {
+  "base_color": [
+   0.58,
+   0.36,
+   0.12,
+   1.0
+  ],
+  "roughness": 0.78,
+  "metallic": 0.0
+ },
+ "zinc_liner": {
+  "base_color": [
+   0.66,
+   0.67,
+   0.67,
+   1.0
+  ],
+  "roughness": 0.82,
+  "metallic": 0.12
+ },
+ "copper_aged": {
+  "base_color": [
+   0.55,
+   0.33,
+   0.21,
+   1.0
+  ],
+  "roughness": 0.58,
+  "metallic": 0.72
+ },
+ "brass_bright": {
+  "base_color": [
+   0.541,
+   0.416,
+   0.2,
+   1.0
+  ],
+  "roughness": 0.34,
+  "metallic": 0.85
+ },
+ "bronze": {
+  "base_color": [
+   0.275,
+   0.251,
+   0.184,
+   1.0
+  ],
+  "roughness": 0.62,
+  "metallic": 0.75
+ },
+ "car_paint": {
+  "base_color": [
+   0.369,
+   0.361,
+   0.259,
+   1.0
+  ],
+  "roughness": 0.55
+ },
+ "oak_quartered": {
+  "base_color": [
+   0.522,
+   0.345,
+   0.196,
+   1.0
+  ],
+  "roughness": 0.45
+ },
+ "milk_glass": {
+  "base_color": [
+   0.894,
+   0.882,
+   0.847,
+   1.0
+  ],
+  "roughness": 0.22
+ },
+ "bakelite_black": {
+  "base_color": [
+   0.141,
+   0.125,
+   0.114,
+   1.0
+  ],
+  "roughness": 0.28
+ },
+ "terrazzo_dark": {
+  "base_color": [
+   0.29,
+   0.267,
+   0.235,
+   1.0
+  ],
+  "roughness": 0.4
+ },
+ "brass_mesh": {
+  "base_color": [
+   0.416,
+   0.322,
+   0.157,
+   1.0
+  ],
+  "roughness": 0.52,
+  "metallic": 0.8
+ },
+ "indicator_enamel": {
+  "base_color": [
+   0.878,
+   0.835,
+   0.745,
+   1.0
+  ],
+  "roughness": 0.24
+ },
+ "rubber_aged": {
+  "base_color": [
+   0.1,
+   0.09,
+   0.08,
+   1.0
+  ],
+  "roughness": 0.82,
+  "metallic": 0.0
+ },
+ "metal": {
+  "base_color": [
+   0.55,
+   0.56,
+   0.58,
+   1.0
+  ],
+  "roughness": 0.35,
+  "metallic": 0.9
+ },
+ "slab": {
+  "base_color": [
+   0.35,
+   0.34,
+   0.33,
+   1.0
+  ],
+  "roughness": 0.7
+ },
+ "stair": {
+  "base_color": [
+   0.58,
+   0.56,
+   0.52,
+   1.0
+  ],
+  "roughness": 0.5
+ },
+ "glassish": {
+  "base_color": [
+   0.35,
+   0.45,
+   0.5,
+   1.0
+  ],
+  "roughness": 0.12
+ },
+ "wainscot": {
+  "base_color": [
+   0.3,
+   0.4,
+   0.34,
+   1.0
+  ],
+  "roughness": 0.55
+ },
+ "handrail_wood": {
+  "base_color": [
+   0.24,
+   0.16,
+   0.11,
+   1.0
+  ],
+  "roughness": 0.35
+ },
+ "baluster": {
+  "base_color": [
+   0.82,
+   0.8,
+   0.74,
+   1.0
+  ],
+  "roughness": 0.5
+ },
+ "ceramic": {
+  "base_color": [
+   0.79,
+   0.81,
+   0.8,
+   1.0
+  ],
+  "roughness": 0.22
+ },
+ "wood_dark": {
+  "base_color": [
+   0.28,
+   0.2,
+   0.14,
+   1.0
+  ],
+  "roughness": 0.5
+ },
+ "linen": {
+  "base_color": [
+   0.86,
+   0.85,
+   0.81,
+   1.0
+  ],
+  "roughness": 0.85
+ },
+ "shower_duck": {
+  "base_color": [
+   0.73,
+   0.68,
+   0.54,
+   1.0
+  ],
+  "roughness": 0.62,
+  "metallic": 0.0
+ },
+ "paper": {
+  "base_color": [
+   0.9,
+   0.88,
+   0.82,
+   1.0
+  ],
+  "roughness": 0.85
+ },
+ "countertop": {
+  "base_color": [
+   0.78,
+   0.75,
+   0.64,
+   1.0
+  ],
+  "roughness": 0.62
+ },
+ "book_burgundy": {
+  "base_color": [
+   0.34,
+   0.1,
+   0.1,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_green": {
+  "base_color": [
+   0.12,
+   0.24,
+   0.16,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_navy": {
+  "base_color": [
+   0.1,
+   0.15,
+   0.25,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_ochre": {
+  "base_color": [
+   0.58,
+   0.34,
+   0.08,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_teal": {
+  "base_color": [
+   0.13,
+   0.31,
+   0.31,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "book_brown": {
+  "base_color": [
+   0.28,
+   0.17,
+   0.1,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "fabric_warm": {
+  "base_color": [
+   0.56,
+   0.35,
+   0.27,
+   1.0
+  ],
+  "roughness": 0.92
+ },
+ "fabric_cool": {
+  "base_color": [
+   0.36,
+   0.42,
+   0.51,
+   1.0
+  ],
+  "roughness": 0.92
+ },
+ "fabric_green": {
+  "base_color": [
+   0.38,
+   0.46,
+   0.36,
+   1.0
+  ],
+  "roughness": 0.92
+ },
+ "rug_warm": {
+  "base_color": [
+   0.47,
+   0.26,
+   0.21,
+   1.0
+  ],
+  "roughness": 0.95
+ },
+ "rug_cool": {
+  "base_color": [
+   0.26,
+   0.31,
+   0.39,
+   1.0
+  ],
+  "roughness": 0.95
+ },
+ "rug_green": {
+  "base_color": [
+   0.31,
+   0.38,
+   0.3,
+   1.0
+  ],
+  "roughness": 0.95
+ },
+ "plant": {
+  "base_color": [
+   0.25,
+   0.39,
+   0.22,
+   1.0
+  ],
+  "roughness": 0.8
+ },
+ "screen": {
+  "base_color": [
+   0.07,
+   0.08,
+   0.09,
+   1.0
+  ],
+  "roughness": 0.25
+ },
+ "appliance": {
+  "base_color": [
+   0.87,
+   0.88,
+   0.86,
+   1.0
+  ],
+  "roughness": 0.3
+ },
+ "soot": {
+  "base_color": [
+   0.09,
+   0.09,
+   0.09,
+   1.0
+  ],
+  "roughness": 0.9
+ },
+ "brass": {
+  "base_color": [
+   0.55,
+   0.46,
+   0.26,
+   1.0
+  ],
+  "roughness": 0.3,
+  "metallic": 0.85
+ },
+ "art": {
+  "base_color": [
+   0.52,
+   0.44,
+   0.34,
+   1.0
+  ],
+  "roughness": 0.6
+ },
+ "face_brick": {
+  "base_color": [
+   0.38,
+   0.16,
+   0.12,
+   1.0
+  ],
+  "roughness": 0.82
+ },
+ "common_brick": {
+  "base_color": [
+   0.62,
+   0.42,
+   0.31,
+   1.0
+  ],
+  "roughness": 0.88
+ },
+ "limestone": {
+  "base_color": [
+   0.78,
+   0.75,
+   0.67,
+   1.0
+  ],
+  "roughness": 0.6
+ },
+ "timber": {
+  "base_color": [
+   0.43,
+   0.32,
+   0.22,
+   1.0
+  ],
+  "roughness": 0.75
+ },
+ "fx_shadow": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_ao": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "asphalt": {
+  "base_color": [
+   0.16,
+   0.16,
+   0.17,
+   1.0
+  ],
+  "roughness": 0.9
+ },
+ "linoleum": {
+  "base_color": [
+   0.55,
+   0.5,
+   0.4,
+   1.0
+  ],
+  "roughness": 0.5
+ },
+ "plywood": {
+  "base_color": [
+   0.64,
+   0.54,
+   0.38,
+   1.0
+  ],
+  "roughness": 0.8
+ },
+ "char": {
+  "base_color": [
+   0.06,
+   0.055,
+   0.05,
+   1.0
+  ],
+  "roughness": 0.95
+ },
+ "brick_patched": {
+  "base_color": [
+   0.55,
+   0.35,
+   0.28,
+   1.0
+  ],
+  "roughness": 0.85
+ },
+ "plaster_stained": {
+  "base_color": [
+   0.46,
+   0.44,
+   0.39,
+   1.0
+  ],
+  "roughness": 0.75
+ },
+ "fx_traffic": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_scuff": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_drip": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_grease": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_burn": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_patch": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_damp": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "fx_ceiling_soffit_failed": {
+  "base_color": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 1.0
+ },
+ "chrome": {
+  "base_color": [
+   0.8,
+   0.82,
+   0.85,
+   1.0
+  ],
+  "roughness": 0.12,
+  "metallic": 1.0
+ },
+ "enamel": {
+  "base_color": [
+   0.91,
+   0.89,
+   0.83,
+   1.0
+  ],
+  "roughness": 0.18
+ },
+ "enamel_appliance": {
+  "base_color": [
+   0.91,
+   0.89,
+   0.83,
+   1.0
+  ],
+  "roughness": 0.2
+ },
+ "bakelite": {
+  "base_color": [
+   0.16,
+   0.12,
+   0.1,
+   1.0
+  ],
+  "roughness": 0.3
+ },
+ "porcelain": {
+  "base_color": [
+   0.92,
+   0.93,
+   0.92,
+   1.0
+  ],
+  "roughness": 0.14
+ },
+ "porcelain_fixture": {
+  "base_color": [
+   0.92,
+   0.91,
+   0.84,
+   1.0
+  ],
+  "roughness": 0.16
+ },
+ "terracotta": {
+  "base_color": [
+   0.66,
+   0.38,
+   0.26,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "soil": {
+  "base_color": [
+   0.2,
+   0.15,
+   0.11,
+   1.0
+  ],
+  "roughness": 0.95
+ },
+ "wet_asphalt": {
+  "base_color": [
+   0.09,
+   0.09,
+   0.1,
+   1.0
+  ],
+  "roughness": 0.22
+ },
+ "puddle": {
+  "base_color": [
+   0.04,
+   0.045,
+   0.055,
+   1.0
+  ],
+  "roughness": 0.05,
+  "metallic": 0.35
+ },
+ "leaf_fall": {
+  "base_color": [
+   0.42,
+   0.28,
+   0.13,
+   1.0
+  ],
+  "roughness": 0.65
+ },
+ "safety_orange": {
+  "base_color": [
+   0.88,
+   0.22,
+   0.035,
+   1.0
+  ],
+  "roughness": 0.62
+ },
+ "road_paint": {
+  "base_color": [
+   0.78,
+   0.77,
+   0.72,
+   1.0
+  ],
+  "roughness": 0.62
+ },
+ "quarry_tile": {
+  "base_color": [
+   0.42,
+   0.2,
+   0.13,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "felt_violet": {
+  "base_color": [
+   0.17,
+   0.12,
+   0.32,
+   1.0
+  ],
+  "roughness": 0.94
+ },
+ "stairwell_teal": {
+  "base_color": [
+   0.2,
+   0.36,
+   0.3,
+   1.0
+  ],
+  "roughness": 0.55
+ },
+ "bar_wall": {
+  "base_color": [
+   0.3,
+   0.31,
+   0.16,
+   1.0
+  ],
+  "roughness": 0.6
+ },
+ "bar_wall_red": {
+  "base_color": [
+   0.25,
+   0.1,
+   0.09,
+   1.0
+  ],
+  "roughness": 0.62
+ },
+ "lacquer_red": {
+  "base_color": [
+   0.52,
+   0.14,
+   0.11,
+   1.0
+  ],
+  "roughness": 0.35
+ },
+ "vinyl_oxblood": {
+  "base_color": [
+   0.26,
+   0.12,
+   0.11,
+   1.0
+  ],
+  "roughness": 0.55
+ },
+ "hoarding": {
+  "base_color": [
+   0.4,
+   0.37,
+   0.34,
+   1.0
+  ],
+  "roughness": 0.82
+ },
+ "awning_vinyl": {
+  "base_color": [
+   0.61,
+   0.51,
+   0.09,
+   1.0
+  ],
+  "roughness": 0.42
+ },
+ "sign_board": {
+  "base_color": [
+   0.6,
+   0.56,
+   0.5,
+   1.0
+  ],
+  "roughness": 0.72
+ },
+ "chochin": {
+  "base_color": [
+   0.54,
+   0.15,
+   0.12,
+   1.0
+  ],
+  "roughness": 0.88
+ }
+}

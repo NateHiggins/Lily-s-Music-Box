@@ -1,0 +1,5 @@
+Prepared exact warning classifier, not applied to the active assay. No Godot rerun and no raw receipt rewrite.
+
+The original strict rejection remains in evidence/resident_f01_haunt/original_haunt_02_strict_review_01. The prior full V1 foundation receipt and raw hashes/details remain in evidence/resident_f01_haunt/warning_review_01/provenance.json. This revision recognizes only those exact warning headers, detail/native sites and found-art source context. All recognized warnings remain named/countable debt; unknown warning headers, wrong source sites, script errors, retention and pairing remain inadmissible.
+
+validation_01 retains22 passing offline controls: the existing18 omission/source/retirement controls and4 exact-warning controls. observed_warning_debt.json reclassifies only diagnostic scope on original_haunt_02 and candidate_haunt_01: each contains966 RGB8 conversions,1 host registry warning,1 duplicate OBS-layer warning and1 found-art placement warning. Raw native/gate1 and all functional failures remain unchanged. Neither observed run is a restored complete lifecycle candidate, and no paired acceptance is claimed.

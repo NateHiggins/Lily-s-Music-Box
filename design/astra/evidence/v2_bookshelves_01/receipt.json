@@ -1,0 +1,44 @@
+{
+  "status": "SCOPED_RUNTIME_PASS",
+  "base": "1ddf9d7",
+  "added_shelves": 8,
+  "added_anchors": 16,
+  "saved_household_records": 124,
+  "checks": 18550,
+  "runs": [
+    {
+      "name": "household_state_02",
+      "checks": 100,
+      "stdout_sha256": "c895332c7cb8ba23837e70fcbd25e73e70f71b93e3b82eae121e9f41d0c5f204",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "bookshelves_02",
+      "checks": 118,
+      "stdout_sha256": "956f76d04ee76f41f4b913f241944e25a5797ef131fde6b3318074d8da87e2f1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "apartment_batch",
+      "checks": 18332,
+      "stdout_sha256": "af8170bb78dc77158c681e0c542b6c71b06e6c1fd3b3055668ec9cc4da82b8bb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "captures": 8,
+  "source_sha256": {
+    "game/data/orison_v2_blockout.json": "cb50fdad6c8fb139e9ef73014168dd4d0eba92e01d376b85b6c3c55024c456f3",
+    "game/data/orison_v2/bookshelves.json": "243c7572a571d8130a99baf6209600044102e88542eb115c883042240357f40b",
+    "game/scripts/building/orison_v2_bookshelf.gd": "59b675688c6d0b52135fc5ae35d359ff257e6c2ffd693298eb2b1e4548f45fec",
+    "game/scripts/building/orison_v2_bookshelves.gd": "7d21b7e0bafc8c906ba672bf5c5fbdc0ba6310ace7da53f8c3a793ed55fcca35",
+    "game/scripts/building/orison_v2_household_state.gd": "baa23a5441b20039303134dc4aca1141e11aea67fad02dccd270bfeb37692f83",
+    "game/scripts/building/orison_v2_runtime_root.gd": "8d29fd69a566338a290f28243eef8fdcc64d338e9fd90ac5091db93b0dae9a09",
+    "game/tests/orison_v2_bookshelves_test.gd": "0bd6e009fc19d4a4947472117798b423b41ea76db407252e6e160bf6e8da9c8d",
+    "game/tests/orison_v2_bookshelves_shot.gd": "386a53856fc6875245ec8caf0c8ca86434c7c835b67064db415e3ca692ef85a8",
+    "game/tests/orison_v2_household_state_test.gd": "7b29a323c8dda2460cdc37e46ecb9dbcbfc7f935c7d0a52c4a03af7966ee47ac",
+    "design/astra/work/v2_bookshelves_01/build.py": "d02bf4e9100f172cafce024db9ce144db7d7b5b07ed36f217d73f9b35b67d298",
+    "design/astra/work/v2_bookshelves_01/source_checks.json": "60c4b0cc19b74592dc6906ec24a1e9c595e919641c0c9fdcba917a2ca8ed7a20",
+    "design/astra/work/v2_storage_tables_boards_batch_01/build.py": "22b07cefe5daa79220f824732277f5491dd6dabcd839c719d40b3a0887f08667"
+  },
+  "limits": "Prepared placement/interaction/collision, sorting UI and save reconstruction checks. No full played-route, listening, performance or human art acceptance. Dark book spines, especially Sacha, remain lighting review. V2 incomplete; V1 default; S2J open."
+}

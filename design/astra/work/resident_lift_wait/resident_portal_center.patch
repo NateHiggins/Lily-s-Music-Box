@@ -1,0 +1,49 @@
+--- a/game/scripts/characters/resident_nav.gd
++++ b/game/scripts/characters/resident_nav.gd
+@@ -208,8 +208,7 @@
+ 	for m in fl.get("markers", []):
+ 		if str(m.get("kind", "")) != "door" or bool(m.get("cabinet", false)):
+ 			continue
+-		var p: Array = m["pos"]
+-		var at := Vector2(float(p[0]), float(p[1]))
++		var at := _door_portal_point(m, entry.walls)
+ 		var joins: Array = []
+ 		var void_hit := false
+ 		var joined := {}
+@@ -308,6 +307,36 @@
+ 	visibility_edges += _add_safe_visibility_edges(entry)
+ 	floors[fid] = entry
+ 	return entry.points.size()
++
++
++## collect_door_markers stores each leaf's HINGE; DoorProp extends along
++## local +X. Match that hinge/width/orientation to an authored wall opening
++## before moving the navigation point to its centre. Separately authored
++## exterior/shop anchors and already-centred points keep their coordinates.
++func _door_portal_point(marker: Dictionary, walls: Array) -> Vector2:
++	var p: Array = marker["pos"]
++	var hinge := Vector2(float(p[0]), float(p[1]))
++	var width := float(marker.get("w", 0.81))
++	var angle := deg_to_rad(-float(marker.get("yaw_deg", 0.0)))
++	var center := hinge + Vector2(cos(angle), sin(angle)) * width * 0.5
++	for wall in walls:
++		var wa: Array = wall.a
++		var wb: Array = wall.b
++		var horizontal := absf(float(wb[1]) - float(wa[1])) < 0.001
++		var start := minf(float(wa[0]), float(wb[0])) if horizontal \
++				else minf(float(wa[1]), float(wb[1]))
++		var cross := float(wa[1]) if horizontal else float(wa[0])
++		for opening in wall.get("openings", []):
++			if str(opening.get("type", "")) != "door" or str(opening.get("leaf", "closed")) == "none" \
++					or absf(float(opening.get("w", 0.0)) - width) > 0.001:
++				continue
++			var along := start + float(opening.get("at", 0.0))
++			var aperture := Vector2(along, cross) if horizontal else Vector2(cross, along)
++			if hinge.distance_to(aperture) < 0.001:
++				return hinge
++			if center.distance_to(aperture) < 0.001:
++				return aperture
++	return hinge
+ 
+ 
+ func _room_at(rooms: Array, at: Vector2) -> Variant:

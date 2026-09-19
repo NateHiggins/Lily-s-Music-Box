@@ -32,7 +32,8 @@ func setup(orders: WorkOrders, mechanism: RadiatorProp,
 		round: ServiceRoundDirector, minute_provider: Callable,
 		observation_ledger: NpcObservationLedger = null,
 		porter_actor: PorterActor = null,
-		porter_access := Callable()) -> void:
+		porter_access := Callable(),
+		clock_basis := "monotonic_minutes", presence := Callable()) -> void:
 	work_orders = orders
 	radiator = mechanism
 	service_round = round
@@ -40,7 +41,7 @@ func setup(orders: WorkOrders, mechanism: RadiatorProp,
 	situation = OpenShiftSituation.new()
 	situation.name = "Radiator2BSituation"
 	add_child(situation)
-	situation.setup(SITUATION_ID, minute_provider)
+	situation.setup(SITUATION_ID, minute_provider, clock_basis)
 	ledger = observation_ledger
 	if ledger == null:
 		ledger = NpcObservationLedger.new()
@@ -49,13 +50,13 @@ func setup(orders: WorkOrders, mechanism: RadiatorProp,
 		ledger.setup([
 			{"npc": ServiceRoundDirector.RESIDENT_ID, "unit": "2B"},
 			{"npc": "omar_bell", "unit": "3B"},
-		], minute_provider, _acoustic_authority())
+		], minute_provider, _acoustic_authority(), presence, clock_basis)
 	porter = porter_actor
 	if porter == null:
 		porter = PorterActor.new()
 		porter.name = "BuildingPorter"
 		add_child(porter)
-		porter.setup(radiator, ledger, porter_access)
+		porter.setup(radiator, ledger, porter_access, clock_basis)
 	if not porter.porter_event.is_connected(_on_porter_event):
 		porter.porter_event.connect(_on_porter_event)
 	if service_round and not service_round.route_beat.is_connected(
@@ -69,9 +70,8 @@ func setup(orders: WorkOrders, mechanism: RadiatorProp,
 
 func now_minutes() -> float:
 	if _minute_provider.is_valid():
-		return fposmod(float(_minute_provider.call()), 1440.0)
-	return fposmod(180.0 +
-			float(situation.state().elapsed_simulation_minutes), 1440.0)
+		return float(_minute_provider.call())
+	return 180.0 + float(situation.state().elapsed_simulation_minutes)
 
 
 ## This node lives at the waking root, not in any room: simulation time
@@ -114,7 +114,7 @@ func advance_autonomy() -> void:
 			autonomous_event.emit("hammer_worsened", {"heard": heard})
 		if elapsed >= COMPENSATE_MINUTES:
 			porter.consider("riser_complaint", now)
-		_evaluate_abandonment(record, elapsed)
+		_evaluate_abandonment(record)
 	porter.advance_to(now)
 
 
@@ -128,16 +128,15 @@ func _elapsed_since_offer(record: Dictionary) -> float:
 ## mechanism's condition, the inventory's custody, the attended actions -
 ## never asserted. What the resident believes about it comes only from
 ## what she could see in her own flat.
-func _evaluate_abandonment(record: Dictionary, elapsed: float) -> void:
+func _evaluate_abandonment(record: Dictionary) -> void:
 	if float(record.accepted_at) < 0.0 or \
 			float(record.last_attended_at) < 0.0:
 		return
 	if not str(record.abandonment_boundary).is_empty():
 		return
-	var attended_after_offer := fposmod(
-			float(record.last_attended_at) - float(record.offered_at),
-			1440.0)
-	var since_attend := elapsed - attended_after_offer
+	# Duration uses the latest attested attention, never a wrapped day clock.
+	# Unknown legacy days return zero until a new action supplies a timestamp.
+	var since_attend := situation.elapsed_since("last_attended_at")
 	if since_attend < ABANDON_MINUTES:
 		return
 	var boundary := _derive_boundary(record)

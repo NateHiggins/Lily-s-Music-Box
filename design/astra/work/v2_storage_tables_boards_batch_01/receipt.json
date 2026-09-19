@@ -1,0 +1,105 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "additions": [
+    {
+      "id": "2A_k_wall_cupboard",
+      "kind": "cupboard",
+      "triangles": 60
+    },
+    {
+      "id": "2B_k_wall_cupboard",
+      "kind": "cupboard",
+      "triangles": 60
+    },
+    {
+      "id": "3B_k_wall_cupboard",
+      "kind": "cupboard",
+      "triangles": 60
+    },
+    {
+      "id": "4B_wall_cupboard",
+      "kind": "cupboard",
+      "triangles": 60
+    },
+    {
+      "id": "2A_cof",
+      "kind": "coffee",
+      "triangles": 96
+    },
+    {
+      "id": "4B_coffee",
+      "kind": "coffee",
+      "triangles": 96
+    },
+    {
+      "id": "2A_pinboard",
+      "kind": "pinboard",
+      "triangles": 204
+    },
+    {
+      "id": "2B_story_pattern_board",
+      "kind": "pinboard",
+      "triangles": 24
+    },
+    {
+      "id": "3B_toolboard",
+      "kind": "toolboard",
+      "triangles": 360
+    },
+    {
+      "id": "3B_partscrate",
+      "kind": "crate",
+      "triangles": 96
+    }
+  ],
+  "wall_supports": [
+    {
+      "id": "2A_k_wall_cupboard",
+      "wall_owners": [
+        "F02_A_KITCHEN:north"
+      ]
+    },
+    {
+      "id": "2B_k_wall_cupboard",
+      "wall_owners": [
+        "F02_B_KITCHEN:west",
+        "F02_SERVICE_HALL_SOUTH:east"
+      ]
+    },
+    {
+      "id": "3B_k_wall_cupboard",
+      "wall_owners": [
+        "F03_B_KITCHEN:north"
+      ]
+    },
+    {
+      "id": "4B_wall_cupboard",
+      "wall_owners": [
+        "F04_B_KITCHEN:north"
+      ]
+    },
+    {
+      "id": "2A_pinboard",
+      "wall_owners": [
+        "F02_A_KITCHEN:north"
+      ]
+    },
+    {
+      "id": "2B_story_pattern_board",
+      "wall_owners": [
+        "F02_B_MAIN:north",
+        "F02_SERVICE_CORE:south"
+      ]
+    },
+    {
+      "id": "3B_toolboard",
+      "wall_owners": [
+        "F03_B_MAIN:north"
+      ]
+    }
+  ],
+  "route_samples": 6864,
+  "door_sweeps": 25,
+  "limits": "Fixed cupboards/boards/crate; no cabinet-door or inventory mechanics. Source volume/sampled route and leaf bounds only. Runtime physics, interaction rays, material/light response, performance and visual acceptance pending."
+}

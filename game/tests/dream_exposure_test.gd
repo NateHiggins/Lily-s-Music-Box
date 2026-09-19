@@ -18,7 +18,7 @@ extends Node
 ## is pure data -- no scene, no renderer, no godot window -- so it runs
 ## headless in well under a second.
 
-const EXPECTED_CHECKS := 35
+const EXPECTED_CHECKS := 36
 ## A room four metres square at the origin, in the [x0, z0, x1, z1] form
 ## DreamRoomBuilder writes into plan.modules.
 const ROOM := [0.0, 0.0, 4.0, 4.0]
@@ -205,6 +205,10 @@ func _block_e_tiling() -> void:
 	joined.stamp_room("@b", [4.2, 0.0, 8.2, 4.0], 1.0, 0.6)
 	_check(not joined.overflowed(),
 			"rooms joined at a door do not read as aliasing")
+	var played := DreamExposureField.new()
+	played.stamp_room("@near", [0.0,0.0,4.0,4.0],1.0,.5)
+	played.stamp_room("@far", [32.1,48.0,36.1,52.0],1.0,.6)
+	_check(not played.overflowed(), "played 36.1 by 52 metre pocket fits without voxel aliasing")
 
 	# Two SIMULTANEOUSLY live rooms one tile apart is the one thing tiling
 	# cannot survive, and it must be reported rather than rendered as a

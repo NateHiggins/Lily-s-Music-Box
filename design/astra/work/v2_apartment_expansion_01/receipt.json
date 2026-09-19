@@ -1,0 +1,97 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "base": "1aa22cc",
+  "programs": [
+    {
+      "unit": "3A",
+      "resident": "Malcolm Reed",
+      "rooms": [
+        "F03_A_VESTIBULE",
+        "F03_A_MAIN",
+        "F03_A_KITCHEN",
+        "F03_A_PRIVATE_HALL",
+        "F03_A_BATH",
+        "F03_A_BED"
+      ],
+      "status": "SOURCE_DOMESTIC_CORE_RUNTIME_PENDING",
+      "remaining": "personal objects, domestic radio, heating/emitter and actual resident navigation; runtime and visual checks"
+    },
+    {
+      "unit": "4A",
+      "resident": "Peter Wren",
+      "rooms": [
+        "F04_A_VESTIBULE",
+        "F04_A_MAIN",
+        "F04_A_KITCHEN",
+        "F04_A_BED",
+        "F04_A_PRIVATE_HALL",
+        "F04_A_BATH"
+      ],
+      "status": "SOURCE_DOMESTIC_CORE_RUNTIME_PENDING",
+      "remaining": "personal objects, domestic radio, heating/emitter and actual resident navigation; runtime and visual checks"
+    }
+  ],
+  "rooms_added": 12,
+  "doors_added": [
+    "F03_DOOR_02",
+    "F03_A_HALL_DOOR",
+    "F03_A_BATH_DOOR",
+    "F03_A_BED_DOOR",
+    "F04_DOOR_02",
+    "F04_A_BED_DOOR",
+    "F04_A_BATH_DOOR",
+    "F04_A_KITCHEN_DOOR"
+  ],
+  "furniture_added": [
+    "3A_wc",
+    "3A_bed0",
+    "3A_w0_wardrobe",
+    "3A_din_t",
+    "3A_din_dc1",
+    "3A_din_dc2",
+    "3A_sink_support",
+    "3A_prep_cabinet",
+    "3A_k_wall_cupboard",
+    "3A_bed0_ns",
+    "3A_potting_bench",
+    "4A_wc",
+    "4A_bed0",
+    "4A_w0_wardrobe",
+    "4A_din_t",
+    "4A_din_dc1",
+    "4A_din_dc2",
+    "4A_sink_support",
+    "4A_prep_cabinet",
+    "4A_k_wall_cupboard",
+    "4A_bed0_ns",
+    "4A_writing_table"
+  ],
+  "fittings_added": [
+    "F03_3A_FRIDGE_01",
+    "F03_3A_SINK_01",
+    "F03_3A_KITCHEN_SINK_01",
+    "F03_3A_SHOWER_01",
+    "F03_3A_STOVE_01",
+    "F04_4A_SINK_01",
+    "F04_4A_KITCHEN_SINK_01",
+    "F04_4A_SHOWER_01",
+    "F04_4A_STOVE_01",
+    "F04_4A_FRIDGE_01"
+  ],
+  "fixtures_added": [
+    "F03_A_MAIN_LT_PENDANT_SHADE",
+    "F03_A_VESTIBULE_LT_FLUSH_DOME",
+    "F03_A_KITCHEN_LT_FLUSH_DOME",
+    "F03_A_PRIVATE_HALL_LT_FLUSH_DOME",
+    "F03_A_BATH_LT_FLUSH_DOME",
+    "F03_A_BED_LT_FLUSH_DOME",
+    "F04_A_VESTIBULE_LT_FLUSH_DOME",
+    "F04_A_MAIN_LT_PENDANT_SHADE",
+    "F04_A_KITCHEN_LT_FLUSH_DOME",
+    "F04_A_BED_LT_FLUSH_DOME",
+    "F04_A_PRIVATE_HALL_LT_FLUSH_DOME",
+    "F04_A_BATH_LT_FLUSH_DOME"
+  ],
+  "limits": "Source-only domestic core. Personal dressing, radio/heating, resident migration, full route/use/visual/performance acceptance remain open. Existing furniture/fitting records preserved. Named layout repairs: F04 service-hall partition, 2A/3A bathroom clearance and door widths, and 4B WC stance."
+}

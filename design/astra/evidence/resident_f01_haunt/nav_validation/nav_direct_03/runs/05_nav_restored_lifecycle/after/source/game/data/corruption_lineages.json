@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "lineages": {
+    "street": {"ordinary_system": "res://scripts/building/street_traffic.gd", "era_influence": "municipal_flow", "resident_wound": ""},
+    "entrance_apron": {"ordinary_system": "res://scripts/building/weather_fx.gd", "era_influence": "threshold_weather", "resident_wound": ""},
+    "arcade_portal": {"ordinary_system": "res://scripts/building/passage_hours_director.gd", "era_influence": "commercial_memory", "resident_wound": ""},
+    "shopfronts": {"ordinary_system": "res://scripts/building/passage_hours_director.gd", "era_influence": "commercial_memory", "resident_wound": ""},
+    "b1_boiler": {"ordinary_system": "res://scripts/props/boiler_tend.gd", "era_influence": "industrial_heat", "resident_wound": "lena_radiator_round_2b"},
+    "service_circulation": {"ordinary_system": "res://scripts/game/maintenance_activity_director.gd", "era_influence": "custodial_repetition", "resident_wound": ""}
+  }
+}

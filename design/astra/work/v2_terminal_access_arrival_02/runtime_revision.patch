@@ -1,0 +1,258 @@
+--- a/runtime/run.py
++++ b/runtime/run.py
+@@ -12,7 +12,7 @@
+ HERE = Path(__file__).resolve().parent
+ BASE = HERE.parent
+ ROOT = BASE.parents[3]
+-EVIDENCE = ROOT / "design/astra/evidence/v2_terminal_access"
++EVIDENCE = ROOT / "design/astra/evidence/v2_terminal_access_arrival_02"
+ OWNERS = ["game/scripts/building/orison_v2_runtime_root.gd", "game/scripts/call/desk_zone.gd"]
+ core.HERE = HERE
+ core.ROOT = ROOT
+@@ -41,23 +41,40 @@
+     return row, {OWNERS[0]: BASE / row["root_source"], OWNERS[1]: BASE / row["desk_source"]}
+ 
+ 
++def require_previous_fixtures(current, expected):
++    if set(current) != set(expected) or current != expected:
++        raise ValueError("exact previously installed fixture bytes required")
++
++
+ def install():
+     plan, manifest = package()
+     if core.git("rev-parse", "HEAD").decode().strip() != plan["required_install_head"]: raise ValueError("reviewed execution HEAD differs")
+     if core.godot_processes(): raise ValueError("lane busy before installation")
+     for rel in OWNERS:
+         if sha(ROOT / rel) != plan["source_bindings_sha256"][rel]: raise ValueError("original production bytes required")
+-    for rel in manifest["install"]:
+-        if (ROOT / rel).exists(): raise ValueError("new fixture target already exists: " + rel)
++    previous = manifest["replace_exact_previous_fixtures"]
++    if set(previous) != set(manifest["install"]): raise ValueError("fixture replacement set differs")
++    require_previous_fixtures({rel: sha(ROOT / rel) if (ROOT / rel).is_file() else None for rel in previous}, previous)
+     EVIDENCE.mkdir(parents=True, exist_ok=False)
+-    for rel in OWNERS:
++    for rel in [*OWNERS, *previous]:
+         target = EVIDENCE / "preinstall" / rel
+         target.parent.mkdir(parents=True, exist_ok=True)
+         shutil.copy2(ROOT / rel, target)
+-    for rel in manifest["install"]:
+-        shutil.copy2(BASE / "proposed" / rel, ROOT / rel)
++        expected = previous[rel] if rel in previous else plan["source_bindings_sha256"][rel]
++        if sha(target) != expected: raise ValueError("preinstall backup hash mismatch")
++    try:
++        for rel in manifest["install"]:
++            shutil.copy2(BASE / "proposed" / rel, ROOT / rel)
++        if any(sha(ROOT / rel) != value for rel,value in manifest["install"].items()):
++            raise ValueError("revised fixture install mismatch")
++    except Exception:
++        for rel in previous:
++            if sha(ROOT / rel) not in (previous[rel], manifest["install"][rel]):
++                raise ValueError("refuse to overwrite unexpected fixture during install rollback")
++        for rel in previous: shutil.copy2(EVIDENCE / "preinstall" / rel, ROOT / rel)
++        raise
+     rows = dict(core.all_game_rows())
+-    dump(EVIDENCE / "install.json", {"status": "ONLY_TWO_NEW_FIXTURES_INSTALLED_ORIGINAL_PRODUCTION", "head": core.git("rev-parse", "HEAD").decode().strip(), "files": rows, "package_sha256": sha(HERE / "package.json")})
++    dump(EVIDENCE / "install.json", {"status": "TWO_EXACT_PREVIOUS_FIXTURES_BACKED_UP_AND_REPLACED_ORIGINAL_PRODUCTION", "previous_fixtures": previous, "head": core.git("rev-parse", "HEAD").decode().strip(), "files": rows, "package_sha256": sha(HERE / "package.json")})
+ 
+ 
+ def verify_artifacts(out, result):
+--- a/runtime/assess.py
++++ b/runtime/assess.py
+@@ -9,6 +9,49 @@
+ PLAN = json.loads((HERE.parent / "preparation.json").read_text(encoding="utf-8"))
+ KNOWN = json.loads((HERE / "known_diagnostics.json").read_text(encoding="utf-8"))
+ PREFIX = "[V2 TERMINAL ACCESS]"
++
++
++def finite_vec(value):
++    if not isinstance(value, list) or len(value) != 3 or any(type(v) not in (int, float) or not math.isfinite(v) for v in value):
++        raise ValueError("invalid coordinate payload")
++    return value
++
++
++def close_vec(value, expected):
++    return all(abs(a-b) <= 1e-4 for a,b in zip(finite_vec(value), expected))
++
++
++def require_arrival_and_operator_origins(diag, flags):
++    arrival = diag["arrival"]
++    if not isinstance(arrival, dict): raise ValueError("missing arrival witness")
++    curb = [-3.6, 0.1, 24.72]
++    eye = [-3.6, 1.51, 24.72]
++    if close_vec(arrival["before_position"], curb) or not close_vec(arrival["position"], curb) or not close_vec(arrival["camera_position"], eye):
++        raise ValueError("actual deferred arrival transition not observed")
++    for key in ("observed", "settled", "director_owns_world", "intro_complete"):
++        if arrival[key] is not True: raise ValueError("arrival completion witness missing")
++    if flags.get("deferred first-shift arrival settles before controlled placement") is not True:
++        raise ValueError("arrival check failed")
++    if type(arrival["waited_process_frames"]) is not int or not 1 <= arrival["waited_process_frames"] <= 120 or arrival["stable_process_frames"] != 2:
++        raise ValueError("arrival wait not witnessed")
++    if arrival["phase_before"] != "complete" or arrival["phase_after"] != "complete": raise ValueError("arrival changed seeded ritual")
++    if not close_vec(arrival["velocity"], [0,0,0]) or not close_vec(arrival["camera_local_rotation"], [0,0,0]): raise ValueError("arrival pose incomplete")
++    yaw = arrival["yaw"]
++    if type(yaw) not in (int, float) or not math.isfinite(yaw) or abs(yaw - math.atan2(-3.6, 14.9)) > 1e-4: raise ValueError("arrival yaw differs")
++    if arrival["noclip"] is not False or arrival["call_locked"] is not False or arrival["collision_layer"] != 1 or arrival["collision_mask"] != 1: raise ValueError("arrival actor flags differ")
++    operator = [-9.9, 9.6, 1.25]
++    operator_eye = [-9.9, 11.01, 1.25]
++    if not close_vec(diag["operator_position"], operator): raise ValueError("operator anchor changed")
++    for key, label in [("first_ray", "first ray starts from the authored operator and eye"), ("second_ray", "second ray starts from the authored operator and eye")]:
++        ray = diag[key]
++        if not close_vec(ray["from"], operator_eye) or not close_vec(ray["camera_position"], operator_eye) or not close_vec(ray["actor_position"], operator):
++            raise ValueError(key + " origin is not the authored operator")
++        if ray["physics_processing"] is not False or flags.get(label) is not True: raise ValueError("operator stance precondition failed")
++        delta = [a-b for a,b in zip(finite_vec(ray["to"]), ray["from"])]
++        toward = [a-b for a,b in zip(finite_vec(diag["scope_position"]), ray["from"])]
++        length = math.sqrt(sum(v*v for v in delta)); distance = math.sqrt(sum(v*v for v in toward))
++        if abs(length-2.1) > 1e-4 or distance == 0 or sum(a*b for a,b in zip(delta,toward))/(length*distance) < 0.9999:
++            raise ValueError("actual ordinary ray range or aim differs")
+ 
+ 
+ def assess(probe, stdout, stderr, wrapper, native, source_ok, pid_ok, engine_ok, phase):
+@@ -42,26 +85,30 @@
+         reasons.append("malformed_check_rows")
+         rows = []
+     labels = [row.get("label") for row in rows if isinstance(row, dict)]
+-    if labels != PLAN["full_unique_ordered_labels"] or len(rows) != 36 or len(set(labels)) != 36:
+-        reasons.append("exact_unique_36_label_contract_failed")
++    if labels != PLAN["full_unique_ordered_labels"] or len(rows) != 39 or len(set(labels)) != 39:
++        reasons.append("exact_unique_39_label_contract_failed")
+     if any(type(row.get("passed")) is not bool for row in rows if isinstance(row, dict)):
+         reasons.append("non_boolean_check")
+     failed = [row.get("label") for row in rows if isinstance(row, dict) and row.get("passed") is not True]
+-    if probe.get("schema") != "astra.v2-terminal-access.probe.v1" or probe.get("root") != "v2" or probe.get("renderer") != "forward_plus" or type(probe.get("pid")) is not int or probe.get("pid", 0) <= 0:
++    if probe.get("schema") != "astra.v2-terminal-access.probe.v2" or probe.get("root") != "v2" or probe.get("renderer") != "forward_plus" or type(probe.get("pid")) is not int or probe.get("pid", 0) <= 0:
+         reasons.append("probe_identity_invalid")
+     if type(probe.get("failures")) is not int or probe.get("failures") != len(failed): reasons.append("failure_count_inconsistent")
+     raw = re.findall(r"^\[V2 TERMINAL ACCESS\] (PASS|FAIL) (.+)$", stdout, re.M)
+     wanted_raw = [("PASS" if row.get("passed") is True else "FAIL", row.get("label")) for row in rows if isinstance(row, dict)]
+     if raw != wanted_raw: reasons.append("raw_check_rows_do_not_match_probe")
+-    if re.findall(r"^\[V2 TERMINAL ACCESS\] checks=(\d+) failures=(\d+)$", stdout, re.M) != [("36", str(len(failed)))]:
++    if re.findall(r"^\[V2 TERMINAL ACCESS\] checks=(\d+) failures=(\d+)$", stdout, re.M) != [("39", str(len(failed)))]:
+         reasons.append("completion_footer_missing_or_inconsistent")
+     if len(rows) < 3 or any(row.get("passed") is not True for row in rows[-3:]): reasons.append("actual_retirement_or_acoustic_restore_failed")
+     diag = probe.get("diagnostics", {})
+-    required = {"complete", "scope_front", "operator_direction", "front_dot", "terminal_position", "terminal_basis", "semantic_position", "semantic_basis", "scope_position", "scope_basis", "desk_count", "call_count", "desk_size", "first_ray", "second_ray", "world_events", "case_open_delay_factor", "first_interact_action_dispatched", "seated_E_action_dispatched", "reentry_action_dispatched", "escape_key_dispatched", "scope"}
++    required = {"complete", "arrival", "operator_position", "scope_front", "operator_direction", "front_dot", "terminal_position", "terminal_basis", "semantic_position", "semantic_basis", "scope_position", "scope_basis", "desk_count", "call_count", "desk_size", "first_ray", "second_ray", "world_events", "case_open_delay_factor", "first_interact_action_dispatched", "seated_E_action_dispatched", "reentry_action_dispatched", "escape_key_dispatched", "scope"}
+     if not isinstance(diag, dict) or not required.issubset(diag) or diag.get("complete") is not True:
+         reasons.append("complete_input_geometry_payload_missing")
+     else:
+         flags = {row["label"]: row["passed"] for row in rows if isinstance(row, dict) and "label" in row and "passed" in row}
++        try:
++            require_arrival_and_operator_origins(diag, flags)
++        except (TypeError, ValueError, KeyError, ZeroDivisionError):
++            reasons.append("arrival_or_authored_operator_ray_origin_invalid")
+         try:
+             front, direction = diag["scope_front"], diag["operator_direction"]
+             values = [*front, *direction, diag["front_dot"]]
+--- a/runtime/test_assess.py
++++ b/runtime/test_assess.py
+@@ -1,5 +1,6 @@
+ """Small synthetic controls for receipt admission; these never run Godot."""
+ import copy
++import math
+ import unittest
+ import assess
+ 
+@@ -10,17 +11,23 @@
+     rows = [{"label": label, "passed": label not in failures} for label in assess.PLAN["full_unique_ordered_labels"]]
+     face = "actual scope front faces the operator" not in failures
+     desk = "V2 owns exactly one actual DeskZone" not in failures
+-    ray = {"from": [0, 1, 0], "to": [1, 1, 0], "hit_from_inside": False, "collider": "actual/desk" if desk else "", "target_is_desk": desk, "hit_position": [0.5, 1, 0] if desk else []}
++    ray = {"from": [-9.9, 11.01, 1.25], "to": [-7.8, 11.01, 1.25], "actor_position": [-9.9, 9.6, 1.25], "camera_position": [-9.9, 11.01, 1.25], "physics_processing": False, "hit_from_inside": False, "collider": "actual/desk" if desk else "", "target_is_desk": desk, "hit_position": [0.5, 1, 0] if desk else []}
+     diag = {"complete": True, "scope_front": [-1, 0, 0] if face else [0, 0, 1], "operator_direction": [-0.85, 0, 0], "front_dot": 1.0 if face else 0.0,
+-        "terminal_position": [0, 0, 0], "terminal_basis": [], "semantic_position": [0, 0, 0], "semantic_basis": [], "scope_position": [0, 0, 0], "scope_basis": [],
++        "terminal_position": [0, 0, 0], "terminal_basis": [], "semantic_position": [0, 0, 0], "semantic_basis": [], "scope_position": [-8.9, 11.01, 1.25], "scope_basis": [],
+         "desk_count": int(desk), "call_count": 1, "desk_size": [0.8, 1.6, 0.8] if desk else [], "first_ray": ray, "second_ray": copy.deepcopy(ray),
+-        "world_events": [], "case_open_delay_factor": 0.05, "first_interact_action_dispatched": True, "seated_E_action_dispatched": desk, "reentry_action_dispatched": desk, "escape_key_dispatched": desk, "scope": "SYNTHETIC ASSESSOR CONTROL ONLY"}
+-    probe = {"schema": "astra.v2-terminal-access.probe.v1", "root": "v2", "renderer": "forward_plus", "pid": 123, "checks": rows, "failures": len(failures), "diagnostics": diag}
++        "world_events": [], "case_open_delay_factor": 0.05, "first_interact_action_dispatched": True, "seated_E_action_dispatched": desk, "reentry_action_dispatched": desk, "escape_key_dispatched": desk, "scope": "SYNTHETIC ASSESSOR CONTROL ONLY",
++        "operator_position": [-9.9,9.6,1.25], "arrival": {
++            "before_position": [0,0,-14.25], "position": [-3.6,0.1,24.72], "camera_position": [-3.6,1.51,24.72],
++            "velocity": [0,0,0], "yaw": math.atan2(-3.6,14.9), "camera_local_rotation": [0,0,0],
++            "phase_before": "complete", "phase_after": "complete", "waited_process_frames": 1, "stable_process_frames": 2,
++            "observed": True, "settled": True, "director_owns_world": True, "intro_complete": True,
++            "noclip": False, "call_locked": False, "collision_layer": 1, "collision_mask": 1}}
++    probe = {"schema": "astra.v2-terminal-access.probe.v2", "root": "v2", "renderer": "forward_plus", "pid": 123, "checks": rows, "failures": len(failures), "diagnostics": diag}
+     return probe, transcript(probe), spec["expected_native_exit"]
+ 
+ 
+ def transcript(probe):
+-    return "Godot Engine v4.7.1.stable.official.a13da4feb\nVulkan 1.3 Forward+\n" + "\n".join(f'[V2 TERMINAL ACCESS] {"PASS" if row["passed"] else "FAIL"} {row["label"]}' for row in probe["checks"]) + f'\n[V2 TERMINAL ACCESS] checks=36 failures={probe["failures"]}\n'
++    return "Godot Engine v4.7.1.stable.official.a13da4feb\nVulkan 1.3 Forward+\n" + "\n".join(f'[V2 TERMINAL ACCESS] {"PASS" if row["passed"] else "FAIL"} {row["label"]}' for row in probe["checks"]) + f'\n[V2 TERMINAL ACCESS] checks=39 failures={probe["failures"]}\n'
+ 
+ 
+ def evaluate(probe, stdout, native, phase="02_candidate", **overrides):
+@@ -62,7 +69,7 @@
+ 
+     def test_expected_red_does_not_accept_a_different_failed_claim(self):
+         q, _, code = fixture("03_orientation_omission")
+-        q["checks"][10]["passed"] = True; q["checks"][14]["passed"] = False
++        next(row for row in q["checks"] if row["label"] == "actual scope front faces the operator")["passed"] = True; next(row for row in q["checks"] if row["label"] == "actual V2 startup succeeds")["passed"] = False
+         self.assertEqual(evaluate(q, transcript(q), code, "03_orientation_omission")["control_contract_exit"], 1)
+ 
+     def test_unknown_error_warning_and_retention_reject(self):
+@@ -94,8 +101,47 @@
+ 
+     def test_raw_rows_and_footer_are_required(self):
+         q, log, code = fixture()
+-        for changed in [log.replace("checks=36 failures=0", "checks=35 failures=0"), log.replace("PASS actual scope front", "FAIL actual scope front")]:
++        for changed in [log.replace("checks=39 failures=0", "checks=35 failures=0"), log.replace("PASS actual scope front", "FAIL actual scope front")]:
+             self.assertEqual(evaluate(q, changed, code)["control_contract_exit"], 1)
++
++    def test_each_ray_at_old_curb_rejects_even_with_true_claims(self):
++        for key in ("first_ray", "second_ray"):
++            q, log, code = fixture()
++            q["diagnostics"][key]["from"] = [-3.6,1.51,24.72]
++            with self.subTest(ray=key):
++                verdict = evaluate(q, log, code)
++                self.assertIn("arrival_or_authored_operator_ray_origin_invalid", verdict["reasons"])
++                self.assertEqual(verdict["control_contract_exit"], 1)
++
++    def test_camera_and_actor_origin_are_independently_bound(self):
++        for ray in ("first_ray", "second_ray"):
++            for field in ("camera_position", "actor_position"):
++                q, log, code = fixture()
++                q["diagnostics"][ray][field] = [0,0,0]
++                with self.subTest(ray=ray,field=field):
++                    self.assertEqual(evaluate(q, log, code)["control_contract_exit"], 1)
++
++    def test_nonfinite_wrong_range_wrong_aim_or_missing_pose_reject(self):
++        for key,value in [("from", [float("nan"),11.01,1.25]), ("to", [-6.8,11.01,1.25]), ("to", [-9.9,13.11,1.25]), ("physics_processing", True), ("actor_position", None)]:
++            q, log, code = fixture()
++            q["diagnostics"]["second_ray"][key] = value
++            with self.subTest(key=key,value=value):
++                self.assertEqual(evaluate(q, log, code)["control_contract_exit"], 1)
++
++    def test_arrival_must_be_observed_and_settled_without_ritual_mutation(self):
++        for field,value in [("before_position",[-3.6,0.1,24.72]), ("position",[0,0,0]), ("observed",False), ("settled",False), ("waited_process_frames",0), ("stable_process_frames",0), ("director_owns_world",False), ("phase_after","arrived"), ("yaw",0), ("noclip",True)]:
++            q, log, code = fixture()
++            q["diagnostics"]["arrival"][field] = value
++            with self.subTest(field=field):
++                self.assertEqual(evaluate(q, log, code)["control_contract_exit"], 1)
++
++    def test_missing_arrival_payload_and_false_stance_labels_reject(self):
++        for variant in ("arrival", "first ray starts from the authored operator and eye", "second ray starts from the authored operator and eye"):
++            q, log, code = fixture()
++            if variant == "arrival": q["diagnostics"].pop("arrival")
++            else: next(row for row in q["checks"] if row["label"] == variant)["passed"] = False
++            with self.subTest(variant=variant):
++                self.assertEqual(evaluate(q, log, code)["control_contract_exit"], 1)
+ 
+ 
+ if __name__ == "__main__": unittest.main()
+--- a/runtime/test_runner_contract.py
++++ b/runtime/test_runner_contract.py
+@@ -9,6 +9,13 @@
+ 
+ 
+ class RunnerControls(unittest.TestCase):
++    def test_fixture_replacement_requires_both_exact_previous_hashes(self):
++        expected = {"game/tests/old.gd": "old_gd", "game/tests/Old.tscn": "old_scene"}
++        run.require_previous_fixtures(expected.copy(), expected)
++        for damaged in [{}, {"game/tests/old.gd": "old_gd"}, {**expected,"game/tests/old.gd":"changed"}, {**expected,"game/tests/Other.gd":"extra"}, {**expected,"game/tests/Old.tscn":None}]:
++            with self.subTest(damaged=damaged), self.assertRaises(ValueError):
++                run.require_previous_fixtures(damaged, expected)
++
+     def test_all_six_requests_match_actual_windowed_parameters(self):
+         plan = run.assess.PLAN
+         for phase in plan["sequence"]:

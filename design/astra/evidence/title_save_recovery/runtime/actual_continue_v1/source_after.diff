@@ -1,0 +1,847 @@
+diff --git a/game/scripts/game/reality_game_state.gd b/game/scripts/game/reality_game_state.gd
+index d57237c..96e9e62 100644
+--- a/game/scripts/game/reality_game_state.gd
++++ b/game/scripts/game/reality_game_state.gd
+@@ -7,6 +7,7 @@ signal state_changed
+ signal waking_residue_applied(residue_id: String, facts: Dictionary)
+ signal player_notice_changed(notice: Dictionary)
+ 
++const SAVE_STORAGE = preload("res://scripts/game/reality_save_storage.gd")
+ const SAVE_VERSION := 4
+ const SAVE_PATH := "user://reality_maintenance_save.json"
+ 
+@@ -22,6 +23,13 @@ var _player_notice: Dictionary = {}
+ ## own file under user://tests/ without touching the player's save.
+ ## Production never changes it.
+ var save_path := SAVE_PATH
++## Tests may inject file-operation failures and a creation-time sample. Neither
++## callback is installed by production. The clock still owns sample validation.
++var storage_operation_override: Callable
++var new_campaign_time_provider: Callable
++var _preparing_state := false
++var _load_result := {"status": "missing", "reason": "", "has_saved_campaign": false}
++var _last_save_result: Dictionary = {}
+ 
+ 
+ func _ready() -> void:
+@@ -108,28 +116,43 @@ func case_state(case_id: String) -> Dictionary:
+ 
+ 
+ func commit() -> void:
++	# Clock creation commits into a private candidate, not a half-adopted world.
++	if _preparing_state:
++		return
+ 	if persistence_enabled:
+ 		save_game()
+ 	state_changed.emit()
+ 
+ 
++func _storage() -> SAVE_STORAGE:
++	var storage := SAVE_STORAGE.new()
++	storage.path = save_path
++	storage.validate_document = _validate_document
++	storage.operation_override = storage_operation_override
++	return storage
++
++
+ func save_game() -> bool:
++	if _preparing_state:
++		return false
+ 	if save_write_blocked:
+-		if str(_player_notice.get("code", "")) == "campaign_clock_read_only":
+-			return false
+-		push_warning("refusing to overwrite newer Reality Maintenance save version %d"
+-				% incompatible_save_version)
+-		_set_future_save_notice()
++		_last_save_result = {"ok": false, "code": str(_player_notice.get("code", "save_recovery_required")),
++				"stage": "write_latch", "recovered": false, "protection_required": true}
+ 		return false
+-	var file := FileAccess.open(save_path, FileAccess.WRITE)
+-	if file == null:
+-		push_warning("could not write Reality Maintenance save")
+-		_set_player_notice("save_write_failed", "PROGRESS COULD NOT BE SAVED",
+-				"The save file could not be written. Progress since the last " +
+-				"successful save may be lost. Check storage access and available " +
+-				"disk space.")
++	_last_save_result = _storage().write_snapshot(JSON.stringify(data, "\t").to_utf8_buffer())
++	if not bool(_last_save_result.ok):
++		if bool(_last_save_result.get("protection_required", false)):
++			_block_save(str(_last_save_result.code), _last_save_result)
++		else:
++			_set_player_notice("save_write_failed", "PROGRESS COULD NOT BE SAVED",
++					"The save file could not be written. Progress since the last " +
++					"successful save may be lost. Check storage access and available " +
++					"disk space.")
+ 		return false
+-	file.store_string(JSON.stringify(data, "\t"))
++	_load_result = {"status": "loaded", "reason": "", "has_saved_campaign": true}
++	if str(_player_notice.get("code", "")) == "save_write_failed":
++		_player_notice = {}
++		player_notice_changed.emit(player_notice())
+ 	return true
+ 
+ 
+@@ -138,75 +161,119 @@ func load_game() -> void:
+ 	save_write_blocked = false
+ 	incompatible_save_version = 0
+ 	_player_notice = {}
+-	if not FileAccess.file_exists(save_path):
+-		_announce_loaded()
+-		return
+-	var file := FileAccess.open(save_path, FileAccess.READ)
+-	if file == null:
+-		_set_player_notice("save_read_failed", "SAVE COULD NOT BE READ",
+-				"The existing save file could not be opened. A new session has " +
+-				"started without changing that file.", false)
+-		_announce_loaded()
+-		return
+-	var parsed: Variant = JSON.parse_string(file.get_as_text())
+-	if parsed is Dictionary:
+-		var loaded_version := int((parsed as Dictionary).get("version", 0))
+-		if loaded_version > SAVE_VERSION:
+-			save_write_blocked = true
+-			incompatible_save_version = loaded_version
+-			push_warning("save version %d is newer than supported version %d; running read-only"
+-					% [loaded_version, SAVE_VERSION])
+-			_set_future_save_notice(false)
+-			_announce_loaded()
+-			return
+-		data.merge(parsed, true)
+-		if not data.has("music_library"):
+-			data.music_library = []
+-		if not data.has("heard_music_anecdotes"):
+-			data.heard_music_anecdotes = []
+-		if not data.has("building_personality"):
+-			data.building_personality = {}
+-		if not data.has("work_orders"):
+-			data.work_orders = {}
+-		if not data.has("maintenance_jobs"):
+-			data.maintenance_jobs = {}
+-		if not data.has("maintenance_items"):
+-			data.maintenance_items = {}
+-		if not data.has("open_shift_situations"):
+-			data.open_shift_situations = {}
+-		if not data.has("shop_buckets"):
+-			data.shop_buckets = {}
+-		if not data.has("exterior_semantics"):
+-			data.exterior_semantics = {}
+-		if not data.has("campaign_clock"):
+-			data.campaign_clock = {}
+-		if not data.has("core_loop"):
+-			data.core_loop = {}
+-		if not data.has("dream_seed"):
+-			data.dream_seed = _new_dream_seed()
+-		# Additive key, backfilled like every other one here rather than
+-		# through a SAVE_VERSION bump. Zero is the honest default: a save from
+-		# before the fractal existed has no night count to recover, and
+-		# starting the building sharp is the reading that cannot surprise a
+-		# returning player with a world that has already rotted.
+-		if not data.has("dreams_had"):
+-			data.dreams_had = 0
+-		if not data.has("dream"):
+-			data.dream = {}
+-		if not data.has("sleep_pressure"):
+-			data.sleep_pressure = {}
+-		if not data.has("waking_residues"):
+-			data.waking_residues = {}
+-		if not data.has("last_waking_residue_id"):
+-			data.last_waking_residue_id = ""
+-		if not CampaignClock.new().validate_saved_state():
+-			_announce_loaded()
+-			return
+-		if int(data.get("version", 0)) < SAVE_VERSION:
++	_last_save_result = {}
++	var loaded := _storage().load_snapshot()
++	_load_result = {"status": loaded.status, "reason": loaded.get("reason", ""),
++			"has_saved_campaign": loaded.status != "missing"}
++	if loaded.status == "protected":
++		_block_save(str(loaded.reason), loaded, false)
++	elif loaded.status in ["loaded", "recovered"]:
++		# Known shapes and the calendar have already passed validation. Unknown
++		# compatible additive fields survive; omitted old fields receive defaults.
++		data.merge(loaded.data, true)
++		if loaded.status == "recovered":
++			_set_player_notice("save_recovered", "PREVIOUS SAVE RECOVERED",
++					"The previous complete save was recovered. Progress made after " +
++					"that save may be missing.", false)
++		if int(data.version) < SAVE_VERSION:
+ 			_migrate()
+ 	_announce_loaded()
+ 
+ 
++func can_continue() -> bool:
++	return not save_write_blocked and _load_result.status in ["loaded", "recovered"]
++
++
++func load_status() -> Dictionary:
++	return _load_result.duplicate(true)
++
++
++func last_save_result() -> Dictionary:
++	return _last_save_result.duplicate(true)
++
++
++func _validate_document(candidate: Dictionary) -> Dictionary:
++	var version: Variant = candidate.get("version", 0)
++	if not _whole_number(version) or float(version) < 0.0:
++		return {"ok": false, "code": "save_invalid_read_only", "detail": "Invalid save version."}
++	if float(version) > SAVE_VERSION:
++		return {"ok": false, "code": "future_save_read_only", "version": int(version)}
++	for key in ["cases", "building_personality", "work_orders", "maintenance_jobs",
++			"maintenance_items", "open_shift_situations", "shop_buckets", "exterior_semantics",
++			"organism_incidents", "core_loop", "first_shift", "dream", "sleep_pressure", "waking_residues"]:
++		if candidate.has(key) and candidate[key] is not Dictionary:
++			return _invalid_shape(key)
++	for key in ["portal_rules", "discovered_documents", "music_library", "heard_music_anecdotes"]:
++		if candidate.has(key) and candidate[key] is not Array:
++			return _invalid_shape(key)
++	for key in ["current_case_id", "dream_seed", "last_waking_residue_id"]:
++		if candidate.has(key) and candidate[key] is not String:
++			return _invalid_shape(key)
++	if candidate.has("intro_complete") and candidate.intro_complete is not bool:
++		return _invalid_shape("intro_complete")
++	for key in ["building_stability", "reality_coherence"]:
++		if candidate.has(key) and not _finite_number(candidate[key]):
++			return _invalid_shape(key)
++	if candidate.has("dreams_had") and (not _whole_number(candidate.dreams_had) or float(candidate.dreams_had) < 0.0):
++		return _invalid_shape("dreams_had")
++	for state in candidate.get("cases", {}).values():
++		if state is not Dictionary:
++			return _invalid_shape("cases entry")
++	# CampaignClock remains the sole calendar validator. Its error callback is
++	# contained while inspecting a candidate; validation cannot emit or resample.
++	var previous_data := data
++	var previous_blocked := save_write_blocked
++	var previous_version := incompatible_save_version
++	var previous_notice := _player_notice
++	var previous_preparing := _preparing_state
++	_preparing_state = true
++	data = candidate
++	save_write_blocked = false
++	incompatible_save_version = 0
++	var clock := CampaignClock.new()
++	var valid := clock.validate_saved_state()
++	data = previous_data
++	save_write_blocked = previous_blocked
++	incompatible_save_version = previous_version
++	_player_notice = previous_notice
++	_preparing_state = previous_preparing
++	return {"ok": true} if valid else {"ok": false, "code": "campaign_clock_read_only", "detail": clock.validation_error}
++
++
++func _finite_number(value: Variant) -> bool:
++	return (value is int or value is float) and is_finite(float(value))
++
++
++func _whole_number(value: Variant) -> bool:
++	return _finite_number(value) and float(value) == floor(float(value))
++
++
++func _invalid_shape(key: String) -> Dictionary:
++	return {"ok": false, "code": "save_invalid_read_only", "detail": "Invalid saved field: " + key + "."}
++
++
++func _block_save(code: String, details: Dictionary = {}, emit_now := true) -> void:
++	save_write_blocked = true
++	_load_result = {"status": "protected", "reason": code, "has_saved_campaign": true}
++	match code:
++		"future_save_read_only":
++			incompatible_save_version = int(details.get("version", 0))
++			_set_future_save_notice(emit_now)
++		"campaign_clock_read_only":
++			_set_player_notice(code, "CAMPAIGN TIME COULD NOT BE READ",
++					str(details.get("detail", "The saved campaign clock is invalid.")) +
++					" The existing save is protected. Progress cannot be saved in this session.", emit_now)
++		"save_read_failed":
++			_set_player_notice(code, "SAVE COULD NOT BE READ",
++					"The existing save could not be opened. It is protected, and progress " +
++					"cannot be saved in this session. Check storage access before trying again.", emit_now)
++		_:
++			_set_player_notice(code, "SAVE NEEDS RECOVERY",
++					"A complete supported save could not be read or recovered. Existing save " +
++					"files are protected. Progress cannot be saved in this session. " +
++					"Restore a known good save, or explicitly start a new campaign.", emit_now)
++
++
+ ## A mid-session load must tell live listeners the world's facts changed;
+ ## the boot-time load fires before anything connects and is inert.
+ func _announce_loaded() -> void:
+@@ -230,29 +297,61 @@ func _set_future_save_notice(emit_now := true) -> void:
+ func _set_player_notice(code: String, title: String, message: String,
+ 		emit_now := true) -> void:
+ 	_player_notice = {"code":code, "title":title, "message":message}
+-	if emit_now:
++	if emit_now and not _preparing_state:
+ 		player_notice_changed.emit(player_notice())
+ 
+ 
+-func start_new_campaign() -> void:
++func start_new_campaign() -> bool:
++	# Build privately: failure must not publish fresh facts or erase protection.
++	var previous_data := data
++	var previous_blocked := save_write_blocked
++	var previous_version := incompatible_save_version
++	var previous_notice := _player_notice
++	_preparing_state = true
++	data = _fresh_data()
+ 	save_write_blocked = false
+ 	incompatible_save_version = 0
+ 	_player_notice = {}
+-	data = _fresh_data()
+-	# Capture the local starting minute at the explicit creation action.
+-	CampaignClock.new().bind_state()
+-	state_changed.emit()
+-	player_notice_changed.emit(player_notice())
++	var clock := CampaignClock.new()
++	clock.creation_time_provider = new_campaign_time_provider
++	var prepared := clock.bind_state()
++	var candidate := data
++	data = previous_data
++	save_write_blocked = previous_blocked
++	incompatible_save_version = previous_version
++	_player_notice = previous_notice
++	_preparing_state = false
++	if not prepared:
++		_last_save_result = {"ok": false, "code": "campaign_clock_read_only",
++				"stage": "prepare_new_clock", "detail": clock.validation_error,
++				"recovered": false, "protection_required": previous_blocked}
++		return false
++	_last_save_result = _storage().write_snapshot(JSON.stringify(candidate, "\t").to_utf8_buffer(), true)
++	if not _last_save_result.ok:
++		# A title consumer reads last_save_result; the prior notice/latch survive.
++		# If rollback itself failed, even a formerly valid campaign is protected.
++		if not previous_blocked and bool(_last_save_result.get("protection_required", false)):
++			_block_save("save_recovery_required", _last_save_result)
++		return false
++	data = candidate
++	save_write_blocked = false
++	incompatible_save_version = 0
++	_player_notice = {}
++	_load_result = {"status": "loaded", "reason": "", "has_saved_campaign": true}
++	_announce_loaded()
++	return true
+ 
+ 
+ func block_invalid_campaign_clock(reason: String) -> void:
+-	if incompatible_save_version > SAVE_VERSION:
++	# A later clock consumer cannot relabel an existing malformed/future/file
++	# refusal; validation of a private candidate temporarily clears this latch.
++	if save_write_blocked:
+ 		return
+-	save_write_blocked = true
+-	if str(_player_notice.get("code", "")) == "campaign_clock_read_only":
++	if _preparing_state:
++		save_write_blocked = true
++		_set_player_notice("campaign_clock_read_only", "CAMPAIGN TIME COULD NOT BE READ", reason, false)
+ 		return
+-	_set_player_notice("campaign_clock_read_only", "CAMPAIGN TIME COULD NOT BE READ",
+-			reason + " The existing save is protected. Progress cannot be saved in this session.")
++	_block_save("campaign_clock_read_only", {"detail": reason})
+ 
+ 
+ func _migrate() -> void:
+@@ -261,6 +360,8 @@ func _migrate() -> void:
+ 
+ 
+ func reset_campaign_for_tests() -> void:
++	_load_result = {"status": "missing", "reason": "", "has_saved_campaign": false}
++	_last_save_result = {}
+ 	save_write_blocked = false
+ 	incompatible_save_version = 0
+ 	_player_notice = {}
+diff --git a/game/scripts/game_boot.gd b/game/scripts/game_boot.gd
+index 0f660c4..4a43fd8 100644
+--- a/game/scripts/game_boot.gd
++++ b/game/scripts/game_boot.gd
+@@ -63,6 +63,10 @@ const GAME_SCENE := "res://scenes/campaign/CampaignShell.tscn"
+ enum LaunchMode { CINEMATIC, DEBUG }
+ 
+ var launch_mode := LaunchMode.CINEMATIC
++var _last_launch_result: Dictionary = {}
++# Only the scene operation is replaceable in the button-handler fixture;
++# campaign validation, archival, persistence and launch gates remain real.
++var _scene_change_for_tests := Callable()
+ var settings := {
+ 	"quality": 0, # 0 cinematic, 1 balanced
+ 	"fullscreen": false,
+@@ -155,12 +159,62 @@ func _ensure_action_event(action: StringName, event: InputEvent) -> void:
+ 		InputMap.action_add_event(action, event)
+ 
+ 
+-func begin_game(mode: LaunchMode, new_campaign := false) -> void:
+-	launch_mode = mode
++func begin_game(mode: LaunchMode, new_campaign := false,
++		replace_existing := false) -> bool:
++	_last_launch_result = {}
+ 	if new_campaign:
+-		RealityState.start_new_campaign()
++		var status := RealityState.load_status()
++		# Begin is only a fresh-profile action. The explicit title replacement
++		# choice is the sole normal caller that sets replace_existing.
++		if (bool(status.get("has_saved_campaign", true))
++				or str(status.get("status", "protected")) != "missing") \
++				and not replace_existing:
++			return _refuse_launch("replacement_choice_required",
++					"A saved night is already here. Choose New Campaign to start over.")
++		if not RealityState.start_new_campaign():
++			var save_result := RealityState.last_save_result()
++			_last_launch_result = {
++				"ok": false, "code": "new_campaign_failed",
++				"message": ("The new night could not be saved. Your save files are protected; recovery is needed before continuing."
++						if bool(save_result.get("protection_required", false)) else
++						"The new night could not be saved. No campaign has been opened."),
++				"save_result": save_result,
++			}
++			return false
++	elif mode == LaunchMode.CINEMATIC and not RealityState.can_continue():
++		return _refuse_launch("continue_unavailable",
++				"This saved night cannot be continued. Your save has been kept.")
++	# Debug never creates a new campaign implicitly. The storage/clock guards
++	# still protect unsupported or invalid data; presentation mode is no bypass.
++	var clock := CampaignClock.new()
++	if not clock.bind_state():
++		return _refuse_launch("invalid_calendar",
++				"The saved night has an unreadable date. Your save has been kept.")
++	var previous_mode := launch_mode
++	launch_mode = mode
+ 	apply_render_profile()
+-	get_tree().change_scene_to_file(GAME_SCENE)
++	var changed: Error = _scene_change_for_tests.call(GAME_SCENE) \
++			if _scene_change_for_tests.is_valid() else get_tree().change_scene_to_file(GAME_SCENE)
++	if changed != OK:
++		launch_mode = previous_mode
++		apply_render_profile()
++		return _refuse_launch("scene_change_failed",
++				"The night could not open. Your save is available; please try again.")
++	_last_launch_result = {"ok": true, "code": "launched"}
++	return true
++
++
++func _refuse_launch(code: String, message: String) -> bool:
++	_last_launch_result = {"ok": false, "code": code, "message": message}
++	return false
++
++
++func last_launch_result() -> Dictionary:
++	return _last_launch_result.duplicate(true)
++
++
++func set_scene_change_for_tests(operation: Callable) -> void:
++	_scene_change_for_tests = operation
+ 
+ 
+ func apply_render_profile() -> void:
+diff --git a/game/scripts/ui/title_screen.gd b/game/scripts/ui/title_screen.gd
+index 96bd7ef..43f3a8f 100644
+--- a/game/scripts/ui/title_screen.gd
++++ b/game/scripts/ui/title_screen.gd
+@@ -33,6 +33,18 @@ var _shade: TextureRect
+ var _settings_panel: PanelContainer
+ var _first_menu_button: Button
+ var _services_button: Button
++var _primary_button: Button
++var _new_campaign_button: Button
++var _debug_button: Button
++var _save_notice: Label
++var _replacement_layer: CanvasLayer
++var _replacement_copy: Label
++var _replacement_cancel: Button
++var _replacement_confirm: Button
++var _leave_tween: Tween
++var _return_focus: Control
++var _launch_modulate := Color.WHITE
++var _launch_music_position := 0.0
+ var _quality: OptionButton
+ var _fullscreen: CheckBox
+ var _always_warn: CheckBox
+@@ -69,7 +81,9 @@ func _ready() -> void:
+ 	_build_backdrop()
+ 	_build_menu()
+ 	_build_settings()
++	_build_replacement_choice()
+ 	_build_music()
++	_refresh_save_actions()
+ 	_first_menu_button.grab_focus()
+ 	get_viewport().size_changed.connect(_place_backdrop)
+ 	_place_backdrop()
+@@ -143,7 +157,12 @@ func _build_menu() -> void:
+ 	margin.add_theme_constant_override("margin_top", 30)
+ 	margin.add_theme_constant_override("margin_right", 30)
+ 	margin.add_theme_constant_override("margin_bottom", 28)
+-	panel.add_child(margin)
++	var menu_scroll := ScrollContainer.new()
++	menu_scroll.name = "TitleMenuScroll"
++	menu_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
++	menu_scroll.follow_focus = true
++	panel.add_child(menu_scroll)
++	menu_scroll.add_child(margin)
+ 	var menu := VBoxContainer.new()
+ 	menu.add_theme_constant_override("separation", 9)
+ 	margin.add_child(menu)
+@@ -192,8 +211,17 @@ func _build_menu() -> void:
+ 	_record_button = _add_button(menu, "", _toggle_record, true)
+ 	_record_button.name = "RecordSwitch"
+ 	menu.add_child(HSeparator.new())
+-	_first_menu_button = _add_button(menu, "BEGIN THE NIGHT", _new_game)
+-	_add_button(menu, "DEBUG BUILDING", _debug_game)
++	_save_notice = _label("", 12, Color(0.83, 0.71, 0.49))
++	_save_notice.name = "TitleSaveNotice"
++	_save_notice.custom_minimum_size.x = 360
++	_save_notice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
++	menu.add_child(_save_notice)
++	_primary_button = _add_button(menu, "", _primary_game)
++	_primary_button.name = "PrimaryCampaignAction"
++	_new_campaign_button = _add_button(menu, "NEW CAMPAIGN", _new_game, true)
++	_new_campaign_button.name = "NewCampaignAction"
++	_debug_button = _add_button(menu, "DEBUG BUILDING", _debug_game)
++	_debug_button.name = "DebugBuildingAction"
+ 	_services_button = _add_button(menu, "BUILDING SERVICES", _open_settings)
+ 
+ 	var foot := _label(
+@@ -335,6 +363,8 @@ func _build_settings() -> void:
+ 
+ 
+ func _open_settings() -> void:
++	if _leaving or _replacement_layer.visible:
++		return
+ 	_settings_panel.visible = true
+ 	_quality.grab_focus()
+ 
+@@ -436,6 +466,8 @@ func _set_record_presentation(index: int) -> void:
+ 
+ 
+ func _toggle_record() -> void:
++	if _leaving or _replacement_layer.visible:
++		return
+ 	_start_track(TRACK_ORIGINAL if _current_track == TRACK_RETURNED \
+ 			else TRACK_RETURNED)
+ 
+@@ -453,16 +485,46 @@ func _music_db(index: int) -> float:
+ 	return float(TRACK_TRIM_DB[index])
+ 
+ 
+-func _leave(go: Callable) -> void:
++func _leave(go: Callable, return_focus: Control = null) -> void:
+ 	if _leaving:
+ 		return
+ 	_leaving = true
++	_return_focus = return_focus if return_focus != null else get_viewport().gui_get_focus_owner()
++	_launch_modulate = modulate
++	_launch_music_position = _players[_current_track].get_playback_position()
++	_set_main_buttons_disabled(true)
+ 	if _music_fade and _music_fade.is_valid():
+ 		_music_fade.kill()
+-	var out := create_tween()
++	_leave_tween = create_tween()
+ 	for player in _players:
+-		out.parallel().tween_property(player, "volume_db", -60.0, 0.7)
+-	out.tween_callback(go)
++		_leave_tween.parallel().tween_property(player, "volume_db", -60.0, 0.7)
++	_leave_tween.tween_callback(func():
++		if not bool(go.call()):
++			_restore_failed_launch())
++
++
++func _restore_failed_launch() -> void:
++	_leaving = false
++	modulate = _launch_modulate
++	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
++	_set_main_buttons_disabled(false)
++	_refresh_save_actions()
++	var result := GameBoot.last_launch_result()
++	_show_save_notice(str(result.get("message",
++			"The night could not open. Your save has been kept.")))
++	var player := _players[_current_track]
++	if not player.playing and OS.get_environment("TITLE_SCREEN_SILENT") != "1":
++		# A record may have ended during the leave fade. Resume the selected
++		# record near its prior position, without resetting both title records.
++		player.play(minf(_launch_music_position, maxf(0.0,
++				_tracks[_current_track].get_length() - 0.1)))
++	_music_fade = create_tween()
++	_music_fade.tween_property(player, "volume_db", _music_db(_current_track), 0.25)
++	if is_instance_valid(_return_focus) and _return_focus.is_visible_in_tree() \
++			and not (_return_focus is BaseButton and _return_focus.disabled):
++		_return_focus.grab_focus()
++	else:
++		_first_menu_button.grab_focus()
+ 
+ 
+ func _label(copy: String, size: int, color: Color) -> Label:
+@@ -495,12 +557,155 @@ func _add_button(parent: Control, copy: String, callback: Callable,
+ 	return button
+ 
+ 
++func _refresh_save_actions() -> void:
++	var status := RealityState.load_status()
++	var resumable := RealityState.can_continue()
++	var missing := str(status.get("status", "protected")) == "missing" \
++			and not bool(status.get("has_saved_campaign", true))
++	_primary_button.visible = resumable or missing
++	_primary_button.text = "CONTINUE" if resumable else "BEGIN THE NIGHT"
++	_new_campaign_button.visible = not missing
++	_first_menu_button = _primary_button if _primary_button.visible else _services_button
++	_save_notice.hide()
++	if str(status.get("status", "")) == "recovered" and resumable:
++		_show_save_notice("A previous save was recovered. Continue from that saved point.")
++	elif not missing and not resumable:
++		var notice := RealityState.player_notice()
++		_show_save_notice(str(notice.get("message",
++				"This saved night cannot be continued. Your save is protected.")))
++
++
++func _show_save_notice(message: String) -> void:
++	_save_notice.text = message
++	_save_notice.visible = not message.is_empty()
++
++
++func _primary_game() -> void:
++	if _leaving or _replacement_layer.visible:
++		return
++	if RealityState.can_continue():
++		_leave(func(): return GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, false))
++		return
++	var status := RealityState.load_status()
++	if str(status.get("status", "protected")) == "missing" \
++			and not bool(status.get("has_saved_campaign", true)):
++		_leave(func(): return GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, true))
++		return
++	_refresh_save_actions()
++	_show_save_notice("This saved night cannot be continued. Your save has been kept.")
++	_first_menu_button.grab_focus()
++
++
+ func _new_game() -> void:
+-	_leave(func(): GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, true))
++	if _leaving or _replacement_layer.visible:
++		return
++	var status := RealityState.load_status()
++	if str(status.get("status", "protected")) == "missing" \
++			and not bool(status.get("has_saved_campaign", true)):
++		_primary_game()
++		return
++	_settings_panel.hide()
++	_replacement_copy.text = (
++			"Start a new night at the Orison?\n\n"
++			+ "Your current progress will be replaced. The existing save will be kept as an archive, "
++			+ "but it cannot be resumed from this menu.\n\n"
++			+ "The new night opens only after it has been saved. If saving fails, your existing files will be preserved and you will return here.")
++	if not RealityState.can_continue():
++		_replacement_copy.text = (
++				"Start a new night at the Orison?\n\n"
++				+ "This saved night cannot be continued. Starting over will replace it with a new campaign. "
++				+ "The original files will be kept as an archive, but this menu cannot restore them.\n\n"
++				+ "The new night opens only after it has been saved. If saving fails, the original files will remain preserved and protected.")
++	_set_main_buttons_disabled(true)
++	_replacement_layer.show()
++	_replacement_cancel.grab_focus()
++
++
++func _cancel_new_campaign() -> void:
++	if _leaving:
++		return
++	_replacement_layer.hide()
++	_set_main_buttons_disabled(false)
++	_refresh_save_actions()
++	if _new_campaign_button.visible:
++		_new_campaign_button.grab_focus()
++	else:
++		_first_menu_button.grab_focus()
++
++
++func _confirm_new_campaign() -> void:
++	if _leaving or not _replacement_layer.visible:
++		return
++	_replacement_layer.hide()
++	_leave(func(): return GameBoot.begin_game(GameBoot.LaunchMode.CINEMATIC, true, true),
++			_new_campaign_button)
+ 
+ 
+ func _debug_game() -> void:
+-	_leave(func(): GameBoot.begin_game(GameBoot.LaunchMode.DEBUG, false))
++	if _leaving or _replacement_layer.visible:
++		return
++	_leave(func(): return GameBoot.begin_game(GameBoot.LaunchMode.DEBUG, false))
++
++
++func _set_main_buttons_disabled(disabled: bool) -> void:
++	for button in [_primary_button, _new_campaign_button, _debug_button,
++			_services_button, _record_button]:
++		button.disabled = disabled
++
++
++func _build_replacement_choice() -> void:
++	_replacement_layer = CanvasLayer.new()
++	_replacement_layer.name = "CampaignReplacementChoice"
++	# Above the global save notice, so it cannot conceal this explicit choice.
++	_replacement_layer.layer = 250
++	add_child(_replacement_layer)
++	var shade := ColorRect.new()
++	shade.color = Color(0.005, 0.008, 0.012, 0.86)
++	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
++	shade.mouse_filter = Control.MOUSE_FILTER_STOP
++	_replacement_layer.add_child(shade)
++	var center := CenterContainer.new()
++	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
++	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
++	_replacement_layer.add_child(center)
++	var panel := PanelContainer.new()
++	panel.name = "CampaignReplacementPanel"
++	panel.custom_minimum_size = Vector2(550, 0)
++	var style := StyleBoxFlat.new()
++	style.bg_color = Color(0.025, 0.029, 0.034, 0.99)
++	style.border_color = Color(0.64, 0.43, 0.18, 0.9)
++	style.set_border_width_all(1)
++	style.content_margin_left = 26
++	style.content_margin_right = 26
++	style.content_margin_top = 24
++	style.content_margin_bottom = 24
++	panel.add_theme_stylebox_override("panel", style)
++	center.add_child(panel)
++	var box := VBoxContainer.new()
++	box.add_theme_constant_override("separation", 16)
++	panel.add_child(box)
++	var heading := _label("A NEW NIGHT", 26, Color(0.90, 0.84, 0.70))
++	heading.add_theme_font_override("font", _serif_font())
++	box.add_child(heading)
++	_replacement_copy = _label("", 16, Color(0.78, 0.75, 0.67))
++	_replacement_copy.name = "CampaignReplacementCopy"
++	_replacement_copy.custom_minimum_size.x = 498
++	_replacement_copy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
++	box.add_child(_replacement_copy)
++	_replacement_cancel = _add_button(box, "KEEP THIS SAVE", _cancel_new_campaign)
++	_replacement_cancel.name = "CancelCampaignReplacement"
++	_replacement_confirm = _add_button(box, "REPLACE AND BEGIN", _confirm_new_campaign, true)
++	_replacement_confirm.name = "ConfirmCampaignReplacement"
++	_replacement_cancel.focus_next = _replacement_cancel.get_path_to(_replacement_confirm)
++	_replacement_cancel.focus_previous = _replacement_cancel.get_path_to(_replacement_confirm)
++	_replacement_confirm.focus_next = _replacement_confirm.get_path_to(_replacement_cancel)
++	_replacement_confirm.focus_previous = _replacement_confirm.get_path_to(_replacement_cancel)
++	for direction in ["top", "bottom", "left", "right"]:
++		_replacement_cancel.set("focus_neighbor_" + direction,
++				_replacement_cancel.get_path_to(_replacement_confirm))
++		_replacement_confirm.set("focus_neighbor_" + direction,
++				_replacement_confirm.get_path_to(_replacement_cancel))
++	_replacement_layer.hide()
+ 
+ 
+ func _save_settings() -> void:
+@@ -560,5 +765,11 @@ func _format_time(seconds: float) -> String:
+ 
+ 
+ func _unhandled_input(event: InputEvent) -> void:
+-	if event.is_action_pressed("ui_cancel") and _settings_panel.visible:
++	if not event.is_action_pressed("ui_cancel") or _leaving:
++		return
++	if _replacement_layer.visible:
++		_cancel_new_campaign()
++		get_viewport().set_input_as_handled()
++	elif _settings_panel.visible:
+ 		_close_settings()
++		get_viewport().set_input_as_handled()
+diff --git a/game/tests/orison_v2_two_root_matrix_test.gd b/game/tests/orison_v2_two_root_matrix_test.gd
+index a9934e0..52718a9 100644
+--- a/game/tests/orison_v2_two_root_matrix_test.gd
++++ b/game/tests/orison_v2_two_root_matrix_test.gd
+@@ -4,6 +4,8 @@ const Selector := preload("res://scripts/building/building_root_selector.gd")
+ const PROD_LAYOUT := "res://data/building_layout.json"
+ var failures := 0
+ var passes := 0
++var calendar_direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
++		"v1_to_v2": 0, "v2_to_v1": 0}
+ var direction_totals := {"v1_to_v1": 0, "v2_to_v2": 0,
+ 		"v1_to_v2": 0, "v2_to_v1": 0}
+ 
+@@ -81,9 +83,9 @@ func _ready() -> void:
+ 	RealityState.persistence_enabled = saved_persistence
+ 	RealityState.reset_campaign_for_tests()
+ 	Selector.reset_for_tests()
+-	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s checks=%d" % [
++	print("ORISON V2 TWO-ROOT MATRIX: %s totals=%s calendar_totals=%s checks=%d" % [
+ 			"PASS" if failures == 0 else "FAIL (%d)" % failures,
+-			direction_totals, passes + failures])
++			direction_totals, calendar_direction_totals, passes + failures])
+ 	get_tree().quit(failures)
+ 
+ func _exercise_v1_root() -> void:
+@@ -114,6 +116,8 @@ func _exercise_v1_root() -> void:
+ 	await get_tree().process_frame
+ 
+ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
++	var old_clock_frozen := bool(CampaignTime.get("_frozen_for_tests"))
++	CampaignTime.set_frozen_for_tests(true)
+ 	var key := "%s_to_%s" % [from_id, to_id]
+ 	var old_path := RealityState.save_path
+ 	var old_persistence := RealityState.persistence_enabled
+@@ -121,6 +125,12 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
+ 	RealityState.save_path = save_path
+ 	RealityState.persistence_enabled = true
+ 	RealityState.reset_campaign_for_tests()
++	var clock := CampaignClock.new()
++	var clock_seeded := clock.configure_date(1928, 11, 10, 1439) \
++			and clock.advance_to(181.5)
++	var expected_clock: Dictionary = JSON.parse_string(JSON.stringify(
++			RealityState.data.campaign_clock))
++	var expected_absolute := clock.absolute_minutes()
+ 	RealityState.data.intro_complete = true
+ 	RealityState.data.first_shift = {"phase": FirstShiftDirector.PHASE_COMPLETE,
+ 			"report_id": ChirpHunt.JOB_ID, "filing": "fault_corrected"}
+@@ -132,6 +142,8 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
+ 	await get_tree().process_frame
+ 	var origin_ok := origin_shell.active_world != null and (
+ 			origin_shell.active_world.is_in_group("orison_v2_runtime") == (from_id == "v2"))
++	var origin_clock_ok := _calendar_record_matches(expected_clock) \
++			and _bound_calendar_matches(origin_shell.active_world, expected_absolute)
+ 	var save_started := Time.get_ticks_usec()
+ 	var saved := RealityState.save_game()
+ 	var save_ms := float(Time.get_ticks_usec() - save_started) / 1000.0
+@@ -142,6 +154,7 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
+ 	RealityState.reset_campaign_for_tests()
+ 	RealityState.load_game()
+ 	var loaded: bool = not RealityState.data.first_shift.is_empty()
++	var loaded_clock_ok := _calendar_record_matches(expected_clock)
+ 	Selector.reset_for_tests(to_id)
+ 	var reconstruction_started := Time.get_ticks_usec()
+ 	var shell := CampaignShell.new()
+@@ -162,6 +175,11 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
+ 	var ok: bool = origin_ok and saved and loaded and selected_ok and semantic_ok
+ 	direction_totals[key] = 1 if ok else 0
+ 	_check(ok, "%s save reconstructs semantic facts through CampaignShell" % key)
++	var calendar_ok := clock_seeded and origin_clock_ok and loaded_clock_ok \
++			and _calendar_record_matches(expected_clock) \
++			and _bound_calendar_matches(shell.active_world, expected_absolute)
++	calendar_direction_totals[key] = 1 if calendar_ok else 0
++	_check(calendar_ok, "%s preserves exact calendar epoch/start/elapsed through real roots" % key)
+ 	remove_child(shell)
+ 	shell.free()
+ 	await get_tree().process_frame
+@@ -169,6 +187,30 @@ func _cross_root_reconstruction(from_id: String, to_id: String) -> void:
+ 	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path))
+ 	RealityState.save_path = old_path
+ 	RealityState.persistence_enabled = old_persistence
++	CampaignTime.set_frozen_for_tests(old_clock_frozen)
++
++func _calendar_record_matches(expected: Dictionary) -> bool:
++	# JSON changes integer variants to floats; every persisted key/value must
++	# otherwise match exactly, including epoch, start minute, elapsed and zone.
++	var restored: Variant = JSON.parse_string(JSON.stringify(
++			RealityState.data.get("campaign_clock", {})))
++	return restored is Dictionary and restored == expected
++
++func _bound_calendar_matches(world: Node, expected_absolute: float) -> bool:
++	if world == null:
++		return false
++	var bound := world.get("campaign_clock") as CampaignClock
++	if bound == null or not bound.bind_state():
++		return false
++	var info := bound.day_info()
++	return absf(bound.absolute_minutes() - expected_absolute) < 0.00001 \
++			and absf(bound.elapsed_minutes() - 181.5) < 0.00001 \
++			and absf(bound.minute_of_day() - 180.5) < 0.00001 \
++			and bool(info.get("valid", false)) \
++			and int(info.get("year", -1)) == 1928 \
++			and int(info.get("month", -1)) == 11 \
++			and int(info.get("day_of_month", -1)) == 11 \
++			and str(info.get("day", "")) == "sun"
+ 
+ func _one(root: Node, named: String) -> bool:
+ 	return root.find_children(named, "", true, false).size() == 1

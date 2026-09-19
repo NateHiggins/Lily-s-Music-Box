@@ -1,0 +1,84 @@
+"""One authorized variant case; restore the exact handed-off candidate in finally."""
+from pathlib import Path
+import argparse
+import hashlib
+import json
+import subprocess
+import sys
+import time
+
+BASE = Path(__file__).resolve().parent
+ROOT = BASE.parents[3]
+LIVE = ROOT / 'game/scripts/building/building_root.gd'
+
+
+def digest(data): return hashlib.sha256(data).hexdigest()
+
+
+OPERATION = b'RenderingServer.instance_set_scenario(vi.get_instance(), world.scenario)'
+GUARD = b'\t\t# A cabinet viewport owns its world; building zones must not index it.\n\t\tif cursor is SubViewport:\n\t\t\treturn true\n'
+
+
+def select_variant(candidate, variant):
+    """Derive controls from current candidate; retain all unrelated fixes verbatim."""
+    newline = b'\r\n' if b'\r\n' in candidate else b'\n'
+    source = candidate.replace(b'\r\n', b'\n')
+    if source.count(OPERATION) != 1 or source.count(GUARD) != 1:
+        raise ValueError('candidate must have one exact helper operation and viewport guard')
+    if variant == 'candidate': return candidate
+    if variant == 'viewport_omission':
+        selected = source.replace(GUARD, b'\t\t# Negative control: omit only the SubViewport ownership boundary.\n')
+    elif variant == 'omission':
+        selected = source.replace(OPERATION, b'pass # Negative control: omit only pre-change same-scenario rebind.')
+    elif variant == 'raw':
+        start = source.index(b'## Godot 4.7.1 Forward+ omits ordinary geometry unpairing before layer changes\n')
+        end = source.index(b'## RENDERER (owner ruling ', start)
+        selected = source[:start] + source[end:]
+        substitutions = [(b'_set_zone_layer_mask(vi, int(passage_late_saved[id]))', b'vi.layers = int(passage_late_saved[id])'),
+                         (b'_set_zone_layer_mask(vi, 0)', b'vi.layers = 0')]
+        for old, new in substitutions:
+            if selected.count(old) != 1: raise ValueError('helper call is not exact and unique')
+            selected = selected.replace(old, new)
+    else:
+        raise ValueError('unknown variant')
+    return selected.replace(b'\n', newline)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('root', choices=['v1', 'v2'])
+    parser.add_argument('variant', choices=['raw', 'candidate', 'omission', 'viewport_omission'])
+    parser.add_argument('name')
+    parser.add_argument('--candidate-sha256', required=True)
+    parser.add_argument('--scope', choices=['full', 'root_retirement'], default='full')
+    args = parser.parse_args()
+    candidate = LIVE.read_bytes()
+    if digest(candidate) != args.candidate_sha256:
+        parser.error('live candidate differs from explicit handoff identity; no write performed')
+    try: selected = select_variant(candidate, args.variant)
+    except ValueError as error: parser.error(str(error))
+    record_dir = ROOT / 'design/astra/evidence/vulkan_composed/variant_transactions'
+    record_dir.mkdir(parents=True, exist_ok=True)
+    receipt_path = record_dir / (args.name + '.json')
+    if receipt_path.exists(): parser.error('variant transaction name already used')
+    record = {'root': args.root, 'variant': args.variant, 'execution_scope': args.scope, 'candidate_sha256': digest(candidate),
+              'selected_sha256': digest(selected), 'control_base': 'exact current candidate; unrelated fixes preserved', 'restore_required': True,
+              'driver_sha256': digest(Path(__file__).read_bytes()), 'started_monotonic': time.monotonic()}
+    (record_dir / (args.name + '.driver.py.txt')).write_bytes(Path(__file__).read_bytes())
+    (record_dir / (args.name + '.candidate.gd.txt')).write_bytes(candidate)
+    (record_dir / (args.name + '.selected.gd.txt')).write_bytes(selected)
+    receipt_path.write_text(json.dumps(record, indent=2) + '\n')
+    try:
+        LIVE.write_bytes(selected)
+        process = subprocess.run([sys.executable, str(BASE / 'run_case.py'), args.root, args.variant, args.name, '--scope', args.scope], cwd=ROOT)
+        record['child_diagnostic_exit'] = process.returncode
+    finally:
+        LIVE.write_bytes(candidate)
+        record['restored_sha256'] = digest(LIVE.read_bytes())
+        record['candidate_restored_exactly'] = record['restored_sha256'] == record['candidate_sha256']
+        receipt_path.write_text(json.dumps(record, indent=2) + '\n')
+        print(json.dumps({'variant_transaction': str(receipt_path), 'candidate_restored_exactly': record['candidate_restored_exactly']}, indent=2), flush=True)
+    return record.get('child_diagnostic_exit', 2)
+
+
+if __name__ == '__main__': raise SystemExit(main())

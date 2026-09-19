@@ -25,6 +25,11 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # its authored roughness map by this value; selected finishes deliberately cap
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
+    "plaster_stained": {}, "floor_oak": {}, "ceramic": {}, "subway_tile": {},
+    "concrete": {}, "terrazzo": {}, "stair": {},
+    "countertop": {},
+    "book_burgundy": {}, "book_green": {}, "book_navy": {},
+    "book_ochre": {}, "book_teal": {}, "book_brown": {},
     "enamel": {}, "enamel_appliance": {}, "appliance": {},
     "metal": {}, "chrome": {},
     "bakelite": {}, "cast_iron": {"roughness_multiplier": 0.60},
@@ -45,13 +50,13 @@ RUNTIME_POLICY = {
     "zinc_liner": {"roughness_multiplier": 0.82},
     "copper_aged": {"roughness_multiplier": 0.58},
     "porcelain": {}, "porcelain_fixture": {},
-    "wood_dark": {}, "fabric_warm": {}, "linen": {},
+    "wood_dark": {}, "timber": {}, "plywood": {}, "fabric_warm": {}, "linen": {},
     # Deliberate semantic alias, not a visual lock: rubberized duck keeps the
     # approved clean linen weave but has its own tint and waxed optical policy.
     # The rejected linen_aged AI plate carried a fixture-sized horizontal fold.
     "shower_duck": {"roughness_multiplier": 0.62,
                     "runtime_alias": "linen"},
-    "paper": {}, "trim": {}, "plant": {}, "brass_bright": {},
+    "paper": {}, "trim": {}, "plant": {}, "terracotta": {}, "soil": {}, "brass_bright": {},
     "bronze": {}, "car_paint": {}, "oak_quartered": {},
     "milk_glass": {}, "bakelite_black": {}, "terrazzo_dark": {},
     "brass_mesh": {}, "indicator_enamel": {},
@@ -97,7 +102,12 @@ def _metadata_for(mapped: str) -> dict:
 
 
 def _canonical_files(key: str) -> list[str]:
-    return ["T_ai_materials_%s_%s.png" % (key, suffix)
+    mapped = str(_read_json(MAPPING).get(key, ""))
+    # Library plates already ship under their catalog path. Resolve that
+    # identity directly instead of inventing an AI-stage copy of the asset.
+    stem = "T_" + mapped.replace("/", "_") if mapped.startswith("library/") \
+        else "T_ai_materials_" + key
+    return ["%s_%s.png" % (stem, suffix)
             for suffix in ("albedo", "rough", "normal")]
 
 
@@ -224,6 +234,9 @@ def validate(contract: dict, require_current: bool = True) -> list[str]:
 
 def generate() -> list[Path]:
     contract = build_contract()
+    errors = validate(contract, require_current=False)
+    if errors:
+        raise RuntimeError("\n".join(errors))
     changed = []
     data = _json_bytes(contract)
     for path in MANIFESTS:

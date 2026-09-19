@@ -40,6 +40,10 @@ func set_lamp_enabled(on: bool) -> void:
 	if device:
 		device.set_lamp_enabled(on)
 
+func set_lamp_optical_output(color: Color, emission: float) -> void:
+	if device:
+		device.set_lamp_optical_output(color,emission)
+
 
 func lamp_is_enabled() -> bool:
 	return device != null and device.lamp_enabled

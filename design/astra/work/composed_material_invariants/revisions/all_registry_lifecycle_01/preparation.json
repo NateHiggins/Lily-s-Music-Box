@@ -1,0 +1,18 @@
+{
+  "status": "PREPARED_ONLY_NO_ENGINE_NO_LIVE_INSTALL",
+  "parent_fixture_sha256": "c2642de6f0c099a18e8d7c0f740f94a84f0d5bc90cc255973dee5ab6ad2ee6b5",
+  "fixture_sha256": "d67ce1ac8b19d51f6d4ccc88bc3fe11599dd6068afaccea6abb1d9ec50712508",
+  "parent_helper_sha256": "d74ee117adb0d5fa8c06815716f8ee54bca7a6975626ee3f2bf6b6898b1eb98b",
+  "helper_sha256": "aec59c518d9c08714b30a69b5f9682dd8cc213e17d495719602d5635d815530c",
+  "only_scope": "Replace synchronous refresh observer plus one scalar/ID serializer: independent case comparisons; entire registered lifecycle write-set snapshot, evaluation and restoration; preserve all original outer assertions/captures/timers and bool annotations",
+  "expected_checks": {
+    "full_v1": 314,
+    "root_retirement_v1": 305
+  },
+  "expected_contract": "independent_rows_and_all_registry_lifecycle_v2",
+  "owner_dependency": "Pending root-reviewed admission/ancestry owner; exact final source hash required at invocation",
+  "signed_id_gate": "gate_revisions/signed_ids_01/proposed/material_gate.py",
+  "signed_id_gate_sha256": "8e347a82e36b5ad8f43019ba18b32cba6cd2adf556baf60026218d95ed523d11",
+  "old_c264_runtime": "Preserved full02 actual eight material failures; previous probes restored recorded state, not proven complete registry uniforms",
+  "live_cleanup_fixture_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3"
+}

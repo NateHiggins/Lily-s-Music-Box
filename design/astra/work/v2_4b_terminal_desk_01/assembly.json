@@ -1,0 +1,143 @@
+{
+  "blocks": [
+    {
+      "id": "oak_top",
+      "material": "oak_quartered",
+      "low": [
+        -0.29,
+        0.705,
+        -0.625
+      ],
+      "high": [
+        0.29,
+        0.75,
+        0.625
+      ]
+    },
+    {
+      "id": "leg_-0.23_-0.565",
+      "material": "wood_dark",
+      "low": [
+        -0.2575,
+        0,
+        -0.5924999999999999
+      ],
+      "high": [
+        -0.2025,
+        0.705,
+        -0.5375
+      ]
+    },
+    {
+      "id": "leg_-0.23_0.565",
+      "material": "wood_dark",
+      "low": [
+        -0.2575,
+        0,
+        0.5375
+      ],
+      "high": [
+        -0.2025,
+        0.705,
+        0.5924999999999999
+      ]
+    },
+    {
+      "id": "leg_0.23_-0.565",
+      "material": "wood_dark",
+      "low": [
+        0.2025,
+        0,
+        -0.5924999999999999
+      ],
+      "high": [
+        0.2575,
+        0.705,
+        -0.5375
+      ]
+    },
+    {
+      "id": "leg_0.23_0.565",
+      "material": "wood_dark",
+      "low": [
+        0.2025,
+        0,
+        0.5375
+      ],
+      "high": [
+        0.2575,
+        0.705,
+        0.5924999999999999
+      ]
+    },
+    {
+      "id": "side_apron_-0.23",
+      "material": "wood_dark",
+      "low": [
+        -0.2475,
+        0.58,
+        -0.565
+      ],
+      "high": [
+        -0.21250000000000002,
+        0.705,
+        0.565
+      ]
+    },
+    {
+      "id": "side_apron_0.23",
+      "material": "wood_dark",
+      "low": [
+        0.21250000000000002,
+        0.58,
+        -0.565
+      ],
+      "high": [
+        0.2475,
+        0.705,
+        0.565
+      ]
+    },
+    {
+      "id": "end_apron_-0.565",
+      "material": "wood_dark",
+      "low": [
+        -0.23,
+        0.58,
+        -0.5824999999999999
+      ],
+      "high": [
+        0.23,
+        0.705,
+        -0.5475
+      ]
+    },
+    {
+      "id": "end_apron_0.565",
+      "material": "wood_dark",
+      "low": [
+        -0.23,
+        0.58,
+        0.5475
+      ],
+      "high": [
+        0.23,
+        0.705,
+        0.5824999999999999
+      ]
+    }
+  ],
+  "anchor": {
+    "id": "4B_terminal_desk",
+    "level": "F04",
+    "space": "F04_B_MAIN",
+    "position": [
+      -9.05,
+      0,
+      1.25
+    ],
+    "yaw": 0,
+    "kind": "furniture"
+  },
+  "design_basis": "Existing 0.58 x 1.25 m terminal support footprint; top matches 0.75 m instrument anchor. New wooden frame, not a recovered historical assembly."
+}

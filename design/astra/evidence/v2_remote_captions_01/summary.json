@@ -1,0 +1,16 @@
+{
+  "status": "SYNTAX_CHECKED_ENGINE_PENDING",
+  "base": "2cf0ae5",
+  "parser": "gdtoolkit 4.5.0",
+  "syntax_pass": [
+    "game/scripts/cases/orison_v2_remote_caption_display.gd",
+    "game/scripts/building/orison_v2_runtime_root.gd",
+    "game/tests/orison_v2_mina_residue_route_test.gd",
+    "game/tests/orison_v2_earned_dream_boundary_test.gd",
+    "game/tests/orison_v2_connected_exterior_route_test.gd",
+    "game/tests/orison_v2_vertical_route_test.gd",
+    "game/scripts/building/orison_v2_room_lighting.gd",
+    "game/scripts/building/orison_v2_domestic_furniture.gd"
+  ],
+  "limitations": "Third-party syntax parser only, not Godot type checking, runtime, shader, visual or acoustic propagation acceptance. Shared serial runner refused before launch; foreign Godot tests remained active."
+}

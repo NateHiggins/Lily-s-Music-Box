@@ -1,0 +1,44 @@
+{
+  "status": "PREPARED_UNRUN_OFFLINE_CONTROLS_PASS",
+  "actual_test_exit": 0,
+  "elapsed_seconds": 0.20399999999790452,
+  "test_command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-B",
+    "design\\astra\\work\\f01_reconstruction_review\\export_execution_01\\test_preparation.py"
+  ],
+  "declared_control_count": 10,
+  "ast_parsed": [
+    "child_capture_bridge.py",
+    "outer.py",
+    "prepare_plan.py",
+    "test_preparation.py",
+    "verify_outputs.py"
+  ],
+  "engine_launched": false,
+  "live_sources_mutated": false,
+  "input_counts": {
+    "paths": 2071,
+    "existing_files": 1325,
+    "absent_choices": 746,
+    "content_hashes": "Fresh content hashes deferred to exclusive-lane bind."
+  },
+  "closure_review": {
+    "reviewer": "/root",
+    "scope": "Read-only source review of generator dynamic reads and every _image call family; no unlisted local module dependency found beyond exact C1/C0 files. Optional existence branches retained.",
+    "generator_sha256": "3c3bbfa470c0470c26a919cc3c7a5182b0bc5128abe5f9a27addf0b88c9bfd11",
+    "adapter_sha256": "64799b8861dba0637130dcc26dcfdecef90a628cd79d928ebdd55896ef9b41c8"
+  },
+  "files": {
+    "child_capture_bridge.py": "43393f6acdae48e4a185da5ba6d849e052fe858654240f933ab509d03c0f5684",
+    "offline_tests.stderr.log": "03d5ab90426a21f390d5d5fe28494a7d47848227ee54d8033c4be90cb9b24bb4",
+    "offline_tests.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "outer.py": "89685381a69e9ab199aa8fd8c556620722d76dc63ba610e3781b3136a0594a1e",
+    "plan.json": "b75f7eb2687624df259960146a4a217fa2395c46d45c1ae73a82615e91ef21c6",
+    "prepare_plan.py": "12fec1b70228ab27ff7a097c28647109db1af2d2761920643b16c3abd9f5d2dc",
+    "README.md": "489adc6ccc2686a4634e0f97f0cea708c59137451fee4ff6201e7f2e6b66787b",
+    "test_preparation.py": "3941a59601fa7ff44033b4a7509765f31547779ccd13ab36a260feac972b6005",
+    "verify_outputs.py": "b0a954ca9961c9453dc3ecdb697f98d05ae52e543eb902c159029a282cdd66c4"
+  },
+  "execution_owner": "Root receives plan for explicit serial bind/export A review then B; helper bytes frozen after this receipt."
+}

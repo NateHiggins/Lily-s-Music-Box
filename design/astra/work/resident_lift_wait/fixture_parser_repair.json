@@ -1,0 +1,16 @@
+{
+  "reason": "Strict GDScript inference warns on weakref Variant; explicit WeakRef only",
+  "rows": [
+    {
+      "path": "design/astra/work/resident_lift_wait/game/tests/resident_lift_waiting_test.gd",
+      "before_sha256": "788b184d098b9090ba5ca18bfdd90a9b520443023df7add7e120621c19b96fb9",
+      "after_sha256": "9d569da62846ce585ae77bf12cae24765ed7bab5ff02463cb4acc0dd3670192a"
+    },
+    {
+      "path": "game/tests/resident_lift_waiting_test.gd",
+      "before_sha256": "788b184d098b9090ba5ca18bfdd90a9b520443023df7add7e120621c19b96fb9",
+      "after_sha256": "9d569da62846ce585ae77bf12cae24765ed7bab5ff02463cb4acc0dd3670192a"
+    }
+  ],
+  "historical_failed_run": "design/astra/evidence/resident_lift_waiting/baseline_diagnostic_01"
+}

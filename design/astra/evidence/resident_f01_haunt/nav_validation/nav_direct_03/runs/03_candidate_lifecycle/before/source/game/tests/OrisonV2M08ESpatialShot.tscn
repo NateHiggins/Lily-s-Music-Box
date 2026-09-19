@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/orison_v2_m08e_spatial_shot.gd" id="1"]
+
+[node name="OrisonV2M08ESpatialShot" type="Node"]
+script = ExtResource("1")

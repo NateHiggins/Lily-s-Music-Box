@@ -1,0 +1,25 @@
+[WORLD TIMESTAMP FAIL] acquired_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] reported_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] consumed_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] acquired_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] closed_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] issued_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] consumed_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] closed_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] adopted_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] adoption keeps the exact source record before the live legacy order is retired
+[WORLD TIMESTAMP FAIL] adoption preserves original issuance units without inventing a new issue time
+[WORLD TIMESTAMP FAIL] retirement archives the source even when the authored job already exists
+[WORLD TIMESTAMP FAIL] conflicting source history refuses retirement instead of overwriting either record
+[WORLD TIMESTAMP FAIL] reported_at records exact campaign elapsed minutes with its own basis
+[WORLD TIMESTAMP FAIL] invalid clock cannot fabricate acquisition/consumption at elapsed zero
+[WORLD TIMESTAMP FAIL] invalid clock cannot stamp a simple order
+[WORLD TIMESTAMP FAIL] invalid clock cannot stamp issued or adopted jobs
+[WORLD TIMESTAMP FAIL] invalid clock cannot sign a false timestamp
+[WORLD TIMESTAMP FAIL] failed timestamped actions leave all four owners' durable facts unchanged
+[WORLD TIMESTAMP FAIL] clock refusal preserves the saved bytes and never falls back to host sampling

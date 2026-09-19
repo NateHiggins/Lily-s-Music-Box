@@ -1,0 +1,28 @@
+{
+  "schema": "astra.resident-nav-checkpoint.seal.v1",
+  "status": "PREPARED_NO_FULL_SELECTION_OR_STAGING_EXECUTED",
+  "files": {
+    "prepare_checkpoint.py": "94157894f12c4569aa62b8f965dc53b9b5a7256698f5a202a2d8b710dde62aeb",
+    "test_prepare_checkpoint.py": "e52d448fd419cc4b995b6c040bcbe39d781ef8c301bb7b5224e1e352d7f5a0f3",
+    "scope.json": "022f00f0e69fe00ac1fd2a624a333670f83c8212b4019208a59f9b20c8197477",
+    "README.md": "9f4555e8e1f07868ae148b3fe5b3b242a763bc6ff6da58c155e13fa6cae375e9"
+  },
+  "offline_controls": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "design\\astra\\work\\resident_navigation_checkpoint\\test_prepare_checkpoint.py"
+    ],
+    "exit": 0,
+    "count": 11,
+    "stdout": "",
+    "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.028s\n\nOK\n"
+  },
+  "read_only_membership_preflight": {
+    "before_seal_path_count": 26606,
+    "result_artifact_maps": 22,
+    "artifact_references": 26350,
+    "missing_or_rejected_references": 0,
+    "scope": "Git named path inventory and receipt reference membership only; no full artifact hash claim."
+  }
+}

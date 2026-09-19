@@ -1,0 +1,299 @@
+{
+  "schema": "astra-resident-f01-haunt-v1",
+  "mode": "lift",
+  "scene": "res://tests/ResidentF01HauntTest.tscn",
+  "test_path": "game/tests/resident_f01_haunt_test.gd",
+  "test_sha256": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_f01_haunt\\candidate_haunt_01\\command.ps1"
+  ],
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\resident_f01_haunt\\candidate_haunt_01\\APPDATA",
+  "cleared_environment_keys": [
+    "CAMPAIGN_TIME_FREEZE",
+    "DAYNIGHT_FORCE",
+    "ORISON_BUILDING_ROOT",
+    "PERF_NEON_LETTER_BATCHING_OFF",
+    "PERF_STREET_CORE_GEOMETRY_ON",
+    "PERF_STREET_HARUKIYA_GEOMETRY_ON",
+    "REALITY_TIME",
+    "REALITY_TIME_OVERRIDE",
+    "SCHEDULE",
+    "SHOT_DIR",
+    "VULKAN_PAIRING_CASE"
+  ],
+  "present_overrides_removed": [],
+  "surface_environment_policy": "all inherited SURFACE_* keys removed",
+  "started_utc": "2026-09-05T07:31:41.954163+00:00",
+  "before": {
+    "head_observed": "e72320288d256e4d20386e8f28c116fe962788fc",
+    "all_game_files_count": 3897,
+    "all_game_files_sha256": "8cdae06f5a588b6bafa3a7bc9da1ad3557bad6c4e7fc6fb127dc866dcca2aae3",
+    "runtime_inputs_count": 395,
+    "runtime_inputs_sha256": "cc3c2b11565bebca665c8b3694d7c96b287e6c004c5d1683e6151d2319ad7fae",
+    "digest_encoding": "compact JSON sorted [relative_posix_path, raw_file_sha256] pairs, no newline",
+    "asset_scope": "All tracked and nonignored game file bytes included in all_game_files digest; imported .godot cache excluded.",
+    "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "parser_sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+    "wrapper_sha256": "0622b9123c3097fce66d0d13b451307e7091d58352b616aa9c390c86fd7af7de",
+    "control_sha256": "e181f00c23fdde43ed8072e18d6b6f82312d23904c8c1ebd0415580853eeb5ad",
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "scope": "One actual V1 resident lift arrival, public haunt dwell and return; independent Body clearance; no human, all-resident, performance or visual acceptance",
+  "finished_utc": "2026-09-05T07:33:05.103965+00:00",
+  "native_exit": 1,
+  "elapsed_seconds": 80.15210930000103,
+  "runner_pid": 14884,
+  "godot_process_observations": [
+    {
+      "elapsed_seconds": 0.5301140000010491,
+      "processes": [
+        {
+          "pid": 30672,
+          "parent_pid": 14884,
+          "executable": "Godot_v4.7.1-stable_win64_console.exe"
+        },
+        {
+          "pid": 31344,
+          "parent_pid": 30672,
+          "executable": "Godot_v4.7.1-stable_win64.exe"
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 80.05156120000174,
+      "processes": [
+        {
+          "pid": 30672,
+          "parent_pid": 14884,
+          "executable": "Godot_v4.7.1-stable_win64_console.exe"
+        }
+      ]
+    }
+  ],
+  "after": {
+    "head_observed": "e72320288d256e4d20386e8f28c116fe962788fc",
+    "all_game_files_count": 3897,
+    "all_game_files_sha256": "8cdae06f5a588b6bafa3a7bc9da1ad3557bad6c4e7fc6fb127dc866dcca2aae3",
+    "runtime_inputs_count": 395,
+    "runtime_inputs_sha256": "cc3c2b11565bebca665c8b3694d7c96b287e6c004c5d1683e6151d2319ad7fae",
+    "digest_encoding": "compact JSON sorted [relative_posix_path, raw_file_sha256] pairs, no newline",
+    "asset_scope": "All tracked and nonignored game file bytes included in all_game_files digest; imported .godot cache excluded.",
+    "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "parser_sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+    "wrapper_sha256": "0622b9123c3097fce66d0d13b451307e7091d58352b616aa9c390c86fd7af7de",
+    "control_sha256": "e181f00c23fdde43ed8072e18d6b6f82312d23904c8c1ebd0415580853eeb5ad",
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "source_unchanged": true,
+  "suite_completion": false,
+  "diagnostic_gate": {
+    "exit": 1,
+    "reasons": [
+      "native/runner exit 1",
+      "expected suite/capture completion absent or failed"
+    ],
+    "light_unpair_count": 0,
+    "softshadow_underflow_count": 0,
+    "inherited_host_manifest_errors": 5,
+    "retention": [],
+    "non_inherited_errors": {},
+    "warning_headers": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 966,
+      "WARNING: no legal wall for found piece cam_noel_witches": 1
+    }
+  },
+  "actual_renderer_lines": [
+    "Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080",
+    "[RENDER] forward_plus"
+  ],
+  "summary_lines": [
+    "[RESIDENT F01 HAUNT] RESULT 20 passed, 1 failed"
+  ],
+  "passing_assertion_lines": 20,
+  "visual_review": "NO_CAPTURE_REQUESTED",
+  "artifacts": [
+    {
+      "path": "after/game/scripts/building/building_root.gd",
+      "sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+      "bytes": 134673
+    },
+    {
+      "path": "after/game/scripts/building/elevator.gd",
+      "sha256": "cd74647c4cf932be877a13ddabfcf30c2a8ca466f72e09314aa855344313d6f0",
+      "bytes": 33019
+    },
+    {
+      "path": "after/game/scripts/characters/resident_nav.gd",
+      "sha256": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8",
+      "bytes": 28375
+    },
+    {
+      "path": "after/game/scripts/characters/resident_routines.gd",
+      "sha256": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a",
+      "bytes": 43978
+    },
+    {
+      "path": "after/game/tests/resident_f01_haunt_test.gd",
+      "sha256": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f",
+      "bytes": 16401
+    },
+    {
+      "path": "after/game/tests/ResidentF01HauntTest.tscn",
+      "sha256": "773015d7ba78a550d7686fbc00eff67b29a56b0ca2a85fa4fd6b0458b5895fa6",
+      "bytes": 192
+    },
+    {
+      "path": "after.all_game_files.json",
+      "sha256": "5b46e30a576b59fb4ced6ec7015b976c6b7b216b29359e97f8e41c6bd86c9b5b",
+      "bytes": 551781
+    },
+    {
+      "path": "after.game.diff",
+      "sha256": "a38c157be5b753b21b583e1be1a0e809edc8d356814de0b712923c694f9dbacd",
+      "bytes": 37437
+    },
+    {
+      "path": "after.runtime_inputs.json",
+      "sha256": "97cd7240e4432b5e713a7cc5660c3ce47b223bfd45bc5701d704e186bd234c06",
+      "bytes": 51869
+    },
+    {
+      "path": "before/game/scripts/building/building_root.gd",
+      "sha256": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+      "bytes": 134673
+    },
+    {
+      "path": "before/game/scripts/building/elevator.gd",
+      "sha256": "cd74647c4cf932be877a13ddabfcf30c2a8ca466f72e09314aa855344313d6f0",
+      "bytes": 33019
+    },
+    {
+      "path": "before/game/scripts/characters/resident_nav.gd",
+      "sha256": "362de8a26f67741960e0721a9da7ae95418eb5904db5c8deaf389d834b5baec8",
+      "bytes": 28375
+    },
+    {
+      "path": "before/game/scripts/characters/resident_routines.gd",
+      "sha256": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a",
+      "bytes": 43978
+    },
+    {
+      "path": "before/game/tests/resident_f01_haunt_test.gd",
+      "sha256": "f891f281cd5f15cc8477c2ef3401b6f8a90a0f2679e524cf133674894a8f0b5f",
+      "bytes": 16401
+    },
+    {
+      "path": "before/game/tests/ResidentF01HauntTest.tscn",
+      "sha256": "773015d7ba78a550d7686fbc00eff67b29a56b0ca2a85fa4fd6b0458b5895fa6",
+      "bytes": 192
+    },
+    {
+      "path": "before.all_game_files.json",
+      "sha256": "5b46e30a576b59fb4ced6ec7015b976c6b7b216b29359e97f8e41c6bd86c9b5b",
+      "bytes": 551781
+    },
+    {
+      "path": "before.game.diff",
+      "sha256": "a38c157be5b753b21b583e1be1a0e809edc8d356814de0b712923c694f9dbacd",
+      "bytes": 37437
+    },
+    {
+      "path": "before.runtime_inputs.json",
+      "sha256": "97cd7240e4432b5e713a7cc5660c3ce47b223bfd45bc5701d704e186bd234c06",
+      "bytes": 51869
+    },
+    {
+      "path": "command.ps1",
+      "sha256": "344bbfe587426711fe3fa7aa690cc4ff675c14c6c0b6b32b61560089b3270207",
+      "bytes": 622
+    },
+    {
+      "path": "godot.stdout.log",
+      "sha256": "77e950a06f788250198e1e3aeab8b8d95665094bd2d773f81aeec2706e5a0771",
+      "bytes": 714533
+    },
+    {
+      "path": "godot.stdout.log.stderr",
+      "sha256": "8b7d4086af40d0be727e4d94107c3b0b336c7b2bfacca1152ffa4f3bc390e1bd",
+      "bytes": 411285
+    },
+    {
+      "path": "godot_process_observations.json",
+      "sha256": "02752b57cfc1f89562933d87ee717d688b0076c9a7d070a61a9fdb53fd168eb1",
+      "bytes": 563
+    },
+    {
+      "path": "haunt_control.source.py",
+      "sha256": "e181f00c23fdde43ed8072e18d6b6f82312d23904c8c1ebd0415580853eeb5ad",
+      "bytes": 9508
+    },
+    {
+      "path": "pairing_parser.source.py",
+      "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+      "bytes": 11935
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "ad6cc020c8f36133a52bda5004db3ff4423151494cb8db3f937b1a97fb5f8aeb",
+      "bytes": 3008
+    },
+    {
+      "path": "run_godot_serial.source.ps1",
+      "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "bytes": 8191
+    },
+    {
+      "path": "run_haunt.source.py",
+      "sha256": "0622b9123c3097fce66d0d13b451307e7091d58352b616aa9c390c86fd7af7de",
+      "bytes": 13381
+    },
+    {
+      "path": "runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner_pid.json",
+      "sha256": "047967c49e44985035a4ac548571792a71d68ce83db00f7bd48724b32f56c2c8",
+      "bytes": 76
+    },
+    {
+      "path": "shots/resident_f01_haunt.json",
+      "sha256": "9eee4612137bad25778ff32585b995b81ff1aa3ee02cd9a99547c67e76a9ba40",
+      "bytes": 6261
+    }
+  ]
+}

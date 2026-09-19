@@ -1,0 +1,29 @@
+{
+  "status": "PACKAGE_PREFLIGHT_REFUSED_NO_INSTALL_OR_ENGINE",
+  "head": "af9c5b6fdc42079d4bd64549b709a49ababa9e50",
+  "attempts": [
+    {
+      "phase": "install",
+      "actual_command_exit": 1,
+      "reported_exception": "KeyError: 'parent_preparation_sha256'",
+      "trace_location": "run.py install -> package line29"
+    },
+    {
+      "phase": "01_original",
+      "actual_command_exit": 1,
+      "reported_exception": "KeyError: 'parent_preparation_sha256'",
+      "trace_location": "run.py phase_run -> package line29"
+    }
+  ],
+  "cause": "Root invoked the preparation before agent delivered its final package seal; no bypass was attempted.",
+  "capture_scope": "Exception and exits transcribed from exec_command tool results. The child stdout/stderr were not independently file-captured. Attached source bytes are explicitly observed after refusal, not claimed as a prelaunch execution snapshot.",
+  "observed_source_hashes": {
+    "design/astra/work/v2_terminal_access_01/runtime/run.py": "14b60a7f90ffdab2b3cbf885c8a9bd8ed6f47c005a2d7989fcf852754785a9ee",
+    "design/astra/work/v2_terminal_access_01/runtime/package.json": "46e707851b265bcf045e1a7e72318d342ca0f43e2d40e2d9c357b33b4e1ae991",
+    "design/astra/work/v2_terminal_access_01/preparation.json": "17d61520be98060320cab3fbd10938613efda49de167a6bbe34885523fd370e9"
+  },
+  "no_game_tools_art_changes": true,
+  "fixtures_absent": true,
+  "terminal_install_evidence_absent": true,
+  "engine_launch": "Both code paths raised from package before installation or subprocess launch."
+}

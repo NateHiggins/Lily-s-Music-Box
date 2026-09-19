@@ -1,0 +1,20 @@
+{
+  "root": "C:\\PleaseRemainOnTheLine-astra",
+  "output": "C:\\OrisonF01Reconstruction\\astra_77dc_export_b_01",
+  "evidence": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\f01_source_export\\export_01\\b",
+  "blender": "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+  "blender_sha256": "e27fbfea8564aa645d4463cb0949695fd85562b9de6df9561b06859a1074adf7",
+  "exact_source_hashes": {
+    "art/data/m11c1/floor01_source_ownership.json": "be6e37716a83fd615d733475aed642b9e66f13a12c803b55bdd87035e302755e",
+    "tools/m11c1_floor01_owner_first/__init__.py": "56ec0fdbbf1cc0b752983c5bf30d5765335126c8d79bfec13caca6611cb332b7",
+    "tools/m11c1_floor01_owner_first/author_source_ownership.py": "11642350ff30b6c91357e84aa3a41c434e2988afb01362e9484bf95a98dbcc86",
+    "tools/m11c1_floor01_owner_first/generate_owner_first_candidate.py": "64799b8861dba0637130dcc26dcfdecef90a628cd79d928ebdd55896ef9b41c8",
+    "tools/m11c1_floor01_owner_first/owner_first_export.py": "2a748359edd8e3ff243d9826c12bde167eaa4bbaf5cf6122b9d4c72d0e58b494",
+    "tools/m11c1_floor01_owner_first/run_disposable_export.py": "d5bc56d6a01f0b9c2dd7f092d467866a751662e3ee6f9866b047d7f9cecdcd45",
+    "tools/m11c1_floor01_owner_first/source_ownership.py": "ca9c1f8ddb5e345a2a3985df143bce25af454033a733aa7de5917bb32dc71f23",
+    "tools/rehearse_orison_floor01_partition.py": "964d7af5203840dbeafe58e31d8a4bf315e78ab2925e660a1d344cbc8db6f5b7",
+    "tools/tests/test_m11c1_floor01_source_ownership.py": "80677488c07f835cc09e1f2b35be263fbd63dee4f57bf6a691ef30e579129334",
+    "tools/tests/test_m11c1_owner_first_export.py": "13cd704d032cb16416cabaa8b3862c3e03fde78f1365be2fec1118854029cb3b"
+  },
+  "blender_timeout_seconds": 1200
+}

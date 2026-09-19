@@ -1,0 +1,55 @@
+WARNING: no legal wall for found piece cam_noel_witches
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)
+       [1] build (res://scripts/building/found_art_pass.gd:21)
+       [2] _ready (res://scripts/building/building_root.gd:550)
+       [3] _ready (res://tests/golden_loop_test.gd:92)
+SCRIPT ERROR: Invalid access to property or key 'origin' on a base object of type 'Dictionary'.
+   at: _origin_convergence (res://tests/golden_loop_test.gd:245)
+   GDScript backtrace (most recent call first):
+       [0] _origin_convergence (res://tests/golden_loop_test.gd:245)
+       [1] _ready (res://tests/golden_loop_test.gd:108)
+ERROR: Parse JSON failed. Error at line 0: Unknown error getting token
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _checkpoint (res://tests/golden_loop_test.gd:195)
+       [1] _boundary_idle (res://tests/golden_loop_test.gd:264)
+       [2] _ready (res://tests/golden_loop_test.gd:109)
+  [K6 FAIL] checkpoint idle writes real serialized state
+  [K6 FAIL] checkpoint idle restores through the real load path
+  [K6 FAIL] Mina's complaint issues the job reported and opens the loop
+  [K6 FAIL] the production ray inspects the ceiling point
+  [K6 FAIL] the fault still chirps while awaiting the part
+  [K6 FAIL] restored hardware objective survives without the retired HUD
+  [K6 FAIL] the production buy acquires the capsule at the counter
+  [K6 FAIL] restore keeps one capsule and no conversation request
+  [K6 FAIL] the production ray performs the repair at the point
+  [K6 FAIL] the repair consumes the capsule and quiets the point
+  [K6 FAIL] the repair requests the earned conversation without closing
+  [K6 FAIL] the physical repair is Mina's first temporary stabilization
+  [K6 FAIL] restore does not re-request the conversation
+  [K6 FAIL] no recurrence letter exists before Mina's first earned talk
+  [K6 FAIL] the actual first-stable conversation opens under protection
+  [K6 FAIL] Mina records the first insight and enables the visit boundary
+  [K6 FAIL] the first talk cannot close the repair or request a dream
+  [K6 FAIL] the authored time clock protects the visit transition
+  [K6 FAIL] the unresolved symptom recurs and leaves Mina's letter
+  [K6 FAIL] the recurrence calibration supplies the second stabilization
+  [K6 FAIL] recurrence earns Mina's real talk without another part or a HUD panel
+  [K6 FAIL] the actual real-talk entry opens under protection
+  [K6 FAIL] the first complete-rule flag is earned but cannot close alone
+  [K6 FAIL] the authored conversation reaches Mina's four-second wound
+  [K6 FAIL] earned silence completes the rule and closes only the job
+  [K6 FAIL] restore at conversation-complete still waits for integration
+  [K6 FAIL] the authored integration exchange is still a protected action
+  [K6 FAIL] Mina and the player leave the deliberate quiet beat unfilled
+  [K6 FAIL] the final silent calibration resolves Mina and arms punctuation
+  [K6 FAIL] the resolved shift requests its dream exactly once
+  [K6 FAIL] the request carries the authored case, profile and window
+  [K6 FAIL] restore does not duplicate the pending dream request
+  [K6 FAIL] the dream stub wakes the loop exactly once
+  [K6 FAIL] wake returns the player to the authored 4B bedside
+  [K6 FAIL] wake preserves every committed fact
+  [K6 FAIL] duplicate wake attempts are rejected without mutation
+  [K6 FAIL] restore after wake resurrects nothing

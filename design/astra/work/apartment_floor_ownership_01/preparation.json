@@ -1,0 +1,21 @@
+{
+  "status": "PREPARED_REVIEWED_DIRECTION_ENGINE_UNRUN_NO_LIVE_EDIT",
+  "at_utc": "2026-09-05T09:55:52.685958+00:00",
+  "head_observed": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "original_owner_sha256": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+  "candidate_owner_sha256": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+  "guard_omission_owner_sha256": "85d9b9a5cdf4ed8828f1f45c2d0ff138b17f0ac39928b3820270483825107627",
+  "fixture_sha256": "8003596b3b6e0b39ab15cded32cff21aeeaf55202d2a971a75a8ebc299b184be",
+  "expected_check_count": 63,
+  "files": {
+    "expected_contract.json": "a3074f245614285e615c5f3cd1be86bb5e30bdac6521d22ffc8f076d02b343d5",
+    "floor_ancestry.patch": "2fbd3e80e32f936f6c899dc37e83bc7b139b5f0d4f4441e650fa40fa345b5f3a",
+    "omission/game/scripts/reality/apartment_encroachment.gd": "85d9b9a5cdf4ed8828f1f45c2d0ff138b17f0ac39928b3820270483825107627",
+    "originals/game/scripts/reality/apartment_encroachment.gd": "7c54c18154ccf8de8c3bce13a356329344dec19411adb2f1237425ae99eb90db",
+    "proposed/game/scripts/reality/apartment_encroachment.gd": "2a440504ab80404f4d9f4ab16138df7db9255801ca879ff91aabafe3c7f4d0ca",
+    "proposed/game/tests/wardrobe_floor_admission_test.gd": "8003596b3b6e0b39ab15cded32cff21aeeaf55202d2a971a75a8ebc299b184be",
+    "proposed/game/tests/WardrobeFloorAdmissionTest.tscn": "31bd226c4d6c4c4e0a7070689fad3eefd1d944656c442c64e2b8d6fbd24c2846",
+    "README.md": "85f86173887795e8f894a26f53966784f4b6653ac77401d4e38a2835a15f9337",
+    "source_evidence.json": "8c480c8facb79780252385d776bd9b6a35f1894b21d972df78f4983f228ddc67"
+  }
+}

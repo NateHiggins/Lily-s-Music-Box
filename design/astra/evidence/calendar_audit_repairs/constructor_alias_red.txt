@@ -1,0 +1,21 @@
+test_constructor_argument_is_a_read_not_a_returned_member_alias (data_tests.DataConsumptionTests.test_constructor_argument_is_a_read_not_a_returned_member_alias) ... ERROR
+
+======================================================================
+ERROR: test_constructor_argument_is_a_read_not_a_returned_member_alias (data_tests.DataConsumptionTests.test_constructor_argument_is_a_read_not_a_returned_member_alias)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\tools\tests\test_data_consumption.py", line 287, in test_constructor_argument_is_a_read_not_a_returned_member_alias
+    events = audit.numeric_source_events(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine-astra\tools\audit_data_consumption.py", line 346, in numeric_source_events
+    r"^for\s+(?P<name>[A-Za-z_][A-Za-z0-9_]*)\s+in\s+(?P<rhs>.+):$",
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine-astra\tools\audit_data_consumption.py", line 317, in _numeric_source_pass
+    if not any(path_matches(path, target) for target in lhs_paths):
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: ambiguous durable member alias _state: campaign_clock vs campaign_clock.start_minute_of_day
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

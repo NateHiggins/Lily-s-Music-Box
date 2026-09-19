@@ -1,0 +1,72 @@
+{
+  "phase": "coordinate-control",
+  "status": "COMPLETE",
+  "runs": [
+    {
+      "name": "06_coordinate_omission_lifecycle",
+      "result_sha256": "768ae70431a78d748a5215de6aba1b25d88c48ebd1f1776d0fd81b77ba1dc89e",
+      "actual_runner_exit": 1,
+      "assessment": {
+        "expected": "coordinate_omission",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [
+            "whole destination body footprint fits the public F01 lobby",
+            "whole destination body footprint is outside the lift shaft",
+            "destination has real F01 slab support at the authored floor height",
+            "actual Body shape clears all current destination colliders",
+            "public destination route and swept actual Body clear the closed lift landing",
+            "actual destination Body still clears after real car arrival"
+          ],
+          "checks": 21
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 1,
+        "diagnostic_gate_exit": 1,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1,
+          "known RGB8 conversion debt": 966,
+          "known found-art placement debt": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    },
+    {
+      "name": "07_coordinate_restored_lifecycle",
+      "result_sha256": "886c045da17809a80e151db3e559c656d07048918ec8a00797db99130610775a",
+      "actual_runner_exit": 0,
+      "assessment": {
+        "expected": "green",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [],
+          "checks": 31
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 0,
+        "diagnostic_gate_exit": 0,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1,
+          "known RGB8 conversion debt": 967,
+          "known found-art placement debt": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    }
+  ],
+  "mutations": [],
+  "scope": "Exact declared controls only; raw diagnostic red stays red.",
+  "restoration": {
+    "path": "game/scripts/characters/resident_routines.gd",
+    "exact_bytes_restored": true,
+    "candidate_sha256": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a"
+  }
+}

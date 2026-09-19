@@ -1,0 +1,3 @@
+$ErrorActionPreference = 'Stop'
+& 'C:\PleaseRemainOnTheLine-astra\tools\run_godot_serial.ps1' -ProjectPath 'C:\PleaseRemainOnTheLine-astra\game' -Scene 'res://tests/ResidentF01HauntTest.tscn' -LogPath 'C:\PleaseRemainOnTheLine-astra\design\astra\evidence\resident_f01_haunt\original_haunt_02\godot.stdout.log' -TimeoutSeconds 180 -Windowed -ShotDir 'C:\PleaseRemainOnTheLine-astra\design\astra\evidence\resident_f01_haunt\original_haunt_02\shots' -ExtraArgs @('--verbose', '--audio-driver', 'Dummy', '--resolution', '1280x720', '--rendering-method', 'forward_plus', '--rendering-driver', 'vulkan')
+exit $LASTEXITCODE

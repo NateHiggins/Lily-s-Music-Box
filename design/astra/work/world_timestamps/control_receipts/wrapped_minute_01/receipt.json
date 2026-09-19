@@ -1,0 +1,41 @@
+{
+  "scope": "negative control; restoration success is not a green runtime gate",
+  "control": "wrapped_minute",
+  "sources": [
+    {
+      "path": "game/scripts/game/maintenance_inventory.gd",
+      "candidate_sha256": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+      "control_sha256": "3c42f99cbd9b84fe18ade3577ab0a5438202d309523222ba2d03d5a72c7fd328"
+    },
+    {
+      "path": "game/scripts/game/work_orders.gd",
+      "candidate_sha256": "09cca7e0b4af3c11d4df91bdcb3c95112dd96fbed50507f570c217914c7d1e57",
+      "control_sha256": "5ac0b18642000cf8c0c264e1bcd674f3d7e8d5c5633fce5f42750f754591b02a"
+    },
+    {
+      "path": "game/scripts/props/night_register_prop.gd",
+      "candidate_sha256": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
+      "control_sha256": "5a8bef1b7ac6fc3b074867dc6c0cb64d37c3964bcc979211750815b61beb55f9"
+    },
+    {
+      "path": "game/scripts/reality/organism_incidents.gd",
+      "candidate_sha256": "fcb48d7ee15e3c2a756221fe66fe4a67c7a9b1684afd3f66ec88970a55debf87",
+      "control_sha256": "8eb61c19328164be4c3204fea0421ae000f1b66a35086b4755eb37f6afcf9bae"
+    }
+  ],
+  "restored_exactly": true,
+  "command": [
+    "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\work\\world_timestamps\\run_case.py",
+    "wrapped_minute_01",
+    "timestamps",
+    "--expected-exit",
+    "1",
+    "--timeout",
+    "120"
+  ],
+  "controller_child_exit": 1,
+  "intended_red": true,
+  "runtime_receipt": "design/astra/evidence/world_timestamps/wrapped_minute_01/receipt.json",
+  "runtime_receipt_sha256": "a7dbfa5c46fe6211750a336374f2e1e4e2a8be342cb47156db352d697643df4e"
+}

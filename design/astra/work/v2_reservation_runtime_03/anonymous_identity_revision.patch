@@ -1,0 +1,474 @@
+--- runtime02/runtime/run.py
++++ runtime03/runtime/run.py
+@@ -13,7 +13,7 @@
+ HERE = Path(__file__).resolve().parent
+ BASE = HERE.parent
+ ROOT = BASE.parents[3]
+-EVIDENCE = ROOT / "design/astra/evidence/v2_reservation_display_02"
++EVIDENCE = ROOT / "design/astra/evidence/v2_reservation_display_03"
+ OWNERS = ["game/scripts/building/orison_v2_blockout.gd", "game/scripts/building/orison_v2_runtime_root.gd"]
+ core.HERE = HERE
+ core.ROOT = ROOT
+@@ -50,17 +50,67 @@
+     for rel in OWNERS:
+         if sha(ROOT / rel) != plan["source_bindings_sha256"][rel]: raise ValueError("original reservation / accepted terminal bytes required")
+     for rel in manifest["install"]:
+-        if (ROOT / rel).exists(): raise ValueError("new reservation fixture already exists")
++        if sha(ROOT/rel) != manifest["replace_existing_install"][rel]: raise ValueError("runtime02 exact installed fixture required")
+     EVIDENCE.mkdir(parents=True, exist_ok=False)
+     for rel in OWNERS:
+         target = EVIDENCE / "preinstall" / rel
+         target.parent.mkdir(parents=True, exist_ok=True)
+         shutil.copy2(ROOT / rel, target)
+         if sha(target) != plan["source_bindings_sha256"][rel]: raise ValueError("preinstall backup hash mismatch")
+-    for rel in manifest["install"]: shutil.copy2(BASE / "proposed" / rel, ROOT / rel)
+-    if any(sha(ROOT/rel) != value for rel,value in manifest["install"].items()): raise ValueError("fixture install hash mismatch")
++    replace_fixtures(manifest)
+     rows = dict(core.all_game_rows())
+-    dump(EVIDENCE / "install.json", {"status": "ONLY_TWO_NEW_RESERVATION_FIXTURES_INSTALLED_PRODUCTION_UNCHANGED", "head": core.git("rev-parse", "HEAD").decode().strip(), "files": rows, "package_sha256": sha(HERE / "package.json")})
++    dump(EVIDENCE / "install.json", {"status": "EXACT_RUNTIME02_FIXTURES_BACKED_UP_AND_REVISED_PRODUCTION_UNCHANGED", "head": core.git("rev-parse", "HEAD").decode().strip(), "files": rows, "fixture_replacement_receipt_sha256":sha(EVIDENCE/"fixture_replacement.json"), "package_sha256": sha(HERE / "package.json")})
++
++
++def replace_fixtures(manifest):
++    prior = manifest["replace_existing_install"]
++    desired = manifest["install"]
++    receipt = {"status":"PREPARING", "prior_sha256":prior, "desired_sha256":desired, "copied_paths":[]}
++    succeeded = False
++    backups = {}
++    try:
++        if set(prior) != set(desired): raise ValueError("fixture replacement path set differs")
++        for rel,value in prior.items():
++            if sha(ROOT/rel) != value: raise ValueError("fixture changed before backup")
++            backup = EVIDENCE/"preinstall_fixtures"/rel
++            backup.parent.mkdir(parents=True,exist_ok=True)
++            shutil.copy2(ROOT/rel,backup)
++            if sha(backup) != value: raise ValueError("fixture backup changed")
++            backups[rel] = backup
++        for rel,value in desired.items():
++            if core.godot_processes(): raise ValueError("active engine during fixture replacement")
++            if sha(ROOT/rel) != prior[rel] or sha(BASE/"proposed"/rel) != value: raise ValueError("fixture source changed")
++            atomic_owner_copy(BASE/"proposed"/rel,ROOT/rel)
++            if sha(ROOT/rel) != value: raise ValueError("fixture install hash mismatch")
++            receipt["copied_paths"].append(rel)
++        succeeded = True
++        receipt["status"] = "EXACT_FIXTURES_INSTALLED"
++    except BaseException as error:
++        receipt["failure"] = {"type":type(error).__name__,"message":str(error)}
++        raise
++    finally:
++        try:
++            if not succeeded:
++                receipt["rollback_processes"] = core.godot_processes()
++                if receipt["rollback_processes"]: raise ValueError("fixture rollback refused active engine")
++                for rel in prior:
++                    current = sha(ROOT/rel)
++                    if current == prior[rel]: continue
++                    if current != desired[rel] or rel not in backups or sha(backups[rel]) != prior[rel]: raise ValueError("fixture rollback refused unexpected bytes")
++                    atomic_owner_copy(backups[rel],ROOT/rel)
++                    if sha(ROOT/rel) != prior[rel]: raise ValueError("fixture rollback hash mismatch")
++                if {rel:sha(ROOT/rel) for rel in prior} != prior: raise ValueError("not all prior fixture bytes restored")
++                receipt["status"] = "FAILED_INSTALL_EXACT_PRIOR_FIXTURES_RESTORED"
++        except BaseException as error:
++            receipt["status"] = "FIXTURE_ROLLBACK_REFUSED_OR_FAILED"
++            receipt["rollback_failure"] = {"type":type(error).__name__,"message":str(error)}
++            raise
++        finally:
++            receipt["observed_hashes"] = {}
++            for rel in prior:
++                try: receipt["observed_hashes"][rel] = sha(ROOT/rel)
++                except OSError as error: receipt["observed_hashes"][rel] = {"read_error":str(error)}
++            dump(EVIDENCE/"fixture_replacement.json",receipt)
+ 
+ 
+ def verify_artifacts(out, result):
+--- runtime02/runtime/assess.py
++++ runtime03/runtime/assess.py
+@@ -13,6 +13,37 @@
+ # Exact copied assessor bytes; only its plan location is overridden explicitly.
+ terminal_assess.PLAN = json.loads((TERMINAL / "preparation.json").read_text(encoding="utf-8"))
+ KNOWN = json.loads((HERE / "known_diagnostics.json").read_text(encoding="utf-8"))
++
++
++def comparison_identity(raw):
++    """Independent one-to-one anonymous leaf mapping; raw payload is untouched."""
++    if not isinstance(raw,dict) or any(not isinstance(path,str) or not isinstance(row,dict) for path,row in raw.items()):
++        raise ValueError("malformed node identity rows")
++    nonleaves = {"/".join(path.split("/")[:index]) for path in raw for index in range(1,len(path.split("/")))}
++    mapping, aliases, occupied = {}, {}, set()
++    for path,row in raw.items():
++        parent, separator, leaf = path.rpartition("/")
++        canonical = path
++        if re.fullmatch(r"@CollisionShape3D@[0-9]+",leaf):
++            if row.get("class") != "CollisionShape3D" or path in nonleaves or (parent or ".") not in raw:
++                raise ValueError("anonymous identity is not an exact leaf CollisionShape3D under a recorded parent")
++            canonical = parent + separator + "@CollisionShape3D"
++            aliases[path] = canonical
++        if canonical in occupied: raise ValueError("ambiguous anonymous siblings or canonical alias collision")
++        occupied.add(canonical); mapping[path] = canonical
++    normalized, rewrites = {}, 0
++    for path,row in raw.items():
++        copied = copy.deepcopy(row)
++        if "collision_descendants" in copied:
++            refs = copied["collision_descendants"]
++            if not isinstance(refs,list) or any(not isinstance(ref,str) or ref not in mapping for ref in refs):
++                raise ValueError("unresolved collision descendant reference")
++            canonical = [mapping[ref] for ref in refs]
++            if len(set(canonical)) != len(canonical): raise ValueError("duplicate collision identity reference")
++            rewrites += sum(left != right for left,right in zip(refs,canonical))
++            copied["collision_descendants"] = canonical
++        normalized[mapping[path]] = copied
++    return normalized,{"valid":True,"aliases":aliases,"reference_rewrites":rewrites,"raw_count":len(raw)}
+ 
+ 
+ def geometry(rows):
+@@ -37,7 +68,7 @@
+     env, lift = PLAN["envelope_paths"], PLAN["landing_paths"]
+     if witness["target_paths"] != targets or witness["envelope_paths"] != env or witness["landing_paths"] != lift: raise ValueError("authored target identity list changed")
+     review, hidden, production = witness["review"], witness["hidden"], witness["production_targets"]
+-    if set(review) != set(hidden) or len(review) <= 78 or set(production) != set(targets): raise ValueError("full generated population or target census incomplete")
++    if len(review) != len(hidden) or len(review) <= 78 or set(production) != set(targets): raise ValueError("full generated population or target census incomplete")
+     for rows in (review,hidden,production):
+         for path in targets:
+             row = rows[path]
+@@ -49,12 +80,15 @@
+             for vec in [row["global_position_values"],*row["world_aabb_values"]]:
+                 if not isinstance(vec,list) or len(vec)!=3 or any(type(v) not in (int,float) or not math.isfinite(v) for v in vec): raise ValueError("nonfinite geometry values")
+             if not isinstance(row["materials"],list) or len(row["materials"]) != 1: raise ValueError("target material missing")
+-    if geometry(review) != geometry(hidden): raise ValueError("generated geometry or semantic record changed")
++    normalized_review, review_identity = comparison_identity(review)
++    normalized_hidden, hidden_identity = comparison_identity(hidden)
++    if witness.get("comparison_identity") != {"review":review_identity,"hidden":hidden_identity}: raise ValueError("comparison identity evidence differs from independently proven map")
++    if geometry(normalized_review) != geometry(normalized_hidden): raise ValueError("generated geometry or semantic record changed")
+     if geometry(production) != geometry({path:review[path] for path in targets}): raise ValueError("production target geometry changed")
+     other = lambda rows:{path:[row.get("visible"),row.get("visible_in_tree")] for path,row in rows.items() if path not in targets and "visible" in row}
+-    if other(review) != other(hidden): raise ValueError("non-target display changed")
++    if other(normalized_review) != other(normalized_hidden): raise ValueError("non-target display changed")
+     collisions = lambda rows:{path:row for path,row in rows.items() if "collision_layer" in row or "shape_class" in row}
+-    if not collisions(review) or collisions(review) != collisions(hidden): raise ValueError("collision owner records absent or changed")
++    if not collisions(normalized_review) or collisions(normalized_review) != collisions(normalized_hidden): raise ValueError("collision owner records absent or changed")
+     for key in ("review","hidden","production","shell","acoustic"):
+         if witness["retirement"][key] is not True: raise ValueError("actual retirement/restoration missing")
+     expected = {
+--- runtime02/runtime/test_assess.py
++++ runtime03/runtime/test_assess.py
+@@ -14,10 +14,15 @@
+     review={path:copy.deepcopy(node) for path in assess.PLAN["target_paths"]}
+     review["."]={"class":"Node3D","visible":True,"visible_in_tree":True}
+     review["Wall/Collision"]={"class":"StaticBody3D","collision_layer":1,"collision_mask":1,"transform":"Transform3D(identity)","visible":True,"visible_in_tree":True}
++    review["Wall/Collision/@CollisionShape3D@101"]={"class":"CollisionShape3D","shape_class":"BoxShape3D","box_shape_size":"01020304","shape_margin":0.04,"disabled":False,"transform":"01020304","visible":True,"visible_in_tree":True}
++    review["Wall"]={"class":"MeshInstance3D","collision_descendants":["Wall/Collision","Wall/Collision/@CollisionShape3D@101"],"visible":True,"visible_in_tree":True}
+     hidden=copy.deepcopy(review)
++    hidden["Wall/Collision/@CollisionShape3D@202"]=hidden.pop("Wall/Collision/@CollisionShape3D@101")
++    hidden["Wall"]["collision_descendants"][1]="Wall/Collision/@CollisionShape3D@202"
+     for path in assess.PLAN["target_paths"]:hidden[path].update(visible=False,visible_in_tree=False)
+     production={path:copy.deepcopy(review[path] if failed else hidden[path]) for path in assess.PLAN["target_paths"]}
+     witness={"complete":True,"review":review,"hidden":hidden,"production_targets":production,"production_flag":bool(failed),"target_paths":assess.PLAN["target_paths"].copy(),"envelope_paths":assess.PLAN["envelope_paths"].copy(),"landing_paths":assess.PLAN["landing_paths"].copy(),"retirement":dict.fromkeys(["review","hidden","production","shell","acoustic"],True)}
++    witness["comparison_identity"]={"review":assess.comparison_identity(review)[1],"hidden":assess.comparison_identity(hidden)[1]}
+     probe={"schema":"astra.v2-reservation-display.probe.v1","root":"v2","renderer":"forward_plus","pid":123,"checks":rows,"failures":len(failed),"witnesses":witness}
+     return probe,transcript(probe),spec["expected_native_exit"]
+ 
+@@ -32,6 +37,53 @@
+ 
+ 
+ class ReservationControls(unittest.TestCase):
++    def test_anonymous_leaf_identity_and_references_are_one_to_one_without_raw_mutation(self):
++        probe,log,native=fixture();raw=probe["witnesses"]["review"];before=copy.deepcopy(raw)
++        normalized,evidence=assess.comparison_identity(raw)
++        self.assertEqual(raw,before)
++        self.assertEqual(evidence["aliases"],{"Wall/Collision/@CollisionShape3D@101":"Wall/Collision/@CollisionShape3D"})
++        self.assertEqual(evidence["reference_rewrites"],1)
++        self.assertEqual(normalized["Wall"]["collision_descendants"][1],"Wall/Collision/@CollisionShape3D")
++        self.assertEqual(evaluate(probe,log,native)["control_contract_exit"],0)
++
++    def test_duplicate_anonymous_siblings_cannot_alias(self):
++        probe,_,_=fixture();raw=probe["witnesses"]["review"]
++        raw["Wall/Collision/@CollisionShape3D@999"]=copy.deepcopy(raw["Wall/Collision/@CollisionShape3D@101"])
++        with self.assertRaises(ValueError):assess.comparison_identity(raw)
++
++    def test_authored_canonical_alias_collision_cannot_overwrite(self):
++        probe,_,_=fixture();raw=probe["witnesses"]["review"]
++        raw["Wall/Collision/@CollisionShape3D"]=copy.deepcopy(raw["Wall/Collision/@CollisionShape3D@101"])
++        with self.assertRaises(ValueError):assess.comparison_identity(raw)
++
++    def test_wrong_class_and_nonleaf_anonymous_shapes_refuse(self):
++        for kind in ("class","nonleaf"):
++            probe,_,_=fixture();raw=probe["witnesses"]["review"];path="Wall/Collision/@CollisionShape3D@101"
++            if kind=="class":raw[path]["class"]="Node3D"
++            else:raw[path+"/Child"]={"class":"Node3D"}
++            with self.subTest(kind=kind),self.assertRaises(ValueError):assess.comparison_identity(raw)
++
++    def test_unknown_nonleaf_autonames_remain_raw_and_red(self):
++        probe,log,native=fixture();witness=probe["witnesses"]
++        for key,index in (("review",1),("hidden",2)):
++            rows=witness[key];rows[f"@Node3D@{index}"]={"class":"Node3D"};rows[f"@Node3D@{index}/Authored"]={"class":"Node3D","visible":True,"visible_in_tree":True}
++            witness["comparison_identity"][key]=assess.comparison_identity(rows)[1]
++        self.assertEqual(evaluate(probe,log,native)["control_contract_exit"],1)
++
++    def test_shape_values_and_owner_mask_are_not_normalized_away(self):
++        for field,value in (("shape_class","SphereShape3D"),("shape_margin",0.9),("box_shape_size","ffffffff"),("transform","ffffffff"),("disabled",True),("collision_mask",0)):
++            probe,log,native=fixture();rows=probe["witnesses"]["hidden"]
++            rows["Wall/Collision" if field=="collision_mask" else "Wall/Collision/@CollisionShape3D@202"][field]=value
++            with self.subTest(field=field):self.assertEqual(evaluate(probe,log,native)["control_contract_exit"],1)
++
++    def test_missing_duplicate_or_unproven_reference_refuses(self):
++        for kind in ("missing","duplicate","proof"):
++            probe,log,native=fixture();w=probe["witnesses"]
++            if kind=="missing":w["review"]["Wall"]["collision_descendants"].append("Missing/Shape")
++            elif kind=="duplicate":w["review"]["Wall"]["collision_descendants"].append("Wall/Collision/@CollisionShape3D@101")
++            else:w["comparison_identity"]["review"]["aliases"]={}
++            with self.subTest(kind=kind):self.assertEqual(evaluate(probe,log,native)["control_contract_exit"],1)
++
+     def test_candidate_omission_and_restore(self):
+         for phase in ("01_candidate","02_production_flag_omission","03_restored_candidate"):
+             p,log,native=fixture(phase);result=evaluate(p,log,native,phase)
+--- runtime02/runtime/test_runner_contract.py
++++ runtime03/runtime/test_runner_contract.py
+@@ -9,6 +9,31 @@
+ 
+ 
+ class RunnerControls(unittest.TestCase):
++    def test_replacement_installer_preserves_backups_and_refuses_mismatches(self):
++        for mode in ("success","second_copy","unexpected_edit"):
++            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as folder:
++                root=Path(folder);base=root/"package";evidence=root/"evidence";evidence.mkdir()
++                prior={};desired={}
++                for name in ("game/tests/review.gd","game/tests/review.tscn"):
++                    live=root/name;live.parent.mkdir(parents=True,exist_ok=True);live.write_bytes(b"prior fixture")
++                    proposed=base/"proposed"/name;proposed.parent.mkdir(parents=True,exist_ok=True);proposed.write_bytes(b"new fixture")
++                    prior[name]=run.sha(live);desired[name]=run.sha(proposed)
++                original=run.atomic_owner_copy;calls=[]
++                def copied(source,target):
++                    calls.append(target)
++                    if mode=="second_copy" and len(calls)==2:raise OSError("second fixture copy failed")
++                    original(source,target)
++                    if mode=="unexpected_edit" and len(calls)==1:target.write_bytes(b"foreign changed bytes")
++                with patch.object(run,"ROOT",root),patch.object(run,"BASE",base),patch.object(run,"EVIDENCE",evidence),patch.object(run.core,"godot_processes",return_value=[]),patch.object(run,"atomic_owner_copy",side_effect=copied):
++                    if mode=="success":run.replace_fixtures({"replace_existing_install":prior,"install":desired})
++                    else:
++                        with self.assertRaises((ValueError,OSError)):run.replace_fixtures({"replace_existing_install":prior,"install":desired})
++                receipt=json.loads((evidence/"fixture_replacement.json").read_text())
++                self.assertEqual({name:run.sha(evidence/"preinstall_fixtures"/name) for name in prior},prior)
++                if mode=="success":self.assertEqual(receipt["observed_hashes"],desired)
++                elif mode=="second_copy":self.assertEqual(receipt["observed_hashes"],prior)
++                else:self.assertEqual(receipt["status"],"FIXTURE_ROLLBACK_REFUSED_OR_FAILED")
++
+     def test_capture_binding_uses_reviewed_candidate_and_existing_fixture(self):
+         binding = json.loads((run.BASE / "capture_binding.json").read_text())
+         for rel in run.OWNERS:
+--- runtime02/proposed/game/tests/orison_v2_reservation_display_test.gd
++++ runtime03/proposed/game/tests/orison_v2_reservation_display_test.gd
+@@ -53,9 +53,13 @@
+ 	_check("hidden blockout resolves every reservation exactly once", _unique_targets(hidden))
+ 	_check("hidden blockout suppresses all seventy envelopes", _visible_count(hidden_rows, envelope_paths) == 0)
+ 	_check("hidden blockout suppresses all eight landing clearances", _visible_count(hidden_rows, landing_paths) == 0)
+-	_check("all node identities transforms geometry and semantic records remain exact", _geometry(review_rows) == _geometry(hidden_rows))
+-	_check("all collision owners shapes and masks remain exact", _collision_rows(review_rows) == _collision_rows(hidden_rows))
+-	_check("every non-reservation display state remains exact", _other_display(review_rows) == _other_display(hidden_rows))
++	var review_comparison: Dictionary = _comparison_identity(review_rows)
++	var hidden_comparison: Dictionary = _comparison_identity(hidden_rows)
++	witnesses.comparison_identity = {"review": _identity_evidence(review_comparison), "hidden": _identity_evidence(hidden_comparison)}
++	var identities_valid: bool = review_comparison.valid == true and hidden_comparison.valid == true
++	_check("authored paths and unambiguous shape identities retain exact transforms geometry and semantics", identities_valid and _geometry(review_comparison.rows) == _geometry(hidden_comparison.rows))
++	_check("all collision owners shapes and masks remain exact", identities_valid and _collision_rows(review_comparison.rows) == _collision_rows(hidden_comparison.rows))
++	_check("every non-reservation display state remains exact", identities_valid and _other_display(review_comparison.rows) == _other_display(hidden_comparison.rows))
+ 	_check("hidden reservations contain no collision owners", _targets_nonphysical(hidden))
+ 	var hidden_weak: WeakRef = weakref(hidden)
+ 	hidden.queue_free()
+@@ -179,6 +183,54 @@
+ 		elif row.get("visible") != false or row.get("visible_in_tree") != false: return -1
+ 	return count
+ 
++func _comparison_identity(raw_rows: Dictionary) -> Dictionary:
++	# Preserve raw snapshot keys. Only a unique anonymous leaf shape receives
++	# a comparison identity under its unchanged authored parent path.
++	var failure: Dictionary = {"valid": false, "rows": {}, "aliases": {}, "reference_rewrites": 0, "raw_count": raw_rows.size()}
++	var pattern := RegEx.new()
++	if pattern.compile("(^|/)@CollisionShape3D@[0-9]+$") != OK: return failure
++	var nonleaves: Dictionary = {}
++	for raw_path: String in raw_rows:
++		var ancestor: String = raw_path.get_base_dir()
++		while not ancestor.is_empty() and ancestor != ".":
++			nonleaves[ancestor] = true
++			ancestor = ancestor.get_base_dir()
++	var identities: Dictionary = {}
++	var aliases: Dictionary = {}
++	var occupied: Dictionary = {}
++	for raw_path: String in raw_rows:
++		var identity: String = raw_path
++		var match_result: RegExMatch = pattern.search(raw_path)
++		if match_result != null:
++			if raw_rows[raw_path].get("class") != "CollisionShape3D" or nonleaves.has(raw_path): return failure
++			var parent: String = raw_path.get_base_dir()
++			if not raw_rows.has(parent if not parent.is_empty() else "."): return failure
++			identity = parent + "/@CollisionShape3D" if not parent.is_empty() else "@CollisionShape3D"
++			aliases[raw_path] = identity
++		if occupied.has(identity): return failure
++		occupied[identity] = raw_path
++		identities[raw_path] = identity
++	var normalized: Dictionary = {}
++	var rewrites := 0
++	for raw_path: String in raw_rows:
++		var row: Dictionary = raw_rows[raw_path].duplicate(true)
++		if row.has("collision_descendants"):
++			var references: Array = []
++			if not row.collision_descendants is Array: return failure
++			for reference: Variant in row.collision_descendants:
++				if not reference is String or not identities.has(reference): return failure
++				var canonical: String = identities[reference]
++				if references.has(canonical): return failure
++				references.append(canonical)
++				if canonical != reference: rewrites += 1
++			row.collision_descendants = references
++		normalized[identities[raw_path]] = row
++	return {"valid": true, "rows": normalized, "aliases": aliases, "reference_rewrites": rewrites, "raw_count": raw_rows.size()}
++
++func _identity_evidence(comparison: Dictionary) -> Dictionary:
++	return {"valid": comparison.valid, "aliases": comparison.aliases,
++		"reference_rewrites": comparison.reference_rewrites, "raw_count": comparison.raw_count}
++
+ func _geometry(rows: Dictionary) -> Dictionary:
+ 	var copy: Dictionary = rows.duplicate(true)
+ 	for row: Dictionary in copy.values():
+@@ -232,7 +284,7 @@
+ 	file.store_string(JSON.stringify({"schema": "astra.v2-reservation-display.probe.v1", "pid": OS.get_process_id(),
+ 		"root": "v2", "renderer": RenderingServer.get_current_rendering_method(), "checks": checks,
+ 		"failures": failed, "witnesses": witnesses,
+-		"scope": "exact generated blockout geometry/semantic/collision and display comparison plus actual V2 targets; no route, input or perceptual proof"}, "\t"))
++		"scope": "raw generated paths retained; exact authored paths plus proven unique anonymous leaf-shape identities for geometry/semantic/collision and display comparison; actual V2 targets; no route, input or perceptual proof"}, "\t"))
+ 	file.close()
+ 	print("[V2 RESERVATION] checks=%d failures=%d" % [checks.size(), failed])
+ 	get_tree().quit(0 if failed == 0 else 1)
+--- runtime02/README.md
++++ runtime03/README.md
+@@ -1,64 +1,27 @@
+-# Reservation display: concrete runtime package
++# Reservation display: anonymous leaf identity execution revision
+ 
+-Prepared outside game. No fixture installation or Godot run is claimed. This package leaves the two sealed terminal packages and the earlier two-file display proposal unchanged.
++Prepared outside game; no install, import or Godot execution in this revision. HEAD remains `02fcb18a209624c9b609b65fb44b05b45c65de09`. The two production proposals are unchanged: original blockout `0bdb` â†’ candidate `6646`; accepted terminal runtime `03d` â†’ display candidate `ff25`. DeskZone remains `2208`. All 78 authored reservation target paths and their exact transforms, AABBs, materials, collision and semantic records remain untouched.
+ 
+-`OrisonV2ReservationDisplayTest.tscn` runs 28 checks over the real blockout scene and actual CampaignShell/V2 root. It constructs the dedicated default and false-flag blockouts sequentially, retires each, and compares all relative node identities, class/script, local/global transforms, mesh local/world AABBs, BoxMesh sizes, semantic metadata, render layers and the material properties authored by the blockout palette (albedo, roughness, transparency). Binary Variant encodings retain exact float components; readable positions and world AABBs are also recorded. Arbitrary shader-state equivalence is not claimed.
++Runtime02's actual first candidate remains a native1, 25/28 red, with lane0 and exact restoration to original owners. Its three failed comparisons arose from 527 generated `@CollisionShape3D@N` leaf names and 513 descendant references in each 2237-node snapshot. `historical_raw_replay.json` binds that original raw result/probe and independently shows equality after the narrowly defined identity mapping. It does not alter historical labels, receipts or native results, or claim a retroactive runtime pass. Earlier packages and their seals remain unchanged and are bound by `historical_runtime02.json` and the earlier parent record.
+ 
+-Collision records include owner layer/mask, static velocities, shape class/size/margin, disabled state and transforms. Every reservation must have no collision descendants. Every non-target visibility value must match between bare blockouts. The dedicated default displays all 70 envelopes and eight landing clearances; the hidden variant retains all exact paths and renders none. Actual V2 then must select the flag before construction and preserve the same 78 target transforms, bounds, material settings and semantic records. Production's legitimate replacement of gray-box fixture masses is not compared to an unmounted bare blockout as if it were an error. The new flag does not change those replacement owners.
++The new fixture retains complete RAW review/hidden paths and descendant references. For comparison only, a leaf matching `(^|/)@CollisionShape3D@[0-9]+$` can map to its unchanged parent's `@CollisionShape3D` identity after proving exact class, a recorded parent, leaf status, and a one-to-one canonical map. Duplicate anonymous siblings or a collision with an authored canonical name fail closed before any dictionary insertion can overwrite a row. Descendant references must resolve uniquely to recorded raw nodes; only proven mappings are rewritten. Unknown anonymous names and nonleaf ancestry are not stripped. The Python assessor builds this map independently and checks the fixture's published mapping/counts; every old geometry, shape, mask, material, semantic and non-target display value remains compared.
+ 
+-All four weak-reference retirement observations and acoustic restoration are explicit receipt fields and checks. The fixture does not teleport actors, run input actions or claim collision-bearing travel. The unchanged 39-check terminal fixture separately owns controlled arrival/operator position, physical acquisition, real input, audio, call ownership and retirement.
+-
+-`runtime/run.py` reuses the established `core.py`, `support.py` and JSON-splat PowerShell bridge as imported utilities. It explicitly overrides their historical locations. Its four requests stay windowed Forward+ with fresh profiles, a 180-second canonical serial cap, exact source/engine/PID/artifact bindings, ordinary native-error gating and retained known warning debt. The terminal phase delegates to an exact copy of the sealed arrival-02 assessor with its exact original 39-check preparation, captured as an instrument. No terminal assertion is rewritten for the display change.
+-
+-After root review and a new exclusive source/engine handoff:
++The sequence remains 28 / 25 / 28 / 39 checks. One identity label now explicitly names authored paths and unambiguous shape identities. The only runtime negative removes production's false assignment, so precisely the flag, seventy-envelope visibility and eight-clearance visibility checks must fail. The raw display/collision comparisons must pass in that omission. No production bounds, collision exemption, material or selector changes are included.
+ 
+ ```powershell
+-python design/astra/work/v2_reservation_runtime_02/runtime/run.py install
+-python design/astra/work/v2_reservation_runtime_02/runtime/run.py 01_candidate
+-python design/astra/work/v2_reservation_runtime_02/runtime/run.py 02_production_flag_omission
+-python design/astra/work/v2_reservation_runtime_02/runtime/run.py 03_restored_candidate
+-python design/astra/work/v2_reservation_runtime_02/runtime/run.py 04_terminal_regression
++python design/astra/work/v2_reservation_runtime_03/runtime/run.py install
++python design/astra/work/v2_reservation_runtime_03/runtime/run.py 01_candidate
++python design/astra/work/v2_reservation_runtime_03/runtime/run.py 02_production_flag_omission
++python design/astra/work/v2_reservation_runtime_03/runtime/run.py 03_restored_candidate
++python design/astra/work/v2_reservation_runtime_03/runtime/run.py 04_terminal_regression
+ ```
+ 
+-Installation requires the original blockout `0bdbÃ¢â‚¬Â¦`, accepted terminal runtime `03dÃ¢â‚¬Â¦`, DeskZone `2208Ã¢â‚¬Â¦`, unchanged terminal fixture `800dÃ¢â‚¬Â¦`/`58efÃ¢â‚¬Â¦`, and terminal-checkpoint HEAD `02fcb18a209624c9b609b65fb44b05b45c65de09`. It adds only the two new reservation fixture files, backs up the two production owners, and leaves production unchanged until phase 01. Execution HEAD is now bound; captured `af9c` provenance remains historical. The install baseline records all current game files without claiming every unowned path equals HEAD. Every phase keeps unrelated game inputs frozen and refuses an occupied engine lane. These controls cannot prevent an unrelated process from launching between censuses; a new refusal must be preserved and reviewed additively.
++Inspect the first candidate result before continuing. Installation requires the exact already-installed runtime02 fixture `595cf3â€¦` and scene `c9c2â€¦`; it backs up both, installs the revised fixture and unchanged scene, and preserves a verified replacement/rollback receipt. Any unexpected fixture bytes or active engine refuse. Production owners must initially remain `0bdb`/`03d`; installation backs them up without changing them. New focused evidence is `design/astra/evidence/v2_reservation_display_03`.
+ 
+-| Phase | Prediction, not result | Native / ordinary gate |
+-|---|---:|---:|
+-| Candidate | 28/28 | 0/0 |
+-| Production flag omission | 25/28 | 1/1 |
+-| Exact restored candidate | 28/28 | 0/0 |
+-| Unchanged terminal regression | 39/39 | 0/0 |
++All four actual/prepared requests use the unchanged canonical native runner, windowed Vulkan Forward+, Dummy audio, 1280Ã—720, fresh APPDATA and a 180-second cap. Exact core/support/bridge, terminal39 assessor and known diagnostic pairs are reused. The 17 selected source copies, full before/after game manifests, engine hashes, PID observations and raw streams remain bound. The full install map records current unowned files without claiming all of them equal HEAD.
+ 
+-The single omission removes only production's `show_reservation_volumes=false` line by using the exact accepted terminal `03d` runtime while keeping the candidate blockout. Its three expected failures are the production flag, 70 visible envelopes and eight visible clearances. The default and hidden bare-blockout comparisons must still pass. No extra renderer negatives are planned. A negative control remains an ordinary product red; `control_contract_exit=0` means only that its exact expected failure was observed. The controller restores candidate bytes after the omission and leaves a clean candidate installed after successful completion. Unexpected first-candidate failure restores the original owners; any unresolved restoration refusal requires root review.
++The two-owner transition stays inside atomic-copy/restoration handling. First-candidate failure restores original owners; later phases restore the candidate. Restoration validates bound input hashes, preserves unknown edits and always records successful restoration, failure or refusal. A failed/refused receipt blocks progression and can only be resolved with separately reviewed additive recovery. Sampled foreign native Godot PIDs fail a separate lane contract while preserving functional/native outcomes. Root must drain container engines independently before this strict native lane; Windows sampling cannot establish absolute exclusivity or performance acceptance.
+ 
+-Fresh focused evidence is `design/astra/evidence/v2_reservation_display_02`. Source snapshots copy 17 selected game files plus the bound full game manifest, rather than introducing another large asset archive. The earlier failed terminal receipts retain their original source and interpretation.
++`offline_validation_03` retains an initial synthetic Python failure, its corrected source, the actual duplicate-alias-guard omission red, and the restored31-control green. Controls include duplicate anonymous siblings, authored alias collision, wrong class/nonleaf, unknown anonymous ancestry, altered shape/mask/transform, unresolved references, all previous display/diagnostic/timeout checks, owner restoration faults and fixture replacement/rollback. These are Python controls; GDScript compile/runtime remains unrun.
+ 
+-## Candidate-compatible capture binding
+-
+-`capture_binding.json` supplies the exact source hashes and command for the existing unchanged `vulkan_composed/run_case.py` / `gate.py`. It reuses the 4607 operator-view fixture and unchanged scene, with the original 5ec live fixture backed up and restored after an empty census. The binding itself performs no source installation or engine launch. Root's established external invocation must record the actual process ancestry and source transition/restoration.
+-
+-After the 39-check regression succeeds and root authorizes the temporary capture fixture:
+-
+-```powershell
+-python design/astra/work/vulkan_composed/run_case.py v2 candidate reservation_operator_view_v2_01 --scope full
+-```
+-
+-Require actual native/base gate 0, all 21 existing labels, completed payload, exact source equality and retirement. Require camera `(-9.9,11.01,1.25)` and operator `(-9.9,9.6,1.25)` from the payload, clear actual SignalScope sightline, retained original bedside obstruction, and both reservation meshes hidden with unchanged bounds/no collision descendants. The capture's old root-axis front observation is valid only with this exact unchanged SignalScope Z90 geometry and the separately passing physical-cap oracle in the 39-check regression; it is not a new general model-orientation contract.
+-
+-Inspect both PNGs directly: normal `v2_actual_f04_semantic_stance` at 1280Ãƒâ€”720 and phone `v2_actual_f04_phone` at 320Ãƒâ€”240. Compare with the completed terminal-only baseline captured before this display change. Pixel review, input proof, native errors and source integrity remain separate results. No walk, furniture completion, lift implementation or performance acceptance follows from the display flag or elapsed duration.
+-
+-The unchanged existing `OrisonV2BlockoutTest` remains a separately callable geometry regression under the same candidate. Its source hash is recorded; its existing assertions must not be lowered. The focused structural comparison does not substitute for a new perceptual review.
+-
+-`offline_validation_01` retains an actual Python visibility-validator omission red (exit1) and restored13-test green (exit0). These are parser/controller controls, not Godot results.
+-
+-## Reviewed execution revision
+-
+-This sibling preserves the entire original `v2_reservation_runtime_01` package; `historical_parent.json` binds all of its original bytes, including the earlier 13-control red/green proof. The original production/fixture proposals, canonical runner, bridge, core utilities, known diagnostic set and terminal39 assessor are unchanged. `execution_revision.patch` identifies the new controller/request/document changes.
+-
+-The two-owner transition now runs inside restoration handling. Atomic single-path copies avoid half-written owner files; a failure between owners still restores recognized pre-transition/desired bytes. First-candidate failure restores bound preinstall originals; later failures and omission completion restore bound candidate sources. All restoration inputs are checked before writes, each restored hash is verified immediately, and independent restoration receipts survive copy failure, unknown edit, corrupt backup, active native process and failed restoration write/hash. Unknown edits are preserved. A refused or failed receipt blocks progression; it must be resolved through separately reviewed additive recovery, never rewritten.
+-
+-A separate lane contract classifies observed launcher/engine ancestry and foreign native PIDs, including a foreign process that disappears before the final census. Its failure stops progression while preserving the ordinary functional/native assessment. Default admission is strict: no active native Godot and no overlapping container engine work admitted by root. The native census cannot see Linux containers; root must drain the completed Docker demonstration first. No sampled census provides an absolute exclusivity or performance guarantee.
+-
+-The candidate capture uses the same strict lane policy through root's external invocation. `capture_binding.json` binds the completed terminal-only baseline result and viewed review; no new baseline run is required. Both candidate PNGs still need direct review.
+-
+-`offline_validation_02` contains the updated 23-test controller/assessor proof and a new actual Python red that omits only foreign-PID rejection. The copied `offline_validation_01` remains historical evidence for the earlier instrument. Neither constitutes a Godot result.
++After the unchanged terminal39 succeeds, root's separately reviewed external capture invocation uses `capture_binding.json`: same 4607 operator/phone fixture and exact 5ec restoration, same two poses and 21 checks, plus actual hidden reservations. The completed `terminal_candidate_view_v2_01` baseline and viewed review are already bound; do not recapture the unchanged baseline. Reject observed foreign engine overlap separately from functional outcome, preserve source/restoration/PID evidence, and inspect both candidate PNGs directly. No traversal, collision-bearing navigation, listening, furniture completion, art acceptance or performance claim follows from this display correction.
+--- runtime02/requests/01_candidate.json
++++ runtime03/requests/01_candidate.json
+@@ -3,8 +3,8 @@
+   "parameters": {
+     "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+     "Scene": "res://tests/OrisonV2ReservationDisplayTest.tscn",
+-    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\01_candidate\\godot.stdout.log",
+-    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\01_candidate\\shots",
++    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\01_candidate\\godot.stdout.log",
++    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\01_candidate\\shots",
+     "TimeoutSeconds": 180,
+     "Windowed": true,
+     "ExtraArgs": [
+--- runtime02/requests/02_production_flag_omission.json
++++ runtime03/requests/02_production_flag_omission.json
+@@ -3,8 +3,8 @@
+   "parameters": {
+     "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+     "Scene": "res://tests/OrisonV2ReservationDisplayTest.tscn",
+-    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\02_production_flag_omission\\godot.stdout.log",
+-    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\02_production_flag_omission\\shots",
++    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\02_production_flag_omission\\godot.stdout.log",
++    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\02_production_flag_omission\\shots",
+     "TimeoutSeconds": 180,
+     "Windowed": true,
+     "ExtraArgs": [
+--- runtime02/requests/03_restored_candidate.json
++++ runtime03/requests/03_restored_candidate.json
+@@ -3,8 +3,8 @@
+   "parameters": {
+     "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+     "Scene": "res://tests/OrisonV2ReservationDisplayTest.tscn",
+-    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\03_restored_candidate\\godot.stdout.log",
+-    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\03_restored_candidate\\shots",
++    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\03_restored_candidate\\godot.stdout.log",
++    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\03_restored_candidate\\shots",
+     "TimeoutSeconds": 180,
+     "Windowed": true,
+     "ExtraArgs": [
+--- runtime02/requests/04_terminal_regression.json
++++ runtime03/requests/04_terminal_regression.json
+@@ -3,8 +3,8 @@
+   "parameters": {
+     "ProjectPath": "C:\\PleaseRemainOnTheLine-astra\\game",
+     "Scene": "res://tests/OrisonV2TerminalAccessTest.tscn",
+-    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\04_terminal_regression\\godot.stdout.log",
+-    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_02\\runs\\04_terminal_regression\\shots",
++    "LogPath": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\04_terminal_regression\\godot.stdout.log",
++    "ShotDir": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_reservation_display_03\\runs\\04_terminal_regression\\shots",
+     "TimeoutSeconds": 180,
+     "Windowed": true,
+     "ExtraArgs": [

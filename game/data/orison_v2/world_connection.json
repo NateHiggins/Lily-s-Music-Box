@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "door_id": "F01_DOOR_06",
+  "inside_space_id": "F01_VESTIBULE",
+  "outside_space_id": "F01_STREET_APRON",
+  "instance_id": "STREET_ORISON_01",
+  "surface_id": "orison_threshold",
+  "arrival_placement_id": "orison_exit",
+  "template_id": "TEMPLATE_STREET_SEGMENT_V1",
+  "remove_boxes": ["orison_entry_recess", "orison_entry_door", "orison_door_glass", "orison_door_kick"],
+  "split_boxes": ["orison_base_course"]
+}

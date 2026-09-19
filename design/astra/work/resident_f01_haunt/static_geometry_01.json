@@ -1,0 +1,102 @@
+{
+  "schema": "astra.resident-f01-haunt.static-geometry.v1",
+  "scope": "Authored/exported geometry only; runtime collision and lifecycle remain UNRUN",
+  "inputs": {
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "game/assets/building/floor_01.gltf": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1",
+    "game/assets/building/floor_01.bin": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477",
+    "game/scripts/characters/npc_placeholder.gd": "61d8d4a6a425f84ff06ad58af8838edf5f65901dfe75feb9592136e5755c5220",
+    "game/scripts/characters/animated_resident.gd": "3a3bc9ed6c4c53dfc931665c2cdccb3b397a8651ee07f1a5c7e8498e7217bab5"
+  },
+  "candidate_blender_xy": [
+    2.2,
+    -8.3
+  ],
+  "candidate_godot": [
+    2.2,
+    0.03,
+    8.3
+  ],
+  "lobby": {
+    "id": "F01_LOBBY",
+    "rect": [
+      -5.33,
+      -9.65,
+      5.33,
+      -6.93
+    ],
+    "kind": "lobby"
+  },
+  "slabs": [
+    {
+      "rect": [
+        -14.0,
+        -10.0,
+        14.0,
+        10.0
+      ],
+      "z_top": 0.0,
+      "t": 0.18,
+      "holes": [
+        [
+          -3.16,
+          -3.16,
+          3.16,
+          3.16
+        ],
+        [
+          0.85,
+          -6.75,
+          3.0,
+          -4.55
+        ],
+        [
+          9.55,
+          9.1,
+          10.45,
+          9.65
+        ]
+      ]
+    }
+  ],
+  "shaft": [
+    0.85,
+    -6.75,
+    3.0,
+    -4.55
+  ],
+  "actual_body_source_dimensions": {
+    "radius": 0.28,
+    "height": 1.55,
+    "center_y": 0.775
+  },
+  "audit_box_extra_horizontal_margin": 0.05,
+  "box_min": [
+    1.87,
+    0.03,
+    7.9700000000000015
+  ],
+  "box_max": [
+    2.5300000000000002,
+    1.58,
+    8.63
+  ],
+  "collision_triangles_examined": 49296,
+  "triangle_aabb_overlaps": [],
+  "support_triangles": [
+    {
+      "node": "F01_slabs-col",
+      "triangle_index": 1,
+      "height": -0.18000000715255737
+    },
+    {
+      "node": "F01_slabs-col",
+      "triangle_index": 2,
+      "height": 0.0
+    }
+  ],
+  "whole_footprint_inside_lobby": true,
+  "original_haunt_inside_shaft": true,
+  "static_candidate_clear": true,
+  "remaining": "Actual spawned prop/body queries, closed-landing F01 swept body path, real arrival/dwell/return and exact old-haunt omission"
+}

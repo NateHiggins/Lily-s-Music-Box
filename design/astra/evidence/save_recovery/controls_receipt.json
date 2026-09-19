@@ -1,0 +1,16 @@
+{
+  "runs": [
+    {
+      "name": "no_readback_red",
+      "actual_exit": 1,
+      "control_sha256": "46c3d10a079b55754a417739659f4357bf8698b7a254bdd1a4e680bb3895302b"
+    },
+    {
+      "name": "future_fallback_red",
+      "actual_exit": 1,
+      "control_sha256": "54088a9816ddaaa413ed24b1eca194cab87533166c5136eded73bdedbd011bcc"
+    }
+  ],
+  "restored_candidate_sha256": "b2828e73688c9670280461d731e3e0c75f10b860c8cc05cfd214dc27cc104cc6",
+  "restoration_matches": true
+}

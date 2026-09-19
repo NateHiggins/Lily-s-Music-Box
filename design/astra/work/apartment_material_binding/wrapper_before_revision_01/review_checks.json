@@ -1,0 +1,34 @@
+{
+  "schema": "astra.apartment_material_binding.static_review.v1",
+  "status": "prepared_only_not_engine_validated",
+  "engine_runs": 0,
+  "live_writes": 0,
+  "python_ast": "pass",
+  "gate_test_exit": 0,
+  "gate_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "gate_stderr_sha256": "5f071268359145e0252feb2ffd4cbeab9cc59101ae7b03afe7eaf215d0adb8c3",
+  "git_apply_check_exit": 0,
+  "git_apply_check_stdout": "",
+  "git_apply_check_stderr": "",
+  "focused_check_calls": 36,
+  "original_still_matches_live": true,
+  "live_source_sha256": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+  "files": {
+    "apartment_material_binding.patch": "1f5f192f7e33a14a9283479a5a3074f89f8228012a3510b925460123daa49059",
+    "check_preparation.py": "95081d9bba8780aed609fa9dd15e740c415df5bac0921cc826e99b3464d18541",
+    "originals/game/scripts/reality/apartment_encroachment.gd": "c9892f684e081adf0ccdaeb38b44b5b48e8573b109d80fd8e6933e075f5ed4d5",
+    "preparation.json": "fe8f3908166ed00e295995eca02259fa4aeb394f1b16cbf823beaf2437cad94f",
+    "prepare.py": "182c8653bb76ff85f4680d467ce47e6940fe2e91296d6f06eb06f91660ec93b0",
+    "proposed/game/scripts/reality/apartment_encroachment.gd": "69e28e38740f122fe5bfd47b9f8bc6194fd5e52dda2eae085163deee30977860",
+    "proposed/game/tests/apartment_material_binding_test.gd": "c2a3f9fd9d8af4a87cb1408abe3b53a1eb3894134f874a7ebaeb72f135d15fb3",
+    "proposed/game/tests/ApartmentMaterialBindingTest.tscn": "a3188f68815a952ad1abe55b1ead4b2e07d4de1675d94b2810eb8b5cbafb891f",
+    "README.md": "6594cbad3d0a44c1e8eb26f481436819c7f9758627d03b019d7a83960c887cdc",
+    "run_case.py": "7a2813e0680e2dc6c2338d001e22b9ee2e3f3cf27ca8fc75cedebbff913edc31",
+    "test_gate.py": "a5120cab76d67c20a842cf3fe05fbee05f2c8a6130d27183f1745871de245dbb"
+  },
+  "independent_static_review": {
+    "reviewer": "/root/branch_forensics",
+    "finding": "No definite API/type or semantic blocker found in focused fixture; real queued governor callbacks and installed row checks inspected.",
+    "limit": "Fixture hand-constructs finish marker/row; actual build path awaits real-root validation."
+  }
+}

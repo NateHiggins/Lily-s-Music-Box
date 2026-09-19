@@ -1,0 +1,34 @@
+WARNING: could not write Reality Maintenance save
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] save_game (res://scripts/game/reality_game_state.gd:124)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:458)
+       [2] _walk_named (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:817)
+ERROR:   FAIL  save contains semantic exterior identities and no raw world coordinates
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1081)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:462)
+       [2] _walk_named (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:817)
+WARNING: could not write Reality Maintenance save
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] save_game (res://scripts/game/reality_game_state.gd:124)
+       [1] commit (res://scripts/game/reality_game_state.gd:112)
+       [2] _initialize_missing_state (res://scripts/building/orison_v2_shop_bucket_registry.gd:102)
+       [3] initialize_missing_state (res://scripts/building/orison_v2_shop_bucket_registry.gd:79)
+       [4] _prepare_bucket_authority (res://scripts/building/orison_v2_exterior_cell.gd:557)
+       [5] build (res://scripts/building/orison_v2_exterior_cell.gd:148)
+       [6] _ready (res://scripts/building/orison_v2_exterior_cell.gd:129)
+       [7] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:507)
+       [8] _settle_teardown (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:870)
+ERROR:   FAIL  reconstruction restores the bucket-driven depleted fixture state
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1081)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:519)
+ERROR:   FAIL  save, destruction, reload, and source reconstruction preserve exact semantic facts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:1081)
+       [1] _test_primary_runtime_route_and_save (res://tests/orison_v2_m11a_first_exterior_cell_test.gd:557)

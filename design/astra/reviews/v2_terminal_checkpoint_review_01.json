@@ -1,0 +1,96 @@
+{
+  "schema": "astra.v2-terminal-checkpoint.independent-review.v1",
+  "status": "CLEAR_FOR_BOUNDED_NAMED_CHECKPOINT_WITH_DECLARED_LIMITS",
+  "reviewer": "branch_forensics",
+  "method": "Independent read-only source/receipt review and in-memory Python verification; no engine, source edit, stage, or commit.",
+  "source_review": {
+    "patch": "work/v2_terminal_access_arrival_02/terminal_access.patch",
+    "patch_sha256": "188ed935e8cb6c1e18c4bc66be8d1393af140de5360b0e4539d793f1ae740314",
+    "production": {
+      "game/scripts/building/orison_v2_runtime_root.gd": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "game/scripts/call/desk_zone.gd": "2208e7549bf7ec3a7acb8ba73d689575a2f7193c5888e5de92800b044e114a4a"
+    },
+    "fixture": {
+      "game/tests/orison_v2_terminal_access_test.gd": "800d7bf531758e2720d70d3167378c5bb77a90b0cb054ddad0347010feec47e3",
+      "game/tests/OrisonV2TerminalAccessTest.tscn": "58efa825834b160032e80ed9bdd5b754e942ffdd09aec995acc4e11919f5fd60"
+    },
+    "findings": [
+      "The mounted SignalTerminal consumer rotates toward the existing operator without changing the semantic anchor position/basis.",
+      "One DeskZone uses the existing CallInterface and the authored use-area footprint; V1 retains its default 1.6 by 1.8m footprint and 1.6m height.",
+      "No definite blocking source/API issue found in the bounded two-file patch. Invalid-anchor player-facing recovery is not established by these positive-source tests."
+    ]
+  },
+  "verification": {
+    "root_review_sha256": "9128b8815edbf5d603220cacfeee9c05f66e89efed862c2fb1cda3e67baa0c04",
+    "terminal_run_count": 6,
+    "terminal_artifacts_verified": 344,
+    "terminal_artifact_membership_exact": true,
+    "assessment_replays_equal": 6,
+    "ordered_checks_per_run": 39,
+    "actual_pass_counts": [
+      19,
+      39,
+      38,
+      20,
+      38,
+      39
+    ],
+    "all_before_after_source_manifests_equal": true,
+    "all_manifest_digests_recomputed": true,
+    "non_owner_source_inputs_equal": 3909,
+    "only_game_deltas_between_six_variants": [
+      "game/scripts/building/orison_v2_runtime_root.gd",
+      "game/scripts/call/desk_zone.gd"
+    ],
+    "engines_equal_to_sealed_package": true,
+    "declared_restoration_or_recovery_chain_verified": true,
+    "recovery_sha256": "1523e7823427605b6519262615075a3688598a3e84282b2343b5a6cc9efe3840",
+    "restoration_refusal_sha256": "3fe69fba1c56633e8928642d580e9d7ebc5ed1019f3c80da10041b08f13f0d35",
+    "continuation_source_sha256": "9974ef4ad6344520496a5c3e59cd24ac2de0b040e3d02adadcf73738aed363ab",
+    "final_restoration_sha256": "e156c007d4b43dbeefe2af6e87cb9a184e1095961dba3041f968daf1ffc92631",
+    "final_live_four_source_paths_equal_to_restored_run": true
+  },
+  "capture": {
+    "result_sha256": "f6856b6bd3fca585a12123222c9fc9ba88698f923dd816124e34b6ddd40fe249",
+    "root_visual_review_sha256": "3a11228440443cc91524df8718e95138039afb5dc1810a2510178510ce3fd871",
+    "artifacts_verified": 24,
+    "selected_source_copies_verified": 10,
+    "gate_replay_equal": true,
+    "checks": 21,
+    "actual_exit": 0,
+    "gate_exit": 0,
+    "only_common_game_source_difference_from_restored_input_run": "game/tests/vulkan_composed_root_test.gd",
+    "capture_fixture_sha256": "4607eca50a8e9758bcfcd9a2c218cbda6755ac81a1b3468eba46a92fab054b38",
+    "live_base_fixture_restored_sha256": "5ec63c36c6181b33c02bd2255039e9bf4e8db0c4465a45ac641d1481f422d6d3",
+    "actual_face_dot_operator": 1.0,
+    "captures": 2,
+    "image_review_attribution": "Root directly viewed both images; this independent review verified hashes and machine payload, not a second visual acceptance."
+  },
+  "concurrency": {
+    "phase05_sampled_foreign_engine_pids": [
+      22972,
+      4660
+    ],
+    "phase05_first_restoration_foreign_engine_pids": [
+      31476,
+      33024
+    ],
+    "other_five_runs_foreign_engines_observed_in_retained_samples": false,
+    "claim": "Phase 05 is retained focused input/source-omission evidence with concurrent-process context, not an exclusive-lane or timing observation. PID ancestry identifies this fixture child; it does not prove exclusive hardware use.",
+    "prelaunch_busy_refusal": "The earlier refusal is explicitly a transcription of exec output, not separately captured child stdout/stderr.",
+    "continuation_busy_refusal": "A second prelaunch refusal has no retained transient foreign identity; no final-run directory/engine or source mutation was claimed.",
+    "recovery": "Original postrun refusal remains unchanged. Exact omission bytes were backed up and verified, candidate owners restored after empty censuses, and final 39/39 ran with additive controller/recovery bytes captured as two extra artifacts.",
+    "required_checkpoint_presentation": "Keep concurrency and both refusal provenance limits in the named checkpoint. Do not summarize all six phases as uninterrupted or exclusive."
+  },
+  "known_debt": [
+    "Each focused run retains 5 known loader error headers, 2 loader warnings and 39 RGB8 conversion warnings; no unknown/native-pairing/retention diagnostics were accepted.",
+    "The capture retains visible use/stance reservation geometry as open visual debt. D037 records only this scoped repair; provider adoption and reservation repairs remain separate and open."
+  ],
+  "limits": [
+    "Controlled physics-disabled operator placement and compressed opening delay; no walked route or body-clearance proof.",
+    "No complete case/controller/physical handset/audio-listening/performance/art/human acceptance.",
+    "No general recursive schema-completeness claim for unrelated evidence families.",
+    "Provider and reservation proposals remain excluded and uninstalled."
+  ],
+  "blocking_findings": []
+}

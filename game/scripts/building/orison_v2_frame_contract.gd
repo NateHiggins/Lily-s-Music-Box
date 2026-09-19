@@ -29,10 +29,37 @@ func load_path(path: String) -> bool:
 	if str(data.get("metric_authority", "")) != expected_metric:
 		errors.append("production building layout must remain the metric authority")
 	var clock: Dictionary = data.get("simulation_clock", {})
-	if str(clock.get("epoch", "")) != "campaign_start" \
-			or bool(clock.get("host_clock_allowed", true)):
-		errors.append("simulation clock must use the campaign epoch, never host time")
+	validate_clock(clock)
 	return errors.is_empty()
+
+
+func validate_clock(clock: Dictionary) -> void:
+	var expected := {
+		"epoch": "campaign_start", "unit": "simulation_minute",
+		"timezone": "America/New_York",
+		"utc_offset_minutes": -300, "automatic_host_dst_allowed": false,
+		"calendar_authority": "res://data/campaign_calendar.json",
+		"calendar": "gregorian", "host_clock_allowed": false,
+		"creation_time_sample_allowed": true,
+		"creation_time_sampler": "CampaignClock._sample_local_minute_of_day",
+		"host_calendar_fields_allowed": false,
+		"start_weekday": "derived_from_authored_calendar",
+		"start_time": "sample_local_time_of_day_once_at_campaign_creation",
+		"subsequent_host_clock_reads_forbidden": true,
+		"day_length_minutes": 1440,
+		"elapsed_time": "absolute_simulation_minutes",
+		"minute_of_day": "wrapped_presentation_and_schedule_value",
+		"doy": "legacy_365_month_day_key",
+		"leap_day_schedule_key": 0,
+		"civil_doy": "gregorian_leap_aware",
+		"first_sat": "first_saturday_of_current_month",
+		"schedule_year_days": 365,
+	}
+	for field: String in expected:
+		if clock.get(field) != expected[field]:
+			errors.append("simulation clock field %s must be %s" % [field, expected[field]])
+	if clock.has("calendar_year_days"):
+		errors.append("a Gregorian civil year cannot be fixed at 365 days")
 
 
 func shop_id(value: String) -> String:

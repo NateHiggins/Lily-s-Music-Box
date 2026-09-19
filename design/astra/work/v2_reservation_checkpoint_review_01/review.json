@@ -1,0 +1,39 @@
+{
+  "schema": "astra.v2-reservation-checkpoint.independent-review.v1",
+  "status": "CONTROLLER_AND_SEAL_REVISION_REQUIRED_BEFORE_ENGINE",
+  "head": "02fcb18a209624c9b609b65fb44b05b45c65de09",
+  "static_receipt": "static_checks.json",
+  "static_receipt_sha256": "d3953ce8304c559228368530f02af2d6edb0957c4ddec3d0c7347b41bbdfbf25",
+  "checks_passed": 14,
+  "checks_total": 14,
+  "current_dependency_hashes_verified": 19,
+  "production_rebase_required": false,
+  "definite_production_or_fixture_api_blocker_found": false,
+  "runtime_executed": false,
+  "offline_tests_executed": false,
+  "production_sources": {
+    "game/scripts/building/orison_v2_blockout.gd": {
+      "original": "0bdbb7df88d726c622e574a5c6dff30b630a2540aac1101ac9916de72844053e",
+      "candidate": "66461b7b78f68237f423a2c7e342d90bad809c34f6ac9612c0909b71dbce1ed2"
+    },
+    "game/scripts/building/orison_v2_runtime_root.gd": {
+      "original": "03d68b7a8f55572c722bb97d0de8b6d1b6644b2072e4d10bfce2a7605c8fe955",
+      "candidate": "ff25015be3201ce2afd3a754c79bf1becd0d9cf16c48dc2569fa70e7deb10bbc"
+    }
+  },
+  "required_changes": [
+    {"id": "R01", "kind": "execution_binding", "path": "design/astra/work/v2_reservation_runtime_01/preparation.json", "line": 4, "finding": "required_install_head remains null; no source hash drift requires rebase.", "repair": "Seal a preserved execution revision on HEAD02fcb; keep historical provenance and accepted terminal instruments unchanged."},
+    {"id": "R02", "kind": "requested_timeout", "path": "design/astra/work/v2_reservation_runtime_01/runtime/run.py", "line": 86, "finding": "Actual parameters and all four prepared requests specify60, not the requested180 seconds.", "repair": "Change parameters/request/README contract together and rebind hashes. Keep canonical native runner bytes unchanged."},
+    {"id": "R03", "kind": "restoration_contract", "path": "design/astra/work/v2_reservation_runtime_01/runtime/run.py", "line": 181, "finding": "Two-owner mutation precedes try/finally; a partial copy failure bypasses restoration. Unexpected-source refusal inside finally also precedes receipt writing.", "repair": "Protect source transition, validate bound restore inputs, restore only recognized owned bytes, verify immediate postcopy hashes, retain failure/refusal receipt on every mutation path.", "requested_controls": ["second-copy failure", "unexpected owned-source edit", "corrupt preinstall backup", "failed restoration write/hash", "active-process refusal"]},
+    {"id": "R04", "kind": "observed_concurrency_scope", "path": "design/astra/work/v2_reservation_runtime_01/runtime/run.py", "line": 140, "finding": "Owned child ancestry is checked, but foreign sampled Godot processes do not affect green assessment or phase progression if absent at restoration.", "repair": "Classify owned lineage versus foreign rows; preserve functional result but require review on observed overlap. Keep sampling and Linux-container blind spots explicit.", "requested_controls": ["owned wrapper launcher plus engine", "foreign engine appears and disappears before final census"]}
+  ],
+  "seal_order": ["Preserve old preparation and controls", "Update bounded controller/request/test/README leaves in a sibling revision", "Bind required_install_head and refreshed leaf hashes in preparation", "Refresh runtime instrument and parent-preparation hashes in package", "Run bounded offline controls and review new seal", "Root admits engine-empty native window after Docker batch cleanup", "Install only two new fixture files then execute four ordered phases"],
+  "expected_phases": [
+    {"phase": "01_candidate", "passed": 28, "total": 28, "native": 0, "ordinary_gate": 0, "control_contract": 0},
+    {"phase": "02_production_flag_omission", "passed": 25, "total": 28, "native": 1, "ordinary_gate": 1, "control_contract": 0},
+    {"phase": "03_restored_candidate", "passed": 28, "total": 28, "native": 0, "ordinary_gate": 0, "control_contract": 0},
+    {"phase": "04_terminal_regression", "passed": 39, "total": 39, "native": 0, "ordinary_gate": 0, "control_contract": 0}
+  ],
+  "expected_omission_failures": ["production selects reservation suppression before construction", "production suppresses all seventy envelopes", "production suppresses all eight landing clearances"],
+  "scope_limits": ["Static review only; GDScript compile/runtime remains unrun", "No broad game hash inventory was recomputed by reviewer", "Current install full-game baseline is recorded, not required wholly HEAD-clean", "Native PID census cannot see Linux-container Godot", "No traversal, navigation, listening, art, performance or full reservation completion claims", "Optional capture separate from four-phase invocation", "Earlier broader omission/capture plans remain unrun"]
+}

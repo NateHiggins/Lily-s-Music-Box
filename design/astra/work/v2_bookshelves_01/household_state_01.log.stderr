@@ -1,0 +1,8 @@
+ERROR: ORISON V2 RUNTIME: bookshelves refused: ["bookshelf clearance differs from native case", "bookshelf clearance differs from native case", "bookshelf clearance differs from native case", "bookshelf clearance differs from native case", "bookshelf clearance differs from native case", "bookshelf clearance differs from native case", "bookshelf clearance differs from native case", "bookshelf clearance differs from native case"]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:278)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:129)
+       [2] exercise (res://tests/orison_v2_household_state_test.gd:31)
+       [3] _ready (res://tests/orison_v2_household_state_test.gd:21)
+HOUSEHOLD STATE: fresh household state binds

@@ -1,0 +1,41 @@
+{
+  "anchors": [
+    {
+      "id": "F04_B_CLOSET_LT_FLUSH_DOME",
+      "level": "F04",
+      "space": "F04_B_CLOSET",
+      "position": [
+        -6.75,
+        3,
+        7.15
+      ],
+      "yaw": 0,
+      "kind": "fixture"
+    },
+    {
+      "id": "F04_B_CLOSET_SWITCH",
+      "level": "F04",
+      "space": "F04_B_ALCOVE_APPROACH",
+      "position": [
+        -7.64,
+        1.12,
+        7.95
+      ],
+      "yaw": 1.5707963267948966,
+      "kind": "interaction"
+    }
+  ],
+  "fixture": {
+    "id": "F04_B_CLOSET_LT_FLUSH_DOME",
+    "room": "F04_B_CLOSET",
+    "kind": "flush_dome",
+    "properties": {
+      "range_clamp": 3.0,
+      "energy_scale": 1.05
+    }
+  },
+  "switch": {
+    "id": "F04_B_CLOSET_SWITCH",
+    "room": "F04_B_CLOSET"
+  }
+}

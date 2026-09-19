@@ -1,0 +1,24 @@
+SCRIPT ERROR: Parse Error: Could not find type "RealitySaveStorage" in the current scope.
+   at: GDScript::reload (res://scripts/game/reality_game_state.gd:127)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/game_boot.gd:0)
+ERROR: Failed to load script "res://scripts/game_boot.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+ERROR: Failed to instantiate an autoload, script 'res://scripts/game/reality_game_state.gd' does not inherit from 'Node'.
+   at: start (main/main.cpp:4535)
+SCRIPT ERROR: Invalid access to property or key 'player_notice_changed' on a base object of type 'Nil'.
+   at: _ready (res://scripts/ui/save_status_notice.gd:15)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/ui/save_status_notice.gd:15)
+SCRIPT ERROR: Invalid call. Nonexistent function 'ensure_case' in base 'Nil'.
+   at: _ready (res://scripts/game/reality_case_manager.gd:37)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/game/reality_case_manager.gd:37)
+SCRIPT ERROR: Invalid call. Nonexistent function 'case_state' in base 'Nil'.
+   at: _ready (res://scripts/game/reality_rule_director.gd:25)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/game/reality_rule_director.gd:25)
+SCRIPT ERROR: Invalid access to property or key 'save_path' on a base object of type 'Nil'.
+   at: _ready (res://tests/reality_invalid_load_control.gd:11)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tests/reality_invalid_load_control.gd:11)

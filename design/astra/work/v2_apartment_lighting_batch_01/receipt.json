@@ -1,0 +1,200 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "godot": "NOT_RUN",
+  "fixtures_added": 15,
+  "switches_added": 15,
+  "anchors_added": 45,
+  "apartment_rooms_with_circuits": [
+    "F02_A_BATH",
+    "F02_A_BED",
+    "F02_A_KITCHEN",
+    "F02_A_MAIN",
+    "F02_A_PRIVATE_HALL",
+    "F02_A_VESTIBULE",
+    "F02_B_BATH",
+    "F02_B_BED",
+    "F02_B_KITCHEN",
+    "F02_B_MAIN",
+    "F02_B_PRIVATE_HALL",
+    "F02_B_VESTIBULE",
+    "F03_B_ALCOVE",
+    "F03_B_BATH",
+    "F03_B_KITCHEN",
+    "F03_B_MAIN",
+    "F03_B_PRIVATE_HALL",
+    "F03_B_VESTIBULE",
+    "F04_B_ALCOVE",
+    "F04_B_ALCOVE_APPROACH",
+    "F04_B_BATH",
+    "F04_B_CLOSET",
+    "F04_B_KITCHEN",
+    "F04_B_MAIN",
+    "F04_B_PRIVATE_HALL",
+    "F04_B_VESTIBULE"
+  ],
+  "source_checks": [
+    {
+      "room": "F02_A_VESTIBULE",
+      "wall_owners": [
+        "F02_A_VESTIBULE:north"
+      ],
+      "eye_to_switch_m": 0.8603487664894975,
+      "obstacle_clearances_m": {}
+    },
+    {
+      "room": "F02_A_KITCHEN",
+      "wall_owners": [
+        "F02_A_MAIN:north"
+      ],
+      "eye_to_switch_m": 1.0028459502834923,
+      "obstacle_clearances_m": {
+        "2A_sink_support": 3.2359542642009007,
+        "2A_k_wall_cupboard": 3.3545355863368025,
+        "2A_prep_cabinet": 2.8577657356753376,
+        "F02_2A_FRIDGE_01": 1.1899999999999995,
+        "F02_2A_KITCHEN_SINK_01": 3.2643835558953547,
+        "F02_2A_STOVE_01": 1.9209372712298556
+      }
+    },
+    {
+      "room": "F02_A_PRIVATE_HALL",
+      "wall_owners": [
+        "F02_A_PRIVATE_HALL:west"
+      ],
+      "eye_to_switch_m": 0.7209022125087424,
+      "obstacle_clearances_m": {}
+    },
+    {
+      "room": "F02_A_BATH",
+      "wall_owners": [
+        "WEST_WET_STACK:solid_face"
+      ],
+      "eye_to_switch_m": 1.147257599669751,
+      "obstacle_clearances_m": {
+        "2A_wc": 0.49819674828324484,
+        "F02_2A_SINK_01": 0.7199999999999998,
+        "F02_2A_SHOWER_01": 0.5764655236872365
+      }
+    },
+    {
+      "room": "F02_A_BED",
+      "wall_owners": [
+        "F02_A_PRIVATE_HALL:west"
+      ],
+      "eye_to_switch_m": 0.9558765610684252,
+      "obstacle_clearances_m": {
+        "2A_bed0": 2.83074636800968,
+        "2A_bed0_ns": 3.9175140076329007,
+        "2A_w0_wardrobe": 3.9300000000000006,
+        "2A_desk": 1.75,
+        "2A_desk_dkch": 2.35261556570554,
+        "2A_pinboard": 2.0599779125029474
+      }
+    },
+    {
+      "room": "F02_B_VESTIBULE",
+      "wall_owners": [
+        "F02_B_VESTIBULE:north"
+      ],
+      "eye_to_switch_m": 0.9550916186418974,
+      "obstacle_clearances_m": {}
+    },
+    {
+      "room": "F02_B_MAIN",
+      "wall_owners": [
+        "F02_B_MAIN:west"
+      ],
+      "eye_to_switch_m": 0.9550916186418977,
+      "obstacle_clearances_m": {
+        "2B_din_t": 1.6500000000000004,
+        "2B_din_dc1": 0.9903217532251993,
+        "2B_din_dc2": 2.0980467106334877,
+        "2B_fabric_worktable": 0.4,
+        "2B_story_pattern_board": 0.984,
+        "2B_wireless_table": 2.74
+      }
+    },
+    {
+      "room": "F02_B_KITCHEN",
+      "wall_owners": [
+        "F02_B_KITCHEN:east"
+      ],
+      "eye_to_switch_m": 0.9075791976461348,
+      "obstacle_clearances_m": {
+        "2B_sink_support": 1.6499999999999986,
+        "2B_k_wall_cupboard": 1.8969999999999985,
+        "2B_prep_cabinet": 0.71,
+        "F02_2B_KITCHEN_SINK_01": 1.629999999999999,
+        "F02_2B_STOVE_01": 1.694963126442578,
+        "F02_2B_FRIDGE_01": 1.9549424543960363
+      }
+    },
+    {
+      "room": "F02_B_BED",
+      "wall_owners": [
+        "F02_B_BED:east"
+      ],
+      "eye_to_switch_m": 0.9075791976461348,
+      "obstacle_clearances_m": {
+        "2B_abed": 0.5297405025104269,
+        "2B_aw_wardrobe": 1.5
+      }
+    },
+    {
+      "room": "F02_B_PRIVATE_HALL",
+      "wall_owners": [
+        "F02_B_PRIVATE_HALL:east"
+      ],
+      "eye_to_switch_m": 0.9550916186418977,
+      "obstacle_clearances_m": {
+        "2B_fabric_shelf_01": 1.0511898020814319,
+        "2B_fabric_shelf_02": 1.1423659658795857
+      }
+    },
+    {
+      "room": "F02_B_BATH",
+      "wall_owners": [
+        "F02_B_BED:east"
+      ],
+      "eye_to_switch_m": 0.8603487664894962,
+      "obstacle_clearances_m": {
+        "2B_wc": 1.2741271522104858,
+        "F02_2B_SINK_01": 1.386542462386206,
+        "F02_2B_SHOWER_01": 0.8525000000000009
+      }
+    },
+    {
+      "room": "F03_B_VESTIBULE",
+      "wall_owners": [
+        "F03_B_VESTIBULE:north"
+      ],
+      "eye_to_switch_m": 0.9550916186418974,
+      "obstacle_clearances_m": {}
+    },
+    {
+      "room": "F03_B_PRIVATE_HALL",
+      "wall_owners": [
+        "F03_B_PRIVATE_HALL:east"
+      ],
+      "eye_to_switch_m": 0.9550916186418977,
+      "obstacle_clearances_m": {}
+    },
+    {
+      "room": "F04_B_VESTIBULE",
+      "wall_owners": [
+        "F04_B_VESTIBULE:north"
+      ],
+      "eye_to_switch_m": 0.9075791976461338,
+      "obstacle_clearances_m": {}
+    },
+    {
+      "room": "F04_B_ALCOVE_APPROACH",
+      "wall_owners": [
+        "F04_B_ALCOVE_APPROACH:north"
+      ],
+      "eye_to_switch_m": 0.9075791976461342,
+      "obstacle_clearances_m": {}
+    }
+  ],
+  "limits": "Door sweep review is an estimate; physical targeting, light appearance, budgets, persistence and lifecycle require runtime validation."
+}

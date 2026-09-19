@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "status": "PASS",
+  "scene": "res://tests/OrisonV2UpperEquipmentShot.tscn",
+  "project_path": "C:\\PleaseRemainOnTheLine-astra\\game",
+  "run_directory": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01",
+  "started_utc": "2026-09-19T14:17:38.9669600Z",
+  "elapsed_seconds": 35.643,
+  "timeout_seconds": 60,
+  "resolution": "1280x720",
+  "capture_gates": {},
+  "engine_exit": 0,
+  "expected_frames": 14,
+  "actual_frames": 14,
+  "zero_byte_frames": 0,
+  "temp_log": "C:\\Users\\nate_\\AppData\\Local\\Temp\\orison_capture_equipment_01_20260919T141738966Z.log",
+  "filtered_process_output": [
+    "[PASSAGE HOURS] OPEN; 10 grilles folded",
+    "[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service",
+    "[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active",
+    "[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters",
+    "[V2 UPPER EQUIPMENT CAPTURE] 1/14 label=5A_pins1 elapsed=11.477 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/5A_pins1.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 2/14 label=5A_pins2 elapsed=13.012 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/5A_pins2.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 3/14 label=5A_floorstack elapsed=14.579 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/5A_floorstack.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 4/14 label=5B_k_hob_radio0 elapsed=16.094 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/5B_k_hob_radio0.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 5/14 label=5B_k_hob_radio1 elapsed=17.659 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/5B_k_hob_radio1.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 6/14 label=5B_story_radio elapsed=19.171 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/5B_story_radio.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 7/14 label=5C_story_colorboard elapsed=20.781 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/5C_story_colorboard.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 8/14 label=6A_tripod elapsed=22.295 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/6A_tripod.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 9/14 label=6A_soft1 elapsed=23.873 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/6A_soft1.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 10/14 label=6A_soft2 elapsed=25.422 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/6A_soft2.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 11/14 label=6A_gearcrate elapsed=27.003 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/6A_gearcrate.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 12/14 label=6A_coil1 elapsed=28.559 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/6A_coil1.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 13/14 label=6A_coil2 elapsed=30.094 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/6A_coil2.png",
+    "[V2 UPPER EQUIPMENT CAPTURE] 14/14 label=6C_story_old_radio elapsed=31.614 path=C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\v2_upper_equipment_01\\equipment_01/6C_story_old_radio.png",
+    "[V2 UPPER EQUIPMENT] RESULT: PASS captures=14 expected=14 elapsed=31.619"
+  ],
+  "files": [
+    {
+      "name": "5A_floorstack.png",
+      "bytes": 1009507,
+      "sha256": "9eb3a3e1722fb2ba4007cbbf9751c36c2a56f1ac477d07bd3b80a8fad9607bbc"
+    },
+    {
+      "name": "5A_pins1.png",
+      "bytes": 950243,
+      "sha256": "685feace110541514b5b4872942790e7161f3ee5ae091b8c6b4b7c21da180e88"
+    },
+    {
+      "name": "5A_pins2.png",
+      "bytes": 1253980,
+      "sha256": "452370e9243600d1d5d5e1865bfa89f4103b4389d5d126082063d6fadf50f83d"
+    },
+    {
+      "name": "5B_k_hob_radio0.png",
+      "bytes": 826181,
+      "sha256": "56bfe6709f4f79d8151303bb544de26471b7403da37ac3c565633f6cd0096f61"
+    },
+    {
+      "name": "5B_k_hob_radio1.png",
+      "bytes": 783583,
+      "sha256": "d2294333b8c6457a7c92a569df613a1484024fbbbf70afe8313711cee0604450"
+    },
+    {
+      "name": "5B_story_radio.png",
+      "bytes": 880775,
+      "sha256": "c3bac54e5dfb07682111ce67ed525b81c0bb83e149012200c9a125d673f37ddc"
+    },
+    {
+      "name": "5C_story_colorboard.png",
+      "bytes": 1136400,
+      "sha256": "fb1f7f5408562d44fd97be6044d15a66df5787fbafc7daeef2a917f8bb244197"
+    },
+    {
+      "name": "6A_coil1.png",
+      "bytes": 797808,
+      "sha256": "3e52d95f44e8fe055e1dee63e37c1355f0f83d18b44937993dfdf9392d91691f"
+    },
+    {
+      "name": "6A_coil2.png",
+      "bytes": 771786,
+      "sha256": "8dce49a614a74730fd46079628824bb38ea83156e53fe9c63fd4c34741619d08"
+    },
+    {
+      "name": "6A_gearcrate.png",
+      "bytes": 833125,
+      "sha256": "19b1eee0e47abc4d15d7f1e9bcf2169d91b4bb159be4f780b7dbd47b83d7eb74"
+    },
+    {
+      "name": "6A_soft1.png",
+      "bytes": 734819,
+      "sha256": "ca58566c0fa7cf1705617a7eae0c85a8b0b115d0ea2d5b09f812e6894c3155ed"
+    },
+    {
+      "name": "6A_soft2.png",
+      "bytes": 782850,
+      "sha256": "d0039a67449905ae7967ebedc1aefb0e6d1e6ac8d2ddb250edb9ee417bd77928"
+    },
+    {
+      "name": "6A_tripod.png",
+      "bytes": 743601,
+      "sha256": "9a6f1aa1f228770d310b04907707e8ae7aeb8bed1d2172a037960133de05cd8a"
+    },
+    {
+      "name": "6C_story_old_radio.png",
+      "bytes": 977618,
+      "sha256": "ea4eddc6a0854cdd6fa031d2caad8c76f32efffef085726549ad442762e76a54"
+    }
+  ]
+}

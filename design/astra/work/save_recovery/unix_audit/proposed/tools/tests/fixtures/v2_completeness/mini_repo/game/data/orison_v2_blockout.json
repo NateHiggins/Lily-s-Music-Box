@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "layout_id": "mini_v2_blockout",
+  "status": "development_only",
+  "production_default": false,
+  "levels": [
+    {"id": "F01", "y": 0.0},
+    {"id": "F02", "y": 3.2}
+  ],
+  "spaces": [
+    {"id": "F01_STREET_APRON", "level": "F01", "class": "public", "rect": [-3, -15, 3, -11], "purpose": "street threshold review approach", "open_shell": true},
+    {"id": "F01_VESTIBULE", "level": "F01", "class": "public", "rect": [-2, -11, 2, -9], "purpose": "weather lock and address"},
+    {"id": "F01_LOBBY", "level": "F01", "class": "public", "rect": [-5, -9, 5, -3], "purpose": "arrival, waiting and orientation"},
+    {"id": "F01_WATCH", "level": "F01", "class": "service", "rect": [-9, -3, -5, 1], "purpose": "watch, keys and annunciator"},
+    {"id": "F01_PUBLIC_CORE", "level": "F01", "class": "core", "rect": [0, -3, 3, 1], "purpose": "passenger lift and primary stair"},
+    {"id": "F01_DEAD_STORE", "level": "F01", "class": "service", "rect": [6, -3, 8, 0], "purpose": "storage nobody can reach"},
+    {"id": "F02_LANDING", "level": "F02", "class": "public", "rect": [0, -3, 3, 1], "purpose": "floor and unit decision", "open_shell": true},
+    {"id": "F02_WEST_HALL", "level": "F02", "class": "public", "rect": [-5, -3, 0, 1], "purpose": "2A public approach"},
+    {"id": "F02_A_VESTIBULE", "level": "F02", "class": "private", "rect": [-6, 0, -5, 2], "purpose": "2A privacy and distribution"},
+    {"id": "F02_A_MAIN", "level": "F02", "class": "private", "rect": [-10, 0, -6, 5], "purpose": "Mina living, caption work and conversation"},
+    {"id": "F02_A_KITCHEN", "level": "F02", "class": "private", "rect": [-10, -3, -6, 0], "purpose": "cooking and washing"},
+    {"id": "F02_A_BATH", "level": "F02", "class": "wet", "rect": [-5, 5, -2, 9], "purpose": "private sanitary room"},
+    {"id": "F02_A_BED", "level": "F02", "class": "private", "rect": [-10, 5, -5, 9], "purpose": "sleep and clothes storage"},
+    {"id": "F02_SHELL_SPACE", "level": "F02", "class": "service", "rect": [5, -3, 8, 0], "purpose": "", "open_shell": true}
+  ],
+  "doors": [
+    {"id": "F01_DOOR_06", "level": "F01", "center": [0, -11], "width": 1.1, "connects": ["F01_STREET_APRON", "F01_VESTIBULE"]},
+    {"id": "F01_INNER_DOOR", "level": "F01", "center": [0, -9], "width": 1.0, "connects": ["F01_VESTIBULE", "F01_LOBBY"]},
+    {"id": "F01_WATCH_DOOR", "level": "F01", "center": [-5, -1], "width": 0.91, "connects": ["F01_LOBBY", "F01_WATCH"]},
+    {"id": "F02_DOOR_02", "level": "F02", "center": [-5.5, 1], "width": 0.91, "connects": ["F02_WEST_HALL", "F02_A_VESTIBULE"]},
+    {"id": "F02_A_BATH_DOOR", "level": "F02", "center": [-5, 6], "width": 0.81, "connects": ["F02_A_MAIN", "F02_A_BATH"]},
+    {"id": "F02_A_BED_DOOR", "level": "F02", "center": [-7, 5], "width": 0.81, "connects": ["F02_A_MAIN", "F02_A_BED"]}
+  ],
+  "openings": [
+    {"id": "F01_LOBBY_CORE_OPENING", "level": "F01", "connects": ["F01_LOBBY", "F01_PUBLIC_CORE"]},
+    {"id": "F02_LANDING_HALL_OPENING", "level": "F02", "connects": ["F02_LANDING", "F02_WEST_HALL"]},
+    {"id": "F02_A_MAIN_OPENING", "level": "F02", "connects": ["F02_A_VESTIBULE", "F02_A_MAIN"]},
+    {"id": "F02_A_KITCHEN_OPENING", "level": "F02", "connects": ["F02_A_MAIN", "F02_A_KITCHEN"]}
+  ],
+  "anchors": [
+    {"id": "F02_A_MAIN_VANTRY_POINT", "level": "F02", "position": [-8.0, 1.25, 2.0], "kind": "interaction"},
+    {"id": "F02_A_MONITOR_01", "level": "F02", "position": [-8.5, 1.25, 2.5], "kind": "interaction"},
+    {"id": "LobbyPorterBoard", "level": "F01", "position": [-7.0, 1.1, -1.0], "kind": "interaction"},
+    {"id": "FLOATING_ANCHOR", "level": "F01", "position": [12.0, 1.0, 12.0], "kind": "interaction"},
+    {"id": "STREET_LOOK", "level": "F01", "position": [0.0, 1.4, -14.0], "kind": "review"}
+  ],
+  "risers": [
+    {"id": "WEST_WET_STACK", "rect": [-6, 3, -5.5, 6], "from_y": -3.2, "to_y": 19.2, "class": "wet"},
+    {"id": "HEAT_STACK", "rect": [3, -1, 3.5, 0], "from_y": 0.0, "to_y": 6.4, "class": "service"}
+  ],
+  "stairs": [
+    {"id": "PRIMARY_F01_F02", "kind": "u", "from": "F01", "to": "F02", "origin": [1.7, -3.1], "width": 1.2}
+  ],
+  "lift_landings": [
+    {"id": "F01_PASSENGER_LIFT_LANDING", "level": "F01", "shaft": "PASSENGER_LIFT_SHAFT", "center": [0, -2.8]}
+  ]
+}

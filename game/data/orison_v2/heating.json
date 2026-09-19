@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "network": [
+    {
+      "kind": "radiator",
+      "id": "F01_LOBBY_RADIATOR_01",
+      "pos": [
+        -4.6,
+        -9.3,
+        0.0
+      ],
+      "yaw_deg": 0,
+      "network": "heating",
+      "riser": "H-A",
+      "unit": "LOBBY",
+      "sections": 9
+    },
+    {
+      "kind": "radiator",
+      "id": "F01_A_RADIATOR_01",
+      "pos": [
+        -13.35,
+        -5.05,
+        0.0
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-A",
+      "sections": 7,
+      "unit": "1A"
+    },
+    {
+      "kind": "radiator",
+      "id": "F01_D_RADIATOR_01",
+      "pos": [
+        13.35,
+        -5.325,
+        0.0
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-D",
+      "sections": 7,
+      "unit": "1D"
+    },
+    {
+      "kind": "radiator",
+      "id": "F02_A_RADIATOR_01",
+      "pos": [
+        -13.35,
+        -5.05,
+        3.2
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-A",
+      "sections": 8,
+      "unit": "2A"
+    },
+    {
+      "kind": "radiator",
+      "id": "F02_B_RADIATOR_01",
+      "pos": [
+        -13.35,
+        6.16,
+        3.2
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-B",
+      "sections": 9,
+      "unit": "2B"
+    },
+    {
+      "kind": "radiator",
+      "id": "F02_C_RADIATOR_01",
+      "pos": [
+        13.35,
+        4.385,
+        3.2
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-C",
+      "sections": 7,
+      "unit": "2C"
+    },
+    {
+      "kind": "radiator",
+      "id": "F02_D_RADIATOR_01",
+      "pos": [
+        13.35,
+        -5.325,
+        3.2
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-D",
+      "sections": 8,
+      "unit": "2D"
+    },
+    {
+      "kind": "radiator",
+      "id": "F03_A_RADIATOR_01",
+      "pos": [
+        -13.35,
+        -5.05,
+        6.4
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-A",
+      "sections": 9,
+      "unit": "3A"
+    },
+    {
+      "kind": "radiator",
+      "id": "F03_B_RADIATOR_01",
+      "pos": [
+        -13.35,
+        6.16,
+        6.4
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-B",
+      "sections": 7,
+      "unit": "3B"
+    },
+    {
+      "kind": "radiator",
+      "id": "F03_C_RADIATOR_01",
+      "pos": [
+        13.35,
+        4.385,
+        6.4
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-C",
+      "sections": 8,
+      "unit": "3C"
+    },
+    {
+      "kind": "radiator",
+      "id": "F03_D_RADIATOR_01",
+      "pos": [
+        13.35,
+        -5.325,
+        6.4
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-D",
+      "sections": 9,
+      "unit": "3D"
+    },
+    {
+      "kind": "radiator",
+      "id": "F04_A_RADIATOR_01",
+      "pos": [
+        -13.35,
+        -5.05,
+        9.6
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-A",
+      "sections": 7,
+      "unit": "4A"
+    },
+    {
+      "kind": "radiator",
+      "id": "F04_B_RADIATOR_01",
+      "unit": "4B",
+      "pos": [
+        -7.96,
+        7.48,
+        9.6
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-B",
+      "sections": 8
+    },
+    {
+      "kind": "radiator",
+      "id": "F04_C_RADIATOR_01",
+      "pos": [
+        13.35,
+        4.385,
+        9.6
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-C",
+      "sections": 9,
+      "unit": "4C"
+    },
+    {
+      "kind": "radiator",
+      "id": "F04_D_RADIATOR_01",
+      "pos": [
+        13.35,
+        -5.325,
+        9.6
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-D",
+      "sections": 7,
+      "unit": "4D"
+    },
+    {
+      "kind": "radiator",
+      "id": "F05_A_RADIATOR_01",
+      "pos": [
+        -13.35,
+        -5.05,
+        12.8
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-A",
+      "sections": 8,
+      "unit": "5A"
+    },
+    {
+      "kind": "radiator",
+      "id": "F05_B_RADIATOR_01",
+      "pos": [
+        -13.35,
+        6.16,
+        12.8
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-B",
+      "sections": 9,
+      "unit": "5B"
+    },
+    {
+      "kind": "radiator",
+      "id": "F05_C_RADIATOR_01",
+      "pos": [
+        13.35,
+        4.385,
+        12.8
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-C",
+      "sections": 7,
+      "unit": "5C"
+    },
+    {
+      "kind": "radiator",
+      "id": "F05_D_RADIATOR_01",
+      "pos": [
+        13.35,
+        -5.325,
+        12.8
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-D",
+      "sections": 8,
+      "unit": "5D"
+    },
+    {
+      "kind": "radiator",
+      "id": "F06_A_RADIATOR_01",
+      "pos": [
+        -13.35,
+        -5.05,
+        16.0
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-A",
+      "sections": 9,
+      "unit": "6A"
+    },
+    {
+      "kind": "radiator",
+      "id": "F06_B_RADIATOR_01",
+      "pos": [
+        -13.35,
+        6.16,
+        16.0
+      ],
+      "yaw_deg": 90,
+      "network": "heating",
+      "riser": "H-B",
+      "sections": 7,
+      "unit": "6B"
+    },
+    {
+      "kind": "radiator",
+      "id": "F06_C_RADIATOR_01",
+      "pos": [
+        13.35,
+        4.385,
+        16.0
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-C",
+      "sections": 8,
+      "unit": "6C"
+    },
+    {
+      "kind": "radiator",
+      "id": "F06_D_RADIATOR_01",
+      "pos": [
+        13.35,
+        -5.325,
+        16.0
+      ],
+      "yaw_deg": -90,
+      "network": "heating",
+      "riser": "H-D",
+      "sections": 9,
+      "unit": "6D"
+    }
+  ],
+  "installed": [
+    {
+      "id": "F02_A_RADIATOR_01",
+      "unit": "2A",
+      "riser": "H-A",
+      "sections": 8
+    },
+    {
+      "id": "F02_B_RADIATOR_01",
+      "unit": "2B",
+      "riser": "H-B",
+      "sections": 10
+    },
+    {
+      "id": "F03_A_RADIATOR_01",
+      "unit": "3A",
+      "riser": "H-A",
+      "sections": 9
+    },
+    {
+      "id": "F03_B_RADIATOR_01",
+      "unit": "3B",
+      "riser": "H-B",
+      "sections": 7
+    },
+    {
+      "id": "F04_A_RADIATOR_01",
+      "unit": "4A",
+      "riser": "H-A",
+      "sections": 7
+    },
+    {
+      "id": "F04_B_RADIATOR_01",
+      "unit": "4B",
+      "riser": "H-B",
+      "sections": 8
+    },
+    {
+      "id": "F05_A_RADIATOR_01",
+      "unit": "5A",
+      "riser": "H-A",
+      "sections": 8
+    },
+    {
+      "id": "F05_B_RADIATOR_01",
+      "unit": "5B",
+      "riser": "H-B",
+      "sections": 9
+    },
+    {
+      "id": "F05_C_RADIATOR_01",
+      "unit": "5C",
+      "riser": "H-C",
+      "sections": 7
+    },
+    {
+      "id": "F06_A_RADIATOR_01",
+      "unit": "6A",
+      "riser": "H-A",
+      "sections": 9
+    },
+    {
+      "id": "F06_B_RADIATOR_01",
+      "unit": "6B",
+      "riser": "H-B",
+      "sections": 7
+    },
+    {
+      "id": "F06_C_RADIATOR_01",
+      "unit": "6C",
+      "riser": "H-C",
+      "sections": 8
+    }
+  ]
+}

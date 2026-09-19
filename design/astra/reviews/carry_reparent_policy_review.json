@@ -1,0 +1,34 @@
+{
+  "schema": "astra.carry-reparent.source-review.v1",
+  "reviewed_at_utc": "2026-09-05T10:48:03.560708+00:00",
+  "head_observed": "da68962aaeaabf56851abb7190dda14d7ff5675f",
+  "current_raw_sources_sha256": {
+    "game/scripts/building/furniture_interaction_pass.gd": "7879b5ab4c88dfb50ecb4813997bdca2baaeca29d988ff8110fcfd724b7d2cdf",
+    "game/scripts/props/baked_furniture_interaction.gd": "79693c5623ab062e2e7e48d5b174f94f4037d08a0b39720dbad1daeab3c122ea",
+    "game/scripts/characters/resident_routines.gd": "2a34334b157d0c895437b03d9d88c6a21cfc5645329bb0104bee248540642d3a",
+    "game/scripts/reality/apartment_encroachment.gd": "1a1b067ff5b95c03fea739747c97deaaf9621e03a635b318b3379cef07bd3776",
+    "game/scripts/device/service_set_carrier.gd": "c4295504652b9ee574fb7616159aa5023bac09c3a581ace5808c4c5d637ada1e",
+    "game/scripts/game/maintenance_inventory.gd": "7dd39871ce706caba74e7b7ba442781b469027f5a95ee0b2ab24daca1e6bf47f",
+    "game/scripts/props/tour_key_guard_prop.gd": "2d207e89cf3506efdaa4f4b619058c712d93d8229c379c9bf553798ef2f37235",
+    "game/scripts/props/passage_pushcart.gd": "5d87c91e3cd6ce4c1ff76f27fd02a55e87ae456961f82ced515af1d046a7ec23",
+    "game/scripts/building/passage_finish_pass.gd": "ab0fd9b9ab4d22c269a131b635bd291b39363db30bcff28394f93039b6cc33e8",
+    "game/scripts/building/vantry_point_network.gd": "37345934896706e4b94295bd41c83abc8caecbef25610a2e10fc21b98286c0cd",
+    "game/scripts/game/chirp_hunt.gd": "d2bb25ad45d2e4e291cc6dbea98f03d8221224e0dc0049cc325add0cbeb5eb28",
+    "game/scripts/building/surface_pass.gd": "2e7fc9f4bcbdc886affe92f46e2c6ca10194290abd411b57c4be46846687d327",
+    "game/scripts/building/building_root.gd": "cde44cd16b9ebdfedde0bcda34b404c2a675adffe106ba4ac0d576d26e8e1fd4",
+    "game/scripts/dream/dream_residue.gd": "346f517b86a5883b81af847aca3b8d68e4eb035210893b5b08f2a76d6a90226f",
+    "game/shaders/orison_surface.gdshaderinc": "91bcb14baa6f95d21d58eea6cbaef5d913f25acfc0eb9a6afc421dad58f48554",
+    "design/DREAM_ENCROACHMENT_BRIEF.md": "624cee7d82e6a66bd10a4d9f90374831f9fecd89ec623b503f27498e50da0c53",
+    "design/LIVING_FIELD_BRIEF.md": "3fe1c5bcf1995931160b8fe3e49e9bc216e0a672e3387b42694c933ceb1cc55e",
+    "design/DREAM_FIELD_DIRECTION.md": "31f2c21c89052913a4b1d500b486e29c70825782392a8f863533ec1d21eae203"
+  },
+  "method": "Read-only source/design trace. No engine or physics experiment. Hashes bind selected current sources, including uncommitted owner1a overlay; no full game/asset census.",
+  "ordinary_case_tagged_cross_floor_carry_found": false,
+  "dormant_pooled_relocation_seam": "VantryPointNetwork.activate/_move_owner; ChirpHunt.relocate has no current production caller.",
+  "no_canon_transfer_rule_found": "No reviewed authority assigns a case tag or portable residue to an object transported between storeys.",
+  "limits": [
+    "No claim that every possible pushcart physics trajectory is impossible.",
+    "World-space residue records do not by themselves define a future moving-object policy.",
+    "No C1 or game source changed."
+  ]
+}

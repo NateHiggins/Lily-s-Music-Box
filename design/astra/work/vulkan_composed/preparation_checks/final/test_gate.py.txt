@@ -1,0 +1,68 @@
+"""Prepared parser controls; no engine or live-game mutation."""
+import copy
+from pathlib import Path
+import tempfile
+import unittest
+from gate import classify
+
+
+class GateControls(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        capture = Path(self.tmp.name) / 'fixture.png'
+        capture.write_bytes(b'not_image_proof_parser_fixture_only')
+        self.stdout = 'Godot Engine v4.7.1.stable.official.a13da4feb\nVulkan 1.4 / Forward+\n[VULKAN COMPOSED PHASE] after_retirement\n'
+        self.probe = {'root': 'v2', 'variant': 'candidate', 'renderer': 'forward_plus', 'pid': 123,
+                      'functional_failures': 0, 'checks': [{'passed': True}],
+                      'captures': [{'name': n, 'written': True, 'file': str(capture)}
+                                   for n in ['v2_actual_f04_semantic_stance', 'v2_actual_f04_phone']]}
+
+    def tearDown(self): self.tmp.cleanup()
+
+    def gate(self, stderr='', **changes):
+        arguments = dict(engine_exit=0, stdout=self.stdout, stderr=stderr, probe=self.probe,
+                         source_unchanged=True, engine_bound=True)
+        arguments.update(changes)
+        return classify(**arguments)
+
+    def test_clean_parser_fixture(self): self.assertEqual(self.gate()['diagnostic_gate_exit'], 0)
+    def test_native_unpair_despite_engine_zero(self):
+        result = self.gate('ERROR: BUG, indexing did not unpair geometries from light.')
+        self.assertEqual((result['diagnostic_gate_exit'], result['unpair_errors'], result['soft_shadow_underflows']), (1, 1, 0))
+    def test_exact_retained_softshadow_nospace(self):
+        result = self.gate('ERROR: geom->softshadow_count==0 - BUG!')
+        self.assertEqual((result['diagnostic_gate_exit'], result['unpair_errors'], result['soft_shadow_underflows']), (1, 0, 1))
+    def test_spaced_softshadow_separate(self):
+        result = self.gate('ERROR: geom->softshadow_count == 0 - BUG!')
+        self.assertEqual(result['soft_shadow_underflows'], 1)
+    def test_unknown_vulkan_error(self): self.assertEqual(self.gate('ERROR: unexpected Vulkan device error')['diagnostic_gate_exit'], 1)
+    def test_only_exact_inherited_manifest(self):
+        header = 'ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message\n'
+        self.assertEqual(self.gate(header + 'loader_get_json: Failed to open JSON file C:\\TikTok LIVE Studio\\x.json')['diagnostic_gate_exit'], 0)
+        self.assertEqual(self.gate(header + 'different driver fault')['diagnostic_gate_exit'], 1)
+    def test_source_drift(self): self.assertEqual(self.gate(source_unchanged=False)['diagnostic_gate_exit'], 1)
+    def test_engine_binding(self): self.assertEqual(self.gate(engine_bound=False)['diagnostic_gate_exit'], 1)
+    def test_retention(self): self.assertEqual(self.gate('WARNING: ObjectDB instances leaked at exit')['diagnostic_gate_exit'], 1)
+    def test_missing_capture(self):
+        probe = copy.deepcopy(self.probe)
+        probe['captures'].pop()
+        self.assertEqual(self.gate(probe=probe)['diagnostic_gate_exit'], 1)
+    def test_incomplete_retirement(self): self.assertEqual(self.gate(stdout=self.stdout.split('[VULKAN')[0])['diagnostic_gate_exit'], 1)
+    def test_functional_failure(self):
+        probe = copy.deepcopy(self.probe)
+        probe['checks'][0]['passed'] = False
+        self.assertEqual(self.gate(probe=probe)['diagnostic_gate_exit'], 1)
+    def test_bad_probe_identity(self):
+        probe = copy.deepcopy(self.probe)
+        probe['root'] = 'made_up'
+        self.assertEqual(self.gate(probe=probe)['diagnostic_gate_exit'], 1)
+    def test_unrelated_failures_cannot_validate_omission_red(self):
+        probe = copy.deepcopy(self.probe)
+        probe['variant'] = 'omission'
+        error = 'ERROR: BUG, indexing did not unpair geometries from light.'
+        self.assertTrue(self.gate(error, probe=probe)['expected_unpair_red_observed'])
+        self.assertFalse(self.gate(error, probe=probe, source_unchanged=False)['expected_unpair_red_observed'])
+        self.assertFalse(self.gate(error + '\nERROR: unrelated crash', probe=probe)['expected_unpair_red_observed'])
+
+
+if __name__ == '__main__': unittest.main()

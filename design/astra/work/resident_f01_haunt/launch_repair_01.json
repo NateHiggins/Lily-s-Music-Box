@@ -1,0 +1,12 @@
+{
+  "scope": "Harness-only launch repair after original_haunt_01 rejected before engine startup; no serialrunner/game change.",
+  "original_run": "design/astra/evidence/resident_f01_haunt/original_haunt_01/result.json",
+  "old_wrapper_copy": "design/astra/evidence/resident_f01_haunt/original_haunt_01/run_haunt.source.py",
+  "old_wrapper_sha256": "3fc76b7d330ed08dd0504a476d08b91252790ae50e514a7b6f0522de27c5b1b2",
+  "new_wrapper_sha256": "0622b9123c3097fce66d0d13b451307e7091d58352b616aa9c390c86fd7af7de",
+  "repair": [
+    "Timeout180 matches unchanged runner maximum.",
+    "PowerShell ErrorActionPreference Stop makes parameter validation fail the wrapper instead of exiting with unset LASTEXITCODE."
+  ],
+  "historical_limits": "original_haunt_01 native_exit field reflects wrapper0 only; actual engine never launched, gate1, no gameplay proof."
+}

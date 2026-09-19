@@ -1,0 +1,70 @@
+{
+  "phase": "focused",
+  "status": "COMPLETE",
+  "runs": [
+    {
+      "name": "01_original_focused",
+      "result_sha256": "a9c35ba35beb6b1e84aab2db9555d9c0f83bb0ba6a3a04ca2f3dbc759098fd8a",
+      "actual_runner_exit": 8,
+      "assessment": {
+        "expected": "old_direct",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [
+            "validated clear short segment uses exact endpoints",
+            "reverse clear short segment uses exact endpoints",
+            "exact maximum length is admitted",
+            "envelope contains production Body capsule",
+            "removed side obstruction restores shortcut",
+            "restored physical floor admits shortcut",
+            "fresh validation admits shortcut",
+            "null revalidation revokes admission"
+          ],
+          "checks": 33
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 8,
+        "diagnostic_gate_exit": 1,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    },
+    {
+      "name": "02_candidate_focused",
+      "result_sha256": "8f3fb24ea50ead28d16ca7bfff1a3fc237a0e55260f00b4ad5f78953f6adc2b2",
+      "actual_runner_exit": 0,
+      "assessment": {
+        "expected": "green",
+        "structure": {
+          "complete": true,
+          "errors": [],
+          "failed": [],
+          "checks": 33
+        },
+        "runner_condition": null,
+        "completed_fixture_exit": 0,
+        "diagnostic_gate_exit": 0,
+        "control_acceptance_exit": 0,
+        "reasons": [],
+        "known_warning_debt": {
+          "known host registry warning": 1,
+          "known duplicate OBS layer warning": 1
+        },
+        "native_error_scope": "Expected reds retain nonzero diagnostic exit; only their exact declared control can be admissible."
+      }
+    }
+  ],
+  "mutations": [
+    {
+      "path": "game/scripts/characters/resident_nav.gd",
+      "installed_sha256": "9e0840a037ef8c2a10e394eeba8a1539cc29d8e7c4b34926b232942a94687f44"
+    }
+  ],
+  "scope": "Exact declared controls only; raw diagnostic red stays red."
+}

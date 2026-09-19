@@ -1,0 +1,32 @@
+{
+  "status": "PREPARED_NOT_INSTALLED_OR_GODOT_EXECUTED",
+  "preparation_head": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "files_sha256": {
+    "gate.py": "9b8f9b90295157748eb9b9fd2798ade5ab024d46840d42a8ddf03d82a3090b48",
+    "preparation_review.md": "490c7f5c49ee9107072fd3ba26ccdef3720a9503106298aa7dd38e57cb7587d7",
+    "README.md": "dfea1209a52b61d4ee7eabafd38c7550bb33fca9dcbc819433884ccc553d84f4",
+    "run_case.py": "e168822ca5dc859af40bb4d67119bcdfa48e976a722bea6cea883e9b44a9e47e",
+    "summarize_cost.py": "3c6217fa2b8ed9f7947bbd59c4c747a661f705f802e524e183c08677fdafcc22",
+    "test_gate.py": "9756cb77e2b66c03b297d02093b30e83235d2c6e8fa12d9a24f687b3aaece965",
+    "preparation_checks/initial_gate.py.txt": "f8b851318a448608bbb5afef7c9590cb348ba56764f83e02928c4873dae83a56",
+    "preparation_checks/initial_test_gate.py.txt": "775dbd2eba26faeae90fc8a4e9fe1b891932acbefe6d3c344dee848b346e5fe3",
+    "preparation_checks/parser.stderr.log": "3752674bd222f93aa61f595741b3aba715d9026fd3ed05d6df7c2fc455a71de2",
+    "preparation_checks/parser.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preparation_checks/parser_receipt.json": "57415a7de9825dc7be2c37c3fc28400eb08bf0ede6416d8c0a4b8e86c3166b9e",
+    "game/tests/VulkanComposedRootTest.tscn": "b95080899e02aa01d87b9a688ffee970f5d3e5ef14399d87cde6d91d40cc2663",
+    "game/tests/vulkan_composed_root_test.gd": "f14e31968f3b592434f4dd307d28b020a6aa95303eb8edc9b13f09f241f28eb5",
+    "preparation_checks/final/gate.py.txt": "9b8f9b90295157748eb9b9fd2798ade5ab024d46840d42a8ddf03d82a3090b48",
+    "preparation_checks/final/parser.stderr.log": "6b6cf2db5686ed0abe5619c2ff48c05b00279a02fc140927ec0c0dc2a6daee0a",
+    "preparation_checks/final/parser.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preparation_checks/final/parser_receipt.json": "0524098a7a2e793c06d7da917a5aa7d1d5a5b724931743cadc33a9d448dcf938",
+    "preparation_checks/final/test_gate.py.txt": "9756cb77e2b66c03b297d02093b30e83235d2c6e8fa12d9a24f687b3aaece965"
+  },
+  "python_static_parse": "four files parsed with ast.parse; no Godot run",
+  "root_scope": {
+    "v1": "actual StreetCore/Passage/F04 owner path",
+    "v2": "actual CampaignShell composition/F04 render/retirement; no V1 zone gate exists"
+  },
+  "live_game_edits_by_this_preparation": false,
+  "python_parser_controls": "14/14 passed; actual exit0; preparation_checks/final/parser_receipt.json; earlier13 controls and exact copied sources retained",
+  "static_review": "preparation_review.md; both concrete findings corrected; no Godot compile/runtime clearance"
+}

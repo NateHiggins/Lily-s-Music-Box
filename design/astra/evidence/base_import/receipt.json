@@ -1,0 +1,22 @@
+{
+  "base_commit": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5",
+  "command": [
+    "tools/run_godot_serial.ps1",
+    "-TimeoutSeconds",
+    "180",
+    "-ExtraArgs",
+    "--editor,--import"
+  ],
+  "diagnostics": "Unicode parsing messages; attribution unresolved",
+  "engine": "4.7.1.stable.official.a13da4feb",
+  "exit_code": 0,
+  "hardware": {
+    "cpu": "Intel Core i7-13700KF",
+    "driver": "32.0.16.1088",
+    "gpu": "RTX4080"
+  },
+  "scope": "Cold headless editor import; not gameplay boot or frame performance",
+  "stderr": "godot.log.stderr",
+  "stdout": "godot.log",
+  "userdata": "task-local APPDATA"
+}

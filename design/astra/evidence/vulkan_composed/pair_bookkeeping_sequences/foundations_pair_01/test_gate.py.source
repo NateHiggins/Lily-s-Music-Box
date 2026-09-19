@@ -1,0 +1,151 @@
+"""Prepared parser controls; no engine or live-game mutation."""
+import copy
+from pathlib import Path
+import tempfile
+import unittest
+from gate import classify
+
+
+class GateControls(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        capture = Path(self.tmp.name) / 'fixture.png'
+        capture.write_bytes(b'not_image_proof_parser_fixture_only')
+        self.stdout = 'Godot Engine v4.7.1.stable.official.a13da4feb\nVulkan 1.4 / Forward+\n[VULKAN COMPOSED PHASE] after_retirement\n'
+        self.probe = {'root': 'v2', 'variant': 'candidate', 'renderer': 'forward_plus', 'pid': 123, 'execution_scope': 'full',
+                      'functional_failures': 0, 'checks': [{'passed': True}],
+                      'captures': [{'name': n, 'written': True, 'file': str(capture)}
+                                   for n in ['v2_actual_f04_semantic_stance', 'v2_actual_f04_phone']]}
+
+    def tearDown(self): self.tmp.cleanup()
+
+    def gate(self, stderr='', **changes):
+        arguments = dict(engine_exit=0, stdout=self.stdout, stderr=stderr, probe=self.probe,
+                         source_unchanged=True, engine_bound=True)
+        arguments.update(changes)
+        return classify(**arguments)
+
+    def test_clean_parser_fixture(self): self.assertEqual(self.gate()['diagnostic_gate_exit'], 0)
+    def test_native_unpair_despite_engine_zero(self):
+        result = self.gate('ERROR: BUG, indexing did not unpair geometries from light.')
+        self.assertEqual((result['diagnostic_gate_exit'], result['unpair_errors'], result['soft_shadow_underflows']), (1, 1, 0))
+    def test_exact_retained_softshadow_nospace(self):
+        result = self.gate('ERROR: geom->softshadow_count==0 - BUG!')
+        self.assertEqual((result['diagnostic_gate_exit'], result['unpair_errors'], result['soft_shadow_underflows']), (1, 0, 1))
+    def test_spaced_softshadow_separate(self):
+        result = self.gate('ERROR: geom->softshadow_count == 0 - BUG!')
+        self.assertEqual(result['soft_shadow_underflows'], 1)
+    def test_unknown_vulkan_error(self): self.assertEqual(self.gate('ERROR: unexpected Vulkan device error')['diagnostic_gate_exit'], 1)
+    def test_only_exact_inherited_manifest(self):
+        header = 'ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message\n'
+        self.assertEqual(self.gate(header + 'loader_get_json: Failed to open JSON file C:\\TikTok LIVE Studio\\x.json')['diagnostic_gate_exit'], 0)
+        self.assertEqual(self.gate(header + 'different driver fault')['diagnostic_gate_exit'], 1)
+    def test_source_drift(self): self.assertEqual(self.gate(source_unchanged=False)['diagnostic_gate_exit'], 1)
+    def test_engine_binding(self): self.assertEqual(self.gate(engine_bound=False)['diagnostic_gate_exit'], 1)
+    def test_retention(self): self.assertEqual(self.gate('WARNING: ObjectDB instances leaked at exit')['diagnostic_gate_exit'], 1)
+    def test_missing_capture(self):
+        probe = copy.deepcopy(self.probe)
+        probe['captures'].pop()
+        self.assertEqual(self.gate(probe=probe)['diagnostic_gate_exit'], 1)
+    def test_incomplete_retirement(self): self.assertEqual(self.gate(stdout=self.stdout.split('[VULKAN')[0])['diagnostic_gate_exit'], 1)
+    def test_functional_failure(self):
+        probe = copy.deepcopy(self.probe)
+        probe['checks'][0]['passed'] = False
+        self.assertEqual(self.gate(probe=probe)['diagnostic_gate_exit'], 1)
+    def test_bad_probe_identity(self):
+        probe = copy.deepcopy(self.probe)
+        probe['root'] = 'made_up'
+        self.assertEqual(self.gate(probe=probe)['diagnostic_gate_exit'], 1)
+    def test_unrelated_failures_cannot_validate_omission_red(self):
+        probe = copy.deepcopy(self.probe)
+        probe['variant'] = 'omission'
+        error = 'ERROR: BUG, indexing did not unpair geometries from light.'
+        self.assertTrue(self.gate(error, probe=probe)['expected_unpair_red_observed'])
+        self.assertFalse(self.gate(error, probe=probe, source_unchanged=False)['expected_unpair_red_observed'])
+        self.assertFalse(self.gate(error + '\nERROR: unrelated crash', probe=probe)['expected_unpair_red_observed'])
+
+    def viewport_red(self):
+        probe = copy.deepcopy(self.probe)
+        probe.update(root='v1', variant='viewport_omission', functional_failures=1,
+                     separate_world_case_executed=True,
+                     checks=[{'label': 'actual shell retired', 'passed': True},
+                             {'label': 'arcade lifecycle/isolation after passage', 'passed': False}],
+                     transitions=[{'cycle': cycle} for cycle in range(6) for _ in range(6)],
+                     arcade_observations=[{'issues': [{'kind': 'still_live_baseline_geometry_corrupted',
+                         'expected_mask': 1, 'actual_mask': 0, 'same_own_scenario': True, 'owner_state': {'booted': True}}]}])
+        names = ['initial_street', 'initial_passage', 'initial_orison', 'initial_f04', 'initial_harukiya',
+                 'before_retirement_passage', 'return_harukiya', 'actual_f04_mirror', 'actual_f04_reflection',
+                 'separate_world_initial', 'separate_world_restored', 'separate_world_blocked',
+                 'initial_street_phone', 'initial_passage_phone', 'initial_orison_phone', 'before_retirement_passage_phone',
+                 'actual_arcade_before_passage', 'actual_arcade_after_passage']
+        probe['captures'] = [dict(probe['captures'][0], name=n) for n in names]
+        return probe
+
+    def test_guard_only_red_is_failure_with_specific_observation(self):
+        result = self.gate(probe=self.viewport_red(), engine_exit=1)
+        self.assertEqual(result['diagnostic_gate_exit'], 1)
+        self.assertTrue(result['expected_viewport_guard_red_observed'])
+
+    def test_guard_red_requires_live_mask_change(self):
+        probe = self.viewport_red()
+        probe['arcade_observations'][0]['issues'][0]['actual_mask'] = 1
+        self.assertFalse(self.gate(probe=probe, engine_exit=1)['expected_viewport_guard_red_observed'])
+        probe['arcade_observations'][0]['issues'][0].update(actual_mask=0, owner_state={'booted': False})
+        self.assertFalse(self.gate(probe=probe, engine_exit=1)['expected_viewport_guard_red_observed'])
+
+    def test_guard_red_rejects_route_and_native_errors(self):
+        for error in ['ERROR: No wall-safe resident route on F04', 'ERROR: BUG, indexing did not unpair geometries from light.', 'ERROR: geom->softshadow_count==0 - BUG!']:
+            self.assertFalse(self.gate(error, probe=self.viewport_red(), engine_exit=1)['expected_viewport_guard_red_observed'])
+
+    def test_guard_red_rejects_unrelated_checks_or_missing_capture(self):
+        probe = self.viewport_red()
+        probe['checks'][1]['label'] = 'actual shell retired'
+        self.assertFalse(self.gate(probe=probe, engine_exit=1)['expected_viewport_guard_red_observed'])
+        probe = self.viewport_red()
+        probe['captures'].pop()
+        self.assertFalse(self.gate(probe=probe, engine_exit=1)['expected_viewport_guard_red_observed'])
+
+    def test_guard_red_rejects_source_change(self):
+        self.assertFalse(self.gate(probe=self.viewport_red(), engine_exit=1, source_unchanged=False)['expected_viewport_guard_red_observed'])
+
+    def root_omission(self):
+        probe = self.viewport_red()
+        probe.update(variant='omission', execution_scope='root_retirement', separate_world_case_executed=False,
+                     functional_failures=0, checks=[{'label': 'actual shell retired', 'passed': True}])
+        probe['captures'] = [c for c in probe['captures'] if not c['name'].startswith('separate_world_')]
+        return probe
+
+    def test_scoped_completed_unpair_control_stays_red(self):
+        result = self.gate('ERROR: BUG, indexing did not unpair geometries from light.', probe=self.root_omission(),
+                          stdout=self.stdout + '[VULKAN COMPOSED PHASE] separate_world_case_explicitly_excluded\n')
+        self.assertTrue(result['expected_unpair_red_observed'])
+        self.assertEqual(result['diagnostic_gate_exit'], 1)
+        self.assertFalse(result['full_candidate_scope_completed'])
+
+    def test_access_violation_never_validates_completed_red(self):
+        result = self.gate('ERROR: BUG, indexing did not unpair geometries from light.', probe=self.root_omission(),
+                          engine_exit=3221225477, stdout=self.stdout + '[VULKAN COMPOSED PHASE] separate_world_case_explicitly_excluded\n')
+        self.assertFalse(result['expected_unpair_red_observed'])
+
+    def test_full_scope_cannot_omit_separate_world_case(self):
+        probe = self.root_omission()
+        probe['execution_scope'] = 'full'
+        result = self.gate(probe=probe)
+        self.assertEqual(result['diagnostic_gate_exit'], 1)
+        self.assertIn('full V1 did not execute separate-world case', result['reasons'])
+
+    def test_scoped_red_requires_declared_exclusion(self):
+        self.assertFalse(self.gate('ERROR: BUG, indexing did not unpair geometries from light.', probe=self.root_omission())['expected_unpair_red_observed'])
+
+    def test_independent_underflow_prevents_intended_only_unpair_red(self):
+        probe = copy.deepcopy(self.probe)
+        probe['variant'] = 'omission'
+        self.assertFalse(self.gate('ERROR: BUG, indexing did not unpair geometries from light.\nERROR: geom->softshadow_count==0 - BUG!', probe=probe)['expected_unpair_red_observed'])
+
+    def test_actual_arcade_capture_required(self):
+        probe = self.viewport_red()
+        probe['captures'] = [c for c in probe['captures'] if c['name'] != 'actual_arcade_after_passage']
+        self.assertFalse(self.gate(probe=probe, engine_exit=1)['expected_viewport_guard_red_observed'])
+
+
+if __name__ == '__main__': unittest.main()

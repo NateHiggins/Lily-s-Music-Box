@@ -1,0 +1,556 @@
+{
+	"callbacks": 2,
+	"checks": [
+		{
+			"label": "all nine selected records exist in the authored layout",
+			"passed": true
+		},
+		{
+			"label": "real FurnitureInteractionPass builds exactly nine wardrobe mechanisms",
+			"passed": true
+		},
+		{
+			"label": "actual owner build supplies six cases and five storey fields",
+			"passed": true
+		},
+		{
+			"label": "four low leaves independently overlap the previous authored slab",
+			"passed": true
+		},
+		{
+			"label": "normal real prop sweep invokes one ownership callback",
+			"passed": true
+		},
+		{
+			"label": "normal: no prior-floor case rows for 3A_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: no prior-floor case rows for 5A_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: no prior-floor case rows for 6B_aw_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: six actual same-floor case draws remain live for 2A_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: six actual same-floor case draws remain live for 2C_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: six actual same-floor case draws remain live for 3B_aw_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: six actual same-floor case draws remain live for 4A_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: six actual same-floor case draws remain live for 5B_aw_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: six actual same-floor case draws remain live for 6C_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "normal: every retained case row is the actual installed material",
+			"passed": true
+		},
+		{
+			"label": "normal: unique registry exactly matches installed consumers on F02",
+			"passed": true
+		},
+		{
+			"label": "normal: all physical floor draws sample their own field on F02",
+			"passed": true
+		},
+		{
+			"label": "normal: unique registry exactly matches installed consumers on F04",
+			"passed": true
+		},
+		{
+			"label": "normal: all physical floor draws sample their own field on F04",
+			"passed": true
+		},
+		{
+			"label": "normal: unique registry exactly matches installed consumers on F06",
+			"passed": true
+		},
+		{
+			"label": "normal: all physical floor draws sample their own field on F06",
+			"passed": true
+		},
+		{
+			"label": "normal: unique registry exactly matches installed consumers on F05",
+			"passed": true
+		},
+		{
+			"label": "normal: all physical floor draws sample their own field on F05",
+			"passed": true
+		},
+		{
+			"label": "normal: unique registry exactly matches installed consumers on F03",
+			"passed": true
+		},
+		{
+			"label": "normal: all physical floor draws sample their own field on F03",
+			"passed": true
+		},
+		{
+			"label": "normal: root-level inside draw keeps bounded spatial admission",
+			"passed": true
+		},
+		{
+			"label": "normal: root-level outside draw fails the unchanged vertical bound",
+			"passed": true
+		},
+		{
+			"label": "normal: declared no-case floor rejects overlapping geometry on B1",
+			"passed": true
+		},
+		{
+			"label": "normal: declared no-case floor rejects overlapping geometry on F01",
+			"passed": true
+		},
+		{
+			"label": "normal: declared no-case floor rejects overlapping geometry on ROOF",
+			"passed": true
+		},
+		{
+			"label": "normal: repeat sweep preserves all installed identities",
+			"passed": true
+		},
+		{
+			"label": "real queued tier reapplies all draws and invokes one callback",
+			"passed": true
+		},
+		{
+			"label": "queued: no prior-floor case rows for 3A_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: no prior-floor case rows for 5A_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: no prior-floor case rows for 6B_aw_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: six actual same-floor case draws remain live for 2A_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: six actual same-floor case draws remain live for 2C_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: six actual same-floor case draws remain live for 3B_aw_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: six actual same-floor case draws remain live for 4A_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: six actual same-floor case draws remain live for 5B_aw_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: six actual same-floor case draws remain live for 6C_w0_wardrobe",
+			"passed": true
+		},
+		{
+			"label": "queued: every retained case row is the actual installed material",
+			"passed": true
+		},
+		{
+			"label": "queued: unique registry exactly matches installed consumers on F02",
+			"passed": true
+		},
+		{
+			"label": "queued: all physical floor draws sample their own field on F02",
+			"passed": true
+		},
+		{
+			"label": "queued: unique registry exactly matches installed consumers on F04",
+			"passed": true
+		},
+		{
+			"label": "queued: all physical floor draws sample their own field on F04",
+			"passed": true
+		},
+		{
+			"label": "queued: unique registry exactly matches installed consumers on F06",
+			"passed": true
+		},
+		{
+			"label": "queued: all physical floor draws sample their own field on F06",
+			"passed": true
+		},
+		{
+			"label": "queued: unique registry exactly matches installed consumers on F05",
+			"passed": true
+		},
+		{
+			"label": "queued: all physical floor draws sample their own field on F05",
+			"passed": true
+		},
+		{
+			"label": "queued: unique registry exactly matches installed consumers on F03",
+			"passed": true
+		},
+		{
+			"label": "queued: all physical floor draws sample their own field on F03",
+			"passed": true
+		},
+		{
+			"label": "queued: root-level inside draw keeps bounded spatial admission",
+			"passed": true
+		},
+		{
+			"label": "queued: root-level outside draw fails the unchanged vertical bound",
+			"passed": true
+		},
+		{
+			"label": "queued: declared no-case floor rejects overlapping geometry on B1",
+			"passed": true
+		},
+		{
+			"label": "queued: declared no-case floor rejects overlapping geometry on F01",
+			"passed": true
+		},
+		{
+			"label": "queued: declared no-case floor rejects overlapping geometry on ROOF",
+			"passed": true
+		},
+		{
+			"label": "queued: repeat sweep preserves all installed identities",
+			"passed": true
+		},
+		{
+			"label": "producer and ownership work leave persisted facts unchanged",
+			"passed": true
+		},
+		{
+			"label": "actual producer root and owners retired",
+			"passed": true
+		},
+		{
+			"label": "explicit fresh receipt directory supplied",
+			"passed": true
+		},
+		{
+			"label": "receipt directory available",
+			"passed": true
+		},
+		{
+			"label": "readable receipt file can be written",
+			"passed": true
+		}
+	],
+	"failures": 0,
+	"observations": [
+		{
+			"case_rows": {
+				"2A_w0_wardrobe": 6,
+				"2C_w0_wardrobe": 6,
+				"3B_aw_wardrobe": 6,
+				"4A_w0_wardrobe": 6,
+				"5B_aw_wardrobe": 6,
+				"6C_w0_wardrobe": 6
+			},
+			"current_fields": {
+				"F02": true,
+				"F03": true,
+				"F04": true,
+				"F05": true,
+				"F06": true
+			},
+			"foreign_rows": {
+				"3A_w0_wardrobe": [],
+				"5A_w0_wardrobe": [],
+				"6B_aw_wardrobe": []
+			},
+			"phase": "normal",
+			"registries": {
+				"F02": {
+					"actual": [
+						-9223371955166508883,
+						-9223371955015513930,
+						-9223371954998736713,
+						-9223371954981959496,
+						-9223371954965182279,
+						-9223371954948405062,
+						-9223371954931627845,
+						-9223371954914850628,
+						-9223371954898073411,
+						-9223371954881296194,
+						-9223371954864518977,
+						-9223371954847741760,
+						-9223371953891440391
+					],
+					"expected": [
+						-9223371955166508883,
+						-9223371955015513930,
+						-9223371954998736713,
+						-9223371954981959496,
+						-9223371954965182279,
+						-9223371954948405062,
+						-9223371954931627845,
+						-9223371954914850628,
+						-9223371954898073411,
+						-9223371954881296194,
+						-9223371954864518977,
+						-9223371954847741760,
+						-9223371953891440391
+					]
+				},
+				"F03": {
+					"actual": [
+						-9223371954830964543,
+						-9223371954679969590,
+						-9223371954663192373,
+						-9223371954646415156,
+						-9223371954629637939,
+						-9223371954612860722,
+						-9223371953673336570,
+						-9223371953639782136,
+						-9223371953606227702
+					],
+					"expected": [
+						-9223371954830964543,
+						-9223371954679969590,
+						-9223371954663192373,
+						-9223371954646415156,
+						-9223371954629637939,
+						-9223371954612860722,
+						-9223371953673336570,
+						-9223371953639782136,
+						-9223371953606227702
+					]
+				},
+				"F04": {
+					"actual": [
+						-9223371954596083505,
+						-9223371954445088552,
+						-9223371954428311335,
+						-9223371954411534118,
+						-9223371954394756901,
+						-9223371954377979684
+					],
+					"expected": [
+						-9223371954596083505,
+						-9223371954445088552,
+						-9223371954428311335,
+						-9223371954411534118,
+						-9223371954394756901,
+						-9223371954377979684
+					]
+				},
+				"F05": {
+					"actual": [
+						-9223371954361202467,
+						-9223371954210207514,
+						-9223371954193430297,
+						-9223371954176653080,
+						-9223371954159875863,
+						-9223371954143098646,
+						-9223371953773999872,
+						-9223371953740445438,
+						-9223371953706891004
+					],
+					"expected": [
+						-9223371954361202467,
+						-9223371954210207514,
+						-9223371954193430297,
+						-9223371954176653080,
+						-9223371954159875863,
+						-9223371954143098646,
+						-9223371953773999872,
+						-9223371953740445438,
+						-9223371953706891004
+					]
+				},
+				"F06": {
+					"actual": [
+						-9223371954126321429,
+						-9223371953975326476,
+						-9223371953958549259,
+						-9223371953941772042,
+						-9223371953924994825,
+						-9223371953908217608,
+						-9223371953874663174,
+						-9223371953841108740,
+						-9223371953807554306
+					],
+					"expected": [
+						-9223371954126321429,
+						-9223371953975326476,
+						-9223371953958549259,
+						-9223371953941772042,
+						-9223371953924994825,
+						-9223371953908217608,
+						-9223371953874663174,
+						-9223371953841108740,
+						-9223371953807554306
+					]
+				}
+			}
+		},
+		{
+			"case_rows": {
+				"2A_w0_wardrobe": 6,
+				"2C_w0_wardrobe": 6,
+				"3B_aw_wardrobe": 6,
+				"4A_w0_wardrobe": 6,
+				"5B_aw_wardrobe": 6,
+				"6C_w0_wardrobe": 6
+			},
+			"current_fields": {
+				"F02": true,
+				"F03": true,
+				"F04": true,
+				"F05": true,
+				"F06": true
+			},
+			"foreign_rows": {
+				"3A_w0_wardrobe": [],
+				"5A_w0_wardrobe": [],
+				"6B_aw_wardrobe": []
+			},
+			"phase": "queued",
+			"registries": {
+				"F02": {
+					"actual": [
+						-9223371953572673268,
+						-9223371953555896051,
+						-9223371953539118834,
+						-9223371953522341617,
+						-9223371953505564400,
+						-9223371953488787183,
+						-9223371953472009966,
+						-9223371953455232749,
+						-9223371953438455532,
+						-9223371953421678315,
+						-9223371953404901098,
+						-9223371953388123881,
+						-9223371952968693456
+					],
+					"expected": [
+						-9223371953572673268,
+						-9223371953555896051,
+						-9223371953539118834,
+						-9223371953522341617,
+						-9223371953505564400,
+						-9223371953488787183,
+						-9223371953472009966,
+						-9223371953455232749,
+						-9223371953438455532,
+						-9223371953421678315,
+						-9223371953404901098,
+						-9223371953388123881,
+						-9223371952968693456
+					]
+				},
+				"F03": {
+					"actual": [
+						-9223371953673336570,
+						-9223371953639782136,
+						-9223371953606227702,
+						-9223371953371346664,
+						-9223371953354569447,
+						-9223371953337792230,
+						-9223371953321015013,
+						-9223371953304237796,
+						-9223371953287460579
+					],
+					"expected": [
+						-9223371953673336570,
+						-9223371953639782136,
+						-9223371953606227702,
+						-9223371953371346664,
+						-9223371953354569447,
+						-9223371953337792230,
+						-9223371953321015013,
+						-9223371953304237796,
+						-9223371953287460579
+					]
+				},
+				"F04": {
+					"actual": [
+						-9223371953270683362,
+						-9223371953253906145,
+						-9223371953237128928,
+						-9223371953220351711,
+						-9223371953203574494,
+						-9223371953186797277
+					],
+					"expected": [
+						-9223371953270683362,
+						-9223371953253906145,
+						-9223371953237128928,
+						-9223371953220351711,
+						-9223371953203574494,
+						-9223371953186797277
+					]
+				},
+				"F05": {
+					"actual": [
+						-9223371953773999872,
+						-9223371953740445438,
+						-9223371953706891004,
+						-9223371953170020060,
+						-9223371953153242843,
+						-9223371953136465626,
+						-9223371953119688409,
+						-9223371953102911192,
+						-9223371953086133975
+					],
+					"expected": [
+						-9223371953773999872,
+						-9223371953740445438,
+						-9223371953706891004,
+						-9223371953170020060,
+						-9223371953153242843,
+						-9223371953136465626,
+						-9223371953119688409,
+						-9223371953102911192,
+						-9223371953086133975
+					]
+				},
+				"F06": {
+					"actual": [
+						-9223371953874663174,
+						-9223371953841108740,
+						-9223371953807554306,
+						-9223371953069356758,
+						-9223371953052579541,
+						-9223371953035802324,
+						-9223371953019025107,
+						-9223371953002247890,
+						-9223371952985470673
+					],
+					"expected": [
+						-9223371953874663174,
+						-9223371953841108740,
+						-9223371953807554306,
+						-9223371953069356758,
+						-9223371953052579541,
+						-9223371953035802324,
+						-9223371953019025107,
+						-9223371953002247890,
+						-9223371952985470673
+					]
+				}
+			}
+		}
+	],
+	"retired": true,
+	"scope": "actual authored wardrobe producers and owner/material methods; synthetic floor containers, no glTF/physics/render/performance claim"
+}

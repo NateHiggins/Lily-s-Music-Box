@@ -1,0 +1,35 @@
+{
+  "status": "SOURCE_GEOMETRY_CHECKS_PASS_NATIVE_UNRUN",
+  "base_head": "7e8377e7441e1e1c86cd73e67458fe5d2befd6d5",
+  "additions": {
+    "spaces": 11,
+    "doors": 5,
+    "openings": 7,
+    "windows": 3,
+    "anchors": 6,
+    "capsule_stations": 12,
+    "route_edges": 10,
+    "service_connections": 2,
+    "envelopes": 4,
+    "platforms": 1
+  },
+  "checks": [
+    "original records unchanged",
+    "global unique IDs",
+    "F03 room rectangles disjoint",
+    "apertures on shared boundaries",
+    "public and independent service route topology",
+    "capsule footprint floor support",
+    "station-to-riser clearance",
+    "anchor containment",
+    "finished-clear room minimum dimensions",
+    "protected sources unchanged"
+  ],
+  "native_godot_started": false,
+  "limits": "Source topology and station clearance are not capsule traversal, service-function proof, furnishing or human acceptance.",
+  "files": {
+    "game/data/orison_v2_blockout.json": "d3e7b4aae036a2fc2f8cd5211bf1d320a92742909b15bd8d6d0c4665de446d9d",
+    "game/scripts/building/orison_v2_runtime_root.gd": "d8d1bf68b62243249415e93269f7925585fcd1411f39bce57653776d646fbf60",
+    "game/tests/orison_v2_connected_world_test.gd": "7e26dd5e1589ebf26bd9ef6676523379f4702806e0199f5f1af7e46e977a5149"
+  }
+}
