@@ -972,7 +972,9 @@ func _clear_floor01_geometry_references() -> void:
 				continue
 			var instance_id := visual.get_instance_id()
 			if passage_late_saved.has(instance_id):
-				visual.layers = int(passage_late_saved[instance_id])
+				# Teardown restoration crosses the same layer/light boundary as
+				# live zone transitions; unpair before replacing the saved mask.
+				_set_zone_layer_mask(visual, int(passage_late_saved[instance_id]))
 	for light in passage_foreign_lights:
 		if not is_instance_valid(light):
 			continue
