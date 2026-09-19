@@ -3,9 +3,22 @@ extends Node
 var checks := 0
 var failures := 0
 var samples := 0
+var _save_directory := ""
+var _test_save_path := ""
+var _save_observations: Array[Dictionary] = []
+const SAVE_BUNDLE_SUFFIXES := ["", ".bak", ".txn", ".tmp"]
+const RECEIPT_ENV := "CAMPAIGN_CALENDAR_RECEIPT_PATH"
 
 
 func _ready() -> void:
+	var old_path := RealityState.save_path
+	var old_persistence := RealityState.persistence_enabled
+	var prepared := _prepare_save_fixture()
+	_check("isolated save directory created", prepared)
+	if not prepared:
+		_finish(old_path, old_persistence)
+		return
+	RealityState.save_path = _test_save_path
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	_test_creation()
@@ -14,11 +27,7 @@ func _ready() -> void:
 	_test_save_reload()
 	_test_invalid_saved_clocks()
 	_test_protected_empty_clock()
-	RealityState.persistence_enabled = false
-	RealityState.reset_campaign_for_tests()
-	print("CAMPAIGN CALENDAR: %s %d/%d" % ["PASS" if failures == 0 else "FAIL",
-			checks - failures, checks])
-	get_tree().quit(0 if failures == 0 else 1)
+	_finish(old_path, old_persistence)
 
 
 func _sample() -> Dictionary:
@@ -121,9 +130,6 @@ func _test_calendar_against_engine() -> void:
 
 
 func _test_save_reload() -> void:
-	var directory := "user://tests/campaign_calendar"
-	_check("isolated save directory created", DirAccess.make_dir_recursive_absolute(directory) == OK)
-	RealityState.save_path = directory + "/save.json"
 	RealityState.reset_campaign_for_tests()
 	var clock := CampaignClock.new()
 	clock.creation_time_provider = _sample
@@ -132,9 +138,12 @@ func _test_save_reload() -> void:
 	RealityState.data.discovered_documents = ["calendar_reload_witness"]
 	RealityState.persistence_enabled = true
 	_check("real save writes", RealityState.save_game())
+	_save_observations.append({"boundary":"real save", "last_save_result":RealityState.last_save_result(),
+		"load_status":RealityState.load_status()})
 	var expected := clock.datetime_string()
 	var calls := samples
 	RealityState.load_game()
+	_save_observations.append({"boundary":"real reload", "load_status":RealityState.load_status()})
 	var loaded := CampaignClock.new()
 	loaded.creation_time_provider = _sample
 	_check("real reload preserves epoch and elapsed", loaded.datetime_string() == expected)
@@ -210,6 +219,91 @@ func _test_protected_empty_clock() -> void:
 			and samples == prior_samples and RealityState.data.campaign_clock.is_empty())
 	_check("clock refusal preserves future notice and exact file", RealityState.player_notice().code
 			== "future_save_read_only" and FileAccess.get_file_as_bytes(RealityState.save_path) == bytes)
+
+
+## Test artifacts never reuse the historical fixed save or its protected sidecars.
+func _prepare_save_fixture() -> bool:
+	if not _save_directory.is_empty(): return false
+	var parent := ProjectSettings.globalize_path("user://tests/campaign_calendar_runs")
+	if DirAccess.make_dir_recursive_absolute(parent) != OK: return false
+	var token := "%d_%d_%d" % [OS.get_process_id(), Time.get_ticks_usec(), get_instance_id()]
+	var directory := parent.path_join(token)
+	if DirAccess.dir_exists_absolute(directory) or FileAccess.file_exists(directory): return false
+	if DirAccess.make_dir_absolute(directory) != OK: return false
+	if not DirAccess.get_files_at(directory).is_empty() or not DirAccess.get_directories_at(directory).is_empty(): return false
+	_save_directory = directory
+	_test_save_path = directory.path_join("save.json")
+	return true
+
+
+func _save_bundle_evidence() -> Array[Dictionary]:
+	var files: Array[Dictionary] = []
+	if _test_save_path.is_empty() or _test_save_path.get_base_dir() != _save_directory: return files
+	for suffix: String in SAVE_BUNDLE_SUFFIXES:
+		var artifact := _test_save_path + suffix
+		if FileAccess.file_exists(artifact):
+			files.append({"path":artifact,"bytes":FileAccess.get_file_as_bytes(artifact).size(),
+				"sha256":FileAccess.get_sha256(artifact)})
+	return files
+
+
+func _write_fixture_receipt(receipt: Dictionary) -> bool:
+	var path := OS.get_environment(RECEIPT_ENV).strip_edges()
+	if path.is_empty():
+		path = "user://tests/campaign_calendar_receipt_%d_%d.json" % [OS.get_process_id(), get_instance_id()]
+	if not path.begins_with("user://") and not path.is_absolute_path(): return false
+	var absolute := ProjectSettings.globalize_path(path) if path.begins_with("user://") else path
+	if DirAccess.make_dir_recursive_absolute(absolute.get_base_dir()) != OK: return false
+	var file := FileAccess.open(absolute, FileAccess.WRITE)
+	if file == null: return false
+	var stored := file.store_buffer(JSON.stringify(receipt, "\t").to_utf8_buffer())
+	file.flush()
+	var error := file.get_error()
+	file.close()
+	print("CAMPAIGN CALENDAR FIXTURE RECEIPT: " + absolute)
+	return stored and error == OK
+
+
+func _cleanup_save_bundle() -> bool:
+	if _test_save_path.is_empty() or _test_save_path.get_base_dir() != _save_directory: return false
+	var ok := true
+	for suffix: String in SAVE_BUNDLE_SUFFIXES:
+		var artifact := _test_save_path + suffix
+		if FileAccess.file_exists(artifact) and DirAccess.remove_absolute(artifact) != OK: ok = false
+	# Preserve unexpected artifacts; retire only our now-empty directory.
+	if DirAccess.get_files_at(_save_directory).is_empty() and DirAccess.get_directories_at(_save_directory).is_empty():
+		if DirAccess.remove_absolute(_save_directory) != OK: ok = false
+	return ok
+
+
+func _finish(old_path: String, old_persistence: bool) -> void:
+	var receipt := {"evidence_class":"test_fixture", "test":"campaign_calendar",
+		"status":"PASS" if failures == 0 else "FAIL", "checks":checks, "failures":failures,
+		"save_fixture_directory":_save_directory, "save_files":_save_bundle_evidence(),
+		"save_observations":_save_observations, "final_load_status":RealityState.load_status(),
+		"preserved_on_failure":failures != 0, "cleanup_after_receipt":failures == 0}
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	RealityState.save_path = old_path
+	RealityState.persistence_enabled = old_persistence
+	if _write_fixture_receipt(receipt):
+		receipt["cleanup_attempted"] = failures == 0
+		if failures == 0:
+			receipt["cleanup_ok"] = _cleanup_save_bundle()
+			if not bool(receipt.cleanup_ok):
+				failures += 1
+				push_error("calendar test-owned save bundle cleanup failed")
+		receipt["status"] = "PASS" if failures == 0 else "FAIL"
+		receipt["failures"] = failures
+		if not _write_fixture_receipt(receipt):
+			failures += 1
+			push_error("calendar fixture cleanup receipt could not be updated")
+	else:
+		failures += 1
+		push_error("calendar fixture receipt could not be written; save bundle preserved at " + _save_directory)
+	print("CAMPAIGN CALENDAR: %s %d/%d" % ["PASS" if failures == 0 else "FAIL",
+			checks - failures, checks])
+	get_tree().quit(0 if failures == 0 else 1)
 
 
 func _check(label: String, condition: bool) -> void:

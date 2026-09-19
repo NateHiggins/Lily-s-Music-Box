@@ -3,6 +3,7 @@ extends Node
 ##     godot --headless --path game res://tests/DreamCritterTest.tscn
 var checks := 0
 var failures := 0
+var _world: Node3D
 
 
 func _ready() -> void:
@@ -147,6 +148,7 @@ func _run() -> void:
 			and int(one.limbs) == int(two.limbs)
 			and is_equal_approx(float(one.gold), float(two.gold)))
 	await _in_world()
+	await _retire_world()
 	_finish()
 
 
@@ -164,6 +166,7 @@ func _in_world() -> void:
 		RealityState.ensure_case(case_id,
 				str(RealityCases.definitions[case_id].get("resident_id", "")))
 	var root: Node3D = load("res://scenes/building/orison_root.tscn").instantiate()
+	_world = root
 	add_child(root)
 	# Critters are now correctly gated behind the moss colony's COMPLEX phase.
 	# This legacy harness used to wait for ungated births, which can never
@@ -711,6 +714,44 @@ func _closest_palp(margin, at: Vector3) -> Dictionary:
 			best_d = d
 			best = p
 	return best
+
+
+## The mechanism harness must retire its live production world before process
+## exit. Observe actual decoder ownership; a timed sleep cannot prove release.
+func _retire_world() -> void:
+	if _world == null: return
+	var world_ref: WeakRef = weakref(_world)
+	var audio := _playback_observers()
+	_world.queue_free()
+	_world = null
+	var began := Time.get_ticks_msec()
+	var frames := 0
+	while (world_ref.get_ref() != null or _live_playbacks(audio) > 0) \
+			and Time.get_ticks_msec() - began < 2000:
+		await get_tree().process_frame
+		frames += 1
+	_check("the production critter world retires before process exit", world_ref.get_ref() == null)
+	_check("observed production decoders retire through their owners and AudioServer",
+			_live_playbacks(audio) == 0)
+	print("CRITTER RETIREMENT: observed_decoders=%d live_decoders=%d frames=%d elapsed_ms=%d" %
+			[audio.size(), _live_playbacks(audio), frames, Time.get_ticks_msec() - began])
+
+
+func _playback_observers() -> Array[WeakRef]:
+	var result: Array[WeakRef] = []
+	# The policy is an autoload, so its source-owned voices are outside _world.
+	# Observing them does not clear the pool or substitute for host teardown.
+	for node: Node in get_tree().root.find_children("*", "AudioStreamPlayer3D", true, false):
+		var voice := node as AudioStreamPlayer3D
+		if voice.has_stream_playback(): result.append(weakref(voice.get_stream_playback()))
+	return result
+
+
+func _live_playbacks(observers: Array[WeakRef]) -> int:
+	var count := 0
+	for observer: WeakRef in observers:
+		if observer.get_ref() != null: count += 1
+	return count
 
 
 func _finish() -> void:

@@ -62,6 +62,13 @@ func _ready() -> void:
 	apply_hinge_setback()
 
 
+func _exit_tree() -> void:
+	# The host owns its semantic pool source even after a one-shot has finished.
+	# Leave other doors and other users of the shared voice pool intact.
+	if is_instance_valid(AudioPolicy):
+		AudioPolicy.release_source(StringName(name))
+
+
 ## Landmark subclasses may retain a deliberately authored private acoustic
 ## body. Ordinary leaves use the shared semantic pool and allocate nothing.
 func _build_audio() -> void:
