@@ -5,15 +5,39 @@ interaction surfaces and route identities are unchanged.
 """
 from pathlib import Path
 import ast
+import argparse
 import hashlib
 import json
+import math
 
 ROOT = Path(__file__).resolve().parents[1]
 GEOMETRY = ROOT/'game/data/orison_v2/exterior/exterior_geometry.json'
 REGIONS = ROOT/'game/data/orison_v2/exterior/regions.json'
 GENERATOR = ROOT/'art/data/gen_layout.py'
 LAYOUT = ROOT/'game/data/building_layout.json'
-REPORT = ROOT/'game/data/orison_v2/exterior/street_section_source.json'
+REPORT = ROOT/'art/data/orison_v2/exterior/street_section_source.json'
+RUNTIME_FRAME = ROOT/'game/data/orison_v2/exterior/street_frame.json'
+
+
+def runtime_frame(report):
+    """Ship the two frame coordinates; keep provenance in the build report."""
+    if (report.get('schema') != 'orison.v2.street-section-source.v1'
+            or report.get('source_threshold_marker') != 'F01_DOOR_06'):
+        raise ValueError('street report must name the admitted front-door origin')
+    result = {'schema': 'orison.v2.street-frame.v1',
+              'frame': 'ORISON_FRONT_DOOR_THRESHOLD'}
+    for key in ('source_threshold_z', 'arcade_building_line_z'):
+        value = report.get(key)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            raise ValueError('invalid street frame coordinate: ' + key)
+        result[key] = value
+    return result
+
+
+def write_runtime_frame(report):
+    RUNTIME_FRAME.parent.mkdir(parents=True, exist_ok=True)
+    RUNTIME_FRAME.write_text(json.dumps(runtime_frame(report), indent=2)+'\n',
+                             encoding='utf-8', newline='\n')
 
 
 def readable(value, level=0, compact_records=True):
@@ -136,9 +160,32 @@ def build():
         'arcade_building_line_z': gateway, 'road_clear_width_m': south-north,
         'geometry_sha256': sha(GEOMETRY), 'regions_sha256': sha(REGIONS),
         'source_layout_changed': False}
+    REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
+    write_runtime_frame(report)
     print(json.dumps(report))
 
 
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--runtime-frame-only', action='store_true')
+    group.add_argument('--check-runtime-frame', action='store_true')
+    args = parser.parse_args(argv)
+    if args.runtime_frame_only or args.check_runtime_frame:
+        report = json.loads(REPORT.read_text(encoding='utf-8'))
+        if args.runtime_frame_only:
+            write_runtime_frame(report)
+        else:
+            expected = (json.dumps(runtime_frame(report), indent=2)+'\n').encode('utf-8')
+            if not RUNTIME_FRAME.is_file() or RUNTIME_FRAME.read_bytes() != expected:
+                print('street runtime frame is stale')
+                return 1
+        print('street runtime frame matches its source report')
+    else:
+        build()
+    return 0
+
+
 if __name__ == '__main__':
-    build()
+    raise SystemExit(main())

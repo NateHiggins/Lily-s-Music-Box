@@ -347,7 +347,9 @@ def make_finding(domain, cls, file, scope, line_no, expr, writer, owner,
 # ---------------------------------------------------------------------------
 
 class FileContext:
-    def __init__(self, rel: str, text: str):
+    def __init__(self, rel: str, text: str, root: Path | None = None):
+        self.root = root
+        self._test_ancestors = None
         self.rel = rel
         self.text = text
         self.lines = text.split("\n")
@@ -411,6 +413,136 @@ class FileContext:
         if stripped.startswith("#"):
             return ""
         return raw.split("#", 1)[0] if "#" in raw else raw
+
+
+def _test_ancestors(ctx: FileContext) -> list[FileContext]:
+    """Literal test inheritance only; missing/cyclic/escaping parents fail closed."""
+    if ctx._test_ancestors is not None:
+        return ctx._test_ancestors
+    ctx._test_ancestors = []
+    if ctx.root is None or ctx.tier != "test":
+        return []
+    current = ctx
+    seen = {ctx.rel}
+    for _ in range(32):
+        match = re.search(r'^extends\s+"res://(tests/[^"\n]+\.gd)"',
+                          current.text, re.MULTILINE)
+        if not match:
+            break
+        path = (ctx.root / "game" / match.group(1)).resolve()
+        if not path.is_relative_to((ctx.root / "game/tests").resolve()):
+            break
+        rel = path.relative_to(ctx.root.resolve()).as_posix()
+        if rel in seen or not path.is_file():
+            break
+        seen.add(rel)
+        current = FileContext(rel, path.read_text(encoding="utf-8"))
+        ctx._test_ancestors.append(current)
+    return ctx._test_ancestors
+
+
+def _runtime_receiver_is_typed(ctx: FileContext, scope: str, name: str) -> bool:
+    """Only OrisonV2RuntimeRoot.adapter has the reviewed read-only resolve API."""
+    escaped = re.escape(name)
+    body = ctx.function_body(scope)
+    header = body.splitlines()[0] if body else ""
+    parameter = re.search(r"\b" + escaped + r"\s*(?::\s*([\w]+))?\s*[,)]", header)
+    if parameter:
+        return parameter.group(1) == "OrisonV2RuntimeRoot"
+    declarations = re.findall(r"\bvar\s+" + escaped + r"\b[^\n]*", body)
+    if declarations:
+        return all(re.search(r":\s*OrisonV2RuntimeRoot\b", declaration) or
+                   re.search(r":=.*\bas\s+OrisonV2RuntimeRoot\b", declaration)
+                   for declaration in declarations)
+    for source in [ctx] + _test_ancestors(ctx):
+        field = re.search(r"^var\s+" + escaped + r"\b[^\n]*", source.text, re.MULTILINE)
+        if field:
+            return bool(re.search(r":\s*OrisonV2RuntimeRoot\b", field.group(0)))
+    return False
+
+
+def _consequence_code(ctx: FileContext, scope: str, line: str) -> str:
+    # A function's declaration is not a call, and an anchor lookup does not
+    # resolve a situation. Preserve other calls even on the same source line.
+    line = line.split("#", 1)[0]
+    if FUNC_RE.match(line.strip()):
+        return ""
+    pattern = r"(?<![\w.])([A-Za-z_]\w*)\.adapter\.resolve\s*\("
+    return re.sub(pattern, lambda match: "read_only_anchor_lookup("
+                  if _runtime_receiver_is_typed(ctx, scope, match.group(1))
+                  else match.group(0), line)
+
+
+def _reaches_inherited_input(ctx: FileContext) -> bool:
+    ancestors = _test_ancestors(ctx)
+    if not ancestors:
+        return False
+    methods = {}
+    for source in [ctx] + ancestors:
+        for name, _start, _end in source.functions:
+            # Derived overrides win. An unused input helper in a base file
+            # grants nothing; walk actual calls from engine test entrypoints.
+            methods.setdefault(name, source.function_body(name))
+    pending = [name for name in ("_ready", "_init") if name in methods]
+    visited = set()
+    while pending:
+        name = pending.pop()
+        if name in visited:
+            continue
+        visited.add(name)
+        lines = [line.split("#", 1)[0] for line in methods[name].splitlines()[1:]]
+        body = "\n".join(lines)
+        if re.search(r"\bInput\.action_press\s*\(", body) and \
+                re.search(r"\bInput\.action_release\s*\(", body):
+            return True
+        calls = set(re.findall(r"(?<![.\w])([A-Za-z_]\w*)\s*\(", body))
+        calls.update(re.findall(r'\bcall_deferred\(\s*"([A-Za-z_]\w*)"', body))
+        pending.extend(call for call in calls if call in methods and call not in visited)
+    return False
+
+
+HOST_ARTIFACT_FIELDS = {
+    ("game/tests/interaction_inventory.gd", "_ready"): ("report", "generated_utc"),
+    ("game/tests/prop_warehouse_shot.gd", "_run"): ("manifest", "generated_at"),
+}
+
+
+def _artifact_timestamp_only(ctx: FileContext, scope: str, line: str) -> bool:
+    spec = HOST_ARTIFACT_FIELDS.get((ctx.rel, scope))
+    if spec is None:
+        return False
+    variable, field = spec
+    if not re.fullmatch(r'\s*"' + field + r'"\s*:\s*'
+            r'Time\.get_datetime_string_from_system\(true(?:,\s*true)?\),\s*', line):
+        return False
+    body = ctx.function_body(scope)
+    declaration = re.search(r"\bvar\s+" + variable + r"\s*:=\s*\{", body)
+    field_at = body.find(line)
+    if declaration is None or field_at < declaration.end():
+        return False
+    prefix = body[declaration.end():field_at]
+    if prefix.count("{") != prefix.count("}"):
+        return False  # only the top-level declared artifact field
+    sink = r"^\s*\w+\.store_string\(\s*JSON\.stringify\(\s*" + variable + r"\b"
+    if not re.search(sink, body, re.MULTILINE):
+        return False
+    for raw in body.splitlines():
+        code = raw.split("#", 1)[0]
+        identifiers = re.sub(r'"(?:[^"\\]|\\.)*"', '""', code)
+        if not re.search(r"\b" + variable + r"\b", identifiers):
+            continue
+        if re.search(r"\bvar\s+" + variable + r"\s*:=\s*\{", code) or re.search(sink, code):
+            continue
+        # Refuse aliases, unknown whole-object calls/returns, clock-field
+        # extraction or any world sink. Ordinary non-clock report fields may
+        # still be appended/printed as part of producing the artifact.
+        if re.search(r"RealityState|Campaign|record_fact|\breturn\b|commit|persist", code) or \
+                re.search(r"\b" + re.escape(field) + r"\b", code) or \
+                re.search(r"[=:]\s*" + variable + r"\b", code):
+            return False
+        if re.search(r"\b" + variable + r"\b(?!\s*[.\[])", code):
+            return False
+    return True
 
 
 def scan_file(ctx: FileContext, findings: list):
@@ -482,6 +614,17 @@ def _scan_physical(ctx, findings, line, scope, line_no):
         target = assign.group(1)
         prop = assign.group(2)
         if target in ("self",):
+            return
+        # LampOpticalState owns this presentation observation. Callers pass
+        # their reusable output Dictionary; this does not set a radiator or
+        # any foreign mechanism's heat. Keep the declaration scoped to this
+        # exact file, method, typed output parameter and field. A same-named
+        # key, another target or any other function remains actionable.
+        if (ctx.rel == "game/scripts/lamp/lamp_optical_state.gd"
+                and scope == "write_output" and target == "result"
+                and prop == "heat" and re.search(
+                    r"^func write_output\(result: Dictionary\) -> void:",
+                    ctx.text, re.M)):
             return
         # Builders positioning what they are constructing own that
         # geometry; transform writes only matter for coordinators
@@ -557,12 +700,11 @@ def _scan_timer_scope(ctx, findings, scope):
     body = ctx.function_body(scope)
     if not body or not ELAPSED_RE.search(body):
         return
-    consequences = CONSEQUENCE_RE.findall(body)
-    if not consequences:
+    code_lines = [_consequence_code(ctx, scope, line) for line in body.split("\n")]
+    consequence_lines = [line for line in code_lines if CONSEQUENCE_RE.search(line)]
+    if not consequence_lines:
         return
     # Scheduling-only scopes dispatch/emit and apply nothing final.
-    consequence_lines = [ln for ln in body.split("\n")
-                         if CONSEQUENCE_RE.search(ln)]
     if all(SCHEDULE_ONLY_RE.search(ln) for ln in consequence_lines):
         return
     start = next((s for n, s, _e in ctx.functions if n == scope), 0)
@@ -657,6 +799,8 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
         re.search(r"Time\.get_time_(?:dict|string)_from_system\(", line)
     unix_host_read = HOST_UNIX_RE.search(line)
     if _pure_seed_entropy(ctx.rel, scope, code_body):
+        return
+    if _artifact_timestamp_only(ctx, scope, line):
         return
     if (civil_host_read or unix_host_read) and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
             not CALENDAR_DURABLE_RE.search(code_body):
@@ -778,12 +922,13 @@ def _scan_test_proof(ctx, findings):
     shortcut_lines = []
     for i in range(len(ctx.lines)):
         line = ctx.code_line(i)
-        if TEST_SHORTCUT_CALL_RE.search(line):
+        code = _consequence_code(ctx, ctx.scope_at(i), line)
+        if TEST_SHORTCUT_CALL_RE.search(code):
             shortcut_lines.append((i, line))
     if not shortcut_lines:
         return
-    if TEST_PUBLIC_RE.search(ctx.text):
-        return  # exercises a public interaction somewhere; give benefit
+    if TEST_PUBLIC_RE.search(ctx.text) or _reaches_inherited_input(ctx):
+        return  # local public interaction, or an actually reached inherited input driver
     i, line = shortcut_lines[0]
     findings.append(make_finding(
         "test-proof", "TEST_AUTHORITY_SHORTCUT", ctx.rel,
@@ -856,7 +1001,7 @@ def scan_repository(root: Path, production_only: bool,
                                       errors="replace")
             except OSError:
                 continue
-            ctx = FileContext(rel, text)
+            ctx = FileContext(rel, text, root)
             scan_file(ctx, findings)
     if domains:
         findings = [f for f in findings if f["domain"] in domains]

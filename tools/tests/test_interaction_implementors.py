@@ -316,11 +316,20 @@ class ProductionSmokeTests(unittest.TestCase):
     def test_production_census_agrees_with_manifest(self):
         self.assertEqual(self.code, 0)
         summary = self.report["summary"]
-        self.assertEqual(summary["discovered"], 86)
+        # Four V2 hosts extend the frozen contract: cabinet, inherited
+        # receiver, collision-only water body, and valve-cap action.
+        self.assertEqual(summary["discovered"], 90)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 19, "interact_prompt": 67})
+                         {"control_prompt": 19, "interact_prompt": 71})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 2, "production": 83})
+                         {"adapter": 1, "debug-only": 2, "production": 87})
+        actual = {i["file"]: i for i in self.report["implementors"]}
+        for kind in ("prep_cabinet", "radio_prop", "water_controls", "water_valve"):
+            rel = "building/orison_v2_" + kind + ".gd"
+            self.assertIn(rel, actual)
+            self.assertEqual(actual[rel]["action_method"], "interact")
+        self.assertEqual(actual["building/orison_v2_radio_prop.gd"]["action_source"],
+                         "props/domestic_radio_prop.gd")
 
     def test_projector_inheritance_resolution_pinned(self):
         imp = next(i for i in self.report["implementors"]

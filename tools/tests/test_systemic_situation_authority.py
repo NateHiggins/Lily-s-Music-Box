@@ -65,6 +65,111 @@ def write_baseline(root: Path) -> Path:
     return target
 
 
+class OwnedLampOutputTests(unittest.TestCase):
+    def test_only_declared_lamp_result_field_is_owned(self):
+        source = ("extends RefCounted\n"
+                  "func write_output(result: Dictionary) -> void:\n"
+                  "\tvar hot := 0.5\n\tresult.heat = hot\n")
+        rel = "game/scripts/lamp/lamp_optical_state.gd"
+        cases = [
+            (rel, source, False),
+            ("game/scripts/game/other_state.gd", source, True),
+            (rel, source.replace("write_output", "mutate_world"), True),
+            (rel, source.replace("result.heat", "radiator.heat"), True),
+            (rel, source.replace("result: Dictionary", "result: Node"), True),
+            (rel, source.replace("result.heat", "result.power"), True),
+        ]
+        for path, text, expected in cases:
+            with self.subTest(path=path, source=text), TempRepo() as root:
+                target = root / path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(text, encoding="utf-8")
+                _, findings, _ = run_findings(root)
+                actual = [f for f in findings if f["file"] == path
+                          and f["class"] == "FOREIGN_PHYSICAL_MUTATION"]
+                self.assertEqual(bool(actual), expected)
+
+
+class ReconciledReviewTests(unittest.TestCase):
+    def scan_source(self, source, rel="game/tests/player_reconstruction_test.gd", parents=None):
+        with TempRepo() as root:
+            for name, body in {rel: source, **(parents or {})}.items():
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(body, encoding="utf-8")
+            _, findings, _ = run_findings(root)
+            return [row for row in findings if row["file"] == rel]
+
+    def test_declaration_is_not_a_timer_consequence_but_a_call_is(self):
+        source = "extends Node\nfunc _complete_visit():\n    var elapsed := 1.0\n"
+        self.assertFalse(of_class(self.scan_source(source), "TIMER_IMPERSONATES_ACTOR"))
+        source += "    coordinator.complete_repair()\n"
+        self.assertTrue(of_class(self.scan_source(source), "TIMER_IMPERSONATES_ACTOR"))
+
+    def test_typed_adapter_lookup_is_read_only_but_unknown_resolve_is_not(self):
+        source = ("extends Node\nvar world: OrisonV2RuntimeRoot\n"
+                  "func _ready():\n    await get_tree().create_timer(.2).timeout\n"
+                  "    var node = world.adapter.resolve(\"F01_LOBBY\")\n")
+        for text, expected in [(source, False),
+                (source.replace("OrisonV2RuntimeRoot", "Node"), True),
+                (source.replace("world.adapter.resolve", "situation.resolve"), True),
+                (source + "    situation.resolve(\"repair\")\n", True),
+                (source.replace("func _ready():", "func _ready(world: Node):"), True)]:
+            with self.subTest(source=text):
+                rows = self.scan_source(text)
+                self.assertEqual(bool(of_class(rows, "TIMER_IMPERSONATES_ACTOR")), expected)
+                self.assertEqual(bool(of_class(rows, "TEST_AUTHORITY_SHORTCUT")), expected)
+
+    def test_local_cast_is_scoped_and_does_not_credit_another_function(self):
+        source = ("extends Node\nfunc _ready():\n"
+                  "    var world := Runtime.instantiate() as OrisonV2RuntimeRoot\n"
+                  "    await get_tree().create_timer(.2).timeout\n"
+                  "    var node = world.adapter.resolve(\"F01_LOBBY\")\n"
+                  "func unrelated(world: Node):\n"
+                  "    await get_tree().create_timer(.2).timeout\n"
+                  "    world.adapter.resolve(\"repair\")\n")
+        rows = of_class(self.scan_source(source), "TIMER_IMPERSONATES_ACTOR")
+        self.assertEqual([r["scope"] for r in rows], ["unrelated"])
+
+    def test_only_reached_inherited_input_driver_counts(self):
+        parent = ("extends Node\nvar world: OrisonV2RuntimeRoot\n"
+                  "func _ready():\n    call_deferred(\"_run\")\n"
+                  "func _run():\n    await _route()\n"
+                  "func _route():\n    pass\n"
+                  "func _use():\n    Input.action_press(\"interact\")\n"
+                  "    Input.action_release(\"interact\")\n")
+        child = ("extends \"res://tests/player_driver.gd\"\n"
+                 "func _route():\n    situation.apply_condition()\n    await _use()\n")
+        parents = {"game/tests/player_driver.gd": parent}
+        for source, expected in [(child, False),
+                (child.replace("    await _use()\n", ""), True),
+                (child + "func _use():\n    pass\n", True)]:
+            with self.subTest(source=source):
+                self.assertEqual(bool(of_class(self.scan_source(source, parents=parents),
+                    "TEST_AUTHORITY_SHORTCUT")), expected)
+
+    def test_only_exact_artifact_timestamp_cannot_escape_to_world(self):
+        source = ("extends Node\nfunc _ready():\n    var report := {\n"
+                  "        \"generated_utc\": Time.get_datetime_string_from_system(true),\n"
+                  "    }\n    file.store_string(JSON.stringify(report))\n")
+        rel = "game/tests/interaction_inventory.gd"
+        warehouse = source.replace("_ready", "_run").replace("report", "manifest").replace("generated_utc", "generated_at").replace("system(true)", "system(true, true)")
+        warehouse += '    printerr("cannot write the manifest")\n'
+        cases = [(rel, source, False),
+                 ("game/tests/prop_warehouse_shot.gd", warehouse, False),
+                 ("game/tests/prop_warehouse_shot.gd", warehouse + "    publish(manifest)\n", True),
+                 ("game/scripts/game/calendar_export.gd", source, True),
+                 (rel, source.replace("generated_utc", "issued_at"), True),
+                 (rel, source + "    RealityState.data.report = report\n", True),
+                 (rel, source + "    var alias = report\n    publish(alias)\n", True),
+                 (rel, source + "    publish(report)\n", True),
+                 (rel, source.replace("file.store_string(JSON.stringify(report))", "return report"), True)]
+        for path, text, expected in cases:
+            with self.subTest(path=path, source=text):
+                self.assertEqual(bool(of_class(self.scan_source(text, path),
+                    "HOST_CLOCK_MUTATES_WORLD")), expected)
+
+
 class DetectionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

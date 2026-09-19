@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "source_builder": "design/astra/work/v2_upper_floors_01/build.py",
+  "source_symbol": "WINDOWS",
+  "profiles": {
+    "A": [
+      {
+        "room_suffix": "MAIN",
+        "center": [
+          -15.65,
+          -3.8
+        ],
+        "axis": "z"
+      },
+      {
+        "room_suffix": "BED",
+        "center": [
+          -15.65,
+          -10.1
+        ],
+        "axis": "z"
+      },
+      {
+        "room_suffix": "BED",
+        "center": [
+          -13.4,
+          -12.35
+        ],
+        "axis": "x"
+      },
+      {
+        "room_suffix": "STUDY",
+        "center": [
+          -9.7,
+          -12.35
+        ],
+        "axis": "x"
+      },
+      {
+        "room_suffix": "BATH",
+        "center": [
+          -6.95,
+          -12.35
+        ],
+        "axis": "x"
+      }
+    ],
+    "B": [
+      {
+        "room_suffix": "MAIN",
+        "center": [
+          -15.65,
+          3.7
+        ],
+        "axis": "z"
+      },
+      {
+        "room_suffix": "ALCOVE",
+        "center": [
+          -15.65,
+          8.8
+        ],
+        "axis": "z"
+      },
+      {
+        "room_suffix": "ALCOVE",
+        "center": [
+          -13.4,
+          11.65
+        ],
+        "axis": "x"
+      },
+      {
+        "room_suffix": "KITCHEN",
+        "center": [
+          -7.9,
+          11.65
+        ],
+        "axis": "x"
+      }
+    ],
+    "C": [
+      {
+        "room_suffix": "MAIN",
+        "center": [
+          -3.0,
+          11.65
+        ],
+        "axis": "x"
+      },
+      {
+        "room_suffix": "BED1",
+        "center": [
+          2.1,
+          11.65
+        ],
+        "axis": "x"
+      },
+      {
+        "room_suffix": "BED2",
+        "center": [
+          5.4,
+          11.65
+        ],
+        "axis": "x"
+      }
+    ]
+  }
+}

@@ -133,6 +133,37 @@ class ScanTests(unittest.TestCase):
         self.assertEqual(hits, [])
         self.assertGreaterEqual(self.meta["stats"]["vector3_stats_only"], 3)
 
+    def test_translated_local_global_owner_is_presentation(self):
+        with TempRepo() as root:
+            path = root / "game/scripts/props/local_prop.gd"
+            path.write_text("extends Node3D\nfunc update_beam():\n"
+                            "    particles.global_transform = player.flashlight.global_transform.translated_local(Vector3(0,0,-3.25))\n",
+                            encoding="utf-8")
+            _, rows = scan(root)
+            self.assertEqual(rec(rows, kind="vector3_coordinate", file="game/scripts/props/local_prop.gd"), [])
+
+    def test_local_translation_does_not_hide_absolute_coordinate(self):
+        with TempRepo() as root:
+            path = root / "game/scripts/props/local_prop.gd"
+            path.write_text("extends Node3D\nfunc update_beam():\n"
+                            "    particles.global_transform = owner.global_transform.translated_local(Vector3(0,0,-3.25)); camera.global_position = Vector3(20,2,30)\n"
+                            "    camera.global_transform = Transform3D.IDENTITY.translated_local(Vector3(20,2,30))\n",
+                            encoding="utf-8")
+            _, rows = scan(root)
+            hits = rec(rows, kind="vector3_coordinate", file="game/scripts/props/local_prop.gd")
+            self.assertEqual(len(hits), 1)
+            self.assertEqual(hits[0]["count"], 2)
+            self.assertTrue(hits[0]["gameplay_binding"])
+
+    def test_reviewed_kind_label_does_not_alias_v1_furniture(self):
+        universe = {"ids": {"desk": {"domains": ["furniture"]}}}
+        label = audit.Finding("id_reference", "game/scripts/building/orison_v2_domestic_furniture.gd", "desk", "production")
+        other = audit.Finding("id_reference", "game/scripts/building/another_consumer.gd", "desk", "production")
+        self.assertEqual(audit.classify(label, universe)["disposition"], "SAFE_TO_CHANGE")
+        self.assertEqual(audit.classify(label, universe)["spatial"], [])
+        self.assertEqual(audit.classify(other, universe)["disposition"], "PRESERVE_OR_ALIAS")
+        self.assertIn("SEMANTIC_ANCHOR", audit.classify(other, universe)["spatial"])
+
     def test_fallback_offset_behind_anchor_stays_out(self):
         hits = rec(self.records, kind="vector3_coordinate",
                    file="game/scripts/cases/mina_caption_manifestation.gd")

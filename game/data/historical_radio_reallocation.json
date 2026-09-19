@@ -1,42 +1,36 @@
 {
   "schema_version": 1,
   "id": "ny_radio_reallocation_1928_11_11",
-  "medium": "authored_hand_copy_of_published_license_notice",
-  "effective": {"year": 1928, "month": 11, "day_of_month": 11, "minute_of_day": 180, "time_standard": "Eastern Standard Time"},
   "notice_heading": "NEW YORK WIRELESS",
   "notice_date_line": "11 NOVEMBER 1928 / 3 A.M. E.S.T.",
-  "assignments": [
-    {"station": "WEAF", "before_kc": 610, "after_kc": 660, "before_sources": ["frc_annual_1928"], "after_sources": ["frc_revised_1928"]},
-    {"station": "WJZ", "before_kc": 660, "after_kc": 760, "before_sources": ["ap_1928_11_10"], "after_sources": ["frc_revised_1928", "ap_1928_11_10"]},
-    {"station": "WOR", "before_kc": 710, "after_kc": 710, "before_sources": ["ap_1928_11_10"], "after_sources": ["frc_revised_1928", "ap_1928_11_10"]}
-  ],
-  "shared_after": {"stations": ["WNYC", "WMCA"], "kc": 570, "sources": ["frc_revised_1928"], "program_hours": null},
-  "sources": {
-    "frc_revised_1928": {
-      "title": "Federal Radio Commission revised station assignments and October 25, 1928 transmittal",
-      "url": "https://www.thebdr.net/wp-content/uploads/PDF/Profiles/Broadcast-History/the-great-frequency-move-of-1928.pdf",
-      "locator": "PDF pp. 2-6; effective instant p. 3, WNYC/WMCA p. 4, WEAF p. 5, WOR/WJZ p. 6",
-      "source_kind": "primary government document transcription hosted by a radio-history publisher",
-      "access": "transmittal and station rows directly checked 2026-09-05"
-    },
-    "ap_1928_11_10": {
-      "title": "Associated Press, New York dateline November 10; The Brunswick News, November 11, 1928, front page",
-      "url": "https://gahistoricnewspapers.galileo.usg.edu/lccn/sn90052143/1928-11-11/ed-1/seq-1/ocr/",
-      "source_kind": "contemporary newspaper dispatch",
-      "access": "indexed archival OCR recorded in campaign_date_research.md; direct revisit presents an access challenge"
-    },
-    "frc_annual_1928": {
-      "title": "Federal Radio Commission Second Annual Report, station list as of June 30, 1928",
-      "url": "https://www.worldradiohistory.com/Archive-Other-Documments/Radio-Service%20Bulletin/Annual-Reports/FRC-Annual-Report-1927-07-to-1928-09.pdf",
-      "locator": "printed p. 90, WEAF 610 kilocycles",
-      "source_kind": "primary government report",
-      "access": "indexed report text recorded in campaign_date_research.md; direct PDF retrieval unavailable"
-    }
+  "effective": {
+    "year": 1928,
+    "month": 11,
+    "day_of_month": 11,
+    "minute_of_day": 180
   },
-  "limits": [
-    "The physical lobby hand-copy and its posting are authored fiction; it is not a facsimile of a recovered Orison notice.",
-    "License assignments do not establish that a station was on air at a particular hour.",
-    "No specific WNYC/WMCA program or time-sharing schedule is asserted.",
-    "No historic recording, speech, supernatural voice, blackout or resident knowledge is implied."
-  ]
+  "assignments": [
+    {
+      "station": "WEAF",
+      "before_kc": 610,
+      "after_kc": 660
+    },
+    {
+      "station": "WJZ",
+      "before_kc": 660,
+      "after_kc": 760
+    },
+    {
+      "station": "WOR",
+      "before_kc": 710,
+      "after_kc": 710
+    }
+  ],
+  "shared_after": {
+    "stations": [
+      "WNYC",
+      "WMCA"
+    ],
+    "kc": 570
+  }
 }

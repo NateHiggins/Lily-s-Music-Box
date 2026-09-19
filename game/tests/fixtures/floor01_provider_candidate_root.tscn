@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3]
-
-[ext_resource type="PackedScene" path="res://scenes/building/orison_root.tscn" id="1"]
-
-[node name="OrisonRoot" instance=ExtResource("1")]
-floor01_geometry_mode = "owner_first_cells"
-floor01_registry_path = "res://data/floor01_provider_registry.tres"

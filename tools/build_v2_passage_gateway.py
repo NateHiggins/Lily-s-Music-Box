@@ -12,7 +12,7 @@ import struct
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'game/assets/building/floor_01_cells/site_street_common.gltf'
 OUTPUT = ROOT / 'game/assets/building/orison_v2/exterior/passage_gateway.gltf'
-MANIFEST = ROOT / 'game/data/orison_v2/exterior/passage_gateway_source.json'
+MANIFEST = ROOT / 'art/data/orison_v2/exterior/passage_gateway_source.json'
 NAMES = [
     'common_brick-col', 'gateway_cast_iron', 'gateway_cast_iron-col',
     'gateway_common_brick-col', 'gateway_face_brick-col',
@@ -131,6 +131,7 @@ def build():
         'geometry_changed': True, 'runtime_adopted': True,
         'subway_relocation': subway,
         'scope': 'Existing gateway extraction with subway kiosk turned along the opposite sidewalk outside the arcade; other triangles unchanged.'}
+    MANIFEST.parent.mkdir(parents=True, exist_ok=True)
     MANIFEST.write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8')
     assert sha(SOURCE) == source_hash
     print('Extracted', len(selected), 'gateway roots; V2 subway relocated; V1 source unchanged')

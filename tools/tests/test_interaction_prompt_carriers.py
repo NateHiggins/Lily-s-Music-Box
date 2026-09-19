@@ -329,9 +329,9 @@ class ProductionSmokeTests(unittest.TestCase):
     def test_production_counts_match_interaction_contract(self):
         code, report = run_json(audit.DEFAULT_ROOT, audit.DEFAULT_BASELINE)
         summary = report["summary"]
-        # 67 interact_prompt + 19 control_prompt definers: the authored
-        # wireless notice adds one semantic control to the lobby board.
-        self.assertEqual(summary["prompt_methods"], 86)
+        # Four classified V2 files add five methods: the cabinet's
+        # moving panel delegates a second prompt to its mechanism owner.
+        self.assertEqual(summary["prompt_methods"], 91)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
         self.assertEqual(summary["forbidden"], 0)

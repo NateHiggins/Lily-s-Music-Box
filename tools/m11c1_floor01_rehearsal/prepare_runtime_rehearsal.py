@@ -508,7 +508,8 @@ def _validate_textures(
 
 
 def _validate_semantic_sources(
-    lineage: Mapping[str, Any], layout: Mapping[str, Any], regions: Mapping[str, Any]
+    lineage: Mapping[str, Any], layout: Mapping[str, Any], regions: Mapping[str, Any],
+    *, regions_path: Path = EXTERIOR_REGIONS_PATH,
 ) -> None:
     rows = lineage.get("semantic_owners")
     if not isinstance(rows, list) or not rows:
@@ -553,7 +554,7 @@ def _validate_semantic_sources(
                 raise PreparationError(f"M11A semantic threshold is missing: {identity}")
             if sha256_bytes(canonical_bytes(threshold)) != row.get("source_record_sha256"):
                 raise PreparationError(f"M11A semantic threshold record differs: {identity}")
-            if sha256_file(EXTERIOR_REGIONS_PATH) != row.get("source_file_sha256"):
+            if sha256_file(regions_path) != row.get("source_file_sha256"):
                 raise PreparationError("M11A region file differs from threshold lineage")
         else:
             raise PreparationError(f"unknown semantic source kind for {identity}: {kind}")
@@ -671,7 +672,10 @@ def validate_export(export_root: Path, repo_root: Path = REPO_ROOT) -> ExportBun
     regions = load_json(
         repo_root / EXTERIOR_REGIONS_PATH.relative_to(REPO_ROOT), "M11A regions"
     )
-    _validate_semantic_sources(lineage, layout, regions)
+    _validate_semantic_sources(
+        lineage, layout, regions,
+        regions_path=repo_root / EXTERIOR_REGIONS_PATH.relative_to(REPO_ROOT),
+    )
 
     source_paths: list[Path] = [transaction_path]
     source_paths.extend(path for path, _receipt in relative_receipts.values())
@@ -1367,10 +1371,20 @@ def _resident_nav_queries(
 
 
 def build_runtime_config(
-    bundle: ExportBundle, scratch_root: Path, resources: Mapping[str, str]
+    bundle: ExportBundle, scratch_root: Path, resources: Mapping[str, str],
+    *, repo_root: Path = REPO_ROOT,
 ) -> dict[str, Any]:
-    layout = load_json(LAYOUT_PATH, "authoritative layout")
-    m11c0 = load_json(M11C0_MANIFEST, "M11C0 seam/capture manifest")
+    # Match validate_export's selected source tree. The command line still
+    # uses the current repository; historical tests supply exact frozen bytes.
+    layout_path = repo_root / LAYOUT_PATH.relative_to(REPO_ROOT)
+    regions_path = repo_root / EXTERIOR_REGIONS_PATH.relative_to(REPO_ROOT)
+    manifest_path = repo_root / M11C0_MANIFEST.relative_to(REPO_ROOT)
+    expected_sources = bundle.export_receipt.get("authoritative_input_hashes", {})
+    for identity, path in (("layout", layout_path), ("exterior_regions", regions_path)):
+        if sha256_file(path) != expected_sources.get(identity):
+            raise PreparationError(f"runtime config {identity} hash differs from export transaction")
+    layout = load_json(layout_path, "authoritative layout")
+    m11c0 = load_json(manifest_path, "M11C0 seam/capture manifest")
     seams, capture_views = _build_seams(layout, m11c0)
     semantic_expectations = [
         {
@@ -1417,11 +1431,11 @@ def build_runtime_config(
         },
         "authoritative_sources": {
             "layout_path": AUTHORITATIVE_RESOURCE_PATHS["layout"],
-            "layout_sha256": sha256_file(LAYOUT_PATH),
+            "layout_sha256": sha256_file(layout_path),
             "exterior_regions_path": AUTHORITATIVE_RESOURCE_PATHS[
                 "exterior_regions"
             ],
-            "exterior_regions_sha256": sha256_file(EXTERIOR_REGIONS_PATH),
+            "exterior_regions_sha256": sha256_file(regions_path),
         },
         "cell_resources": dict(sorted(resources.items())),
         "residency_sets": residency_sets,

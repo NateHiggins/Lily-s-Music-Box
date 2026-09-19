@@ -39,7 +39,7 @@ func _build_visual() -> void:
 func interact_prompt() -> String:
 	if family == "crystal_set":
 		var resident := str(radio_profile.get("resident", unit)).split(" ")[0]
-		return "[E] Stop listening" if powered else "[E] Listen through %s's headphones" % resident
+		return "Stop listening" if powered else "Listen through %s's headphones" % resident
 	return super.interact_prompt()
 
 func public_state() -> Dictionary:

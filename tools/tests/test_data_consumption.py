@@ -154,6 +154,185 @@ class DataConsumptionTests(unittest.TestCase):
         finally:
             td.cleanup()
 
+    def test_file_identity_maps_are_exact_and_keep_value_fields(self):
+        # Schema-less production catalogs use variable record IDs. Only the
+        # exact file/container pair changes classification; child fields do not.
+        declarations = {
+            "prop_catalog.json": {""},
+            "reality_cases.json": {""},
+            "reality_rules.json": {""},
+            "music_catalog.json": {"tracks", "residents"},
+            "resident_schedules.json": {"residents"},
+            "maintenance_activities.json": {"activities"},
+            "orison_v2/upper_floor_programs.json": {"doors"},
+            "orison_v2/mina_routine.json": {"places"},
+            "runtime_material_sets.json": {"materials"},
+        }
+        for filename, containers in declarations.items():
+            for container in containers:
+                with self.subTest(filename=filename, container=container):
+                    record = {"AUTHORED_RECORD_ID": {"unread_value": 1}}
+                    value = {container: record} if container else record
+                    fields = audit.data_json_fields(value, filename)
+                    self.assertFalse(any("AUTHORED_RECORD_ID" in key for key in fields))
+                    self.assertTrue(any(key.endswith("unread_value") for key in fields))
+                    # A same basename in another directory gets no declaration.
+                    other = audit.data_json_fields(value, "unrelated/" + filename)
+                    self.assertTrue(any("AUTHORED_RECORD_ID" in key for key in other))
+                    # A caller without exact file identity also stays conservative.
+                    self.assertEqual(other, audit.data_json_fields(value))
+
+    def test_variable_door_id_is_not_a_field_but_unknown_value_stays_unread(self):
+        td, root = self.fixture()
+        try:
+            path = root / "game/data/orison_v2/upper_floor_programs.json"
+            path.parent.mkdir()
+            path.write_text(json.dumps({
+                "doors": {"F05_UNKNOWN_DOOR": {"unit": "5A", "unread_value": 1}},
+            }), encoding="utf-8")
+            (root / "game/scripts/game/doors.gd").write_text(
+                'const P="res://data/orison_v2/upper_floor_programs.json"\n'
+                'func f(source, identity): return source.doors[identity].unit\n',
+                encoding="utf-8")
+            rows = audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+            unread = {r.get("field") for r in rows
+                      if r["file"] == "game/data/orison_v2/upper_floor_programs.json"
+                      and r["kind"] == "FIELD_UNREAD"}
+            self.assertNotIn("F05_UNKNOWN_DOOR", unread)
+            self.assertIn("unread_value", unread)
+        finally:
+            td.cleanup()
+
+    def test_identity_classification_does_not_credit_unrelated_field_readers(self):
+        td, root = self.fixture()
+        try:
+            path = root / "game/data/music_catalog.json"
+            path.write_text(json.dumps({
+                "tracks": {"TRACK_ID": {"unread_value": 1}},
+                "other": {"TRACK_ID": {"other_value": 2}},
+            }), encoding="utf-8")
+            reader = root / "game/scripts/game/catalog.gd"
+            reader.write_text(
+                'const P="res://data/music_catalog.json"\n'
+                'func f(catalog, identity): return catalog.tracks[identity]\n',
+                encoding="utf-8")
+            (root / "game/scripts/game/unrelated.gd").write_text(
+                'func f(other): return other.unread_value\n', encoding="utf-8")
+            rows = audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+            unread = {r.get("field") for r in rows
+                      if r["file"] == "game/data/music_catalog.json"
+                      and r["kind"] == "FIELD_UNREAD"}
+            self.assertIn("unread_value", unread)
+            self.assertIn("TRACK_ID", unread)  # same key outside declared tracks
+            self.assertIn("other_value", unread)
+            reader.unlink()
+            rows = audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+            self.assertTrue(any(r["file"] == "game/data/music_catalog.json"
+                                and r["kind"] == "FILE_UNREAD" for r in rows))
+        finally:
+            td.cleanup()
+
+    def inherited_fixture(self):
+        td, root = self.fixture()
+        (root / "game/data/live.json").write_text(json.dumps({
+            "props": [{"surfaces": [{"normals": [1], "vertices": [2],
+                                      "material": "paper"}]}],
+        }), encoding="utf-8")
+        (root / "game/scripts/game/reader.gd").write_text(
+            'extends "res://scripts/game/mesh_base.gd"\n'
+            'const DATA = "res://data/live.json"\n'
+            'func mount():\n'
+            '    var source = JSON.parse_string(FileAccess.get_file_as_string(DATA))\n'
+            '    for record: Dictionary in source.props:\n'
+            '        _surfaces(record.surfaces)\n', encoding="utf-8")
+        (root / "game/scripts/game/mesh_base.gd").write_text(
+            'func _surfaces(surfaces):\n'
+            '    for surface: Dictionary in surfaces:\n'
+            '        print(surface.normals, surface.get("vertices"))\n'
+            '    var unrelated = {}\n'
+            '    print(unrelated.material)\n', encoding="utf-8")
+        return td, root
+
+    def unread_live_fields(self, root):
+        return {r.get("field") for r in audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+                if r["file"] == "game/data/live.json" and r["kind"] == "FIELD_UNREAD"}
+
+    def test_inherited_helper_tracks_only_the_passed_parameter(self):
+        td, root = self.inherited_fixture()
+        try:
+            unread = self.unread_live_fields(root)
+            self.assertNotIn("normals", unread)
+            self.assertNotIn("vertices", unread)
+            self.assertIn("material", unread)  # another dictionary in the same base
+        finally:
+            td.cleanup()
+
+    def test_inherited_helper_cannot_credit_another_file_or_changed_argument(self):
+        td, root = self.inherited_fixture()
+        try:
+            caller = root / "game/scripts/game/reader.gd"
+            original = caller.read_text(encoding="utf-8")
+            for replacement in [
+                '        _surfaces({})',
+                '        print("_surfaces(record.surfaces)")',
+                '        var record = {}\n        _surfaces(record.surfaces)',
+                '        _surfaces(make_copy(record.surfaces))',
+            ]:
+                caller.write_text(original.replace('        _surfaces(record.surfaces)', replacement), encoding="utf-8")
+                self.assertIn("normals", self.unread_live_fields(root))
+            caller.write_text(original.replace('FileAccess.get_file_as_string(DATA)',
+                'FileAccess.get_file_as_string("res://data/orphan.json")'), encoding="utf-8")
+            self.assertIn("normals", self.unread_live_fields(root))
+        finally:
+            td.cleanup()
+
+    def test_inherited_helper_override_and_rebinding_do_not_counterfeit_reads(self):
+        td, root = self.inherited_fixture()
+        try:
+            caller = root / "game/scripts/game/reader.gd"
+            original = caller.read_text(encoding="utf-8")
+            caller.write_text(original + '\nfunc _surfaces(surfaces):\n    pass\n', encoding="utf-8")
+            self.assertIn("normals", self.unread_live_fields(root))
+            caller.write_text(original, encoding="utf-8")
+            parent = root / "game/scripts/game/mesh_base.gd"
+            original_parent = parent.read_text(encoding="utf-8")
+            parent.write_text(original_parent.replace('    for surface: Dictionary in surfaces:',
+                '    surfaces = []\n    for surface: Dictionary in surfaces:'), encoding="utf-8")
+            self.assertIn("normals", self.unread_live_fields(root))
+        finally:
+            td.cleanup()
+
+    def test_inherited_parameter_aliases_reject_member_and_conditional_lookalikes(self):
+        td, root = self.inherited_fixture()
+        try:
+            parent = root / "game/scripts/game/mesh_base.gd"
+            cases = [
+                '    for surface in surfaces:\n        print(unrelated.surface.normals)\n',
+                '    for surface in surfaces:\n        var shadow = surface if false else {}\n        print(shadow.normals)\n',
+                '    for surface in surfaces:\n        pass\n    for surface in unrelated:\n        print(surface.normals)\n',
+                '    for surface in self.surfaces:\n        print(surface.normals)\n',
+            ]
+            for body in cases:
+                with self.subTest(body=body):
+                    parent.write_text('func _surfaces(surfaces):\n' + body, encoding="utf-8")
+                    self.assertIn("normals", self.unread_live_fields(root))
+        finally:
+            td.cleanup()
+
+    def test_inherited_parse_uses_local_path_binding_without_constant_leakage(self):
+        td, root = self.inherited_fixture()
+        try:
+            caller = root / "game/scripts/game/reader.gd"
+            original = caller.read_text(encoding="utf-8")
+            for shadow in ['var DATA = "res://data/orphan.json"', 'var DATA = unknown_path()']:
+                caller.write_text(original.replace('func mount():\n', 'func mount():\n    ' + shadow + '\n'), encoding="utf-8")
+                self.assertIn("normals", self.unread_live_fields(root))
+            caller.write_text(original.replace('func mount():\n',
+                'func earlier():\n    const DATA = "res://data/orphan.json"\n\nfunc mount():\n'), encoding="utf-8")
+            self.assertNotIn("normals", self.unread_live_fields(root))
+        finally:
+            td.cleanup()
+
     def test_nested_durable_numbers_are_walked_and_scoped_to_their_owner(self):
         td, root = self.fixture()
         try:

@@ -66,6 +66,15 @@ func _load_layout(path: String) -> Dictionary:
 		return {}
 	return parsed
 
+static func valid_space_unit(space: Dictionary) -> bool:
+	# The same authored unit is handed to apartment door/program owners later.
+	# Reject a malformed or foreign-floor owner before building its geometry.
+	if not space.has("unit"): return true
+	if space.unit is not String: return false
+	var identity := RegEx.create_from_string("^([1-9][0-9]*)([A-Z])$")
+	var matched := identity.search(space.unit)
+	return matched != null and space.get("level") == "F%02d" % int(matched.get_string(1))
+
 func _validate_layout() -> void:
 	if int(layout.get("schema_version", 0)) != 1:
 		failures.append("unsupported schema_version")
@@ -89,6 +98,8 @@ func _validate_layout() -> void:
 			if record.has("level") and not level_y.has(str(record.level)):
 				failures.append("%s references missing level %s" % [ident, record.level])
 	for space: Dictionary in layout.get("spaces", []):
+		if not valid_space_unit(space):
+			failures.append("invalid apartment unit for space level: " + str(space.get("id", "?")))
 		if not _valid_rect(space.get("rect", [])):
 			failures.append("invalid space rect: " + str(space.get("id", "?")))
 	for riser: Dictionary in layout.get("risers", []):

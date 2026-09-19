@@ -14,7 +14,7 @@ import struct
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT/'game/assets/building/floor_01_cells/passage.gltf'
 OUT = ROOT/'game/assets/building/orison_v2/passage'
-RECORD = ROOT/'game/data/orison_v2/arcade_ceiling_source.json'
+RECORD = ROOT/'art/data/orison_v2/arcade_ceiling_source.json'
 REFS = ROOT/'art/references/arcade_ceiling'
 PALETTE = {'teal': ('enamel_appliance', [.10, .56, .46, 1]),
            'brass': ('brass_dull', [.88, .67, .30, 1]),
@@ -172,6 +172,7 @@ def build():
                 added_lights=0,added_collision_bodies=0,original_meshes_preserved=len(original['meshes']),
                 status='SOURCE_CHECKED_GODOT_NOT_RUN',buffer_sha256=sha(OUT/'ceiling_detail.bin'))
     assert len(record['references'])==2
+    RECORD.parent.mkdir(parents=True, exist_ok=True)
     RECORD.write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(record))
 

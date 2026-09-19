@@ -9,3 +9,26 @@ art/data/m11c2/** -text
 
 # Preserve the generated glTF vertex/normal buffer byte-for-byte on Windows.
 game/assets/building/orison_v2/exterior/passage_gateway_subway.bin binary
+
+# Deterministic generated Astra views; writers emit LF, tests bind raw bytes.
+design/astra/BRANCH_ADOPTION_MATRIX.json -text
+design/astra/BRANCH_ADOPTION_MATRIX.md -text
+design/astra/REPOSITORY_TRUTH.md -text
+design/astra/MASTER_COMPLETION_LEDGER.json -text
+design/astra/MASTER_COMPLETION_LEDGER.md -text
+design/astra/reviews/adoption_rulings.json -text
+
+# Hash-bound build provenance and historical rehearsal fixture.
+art/data/orison_v2/arcade_ceiling_source.json -text
+art/data/orison_v2/exterior/passage_gateway_source.json -text
+tools/tests/fixtures/m11c1_runtime_rehearsal/historical_inputs.zip -text
+art/data/orison_v2/exterior/street_section_source.json -text
+game/data/orison_v2/exterior/street_frame.json -text
+design/historical_radio_reallocation.json -text
+game/data/historical_radio_reallocation.json -text
+art/data/orison_v2/domestic_furniture_source.json -text
+art/data/orison_v2/domestic_radios_source.json -text
+art/data/orison_v2/heating_source.json -text
+art/data/orison_v2/household_accessories_source.json -text
+art/data/orison_v2/upper_floor_programs_source.json -text
+art/data/orison_v2/exterior/construction_shed_source.json -text

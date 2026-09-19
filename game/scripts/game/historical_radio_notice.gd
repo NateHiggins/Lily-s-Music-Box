@@ -7,9 +7,16 @@ const DATA_PATH := "res://data/historical_radio_reallocation.json"
 var event: Dictionary = {}
 
 
+static func valid_source_header(source: Variant) -> bool:
+	if source is not Dictionary: return false
+	var version: Variant = source.get("schema_version")
+	return typeof(version) in [TYPE_INT, TYPE_FLOAT] and float(version) == 1.0 \
+			and source.get("effective") is Dictionary \
+			and source.get("assignments") is Array and source.get("shared_after") is Dictionary
+
 func _init() -> void:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA_PATH))
-	if parsed is Dictionary:
+	if valid_source_header(parsed):
 		event = parsed
 
 

@@ -5,6 +5,7 @@ const UNITS := ["2A", "2B", "3B", "4B"]
 const ALL_DOMESTIC_UNITS := ["2A", "2B", "3A", "3B", "4A", "4B"]
 var failures: Array[String] = []
 var checks := 0
+var _authoring_proof: Dictionary = {}
 
 class SurfaceSourceAdapter extends RefCounted:
 	var supports: Dictionary = {}
@@ -19,6 +20,14 @@ func check(ok: bool, label: String) -> void:
 
 func _ready() -> void:
 	RealityState.persistence_enabled = false
+	var proof: Variant = JSON.parse_string(FileAccess.get_file_as_string(
+			"res://tests/data/v2_authoring_proof.json"))
+	check(proof is Dictionary and proof.get("schema_version") == 1,
+			"authoring proof projection has its declared schema")
+	if proof is not Dictionary or proof.get("schema_version") != 1:
+		get_tree().quit(1)
+		return
+	_authoring_proof = proof
 	_check_wall_extensions()
 	var furniture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://data/orison_v2/domestic_furniture.json"))
@@ -152,6 +161,15 @@ func _ready() -> void:
 	print("APARTMENT BATCH: %d checks, %d failures" % [checks,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
+func _proof_record(group: String, identity: String) -> Dictionary:
+	var records: Variant = _authoring_proof.get(group)
+	if records is not Dictionary:
+		check(false, "missing authoring proof group: " + group)
+		return {}
+	var record: Variant = records.get(identity)
+	check(record is Dictionary, "authoring proof resolves its runtime identity: " + identity)
+	return record if record is Dictionary else {}
+
 func _check_household_accessories(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	var loader := preload("res://scripts/building/orison_v2_household_accessories.gd").new()
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(loader.PATH))
@@ -192,7 +210,11 @@ func _check_household_accessories(world: OrisonV2RuntimeRoot, refs: Array[WeakRe
 		refs.append(weakref(prop))
 		var support := world.adapter.resolve(str(record.support)) as Node3D
 		check(prop.get_parent() == support, "accessory belongs to its actual support")
-		var stance := support.to_global(Vector3(record.stance[0], record.stance[1], record.stance[2]))
+		var proof := _proof_record("accessories", str(record.id))
+		var approach: Array = proof.get("stance", [])
+		check(approach.size() == 3, "accessory has its authored proof approach")
+		if approach.size() != 3: continue
+		var stance := support.to_global(Vector3(approach[0], approach[1], approach[2]))
 		var target := prop.to_global(Vector3(0, .11, 0) if record.kind == "toaster" else Vector3(0, 1.505, -.08))
 		var ray := PhysicsRayQueryParameters3D.create(stance + Vector3.UP * 1.41, target, 1, [world.player.get_rid()])
 		ray.collide_with_areas = true
@@ -437,7 +459,9 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 				var shape := shapes[0] as CollisionShape3D
 				check(is_equal_approx((shape.shape as BoxShape3D).size.y, .7),
 						"upper cupboard has no phantom lower cabinet collider")
-			check(record.source_component.component == "upper_cabinet", "cupboard retains partial source attribution")
+			var attribution := _proof_record("furniture", str(record.id))
+			check(attribution.get("source_component", {}).get("component") == "upper_cabinet",
+					"cupboard retains partial source attribution")
 		var meshes: Array[Node] = body.find_children("*", "MeshInstance3D", true, false)
 		# Glass haze is a nested receiver; enumerate only direct material surfaces.
 		var direct: Array[MeshInstance3D] = []
@@ -485,8 +509,12 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 		refs.append(weakref(radio))
 		check(radio.get_parent() == support, "radio lifetime belongs to furniture support")
 		check(radio.unit == record.unit and not radio.powered, "household identity preserved and starts silent")
-		var lo := Vector3(record.bounds[0][0],record.bounds[0][1],record.bounds[0][2])
-		var hi := Vector3(record.bounds[1][0],record.bounds[1][1],record.bounds[1][2])
+		var proof := _proof_record("receivers", str(record.id))
+		var bounds: Array = proof.get("bounds", [])
+		check(bounds.size() == 2, "receiver has its authored clearance proof")
+		if bounds.size() != 2: continue
+		var lo := Vector3(bounds[0][0],bounds[0][1],bounds[0][2])
+		var hi := Vector3(bounds[1][0],bounds[1][1],bounds[1][2])
 		check(AABB(lo,hi-lo).grow(.002).encloses(radio.call("_visual_bounds")), "receiver stays in reserved native clearance")
 		check(radio.find_children("*", "StaticBody3D", true, false).is_empty(), "receiver adds no movement blocker")
 		var area := radio.get_node_or_null("PrimaryInteraction") as Area3D

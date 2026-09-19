@@ -2,8 +2,16 @@ extends RefCounted
 ## Placements derive from named V2 owner reservations, never legacy coordinates.
 const PATH := "res://data/orison_v2/case_one_placement.json"
 
+static func valid_source_header(source: Variant) -> bool:
+	if source is not Dictionary:
+		return false
+	var version: Variant = source.get("schema_version")
+	return typeof(version) in [TYPE_INT, TYPE_FLOAT] and float(version) == 1.0 \
+			and source.get("objects") is Array and source.get("tables") is Array
+
 func mount(adapter: Variant, owner: MinaCaseGameplay) -> bool:
-	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	if not valid_source_header(source): return false
 	var placements := {}
 	for record: Dictionary in source.objects:
 		var anchor := adapter.resolve(record.anchor) as Node3D

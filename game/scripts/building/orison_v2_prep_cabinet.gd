@@ -57,7 +57,7 @@ func _handle(parent: Node3D, at: Vector3) -> void:
 	parent.add_child(mesh)
 
 func interact_prompt() -> String:
-	return "[E] Close kitchen cabinet" if opened else "[E] Open kitchen cabinet"
+	return "Close kitchen cabinet" if opened else "Open kitchen cabinet"
 
 func interact(_actor: Node = null) -> Dictionary:
 	opened = not opened

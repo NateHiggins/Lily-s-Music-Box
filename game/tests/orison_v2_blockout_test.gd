@@ -1,5 +1,6 @@
 extends Node
 
+const ProgramContract := preload("res://tests/orison_v2_program_contract.gd")
 const LAYOUT_PATH := "res://data/orison_v2_blockout.json"
 const SCENE_PATH := "res://scenes/building/orison_v2_blockout.tscn"
 const F01_REVIEW_PATH := "res://scenes/building/orison_v2_f01_review.tscn"
@@ -19,23 +20,52 @@ func _ready() -> void:
 	_check(not bool(layout.get("production_default", true)), "v2 is development-only")
 	_check(layout.get("layout_id", "") == "orison_v2_h_plan_blockout_01",
 			"accepted H-plan identity is stable")
-	_check(layout.levels.size() == 5, "M08E slice declares B1 through F04 transfer levels")
-	_check(layout.spaces.size() == 78, "78 programmed spaces including 3A and 4A")
-	_check(layout.doors.size() == 35, "35 route/service/privacy leaves including six detailed apartments")
-	_check(layout.openings.size() == 37, "37 leafless circulation openings")
-	_check(layout.windows.size() == 30, "30 exterior-valid daylight openings")
-	_check(layout.envelopes.size() == 74, "74 fixed-use and clearance reservations")
-	_check(layout.fixtures.size() == 15, "fifteen gray-box fixed-use masses")
-	_check(layout.platforms.size() == 25, "25 core platforms including the F03 service entry")
-	_check(layout.lift_landings.size() == 8, "eight passenger/service lift landings")
-	_check(layout.stairs.size() == 7, "public/service U-stairs include B1-to-F01")
-	_check(layout.anchors.size() == 383, "383 named gameplay/review anchors across the current category batches")
-	_check(layout.capsule_stations.size() == 35, "35 declared F03/F04 capsule stations")
+	var program_errors: Array[String] = ProgramContract.validate(layout)
+	_check(program_errors.is_empty(), "current source programme closes: " + str(program_errors))
+	# Independent mutations prove deleted obligations and broken links are refused.
+	var missing_room: Dictionary = layout.duplicate(true)
+	missing_room.spaces = missing_room.spaces.filter(func(r: Dictionary) -> bool:
+		return str(r.id) != "F06_C_BED1")
+	_check(not ProgramContract.validate(missing_room).is_empty(), "missing upper sleep room is refused")
+	var missing_leaf: Dictionary = layout.duplicate(true)
+	missing_leaf.doors = missing_leaf.doors.filter(func(r: Dictionary) -> bool:
+		return str(r.id) != "F04_A_BATH_DOOR")
+	_check(not ProgramContract.validate(missing_leaf).is_empty(), "missing native 4A leaf is refused")
+	var missing_upper_leaf: Dictionary = layout.duplicate(true)
+	missing_upper_leaf.doors = missing_upper_leaf.doors.filter(func(r: Dictionary) -> bool:
+		return str(r.id) != "F05_A_PRIVATE_HALL_BATH_DOOR")
+	_check(ProgramContract.validate(missing_upper_leaf).has(
+			"missing semantic record: F05_A_PRIVATE_HALL_BATH_DOOR"),
+			"upper bath leaf remains required by its independent native host roster")
+	var missing_upper_window: Dictionary = layout.duplicate(true)
+	missing_upper_window.windows = missing_upper_window.windows.filter(func(r: Dictionary) -> bool:
+		return str(r.id) != "F05_A_WINDOW_1")
+	_check(ProgramContract.validate(missing_upper_window).has(
+			"missing semantic record: F05_A_WINDOW_1"),
+			"upper living-room daylight opening remains required by the original builder")
+	var reassigned_upper_window: Dictionary = layout.duplicate(true)
+	for window: Dictionary in reassigned_upper_window.windows:
+		if str(window.id) == "F05_A_WINDOW_1": window.space = "F05_A_BED"
+	_check(ProgramContract.validate(reassigned_upper_window).has(
+			"upper daylight room/axis mismatch: F05_A_WINDOW_1"),
+			"same-level window substitution cannot leave the authored living room without daylight")
+	var duplicate_anchor: Dictionary = layout.duplicate(true)
+	duplicate_anchor.anchors.append(duplicate_anchor.anchors[0].duplicate(true))
+	_check(not ProgramContract.validate(duplicate_anchor).is_empty(), "duplicate semantic anchor is refused")
+	print("[BLOCKOUT CENSUS] levels=%d spaces=%d doors=%d openings=%d windows=%d anchors=%d" % [
+		layout.levels.size(), layout.spaces.size(), layout.doors.size(), layout.openings.size(),
+		layout.windows.size(), layout.anchors.size()])
 	_check(_f04_rooms_do_not_overlap(layout), "F04 apartment rooms do not overlap")
 	_check(_f04_shared_partitions_owned_once(layout),
 			"every F04 shared partition has exactly one wall owner")
 	_check(_windows_are_exterior(layout), "every window lies on a declared exterior wall")
-	_check(_f04_doors_valid(layout), "F04 leaves have boundary, handedness and swing records")
+	_check(_f04_doors_valid(layout), "all F04 leaves retain boundary and handedness; 4B retains explicit swing envelopes")
+	var displaced_4a_door: Dictionary = layout.duplicate(true)
+	for door: Dictionary in displaced_4a_door.doors:
+		if str(door.id) == "F04_A_BATH_DOOR":
+			door.center[1] = float(door.center[1]) + 0.25
+	_check(not _f04_doors_valid(displaced_4a_door),
+			"4A leaf displaced off its connected room boundary is refused")
 	_check(_f04_clearances_valid(layout),
 			"F04 turning, work, bedside and door-swing clearances do not conflict")
 	for stair: Dictionary in layout.stairs:
@@ -85,6 +115,11 @@ func _ready() -> void:
 		add_child(root)
 		await get_tree().process_frame
 		_check(root.failures.is_empty(), "schema validation passes")
+		for group: String in ["spaces", "doors", "windows", "envelopes", "fixtures",
+				"platforms", "lift_landings", "stairs", "risers", "anchors"]:
+			for record: Dictionary in layout[group]:
+				_check(root.get_node_or_null(str(record.id)) != null,
+						"authored " + group + " resolves: " + str(record.id))
 		_check(root.is_in_group("orison_v2_blockout"), "explicit v2 selector group")
 		for ident in ["F01_DOOR_06", "F02_DOOR_02", "F04_DOOR_03",
 				"F02_A_MAIN_VANTRY_POINT", "F04_B_MONITOR_01", "F04_B_BED",
@@ -349,15 +384,19 @@ func _f04_doors_valid(layout: Dictionary) -> bool:
 	for envelope: Dictionary in layout.envelopes:
 		if envelope.has("door"):
 			swing_envelopes[str(envelope.door)] = true
-	var count := 0
+	var reserved_count := 0
 	for door: Dictionary in layout.doors:
 		if str(door.level) != "F04":
 			continue
-		count += 1
 		if not str(door.hinge) in ["left", "right"] or str(door.swing).is_empty():
 			return false
-		if not swing_envelopes.has(str(door.id)):
-			return false
+		# All F04 leaves retain the source boundary/handedness contract.
+		# The four 4B leaves additionally own historical swing reservations.
+		if str(door.id) in ["F04_DOOR_03", "F04_B_HALL_DOOR",
+				"F04_B_BATH_DOOR", "F04_B_CLOSET_DOOR"]:
+			reserved_count += 1
+			if not swing_envelopes.has(str(door.id)):
+				return false
 		for room_id: Variant in door.connects:
 			if not spaces.has(str(room_id)):
 				return false
@@ -370,7 +409,7 @@ func _f04_doors_valid(layout: Dictionary) -> bool:
 				return false
 	var entry: Dictionary = layout.doors.filter(func(d: Dictionary) -> bool:
 		return str(d.id) == "F04_DOOR_03")[0]
-	return count == 4 and str(entry.hinge) == "left" \
+	return reserved_count == 4 and str(entry.hinge) == "left" \
 			and str(entry.swing) == "north_wall" and is_equal_approx(float(entry.width), 0.91)
 
 func _f04_clearances_valid(layout: Dictionary) -> bool:

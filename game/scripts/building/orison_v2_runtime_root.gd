@@ -51,6 +51,7 @@ var watch_station_network: WatchStationNetwork
 var street_traffic: Node = null
 var elevator: Node = null
 var startup_failed := false
+var startup_failure_reason := ""
 var startup_ms := 0.0
 var adapter
 var _blockout: Node3D
@@ -63,7 +64,16 @@ var day_night_director: DayNightDirector
 var _exterior_resolver: Variant
 var _connection: Dictionary = {}
 
+func _read_street_frame() -> Dictionary:
+	return preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
+
 func _ready() -> void:
+	# Refuse the source boundary before creating campaign services, imported
+	# geometry or any actor. Child _ready errors cannot close startup for us.
+	if not preload("res://scripts/building/orison_v2_street_frame.gd").valid_source_header(_read_street_frame()):
+		startup_failed = true
+		startup_failure_reason = "missing or invalid street coordinate frame"
+		return
 	var started := Time.get_ticks_usec()
 	campaign_clock = CampaignClock.new()
 	if not campaign_clock.bind_state():

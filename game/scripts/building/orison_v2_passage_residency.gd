@@ -57,16 +57,24 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 				var height_texture := layered.get_shader_parameter("height_tex") as Texture2D
 				if height_texture != null and not height_texture.resource_path.is_empty():
 					_height_paths[height_texture.resource_path] = true
-	return player != null and frame != null
+	return player != null and frame != null and region.get_parent() is Node3D
 
 func _ready() -> void:
 	name = "PassageResidency"
 	# The gate keeps an incomplete load physically closed. Normal prefetch
 	# begins inside the vestibule, well before the street crossing.
-	var section: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/street_section_source.json"))
+	var section := preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
+	if section.is_empty():
+		_stopped = true
+		push_error("Invalid street coordinate frame")
+		return
 	_guard = StaticBody3D.new()
 	_guard.name = "PassageLoadingBarrier"
-	_guard.position = region.to_local(Vector3(14, 1.05, float(section.arcade_building_line_z)-0.3))
+	# Street section coordinates belong to the common front-door parent;
+	# the Passage has its own offset for the retained source geometry.
+	var section_frame := region.get_parent() as Node3D
+	_guard.position = region.to_local(section_frame.to_global(
+			Vector3(14, 1.05, float(section.arcade_building_line_z)-0.3)))
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(2.5, 2.1, 0.12)
 	var collision := CollisionShape3D.new()
@@ -83,10 +91,14 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if _stopped or not is_instance_valid(player): return
-	var local := frame.to_local(player.global_position)
+	_update_wanted(player.global_position)
+
+func _update_wanted(world_position: Vector3) -> void:
+	var local := frame.to_local(world_position)
+	var section_frame := region.get_parent() as Node3D
 	if _dormant_box.has_point(local):
 		_wanted = false
-	elif _prefetch_box.has_point(local) or player.global_position.z > 0.0:
+	elif _prefetch_box.has_point(local) or section_frame.to_local(world_position).z > 0.0:
 		_wanted = true
 
 func _process(_delta: float) -> void:

@@ -40,6 +40,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Whether a change made anything worse, and whether a branch is mergeable | `tools/PIPELINE_TOOLS.md`: gate board, run receipts, candidate verifier |
 | Where the v2 rebuild stands and what the ledger will accept as evidence | `python tools/audit_orison_v2_completeness.py`, `design/ORISON_V2_COMPLETENESS_LEDGER_GUIDE.md`, then the newest management record: `design/REPO_HOUSEKEEPING_2026-09-19.md` |
 | Which standing ruling a brief or review cites as RUL-nnn | `design/RULINGS.json` *(an index with sources; the Bible and the cited source win)* |
+| How V2 household authoring metadata becomes shipped data and test proofs | `art/data/orison_v2/AUTHORING_PROJECTIONS.md`, then `tools/build_v2_authoring_projection.py` |
 | How each prop compares with the real object, and which to rebuild first | `design/PROP_MODELING_TEXTURING_BRIEF_2026-09-18.md`, then `tools/prop_reference/README.md` |
 | What the game loop is and which milestone comes next | `design/CLAUDE_LIVING_ORISON_EXECUTION_PLAN.md`, then `design/next_session_plan.md` |
 | The final playable map: three zones, the Passage, measured perf baseline | `design/FINAL_MAP_REDESIGN_BRIEF.md` |

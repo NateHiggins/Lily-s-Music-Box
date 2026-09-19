@@ -423,7 +423,7 @@
     "status": "SOURCE_INTEGRATED_RUNTIME_PENDING",
     "base_head": "1a8eaab",
     "packet": "evidence/v2_arcade_ceiling_01/README.md",
-    "source_manifest": "../../game/data/orison_v2/arcade_ceiling_source.json",
+    "source_manifest": "../../art/data/orison_v2/arcade_ceiling_source.json",
     "owner_direction": "Use newest Downloads arcadeceiling1.png and arcadeceiling2.png as arcade ceiling detail inspiration.",
     "scope": "100 turquoise enamel open-work panels, brass framing, stepped ochre borders and two fan crowns fitted to existing glass barrel. V2 passage variant preserves 31 original meshes/collision/materials and references existing resources. Three added batches, 22344 triangles, zero added lights; initial load and residency share the new cell path.",
     "checks": "Source clearances, gable backing, two rejecting geometry controls, byte-identical generation, resource paths/buffer lengths/triangle winding and three script syntax parses pass. Residency engine test extended. Geometry preview is a flat-colour source drawing.",

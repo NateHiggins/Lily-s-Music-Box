@@ -6,9 +6,11 @@ from __future__ import annotations
 import copy
 import json
 import math
+import shutil
 import sys
 import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
@@ -44,6 +46,12 @@ from tools.m11c1_floor01_rehearsal.prepare_runtime_rehearsal import (
 
 
 FINAL_EXPORT = Path(r"C:\PleaseRemainOnTheLine-v2-m11c1-export-eighth-attempt")
+HISTORICAL_INPUTS = Path(__file__).parent / "fixtures/m11c1_runtime_rehearsal/historical_inputs.zip"
+HISTORICAL_HASHES = {
+    "game/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+    "game/data/orison_v2/exterior/regions.json": "1f128e4411e135acfc7e9046d5a2c3edf940d39adce54d336fbba8523f1a488a",
+    "design/ORISON_V2_M11C0_FLOOR01_PARTITION_MANIFEST_2026-08-31.json": "cb388a535ef65e46c365667441a661bb3475ad7704c5ecac02c147487c593c45",
+}
 
 
 class HeaderAndDestinationRefusalTests(unittest.TestCase):
@@ -163,12 +171,34 @@ class SemanticRefusalTests(unittest.TestCase):
 class FinalTransactionAndConfigTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.bundle = validate_export(FINAL_EXPORT)
+        # Keep the historical export immutable. Its raw-byte source bindings
+        # are tested against the exact historical inputs, not today's regions.
+        temporary = tempfile.TemporaryDirectory(prefix="m11c1-sources-")
+        cls.addClassCleanup(temporary.cleanup)
+        cls.source_root = Path(temporary.name)
+        with zipfile.ZipFile(HISTORICAL_INPUTS) as archive:
+            if set(archive.namelist()) != set(HISTORICAL_HASHES):
+                raise AssertionError("historical input archive membership differs")
+            for relative, expected in HISTORICAL_HASHES.items():
+                destination = cls.source_root / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(archive.read(relative))
+                if sha256_file(destination) != expected:
+                    raise AssertionError(f"historical source hash differs: {relative}")
+        # Protected asset identity is still checked against this checkout;
+        # no replacement protected asset or fabricated export is introduced.
+        for relative in ["assets/building/floor_01.gltf", "assets/building/floor_01.bin"]:
+            destination = cls.source_root / "game" / relative
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(GAME_ROOT / relative, destination)
+        cls.bundle = validate_export(FINAL_EXPORT, cls.source_root)
         cls.resources = {
             cell_id: "res://m11c1_disposable/cells/%s.gltf" % cell_id.lower()
             for cell_id in TARGET_CELL_IDS
         }
-        cls.config = build_runtime_config(cls.bundle, Path("scratch"), cls.resources)
+        cls.config = build_runtime_config(
+            cls.bundle, Path("scratch"), cls.resources, repo_root=cls.source_root
+        )
         cls.schema = load_json(CONFIG_SCHEMA_PATH, "runtime config schema")
 
     def test_final_eighth_transaction_is_exact_and_complete(self) -> None:
@@ -212,7 +242,7 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
         )
 
     def test_traversal_plane_uses_leaf_center_not_marker_hinge(self) -> None:
-        layout = load_json(REPO_ROOT / "game/data/building_layout.json", "layout")
+        layout = load_json(self.source_root / "game/data/building_layout.json", "layout")
         markers = {
             marker["id"]: marker
             for floor in layout["floors"]
@@ -238,7 +268,7 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
         self.assertNotEqual(expected, hinge)
 
     def test_passage_capture_targets_authored_shoe_aperture(self) -> None:
-        layout = load_json(REPO_ROOT / "game/data/building_layout.json", "layout")
+        layout = load_json(self.source_root / "game/data/building_layout.json", "layout")
         markers = {
             marker["id"]: marker
             for floor in layout["floors"]
@@ -254,7 +284,7 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
         )
         source_view = next(
             row
-            for row in load_json(M11C0_MANIFEST, "M11C0 manifest")["capture_views"]
+            for row in load_json(self.source_root / M11C0_MANIFEST.relative_to(REPO_ROOT), "M11C0 manifest")["capture_views"]
             if row["seam_id"] == "SEAM_PASSAGE_SHOP_AISLES"
         )
         self.assertEqual(
@@ -279,7 +309,7 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
             validate_runtime_config_cross_bindings(duplicate)
 
     def test_shell_interior_uses_exact_m11c0_facade_supported_floor_point(self) -> None:
-        source = load_json(M11C0_MANIFEST, "M11C0 manifest")
+        source = load_json(self.source_root / M11C0_MANIFEST.relative_to(REPO_ROOT), "M11C0 manifest")
         floor_probe = next(
             row for row in source["collision_probes"] if row["id"] == "street_south_floor"
         )
@@ -355,15 +385,46 @@ class FinalTransactionAndConfigTests(unittest.TestCase):
             regions = scratch / "data/orison_v2/exterior/regions.json"
             layout.parent.mkdir(parents=True)
             regions.parent.mkdir(parents=True)
-            layout.write_bytes((GAME_ROOT / "data/building_layout.json").read_bytes())
+            layout.write_bytes((self.source_root / "game/data/building_layout.json").read_bytes())
             regions.write_bytes(
-                (GAME_ROOT / "data/orison_v2/exterior/regions.json").read_bytes()
+                (self.source_root / "game/data/orison_v2/exterior/regions.json").read_bytes()
             )
             receipt = validate_scratch_authoritative_sources(self.config, scratch)
             self.assertEqual(receipt["layout"]["actual_sha256"], sha256_file(layout))
             layout.write_text("{}\n", encoding="utf-8")
             with self.assertRaisesRegex(PreparationError, "layout hash differs"):
                 validate_scratch_authoritative_sources(self.config, scratch)
+
+    def test_current_source_mismatch_is_still_refused(self) -> None:
+        current = GAME_ROOT / "data/orison_v2/exterior/regions.json"
+        if sha256_file(current) != HISTORICAL_HASHES["game/data/orison_v2/exterior/regions.json"]:
+            with self.assertRaisesRegex(PreparationError, "regions hash differs"):
+                validate_export(FINAL_EXPORT)
+        else:
+            # On a checkout of the historical source the default call is valid.
+            self.assertEqual(validate_export(FINAL_EXPORT).partition["run_id"],
+                             self.bundle.partition["run_id"])
+
+    def test_source_root_mutation_cannot_evade_transaction_or_semantic_hash(self) -> None:
+        regions_path = self.source_root / "game/data/orison_v2/exterior/regions.json"
+        original = regions_path.read_bytes()
+        try:
+            # Whitespace keeps every semantic record unchanged, so this checks
+            # exact source identity rather than merely an invalid JSON shape.
+            regions_path.write_bytes(original + b"\n")
+            with self.assertRaisesRegex(PreparationError, "regions hash differs"):
+                validate_export(FINAL_EXPORT, self.source_root)
+            with self.assertRaisesRegex(PreparationError, "region file differs"):
+                _validate_semantic_sources(
+                    self.bundle.lineage,
+                    load_json(self.source_root / "game/data/building_layout.json", "layout"),
+                    load_json(regions_path, "regions"), regions_path=regions_path,
+                )
+            with self.assertRaisesRegex(PreparationError, "runtime config exterior_regions hash differs"):
+                build_runtime_config(self.bundle, Path("scratch"), self.resources,
+                                     repo_root=self.source_root)
+        finally:
+            regions_path.write_bytes(original)
 
     def test_save_fixture_is_semantic_and_requires_all_cells(self) -> None:
         fixture = self.config["save_reconstruction"]

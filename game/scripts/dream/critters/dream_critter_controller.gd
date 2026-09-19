@@ -85,6 +85,8 @@ var _crab_foot := PackedVector4Array()
 var _look := PackedVector4Array()
 var _lamp_pose: Dictionary = {}
 var _voxel_texture: Texture3D = null
+var _voxel_extent_m := 0.0
+var _voxel_height_m := 0.0
 
 
 func setup(controller: DreamFieldController, seed_v: int) -> void:
@@ -99,6 +101,9 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 		arr.resize(MAX_CRITTERS * MAX_LIMBS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
+	# A world may bind before the presentation mesh is constructed.
+	if _voxel_texture != null:
+		bind_voxel_optics(_voxel_texture, _voxel_extent_m, _voxel_height_m)
 	mesh_instance = MeshInstance3D.new()
 	mesh_instance.name = "Critters"
 	mesh_instance.mesh = _build_mesh()
@@ -116,6 +121,8 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 ## world-owned RG8 texture is bound once here and sampled by every species.
 func bind_voxel_optics(texture: Texture3D, extent_m: float, height_m: float) -> void:
 	_voxel_texture = texture
+	_voxel_extent_m = extent_m
+	_voxel_height_m = height_m
 	if material == null:
 		return
 	material.set_shader_parameter("exposure_tex", texture)
@@ -126,10 +133,17 @@ func bind_voxel_optics(texture: Texture3D, extent_m: float, height_m: float) -> 
 
 func unbind_voxel_optics() -> void:
 	_voxel_texture = null
+	_voxel_extent_m = 0.0
+	_voxel_height_m = 0.0
 	if material == null:
 		return
 	material.set_shader_parameter("voxel_optics_enabled", 0.0)
 	material.set_shader_parameter("exposure_tex", null)
+
+
+func _exit_tree() -> void:
+	# Release the world sampler even if a diagnostic still holds the material.
+	unbind_voxel_optics()
 
 
 ## One buffer holding eight animals: a body, eight limbs and twelve feelers

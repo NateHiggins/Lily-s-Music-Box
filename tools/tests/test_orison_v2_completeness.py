@@ -1275,8 +1275,13 @@ class LiveRepoSmokeTests(unittest.TestCase):
         record = req(self.payload, "unit.2A")
         self.assertGreaterEqual(audit.RANK[record["status"]],
                                 audit.RANK["PROGRAMMED"])
-        floors = req(self.payload, "floor.F05")
-        self.assertEqual(floors["status"], "ABSENT")
+        # Authored upper-floor geometry is now present, but neither
+        # an ID nor its source geometry supplies runtime/cutover proof.
+        for rid in ("floor.F05", "floor.F06"):
+            floors = req(self.payload, rid)
+            self.assertEqual(floors["status"], "PROGRAMMED")
+            self.assertIn(rid, self.payload["blockers_by_scope"]["PRODUCTION_CUTOVER"])
+        self.assertEqual(req(self.payload, "floor.ROOF")["status"], "ABSENT")
 
     def test_live_route_acceptance_is_scoped(self):
         record = req(self.payload, "human.route_readability")
@@ -1297,8 +1302,19 @@ class LiveRepoSmokeTests(unittest.TestCase):
 
     def test_live_v1_coverage_is_honest(self):
         coverage = self.payload["v1_room_coverage"]
-        self.assertGreater(len(coverage["unrepresented"]), 90)
+        # Prove the complete inventory partition instead of requiring
+        # an arbitrary minimum number of missing rooms as V2 grows.
+        source = json.loads((REPO_ROOT / "game/data/building_layout.json").read_text(encoding="utf-8"))
+        expected = {str(r["id"]) for floor in source["floors"] for r in floor.get("rooms", [])
+                    if r.get("id") and not audit.PSEUDO_ROOM_RE.search(str(r["id"]))}
+        groups = [set(coverage["matched"]), set(coverage["unrepresented"]),
+                  {r["v1"] for r in coverage["aliased"]},
+                  {r["v1"] for r in coverage["subdivided"]}]
+        self.assertEqual(set().union(*groups), expected)
+        self.assertEqual(sum(map(len, groups)), len(expected))
         self.assertIn("B1_BOILER", coverage["unrepresented"])
+        self.assertNotIn("F05_A_MAIN", coverage["unrepresented"])
+        self.assertNotIn("F06_B_MAIN", coverage["unrepresented"])
 
     def test_live_region_axis_names_every_ruled_exterior_region(self):
         ids = {row["id"] for row in self.payload["requirements"]}

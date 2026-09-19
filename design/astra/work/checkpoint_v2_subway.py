@@ -5,7 +5,7 @@ sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 paths=['.gitattributes','tools/build_v2_passage_gateway.py','tools/build_v2_street_section.py','tools/relocate_v2_subway_pavement.py',
  'game/assets/building/orison_v2/exterior/passage_gateway.gltf',
  'game/assets/building/orison_v2/exterior/passage_gateway_subway.bin',
- 'game/data/orison_v2/exterior/exterior_geometry.json','game/data/orison_v2/exterior/passage_gateway_source.json',
+ 'game/data/orison_v2/exterior/exterior_geometry.json','art/data/orison_v2/exterior/passage_gateway_source.json',
  'game/tests/orison_v2_subway_route_test.gd','game/tests/OrisonV2SubwayRouteTest.tscn',
  'game/tests/orison_v2_subway_overview.gd','game/tests/OrisonV2SubwayOverview.tscn',
  'game/tests/orison_v2_earned_conversation_route_test.gd','game/tests/OrisonV2EarnedConversationRouteTest.tscn']
@@ -15,7 +15,7 @@ assert not (packet/'route_05.log.stderr').read_bytes()
 conversation=root/'design/astra/evidence/v2_earned_conversation_01'
 assert '76 waypoints; 0 failures' in (conversation/'route_02.log').read_text()
 assert not (conversation/'route_02.log.stderr').read_bytes()
-section=root/'game/data/orison_v2/exterior/street_section_source.json'
+section=root/'art/data/orison_v2/exterior/street_section_source.json'
 report=json.loads(section.read_text())
 report['geometry_sha256']=sha(root/'game/data/orison_v2/exterior/exterior_geometry.json')
 section.write_text(json.dumps(report,indent=2)+'\n')

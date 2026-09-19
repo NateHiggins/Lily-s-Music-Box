@@ -22,9 +22,21 @@ var _sample := 0.0
 var _capsule := CapsuleShape3D.new()
 var _doors: Array[DoorProp] = []
 
+static func valid_source_header(source: Variant) -> bool:
+	if source is not Dictionary:
+		return false
+	var version: Variant = source.get("schema_version")
+	# This actor and its route transform have fixed owners. A different actor
+	# or frame must not silently reuse Mina's timetable and adapter coordinates.
+	return typeof(version) in [TYPE_INT, TYPE_FLOAT] and float(version) == 1.0 \
+			and source.get("resident") == "mina_vale" \
+			and source.get("frame") == "orison_v2_blockout" \
+			and source.get("paths") is Array and source.get("places") is Dictionary
+
 func setup(root: Node3D) -> bool:
+	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(SOURCE))
+	if not valid_source_header(source): return false
 	world = root
-	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(SOURCE))
 	places = source.places
 	for route: Array in source.paths:
 		var previous := -1
