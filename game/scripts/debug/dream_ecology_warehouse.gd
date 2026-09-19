@@ -68,10 +68,14 @@ var hero: DreamHeroTentacle
 var camera: Camera3D
 var overview_station: Marker3D
 var lamp: SpotLight3D
+var inspection_key: DirectionalLight3D
+var blender_review_mode := 0
+var blender_failures: Array[String] = []
 var organelle: Node3D
 var placeholders: Array[Dictionary] = []
 var stations: Dictionary = {}
 var _bay_labels: Dictionary = {}
+var _specimen_labels: Array[Label3D] = []
 var selected_exhibit := "organelle"
 var _pulse_button: Button
 var _food_button: Button
@@ -128,11 +132,12 @@ func _build_room() -> void:
 		_box("Bench_%02d" % kind, center + Vector3(0, BENCH_Y - 0.08, 0), Vector3(3.4,0.16,2.65), Color(0.23,0.25,0.28))
 		var caption: String = Species.NAMES[kind].replace("_", " ")
 		if kind == Species.Kind.CRYSTAL_LISTENER: caption += " — at organelle wall"
-		_label(caption, center + Vector3(0, BENCH_Y + 0.06, 1.45))
+		_specimen_labels.append(_label(caption, center + Vector3(0, BENCH_Y + 0.06, 1.45)))
 		if kind == Species.Kind.SEAM_GRAZER:
 			_box("GrazerThinPanel", center + Vector3(0, BENCH_Y + 0.55, 0), Vector3(1.7,1.1,0.06), Color(0.36,0.38,0.39))
 	_build_zoo_bays()
 	var key := DirectionalLight3D.new()
+	inspection_key = key
 	key.rotation_degrees = Vector3(-55,-28,0)
 	key.light_color = Color(0.80,0.86,1.0)
 	key.light_energy = 1.0
@@ -150,6 +155,10 @@ func _build_room() -> void:
 	add_child(camera)
 	lamp = SpotLight3D.new()
 	lamp.name = "InspectionLamp"
+	# A camera only centimetres from a small specimen makes the half-metre
+	# optical grid miss a narrow cone. Keep the real inspection source behind
+	# the viewing plane, then aim it at the specimen in _update_camera.
+	lamp.position = Vector3(0,0,1.0)
 	lamp.spot_range = 8.0
 	lamp.spot_angle = 24.0
 	lamp.light_energy = 2.2
@@ -157,7 +166,7 @@ func _build_room() -> void:
 	lamp.shadow_enabled = true
 	lamp.light_cull_mask = EXHIBIT_LAYER
 	camera.add_child(lamp)
-	lamp.position = Vector3(0.03,-0.025,0)
+	lamp.position = Vector3(0,0,1.0)
 
 func _build_ecology() -> void:
 	var origin := global_position
@@ -198,6 +207,8 @@ func _build_ecology() -> void:
 		var controller := Controller.new()
 		add_child(controller)
 		controller.setup(field,73133+group)
+		if OS.get_environment("DREAM_BLENDER_LEGACY") != "1" and not controller.enable_blender_visuals():
+			blender_failures.append(controller.blender_error)
 		controller.debug_set_id_base(group*100000)
 		controller.margin = margin
 		controller.residue = residue
@@ -247,6 +258,7 @@ func placeholder_for(id: String) -> Dictionary:
 	return {}
 
 func focus_placeholder(id: String) -> void:
+	_set_blender_inspection_kind(-1)
 	if not initialized or not stations.has(id): return
 	selected_exhibit = id
 	_overview = false
@@ -255,6 +267,7 @@ func focus_placeholder(id: String) -> void:
 	_process(0.0)
 
 func focus_organelle() -> void:
+	_set_blender_inspection_kind(-1)
 	if not initialized or organelle == null: return
 	selected_exhibit = "organelle"
 	_overview = false
@@ -263,6 +276,7 @@ func focus_organelle() -> void:
 	_process(0.0)
 
 func focus_hero() -> void:
+	_set_blender_inspection_kind(-1)
 	if not initialized or hero == null: return
 	selected_exhibit = "hero"
 	_overview = false
@@ -300,6 +314,7 @@ func focus_species(kind: int) -> void:
 	if kind < 0 or kind >= Species.NAMES.size() or not initialized: return
 	selected_exhibit = ""
 	selected_kind = kind
+	_set_blender_inspection_kind(kind)
 	_overview = false
 	var specimen := specimen_for(kind)
 	if not specimen.is_empty():
@@ -310,6 +325,15 @@ func focus_species(kind: int) -> void:
 		_distance = clampf(span*2.8,0.40,2.8)
 		# Its existing shader extends the neck up to 6.4 body lengths.
 		if kind == Species.Kind.LACRYMARIA: _distance = clampf(float(morph.length)*7.0*1.65,0.4,8.0)
+	_process(0.0)
+
+func _set_blender_inspection_kind(kind: int) -> void:
+	for controller in controllers:
+		controller.set_blender_inspection_kind(kind)
+
+func set_blender_review_mode(mode: int) -> void:
+	blender_review_mode = clampi(mode,0,2)
+	for controller in controllers: controller.set_blender_review_mode(blender_review_mode)
 	_process(0.0)
 
 func set_lamp_enabled(value: bool) -> void:
@@ -422,6 +446,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if not initialized: return
+	for label in _specimen_labels: label.visible = _overview
 	for id in _bay_labels: _bay_labels[id].visible = _overview or str(id) == selected_exhibit
 	_update_camera()
 	if _title != null:
@@ -436,6 +461,11 @@ func _process(_delta: float) -> void:
 			_title.text = Species.NAMES[selected_kind].replace("_"," ").to_upper()
 			var specimen := specimen_for(selected_kind)
 			_status.text = NOTES[selected_kind]+"\n\n16 species · Shared voxel light\n1-hour lifetime · Debug"+ (" · Feeding" if specimen.get("feeding",false) else "")
+		if selected_exhibit.is_empty():
+			if selected_kind in [3,6] and blender_failures.is_empty() and OS.get_environment("DREAM_BLENDER_LEGACY") != "1":
+				_status.text += "\nBlender anatomy" + [" · Intact", " · Neutral geometry", " · DIAGNOSTIC CUTAWAY"][blender_review_mode]
+			elif not blender_failures.is_empty():
+				_status.text += "\nBlender unavailable: " + blender_failures[0]
 		if _pulse_button != null: _pulse_button.disabled = not selected_exhibit in ["organelle","hero"] and not selected_exhibit.is_empty()
 		if _food_button != null: _food_button.disabled = not selected_exhibit in ["organelle","hero"] and not selected_exhibit.is_empty()
 
@@ -465,6 +495,11 @@ func _update_camera() -> void:
 	var view_height := maxf(1,get_viewport().get_visible_rect().size.y)
 	var distance := camera.global_position.distance_to(to_global(Vector3(0,BENCH_Y,HALL_CENTER_Z))) if _overview else _distance
 	camera.global_position -= camera.global_basis.x*distance*tan(deg_to_rad(camera.fov*0.5))*376.0/view_height
+	# Framing shifts the camera sideways to leave space for the control panel.
+	# Aim its lamp at the specimen after that shift, so the real RG8 cone and
+	# visible spotlight both illuminate the inspection target.
+	if lamp != null and not _overview: lamp.look_at(_focus_position(),Vector3.UP)
+	elif lamp != null: lamp.rotation = Vector3.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not active: return
@@ -515,8 +550,17 @@ func _build_controls() -> void:
 	_pulse_button = _button(actions,"Pulse / touch",stimulate_selected)
 	_food_button = _button(actions,"Food residue",feed_selected)
 	_button(actions,"Reset display",reset_specimens)
-	_button(actions,"Overview",func():_overview=true)
+	_button(actions,"Overview",func():
+		_overview=true
+		_set_blender_inspection_kind(-1))
 	_button(actions,"Leave camera",func():activate(false))
+	var review := OptionButton.new()
+	review.add_item("Blender: intact material")
+	review.add_item("Blender: neutral geometry")
+	review.add_item("Blender: diagnostic cutaway")
+	review.tooltip_text = "Applies to rebuilt specimens. Cutaway removes half the skin to inspect enclosed organs."
+	review.item_selected.connect(set_blender_review_mode)
+	column.add_child(review)
 	var selector := OptionButton.new()
 	selector.add_item("Researched organisms")
 	selector.add_item("Original critters")

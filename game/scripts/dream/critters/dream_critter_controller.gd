@@ -53,6 +53,8 @@ var critters: Array = []
 
 var material: ShaderMaterial
 var mesh_instance: MeshInstance3D
+var blender_visuals: RefCounted = null
+var blender_error := ""
 var _rng := RandomNumberGenerator.new()
 var _space: PhysicsDirectSpaceState3D = null
 var _next_id := 0
@@ -129,6 +131,8 @@ func bind_voxel_optics(texture: Texture3D, extent_m: float, height_m: float) -> 
 	material.set_shader_parameter("exposure_extent", extent_m)
 	material.set_shader_parameter("exposure_height", height_m)
 	material.set_shader_parameter("voxel_optics_enabled", 1.0 if texture != null else 0.0)
+	if blender_visuals != null:
+		blender_visuals.sync_uniforms()
 
 
 func unbind_voxel_optics() -> void:
@@ -139,9 +143,45 @@ func unbind_voxel_optics() -> void:
 		return
 	material.set_shader_parameter("voxel_optics_enabled", 0.0)
 	material.set_shader_parameter("exposure_tex", null)
+	if blender_visuals != null:
+		blender_visuals.sync_uniforms()
+
+
+## Opt-in presentation provider. Ecology, identities, poses and field remain
+## owned by this controller. Failure leaves the original presentation intact.
+func enable_blender_visuals() -> bool:
+	if blender_visuals != null:
+		return true
+	if mesh_instance == null or material == null:
+		blender_error = "Controller setup is required before Blender presentation"
+		return false
+	var provider = load("res://scripts/dream/critters/dream_critter_blender_batch.gd").new()
+	if not provider.setup(self, mesh_instance.mesh):
+		blender_error = str(provider.stats().get("error", "Blender provider failed"))
+		provider.dispose()
+		return false
+	blender_visuals = provider
+	blender_error = ""
+	_push()
+	return true
+
+
+func set_blender_inspection_kind(kind: int) -> void:
+	if blender_visuals != null:
+		blender_visuals.set_inspection_kind(kind)
+		_push()
+
+
+func set_blender_review_mode(mode: int) -> void:
+	if material != null:
+		material.set_shader_parameter("blender_review_mode", clampi(mode, 0, 2))
+		if blender_visuals != null: blender_visuals.sync_uniforms()
 
 
 func _exit_tree() -> void:
+	if blender_visuals != null:
+		blender_visuals.dispose()
+		blender_visuals = null
 	# Release the world sampler even if a diagnostic still holds the material.
 	unbind_voxel_optics()
 
@@ -1281,6 +1321,7 @@ func _apply_law(c: Dictionary, delta: float) -> void:
 
 
 func _push() -> void:
+	if blender_visuals != null: blender_visuals.begin_slots()
 	# Slots, not animals. A grazer on both sides of a wall takes two, and both
 	# carry the same identity, gait and morphology -- they are one creature.
 	# §29/§30 — nearest first, same as the margin. A twin costs a second slot,
@@ -1302,6 +1343,7 @@ func _push() -> void:
 			_write_slot(slot, c, true)
 			slot += 1
 	var n := slot
+	if blender_visuals != null: blender_visuals.finish_slots()
 	for i in range(n, MAX_CRITTERS):
 		_counts[i] = Vector4.ZERO
 		_anatomy[i] = Vector4.ZERO
@@ -1325,9 +1367,12 @@ func _push() -> void:
 	if field != null:
 		field.apply_to(material)
 	mesh_instance.visible = n > 0
+	if blender_visuals != null: blender_visuals.sync_uniforms()
 
 
 func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
+	if blender_visuals != null:
+		blender_visuals.record_slot(i, int(c.id), as_twin, int(c.morph.kind))
 	if true:
 		var m: Dictionary = c.morph
 		# Kind ids are stable authored plan ids. The first four retain their
@@ -1530,8 +1575,10 @@ func census() -> Dictionary:
 		mechanical_received += int(mechanical.get("received", 0))
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
-			"draw_calls": 1 if mesh_instance != null and mesh_instance.visible else 0,
-			"mesh_surfaces": 1, "materials": 1,
+			"draw_calls": (1 if mesh_instance != null and mesh_instance.visible else 0)
+					+ (int(blender_visuals.stats().get("membrane_draws",0)) if blender_visuals != null else 0),
+			"mesh_surfaces": int(blender_visuals.stats().get("fixed_meshes",1)) if blender_visuals != null else 1,
+			"materials": 2 if blender_visuals != null else 1,
 			"crab_manipulators_per_animal": 2,
 			"cached_crab_joint_rows": MAX_CRITTERS * MAX_LIMBS,
 			"nudged_by_a_palp": nudged, "unfolding_at_the_hero": unfolded,

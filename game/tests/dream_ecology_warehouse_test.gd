@@ -139,7 +139,7 @@ func _check_population_and_bindings() -> void:
 	var complete := seen.size() == 16 and packed.size() == 16
 	for kind in SpeciesScript.all_kinds(): complete = complete and int(seen.get(kind, 0)) == 1 and packed.has(kind)
 	_check("all sixteen enum kinds are unique animals and actual shader kind IDs", complete)
-	_check("sixteen animals use only two fauna meshes and two materials", materials.size() == 2 and meshes.size() == 2)
+	_check("sixteen animals retain two primary controller meshes and materials", materials.size() == 2 and meshes.size() == 2)
 	_check("the one exposure texture is the existing RG8 world grid", exhibit.exposure_texture != null
 		and exhibit.exposure_texture.get_format() == Image.FORMAT_RG8
 		and exhibit.exposure_texture.get_width() == ExposureScript.GRID_XZ
