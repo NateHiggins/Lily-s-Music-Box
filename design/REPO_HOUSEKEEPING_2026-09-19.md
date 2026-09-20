@@ -242,6 +242,46 @@ treat the current 1,308 as a count of dead data. This is TASKS.md H22.
   the repository.
 - Worktrees: 34 at the start of the day, 7 now.
 
+## 8. 2026-09-20: rulings applied, voxel landed, evidence cleared
+
+Owner rulings: the colour line is accepted, the voxel path supersedes it,
+v1 lighting defects do not matter because v2 replaces v1, and pending work
+should be activated except what is actively being edited.
+
+- **The dream voxel line is on main** (merge 57a880a, completion 96d243a,
+  gate fixes d0db0b5, ids 2138742). It carries S1 through S2, the voxel
+  microorganisms and the lamp optical line. Landing it retired
+  codex/dream-color-c1c and c1d, which were strict ancestors with nothing
+  unique. Work done to make it landable: three hero meshes restored from the
+  backup branch, a guard so a missing LOD names itself instead of crashing,
+  22 shaders added to the parse gate, evidence-class headers on four
+  documents, 34 spatial records classified, one systemic false positive
+  recorded as reviewed, and the Godot ids its 45 new scripts and shaders
+  never committed.
+- **The debug controls can switch the light** (73efb49): lamp only, or the
+  voxel field at baseline, debug or full response, chosen in the room
+  instead of through DREAM_VOXEL_LIGHT at launch. A refusal states its
+  reason. DreamLightToggleTest boots the real building and presses the real
+  buttons: 13/13 live.
+- **Astra's debug-menu fix was already correct.** Three of its four checks
+  appeared to fail only because the verifier ran the suite headless, where
+  Godot cannot capture a mouse, so Input.mouse_mode stays VISIBLE whatever
+  a suite sets. Windowed, its suite passes 28/28 with no change. The
+  verifier gained --windowed-suite so the mistake cannot repeat.
+- **Not activated:** Astra's reconciliation branch. Now that the voxel line
+  is on main, merging it conflicts in ten files where its critter rebuild
+  and the voxel line's critter work disagree. That resolution is the
+  integration Astra is mid-way through and is not management's to guess.
+  The prepared merge and its classified spatial records are kept on
+  claude/activate-pending-0920.
+- **Evidence cleared** from C:/PleaseRemainOnTheLine-s2: 141 superseded
+  files (57.6 MB of S2D-S2J, C1 and C1B packets) deleted only after a
+  byte-identical copy was confirmed on backup/dream-voxel-s2-wip-2026-09-19
+  or in the 2026-09-19 snapshot, plus 224 stale Godot ids that main already
+  tracks. The worktree went from 537 entries to 173. Its 9 remaining source
+  changes were not touched: they are the unaccepted experiments the owner
+  still has to land or discard (TASKS.md D7).
+
 One triage agent wrote temporary status listings to its own session
 scratchpad, outside the repository; no repository, ref or worktree was
 changed by the triage.
