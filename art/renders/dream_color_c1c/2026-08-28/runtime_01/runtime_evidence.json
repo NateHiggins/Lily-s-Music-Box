@@ -1,0 +1,132 @@
+{
+  "artifacts": [
+    "01_living_cytoplasm_hero.png",
+    "02_optical_motion_strip.png",
+    "03_real_l1c_lamp_cell_interaction.png"
+  ],
+  "build_times_ms": {
+    "cell_build_ms": 129.386,
+    "lamp_build_ms": 234.854
+  },
+  "captures": {},
+  "frozen": {
+    "ecology_behavior_changed": false,
+    "l1d_status": "blocked and unchanged",
+    "orison_architecture_changed": false,
+    "production_defaults_changed": false,
+    "s2j_status": "failed and unchanged",
+    "selector_defaults_changed": false
+  },
+  "lamp_determinism": {
+    "restore_returned": true,
+    "state_exact": true,
+    "version": 1
+  },
+  "profiles": {
+    "cell_alone": {
+      "active_lights": 1,
+      "cpu_frame_ms_median": 0.906,
+      "draw_calls_median": 48.0,
+      "fog_volumes": 1,
+      "gpu_frame_ms_median": 0.610000014305115,
+      "particle_count": 0,
+      "particle_systems": 0,
+      "vram_bytes": 1589372992
+    },
+    "cell_plus_lamp": {
+      "active_lights": 1,
+      "cpu_frame_ms_median": 1.622,
+      "draw_calls_median": 90.0,
+      "fog_volumes": 2,
+      "gpu_frame_ms_median": 1.26499998569489,
+      "particle_count": 48,
+      "particle_systems": 1,
+      "vram_bytes": 1589436240
+    },
+    "furnished_orison_baseline": {
+      "active_lights": 101,
+      "cpu_frame_ms_median": 6.654,
+      "draw_calls_median": 2020.0,
+      "fog_volumes": 0,
+      "gpu_frame_ms_median": 3.01900005340576,
+      "particle_count": 14,
+      "particle_systems": 2,
+      "vram_bytes": 5514573952
+    },
+    "furnished_orison_plus_cell_lamp": {
+      "active_lights": 102,
+      "cpu_frame_ms_median": 7.17,
+      "draw_calls_median": 2318.0,
+      "fog_volumes": 2,
+      "gpu_frame_ms_median": 4.8899998664856,
+      "particle_count": 62,
+      "particle_systems": 3,
+      "vram_bytes": 5514573952
+    },
+    "lamp_alone": {
+      "active_lights": 1,
+      "cpu_frame_ms_median": 1.021,
+      "draw_calls_median": 19.0,
+      "fog_volumes": 1,
+      "gpu_frame_ms_median": 0.666000008583069,
+      "particle_count": 48,
+      "particle_systems": 1,
+      "vram_bytes": 1589436240
+    }
+  },
+  "renderer": "forward_plus",
+  "resolution": "1600x900",
+  "systems": {
+    "cell": {
+      "cytoplasm": "one bounded ellipsoidal FogVolume plus one heterogeneous shell",
+      "fine_suspension_multimesh": 168,
+      "membrane": "closed C1B silhouette",
+      "organelles": "accepted S2G identities and approximate positions",
+      "shared_materials": 12,
+      "unique_material_per_organism": false
+    },
+    "lamp": {
+      "bounded_particles": 48,
+      "class": "LampOpticalInstrument",
+      "gpu_readback_during_frames": false,
+      "hdr_filament": true,
+      "procedural_conical_fog": true,
+      "quality_tier": 1,
+      "real_shadow_spot": true,
+      "source_commits": [
+        "bb4af31",
+        "00907dc",
+        "7e84f38"
+      ]
+    },
+    "ownership": {
+      "interpreter": "C1C review-only presentation adapter",
+      "lamp_commands_ecology": false,
+      "payload_only": [
+        "incident_intensity",
+        "spectral_balance",
+        "color_temperature_k",
+        "flicker_phase",
+        "flicker_amplitude",
+        "beam_direction",
+        "local_thermal_contribution",
+        "ether_spectral_component"
+      ]
+    }
+  },
+  "task": "DREAM-COLOR-C1C-LAMP-INTEGRATION",
+  "teardown": {
+    "baseline_source": "S2I/S2J clean-main Godot 4.7.1 full Orison lifecycle",
+    "cell_retained": false,
+    "comparison": "not amplified; 116 fewer diagnostics than the last valid untouched-main Forward+ lifecycle",
+    "current_run_pairing_error_count": 1148,
+    "direct_main_reprobe": "not numerically comparable: current main cannot complete Orison assembly because baseline classes/textures are missing; see clean_main_reprobe_summary.txt",
+    "lamp_retained": false,
+    "last_valid_clean_main_pairing_error_count": 1264,
+    "orison_retained": false,
+    "render_objects_after_release": 0
+  },
+  "vram_delta_peak_bytes": 5106811536,
+  "vram_initial_bytes": 407762416,
+  "vram_peak_bytes": 5514573952
+}

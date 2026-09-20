@@ -1,0 +1,77 @@
+{
+  "milestone": "DREAM-SURFACE-S1E",
+  "capture_date": "2026-08-28",
+  "source_revision": "ade6baea8ce6c6f31ae4d91c79868ea3b0fdb979",
+  "base_revision": "2d1cb1d7b222c02d2fafc8b2664fc8f3f52b0c5b",
+  "branch": "codex/dream-surface-s1e",
+  "renderer": "Forward+",
+  "device": "NVIDIA GeForce RTX 4080",
+  "resolution": [1280, 720],
+  "human_visual_acceptance": false,
+  "capture": {
+    "fold_crab": {
+      "seed": 4401,
+      "camera": "purpose views from dream_ecology_e3a_shot.gd; fov 25 degrees; fold pair fixed",
+      "phenotype": "fold_crab",
+      "states": ["anatomy", "gait", "examination", "folded", "unfolded"],
+      "frame_count": 26,
+      "completed": true
+    },
+    "lifecycle": {
+      "seed": 6021,
+      "camera": "overview position (3.3,2.65,4.2), fov 37; complex-fauna inset fov 29",
+      "phenotypes": ["pioneer_film", "ether_moss", "tending_cilia", "sensory_tentacle", "complex_fauna", "residue"],
+      "states": ["searching", "established", "reporting", "mature", "disturbed", "recall", "senescent", "stain", "cleanup"],
+      "frame_count": 13,
+      "completed": true
+    },
+    "advanced_fauna": {
+      "seed": "5EEDC0DE",
+      "camera": "production player camera and production dream-fauna style harness",
+      "phenotypes": ["buttons", "tessellates", "anemones"],
+      "states": ["hidden_dark", "dark", "beam_edge", "full_beam"],
+      "frame_count": 12,
+      "completed": false,
+      "limitation": "Capture process encountered missing non-versioned imported texture/font artifacts in the isolated checkout."
+    }
+  },
+  "performance": {
+    "forward_plus": {
+      "cpu_frame_ms": 0.0787,
+      "draw_calls": 4,
+      "video_memory_bytes_at_sample": 71416688,
+      "visible_instances": {"nodes": 7, "ether_motes": 24, "proteins": 48, "peak_visible_elements": 82},
+      "cilia_lod_visible": {"near": 8, "mid": 5, "far": 2},
+      "fixed_caps": {"branch_segments": 64, "cilia": 32, "ether_motes": 24, "membrane_proteins": 64},
+      "result": "PASS"
+    },
+    "complex_organism_cpu_ms_per_frame": {"one": 0.0086, "four": 0.0329, "eight": 0.0678},
+    "startup_wall_seconds_compatibility_probe": 2.931,
+    "gpu_frame_time": null,
+    "vram_delta": null,
+    "transparent_overdraw": "bounded proxy: fixed visible-element caps and 4 draw calls",
+    "measurement_limitations": "Godot's public runtime monitors in this harness did not expose a reliable GPU frame-time or isolated VRAM delta. Total video memory is recorded without inferring either value. A twelve-organism sample was not produced by the authoritative E3 harness."
+  },
+  "tests": {
+    "dream_surface_s1": "PASS 12/12",
+    "moss_presentation": "PASS 16/16; 0.033 ms CPU sample",
+    "dream_ecology_e3": "PASS 19/19",
+    "dream_fauna_visible": "PASS 24/24",
+    "dream_fauna_lifecycle": "PASS 34/34",
+    "organelle_lifecycle": "PASS 16/16",
+    "shader_parse": "PASS",
+    "production_lifecycle_capture": "PASS 13/13",
+    "cellular_audio": "FAIL 4/9: four versioned keys resolve to absent recorded OGG sources in isolated checkout",
+    "dream_tentacle": "FAIL 0/1: full-building setup could not instantiate after absent imported building resources",
+    "dream_ecology": "INCOMPLETE: process remained alive beyond 120 seconds with no final verdict and was terminated",
+    "resource_teardown": "PARTIAL: S1 renderer teardown assertions pass; lifecycle capture reported 14 leaked texture RIDs; all capture processes were terminated"
+  },
+  "acceptance": {
+    "objective_tests_passed": false,
+    "capture_completed": false,
+    "performance_measured": true,
+    "human_visual_acceptance_pending": true,
+    "note": "Core S1 suites pass, but the explicitly requested full matrix and all legacy-suite verdicts are not complete; this receipt does not promote partial evidence to acceptance."
+  }
+}
+

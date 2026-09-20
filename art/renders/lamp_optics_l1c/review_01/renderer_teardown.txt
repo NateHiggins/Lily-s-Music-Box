@@ -1,0 +1,15 @@
+Godot 4.7.1 stable, Forward+, NVIDIA RTX 4080
+
+Exact error:
+ERROR: BUG, indexing did not unpair geometries from light.
+  at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+and during base destruction:
+ERROR: BUG, indexing did not unpair geometries from light.
+  at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
+
+Fully imported origin/main reproduction: 1264 occurrences, final render objects 0.
+L1C pre-isolation reproduction: 1246 occurrences, final render objects 0.
+Explicit disable + light_cull_mask=0 + post-draw drain + Light3D-first free: still reproduces and may crash.
+Isolated calibration + accepted S2H cellular lifecycle: 0 occurrences, final render objects 0, retained rig false, retained presenter false.
+
+Retained owner class during the failing lifecycle: Orison internal Light3D RIDs paired to batched GeometryInstance3D RIDs. ResourceLoader cache remains populated after Orison destruction, but no render object remains; it is not reported as an optical RID leak.

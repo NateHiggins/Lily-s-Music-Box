@@ -1,0 +1,270 @@
+{
+  "capture_overhead": {
+    "frame_sync_ms": 0.561,
+    "resize_png_ms": 50.429,
+    "save_error": 0,
+    "texture_readback_ms": 2.657
+  },
+  "configurations": {
+    "01_lamp_off": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.156000003218651,
+        "median": 0.145999997854233,
+        "p95": 0.148000001907349
+      },
+      "main_process_ms": {
+        "max": 494.526,
+        "median": 494.526,
+        "p95": 494.526
+      },
+      "objects": 7,
+      "physics_ms": {
+        "max": 0.436,
+        "median": 0.436,
+        "p95": 0.436
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1325327696,
+      "wall_frame_ms": {
+        "max": 2.344,
+        "median": 0.415,
+        "p95": 0.639
+      }
+    },
+    "02_spot_no_shadows": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.180000007152557,
+        "median": 0.141000002622604,
+        "p95": 0.14300000667572
+      },
+      "main_process_ms": {
+        "max": 39.336,
+        "median": 39.336,
+        "p95": 39.336
+      },
+      "objects": 7,
+      "physics_ms": {
+        "max": 0.018,
+        "median": 0.018,
+        "p95": 0.018
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1325327696,
+      "wall_frame_ms": {
+        "max": 2.785,
+        "median": 0.387,
+        "p95": 0.743
+      }
+    },
+    "03_spot_with_shadows": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.160999998450279,
+        "median": 0.148000001907349,
+        "p95": 0.149000003933907
+      },
+      "main_process_ms": {
+        "max": 39.336,
+        "median": 39.336,
+        "p95": 39.336
+      },
+      "objects": 7,
+      "physics_ms": {
+        "max": 0.018,
+        "median": 0.018,
+        "p95": 0.018
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1325327696,
+      "wall_frame_ms": {
+        "max": 2.498,
+        "median": 0.394,
+        "p95": 0.71
+      }
+    },
+    "04_fog_only": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.143999993801117,
+        "median": 0.131999999284744,
+        "p95": 0.133000001311302
+      },
+      "main_process_ms": {
+        "max": 39.336,
+        "median": 39.336,
+        "p95": 39.336
+      },
+      "objects": 7,
+      "physics_ms": {
+        "max": 0.018,
+        "median": 0.018,
+        "p95": 0.018
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1325327696,
+      "wall_frame_ms": {
+        "max": 3.045,
+        "median": 0.377,
+        "p95": 0.677
+      }
+    },
+    "05_spot_plus_fog": {
+      "draw_calls": {
+        "max": 7.0,
+        "median": 7.0,
+        "p95": 7.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.158999994397163,
+        "median": 0.156000003218651,
+        "p95": 0.157000005245209
+      },
+      "main_process_ms": {
+        "max": 39.336,
+        "median": 39.336,
+        "p95": 39.336
+      },
+      "objects": 7,
+      "physics_ms": {
+        "max": 0.018,
+        "median": 0.018,
+        "p95": 0.018
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1325327696,
+      "wall_frame_ms": {
+        "max": 2.611,
+        "median": 0.402,
+        "p95": 0.682
+      }
+    },
+    "06_particles_added": {
+      "draw_calls": {
+        "max": 12.0,
+        "median": 12.0,
+        "p95": 12.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.361999988555908,
+        "median": 0.352999985218048,
+        "p95": 0.358000010251999
+      },
+      "main_process_ms": {
+        "max": 39.336,
+        "median": 39.336,
+        "p95": 39.336
+      },
+      "objects": 12,
+      "physics_ms": {
+        "max": 0.018,
+        "median": 0.018,
+        "p95": 0.018
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1325327696,
+      "wall_frame_ms": {
+        "max": 1.836,
+        "median": 0.605,
+        "p95": 1.582
+      }
+    },
+    "07_ecology_materials_added": {
+      "draw_calls": {
+        "max": 14.0,
+        "median": 14.0,
+        "p95": 14.0
+      },
+      "gpu_frame_ms": {
+        "max": 0.442999988794327,
+        "median": 0.435999989509583,
+        "p95": 0.439999997615814
+      },
+      "main_process_ms": {
+        "max": 39.336,
+        "median": 39.336,
+        "p95": 39.336
+      },
+      "objects": 14,
+      "physics_ms": {
+        "max": 0.018,
+        "median": 0.018,
+        "p95": 0.018
+      },
+      "render_prepare_sync_residual_ms": {
+        "max": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "vram_bytes": 1346740560,
+      "wall_frame_ms": {
+        "max": 1.678,
+        "median": 0.686,
+        "p95": 1.505
+      }
+    },
+    "teardown": {
+      "render_objects_after_release": 4,
+      "render_objects_stage_baseline": 12,
+      "renderer_sync_completed": true,
+      "resource_delta_from_stage_baseline": -1.0,
+      "resources_after_release": 26.0,
+      "resources_before_release": 27.0,
+      "vram_after_release_bytes": 1342166400
+    }
+  },
+  "controller_cpu_ms_per_update": 0.00377745,
+  "controller_gate_ms": 0.2,
+  "device": "NVIDIA GeForce RTX 4080",
+  "froxel_volume_depth": 48,
+  "froxel_volume_size": 48,
+  "gpu_instrumentation": "RenderingServer.viewport_get_measured_render_time_gpu",
+  "packet": "LAMP-OPTICS-L1C/profile",
+  "renderer": "forward_plus",
+  "resolution": "1600x900",
+  "sample_frames": 120,
+  "timing_note": "Wall time awaits frame_post_draw; GPU time is engine-measured and is never inferred from CPU time.",
+  "vram_stage_baseline_bytes": 1325327696,
+  "warmup_frames": 90
+}

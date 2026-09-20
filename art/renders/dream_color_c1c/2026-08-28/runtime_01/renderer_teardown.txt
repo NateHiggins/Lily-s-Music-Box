@@ -1,0 +1,20 @@
+DREAM-COLOR-C1C / Godot 4.7.1 Forward+ renderer teardown
+
+C1C full furnished-room lifecycle
+- light-unpair diagnostics: 1148
+- render objects after release: 0
+- retained cell: false
+- retained L1C lamp: false
+- retained Orison root: false
+
+Last valid untouched-main comparison retained from the S2I/S2J lifecycle probe
+- light-unpair diagnostics: 1264
+- C1C delta: -116 (not amplified)
+
+Direct current-main re-probe
+- commit: afdee9aab64fcc6703aa2cef8018697acd7b533d
+- status: not numerically comparable
+- reason: that main revision cannot complete Orison assembly because required baseline classes and texture resources are absent; it exits with baseline parse/resource errors before the equivalent renderer lifecycle can occur
+- evidence: clean_main_reprobe_summary.txt
+
+This receipt does not claim that the Godot light-indexing bug is fixed. It records that the C1C lifecycle releases all owned objects and does not amplify the last valid clean-main diagnostic count.

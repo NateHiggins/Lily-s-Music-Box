@@ -1,0 +1,10 @@
+Untouched-main direct re-probe
+
+Commit: afdee9aab64fcc6703aa2cef8018697acd7b533d
+Renderer: Godot 4.7.1 Forward+ / NVIDIA GeForce RTX 4080
+Class cache: regenerated before probe
+Outcome: not numerically comparable
+
+The current main revision cannot complete the same Orison lifecycle. Assembly stops on missing baseline classes/resources, including unresolved prop scripts and missing building texture resources, followed by an invalid F01 access. The incomplete run releases to render_objects=0 but never reaches the geometry/light population needed for a renderer light-unpair comparison.
+
+Therefore the packet uses the last valid untouched-main full-lifecycle result retained by S2I/S2J: 1264 light-unpair diagnostics. The complete C1C lifecycle reports 1148, a delta of -116, with zero retained render objects. This is reported as baseline-equivalent/not amplified, not as a renderer bug fix.

@@ -133,6 +133,10 @@ var _cells := PackedByteArray()
 ## Reversible direct irradiance, 0..1. This shares the existing volume and GPU
 ## sampler with durable exposure but is never read by gameplay.
 var _irradiance := PackedFloat32Array()
+## Reused RG8 upload layers. Keeping these in sync at the few owned voxels
+## touched by a 15 Hz update avoids rebuilding and quantizing the entire
+## 96x96x8 volume before every texture upload.
+var _upload_images: Array[Image] = []
 ## Set once if a stamp ever wrapped onto a live room. Diagnostic, never
 ## gameplay -- see overflowed().
 var _overflow := false
@@ -161,6 +165,10 @@ func _init() -> void:
 	_cells.fill(0)
 	_irradiance.resize(_cells.size())
 	_irradiance.fill(0.0)
+	for _iy in GRID_Y:
+		var image := Image.create(GRID_XZ, GRID_XZ, false, Image.FORMAT_RG8)
+		image.fill(Color(0, 0, 0, 1))
+		_upload_images.append(image)
 
 
 # ── ADDRESSING ────────────────────────────────────────────────────────────
@@ -246,6 +254,7 @@ func stamp_room(key: String, rect: Array, decay: float,
 			# and the field's contract is that it never goes down.
 			if v > int(_cells[i]):
 				_cells[i] = v
+				_sync_upload_pixel(ix, iy, iz)
 
 
 ## A room left the pocket. The building forgets what you did to it.
@@ -272,6 +281,7 @@ func clear_room(key: String) -> void:
 			var i := _index(ix, iy, iz)
 			_cells[i] = 0
 			_irradiance[i] = 0.0
+			_sync_upload_pixel(ix, iy, iz)
 
 
 ## THE LAMP, ACCUMULATING. Called at a fixed low rate rather than per frame --
@@ -320,16 +330,22 @@ func add_lamp(origin: Vector3, dir: Vector3, reach: float, cos_outer: float,
 			var rate := IRRADIANCE_RISE_PER_S if direct > previous \
 					else IRRADIANCE_FALL_PER_S
 			var response := move_toward(previous, direct, rate * dt)
-			if absf(response - previous) > 0.00001:
+			var irradiance_changed := absf(response - previous) > 0.00001
+			if irradiance_changed:
 				_irradiance[i] = response
 				_dirty = true
 			if direct <= 0.0 or gain <= 0.0:
+				if irradiance_changed:
+					_sync_upload_pixel(ix, iy, iz)
 				continue
 			var next := int(_cells[i]) + int(ceil(gain * direct
 					/ maxf(0.0001, energy) * 255.0))
-			if next != int(_cells[i]):
+			var durable_changed := next != int(_cells[i])
+			if durable_changed:
 				_dirty = true
 			_cells[i] = 255 if next > 255 else next
+			if irradiance_changed or durable_changed:
+				_sync_upload_pixel(ix, iy, iz)
 
 
 # ── READING ───────────────────────────────────────────────────────────────
@@ -355,7 +371,28 @@ func pin_irradiance_for_proof(value: float) -> void:
 		var iz := int(entry) % GRID_XZ
 		for iy in GRID_Y:
 			_irradiance[_index(ix, iy, iz)] = pinned
+			_sync_upload_pixel(ix, iy, iz)
 	_dirty = true
+
+
+## Save/reconstruction seam for the authority's durable channel. Reversible G
+## is deliberately absent: current irradiance is reconstructed from the live
+## lamp, while paid-for conversion R survives the presentation lifecycle.
+func snapshot_durable() -> PackedByteArray:
+	return _cells.duplicate()
+
+
+func restore_durable(saved: PackedByteArray) -> bool:
+	if saved.size() != _cells.size():
+		return false
+	_cells = saved.duplicate()
+	_irradiance.fill(0.0)
+	for iy in GRID_Y:
+		for iz in GRID_XZ:
+			for ix in GRID_XZ:
+				_sync_upload_pixel(ix, iy, iz)
+	_dirty = true
+	return true
 
 
 ## HOW EXPOSED SHE IS IN THIS ROOM. Mean over the room's footprint at standing
@@ -415,24 +452,15 @@ func peak() -> float:
 ## reversible irradiance response. The texture object and sampler are unchanged.
 func to_images() -> Array[Image]:
 	var out: Array[Image] = []
-	var plane := GRID_XZ * GRID_XZ
 	for iy in GRID_Y:
-		var bytes := PackedByteArray()
-		bytes.resize(plane * 2)
-		var start := iy * plane
-		for offset in plane:
-			var i := start + offset
-			bytes[offset * 2] = _cells[i]
-			bytes[offset * 2 + 1] = clampi(int(round(
-					_irradiance[i] * 255.0)), 0, 255)
-		out.append(Image.create_from_data(GRID_XZ, GRID_XZ, false,
-				Image.FORMAT_RG8, bytes))
+		out.append(_upload_images[iy].duplicate())
 	return out
 
 
 func make_texture() -> ImageTexture3D:
 	var tex := ImageTexture3D.new()
-	tex.create(Image.FORMAT_RG8, GRID_XZ, GRID_XZ, GRID_Y, false, to_images())
+	tex.create(Image.FORMAT_RG8, GRID_XZ, GRID_XZ, GRID_Y, false,
+			_upload_images)
 	return tex
 
 
@@ -441,13 +469,23 @@ func make_texture() -> ImageTexture3D:
 func upload(tex: ImageTexture3D) -> bool:
 	if tex == null or not _dirty:
 		return false
-	tex.update(to_images())
+	tex.update(_upload_images)
 	_dirty = false
 	return true
 
 
 func is_dirty() -> bool:
 	return _dirty
+
+
+func texture_allocation_bytes() -> int:
+	return GRID_XZ * GRID_XZ * GRID_Y * 2
+
+
+func _sync_upload_pixel(ix: int, iy: int, iz: int) -> void:
+	var i := _index(ix, iy, iz)
+	_upload_images[iy].set_pixel(ix, iz, Color(
+			float(_cells[i]) / 255.0, clampf(_irradiance[i], 0.0, 1.0), 0.0, 1.0))
 
 
 # ── INTERNAL ──────────────────────────────────────────────────────────────

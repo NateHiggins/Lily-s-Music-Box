@@ -12,6 +12,7 @@ render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, 
 // Dream material stack (`dream_entity_surface.gdshaderinc`).
 #include "res://shaders/dream_corruption_layers.gdshaderinc"
 #include "res://shaders/dream_entity_surface.gdshaderinc"
+#include "res://shaders/dream_cellular_surface.gdshaderinc"
 
 group_uniforms rig;
 uniform vec3 spine[16];
@@ -58,6 +59,13 @@ uniform int root_n = 0;
 uniform int mask_view = 0;
 uniform float lod_near_m = 1.2;
 uniform float lod_far_m = 4.0;
+uniform vec4 cellular_state_a = vec4(.5,0.,1.,0.);
+uniform vec4 cellular_state_b = vec4(0.,.5,0.,0.);
+uniform vec4 cellular_state_c = vec4(0.);
+uniform vec4 cellular_phenotype = vec4(.55,.60,.46,.52);
+uniform int cellular_modality = 0;
+uniform bool cellular_grayscale = false;
+uniform float cellular_time = 0.0;
 group_uniforms;
 
 varying vec2 v_uv;
@@ -218,11 +226,35 @@ void vertex() {
 	float gold_root;
 	float mult = dt_relief(vec2(u, v), TIME, vein, socket, lid, gold_root);
 	float r = dt_profile(v) * pr.x * mult * alive;
+	// Each ecological sensor grows a different load-bearing anatomy. These
+	// silhouette changes survive grayscale and gameplay distance; the material
+	// below only reveals more of the same organization.
+	float a = u * 6.2831853;
+	float distal = smoothstep(0.42, 0.94, v);
+	if (cellular_modality == 0) { // tactile: broad pressure pad + papillae
+		r *= 1.0 + distal * 0.42 + pow(max(0.0, sin(a * 7.0 + v * 34.0)), 8.0) * 0.16;
+	} else if (cellular_modality == 1) { // chemical: thin radial sampling frill
+		r *= 0.82 + distal * (0.28 + 0.38 * pow(abs(sin(a * 5.0)), 3.0));
+	} else if (cellular_modality == 2) { // thermal: stacked transverse lamellae
+		r *= 0.88 + distal * (0.18 + 0.32 * pow(max(0.0, sin(v * 92.0)), 5.0));
+	} else if (cellular_modality == 3) { // vibration: taut parallel ridges
+		r *= 0.76 + 0.23 * pow(abs(cos(a * 4.0)), 10.0);
+	} else if (cellular_modality == 4) { // optical: lens-bearing distal bulb
+		r *= 0.74 + 1.05 * exp(-pow((v - 0.84) / 0.105, 2.0));
+	} else { // electrical: six continuous conductive rails
+		r *= 0.82 + 0.34 * pow(max(0.0, cos(a * 6.0)), 12.0);
+	}
+	if (cellular_modality == 1) { p += sd * sin(v * 18.0) * distal * .030; }
+	if (cellular_modality == 3) { r *= .48; p += bn * sin(v * 46.0) * .010; }
+	if (cellular_modality == 5) { p += sd * sin(v * 34.0) * .035 + bn * cos(v * 34.0) * .035; }
 	// The cross-section: an ellipse that flattens and rotates along the
 	// length (the ribbon span, the torsion), readable from afar.
-	float ang = u * 6.2831853 + pr.z + station_roll * smoothstep(0.05, 0.35, v)
+	float ang = a + pr.z + station_roll * smoothstep(0.05, 0.35, v)
 			+ ventral_roll * smoothstep(0.45, 0.8, v);
 	vec3 radial = sd * cos(ang) * (1.0 + pr.y) + bn * sin(ang) * (1.0 - pr.y);
+	if (cellular_modality == 0) { radial = sd * cos(ang) * 1.85 + bn * sin(ang) * .48; }
+	if (cellular_modality == 2) { radial *= .72 + .75 * pow(max(0.0,sin(v*48.0)),8.0); }
+	if (cellular_modality == 4) { radial = sd * cos(ang) + bn * sin(ang); }
 	vec3 nrm = normalize(sd * cos(ang) * (1.0 - pr.y) + bn * sin(ang) * (1.0 + pr.y));
 	vec3 world = p + radial * r;
 	VERTEX = world;
@@ -266,11 +298,26 @@ void fragment() {
 	m.gold *= 1.0 - v_seg * 0.9;
 	m.wet = max(m.wet, v_seg * 0.85 * wetness);
 	DeOut o = de_shade(m, pw, v_uv, n, view_dir, TIME, seed, ctx);
+	vec4 cellular = cell_membrane(pw * 6.0, n, view_dir, seed,
+			cellular_phenotype, cellular_state_a, cellular_state_b,
+			cellular_state_c, cellular_time);
+	vec3 cargo = cell_transport(vec3(v_uv.y * 2.0, v_uv.x, v_relief), seed,
+			cellular_state_a, cellular_state_b, cellular_state_c, cellular_time);
 	ALBEDO = o.albedo;
+	ALBEDO = mix(ALBEDO, ALBEDO * vec3(.66,.36,.78), cellular.x * .28);
+	ALBEDO += vec3(.16,.035,.22) * cellular.w;
 	METALLIC = o.metallic;
 	ROUGHNESS = o.roughness;
 	SPECULAR = o.specular;
 	EMISSION = o.emission;
+	EMISSION += vec3(.36,.08,.52) * cargo.x + vec3(.62,.31,.08) * cargo.y
+			+ vec3(.12,.04,.22) * cellular.z;
+	if (cellular_grayscale) {
+		float gray = dot(ALBEDO, vec3(.299,.587,.114));
+		ALBEDO = vec3(gray);
+		EMISSION = vec3(dot(EMISSION, vec3(.299,.587,.114)));
+		METALLIC = 0.0;
+	}
 	BACKLIGHT = o.backlight;
 	AO = o.ao;
 	AO_LIGHT_AFFECT = 0.35;

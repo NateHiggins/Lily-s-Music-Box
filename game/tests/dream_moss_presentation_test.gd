@@ -64,7 +64,10 @@ func _ready() -> void:
 	var dirty := colony.stain_coverage()
 	_check(is_equal_approx(colony.cleanup(1.0, false), dirty) and colony.cleanup(1.0, true) < dirty, "cleanup presentation requires authorized path")
 	var pc: Dictionary = renderer.census()
-	_check(int(pc.nodes) <= 6 and int(pc.caps.cilia) == 8 and int(pc.caps.ether_motes) == 24, "pooled presentation remains inside caps")
+	_check(int(pc.nodes) <= 7 and int(pc.caps.cilia) == 32
+			and int(pc.caps.ether_motes) == 24
+			and int(pc.caps.membrane_proteins) == 64,
+			"pooled cellular presentation remains inside fixed caps")
 	var cpu_start := Time.get_ticks_usec()
 	for _i in 300: renderer._process(1.0 / 60.0)
 	var cpu_ms := float(Time.get_ticks_usec() - cpu_start) / 300.0 / 1000.0
