@@ -1,0 +1,29 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "diagnostic_checks": 486,
+  "captures": 150,
+  "frame_sample": {
+    "draw_calls": 226.0,
+    "frames": 240,
+    "median_ms": 20.004,
+    "p95_ms": 20.806,
+    "primitives": 113505.0,
+    "scope": "whole isolated warehouse at fixed tardigrade camera, CPU clocks paused; includes hero/margin/architecture; desktop wall-frame interval, not GPU timing"
+  },
+  "scope": "Native debug presentation, not runtime_contract or artistic acceptance",
+  "history": [
+    "01: valid Euplotes JSON rejected by integer-array equality; corrected exact numeric validation.",
+    "02: 486 checks passed; broad gold and framing reviewed.",
+    "03: 486 checks passed after visual refinements; UI encoding issue found.",
+    "04: 486 checks and 13 entry checks passed after UTF-8 correction.",
+    "05: disabling the alpha depth prepass did not remove the material boundary; reverted.",
+    "06: complete outer envelopes share one material pass; enclosed organs retain opaque depth."
+  ],
+  "regressions": {
+    "zoo": 147,
+    "entry_final": 13,
+    "critters": 70,
+    "limitations": "Full-world entry and critter runs emit the already observed resident-route errors; zoo and isolated Blender diagnostic have empty stderr."
+  }
+}

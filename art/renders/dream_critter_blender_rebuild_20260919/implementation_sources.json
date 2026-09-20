@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "native_status": "BLOCKED_BEFORE_LAUNCH",
+  "native_status": "PASS_486_OF_486",
   "files": [
     {
       "path": ".gitattributes",
@@ -9,27 +9,27 @@
     },
     {
       "path": "design/astra/DREAM_CRITTER_BLENDER_REBUILD_2026-09-19.md",
-      "sha256": "f8f0de6efb4b598201a7f0784ac24f38368b233c859bd67681c2c800f4c76c8e",
+      "sha256": "d1775c7bc4f0ff9c513d9bc6414f103a95f854d54c6faf3fb67a370c05847d0d",
       "hash_mode": "LF-normalized"
     },
     {
       "path": "game/scripts/debug/dream_ecology_warehouse.gd",
-      "sha256": "42928ff046c7b3dbb584468a931a694fafff73b244ce20d1550f60a526d3a796",
+      "sha256": "99cc8ff00d3837b1f263d86b49514777aaede73edfeff0b218d09c6232c77419",
       "hash_mode": "LF-normalized"
     },
     {
       "path": "game/scripts/dream/critters/dream_critter_blender_assets.gd",
-      "sha256": "3f25a2c306231716a056f2e28fb0c22ef5d1cdcfb640414f1f4a4f7732e0bd5e",
+      "sha256": "845f13c25a7e4b4d6172f60f0237aee5b083aea61e4f1440b70c1669f337330d",
       "hash_mode": "LF-normalized"
     },
     {
       "path": "game/scripts/dream/critters/dream_critter_blender_batch.gd",
-      "sha256": "b4ededa6811562802f5ba8e362925b235a2b1cd0037a100ac9c4838313eb20dd",
+      "sha256": "c9cf381b0ffb802ebd51de38fc8ccca1cefc0e08bc3f8c2a5ea79f9294f200ae",
       "hash_mode": "LF-normalized"
     },
     {
       "path": "game/shaders/dream_critter_body.gdshaderinc",
-      "sha256": "3828678482c38a23c1d6100b2993d74e5f1b645ee62eebe3d75c1ba3b4ee2e03",
+      "sha256": "127d36c25bc35d9f39c34365b6287bf2ecfe9078c3442f18f7d00878717a4f8f",
       "hash_mode": "LF-normalized"
     },
     {
@@ -49,12 +49,12 @@
     },
     {
       "path": "game/tests/dream_blender_critter_test.gd",
-      "sha256": "8fbeac99cc60472f47f2a10e6ec1dd84ba9d97cf3fc653d77c831d18a92c17e3",
+      "sha256": "b935a965d9ccf0c38a5b3114ac0796f5af211087bd93a229967b1ce1ce14945f",
       "hash_mode": "LF-normalized"
     },
     {
       "path": "game/tests/dream_blender_decoder_controls.gd",
-      "sha256": "eede3d8ff0fb3704584d0f1acc05011187e7894cecf8b523e34ba229e824076b",
+      "sha256": "c3abe0004abcc60caaf704204eec9797ac581e09c449b54a86628b23492afd07",
       "hash_mode": "LF-normalized"
     },
     {
@@ -756,6 +756,17 @@
       "path": "game/assets/dream/critters_blender/vorticella/vorticella_lod0.manifest.json",
       "sha256": "76844c186bab4164364521853baa65d7a87720b1103db4dcf4082b284efff6f6",
       "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "game/shaders/dream_critter_blender_fold.gdshaderinc.uid",
+      "sha256": "d892bc4f4c9c08f9bd75c0201b0cdac88260b2f066eee6269b9a0ae7f00e24d2",
+      "hash_mode": "LF-normalized"
+    },
+    {
+      "path": "game/tests/dream_blender_decoder_controls.gd.uid",
+      "sha256": "70cace8c8d8d4392e8b752b8e692d8251380317f75ffe1b6449202aa5aa7e61f",
+      "hash_mode": "LF-normalized"
     }
-  ]
+  ],
+  "native_diagnostic": "native/captures/dream_blender_critters.json"
 }

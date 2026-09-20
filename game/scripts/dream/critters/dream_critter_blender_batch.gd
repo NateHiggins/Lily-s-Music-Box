@@ -353,7 +353,12 @@ func _compile(ordered: Array[Dictionary]) -> Dictionary:
 				for corner in 3:
 					var vertex_color: Color = template.colors[source_indices[triangle + corner]]
 					var region := int(roundf(vertex_color.b * 255.0))
-					if region in [1, 5] and vertex_color.g > 0.005:
+					# Keep the complete continuous envelope in one lighting pass.
+					# Splitting it at the thin-window threshold exposes the opaque /
+					# transparent lighting boundary as a polygon edge on smooth skin.
+					# Claws/cilia are envelope regions; internal organs (2) and
+					# scintillons (6) retain opaque depth. Alpha still comes from G.
+					if region in [1, 3, 4, 5]:
 						is_membrane = true
 			for corner in 3:
 				var index := source_indices[triangle + corner] + offset

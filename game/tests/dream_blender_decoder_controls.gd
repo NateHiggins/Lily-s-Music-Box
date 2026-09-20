@@ -90,6 +90,12 @@ static func run_checks(admitted: RefCounted, report_check: Callable) -> Array[Di
 	var bad_euplotes: Dictionary = euplotes.duplicate(true)
 	bad_euplotes.cirrus_controls[13] = 6
 	_manifest_refusal(results, report_check, bad_euplotes, 7, "euplotes", "wrong fourteen-to-eight Euplotes mapping refused")
+	bad_euplotes = euplotes.duplicate(true)
+	bad_euplotes.cirrus_controls[13] = 7.5
+	_manifest_refusal(results, report_check, bad_euplotes, 7, "euplotes", "fractional Euplotes control refused")
+	bad_euplotes = euplotes.duplicate(true)
+	bad_euplotes.cirrus_controls[13] = "7"
+	_manifest_refusal(results, report_check, bad_euplotes, 7, "euplotes", "string Euplotes control refused")
 	return results
 
 

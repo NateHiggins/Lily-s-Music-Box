@@ -175,7 +175,7 @@ func _check_membranes() -> void:
 			vertex_offset += int(section.vertices)
 		split_valid = split_valid and actual_indices.size()==expected_indices.size()
 		split_valid = split_valid and _triangle_fingerprint(actual_indices)==_triangle_fingerprint(expected_indices)
-		_check("thin-window triangles and solid triangles form a bounded disjoint partition", split_valid and int(stats.total_triangles)<=84000)
+		_check("complete envelope and opaque organ triangles form a bounded disjoint partition", split_valid and int(stats.total_triangles)<=84000)
 		rows.append(stats)
 		controller.unbind_voxel_optics()
 		_check("paused membrane unbind releases the shared field immediately", material.get_shader_parameter("exposure_tex") == null)
@@ -203,7 +203,7 @@ func _partition_matches(arrays: Array, membrane: bool) -> bool:
 		for corner in 3:
 			var v := indices[at+corner]
 			var region := int(round(colors[v].b*255.0))
-			thin = thin or (tags[v].y>999.0 and colors[v].g>0.005 and region in [1,5])
+			thin = thin or (tags[v].y>999.0 and region in [1,3,4,5])
 		if thin != membrane: return false
 	return true
 
@@ -336,6 +336,19 @@ func _review_poses() -> void:
 		exhibit.focus_species(kind)
 		var c: Dictionary = exhibit.specimen_for(kind)
 		var saved: Dictionary = c.duplicate(true)
+		if kind == 2:
+			# Preserve the live support-frame inputs for the joint silhouette
+			# review; these are observations, not new locomotion authority.
+			var leg_rows: Array = []
+			var up: Vector3 = c.up
+			var forward: Vector3 = c.fwd
+			var side: Vector3 = up.cross(forward).normalized()
+			for leg: Dictionary in c.leg_state:
+				var relative: Vector3 = leg.foot-c.pos
+				leg_rows.append({"foot_local":[relative.dot(side),relative.dot(up),relative.dot(forward)],
+					"stance":leg.was_stance,"phase":leg.phase})
+			evidence["fold_live_support"]={"morph":c.morph.duplicate(true),"legs":leg_rows,
+				"scope":"Existing CPU support state before controlled review; no floor-contact guarantee."}
 		for amount in [0.0,0.5,1.0]:
 			_set_review_state(c,kind,amount)
 			for controller in exhibit.controllers: controller._push()

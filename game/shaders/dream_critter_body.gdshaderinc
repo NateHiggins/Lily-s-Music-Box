@@ -627,7 +627,13 @@ void fragment() {
 #endif
 		// Anatomy masks come from the model. Noise varies substance only; it
 		// cannot invent gold stripes, organs or stimulus routes.
-		float wire = clamp(v_region.r * (0.6 + 0.8 * v_matter.x), 0.0, 1.0);
+		float authored_wire = pow(clamp(v_region.r, 0.0, 1.0), 1.6);
+		if (v_plan > 0.5 && v_plan < 1.5 && v_region.b > 0.5) {
+			// The receiver's existing mineral ridge is a narrow seam. Preserve
+			// its anatomical location without filling its interpolation skirt.
+			authored_wire = pow(clamp(v_region.r / 0.55, 0.0, 1.0), 6.0) * 0.8;
+		}
+		float wire = clamp(authored_wire * (0.6 + 0.8 * v_matter.x), 0.0, 1.0);
 		float window = clamp(v_region.g, 0.0, 1.0);
 		if (blender_review_mode == 2 && v_region.b > 0.5 && v_axial > 0.0) {
 			discard;
@@ -680,7 +686,7 @@ void fragment() {
 		wine *= 1.0 - clamp(v_photo.y,0.0,1.0) * 0.18;
 		float dark_mass = smoothstep(0.20, 0.79, tissue_cloud);
 		ALBEDO = mix(black_wine, wine, 0.30 + dark_mass * 0.40 + 0.20 * beam);
-		ALBEDO = mix(ALBEDO, gold, clamp(wire + sustained * (0.12 + wire * 0.32), 0.0, 1.0));
+		ALBEDO = mix(ALBEDO, gold, clamp(wire * (1.0 + sustained * 0.40), 0.0, 1.0));
 		METALLIC = 0.72 * wire + 0.06 * sustained;
 		ROUGHNESS = mix(0.31, 0.56, cuticle) + mod(v_plan * 0.037, 0.11) - window * 0.09
 				+ (tissue_cloud - 0.5) * 0.14 + (grain - 0.5) * 0.08 + (0.5-v_look.z)*0.12;

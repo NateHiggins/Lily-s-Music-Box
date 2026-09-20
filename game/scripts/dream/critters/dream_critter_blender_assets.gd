@@ -128,7 +128,7 @@ func _read_template(path: String, directory: String, kind: int, lod: int) -> Dic
 			or manifest.get("neck_reach") != [1.2, 6.4]):
 		_fail("Lacrymaria neck root/reach differs from the authored search contract: " + path)
 		return {}
-	if kind == 7 and manifest.get("cirrus_controls") != EUPLOTES_CIRRUS_CONTROLS:
+	if kind == 7 and not _valid_euplotes_controls(manifest.get("cirrus_controls")):
 		_fail("Euplotes must retain its fourteen tips and eight authored cirral groups: " + path)
 		return {}
 	var anchors := _read_feet(manifest.foot_anchors, kind)
@@ -256,6 +256,19 @@ func _read_template(path: String, directory: String, kind: int, lod: int) -> Dic
 	data.bounds = bounds
 	data.triangles = triangles
 	return data
+
+
+func _valid_euplotes_controls(raw: Variant) -> bool:
+	# JSON numbers are floats; Array equality also compares element types.
+	# Compare exact numeric values without truncating fractional controls.
+	if not raw is Array or raw.size() != EUPLOTES_CIRRUS_CONTROLS.size():
+		return false
+	for index in EUPLOTES_CIRRUS_CONTROLS.size():
+		var value: Variant = raw[index]
+		if (not value is int and not value is float) or not is_finite(float(value)) \
+				or float(value) != float(EUPLOTES_CIRRUS_CONTROLS[index]):
+			return false
+	return true
 
 
 func _valid_binding(kind: int, binding: Vector2) -> bool:

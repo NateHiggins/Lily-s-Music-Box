@@ -336,6 +336,14 @@ func focus_species(kind: int) -> void:
 		var forward: Vector3 = specimen.fwd
 		var side := up.cross(forward).normalized()
 		var view := (side*0.85+up*0.55+forward*0.25).normalized()
+		# Wall-mounted mantles need a face view; jointed blades need a diagonal
+		# view so the far-side knees do not hide their descending foot segments.
+		if kind == Species.Kind.SEAM_GRAZER:
+			view = (side*0.35+up*1.1+forward*0.35).normalized()
+		elif kind == Species.Kind.CRYSTAL_LISTENER:
+			view = (side*0.45+up*0.8+forward*0.65).normalized()
+		elif kind == Species.Kind.FOLD_CRAB:
+			view = (side*0.85+up*0.7+forward*0.85).normalized()
 		_orbit = Vector2(atan2(view.x,view.z),asin(view.y))
 	_process(0.0)
 

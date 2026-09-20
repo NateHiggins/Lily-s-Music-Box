@@ -21,8 +21,9 @@ single fused animal. Topology is checked per declared component.
 The existing controller still owns movement, contact, light, feeding, tun,
 contraction and life cycles. The opt-in warehouse presentation consumes that
 state through one shared float pose atlas and the existing RG8 voxel field.
-It keeps two bounded controller batches, each with an opaque surface and one
-shared membrane surface. Detailed inspection remains under84000 triangles
+It keeps two bounded controller batches, each with an opaque organ surface
+and one shared outer-envelope surface. The complete cortex, cilia and claws
+share one lighting pass; only authored thin-window values admit transmission. Detailed inspection remains under84000 triangles
 per controller. There are no per-animal skeletons or materials at runtime.
 
 The stripe-free material uses original procedural grain, species-specific
@@ -93,35 +94,65 @@ All32 raw GLB exports also pass the independent attribute audit: unit
 normals/tangents within exporter precision, normalized weights, declared
 semantic UV roles and all18 morph target POSITION/NORMAL channels. The
 reader gate reports zero NEW unread fields against its existing baseline.
-This does not substitute for the pending Godot import comparison.
+The subsequent Godot comparison also passes for all 32 imports.
 
-## Native status and remaining verification
+## Native verification and review
 
-The expanded all-sixteen native fixture is installed. Its checks
-cover imported pose parity, independent manifest/atlas roots, count variants,
-decoder rejection cases, live controller clocks, diagnostic captures,
-resource retirement and bounded batches. **It has not run yet.**
+The shared lane became free after the owner closed Project Manager. Both
+imports completed successfully. The final all-sixteen diagnostic passes
+**486/486 checks**, with empty captured errors, warnings and stderr. It covers
+all 32 imported pose arrays, attachment atlases, malformed manifest rejection,
+complete-envelope/opaque-organ index partitions, stable draw identities,
+count variants, inspection LODs, paused light rebinding and resource release.
+These are scoped INERT diagnostics, not schema-2 campaign runtime contracts.
 
-Godot Project Manager, pid20100, started2026-09-19T23:39:26Z, occupied the
-shared lane. Both the initial five-minute wait and the final fifteen-minute wait ended
-without starting a test. Per AGENTS.md
-RUL-009, another user's Godot session was not closed. Native shader parsing,
-live Fold deformation, full16 visual inspection and final regression remain
-pending until the lane is free. An earlier five-species diagnostic passed121
-checks with empty stderr; it does not validate this expanded runtime.
+The first native run exposed JSON float-versus-integer Array equality in
+Euplotes admission. The decoder now checks exact numeric values, refusing
+fractional and string controls as well as the wrong cirral mapping. Original
+attempt receipts are retained under the native review folder.
 
-Source studio plates are geometry/material review only. They do not use the
-native RG8 field. Fine cilia are bundled and internal membranes simplified
-for the two mesh budgets. Source validation is not owner art acceptance.
-Intact window boundaries need further native inspection for polygon-stepped
-opacity, and the new bounded dark-edge emission needs the three-light review.
-Labels saying full_beam mean nine seconds of real lamp accumulation, not a
-guarantee that every sampled texel reaches the shader's saturation threshold.
+Existing controller clocks were observed for 18 seconds without writing
+their state. All sixteen advanced their own phase; the seam grazer stayed
+folded and Noctiluca did not spontaneously flash during that interval. Their
+unfold/flash review captures are explicitly staged. The fixture also saves
+the Fold Crab's real support-frame feet before its controlled poses.
 
-The implementation checkpoint is8f33c4c, followed by export audit db472a2.
-The complete [source review gallery](../../art/renders/dream_critter_blender_rebuild_20260919/gallery/index.html)
-has sixteen source-hash-matched previews in neutral/material/cutaway modes.
-It is explicitly separate from the pending native appearance review.
+The [native gallery](../../art/renders/dream_critter_blender_rebuild_20260919/native/index.html)
+contains 150 full captures, with neutral 0/half/full poses, cutaways, dark,
+oblique and accumulated-lamp views, appendage counts, jaws and hunting reach.
+All sixteen were visually inspected. The Listener's broad mineral shading
+was narrowed to its existing anatomical ridges; sustained light preserves
+wine tissue. Wall-mounted specimens and Fold Crab use clearer default views.
+The complete outer envelope now stays in one lighting pass, avoiding the
+artificial polygon boundary from splitting smooth tissue at a window threshold.
+Opaque internal organs retain depth. The shared draw and triangle budgets
+are unchanged; this is approximate transmission, not physical refraction.
+
+The last frame sample records 240 desktop frame intervals: median
+20.004 ms and p95 20.806 ms, 226 whole-warehouse draw calls
+and 113505 primitives at the fixed Tardigrade camera. CPU clocks were
+paused; this includes the rescued hero, palps and architecture. It is not GPU
+timing or a performance guarantee. The shared pose atlas is approximately
+116 MiB (1024 x 7413 RGBAF), covering both detail levels of all sixteen.
+
+Regressions pass: zoo 147/147, debug entry 13/13 and existing critters 70/70.
+The entry test was repeated after the camera/text fixes and also passes.
+Full-world entry and critter logs retain previously observed resident-route
+errors; they are not globally clean runs. The isolated zoo and Blender logs
+have no native errors. The final reader gate reports zero NEW unread fields.
+
+Fine cilia remain bundled and internal organs simplified for the budgets.
+Fold limbs are deliberately laminated blades; their knee overlap depends on
+view angle, and nominal/source contact checks do not prove every live
+raycast pose. Lacrymaria's default view leaves room for its full search reach;
+use the wheel for close inspection. Closely layered cells and membranes use
+approximate alpha sorting. Finite pose checks are not a continuum collision
+proof. This pass is available for owner art review; acceptance is not claimed.
+
+The [source gallery](../../art/renders/dream_critter_blender_rebuild_20260919/gallery/index.html)
+remains separate: its sixteen previews match the committed LOD0 Blender
+sources but use controlled studio shading. Historical lane blockage is
+retained in lane_blocker.json; it no longer blocks this pass.
 
 ## Reproduce and inspect
 
@@ -137,5 +168,5 @@ Prior rescued hero/organelle work and the reserved zoo stations remain.
 No main merge or push. No selector/protected gameplay-authority change is
 intended, and no campaign-completeness promotion is claimed.
 
-Last line: source rebuild complete; expanded runtime integration awaiting
-native verification because the shared Godot lane is occupied.
+Last line: all-sixteen Blender rebuild and native debug integration verified;
+review gallery, diagnostics and reproducible sources saved on the work branch.
