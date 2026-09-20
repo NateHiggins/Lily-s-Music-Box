@@ -3772,3 +3772,13 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   field allocation) and DreamCritterVoxelBindingTest (shared sampler
   channels). Merging the two lights should close all three; see
   `design/REPO_HOUSEKEEPING_2026-09-19.md` section 9.
+- **H24** **The debug controls are reachable now; the pointer rule is new.**
+  Pausing hosts the debug panel above Building Services in debug launches,
+  and the backtick key releases or recaptures the pointer during play. While
+  the player has released it deliberately, a mouse click no longer recaptures
+  it — that silent recapture was why every earlier fix looked broken. Any
+  future work that sets `Input.mouse_mode` in play has to respect
+  `player_controller.mouse_released`, and any suite that asserts pointer
+  ownership must run windowed (headless Godot never captures the mouse, so
+  those assertions pass vacuously). See
+  `design/REPO_HOUSEKEEPING_2026-09-19.md` section 10.

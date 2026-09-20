@@ -318,3 +318,40 @@ them deliberately, and the warehouse zoo exhibit should be visitable.
 One triage agent wrote temporary status listings to its own session
 scratchpad, outside the repository; no repository, ref or worktree was
 changed by the triage.
+
+## 10. The debug controls were unusable, and why (2026-09-20)
+
+The owner could not click a single debug control. Three separate causes sat
+on top of each other, and each one hid the next.
+
+**The pointer was only ever free while paused.** Play captures the mouse, so
+the controls could not be clicked at all unless the tree was paused. That was
+already known and is what made the owner ask for the panel to live inside the
+pause menu.
+
+**Inside the pause menu the controls were buried and frozen.** The panel's
+canvas layer was 10; Building Services sits at 90 and keeps processing while
+the tree is paused. So pausing drew the pause surface over the controls and
+stopped them processing at the exact moment the mouse became usable. The
+panel now sits at layer 95 with `PROCESS_MODE_ALWAYS`, Building Services
+unfolds it on open and restores it on close in debug launches only, Escape
+stays with the pause menu while it hosts the panel, and F1 folds the body
+away without leaving the pause surface. `DebugInPauseTest` proves all of it,
+including that pressing a hosted control actually runs its action: 10/10.
+
+**A click took the pointer straight back.** This is the one that made the
+first two fixes look like they had not worked. `player_controller`
+recaptured the mouse on any mouse button, so a freed pointer survived until
+the owner tried to use it, which is indistinguishable from never being freed.
+The backtick key now toggles release, and while the player has deliberately
+released the pointer no click recaptures it. Look follows the mouse only
+while captured. `ReleaseMouseKeyTest` proves the whole cycle windowed,
+including the click that used to undo it: 6/6.
+
+The lesson for the harness: this could not have been caught headless.
+Godot's headless server never captures the mouse at all, so every assertion
+about pointer ownership passes vacuously there. The release suite has to run
+windowed, and `verify_candidate.py --windowed-suite` is how.
+
+Landed: `b5693b7` (pause hosting), `48c84e6` (the key), `daf2e80` (two
+test-tier spatial records). Main is `daf2e80`.
