@@ -3765,3 +3765,10 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   named nowhere in production code and 633 are named only outside the loading
   script; see `design/REPO_HOUSEKEEPING_2026-09-19.md` §6 for the sampled
   estimate before changing the gate or the baseline.
+- **H23** **Close the voxel-light seam.** Two voxel lights now sit side by
+  side by owner ruling: the earlier presenter and Astra's critter binding.
+  Three suites fail at their boundary and are accepted by name, not fixed:
+  DreamZooWarehouseTest (placeholder species), DreamVoxelV1Test (shared
+  field allocation) and DreamCritterVoxelBindingTest (shared sampler
+  channels). Merging the two lights should close all three; see
+  `design/REPO_HOUSEKEEPING_2026-09-19.md` section 9.

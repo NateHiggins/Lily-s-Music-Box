@@ -282,6 +282,39 @@ should be activated except what is actively being edited.
   changes were not touched: they are the unaccepted experiments the owner
   still has to land or discard (TASKS.md D7).
 
+## 9. 2026-09-20 later: Astra's critters and the zoo exhibit on main
+
+Owner rulings: Astra's new critter work takes precedence, the earlier voxel
+light and the one Astra is building stand side by side until someone merges
+them deliberately, and the warehouse zoo exhibit should be visitable.
+
+- **Astra's reconciliation is merged** (16c2a85), 125 commits: the dream zoo
+  warehouse exhibit, the sixteen Blender critters, the debug menu pointer
+  fix and the upper-floor programme. Every conflict resolved to Astra's
+  side: the critter controller, the critter and fauna shaders, the voxel
+  critter and microorganism suites and their shot scenes. building_debug.gd
+  took Astra's version, which owns the pointer and Escape, with the LIGHT
+  switch re-applied on top of it.
+- **To visit the exhibit:** F1 for the controls, the GO section, then Dream
+  ecology. DreamEcologyEntryTest confirms it windowed, 28/28, including the
+  live sixteen-species exhibit, walking to it, and returning with the
+  pointer and held player state restored.
+- **Three suites fail at the seam and were accepted by name**, not hidden:
+  DreamZooWarehouseTest (95/128; 31 of the failures are placeholder species
+  nobody has built yet, plus two framing checks), DreamVoxelV1Test (18/19;
+  the shared light field's allocation is no longer the older test's 147,456
+  bytes under Astra's binding) and DreamCritterVoxelBindingTest (32/34; the
+  shared sampler's two light channels). All three are the boundary between
+  the two voxel lights and Astra's unfinished zoo, which is where the owner
+  ruled they may sit. verify_candidate gained --accept-suite so a ruled seam
+  is recorded under human review while an unnamed failure still blocks.
+- **Instrument corrections from this work:** every verified suite now gets a
+  shot directory (a suite that writes frames refuses to start without one,
+  which made a passing suite look failed), and --windowed-suite exists for
+  pointer contracts. A suite with its own watchdog, such as
+  DebugDreamButtonTest at 50 s, must stay headless: windowed runs render the
+  whole building and overrun it.
+
 One triage agent wrote temporary status listings to its own session
 scratchpad, outside the repository; no repository, ref or worktree was
 changed by the triage.
