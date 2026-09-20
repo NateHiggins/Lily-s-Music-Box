@@ -172,11 +172,14 @@ def run_runner(runner: str, project: Path, log: Path, scene: str, extra_import: 
     if windowed:
         # Mouse capture does not exist headless: Input.mouse_mode stays
         # VISIBLE however a suite sets it, so any pointer or pause contract
-        # fails for the harness's reason rather than the code's.
+        # fails for the harness's reason rather than the code's. Windowed
+        # runs are also slower, so a suite with its own watchdog may need to
+        # stay headless.
         parts.append("-Windowed")
-        shots = log.parent / (log.stem + "_shots")
-        shots.mkdir(parents=True, exist_ok=True)
-        parts.append(f"-ShotDir '{shots}'")
+    # Suites that write frames refuse to start without somewhere to write.
+    shots = log.parent / (log.stem + "_shots")
+    shots.mkdir(parents=True, exist_ok=True)
+    parts.append(f"-ShotDir '{shots}'")
     command = " ".join(parts) + "; exit $LASTEXITCODE"
     deadline = time.monotonic() + lane_wait_s
     waited = 0
