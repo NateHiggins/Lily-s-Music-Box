@@ -68271,7 +68271,7 @@
     "_answer_service_pattern"
    ],
    "lines": [
-    487
+    511
    ],
    "count": 1,
    "context": [
@@ -68301,7 +68301,7 @@
     "_place_lights"
    ],
    "lines": [
-    739
+    763
    ],
    "count": 1,
    "context": [
@@ -68333,7 +68333,7 @@
    ],
    "lines": [
     61,
-    476
+    500
    ],
    "count": 2,
    "context": [
@@ -68367,8 +68367,8 @@
    ],
    "lines": [
     59,
-    477,
-    502
+    501,
+    526
    ],
    "count": 3,
    "context": [
@@ -69418,7 +69418,7 @@
     "_build_go"
    ],
    "lines": [
-    374
+    445
    ],
    "count": 1,
    "context": [
@@ -69449,7 +69449,7 @@
     "_build_go"
    ],
    "lines": [
-    374
+    445
    ],
    "count": 1,
    "context": [
@@ -69480,7 +69480,7 @@
     "_build_go"
    ],
    "lines": [
-    374
+    445
    ],
    "count": 1,
    "context": [
@@ -69511,7 +69511,7 @@
     "_build_go"
    ],
    "lines": [
-    374
+    445
    ],
    "count": 1,
    "context": [
@@ -69542,7 +69542,7 @@
     "_build_go"
    ],
    "lines": [
-    374
+    445
    ],
    "count": 1,
    "context": [
@@ -69573,7 +69573,7 @@
     "_build_go"
    ],
    "lines": [
-    374
+    445
    ],
    "count": 1,
    "context": [
@@ -69604,7 +69604,7 @@
     "_build_go"
    ],
    "lines": [
-    374
+    445
    ],
    "count": 1,
    "context": [
@@ -69635,7 +69635,7 @@
     "_build_go"
    ],
    "lines": [
-    374
+    445
    ],
    "count": 1,
    "context": [
@@ -69666,7 +69666,7 @@
     "_build_conductor"
    ],
    "lines": [
-    422
+    493
    ],
    "count": 1,
    "context": [
@@ -69697,7 +69697,7 @@
     "_build_conductor"
    ],
    "lines": [
-    422
+    493
    ],
    "count": 1,
    "context": [
@@ -69728,7 +69728,7 @@
     "_build_conductor"
    ],
    "lines": [
-    422
+    493
    ],
    "count": 1,
    "context": [
@@ -69759,8 +69759,8 @@
     "_build_go"
    ],
    "lines": [
-    379,
-    382
+    450,
+    453
    ],
    "count": 2,
    "context": [
@@ -75769,6 +75769,34 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e8f03d6358b7a953",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/dream_light_toggle_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
    "resolved_target": null,
    "target_exists": null
   },
