@@ -279,6 +279,12 @@ func npc_set_open(want_open: bool) -> void:
 	interact(null)
 
 
+## An NPC may cross only after this owner's real opening motion has settled.
+## A locked leaf remains a refused passage even if someone locked it while open.
+func is_ready_for_passage() -> bool:
+	return is_instance_valid(_body) and leaf_state != "locked" and open and not _moving
+
+
 func _settled() -> void:
 	_moving = false
 	if not open:
