@@ -54,6 +54,7 @@ func open() -> bool:
 	center.size = get_viewport().get_visible_rect().size
 	_mouse_before = Input.mouse_mode
 	is_open = true
+	_host_debug_controls(true)
 	panel.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	var policy := get_node_or_null("/root/AudioPolicy")
@@ -79,6 +80,7 @@ func close(save := false) -> void:
 		policy.call("release_mix", &"pause_services")
 	panel.visible = false
 	apply_button.release_focus()
+	_host_debug_controls(false)
 	is_open = false
 	Input.mouse_mode = _mouse_before
 
@@ -268,3 +270,26 @@ func _label(copy: String, size: int, color: Color) -> Label:
 	result.add_theme_font_size_override("font_size", size)
 	result.add_theme_color_override("font_color", color)
 	return result
+
+
+## In a debug launch the controls the panel owns are the reason to pause at
+## all, so Building Services unfolds them over its own surface and folds
+## them away again on close. Play launches never see them.
+func _host_debug_controls(active: bool) -> void:
+	if GameBoot.launch_mode != GameBoot.LaunchMode.DEBUG:
+		return
+	var panel := _find_debug_panel(get_tree().current_scene)
+	if panel != null:
+		panel.show_in_pause(active)
+
+
+func _find_debug_panel(node: Node) -> BuildingDebug:
+	if node == null:
+		return null
+	if node is BuildingDebug:
+		return node
+	for child in node.get_children():
+		var found := _find_debug_panel(child)
+		if found != null:
+			return found
+	return null

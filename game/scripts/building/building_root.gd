@@ -836,7 +836,11 @@ func _ready() -> void:
 		var debug := preload("res://scripts/ui/building_debug.gd").new()
 		debug.setup(self)
 		var layer := CanvasLayer.new()
-		layer.layer = 10
+		# Above Building Services (layer 90) and alive while the tree is
+		# paused: pausing is what frees the pointer, so the controls have to
+		# work there rather than be buried and frozen by it.
+		layer.layer = 95
+		layer.process_mode = Node.PROCESS_MODE_ALWAYS
 		add_child(layer)
 		layer.add_child(debug)
 		shots.chrome = layer

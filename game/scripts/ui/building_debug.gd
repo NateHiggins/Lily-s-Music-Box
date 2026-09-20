@@ -41,6 +41,8 @@ var _light_status: Label
 var _ecology_active := false
 var _ecology_body_was_visible := false
 var _owns_pointer := false
+var _pause_hosted := false
+var _pause_prior_visible := false
 var _prior_mouse := Input.MOUSE_MODE_CAPTURED
 var _prior_player_process := true
 var _prior_player_physics := true
@@ -53,6 +55,7 @@ func setup(building_root: Node3D) -> void:
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	position = Vector2(8, 8)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	var shell := VBoxContainer.new()
@@ -883,7 +886,12 @@ func _exit_tree() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_echo():
 		return
-	if event.is_action_pressed("debug_panel"):
+	if event.is_action_pressed("debug_panel") and _pause_hosted:
+		# Inside the pause surface the pointer is already free, so F1
+		# only folds the controls away and back.
+		_body.visible = not _body.visible
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("debug_panel"):
 		if _ecology_active:
 			root.warehouse.close_ecology()
 			get_viewport().set_input_as_handled()
@@ -893,6 +901,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	elif _ecology_active and event.is_action_pressed("ui_cancel"):
 		root.warehouse.close_ecology()
 		get_viewport().set_input_as_handled()
+	elif _pause_hosted and event.is_action_pressed("ui_cancel"):
+		# Escape belongs to Building Services while it hosts us.
+		return
 	elif _body.visible and event.is_action_pressed("ui_cancel"):
 		_set_menu_open(false)
 		get_viewport().set_input_as_handled()
@@ -991,3 +1002,22 @@ func _process(_delta: float) -> void:
 # Nothing else was dropped: the conductor, teleports, distortion, budgets and
 # phone HUD all still earn their place, they are just no longer competing for
 # the same flat list.
+
+
+## Building Services shows these controls while it is open in a debug
+## launch. The pause menu already owns the pointer and the paused tree, so
+## this only unfolds the body and hands Escape back to the pause menu.
+func show_in_pause(active: bool) -> void:
+	if active == _pause_hosted:
+		return
+	_pause_hosted = active
+	if active:
+		_pause_prior_visible = _body.visible
+		_body.visible = true
+	else:
+		_body.visible = _pause_prior_visible
+
+
+## True while the pause menu is hosting these controls.
+func hosted_in_pause() -> bool:
+	return _pause_hosted
