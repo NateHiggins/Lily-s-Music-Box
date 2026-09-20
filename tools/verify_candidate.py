@@ -342,6 +342,10 @@ def main(argv=None) -> int:
     parser.add_argument("--work-dir", default="C:/ov")
     parser.add_argument("--out")
     parser.add_argument("--keep", action="store_true", help="keep the worktrees")
+    parser.add_argument("--accept-suite", action="append", default=[], metavar="TEXT",
+                        help="a Godot suite whose scene contains TEXT may fail without "
+                             "blocking (an owner-ruled seam between two lines of work); "
+                             "every acceptance is printed and recorded")
     parser.add_argument("--accept-regression", action="append", default=[], metavar="TEXT",
                         help="a regression line containing TEXT is accepted, not blocking "
                              "(an owner-ruled recount such as a gate hardening); every "
@@ -428,13 +432,21 @@ def main(argv=None) -> int:
             blocking.append(f"selector is {result['selector']['value']!r}, expected {EXPECTED_SELECTOR!r}")
         blocking += [f"doc lint: {f['path']}: {f['message']}" for f in result["doc_lint"]
                      if f["level"] == "ERROR"]
+        accepted_suites = []
         for run in result.get("godot", []):
             if run["exit"] != 0:
+                if any(text in run["scene"] for text in args.accept_suite):
+                    accepted_suites.append(f"godot {run['scene']}: exit {run['exit']}")
+                    continue
                 blocking.append(f"godot {run['scene']}: exit {run['exit']}")
             elif run.get("receipt_binds") is False:
                 blocking.append(f"godot {run['scene']}: receipt does not bind "
                                 f"({'; '.join(run['receipt_problems'])})")
         blocking += [f"report: {m}" for m in result.get("report_mismatches") or []]
+        if accepted_suites:
+            result["accepted_suites"] = accepted_suites
+            review.append(f"{len(accepted_suites)} suite failure(s) accepted by "
+                          f"--accept-suite {args.accept_suite}: " + "; ".join(accepted_suites))
         if gate_changes:
             review.append(f"candidate changes {len(gate_changes)} gate file(s); "
                           "read those diffs before trusting the board")
