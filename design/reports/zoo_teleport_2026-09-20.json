@@ -1,0 +1,46 @@
+{
+  "schema": "orison.dispatch-report.v1",
+  "task": "Dream zoo walk-in teleport",
+  "head": "56a732353110549e3f82cd3f2cb038ccda808934",
+  "merge_base": "a571ce2d6044ed402e5a8e4211046bb0052f5df6",
+  "selector": "v1",
+  "protected": "17/17",
+  "requirements_changed": [],
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 136,
+    "FULL_BUILDING_RUNTIME": 50,
+    "PRODUCTION_CUTOVER": 159,
+    "V1_RETIREMENT": 161
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 136,
+    "FULL_BUILDING_RUNTIME": 50,
+    "PRODUCTION_CUTOVER": 159,
+    "V1_RETIREMENT": 161
+  },
+  "suites": {
+    "res://tests/ZooTeleportTest.tscn": 0,
+    "res://tests/DebugInPauseTest.tscn": 0,
+    "res://tests/DreamLightToggleTest.tscn": 0,
+    "res://tests/DebugDreamButtonTest.tscn": 0,
+    "res://tests/WarehouseTeleportTest.tscn": 0,
+    "res://tests/DreamEcologyEntryTest.tscn": 0,
+    "res://tests/ReleaseMouseKeyTest.tscn": 0,
+    "res://tests/DreamZooWarehouseTest.tscn": 1
+  },
+  "claims": [
+    "The debug controls' GO section gained a Dream zoo teleport that builds the ecology hall if needed, leaves the camera and pointer with the player, runs the organisms, shows the bench plaques and lands the visitor on the exhibit floor facing the specimens.",
+    "ZooTeleportTest passes 24 of 24 headless, including the two interactive routes: pressing the control from the open panel, and pressing it while Building Services holds the tree paused.",
+    "prop_warehouse.open_ecology grew a take_camera argument defaulted to the old behaviour, so the existing Dream ecology inspection route is unchanged; DreamEcologyEntryTest stays green windowed.",
+    "The walk's overview no longer leaks into the inspection bench. Negative control: with the clearing removed, exactly one check fails (23 of 24).",
+    "DreamZooWarehouseTest exits 1 by the owner-accepted seam recorded as H23, not by this change: its failures are placeholder species and framing checks at the boundary between the two voxel lights."
+  ],
+  "accepted_seams": {
+    "res://tests/DreamZooWarehouseTest.tscn": "H23, design/REPO_HOUSEKEEPING_2026-09-19.md section 9"
+  },
+  "last_line": "MERGE-CANDIDATE 56a7323 Dream zoo walk-in teleport"
+}

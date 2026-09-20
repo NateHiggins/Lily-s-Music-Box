@@ -355,3 +355,53 @@ windowed, and `verify_candidate.py --windowed-suite` is how.
 
 Landed: `b5693b7` (pause hosting), `48c84e6` (the key), `daf2e80` (two
 test-tier spatial records). Main is `daf2e80`.
+
+## 11. A teleport that walks you into the zoo (2026-09-20)
+
+Section 9 recorded the route to the exhibit as the GO section's **Dream
+ecology** button. That button is an inspection bench, not a visit. It makes
+the specimen camera current, frees the pointer to orbit with, and stops the
+player processing entirely, which is exactly right for studying one organism
+and useless for looking at the room. **Dream zoo** now sits beside it and is
+the visit: the hall is built if it does not exist yet, the camera and the
+pointer stay yours, and you arrive on the floor at the open end facing the
+sixteen specimen benches with the reserved bays and the organelle wall
+beyond them. Route: pause or F1 for the controls, GO, Dream zoo.
+
+Three things had to be understood rather than assumed, and each one would
+have shipped a button that looked broken.
+
+**The room's life was tied to the camera, not to the room.** The organelle
+wall's tendrils are visible only while its adapter is active, and every
+organism's processing follows the exhibit's paused flag, which the
+inspection rig sets on its way out. So anyone who left the camera was
+standing in a frozen hall with a blank wall. The walk switches both on
+without taking the camera, which is the whole of **open_for_walking**.
+
+**The signage is hidden by default.** Bench captions and bay labels are
+drawn only in overview, because the inspection rig names the specimen in its
+own panel instead. On foot those plaques are the only thing that says what
+is on each bench, so the walk turns them on.
+
+**The safety net had to be told first.** The hall floor is real, but it is
+nowhere the building knows about and it is past the net's site limit, so an
+unregistered arrival is rescued home. The net runs first in the physics
+step, so registering the volume after the move is a race you cannot win, and
+the symptom is a dead button rather than an error.
+
+One regression came out of review rather than testing, and is worth the
+note. Lighting the plaques means putting the exhibit in overview, and
+nothing cleared it again: opening the orbit bench afterwards framed the
+whole room from the overview station instead of the selected specimen. The
+walk now records that the overview is its own doing and the rig takes its
+framing back, while an operator who chose overview from the exhibit's own
+controls keeps it. Negative control: with the clearing removed exactly one
+check fails, with it 24/24.
+
+Known cost, unchanged by this work: standing off-site makes the building
+read as an exterior view, which turns every storey and its props visible.
+Any off-site teleport already pays it; a walking visit pays it for as long
+as you stay. If the zoo frame is slow, that is why.
+
+Landed: **147f9b1** (the teleport, the walk, ZooTeleportTest 24/24 with both
+interactive routes), **56a7323** (the overview fix).
