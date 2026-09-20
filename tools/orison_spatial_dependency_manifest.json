@@ -86043,7 +86043,7 @@
     "_build_environment"
    ],
    "lines": [
-    1004
+    1008
    ],
    "count": 1,
    "context": [],
@@ -86115,19 +86115,19 @@
     501,
     560,
     620,
-    871,
     875,
-    895,
-    1617,
-    1695,
-    1912,
-    2447,
-    2590,
-    2623,
-    2817,
+    879,
+    899,
+    1621,
+    1699,
+    1916,
+    2451,
+    2594,
+    2627,
     2821,
-    2871,
-    2889
+    2825,
+    2875,
+    2893
    ],
    "count": 17,
    "context": [
@@ -86314,11 +86314,11 @@
    ],
    "lines": [
     36,
-    2751,
-    2819,
+    2755,
     2823,
-    2872,
-    2891
+    2827,
+    2876,
+    2895
    ],
    "count": 6,
    "context": [
@@ -86351,7 +86351,7 @@
     "_build_passage_light_pass"
    ],
    "lines": [
-    2272
+    2276
    ],
    "count": 1,
    "context": [
@@ -86412,8 +86412,8 @@
     "_street_core_protected_geometry"
    ],
    "lines": [
-    1437,
-    1931
+    1441,
+    1935
    ],
    "count": 2,
    "context": [
@@ -86474,8 +86474,8 @@
     "_spawn_props"
    ],
    "lines": [
-    1486,
-    1490
+    1490,
+    1494
    ],
    "count": 2,
    "context": [
@@ -86678,9 +86678,9 @@
     "_build_front_entry_details"
    ],
    "lines": [
-    2577,
-    2588,
-    2592
+    2581,
+    2592,
+    2596
    ],
    "count": 3,
    "context": [
@@ -86712,7 +86712,7 @@
     "_build_original_orison_ad_board"
    ],
    "lines": [
-    2621
+    2625
    ],
    "count": 1,
    "context": [
@@ -86774,7 +86774,7 @@
     "_build_atrium_atmosphere"
    ],
    "lines": [
-    1314
+    1318
    ],
    "count": 1,
    "context": [
@@ -86804,7 +86804,7 @@
     "_build_atrium_atmosphere"
    ],
    "lines": [
-    1346
+    1350
    ],
    "count": 1,
    "context": [
@@ -87378,7 +87378,7 @@
    ],
    "lines": [
     147,
-    1532
+    1536
    ],
    "count": 2,
    "context": [
@@ -87499,7 +87499,7 @@
     "_build_atrium_atmosphere"
    ],
    "lines": [
-    1391
+    1395
    ],
    "count": 1,
    "context": [
@@ -87529,9 +87529,9 @@
     "_build_passage_light_pass"
    ],
    "lines": [
-    2218,
-    2238,
-    2257
+    2222,
+    2242,
+    2261
    ],
    "count": 3,
    "context": [
@@ -108001,7 +108001,7 @@
     "_build_go"
    ],
    "lines": [
-    456
+    459
    ],
    "count": 1,
    "context": [
@@ -108032,7 +108032,7 @@
     "_build_go"
    ],
    "lines": [
-    456
+    459
    ],
    "count": 1,
    "context": [
@@ -108063,7 +108063,7 @@
     "_build_go"
    ],
    "lines": [
-    456
+    459
    ],
    "count": 1,
    "context": [
@@ -108094,7 +108094,7 @@
     "_build_go"
    ],
    "lines": [
-    456
+    459
    ],
    "count": 1,
    "context": [
@@ -108125,7 +108125,7 @@
     "_build_go"
    ],
    "lines": [
-    456
+    459
    ],
    "count": 1,
    "context": [
@@ -108156,7 +108156,7 @@
     "_build_go"
    ],
    "lines": [
-    456
+    459
    ],
    "count": 1,
    "context": [
@@ -108187,7 +108187,7 @@
     "_build_go"
    ],
    "lines": [
-    456
+    459
    ],
    "count": 1,
    "context": [
@@ -108218,7 +108218,7 @@
     "_build_go"
    ],
    "lines": [
-    456
+    459
    ],
    "count": 1,
    "context": [
@@ -108249,7 +108249,7 @@
     "_build_conductor"
    ],
    "lines": [
-    543
+    546
    ],
    "count": 1,
    "context": [
@@ -108280,7 +108280,7 @@
     "_build_conductor"
    ],
    "lines": [
-    543
+    546
    ],
    "count": 1,
    "context": [
@@ -108311,7 +108311,7 @@
     "_build_conductor"
    ],
    "lines": [
-    543
+    546
    ],
    "count": 1,
    "context": [
@@ -108342,8 +108342,8 @@
     "_build_go"
    ],
    "lines": [
-    461,
-    464
+    464,
+    467
    ],
    "count": 2,
    "context": [
@@ -111859,6 +111859,35 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "696ad76059d7e47b",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/debug_in_pause_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DEBUG_ONLY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "c8f794ee7fa8b51d",
@@ -150637,6 +150666,34 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "8f4d4439c7a0fcf8",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_root.tscn",
+   "file": "game/tests/release_mouse_key_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    24
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "60313774d9e18a61",
