@@ -89,6 +89,12 @@ in art/renders/dream_critter_blender_rebuild_20260919. The Fold source mapping
 has18 bounded probes across both LODs and6/7/8 limbs; those use nominal feet,
 not live raycasts. Jaw normal transport remains a local approximation.
 
+All32 raw GLB exports also pass the independent attribute audit: unit
+normals/tangents within exporter precision, normalized weights, declared
+semantic UV roles and all18 morph target POSITION/NORMAL channels. The
+reader gate reports zero NEW unread fields against its existing baseline.
+This does not substitute for the pending Godot import comparison.
+
 ## Native status and remaining verification
 
 The expanded all-sixteen native fixture is installed and queued. Its checks
