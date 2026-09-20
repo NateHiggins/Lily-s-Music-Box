@@ -54,6 +54,23 @@ class ReceiptTests(unittest.TestCase):
         path.write_text(json.dumps(receipt), encoding="utf-8")
         return path
 
+    def test_older_scene_syntax_still_names_its_test_script(self):
+        """format=2/3 scenes write path before type, and may leave id unquoted."""
+        (self.root / "game/tests/Legacy.tscn").write_text(NL.join([
+            "[gd_scene load_steps=2 format=3]",
+            '[ext_resource path="res://tests/probe_test.gd" type="Script" id="1"]',
+            '[node name="Legacy" type="Node"]',
+            'script = ExtResource("1")', ""]), encoding="utf-8")
+        found = rr.scene_test_script(self.root / "game", "res://tests/Legacy.tscn")
+        self.assertTrue(found.endswith("game/tests/probe_test.gd"))
+        (self.root / "game/tests/Older.tscn").write_text(NL.join([
+            "[gd_scene load_steps=2 format=2]",
+            '[ext_resource path="res://tests/probe_test.gd" type="Script" id=1]',
+            '[node name="Older" type="Node"]',
+            "script = ExtResource( 1 )", ""]), encoding="utf-8")
+        self.assertTrue(rr.scene_test_script(self.root / "game", "res://tests/Older.tscn")
+                        .endswith("game/tests/probe_test.gd"))
+
     def test_root_script_not_child_script_is_the_test(self):
         found = rr.scene_test_script(self.root / "game", "res://tests/Probe.tscn")
         self.assertTrue(found.endswith("game/tests/probe_test.gd"))

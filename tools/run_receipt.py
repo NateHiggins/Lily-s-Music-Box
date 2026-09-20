@@ -122,16 +122,21 @@ def scene_test_script(project: Path, scene: str) -> str | None:
             text = tscn.read_text(encoding="utf-8", errors="replace")
         except OSError:
             return None
-        resources = {m.group("id"): m.group("path") for m in re.finditer(
-            r'\[ext_resource[^\]]*?type="Script"[^\]]*?path="(?P<path>[^"]+)"[^\]]*?id="(?P<id>[^"]+)"',
-            text)}
-        resources.update({m.group("id"): m.group("path") for m in re.finditer(
-            r'\[ext_resource[^\]]*?type="Script"[^\]]*?id="(?P<id>[^"]+)"[^\]]*?path="(?P<path>[^"]+)"',
-            text)})
+        # ext_resource attributes come in any order, and older scenes write
+        # `path=... type="Script" id="1"` (or an unquoted id), so parse the
+        # line's key="value" pairs rather than assuming one spelling.
+        resources = {}
+        for line in re.findall(r"^\[ext_resource[^\]]*\]", text, re.MULTILINE):
+            attrs = dict(re.findall(r'(\w+)\s*=\s*"([^"]*)"', line))
+            attrs.update({k: v for k, v in re.findall(r'(\w+)\s*=\s*(\d+)\b', line)
+                          if k not in attrs})
+            if attrs.get("type") == "Script" and "id" in attrs and "path" in attrs:
+                resources[attrs["id"]] = attrs["path"]
         root_node = re.search(r"\[node (?![^\]]*parent=)[^\]]*\](?P<body>.*?)(?=\n\[|\Z)", text, re.S)
         if not root_node:
             return None
-        ref = re.search(r'script = ExtResource\("(?P<id>[^"]+)"\)', root_node.group("body"))
+        ref = re.search(r'script\s*=\s*ExtResource\(\s*"?(?P<id>[^")\s]+)"?\s*\)',
+                        root_node.group("body"))
         if not ref or ref.group("id") not in resources:
             return None
         rel = project / resources[ref.group("id")][len("res://"):]

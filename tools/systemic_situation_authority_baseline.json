@@ -540,6 +540,17 @@
    "confidence": "HEURISTIC",
    "tier": "test",
    "disposition": "ADD_PUBLIC_PROOF"
+  },
+  {
+   "id": "db17b6c32683b3bd",
+   "domain": "physical",
+   "class": "FOREIGN_PHYSICAL_MUTATION",
+   "file": "game/scripts/lamp/lamp_optical_state.gd",
+   "scope": "write_output",
+   "evidence": "result.heat = hot",
+   "confidence": "HEURISTIC",
+   "tier": "production",
+   "disposition": "REVIEW"
   }
  ]
 }
