@@ -4,6 +4,7 @@ extends "res://tests/dream_zoo_warehouse_test.gd"
 
 var _settings: Environment
 var _baseline := false
+var _authored_kinds: Array[int] = []
 
 func _capture(filename: String) -> void:
 	# Let the render thread consume the new review mode and field before capture.
@@ -50,9 +51,14 @@ func _run() -> void:
 			evidence["provider_errors"] = exhibit.blender_failures
 			await _finish()
 			return
+		for kind in exhibit.controllers[0].blender_visuals.assets.templates:
+			_authored_kinds.append(int(kind))
 		for controller in exhibit.controllers:
 			_check("compiled batch has one real render surface", controller.mesh_instance.mesh.get_surface_count() == 1)
 		_check_atlas()
+		var controls = load("res://tests/dream_blender_decoder_controls.gd")
+		evidence["decoder_controls"] = controls.run_checks(exhibit.controllers[0].blender_visuals.assets,
+			func(passed:bool,label:String): _check(label,passed))
 		_check_membranes()
 		_check_reordering()
 		_check_membership()
@@ -77,7 +83,7 @@ func _check_atlas() -> void:
 		and first.assets.texture == second.assets.texture)
 	var image: Image = first.assets.texture.get_image()
 	var import_rows: Array = []
-	for kind in [3,6]:
+	for kind in _authored_kinds:
 		for lod in [0,1]:
 			var template: Dictionary = first.assets.templates[kind][lod]
 			var scene = load(template.source).instantiate()
@@ -94,17 +100,46 @@ func _check_atlas() -> void:
 				int(template.triangles) <= (20000 if lod == 0 else 5000))
 	_check("pose texture is nearest-ready full precision without mipmaps", image.get_format() == Image.FORMAT_RGBAF
 		and not image.has_mipmaps() and image.get_width() == 1024)
-	for lod in [0,1]:
-		var template: Dictionary = first.assets.templates[6][lod]
-		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(template.manifest))
-		var maximum_error := 0.0
-		for pose in 19:
-			for branch in 12:
-				var expected: Array = manifest.cilium_anchors[pose][branch]
-				var at: int = ((int(template.cilium_base)+branch)*19+pose)*2
-				var texel := image.get_pixel(at%1024,at/1024)
-				maximum_error = maxf(maximum_error,Vector3(expected[0],expected[1],expected[2]).distance_to(Vector3(texel.r,texel.g,texel.b)))
-		_check("Vorticella LOD%d cilium roots match every manifest pose"%lod, maximum_error < 0.00002)
+	for kind in _authored_kinds:
+		for lod in [0,1]:
+			var template: Dictionary = first.assets.templates[kind][lod]
+			var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(template.manifest))
+			for channel in ["foot","cilium"]:
+				var source_rows: Array=manifest[channel+"_anchors"]
+				var expected_count: int=0 if source_rows.is_empty() else source_rows[0].size()
+				var base: int=int(template[channel+"_base"])
+				var declared: int=int(template.cilium_anchor_count) if channel=="cilium" else (8 if base>=0 else 0)
+				_check("kind%d LOD%d %s atlas ownership matches manifest count"%[kind,lod,channel],
+					declared==expected_count and ((base>=0)==(expected_count>0)))
+				if expected_count==0: continue
+				var maximum_error := 0.0
+				for pose in 19:
+					for branch in expected_count:
+						var expected: Array = source_rows[pose][branch]
+						var at: int = ((base+branch)*19+pose)*2
+						var texel := image.get_pixel(at%1024,at/1024)
+						maximum_error = maxf(maximum_error,Vector3(expected[0],expected[1],expected[2]).distance_to(Vector3(texel.r,texel.g,texel.b)))
+				_check("kind%d LOD%d %s roots match every manifest pose"%[kind,lod,channel], maximum_error < 0.00002)
+	for kind in _authored_kinds:
+		for lod in [0,1]:
+			var template: Dictionary=first.assets.templates[kind][lod]
+			var manifest: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(template.manifest))
+			for channel in ["prop","joint","manipulator"]:
+				var row_count: int=5 if kind==1 and channel=="prop" else (40 if kind==2 and channel=="joint" else (6 if kind==2 and channel=="manipulator" else 0))
+				_check("kind%d LOD%d %s declares exact source row count"%[kind,lod,channel],int(template.get(channel+"_row_count",0))==row_count)
+				if row_count==0: continue
+				var error := 0.0
+				for pose in 19:
+					for row in row_count:
+						var expected_point: Array
+						if channel=="prop": expected_point=manifest.prop_anchors[pose][row]
+						elif channel=="joint": expected_point=manifest.rest_joint_chains[floori(float(row)/5.0)][row%5]
+						else: expected_point=manifest.rest_manipulator_chains[floori(float(row)/3.0)][row%3]
+						var expected:=Vector3(float(expected_point[0]),float(expected_point[1]),float(expected_point[2]))
+						var at: int=((int(template[channel+"_base"])+row)*19+pose)*2
+						var texel:=image.get_pixel(at%1024,at/1024)
+						error=maxf(error,expected.distance_to(Vector3(texel.r,texel.g,texel.b)))
+				_check("kind%d LOD%d %s rows match source manifest"%[kind,lod,channel],error<0.00002)
 	evidence["import_parity"] = import_rows
 	evidence["atlas"] = first.assets.stats()
 
@@ -167,7 +202,8 @@ func _partition_matches(arrays: Array, membrane: bool) -> bool:
 		var thin := false
 		for corner in 3:
 			var v := indices[at+corner]
-			thin = thin or (tags[v].y>999.0 and colors[v].g>0.005)
+			var region := int(round(colors[v].b*255.0))
+			thin = thin or (tags[v].y>999.0 and colors[v].g>0.005 and region in [1,5])
 		if thin != membrane: return false
 	return true
 
@@ -265,52 +301,81 @@ func _measure_frames() -> void:
 
 
 func _observe_pilots() -> void:
-	var states := {3:{"min":1.0,"max":0.0,"phase_min":INF,"phase_max":-INF},6:{"min":1.0,"max":0.0,"phase_min":INF,"phase_max":-INF}}
+	var states := {}
+	for kind in _authored_kinds:
+		states[kind]={"min":1.0,"max":0.0,"phase_min":INF,"phase_max":-INF}
 	var elapsed := 0.0
 	while elapsed < 18.0:
 		await get_tree().physics_frame
 		elapsed += get_physics_process_delta_time()
-		for kind in [3,6]:
+		for kind in _authored_kinds:
 			var c: Dictionary = exhibit.specimen_for(kind)
 			var amount: float = c.tun if kind == 3 else c.micro_state
 			var phase: float = c.gait if kind == 3 else c.micro_phase
+			if kind == 0: amount=c.unfold; phase=c.gait
+			elif kind == 1: amount=fposmod(c.spin,TAU)/TAU; phase=c.spin
+			elif kind == 2: amount=c.fold; phase=c.gait
 			states[kind].min = minf(states[kind].min,amount)
 			states[kind].max = maxf(states[kind].max,amount)
 			states[kind].phase_min = minf(states[kind].phase_min,phase)
 			states[kind].phase_max = maxf(states[kind].phase_max,phase)
-	for kind in [3,6]:
-		_check("species %d retains its actual live controller deformation cycle"%kind,
-			states[kind].max-states[kind].min>0.8 and states[kind].phase_max-states[kind].phase_min>0.2)
+	for kind in _authored_kinds:
+		var moving_phase: bool = states[kind].phase_max-states[kind].phase_min>0.2
+		var amount_changes: bool = states[kind].max-states[kind].min>(0.8 if kind in [3,6] else 0.25)
+		# Noctiluca's flash needs the existing debug stimulus; this passive
+		# interval only observes its independent ongoing phase.
+		_check("species %d retains its actual live controller clock"%kind,
+			moving_phase and (kind in [0,1,2,12] or amount_changes))
 	evidence["live_laws"] = {"seconds":elapsed,"states":states,"state_writes":false}
 
 
 func _review_poses() -> void:
 	# The following are controlled diagnostic poses, not gameplay observations.
 	var field_samples: Array = []
-	for kind in [3,6]:
+	for kind in _authored_kinds:
 		exhibit.focus_species(kind)
 		var c: Dictionary = exhibit.specimen_for(kind)
-		var saved_state: float = c.tun if kind == 3 else c.micro_state
+		var saved: Dictionary = c.duplicate(true)
 		for amount in [0.0,0.5,1.0]:
-			if kind == 3: c.tun = amount
-			else: c.micro_state = amount
+			_set_review_state(c,kind,amount)
 			for controller in exhibit.controllers: controller._push()
 			exhibit.set_blender_review_mode(1)
 			await _capture("species_%02d_neutral_%03d.png"%[kind,int(amount*100)])
 			if amount == 0.5:
 				exhibit.set_blender_review_mode(2)
 				await _capture("species_%02d_cutaway_050.png"%kind)
-		if kind == 3: c.tun = 0.0
-		else: c.micro_state = 0.0
+		_set_review_state(c,kind,0.0)
 		for controller in exhibit.controllers: controller._push()
 		exhibit.set_blender_review_mode(0)
-		if kind == 6:
+		var counts: Array = {0:[3,6,8],1:[5,9,12],2:[2,4,5],4:[10,12],6:[10,11,12],7:[3,5,6],8:[10,12],10:[1],11:[10,12],12:[1,2],15:[10,12]}.get(kind,[])
+		if not counts.is_empty():
 			var saved_count: int = c.morph.feelers
-			for count in [10,11,12]:
+			for count in counts:
 				c.morph.feelers = count
 				for controller in exhibit.controllers: controller._push()
-				await _capture("species_06_cilia_%02d.png"%count)
+				await _capture("species_%02d_cilia_%02d.png"%[kind,count])
 			c.morph.feelers = saved_count
+			for controller in exhibit.controllers: controller._push()
+		if kind in [1,2]:
+			var saved_limbs: int = c.morph.limbs
+			var saved_legs: Array = c.get("leg_state",[]).duplicate(true)
+			for count in ([3,4,5] if kind==1 else [6,7,8]):
+				c.morph.limbs=count
+				if kind==2:
+					c.leg_state=[]
+					exhibit.controllers[0]._advance_crab_gait(c,0.0)
+					c.fold_leg=count-1
+					c.fold=0.8
+				for controller in exhibit.controllers: controller._push()
+				await _capture("species_%02d_limbs_%02d.png"%[kind,count])
+			c.morph.limbs=saved_limbs
+			c.leg_state=saved_legs
+			if kind==2:
+				c.fold=0.0
+				for deployment in [0.0,1.0]:
+					c.manipulator_deploy=deployment
+					for controller in exhibit.controllers: controller._push()
+					await _capture("species_02_jaws_%03d.png"%int(deployment*100.0))
 			for controller in exhibit.controllers: controller._push()
 		_settings.ambient_light_energy = 0.0
 		exhibit.inspection_key.light_energy = 0.0
@@ -331,13 +396,43 @@ func _review_poses() -> void:
 		exhibit.exposure.upload(exhibit.exposure_texture)
 		field_samples.append({"kind":kind,"stage":"full_beam","exposure":exhibit.exposure.sample(c.pos),"irradiance":exhibit.exposure.sample_irradiance(c.pos)})
 		await _capture("species_%02d_full_beam.png"%kind)
-		if kind == 3: c.tun = saved_state
-		else: c.micro_state = saved_state
+		if kind == 5:
+			var saved_phase: float = c.micro_phase
+			var saved_aux: float = c.micro_aux
+			c.micro_state = 1.0
+			for scan in [-1.0,0.0,1.0]:
+				c.micro_aux = scan
+				c.micro_phase = (scan+1.0)*3.14159265
+				for controller in exhibit.controllers: controller._push()
+				await _capture("species_05_search_%02d.png"%int(scan+1.0))
+			c.micro_phase = saved_phase
+			c.micro_aux = saved_aux
+		if kind == 12:
+			exhibit.stimulate_selected()
+			c.micro_state = 1.0
+			for controller in exhibit.controllers: controller._push()
+			await _capture("species_12_debug_flash.png")
+		c.merge(saved,true)
+		for controller in exhibit.controllers: controller._push()
 		_settings.ambient_light_energy = 0.4
 		exhibit.inspection_key.light_energy = 1.0
 		exhibit.inspection_key.rotation_degrees = Vector3(-55,-28,0)
-	evidence["review"] = "Explicit forced law poses 0/0.5/1, neutral/cutaway plus controlled dark/oblique/full-beam lighting. Dark key+ambient+lamp all zero; oblique pinned G=.25; full beam calls original lamp accumulator for9s. These captures are art review, not observed gameplay."
+	evidence["review"] = "Explicit forced law poses 0/0.5/1, neutral/cutaway plus controlled dark/oblique/full-beam lighting. Dark key+ambient+lamp all zero; oblique pinned G=.25; full beam calls original lamp accumulator for9s. Cyclic species use explicitly staged controller phases. Noctiluca debug flash calls the existing debug stimulus and stages its flash value, not a gameplay receptor. These captures are art review, not observed gameplay."
 	evidence["review_field_samples"] = field_samples
+
+
+func _set_review_state(c: Dictionary,kind: int,amount: float) -> void:
+	if kind == 0: c.unfold=amount
+	elif kind == 1: c.spin=amount*TAU
+	elif kind == 2: c.fold=amount; c.fold_leg=0
+	elif kind == 3: c.tun = amount
+	elif kind == 7:
+		c.micro_phase = floor(amount*3.0)
+		c.micro_state = floor(amount*3.0)/3.0
+	elif kind == 10: c.micro_phase = amount*TAU/1.7
+	elif kind == 13: c.micro_phase = amount*TAU
+	elif kind == 15: c.micro_phase = amount*TAU/0.22
+	else: c.micro_state = amount
 
 
 func _blender_retirement_observers() -> Array[WeakRef]:
@@ -375,7 +470,7 @@ func _finish() -> void:
 	_logger = null
 	evidence["schema"] = "dream_blender_critter_diagnostic.v1"
 	evidence["evidence_class"] = "INERT"
-	evidence["scope"] = "Native imported pilot anatomy, absolute morph atlas, stable section mapping, existing controller cycles, controlled review poses and sampler retirement; not campaign runtime_contract or artistic acceptance."
+	evidence["scope"] = "Native imported researched anatomy, absolute morph atlas, stable section mapping, existing controller cycles, controlled review poses and sampler retirement; not campaign runtime_contract or artistic acceptance."
 	evidence["baseline"] = _baseline
 	evidence["logs"] = logs
 	evidence["checks"] = checks

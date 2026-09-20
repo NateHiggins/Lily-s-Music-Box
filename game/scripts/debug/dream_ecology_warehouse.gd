@@ -322,9 +322,21 @@ func focus_species(kind: int) -> void:
 		var span: float = maxf(morph.length,maxf(morph.wide,morph.tall))
 		if kind == Species.Kind.CRYSTAL_LISTENER: span *= 1.5
 		if kind == Species.Kind.HELIOZOAN: span *= 1.65
-		_distance = clampf(span*2.8,0.40,2.8)
-		# Its existing shader extends the neck up to 6.4 body lengths.
+		var provider = controllers[0].blender_visuals
+		if provider != null and provider.assets.templates.has(kind):
+			var bounds: AABB = provider.assets.templates[kind][0].bounds
+			var extent := bounds.size*Vector3(morph.wide,morph.tall,morph.length)
+			span = maxf(extent.x,maxf(extent.y,extent.z))
+			_distance = clampf(span*2.0,0.40,5.0)
+		else:
+			_distance = clampf(span*2.8,0.40,2.8)
+		# A side view shows the hunting reach rather than looking along it.
 		if kind == Species.Kind.LACRYMARIA: _distance = clampf(float(morph.length)*7.0*1.65,0.4,8.0)
+		var up: Vector3 = specimen.up
+		var forward: Vector3 = specimen.fwd
+		var side := up.cross(forward).normalized()
+		var view := (side*0.85+up*0.55+forward*0.25).normalized()
+		_orbit = Vector2(atan2(view.x,view.z),asin(view.y))
 	_process(0.0)
 
 func _set_blender_inspection_kind(kind: int) -> void:
@@ -462,7 +474,7 @@ func _process(_delta: float) -> void:
 			var specimen := specimen_for(selected_kind)
 			_status.text = NOTES[selected_kind]+"\n\n16 species · Shared voxel light\n1-hour lifetime · Debug"+ (" · Feeding" if specimen.get("feeding",false) else "")
 		if selected_exhibit.is_empty():
-			if selected_kind in [3,6] and blender_failures.is_empty() and OS.get_environment("DREAM_BLENDER_LEGACY") != "1":
+			if not controllers.is_empty() and controllers[0].blender_visuals != null and controllers[0].blender_visuals.assets.templates.has(selected_kind):
 				_status.text += "\nBlender anatomy" + [" · Intact", " · Neutral geometry", " · DIAGNOSTIC CUTAWAY"][blender_review_mode]
 			elif not blender_failures.is_empty():
 				_status.text += "\nBlender unavailable: " + blender_failures[0]
@@ -475,7 +487,7 @@ func _focus_position() -> Vector3:
 	if stations.has(selected_exhibit): return stations[selected_exhibit].global_position
 	var specimen := specimen_for(selected_kind)
 	if not specimen.is_empty() and selected_kind == Species.Kind.LACRYMARIA:
-		return specimen.pos+specimen.fwd*float(specimen.morph.length)*2.5
+		return specimen.pos+specimen.fwd*float(specimen.morph.length)*2.7
 	return specimen.pos if not specimen.is_empty() else to_global(Vector3(0,1,0))
 
 func _update_camera() -> void:

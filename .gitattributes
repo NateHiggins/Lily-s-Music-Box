@@ -49,3 +49,8 @@ art/blender/scripts/check_dream_critter_anatomy.py -text
 art/blender/scripts/render_dream_critter.py -text
 art/renders/dream_critter_blender_pilots_20260919/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 art/blender/scripts/build_dream_critter.py whitespace=-blank-at-eol
+
+# Preserve the exact biology source/proof snapshots used by asset manifests.
+art/blender/scripts/*_model.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+art/renders/dream_critter_blender_rebuild_20260919/** -text whitespace=-blank-at-eol
+art/renders/dream_critter_blender_rebuild_20260919/**/*.json -diff

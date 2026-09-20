@@ -1,0 +1,98 @@
+[
+  {
+    "label": "seam_grazer_lod1_anatomy",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\check_dream_critter_anatomy.prepared.py",
+      "--",
+      "--blend",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\art\\blender\\dream_critters\\seam_grazer_lod1.blend",
+      "--out",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\seam_grazer_lod1_anatomy.json"
+    ],
+    "status": "PASS",
+    "checks": 1326,
+    "failures": []
+  },
+  {
+    "label": "seam_grazer_anatomy",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\check_dream_critter_anatomy.prepared.py",
+      "--",
+      "--blend",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\art\\blender\\dream_critters\\seam_grazer.blend",
+      "--out",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\seam_grazer_anatomy.json"
+    ],
+    "status": "PASS",
+    "checks": 1326,
+    "failures": []
+  },
+  {
+    "label": "crystal_listener_lod1_anatomy",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\check_dream_critter_anatomy.prepared.py",
+      "--",
+      "--blend",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\art\\blender\\dream_critters\\crystal_listener_lod1.blend",
+      "--out",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\crystal_listener_lod1_anatomy.json"
+    ],
+    "status": "PASS",
+    "checks": 1326,
+    "failures": []
+  },
+  {
+    "label": "crystal_listener_anatomy",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\check_dream_critter_anatomy.prepared.py",
+      "--",
+      "--blend",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\art\\blender\\dream_critters\\crystal_listener.blend",
+      "--out",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\crystal_listener_anatomy.json"
+    ],
+    "status": "PASS",
+    "checks": 1326,
+    "failures": []
+  },
+  {
+    "label": "fold_crab_lod1_anatomy",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\check_dream_critter_anatomy.prepared.py",
+      "--",
+      "--blend",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\art\\blender\\dream_critters\\fold_crab_lod1.blend",
+      "--out",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\fold_crab_lod1_anatomy.json"
+    ],
+    "status": "PASS",
+    "checks": 2028,
+    "failures": []
+  },
+  {
+    "label": "fold_crab_anatomy",
+    "exit_code": 0,
+    "args": [
+      "--python",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\check_dream_critter_anatomy.prepared.py",
+      "--",
+      "--blend",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\art\\blender\\dream_critters\\fold_crab.blend",
+      "--out",
+      "C:\\Users\\nate_\\OneDrive\\Documents\\New Game Plus\\critter_models_v13\\fold_crab_anatomy.json"
+    ],
+    "status": "PASS",
+    "checks": 2028,
+    "failures": []
+  }
+]

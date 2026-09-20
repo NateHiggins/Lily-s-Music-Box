@@ -1,0 +1,401 @@
+{
+  "schema": "dream_critter_checker_adversaries.v1",
+  "evidence_class": "INERT",
+  "before_sha256": "da8c16a00aacd30f9f7a727e7c8b4bd4177cbf32863cc736776821cce8f1e031",
+  "after_sha256": "96b5f3731715ecbb2bec0fc3dc4839514aacd636a1c1269f7d731ba3d87f3cb8",
+  "controls": [
+    {
+      "case": "open_skin",
+      "expected_accept": false,
+      "after": {
+        "accepted": false,
+        "checks": 30,
+        "failures": [
+          "neutral: topology Skin",
+          "law_half: topology Skin",
+          "law_full: topology Skin"
+        ],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 0.0,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 8.429369702178807e-08,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          }
+        }
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "inverted_face",
+      "expected_accept": false,
+      "after": {
+        "accepted": false,
+        "checks": 30,
+        "failures": [
+          "neutral: topology Skin",
+          "law_half: topology Skin",
+          "law_full: topology Skin"
+        ],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 0.0,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 8.429369702178807e-08,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          }
+        }
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "degenerate_skin",
+      "expected_accept": false,
+      "after": {
+        "accepted": false,
+        "checks": 30,
+        "failures": [
+          "neutral: topology Skin",
+          "law_half: topology Skin",
+          "law_full: topology Skin"
+        ],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 0.0,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 8.429369702178807e-08,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          }
+        }
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "disconnected_skin",
+      "expected_accept": false,
+      "after": {
+        "accepted": false,
+        "checks": 30,
+        "failures": [
+          "neutral: topology Skin",
+          "law_half: topology Skin",
+          "law_full: topology Skin"
+        ],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 0.0,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 8.429369702178807e-08,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          }
+        }
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "organ_escape",
+      "expected_accept": false,
+      "after": {
+        "accepted": false,
+        "checks": 30,
+        "failures": [
+          "law_full: contained organ Inside"
+        ],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 0.0,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 8.429369702178807e-08,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          }
+        }
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "missing_root",
+      "expected_accept": false,
+      "after": {
+        "accepted": false,
+        "error": "ContractError: empty attachment vertex group"
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "inert_pose",
+      "expected_accept": false,
+      "after": {
+        "accepted": false,
+        "checks": 30,
+        "failures": [
+          "law_half: pose deforms geometry"
+        ],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 8.429369702178807e-08,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          }
+        }
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "tangential_slip",
+      "expected_accept": false,
+      "after": {
+        "accepted": false,
+        "checks": 30,
+        "failures": [
+          "law_half: attachment 0",
+          "law_full: attachment 0"
+        ],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 1.169171568449201e-07,
+              "max_binding_drift_m": 0.05000000176951286,
+              "max_gap_drift_m": 8.530702189091244e-08
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 1.9992005206859176e-07,
+              "max_binding_drift_m": 0.1520000088791428,
+              "max_gap_drift_m": 1.683099171145841e-07
+            }
+          }
+        }
+      },
+      "before": {
+        "accepted": true,
+        "checks": 30,
+        "failures": [],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 1.169171568449201e-07,
+              "max_drift_m": 8.530702189091244e-08
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 1.9992005206859176e-07,
+              "max_drift_m": 1.683099171145841e-07
+            }
+          }
+        }
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "valid_attached",
+      "expected_accept": true,
+      "after": {
+        "accepted": true,
+        "checks": 30,
+        "failures": [],
+        "attachments": {
+          "neutral": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 3.161013495400766e-08,
+              "max_binding_drift_m": 3.161013638317052e-08,
+              "max_gap_drift_m": 0.0
+            }
+          },
+          "law_half": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 0.0,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          },
+          "law_full": {
+            "0": {
+              "vertices": 4,
+              "max_gap_m": 8.429369557916289e-08,
+              "max_binding_drift_m": 8.429369702178807e-08,
+              "max_gap_drift_m": 5.2683560625155224e-08
+            }
+          }
+        }
+      },
+      "matches_expectation": true
+    },
+    {
+      "case": "crossing_triangles",
+      "expected_contact": true,
+      "contact": true,
+      "matches_expectation": true
+    },
+    {
+      "case": "coplanar_overlap",
+      "expected_contact": true,
+      "contact": true,
+      "matches_expectation": true
+    },
+    {
+      "case": "coplanar_separated",
+      "expected_contact": false,
+      "contact": false,
+      "matches_expectation": true
+    },
+    {
+      "case": "parallel_separated",
+      "expected_contact": false,
+      "contact": false,
+      "matches_expectation": true
+    },
+    {
+      "case": "real_rig_weight_removal",
+      "source_sha256": "3c99c7292f1a19028eb43b93a394a1b0b685331bc4e3e6b48aa8bec73f3c149f",
+      "positive_issues": [],
+      "negative_issues": [
+        "Skin: invalid export bone weights"
+      ],
+      "source_unchanged": true,
+      "matches_expectation": true
+    },
+    {
+      "case": "duplicate_key",
+      "refused": true,
+      "matches_expectation": true
+    },
+    {
+      "case": "nonfinite",
+      "refused": true,
+      "matches_expectation": true
+    }
+  ],
+  "all_expected": true
+}

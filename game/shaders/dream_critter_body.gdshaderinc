@@ -52,6 +52,7 @@ uniform vec4 crab_socket[96];
 uniform vec4 crab_knee[96];
 uniform vec4 crab_foot[96];
 uniform int critter_count = 0;
+#include "res://shaders/dream_critter_blender_fold.gdshaderinc"
 // One world-owned RG8 DreamExposureField shared by the whole fauna draw.
 // R is durable exposure; G is current reversible irradiance.
 uniform sampler3D exposure_tex : filter_linear, repeat_enable, hint_default_black;
@@ -128,36 +129,99 @@ void vertex() {
 	v_region = COLOR;
 	float region_id = floor(COLOR.b * 255.0 + 0.5);
 	v_region.b = (region_id < 1.5 || abs(region_id - 5.0) < 0.5) ? 1.0 : 0.0;
-	v_region.a = abs(region_id - 2.0) < 0.5 ? 1.0 : 0.0;
+	v_region.a = abs(region_id - 6.0) < 0.5 ? 2.0 : (abs(region_id - 2.0) < 0.5 ? 1.0 : 0.0);
 	if (authored) {
-		// law.z is admitted only for the tun and Vorticella pilots. Additional
-		// species must declare their own state mapping before admission.
-		float movement_phase = pos.w > 3.5 ? law.x : matter.w;
+		int kind = int(round(pos.w));
+		int leg = int(round(CUSTOM0.y));
+		float amount = clamp(law.z, 0.0, 1.0);
+		float movement_phase = kind > 3 ? law.x : matter.w;
+		float phase_envelope = 1.0 - amount;
+		// Every atlas parameter is bound to its declared source motion profile.
+		if (kind == 0) { amount = clamp(law.w, 0.0, 1.0); phase_envelope = 1.0 - amount * 0.75; }
+		if (kind == 1) { amount = fract(law.x / 6.2831853); phase_envelope = 1.0; }
+		if (kind == 2) {
+			int cpu_leg = leg >= 0 ? fold_cpu_leg(leg, int(round(counts.x))) : -1;
+			amount = cpu_leg >= 0 && abs(law.y - float(cpu_leg)) < 0.5 ? amount : 0.0;
+			phase_envelope = 1.0;
+		}
+		if (kind == 7) { amount = mod(floor(law.x), 4.0) / 4.0; phase_envelope = 0.0; }
+		if (kind == 9) {
+			int ray = -2 - leg;
+			amount = ray == int(round(law.y * 11.0)) ? amount : 0.0;
+		}
+		if (kind == 10) { amount = fract(law.x * (leg == -2 ? 1.0 : 1.7) / 6.2831853); phase_envelope = 0.0; }
+		if (kind == 11 || kind == 12 || kind == 14 || kind == 15) { phase_envelope = 1.0; }
+		if (kind == 12) { amount = 0.0; } // law.z is a flash, never body collapse.
+		if (kind == 13) { amount = fract(law.x / 6.2831853); phase_envelope = 0.0; }
+		if (kind == 15) { amount = fract(law.x * 0.22 / 6.2831853); }
 		vec2 phase = vec2(max(sin(movement_phase), 0.0), max(-sin(movement_phase), 0.0));
-		phase *= 0.35 * (1.0 - clamp(law.z, 0.0, 1.0));
+		phase *= 0.35 * phase_envelope;
 		int vertex_id = int(CUSTOM0.x + 0.5);
 		vec3 dimensions = max(vec3(size.y, size.z, size.x), vec3(0.001));
-		local = blender_animated_pose(vertex_id, law.z, phase, 0) * dimensions;
-		nrm = normalize(blender_animated_pose(vertex_id, law.z, phase, 1) / dimensions);
-		int leg = int(round(CUSTOM0.y));
-		if (leg >= 0 && leg < 8 && blender_foot_base[section] >= 0.0) {
+		local = blender_animated_pose(vertex_id, amount, phase, 0) * dimensions;
+		nrm = normalize(blender_animated_pose(vertex_id, amount, phase, 1) / dimensions);
+		if (kind == 10 && leg == -2 && blender_cilia_base[section] >= 0.0) {
+			int root_id = int(round(blender_cilia_base[section]));
+			float body_amount = fract(law.x * 1.7 / 6.2831853);
+			vec3 root_delta = (blender_law_pose(root_id, body_amount, 0) - blender_law_pose(root_id, amount, 0)) * dimensions;
+			local += root_delta * step(0.0001, CUSTOM0.z);
+		}
+		if (kind == 2 && leg >= 0 && leg < 8 && blender_joint_base[section] >= 0.0) {
+			nrm = fold_leg_normal(nrm,section,c,leg,int(round(counts.x)),CUSTOM0.z,dimensions,law,counts.w-1.0);
+			local = fold_leg_point(local,section,c,leg,int(round(counts.x)),CUSTOM0.z,dimensions,law,counts.w-1.0);
+		} else if (kind == 3 && leg >= 0 && leg < 8 && blender_foot_base[section] >= 0.0) {
 			vec3 posed_foot = blender_animated_pose(int(round(blender_foot_base[section])) + leg,
-					law.z, phase, 0) * dimensions;
+					amount, phase, 0) * dimensions;
 			// Foot records are already in the support frame. Cancel body bob at
 			// the tip so a stance foot remains exactly planted during a tun.
 			vec3 target = crab_foot[c * 8 + leg].xyz;
 			target.y -= counts.w - 1.0;
 			local += (target - posed_foot) * clamp(CUSTOM0.z, 0.0, 1.0);
-		} else if (leg <= -2 && leg >= -13 && blender_cilia_base[section] >= 0.0) {
+		} else if (leg <= -2 && leg >= -37 && !(kind == 2 && leg <= -20) && blender_cilia_base[section] >= 0.0) {
 			int cilium = -2 - leg;
-			if (float(cilium) >= counts.y) {
+			if (float(cilium / (kind == 8 ? 3 : 1)) >= counts.y) {
 				vec3 root = blender_animated_pose(int(round(blender_cilia_base[section])) + cilium,
-						law.z, phase, 0) * dimensions;
+						amount, phase, 0) * dimensions;
 				// Root-ring vertices stay welded into the oral rim; all branch
 				// vertices collapse to its declared root, leaving a closed patch.
 				// This preserves the existing ten-to-twelve-bundle variation.
 				local = mix(local, root, step(0.0001, CUSTOM0.z));
 			}
+		}
+		if (kind == 2 && (leg == -20 || leg == -21) && blender_manipulator_base[section] >= 0.0) {
+			int jaw = -20-leg;
+			nrm = fold_jaw_normal(nrm,section,jaw,CUSTOM0.z,dimensions,photo.x,TIME);
+			local = fold_jaw_point(local,section,jaw,CUSTOM0.z,dimensions,photo.x,TIME);
+		}
+		if (kind == 1 && leg >= 0 && leg < 5 && blender_prop_base[section] >= 0.0 && float(leg) >= counts.x) {
+			vec3 root = blender_animated_pose(int(round(blender_prop_base[section])) + leg, amount, phase, 0) * dimensions;
+			local = mix(local, root, step(0.0001, CUSTOM0.z));
+		}
+		// The existing contact response unfolds the listener/crab sensory tips.
+		// Anchor-relative deformation preserves the shared zero-weight insertion.
+		if ((kind == 1 || kind == 2) && leg <= -2 && leg >= -13 && blender_cilia_base[section] >= 0.0) {
+			int branch = -2 - leg;
+			if (float(branch) < counts.y) {
+				vec3 root = blender_animated_pose(int(round(blender_cilia_base[section])) + branch, amount, phase, 0) * dimensions;
+				float out_at = clamp(law.w, 0.0, 1.0) * clamp(CUSTOM0.z, 0.0, 1.0);
+				vec3 offset = local - root;
+				local = root + offset * (1.0 + out_at * 0.55) + vec3(0.0, length(offset) * out_at * 0.35, 0.0);
+			}
+		}
+		if (pos.w > 4.5 && pos.w < 5.5 && leg <= -2) {
+			// One curve transports cortex, feeding lumen and head together.
+			nrm = blender_lacrymaria_normal(local, nrm, dimensions, law);
+			local = blender_lacrymaria_search(local, dimensions, law);
+		} else if (pos.w > 10.5 && pos.w < 11.5) {
+			// Presentation extension: rigid parent-colony rotation, driven by
+			// its existing micro_phase. No new controller or ecological clock.
+			vec3 rotation_axis = normalize(vec3(0.23, 1.0, 0.35));
+			local = blender_rodrigues(local, rotation_axis, law.x);
+			nrm = blender_rodrigues(nrm, rotation_axis, law.x);
+		}
+		if (kind == 10) {
+			local = blender_rodrigues(local, vec3(0.0,0.0,1.0), law.x);
+			nrm = blender_rodrigues(nrm, vec3(0.0,0.0,1.0), law.x);
 		}
 		v_thickness = mix(0.8, 0.12, COLOR.g);
 	} else if (part < 0.5) {
@@ -526,7 +590,7 @@ void vertex() {
 	// rises and falls on its legs and a still one does not (§20).
 	float bob = counts.w - 1.0;
 	vec3 world = pos.xyz + side * local.x + up * (local.y + bob) + fwd * local.z;
-	world = mix(pos.xyz, world, clamp(counts.w, 0.0, 1.0) > 0.0 ? alive : 0.0);
+	world = mix(pos.xyz, world, authored ? (alive > 0.0 ? 1.0 : 0.0) : (clamp(counts.w, 0.0, 1.0) > 0.0 ? alive : 0.0));
 	VERTEX = (inverse(MODEL_MATRIX) * vec4(world, 1.0)).xyz;
 	vec3 world_normal = normalize(side * nrm.x + up * nrm.y + fwd * nrm.z);
 	NORMAL = authored ? normalize(transpose(mat3(MODEL_MATRIX)) * world_normal) : world_normal;
@@ -555,9 +619,15 @@ void fragment() {
 #endif
 	vec3 n = normalize(NORMAL);
 	if (v_blender > 0.5) {
+		if (!FRONT_FACING) { n = -n; NORMAL = n; }
+#ifdef DREAM_CRITTER_MEMBRANE
+		// Intact tissue shows its front surface. A diagnostic cutaway keeps
+		// the far half of the same cortex, including its membrane triangles.
+		if (blender_review_mode == 0 && !FRONT_FACING && v_region.b > 0.5) { discard; }
+#endif
 		// Anatomy masks come from the model. Noise varies substance only; it
 		// cannot invent gold stripes, organs or stimulus routes.
-		float wire = clamp(v_region.r, 0.0, 1.0);
+		float wire = clamp(v_region.r * (0.6 + 0.8 * v_matter.x), 0.0, 1.0);
 		float window = clamp(v_region.g, 0.0, 1.0);
 		if (blender_review_mode == 2 && v_region.b > 0.5 && v_axial > 0.0) {
 			discard;
@@ -565,31 +635,84 @@ void fragment() {
 		vec2 rg = voxel_optics_enabled > 0.5 ? critter_exposure_at(v_world) : vec2(0.0);
 		float beam = smoothstep(0.035, 0.72, rg.g);
 		float sustained = smoothstep(0.2, 0.9, rg.r) * beam;
-		float grain = critter_fbm(v_local * 74.0 + v_seed);
-		float tissue_cloud = critter_fbm(v_local * 9.0 + v_seed * 1.73);
+		float pore_scale = (54.0 + mod(v_plan * 17.0, 53.0)) * (0.8 + 0.4 * v_anatomy.y);
+		float grain = critter_fbm(v_local * pore_scale + v_seed);
+		float tissue_cloud = critter_fbm(v_local * (6.0 + mod(v_plan * 3.0, 8.0)) + v_seed * 1.73);
 		float cuticle = 1.0 - step(3.5, v_plan);
 		float perfusion = clamp(0.28 + 0.45 * v_look.y + 0.12 * grain, 0.0, 1.0);
 		vec3 black_wine = vec3(0.027, 0.006, 0.032);
-		vec3 wine = mix(vec3(0.12, 0.012, 0.042), vec3(0.32, 0.032, 0.070), perfusion);
+		vec3 wine_low = vec3(0.12, 0.012, 0.042);
+		vec3 wine_high = vec3(0.32, 0.032, 0.070);
+		// Species-specific absorption remains within the shared wine enamel
+		// palette. It does not recolor tissue from photographs or stain labels.
+		if (v_plan > 3.5 && v_plan < 4.5) {
+			wine_low = vec3(0.066, 0.011, 0.068);
+			wine_high = vec3(0.20, 0.023, 0.115);
+		} else if (v_plan > 4.5 && v_plan < 5.5) {
+			wine_low = vec3(0.115, 0.010, 0.031);
+			wine_high = vec3(0.35, 0.036, 0.043);
+		} else if (v_plan > 5.5 && v_plan < 6.5) {
+			wine_low = vec3(0.085, 0.008, 0.065);
+			wine_high = vec3(0.25, 0.026, 0.106);
+		} else if (v_plan > 10.5 && v_plan < 11.5) {
+			wine_low = vec3(0.075, 0.008, 0.035);
+			wine_high = vec3(0.255, 0.028, 0.052);
+		}
+		// Distinct absorption/roughness balances, never decorative banding.
+		if (v_plan < 0.5) { wine_low=vec3(.066,.009,.051); wine_high=vec3(.22,.032,.091); }
+		else if (v_plan < 1.5) { wine_low=vec3(.048,.010,.065); wine_high=vec3(.16,.036,.13); }
+		else if (v_plan < 2.5) { wine_low=vec3(.095,.015,.021); wine_high=vec3(.29,.053,.052); }
+		else if (v_plan > 6.5 && v_plan < 7.5) { wine_low=vec3(.062,.013,.052); wine_high=vec3(.21,.040,.09); }
+		else if (v_plan > 7.5 && v_plan < 8.5) { wine_low=vec3(.11,.010,.058); wine_high=vec3(.31,.024,.115); }
+		else if (v_plan > 8.5 && v_plan < 9.5) { wine_low=vec3(.071,.014,.040); wine_high=vec3(.20,.051,.075); }
+		else if (v_plan > 9.5 && v_plan < 10.5) { wine_low=vec3(.049,.014,.061); wine_high=vec3(.18,.043,.12); }
+		else if (v_plan > 11.5 && v_plan < 12.5) { wine_low=vec3(.085,.012,.072); wine_high=vec3(.29,.040,.14); }
+		else if (v_plan > 12.5 && v_plan < 13.5) { wine_low=vec3(.069,.017,.028); wine_high=vec3(.25,.068,.064); }
+		else if (v_plan > 13.5 && v_plan < 14.5) { wine_low=vec3(.074,.011,.058); wine_high=vec3(.21,.028,.11); }
+		else if (v_plan > 14.5) { wine_low=vec3(.115,.009,.041); wine_high=vec3(.34,.030,.081); }
+		vec3 wine = mix(wine_low, wine_high, perfusion);
+		wine *= vec3(0.94 + 0.12*v_look.x, 1.0, 1.06 - 0.12*v_look.x);
 		// Dense tissue and vacuoles differ in absorption within the same wine
 		// family. Region numbers are anatomical ids, never categorical hues.
 		float interior = clamp(v_region.a, 0.0, 1.0);
 		wine *= mix(1.0, 0.65 + 0.25 * tissue_cloud, interior);
 		wine *= mix(0.82, 1.10, tissue_cloud);
-		ALBEDO = mix(black_wine, wine, 0.64 + 0.30 * beam);
+		wine *= 1.0 - clamp(v_photo.y,0.0,1.0) * 0.18;
+		float dark_mass = smoothstep(0.20, 0.79, tissue_cloud);
+		ALBEDO = mix(black_wine, wine, 0.30 + dark_mass * 0.40 + 0.20 * beam);
 		ALBEDO = mix(ALBEDO, gold, clamp(wire + sustained * (0.12 + wire * 0.32), 0.0, 1.0));
 		METALLIC = 0.72 * wire + 0.06 * sustained;
-		ROUGHNESS = mix(0.31, 0.56, cuticle) - window * 0.09
-				+ (tissue_cloud - 0.5) * 0.14 + (grain - 0.5) * 0.08;
+		ROUGHNESS = mix(0.31, 0.56, cuticle) + mod(v_plan * 0.037, 0.11) - window * 0.09
+				+ (tissue_cloud - 0.5) * 0.14 + (grain - 0.5) * 0.08 + (0.5-v_look.z)*0.12;
+		if (blender_review_mode != 1) {
+			// Original procedural substance relief. Differential bump is in view
+			// space and does not move silhouettes or invent anatomical stripes.
+			float height = (grain - 0.5) * mix(0.000055, 0.00019, cuticle);
+			height *= (1.0 - wire * 0.85) * (1.0 - window * 0.55);
+			vec3 dpdx = dFdx(VERTEX);
+			vec3 dpdy = dFdy(VERTEX);
+			vec3 r1 = cross(dpdy, n);
+			vec3 r2 = cross(n, dpdx);
+			float determinant = dot(dpdx, r1);
+			vec3 gradient = sign(determinant) * (dFdx(height)*r1 + dFdy(height)*r2)
+					/ max(abs(determinant), 0.00000001);
+			NORMAL = normalize(n - gradient);
+		}
 		SPECULAR = 0.42;
-		CLEARCOAT = mix(0.16, 0.06, cuticle) + 0.06 * beam;
+		CLEARCOAT = mix(0.16, 0.06, cuticle) + 0.06 * beam + 0.08*v_look.z;
 		CLEARCOAT_ROUGHNESS = 0.22;
 		SSS_STRENGTH = 0.18 + window * 0.3;
 		SSS_TRANSMITTANCE_COLOR = vec4(wine, 1.0);
 		SSS_TRANSMITTANCE_DEPTH = 0.18;
 		BACKLIGHT = wine * window * beam * 0.6;
-		EMISSION = gold * wire * (0.055 + 0.12 * rg.r + beam * 0.22)
+		EMISSION = gold * wire * (0.13 + 0.12 * rg.r + beam * 0.22)
 				+ wine * interior * window * beam * 0.08;
+		// Existing receptor state modulates authored tissue, with no new signal route.
+		EMISSION += gold * wire * clamp(v_mechanical.x,0.0,1.0) * 0.10;
+		float silhouette = pow(1.0-clamp(dot(n,normalize(VIEW)),0.0,1.0),4.0);
+		EMISSION += (wine*0.22+gold*wire*0.04)*silhouette*(1.0-beam);
+		float scintillon = step(1.5,v_region.a);
+		EMISSION += vec3(0.180,0.404,0.360) * scintillon * clamp(v_law.z,0.0,1.0) * 2.4;
 		if (blender_review_mode == 1) {
 			ALBEDO = vec3(0.43);
 			METALLIC = 0.0;

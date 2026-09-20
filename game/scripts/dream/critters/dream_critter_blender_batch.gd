@@ -20,6 +20,9 @@ var inspection_kind := -1
 var slot_map := PackedFloat32Array()
 var foot_base := PackedFloat32Array()
 var cilia_base := PackedFloat32Array()
+var prop_base := PackedFloat32Array()
+var joint_base := PackedFloat32Array()
+var manipulator_base := PackedFloat32Array()
 var sections: Array[Dictionary] = []
 var membrane_instance: MeshInstance3D:
 	get:
@@ -84,15 +87,27 @@ func setup(controller: DreamCritterController, legacy_mesh: ArrayMesh) -> bool:
 	slot_map.resize(CAPACITY)
 	foot_base.resize(CAPACITY)
 	cilia_base.resize(CAPACITY)
+	prop_base.resize(CAPACITY)
+	joint_base.resize(CAPACITY)
+	manipulator_base.resize(CAPACITY)
 	slot_map.fill(-1.0)
 	foot_base.fill(-1.0)
 	cilia_base.fill(-1.0)
+	prop_base.fill(-1.0)
+	joint_base.fill(-1.0)
+	manipulator_base.fill(-1.0)
 	_material.set_shader_parameter("blender_pose_tex", assets.texture)
 	_material.set_shader_parameter("blender_pose_width", assets.width)
 	_material.set_shader_parameter("blender_pose_count", assets.pose_count)
+	var search_template: Dictionary = assets.templates[5][1]
+	_material.set_shader_parameter("blender_lacrymaria_root", search_template.neck_root)
+	_material.set_shader_parameter("blender_lacrymaria_reach", search_template.neck_reach)
 	_material.set_shader_parameter("blender_slot_map", slot_map)
 	_material.set_shader_parameter("blender_foot_base", foot_base)
 	_material.set_shader_parameter("blender_cilia_base", cilia_base)
+	_material.set_shader_parameter("blender_prop_base", prop_base)
+	_material.set_shader_parameter("blender_joint_base", joint_base)
+	_material.set_shader_parameter("blender_manipulator_base", manipulator_base)
 	# The controller may not have packed any live slots yet.
 	_material.set_shader_parameter("blender_provider_enabled", false)
 	_ready = true
@@ -210,6 +225,9 @@ func _update_mesh(records: Array[Dictionary]) -> void:
 	slot_map.fill(-1.0)
 	foot_base.fill(-1.0)
 	cilia_base.fill(-1.0)
+	prop_base.fill(-1.0)
+	joint_base.fill(-1.0)
+	manipulator_base.fill(-1.0)
 	for i in ordered.size():
 		var section: Dictionary = ordered[i]
 		section["packed_slot"] = int(section.slot)
@@ -217,6 +235,12 @@ func _update_mesh(records: Array[Dictionary]) -> void:
 		section["foot_base"] = -1
 		section["cilium_base"] = -1
 		section["cilium_anchor_count"] = 0
+		section["prop_base"] = -1
+		section["prop_row_count"] = 0
+		section["joint_base"] = -1
+		section["joint_row_count"] = 0
+		section["manipulator_base"] = -1
+		section["manipulator_row_count"] = 0
 		section["vertices"] = LEGACY_VERTICES
 		section["triangles"] = _triangle_count(section)
 		signature_parts.append("%s/%d/%d" % [section.key, section.kind, section.lod])
@@ -229,6 +253,15 @@ func _update_mesh(records: Array[Dictionary]) -> void:
 			section.foot_base = int(template.foot_base)
 			section.cilium_base = int(template.cilium_base)
 			section.cilium_anchor_count = int(template.cilium_anchor_count)
+			prop_base[i] = float(template.prop_base)
+			section.prop_base = int(template.prop_base)
+			section.prop_row_count = int(template.prop_row_count)
+			joint_base[i] = float(template.joint_base)
+			section.joint_base = int(template.joint_base)
+			section.joint_row_count = int(template.joint_row_count)
+			manipulator_base[i] = float(template.manipulator_base)
+			section.manipulator_base = int(template.manipulator_base)
+			section.manipulator_row_count = int(template.manipulator_row_count)
 			section.vertices = (template.positions as PackedVector3Array).size()
 	var signature := "|".join(signature_parts)
 	if signature != _signature:
@@ -268,6 +301,9 @@ func _update_mesh(records: Array[Dictionary]) -> void:
 	_material.set_shader_parameter("blender_slot_map", slot_map)
 	_material.set_shader_parameter("blender_foot_base", foot_base)
 	_material.set_shader_parameter("blender_cilia_base", cilia_base)
+	_material.set_shader_parameter("blender_prop_base", prop_base)
+	_material.set_shader_parameter("blender_joint_base", joint_base)
+	_material.set_shader_parameter("blender_manipulator_base", manipulator_base)
 	_material.set_shader_parameter("blender_provider_enabled", not ordered.is_empty())
 	_membrane_instance.visible = _membrane_triangles > 0 and not ordered.is_empty()
 
@@ -316,7 +352,8 @@ func _compile(ordered: Array[Dictionary]) -> Dictionary:
 			if is_blender:
 				for corner in 3:
 					var vertex_color: Color = template.colors[source_indices[triangle + corner]]
-					if vertex_color.g > 0.005:
+					var region := int(roundf(vertex_color.b * 255.0))
+					if region in [1, 5] and vertex_color.g > 0.005:
 						is_membrane = true
 			for corner in 3:
 				var index := source_indices[triangle + corner] + offset
@@ -395,6 +432,9 @@ func stats() -> Dictionary:
 		"last_compile_usec": last_compile_usec, "total_compile_usec": total_compile_usec,
 		"sections": sections.duplicate(true), "section_map": section_map, "slot_map": slot_map.duplicate(),
 		"foot_base": foot_base.duplicate(), "cilia_base": cilia_base.duplicate(),
+		"prop_base": prop_base.duplicate(),
+		"joint_base": joint_base.duplicate(),
+		"manipulator_base": manipulator_base.duplicate(),
 		"blender_sections": blender_sections,
 		"legacy_sections": sections.size() - blender_sections, "triangles": triangles,
 		"total_triangles": _opaque_triangles + _membrane_triangles,
@@ -425,9 +465,15 @@ func dispose() -> void:
 		slot_map.fill(-1.0)
 		foot_base.fill(-1.0)
 		cilia_base.fill(-1.0)
+		prop_base.fill(-1.0)
+		joint_base.fill(-1.0)
+		manipulator_base.fill(-1.0)
 		_material.set_shader_parameter("blender_slot_map", slot_map)
 		_material.set_shader_parameter("blender_foot_base", foot_base)
 		_material.set_shader_parameter("blender_cilia_base", cilia_base)
+		_material.set_shader_parameter("blender_prop_base", prop_base)
+		_material.set_shader_parameter("blender_joint_base", joint_base)
+		_material.set_shader_parameter("blender_manipulator_base", manipulator_base)
 	if _membrane_material != null:
 		for uniform: String in _uniform_names:
 			# The retained diagnostic material must not keep any atlas, shared
@@ -441,6 +487,9 @@ func dispose() -> void:
 		_membrane_material.set_shader_parameter("blender_slot_map", slot_map)
 		_membrane_material.set_shader_parameter("blender_foot_base", foot_base)
 		_membrane_material.set_shader_parameter("blender_cilia_base", cilia_base)
+		_membrane_material.set_shader_parameter("blender_prop_base", prop_base)
+		_membrane_material.set_shader_parameter("blender_joint_base", joint_base)
+		_membrane_material.set_shader_parameter("blender_manipulator_base", manipulator_base)
 	if is_instance_valid(_membrane_instance):
 		_membrane_instance.visible = false
 		_membrane_instance.mesh = null
